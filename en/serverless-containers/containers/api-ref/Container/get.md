@@ -7,7 +7,7 @@ sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/ge
 
 Returns the specified container.
 
-To get the list of all available containers, make a [List](/docs/serverless/containers/api-ref/Container/list#List) request.
+To get the list of all available containers, make a [List](/docs/serverless-containers/containers/api-ref/Container/list#List) request.
 
 ## HTTP request
 
@@ -23,7 +23,7 @@ GET https://serverless-containers.{{ api-host }}/containers/v1/containers/{conta
 
 Required field. ID of the container to return.
 
-To get a container ID make a [ContainerService.List](/docs/serverless/containers/api-ref/Container/list#List) request. ||
+To get a container ID make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.serverless.containers.v1.Container}

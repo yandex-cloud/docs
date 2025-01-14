@@ -176,7 +176,7 @@ To be eligible for the partner catalog, your company must satisfy the following 
 * You have your own products developed based on {{ yandex-cloud }}.
 * You have a dedicated team for {{ yandex-cloud }} projects.
 
-If you meet all the requirements and want your company in the partner catalog, contact your partner manager or write to [yc-partners@yandex-team.ru](yc-partners@yandex-team.ru).
+If you meet all the requirements and want your company in the partner catalog, contact your partner manager or write to [yc-partners@yandex-team.ru](mailto:yc-partners@yandex-team.ru).
 
 ## Professional services {#pro}
 

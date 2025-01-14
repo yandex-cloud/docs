@@ -6,16 +6,13 @@ description: Из статьи вы узнаете, в каких сервиса
 # Интеграция с сервисами {{ yandex-cloud }}
 
 
-
 Вы можете использовать сертификаты из {{ certificate-manager-name }} в следующих сервисах {{ yandex-cloud }}:
 * [{{ objstorage-full-name }}](#os).
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 * [{{ cdn-full-name }}](#cdn).
 
-Также вы можете хранить публичную часть пользовательского сертификата в виде секрета [{{ lockbox-full-name }}](#lockbox) с помощью {{ TF }}.
-
-
+Также вы можете хранить приватный ключ пользовательского сертификата в виде секрета [{{ lockbox-full-name }}](#lockbox) с помощью {{ TF }}.
 
 ## {{ objstorage-full-name }} {#os}
 
@@ -48,7 +45,7 @@ description: Из статьи вы узнаете, в каких сервиса
 
 ## {{ lockbox-full-name }} {#lockbox}
 
-Вы можете хранить публичную часть пользовательского сертификата {{ certificate-manager-name }} в {{ lockbox-name }} [с помощью {{ TF }}](../operations/import/cert-create.md#create-lockbox).
+Вы можете хранить приватный ключ пользовательского сертификата {{ certificate-manager-name }} в {{ lockbox-name }} [с помощью {{ TF }}](../operations/import/cert-create.md#create-lockbox).
 
 #### См. также {#see-also}
 

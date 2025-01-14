@@ -1,3 +1,8 @@
+---
+title: Обучающие курсы по {{ network-load-balancer-full-name }}
+description: В этом разделе собраны обучающие курсы по {{ network-load-balancer-full-name }}.
+---
+
 # Обучающие курсы по {{ network-load-balancer-full-name }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

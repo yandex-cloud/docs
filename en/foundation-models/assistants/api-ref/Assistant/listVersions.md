@@ -39,7 +39,7 @@ Token to retrieve the next page of results. ||
   "versions": [
     {
       "id": "string",
-      "updateMask": "object",
+      "updateMask": "string",
       "assistant": {
         "id": "string",
         "folderId": "string",
@@ -104,7 +104,7 @@ Represents a specific version of an assistant.
 || id | **string**
 
 ID of the assistant version. ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

@@ -6,7 +6,6 @@ sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/listLogs.md
 # Managed Service for OpenSearch API, gRPC: ClusterService.ListLogs
 
 Retrieves logs for the specified OpenSearch cluster.
-For detailed description, see the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developer's guide.
 
 ## gRPC request
 

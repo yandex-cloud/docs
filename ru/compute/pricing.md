@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ compute-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ compute-name }}.
 editable: false
 ---
 

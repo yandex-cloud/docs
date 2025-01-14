@@ -1,3 +1,8 @@
+---
+title: Обучающие курсы по {{ compute-full-name }}
+description: В этом разделе собраны обучающие курсы по {{ compute-full-name }}.
+---
+
 # Обучающие курсы по {{ compute-full-name }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

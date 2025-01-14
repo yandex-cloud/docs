@@ -6,7 +6,6 @@ sourcePath: en/_api-ref-grpc/mdb/mongodb/v1/api-ref/grpc/Cluster/listLogs.md
 # Managed Service for MongoDB API, gRPC: ClusterService.ListLogs
 
 Retrieves logs for the specified MongoDB cluster.
-See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
 
 ## gRPC request
 

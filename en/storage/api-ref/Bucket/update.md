@@ -33,7 +33,7 @@ To get the bucket name, make a [BucketService.List](/docs/storage/api-ref/Bucket
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "anonymousAccessFlags": {
     "read": "boolean",
     "list": "boolean",
@@ -181,7 +181,7 @@ To get the bucket name, make a [BucketService.List](/docs/storage/api-ref/Bucket
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 Required field. A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

@@ -8,7 +8,15 @@ editable: false
 
 
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+
+
+To see the cost of speech [synthesis](https://yandex.cloud/en/prices?state=3463349f4788#calculator) and [recognition](https://yandex.cloud/en/prices?state=098b84de4fe4#calculator), use our calculator on the Yandex Cloud website or see the pricing in this section.
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

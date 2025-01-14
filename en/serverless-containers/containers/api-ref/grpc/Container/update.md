@@ -29,7 +29,7 @@ Updates the specified container.
 
 Required field. ID of the container to update.
 
-To get a container ID make a [ContainerService.List](/docs/serverless/containers/api-ref/grpc/Container/list#List) request. ||
+To get a container ID make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/grpc/Container/list#List) request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the container should be updated. ||
@@ -45,7 +45,7 @@ New description for the container. ||
 Container labels as `key:value` pairs.
 
 Existing set of labels is completely replaced by the provided set, so if you just want
-to add or remove a label, request the current set of labels with a [ContainerService.Get](/docs/serverless/containers/api-ref/grpc/Container/get#Get) request. ||
+to add or remove a label, request the current set of labels with a [ContainerService.Get](/docs/serverless-containers/containers/api-ref/grpc/Container/get#Get) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

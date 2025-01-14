@@ -33,7 +33,7 @@ To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Con
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "connectorSpec": {
     "tasksMax": "string",
     "properties": "object",
@@ -92,7 +92,7 @@ To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Con
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

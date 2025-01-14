@@ -101,7 +101,7 @@ For example, the value `3m 45s` sets an evaluation window of 3 minutes 45 second
 
 #### Evaluation delay {#evaluation-delay}
 
-Back-shift of the time window in seconds. The default value is 0. Allows avoiding a situation when an alert is triggered unexpectedly, if a query uses metrics collected at a different interval. You can select a preset value or specify your own, same as for the [evaluation window](evaluation-window).
+Back-shift of the time window in seconds. The default value is 0. Allows avoiding a situation when an alert is triggered unexpectedly, if a query uses metrics collected at a different interval. You can select a preset value or specify your own, same as for the [evaluation window](#evaluation-window).
 
 ## No data processing {#no-data-policy}
 

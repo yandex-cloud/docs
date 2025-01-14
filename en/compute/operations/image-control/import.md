@@ -14,7 +14,7 @@ To import an image from another cloud or folder:
 
      For more information about assigning roles, see [{#T}](../../../iam/operations/roles/grant.md).
 
-  1. Import a copy of this image to your folder using the [CLI](../../../cli/):
+  1. Import a copy of this image to your folder using the [CLI](../../../cli/quickstart.md):
 
      {% include [cli-install](../../../_includes/cli-install.md) %}
 

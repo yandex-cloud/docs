@@ -123,7 +123,15 @@ For detailed information, please see [Creating a backup policy](/docs/backup/ope
         "count": "int64"
       },
       "scheme": "Scheme",
-      "weekly_backup_day": "Day"
+      "weekly_backup_day": "Day",
+      "task_failure": {
+        "enabled": "bool",
+        "interval": {
+          "type": "Type",
+          "count": "int64"
+        },
+        "max_attempts": "int64"
+      }
     },
     "cbt": "ChangedBlockTracking",
     "fast_backup_enabled": "bool",
@@ -377,6 +385,9 @@ Required field. A day of week to start weekly backups.
 - `FRIDAY`
 - `SATURDAY`
 - `SUNDAY` ||
+|| task_failure | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
+
+Task failure settings in case of failure of scheduled task, not applicable to  manually launched tasks ||
 |#
 
 ## BackupSet {#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet}
@@ -597,7 +608,15 @@ Required field. The interval between backups. ||
           "count": "int64"
         },
         "scheme": "Scheme",
-        "weekly_backup_day": "Day"
+        "weekly_backup_day": "Day",
+        "task_failure": {
+          "enabled": "bool",
+          "interval": {
+            "type": "Type",
+            "count": "int64"
+          },
+          "max_attempts": "int64"
+        }
       },
       "cbt": "ChangedBlockTracking",
       "fast_backup_enabled": "bool",
@@ -928,6 +947,9 @@ Required field. A day of week to start weekly backups.
 - `FRIDAY`
 - `SATURDAY`
 - `SUNDAY` ||
+|| task_failure | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration2)**
+
+Task failure settings in case of failure of scheduled task, not applicable to  manually launched tasks ||
 |#
 
 ## BackupSet {#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet2}

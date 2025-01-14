@@ -1,3 +1,8 @@
+---
+title: Как начать работать с {{ metastore-full-name }}
+description: В сервисе {{ metadata-hub-name }} вы можете создавать кластеры {{ metastore-full-name }} и использовать их для работы с кластерами {{ dataproc-full-name }}.
+---
+
 # Начало работы с {{ metastore-full-name }}
 
 {% include notitle [preview](../../_includes/note-preview.md) %}

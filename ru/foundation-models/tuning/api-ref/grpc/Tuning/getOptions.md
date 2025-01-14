@@ -214,7 +214,9 @@ Includes only one of the fields `lora`, `prompt_tune`. ||
 #|
 ||Field | Description ||
 || rank | **int64** ||
-|| alpha | **double** ||
+|| alpha | **double**
+
+Integer value ||
 || initialization | **string** ||
 || type | **string** ||
 |#

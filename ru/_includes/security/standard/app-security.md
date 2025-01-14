@@ -1,6 +1,8 @@
-# 6. Защита приложений
+# Требования к защите приложений
 
-### Рекомендации по защите приложения от роботной активности {#protecting-recommendations}
+## 6. Защита приложений {#app-security}
+
+### Защита от роботной активности {#protecting-recommendations}
 
 #### 6.1 Используется {{ captcha-full-name }} {#use-smartcaptcha}
 
@@ -20,7 +22,7 @@
 
 [Инструкция по созданию капчи в {{ captcha-full-name }}](../../../smartcaptcha/operations/create-captcha.md).
 
-### Рекомендации по построению безопасного пайплайна {#pipeline-recommendations}
+### Построение безопасного пайплайна {#pipeline-recommendations}
 
 {{ yandex-cloud }} позволяет клиентам выстроить соответствие разрабатываемого ПО по всем уровням [Supply-chain Levels for Software Artifacts (SLSA)](https://slsa.dev/), при соблюдении инструкций в данном разделе. При использовании [{{ mgl-full-name }}](../../../managed-gitlab/), клиент автоматически достигает [соответствия до 2 уровня SLSA включительно](https://about.gitlab.com/blog/2022/11/30/achieve-slsa-level-2-compliance-with-gitlab/).
 

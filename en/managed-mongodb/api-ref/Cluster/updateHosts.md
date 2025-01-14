@@ -34,7 +34,7 @@ To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb
       "secondaryDelaySecs": "string",
       "priority": "number",
       "assignPublicIp": "boolean",
-      "updateMask": "object",
+      "updateMask": "string",
       "tags": "object"
     }
   ]
@@ -71,7 +71,7 @@ The minimum value is `0` if the Managed Service for MongoDB cluster contains thr
 || assignPublicIp | **boolean**
 
 Determines whether the host should get a public IP address after the update. ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

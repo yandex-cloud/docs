@@ -114,7 +114,7 @@ Deploys a revision for the specified container.
 
 Required field. ID of the container to create a revision for.
 
-To get a container ID, make a [ContainerService.List](/docs/serverless/containers/api-ref/grpc/Container/list#List) request. ||
+To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/grpc/Container/list#List) request. ||
 || description | **string**
 
 Description of the revision. ||

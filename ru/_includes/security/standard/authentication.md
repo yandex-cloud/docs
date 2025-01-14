@@ -1,4 +1,6 @@
-# 1. Аутентификация и управление доступом
+# Требования к аутентификации и управлению доступом
+
+## 1. Аутентификация и управление доступом {#authentication}
 
 
 В {{ yandex-cloud }} управление идентификацией, аутентификацией и контролем доступа выполняется сервисами [{{ iam-full-name }} ({{ iam-short-name }})](../../../iam/) и [{{ org-full-name }}](../../../organization/).
@@ -14,6 +16,8 @@
 Доступ пользователей к ресурсам облака регулируется с помощью [ролей](../../../iam/concepts/access-control/roles.md). Сервисы {{ yandex-cloud }} могут предлагать разный уровень гранулярности назначения прав: в одних случаях роль можно назначить непосредственно на сам ресурс в сервисе, в других случаях права назначаются только на уровне каталога или облака, в котором размещен ресурс сервиса.
 
 Таким образом, в инфраструктуре {{ yandex-cloud }} взаимодействуют различные категории ресурсов, ролей и пользователей. Контроль доступа к ресурсам выполняется сервисом {{ iam-short-name }}. Сервис {{ iam-short-name }} контролирует каждый запрос, чтобы все операции над ресурсами выполнялась только пользователями с необходимыми правами.
+
+### Федерации удостоверений {#federations}
 
 #### 1.1 Настроена федерация удостоверений (Single Sign-On, SSO) {#saml-federation}
 
@@ -112,7 +116,48 @@
 
 Удалите из вашей организации все учетные записи с Яндекс ID, кроме случаев из списка допустимых исключений.
 
-#### 1.3 Только необходимые администраторы управляют членством в {{ iam-short-name }}-группах {#iam-admins}
+#### 1.3 Таймаут жизни cookie в федерации меньше 6 часов {#cookie-timeout}
+
+В настройках [федерации удостоверений](../../../organization/concepts/add-federation.md) необходимо убедиться, что значение параметра **Время жизни cookie** меньше либо равно 6 часов. Это необходимо, чтобы минимизировать риск компрометации рабочих станций пользователей облака.
+
+{% list tabs group=instructions %}
+
+- Проверка в консоли управления {#console}
+
+  1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
+  1. Перейдите во вкладку **Organizations**.
+  1. Далее перейдите во вкладку **Федерации** и выберите вашу федерацию.
+  1. Найдите параметр **Время жизни cookie**.
+  1. Если значение этого параметра меньше либо равно 6 часам, то рекомендация выполняется. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+
+- Проверка через CLI {#cli}
+
+  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Выполните команду для поиска учетных записей с назначенными примитивными ролями на уровне организации:
+
+      ```bash
+      export ORG_ID=<ID организации>
+      for FED in $(yc organization-manager federation saml list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do yc organization-manager federation saml get --id bpfdshe1skaqcjp6uc50 --format=json | jq -r '. | select(.cookie_max_age>"21600s")'
+      done
+      ```
+
+  1. Если выдается пустая строка, то рекомендация выполняется. Если выдается результат с настройкой текущей федерации, где параметр `cookie_max_age` > 21600s, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+Задайте значение параметра **Время жизни cookie** равным 6 часам (21600 секундам) или меньше.
+
+### Особенности управления доступом {#access-control}
+
+#### 1.4 Только необходимые администраторы управляют членством в {{ iam-short-name }}-группах {#iam-admins}
 
 Для управления доступом к ресурсам удобно использовать [группы пользователей](../../../iam/operations/groups/create.md). Необходимо контролировать права доступа к самой группе как к ресурсу. Пользователь с правами доступа к группе может управлять членством других пользователей. Случаи, в которых пользователь получает такие права:
 
@@ -136,7 +181,7 @@
 
 Удалите права на доступ к группе у учетных записей, которым это не требуется.
 
-#### 1.4 Используются сервисные роли вместо примитивных: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, {{ roles-auditor }} {#min-privileges}
+#### 1.5 Используются сервисные роли вместо примитивных: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, {{ roles-auditor }} {#min-privileges}
 
 [Принцип минимальных привилегий](../../../iam/best-practices/using-iam-securely.md#restrict-access) требует назначать минимально необходимые для работы роли. Не рекомендуется использовать примитивные роли `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}` и `{{ roles-auditor }}`, действующие во всех сервисах, так как это противоречит принципу минимальных привилегий. Для более избирательного управления доступом и реализации принципа минимальных привилегий используйте сервисные роли, которые содержат разрешения только для определенного типа ресурсов в указанном сервисе. Со списком всех сервисных ролей можно ознакомиться в [справочнике ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
 
@@ -203,7 +248,84 @@
 
 Чтобы просмотреть полный список доступов субъекта, воспользуйтесь [инструкцией](../../../security-deck/operations/ciem/view-permissions.md).
 
-#### 1.5 Облачные сущности с сервисными аккаунтами учтены и ограничены {#sa}
+#### 1.6 Используется роль {{ roles-auditor }} для исключения доступа к данным пользователей {#roles-auditor}
+
+Для пользователей, которые не нуждаются в доступе к данным (таких как внешние подрядчики или аудиторы), необходимо назначить роль `{{ roles-auditor }}`.
+Роль `{{ roles-auditor }}` это роль с минимальными привилегиями и без доступа к данным сервисов. Она дает разрешение на чтение конфигурации и метаданных сервисов.
+Роль `{{ roles-auditor }}` позволяет выполнять следующие операции:
+
+* Просмотр информации о ресурсе.
+* Просмотр метаданных ресурса.
+* Просмотр списка операций с ресурсом.
+
+Использование роли `{{ roles-auditor }}` по умолчанию позволяет более избирательно управлять доступом и реализовывать принцип минимальных привилегий.
+
+{% list tabs group=instructions %}
+
+- Проверка в консоли управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. Перейдите на вкладку **Права доступа**.
+  1. Нажмите кнопку **Назначить роли**.
+  1. В окне **Настройка прав доступа** нажмите кнопку **Выбрать пользователя**.
+  1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
+  1. Нажмите кнопку **Добавить роль**.
+  1. Выберите роль `{{ roles-auditor }}` в каталоге.
+  1. Нажмите кнопку **Сохранить**.
+
+- Проверка через CLI {#cli}
+
+  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
+
+     ```bash
+     yc organization-manager organization list
+     ```
+
+  1. Выполните команду для поиска учетных записей с ролью `{{ roles-auditor }}` на уровне организации:
+
+     ```bash
+     export ORG_ID=<ID_организации>
+     yc organization-manager organization list-access-bindings \
+     --id=${ORG_ID} \
+     --format=json | jq -r '.[] | select(.role_id=="auditor")'
+     ```
+
+     Если в списке отсутствуют учетные записи, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+
+  1. Выполните команду для поиска учетных записей с ролью `{{ roles-auditor }}` на уровне облаков:
+
+     ```bash
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+     do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
+     done
+     ```
+
+     Если в списке отсутствуют учетные записи, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+
+  1. Выполните команду для поиска учетных записей с ролью `{{ roles-auditor }}` на уровне всех каталогов в ваших облаках:
+
+     ```bash
+     export ORG_ID=<ID_организации>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
+     do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
+     done;
+     done
+     ```
+
+     Если в списке отсутствуют учетные записи, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+1. [Назначьте](../../../iam/operations/roles/grant.md) роль `{{ roles-auditor }}` пользователям, которые не нуждаются в доступе к данным.
+1. Удалите избыточные права аккаунта с помощью сервиса {{ iam-short-name }}.
+
+### Сервисные аккаунты {#service-accounts}
+
+#### 1.7 Облачные сущности с сервисными аккаунтами учтены и ограничены {#sa}
 
 [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — аккаунт, от имени которого программы могут управлять ресурсами в {{ yandex-cloud }}. Сервисный аккаунт служит для выполнения запросов от имени приложения.
 
@@ -263,122 +385,6 @@
 **Инструкции и решения по выполнению:**
 
 Удалите сервисные аккаунты у облачных сущностей, которым они не требуются.
-
-#### 1.6 В сервисе метаданных ВМ отсутствуют облачные ключи в открытом виде {#cloud-keys}
-
-Не записывайте ключи сервисных аккаунтов и другие ключи в [метаданные виртуальной машины](../../../compute/concepts/vm-metadata.md) напрямую. Используйте механизм [назначения сервисного аккаунта](../../../compute/operations/vm-connect/auth-inside-vm.md) виртуальной машине и получения токена через сервис метаданных. Чувствительные данные могут находиться в любом поле метаданных, но самое распространенное — `user-data` (за счет использования в утилите cloud-init).
-
-Ознакомьтесь со списком всех регулярных выражений для поиска секретов учетных данных облачных аккаунтов:
-
-* **yandex_cloud_iam_cookie_v1** : c1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
-  Yandex.Cloud Session Cookie
-* **yandex_cloud_iam_token_v1** : t1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
-  Yandex.Cloud IAM token
-* **yandex_cloud_iam_api_key_v1** : AQVN[A-Za-z0-9_\-]{35,38}
-  Yandex.Cloud API Keys (Speechkit, Vision, Translate)
-* **yandex_passport_oauth_token** : y[0-6]_[-_A-Za-z0-9]{55} 
-  Yandex Passport OAuth token
-* **yandex_cloud_iam_access_secret** : YC[a-zA-Z0-9_\-]{38}
-  Yandex.Cloud AWS API compatible Access Secret
-
-{% list tabs group=instructions %}
-
-- Проверка через CLI {#cli}
-
-  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
-
-      ```bash
-      yc organization-manager organization list
-      ```
-
-  1. Выполните команду для поиска облачных ключей в сервисе метаданных в открытом виде, на примере {{ yandex-cloud }} AWS API Сompatible Access Secret:
-
-      ```bash
-      export ORG_ID=<ID организации>
-      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc compute instance get --id=$VM_ID --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("YC[a-zA-Z0-9_\\-]{38}") | .string' && echo $VM_ID
-      done;
-      done;
-      done
-      ```
-
-  1. Если в списке отсутствуют строки, то рекомендация выполнена. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
-  1. Выполните команду для поиска облачных ключей в сервисе метаданных в открытом виде, на примере {{ yandex-cloud }} {{ iam-short-name }} token:
-
-      ```bash
-      export ORG_ID=<ID организации>
-      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc compute instance get --id fhm2i4a72v44kdqaqhid --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("t1\\.[A-Z0-9a-z_-]+[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}") | .string'
-      done;
-      done;
-      done
-      ```
-
-  1. Если в списке отсутствуют строки, то рекомендация выполнена. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
-
-{% endlist %}
-
-**Инструкции и решения по выполнению:**
-
-Удалите ключи из метаданных ВМ, у которых были найдены отклонения:
-
-{% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}
-
-#### 1.7 На ВМ отключено получение токена через AWS IMDSv1 {#aws-token}
-
-В облаке есть [сервис метаданных](../../../compute/concepts/vm-metadata.md), предоставляющий сведения о работе виртуальных машин.
-
-Изнутри виртуальной машины метаданные доступны в следующих форматах:
-
-* Google Compute Engine (поддерживаются не все поля).
-* Amazon EC2 (поддерживаются не все поля).
-
-Формат Amazon EC2 Instance Metadata Service version 1 (IMDSv1) имеет ряд недостатков. Наиболее критичный из них — это риск компрометации токена сервисного аккаунта через сервис метаданных с помощью SSRF-атаки. Подробности в [официальном блоге AWS](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/). В связи с этим AWS выпустили вторую версию сервиса метаданных — IMDSv2.
-
-В {{ yandex-cloud }} пока нет поддержки второй версии, поэтому строго рекомендуется технически отключать возможность получения токена сервисного аккаунта через Amazon EC2 сервис метаданных.
-
-Сервис метаданных Google Compute Engine использует дополнительный заголовок для защиты от SSRF и повышения безопасности.
-
-Отключить получение токена сервисного аккаунта через Amazon EC2 сервис метаданных можно с помощью параметра ВМ [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions).
-
-{% list tabs group=instructions %}
-
-- Проверка через CLI {#cli}
-
-  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
-
-      ```bash
-      yc organization-manager organization list
-      ```
-
-  1. Выполните команду для поиска ВМ, у которых включено использование IMDSv1 для получения токена:
-
-      ```bash
-      export ORG_ID=<ID организации>
-      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.metadata_options.aws_v1_http_token=="ENABLED")' | jq -r '.id' 
-      done;
-      done;
-      done
-      ```
-
-  1. Если в списке отсутствуют строки, то рекомендация выполнена. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
-
-{% endlist %}
-
-**Инструкции и решения по выполнению:**
-
-В блоке metadata_options задайте параметру [aws_v1_http_token](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) значение `DISABLED` у найденных ВМ:
-
-```bash
-yc compute instance update <ID_виртуальной_машины> \
-  --metadata-options aws-v1-http-token=DISABLED
-```
 
 #### 1.8 Сервисным аккаунтам назначены минимальные привилегии {#sa-privileges}
 
@@ -585,7 +591,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
 Для ротации ключей в зависимости от их типа воспользуйтесь [инструкцией](../../../iam/operations/compromised-credentials.md#key-reissue).
 
-#### 1.11 Для API-ключей задана область действия {#api-key-scopes}
+#### 1.11 Для API-ключей сервисных аккаунтов задана область действия {#api-key-scopes}
 
 {% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
 
@@ -617,7 +623,157 @@ yc compute instance update <ID_виртуальной_машины> \
 
 [Создайте](../../../iam/operations/api-key/create.md#create-api-key) API-ключ с заданной областью действия.
 
-#### 1.12 Настроена двухфакторная аутентификация для привилегированных аккаунтов {#twofa}
+#### 1.12 Токен для облачных функций и ВМ выдается через сервисный аккаунт {#func-token}
+
+Для получения IAM-токена в ходе выполнения функции необходимо [назначить](../../../functions/operations/function-sa.md) функции сервисный аккаунт. В этом случае функция получит {{ iam-short-name }}-токен с помощью встроенных механизмов {{ yandex-cloud }}, без необходимости передачи каких-либо секретов в функцию извне. Аналогично и [для ВМ](../../../compute/operations/vm-info/get-info.md#inside-instance). Дополнительную информацию о получении IAM-токена в функции см. в разделе [{#T}](../../../functions/operations/function-sa.md).
+
+{% list tabs group=instructions %}
+
+- Ручная проверка {#manual}
+
+  Проанализируйте все ваши ВМ и облачные функции на предмет созданных вручную токенов сервисных аккаунтов. Правильно использовать токены путем назначения сервисного аккаунта на сущность и использовать токен аккаунта изнутри, через сервис метаданных.
+
+{% endlist %}
+
+#### 1.13 Используется имперсонация, где это возможно {#impersonation}
+
+[Имперсонация](../../../iam/operations/sa/set-access-bindings.md#impersonation) позволяет пользователю выполнять действия от имени сервисного аккаунта и предоставляет возможность временно расширить права, не прибегая к генерации статических учетных данных. Может быть полезна в следующих сценариях: дежурства, локальная разработка, проверка прав доступа.
+
+{% list tabs group=instructions %}
+
+- Проверка в консоли управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) на панели слева нажмите на имя нужного облака.
+  1. Перейдите на вкладку **Права доступа** и проверьте наличие роли `{{ roles-iam-sa-tokencreator }}`.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+Если роль `{{ roles-iam-sa-tokencreator }}` отсутствует, то настройте имперсонацию для сервисных аккаунтов для обеспечения временного доступа к критичным данным по данной [инструкции](../../../iam/operations/sa/set-access-bindings.md#impersonation).
+
+
+### Метаданные ВМ {#vm-metadata}
+
+#### 1.14 В сервисе метаданных ВМ отсутствуют облачные ключи в открытом виде {#cloud-keys}
+
+Не записывайте ключи сервисных аккаунтов и другие ключи в [метаданные виртуальной машины](../../../compute/concepts/vm-metadata.md) напрямую. Используйте механизм [назначения сервисного аккаунта](../../../compute/operations/vm-connect/auth-inside-vm.md) виртуальной машине и получения токена через сервис метаданных. Чувствительные данные могут находиться в любом поле метаданных, но самое распространенное — `user-data` (за счет использования в утилите cloud-init).
+
+Ознакомьтесь со списком всех регулярных выражений для поиска секретов учетных данных облачных аккаунтов:
+
+* **yandex_cloud_iam_cookie_v1** : c1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
+  Yandex.Cloud Session Cookie
+* **yandex_cloud_iam_token_v1** : t1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
+  Yandex.Cloud IAM token
+* **yandex_cloud_iam_api_key_v1** : AQVN[A-Za-z0-9_\-]{35,38}
+  Yandex.Cloud API Keys (Speechkit, Vision, Translate)
+* **yandex_passport_oauth_token** : y[0-6]_[-_A-Za-z0-9]{55} 
+  Yandex Passport OAuth token
+* **yandex_cloud_iam_access_secret** : YC[a-zA-Z0-9_\-]{38}
+  Yandex.Cloud AWS API compatible Access Secret
+
+{% list tabs group=instructions %}
+
+- Проверка через CLI {#cli}
+
+  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Выполните команду для поиска облачных ключей в сервисе метаданных в открытом виде, на примере {{ yandex-cloud }} AWS API Сompatible Access Secret:
+
+      ```bash
+      export ORG_ID=<ID организации>
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
+      do yc compute instance get --id=$VM_ID --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("YC[a-zA-Z0-9_\\-]{38}") | .string' && echo $VM_ID
+      done;
+      done;
+      done
+      ```
+
+  1. Если в списке отсутствуют строки, то рекомендация выполнена. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+  1. Выполните команду для поиска облачных ключей в сервисе метаданных в открытом виде, на примере {{ yandex-cloud }} {{ iam-short-name }} token:
+
+      ```bash
+      export ORG_ID=<ID организации>
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
+      do yc compute instance get --id fhm2i4a72v44kdqaqhid --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("t1\\.[A-Z0-9a-z_-]+[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}") | .string'
+      done;
+      done;
+      done
+      ```
+
+  1. Если в списке отсутствуют строки, то рекомендация выполнена. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+Удалите ключи из метаданных ВМ, у которых были найдены отклонения:
+
+{% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}
+
+#### 1.15 На ВМ отключено получение токена через AWS IMDSv1 {#aws-token}
+
+В облаке есть [сервис метаданных](../../../compute/concepts/vm-metadata.md), предоставляющий сведения о работе виртуальных машин.
+
+Изнутри виртуальной машины метаданные доступны в следующих форматах:
+
+* Google Compute Engine (поддерживаются не все поля).
+* Amazon EC2 (поддерживаются не все поля).
+
+Формат Amazon EC2 Instance Metadata Service version 1 (IMDSv1) имеет ряд недостатков. Наиболее критичный из них — это риск компрометации токена сервисного аккаунта через сервис метаданных с помощью SSRF-атаки. Подробности в [официальном блоге AWS](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/). В связи с этим AWS выпустили вторую версию сервиса метаданных — IMDSv2.
+
+В {{ yandex-cloud }} пока нет поддержки второй версии, поэтому строго рекомендуется технически отключать возможность получения токена сервисного аккаунта через Amazon EC2 сервис метаданных.
+
+Сервис метаданных Google Compute Engine использует дополнительный заголовок для защиты от SSRF и повышения безопасности.
+
+Отключить получение токена сервисного аккаунта через Amazon EC2 сервис метаданных можно с помощью параметра ВМ [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions).
+
+{% list tabs group=instructions %}
+
+- Проверка через CLI {#cli}
+
+  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Выполните команду для поиска ВМ, у которых включено использование IMDSv1 для получения токена:
+
+      ```bash
+      export ORG_ID=<ID организации>
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.metadata_options.aws_v1_http_token=="ENABLED")' | jq -r '.id' 
+      done;
+      done;
+      done
+      ```
+
+  1. Если в списке отсутствуют строки, то рекомендация выполнена. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+В блоке metadata_options задайте параметру [aws_v1_http_token](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) значение `DISABLED` у найденных ВМ:
+
+```bash
+yc compute instance update <ID_виртуальной_машины> \
+  --metadata-options aws-v1-http-token=DISABLED
+```
+
+### Привилегированные аккаунты {#privileged-accounts}
+
+#### 1.16 Настроена двухфакторная аутентификация для привилегированных аккаунтов {#twofa}
 
 Рекомендуется использовать двухфакторную аутентификацию (2FA) для доступа к облачной инфраструктуре, чтобы избежать рисков, связанных с компрометацией пользовательских учетных записей. Доступ в консоль {{ yandex-cloud }} может быть организован с помощью 2FA.
 
@@ -643,7 +799,7 @@ yc compute instance update <ID_виртуальной_машины> \
 * [KeyCloak — Creating other credentials](https://www.keycloak.org/docs/latest/server_admin/#creating-other-credentials).
 * [Configure Additional Authentication Methods for AD FS](https://learn.microsoft.com/ru-ru/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs).
 
-#### 1.13 Привилегированные роли назначены только доверенным администраторам {#privileged-users}
+#### 1.17 Привилегированные роли назначены только доверенным администраторам {#privileged-users}
 
 К привилегированным пользователям {{ yandex-cloud }} относятся аккаунты со следующими ролями:
 
@@ -763,7 +919,9 @@ yc compute instance update <ID_виртуальной_машины> \
 
 Если обнаружены роли, которые назначены недоверенным администраторам, необходимо провести расследование и удалить лишние права.
 
-#### 1.14 Для локальных пользователей управляемых БД задан стойкий пароль {#mdb-auth}
+### Локальные пользователи управляемых БД {#mdb-users} 
+
+#### 1.18 Для локальных пользователей управляемых БД задан стойкий пароль {#mdb-auth}
 
 Для работы с БД на прикладном уровне помимо сервисных {{ iam-short-name }} ролей создается отдельный локальный пользователь — владелец БД. В отношении него действует следующая парольная политика:
 
@@ -778,7 +936,9 @@ yc compute instance update <ID_виртуальной_машины> \
 
 {% endlist %}
 
-#### 1.15 Доступ для подрядных организаций и третьих лиц контролируется {#contractors}
+### Доступ третьих лиц {#outstaff-access}
+
+#### 1.19 Доступ для подрядных организаций и третьих лиц контролируется {#contractors}
 
 Если вы предоставляете доступ к облакам внешним подрядным организациям, соблюдайте следующие меры безопасности:
 
@@ -796,7 +956,9 @@ yc compute instance update <ID_виртуальной_машины> \
 
 {% endlist %}
 
-#### 1.16 Используется корректная ресурсная модель {#resourses}
+### Ресурсная модель {#resource-framework}
+
+#### 1.20 Используется корректная ресурсная модель {#resourses}
 
 При разработке модели доступа для вашей инфраструктуры рекомендуется использовать следующий подход:
 
@@ -815,7 +977,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
 {% endlist %}
 
-#### 1.17 На ресурсах в организации отсутствует <q>публичный доступ</q> {#public-access}
+#### 1.21 На ресурсах в организации отсутствует <q>публичный доступ</q> {#public-access}
 
 В {{ yandex-cloud }} существует возможность предоставлять публичный доступ на ресурсы. Публичный доступ предоставляется путем назначения прав доступа для [публичных групп](../../../iam/concepts/access-control/public-group.md) (`All authenticated users`, `All users`). 
 
@@ -944,7 +1106,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
 Если обнаружено наличие прав доступа у `All users`, `All authenticated users`, необходимо удалить данные права.
 
-#### 1.18 Контактные данные ответственного за организацию актуальны {#org-contacts}
+#### 1.22 Контактные данные ответственного за организацию актуальны {#org-contacts}
 
 В {{ yandex-cloud }} при регистрации облака клиент указывает контактные данные. Например, электронная почта используется для оповещений, связанных с инцидентами, плановыми работами и т.д.
 
@@ -969,75 +1131,7 @@ yc compute instance update <ID_виртуальной_машины> \
 
 Укажите актуальные контактные данные по [инструкции](../../../billing/operations/change-data.md#change-address).
 
-#### 1.19 Таймаут жизни cookie в федерации меньше 6 часов {#cookie-timeout}
-
-В настройках [федерации удостоверений](../../../organization/concepts/add-federation.md) необходимо убедиться, что значение параметра **Время жизни cookie** меньше либо равно 6 часов. Это необходимо, чтобы минимизировать риск компрометации рабочих станций пользователей облака.
-
-{% list tabs group=instructions %}
-
-- Проверка в консоли управления {#console}
-
-  1. Откройте консоль управления {{ yandex-cloud }} в вашем браузере.
-  1. Перейдите во вкладку **Organizations**.
-  1. Далее перейдите во вкладку **Федерации** и выберите вашу федерацию.
-  1. Найдите параметр **Время жизни cookie**.
-  1. Если значение этого параметра меньше либо равно 6 часам, то рекомендация выполняется. Если нет, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
-
-- Проверка через CLI {#cli}
-
-  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
-
-      ```bash
-      yc organization-manager organization list
-      ```
-
-  1. Выполните команду для поиска учетных записей с назначенными примитивными ролями на уровне организации:
-
-      ```bash
-      export ORG_ID=<ID организации>
-      for FED in $(yc organization-manager federation saml list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc organization-manager federation saml get --id bpfdshe1skaqcjp6uc50 --format=json | jq -r '. | select(.cookie_max_age>"21600s")'
-      done
-      ```
-
-  1. Если выдается пустая строка, то рекомендация выполняется. Если выдается результат с настройкой текущей федерации, где параметр `cookie_max_age` > 21600s, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
-
-{% endlist %}
-
-**Инструкции и решения по выполнению:**
-
-Задайте значение параметра **Время жизни cookie** равным 6 часам (21600 секундам) или меньше.
-
-#### 1.20 Токен для облачных функций и ВМ выдается через сервисный аккаунт {#func-token}
-
-Для получения IAM-токена в ходе выполнения функции необходимо [назначить](../../../functions/operations/function-sa.md) функции сервисный аккаунт. В этом случае функция получит {{ iam-short-name }}-токен с помощью встроенных механизмов {{ yandex-cloud }}, без необходимости передачи каких-либо секретов в функцию извне. Аналогично и [для ВМ](../../../compute/operations/vm-info/get-info.md#inside-instance). Дополнительную информацию о получении IAM-токена в функции см. в разделе [{#T}](../../../functions/operations/function-sa.md).
-
-{% list tabs group=instructions %}
-
-- Ручная проверка {#manual}
-
-  Проанализируйте все ваши ВМ и облачные функции на предмет созданных вручную токенов сервисных аккаунтов. Правильно использовать токены путем назначения сервисного аккаунта на сущность и использовать токен аккаунта изнутри, через сервис метаданных.
-
-{% endlist %}
-
-#### 1.21 Используется имперсонация, где это возможно {#impersonation}
-
-[Имперсонация](../../../iam/operations/sa/set-access-bindings.md#impersonation) позволяет пользователю выполнять действия от имени сервисного аккаунта и предоставляет возможность временно расширить права, не прибегая к генерации статических учетных данных. Может быть полезна в следующих сценариях: дежурства, локальная разработка, проверка прав доступа.
-
-{% list tabs group=instructions %}
-
-- Проверка в консоли управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) на панели слева нажмите на имя нужного облака.
-  1. Перейдите на вкладку **Права доступа** и проверьте наличие роли `{{ roles-iam-sa-tokencreator }}`.
-
-{% endlist %}
-
-**Инструкции и решения по выполнению:**
-
-Если роль `{{ roles-iam-sa-tokencreator }}` отсутствует, то настройте имперсонацию для сервисных аккаунтов для обеспечения временного доступа к критичным данным по данной [инструкции](../../../iam/operations/sa/set-access-bindings.md#impersonation).
-
-#### 1.22 На ресурсах используются метки {#labels}
+#### 1.23 На ресурсах используются метки {#labels}
 
 Для отслеживания потоков данных и обозначения критичности ресурсов для управления привилегиями необходимо использование [меток](../../../resource-manager/concepts/labels.md).
 Например, для тегирования ресурсов, которые обрабатывают персональные данные в рамках Федерального закона Российской Федерации «О персональных данных» № 152-ФЗ нужно выбрать метку `152-fz:true` для:
@@ -1063,7 +1157,9 @@ yc compute instance update <ID_виртуальной_машины> \
 
 [Инструкция по управлению метками](../../../resource-manager/operations/manage-labels.md).
 
-#### 1.23 Уведомления безопасности {{ yandex-cloud }} включены {#security-notifications}
+### Уведомления и аудит {#notifications-and-audit}
+
+#### 1.24 Уведомления безопасности {{ yandex-cloud }} включены {#security-notifications}
 
 Для получения уведомлений о событиях в области безопасности, например, обнаруженных уязвимостях и их устранении, рекомендуется выбрать уведомления безопасности в настройках консоли управления.
 
@@ -1081,81 +1177,6 @@ yc compute instance update <ID_виртуальной_машины> \
 
 1. [Убедитесь](../../../resource-manager/concepts/notify.md), что уведомления настроены.
 1. Включите опцию **Безопасность** в настройках уведомлений консоли управления.
-
-#### 1.24 Используется роль {{ roles-auditor }} для исключения доступа к данным пользователей {#roles-auditor}
-
-Для пользователей, которые не нуждаются в доступе к данным (таких как внешние подрядчики или аудиторы), необходимо назначить роль `{{ roles-auditor }}`.
-Роль `{{ roles-auditor }}` это роль с минимальными привилегиями и без доступа к данным сервисов. Она дает разрешение на чтение конфигурации и метаданных сервисов.
-Роль `{{ roles-auditor }}` позволяет выполнять следующие операции:
-
-* Просмотр информации о ресурсе.
-* Просмотр метаданных ресурса.
-* Просмотр списка операций с ресурсом.
-
-Использование роли `{{ roles-auditor }}` по умолчанию позволяет более избирательно управлять доступом и реализовывать принцип минимальных привилегий.
-
-{% list tabs group=instructions %}
-
-- Проверка в консоли управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите на вкладку **Права доступа**.
-  1. Нажмите кнопку **Назначить роли**.
-  1. В окне **Настройка прав доступа** нажмите кнопку **Выбрать пользователя**.
-  1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-  1. Нажмите кнопку **Добавить роль**.
-  1. Выберите роль `{{ roles-auditor }}` в каталоге.
-  1. Нажмите кнопку **Сохранить**.
-
-- Проверка через CLI {#cli}
-
-  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
-
-     ```bash
-     yc organization-manager organization list
-     ```
-
-  1. Выполните команду для поиска учетных записей с ролью `{{ roles-auditor }}` на уровне организации:
-
-     ```bash
-     export ORG_ID=<ID_организации>
-     yc organization-manager organization list-access-bindings \
-     --id=${ORG_ID} \
-     --format=json | jq -r '.[] | select(.role_id=="auditor")'
-     ```
-
-     Если в списке отсутствуют учетные записи, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
-
-  1. Выполните команду для поиска учетных записей с ролью `{{ roles-auditor }}` на уровне облаков:
-
-     ```bash
-     export ORG_ID=<ID_организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
-     done
-     ```
-
-     Если в списке отсутствуют учетные записи, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
-
-  1. Выполните команду для поиска учетных записей с ролью `{{ roles-auditor }}` на уровне всех каталогов в ваших облаках:
-
-     ```bash
-     export ORG_ID=<ID_организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
-     done;
-     done
-     ```
-
-     Если в списке отсутствуют учетные записи, то перейдите к п. <q>Инструкции и решения по выполнению</q>.
-
-{% endlist %}
-
-**Инструкции и решения по выполнению:**
-
-1. [Назначьте](../../../iam/operations/roles/grant.md) роль `{{ roles-auditor }}` пользователям, которые не нуждаются в доступе к данным.
-1. Удалите избыточные права аккаунта с помощью сервиса {{ iam-short-name }}.
 
 #### 1.25 Отслеживается дата последней аутентификации сервисного аккаунта и последнего использования ключей доступа в {{ iam-full-name }} {#key-usage-control}
 

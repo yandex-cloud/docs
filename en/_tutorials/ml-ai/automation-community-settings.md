@@ -110,7 +110,7 @@ To create projects, copy and paste the code into notebook cells and run them.
     datasphere_roles
     ```
 
-1. [Get](/organization/api-ref/User/listMembers) a list of organization members:
+1. [Get](../../organization/api-ref/User/listMembers.md) a list of organization members:
 
     ```python
     res = requests.get("https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{}/users".format(ORGANIZATION_ID), 

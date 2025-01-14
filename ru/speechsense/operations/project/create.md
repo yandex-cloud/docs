@@ -1,3 +1,8 @@
+---
+title: Создать проект в {{ speechsense-full-name }}
+description: Следуя данной инструкции, вы сможете создать проект в {{ speechsense-name }}.
+---
+
 # Создать проект
 
 Для создания проекта нужна роль `{{ roles-speechsense-admin }}` или `{{ roles-speechsense-editor }}` в пространстве.

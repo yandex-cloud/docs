@@ -15,4 +15,5 @@ sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/index.md
 || [Cancel](cancel.md) |  ||
 || [GetMetricsUrl](getMetricsUrl.md) |  ||
 || [GetOptions](getOptions.md) |  ||
+|| [ListErrors](listErrors.md) |  ||
 |#

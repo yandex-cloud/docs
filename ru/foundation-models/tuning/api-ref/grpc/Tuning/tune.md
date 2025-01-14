@@ -155,7 +155,7 @@ sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/tune.md
 ||Field | Description ||
 || base_model_uri | **string**
 
-Required field. Format like a gpt://{folder_id}/yandex-gpt/latest ||
+Required field. Format like a `gpt://{folder_id}/yandex-gpt/latest` ||
 || train_datasets[] | **[WeightedDataset](#yandex.cloud.ai.tuning.v1.TuningRequest.WeightedDataset)** ||
 || validation_datasets[] | **[WeightedDataset](#yandex.cloud.ai.tuning.v1.TuningRequest.WeightedDataset)** ||
 || text_to_text_completion | **[TextToTextCompletionTuningParams](#yandex.cloud.ai.tuning.v1.TextToTextCompletionTuningParams)**
@@ -167,9 +167,7 @@ Includes only one of the fields `text_to_text_completion`, `text_classification_
 || text_classification_multiclass | **[TextClassificationMulticlassParams](#yandex.cloud.ai.tuning.v1.TextClassificationMulticlassParams)**
 
 Includes only one of the fields `text_to_text_completion`, `text_classification_multilabel`, `text_classification_multiclass`. ||
-|| name | **string**
-
-common params ||
+|| name | **string** ||
 || description | **string** ||
 || labels | **object** (map<**string**, **string**>) ||
 |#
@@ -207,7 +205,9 @@ Includes only one of the fields `lora`, `prompt_tune`. ||
 #|
 ||Field | Description ||
 || rank | **int64** ||
-|| alpha | **double** ||
+|| alpha | **double**
+
+Integer value ||
 || initialization | **string** ||
 || type | **string** ||
 |#

@@ -996,7 +996,7 @@ Examples of free network scanners:
 
 Example of a free scanner operating as an agent on hosts: [Wazuh](https://documentation.wazuh.com/current/user-manual/capabilities/vulnerability-detection/how_it_works.html). Wazuh can also be used as a host-based intrusion detection system (IDS).
 
-You can also use a [solution](/marketplace/products/scanfactory/scanfactory) from {{ marketplace-name }}.
+You can also use a [solution](/marketplace/products/scanfactory/scanfactory-saas) from {{ marketplace-name }}.
 
 {% list tabs group=instructions %}
 

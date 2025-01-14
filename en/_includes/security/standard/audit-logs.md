@@ -6,7 +6,7 @@
 An audit log is a record of all events in the system, including access to it and operations performed. By collecting and verifying audit logs, you can monitor compliance with the established security procedures and standards and identify vulnerabilities in your security mechanisms.
 
 There are different levels of audit log events:
-* [{{ yandex-cloud }} level](#cloud-level): Events related to {{ yandex-cloud }} resources.
+* [{{ yandex-cloud }} level](#audit-trails): Events related to {{ yandex-cloud }} resources.
 * [OS level](#os-level).
 * [Application level](#app-level).
 * [Network level](#network-level) (Flow Logs).
@@ -113,7 +113,7 @@ You can use a solution for secure {{ objstorage-full-name }} bucket setup with {
 
 {% endlist %}
 
-#### 5.5 Audit logs are collected at the OS level {#os-collection}
+#### 5.5 Audit logs are collected at the OS level {#os-level}
 
 When using IaaS cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
   * [Osquery](https://osquery.io/)

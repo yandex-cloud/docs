@@ -1,3 +1,8 @@
+---
+title: Подключение {{ metadata-hub-name }} к базам данных
+description: С помощью {{ connection-manager-full-name }} вы можете управлять параметрами подключений к базам данных.
+---
+
 # Подключение
 
 {% include notitle [preview](../../_includes/note-preview.md) %}

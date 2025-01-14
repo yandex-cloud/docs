@@ -98,7 +98,6 @@ DDoS-атаки — одна из главных угроз для интерн�
 
 1. Файрволы веб-приложений:
 
-   * [Валарм WAF (BYOL)](/marketplace/products/wallarm/waf-byol-3);
    * [SolidWall WAF](/marketplace/products/solidsoft/solidwall-waf);
    * [Nemesida AI MLC](/marketplace/products/pentestit/nwaf-mlc);
    * [Nemesida WAF WEB](/marketplace/products/pentestit/nwaf-api-lk-st);   

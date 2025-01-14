@@ -1,6 +1,6 @@
 ---
-title: Как удалить реестр
-description: Следуя данной инструкции, вы сможете удалить реестр.
+title: Как удалить реестр {{ container-registry-full-name }}
+description: Следуя данной инструкции, вы сможете удалить реестр {{ container-registry-short-name }}.
 ---
 
 # Удалить реестр

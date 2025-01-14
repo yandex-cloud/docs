@@ -27,7 +27,7 @@ To get the Greenplum® cluster ID, use a [ClusterService.List](/docs/managed-gre
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "description": "string",
   "labels": "object",
   "name": "string",
@@ -204,7 +204,7 @@ To get the Greenplum® cluster ID, use a [ClusterService.List](/docs/managed-gre
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

@@ -168,7 +168,7 @@ In the example, a 50GB bucket is created with a standard storage class.
   * `folder_id`: Folder [ID](../../resource-manager/operations/folder/get-id.md).
   * `default_storage_class`: Storage [class](../../storage/concepts/storage-class.md).
   * `max_size`: Bucket size.
-  * `anonymous_access_flags`: Bucket [access](../..//storage/concepts/bucket.md#bucket-access) settings:
+  * `anonymous_access_flags`: Bucket [access](../../storage/concepts/bucket.md#bucket-access) settings:
     * `read`: Public read access to objects.
     * `list`: Public access to the list of objects.
     * `configRead`: Public read access to settings.
@@ -217,7 +217,7 @@ In the example, a 50GB bucket is created with a standard storage class.
   * `folderId`: Folder [ID](../../resource-manager/operations/folder/get-id.md).
   * `default_storage_class`: Storage [class](../../storage/concepts/storage-class.md).
   * `maxSize`: Bucket size.
-  * `anonymousAccessFlags`: Bucket [access](../..//storage/concepts/bucket.md#bucket-access) settings:
+  * `anonymousAccessFlags`: Bucket [access](../../storage/concepts/bucket.md#bucket-access) settings:
     * `read`: Public read access to objects.
     * `list`: Public access to the list of objects.
     * `configRead`: Public read access to settings.

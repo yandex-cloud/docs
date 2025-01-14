@@ -21,14 +21,14 @@ PATCH https://serverless-containers.{{ api-host }}/containers/v1/containers/{con
 
 Required field. ID of the container to update.
 
-To get a container ID make a [ContainerService.List](/docs/serverless/containers/api-ref/Container/list#List) request. ||
+To get a container ID make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request. ||
 |#
 
 ## Body parameters {#yandex.cloud.serverless.containers.v1.UpdateContainerRequest}
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "labels": "object"
@@ -37,7 +37,7 @@ To get a container ID make a [ContainerService.List](/docs/serverless/containers
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -59,7 +59,7 @@ New description for the container. ||
 Container labels as `key:value` pairs.
 
 Existing set of labels is completely replaced by the provided set, so if you just want
-to add or remove a label, request the current set of labels with a [ContainerService.Get](/docs/serverless/containers/api-ref/Container/get#Get) request. ||
+to add or remove a label, request the current set of labels with a [ContainerService.Get](/docs/serverless-containers/containers/api-ref/Container/get#Get) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -224,7 +224,7 @@ Secure Docker image creation and operation practices ensure protection against p
 * [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
 * [{{ k8s }} Security Checklist and Requirements](https://github.com/Vinum-Security/kubernetes-security-checklist/blob/main/README.md).
 
-You can control Dockerfile in your [CI/CD](/blog/posts/2022/10/ci-cd) pipeline using the [Conftest](https://www.conftest.dev/) utility.
+You can control Dockerfile in your CI/CD pipeline using the [Conftest](https://www.conftest.dev/) utility.
 
 When using minimal images or distroless images without a shell, we recommend using [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/).
 
@@ -252,7 +252,7 @@ These requirements allow you to ensure security and reliability of applications 
 
 **Guides and solutions to use**:
 
-* You can also use the following tools within [CI/CD](/blog/posts/2022/10/ci-cd) to monitor compliance with the Pod Security Standards:
+* You can also use the following tools within CI/CD to monitor compliance with the Pod Security Standards:
 
   * [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
   * The gator CLI

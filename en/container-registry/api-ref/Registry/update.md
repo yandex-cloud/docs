@@ -28,7 +28,7 @@ To get the registry ID use a [RegistryService.List](/docs/container-registry/api
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "labels": "object"
 }
@@ -36,7 +36,7 @@ To get the registry ID use a [RegistryService.List](/docs/container-registry/api
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

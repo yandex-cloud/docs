@@ -82,7 +82,7 @@ description: Follow this guide to delete a network load balancer.
 
 {% endlist %}
 
-## Examples {examples}
+## Examples {#examples}
 
 ### Deleting a network load balancer from a specific folder {from-folder}
 

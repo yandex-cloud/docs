@@ -26,7 +26,7 @@ Required field. ID of the stream. ||
 
 ```json
 {
-  "fieldMask": "object",
+  "fieldMask": "string",
   "lineId": "string",
   "title": "string",
   "description": "string",
@@ -44,7 +44,7 @@ Required field. ID of the stream. ||
 
 #|
 ||Field | Description ||
-|| fieldMask | **object** (field-mask)
+|| fieldMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

@@ -27,7 +27,7 @@ Returns the OpenAPI specification of specified API gateway.
 Required field. ID of the API gateway to get specification from. ||
 || format | enum **Format**
 
-Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](/docs/functions/api-gateway/api-ref/grpc/ApiGateway/create#yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest).
+Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](/docs/api-gateway/apigateway/api-ref/grpc/ApiGateway/create#yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest).
 
 - `FORMAT_UNSPECIFIED`
 - `JSON`

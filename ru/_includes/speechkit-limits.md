@@ -31,7 +31,8 @@
 Максимальная длительность аудио | {{ stt-short-audioLength }}
 Максимальное количество аудиоканалов | {{ stt-short-channelsCount }}
 [**Асинхронное распознавание**](../{{ speechkit-slug }}/stt/transcribation.md) |
-Максимальный размер файла | {{ stt-long-fileSize }}
+Максимальный размер файла при загрузке в бакет | {{ stt-long-fileSize }}
+Максимальный размер файла при загрузке [в теле запроса API v3](../speechkit/stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md) | 60 МБ
 Максимальная длительность аудио | {{ stt-long-audioLength }}
 Срок хранения результатов распознавания на сервере | {{ stt-long-resultsStorageTime }}
 [**Синтез речи**](../{{ speechkit-slug }}/tts/index.md) |

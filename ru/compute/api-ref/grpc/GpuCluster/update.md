@@ -150,7 +150,7 @@ ID of the GPU cluster that is being updated. ||
 
 ## GpuCluster {#yandex.cloud.compute.v1.GpuCluster}
 
-A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpus#gpu-clusters).
 
 #|
 ||Field | Description ||

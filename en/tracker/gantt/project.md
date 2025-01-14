@@ -18,7 +18,7 @@ To go to the Gantt chart:
 
 * If an issue has blockers outside the current project, you will see the ![](../../_assets/tracker/svg/blocker.svg) icon with their number to the left of the issue bar.
 
-   * To enable the display of external blockers in the issue list, go to [](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**Chart settings** → **Show external blockers**.
+   * To enable the display of external blockers in the issue list, go to ![](../../_assets/tracker/svg/gantt-settings-button.svg)&nbsp;**Chart settings** → **Show external blockers**.
 
    * External blockers are highlighted in gray and can be found under the dependent issue in the issue list. If you enable [displaying issues as a hierarchy](#trees), blockers are shown under an issue branch. You cannot move external blockers in the list, but you can still open and edit them.
 

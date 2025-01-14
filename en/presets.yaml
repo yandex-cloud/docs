@@ -253,7 +253,7 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.28, 1.29, 1.30
+  k8s-versions-rapid: 1.28, 1.29, 1.30, 1.31
   k8s-versions-regular: 1.28, 1.29, 1.30
   k8s-versions-stable: 1.28, 1.29, 1.30
   k8s-vpa: Vertical Pod Autoscaler
@@ -5723,6 +5723,8 @@ default:
           add-graph: Graph
           add-text: Text
           add-title: Heading
+        widget-type:
+          graph: Chart
       dialog:
         confirm:
           button_continue: Continue

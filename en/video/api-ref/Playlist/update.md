@@ -26,7 +26,7 @@ Required field. ID of the playlist. ||
 
 ```json
 {
-  "fieldMask": "object",
+  "fieldMask": "string",
   "title": "string",
   "description": "string",
   "items": [
@@ -43,7 +43,7 @@ Required field. ID of the playlist. ||
 
 #|
 ||Field | Description ||
-|| fieldMask | **object** (field-mask)
+|| fieldMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

@@ -43,7 +43,7 @@ links:
     href: concepts/limits
   - title: Using the service
     description: Tips for configuring traffic load balancing
-    href: best-practices
+    href: concepts/best-practices
   - title: Access management
     description: Configure access rights to work with the service
     href: security/

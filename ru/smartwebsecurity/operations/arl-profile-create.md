@@ -1,3 +1,8 @@
+---
+title: Как создать профиль безопасности ARL {{ sws-full-name }}
+description: Следуя данной инструкции, вы сможете создать профиль безопасности ARL {{ sws-full-name }}.
+---
+
 # Создать профиль ARL
 
 {% list tabs group=instructions %}

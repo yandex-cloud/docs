@@ -27,7 +27,7 @@ Required field. ID of the instance that is being updated. ||
 ```json
 {
   "networkInterfaceIndex": "string",
-  "updateMask": "object",
+  "updateMask": "string",
   "subnetId": "string",
   "primaryV4AddressSpec": {
     "address": "string",
@@ -86,7 +86,7 @@ Required field. ID of the instance that is being updated. ||
 || networkInterfaceIndex | **string**
 
 Required field. The index of the network interface to be updated. ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
