@@ -27,7 +27,7 @@ To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Insta
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "labels": "object",
@@ -75,7 +75,7 @@ To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Insta
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

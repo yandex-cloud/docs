@@ -1,3 +1,8 @@
+---
+title: Использование {{ postbox-full-name }} с помощью AWS CLI
+description: В этой статье вы узнаете, как установить и настроить AWS CLI для работы с {{ postbox-name }}.
+---
+
 # AWS CLI
 
 [AWS CLI](https://docs.aws.amazon.com/cli/) — это интерфейс командной строки для работы с сервисами AWS. Общий [порядок вызова команд](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html) смотрите в официальной документации Amazon.

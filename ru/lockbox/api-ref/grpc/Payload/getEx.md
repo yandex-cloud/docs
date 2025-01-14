@@ -51,6 +51,7 @@ Required field.  ||
 
 ```json
 {
+  "secret_id": "string",
   "version_id": "string",
   "entries": "map<string, bytes>"
 }
@@ -58,6 +59,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
+|| secret_id | **string** ||
 || version_id | **string** ||
 || entries | **object** (map<**string**, **bytes**>) ||
 |#

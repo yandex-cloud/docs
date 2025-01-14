@@ -20,7 +20,7 @@ DELETE https://serverless-containers.{{ api-host }}/containers/v1/containers/{co
 || containerId | **string**
 
 Required field. ID of the container to delete.
-To get a container ID make a [ContainerService.List](/docs/serverless/containers/api-ref/Container/list#List) request. ||
+To get a container ID make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

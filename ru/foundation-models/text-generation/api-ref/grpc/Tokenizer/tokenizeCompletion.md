@@ -19,7 +19,10 @@ RPC method for tokenizing content of CompletionRequest
   "completion_options": {
     "stream": "bool",
     "temperature": "google.protobuf.DoubleValue",
-    "max_tokens": "google.protobuf.Int64Value"
+    "max_tokens": "google.protobuf.Int64Value",
+    "reasoning_options": {
+      "mode": "ReasoningMode"
+    }
   },
   "messages": [
     {
@@ -106,6 +109,24 @@ Default temperature: 0.3 ||
 
 The limit on the number of tokens used for single completion generation.
 Must be greater than zero. This maximum allowed parameter value may depend on the model being used. ||
+|| reasoning_options | **[ReasoningOptions](#yandex.cloud.ai.foundation_models.v1.ReasoningOptions)**
+
+Configures reasoning capabilities for the model, allowing it to perform internal reasoning before responding. ||
+|#
+
+## ReasoningOptions {#yandex.cloud.ai.foundation_models.v1.ReasoningOptions}
+
+Represents reasoning options that enable the model's ability to perform internal reasoning before generating a response.
+
+#|
+||Field | Description ||
+|| mode | enum **ReasoningMode**
+
+Specifies the reasoning mode to be used.
+
+- `REASONING_MODE_UNSPECIFIED`: Unspecified reasoning mode.
+- `DISABLED`: Disables reasoning. The model will generate a response without performing any internal reasoning.
+- `ENABLED_HIDDEN`: Enables reasoning in a hidden manner without exposing the reasoning steps to the user. ||
 |#
 
 ## Message {#yandex.cloud.ai.foundation_models.v1.Message}

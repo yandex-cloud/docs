@@ -36,6 +36,7 @@ env:
     root-path:
       - other.py
     pip:
+      index-url: https://pypi.org/simple
       extra-index-urls:
         - https://pypi.ngc.nvidia.com
       trusted-hosts:
@@ -46,7 +47,8 @@ env:
 Где:
 
 * `root-path` — явное указание [дополнительных точек входа](#entry-points).
-* `extra-index-urls` — [дополнительные адреса репозиториев](https://pip.pypa.io/en/stable/cli/pip_install/#install-extra-index-url), из которых менеджер пакетов pip сможет установить необходимые пакеты окружения.
+* `index-urls` — [адрес основного репозитория](https://pip.pypa.io/en/stable/cli/pip_install/#install-index-url), из которого менеджер пакетов pip будет устанавливать необходимые пакеты окружения.
+* `extra-index-urls` — [дополнительные адреса репозиториев](https://pip.pypa.io/en/stable/cli/pip_install/#install-extra-index-url), из которых менеджер пакетов pip сможет установить пакеты, если они не были обнаружены в основном репозитории.
 * `trusted-hosts` — [список доверенных хостов](https://pip.pypa.io/en/stable/cli/pip/#cmdoption-trusted-host) позволяет обращаться к хостам, перечисленным в формате `<хост>:<порт>`, даже если они не поддерживают HTTPS.
 * `no-deps` — [аргумент](https://pip.pypa.io/en/stable/cli/pip_install/#cmdoption-no-deps) команды `pip install`, запрещающий установку зависимостей пакетов.
 
@@ -59,7 +61,16 @@ env:
  python:
    type: manual     # указываем ручное управление окружением
    version: 3.10.13 # optional
+   pip:
+      index-url: https://pypi.org/simple
+      extra-index-urls:
+        - https://pypi.ngc.nvidia.com
+      trusted-hosts:
+        - nvidia.com
+      no-deps: true  # По умолчанию false
    requirements-file: requirements.txt  # optional
+   root-path:
+      - other.py
    local-paths:     # optional, нельзя использовать с опцией root-paths
      - foo.py
      - lib/
@@ -68,11 +79,16 @@ env:
 Где:
 
 * `version` — версия Python. Если не указано, используется версия окружения, из которого запускается задание.
+* `index-urls` — [адрес основного репозитория](https://pip.pypa.io/en/stable/cli/pip_install/#install-index-url), из которого менеджер пакетов pip будет устанавливать необходимые пакеты окружения.
+* `extra-index-urls` — [дополнительные адреса репозиториев](https://pip.pypa.io/en/stable/cli/pip_install/#install-extra-index-url), из которых менеджер пакетов pip сможет установить пакеты, если они не были обнаружены в основном репозитории.
+* `trusted-hosts` — [список доверенных хостов](https://pip.pypa.io/en/stable/cli/pip/#cmdoption-trusted-host) позволяет обращаться к хостам, перечисленным в формате `<хост>:<порт>`, даже если они не поддерживают HTTPS.
+* `no-deps` — [аргумент](https://pip.pypa.io/en/stable/cli/pip_install/#cmdoption-no-deps) команды `pip install`, запрещающий установку зависимостей пакетов.
 * `requirements-file` — путь к файлу `requirements.txt`, в котором перечислены все пакеты и флаги pip, необходимые для задания. Если не указано, список зависимостей будет определен автоматически.
+* `root-path` — явное указание [дополнительных точек входа](#entry-points).
 * `local-paths` — список локальных Python-файлов, которые нужно перенести. С его помощью можно указывать не только конечные файлы, но и целые директории. Если не указано, список файлов будет определен автоматически.
   Если задание состоит только из одного главного Python-скрипта, в секции `env` укажите `local-paths: []`.
 
-Если файл конфигурации содержит все три параметра (`version`, `requirements-file` и `local-paths`), {{ ml-platform-name }} не будет проверять окружение, чтобы определить недостающие зависимости. Это может быть полезно, если вы не можете или не хотите воспроизводить окружение для выполнения задания локально, как этого требует [автоматический сбор окружения](#auto).
+Если файл конфигурации содержит параметры `version`, `requirements-file` и `local-paths`, {{ ml-platform-name }} не будет проверять окружение, чтобы определить недостающие зависимости. Это может быть полезно, если вы не можете или не хотите воспроизводить окружение для выполнения задания локально, как этого требует [автоматический сбор окружения](#auto).
 
 ### Явное указание точек входа {#entry-points}
 

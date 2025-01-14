@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ container-registry-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ container-registry-name }}.
 editable: false
 ---
 

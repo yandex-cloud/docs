@@ -77,6 +77,6 @@
 
 #### См. также {#what-is-next}
 
-* [Подробнее про API v3](../../tts-v3/api-ref/grpc/)
+* [Подробнее про API v3](../tts-v3/api-ref/grpc/)
 * [Аутентификация в API](../concepts/auth.md)
 * [{#T}](../tts/api/tts-examples-v3.md)

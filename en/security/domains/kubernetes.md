@@ -305,7 +305,7 @@ Audit events are collected from the {{ k8s }} API level by {{ cloud-logging-name
 
 ### {{ k8s }} node level {#kubernetes-nodes-level}
 
-{{ k8s }} node level events are collected and exported similarly to [collecting OS audit logs](audit-logs#os-level).
+{{ k8s }} node level events are collected and exported similarly to [collecting OS audit logs](../standard/audit-logs.md#os-level).
 
 ### {{ k8s }} pod level {#kubernetes-pods-level}
 

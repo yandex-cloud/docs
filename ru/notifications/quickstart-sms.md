@@ -1,3 +1,8 @@
+---
+title: Как начать работать с SMS в {{ cns-full-name }}
+description: В {{ cns-name }} вы можете отправлять SMS с помощью каналов SMS-уведомлений.
+---
+
 # Как начать работать с SMS в {{ cns-full-name }}
 
 {% include [preview-stage](../_includes/notifications/preview-stage.md) %}

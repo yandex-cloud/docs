@@ -14,10 +14,10 @@ description:
     L7-балансировщике.</li> <li>Организовывать защиту ваших сервисов от
     злоумышленников с помощью ограничения поступающего трафика.</li></ul>
   - >-
-    "Инфраструктура Yandex Cloud <a
-    href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a>
+    Инфраструктура Yandex Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
-    данных» № 152-ФЗ."
+    данных» № 152-ФЗ.
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в

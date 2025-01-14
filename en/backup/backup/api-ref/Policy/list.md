@@ -142,7 +142,15 @@ Compute Cloud instance ID. Either Folder ID or Compute Cloud instance ID should 
             "count": "string"
           },
           "scheme": "string",
-          "weeklyBackupDay": "string"
+          "weeklyBackupDay": "string",
+          "taskFailure": {
+            "enabled": "boolean",
+            "interval": {
+              "type": "string",
+              "count": "string"
+            },
+            "maxAttempts": "string"
+          }
         },
         "cbt": "string",
         "fastBackupEnabled": "boolean",
@@ -428,6 +436,9 @@ Required field. A day of week to start weekly backups.
 - `FRIDAY`
 - `SATURDAY`
 - `SUNDAY` ||
+|| taskFailure | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
+
+Task failure settings in case of failure of scheduled task, not applicable to  manually launched tasks ||
 |#
 
 ## BackupSet {#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet}

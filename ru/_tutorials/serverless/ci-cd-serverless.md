@@ -244,7 +244,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
      image: alpine:3.15
      script:
        - apk add -q --no-cache bash curl jq gettext
-       - curl --fail --silent --location -remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
+       - curl --fail --silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
        - bash install.sh -i /usr/local/yandex-cloud -n
        - ln -s /usr/local/yandex-cloud/bin/yc /usr/local/bin/yc
        - echo "$SA_PROD_DEPLOYER_PRIVATE_KEY" > key.json

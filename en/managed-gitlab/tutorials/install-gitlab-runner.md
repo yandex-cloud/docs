@@ -1,6 +1,6 @@
 # Deploying {{ GLR }} on a {{ compute-full-name }} virtual machine
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} both in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on the {{ compute-name }} virtual machine, which is easier and cheaper.
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} CI/CD jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. You can deploy {{ GLR }} both in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on the {{ compute-name }} virtual machine, which is easier and cheaper.
 
 {{ compute-name }} offers two ways to work with {{ GLR }}: You can:
 

@@ -1,3 +1,8 @@
+---
+title: Создать подключение в {{ speechsense-full-name }}
+description: В подключения {{ speechsense-name }} можно загружать двухканальное аудио или чат с текстовыми сообщениями.
+---
+
 # Создать подключение
 
 В подключения {{ speechsense-name }} можно загружать [двухканальное аудио](#create-connection-audio) или [чат](#create-connection-chat) с текстовыми сообщениями. Для создания подключения нужна роль `{{ roles-speechsense-admin }}` или `{{ roles-speechsense-editor }}` в пространстве.

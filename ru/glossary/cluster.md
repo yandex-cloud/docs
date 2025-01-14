@@ -136,7 +136,7 @@ Kubernetes® функционирует как посредник между к�
 
 * [Пошаговые инструкции для Managed Service for Kubernetes®](../managed-kubernetes/operations/)
 * [Управление доступом в Managed Service for Kubernetes®](../managed-kubernetes/security/)
-* [Вопросы и ответы про Managed Service for Kubernetes®](../managed-kubernetes/qa/)
+* [Вопросы и ответы про Managed Service for Kubernetes®](../managed-kubernetes/qa/all.md)
 * [Документация {{ mpg-name }}](../managed-postgresql/)
 * [Документация {{ mch-name }}](../managed-clickhouse/)
 * [Документация {{ ydb-name }}](../ydb/)

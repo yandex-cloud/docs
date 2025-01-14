@@ -700,7 +700,7 @@ Required field. Identifier of the endpoint to be updated. ||
     }
     // end of the list of possible fields
   },
-  "updateMask": "object"
+  "updateMask": "string"
 }
 ```
 
@@ -716,7 +716,7 @@ The new description for the endpoint. ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)**
 
 The new endpoint name. Must be unique within the folder. ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

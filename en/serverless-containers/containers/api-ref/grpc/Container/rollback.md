@@ -26,12 +26,12 @@ Rollback the specified container to an old revision.
 
 Required field. ID of the container to rollback to an old revision.
 
-To get a container ID, make a [ContainerService.List](/docs/serverless/containers/api-ref/grpc/Container/list#List) request. ||
+To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/grpc/Container/list#List) request. ||
 || revision_id | **string**
 
 Required field. ID of the revision to rollback to.
 
-To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/containers/api-ref/grpc/Container/listRevisions#ListRevisions) request. ||
+To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-containers/containers/api-ref/grpc/Container/listRevisions#ListRevisions) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

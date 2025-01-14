@@ -34,7 +34,7 @@ To get the virtual host name, make a [VirtualHostService.List](/docs/application
 ```json
 {
   "routeName": "string",
-  "updateMask": "object",
+  "updateMask": "string",
   // Includes only one of the fields `http`, `grpc`
   "http": {
     "match": {
@@ -198,7 +198,7 @@ To get the virtual host name, make a [VirtualHostService.List](/docs/application
 Required field. Name of the route to update.
 
 To get the route name, make a [VirtualHostService.Get](/docs/application-load-balancer/api-ref/VirtualHost/get#Get) request. ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

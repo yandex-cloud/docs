@@ -28,7 +28,7 @@ Required field. ID of the API gateway to get specification from. ||
 ||Field | Description ||
 || format | **enum** (Format)
 
-Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](/docs/functions/api-gateway/api-ref/ApiGateway/create#yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest).
+Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](/docs/api-gateway/apigateway/api-ref/ApiGateway/create#yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest).
 
 - `FORMAT_UNSPECIFIED`
 - `JSON`

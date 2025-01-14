@@ -27,7 +27,7 @@ To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "description": "string",
   "scopes": [
     "string"
@@ -38,7 +38,7 @@ To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

@@ -626,6 +626,8 @@ items:
                     href: tuning/api-ref/grpc/Tuning/getMetricsUrl.md
                   - name: GetOptions
                     href: tuning/api-ref/grpc/Tuning/getOptions.md
+                  - name: ListErrors
+                    href: tuning/api-ref/grpc/Tuning/listErrors.md
   - name: '{{ ml-sdk-full-name }}'
     href: sdk/index.md
   - name: Как создавать промты

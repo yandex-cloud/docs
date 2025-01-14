@@ -26,7 +26,7 @@ Required field. ID of the scan policy. ||
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "rules": {
@@ -51,7 +51,7 @@ Required field. ID of the scan policy. ||
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

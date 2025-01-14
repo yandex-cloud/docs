@@ -7,18 +7,118 @@ description: 'В данном разделе вы научитесь работ�
 
 В этом разделе вы научитесь создавать [каналы](../concepts/index.md#channels), загружать [видео](../concepts/videos.md) и получать для загруженных видео ссылки на [видеоплеер](../concepts/player.md) с помощью [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/) {{ video-name }}.
 
+Чтобы начать работать с API {{ video-name }}:
+
+1. [Создайте канал](create-channel).
+1. [Создайте видео](create-video).
+1. [Добавьте обложку к видео](add-thumbnail).
+1. [Получите ссылку на видеоплеер](get-link).
+
 ## Перед началом работы {#before-begin}
 
-Чтобы начать работать c API {{ video-name }}:
-
 1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
-1. [Получите](../../organization/operations/organization-get-id.md) идентификатор организации, в которой вы будете создавать канал.
-1. [Назначьте](../../organization/operations/add-role.md) пользователю или [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), от имени которого вы будете аутентифицироваться в API {{ video-name }}, [роль](../../iam/concepts/access-control/roles.md) `video.admin` или `video.editor`. Подробнее см. в разделе [{#T}](../security/index.md).
-1. [Получите](./authentication.md) IAM-токен для пользователя или сервисного аккаунта, от имени которого вы будете аутентифицироваться в API {{ video-name }}.
+1. [Получите](../../organization/operations/organization-get-id.md) идентификатор [организации](../../organization/quickstart.md), в которой вы будете создавать канал.
 
 Чтобы воспользоваться примерами, установите утилиты:
 * [cURL](https://curl.haxx.se) при использовании [REST API](../api-ref/).
 * [cURL](https://curl.haxx.se), [gRPCurl](https://github.com/fullstorydev/grpcurl) и [jq](https://stedolan.github.io/jq) при использовании [gRPC API](../api-ref/grpc/).
+
+### Настройте сервисный аккаунт {#configure-account}
+
+Для доступа к организации и работы с API {{ video-name }} потребуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `video.admin` или `video.editor` и [IAM-токен](../../iam/concepts/authorization/iam-token.md).
+
+#### Создайте сервисный аккаунт {#create-account}
+
+Создайте сервисный аккаунт, от имени которого вы будете аутентифицироваться в API {{ video-name }}.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете работать с API {{ video-name }}.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Введите имя сервисного аккаунта, например `sa-video-api`.
+
+      Требования к имени:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Выполните команду для создания сервисного аккаунта:
+
+  ```bash
+  yc iam service-account create --name sa-video-api
+  ```
+
+  Где `--name` — имя сервисного аккаунта в формате:
+
+  {% include [name-format](../../_includes/name-format.md) %}
+
+  Результат:
+
+  ```text
+  id: ajehr0to1g8b********
+  folder_id: b1gv87ssvu49********
+  created_at: "2024-03-04T09:03:11.665153755Z"
+  name: sa-video-api
+  ```
+
+  Сохраните идентификатор сервисного аккаунта (`id`), он понадобится при [назначении роли](#assign-role).
+
+- API {#api}
+
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
+
+{% endlist %}
+
+#### Назначьте роль сервисному аккаунту {#assign-role}
+
+Назначьте сервисному аккаунту роль `video.admin` или `video.editor` на организацию. Подробнее см. в разделе [{#T}](../security/index.md).
+
+Чтобы предоставить сервисному аккаунту права доступа к организации, необходима роль не ниже `{{ roles-organization-admin }}`.
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
+  1. В фильтре **{{ ui-key.yacloud.common.resource-acl.placeholder_filter-by-type }}** выберите `{{ ui-key.yacloud_components.acl.label.service-accounts}}`.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud_components.acl.label.service-accounts}}** и выберите созданный ранее сервисный аккаунт из списка или воспользуйтесь поиском.
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** и выберите роль `video.admin` или `video.editor`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  Выполните команду:
+
+  ```bash
+  yc organization-manager organization add-access-binding \
+    --id <идентификатор_организации> \
+    --role <роль> \
+    --service-account-id <идентификатор_сервисного_аккаунта>
+  ```
+
+  Где `--role` — `video.admin`или `video.editor`.
+
+- API {#api}
+
+  Чтобы назначить сервисному аккаунту роль на организацию, воспользуйтесь методом REST API [updateAccessBindings](../../organization/api-ref/Organization/updateAccessBindings.md) для ресурса [Organization](../../organization/api-ref/Organization/index.md) или вызовом gRPC API [OrganizationService/UpdateAccessBindings](../../organization/api-ref/grpc/Organization/updateAccessBindings.md).
+
+{% endlist %}
+
+#### Получите IAM-токен {#get-iam}
+
+Чтобы получить IAM-токен для созданного ранее сервисного аккаунта, воспользуйтесь инструкцией [{#T}](../../iam/operations/iam-token/create-for-sa.md).
 
 ## Создайте канал {#create-channel}
 

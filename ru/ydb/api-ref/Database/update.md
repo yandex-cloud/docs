@@ -27,7 +27,7 @@ Required field.  ||
 ```json
 {
   "folderId": "string",
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "resourcePresetId": "string",
@@ -250,7 +250,7 @@ Required field.  ||
 #|
 ||Field | Description ||
 || folderId | **string** ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

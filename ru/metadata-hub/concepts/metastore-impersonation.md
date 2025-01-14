@@ -1,3 +1,8 @@
+---
+title: Имперсонация в {{ metastore-name }}
+description: Имперсонация позволяет кластеру {{ metastore-name }} взаимодействовать с ресурсами в облаке от имени сервисного аккаунта.
+---
+
 # Имперсонация в {{ metastore-name }}
 
 {% include [Preview](../../_includes/note-preview.md) %}

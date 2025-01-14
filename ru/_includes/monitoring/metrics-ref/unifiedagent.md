@@ -134,6 +134,9 @@
 | `sys.system.SystemTime` | `RATE` |
 | `sys.system.UpTime` | `RATE` |
 | `sys.system.UpTimeRaw` | `DGAUGE` |
+| `sys.system.UsefulTime` ^1^ | `RATE` |
 | `sys.system.UserTime` | `RATE` |
+
+^1^ Метрика передается агентом версии 24.05.01 и выше
 
 Описание системных метрик Linux смотрите в документации Linux, например [Linux manual page](https://man7.org/linux/man-pages/man5/proc.5.html).

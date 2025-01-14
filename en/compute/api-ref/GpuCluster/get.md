@@ -44,7 +44,7 @@ To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/G
 }
 ```
 
-A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpus#gpu-clusters).
 
 #|
 ||Field | Description ||

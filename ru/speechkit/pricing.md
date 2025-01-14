@@ -8,7 +8,15 @@ editable: false
 
 
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость [синтеза](https://yandex.cloud/ru/prices?state=560a21ca4079#calculator) и [распознавания речи](https://yandex.cloud/ru/prices?state=a16ebb7b57c6#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

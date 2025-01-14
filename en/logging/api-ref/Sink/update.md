@@ -28,7 +28,7 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List)
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "labels": "object",
@@ -47,7 +47,7 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List)
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

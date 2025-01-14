@@ -30,7 +30,7 @@ To get the GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "labels": "object"
@@ -39,7 +39,7 @@ To get the GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
@@ -203,7 +203,7 @@ A list of messages that carry the error details. ||
 
 ## GpuCluster {#yandex.cloud.compute.v1.GpuCluster}
 
-A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpus#gpu-clusters).
 
 #|
 ||Field | Description ||

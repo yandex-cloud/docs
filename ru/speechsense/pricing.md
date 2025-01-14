@@ -8,7 +8,15 @@ editable: false
 
 
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость аналитики [текстового диалога](https://yandex.cloud/ru/prices?state=84b019e2e011#calculator) и [аудиодиалога](https://yandex.cloud/ru/prices?state=044d730c4624#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

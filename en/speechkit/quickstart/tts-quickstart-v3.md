@@ -77,6 +77,6 @@ As a result, a synthesized speech file named `speech.wav` will be created in the
 
 #### See also {#what-is-next}
 
-* [Learn more about the API v3](../../tts-v3/api-ref/grpc/)
+* [Learn more about the API v3](../tts-v3/api-ref/grpc/)
 * [Authentication with the API](../concepts/auth.md)
 * [{#T}](../tts/api/tts-examples-v3.md)

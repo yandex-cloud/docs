@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ objstorage-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ objstorage-name }}.
 editable: false
 ---
 

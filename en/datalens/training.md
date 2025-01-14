@@ -11,8 +11,6 @@ With our online courses, you can enhance your knowledge about {{ datalens-short-
 
 
 
-{% include [training-courses](../_includes/training/training-courses.md) %}
-
 ## Useful materials {#related-links}
 
 

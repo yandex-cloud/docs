@@ -1,3 +1,8 @@
+---
+title: Обучающие курсы по {{ dataproc-full-name }}
+description: В этом разделе собраны обучающие курсы по {{ dataproc-full-name }}.
+---
+
 # Обучающие курсы по {{ dataproc-full-name }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

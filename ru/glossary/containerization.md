@@ -147,7 +147,7 @@ Kubernetes — достаточно сложная система. Ее можн
 
 Чтобы избежать этих трудностей, можно использовать сервис {{ managed-k8s-full-name }}.
 
-Создайте кластер [{{ managed-k8s-full-name }}](../managed-kubernetes/concepts.md/#kubernetes-cluster) и [группу узлов](../managed-kubernetes/concepts.md/#node-group), а облачный провайдер настроит основную конфигурацию системы.
+Создайте кластер [{{ managed-k8s-full-name }}](../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группу узлов](../managed-kubernetes/concepts/index.md#node-group), а облачный провайдер настроит основную конфигурацию системы.
 
 
 Полезные ресурсы K8S:

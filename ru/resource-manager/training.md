@@ -1,3 +1,8 @@
+---
+title: Обучающие курсы по {{ resmgr-full-name }}
+description: В этом разделе собраны обучающие курсы по {{ resmgr-full-name }}.
+---
+
 # Обучающие курсы по {{ resmgr-full-name }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

@@ -16,7 +16,9 @@
 
 В разных регионах разные:
 
-* адреса эндпоинтов {{ yandex-cloud }} API;
+* адреса эндпоинтов {{ yandex-cloud }} API:
+    * [адреса эндпоинтов API в регионе Россия](https://yandex.cloud/ru/docs/api-design-guide/concepts/endpoints)
+    * [адреса эндпоинтов API в регионе Казахстан](https://yandex.cloud/ru-kz/docs/api-design-guide/concepts/endpoints)
 * настройки профиля {{ yandex-cloud }} CLI:
     * [Инструкция по созданию профиля CLI в регионе Россия](https://yandex.cloud/ru/docs/cli/operations/profile/profile-create)
     * [Инструкция по созданию профиля CLI в регионе Казахстан](https://yandex.cloud/ru-kz/docs/cli/operations/profile/profile-create)

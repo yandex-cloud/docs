@@ -37,7 +37,7 @@ Required field. Identifier of the transfer to be updated. ||
     // end of the list of possible fields
   },
   "name": "string",
-  "updateMask": "object",
+  "updateMask": "string",
   "labels": "object",
   "transformation": {
     "transformers": [
@@ -189,7 +189,7 @@ The new description for the transfer. ||
 || name | **string**
 
 The new transfer name. Must be unique within the folder. ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

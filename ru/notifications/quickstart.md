@@ -1,3 +1,8 @@
+---
+title: Как начать работать с {{ cns-full-name }}
+description: '{{ cns-name }} ({{ cns-short-name }}) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с Amazon SNS API.'
+---
+
 # Как начать работать с {{ cns-full-name }}
 
 {% include [preview-stage](../_includes/notifications/preview-stage.md) %}

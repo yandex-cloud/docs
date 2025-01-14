@@ -92,7 +92,7 @@
      Где:
      * `--name` — имя сертификата.
      * `--chain` — путь к файлу цепочки сертификатов.
-     * `--key` — путь к файлу закрытого ключа сертификата.
+     * `--key` — путь к файлу приватного ключа сертификата.
 
      Результат:
 
@@ -124,7 +124,7 @@
                        EOT
          private_key = <<-EOT
                        -----BEGIN PRIVATE KEY-----
-                       <содержимое_закрытого_ключа_сертификата>
+                       <содержимое_приватного_ключа_сертификата>
                        -----END PRIVATE KEY-----
                        EOT
        }
@@ -134,7 +134,7 @@
      Где:
      * `name` — имя сертификата.
      * `certificate` — содержимое файла с [сертификатом](../../concepts/imported-certificate.md).
-     * `private_key` — содержимое файла с закрытым ключом.
+     * `private_key` — содержимое файла с приватным ключом.
 
      Более подробную информацию о параметрах ресурса `yandex_cm_certificate` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
   1. Создайте ресурсы:
@@ -155,9 +155,9 @@
 
 В списке сертификатов появится новый сертификат со статусом `Issued`.
 
-## Хранение публичной части сертификата в {{ lockbox-full-name }} {#create-lockbox}
+## Хранение приватного ключа сертификата в {{ lockbox-full-name }} {#create-lockbox}
 
-Вы можете хранить публичную часть пользовательского сертификата {{ certificate-manager-name }} в [{{ lockbox-name }}](../../../lockbox/). Чтобы добавить сертификат:
+Чтобы не хранить приватный ключ пользовательского сертификата в открытом виде в конфигурационном файле {{ TF }}, запишите его в [{{ lockbox-name }}](../../../lockbox/):
 
 {% list tabs group=instructions %}
 
@@ -165,13 +165,14 @@
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+  1. [Создайте секрет](../../../lockbox/operations/secret-create.md) и запишите в него приватный ключ.
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      ```hcl
-       resource "yandex_cm_certificate" "example-lockbox" {
-       name    = "<имя_секрета>"
+     resource "yandex_cm_certificate" "example-lockbox" {
+       name = "<имя_секрета>"
 
-     self_managed {
+       self_managed {
          certificate = <<-EOT
                        -----BEGIN CERTIFICATE-----
                        <содержимое_сертификата>
@@ -188,8 +189,8 @@
      Где:
      * `name` — имя [секрета](../../../lockbox/concepts/secret.md) {{ lockbox-name }}.
      * `certificate` — содержимое файла с сертификатом.
-     * `id` — идентификатор секрета {{ lockbox-name }}.
-     * `key` — ключ секрета {{ lockbox-name }}, значение которого содержит приватный ключ сертификата.
+     * `id` — идентификатор секрета {{ lockbox-name }}, в котором находится приватный ключ.
+     * `key` — ключ секрета {{ lockbox-name }}, в котором находится приватный ключ.
 
      Более подробную информацию о параметрах ресурса `yandex_cm_certificate` см. в [документации провайдера]({{ tf-provider-resources-link }}/cm_certificate).
   1. Создайте ресурсы:

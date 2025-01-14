@@ -1,3 +1,8 @@
+---
+title: Обучающие курсы по {{ data-transfer-full-name }}
+description: В этом разделе собраны обучающие курсы по {{ data-transfer-full-name }}.
+---
+
 # Обучающие курсы по {{ data-transfer-full-name }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

@@ -8,7 +8,15 @@ editable: false
 
 
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+{% note tip %}
+
+
+
+
+To see the cost of analyzing an [audio conversation](https://yandex.cloud/en/prices?state=a2a5b3a97844#calculator) or [text transcript](https://yandex.cloud/en/prices?state=7d9a5a8e9d90#calculator), use our calculator on the Yandex Cloud website or see the pricing in this section.
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

@@ -30,7 +30,7 @@ Required field. ID of the application load balancer to update the SNI handler in
 {
   "listenerName": "string",
   "name": "string",
-  "updateMask": "object",
+  "updateMask": "string",
   "serverNames": [
     "string"
   ],
@@ -66,7 +66,7 @@ Required field. Name of the listener to update the SNI handler in. ||
 || name | **string**
 
 Required field. Name of the SNI handler to update. ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

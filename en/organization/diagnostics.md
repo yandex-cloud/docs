@@ -19,6 +19,6 @@ If you have any issues, please contact [support]({{ link-console-support }}).
 
 Unexpected application error. Contact [support]({{ link-console-support }}).
 
-## See also {see-also}
+## See also {#see-also}
 
 * [Diagnosing errors in SAML 2.0 federations](saml-diagnostics.md)

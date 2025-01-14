@@ -27,7 +27,7 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/Pr
 
 ```json
 {
-  "updateMask": "object",
+  "updateMask": "string",
   "name": "string",
   "description": "string",
   "labels": "object",
@@ -54,7 +54,7 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/Pr
 
 #|
 ||Field | Description ||
-|| updateMask | **object** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

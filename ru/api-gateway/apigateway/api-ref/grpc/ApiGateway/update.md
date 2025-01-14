@@ -52,7 +52,7 @@ Updates the specified API gateway.
 
 Required field. ID of the API gateway to update.
 
-To get a API gateway ID make a [ApiGatewayService.List](/docs/functions/api-gateway/api-ref/grpc/ApiGateway/list#List) request. ||
+To get a API gateway ID make a [ApiGatewayService.List](/docs/api-gateway/apigateway/api-ref/grpc/ApiGateway/list#List) request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the API gateway should be updated. ||
@@ -68,7 +68,7 @@ New description for the API gateway. ||
 API gateway labels as `key:value` pairs.
 
 Existing set of labels is completely replaced by the provided set, so if you just want
-to add or remove a label, request the current set of labels with a [yandex.cloud.serverless.apigateway.v1.ApiGatewayService.Get](/docs/functions/api-gateway/api-ref/grpc/ApiGateway/get#Get) request. ||
+to add or remove a label, request the current set of labels with a [yandex.cloud.serverless.apigateway.v1.ApiGatewayService.Get](/docs/api-gateway/apigateway/api-ref/grpc/ApiGateway/get#Get) request. ||
 || openapi_spec | **string**
 
 The text of specification, JSON or YAML.
