@@ -115,7 +115,6 @@
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
-
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
@@ -129,7 +128,6 @@
      }
      ...
      ```
-
 
      {% endcut %}
 
@@ -192,6 +190,7 @@
        ]
       }
       ```
+
   1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
       curl \
@@ -210,6 +209,7 @@
        }
       }
       ```
+
   1. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
       ```bash
@@ -228,7 +228,6 @@
         }}}]}' \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
       ```
-
 
 {% endlist %}
 
@@ -294,7 +293,6 @@
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
-
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
@@ -313,7 +311,6 @@
      }
      ...
      ```
-
 
      {% endcut %}
 
@@ -388,7 +385,6 @@
 
   {% endnote %}
 
-
   ```bash
   curl \
     --request POST \
@@ -404,7 +400,6 @@
     }]}' \
     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
   ```
-
 
 {% endlist %}
 

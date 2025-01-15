@@ -23,3 +23,9 @@
 Проверьте настройки почтового ящика и номера телефона в аккаунте пользователя в [канале уведомлений](../../monitoring/concepts/alerting/notification-channel.md).
 
 {% include [notifications-requirements](../../_includes/monitoring/notifications-requirements.md) %}
+
+#### Что делать, если нет данных? {#alert-no-data}
+
+При отсутствии данных отображается временная шкала за последний час. Чтобы увидеть данные, измените время в [окне вычисления](../../monitoring/concepts/alerting/alert.md#evaluation-window) — в него должна войти последняя точка.
+
+Если ошибок функций нет, то данные отображаться не будут. Подробнее см. в разделе [Обработка отсутствия данных](../../monitoring/concepts/alerting/alert.md#no-data-policy)

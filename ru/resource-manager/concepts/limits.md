@@ -6,7 +6,6 @@ editable: false
 
 # Квоты и лимиты в {{ resmgr-name }}
 
-
 В {{ resmgr-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
@@ -14,5 +13,3 @@ editable: false
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
-
-

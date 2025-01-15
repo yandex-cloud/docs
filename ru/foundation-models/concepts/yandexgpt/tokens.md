@@ -2,7 +2,7 @@
 
 Нейросети работают с текстами, представляя слова и предложения в виде _токенов_ — смысловых отрывков или часто встречающихся последовательностей символов, характерных для естественного языка. Токены позволяют нейросетям находить закономерности и обрабатывать естественный язык.
 
-{{ yagpt-full-name }} использует свой токенизатор для обработки текстов. Вы можете [оценить](../../operations/yandexgpt/evaluate-request.md) размер текстового поля в токенах с помощью специальных методов [Tokenizer](../../text-generation/api-ref/Tokenizer/index.md) или [{{ ml-sdk-full-name }}](../../sdk/index.md). Число токенов в одном и том же тексте может отличаться для каждой [модели](./models.md).
+{{ yagpt-full-name }} использует свой токенизатор для обработки текстов. Вы можете [оценить](../../operations/yandexgpt/evaluate-request.md) размер текстового поля в токенах с помощью специальных методов [Tokenizer](../../text-generation/api-ref/Tokenizer/index.md) или [{{ ml-sdk-full-name }}](../../sdk/index.md). Число токенов в одном и том же тексте может различаться для каждой [модели](./models.md).
 
 Чтобы использовать токенизатор {{ yagpt-full-name }}, необходима [роль](../../security/index.md#languageModels-user) `ai.languageModels.user` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 

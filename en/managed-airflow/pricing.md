@@ -10,7 +10,15 @@ editable: false
 
 In this section, you can find the {{ maf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+
+
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=f754f6eb4f65#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+
+
+{% endnote %}
 
 ## What goes into the cost of using {{ maf-name }} {#rules}
 
