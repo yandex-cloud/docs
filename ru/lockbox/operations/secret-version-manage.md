@@ -99,6 +99,117 @@ description: Следуя данной инструкции, вы сможете
           Вы можете создать несколько пар ключей и значений в одной версии.
     1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_add-version }}** или **{{ ui-key.yacloud.common.save }}**.
 
+
+- {{ TF }} {#tf}
+
+    #### Генерация секрета с помощью {{ yandex-cloud }}
+
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+    1. Вы можете создать новую версию генерируемого секрета, при его [создании](secret-create.md). Укажите в описании ресурса `yandex_lockbox_secret` параметры генерации секрета в блоке `password_payload_specification` и создайте новую версию секрета с указанием на этот секрет:
+  
+       ```hcl
+       # Создание генерируемого секрета
+       resource "yandex_lockbox_secret" "my_secret" {
+         name = "<имя_секрета>"
+
+         password_payload_specification {
+           password_key        = "<ключ_секрета>"
+           length              = "<длина>"
+           include_uppercase   = true
+           include_lowercase   = true
+           include_digits      = true
+           include_punctuation = true
+         }
+       }
+
+       # Создание версии секрета
+       resource "yandex_lockbox_secret_version" "my_version" {
+         secret_id = yandex_lockbox_secret.my_secret.id
+       }
+       ```
+  
+       Где:
+       * `password_payload_specification` — параметры генерации секрета:
+         * `password_key` — ключ секрета. Несекретное название для значения, по которому вы будете его идентифицировать.
+         * `length` — длина генерируемого значения секрета. Обязательный параметр.
+         * `include_uppercase ` — использовать заглавные буквы латинского алфавита (A...Z). Значение по умолчанию `true`.
+         * `include_lowercase` — использовать строчные буквы латинского алфавита (a...z). Значение по умолчанию `true`.
+         * `include_digits` — использовать цифры (0...9). Значение по умолчанию `true`.
+         * `include_punctuation` — использовать специальные символы. Значение по умолчанию `true`.
+
+       Более подробную информацию о параметрах ресурса `yandex_lockbox_secret` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret).
+
+    1. Примените изменения:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+  
+    Проверить появление секрета и его содержимое можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+  
+    ```bash
+    yc lockbox payload get <имя_или_идентификатор_секрета>
+    ```
+
+    #### Генерация секрета с помощью пользовательского скрипта
+
+    Вы можете создать новую версию генерируемого секрета, используя собственный скрипт для генерации секрета. Значение, сгенерированное скриптом, не будет отображаться в State {{ TF }}.
+
+    {% cut "Пример bash скрипта для генерации секрета" %}
+    
+    ```bash
+    #!/bin/bash
+    choose() { echo ${1:RANDOM%${#1}:1}; }
+    
+    {
+        choose 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        choose 'abcdefghijklmnopqrstuvwxyz'
+        choose '0123456789'
+        choose '!@#$%^\&'
+        for i in $( seq 1 $(( 4 + RANDOM % 8 )) )
+        do
+            choose '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        done
+    } | sort -R | tr -d '\n'
+    echo ""
+    ```
+   
+    {% endcut %}
+
+    1. Укажите в описании ресурса `yandex_lockbox_secret_version` в блоке `entries` параметр `command.path` — путь к скрипту для генерации пароля.
+
+       ```hcl
+       # Создание версии секрета с генерация пароля скриптом
+       resource "yandex_lockbox_secret_version" "my_version" {
+         secret_id = "<идентификатор_секрета>"
+
+         entries {
+           key = "<ключ_секрета>"
+           command {
+             path = "<путь_к_скрипту>"
+           }
+         }
+       }
+       ```
+
+       Где:
+       * `secret_id` — идентификатор секрета, для которого создается версия.
+       * `key` — ключ секрета. Несекретное название для значения, по которому вы будете его идентифицировать.
+       * `path` — путь к скрипту для генерации значения секрета.
+
+       Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_version` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_version).
+
+    1. Примените изменения:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+  
+    Проверить появление секрета и его содержимое можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+  
+    ```bash
+    yc lockbox payload get <имя_или_идентификатор_секрета>
+    ```
+
 {% endlist %}
 
 ## Получить информацию о версии {#get-version}

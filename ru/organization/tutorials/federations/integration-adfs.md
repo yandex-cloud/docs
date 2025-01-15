@@ -23,7 +23,6 @@
     1. [Разверните и настройте {{ microsoft-idp.ad-short }} Domain Services (AD DS)](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-), если это еще не сделано. Наличие AD DS — необходимое условие для развертывания {{ microsoft-idp.adfs-abbreviated }}.
     1. [Разверните и настройте ферму {{ microsoft-idp.adfs-abbreviated }}](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm) из одного или нескольких серверов.
 
-
         {% note tip %}
 
         Добавьте в ферму {{ microsoft-idp.adfs-abbreviated }} несколько серверов, чтобы обеспечить отказоустойчивость.
