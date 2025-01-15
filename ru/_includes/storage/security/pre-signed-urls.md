@@ -393,7 +393,7 @@ signature = Hex(sign(SigningKey, StringToSign))
     print(presigned_url)
     ```
 
-- JavaScript (@aws-sdk/client-s3, @aws-sdk/s3-request-presigner) {#javascript}
+- JavaScript {#javascript}
     
     Пример генерирует подписанный URL для загрузки объекта `object-for-share` в бакет `bucket-with-objects`. URL действителен в течение 100 секунд.
 
