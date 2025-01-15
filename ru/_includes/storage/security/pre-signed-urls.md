@@ -396,66 +396,71 @@ signature = Hex(sign(SigningKey, StringToSign))
 - JavaScript {#javascript}
     
     В примерах ниже используются библиотеки [@aws-sdk/client-s3](https://www.npmjs.com/package/%40aws-sdk/client-s3) и [@aws-sdk/s3-request-presigner](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner).
-    
-    Пример генерирует подписанный URL для **загрузки** объекта `object-for-share` в бакет `bucket-with-objects`. URL действителен в течение 100 секунд.
 
-    ```js
-    import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-    import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+    * **Скачивание объекта**
 
-    const S3_ENDPOINT = "https://{{ s3-storage-host }}";
+      Пример генерирует подписанный URL для скачивания объекта `object-for-share` из бакета `bucket-with-objects`. URL действителен в течение 100 секунд.
 
-    const ACCESS_KEY_ID = "JK38EXAMP********";
-    const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
+      ```js
+      import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+      import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
-    const s3Client = new S3Client({
-      region: "{{ region-id }}",
-      endpoint: S3_ENDPOINT,
-      credentials: {
-        accessKeyId: ACCESS_KEY_ID,
-        secretAccessKey: SECRET_ACCESS_KEY,
-      },
-    });
+      const S3_ENDPOINT = "https://{{ s3-storage-host }}";
 
-    const command = new PutObjectCommand({
-      Bucket: "bucket-with-objects",
-      Key: "object-for-share",
-    });
-    const objectPresignedUrl = await getSignedUrl(s3Client, command, {
-      expiresIn: 100,
-    });
+      const ACCESS_KEY_ID = "JK38EXAMP********";
+      const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
 
-    console.log(objectPresignedUrl);
-    ```
+      const s3Client = new S3Client({
+        region: "{{ region-id }}",
+        endpoint: S3_ENDPOINT,
+        credentials: {
+          accessKeyId: ACCESS_KEY_ID,
+          secretAccessKey: SECRET_ACCESS_KEY,
+        },
+      });
 
-    Пример генерирует подписанный URL для **скачивания** объекта `object-for-share` из бакета `bucket-with-objects`. URL действителен в течение 100 секунд.
+      const command = new GetObjectCommand({
+        Bucket: "bucket-with-objects",
+        Key: "object-for-share",
+      });
+      const objectPresignedUrl = await getSignedUrl(s3Client, command, {
+        expiresIn: 100,
+      });
 
-    ```js
-    import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
-    import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+      console.log(objectPresignedUrl);
+      ```
 
-    const S3_ENDPOINT = "https://{{ s3-storage-host }}";
+    * **Загрузка объекта**
 
-    const ACCESS_KEY_ID = "JK38EXAMP********";
-    const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
+      Пример генерирует подписанный URL для загрузки объекта `object-for-share` в бакет `bucket-with-objects`. URL действителен в течение 100 секунд.
 
-    const s3Client = new S3Client({
-      region: "{{ region-id }}",
-      endpoint: S3_ENDPOINT,
-      credentials: {
-        accessKeyId: ACCESS_KEY_ID,
-        secretAccessKey: SECRET_ACCESS_KEY,
-      },
-    });
+      ```js
+      import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+      import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
-    const command = new GetObjectCommand({
-      Bucket: "bucket-with-objects",
-      Key: "object-for-share",
-    });
-    const objectPresignedUrl = await getSignedUrl(s3Client, command, {
-      expiresIn: 100,
-    });
+      const S3_ENDPOINT = "https://{{ s3-storage-host }}";
 
-    console.log(objectPresignedUrl);
-    ```
+      const ACCESS_KEY_ID = "JK38EXAMP********";
+      const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
+
+      const s3Client = new S3Client({
+        region: "{{ region-id }}",
+        endpoint: S3_ENDPOINT,
+        credentials: {
+          accessKeyId: ACCESS_KEY_ID,
+          secretAccessKey: SECRET_ACCESS_KEY,
+        },
+      });
+
+      const command = new PutObjectCommand({
+        Bucket: "bucket-with-objects",
+        Key: "object-for-share",
+      });
+      const objectPresignedUrl = await getSignedUrl(s3Client, command, {
+        expiresIn: 100,
+      });
+
+      console.log(objectPresignedUrl);
+      ```
+
 {% endlist %}
