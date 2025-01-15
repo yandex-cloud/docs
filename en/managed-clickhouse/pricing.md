@@ -6,7 +6,18 @@ editable: false
 
 In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% note tip %}
+
+
+
+
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=96af30382c92#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+
+
+{% endnote %}
+
+
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

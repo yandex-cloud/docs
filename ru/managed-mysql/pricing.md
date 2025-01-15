@@ -8,7 +8,18 @@ editable: false
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mmy-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=d8ec68402c7c#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
+
+
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

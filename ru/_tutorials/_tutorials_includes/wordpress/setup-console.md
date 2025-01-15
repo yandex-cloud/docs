@@ -24,12 +24,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
-  1. Откройте вкладку **Группы безопасности**.
-  1. Нажмите кнопку **Создать группу**.
-  1. Укажите **Имя** группы: `wordpress`.
-  1. Выберите **Сеть**.
-  1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. Укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** группы: `wordpress`.
+  1. Выберите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}**.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
 
      Направление<br>трафика | Описание | Диапазон<br>портов | Протокол | Тип источника /<br>назначения | Источник /<br>назначение
      --- | --- | --- | --- | --- | ---
@@ -37,13 +37,13 @@
      Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
      Входящий | ext-https | 443 | TCP | CIDR | 0.0.0.0/0
 
-     1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
-     1. Нажмите кнопку **Добавить правило**.
-     1. В открывшемся окне в поле **Диапазон портов** укажите порт, куда будет поступать трафик. Для исходящего трафика не указывайте ничего.
-     1. В поле **Протокол** укажите нужный протокол. Для исходящего трафика оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
-     1. В поле **Назначение** или **Источник** выберите **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите `0.0.0.0/0`.
-     1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
-  1. Нажмите кнопку **Сохранить**.
+     1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите порт, куда будет поступать трафик. Для исходящего трафика не указывайте ничего.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол. Для исходящего трафика оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** введите `0.0.0.0`, в списке после **/** выберите `0`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 

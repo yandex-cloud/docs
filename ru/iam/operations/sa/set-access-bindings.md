@@ -195,7 +195,6 @@
         }
         ```
 
-
     1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
        ```bash
@@ -253,7 +252,6 @@
           --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
-
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -275,7 +273,6 @@
 
      {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью {{ TF }}" %}
 
-
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
@@ -294,7 +291,6 @@
      }
      ...
      ```
-
 
      {% endcut %}
 
@@ -369,7 +365,6 @@
 
     {% endnote %}
 
-
     ```bash
     curl \
       --request POST \
@@ -385,7 +380,6 @@
       }]}' \
       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
     ```
-
 
 {% endlist %}
 
@@ -432,7 +426,6 @@
         --subject userAccount:gfei8n54hmfh********
       ```
 
-
   1. Пользователь может выполнить команду от имени сервисного аккаунта `test-sa` с помощью флага `--impersonate-service-account-id`.
 
       Например, пользователь может получить список виртуальных машин в каталоге `my-folder`:
@@ -464,7 +457,6 @@
         --role iam.serviceAccounts.tokenCreator \
         --subject userAccount:gfei8n54hmfh********
       ```
-
 
 {% endlist %}
 

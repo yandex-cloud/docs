@@ -270,9 +270,13 @@ default:
   lang: en
   lets-encrypt: Let's Encrypt®
   license-manager: License Manager
+  link-adfs: >-
+    https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services
   link-app-android: https://play.google.com/store/apps/details?id=ru.yandex.cloud
   link-app-ios: https://apps.apple.com/ru/app/yandex-cloud/id1515465314
   link-auth-logout: https://auth.yandex.cloud/logout
+  link-azure-ad: https://azure.microsoft.com/en-us/services/active-directory/
+  link-base64: https://en.wikipedia.org/wiki/Base64
   link-ca-jb-2024-1: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/241/yandex-code-assist.zip
   link-ca-jb-2024-2: >-
@@ -307,13 +311,17 @@ default:
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/en/docs
   link-forms-b2b: https://forms.yandex.com/cloud/admin
+  link-keycloak-example: http://keycloak.example.com:8080/realms/master
+  link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
   link-monitoring: https://monitoring.yandex.cloud
   link-org-acl: https://org.yandex.cloud/acl
   link-org-cloud-center: https://center.yandex.cloud/organization
+  link-org-federations: https://org.yandex.cloud/federations
   link-org-main: https://org.yandex.cloud/
   link-org-settings: https://org.yandex.cloud/settings
   link-org-users: https://org.yandex.cloud/users
   link-oslogin-configs: https://storage.yandexcloud.net/oslogin-configs
+  link-passport: https://passport.yandex.com/
   link-passport-login: https://passport.yandex.com/auth
   link-pci-dss-en: >-
     https://storage.yandexcloud.net/yc-compliance/certificates/PCI_DSS_Guide_EN.pdf
@@ -679,6 +687,12 @@ default:
   s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
   s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
   s3-web-host: website.yandexcloud.net
+  saml-limit-display-name: 64 characters
+  saml-limit-email: 256 characters
+  saml-limit-first-name: 64 characters
+  saml-limit-last-name: 64 characters
+  saml-limit-phone: 64 characters
+  saml-limit-thumbnail-photo: 204800 characters
   sample-rfc3339-timestamp: '2006-01-02T15:04:05Z'
   schema-registry-name: Schema Registry
   sd-full-name: Yandex Security Deck
@@ -727,6 +741,7 @@ default:
   subnet-id: b0rcctk2rvtr8efcch64
   subnet-name: default-ru-central1-c
   support-center-name: Support Center
+  support-passport-create: https://yandex.com/support/passport/authorization/registration.html
   sw-full-name: Yandex Workflows
   sw-name: Workflows
   sws-full-name: Yandex Smart Web Security
@@ -801,6 +816,7 @@ default:
   yandex-360: Yandex 360
   yandex-cloud: Yandex Cloud
   yandex-direct: Yandex Direct
+  yandex-domain: yandex.com
   yandex-oauth: Yandex.OAuth
   yandexart-name: YandexART
   yc-compute: yc compute
@@ -8682,6 +8698,7 @@ default:
             label_destination-type-security-group: Security group
             label_egress: Egress
             label_ingress: Ingress
+            label_title: Security groups
           switch_overview: Overview
           switch_route-table: Routing tables
         networks:
