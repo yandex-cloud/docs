@@ -395,7 +395,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 - JavaScript (@aws-sdk/client-s3, @aws-sdk/s3-request-presigner) {#javascript}
     
-    Пример генерирует подписанный URL для скачивания объекта `object-for-share` из бакета `bucket-with-objects`. URL действителен в течение 100 секунд.
+    Пример генерирует подписанный URL для загрузки объекта `object-for-share` в бакет `bucket-with-objects`. URL действителен в течение 100 секунд.
 
     ```js
     import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
