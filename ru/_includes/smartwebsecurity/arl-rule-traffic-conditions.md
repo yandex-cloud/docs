@@ -1,7 +1,7 @@
 В блоке **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}** определите трафик, для анализа которого будет использоваться правило:
 * `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}` — правило будет использоваться для анализа всего трафика.
 * `При условии` — правило будет использоваться для анализа трафика, заданного в поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**:
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` — IP-адрес, диапазон адресов или регион IP-адресов;
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` — IP-адрес, диапазон адресов, регион адресов или [список адресов](../../smartwebsecurity/concepts/lists.md);
     * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` — строка в заголовке HTTP;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}` — путь запроса;
     * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}` — домен, на который пришел запрос;

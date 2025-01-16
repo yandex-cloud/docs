@@ -7,7 +7,7 @@ description: Управляйте подключениями к источник
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ OS }} и {{ TR }} с {{ connection-manager-full-name }}.
+Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }} и {{ TR }} с {{ connection-manager-full-name }}.
 
 ## Интеграция с сервисами управляемых баз данных {#mdb-integration}
 

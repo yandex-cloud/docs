@@ -1,9 +1,9 @@
 ---
-title: Инструкция по изменению настроек кластера {{ RD }} в {{ mrd-full-name }}
-description: Из статьи вы узнаете, как изменить настройки кластера {{ RD }}.
+title: Инструкция по изменению настроек кластера {{ VLK }} в {{ mrd-full-name }}
+description: Из статьи вы узнаете, как изменить настройки кластера {{ VLK }}.
 ---
 
-# Изменение настроек кластера {{ RD }}
+# Изменение настроек кластера {{ VLK }}
 
 После создания кластера вы можете:
 
@@ -17,7 +17,7 @@ description: Из статьи вы узнаете, как изменить на
 * [Увеличить размер хранилища](#change-disk-size).
 
 
-* [Настроить серверы](#change-redis-config) {{ RD }} согласно [документации {{ RD }}](https://valkey.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
+* [Настроить серверы](#change-redis-config) {{ VLK }} согласно [документации {{ VLK }}](https://valkey.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 
@@ -176,7 +176,7 @@ description: Из статьи вы узнаете, как изменить на
 
 ## Настроить использование FQDN вместо IP-адресов {#configure-fqdn-ip-behavior}
 
-Если соответствующая настройка отключена (по умолчанию), то {{ RD }} использует IP-адреса в качестве адресов хостов. Если эта настройка включена, то IP-адрес хоста будет подменяться на его FQDN. Подробнее об этой настройке и сферах ее применения см. в разделе [{#T}](../concepts/network.md#fqdn-ip-setting).
+Если соответствующая настройка отключена (по умолчанию), то {{ VLK }} использует IP-адреса в качестве адресов хостов. Если эта настройка включена, то IP-адрес хоста будет подменяться на его FQDN. Подробнее об этой настройке и сферах ее применения см. в разделе [{#T}](../concepts/network.md#fqdn-ip-setting).
 
 {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
@@ -559,7 +559,7 @@ description: Из статьи вы узнаете, как изменить на
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы увеличить размер хранилища хостов {{ RD }}:
+  Чтобы увеличить размер хранилища хостов {{ VLK }}:
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -574,7 +574,7 @@ description: Из статьи вы узнаете, как изменить на
        --disk-size <размер_хранилища_ГБ>
      ```
 
-     Если все условия выполнены, {{ mrd-short-name }} запустит операцию по увеличению размера дисков хостов {{ RD }}.
+     Если все условия выполнены, {{ mrd-short-name }} запустит операцию по увеличению размера дисков хостов {{ VLK }}.
 
 - {{ TF }} {#tf}
 
@@ -694,7 +694,7 @@ description: Из статьи вы узнаете, как изменить на
 
 {% endlist %}
 
-## Изменить настройки {{ RD }} {#change-redis-config}
+## Изменить настройки {{ VLK }} {#change-redis-config}
 
 Вы можете изменить настройки СУБД для хостов вашего кластера. Все поддерживаемые настройки описаны в разделе [{#T}](../concepts/settings-list.md) и в [справочнике API](../api-ref/Cluster/update.md).
 
@@ -709,7 +709,7 @@ description: Из статьи вы узнаете, как изменить на
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. В разделе **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-  1. Настройте доступные параметры в соответствии с [документацией {{ RD }}](https://valkey.io/documentation).
+  1. Настройте доступные параметры в соответствии с [документацией {{ VLK }}](https://valkey.io/documentation).
   1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
 
 - {{ TF }} {#tf}
@@ -770,9 +770,9 @@ description: Из статьи вы узнаете, как изменить на
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
-                      "updateMask": "configSpec.redisConfig_<версия_{{ RD }}>.<настройка_1>,configSpec.redisConfig_<версия_{{ RD }}>.<настройка_2>,...,configSpec.redisConfig_<версия_{{ RD }}>.<настройка_N>",
+                      "updateMask": "configSpec.redisConfig_<версия_{{ VLK }}>.<настройка_1>,configSpec.redisConfig_<версия_{{ VLK }}>.<настройка_2>,...,configSpec.redisConfig_<версия_{{ VLK }}>.<настройка_N>",
                       "configSpec": {
-                        "redisConfig_<версия_{{ RD }}>": {
+                        "redisConfig_<версия_{{ VLK }}>": {
                           "<настройка_1>": "<значение_1>",
                           "<настройка_2>": "<значение_2>",
                           ...
@@ -786,9 +786,9 @@ description: Из статьи вы узнаете, как изменить на
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-        * `configSpec.redisConfig_<версия_{{ RD }}>` — набор настроек {{ RD }}. Укажите каждую настройку на отдельной строке через запятую.
+        * `configSpec.redisConfig_<версия_{{ VLK }}>` — набор настроек {{ VLK }}. Укажите каждую настройку на отдельной строке через запятую.
 
-            Список версий {{ RD }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
+            Список версий {{ VLK }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -817,14 +817,14 @@ description: Из статьи вы узнаете, как изменить на
                   "cluster_id": "<идентификатор_кластера>",
                   "update_mask": {
                     "paths": [ 
-                      "config_spec.redis_config_<версия_{{ RD }}>.<настройка_1>",
-                      "config_spec.redis_config_<версия_{{ RD }}>.<настройка_2>",
+                      "config_spec.redis_config_<версия_{{ VLK }}>.<настройка_1>",
+                      "config_spec.redis_config_<версия_{{ VLK }}>.<настройка_2>",
                       ...
-                      "config_spec.redis_config_<версия_{{ RD }}>.<настройка_N>"
+                      "config_spec.redis_config_<версия_{{ VLK }}>.<настройка_N>"
                     ]
                   },
                   "config_spec": {
-                    "redis_config_<версия_{{ RD }}>": {
+                    "redis_config_<версия_{{ VLK }}>": {
                       "<настройка_1>": "<значение_1>",
                       "<настройка_2>": "<значение_2>",
                       ...
@@ -840,9 +840,9 @@ description: Из статьи вы узнаете, как изменить на
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-        * `config_spec.redis_config_<версия_{{ RD }}>` — набор настроек {{ RD }}. Укажите каждую настройку на отдельной строке через запятую.
+        * `config_spec.redis_config_<версия_{{ VLK }}>` — набор настроек {{ VLK }}. Укажите каждую настройку на отдельной строке через запятую.
 
-            Список версий {{ RD }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
+            Список версий {{ VLK }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

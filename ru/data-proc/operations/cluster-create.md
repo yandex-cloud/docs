@@ -139,6 +139,8 @@ description: Следуя данной инструкции, вы сможете
 
         В зависимости от выбранного формата либо выберите из списка бакет с нужным именем, либо укажите имя бакета вручную. Его можно получить со [списком бакетов в каталоге](../../storage/operations/buckets/get-info.md#get-information).
 
+        [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-name }} должен иметь разрешение `READ и WRITE` для этого бакета.
+
      * Формат, в котором будет указана сеть для кластера {{ dataproc-name }}.
      * Сеть для кластера.
      * Группы безопасности, в которых имеются необходимые разрешения.
@@ -370,13 +372,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Создайте конфигурационный файл с описанием облачной сети и подсетей.
+  1. Создайте конфигурационный файл с описанием облачной сети, подсетей, группы безопасности и NAT-шлюза.
 
      Кластер {{ dataproc-name }} размещается в облачной сети. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
 
      Хосты кластера {{ dataproc-name }} размещаются в подсетях выбранной облачной сети. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
 
-     Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
+     Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью, группа безопасности, NAT-шлюз и таблица маршрутизации:
 
      ```hcl
      resource "yandex_vpc_network" "test_network" {
@@ -388,12 +390,63 @@ description: Следуя данной инструкции, вы сможете
        zone           = "<зона_доступности>"
        network_id     = yandex_vpc_network.test_network.id
        v4_cidr_blocks = ["<подсеть>"]
+       route_table_id = yandex_vpc_route_table.data-processing-rt.id
+     }
+
+     resource "yandex_vpc_gateway" "data-processing-gateway" {
+       name = "data-processing-gateway"
+       shared_egress_gateway {}
+     }
+
+     resource "yandex_vpc_route_table" "data-processing-rt" {
+       network_id = "${yandex_vpc_network.test-network.id}"
+
+       static_route {
+         destination_prefix = "0.0.0.0/0"
+         gateway_id         = "${yandex_vpc_gateway.data-processing-gateway.id}"
+       }
+     }
+
+     resource "yandex_vpc_security_group" "data-processing-sg" {
+       description = "Security group for DataProc"
+       name        = "data-processing-security-group"
+       network_id  = yandex_vpc_network.data-proc-network.id
+
+       egress {
+         description    = "Allow outgoing HTTPS traffic"
+         protocol       = "TCP"
+         port           = 443
+         v4_cidr_blocks = ["0.0.0.0/0"]
+       }
+
+       ingress {
+         description       = "Allow any incomging traffic within the security group"
+         protocol          = "ANY"
+         from_port         = 0
+         to_port           = 65535
+         predefined_target = "self_security_group"
+       }
+
+       egress {
+         description       = "Allow any outgoing traffic within the security group"
+         protocol          = "ANY"
+         from_port         = 0
+         to_port           = 65535
+         predefined_target = "self_security_group"
+       }
+
+       egress {
+         description    = "Allow outgoing traffic to NTP servers for time synchronization"
+         protocol       = "UDP"
+         port           = 123
+         v4_cidr_blocks = ["0.0.0.0/0"]
+       }
      }
      ```
 
 
   1. Создайте конфигурационный файл с описанием следующих ресурсов:
-      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-name }}.
+      * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-name }} и бакету {{ objstorage-name }}.
       * Сервисный аккаунт для создания бакета {{ objstorage-name }}.
       * [Статический ключ](../../iam/concepts/authorization/access-key.md).
       * Бакет {{ objstorage-name }} для хранения результатов выполнения [заданий](../concepts/jobs.md).
@@ -421,9 +474,9 @@ description: Следуя данной инструкции, вы сможете
        description = "<описание_сервисного_аккаунта>"
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "storage-editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "storage-admin" {
        folder_id = "<идентификатор_каталога>"
-       role      = "storage.editor"
+       role      = "storage.admin"
        member    = "serviceAccount:${yandex_iam_service_account.bucket_sa.id}"
      }
 
@@ -433,8 +486,14 @@ description: Следуя данной инструкции, вы сможете
 
      resource "yandex_storage_bucket" "data_bucket" {
        depends_on = [
-         yandex_resourcemanager_folder_iam_member.storage-editor
+         yandex_resourcemanager_folder_iam_member.storage-admin
        ]
+
+       grant {
+         id          = yandex_iam_service_account.data_proc_sa.id
+         type        = "CanonicalUser"
+         permissions = ["READ","WRITE"]
+       }
 
        bucket     = "<имя_бакета>"
        access_key = yandex_iam_service_account_static_access_key.bucket_sa_static_key.access_key
@@ -450,14 +509,18 @@ description: Следуя данной инструкции, вы сможете
 
      ```hcl
      resource "yandex_dataproc_cluster" "data_cluster" {
-       bucket              = "<имя_бакета>"
+       bucket              = "${yandex_storage_bucket.data_bucket.bucket}"
        name                = "<имя_кластера>"
        description         = "<описание_кластера>"
        environment         = "<окружение_кластера>"
        service_account_id  = yandex_iam_service_account.data_proc_sa.id
        zone_id             = "<зона_доступности>"
-       security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
+       security_group_ids  = [yandex_vpc_security_group.data-processing-sg.id]
        deletion_protection = <защита_от_удаления_кластера>
+       depends_on = [
+         yandex_resourcemanager_folder_iam_member.dataproc-provisioner,
+         yandex_resourcemanager_folder_iam_member.dataproc-agent
+       ]
 
        cluster_config {
          version_id = "<версия_образа>"
@@ -470,7 +533,7 @@ description: Следуя данной инструкции, вы сможете
              ...
            }
            ssh_public_keys = [
-             file("${file("<путь_к_открытому_SSH-ключу>")}")
+             file("<путь_к_открытому_SSH-ключу>")
            ]
          }
 

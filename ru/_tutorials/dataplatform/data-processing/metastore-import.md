@@ -134,7 +134,9 @@
         * [NAT-шлюз](../../../vpc/concepts/gateways.md) и таблица маршрутизации, необходимые для работы {{ dataproc-name }};
         * [подсеть](../../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../../vpc/concepts/security-groups.md) для {{ dataproc-name }} и {{ metastore-name }};
-        * [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md);
+        * [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера {{ dataproc-name }};
+        * сервисный аккаунт, необходимый для создания бакета {{ objstorage-name }};
+        * [статический ключ доступа](../../../iam/concepts/authorization/access-key.md) для создания [бакета {{ objstorage-full-name }}](../../../storage/concepts/bucket.md);
         * бакет;
         * два кластера {{ dataproc-name }}.
 

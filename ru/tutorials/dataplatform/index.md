@@ -133,7 +133,7 @@ description: На странице представлен список прак�
 * [{#T}](postgresql-to-opensearch.md)
 
 
-## {{ RD }} {#redis}
+## {{ VLK }} {#redis}
 
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)

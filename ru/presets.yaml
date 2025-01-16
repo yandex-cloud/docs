@@ -60,6 +60,8 @@ default:
   backup-short-name: Cloud Backup
   baremetal-full-name: Yandex BareMetal
   baremetal-name: BareMetal
+  bash-cli-ver: bash-2204
+  bash-full-ver: Bash 22.04
   billing-docs-email: cloud_docs@support.yandex.ru
   billing-interface: Интерфейс Yandex Cloud Billing
   billing-name: Yandex Cloud Billing
@@ -203,6 +205,8 @@ default:
     docs: https://docs.gitlab.com
   GLA: GitLab Agent
   GLR: GitLab Runner
+  go-cli-ver: golang121
+  go-full-ver: Go 1.21
   google-looker: Looker Studio
   GP: Greenplum®
   gp:
@@ -248,6 +252,8 @@ default:
   iot-full-name: Yandex IoT Core
   iot-name: Yandex IoT Core
   iot-short-name: Yandex IoT Core
+  java-cli-ver: java21
+  java-full-ver: Java 21
   jlab: Jupyter
   k8s: Kubernetes
   k8s-api-link: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/
@@ -267,6 +273,8 @@ default:
   kms-full-name: Yandex Key Management Service
   kms-name: Key Management Service
   kms-short-name: KMS
+  kotlin-cli-ver: kotlin20
+  kotlin-full-ver: Kotlin 2.0
   kraft-name: Apache Kafka® Raft
   kraft-short-name: KRaft
   lang: ru
@@ -486,6 +494,8 @@ default:
   network-load-balancer-name: Network Load Balancer
   network-load-balancer-short-name: Network Load Balancer
   network-name: default
+  nodejs-cli-ver: nodejs18
+  nodejs-full-ver: Node.js 18
   objstorage-full-name: Yandex Object Storage
   objstorage-name: Object Storage
   objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
@@ -518,6 +528,8 @@ default:
         latest: '17'
         str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c и 17
   pgadmin: "pgAdmin\_4"
+  php-cli-ver: php82
+  php-full-ver: PHP 8.2
   port-any: 0-65535
   port-http: 80
   port-https: 443
@@ -547,7 +559,9 @@ default:
   price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
   prometheus-name: Prometheus
   promql-name: PromQL
-  RD: Valkey™
+  python-cli-ver: python312
+  python-full-ver: Python 3.12
+  RD: Redis
   region-id: ru-central1
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
@@ -808,6 +822,7 @@ default:
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR
+  VLK: Valkey™
   vpc-full-name: Yandex Virtual Private Cloud
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
@@ -1765,9 +1780,9 @@ default:
           250|string: "500,00\_₸"
   sku|KZT|speechkit:
     stt_long_running_deferred:
-      v1|string: "0,0125\_₸"
+      v1|number: 0.0125
     stt_long_running:
-      v1|string: "0,05\_₸"
+      v1|number: 0.05
     stt:
       v1|string: "0,80\_₸"
     tts_gpu:
@@ -3033,9 +3048,9 @@ default:
           250|string: "100,00\_₽"
   sku|RUB|speechkit:
     stt_long_running_deferred:
-      v1|string: "0,0025\_₽"
+      v1|number: 0.0025
     stt_long_running:
-      v1|string: "0,01\_₽"
+      v1|number: 0.01
     stt:
       v1|string: "0,16\_₽"
     tts_gpu:
@@ -4285,9 +4300,9 @@ default:
           250|string: "0,800000\_$"
   sku|USD|speechkit:
     stt_long_running_deferred:
-      v1|string: "0,000020\_$"
+      v1|number: 0.00002
     stt_long_running:
-      v1|string: "0,000080\_$"
+      v1|number: 0.00008
     stt:
       v1|string: "0,001280\_$"
     tts_gpu:
@@ -5451,6 +5466,7 @@ default:
             section_grants: Гранты
           dashboard-info:
             company_label_edit_ru: Редактировать данные в Яндекс Балансе
+            title_main: Информация об аккаунте
           dashboard-overview:
             button_refill: Пополнить баланс
             popup-refill_button_company-action: Выписать счет
@@ -7332,6 +7348,7 @@ default:
             label_monitoring: Monitoring
             label_postbox: Cloud Postbox
             label_products: Все сервисы
+            label_schema-registry: Schema Registry
             label_search-api: Yandex Search API
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
@@ -8162,6 +8179,16 @@ default:
         switch_backups: Резервные копии
         switch_list: Кластеры
         switch_operations: Операции
+      schema-registry:
+        label_compare: Сравнить
+        label_compare-mode-side-by-side: Две версии
+        label_compare-mode-single: Последняя версия
+        label_create-namespace-action: Создать пространство имён
+        label_create-subject-action: Создать субъект
+        label_schemas: Схемы
+        label_subjects: Субъекты
+        label_upload-schema-action: Загрузить схему
+        label_versions: Версии
       search-api:
         overview:
           label_button-edit: Редактировать

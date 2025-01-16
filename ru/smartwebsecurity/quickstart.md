@@ -215,7 +215,7 @@ ARL позволяет устанавливать лимиты на количе
   1. В блоке **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}** выберите `Весь трафик` или `При условии`.
   1. Чтобы задать [условия на трафик](concepts/conditions.md), в списке **Условия** выберите один или несколько пунктов:
 
-      * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` — IP-адрес, диапазон адресов или регион IP-адресов;
+      * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` — IP-адрес, диапазон адресов, регион IP-адресов или [список адресов](concepts/lists.md);
       * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` — строка в заголовке HTTP;            
       * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}` — домен, на который пришел запрос;
       * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}` — метод запроса;

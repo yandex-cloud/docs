@@ -21,6 +21,7 @@
 
 * [{#T}](ml-models.md)
 * [{#T}](chat-bot.md)
+* [{#T}](llm.md)
 
 ## Облачные вычисления и сервера {#servers}
 

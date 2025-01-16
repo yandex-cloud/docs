@@ -86,6 +86,7 @@
       * [подсеть](../../../vpc/concepts/network.md#subnet);
       * [группа безопасности](../../../vpc/concepts/security-groups.md), необходимая для кластеров {{ dataproc-name }} и {{ mkf-name }};
       * [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера {{ dataproc-name }};
+      * сервисный аккаунт для управления бакетом {{ objstorage-full-name }};
       * [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md);
       * [статический ключ доступа](../../../iam/concepts/authorization/access-key.md), необходимый для выдачи сервисному аккаунту нужных разрешений на бакет;
       * кластер {{ dataproc-name }};

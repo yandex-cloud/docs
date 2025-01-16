@@ -29,6 +29,8 @@ items:
         href: ml-models.md
       - name: Чат-бот
         href: chat-bot.md
+      - name: Большая языковая модель
+        href: llm.md
   - name: Облачные вычисления и сервера
     items:
       - name: LAMP и LEMP
