@@ -33,7 +33,7 @@
   * [{{ CH }}](../managed-clickhouse/quickstart.md).
   * [{{ MG }}](../managed-mongodb/quickstart.md).
   * [{{ MY }}](../managed-mysql/quickstart.md).
-  * [{{ RD }}](../managed-redis/quickstart.md).
+  * [{{ VLK }}](../managed-redis/quickstart.md).
   * [{{ PG }}](../managed-postgresql/quickstart.md).
   
   * [{{ OS }}](../managed-opensearch/quickstart.md).

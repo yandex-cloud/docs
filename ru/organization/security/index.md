@@ -60,6 +60,10 @@
 
 {% include [organizationmanager-users-viewer](../../_roles/organization-manager/users/viewer.md) %}
 
+#### organization-manager.passportUserAdmin {#organization-manager-passportUserAdmin}
+
+{% include [organizationmanager-passportUserAdmin](../../_roles/organization-manager/passportUserAdmin.md) %}
+
 ### Примитивные роли {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

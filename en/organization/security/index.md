@@ -60,6 +60,10 @@ You can assign a role for individual resources within the service using the [{{ 
 
 {% include [organizationmanager-users-viewer](../../_roles/organization-manager/users/viewer.md) %}
 
+#### organization-manager.passportUserAdmin {#organization-manager-passportUserAdmin}
+
+{% include [organizationmanager-passportUserAdmin](../../_roles/organization-manager/passportUserAdmin.md) %}
+
 ### Primitive roles {#primitive-roles}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}

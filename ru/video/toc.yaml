@@ -64,6 +64,8 @@ items:
             href: operations/streams/add-thumbnail.md
           - name: Получить адрес сервера и ключ трансляции
             href: operations/streams/get-key.md
+          - name: Рекомендации по настройке OBS Studio
+            href: operations/streams/obs-config-help.md
           - name: Начать трансляцию
             href: operations/streams/start.md
           - name: Получить код вставки или ссылку

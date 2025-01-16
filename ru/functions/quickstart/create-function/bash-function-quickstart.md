@@ -44,11 +44,9 @@
 
     Создать функцию можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Создать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
-
 
 {% endlist %}
 
@@ -77,7 +75,8 @@
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию `bash-function`.
     1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Выберите среду выполнения `bash` и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Выберите среду выполнения `{{ bash-full-ver }}`.
+    1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Задайте параметры версии:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** — прикрепите файл `hello-sh.zip`.
@@ -95,17 +94,15 @@
 
     Чтобы создать версию функции, выполните команду:
 
-
     ```
     yc serverless function version create \
       --function-name=bash-function \
-      --runtime bash \
+      --runtime {{ bash-cli-ver }} \
       --entrypoint hello.sh \
       --memory 128m \
       --execution-timeout 3s \
       --source-path ./hello-sh.zip
     ```
-  
 
     Где:
 
@@ -118,13 +115,12 @@
 
     Результат:
 
-
     ```
     done (1s)
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
-    runtime: bash
+    runtime: {{ bash-cli-ver }}
     entrypoint: hello.sh
     resources:
         memory: "134217728"
@@ -135,17 +131,14 @@
     - $latest
     log_group_id: ckg3qh8h363p********
     ```
-  
 
 - API {#api}
 
     Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Создать версию функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
-
 
 {% endlist %}
 

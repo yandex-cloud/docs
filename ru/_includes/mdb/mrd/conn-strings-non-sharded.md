@@ -8,22 +8,22 @@
 
     **Подключение с помощью Sentinel**:
 
-    1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ RD }}:
+    1. Получите адрес хоста-мастера, используя Sentinel и любой хост {{ VLK }}:
 
         ```bash
         redis-cli \
-            -h <FQDN_любого_хоста_{{ RD }}> \
+            -h <FQDN_любого_хоста_{{ VLK }}> \
             -p {{ port-mrd-sentinel }} \
             sentinel \
-            get-master-addr-by-name <имя_кластера_{{ RD }}> | head -n 1
+            get-master-addr-by-name <имя_кластера_{{ VLK }}> | head -n 1
         ```
 
     1. Подключитесь к хосту с этим адресом:
 
         ```bash
         redis-cli \
-            -h <адрес_хоста-мастера_{{ RD }}> \
-            -a <пароль_{{ RD }}>
+            -h <адрес_хоста-мастера_{{ VLK }}> \
+            -a <пароль_{{ VLK }}>
         ```
 
     **Подключение напрямую к мастеру**:
@@ -72,10 +72,10 @@
     	conn := redis.NewUniversalClient(
     		&redis.UniversalOptions{
     			Addrs: []string{
-    				"<FQDN_хоста_1_{{ RD }}>:{{ port-mrd-sentinel }}",
+    				"<FQDN_хоста_1_{{ VLK }}>:{{ port-mrd-sentinel }}",
     				...
-    				"<FQDN_хоста_N_{{ RD }}>:{{ port-mrd-sentinel }}"},
-    			MasterName: "<имя_кластера_{{ RD }}>",
+    				"<FQDN_хоста_N_{{ VLK }}>:{{ port-mrd-sentinel }}"},
+    			MasterName: "<имя_кластера_{{ VLK }}>",
     			Password:   "<пароль>",
     			ReadOnly:   false,
     		},
@@ -212,13 +212,13 @@
 
     public class App {
       public static void main(String[] args) {
-        String redisName = "<имя_кластера_{{ RD }}>";
+        String redisName = "<имя_кластера_{{ VLK }}>";
         String redisPass = "<пароль>";
 
         HashSet sentinels = new HashSet();
-        sentinels.add("<FQDN_хоста_1_{{ RD }}>:{{ port-mrd-sentinel }}");
+        sentinels.add("<FQDN_хоста_1_{{ VLK }}>:{{ port-mrd-sentinel }}");
         ...
-        sentinels.add("<FQDN_хоста_N_{{ RD }}>:{{ port-mrd-sentinel }}");
+        sentinels.add("<FQDN_хоста_N_{{ VLK }}>:{{ port-mrd-sentinel }}");
 
         try {
           JedisSentinelPool pool = new JedisSentinelPool(redisName, sentinels);
@@ -330,11 +330,11 @@
 
     const conn = new Redis({
         sentinels: [
-            { host: "<FQDN_хоста_1_{{ RD }}>", port: {{ port-mrd-sentinel }} },
+            { host: "<FQDN_хоста_1_{{ VLK }}>", port: {{ port-mrd-sentinel }} },
             ...
-            { host: "<FQDN_хоста_N_{{ RD }}>", port: {{ port-mrd-sentinel }} },
+            { host: "<FQDN_хоста_N_{{ VLK }}>", port: {{ port-mrd-sentinel }} },
         ],
-        name: "<имя_кластера_{{ RD }}>",
+        name: "<имя_кластера_{{ VLK }}>",
         password: "<пароль>"
     });
 
@@ -450,13 +450,13 @@
     Predis\Autoloader::register();
 
     $sentinels = [
-        "<FQDN_хоста_1_{{ RD }}>:{{ port-mrd-sentinel }}>",
+        "<FQDN_хоста_1_{{ VLK }}>:{{ port-mrd-sentinel }}>",
         ...
-        "<FQDN_хоста_N_{{ RD }}>:{{ port-mrd-sentinel }}>",
+        "<FQDN_хоста_N_{{ VLK }}>:{{ port-mrd-sentinel }}>",
     ];
     $options = [
         "replication" => "sentinel",
-        "service" => "<имя_кластера_{{ RD }}>",
+        "service" => "<имя_кластера_{{ VLK }}>",
         "parameters" => [
             "password" => "<пароль>",
         ],
@@ -554,11 +554,11 @@ pip3 install redis
     from redis.sentinel import Sentinel
 
     sentinels = [
-        "<FQDN_хоста_1_{{ RD }}>",
+        "<FQDN_хоста_1_{{ VLK }}>",
         ...
-        "<FQDN_хоста_N_{{ RD }}>"
+        "<FQDN_хоста_N_{{ VLK }}>"
     ]
-    name = "<имя_кластера_{{ RD }}>"
+    name = "<имя_кластера_{{ VLK }}>"
     pwd = "<пароль>"
 
     sentinel = Sentinel([(h, {{ port-mrd-sentinel }}) for h in sentinels], socket_timeout=0.1)
@@ -629,13 +629,13 @@ pip3 install redis
     require 'redis'
 
     SENTINELS = [
-      { host: '<FQDN_хоста_1_{{ RD }}>', port: {{ port-mrd-sentinel }} },
+      { host: '<FQDN_хоста_1_{{ VLK }}>', port: {{ port-mrd-sentinel }} },
       ...
-      { host: '<FQDN_хоста_N_{{ RD }}>', port: {{ port-mrd-sentinel }} }
+      { host: '<FQDN_хоста_N_{{ VLK }}>', port: {{ port-mrd-sentinel }} }
     ]
 
     conn = Redis.new(
-      host: '<имя_кластера_{{ RD }}>',
+      host: '<имя_кластера_{{ VLK }}>',
       sentinels: SENTINELS,
       role: 'master',
       password: '<пароль>'

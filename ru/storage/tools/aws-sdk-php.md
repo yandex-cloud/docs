@@ -36,28 +36,44 @@ description: Из статьи вы узнаете, что такое AWS SDK д
    
    Подробнее о расположении и названии конфигурационного файла Apache для разных ОС см. на [Apache HTTP Server Wiki](https://cwiki.apache.org/confluence/display/HTTPD/DistrosDefaultLayout).
 
-Также вы можете использовать вместо файла `.aws/credentials` переменные среды `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY`.
+Вместо файла `.aws/credentials` вы также можете использовать переменные среды `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY`.
 
 Для доступа к {{ objstorage-name }} используйте адрес `{{ s3-storage-host }}`.
 
 ## Примеры кода {#code-examples}
 
-Список имен бакетов:
+{% list tabs %}
 
-```php
-// Предполагается, что AWS SDK установлен через Composer
-require '/path/to/vendor/autoload.php';
-use Aws\S3\S3Client;
+- Список имен бакетов
 
-$s3 = new S3Client([
-    'version' => 'latest',
-    'endpoint' => 'https://{{ s3-storage-host }}',
-    'region' => '{{ region-id }}',
-]);
-$buckets = $s3->listBuckets();
-foreach ($buckets['Buckets'] as $bucket) {
-    echo $bucket['Name'] . "\n";
-}
-```
+  Не забудьте указать путь к вашему проекту в строке с подключением файла `autoload.php`:
+
+  ```php
+  <?php
+
+  // Предполагается, что AWS SDK установлен через Composer
+
+  require "<путь_к_проекту>/vendor/autoload.php";
+  use Aws\S3\S3Client;
+
+  $s3 = new S3Client([
+      "version" => "latest",
+      "endpoint" => "https://storage.yandexcloud.net",
+      "region" => "ru-central1",
+  ]);
+
+  $buckets = $s3->listBuckets();
+  $bucket_count = 1;
+
+  echo "<b>Well, here are your buckets:</b></br></br>";
+  foreach ($buckets["Buckets"] as $bucket) {
+      echo $bucket_count . ". " . $bucket["Name"] . "</br>";
+      $bucket_count++;
+  }
+
+  ?>
+  ```
+
+{% endlist %}
 
 Также см. [примеры кода](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html) и [справочник PHP API](https://docs.aws.amazon.com/aws-sdk-php/v3/api/index.html) в документации AWS.
