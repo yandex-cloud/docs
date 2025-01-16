@@ -354,7 +354,7 @@ default:
   lockbox-full-name: Yandex Lockbox
   lockbox-name: Yandex Lockbox
   lockbox-short-name: Lockbox
-  login-example: login@yandex.ru
+  login-example: login@yandex.com
   lora: LoRA
   m1-2xlarge: m1.2xlarge (16 vCPU, 128 GB)
   m1-3xlarge: m1.3xlarge (24 vCPU, 192 GB)
@@ -1758,9 +1758,9 @@ default:
           250|string: ₸500.00
   sku|KZT|speechkit:
     stt_long_running_deferred:
-      v1|string: ₸0.0125
+      v1|number: 0.0125
     stt_long_running:
-      v1|string: ₸0.05
+      v1|number: 0.05
     stt:
       v1|string: ₸0.80
     tts_gpu:
@@ -3026,9 +3026,9 @@ default:
           250|string: ₽100.00
   sku|RUB|speechkit:
     stt_long_running_deferred:
-      v1|string: ₽0.0025
+      v1|number: 0.0025
     stt_long_running:
-      v1|string: ₽0.01
+      v1|number: 0.01
     stt:
       v1|string: ₽0.16
     tts_gpu:
@@ -4278,9 +4278,9 @@ default:
           250|string: $0.800000
   sku|USD|speechkit:
     stt_long_running_deferred:
-      v1|string: $0.000020
+      v1|number: 0.00002
     stt_long_running:
-      v1|string: $0.000080
+      v1|number: 0.00008
     stt:
       v1|string: $0.001280
     tts_gpu:
@@ -5442,6 +5442,7 @@ default:
             section_grants: Grants
           dashboard-info:
             company_label_edit_ru: Edit data in Yandex Balance
+            title_main: Account information
           dashboard-overview:
             button_refill: Top up account
             popup-refill_button_company-action: Issue receipt
@@ -7321,6 +7322,7 @@ default:
             label_monitoring: Monitoring
             label_postbox: Cloud Postbox
             label_products: All services
+            label_schema-registry: Schema Registry
             label_search-api: Yandex Search API
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
@@ -8151,6 +8153,16 @@ default:
         switch_backups: Backups
         switch_list: Clusters
         switch_operations: Operations
+      schema-registry:
+        label_compare: Compare
+        label_compare-mode-side-by-side: Two versions
+        label_compare-mode-single: Latest version
+        label_create-namespace-action: Create a namespace
+        label_create-subject-action: Create subject
+        label_schemas: Schemas
+        label_subjects: Subjects
+        label_upload-schema-action: Load a schema
+        label_versions: Versions
       search-api:
         overview:
           label_button-edit: Edit

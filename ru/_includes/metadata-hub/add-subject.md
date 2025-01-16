@@ -1,5 +1,5 @@
-1. На панели слева выберите ![image](../../_assets/console-icons/branches-down.svg) **Схемы**.
-1. Нажмите кнопку **Загрузить схему**.
+1. На панели слева выберите ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.schema-registry.label_schemas }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.
 1. Выберите способ загрузки схемы в новый субъект и укажите следующие параметры:
     * **Имя** — уникальное имя субъекта;
     * Опционально добавьте описание подключения и метку;
@@ -16,4 +16,4 @@
 1. Если схема ссылается на другую схему, то в разделе **Референсы** нажмите ![add](../../_assets/console-icons/plus.svg) и введите имя [референса](../../metadata-hub/concepts/schema-registry.md#reference), имя субъекта, под которым зарегистрирована схема для ссылки, и версию схемы зарегистрированного субъекта.
 1. Выберите **Нормализация** для применения [нормализации схемы данных](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#schema-normalization).
 1. Если вы хотите пропустить проверку совместимости схем, выберите соответствующую опцию.
-1. Нажмите **Загрузить схему**.
+1. Нажмите **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.

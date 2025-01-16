@@ -4,7 +4,7 @@
 
 Где:
 * 720 — количество часов в 30 днях.
-* {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.redis.v3.ram|number }}) %} — стоимость часа работы хостов {{ RD }}.
-* 3 — количество хостов {{ RD }}.
+* {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.redis.v3.ram|number }}) %} — стоимость часа работы хостов {{ VLK }}.
+* 3 — количество хостов {{ VLK }}.
 * 100 — объем хранилища на сетевых SSD-дисках (в гигабайтах).
 * {{ sku|KZT|mdb.cluster.network-nvme.redis|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.

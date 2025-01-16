@@ -14,6 +14,57 @@
 
   1. Нажмите **{{ ui-key.yacloud.iam.cloud.edit.popup-edit-cloud_button_save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  1. Посмотрите описание команды для изменения облака:
+
+      ```bash
+      yc resource-manager cloud update --help
+      ```
+
+  1. Посмотрите список доступных облаков:
+
+      ```bash
+      yc resource-manager cloud list
+      ```
+
+      Результат:
+
+      ```text
+      +----------------------+------------------+----------------------+--------+
+      |          ID          |       NAME       |   ORGANIZATION ID    | LABELS |
+      +----------------------+------------------+----------------------+--------+
+      | b1go33ek97iq******** | my-cloud         | bpf2c65rqcl8******** |        |
+      | b1gbi30tq0m9******** | my-new-cloud     | bpfaidqca8vd******** |        |
+      +----------------------+------------------+----------------------+--------+
+      ```
+
+  1. Выполните команду, чтобы переименовать облако:
+
+      ```bash
+      yc resource-manager cloud update \
+        --name <текущее_имя_облака> \
+        --new-name <новое_имя_облака>
+      ```
+
+      Где:
+
+      * `--name` — текущее имя облака, которое требуется изменить. Вместо имени облака вы можете передать его [идентификатор](../../../resource-manager/operations/cloud/get-id.md) в параметре `--id`.
+      * `--new-name` — новое имя облака.
+
+          {% include [name-format.md](../../../_includes/name-format.md) %}
+
+      Результат:
+
+      ```text
+      id: b1go33ek97iq********
+      created_at: "2024-12-10T09:25:22Z"
+      name: my-old-cloud
+      organization_id: bpf2c65rqcl8********
+      ```
+
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}

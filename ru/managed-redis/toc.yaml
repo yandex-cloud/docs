@@ -15,7 +15,7 @@ items:
             href: operations/cluster-create.md
           - name: Изменение настроек кластера
             href: operations/update.md
-          - name: Обновление версии {{ RD }}
+          - name: Обновление версии {{ VLK }}
             href: operations/cluster-version-update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
@@ -89,7 +89,7 @@ items:
         href: concepts/storage.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
-      - name: Настройки {{ RD }}
+      - name: Настройки {{ VLK }}
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md

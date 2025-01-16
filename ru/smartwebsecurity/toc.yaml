@@ -61,6 +61,8 @@ items:
             href: operations/arl-rule-update.md
           - name: Удалить правило
             href: operations/arl-rule-delete.md
+      - name: Управление списками адресов
+        href: operations/list-create.md
       - name: Посмотреть операции с профилями
         href: operations/operation-logs.md
       - name: Настроить мониторинг
@@ -112,6 +114,8 @@ items:
         href: concepts/rules.md
       - name: Условия
         href: concepts/conditions.md
+      - name: Списки
+        href: concepts/lists.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

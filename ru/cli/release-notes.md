@@ -79,7 +79,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * В команды `yc managed-redis cluster create`, `yc managed-redis cluster restore` и `yc managed-redis cluster update-config` добавлены параметры:
   * `use-luajit`;
@@ -162,7 +162,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * В команды: `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` добавлены параметры:
   * `--lua-time-limit`,
@@ -266,7 +266,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * В командах `yc managed-greenplum cluster create` и `yc managed-greenplum cluster restore` добавлена поддержка опций `--master-host-group-ids` и `--segment-host-group-ids` для указания, на какие группы выделенных хостов размещать хосты мастера и сегментов {{ GP }}.
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Добавлена команда `yc managed-redis backup delete` для удаления бэкапов.
 * Изменена версия {{ RD }} по умолчанию на 7.2 в связи с окончанием поддержки 6.2 и 7.0.
@@ -320,7 +320,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `--close-connection` — закрытие соединения после каждого запроса.
   * `--share-connection` — возможность использования соединения несколькими запросами.
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * В команды `yc managed-redis cluster [ create | update | restore ]` добавлен параметр `--websql-access`, который позволяет установить в {{ RD }} доступ через {{ websql-name }}.
 
@@ -372,7 +372,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * В команды `yc managed-mongodb cluster create` и `yc managed-mongodb cluster update` добавлен параметр `--disk-size-autoscaling` для включения автоматического масштабирования диска.
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * В командах `yc managed-redis cluster create` и `yc managed-redis cluster update` для `--disk-size-autoscaling` изменены единицы измерения `disk-size-limit` с байт на гигабайты.
 
@@ -458,7 +458,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * В команды `yc managed-redis cluster create` и `yc managed-redis cluster update` добавлен параметр `--disk-size-autoscaling` для включения автоматического масштабирования диска.
 
@@ -1105,9 +1105,9 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
-* Унифицировали конфигурационные параметры кластеров {{ mrd-name }} для разных версий {{ RD }}.
+* Унифицировали конфигурационные параметры кластеров Managed Service for Redis для разных версий {{ RD }}.
 
 **{{ mgp-name }}**
 
@@ -1358,7 +1358,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * В команде `{{ yc-mdb-my }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
 
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * В команде `{{ yc-mdb-rd }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
 
@@ -1541,7 +1541,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлена поддержка {{ KF }} версий 3.0, 3.1 и 3.2.
 
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Прекращена поддержка {{ RD }} версий 5.0 и 6.0.
 
@@ -1577,7 +1577,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * В команды `yc managed-redis cluster create`, `yc managed-redis cluster restore`,
   `yc managed-redis hosts add`, `yc managed-redis hosts update`, `yc managed-redis shards add` добавлены флаги:
@@ -1679,7 +1679,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * В группу команд `yc managed-redis cluster` для `create`, `restore`, `update` добавлены флаги `--client-output-buffer-limit-normal` и `--client-output-buffer-limit-pubsub` (см. описание в redis.conf). 
 
@@ -1831,7 +1831,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Параметр `--persistence-mode`, который позволяет выбрать режим персистентности кластера {{ RD }}, добавлен в команды:
 
@@ -2071,7 +2071,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * В команду `yc managed-redis cluster start-failover` добавлен параметр `--hostnames` для указания хостов кластера (в том числе шардированного), с которых нужно переключить мастер.
 
@@ -2133,7 +2133,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `--sls-provisioned-rcu`
 
 
-##### {{ mrd-name }}
+##### Managed Service for Redis
 
 * Значение параметра `--redis-version` по умолчанию в команде `yc managed-redis cluster create` изменено на 6.2.
 
@@ -2221,7 +2221,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mms-name }}**
+**{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, Managed Service for Redis, {{ mms-name }}**
 
 * Команды `yc <имя сервиса управляемой БД> cluster create`, `yc <имя сервиса управляемой БД> cluster update`.
 
@@ -2236,7 +2236,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Добавлено поле `backup-retain-period-days`, показывающее сколько дней хранятся автоматические резервные копии.
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Добавлена поддержка {{ RD }} версии 6.2.
 
@@ -2373,7 +2373,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Добавлены флаги `--num-partitions` и `--default-replication-factor` для задания и изменения конфигурационных настроек брокеров {{ KF }}.
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Команды `yc managed-redis cluster create\update`.
 
@@ -2413,7 +2413,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Команда `yc managed-redis cluster create`.
 
@@ -2512,7 +2512,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Добавлена роль `admin`, позволяющая включить управление топиками кластера {{ KF }} через AdminAPI.
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Команда `yc managed-redis cluster create`.
 
@@ -2609,7 +2609,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mmy-name }}, {{ mpg-name }}, {{ mch-name }}, {{ mrd-name }}, {{ mmg-name }}, {{ mkf-name }}**
+**{{ mmy-name }}, {{ mpg-name }}, {{ mch-name }}, Managed Service for Redis, {{ mmg-name }}, {{ mkf-name }}**
 
 * Команды `yc <имя сервиса управляемой БД> cluster create`, `yc <имя сервиса управляемой БД> cluster update` и `yc <имя сервиса управляемой БД> cluster restore`.
 
@@ -2868,7 +2868,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Флаг `--global-permissions` позволяет выдать привилегию `PROCESS`.
 
-**{{ mch-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mmg-name }}**
+**{{ mch-name }}, {{ mmy-name }}, {{ mpg-name }}, Managed Service for Redis, {{ mmg-name }}**
 
 * Команда `yc <имя сервиса управляемой БД> cluster update`.
 
@@ -2998,7 +2998,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Добавлены команды для управления метками `yc managed-mysql cluster add-labels` и `yc managed-mysql cluster remove-labels`.
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Добавлена поддержка {{ RD }} версии 6.
 
@@ -3062,7 +3062,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   В выводе появился столбец со значениями `assign_public_ip`.
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Команда `yc managed-redis host list`.
 
@@ -3111,7 +3111,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Добавлено свойство `subnet-name` к флагу `--host` для указания подсети по имени.
 
-**{{ mmg-name }}, {{ mch-name }}, {{ mrd-name }}**
+**{{ mmg-name }}, {{ mch-name }}, Managed Service for Redis**
 
 * Команда `yc <имя сервиса управляемой БД> cluster list-logs`.
 
@@ -3184,7 +3184,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Позволяет управлять ML моделями в кластере {{ CH }}.
 
-**{{ mmg-name }}, {{ mpg-name }}, {{ mmy-name }}, {{ mrd-name }}**
+**{{ mmg-name }}, {{ mpg-name }}, {{ mmy-name }}, Managed Service for Redis**
 
 * Команды `yc <имя сервиса управляемой БД> cluster create`, `yc <имя сервиса управляемой БД> cluster update`, `yc <имя сервиса управляемой БД> cluster restore`.
 
@@ -3366,7 +3366,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Добавлена возможность переименовать кластер с помощью флага `--new-name`.
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Команда `{{ yc-mdb-rd }} cluster update`.
 
@@ -3692,7 +3692,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Сервисы управляемых баз данных {#managed-db}
 
-**{{ mrd-name }}**
+**Managed Service for Redis**
 
 * Команда `{{ yc-mdb-rd }} shards`.
 

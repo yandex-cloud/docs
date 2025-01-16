@@ -1,6 +1,6 @@
-# Начало работы с {{ schema-registry-name }}
+# Начало работы со {{ schema-registry-name }}
 
-Управляйте версиями схем с {{ schema-registry-name }}.
+Управляйте версиями схем со {{ schema-registry-name }}.
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 

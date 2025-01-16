@@ -23,6 +23,8 @@ items:
             href: quickstart/create-function/bash-function-quickstart.md
           - name: Java
             href: quickstart/create-function/java-function-quickstart.md
+          - name: Kotlin
+            href: quickstart/create-function/kotlin-function-quickstart.md
       - name: Создание триггера
         items:
           - name: Обзор

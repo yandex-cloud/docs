@@ -39,7 +39,7 @@ description: Используйте {{ org-full-name }}, чтобы расшир
 
 Администратор организации может создавать в облаке новые каталоги и ресурсы, подключать сервисы {{ yandex-cloud }}, а также управлять правами доступа к ним. Подробнее о работе с ресурсами {{ yandex-cloud }} читайте в [документации {{ resmgr-full-name }}](../../resource-manager/concepts/resources-hierarchy.md).
 
-Первое облако для организации будет подключено автоматически при входе администратора в консоль управления. Чтобы подключить дополнительное облако, вам потребуется создать [платежный аккаунт](../../billing/quickstart/).
+Первое облако для организации будет создано и подключено при входе администратора в консоль управления. Чтобы [создать](../../resource-manager/operations/cloud/create.md) и [подключить](../../billing/operations/pin-cloud.md#bind-cloud) дополнительное облако, вам потребуется создать [платежный аккаунт](../../billing/quickstart/).
 
 Если в вашем аккаунте зарегистрировано несколько организаций, вы можете [переносить](../../resource-manager/operations/cloud/change-organization.md) облака из одной организации в другую. Для этого у вас должна быть [роль](../../resource-manager/security/index.md#resource-manager-clouds-owner) `{{ roles-cloud-owner }}` на переносимое облако и [роль](../security/index.md#organization-manager-organizations-owner) `{{ roles-organization-owner }}` на организацию, в которую вы это облако собираетесь перенести.
 

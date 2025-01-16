@@ -19,6 +19,7 @@ description: Пошаговые инструкции по работе с {{ con
   * [{{ CH }}](#clickhouse-on-premise)
   * [{{ MY }}](#mysql-on-premise)
   * [{{ RD }}](#redis-on-premise)
+  * [{{ VLK }}](#valkey-on-premise)
   * [{{ TR }}](#trino-on-premise)
   * [{{ OS }}](#opensearch-on-premise)
 
@@ -108,8 +109,8 @@ description: Пошаговые инструкции по работе с {{ con
     1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Укажите имя подключения.
     1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
-    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
-    1. В разделе **Подключение к {{ RD }}** выберите **Кластер {{ mrd-short-name }}** в качестве типа подключения и укажите нужный кластер.
+    1. В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **{{ VLK }}**.
+    1. В разделе **Подключение к {{ VLK }}** выберите **Кластер {{ mrd-short-name }}** в качестве типа подключения и укажите нужный кластер.
     1. В разделе **Аутентификация** выберите способ задания пароля:
          * **Ввести вручную** — введите значение пароля.
          * **Сгенерировать** — укажите опции для создания автоматически сгенерированного пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md).
@@ -243,8 +244,33 @@ description: Пошаговые инструкции по работе с {{ con
     1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Укажите имя подключения.
     1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
-    1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
+    1. В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **{{ RD }}**.
     1. В разделе **Подключение к {{ RD }}** укажите параметры подключения:
+       1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+       1. В поле **Хосты** укажите [FQDN](../../glossary/fqdn.md) или IP-адреса хостов, входящих в шард, номер HTTP- или TCP-порта для подключения и имя шарда.
+       1. (Опционально) Включите использование [TLS](../../glossary/tls.md).
+    1. В разделе **Аутентификация** укажите имя пользователя и выберите способ задания пароля: 
+        * **Ввести вручную** — введите значение пароля.
+        * **Сгенерировать** — укажите опции для создания автоматически сгенерированного пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md).
+    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
+
+### {{ VLK }} {#valkey-on-premise}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+    
+    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
+    1. Выберите сервис **{{ metadata-hub-full-name }}**.
+    1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+    1. Укажите имя подключения.
+    1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+    1. В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **{{ VLK }}**.
+    1. В разделе **Подключение к {{ VLK }}** укажите параметры подключения:
        1. В поле **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
        1. В поле **Хосты** укажите [FQDN](../../glossary/fqdn.md) или IP-адреса хостов, входящих в шард, номер HTTP- или TCP-порта для подключения и имя [шарда](../../managed-redis/operations/connect/sharded.md).
        1. (Опционально) Включите использование [TLS](../../glossary/tls.md).

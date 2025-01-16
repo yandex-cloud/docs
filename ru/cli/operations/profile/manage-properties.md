@@ -10,66 +10,82 @@
 Чтобы добавить или изменить параметр профиля, воспользуйтесь командой: 
 
 ```
-yc config set <имя параметра> <значение параметра>
+yc config set <имя_параметра> <значение_параметра>
 ```
 
 Например, измените каталог по умолчанию:
 1. [Получите информацию о текущих параметрах профиля](profile-list.md#profile-get).
 1. Измените каталог по умолчанию (параметр `folder-id`): 
-    ```
-    yc config set folder-id b1g68...
-    ```
-1. Проверьте, что параметр действительно изменен:
-   
-   
-   ```
-   yc config list
-   token: AQAAAAAV6O...
-   cloud-id: b1gvl...
-   folder-id: b1g68...
-   ```
-   
 
+    ```
+    yc config set folder-id b1g5bhjofg7o********
+    ```
+1. Привяжите организацию к профилю:
+
+    ```
+    yc config set organization-id bpfaidqca8vd********
+    ```
+1. Убедитесь, что параметры действительно изменены:
+
+   ```bash
+   yc config list
+   ```
+
+   Результат:
+
+   ```text
+   token: y0_AgAAA...Njwvs7N4
+   cloud-id: b1gj9ja2h4ct********
+   folder-id: b1g5bhjofg7o********
+   organization-id: bpfaidqca8vd********
+   ```
     
-Ознакомьтесь с полным [списоком параметров](../../concepts/core-properties.md) профиля. Также вы можете изменить параметры профиля с помощью [процесса интерактивного создания профиля](profile-create.md#interactive-create).
+Ознакомьтесь с полным [списком параметров](../../concepts/core-properties.md) профиля. Также вы можете изменить параметры профиля с помощью [процесса интерактивного создания профиля](profile-create.md#interactive-create).
 
 ## Удалить параметр профиля {#unset}
 
 Чтобы удалить параметр профиля, воспользуйтесь командой: 
 
 ```
-yc config unset <имя параметра>
+yc config unset <имя_параметра>
 ```
 
-Например, удалите каталог по умолчанию:
+Например, отвяжите от профиля организацию по умолчанию:
+
 1. [Получите информацию о текущих параметрах профиля](profile-list.md#profile-get).
-1. Удалите каталог по умолчанию (параметр `folder-id`): 
-    ```
-    yc config unset folder-id
-    ```
-1.  Проверьте, что параметр действительно удален:
-    
+1. Отвяжите организацию по умолчанию (параметр `organization-id`): 
 
     ```
-    yc config list
-    token: AQAAAAAV6O...
-    cloud-id: b1gvl...
+    yc config unset organization-id
     ```
-   
-   
+1.  Убедитесь, что параметр действительно удален:
+    
+    ```bash
+    yc config list
+    ```
+
+    Результат:
+
+    ```text
+    token: y0_AgAAA...Njwvs7N4
+    cloud-id: b1gj9ja2h4ct********
+    folder-id: b1g5bhjofg7o********
+    ```
     
 ## Запустить команду с параметрами другого профиля {#another-profile}
 
-Чтобы запустить команду с параметрами другого профиля, добавьте к команде параметр `--profile <имя профиля>`.
+Чтобы запустить команду с параметрами другого профиля, добавьте к команде параметр `--profile <имя_профиля>`.
 
 Например, посмотрите параметры профиля `test`, не активируя его: 
 
-
-```
+```bash
 yc config list --profile test
-token: AQAAAAAV6O...
-cloud-id: aoegt...
-folder-id: aoek4...
 ```
 
+Результат:
 
+```text
+token: y0_AgAAA...Kjwgs7h3
+cloud-id: b15jlj22h4ct********
+folder-id: b1grb2jo7g7o********
+```
