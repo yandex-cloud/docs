@@ -11,7 +11,7 @@ editable: false
 {% note tip %}
 
 
-Чтобы рассчитать стоимость [синтеза](https://yandex.cloud/ru/prices?state=560a21ca4079#calculator) и [распознавания речи](https://yandex.cloud/ru/prices?state=a16ebb7b57c6#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость [синтеза](https://yandex.cloud/ru/prices?state=0be0198977b6#calculator) и [распознавания речи](https://yandex.cloud/ru/prices?state=cd7979800204#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
 
 
 

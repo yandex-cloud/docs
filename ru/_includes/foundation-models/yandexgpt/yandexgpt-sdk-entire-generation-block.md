@@ -14,6 +14,8 @@
 
     {% include [sdk-code-legend](../examples/sdk-code-legend.md) %}
 
+    {% include [yandexgpt-model-version-sdk-info](./yandexgpt-model-version-sdk-info.md) %}
+
 1. Выполните созданный файл:
 
     ```bash

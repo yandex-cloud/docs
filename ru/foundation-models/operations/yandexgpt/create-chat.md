@@ -91,6 +91,8 @@ description: Следуя данной инструкции, вы научите
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
+      {% include [yandexgpt-model-version-sdk-info](../../../_includes/foundation-models/yandexgpt/yandexgpt-model-version-sdk-info.md) %}
+
   1. Выполните созданный файл:
 
       ```bash

@@ -11,7 +11,7 @@ editable: false
 {% note tip %}
 
 
-Чтобы рассчитать стоимость аналитики [текстового диалога](https://yandex.cloud/ru/prices?state=84b019e2e011#calculator) и [аудиодиалога](https://yandex.cloud/ru/prices?state=044d730c4624#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость аналитики [текстового диалога](https://yandex.cloud/ru/prices?state=719a3e32f3dd#calculator) и [аудиодиалога](https://yandex.cloud/ru/prices?state=82a33349cfc5#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
 
 
 

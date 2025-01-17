@@ -12,7 +12,7 @@ In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=96af30382c92#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=2febafd8c375#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
 
 
 {% endnote %}

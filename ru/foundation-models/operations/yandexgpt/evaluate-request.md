@@ -49,9 +49,11 @@ description: Следуя данной инструкции, вы научите
 
       {% endnote %}
 
-      {% include [the-messages-parameter](../../../_includes/foundation-models/yandexgpt/the-messages-parameter.md) %}
+      * `messages` — текстовое содержимое сообщения.
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
+
+      * `model` — значение версии модели. Подробнее см. в разделе [{#T}](../../concepts/yandexgpt/models.md#addressing-models).
 
   1. Выполните созданный файл:
 
