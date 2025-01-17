@@ -6,7 +6,18 @@ editable: false
 
 # Technical support pricing
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% note tip %}
+
+
+
+
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=a1e4dbe0c722#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+
+
+{% endnote %}
+
+
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

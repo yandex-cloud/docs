@@ -10,7 +10,7 @@ editable: false
 {% note tip %}
 
 
-Чтобы рассчитать стоимость [симметричного](https://yandex.cloud/ru/prices?state=c217a2de7c35#calculator), [ассиметричного](https://yandex.cloud/ru/prices?state=552d16ce07df#calculator) шифрования и [ассиметричной подписи](https://yandex.cloud/ru/prices?state=3b03fab9e1c3#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость [симметричного](https://yandex.cloud/ru/prices?state=143214c6d306#calculator), [ассиметричного](https://yandex.cloud/ru/prices?state=f4147c7925d1#calculator) шифрования и [ассиметричной подписи](https://yandex.cloud/ru/prices?state=80d5cab43182#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
 
 
 

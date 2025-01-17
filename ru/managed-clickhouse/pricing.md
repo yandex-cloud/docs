@@ -10,7 +10,7 @@ editable: false
 {% note tip %}
 
 
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=bb5dfe3ac813#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=decd09ac814c#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
 
 
 

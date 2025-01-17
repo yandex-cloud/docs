@@ -13,7 +13,7 @@ editable: false
 
 
 
-To see the cost of speech [synthesis](https://yandex.cloud/en/prices?state=3463349f4788#calculator) and [recognition](https://yandex.cloud/en/prices?state=098b84de4fe4#calculator), use our calculator on the Yandex Cloud website or see the pricing in this section.
+To see the cost of speech [synthesis](https://yandex.cloud/en/prices?state=ba3807f79625#calculator) and [recognition](https://yandex.cloud/en/prices?state=82857f5d8751#calculator), use our calculator on the Yandex Cloud website or see the pricing in this section.
 
 
 {% endnote %}

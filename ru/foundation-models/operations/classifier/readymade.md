@@ -41,6 +41,8 @@
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
+      Подробнее о том, как обращаться к моделям классификаторов, см. в разделе [{#T}](../../../foundation-models/concepts/classifier/models.md#addressing-models).
+
   1. Выполните созданный файл:
 
       ```bash

@@ -46,6 +46,8 @@ description: Следуя данной инструкции, вы научите
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
+      Подробнее о том, как обращаться к моделям векторного представления текста, см. в разделе [{#T}](../../concepts/embeddings.md#addressing-models).
+
   1. Выполните созданный файл:
 
       ```bash

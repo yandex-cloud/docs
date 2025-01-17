@@ -78,6 +78,8 @@
           {% include [sdk-input-format](../../_includes/foundation-models/sdk-input-format.md) %}
 
       {% include [sdk-code-legend](../../_includes/foundation-models/examples/sdk-code-legend.md) %}
+
+      Подробнее о том, как обращаться к модели, см. в разделе [{#T}](../concepts/yandexart/models.md#addressing-models).
       
   1. Выполните созданный файл:
 
