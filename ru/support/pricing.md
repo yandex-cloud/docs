@@ -6,7 +6,18 @@ editable: false
 
 # Правила тарификации для технической поддержки
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=4f5d025b43d3#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
+
+
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

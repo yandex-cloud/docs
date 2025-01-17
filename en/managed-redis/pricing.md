@@ -12,7 +12,7 @@ In this section, you can find the {{ mrd-name }} pricing [policy](#rules) and [e
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=d7f26a5f2ac6#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=c46046673ba9#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
 
 
 {% endnote %}
