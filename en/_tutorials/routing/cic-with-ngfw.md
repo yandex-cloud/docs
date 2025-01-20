@@ -24,7 +24,7 @@ This document covers the cloud network [routing](../../vpc/concepts/routing) set
 | `D.D.0.0/16`                        | Aggregated prefix of the `app` {{ vpc-short-name }} subnets you need to make available from the customer's on-premise infrastructure |
 
 
-## Description of traffic routing from the customer's infrastructure to resources in the `dmz` and `app` {{ vpc-short-name }} {#routing-description}
+## Description of traffic routing from the customer's infrastructure to resources in the dmz and app {{ vpc-short-name }} {#routing-description}
 
 If the [prerequisites](#necessary-conditions) are met and your cloud route tables and {{ interconnect-name }} are set up as shown below:
 * Traffic from the customer's infrastructure will be routed to the primary NGFW zone, and from there to the relevant {{ vpc-short-name }}: `dmz` or `app`.

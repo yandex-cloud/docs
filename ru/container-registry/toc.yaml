@@ -126,6 +126,14 @@ items:
           Запуск контейнерного приложения в {{ serverless-containers-full-name
           }}
         href: tutorials/deploy-app-container.md
+      - name: Развертывание gRPC-сервиса на основе Docker-образа
+        href: tutorials/grpc-node.md
+      - name: Развертывание сервиса в {{ ml-platform-name }} на основе Docker-образа
+        href: tutorials/node-from-docker.md
+      - name: >-
+          Развертывание сервиса в {{ ml-platform-name }} на основе Docker-образа
+          с FastAPI
+        href: tutorials/node-from-docker-fast-api.md
   - name: Концепции
     items:
       - name: Обзор

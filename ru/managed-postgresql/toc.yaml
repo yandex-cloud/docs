@@ -125,6 +125,12 @@ items:
         href: tutorials/datalens.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
+      - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+        href: tutorials/mlflow-datasphere.md
+      - name: Работа с данными с помощью {{ yq-name }}
+        href: tutorials/yq-postgre.md
+      - name: Федеративные запросы к данным с помощью {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
       - name: Репликация и миграция
         items:
           - name: Логическая репликация {{ PG }}

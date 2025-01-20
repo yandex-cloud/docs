@@ -47,11 +47,7 @@ description: Следуя данной инструкции, вы сможете
 
      * Выберите [тип диска](../concepts/storage.md).
 
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
-
 
      * Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
 
@@ -158,10 +154,7 @@ description: Следуя данной инструкции, вы сможете
      * `assign-public-ip` — публичный доступ к хосту: `true` или `false`.
 
 
-     * `--disk-type` — тип диска.
-
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
+     * `disk-type` — [тип диска](../concepts/storage.md).
      * `priority` — приоритет при выборе нового хоста-мастера: от `0` до `100`.
      * `backup-priority` — приоритет для резервного копирования: от `0` до `100`.
      * `mysql-version` — версия {{ MY }}: `{{ versions.cli.str }}`.

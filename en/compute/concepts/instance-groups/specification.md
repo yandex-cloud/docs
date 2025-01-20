@@ -229,7 +229,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
 In YAML format, all values in dictionary objects are implicitly strings, so you do not need to use quotation marks for them. The string contents must match the types specified in the API reference or in the Protobuf specification: `string`, `int64`, `bool`, etc.
 
-### Suffixes for the `int64` type {#int64}
+### Suffixes for the int64 type {#int64}
 
 The `int64` type values support the following suffixes:
 
@@ -237,7 +237,7 @@ The `int64` type values support the following suffixes:
 
 If a value uses a suffix, it must be prefixed by an integer.
 
-### `boolean` type {#boolean}
+### boolean type {#boolean}
 
 `bool` or `boolean` fields support all values listed in the [YAML format specification](https://yaml.org/type/bool.html):
 

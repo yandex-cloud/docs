@@ -13,7 +13,7 @@ We recommend creating a topic in a separate folder. A topic in the database root
 
 {% endnote %}
 
-## Description of the `yandex_ydb_topic` resource {#yandex_ydb_topic_description}
+## Description of the yandex_ydb_topic resource {#yandex_ydb_topic_description}
 
 Usage example for `yandex_ydb_topic`:
 

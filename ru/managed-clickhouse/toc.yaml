@@ -170,6 +170,10 @@ items:
           Геокодинг с помощью API Яндекс Карт для визуализации в {{
           datalens-short-name }}
         href: tutorials/data-from-ch-geocoder.md
+      - name: Работа с данными с помощью {{ yq-name }}
+        href: tutorials/yq-clickhouse.md
+      - name: Федеративные запросы к данным с помощью {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

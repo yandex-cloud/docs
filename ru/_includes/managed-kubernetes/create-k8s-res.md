@@ -2,6 +2,12 @@
 
 ### Создайте кластер {{ managed-k8s-name }} {#create-cluster}
 
+{% note tip %}
+
+В данном примере используются базовые параметры кластера. Часть настроек, например выбор [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), [шифрование секретов](../../managed-kubernetes/concepts/encryption.md#k8s-secrets-encryption) с помощью {{ kms-full-name }} и ряд других, нельзя изменить после создания кластера. Рекомендуем ознакомиться с подробной [инструкцией по созданию кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
+
+{% endnote %}
+
 Создайте [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и укажите ранее созданные [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) во флагах `--service-account-id` и `--node-service-account-id` и группы безопасности во флаге `--security-group-ids`.
 
 {% list tabs group=programming_language %}

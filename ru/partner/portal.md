@@ -1,5 +1,7 @@
 # Партнерский портал
 
+{% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
+
 [Партнерский портал]({{ link-cloud-partners }}) – главный инструмент партнера, который позволяет управлять клиентами, [отслеживать их потребление](./operations/get-client-stat.md), регистрировать [сделки](./program/var-tools.md#deal-reg) и [проекты](./program/var-tools.md#project-reg), просматривать партнерскую премию и начисление рибейтов, а также работать с [реферальными ссылками](./program/referral.md).
 
 Партнерский портал состоит из следующих разделов:

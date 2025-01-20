@@ -1,4 +1,4 @@
-#### Why did the cluster change its status to `Updating` during an unscheduled backup? {#updating-while-backup}
+#### Why did the cluster change its status to Updating during an unscheduled backup? {#updating-while-backup}
 
 The cluster changes its status to **Updating** right after the backup process is launched. You cannot cancel this operation. Wait for it to complete instead.
 

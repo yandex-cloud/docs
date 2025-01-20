@@ -48,14 +48,10 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите класс хостов — он определяет технические характеристики [виртуальных машин](../../compute/concepts/vm.md), на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных хостов.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
-
      * Выберите тип диска.
-
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
-
 
 
      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
@@ -178,8 +174,6 @@ description: Следуя данной инструкции, вы сможете
 
      * `environment` — окружение: `prestable` или `production`.
      * `disk-type` — тип диска.
-
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
      * `assign-public-ip` — доступ к хосту из интернета: `true` или `false`.

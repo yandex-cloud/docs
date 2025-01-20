@@ -41,7 +41,7 @@ Users with the `Guest` and `Reporter` roles cannot push changes.
 
 For more information about roles, see the [{{ GL }} documentation]({{ gl.docs }}/ee/user/permissions.html).
 
-#### I get `500 Internal Server Error` when trying to open the instance. What could be the problem? {#500-error}
+#### I get 500 Internal Server Error when trying to open the instance. What could be the problem? {#500-error}
 
 The instance disk space may be full. To clean up disk space and recover access to the instance, contact [support]({{ link-console-support }}).
 

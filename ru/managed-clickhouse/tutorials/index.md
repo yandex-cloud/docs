@@ -37,6 +37,8 @@ description: Различные сценарии использования {{ m
 * [{#T}](data-from-ch-geocoder.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](data-ingestion.md)
+* [{#T}](yq-clickhouse.md)
+* [{#T}](yq-federative-queries.md)
 
 
 О миграции хостов кластера {{ mch-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).

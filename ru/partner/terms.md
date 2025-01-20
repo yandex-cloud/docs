@@ -5,6 +5,8 @@ description: В статье вы ознакомитесь с терминами
 
 # Термины и определения
 
+{% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
+
 #### Прямой партнер {#direct-partner}
 
 Юридическое лицо, имеющее право приобретать сервисы платформы {{ yandex-cloud }} для целей их дальнейшей реализации и распространения третьим лицам (пользователям) от имени и за счет партнера, в соответствии с условиями [партнерского соглашения](https://yandex.ru/legal/cloud_partnership/?lang=ru).

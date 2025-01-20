@@ -34,3 +34,5 @@ description: В этом разделе собраны практические 
 * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](./events-from-postbox-to-yds.md)
 * [{#T}](./serverless-url-shortener.md)
 * [{#T}](data-from-tracker.md)
+* [{#T}](batch-code-execution.md)
+* [{#T}](recognizer-bot.md)

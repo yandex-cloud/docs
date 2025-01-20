@@ -102,11 +102,11 @@
         * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
           * Выберите [тип диска](../concepts/storage.md).
 
-            {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
 
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
+
+          * Выберите размер хранилища.
 
     1. Укажите параметры хостов-сегментов на вкладке **{{ ui-key.yacloud.greenplum.section_resource-segment }}**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#segment).
 
@@ -122,6 +122,8 @@
 
              {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
+
+           * Выберите размер хранилища.
 
     1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 

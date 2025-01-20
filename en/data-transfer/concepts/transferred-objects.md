@@ -29,7 +29,7 @@ Auto incremental fields are also transferred, but `AUTO_INCREMENT` is not.
 
 Transfers _between same-type endpoints_ (such as from {{ PG }} to {{ PG }}) transfer empty objects as part of a schema.
 
-## Processing `VIEW` objects {#features-common-processing-of-views}
+## Processing VIEW objects {#features-common-processing-of-views}
 
 In general, {{ data-transfer-full-name }} transfers `VIEW` objects (from databases where they may exist) with some restrictions:
 

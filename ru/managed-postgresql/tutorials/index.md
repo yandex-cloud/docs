@@ -21,6 +21,9 @@ description: Различные сценарии использования {{ m
 * [{#T}](./joomla-postgresql/index.md)
 * [{#T}](./datalens.md)
 * [{#T}](logging.md)
+* [{#T}](mlflow-datasphere.md)
+* [{#T}](yq-postgre.md)
+* [{#T}](yq-federative-queries.md)
 
 ## Репликация и миграция {#replication-and-migration}
 

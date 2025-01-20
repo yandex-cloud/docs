@@ -14,7 +14,7 @@ description: Из статьи вы узнаете, как изменить на
 * [Изменить класс хостов](#change-resource-preset).
 
 
-* [Увеличить размер хранилища](#change-disk-size).
+* [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
 
 
 * [Настроить серверы](#change-redis-config) {{ VLK }} согласно [документации {{ VLK }}](https://valkey.io/documentation). Список поддерживаемых настроек приведен в разделе [{#T}](../concepts/settings-list.md) и [в справочнике API](../api-ref/Cluster/update.md).
@@ -536,7 +536,7 @@ description: Из статьи вы узнаете, как изменить на
 
 Кластер {{ mrd-name }} недоступен около пяти — семи минут после изменения класса хостов.
 
-## Увеличить размер хранилища {#change-disk-size}
+## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -544,13 +544,20 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-  1. Измените настройки в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
+
+
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+
+      * Выберите [тип диска](../concepts/storage.md).
+      * Укажите нужный размер диска.
+
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -618,6 +625,7 @@ description: Из статьи вы узнаете, как изменить на
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
+
         ```bash
         curl \
             --request PATCH \
@@ -625,22 +633,27 @@ description: Из статьи вы узнаете, как изменить на
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>' \
             --data '{
-                      "updateMask": "configSpec.resources.diskSize",
+                      "updateMask": "configSpec.resources.diskTypeId,configSpec.resources.diskSize",
                       "configSpec": {
                         "resources": {
+                          "diskTypeId": "<тип_диска>",
                           "diskSize": "<размер_хранилища_в_байтах>"
                         }
                       }
                     }'
         ```
 
+
         Где:
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-            В данном случае передается только один параметр.
 
-        * `configSpec.resources.diskSize` — новый размер диска в байтах.
+        * `configSpec.resources` — параметры хранилища:
+
+            * `diskTypeId` — [тип диска](../concepts/storage.md).
+            * `diskSize` — новый размер хранилища в байтах.
+
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -658,6 +671,7 @@ description: Из статьи вы узнаете, как изменить на
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
+
         ```bash
         grpcurl \
             -format json \
@@ -668,10 +682,14 @@ description: Из статьи вы узнаете, как изменить на
             -d '{
                   "cluster_id": "<идентификатор_кластера>",
                   "update_mask": {
-                    "paths": [ "config_spec.resources.disk_size" ]
+                    "paths": [ 
+                      "config_spec.resources.disk_type_id",
+                      "config_spec.resources.disk_size"
+                    ]
                   },
                   "config_spec": {
                     "resources": {
+                      "disk_type_id": "<тип_диска>",
                       "disk_size": "<размер_хранилища_в_байтах>"
                     }
                   }
@@ -680,13 +698,17 @@ description: Из статьи вы узнаете, как изменить на
             yandex.cloud.mdb.redis.v1.ClusterService.Update
         ```
 
+
         Где:
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-            В данном случае передается только один параметр.
 
-        * `config_spec.resources.disk_size` — новый размер диска в байтах.
+        * `config_spec.resources` — параметры хранилища:
+
+            * `disk_type_id` — [тип диска](../concepts/storage.md).
+            * `disk_size` — новый размер хранилища в байтах.
+
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

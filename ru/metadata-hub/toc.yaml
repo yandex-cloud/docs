@@ -54,6 +54,8 @@ items:
                 href: operations/create-name-space.md
               - name: Изменение пространства имен
                 href: operations/update-name-space.md
+              - name: Подключение к пространству имен
+                href: operations/connect-to-namespace.md
               - name: Удаление пространства имен
                 href: operations/delete-name-space.md
           - name: Схемы

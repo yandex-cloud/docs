@@ -91,9 +91,6 @@ description: Следуя данной инструкции, вы сможете
        {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
 
 
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-
      * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#mrd-limits).
 
 
@@ -194,8 +191,6 @@ description: Следуя данной инструкции, вы сможете
          * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
          * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
       * `--disk-type-id` — тип диска.
-
-         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 

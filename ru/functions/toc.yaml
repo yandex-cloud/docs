@@ -488,6 +488,12 @@ items:
         href: tutorials/serverless-url-shortener.md
       - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
         href: tutorials/data-from-tracker.md
+      - name: Запуск вычислений в {{ ml-platform-name }} с помощью API
+        href: tutorials/batch-code-execution.md
+      - name: Разработка Telegram-бота для распознавания текста и аудио
+        href: tutorials/recognizer-bot.md
+  - name: Инструменты
+    href: tools.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом

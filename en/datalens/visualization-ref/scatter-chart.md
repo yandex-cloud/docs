@@ -68,7 +68,7 @@ You can also:
 
 * Specify an additional dimension. To do this, drag a dimension to the **Points** section.
 
-### Configuring display of `null` values {#null-settings}
+### Configuring display of null values {#null-settings}
 
 {% include [datalens-chart-null-settings](../../_includes/datalens/datalens-chart-null-settings.md) %}
 

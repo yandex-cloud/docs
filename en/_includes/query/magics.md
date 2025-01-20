@@ -222,7 +222,7 @@ The steps below explain how to filter data in {{ yq-full-name }} using a Python 
 
     * `--jinja2`: Enables query text rendering with [Jinja](https://jinja.palletsprojects.com/) templates. To use this parameter, you need to install the [Jinja2](https://pypi.org/project/Jinja2/) package (`%pip install Jinja2`).
 
-#### `to_yq` filter {#to_yq}
+#### to_yq filter {#to_yq}
 
 Jinja2 is a general-purpose templating engine. When processing variable values, it uses a standard string representation of data types.
 

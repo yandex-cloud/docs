@@ -41,7 +41,8 @@ description: Различные сценарии использования {{ c
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](bastion.md)
 * [{#T}](route-switcher.md)
-* [{#T}](site-to-site-openvpn.md) 
+* [{#T}](site-to-site-openvpn.md)
+* [{#T}](mlflow-datasphere.md)
 
 ## Продукты Microsoft в {{ yandex-cloud }}
 
