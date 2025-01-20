@@ -60,6 +60,7 @@ API-ключи в качестве способа аутентификации �
 * [{{ vision-full-name }}](../../../vision/api-ref/authentication.md)
 * {{ yds-full-name }} — [Kafka API](../../../data-streams/kafkaapi/index.md)
 * {{ ydb-full-name }} — только в режиме совместимости с {{ PG }}. Для других режимов работы используйте соответствующий [способ аутентификации](../../../ydb/operations/connection#auth).
+* [{{ metadata-hub-full-name }}](../../../metadata-hub/concepts/index.md) — в рамках [{{ schema-registry-full-name }}](../../../metadata-hub/operations/connect-to-namespace.md).
 
 #### См. также {#see-also}
 

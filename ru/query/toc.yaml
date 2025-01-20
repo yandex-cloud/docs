@@ -89,6 +89,8 @@ items:
         href: sources-and-sinks/monitoring.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Обработка логов {{ cloud-logging-name }}
         href: tutorials/cloud-logging.md
       - name: Обработка потока изменений Debezium
@@ -103,6 +105,16 @@ items:
         href: tutorials/jupyter.md
       - name: Автоматизация задач с помощью {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
+      - name: Анализ данных с помощью {{ yq-name }}
+        href: tutorials/yq.md
+      - name: Работа с данными в {{ objstorage-name }}
+        href: tutorials/yq-storage.md
+      - name: Работа с данными в {{ mch-name }}
+        href: tutorials/yq-clickhouse.md
+      - name: Работа с данными в {{ mpg-name }}
+        href: tutorials/yq-postgre.md
+      - name: Федеративные запросы к данным
+        href: tutorials/yq-federative-queries.md
   - name: Работа с YQL
     items:
       - name: Обзор

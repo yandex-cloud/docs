@@ -55,11 +55,7 @@ description: Следуя данной инструкции, вы сможете
 
       * Выберите [тип диска](../concepts/storage.md).
 
-        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
-
 
       * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. в разделе [Резервные копии](../concepts/backup.md).
 
@@ -162,8 +158,6 @@ description: Следуя данной инструкции, вы сможете
          * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
       * `--mongod-disk-type` — тип диска.
-
-        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.

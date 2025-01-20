@@ -13,7 +13,7 @@ When modifying a secondary index, the old index is deleted and a new one is crea
 
 {% endnote %}
 
-## Description of the `yandex_ydb_table_index` resource {#ttable_index_description}
+## Description of the yandex_ydb_table_index resource {#ttable_index_description}
 
 Usage example for `yandex_ydb_table_index`:
 

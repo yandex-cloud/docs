@@ -40,7 +40,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [{#T}](pxf/create-table.md)
 * [{#T}](pxf/settings.md)
 
-## Working with `gpfdist` {#gpfdist}
+## Working with gpfdist {#gpfdist}
 
 * [{#T}](gpfdist/connect.md)
 

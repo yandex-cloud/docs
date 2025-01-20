@@ -101,7 +101,7 @@ To create a {{ managed-k8s-name }} node group:
 
 For more information, see the [step-by-step guide for creating {{ managed-k8s-name }} node groups](operations/node-group/node-group-create.md).
 
-## Add credentials to the `kubectl` configuration file {#add-conf}
+## Add credentials to the kubectl configuration file {#add-conf}
 
 With kubectl, you can manage the {{ managed-k8s-name }} cluster. To configure the utility to work with the created cluster, add its credentials to the kubectl configuration file:
 

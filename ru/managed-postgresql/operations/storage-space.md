@@ -13,7 +13,7 @@ description: При заполнении хранилища более чем н
 
 
 * [Выведите кластер из режима read-only вручную](#read-only-solutions) и освободите место в хранилище, удалив часть данных.
-* [Увеличьте размер хранилища](#change-disk-size), чтобы снять режим read-only автоматически.
+* [Увеличьте размер хранилища](#change-disk-size), чтобы снять режим read-only автоматически. Вы также можете сменить тип диска.
 * [Настройте автоматическое увеличение размера хранилища](#disk-size-autoscale).
 
 
@@ -76,7 +76,7 @@ description: При заполнении хранилища более чем н
 > COMMIT;
 > ```
 
-## Увеличить размер хранилища {#change-disk-size}
+## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
 {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
@@ -90,11 +90,15 @@ description: При заполнении хранилища более чем н
 
 - Консоль управления {#console}
 
-    Чтобы увеличить размер хранилища для кластера:
+    Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+
+        * Выберите [тип диска](../concepts/storage.md).
+        * Укажите нужный размер диска.
+
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -103,7 +107,7 @@ description: При заполнении хранилища более чем н
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы увеличить размер хранилища для кластера:
+    Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
     1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -111,16 +115,17 @@ description: При заполнении хранилища более чем н
         {{ yc-mdb-pg }} cluster update --help
         ```
 
-    1. Укажите нужный размер хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
+    1. Укажите [тип диска](../concepts/storage.md) и нужный размер хранилища в команде изменения кластера (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
         ```bash
         {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+            --disk-type <тип_диска> \
             --disk-size <размер_хранилища_ГБ>
         ```
 
 - {{ TF }} {#tf}
 
-    Чтобы увеличить размер хранилища для кластера:
+    Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -128,14 +133,15 @@ description: При заполнении хранилища более чем н
 
         Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
-    1. Измените в описании кластера {{ mpg-name }} значение атрибута `disk_size` в блоке `config.resources`:
+    1. Измените в описании кластера {{ mpg-name }} значения атрибутов `disk_type_id` и `disk_size` в блоке `config.resources`:
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
           ...
           config {
             resources {
-              disk_size = <размер_хранилища_в_гигабайтах>
+              disk_type_id = "<тип_диска>"
+              disk_size    = <размер_хранилища_в_гигабайтах>
               ...
             }
           }
@@ -169,9 +175,10 @@ description: При заполнении хранилища более чем н
        --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
-                 "updateMask": "configSpec.resources.diskSize",
+                 "updateMask": "configSpec.resources.diskTypeId,configSpec.resources.diskSize",
                  "configSpec": {
                    "resources": {
+                     "diskTypeId": "<тип_диска>",
                      "diskSize": "<размер_хранилища_в_байтах>"
                    }
                  }
@@ -182,9 +189,10 @@ description: При заполнении хранилища более чем н
 
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-       В данном случае передается только один параметр.
+     * `configSpec.resources` — параметры хранилища:
 
-     * `configSpec.resources.diskSize` — новый размер хранилища в байтах.
+         * `diskTypeId` — [тип диска](../concepts/storage.md).
+         * `diskSize` — новый размер хранилища в байтах.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -212,11 +220,13 @@ description: При заполнении хранилища более чем н
              "cluster_id": "<идентификатор_кластера>",
              "update_mask": {
                "paths": [
+                 "config_spec.resources.disk_type_id",
                  "config_spec.resources.disk_size"
                ]
              },
              "config_spec": {
                "resources": {
+                 "disk_type_id": "<тип_диска>",
                  "disk_size": "<размер_хранилища_в_байтах>"
                }
              }
@@ -229,9 +239,10 @@ description: При заполнении хранилища более чем н
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-       В данном случае передается только один параметр.
+     * `config_spec.resources` — параметры хранилища:
 
-     * `config_spec.resources.disk_size` — новый размер хранилища в байтах.
+         * `disk_type_id` — [тип диска](../concepts/storage.md).
+         * `disk_size` — новый размер хранилища в байтах.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

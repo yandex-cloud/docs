@@ -4,15 +4,15 @@ JavaScript Interface is an object Android transfers to **WebView**. The front en
 
 ## JavaScript Interface structure {#structure}
 
-### `onGetToken(token: String): Unit` method {#ongettoken-method}
+### onGetToken(token: String): Unit method {#ongettoken-method}
 
 This is a required method, through which a token for passing CAPTCHA verification is transferred. It is called on the front end once the service has handled a user's attempt to pass CAPTCHA verification.
 
-### `onChallengeVisible(): Unit` method {#onchallengevisible-method}
+### onChallengeVisible(): Unit method {#onchallengevisible-method}
 
 This is an optional method which you may only need to embed an invisible CAPTCHA. It is called when the invisible CAPTCHA shows a challenge to the user. By default, **WebView** with invisible CAPTCHA is hidden, so you need to track the moment when the **WebView** needs to be displayed.
 
-### `onChallengeHidden(): Unit` method {#onchallengehidden-method}
+### onChallengeHidden(): Unit method {#onchallengehidden-method}
 
 This is an optional method which you may only need to embed an invisible CAPTCHA. If the user swiped CAPTCHA off, they cannot restore it on their own; you will need to show the previous screen to the user.
 

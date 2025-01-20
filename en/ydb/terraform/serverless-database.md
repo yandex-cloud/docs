@@ -7,7 +7,7 @@ description: Follow this guide to create or update parameters of a serverless {{
 
 To create a serverless database, use the `yandex_ydb_database_serverless` resource.
 
-## Description of the `yandex_ydb_database_serverless` resource {#database_serverless_description}
+## Description of the yandex_ydb_database_serverless resource {#database_serverless_description}
 
 The configuration file in your project should already include a [code section for initializing providers](./configure.md). Open the file and add this code:
 

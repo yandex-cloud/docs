@@ -7,7 +7,7 @@ description: Follow this guide to create a changefeed for a {{ ydb-short-name }}
 
 [Table changefeed]({{ ydb.docs }}/concepts/cdc), or Change Data Capture (CDC), keeps you informed about changes in a particular table. When you add, update, or delete a table row, the CDC mechanism generates a change record where it specifies the primary key of the row and writes it to the topic partition corresponding to this key. A [topic]({{ ydb.docs }}/concepts/topic) is an entity for storing unstructured messages and delivering them to multiple subscribers. Basically, a topic is a named set of messages.
 
-## Description of the `yandex_ydb_table_changefeed` resource {#table_changefeed_description}
+## Description of the yandex_ydb_table_changefeed resource {#table_changefeed_description}
 
 You can create a changefeed for a table using the `yandex_ydb_table_changefeed` resource:
 

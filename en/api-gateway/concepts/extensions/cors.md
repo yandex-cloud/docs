@@ -116,7 +116,7 @@ paths:
         function_id: b095c95icn**********
 ```
 
-### Example of a specification with a CORS rule that copies the `Origin` header and adds it to a response
+### Example of a specification with a CORS rule that copies the Origin header and adds it to a response
 
 ```yaml
 openapi: "3.0.0"
@@ -166,7 +166,7 @@ components:
           type: string
 ```
 
-### Example of a specification with a CORS rule defined in the `components` section
+### Example of a specification with a CORS rule defined in the components section
 
 ```yaml
 openapi: "3.0.0"

@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, какие сервисны�
 
 # Управление доступом
 
+{% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 ### Сервисные роли {#service-roles}

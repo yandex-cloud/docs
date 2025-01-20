@@ -186,7 +186,7 @@ In some cases, it is mutually exclusive with other tags of the `response` groupi
 || found-human | String in the language matching the selected [search type](../operations/workaround.md). It shows the number of found documents and contains related information. | None ||
 |#
 
-#### `misspell / reask` section {#misspell-block}
+#### misspell / reask section {#misspell-block}
 
 This is an optional tag and is only used if a typo is detected (`misspell`) or fixed (`reask`) in the query.
 
@@ -230,7 +230,7 @@ It contains the fixed search query text. In most cases, it matches the value pro
 || text | Fixed search query text  | None||
 |#
 
-#### `results` section {#results-block}
+#### results section {#results-block}
 
 This is an optional tag and only used if any results are found for a query.
 

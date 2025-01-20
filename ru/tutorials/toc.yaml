@@ -484,14 +484,10 @@ items:
             href: web/prefetch.md
           - name: Создание SAP-программы в {{ yandex-cloud }}
             href: infrastructure-management/sap.md
-          - name: Разработка Telegram-бота для распознавания текста и аудио
-            href: ml-ai/recognizer-bot.md
           - name: Развертывание сервера Minecraft в {{ yandex-cloud }}
             href: infrastructure/minecraft-server.md
           - name: Развертывание мультиплеер-сервера для GTA V в {{ yandex-cloud }}
             href: infrastructure/gta-v-server.md
-          - name: Распознавание архива изображений в {{ vision-full-name }}
-            href: archive/archive-from-vision-to-object-storage.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
@@ -1013,5 +1009,61 @@ items:
           Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
           speechkit-full-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
+  - name: Машинное обучение и искусственный интеллект
+    items:
+      - name: Все руководства
+        href: ml-ai/index.md
+      - name: Разработка с помощью {{ ml-platform-name }}
+        items:
+          - name: >-
+              Интеграция сервиса {{ ml-platform-name }} с сервисом {{
+              dataproc-name }}
+            href: ml-ai/data-processing-integration.md
+          - name: Классификация изображений на видеокадрах
+            href: ml-ai/video-recognition.md
+          - name: Запуск вычислений по расписанию в {{ ml-platform-name }}
+            href: ml-ai/regular-launch.md
+          - name: Запуск вычислений в {{ ml-platform-name }} с помощью API
+            href: ml-ai/batch-code-execution.md
+          - name: >-
+              Использование данных из {{ objstorage-name }} для обучения модели
+              в {{ ml-platform-name }}
+            href: ml-ai/s3-to-datasphere.md
+          - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+            href: ml-ai/mlflow-datasphere.md
+      - name: Эксплуатация {{ ml-platform-name }}
+        items:
+          - name: Развертывание сервиса в {{ ml-platform-name }} из модели ONNX
+            href: ml-ai/node-from-model.md
+          - name: >-
+              Развертывание сервиса в {{ ml-platform-name }} на основе
+              Docker-образа
+            href: ml-ai/node-from-docker.md
+          - name: >-
+              Развертывание сервиса в {{ ml-platform-name }} на основе
+              Docker-образа с FastAPI
+            href: ml-ai/node-from-docker-fast-api.md
+          - name: Развертывание gRPC-сервиса на основе Docker-образа
+            href: ml-ai/grpc-node.md
+          - name: Генерация изображения с помощью модели Stable Diffusion
+            href: ml-ai/stable-diffusion.md
+      - name: Аналитика с помощью {{ ml-platform-name }}
+        items:
+          - name: Анализ данных с помощью {{ yq-name }}
+            href: ml-ai/yq.md
+          - name: Работа с данными в {{ objstorage-name }}
+            href: ml-ai/yq-storage.md
+          - name: Работа с данными в {{ mch-name }}
+            href: ml-ai/yq-clickhouse.md
+          - name: Работа с данными в {{ mpg-name }}
+            href: ml-ai/yq-postgre.md
+          - name: Федеративные запросы к данным
+            href: ml-ai/yq-federative-queries.md
+      - name: Распознавание изображений, текста и речи
+        items:
+          - name: Распознавание архива изображений в {{ vision-name }}
+            href: ml-ai/archive-from-vision-to-object-storage.md
+          - name: Разработка Telegram-бота для распознавания текста и аудио
+            href: ml-ai/recognizer-bot.md
 base: ru/tutorials
 deepBase: 2

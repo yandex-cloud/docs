@@ -119,6 +119,8 @@ items:
         href: tutorials/slack-bot-serverless.md
       - name: Разработка Telegram-бота
         href: tutorials/telegram-bot-serverless.md
+      - name: Разработка Telegram-бота для распознавания текста и аудио
+        href: tutorials/recognizer-bot.md
       - name: Разработка пользовательской интеграции
         href: tutorials/api-gw-integration.md
       - name: Разработка CRUD API для сервиса фильмов

@@ -4,7 +4,7 @@ When creating an instance group, you can choose how to increase and decrease the
 
 The policy is defined in the `scale_policy` key in the YAML file.
 
-## `fixed_scale` key {#fixed-scale-policy}
+## fixed_scale key {#fixed-scale-policy}
 
 The `fixed_scale` key defines a group of fixed-size instances. The size of the group is defined in the `size` key. You can create a group with the required number of instances within the available [quotas and limits](../../limits.md).
 
@@ -27,7 +27,7 @@ Where:
 
 \* Required field.
 
-## `auto_scale` key {#auto-scale-policy}
+## auto_scale key {#auto-scale-policy}
 
 The `auto_scale` key defines an automatically scalable instance group. The initial size of the group is defined in the `initial_size` key. You can create a group with the required number of instances within the available [quotas and limits](../../limits.md).
 
@@ -79,7 +79,7 @@ Where:
 
 \* Required field.
 
-## `test_auto_scale` key {#test-auto-scale-policy}
+## test_auto_scale key {#test-auto-scale-policy}
 
 The `test_auto_scale` key defines a fixed-size instance group with auto scaling testing enabled. The **{{ ui-key.yacloud.common.monitoring }}** tab charts display the recommended increase or decrease in the number of instances depending on the value of the selected metric, while the actual number of instances always remains equal to the value specified in the `size` key. You can create a group with the required number of instances within the available [quotas and limits](../../limits.md).
 

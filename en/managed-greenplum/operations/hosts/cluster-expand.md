@@ -254,7 +254,7 @@ There are several ways to monitor the [data redistribution process](../../concep
     * `COMPLETED`: Table data redistribution is completed.
     * `NO LONGER EXISTS`: Table no longer exists.
 
-## Additional actions `resgroup`
+## Additional actions resgroup
 
 ### Changing table redistribution priority {#table-priority}
 

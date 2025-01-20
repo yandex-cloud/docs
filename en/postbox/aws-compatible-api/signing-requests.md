@@ -145,7 +145,7 @@ To debug the process of signing requests, use the [AWS CLI](../tools/aws-cli.md)
 
 {% endlist %}
 
-## Create the `Authorization` header {#authorization-header}
+## Create the Authorization header {#authorization-header}
 
 Create the `Authorization` header in the following format:
 

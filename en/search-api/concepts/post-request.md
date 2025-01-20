@@ -102,7 +102,7 @@ The `<request>` grouping tag integrates all contents of the request body. Child 
 
 The `groupings` grouping tag integrates the grouping results parameters.
 
-##### `Groupby` result grouping {#groupby}
+##### Groupby result grouping {#groupby}
 
 {% include [groupby-description](../../_includes/search-api/groupby-description.md) %}
 
