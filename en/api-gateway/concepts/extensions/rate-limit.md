@@ -182,7 +182,7 @@ components:
           type: string
 ```
 
-### Example of a specification with a limit set in the `components` section
+### Example of a specification with a limit set in the components section
 
 ```yaml
 openapi: "3.0.0"

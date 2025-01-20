@@ -694,6 +694,7 @@ default:
   saml-limit-phone: 64 characters
   saml-limit-thumbnail-photo: 204800 characters
   sample-rfc3339-timestamp: '2006-01-02T15:04:05Z'
+  schema-registry-endpoint: schema-registry.yandexcloud.net:443
   schema-registry-name: Schema Registry
   sd-full-name: Yandex Security Deck
   sd-name: Security Deck
@@ -10392,7 +10393,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.15
+        tag: v0.2.17
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 * [Изменить настройки регламентных операций технического обслуживания](#change-background-settings).
 * [Изменить настройки {{ GP }}](#change-gp-settings) согласно документации {{ GP }}.
 * [Изменить класс хостов](#change-resource-preset).
-* [Увеличить размер хранилища](#change-disk-size)
+* [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
 
 Если вы хотите переместить кластер в другую зону доступности, [восстановите его из резервной копии](cluster-backups.md#restore). Во время восстановления укажите новую зону доступности. В результате вы перенесете хосты кластера.
 
@@ -1227,7 +1227,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Увеличить размер хранилища {#change-disk-size}
+## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -1235,14 +1235,40 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-  1. Измените настройки в блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
+
+      * Выберите [тип диска](../concepts/storage.md).
+      * Укажите нужный размер диска.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы увеличить размер хранилища для кластера:
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update --help
+      ```
+
+  1. Укажите нужный размер хранилища для хостов-мастеров или хостов-сегментов в команде изменения кластера (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера):
+
+      ```bash
+      {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера> \
+         --master-config disk-size <размер_хранилища_в_гигабайтах> \
+         --segment-config disk-size <размер_хранилища_в_гигабайтах>
+      ```
 
 - {{ TF }} {#tf}
 
@@ -1252,20 +1278,22 @@ description: Следуя данной инструкции, вы сможете
 
         Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
 
-    1. Измените в описании кластера {{ mgp-name }} значение атрибута `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
+    1. Измените в описании кластера {{ mgp-name }} значения атрибутов `disk_type_id` и `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
           ...
           master_subcluster {
             resources {
-              disk_size = <размер_хранилища_в_гигабайтах>
+              disk_type_id = "<тип_диска>"
+              disk_size    = <размер_хранилища_в_гигабайтах>
               ...
             }
           }
           segment_subcluster {
             resources {
-              disk_size = <размер_хранилища_в_гигабайтах>
+              disk_type_id = "<тип_диска>"
+              disk_size    = <размер_хранилища_в_гигабайтах>
               ...
             }
           }
@@ -1299,14 +1327,16 @@ description: Следуя данной инструкции, вы сможете
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<идентификатор_кластера>' \
             --data '{
-                      "updateMask": "masterConfig.resources.diskSize,segmentConfig.resources.diskSize",
+                      "updateMask": "masterConfig.resources.diskTypeId,masterConfig.resources.diskSize,segmentConfig.resources.diskTypeId,segmentConfig.resources.diskSize",
                       "masterConfig": {
                         "resources": {
+                          "diskTypeId": "<тип_диска>",
                           "diskSize": "<размер_хранилища_в_байтах>"
                         }
                       },
                       "segmentConfig": {
                         "resources": {
+                          "diskTypeId": "<тип_диска>",
                           "diskSize": "<размер_хранилища_в_байтах>"
                         }
                       }
@@ -1317,7 +1347,10 @@ description: Следуя данной инструкции, вы сможете
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-        * `masterConfig.resources.diskSize`, `segmentConfig.resources.diskSize` — новый размер диска в байтах для хостов-мастеров и хостов-сегментов.
+        * `masterConfig.resources`, `segmentConfig.resources` — параметры хранилища для хостов-мастеров и хостов-сегментов:
+
+            * `diskTypeId` — [тип диска](../concepts/storage.md).
+            * `diskSize` — новый размер хранилища в байтах.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -1346,17 +1379,21 @@ description: Следуя данной инструкции, вы сможете
                   "cluster_id": "<идентификатор_кластера>",
                   "update_mask": {
                     "paths": [ 
+                      "master_config.resources.disk_type_id",
                       "master_config.resources.disk_size",
+                      "segment_config.resources.disk_type_id",
                       "segment_config.resources.disk_size"
                     ]
                   },
                   "master_config": {
                     "resources": {
+                      "disk_type_id": "<тип_диска>",
                       "disk_size": "<размер_хранилища_в_байтах>"
                     }
                   },
                   "segment_config": {
                     "resources": {
+                      "disk_type_id": "<тип_диска>",
                       "disk_size": "<размер_хранилища_в_байтах>"
                     }
                   }
@@ -1369,7 +1406,10 @@ description: Следуя данной инструкции, вы сможете
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-        * `master_config.resources.disk_size`, `segment_config.resources.disk_size` — новый размер диска в байтах для хостов-мастеров и хостов-сегментов.
+        * `master_config.resources`, `segment_config.resources` — параметры хранилища для хостов-мастеров и хостов-сегментов:
+
+            * `disk_type_id` — [тип диска](../concepts/storage.md).
+            * `disk_size` — новый размер хранилища в байтах.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

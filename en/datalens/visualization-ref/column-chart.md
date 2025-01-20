@@ -149,7 +149,7 @@ To color columns in a chart based on the value of a measure:
    * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
    * **Set threshold values**: Set numeric thresholds for each color. Works if the **Y** section contains a single value.
 
-### Configuring display of `null` values {#null-settings}
+### Configuring display of null values {#null-settings}
 
 {% include [datalens-chart-null-settings](../../_includes/datalens/datalens-chart-null-settings.md) %}
 

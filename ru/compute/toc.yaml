@@ -527,6 +527,8 @@ items:
             href: tutorials/mssql-alwayson-lb.md
           - name: Развертывание Remote Desktop Gateway
             href: tutorials/rds-gw.md
+          - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+            href: tutorials/mlflow-datasphere.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

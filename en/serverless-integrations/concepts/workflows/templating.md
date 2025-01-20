@@ -54,7 +54,7 @@ Argument order | Type | Required | Description
 2 | `string` | Yes | Secret key.
 3 | `string` | No | Secret version ID.
 
-#### Examples of using the `lockboxPayload` jq function {#lockbox-examples}
+#### Examples of using the lockboxPayload jq function {#lockbox-examples}
 
 * Getting the latest secret version:
 

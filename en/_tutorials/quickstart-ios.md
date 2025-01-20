@@ -66,7 +66,7 @@ If you do not use `{{ captcha-mobile-site }}`, follow these steps:
 
    {% include [query-parameters](../_includes/smartcaptcha/query-parameters.md) %}
 
-### `challengeDidAppear` method for invisible CAPTCHA {#challengeDidAppear-method}
+### challengeDidAppear method for invisible CAPTCHA {#challengeDidAppear-method}
 
 CAPTCHA [will not be shown in the page HTML code](../smartcaptcha/concepts/invisible-captcha.md) if it is called with the `invisible` parameter. Make sure **WKWebView** is uploaded but is not available to the user until the `challengeDidAppear` method is called. Here is one of the ways to ensure this:
 
@@ -76,7 +76,7 @@ UIApplication.shared.windows.first?.addSubview(webControllerView)
 
 If the validation results in `captchaDidFinish`, remove `webControllerView` from the hierarchy. If the result does not contain `captchaDidFinish`, move `webControllerView` to the hierarchy to display to the user.
 
-### `challengeDidDisappear` method for invisible CAPTCHA {#challengeDidDisappear-method}
+### challengeDidDisappear method for invisible CAPTCHA {#challengeDidDisappear-method}
 
 If the user swiped CAPTCHA off, they cannot restore it on their own. In this case, call the **WKWebView** content reload method on the `challengeDidDisappear` event:
 

@@ -55,7 +55,7 @@ To create an area chart:
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as areas along the Y axis.
 
-### Configuring display of `null` values {#null-settings}
+### Configuring display of null values {#null-settings}
 
 {% include [datalens-chart-null-settings](../../_includes/datalens/datalens-chart-null-settings.md) %}
 

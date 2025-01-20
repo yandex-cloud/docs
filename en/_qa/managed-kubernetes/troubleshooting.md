@@ -231,7 +231,7 @@ Make sure you only provide one of the three parameters in a command. It is enoug
 
 {% include [assign-public-ip-addresses](../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
-#### Error connecting to a cluster using `kubectl` {#connect-to-cluster}
+#### Error connecting to a cluster using kubectl {#connect-to-cluster}
 
 Error message:
 

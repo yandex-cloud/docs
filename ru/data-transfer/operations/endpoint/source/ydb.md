@@ -19,7 +19,7 @@ description: Из статьи вы узнаете, как задать наст
 ## Сценарии передачи данных из {{ ydb-name }} {#scenarios}
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
-    
+
     * [Захват изменений из {{ PG }} и поставка в {{ DS }}](../../../tutorials/ydb-to-yds.md);
     * [Захват изменений из {{ PG }} и поставка в {{ KF }}](../../../tutorials/cdc-ydb.md).
 
@@ -82,6 +82,30 @@ description: Из статьи вы узнаете, как задать наст
       Если указан потребитель данных, то для подключения трансфера к {{ ydb-short-name }} сервисному аккаунту, указанному в настройках эндпоинта, достаточно роли `ydb.viewer`. Если потребитель данных не указан, сервисному аккаунту требуется роль `ydb.editor`, чтобы создать потребителя по умолчанию.
 
       {% endnote %}
+
+- {{ TF }} {#tf}
+
+  * Тип эндпоинта — `ydb_source`.
+
+  {% include [Managed YDB {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-ydb-source.md) %}
+
+  Пример структуры конфигурационного файла (приведены не все параметры):
+
+  ```hcl
+  resource "yandex_datatransfer_endpoint" "ydb-source" { 
+    name = "<имя_эндпоинта>"
+    settings {
+      ydb_source {
+        database               = "<имя_БД_YDB>"        
+        service_account_id     = "<идентификатор_сервисного_аккаунта>"
+        paths                  = ["<список_путей_к_переносимым_объектам_YDB>"]
+        changefeed_custom_name = "<имя_потока_изменений>"
+      }
+    }
+  }
+  ```
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 {% endlist %}
 

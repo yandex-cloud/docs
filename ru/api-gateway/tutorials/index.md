@@ -9,6 +9,7 @@ description: Различные сценарии использования {{ a
 * [{#T}](alice-shareable-todolist.md)
 * [{#T}](slack-bot-serverless.md)
 * [{#T}](telegram-bot-serverless.md)
+* [{#T}](recognizer-bot.md)
 * [{#T}](api-gw-integration.md)
 * [{#T}](movies-database.md)
 * [{#T}](api-gw-websocket.md)

@@ -1,6 +1,7 @@
 ---
 title: Вычисления на кластерах Apache Spark™ в {{ ml-platform-full-name }}
 description: Следуя инструкции, вы сможете создать кластер {{ dataproc-full-name }}, чтобы использовать его для вычислений в {{ ml-platform-full-name }}.
+canonical: '{{ link-docs }}/tutorials/ml-ai/data-processing-integration'
 ---
 
 # Интеграция с сервисом {{ dataproc-full-name }}

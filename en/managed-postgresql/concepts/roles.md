@@ -24,7 +24,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
 The `mdb_superuser` role enables you to manage privileges for objects in a database.
 
-## `mdb_admin` role {#mdb-admin}
+## mdb_admin role {#mdb-admin}
 
 The `mdb_admin` role includes the following privileges:
 
@@ -42,7 +42,7 @@ The `mdb_admin` role includes the following privileges:
     * `pg_stat_kcache_reset()` from the `pg_stat_kcache` extension.
     * `pg_stat_reset()` and `pg_stat_statements_reset()` from the `pg_stat_statements` extension.
 
-## `mdb_monitor` role {#mdb-monitor}
+## mdb_monitor role {#mdb-monitor}
 
 The `mdb_monitor` role includes the following privileges:
 
@@ -55,7 +55,7 @@ The `mdb_monitor` role includes the following privileges:
     * `pg_ls_archive_statusdir()`
     * `pg_ls_tmpdir ()`
 
-## `mdb_replication` role {#mdb-replication}
+## mdb_replication role {#mdb-replication}
 
 The `mdb_replication` role includes the following privileges:
 

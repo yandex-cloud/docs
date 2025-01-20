@@ -8,7 +8,7 @@ description: Следуя данной инструкции, вы сможете
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
-* [Увеличить размер хранилища](#change-disk-size).
+* [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
 * [Настроить серверы](#change-mongod-config) {{ MG }} согласно [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/).
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 * [Переместить кластер](#move-cluster) в другой каталог.
@@ -149,7 +149,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Увеличить размер хранилища {#change-disk-size}
+## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -157,11 +157,15 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-  1. В разделе **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+
+      * Выберите [тип диска](../concepts/storage.md).
+      * Укажите нужный размер диска.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -170,7 +174,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -178,7 +182,7 @@ description: Следуя данной инструкции, вы сможете
       {{ yc-mdb-mg }} cluster update --help
       ```
 
-  1. Укажите нужный размер хранилища в команде изменения кластера. Новый размер должен быть не меньше, чем текущее значение `disk_size` в свойствах кластера.
+  1. Укажите [тип диска](../concepts/instance-types.md) и нужный размер хранилища в команде изменения кластера (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера).
 
       При увеличении размера хранилища учитывайте роль хоста, она зависит от [типа шардирования](../concepts/sharding.md#shard-management). В одной команде можно использовать параметры для хостов с разными ролями.
 
@@ -186,6 +190,7 @@ description: Следуя данной инструкции, вы сможете
 
           ```bash
           {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+             --mongod-disk-type <тип_диска> \
              --mongod-disk-size <размер_хранилища_ГБ>
           ```
 
@@ -193,6 +198,7 @@ description: Следуя данной инструкции, вы сможете
 
           ```bash
           {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+             --mongoinfra-disk-type <тип_диска> \
              --mongoinfra-disk-size <размер_хранилища_ГБ>
           ```
 
@@ -200,6 +206,7 @@ description: Следуя данной инструкции, вы сможете
 
           ```bash
           {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+             --mongos-disk-type <тип_диска> \
              --mongos-disk-size <размер_хранилища_ГБ>
           ```
 
@@ -207,54 +214,148 @@ description: Следуя данной инструкции, вы сможете
 
           ```bash
           {{ yc-mdb-mg }} cluster update <имя_или_идентификатор_кластера> \
+             --mongocfg-disk-type <тип_диска> \
              --mongocfg-disk-size <размер_хранилища_ГБ>
           ```
 
-      Если все условия выполнены, {{ mmg-short-name }} запустит операцию по увеличению размера хранилища.
-  
+      Если все условия выполнены, {{ mmg-short-name }} запустит операцию по изменению параметров хранилища.
+
 - {{ TF }} {#tf}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-    
+
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-    
-  1. Измените в описании кластера {{ mmg-name }} значение параметра `disk_size` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
+
+  1. Измените в описании кластера {{ mmg-name }} значения параметров `disk_type_id` и `disk_size` для ресурсов `resources_mongod`, `resources_mongoinfra`, `resources_mongos` или `resources_mongocfg`. Тип ресурса зависит от [типа шардирования](../concepts/sharding.md#shard-management).
 
       Пример:
-    
+
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
         ...
         resources_mongod {
-          disk_size = <размер_хранилища_ГБ>
+          disk_type_id = "<тип_диска>"
+          disk_size    = <размер_хранилища_ГБ>
           ...
         }
       }
       ```
 
     1. Проверьте корректность настроек.
-    
+
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-    
+
     1. Подтвердите изменение ресурсов.
-    
+
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-   
+
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы увеличить размер хранилища для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Новый размер хранилища в параметре `configSpec.mongodbSpec_<версия_{{ MG }}>.mongod.resources.diskSize`.
-  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>' \
+          --data '{
+                    "updateMask": "configSpec.mongodb.<тип_хоста_{{ MG }}>.resources.diskTypeId,configSpec.mongodb.<тип_хоста_{{ MG }}>.resources.diskSize",
+                    "configSpec": {
+                      "mongodb": { 
+                        "<тип_хоста_{{ MG }}>": {
+                          "resources": {
+                            "diskTypeId": "<тип_диска>",
+                            "diskSize": "<размер_хранилища_в_байтах>"
+                          }  
+                        }
+                      }
+                    }
+                  }'
+      ```             
+
+      Где:
+
+      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+      * `configSpec.mongodb.<тип_хоста_{{ MG }}>.resources` — параметры хранилища:
+
+          * `diskTypeId` — [тип диска](../concepts/storage.md).
+          * `diskSize` — новый размер хранилища в байтах.
+
+        Тип хоста {{ MG }} зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.mongodb.<тип_хоста_{{ MG }}>.resources.disk_type_id",
+                    "config_spec.mongodb.<тип_хоста_{{ MG }}>.resources.disk_size"
+                  ]
+                },
+                "config_spec": {
+                  "mongodb": {
+                    "<тип_хоста_{{ MG }}>": {
+                      "resources": {
+                        "disk_type_id": "<тип_диска>",
+                        "disk_size": "<размер_хранилища_в_байтах>"
+                      }    
+                    }
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.ClusterService.Update
+      ```
+
+      Где:
+
+      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+      * `config_spec.mongodb.<тип_хоста_{{ MG }}>.resources.disk_size` — параметры хранилища:
+
+          * `disk_type_id` — [тип диска](../concepts/storage.md).
+          * `disk_size` — новый размер хранилища в байтах.
+
+        Тип хоста {{ MG }} зависит от [типа шардирования](../concepts/sharding.md). Доступные значения: `mongod`, `mongocfg`, `mongos`, `mongoinfra`. Если кластер нешардированный, укажите `mongod`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

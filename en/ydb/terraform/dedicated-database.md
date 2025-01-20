@@ -8,7 +8,7 @@ description: This tutorial describes the properties of the `yandex_ydb_database_
 
 To create a dedicated database, use the`yandex_ydb_database_dedicated` resource.
 
-## Description of the `yandex_ydb_database_dedicated` resource {#database_dedicated_description}
+## Description of the yandex_ydb_database_dedicated resource {#database_dedicated_description}
 
 Add the following code section to the project configuration file after the [provider initialization](./configure.md) section: 
 

@@ -1,4 +1,4 @@
-### Transfer failure with the `mapper_parsing_exception` error {#data-types}
+### Transfer failure with the mapper_parsing_exception error {#data-types}
 
 Error message:
 

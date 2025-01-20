@@ -146,7 +146,7 @@ In some cases, it is mutually exclusive with other tags of the `response` groupi
 |#
 
 
-#### `results` section {#results-block}
+#### results section {#results-block}
 
 This is an optional tag and only used if any results are found for a query.
 

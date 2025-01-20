@@ -41,11 +41,11 @@ The `SAMLResponse` sender address does not match the URL address of the `SamlReq
 
 `SAMLResponse` signature is not valid.
 
-## Assertions are missing the `subject` element {#subject-not-found}
+## Assertions are missing the subject element {#subject-not-found}
 
 There is no `subject` in the `SAMLResponse`.
 
-## Assertion contains an incorrect `subject` element {#username-not-found}
+## Assertion contains an incorrect subject element {#username-not-found}
 
 There is a `subject` in the `SAMLResponse` but the `NameID` or `EncryptedID` field is missing in it.
 
@@ -53,15 +53,15 @@ There is a `subject` in the `SAMLResponse` but the `NameID` or `EncryptedID` fie
 
 Failed to decrypt an assertion or name ID in the `SAMLResponse`. Check the certificates.
 
-## Incorrect `Issuer` {#invalid_issuer}
+## Incorrect Issuer {#invalid_issuer}
 
 `SAMLResponse` contains an incorrect `Issuer` element. You can learn more about this element in the [SAML V2.0 specification](https://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf#page=15).
 
-## `SAMLResponse` parameter not found {#saml-response-not-found}
+## SAMLResponse parameter not found {#saml-response-not-found}
 
 There is no `SAMLResponse` parameter in the IdP server response. This parameter is required and must be included in the HTTP response body.
 
-## `RelayState` parameter not found {#relay-state-not-found}
+## RelayState parameter not found {#relay-state-not-found}
 
 No `RelayState` parameter in the IdP server response. This parameter is required and must be included in the HTTP response body.
 

@@ -15,7 +15,7 @@ Currently, the service only supports creating row-oriented tables. The {{ TF }} 
 
 In the {{ TF }} context, a table is a resource. That is why, we describe database tables in independent blocks (`resource "yandex_ydb_table"`), specifying an internal link to the previously created database.
 
-## Description of the `yandex_ydb_table` resource {#ydb_table_description}
+## Description of the yandex_ydb_table resource {#ydb_table_description}
 
 Example of creating a test row-oriented table with three columns in an existing database:
 ```tf
@@ -158,7 +158,7 @@ Description of `ttl` field values:
 
 [Partitioning]({{ ydb.docs }}/concepts/datamodel/table#partitioning_row_table) is splitting table data into parts to improve query performance and optimize data management. For partitioning of row-oriented {{ ydb-short-name }} tables in {{ TF }}, use the `partitioning_settings` parameter of the `yandex_ydb_table` resource.
 
-### Description of the `partitioning_settings` block fields
+### Description of the partitioning_settings block fields
 
 Example:
 ```tf

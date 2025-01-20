@@ -75,7 +75,7 @@ To create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations
 
 {% endlist %}
 
-### Add credentials to the `kubectl` configuration file {#add-conf}
+### Add credentials to the kubectl configuration file {#add-conf}
 
 To add {{ managed-k8s-name }} cluster credentials to the `kubectl` configuration file:
 

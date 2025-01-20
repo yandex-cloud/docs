@@ -174,7 +174,7 @@ rules:
 
 Sample audit policy rules are given below.
 
-#### Rule for the `None` level {#none}
+#### Rule for the None level {#none}
 
 ```yaml
 - level: None
@@ -190,7 +190,7 @@ It means that event details should not be logged if the following conditions are
 * The request type is `get`.
 * The request refers to the `nodes` or `nodes/status` resources.
 
-#### Rule for the `Metadata` level {#metadata}
+#### Rule for the Metadata level {#metadata}
 
 ```yaml
 - level: Metadata
@@ -208,7 +208,7 @@ It means that the event metadata should be logged if the following conditions ar
 * The request refers to the `secrets`, `configmaps`, `serviceaccounts/token`, or `tokenreviews` resources.
 * The event is not part of the `RequestReceived` stage.
 
-#### Rule for the `Request` level {#request}
+#### Rule for the Request level {#request}
 
 ```yaml
 - level: Request
@@ -228,7 +228,7 @@ It means that the event metadata and request body should be logged if the follow
 * The request refers to the `nodes/status` or `pods/status` resources.
 * The event is not part of the `RequestReceived` stage.
 
-#### Rule for the `Request` level {#request2}
+#### Rule for the Request level {#request2}
 
 ```yaml
 - level: Request
@@ -262,7 +262,7 @@ It means that the event metadata and request body should be logged if the follow
 * The request belongs to a resource group from the list.
 * The event is not part of the `RequestReceived` stage.
 
-#### Rule for the `RequestResponse` level {#requestresponse}
+#### Rule for the RequestResponse level {#requestresponse}
 
 ```yaml
 - level: RequestResponse

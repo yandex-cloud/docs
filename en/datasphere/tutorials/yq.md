@@ -24,7 +24,7 @@ The cost of analyzing data using {{ yq-full-name }} includes:
 * Fee for [{{ ml-platform-name }} computing resource](../../datasphere/pricing.md) usage.
 * Fee for data read by [{{ yq-full-name }} when executing queries](../../query/pricing.md).
 
-## Install and configure the `yandex_query_magic` package {#setup-plugin}
+## Install and configure the yandex_query_magic package {#setup-plugin}
 
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 

@@ -254,6 +254,14 @@ items:
         href: tutorials/telegram-bot-serverless.md
       - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
+      - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+        href: tutorials/mlflow-datasphere.md
+      - name: Работа с данными с помощью {{ yq-full-name }}
+        href: tutorials/yq-storage.md
+      - name: Федеративные запросы к данным с помощью {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
+      - name: Распознавание архива изображений в {{ vision-name }}
+        href: tutorials/archive-from-vision-to-object-storage.md
   - name: Концепции
     items:
       - name: Обзор

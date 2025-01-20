@@ -267,13 +267,13 @@ items:
             href: tutorials/data-from-metrica-yc-visualization.md
           - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
             href: tutorials/data-from-appmetrica-yc-visualization.md
-          - name: Анализ данных с помощью {{ yq-full-name }}
+          - name: Анализ данных с помощью {{ yq-name }}
             href: tutorials/yq.md
-          - name: Работа с данными в {{ objstorage-full-name }}
+          - name: Работа с данными в {{ objstorage-name }}
             href: tutorials/yq-storage.md
-          - name: Работа с данными в {{ mch-full-name }}
+          - name: Работа с данными в {{ mch-name }}
             href: tutorials/yq-clickhouse.md
-          - name: Работа с данными в {{ mpg-full-name }}
+          - name: Работа с данными в {{ mpg-name }}
             href: tutorials/yq-postgre.md
           - name: Федеративные запросы к данным
             href: tutorials/yq-federative-queries.md
