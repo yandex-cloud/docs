@@ -50,9 +50,11 @@ items:
             href: operations/activate-promocode.md
           - name: Topping up your personal account
             href: operations/pay-the-bill.md
+          - name: Accepting commercial offers
+            href: operations/get-offers.md
       - name: Analyzing {{ yandex-cloud }} service usage
         items:
-          - name: Viewing payment history
+          - name: Viewing your payment history
             href: operations/check-bill-history.md
           - name: Viewing usage details in the console
             href: operations/check-charges.md
@@ -60,7 +62,7 @@ items:
             href: operations/get-folder-report.md
           - name: Viewing usage details in {{ datalens-full-name }}
             href: operations/dashboard.md
-          - name: Searching for usage details via {{ yq-full-name }}
+          - name: Searching for usage details with {{ yq-full-name }}
             href: operations/query-integration.md
   - name: Concepts
     items:
@@ -106,7 +108,7 @@ items:
         items:
           - name: Billing cycle
             href: payment/billing-cycle-individual.md
-          - name: Paying by bank card
+          - name: Bank card payments
             href: payment/payment-methods-individual.md
       - name: Businesses and individual entrepreneurs
         items:
@@ -128,7 +130,7 @@ items:
                 href: payment/documents.md
               - name: Reports
                 href: concepts/act.md
-              - name: Invoice
+              - name: Tax invoice
                 href: concepts/invoice.md
               - name: Electronic document management
                 href: concepts/edo.md
@@ -136,13 +138,11 @@ items:
         href: payment/currency.md
   - name: Tutorials
     items:
-      - name: >-
-          Creating a trigger for budgets that invokes a function to stop VM
-          instances
+      - name: Creating a budget trigger that invokes a function to stop a VM
         href: tutorials/serverless-trigger-budget-vm.md
       - name: >-
-          Creating a trigger that invokes a function to stop VM instances and
-          send a Telegram notification
+          Creating triggers that invoke a function to stop a VM and send a
+          Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
   - name: Access management
     href: security/index.md
@@ -150,7 +150,7 @@ items:
     href: pricing.md
   - name: FAQ
     items:
-      - name: All questions on one page
+      - name: All questions on a single page
         href: qa/all.md
       - name: General questions
         href: qa/common.md

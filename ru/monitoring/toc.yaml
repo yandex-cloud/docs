@@ -55,8 +55,10 @@ items:
     items:
       - name: Обзор
         href: concepts/data-collection/unified-agent/index.md
-      - name: Установка и запуск
+      - name: Установка и обновление
         href: concepts/data-collection/unified-agent/installation.md
+      - name: Запуск и остановка
+        href: concepts/data-collection/unified-agent/run-and-stop.md
       - name: Конфигурирование
         items:
           - name: Обзор

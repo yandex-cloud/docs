@@ -110,10 +110,10 @@ Uploading data to scalable {{ objstorage-name }} storage allows you to save on d
 * [{{ PG }} to {{ objstorage-name }}](mpg-to-objstorage.md)
 * [{{ OS }} to {{ objstorage-name }}](opensearch-to-object-storage.md)
 * [{{ ydb-short-name }} to {{ objstorage-name }}](ydb-to-object-storage.md)
-
+* [Replicating logs to {{ objstorage-name }} using {{ yds-name }}](replicate-logs-to-storage-via-data-streams.md)
+* [Replicating logs to {{ objstorage-name }} using Fluent Bit](replicate-logs-to-storage.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 
 
 

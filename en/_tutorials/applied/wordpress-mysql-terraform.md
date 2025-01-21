@@ -1,5 +1,5 @@
 To set up a WordPress website with a {{ MY }} cluster:
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create an infrastructure](#deploy).
 1. [Configure Nginx web server](#configure-nginx).
 1. [Install WordPress and additional components](#install-wordpress).
@@ -8,7 +8,7 @@ To set up a WordPress website with a {{ MY }} cluster:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -28,40 +28,40 @@ To create an infrastructure using {{ TF }}:
 
    - Ready-made archive {#ready}
 
-      1. Create a directory for files.
-      1. Download the [archive](https://{{ s3-storage-host }}/www.example.com/doc-files/wordpress-mysql.zip) (1 KB).
-      1. Unpack the archive to the directory. The `wordpress-mysql.tf` file should be added to the directory.
+     1. Create a folder for the files.
+     1. Download the [archive](https://{{ s3-storage-host }}/www.example.com/doc-files/wordpress-mysql.zip) (1 KB).
+     1. Unpack the archive to the folder. As a result, the `wordpress-mysql.tf` configuration file should appear in it.
 
    - Manually {#manual}
 
-      1. Create a directory for files.
-      1. Create the `wordpress.tf` configuration file in the directory:
+     1. Create a folder for the files.
+     1. Create a configuration file named `wordpress-mysql.tf` in the folder:
 
-         {% cut "wordpress-mysql.tf" %}
+        {% cut "wordpress-mysql.tf" %}
 
-         {% include [wordpress-mysql-tf-config](../../_includes/web/wordpress-mysql-tf-config.md) %}
+        {% include [wordpress-mysql-tf-config](../../_includes/web/wordpress-mysql-tf-config.md) %}
 
-         {% endcut %}
+        {% endcut %}
 
    {% endlist %}
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
 
-   * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
-   * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
-   * [Security groups](../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
-   * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
-   * [{{ MY }} cluster](../../managed-mysql/concepts/index.md): [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster)
-   * [{{ PG }} DB](../../managed-mysql/): [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database)
-   * [DB user](../../managed-mysql/concepts/user-rights.md) — [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user)
-   * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
-   * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
+    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
+    * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
+    * [Security groups](../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
+    * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
+    * [{{ MY }} cluster](../../managed-mysql/concepts/index.md): [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster).
+    * [{{ PG }} database](../../managed-mysql/): [yandex_mdb_postgresql_database]({{ tf-provider-resources-link }}/mdb_mysql_database).
+    * [DB user](../../managed-mysql/concepts/user-rights.md): [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user).
+    * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
+    * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
-1. Under `metadata`, enter the [metadata](../../compute/concepts/vm-metadata.md) for creating a VM instance: `<username>:<SSH_key_contents>`. Regardless of the username specified, the key is assigned to the user set in the image configuration. Such users vary depending on an image. For more information, see [{#T}](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
-1. Under `boot_disk`, specify the ID of a VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with a relevant set of components:
+1. Under `metadata`, specify the [metadata](../../compute/concepts/vm-metadata.md) for creating a VM: `<username>:<SSH_key_contents>`. Regardless of the username specified, the key is assigned to the user set in the image configuration. Such users vary depending on an image. For more information, see [{#T}](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
+1. Under `boot_disk`, specify the ID of a VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with relevant components:
    * [Debian 11](/marketplace/products/yc/debian-11).
-   * [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts)
-   * [CentOS 7](/marketplace/products/yc/centos-7)
+   * [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+   * [CentOS 7](/marketplace/products/yc/centos-7).
 1. Create resources:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -87,7 +87,7 @@ After creating the infrastructure, [configure the Nginx web server](#configure-n
 
 To stop paying for the resources you created:
 
-1. Open the `single-node-file-server.tf` configuration file and delete from it the description of the infrastructure you created.
+1. Open the `single-node-file-server.tf` configuration file and delete the description of the new infrastructure from it.
 1. Apply the changes:
 
-   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

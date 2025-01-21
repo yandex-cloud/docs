@@ -30,6 +30,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
+  1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
   1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. В окне создания правила:
 

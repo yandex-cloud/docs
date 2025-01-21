@@ -57,3 +57,4 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [{#T}](./java-servlet-todo-list.md)
 * [{#T}](./telegram-bot-serverless.md)
 * [Visualizing {{ yq-full-name }}](data-from-yandex-query-visualization.md) data
+* [{#T}](./replicate-logs-to-storage-via-data-streams.md)

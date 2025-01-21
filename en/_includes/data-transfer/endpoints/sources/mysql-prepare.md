@@ -1,6 +1,7 @@
 {% list tabs %}
 
 - {{ mmy-name }}
+
     
     1. [Enable full binary logging](../../../../managed-mysql/operations/update.md#change-mysql-config) on the source by setting the [**Binlog row image** parameter](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) to `FULL` or `NOBLOB`.
     
@@ -31,14 +32,20 @@
     1. [Enable full binary logging](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) on the source by setting the `binlog_row_image` parameter to `FULL` or `NOBLOB`.
     
     1. [Specify row format for the binary log](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) on the source by setting the `binlog_format` parameter to `ROW`.
-    
+
+    1. For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfer types:
+
+        * In the `log_bin` parameter, [specify the path to the binary log file]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#option_mysqld_log-bin).
+
+        * Enter the binary log information using the [SHOW MASTER STATUS]({{ my.docs }}/refman/8.0/en/show-master-status.html) request (for {{ MY }} 5.7 and 8.0) or the [SHOW BINARY LOG STATUS]({{ my.docs }}/refman/8.4/en/show-binary-log-status.html) request (for {{ MY }} 8.4). The request should return a string with the information, not an empty response.
+
     1. If the replication source is a cluster that is behind the load balancer, enable GTID mode for it (`GTID-MODE = ON`).
     
        If it is not possible to enable GTID mode for any reason, make sure the binary log name template contains the host name.
     
        In both cases, this will allow replication to continue even after changing the master host.
     
-    1. (Optional) [Set a limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) on the size of data chunks to send using the `max_allowed_packet` parameter.
+    1. Optionally, [set a limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) on the size of outbound data chunks using the `max_allowed_packet` parameter.
     
     1. Create a user to connect to the source and grant them the required privileges:
     

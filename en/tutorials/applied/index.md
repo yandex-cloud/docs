@@ -8,9 +8,9 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 ## Creating a site {#web}
 
 * [Static website in {{ objstorage-full-name }}](../web/static/index.md)
-* [Website on a LAMP or LEMP stack](../web/lamp-lemp/index.md)
+* [Website based on LAMP or LEMP stack](../web/lamp-lemp/index.md)
 * [Joomla-based website with {{ PG }} database](../web/joomla-postgresql/index.md)
-* [Creating a website in WordPress](../web/wordpress/index.md)
+* [Creating a WordPress website](../web/wordpress/index.md)
 * [WordPress website with a {{ MY }} database cluster](../web/wordpress-mysql/index.md)
 * [Transferring a WordPress website from a different hosting provider to {{ yandex-cloud }}](../web/wordpress-transfer.md)
 * [1C-Bitrix website](../web/bitrix-website/index.md)

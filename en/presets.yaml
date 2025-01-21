@@ -204,7 +204,6 @@ default:
   GP: Greenplum®
   gp:
     docs:
-      pivotal: https://gpdb.docs.pivotal.io
       vmware: https://docs.vmware.com/en/VMware-Greenplum
   gpt-freetier: 10
   gpt-lite: YandexGPT Lite
@@ -875,6 +874,10 @@ default:
   zk-host-class: b2.medium
   zone-id: ru-central1-c
   sku|KZT|ai:
+    datasphere:
+      computing:
+        v1|number: 0.006
+        v1|string: ₸0.0060
     mt:
       detect|string: ₸2461.00
       translate|string: ₸2461.00
@@ -2142,6 +2145,10 @@ default:
           10|number: 3
           10|string: ₸3.00
   sku|RUB|ai:
+    datasphere:
+      computing:
+        v1|number: 0.0012
+        v1|string: ₽0.0012
     mt:
       detect|string: ₽492.20
       translate|string: ₽492.20

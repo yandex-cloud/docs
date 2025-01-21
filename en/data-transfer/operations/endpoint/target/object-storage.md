@@ -1,3 +1,8 @@
+---
+title: Transferring data to a {{ objstorage-full-name }} target endpoint
+description: In this tutorial, you will learn how to set up an {{ objstorage-name }} target endpoint.
+---
+
 # Transferring data to a {{ objstorage-full-name }} target endpoint
 
 {{ data-transfer-full-name }} enables you to migrate data to the {{ objstorage-full-name }} storage and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
@@ -87,7 +92,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_interval.title }}**: Time after which the file will be written, regardless of its size.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: Object folder name. It supports the data layout pattern by date, Here is an example: `2006/01/02/<folder_name>`.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: Object folder name. It supports the data layout pattern by date. Example: `2006/01/02/<folder_name>`.
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_timezone.title }}**: Time zone according to which time the files are distributed. Only affects the distribution of files to folders in the bucket, but does not affect the data within the files.
 

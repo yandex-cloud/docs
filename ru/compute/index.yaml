@@ -2,7 +2,7 @@ title: Yandex Compute Cloud
 description:
   - >-
     Сервис Yandex Compute Cloud предоставляет масштабируемые вычислительные
-    мощности для создания виртуальных машин и управления ими. Сервис
+    мощности для создания виртуальных машин и управления ими.  Сервис
     поддерживает <a href="/docs/compute/concepts/preemptible-vm">прерываемые</a>
     виртуальные машины, а также отказоустойчивые <a
     href="/docs/compute/concepts/instance-groups/">группы виртуальных машин</a>.
@@ -20,7 +20,7 @@ description:
     данных» № 152-ФЗ.
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    об уровне обслуживания</a>.  Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_compute">Уровень
     обслуживания Yandex Compute Cloud</a>.
 meta:

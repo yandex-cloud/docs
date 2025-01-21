@@ -51,7 +51,7 @@ description: В этой статье приводятся решения для
 
     {% include [disable-browser-extensions](../_qa/video/disable-browser-extensions.md) %}
 
-## Не работает видеоплеер {#loading-issues}
+## Не работает видеоплеер {#player-issues}
 
 #### Завис плеер {#video-doesnt-load}
 

@@ -1,5 +1,4 @@
-
-# Setting up Gateway API
+# Setting up Gateway API in {{ managed-k8s-full-name }}
 
 [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 

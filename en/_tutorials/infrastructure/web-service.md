@@ -29,7 +29,7 @@ Cloud site:
 
 To create the infrastructure of an internet service:
 
-1. [Prepare your cloud](#before-begin).
+1. [Prepare your cloud environment](#before-begin).
 1. [Set up a remote site](#remote-setup).
 1. [Set up a cloud site](#cloud-setup).
 1. [Test the infrastructure](#test).
@@ -67,10 +67,10 @@ If you are going to use your PC as the remote site, skip this section and go to 
 1. [Create a network](../../vpc/operations/network-create.md) named `remote-net`. When creating your network, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
 1. [Create a subnet](../../vpc/operations/subnet-create.md) for your remote site test VM with the following parameters:
 
-    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-1`.
-    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`.
-    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}**: `remote-net`.
-    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `10.129.0.0/24`.
+    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-1`
+    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`
+    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}**: `remote-net`
+    * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `10.129.0.0/24`
 
 ### Create a test VM {#remote-test-vm}
 
@@ -80,7 +80,7 @@ Create a VM you will use to connect to the basic internet service infrastructure
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.    
@@ -119,22 +119,22 @@ Create a VM you will use to connect to the basic internet service infrastructure
   1. In `network`, [create subnets](../../vpc/operations/subnet-create.md) with the following parameters:
   
       1. To connect the `web-node-a` VM and the `vpn` IPSec instance:
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-a`.
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`.
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}**: `network`.
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.5.0/24`.
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-a`
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}**: `network`
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.5.0/24`
   
       1. To connect the `web-node-b` VM:
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-b`.
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`.
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}**: `network`.
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.15.0/24`.
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-b`
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-b`
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}**: `network`
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.15.0/24`
   
       1. To connect the `web-node-d` VM:
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-d`.
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-d`.
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}**: `network`.
-          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.25.0/24`.
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-d`
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-d`
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}**: `network`
+          * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.25.0/24`
 
 {% endlist %}
 
@@ -177,16 +177,16 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
 
        #|
        || **Traffic<br/>direction** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
-       || Incoming | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
-       || Incoming | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
-       || Incoming | `internal` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
+       || Inbound | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
+       || Inbound | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
+       || Inbound | `internal` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
          * `192.168.5.0/24`
          * `192.168.15.0/24`
          * `192.168.25.0/24`
          * `10.129.0.0/24` ^1^ ||
-       || Outgoing | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
-       || Outgoing | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
-       || Outgoing | `intersubnet` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
+       || Outbound | `udp500` | `500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
+       || Outbound | `udp4500` | `4500` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<remote_VM_public_IP_address>/32` ||
+       || Outbound | `intersubnet` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | 
          * `192.168.5.0/24`
          * `192.168.15.0/24`
          * `192.168.25.0/24`
@@ -215,10 +215,10 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
    
        #|
        || **Traffic<br/>direction** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** /<br/>**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** ||
-       || Incoming | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` ||
-       || Incoming | `anyself` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
-       || Incoming | `healthchecks` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — ||
-       || Outgoing | `self` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
+       || Inbound | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` ||
+       || Inbound | `anyself` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
+       || Inbound | `healthchecks` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — ||
+       || Outbound | `self` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
        |#
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -241,7 +241,7 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-       * Select the `subnet-a` subnet. 
+       * Select `subnet-a`. 
        * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
        * Select the `web-service-sg` security group.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
@@ -251,7 +251,7 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
 
             {% note alert %}
 
-            Do not use `root` or other usernames reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+            Do not use `root` or other usernames reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
 
             {% endnote %}
 
@@ -294,9 +294,9 @@ To provide secure access to your resources, create an IPSec instance.
         * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`. In the list that opens, select the IP address that you reserved.
         * Select the `vpn-sg` security group.
 
-    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
         * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn`.

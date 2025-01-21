@@ -2,6 +2,7 @@
 title: How to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}.
 ---
+
 # Transferring data to a {{ MY }} target endpoint
 
 {{ data-transfer-full-name }} enables you to migrate data to a {{ MY }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
@@ -23,7 +24,7 @@ description: In this tutorial, you will learn how to set up a {{ MY }} target en
    * [Migration with change of storage from {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-
+  
    * [Delivering data from {{ KF }} to {{ MY }}](../../../tutorials/mkf-to-mmy.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
@@ -32,11 +33,11 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 Configure one of the supported data sources:
 
-* [{{ PG }}](../source/postgresql.md)​
-* [{{ MY }}](../source/mysql.md)​
+* [{{ PG }}](../source/postgresql.md)
+* [{{ MY }}](../source/mysql.md)
 * [{{ KF }}](../source/kafka.md)
-* [{{ AB }}](../../../transfer-matrix.md#airbyte)​
-* [{{ DS }}](../source/data-streams.md)​
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)
 * [{{ objstorage-full-name }}](../source/object-storage.md)
 * [{{ ydb-name }}](../source/ydb.md)
 
@@ -56,7 +57,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmy.viewer }}` role](../../../../managed-mysql/security/index.md#mmy-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmy.viewer }}`](../../../../managed-mysql/security/index.md#mmy-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
@@ -255,6 +256,7 @@ Known issues when using a {{ MY }} endpoint:
 * [Error when transferring from AWS RDS for {{ MY }}](#aws-binlog-time).
 * [Error when transferring tables without primary keys](#primary-keys).
 * [Binary log access error](#binlog-bytes).
+* [Unable to get a binary log position](#binlog-position)
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
 * [Time shift in the DATETIME data type when transferring to {{ CH }}](#timeshift).
 
@@ -269,6 +271,8 @@ For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/in
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 {% include [binlog-bytes](../../../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [binlog-position](../../../../_includes/data-transfer/troubles/mysql/binlog-position.md) %}
 
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 

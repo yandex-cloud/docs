@@ -60,7 +60,7 @@ Thumbor features:
 
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Thumbor, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Thumbor, run the following command, specifying the parameters of the resources you created [earlier](#before-you-begin):
 
    {% list tabs %}
 

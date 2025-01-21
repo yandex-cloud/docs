@@ -16,9 +16,6 @@ description: Следуя данной инструкции, вы сможете
   1. (опционально) Введите описание.
   1. (опционально) Добавьте профилю [метки](../../resource-manager/concepts/labels.md).
   1. По умолчанию в профиле WAF включен набор базовых правил [OWASP Core Rule Set](https://coreruleset.org/). Нажмите на строку с набором правил, чтобы посмотреть правила, которые в него входят.
-
-  1. {% include [waf-inspect-request](../../_includes/smartwebsecurity/waf-inspect-request.md) %}
-
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }} {#tf}
@@ -67,13 +64,6 @@ description: Следуя данной инструкции, вы сможете
             is_blocking = false
           }
         }
-
-        analyze_request_body {
-          is_enabled        = true
-          size_limit        = 8
-          size_limit_action = "IGNORE"
-        }
-      }
       ```
 
       Где:
@@ -97,11 +87,6 @@ description: Следуя данной инструкции, вы сможете
             * `rule_id` — идентификатор правила.
             * `is_enabled` — флаг включения или отключения правила.
             * `is_blocking` — флаг, который назначает правило [блокирующим](../concepts/waf.md#anomaly).
-
-         * `analyze_request_body` — блок [параметров анализа запроса](../concepts/waf.md#request-analysis-parameters):
-            * `is_enabled` — флаг включения инспектирования тела запроса.
-            * `size_limit` — максимальный размер тела запроса в КБ. Значение по умолчанию 8 КБ. В настоящий момент изменить значение по умолчанию нельзя.
-            * `size_limit_action` — действие при превышении максимального размера. Возможные значения: `IGNORE` — не анализировать тело запроса или `DENY` — блокировать запрос.
 
       Более подробную информацию о параметрах ресурса `yandex_sws_waf_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_waf_profile).
 

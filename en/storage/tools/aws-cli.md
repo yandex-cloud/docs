@@ -40,30 +40,30 @@ The `aws configure` command saves the static key and the region.
 
   ```ini
   [default]
-    aws_access_key_id = <static_key_ID>
-    aws_secret_access_key = <static_key_contents>
+  aws_access_key_id = <static_key_ID>
+  aws_secret_access_key = <static_key_contents>
   ```
 
 * Default region format in `.aws/config`:
 
   ```ini
   [default]
-    region = {{ region-id }}
+  region = {{ region-id }}
   ```
 
 * You can create multiple profiles for different service accounts by specifying their details in the `.aws/credentials` file:
 
   ```ini
   [default]
-    aws_access_key_id = <ID_of_static_key_1>
-    aws_secret_access_key = <contents_of_static_key_1>
+  aws_access_key_id = <ID_of_static_key_1>
+  aws_secret_access_key = <contents_of_static_key_1>
   [<name_of_profile_2>]
-    aws_access_key_id = <ID_of_static_key_2>
-    aws_secret_access_key = <contents_of_static_key_2>
+  aws_access_key_id = <ID_of_static_key_2>
+  aws_secret_access_key = <contents_of_static_key_2>
   ...
   [<name_of_profile_n>]
-    aws_access_key_id = <ID_of_static_key_n>
-    aws_secret_access_key = <contents_of_static_key_n>
+  aws_access_key_id = <ID_of_static_key_n>
+  aws_secret_access_key = <contents_of_static_key_n>
   ```
 
   Where `default` is the default profile.
@@ -80,9 +80,9 @@ The `aws configure` command saves the static key and the region.
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
-## Things to consider {#specifics}
+## Features {#specifics}
 
-Give consideration to the special aspects of using the AWS CLI with {{ objstorage-name }}:
+Take note of these AWS CLI features when used with {{ objstorage-name }}:
 
 * The AWS CLI treats {{ objstorage-name }} as a hierarchical file system and object keys look like file paths.
 * By default, the client is configured to work with Amazon servers. Therefore, when running the `aws` command to work with {{ objstorage-name }}, make sure to use the `--endpoint-url` parameter. To avoid adding the parameter manually each time you run the command, you can use a configuration file or an alias.
@@ -179,7 +179,7 @@ You can upload all objects within a directory, use a filter, or upload objects o
   ```text
   upload: ./testfile.txt to s3://bucket-name/path_style_prefix/textfile.txt
   ```
-  
+
 ### Getting a list of objects {#getting-objects-list}
 
 ```bash

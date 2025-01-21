@@ -100,22 +100,41 @@ List of available taint effects:
 * `PREFER_NO_SCHEDULE`: Avoid running pods on the group nodes if there are resources available for this purpose in other groups.
 * `NO_EXECUTE`: Stop pods on the group's nodes, evict them to other groups, and prohibit running new pods.
 
-_Tolerations_: Exceptions from taint policies. Using tolerations, you can allow certain pods to run on nodes, even if the taint of the node group prohibits this.
+_Tolerations_: Exceptions from taint policies. With tolerations, you can allow particular pods to run on nodes even if the node group's taint prohibits this.
 
-For example, if the `key1=value1:NoSchedule` taint is set for group nodes, you can place pods on this node using tolerations:
+There are two types of tolerations:
 
-```yaml
-apiVersion: v1
-kind: Pod
-...
-spec:
+  * `Equal` triggers if the key, value, and effect of the taint match those of the toleration. Used by default.
+
+  * `Exists` triggers if the key and effect of the taint match those of the toleration. The key value is ignored.
+
+  For example, if the `key1=value1:NoSchedule` taint is set for the group's nodes, you can use tolerations to put pods on a node like this:
+
+  ```yaml
+  apiVersion: v1
+  kind: Pod
   ...
-  tolerations:
-  - key: "key1"
-    operator: "Equal"
-    value: "value1"
-    effect: "NoSchedule"
-```
+  spec:
+    ...
+    tolerations:
+    - key: "key1"
+      operator: "Equal"
+      value: "value1"
+      effect: "NoSchedule"
+  ```
+  Or like this:
+
+  ```yaml
+  apiVersion: v1
+  kind: Pod
+  ...
+  spec:
+    ...
+    tolerations:
+    - key: "key1"
+      operator: "Exists"
+      effect: "NoSchedule"
+  ```
 
 {% note info %}
 
@@ -137,7 +156,7 @@ _Node labels_ is a mechanism for grouping nodes in {{ managed-k8s-name }}. There
 
 You can use both types of labels at the same time, e.g., when [creating a node group](../operations/node-group/node-group-create.md) in the CLI or {{ TF }}.
 
-You can use the [{{ managed-k8s-name }} API](../managed-kubernetes/api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. Things to consider:
+You can use the [{{ managed-k8s-name }} API](../managed-kubernetes/api-ref/index.md) and [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) for {{ k8s }} label management. Their features:
 
 * {{ k8s }} labels added via the {{ k8s }} API may be lost because, when [updating or modifying a node group](../operations/node-group/node-group-update.md), some nodes are recreated with different names and some of the old ones are deleted.
 * If {{ k8s }} labels are created via the {{ managed-k8s-name }} API, you cannot delete them using the {{ k8s }} API. Otherwise, the labels will be restored once they are deleted.

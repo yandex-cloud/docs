@@ -14,7 +14,7 @@ In this tutorial, you will learn how to host your static [Gatsby](https://www.ga
 
 To create and host a static website in {{ objstorage-name }}:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Register a domain name](#register-domain).
 1. [Create and configure an {{ objstorage-name }}](#create-and-configure-bucket) bucket.
 1. [Link the domain name to the bucket](#bind-domain).
@@ -62,7 +62,7 @@ The cost of support for the new infrastructure includes:
 
 ## Create and configure an {{ objstorage-name }} bucket {#create-and-configure-bucket}
 
-To host your static website in the cloud, [create](../../storage/operations/buckets/create.md) a bucket and [configure](../../storage/operations/hosting/setup.md#hosting) it:
+To host a static website in the cloud, [create](../../storage/operations/buckets/create.md) a bucket and [configure](../../storage/operations/hosting/setup.md#hosting) it:
 
 {% list tabs group=instructions %}
 
@@ -281,7 +281,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
 - Management console {#console}
 
-  1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domain that the website will use.
+  1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domain the website will be using.
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your certificate in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -291,7 +291,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
       1. Select `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` as the [type of domain rights check](../../certificate-manager/concepts/challenges.md).
       1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
-          The new certificate will appear in the certificate list with the `Validating` status. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
+          A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
   1. To successfully issue the certificate, pass the domain rights check:
 
@@ -303,9 +303,9 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domain that the website will use.
+  1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domain the website will be using.
 
-      Run this command:
+      Run the following command:
 
       ```bash
       yc certificate-manager certificate request \
@@ -382,7 +382,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
           Save the value of the `value` field from the `CNAME` type section under `challenges.dns_challenge`. You will need this value in the next step.
 
-          The new certificate will appear in the certificate list with the `Validating` status. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
+          A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
       1. Create a CNAME [resource record](../../dns/concepts/resource-record.md) to pass the domain rights check:
 
@@ -436,11 +436,11 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
 - API {#api}
 
-  1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domain that the website will use.
+  1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domain the website will be using.
 
       To add a certificate, use the [requestNew](../../certificate-manager/api-ref/Certificate/requestNew.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/RequestNew](../../certificate-manager/api-ref/grpc/Certificate/requestNew.md) gRPC API call.
 
-      The new certificate will appear in the certificate list with the `Validating` status. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
+      A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
   1. To successfully issue the certificate, pass the domain rights check:
 
@@ -471,7 +471,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  Run this command:
+  Run the following command:
 
   ```bash
   yc storage bucket set-https \
@@ -600,7 +600,7 @@ Once the upload is complete, check that you can access your website using its do
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the created resources and stop paying for them:
+To shut down the resources you created and stop paying for them:
 
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

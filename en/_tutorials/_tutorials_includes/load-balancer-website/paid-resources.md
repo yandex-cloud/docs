@@ -1,4 +1,4 @@
-The cost of hosting a website includes:
+The website support cost includes:
 
 * Fee for [disks](../../../compute/concepts/disk.md) and continuously running [VMs](../../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
 * Fee for using dynamic or static [public IP addresses](../../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).

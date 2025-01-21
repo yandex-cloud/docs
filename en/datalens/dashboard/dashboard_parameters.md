@@ -1,3 +1,8 @@
+---
+title: Dashboard parameters
+description: In this article, you will learn what dashboard parameters are, take a look at the dashboard, chart, and special parameters, learn about the limitations in place and how to apply parameters.
+---
+
 # Dashboard parameters
 
 A dashboard parameter is a variable used to filter widgets on the dashboard when you open it. Parameters allow you to use visualization features more flexibly and customize the same charts and widgets for different purposes. You may find parameters useful in situations like these:
@@ -94,7 +99,7 @@ For example, if the current time is `2020-03-24T23:30:39.874Z`, then:
 
 * `__interval_2019-03-11T09:35:48_2019-12-28T09:35:48`: From `2019-03-11T09:35:48` to `2019-12-28T09:35:48`
 * `__interval_2019-01-17T09:35:48___relative_+0d`: From `2019-01-17T09:35:48` to today (`2020-03-24T23:59:59.999Z`)
-* `__interval___relative_-2w_sM___relative_+1d`: Two weeks ago or more (`2020-03-10T00:00:00.000Z`) cast to the start of the month: (`2020-03-01T00:00:00.000Z`) until tomorrow (`2020-03-25T23:59:59.999Z`)
+* `__interval___relative_-2w_sM___relative_+1d`: Two weeks ago or more (`2020-03-10T00:00:00.000Z`) cast to the start of the month: `2020-03-01T00:00:00.000Z` until tomorrow (`2020-03-25T23:59:59.999Z`)
 
 ## Order of applying parameters {#params-applying}
 
@@ -139,4 +144,4 @@ The following limitations apply when using parameters:
   1. Delete the selector you added from the dashboard.
 
   The dashboard's `parameter` value will now be applied to all the widgets the remote selector was connected to.
-  
+    

@@ -5,6 +5,15 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 # {{ metadata-hub-full-name }} release notes: 2024
 
+## December {#december}
+
+### New features {#new-features-december}
+
+Added the ability to manage connections to the following databases:
+* [{{ TR }}](../operations/create-connection.md#trino-on-premise) custom installation
+* [{{ OS }}](../operations/create-connection.md#opensearch-on-premise) custom installation
+* [{{ mos-name }}](../operations/create-connection.md#mdb-opensearch) cluster
+
 ## November {#november}
 
 ### New features {#new-features-november}

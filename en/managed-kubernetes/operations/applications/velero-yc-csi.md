@@ -80,7 +80,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 
 1. {% include [Helm install](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [kubectl setup](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Velero, run this command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Velero, run the following command, specifying the parameters of the resources you created [earlier](#before-you-begin):
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_velero-yc-csi.helmChart.name }} \

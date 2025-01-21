@@ -22,7 +22,7 @@ You can [create a bucket](../operations/buckets/create.md) via the [management c
 
 ## Naming buckets {#naming}
 
-A bucket name is used as part of the data access URL and is visible to your users. For example, `https://{{ s3-storage-host }}/bucket-name`.
+A bucket name is used as part of the data access URL and is visible to your users, e.g., `https://{{ s3-storage-host }}/bucket-name`.
 
 The naming requirements are as follows:
 

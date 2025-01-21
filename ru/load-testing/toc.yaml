@@ -87,6 +87,8 @@ items:
         href: concepts/testing-stream.md
       - name: Автостоп
         href: concepts/auto-stop.md
+      - name: Resource Check
+        href: concepts/resource-check.md
       - name: Мониторинг агентов тестирования
         href: concepts/monitoring.md
       - name: Отчеты

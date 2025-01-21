@@ -17,6 +17,13 @@ description: В этом разделе собраны пошаговые инс
 * [Загрузить Docker-образ в реестр](docker/push.md)
 * [Скачать Docker-образ из реестра](docker/pull.md)
 
+### Helm {#helm}
+
+* [Получить информацию об имеющихся Helm-чартах](helm/list.md)
+* [Загрузить Helm-чарт в реестр](helm/push.md)
+* [Скачать Helm-чарт из реестра](helm/pull.md)
+* [Удалить Helm-чарт из реестра](helm/delete.md)
+
 ### Maven {#maven}
 
 * [Настроить Maven](maven/installation.md)
@@ -24,3 +31,4 @@ description: В этом разделе собраны пошаговые инс
 ### npm {#npm}
 
 * [Настроить npm](npm/installation.md)
+

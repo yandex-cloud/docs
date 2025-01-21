@@ -318,6 +318,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
      {% endcut %}
 
+     {% include [Namespace warning](../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
+
   1. Create resources for NodeLocal DNS:
 
      ```bash
@@ -353,7 +355,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To change configuration, edit the relevant `configmap`. For example, to enable DNS request logging for the `cluster.local` zone:
 
-1. Run this command:
+1. Run the following command:
 
    ```bash
    kubectl -n kube-system edit configmap node-local-dns
@@ -462,7 +464,7 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
 {% list tabs %}
 
 - All pods
-  
+
   1. Create a pod for network traffic setup:
 
      ```bash
@@ -538,7 +540,7 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
 
      ```bash
      kubectl delete pod dnschange
-     ```  
+     ```
 
   1. To make sure all pods start running through NodeLocal DNS, restart them, e.g., using the command below:
 
@@ -546,14 +548,14 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
      kubectl get deployments --all-namespaces | \
        tail +2 | \
        awk '{
-         cmd=sprintf("kubectl rollout restart deployment -n %s %s", $1, $2) ; 
-         system(cmd) 
+         cmd=sprintf("kubectl rollout restart deployment -n %s %s", $1, $2) ;
+         system(cmd)
        }'
      ```
 
 - Selected pods
 
-  1. Run this command:
+  1. Run the following command:
 
      ```bash
      kubectl edit deployment <pod_deployment_name>
@@ -582,7 +584,7 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
 
 ## Check logs {#check-logs}
 
-Run this command:
+Run the following command:
 
 ```bash
 kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f

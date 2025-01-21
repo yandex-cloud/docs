@@ -11,6 +11,7 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](time-slicing-gpu.md)
 * [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](terraform-modules.md)
+* [{#T}](kms-k8s.md)
 
 ## Setting up and testing scaling {#scaling}
 
@@ -66,6 +67,7 @@ To learn about installing the NGINX Ingress controller using {{ marketplace-full
 ## Monitoring {#monitoring}
 
 * [{#T}](prometheus-grafana-monitoring.md)
+* [{#T}](k8s-fluent-bit-logging.md)
 * [{#T}](filebeat-oss-monitoring.md)
 
 ## Using {{ marketplace-full-name }} products {#marketplace-tutorials}

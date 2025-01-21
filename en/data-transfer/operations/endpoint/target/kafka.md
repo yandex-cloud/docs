@@ -2,9 +2,10 @@
 title: How to set up an {{ KF }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up an {{ KF }} target endpoint in {{ data-transfer-full-name }}.
 ---
+
 # Transferring data to an {{ KF }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ KF }} queue and implement various data processing and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to an {{ KF }} queue and implement various data processing and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
@@ -58,7 +59,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mkf.viewer }}` role](../../../../managed-kafka/security/index.md#mkf-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mkf.viewer }}`](../../../../managed-kafka/security/index.md#mkf-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 

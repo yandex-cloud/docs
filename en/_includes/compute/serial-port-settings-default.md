@@ -1,0 +1,1 @@
+If {{ oslogin }} access is [enabled](../../organization/operations/os-login-access.md) at the organization level, all new VMs created in this organization will get the `OS_LOGIN` value in the `serial_port_settings.ssh_authorization` field by default. If the {{ oslogin }} access is disabled, the default value of this field will be `INSTANCE_METADATA`.

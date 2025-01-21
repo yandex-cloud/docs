@@ -18,7 +18,7 @@ description: In this tutorial, you will learn how to configure a {{ MY }} source
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Migrating {{ MY }} clusters](../../../tutorials/managed-mysql-to-mysql.md).
+    * [Migrating a {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
     * [Migration with change of storage from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
     * [Migration with change of storage from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
     * [Migration with change of storage from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
@@ -54,7 +54,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmy.viewer }}` role](../../../../managed-mysql/security/index.md#mmy-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmy.viewer }}`](../../../../managed-mysql/security/index.md#mmy-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
@@ -303,6 +303,7 @@ Known issues when using a {{ MY }} endpoint:
 * [Error when transferring from AWS RDS for {{ MY }}](#aws-binlog-time).
 * [Error when transferring tables without primary keys](#primary-keys).
 * [Binary log access error](#binlog-bytes).
+* [Unable to get a binary log position](#binlog-position)
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
 * [Time shift in the DATETIME data type when transferring to {{ CH }}](#timeshift).
 
@@ -317,6 +318,8 @@ For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/in
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 {% include [binlog-bytes](../../../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [binlog-position](../../../../_includes/data-transfer/troubles/mysql/binlog-position.md) %}
 
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 

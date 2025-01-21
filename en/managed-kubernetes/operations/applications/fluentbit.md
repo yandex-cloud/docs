@@ -3,7 +3,7 @@ title: Installing Fluent Bit with a plugin for {{ cloud-logging-full-name }}
 description: Follow this tutorial to install Fluent Bit with a plugin for {{ cloud-logging-name }}.
 ---
 
-# Installing Fluent Bit with a plugin for {{ cloud-logging-name }}
+# Installing Fluent Bit with a plugin for {{ cloud-logging-full-name }}
 
 
 [Fluent Bit](https://www.fluentbit.io/) is an open-source multi-platform tool for collecting and processing logs. Fluent Bit collects, parses, and filters messages from a variety of inputs and saves them to storage. Messages then go to the router, which defines the output to send them to. Plugins are used to work with various inputs and outputs.

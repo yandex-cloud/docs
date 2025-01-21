@@ -1,3 +1,8 @@
+---
+title: Adding a customer
+description: Follow this guide to add a customer.
+---
+
 # Adding a customer
 
 To add a new customer:

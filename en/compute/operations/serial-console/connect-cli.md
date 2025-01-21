@@ -41,6 +41,8 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
+  1. {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
+
   1. Connect to the serial console of the VM you need:
 
       ```bash
@@ -104,6 +106,8 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
+
+  1. {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
 
   1. Connect to the Windows SAC of the VM you need:
 

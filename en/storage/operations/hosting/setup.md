@@ -27,7 +27,10 @@ You can host your static website in {{ objstorage-name }}. A static website is b
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-      * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file in the bucket for the website home page, e.g., `pages/index.html`.
+      * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file in the bucket for the website home page, e.g., `index.html`.
+
+        {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
+
       * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file in the bucket to be displayed in the event of 4xx errors, e.g., `pages/error404.html`. By default, {{ objstorage-name }} returns its own page.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
@@ -56,10 +59,13 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
      Where:
 
-     * `index`: Absolute path to the website home page file. 
+     * `index`: Absolute path to the website home page file.
+
+       {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
+
      * `error`: Absolute path to the file the user will see in case of 4xx errors.
   
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      yc storage bucket update --name <bucket_name> \
@@ -105,7 +111,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
   Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
 
      ```hcl
@@ -157,6 +163,9 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
      * `website`: Website parameters:
        * `index_document`: Absolute path to the website home page file. This is a required parameter.
+
+         {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
+
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
 
   1. Make sure the configuration files are correct.
@@ -168,7 +177,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy cloud resources.
 
@@ -178,7 +187,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      terraform apply
      ```
    
-     1. Confirm that you want to create the resources.
+     1. Confirm creating the resources.
 
      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
@@ -214,7 +223,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      yc storage bucket update --help
      ```
      
-  1. Create a file with redirect settings in JSON format, For example:
+  1. Create a file with redirect settings in JSON format. For example:
      
      ```json
      {
@@ -229,7 +238,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      * `protocol`: Data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request's protocol is used.
      * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
   
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      yc storage bucket update --name <bucket_name> \
@@ -291,7 +300,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
        * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can specify a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Check the configuration using this command:
 
@@ -347,10 +356,10 @@ Using routing rules, you can redirect requests based on the object name prefixes
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} should have responded with to a request without a redirect.
       * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key start in the request. 
   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}**, set redirect parameters:
-      * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** Protocol to use to send redirected requests.
-      * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** of the host where the requests that satisfy the condition should redirect.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** that will be used to send redirected requests.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** of the host the requests that have satisfied the condition should be redirected to.
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** to determine the redirect type.
-      * **{{ ui-key.yacloud.storage.bucket.website.field_redirect_change }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, specified in the condition.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_redirect_change }}**: **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, specified in the condition.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
   
 - {{ yandex-cloud }} CLI {#cli}
@@ -401,7 +410,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
        * `replaceKeyPrefixWith`: New object key prefix.
        * `replaceKeyWith`: New object key.
   
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      yc storage bucket update --name <bucket_name> \
@@ -480,7 +489,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
        * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Check the configuration using this command:
 

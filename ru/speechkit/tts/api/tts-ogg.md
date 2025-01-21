@@ -1,5 +1,6 @@
 # Синтез речи в формате OggOpus с помощью API v1
 
+
 С помощью [API v1](../request.md) можно синтезировать речь из текста в [TTS-разметке](../markup/tts-markup.md) в файл формата [OggOpus](../../formats.md).
 
 В примере заданы следующие параметры синтеза:
@@ -248,7 +249,7 @@
   };
 
   axios
-    .post('https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize', formData, {
+    .post('https://{{ api-host-sk-tts }}/speech/v1/tts:synthesize', formData, {
       headers,
       responseType: 'arraybuffer'
     })

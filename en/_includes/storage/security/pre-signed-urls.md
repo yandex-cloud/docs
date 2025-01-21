@@ -45,7 +45,7 @@ Parameter | Description
 
 {% note info %}
 
-Generating pre-signed URLs is optional for public buckets. You can get files from a publicly available bucket via both HTTP and HTTPS even if the bucket has no [website hosting](../../../storage/concepts/hosting.md) configured.
+Generating pre-signed URLs is optional for public buckets. You can get files from a publicly available bucket either via HTTP or HTTPS, even if the bucket has no [website hosting](../../../storage/concepts/hosting.md) configured.
 
 {% endnote %}
 
@@ -78,11 +78,11 @@ HTTP method to use to send the request: `GET`, `PUT`, `HEAD`, or `DELETE`.
 
 #### CanonicalURL {#canonical-url}
 
-URL-encoded object key. For example, `/folder/object.ext`.
+URL-encoded object key, e.g., `/folder/object.ext`.
 
 {% note info %}
 
-Do not normalize the path. For example, an object may have `some//strange//key//example` for a key, so normalizing the path to `/<bucket-name>/some/strange/key/example` invalidates the key.
+Do not normalize the path. For example, an object may have `some//strange//key//example` for a key, so normalizing the path to `/<bucket-name>/some/strange/key/example` will invalidate the key.
 
 {% endnote %}
 
@@ -90,7 +90,7 @@ Do not normalize the path. For example, an object may have `some//strange//key//
 
 The canonical query string must include all query parameters of the destination URL, except `X-Amz-Signature`. The parameters in the string must be URL-encoded and sorted alphabetically.
 
-Here is an example:
+Example:
 
 ```
 X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host
@@ -110,7 +110,7 @@ The list must follow these requirements:
 
 You can also add any request header to the list. The more headers you sign, the safer your request is going to be.
 
-Here is an example: 
+Example: 
 
 ```
 host:sample-bucket.{{ s3-storage-host }}
@@ -121,7 +121,7 @@ x-amz-date:20190801T000000Z
 
 This is a list of lowercase request header names, sorted alphabetically and separated by semicolons.
 
-Here is an example:
+Example:
 
 ```
 host;x-amz-date
@@ -344,7 +344,7 @@ This subsection provides examples of generating pre-signed URLs with the help of
 {% list tabs %}
 
 - Management console {#console}
-
+  
   {% include [storage-get-link-for-download](../../../storage/_includes_service/storage-get-link-for-download.md) %}
 
 - AWS CLI {#cli}
@@ -360,7 +360,7 @@ This subsection provides examples of generating pre-signed URLs with the help of
     To generate the link properly, make sure to provide the `--endpoint-url` parameter pointing to the {{ objstorage-name }} hostname. For detailed information, see [this section covering AWS CLI specifics](../../../storage/tools/aws-cli.md#specifics).
 
 - Python (boto3) {#boto3}
-
+    
     The example generates a pre-signed URL for downloading `object-for-share` from `bucket-with-objects`. The URL is valid for 100 seconds.
 
     ```python

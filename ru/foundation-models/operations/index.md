@@ -30,6 +30,11 @@ description: Страница содержит все инструкции дл�
 * [{#T}](./assistant/create.md)
 * [{#T}](./assistant/create-with-searchindex.md)
 
+## Дообучение моделей {{ foundation-models-name }} {#tuning}
+
+* [{#T}](./tuning/create.md)
+* [{#T}](./tuning/tune-classifiers.md)
+
 ## Общие пошаговые инструкции {#general}
 
 * [{#T}](disable-logging.md)

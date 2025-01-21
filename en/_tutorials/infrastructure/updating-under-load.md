@@ -2,7 +2,7 @@
 
 
 Using this step-by-step guide, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check its operation when updating the configuration. To do this:
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Prepare the environment](#create-environment).
 1. [Create an instance group from a {{ coi }}](#create-vm-group).
 1. [Create a load on an instance](#start-load-testing).
@@ -11,7 +11,7 @@ Using this step-by-step guide, you will configure an [instance group](../../comp
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
@@ -25,7 +25,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 ## Prepare the environment {#create-environment}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-load` and assign it the `editor` role:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-load`. To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
 
    {% list tabs group=instructions %}
 
@@ -35,7 +35,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-load`.
-     1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` [role](../../iam/concepts/access-control/roles.md).
+     1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}**. To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -57,19 +57,27 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
         name: for-load
         ```
 
-     1. Assign the role to the service account:
+     1. Assign the compute.editor role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding b0g12ga82bcv******** \
-          --role editor \
-          --subject serviceAccount:ajeab0cnib1p********
+        yc resource-manager folder add-access-binding <folder_ID> \
+          --role compute.editor \
+          --subject serviceAccount:<service_account_ID>
         ```
+
+      1. Assign the load-balancer.editor role to the service account:
+
+          ```bash
+          yc resource-manager folder add-access-binding <folder_ID> \
+            --role load-balancer.editor \
+            --subject serviceAccount:<service_account_ID>
+          ```
 
    - API {#api}
 
      1. Create a service account named `for-load`:
          Use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
-     1. Assign the service account the `editor` role for the current folder:
+     1. To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
          Use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
 
    {% endlist %}

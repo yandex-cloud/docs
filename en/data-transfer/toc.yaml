@@ -250,6 +250,10 @@ items:
             href: tutorials/opensearch-to-object-storage.md
           - name: '{{ ydb-name }} to {{ objstorage-name }}'
             href: tutorials/ydb-to-object-storage.md
+          - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+            href: tutorials/replicate-logs-to-storage-via-data-streams.md
+          - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+            href: tutorials/replicate-logs-to-storage.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -297,11 +301,83 @@ items:
   - name: CLI reference
     items:
       - name: Overview
-        href: ../cli/cli-ref/datatransfer/cli-ref/index.md
-      - name: Transfer
-        href: ../cli/cli-ref/datatransfer/cli-ref/transfer/index.md
-      - name: Endpoint
-        href: ../cli/cli-ref/datatransfer/cli-ref/endpoint/index.md
+        href: cli-ref/index.md
+      - name: endpoint
+        items:
+          - name: Overview
+            href: cli-ref/endpoint/index.md
+          - name: create
+            items:
+              - name: Overview
+                href: cli-ref/endpoint/create/index.md
+              - name: clickhouse-source
+                href: cli-ref/endpoint/create/clickhouse-source.md
+              - name: clickhouse-target
+                href: cli-ref/endpoint/create/clickhouse-target.md
+              - name: mongo-source
+                href: cli-ref/endpoint/create/mongo-source.md
+              - name: mongo-target
+                href: cli-ref/endpoint/create/mongo-target.md
+              - name: mysql-source
+                href: cli-ref/endpoint/create/mysql-source.md
+              - name: mysql-target
+                href: cli-ref/endpoint/create/mysql-target.md
+              - name: postgres-source
+                href: cli-ref/endpoint/create/postgres-source.md
+              - name: postgres-target
+                href: cli-ref/endpoint/create/postgres-target.md
+              - name: yds-source
+                href: cli-ref/endpoint/create/yds-source.md
+              - name: yds-target
+                href: cli-ref/endpoint/create/yds-target.md
+          - name: delete
+            href: cli-ref/endpoint/delete.md
+          - name: get
+            href: cli-ref/endpoint/get.md
+          - name: list
+            href: cli-ref/endpoint/list.md
+          - name: update
+            items:
+              - name: Overview
+                href: cli-ref/endpoint/update/index.md
+              - name: clickhouse-source
+                href: cli-ref/endpoint/update/clickhouse-source.md
+              - name: clickhouse-target
+                href: cli-ref/endpoint/update/clickhouse-target.md
+              - name: mongo-source
+                href: cli-ref/endpoint/update/mongo-source.md
+              - name: mongo-target
+                href: cli-ref/endpoint/update/mongo-target.md
+              - name: mysql-source
+                href: cli-ref/endpoint/update/mysql-source.md
+              - name: mysql-target
+                href: cli-ref/endpoint/update/mysql-target.md
+              - name: postgres-source
+                href: cli-ref/endpoint/update/postgres-source.md
+              - name: postgres-target
+                href: cli-ref/endpoint/update/postgres-target.md
+              - name: yds-source
+                href: cli-ref/endpoint/update/yds-source.md
+              - name: yds-target
+                href: cli-ref/endpoint/update/yds-target.md
+      - name: transfer
+        items:
+          - name: Overview
+            href: cli-ref/transfer/index.md
+          - name: activate
+            href: cli-ref/transfer/activate.md
+          - name: create
+            href: cli-ref/transfer/create.md
+          - name: deactivate
+            href: cli-ref/transfer/deactivate.md
+          - name: delete
+            href: cli-ref/transfer/delete.md
+          - name: get
+            href: cli-ref/transfer/get.md
+          - name: list
+            href: cli-ref/transfer/list.md
+          - name: update
+            href: cli-ref/transfer/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -406,6 +482,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: December 2024
+        href: release-notes/2412.md
       - name: November 2024
         href: release-notes/2411.md
       - name: October 2024

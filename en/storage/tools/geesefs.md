@@ -1,6 +1,6 @@
 # GeeseFS
 
-[GeeseFS](https://github.com/yandex-cloud/geesefs) is a utility for mounting {{ objstorage-name }} buckets using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) on Linux, MacOS, and Windows. It was developed by the {{ yandex-cloud }} team as a fork of [goofys](goofys.md). It is a high-performance, POSIX-ish file system.
+[GeeseFS](https://github.com/yandex-cloud/geesefs) is a utility for mounting {{ objstorage-name }} buckets using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) on Linux, MacOS, and Windows platforms. It was developed by the {{ yandex-cloud }} team as a [goofys](goofys.md) branch. It is a high-performance, POSIX-ish file system.
 
 ## Functionality {#features}
 
@@ -53,7 +53,7 @@ GeeseFS does not support the following:
   * ID of the owner of all files and directories in the `--uid` option value.
   * ID of the group all files and directories belong to in the `--gid` option value.
 
-  Here is an example:
+  For example:
 
   ```bash
   geesefs \
@@ -80,7 +80,7 @@ GeeseFS does not support the following:
 
 - Linux {#linux}
 
-  1. Install the utilities required by FUSE. Here is an example:
+  1. Install the utilities required by FUSE. For example:
 
      * Debian, Ubuntu:
 
@@ -138,8 +138,8 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
 
     ```text
     [default]
-      aws_access_key_id=<key_ID>
-      aws_secret_access_key=<secret_key>
+    aws_access_key_id = <key_ID>
+    aws_secret_access_key = <secret_key>
     ```
 
     If the key file is located elsewhere, specify its path in the `--shared-config` parameter when mounting the bucket:
@@ -165,12 +165,12 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
 
 - Windows {#windows}
 
-  * Using the `credentials` [file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html), which you need to put into: `users/<current_user>/.aws/`:
+  * Using the `credentials` [file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html), which you need to put into the `users/<current_user>/.aws/` folder:
 
     ```text
     [default]
-      aws_access_key_id=<key_ID>
-      aws_secret_access_key=<secret_key>
+    aws_access_key_id = <key_ID>
+    aws_secret_access_key = <secret_key>
     ```
 
     If the key file is located elsewhere, specify its path in the `--shared-config` parameter when mounting the bucket:
@@ -223,7 +223,7 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
 
     {% note info %}
 
-    To ensure that the bucket is mounted correctly, provide the full absolute path to the mount point without `~`, e.g., `/home/user/mountpoint`.
+    To ensure that the bucket is mounted correctly, provide the full absolute path to the mount point without `~`. Example: `/home/user/mountpoint`.
 
     {% endnote %}
 
@@ -232,7 +232,7 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
     Create a Windows service that will automatically run at system startup:
 
     1. Run `CMD` as an administrator.
-    1. Run this command:
+    1. Run the following command:
 
         ```cmd
         sc create <service_name> ^
@@ -242,7 +242,7 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
           start=auto
         ```
 
-        Where `binPath` is the path to the `geesefs.exe` file with the required mounting parameters. Here is an example: `C:\geesefs\geesefs.exe <bucket_name> <mount_point>`.
+        Where `binPath` is the path to the `geesefs.exe` file with the required mounting parameters. For example: `C:\geesefs\geesefs.exe <bucket_name> <mount_point>`.
 
         Result:
 

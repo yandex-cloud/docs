@@ -1,3 +1,8 @@
+---
+title: Data delivery guarantees
+description: In this article, you will learn about data delivery guarantees.
+---
+
 # Data delivery guarantees
 
 There are three data delivery strategies:
@@ -13,19 +18,19 @@ In this case, the **Exactly-once** strategy is implemented for DMBS-level data i
 * The table being delivered has a primary key.
 * The consumer database deduplicates data by primary key:
 
-   | Target | Deduplication by primary key |
-   |-------------------------------------------------------------------------------|:-----------------------------------------------------------------:|
-   | {{ KF }} topic: Your own or as part of the [{{ mkf-short-name }} service](../../managed-kafka/) | ![no](../../_assets/common/no.svg) |
-   | {{ CH }} database: Your own or as part of the [{{ mch-short-name }} service](../../managed-clickhouse/) | ![no](../../_assets/common/no.svg) |
-   | Your own {{ ES }} database                                                                            | ![yes](../../_assets/common/yes.svg)  |
-   | {{ GP }} database: Your own or as part of the [{{ mgp-short-name }} service](../../managed-greenplum/)   | ![yes](../../_assets/common/yes.svg) |
-   | {{ MG }} database: Your own or as part of the [{{ mmg-short-name }} service](../../managed-mongodb/)     | ![yes](../../_assets/common/yes.svg) |
-   | {{ MY }} database: Your own or as part of the [{{ mmy-short-name }} service](../../managed-mysql/)       | ![yes](../../_assets/common/yes.svg) |
-   | {{ PG }} database: Your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/)  | ![yes](../../_assets/common/yes.svg) |
-   | {{ OS }} database: Your own or as part of the [{{ mos-short-name }} service](../../managed-opensearch/)  | ![yes](../../_assets/common/yes.svg) |
-   | {{ ydb-name }} database: As part of the [{{ ydb-name }} service](../../ydb/)                                 | ![yes](../../_assets/common/yes.svg) |
-   | [{{ objstorage-full-name }}](../../storage/) bucket                                                          | ![no](../../_assets/common/no.svg) |
-   | [{{ yds-full-name }}](../../data-streams/) data stream                                                     | ![no](../../_assets/common/no.svg) |
+    | Target             | Deduplication by primary key                                              |
+    |-------------------------------------------------------------------------------|:-----------------------------------------------------------------:|
+    | {{ KF }} topic: Your own or as part of [{{ mkf-short-name }}](../../managed-kafka/)             | ![no](../../_assets/common/no.svg)   |
+    | {{ CH }} database: Your own or as part of [{{ mch-short-name }}](../../managed-clickhouse/)  | ![no](../../_assets/common/no.svg)   |
+    | Your own {{ ES }} database                                                                                                                                                      | ![yes](../../_assets/common/yes.svg)  |
+    | {{ GP }} database: Your own or as part of [{{ mgp-short-name }}](../../managed-greenplum/)   | ![yes](../../_assets/common/yes.svg) |
+    | {{ MG }} database: Your own or as part of [{{ mmg-short-name }}](../../managed-mongodb/)     | ![yes](../../_assets/common/yes.svg) |
+    | {{ MY }} database: Your own or as part of [{{ mmy-short-name }}](../../managed-mysql/)       | ![yes](../../_assets/common/yes.svg) |
+    | {{ PG }} database: Your own or as part of [{{ mpg-short-name }}](../../managed-postgresql/)  | ![yes](../../_assets/common/yes.svg) |
+    | {{ OS }} database: Your own or as part of [{{ mos-short-name }}](../../managed-opensearch/)  | ![yes](../../_assets/common/yes.svg) |
+    | {{ ydb-name }} database: as part of [{{ ydb-name }}](../../ydb/).                                 | ![yes](../../_assets/common/yes.svg) |
+    | [{{ objstorage-full-name }}](../../storage/) bucket                                                          | ![no](../../_assets/common/no.svg) |
+    | [{{ yds-full-name }}](../../data-streams/) data stream                                                     | ![no](../../_assets/common/no.svg) |
 
 {% note tip %}
 

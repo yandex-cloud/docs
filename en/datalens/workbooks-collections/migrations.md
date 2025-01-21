@@ -1,3 +1,8 @@
+---
+title: Migrating objects to workbooks
+description: Follow this guide to migrate objects to workbooks.
+---
+
 # Migrating objects to workbooks
 
 {% note info %}

@@ -1,8 +1,8 @@
 # Fault-tolerant website with load balancing using {{ alb-full-name }}
 
 
-Create and set up a website with load balancing with [{{ alb-name }}](../../application-load-balancer/concepts/index.md) between three [availability zones](../../overview/concepts/geo-scope.md) and fault tolerance in one zone.
-1. [Prepare your cloud](#before-you-begin).
+Create and set up a website with [{{ alb-name }}-assisted load](../../application-load-balancer/concepts/index.md) balancing across three [availability zones](../../overview/concepts/geo-scope.md) and fault tolerance in one zone.
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Prepare the network infrastructure](#prepare-network).
 1. [Create security groups](#create-security-groups).
 1. [Create an instance group](#create-vms).
@@ -16,7 +16,7 @@ Create and set up a website with load balancing with [{{ alb-name }}](../../appl
 If you no longer need the website, [delete all its resources](#clear-out).
 
 
-You can also deploy the infrastructure for hosting a website via {{ TF }} using a [ready-made configuration](#terraform).
+You can also deploy the infrastructure for hosting the website via {{ TF }} using a [ready-made configuration](#terraform).
 
 
 ## Prepare your cloud {#before-you-begin}
@@ -27,14 +27,14 @@ You can also deploy the infrastructure for hosting a website via {{ TF }} using 
 
 The infrastructure support cost includes:
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for traffic balancing (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 
-## Prepare the network infrastructure {#prepare-network}
+## Prepare your network infrastructure {#prepare-network}
 
 Before creating a VM:
 1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you will perform the operations.
-1. Make sure the selected folder contains a [network](../../vpc/concepts/network.md#network) with [subnets](../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones. To do this, select **{{ vpc-name }}** on the folder page. If the [subnets](../../vpc/operations/subnet-create.md) or [network](../../vpc/operations/network-create.md) you need are not listed, create them.
+1. Make sure the selected folder contains a [network](../../vpc/concepts/network.md#network) with [subnets](../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones. On the folder page, select **{{ vpc-name }}**. If there is no such [network](../../vpc/operations/network-create.md) or [subnets](../../vpc/operations/subnet-create.md), create them.
 
 ## Create security groups {#create-security-groups}
 
@@ -98,10 +98,10 @@ To create an instance group with the minimum configuration:
   1. Open the **Instance groups** tab and click **Create group**.
   1. Under **Basic parameters**:
      * Name the instance group, e.g., `alb-vm-group`.
-     * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete VM instances in the instance group, assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account. By default, all operations with security groups are performed on behalf of the service account.
+     * Select the [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete VMs in the group, assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account. By default, all operations with security groups are performed on behalf of the service account.
   1. Under **Allocation**, select three availability zones (`{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d`) to ensure fault tolerance of your hosting.
   1. Under **Instance template**, click **Define** and set up the configuration for a basic instance:
-    * Under **Basic parameters**, enter the [template](../../compute/concepts/instance-groups/instance-template.md) **Description**.
+     * Under **Basic parameters**, enter the [template](../../compute/concepts/instance-groups/instance-template.md) **Description**.
      * Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab, select the [LEMP](/marketplace/products/yc/lemp) product, and click **Use**.
      * Under **Disks**, specify:
        * [Disk](../../compute/concepts/disk.md) **type**: HDD
@@ -323,7 +323,7 @@ Create [DNS records in the public zone](../../dns/concepts/dns-zone.md#public-zo
    sudo service nginx stop
    ```
 
-1. Open your website in the browser. The website should open, even though one of the web servers has failed.
+1. Open your website in a browser. The website should open, even though one of the web servers has failed.
 1. After the check is complete, restart the web service:
 
    ```bash
@@ -379,7 +379,7 @@ To host a fault-tolerant website in a VM group with load balancing with {{ alb-n
 
            ```hcl
            folder_id    = "<folder_ID>"
-           vm_user      = "<VM_user_name>"
+           vm_user      = "<instance_username>"
            ssh_key_path = "<path_to_public_SSH_key>"
            domain       = "<domain>"
            ```
@@ -402,7 +402,7 @@ To host a fault-tolerant website in a VM group with load balancing with {{ alb-n
    * [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer)
    * [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
    * [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
-1. In the `application-load-balancer-website.auto.tfvars` file, set the following user-defined parameters:
+1. In the `application-load-balancer-website.auto.tfvars` file, set the following user-defined properties:
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
     * `vm_user`: VM username.
     * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).

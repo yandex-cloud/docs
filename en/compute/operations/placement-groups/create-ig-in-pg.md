@@ -8,6 +8,10 @@ description: Follow this guide to create an instance group in a placement group.
 
 You can create an [instance group](../../concepts/instance-groups/index.md) in a [placement group](../../concepts/placement-groups.md).
 
+{% include [sa.md](../../../_includes/instance-groups/sa.md) %}
+
+To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -26,7 +30,7 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
   
      {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
   
-  1. View the description of the CLI command to create an instance group:
+  1. See the description of the CLI command for creating an instance group:
 
      ```bash
      {{ yc-compute-ig }} create --help
@@ -46,7 +50,7 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
 
   1. Create a YAML file with any name, e.g., `specification.yaml`.
 
-  1. In the created file, indicate the following:
+  1. Define the following in the file you created:
 
       * General information about the instance group:
 
@@ -58,14 +62,16 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
 
         Where:
 
-        * `name`: Instance group name. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
-        * `service_account_id`: Service account ID.
+        * `name`: Instance group name. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
+        * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
+
+          To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
 
           {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
         * `description`: Instance group description.
      
-      * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
+      * [Instance template](../../concepts/instance-groups/instance-template.md), such as the following:
 
         ```yaml
         instance_template:
@@ -100,11 +106,11 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
         * `mode`: [Disk](../../concepts/disk.md) access mode.
           * `READ_ONLY`: Read-only access.
           * `READ_WRITE`: Read/write access.
-        * `image_id`: Public image ID. You can view image IDs in the [management console]({{ link-console-main }}) when creating a VM or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**.
+        * `image_id`: Public image ID. You can view image IDs in the [management console]({{ link-console-main }}) when creating an instance or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**.
         * `type_id`: Disk type.
         * `size`: Disk size.
         * `network_id`: `default-net` network ID.
-        * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+        * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
         * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
         * `scheduling_policy`: Scheduling policy configuration.
         * `preemptible`: Flag for creating [preemptible instances](../../concepts/preemptible-vm.md).
@@ -137,13 +143,13 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
 
         * `deploy_policy`: Instance [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for the group.
         * `scale_policy`: Instance [scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for the group.
-        * `allocation_policy`: Instance [allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) between [availability zones](../../../overview/concepts/geo-scope.md).
+        * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) instances across [availability zones](../../../overview/concepts/geo-scope.md).
 
       Full code for the `specification.yaml` file:
 
       ```yaml
       name: first-fixed-group
-      service_account_id: ajed6ilf11qg********
+      service_account_id: <service_account_ID>
       description: "This instance group was created from YAML config."
       instance_template:
         platform_id: standard-v3
@@ -186,14 +192,14 @@ You can create an [instance group](../../concepts/instance-groups/index.md) in a
      {{ yc-compute-ig }} create --file specification.yaml
      ```
 
-     This command creates a group of three same-type instances with the following configuration:
-     * Name: `first-fixed-group`
-     * OS: CentOS 7
-     * Network: `default-net`
-     * Placement group: `my-group`
-     * Availability zone: `{{ region-id }}-a`
-     * vCPUs: 2; RAM: 2 GB
-     * Network HDD: 32 GB
+     This command will create a group of three same-type instances with the following configuration:
+     * Name: `first-fixed-group`.
+     * OS: CentOS 7.
+     * Network: `default-net`.
+     * Placement group: `my-group`.
+     * Availability zone: `{{ region-id }}-a`.
+     * vCPUs: 2; RAM: 2 GB.
+     * Network HDD: 32 GB.
 
 - API {#api}
 

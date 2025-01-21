@@ -1,3 +1,8 @@
+---
+title: FAQ about {{ ca-full-name }}
+description: This page addresses the FAQs about {{ ca-name }}.
+---
+
 # FAQ about {{ ca-full-name }}
 
 ## General questions about {#common-questions}

@@ -5,6 +5,7 @@ description: 'Для выполнения операций через API {{ spe
 
 # Аутентификация в API {{ speechkit-name }}
 
+
 {% include [ai-before-beginning](../../_includes/speechkit/ai-before-beginning.md) %}
 
 #### См. также {#see-also}

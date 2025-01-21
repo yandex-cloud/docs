@@ -18,7 +18,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 
 1. [Create a security group](../../vpc/operations/security-group-create.md) for {{ metastore-name }} and {{ dataproc-name }} clusters.
 
-1. [Add rules](../../vpc/operations/security-group-add-rule.md) {{ metastore-name }} cluster to the security group:
+1. [Add](../../vpc/operations/security-group-add-rule.md) {{ metastore-name }} cluster rules to the security group:
 
    * For incoming client traffic:
 
@@ -63,8 +63,8 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 1. In the network you created earlier, [create a {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create-cluster) cluster. In the settings, set:
 
    * `SPARK` and `YARN` services.
-   * Service account you previously created.
-   * `spark:spark.sql.hive.metastore.sharedPrefixes` property to `com.amazonaws,ru.yandex.cloud`. Required for PySpark jobs and integration with {{ metastore-name }}.
+   * Service account you created earlier.
+   * The `spark:spark.sql.hive.metastore.sharedPrefixes` property to `com.amazonaws,ru.yandex.cloud`. Required for PySpark jobs and integration with {{ metastore-name }}.
    * Bucket you created earlier.
    * Security group you configured earlier.
 
