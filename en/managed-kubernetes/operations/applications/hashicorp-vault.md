@@ -86,7 +86,7 @@ When using {{ marketplace-name }} to install HashiCorp Vault that supports {{ km
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with HashiCorp Vault, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with HashiCorp Vault, run the following command, specifying the parameters of the resources you created [earlier](#before-you-begin):
 
    ```bash
    cat <path_to_file_with_authorized_key> | helm registry login cr.yandex \

@@ -1,3 +1,5 @@
-# Installing an NGINX Ingress controller with a {{ certificate-manager-full-name }} certificate
+---
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/nginx-ingress-certificate-manager'
+---
 
 {% include [nginx-ingress-certificate-manager](../../_tutorials/containers/nginx-ingress-certificate-manager.md) %}

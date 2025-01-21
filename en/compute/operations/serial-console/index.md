@@ -1,24 +1,24 @@
 ---
-title: Getting started with the serial console
-description: Follow this guide to learn how to work with the serial console.
+title: Getting started with a serial console
+description: Follow this guide to learn how to work with a serial console.
 ---
 
-# Getting started with the serial console
+# Getting started with a serial console
 
 
-The serial console allows you to access a [VM](../../concepts/vm.md) regardless of the [network](../../../vpc/concepts/network.md#network) or OS status. For example, you can use the console to troubleshoot VM issues or when there are problems with SSH access.
+A serial console enables accessing a [VM](../../concepts/vm.md) regardless of the [network](../../../vpc/concepts/network.md#network) or OS state. For example, you can use the console to troubleshoot your VM or when you have SSH access issues.
 
 To use the serial console, you need the `compute.admin` or `{{ roles-editor }}` [role](../../security/index.md).
 
-Serial console access is disabled by default.
+By default, serial console access is disabled.
 
 {% include [sc-warning](../../../_includes/compute/serial-console-warning.md) %}
 
 ## Getting started {#before-you-begin}
 
 Before you enable serial console access on a VM:
-1. Prepare a key pair (public and private keys) for SSH access to the VM. The serial console authenticates users via SSH keys.
-1. Create a text file (e.g., `sshkeys.txt`) and specify the following:
+1. Prepare a key pair (public and private keys) for SSH access to your VM. The serial console authenticates users via SSH keys.
+1. Create a text file, e.g., `sshkeys.txt`, and specify the following:
 
    ```txt
    <username>:<public_SSH_key_for_user>
@@ -30,11 +30,11 @@ Before you enable serial console access on a VM:
    yc-user:ssh-ed25519 AAAAB3Nza......OjbSMRX yc-user@example.com
    ```
 
-   By default, a user's SSH keys are stored in the user's `~/.ssh` folder. You can get a public key by running the `cat ~/.ssh/<public_key_name>.pub` command.
+   By default, user SSH keys are stored in the user's `~/.ssh` folder. You can get a public key by running the `cat ~/.ssh/<public_key_name>.pub` command.
 
 ## Enabling the console when creating a VM from a public image {#turn-on-for-new-instance}
 
-To enable access to the serial console when creating a VM, set the `serial-port-enable` parameter in the [metadata](../../concepts/vm-metadata.md) to `1`.
+To enable serial console access when creating a VM, set the `serial-port-enable` parameter in the [metadata](../../concepts/vm-metadata.md) to `1`.
 
 {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -44,13 +44,13 @@ To enable access to the serial console when creating a VM, set the `serial-port-
 
 - Linux {#linux}
 
-  1. View the description of the CLI command to create a VM:
+  1. See the description of the CLI command for creating a VM:
 
      ```bash
      yc compute instance create --help
      ```
 
-  1. Select a public [image](../../concepts/image.md) based on a Linux OS (such as Ubuntu).
+  1. Select a public Linux-based [image](../../concepts/image.md), e.g., Ubuntu.
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -66,20 +66,20 @@ To enable access to the serial console when creating a VM, set the `serial-port-
        --metadata serial-port-enable=1
      ```
 
-     This command will create a VM:
+     This command will create a VM with the following parameters:
      * OS: [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os)
      * Name: `first-instance`
      * [Availability zone](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`
      * Serial console: Active
 
-     A user named `yc-user` with the specified public key will be automatically created in the VM's OS.
+     A user named `yc-user` with the specified public key will be automatically created in the VM OS.
 
 
 {% endlist %}
 
 ## Enabling the console when updating a VM {#turn-on-for-current-instance}
 
-To enable access to the serial console when updating a VM, set the `serial-port-enable` parameter in the metadata to `1`.
+To enable serial console access when updating a VM, set the `serial-port-enable` parameter in the metadata to `1`.
 1. Get a list of VMs in the default folder:
 
    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
@@ -97,23 +97,21 @@ To enable access to the serial console when updating a VM, set the `serial-port-
 
    The command will start activating the serial console on the VM named `first-instance`.
 
-## Configuring a VM for serial port access {#configuration}
+## Configuring serial console access for a VM {#configuration}
 
-To configure access via the serial console, a VM must have a [public IP address](../../../vpc/concepts/address.md#public-addresses). You can look up the address in the [management console]({{ link-console-main }}) in the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section, the **{{ ui-key.yacloud.compute.switch_instances }}** page. If you created a VM without a public IP address, you can [assign one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can release the address. You do not need it for connections via the serial console.
+To configure access via the serial console, a VM must have a [public IP address](../../../vpc/concepts/address.md#public-addresses). You can look up the address in the [management console]({{ link-console-main }}) in the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section, the **{{ ui-key.yacloud.compute.switch_instances }}** page. If you created a VM without a public IP address, you can [assign one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can unassign the address as you will not need it for connecting via the serial console.
 
-For the serial console to be available from the OS, the OS must be configured properly:
-* [Linux](#linux-configuration)
-
+For the serial console to be accessible from the OS side, configure the OS accordingly.
 
 ### Linux {#linux-configuration}
 
-To connect to the Linux serial console, make sure that [password authentication is disabled for SSH](#ssh-pass-off) and [set a password](#create-pass) for the appropriate OS user, if necessary.
+To connect to a Linux serial console, make sure [SSH password authentication is disabled](#ssh-pass-off) and [set a password](#create-pass) for the OS user, if required.
 
 #### Disable SSH password authentication {#ssh-pass-off}
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
-If you use your own image, make sure that SSH access with your username and password is disabled.
+If you are using a custom image, make sure SSH access with a username and password is disabled.
 
 To disable SSH password authentication:
 1. Open the SSH server configuration file (`/etc/ssh/sshd_config` by default). Only a superuser has read and write access to the file.
@@ -164,4 +162,18 @@ To create a local password, use the CLI.
    ```
 
 1. Terminate the SSH session with the `exit` command.
+
+#### Enable the authorization method you need {#ssh-authorization}
+
+{% list tabs %}
+
+- SSH key
+
+  {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
+
+- {{ oslogin }}
+
+  {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
+
+{% endlist %}
 

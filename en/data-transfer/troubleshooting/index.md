@@ -144,6 +144,8 @@ Error example:
 
 {% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
 
+{% include [binlog-position](../../_includes/data-transfer/troubles/mysql/binlog-position.md) %}
+
 {% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 {% include [timezone-shift](../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}

@@ -16,7 +16,7 @@ For each VM in the created group, do the following:
 
     - Linux/macOS {#linux-macos}
 
-      Use the `scp` command-line utility:
+      Use the `scp` command line utility:
 
       ```bash
       scp -r <path_to_directory_with_files> <VM_user_name>@<VM_IP_address>:/var/www/html

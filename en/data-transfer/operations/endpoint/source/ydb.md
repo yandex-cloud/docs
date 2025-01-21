@@ -19,7 +19,7 @@ description: In this tutorial, you will learn how to configure a {{ ydb-full-nam
 ## Scenarios for transferring data from {{ ydb-name }} {#scenarios}
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
-
+    
     * [Capturing changes from {{ PG }} and delivering to {{ DS }}](../../../tutorials/ydb-to-yds.md).
     * [Capturing changes from {{ PG }} and delivering to {{ KF }}](../../../tutorials/cdc-ydb.md).
 
@@ -46,7 +46,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the primitive [`viewer` role](../../../../iam/roles-reference.md#viewer) for the folder the cluster of this managed database resides in.
+To create or edit an endpoint of a managed database, you will need the [`ydb.viewer`](../../../../ydb/security/index.md#ydb-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
@@ -73,7 +73,15 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 
       For {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfers, specifying paths is required, including when you replicate all tables.
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}**: Here, specify the name of the update stream if it was already created. Otherwise, leave the field blank.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}**: Specify the name of the update stream if already created. Otherwise, leave the field blank.
+
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_consumer_name.title }}**: Specify the data consumer you created for the update stream. The default consumer is `__data_transfer_consumer`.
+
+      {% note info %}
+
+      If a consumer is specified, the `ydb.viewer` role is enough for the service account specified in the endpoint settings to connect the transfer to {{ ydb-short-name }}. If no consumer is specified, the service account must have the `ydb.editor` role to create the default consumer.
+
+      {% endnote %}
 
 {% endlist %}
 

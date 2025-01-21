@@ -1,6 +1,11 @@
+---
+title: Connection management
+description: 'Follow this guide to manage connections: create a connection to publicly available databases or managed database clusters, view information about a managed database cluster, a connection, or a database, edit connection settings, update a connection; add a connection to a managed database cluster; and delete an idle connection.'
+---
+
 # Connection management
 
-The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section in {{ websql-full-name }} enables you to:
+Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) in {{ websql-full-name }}, you can:
 
 * Create a connection to public databases or managed database clusters. To learn more about creating connections, see [this guide](create-connection.md).
 * [View information about a managed database cluster](#view-cluster-settings).
@@ -29,7 +34,7 @@ To view connection settings:
 
 This will bring up a panel with connection settings.
 
-There are groups of tables and views (`VIEW`) within a single connection. For more information on how to view info about tables and views, see [this guide](view-db-objects-info.md).
+A single connection features groups of tables and views (`VIEW`). For more information on how to view info about tables and views, see [this guide](view-db-objects-info.md).
 
 ## Viewing information about a database {#view-db-settings}
 
@@ -47,12 +52,12 @@ This will bring up a panel with DB settings.
 To change connection settings:
 
 1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the connection.
-1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection name and select **Edit connection**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection name and select **Update connection**.
 1. Enter a new name for the connection.
-1. In the **Cluster** field, select the managed database cluster you want to connect to.
+1. In the **Cluster** field, select the managed database cluster you want to connect to. 
 1. Specify the **Username** you will use to connect to cluster databases.
 1. To change the password, select the **Change password** option and enter a new user password.
-1. List the **Databases** you want to connect to. You can only connect to the databases that exist in this cluster. The user you specified must have access to them configured.
+1. List the **Databases** you want to connect to. You can only connect to the databases that exist in this cluster. The user you specified must have access to them.
 1. Click **Apply**.
 
 ### Changing connection settings for a public database {#change-public-db-connection-settings}
@@ -60,23 +65,23 @@ To change connection settings:
 To change connection settings:
 
 1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the connection.
-1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection name and select **Edit connection**.
+1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection name and select **Update connection**.
 1. Enter a new name for the connection.
 1. Under **Hosts**, configure the hosts:
-   * Specify the database host FQDN and port number for connecting to the database.
-   * For {{ CH }}, also specify the Native Protocol port and [shard](../../managed-clickhouse/operations/shards.md#list-shards) name.
-   * (Optional) Enable TLS.
+    * Specify the database host FQDN and port number for connecting to the database.
+    * For {{ CH }}, also specify the Native Protocol port and [shard](../../managed-clickhouse/operations/shards.md#list-shards) name.
+    * (Optional) Enable TLS.
 
-      If your company has a certification authority (CA), the certificate issued by the CA will be used by default. If the company has no CA, upload the server's TLS certificate.
+        If your company has a certification authority (CA), the certificate issued by the CA will be used by default. If the company has no CA, upload the server's TLS certificate.
 
 1. Specify the **Username** you will use to connect to cluster databases.
 1. To change the password, select the **Change password** option and enter a new user password.
-1. List the **Databases** you want to connect to. You can only connect to existing databases. The user you specified must have access to them configured.
+1. List the **Databases** you want to connect to. You can only connect to existing databases. The user you specified must have access to them.
 1. Click **Apply**.
 
 ## Updating a connection {#update-connection}
 
-In the ![image](../../_assets/console-icons/folder-tree.svg) [**Connection**]({{ websql-link }}) section, you can view the status of connections and update them or reconnect to databases. Active connections are marked in green, while inactive ones, in red.
+Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), you can view the status of connections and update them or reconnect to databases. Active connections are marked in green, while inactive ones, in red.
 
 {% note tip %}
 
@@ -91,7 +96,7 @@ Use the search field on the **Connection** panel to find a connection with the a
 
 This will update the entire hierarchy for this database, including tables and views. If a table was deleted from a database, you will need to refresh the connection for the changes to appear in {{ websql-full-name }}.
 
-To refresh all active connections, click ![image](../../_assets/console-icons/arrows-rotate-right.svg) in the top-right corner of the ![image](../../_assets/console-icons/folder-tree.svg) [**Connection**]({{ websql-link }}) section.
+To refresh all active connections, click ![image](../../_assets/console-icons/arrows-rotate-right.svg) in the top-right corner of the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section.
 
 ### Reconnecting inactive connections {#reconnect-inactive-connection}
 
@@ -104,7 +109,7 @@ Connections to databases within a cluster are grouped into an expandable list un
 
 If you already have a database connection in a cluster, you can add a connection to another database in the same cluster:
 
-1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the cluster you need in the connection tree.
+1. Under ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}), select the cluster in the connection tree.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the cluster name and select **Add connection**.
 1. In the window that opens, the **Database type** and **Cluster** fields will be automatically filled out. Specify the connection name, database name, and the relevant login credentials.
 1. Click **Connect**.

@@ -1,16 +1,14 @@
+---
+title: Exporting and importing Hive metadata in the {{ metastore-full-name }} cluster
+description: Follow this guide to export and import Hive metadata in a {{ metastore-name }} cluster.
+---
+
 # Exporting and importing Hive metadata in the {{ metastore-name }} cluster
 
 ## Getting started {#before-you-begin}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) named `my-account` with the `storage.uploader` and `managed-metastore.integrationProvider` roles.
 1. [Configure the network and create a {{ metastore-name }} cluster](cluster-create.md). When creating it, specify the `my-account` service account.
-
-   {% note warning %}
-
-   Data export and import are only available in {{ metastore-name }} clusters with a static access key.
-
-   {% endnote %}
-   
 1. [Create a bucket](../../../storage/operations/buckets/create.md) named `my-bucket` in {{ objstorage-full-name }}. It will store the metadata file for import and export.
 1. [Grant](../../../storage/operations/buckets/edit-acl.md) a `READ and WRITE` permission to the `my-account` service account for the bucket named `my-bucket`.
 

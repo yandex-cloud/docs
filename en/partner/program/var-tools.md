@@ -1,3 +1,8 @@
+---
+title: VAR program tools
+description: In this article, you will learn about the VAR program tools.
+---
+
 # VAR program tools
 
 The VAR program participants have access to the following tools:
@@ -32,7 +37,7 @@ Order registration conditions:
 To register an order:
 
 1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![icon](../../_assets/console-icons/wrench.svg) **Partner tools**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
 1. Click the **Partner's order/project application form** link.
 1. Fill out the form. Under **Application data**, in the **Request type** field, select `New customer`.
 1. Click **Submit** and wait for the application to be approved: this may take up to 20 business days.
@@ -101,7 +106,7 @@ Project registration conditions:
 To register a project:
 
 1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![icon](../../_assets/console-icons/wrench.svg) **Partner tools**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
 1. Click the **Partner's order/project application form** link.
 1. Fill out the form. Under **Application data**, in the **Request type** field, select `Customer project`.
 1. Click **Submit** and wait for the application to be approved: this may take up to 20 business days.
@@ -113,7 +118,7 @@ You can involve {{ yandex-cloud }} experts to work with your customer by submitt
 To submit a presale request:
 
 1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![icon](../../_assets/console-icons/wrench.svg) **Partner tools**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
 1. Click the **Presale request form** link.
 1. Fill out the form and click **Submit**. A customer manager will contact you within 3 business days.
 
@@ -144,7 +149,7 @@ The program's main goals and benefits:
 
 * Increased recognition through association with Russia's largest technology brand.
 * Optimizing marketing expenditure through joint funding of marketing activities, including:
-
+  
   * Events: conferences, business dinners, breakfast meetings.
   * Webinars.
   * Success stories.

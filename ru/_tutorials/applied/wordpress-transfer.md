@@ -385,7 +385,7 @@
 
 ## Установите SSL-сертификат c помощью Let’s Encrypt® {#setting-ssl}
 
-Для установки [сертификата](../../certificate-manager/concepts/managed-certificate.md) используйте [Let’s Encrypt](https://letsencrypt.org/). Let’s Encrypt — это центр сертификации, предоставляющий бесплатные [SSL-сертификаты]( https://ru.wikipedia.org/wiki/SSL  ).
+Для установки [сертификата](../../certificate-manager/concepts/managed-certificate.md) используйте [Let’s Encrypt](https://letsencrypt.org/). Let’s Encrypt — это центр сертификации, предоставляющий бесплатные [SSL-сертификаты](https://ru.wikipedia.org/wiki/SSL).
 
 ### Установите клиент Let’s Encrypt {#install-client}
 

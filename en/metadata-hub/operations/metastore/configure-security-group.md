@@ -1,3 +1,8 @@
+---
+title: Configuring {{ metastore-full-name }} cluster security groups
+description: Follow this guide to configure security groups for a {{ metastore-name }} cluster.
+---
+
 # Configuring {{ metastore-name }} cluster security groups
 
 If the cloud network uses security groups, they can hinder the {{ metastore-name }} cluster performance. Set up the default security group to work with {{ metastore-name }}. To do this, [add](../../../vpc/operations/security-group-add-rule.md) the following rules to it:

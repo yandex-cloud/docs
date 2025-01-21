@@ -49,11 +49,11 @@ You can install container Storage Interface for S3 in the following ways:
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
-## Installation using a Helm chart from the remote {{ marketplace-name }} storage {#helm-install}
+## Installation using a Helm chart from the {{ marketplace-name }} repository {#helm-install}
 
 1. {% include [Install Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with CSI, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with CSI, run the following command, specifying the parameters of the key you created [earlier](#before-you-begin):
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_csi-s3.helmChart.name }} \
@@ -70,7 +70,7 @@ You can install container Storage Interface for S3 in the following ways:
 
    You can also set additional Container Storage Interface [parameters](#installation-parameters) for S3.
 
-## Using a Helm chart from the remote GitHub storage {#helm-github-install}
+## Installation using a Helm chart from the GitHub repository {#helm-github-install}
 
 The [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3) hosts the most current version of the Container Storage Interface for S3 with {{ objstorage-name }} support.
 

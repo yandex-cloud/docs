@@ -1,17 +1,17 @@
 ---
-title: 'Virtual hosting: how to build it?'
-description: In this guide, you will learn how to build a virtual hosting of several websites having different domain names, on a single IP.
+title: Guide on creating virtual hosting
+description: This guide will instruct you to set up virtual hosting of multiple websites with different domain names at the same IP address.
 ---
 
 # Setting up virtual hosting
 
 
-This use case describes how to set up virtual hosting, i.e., how to use [{{ alb-full-name }}](../../application-load-balancer/) to host multiple websites with different domain names on the same [IP address](../../vpc/concepts/address.md).
+This scenario describes how to set up virtual hosting: use [{{ alb-full-name }}](../../application-load-balancer/) to host multiple websites with different domain names at the same [IP address](../../vpc/concepts/address.md).
 
 As examples, we are going to use these three domain names: `site-a.com`, `site-b.com`, and `default.com`.
 
 To create a virtual hosting:
-1. [Prepare your cloud](#before-begin).
+1. [Prepare your cloud environment](#before-begin).
 1. [Create a cloud network](#create-network).
 1. [Reserve a static public IP address](#reserve-ip).
 1. [Create security groups](#create-security-groups).
@@ -26,7 +26,7 @@ To create a virtual hosting:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Prepare your cloud environment {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -88,7 +88,7 @@ To create security groups:
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
      1. Specify the group **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}**: `vhosting-sg-balancer`.
      1. Select **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}**: `vhosting-network`.
-     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
+     1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules:
 
         | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>target | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
         | --- | --- | --- | --- | --- | --- |
@@ -97,10 +97,10 @@ To create security groups:
         | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
         | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
-     1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+     1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab for an outbound rule or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab for an inbound rule.
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that will be open for inbound or outbound traffic.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or specify `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic over any protocol.
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
@@ -142,7 +142,7 @@ Similarly, import the certificates for `site-b.com` and `default.com`, their nam
 
 ## Create instance groups for the sites {#create-vms}
 
-{{ compute-name }} VMs will act as web servers for the two websites: one [group](../../compute/concepts/instance-groups/index.md) of multiple identical instances for each website. In this use case, the servers will be deployed based on the LEMP stack (Linux, NGINX, {{ MY }}, PHP). For more information, see this tutorial on [LAMP or LEMP-based website](../../tutorials/web/lamp-lemp/index.md).
+{{ compute-name }} VMs will act as web servers for the two websites: one [group](../../compute/concepts/instance-groups/index.md) of multiple identical instances for each website. In this scenario, the servers will be deployed based on the LEMP stack (Linux, NGINX, {{ MY }}, PHP). For more information, see this tutorial on [LAMP or LEMP-based website](../../tutorials/web/lamp-lemp/index.md).
 
 To create an instance group for `site-a.com`:
 
@@ -161,10 +161,10 @@ To create an instance group for `site-a.com`:
      * Specify the required number of vCPUs and the amount of RAM.
 
      This minimum configuration is enough for functional website testing:
-     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** named `vhosting-network` you [created earlier](#create-network) and its [subnets](../../vpc/concepts/network.md#subnet).
   1. In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
   1. Select the `vhosting-sg-vms` security group [created earlier](#create-security-groups).
@@ -337,19 +337,19 @@ To create a load balancer:
      1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, select `{{ ui-key.yacloud.alb.label_address-list }}` for type and the IP address you [reserved earlier](#reserve-ip).
      1. In the **{{ ui-key.yacloud.alb.label_protocol-type }}** field, select `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
      1. Under **{{ ui-key.yacloud.alb.section_default-sni-match }}**, select `vhosting-cert-default` for certificate and `vhosting-router-default` for HTTP router.
-     1. Add a SNI match for `site-a.com`:
+     1. Add an SNI match for `site-a.com`:
         1. Click **{{ ui-key.yacloud.alb.button_add-sni-match }}**.
         1. Specify the **{{ ui-key.yacloud.common.name }}** for the SNI match: `vhosting-sni-a`.
         1. In the **{{ ui-key.yacloud.alb.label_server-names }}** field, specify `site-a.com`.
         1. Select `vhosting-cert-a` for certificate and `vhosting-router-a` for HTTP router.
-     1. Similarly, add a SNI match for `site-b.com` with `vhosting-sni-b` for name, `site-b.com` for server name, `vhosting-cert-b` for certificate, and `vhosting-router-b` for HTTP router.
+     1. Follow the same steps to add an SNI match for `site-b.com` with `vhosting-sni-b` as its name, `site-b.com` as the server name, the `vhosting-cert-b` certificate, and the `vhosting-router-b` HTTP router.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 ## Configure DNS for the sites {#configure-dns}
 
-The `site-a.com`, `site-b.com`, and `default.com` domain names must be linked to the L7 load balancer's IP address via DNS records.
+The `site-a.com`, `site-b.com`, and `default.com` domain names must be linked to the L7 load balancer IP address using DNS records.
 
 To configure DNS for `site-a.com`:
 1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.

@@ -1,5 +1,6 @@
 ---
 title: Serialization in {{ data-transfer-full-name }}
+description: In this article, you will learn what serialization is and what types of serialization you can use depending on delivery.
 ---
 
 # Serialization
@@ -11,9 +12,9 @@ Serialization is the conversion of data objects to a bit sequence when transferr
 
 You can set up serialization when [creating](../operations/endpoint/index.md#create) or [updating](../operations/endpoint/index.md#update) a target endpoint.
 
-## Serialization at data delivery to {{ objstorage-name }} {#serializer-s3}
+## Serialization on delivery to {{ objstorage-name }} {#serializer-s3}
 
-When delivering data to {{ objstorage-name }}, you can select **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, `PARQUET`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. For `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}** setting is available.
+When delivering to {{ objstorage-name }}, you can select **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, `PARQUET`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. For `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}** setting is available.
 
 The output data format depends both on the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** setting selection and the type and settings of source endpoint conversion rules.
 
@@ -40,24 +41,24 @@ Output data:
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
 
-   ```text
-   <stream_name>,<segment_key>,<message_sequential_number>,<write_date_and_time>,Text string
-   <stream_name>,<segment_key>,<message_sequential_number>,<write_date_and_time>,"{""device_id"":""iv9"",""speed"":5}"
-   ```
+    ```text
+    <stream_name>,<segment_key>,<message_sequence_number>,<data_recording_date_and_time>,Text string
+    <stream_name>,<segment_key>,<message_sequence_number>,<data_recording_date_and_time>,"{""device_id"":""iv9"",""speed"":5}"
+    ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
 
-   ```text
-   {"data":"Text string","partition":<segment_key>,"seq_no":<message_sequential_number>,"topic":"<stream_name>","write_time":"<write_date_and_time>"}
-   {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<segment_key>,"seq_no":<message_sequential_number>,"topic":"<stream_name>","write_time":"<write_date_and_time>"}
-   ```
+    ```text
+    {"data":"Text string","partition":<segment_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
+    {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<segment_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
+    ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
 
-   ```text
-   Text string
-   {"device_id":"iv9,"speed":"5"}
-   ```
+    ```text
+    Text string
+    {"device_id":"iv9,"speed":"5"}
+    ```
 
 {% endlist %}
 
@@ -67,8 +68,8 @@ Input data: Table:
 
 | device_id | speed |
 | --------- | ----- |
-| iv9 | 5 |
-| rhi | 10 |
+| iv9       | 5     |
+| rhi       | 10    |
 
 Output data:
 
@@ -76,21 +77,21 @@ Output data:
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
 
-   ```text
-   {"device_id":"iv9","speed":5}
-   {"device_id":"rhi","speed":10}
-   ```
+    ```text
+    {"device_id":"iv9","speed":5}
+    {"device_id":"rhi","speed":10}
+    ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
 
-   ```text
-   iv9,5,
-   rhi,10,
-   ````
+    ```text
+    iv9,5,
+    rhi,10,
+    ````
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
 
-   This is not supported.
+    This is not supported.
 
 {% endlist %}
 
@@ -111,71 +112,71 @@ Automatic selection of serialization settings depending on the source type.
 
 * **dt.add.original.type.info**: Determines whether to add information about the original types of data to restore the type after the transfer.
 
-   This is with the exception of the `with time zone` {{ PG }} date and time data types, as you cannot restore information about the time zone.
+    Exception: {{ PG }} `with time zone` date and time data types. Time zone information cannot be restored.
 
-   The default value is `false`.
+    The default value is `false`.
 
 * **dt.mysql.timezone**: Time zone for {{ MY }} date and time data types in [IANA](https://www.iana.org/time-zones) format.
 
-   The default value is `UTC`.
+    The default value is `UTC`.
 
 * **dt.unknown.types.policy**: Policy that determines the behavior for handling user-defined data types.
 
-   The possible values include:
+    The possible values are:
 
-   * `skip`: Do not abort the transfer and ignore user-defined data types.
-   * `to_string`: Do not abort the transfer and convert user-defined data types to text.
-   * `fail`: Abort the transfer and return an error.
+    * `skip`: Do not abort the transfer and ignore user-defined data types.
+    * `to_string`: Do not abort the transfer and convert user-defined data types to text.
+    * `fail`: Abort the transfer and return an error.
 
-   The default value is `skip`.
+    The default value is `skip`.
 
 * **decimal.handling.mode**: Mode for handling real numbers.
 
-   The possible values include:
+    The possible values are:
 
-   * `precise`: Precise conversion using the `java.math.BigDecimal` method.
-   * `double`: Conversion to the `double` data type. This may result in precision loss.
-   * `string`: Conversion to text.
+    * `precise`: Precise conversion using the `java.math.BigDecimal` method.
+    * `double`: Conversion to a `double` data type. This may result in precision loss.
+    * `string`: Conversion to text.
 
-   The default value is `precise`.
+    The default value is `precise`.
 
 * **interval.handling.mode**: Mode for handling time intervals.
 
-   The possible values include:
+    The possible values are:
 
-   * `numeric`: Approximate conversion to microseconds.
-   * `string`: Precise conversion based on the string template: `P<years>Y<months>M<days>DT<hours>H<minutes>M<seconds>S`.
+    * `numeric`: Approximate conversion to microseconds.
+    * `string`: Precise conversion based on the string template: `P<years>Y<months>M<days>DT<hours>H<minutes>M<seconds>S`.
 
-   The default value is `numeric`.
+    The default value is `numeric`.
 
 * **key.converter** and **value.converter**: Key and value converters.
 
-   The possible values include:
+    The possible values are:
 
-   * `org.apache.kafka.connect.json.JsonConverter`: JSON, standard for [Debezium](https://debezium.io/documentation/reference/index.html).
-   * `io.confluent.connect.json.JsonSchemaConverter`: [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html).
+    * `org.apache.kafka.connect.json.JsonConverter`: JSON, standard for [Debezium](https://debezium.io/documentation/reference/index.html).
+    * `io.confluent.connect.json.JsonSchemaConverter`: [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html).
 
-   The default value is `org.apache.kafka.connect.json.JsonConverter`.
+    The default value is `org.apache.kafka.connect.json.JsonConverter`.
 
-* **key.converter.schemas.enable** and **value.converter.schemas.enable**: Determine whether to add a schema description to each message for keys and values when using `org.apache.kafka.connect.json.JsonConverter`.
+* **key.converter.schemas.enable** and **value.converter.schemas.enable**: Whether to add a schema description to each message for keys and values when using `org.apache.kafka.connect.json.JsonConverter`.
 
-   The default value is `true`.
+    The default value is `true`.
 
-* **key.converter.schema.registry.url** and **value.converter.schema.registry.url**: Determine whether to add a schema description to each message for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
+* **key.converter.schema.registry.url** and **value.converter.schema.registry.url**: Whether to add a schema description to each message for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
-   The possible values include:
+    The possible values are: 
 
-   * Empty string (default): Do not add a schema description.
-   * URL string value defining the path to the schema registry service.
+    * Empty string (default): Do not add a schema description.
+    * URL string value defining the path to the schema registry service. 
 
-* **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authorization in the Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
+* **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authorization in Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
-   The value format is `<username>:<password>`.
+    Value format: `<username>:<password>`.
 
-* **key.converter.ssl.ca** and **value.converter.ssl.ca**: Contents of the Confluent Schema Registry's SSL certificate for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
+* **key.converter.ssl.ca** and **value.converter.ssl.ca**: Contents of Confluent Schema Registry's SSL certificate for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
-   If the setting value is not specified, the SSL certificate does not get verified.
+    If the setting value is not specified, the SSL certificate does not get verified.
 
 * **unavailable.value.placeholder**: Value that replaces data if its type is not supported.
 
-   The default value is `__debezium_unavailable_value`.
+    The default value is `__debezium_unavailable_value`.

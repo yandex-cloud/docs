@@ -18,7 +18,6 @@
 
 {% endnote %}
 
-
 Отвязать карту от активного платежного аккаунта нельзя. Однако вы можете [изменить привязанную карту](../operations/pin-card.md#change_card) или [удалить карту из личного кабинета](../operations/pin-card.md#remove-card) после [инактивации аккаунта](../operations/delete-account.md).
 
 ## Пополнение счета {#refill}
@@ -27,16 +26,11 @@
 
 Дополнительную информацию см. в разделе [Цикл оплаты](billing-cycle-individual.md).
 
-
 ## Списание средств {#write-off}
 
 {% include [pay-by-card-business](../_includes/pay-by-card-business.md) %}
 
-
-
-
 Дополнительную информацию см. в разделе [Цикл оплаты](billing-cycle-business.md).
-
 
 ## Сумма списания {#payment-amount}
 

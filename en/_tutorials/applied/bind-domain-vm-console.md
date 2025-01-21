@@ -1,6 +1,6 @@
 To assign a domain name to a VM with a web server in {{ dns-name }}:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a VM with a web server](#create-web-server).
 1. [Create a public DNS zone](#configure-dns).
 1. [Delegate your domain to {{ dns-name }}](#delegate-domain).
@@ -9,7 +9,7 @@ To assign a domain name to a VM with a web server in {{ dns-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -94,7 +94,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% endlist %}
 
 
-### Create a security group {#create-sg}
+### Create a security group for your file server {#create-sg}
 
 Create a [security group](../../vpc/concepts/security-groups.md) that allows inbound TCP traffic on ports `22`, `80`, and `443` as well as any outbound traffic.
 
@@ -112,16 +112,16 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Incoming | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Incoming | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Incoming | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Outgoing | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Inbound | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Inbound | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Inbound | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Outbound | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Run this command:
+  Run the following command:
 
   ```bash
   yc vpc security-group create \
@@ -206,7 +206,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
@@ -318,7 +318,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
 
 - CLI {#cli}
 
-  Run this command:
+  Run the following command:
 
   ```bash
   yc dns zone create \
@@ -379,7 +379,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
 
 - CLI {#cli}
 
-  Run this command:
+  Run the following command:
 
   ```bash
   yc dns zone add-records \

@@ -898,6 +898,10 @@ default:
   zk-host-class: b2.medium
   zone-id: ru-central1-d
   sku|KZT|ai:
+    datasphere:
+      computing:
+        v1|number: 0.006
+        v1|string: "0,0060\_₸"
     mt:
       detect|string: "2\_461,00\_₸"
       translate|string: "2\_461,00\_₸"
@@ -2165,6 +2169,10 @@ default:
           10|number: 3
           10|string: "3,00\_₸"
   sku|RUB|ai:
+    datasphere:
+      computing:
+        v1|number: 0.0012
+        v1|string: "0,0012\_₽"
     mt:
       detect|string: "492,20\_₽"
       translate|string: "492,20\_₽"

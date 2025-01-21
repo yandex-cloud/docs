@@ -34,7 +34,7 @@ Condition key | Description
 `s3:x-amz-server-side-encryption` | Requires server-side encryption.
 `s3:x-amz-server-side-encryption-aws-kms-key-id` | Requires a specific key for server-side encryption.
 `s3:x-amz-storage-class` | Filters access by [storage class](../../../concepts/storage-class.md).
-`s3:x-amz-website-redirect-location` | Filters access by a specific redirect location for websites configured as static websites.
+`s3:x-amz-website-redirect-location` | Allows you to redirect requests addressed to an object to another object or URL if the site is configured as a static one.
 `yc:private-endpoint-id` | Sets access via [{{ vpc-short-name }} service connections](../../../../vpc/concepts/private-endpoint.md). Contains a service connection ID.
 
 {% include [conditions-combining-and](../../../../_includes/storage/conditions-combining-and.md) %}
@@ -170,12 +170,12 @@ String operators allow creating conditions for comparing a key against a string 
 
 Condition operator | Description
 ----- | -----
-`StringEquals` | Exact match, case sensitive.
-`StringEqualsIgnoreCase` | Exact match, ignore case.
-`StringLike` | Match value. You can use wildcards in values:<br/>- `*`: Multiple characters.<br/>- `?`: One character.
-`StringNotEquals` | Negated match, case sensitive.
-`StringNotEqualsIgnoreCase` | Negated match, ignore case.
-`StringNotLike` | Negated match. You can use wildcards in values:<br/>- `*`: Multiple characters.<br/>- `?`: One character.
+`StringEquals` | Match, case sensitive.
+`StringEqualsIgnoreCase` | Match, ignore case.
+`StringLike` | Match. You can use wildcards in values:<br/>- `*`: Multiple characters.<br/>- `?`: One character.
+`StringNotEquals` | No match, case sensitive.
+`StringNotEqualsIgnoreCase` | No match, ignore case.
+`StringNotLike` | No match. You can use wildcards in values:<br/>- `*`: Multiple characters.<br/>- `?`: One character.
 
 ### IfExists operator {#ifexists}
 

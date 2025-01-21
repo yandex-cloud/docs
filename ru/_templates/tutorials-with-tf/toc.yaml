@@ -1,0 +1,8 @@
+- name: <название_руководства>
+  items:
+    - name: Обзор
+      href: tutorial-folder/index.md
+    - name: Консоль управления, CLI, API
+      href: tutorial-folder/console.md
+    - name: '{{ TF }}'
+      href: tutorial-folder/terraform.md

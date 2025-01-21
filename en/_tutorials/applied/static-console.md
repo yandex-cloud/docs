@@ -1,13 +1,13 @@
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a public bucket](#create-public-bucket).
 1. [Enable a website for a bucket](#turn-on-hosting).
-1. [Configure the DNS](#configure-dns).
+1. [Configure DNS](#configure-dns).
 1. [Upload the website files](#upload-files).
 1. [Test the website](#test-site).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -38,7 +38,7 @@ To create a bucket for static website files:
 
      {% note info %}
 
-     If you plan to use your own domain for the website, the bucket name must exactly match the name of your domain, and this must be a third-level domain or higher. For more information, see [{#T}](../../storage/operations/hosting/own-domain.md).
+     If you plan to use your own domain for the website, the bucket name must be an exact match of your domain name. Use a third-level domain or higher. For more information, see [{#T}](../../storage/operations/hosting/own-domain.md).
 
      {% endnote %}
 
@@ -51,8 +51,8 @@ To create a bucket for static website files:
 
 1. Upload and configure the home page and error handling page for the future website. To do this, create the following files on your computer:
 
-    * `index.html` containing the `Hello world!` string. The file contents will be displayed when accessing the website's home page.
-    * `error.html` containing the `Error!` string. The file contents will be displayed when the website responds with `4xx` errors.
+    * `index.html` containing the text `Hello world!`. The file contents will be displayed on the website's home page.
+    * `error.html` containing the text `Error!`. The file contents will be displayed when the website responds with `4xx` errors.
 
 1. Upload the created files to the bucket:
 
@@ -74,7 +74,7 @@ To create a bucket for static website files:
 
     {% endlist %}
 
-1. Make sure the home of your website opens. To do this, access the website from a browser at `http://<bucket_name>.{{ s3-web-host }}`.
+1. Make sure your website's home page opens. To do this, access the website from a browser at `http://<bucket_name>.{{ s3-web-host }}`.
 1. Make sure the error page opens. To do this, access the website from a browser at `http://<bucket_name>.{{ s3-web-host }}/error-check`.
 
 {% note info %}
@@ -83,7 +83,7 @@ By default, the website is accessible only over HTTP, e.g., at `http://www.examp
 
 {% endnote %}
 
-## Configure the DNS {#configure-dns}
+## Configure DNS {#configure-dns}
 
 If you have a registered domain name, assign it to the bucket. To do this, create a [CNAME](../../dns/concepts/resource-record.md) [DNS record](../../dns/concepts/resource-record.md#cname).
 
@@ -126,7 +126,7 @@ Create a [CNAME](../../dns/concepts/resource-record.md#cname) resource record in
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder that houses the public DNS zone.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and select the DNS zone you created previously.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and select the DNS zone you created earlier.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. In the window that opens, set the record parameters:
 
       * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_create-subdomain }}` and enter the subdomain value, e.g., `www`.

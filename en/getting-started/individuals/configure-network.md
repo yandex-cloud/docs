@@ -32,15 +32,15 @@ For your internet service to run, you need two static public IP addresses: one t
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
-        * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `subnet-a`.
-        * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
+        * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `subnet-a`
+        * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option and specify the access credentials for the VM:
 
         * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
 
             {% note alert %}
 
-            Do not use `root` or other usernames reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+            Do not use `root` or other usernames reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
 
             {% endnote %}
 
@@ -72,7 +72,7 @@ To provide secure access to your resources, create an IPSec instance.
 
             {% note alert %}
 
-            Do not use `root` or other usernames reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+            Do not use `root` or other usernames reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
 
             {% endnote %}
 
@@ -192,7 +192,7 @@ Allow the following incoming connections:
    * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}**: `0.0.0.0/0`
 1. Connections from other VM instances in the security group:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
-   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
 1. Health checks from the network load balancer:
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`

@@ -22,45 +22,48 @@ The available disk space does not depend on the VM performance level. For limita
 
 ## Minimum and maximum configurations {#minmax-configurations}
 
+This subsection presents the minimum and maximum computing resource configurations depending on the platform. You can achieve these values in [different combinations](#available-configurations).
+
 {% note info %}
 
-Minimum configurations are specified for the 5% performance level, while maximum configurations, for 100%.
+The option with simultaneous maximum configuration of all computing resources is not available for all platforms. For more information, see [Available configurations](#available-configurations).
 
 {% endnote %}
 
+
 * Intel Broadwell (`standard-v1`):
 
-    Configuration | vCPU | RAM, GB
-    --- | --- | --- 
-    Min | 2 | 1
-    Max | 32 | 256
+    Limit | Performance<br>level | vCPU | RAM, GB<br>total | RAM, GB<br>per core
+    ------------ | ----------------------------- | ---- | ---------------- | -----------------
+    Min         | 5%                            | 2    | 1                | 0.5
+    Max        | 100%                          | 32   | 256              | 8
 
 * Intel Cascade Lake (`standard-v2`):
 
-    Configuration | vCPU | RAM, GB
-    --- | --- | --- 
-    Min | 2 | 0.5
-    Max | 80 | 1280
+    Limit | Performance<br>level | vCPU | RAM, GB<br>total | RAM, GB<br>per core
+    ------------ | ----------------------------- | ---- | ---------------- | -----------------
+    Min         | 5%                            | 2    | 0.5              | 0.25
+    Max        | 100%                          | 80   | 1280             | 16
 
 * Intel Ice Lake (`standard-v3`):
 
-    Configuration | vCPU | RAM, GB
-    --- | --- | --- 
-    Min | 2 | 1
-    Max | 96 | 640
+    Limit | Performance<br>level | vCPU | RAM, GB<br>total | RAM, GB<br>per core
+    ------------ | ----------------------------- | ---- | ---------------- | -----------------
+    Min         | 20%                           | 2    | 1                | 0.5
+    Max        | 100%                          | 96   | 640              | 16
 
 * {{ highfreq-ice-lake }} (`highfreq-v3`):
 
-    Configuration | vCPU | RAM, GB
-    --- | --- | --- 
-    Min | 2 | 2
-    Max | 56 | 448
+    Limit | Performance<br>level | vCPU | RAM, GB<br>total | RAM, GB<br>per core
+    ------------ | ----------------------------- | ---- | ---------------- | -----------------
+    Min         | 100%                          | 2    | 2                | 1
+    Max        | 100%                          | 56   | 448              | 16
 
 ## Available configurations {#available-configurations}
 
 * Intel Broadwell (`standard-v1`):
 
-    Performance</br> level | vCPU | RAM per core, GB
+    Performance<br>level | vCPU | RAM, GB<br>per core
     --- | --- | ---
     5% | 2, 4 | 0.5, 1, 1.5, 2
     20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
@@ -68,7 +71,7 @@ Minimum configurations are specified for the 5% performance level, while maximum
 
 * Intel Cascade Lake (`standard-v2`):
 
-    Performance<br> level | vCPU | RAM per core, GB
+    Performance<br>level | vCPU | RAM, GB<br>per core
     --- | --- | ---
     5% | 2, 4 | 0.25, 0.5, 1, 1.5, 2
     20% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
@@ -98,6 +101,6 @@ Minimum configurations are specified for the 5% performance level, while maximum
 
 * {{ highfreq-ice-lake }} (`highfreq-v3`):
 
-    vCPU | RAM per core, GB
+    vCPU | RAM, GB per core
     --- | --- 
     2, 4, 6, 8, 10, 12, 14,<br> 16, 20, 24, 28, 32, 36,<br> 40, 44, 48, 52, 56 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,<br> 11, 12, 13, 14, 15, 16

@@ -1,3 +1,8 @@
+---
+title: Create connection
+description: Follow this guide to create a connection to managed database clusters and a public database via the internet.
+---
+
 # Creating a connection
 
 In {{ websql-full-name }}, you can create a connection to:

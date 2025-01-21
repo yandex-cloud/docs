@@ -1,10 +1,11 @@
 ---
 title: How to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}
-description: In this article, you will learn how to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to set up an {{ OS }} target endpoint in {{ data-transfer-full-name }}.
 ---
-# Transferring data to an {{ OS }} target endpoint
 
-{{ data-transfer-full-name }} enables you to migrate data to an {{ OS }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+# Transferring data to a {{ OS }} target endpoint
+
+{{ data-transfer-full-name }} enables you to migrate data to a {{ OS }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).

@@ -50,10 +50,16 @@ Some OS's may request user credentials to access a VM. In such cases, you need t
 
 - With an SSH key
 
+  1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
   1. Create a local user password on the VM:
       1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Disconnect from the VM. To do this, enter the `logout` command.
+
+  1. {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
 
   1. Connect to the VM.
 
@@ -144,6 +150,8 @@ You can also connect to the serial console using [SSH keys for other users](../v
   * Restart the VM (for VMs created before February 22, 2019).
 * If you get the `Warning: remote host identification has changed!` error when connecting with an SSH key, run the `ssh-keygen -R <VM_IP_address>` command.
 * If you get the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure {{ oslogin }} authorization is enabled for the VM when connecting to the serial console and that the certificate is valid. If necessary, enable {{ oslogin }} authorization for the VM when connecting to the serial console or re-export the SSH certificate.
+* If you get the `Connection closed by 2a0d:d6c1:0:**::*** port 9600` error when connecting using an SSH certificate, open the `known_hosts` file on your local machine and delete all lines that start with `[serialssh.cloud.yandex.net]:9600`. Then try connecting again and respond with `yes` to `Are you sure you want to continue connecting (yes/no/[fingerprint])?`.
+
 
 ## Disconnecting from the serial console {#turn-off-serial-console}
 

@@ -1,5 +1,10 @@
+---
+title: Technical support procedure
+description: This article covers the technical support procedure.
+---
 
-# Technical support terms
+
+# Technical support procedure
 
 {{ yandex-cloud }} provides technical support under different service plans. You can choose the one that best suits you. The cost of paid technical support plans includes two components: fixed and supplemental. The supplemental part is calculated as a percentage of the cost of resources consumed during the month. For more information about the plans, see the [Pricing policy](pricing.md).
 

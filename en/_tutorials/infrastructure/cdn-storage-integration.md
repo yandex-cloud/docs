@@ -9,7 +9,7 @@ To perform steps, you can use various [supported tools](#supported-tools).
 
 To build architecture for integrating an L7 load balancer with CDN and Object Storage:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate)
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a bucket in {{ objstorage-name }}](#create-buckets).
@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-You can complete most of the steps in the tutorial in any standard tool, such as the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../../cli/) and [AWS](../../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }} API](../../api-design-guide). Each step lists tools supported for it.
+You can complete most of the steps in the tutorial using any standard tool, such as the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../../cli/) and [AWS](../../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }} API](../../api-design-guide). Each step lists tools supported for it.
 
 Some steps do not support certain tools:
 
@@ -66,7 +66,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the `example-folder`.
+  1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `example-network`.
@@ -211,7 +211,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy cloud resources.
   
@@ -225,8 +225,8 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - API {#api}
 
-    1. Create a network named `example-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
-    1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` subnets in three availability zones using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method.
+  1. Create the `example-network` network using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the API [create](../../vpc/api-ref/Network/create.md) REST API method.
+  1. Create the `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` in the three availability zones by calling the gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) or the REST API [create](../../vpc/api-ref/Subnet/create.md)method.
 
 {% endlist %}
 
@@ -237,7 +237,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
@@ -300,7 +300,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy cloud resources.
   
@@ -389,7 +389,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
            terraform plan
            ```
    
-        If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+        If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
    
      1. Deploy cloud resources.
      
@@ -407,7 +407,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
    {% endlist %}
 
-## Create a security group {#create-security-group}
+## Create a security group for your file server {#create-security-group}
 
 [Security groups](../../vpc/concepts/security-groups.md) contain rules that allow the L7 load balancer to receive incoming traffic and send it to backend buckets.
 
@@ -417,13 +417,13 @@ To create security groups:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the `example-folder`.
+  1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `example-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `example-network`.
-  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules:
    
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>target | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
@@ -434,7 +434,7 @@ To create security groups:
       
      1. Go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that will be open for inbound or outbound traffic.
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
@@ -447,7 +447,7 @@ To create security groups:
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc vpc security-group create example-sg \
@@ -554,7 +554,7 @@ To create security groups:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy cloud resources.
   
@@ -589,7 +589,7 @@ To create security groups:
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}** and set up the backend:
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-backend`.
       1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, specify `100`.
-     1. In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.alb.label_bucket }}` as the [backend type](../../application-load-balancer/concepts/backend-group.md#types).
+      1. In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.alb.label_bucket }}` as the [backend type](../../application-load-balancer/concepts/backend-group.md#types).
       1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select the previously created bucket.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -731,7 +731,7 @@ To create security groups:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy cloud resources.
   
@@ -954,7 +954,7 @@ To create security groups:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy cloud resources.
   
@@ -987,11 +987,11 @@ To create security groups:
      1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
      1. Set the main parameters of the CDN resource:
 
-        * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
-        * **{{ ui-key.yacloud.cdn.label_balancer }}**: `example-balancer`.
+        * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`
+        * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`
+        * **{{ ui-key.yacloud.cdn.label_balancer }}**: `example-balancer`
         * **{{ ui-key.yacloud.cdn.label_ip-address }}**: IP address assigned to the load balancer (the only one in the list).
-        * **{{ ui-key.yacloud.cdn.label_personal-domain }}**: `cdn.yandexcloud.example`.
+        * **{{ ui-key.yacloud.cdn.label_personal-domain }}**: `cdn.yandexcloud.example`
 
           {% note alert %}
 
@@ -1127,7 +1127,7 @@ To create security groups:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy cloud resources.
 
@@ -1294,7 +1294,7 @@ To configure DNS:
            terraform plan
            ```
    
-        If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+        If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
    
      1. Deploy cloud resources.
 

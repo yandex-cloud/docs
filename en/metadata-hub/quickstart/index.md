@@ -18,4 +18,4 @@ Get started with {{ metadata-hub-name }} tools:
 
 * [{{ metastore-full-name }}](metastore.md). Use it to manage data in applications supporting integration with {{ metastore-name }}. For more information about {{ metastore-name }} clusters, see [Concepts](../concepts/metastore.md).
 
-*[{{ schema-registry-name }}](schema-registry.md). With its help, you can create subjects and schemas for management purposes, set schema evolution parameters, add references, and compare schema versions. For more information about schema registry, see [Concepts](../concepts/schema-registry.md).
+* [{{ schema-registry-name }}](schema-registry.md). With its help, you can create subjects and schemas for management purposes, set schema evolution parameters, add references, and compare schema versions. For more information about schema registry, see [Concepts](../concepts/schema-registry.md).

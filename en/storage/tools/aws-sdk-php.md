@@ -24,8 +24,8 @@ The [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/) is a software develop
 
    ```
    [default]
-     aws_access_key_id = <key_ID>
-     aws_secret_access_key = <secret_key>
+   aws_access_key_id = <key_ID>
+   aws_secret_access_key = <secret_key>
    ```
 
 1. If using a LAMP image from {{ marketplace-name }}, add the `HOME` environment variable referring to your home folder to the Apache `httpd.conf` configuration file (`apache2.conf` for Debian and Ubuntu):

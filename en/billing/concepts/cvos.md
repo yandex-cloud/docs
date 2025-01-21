@@ -42,6 +42,8 @@ After purchasing the CVoS, the discount on the use of services is applied automa
 
 During the selected validity period, you must pay for the CVoS even if you don't use any {{ yandex-cloud }} services. The [payment method](../payment/index.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
+{% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
+
 See details of using and paying for your CVoS below.
 
 ![image](../../_assets/billing/cud-scheme.svg)

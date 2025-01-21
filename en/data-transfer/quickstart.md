@@ -6,54 +6,56 @@ See the [full list of endpoints](transfer-matrix.md) and possible transfers betw
 
 ## Getting started {#before-you-begin}
 
-1. Go to the {{ yandex-cloud }} [console]({{ link-console-main }}) and select the folder where you want to perform the operations. If that folder does not exist, create it:
+1. Navigate to the {{ yandex-cloud }} [console]({{ link-console-main }}) and select a folder you are going to operate in. If there is no such folder, create it:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Management console {#console}
+    - Management console {#console}
 
-      {% include [create-folder](../_includes/create-folder.md) %}
+         {% include [create-folder](../_includes/create-folder.md) %}
 
-   - CLI {#cli}
+    - CLI {#cli}
 
-      {% include [cli-install](../_includes/cli-install.md) %}
+         {% include [cli-install](../_includes/cli-install.md) %}
 
-      1. View the description of the create folder command:
-
-         ```bash
-         yc resource-manager folder create --help
-         ```
-
-      1. Create a new folder:
-
-         * with a name and without a description:
+        1. View the description of the create folder command:
 
             ```bash
-            yc resource-manager folder create \
-              --name new-folder
+            yc resource-manager folder create --help
             ```
 
-            The folder naming requirements are as follows:
+        1. Create a new folder:
 
-            {% include [name-format](../_includes/name-format.md) %}
+            * with a name and without a description:
 
-         * with a name and description:
+                 ```bash
+                 yc resource-manager folder create \
+                   --name new-folder
+                 ```
 
-            ```bash
-            yc resource-manager folder create \
-              --name new-folder \
-              --description "my first folder with description"
-            ```
+                 The folder naming requirements are as follows:
 
-   - API {#api}
+                 {% include [name-format](../_includes/name-format.md) %}
 
-      Use the [create](../resource-manager/api-ref/Folder/create.md) method for the [Folder](../resource-manager/api-ref/Folder/index.md) resource of the {{ resmgr-full-name }} service.
+            * with a name and description:
 
-   {% endlist %}
+                ```bash
+                yc resource-manager folder create \
+                  --name new-folder \
+                  --description "my first folder with description"
+                ```
+
+    - API {#api}
+
+        Use the [create](../resource-manager/api-ref/Folder/create.md) method for the [Folder](../resource-manager/api-ref/Folder/index.md) resource of the {{ resmgr-full-name }} service.
+
+    {% endlist %}
 
 
-1. Go to [{{ billing-name }}]({{ link-console-billing }}) and make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher for the desired folder or the cloud that the folder belongs to.
+1. Go to [{{ billing-name }}]({{ link-console-billing }}) and make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. [Assign](../iam/operations/roles/grant.md) to your {{ yandex-cloud }} account the `editor` role or higher for the required folder or the cloud that folder belongs to.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 
 ## Configure the source and the target {#db-settings}
@@ -69,10 +71,10 @@ Different systems can act as a source and as a target.
 Prepare the source for sending data:
 
 * {{ AB }}:
-   * [AWS CloudTrail](operations/prepare.md#source-aws)
-   * [BigQuery](operations/prepare.md#source-bigquery)
-   * [Microsoft SQL Server](operations/prepare.md#source-mssql)
-   * [S3](operations/prepare.md#source-s3)
+    * [AWS CloudTrail](operations/prepare.md#source-aws)
+    * [BigQuery](operations/prepare.md#source-bigquery)
+    * [Microsoft SQL Server](operations/prepare.md#source-mssql)
+    * [S3](operations/prepare.md#source-s3)
 * [{{ KF }}](operations/prepare.md#source-kf)
 * [{{ CH }}](operations/prepare.md#source-ch)
 * [{{ GP }}](operations/prepare.md#source-gp)
@@ -123,15 +125,15 @@ For more information, see [{#T}](./operations/endpoint/index.md).
 ## Create a transfer {#create-transfer}
 
 1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. On the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Transfers**.
+1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Transfers**.
 1. Click **Create transfer**.
 1. Select the endpoint for the source and the endpoint for the target.
 1. Enter a name for the transfer.
 1. Select the [type of transfer](./concepts/index.md#transfer-type.md):
-   * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#select-transfer-type).
-   * {{ dt-type-copy-reg }}: To create a full copy of data at certain intervals of time.
-   * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
-   * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
+    * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#select-transfer-type).
+    * {{ dt-type-copy-reg }}: To create a full copy of data at certain intervals of time.
+    * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
+    * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
 1. (Optional) Add a transfer description.
 1. Click **Create**.
 
@@ -140,8 +142,8 @@ For more information, see [Types of transfers](./concepts/transfer-lifecycle.md#
 ## Activate the transfer {#activate}
 
 1. Go to the folder page and select **{{ data-transfer-full-name }}**.
-1. On the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Transfers**.
-1. Click ![ellipsis](../_assets/console-icons/ellipsis.svg) next to the name of the desired transfer and select **Activate**.
+1. In the left-hand panel, select ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Transfers**.
+1. Click ![ellipsis](../_assets/console-icons/ellipsis.svg) next to the transfer name and select **Activate**.
 
 The data transfer process will begin.
 

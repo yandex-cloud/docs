@@ -3,16 +3,16 @@
 
     ```text
     [default]
-      aws_access_key_id = <static_key_ID>
-      aws_secret_access_key = <secret_key>
+    aws_access_key_id = <static_key_ID>
+    aws_secret_access_key = <secret_key>
     ```
 
 1. Create a file named `config` with the default region settings and copy the following information to it:
 
     ```text
     [default]
-      region={{ region-id }}
-      endpoint_url=https://{{ s3-storage-host }}
+    region = {{ region-id }}
+    endpoint_url = https://{{ s3-storage-host }}
     ```
 
     {% note info %}

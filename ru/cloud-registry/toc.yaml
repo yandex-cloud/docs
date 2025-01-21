@@ -24,6 +24,16 @@ items:
                 href: operations/docker/push.md
               - name: Скачать Docker-образ из реестра
                 href: operations/docker/pull.md
+          - name: Helm-чарт
+            items:
+              - name: Получить информацию об имеющихся Helm-чартах
+                href: operations/helm/list.md
+              - name: Загрузить Helm-чарт в реестр
+                href: operations/helm/push.md
+              - name: Скачать Helm-чарт из реестра
+                href: operations/helm/pull.md
+              - name: Удалить Helm-чарт из реестра
+                href: operations/helm/delete.md
           - name: Java-артефакт
             items:
               - name: Настроить Maven

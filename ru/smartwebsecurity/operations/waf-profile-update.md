@@ -17,9 +17,6 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud.common.name }}**.
       * **{{ ui-key.yacloud.common.description }}**.
       * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). Чтобы добавить новую метку, нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-
-  1. {% include [waf-inspect-request](../../_includes/smartwebsecurity/waf-inspect-request.md) %}
-
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }} {#tf}
@@ -72,13 +69,6 @@ description: Следуя данной инструкции, вы сможете
             is_blocking = false
           }
         }
-
-        analyze_request_body {
-          is_enabled        = true
-          size_limit        = 8
-          size_limit_action = "IGNORE"
-        }
-      }
       ```
 
      {% endcut %}

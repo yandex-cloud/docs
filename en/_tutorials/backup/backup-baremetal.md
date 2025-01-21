@@ -15,7 +15,7 @@ The following server operating systems are supported: {#os-support}
 {% include [baremetal-os-list](../../_includes/backup/baremetal-os-list.md) %}
 
 To connect a server to {{ backup-name }}:
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a service account](#prepare-service-account).
 1. [Activate {{ backup-name }}](#activate-provider).
 1. [Lease a test server](#server-lease).
@@ -51,7 +51,7 @@ Currently, {{ baremetal-name }} and the server backup feature are offered at no 
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `backup.editor` [role](../../backup/security/index.md#backup-editor).
+  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `backup.editor` and `baremetal.editor` roles to the service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. To select the service account you created earlier, click the row with its name.
   1. In the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
@@ -118,8 +118,8 @@ If you are already leasing a server with an [appropriate OS](#os-support), go to
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 22.04 LTS` image.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, specify:
 
-      1. **{{ ui-key.yacloud.baremetal.field_server-count }}**: `1`.
-      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}**: `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`.
+      1. **{{ ui-key.yacloud.baremetal.field_server-count }}**: `1`
+      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}**: `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 

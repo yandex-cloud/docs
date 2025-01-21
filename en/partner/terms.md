@@ -1,20 +1,25 @@
+---
+title: Terms and definitions
+description: In this article, you will learn about the terms and definitions of the {{ yandex-cloud }} partner program.
+---
+
 # Terms and definitions
 
 #### Direct partner {#direct-partner}
 
-A business authorized to purchase {{ yandex-cloud }} services for sale and distribution to third parties (users) on behalf and at the expense of a partner as per the terms of a [partner agreement](https://yandex.ru/legal/cloud_partnership/?lang=en).
+A business authorized to purchase {{ yandex-cloud }} services for sale and distribution to third parties (users) on behalf and at the expense of the partner as per the terms of the [partner agreement](https://yandex.ru/legal/cloud_partnership/?lang=en).
 
 #### Referral partner (referrer) {#referral-partner}
 
-A partner that provides Yandex with services for attracting potential Yandex customers to use {{ yandex-cloud }} services and for maintaining Yandex customer loyalty. Only a business that is a resident of the Russian Federation can be a referrer. They work with {{ yandex-cloud }} based on the terms of a [referral agreement](https://yandex.ru/legal/cloud_referral/?lang=en).
+A partner providing Yandex with potential customer acquisition services seeking to promote {{ yandex-cloud }}'s service offering, as well as customer loyalty services. Only a business residing in the Russian Federation can be a referrer. A referrer works with {{ yandex-cloud }} based on a [referral agreement](https://yandex.ru/legal/cloud_referral/?lang=en).
 
 #### Referral customer (referral) {#referral-client}
 
-A business or individual referred by a partner via a referral link, a resident of Russia that an agreement to use {{ yandex-cloud }} services is signed with.
+A business or individual residing in the Russian Federation and signed up by a partner via a referral link, which has entered into an agreement for the use of {{ yandex-cloud }} services.
 
 #### Partner portal {#portal}
 
-A partner account interface that partners use to interact with users and track the consumption of requested services. The [partner portal]({{ link-cloud-partners }}) also displays the amount of partner bonuses and materials provided by Yandex.
+Partner account interface the partner employs to interact with users and track the consumption of ordered services. The [partner portal]({{ link-cloud-partners }}) also displays partner bonus info and materials provided by Yandex.
 
 #### Subaccount {#sub-account}
 

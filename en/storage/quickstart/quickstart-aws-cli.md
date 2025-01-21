@@ -9,7 +9,7 @@ The [AWS CLI](../tools/aws-cli.md) is one of the most popular {{ objstorage-name
 
 To get started with the AWS CLI:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Set up a service account](#create-sa).
 1. [Install and configure the AWS CLI](#cli-setup).
 1. [Create a bucket](#the-first-bucket).
@@ -24,11 +24,13 @@ To get started with the AWS CLI:
 
   1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
-  1. On the [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-access-management }}) page, make sure you have the following _minimum_ roles:
+  1. [Assign](../../iam/operations/roles/grant.md) these _minimum_ roles to your {{ yandex-cloud }} account:
       * To create a [service account](../../iam/concepts/users/service-accounts.md) and get access keys for it: [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). If you want to use an existing service account, the `iam.serviceAccounts.admin` role for that service account will be enough.
       * To assign a role to a service account: [storage.admin](../../storage/security/index.md#storage-admin) for a bucket or folder.
 
       If you have a primitive [admin](../../iam/roles-reference.md#admin) role for a folder, you do not need to assign any additional roles.
+
+      {% include [note-managing-roles](../../_includes/mdb/note-managing-roles.md) %}
 
 {% endlist %}
 
@@ -63,9 +65,9 @@ To get started with the AWS CLI:
   1. Create a static access key {#create-keys}
 
       1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-      1. In the list that opens, select the service account.
+      1. In the list that opens, select the service account you need.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
       1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -73,7 +75,7 @@ To get started with the AWS CLI:
 
           {% note alert %}
 
-          After you close the dialog, the private key value will become unavailable.
+          After you close the dialog box, the key value will not be shown again.
 
           {% endnote %}
 
@@ -174,7 +176,7 @@ For more information about setting up the AWS CLI, see the [AWS documentation](h
 
 {% note info %}
 
-Give consideration to the [special aspects](../tools/aws-cli.md#specifics) of using the AWS CLI with {{ objstorage-name }}.
+Take note of the AWS CLI [features](../tools/aws-cli.md#specifics) when used with {{ objstorage-name }}.
 
 {% endnote %}
 

@@ -1,9 +1,9 @@
 ---
-title: '{{ datalens-full-name }} release notes: November 2024'
-description: Check out {{ datalens-full-name }} release notes for November 2024.
+title: '{{ datalens-full-name }} release notes: December 2024'
+description: Check out {{ datalens-full-name }} release notes for December 2024.
 ---
 
-# {{ datalens-full-name }} release notes: November 2024
+# {{ datalens-full-name }} release notes: December 2024
 
 
 * [Changes in basic features](#base)
@@ -14,102 +14,64 @@ description: Check out {{ datalens-full-name }} release notes for November 2024.
 
 
 
-### Changes in reports {#report-changes}
+### Celebration UI theme {#festive-theme}
 
-* Added [report](../reports/index.md) versioning:
+Added a setting to display the celebration UI theme: in the the left-hand panel, click ![image](../../_assets/console-icons/gear.svg) **Settings** → **Appearance** and select **Celebration theme**.
 
-  * To go to the list of versions, click the ![image](../../_assets/console-icons/ellipsis.svg) icon at the top of the screen and select ![image](../../_assets/console-icons/clock.svg) **Change history**.
-  * To select a version from the list, click it.
+### Adding an anchor link {#anchor-link}
 
-* You can now open report editing and viewing interface on a specified page.
-* You can now enable or disable visual grid in report settings.
+Now you can add anchor links to [dashboard](../dashboard/widget.md#title) headers. To add a link, enable the **Show anchor links** option in the widget editing window. Then you will see the `#` icon when hovering over a header with an anchor link. Clicking the icon adds a hash to the dashboard link. The page will scroll to that header when you click the anchor link.
 
-### Undoing and redoing changes in the QL chart {#undo-redo}
+### Setting up QL chart table size {#ql-chart-size}
 
-When editing a [QL chart](../concepts/chart/ql-charts.md), you can now undo/redo any change introduced within the current version:
-
-* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
-* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
-
-
-
-### Support Center menu {#dl-info}
-
-Updated **Support Center** menu layout.
-
-
-### Too many copies of the same field error {#many-copies-error}
-
-Fixed the `Request Entity Too Large` error triggered by too many copies of the same field in a dataset.
-
-### Applying filters for multiple values on the dasboard {#dashboard-filters}
-
-Fixed getting a list of field values for a specific set of dashboard filters.
-
-### Displaying the selected chart tab in the link editing window {#tab-chart-view}
-
-Fixed the error where the first tab was always displayed in the editing window if several identical charts were added to the widget. The selected tab is now displayed.
-
-### Extra indent when enabling selector tooltip {#selector-hint}
-
-Fixed the issue that would cause an extra indent in the selector's widget when enabling a tooltip in the `Checkbox` type selector.
-
-### Inconsistent display of multi-dataset chart with parameters {#multidataset-chart}
-
-Fixed inconsistent display of [multi-dataset chart](../concepts/chart/multidataset-chart.md) with parameters.
-
-### QL chart creation page title {#ql-chart-create-title}
-
-Fixed the title translation on the [QL chart creation](../operations/chart/create-sql-chart.md#main-page) page for the Russian version.
+Fixed applying the [table size setting](../visualization-ref/table-chart.md#table-size-settings) in [QL charts](../concepts/chart/ql-charts.md).
 
 ### Pivot table fixes {#pivot-table-fixes}
 
 Fixed the following [pivot tables](../visualization-ref/pivot-table-chart.md) issues:
 
-* Horizontal scrolling position remained the same after editing the number of elements in the pivot table with locked areas using the dashboard selector.
-* Text overlap when scrolling the pivot table after pining columns with subtotals.
+* Incorrect display of column names for `Date` type fields.
+* Incorrect display of null values in rows.
+* Totals displaying the first row only.
 
-### Changes in tables {#table-fixes}
+### Changes in area charts {area-chart-changes}
 
-In [tables](../visualization-ref/table-chart.md):
+* Changed the **Stacked area chart** type name to [Area chart](../visualization-ref/area-chart.md).
+* Added the **Stacking** [setting](../concepts/chart/settings.md#common-settings). It enables stacked or isolated data display for each category in the area chart. Possible values:
 
-* Added the [table size setting](../visualization-ref/table-chart.md#table-size-settings).
-* Row measures are now displayed in the [totals](../visualization-ref/table-chart.md#add-totals) row.
-* Fixed the issue of the [linear indicator](../visualization-ref/table-chart.md#add-linear-indicator) crossing the table cell boundary.
+  * **On**: Displays stacked data.
+  * **Off**: Displays unstacked data.
 
-### Point size in scatter charts {#scatter-chart-changes}
+### Coloring in selectors {#selector-color-accent}
 
-The maximum **Point size** value is increased from `20` to `40` in the [scatter chart](../visualization-ref/scatter-chart.md) settings.
+Added the **Coloring** option to selector settings to highlight important selectors.
 
-### Previous values in place of null values for stacked chart {#null-on-previous} 
+### Axis on chart {#axis-on-chart}
 
-Added the **Use previous** [setting](../concepts/chart/settings.md#section-settings) on the Y axis for the [stacked chart](../visualization-ref/area-chart.md). When enabled, it replaces the chart's empty values with the previous axis point value.
+Fixed the issue with the **Axis on chart** setting where an axis reappeared when editing a chart again after setting the value to `Hide`.
 
-### Chart preview in the navigator {#chart-preview}
+### Maximum Y-axis value for normalized charts {#normed-charts-max-on-y}
 
-Fixed the chart preview display in the [navigator](../operations/chart/config-chart-navigator.md) when clicking the legend.
+Fixed the maximum **Y-axis** value for fields with fractional value in normalized charts. Now the default maximum value is `100`.
+
+### Redesign of title and text settings {#title-text-settings-redesign}
+
+Updated the design of [Title](../dashboard/widget.md#title) and [Text](../dashboard/widget.md#text) widget settings.
+
+### Viewing change history of dashboard objects {#object-history-dashboard}
+
+Now only users with permissions to edit the dashboard can view the change history of dashboard objects.
+
 
 
 ## Changes available with the _Business_ service plan {#business}
 
-### Improved the interface customization for embedding private objects {#private-embedded-stylization}
+### Changes in reports {#reports-changes}
 
-Now [private objects are embedded](../security/private-embedded-objects.md) using the [UI customization](../settings/ui-customization.md) of the {{ datalens-short-name }} instance in which they were created.
-
-### Configuring exporting data for private embedding {#private-embed-data-export}
-
-Added the **Allow export of data** setting for [private embedding](../security/private-embedded-objects.md#how-to-private-embed), which enables export of chart data in these formats: XSLX, CSV, and Markown.
-
-### Blocking selectors for private dashboard embedding {#private-embedded-selector-block}
-
-Now, if there are selectors with restricted parameters on the dashboard, these will be unavailable in a private embedding.
+* In a [report](../reports/index.md), you can now open the chart editing interface from the ![image](../../_assets/console-icons/ellipsis.svg) widget menu.
+* Added the contrast mode to the [report settings](../reports/report-operations.md#report-settings). Possible values: `Standard` or `High`.
 
 
 ## Mobile version updates {#mobile-version-changes}
 
-
-* Fixed the error causing the table of contents to disappear when scrolling a long dashboard in the `Public` installation.
-
-* Fixed the error that would sometimes cause the mobile version interface to freeze when scrolling and selecting a value in a dataset-based selector.
-
-
+Names of single chart widgets are now fully displayed.

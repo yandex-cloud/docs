@@ -172,6 +172,8 @@ items:
         href: tutorials/migration-to-an-availability-zone.md
       - name: Using {{ yandex-cloud }} modules in {{ TF }}
         href: tutorials/terraform-modules.md
+      - name: Encrypting secrets in {{ managed-k8s-name }}
+        href: tutorials/kms-k8s.md
       - name: Setting up and testing scaling
         items:
           - name: Horizontal application scaling in a cluster
@@ -236,6 +238,10 @@ items:
             href: tutorials/prometheus-grafana-monitoring.md
           - name: Monitoring a {{ managed-k8s-name }} cluster using Filebeat OSS
             href: tutorials/filebeat-oss-monitoring.md
+          - name: >-
+              Transferring {{ managed-k8s-name }} cluster logs to {{
+              cloud-logging-name }}
+            href: tutorials/k8s-fluent-bit-logging.md
       - name: Using {{ marketplace-name }} products
         items:
           - name: Integration with Argo CD

@@ -30,22 +30,6 @@ description: Follow this guide to install Agro CD.
    * **Application name**: Specify the app name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
-1. Get the administrator (`admin`) password:
-
-   ```bash
-   kubectl --namespace <namespace> get secret argocd-initial-admin-secret \
-     --output jsonpath="{.data.password}" | base64 -d
-   ```
-
-To access the application via `localhost`:
-1. Configure ArgoCD port forwarding onto the local computer:
-
-   ```bash
-   kubectl port-forward service/<app_name>-argocd-server \
-     --namespace <namespace> 8080:443
-   ```
-
-1. Follow the `http://localhost:8080` link and log in with administrator credentials.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -63,6 +47,82 @@ To access the application via `localhost`:
    ```
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+## Access to the application {#application-access}
+
+You can open Argo CD via [localhost](#open-via-localhost) or [dedicated IP address](#go-to-static-address). The first method is easier to configure and does not require additional network load balancer costs. The second method allows you to get permanent access to Argo CD. The application is available through `localhost` only for as long as port redirection is active.
+
+Before you set up access to Argo CD, get the administrator password (`admin`):
+
+```bash
+kubectl --namespace <namespace> get secret argocd-initial-admin-secret \
+  --output jsonpath="{.data.password}" | base64 -d
+```
+
+You will need the password for authorization in Argo CD.
+
+### Opening the application via localhost {#open-via-localhost}
+
+1. Configure Argo CD port redirection to your local computer:
+
+   ```bash
+   kubectl port-forward service/<app_name>-argocd-server \
+     --namespace <namespace> 8080:443
+   ```
+
+   In the command, specify the application name you had set during installation.
+
+1. Follow the `https://localhost:8080` link and log in with administrator credentials.
+
+### Opening the application via a dedicated IP address {#go-to-static-address}
+
+1. Save the following specification for creating a `LoadBalancer` type service to a file named `load-balancer.yaml`. This will create you a [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.yaml):
+
+   ```yaml
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: argocd-load-balancer
+     namespace: <namespace>
+   spec:
+     type: LoadBalancer
+     ports:
+     - port: 443
+       name: load-balancer-port-ssl
+       targetPort: 8080
+     # Selector {{ k8s }} label used in the Deployment object named <application_name>-argocd-server.
+     selector:
+       app.kubernetes.io/name: argocd-server
+   ```
+
+   In the specification, specify the namespace you installed Argo CD in.
+
+   The specification giving no IP address, the load balancer will get a dynamic public IP address. You can add a field named `spec.loadBalancerIP` and specify a [pre-reserved](../../../vpc/operations/get-static-ip.md) static IP address in it.
+
+   For details on the specification, see [this service reference](../../nlb-ref/service.md).
+
+1. Apply the specification and create a network load balancer:
+
+   ```bash
+   kubectl apply -f load-balancer.yaml --namespace <namespace>
+   ```
+
+1. Get the IP address of the load balancer that you created:
+
+   {% list tabs group=instructions %}
+
+   - Management console {#console}
+
+      1. In the [management console]({{ link-console-main }}), select the folder the {{ managed-k8s-name }} cluster is deployed in.
+      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+
+         The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** section shows a network load balancer with the `k8s` prefix in its name and the unique {{ k8s }} cluster ID in its description.
+
+      1. Copy the **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}** field value for the load balancer of interest.
+
+   {% endlist %}
+
+1. Follow the `https://<load_balancer_IP_address>` link and log in with administrator credentials.
 
 ## Use cases {#examples}
 

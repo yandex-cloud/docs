@@ -7,6 +7,10 @@ description: Видеозаписи конференций и вебинаров
 
 ## Видео {#video}
 
+### 2025 год {#2025}
+
+* Искусство {{ yandexart-name }} для бизнеса. Видео на [YouTube](https://www.youtube.com/watch?v=I9Fpsxv8Hlc) и [Яндекс](https://runtime.strm.yandex.ru/player/episode/vplefdetiqv7tasxrbyk).
+
 ### 2024 год {#2024}
 
 * Создание AI-ассистентов. [Видео](https://www.youtube.com/watch?v=kKbMaWSi20I).

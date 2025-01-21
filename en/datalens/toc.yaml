@@ -824,8 +824,10 @@ items:
             href: pricing-archive/pricing23042024.md
   - name: Release notes
     items:
-      - name: November 2024
+      - name: December 2024
         href: release-notes/index.md
+      - name: November 2024
+        href: release-notes/2411.md
       - name: October 2024
         href: release-notes/2410.md
       - name: September 2024
@@ -834,10 +836,10 @@ items:
         href: release-notes/2408.md
       - name: July 2024
         href: release-notes/2407.md
-      - name: June 2024
-        href: release-notes/2406.md
       - name: Archive
         items:
+          - name: June 2024
+            href: release-notes/2406.md
           - name: May 2024
             href: release-notes/2405.md
           - name: April 2024

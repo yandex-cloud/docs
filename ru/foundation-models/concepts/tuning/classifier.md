@@ -26,5 +26,5 @@ _Дообучение моделей в {{ foundation-models-full-name }} нах
 
 ## Примеры {#examples}
 
-[{#T}](../../operations/tuning/create.md)
+[{#T}](../../operations/tuning/tune-classifiers.md)
 

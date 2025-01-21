@@ -1,4 +1,4 @@
-# Building a 1C-Bitrix website
+# Creating a 1C-Bitrix website
 
 
 [1C-Bitrix: Website Management](https://www.1c-bitrix.ru/products/cms/) is a web project management system by 1C-Bitrix. It enables you to easily manage the structure and content of your website without any specialized programming or web design skills. 1C-Bitrix: Site Management does the technical work for you.
@@ -10,5 +10,5 @@ Resources required for 1C-Bitrix to run correctly:
 * {{ mmy-name }} cluster which serves as a database for your 1C-Bitrix website.
 
 You can create the infrastructure for your 1C Bitrix website using one of these tools:
-* [Management console](../../tutorials/web/bitrix-website/console.md): Create your infrastructure one step at a time from the {{ yandex-cloud }} management console.
-* [{{ TF }}](../../tutorials/web/bitrix-website/terraform.md): Streamline creating and managing your resources using the _infrastructure as code_ (IaC) approach. Download the {{ TF }} configuration example from the GitHub repository, and then deploy the infrastructure using the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}).
+* [Management console](../../tutorials/web/bitrix-website/console.md): Create your infrastructure step by step from the {{ yandex-cloud }} management console.
+* [{{ TF }}](../../tutorials/web/bitrix-website/terraform.md): Streamline creating and managing your resources using the _infrastructure as code_ (IaC) approach. Download a {{ TF }} configuration example from the GitHub repository and then deploy the infrastructure using the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}).

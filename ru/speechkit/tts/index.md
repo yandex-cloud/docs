@@ -13,6 +13,7 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 
 ## Возможности синтеза {#features}
 
+
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
 Синтез {{ speechkit-name }} имеет два API — [API v1](request.md) ([REST](../../glossary/rest-api)) и [API v3](../tts-v3/api-ref/grpc/) ([gRPC](../../glossary/grpc)). На основе API v3 также реализован [Python SDK {{ speechkit-name }}](../sdk/python/index.md).

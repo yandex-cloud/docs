@@ -13,6 +13,7 @@ description: Follow this guide to update a {{ baremetal-name }} server connectio
 
 If you deploy a backup of one server to another, the original server's connection to {{ backup-name }} becomes outdated. To continue backing up the original server and avoid conflicts with the new one, upgrade the source server connection to {{ backup-name }}:
 
+1. To connect a {{ baremetal-name }} server to {{ backup-name }}, you need a [service account](../../../iam/concepts/users/service-accounts.md) with at least the `backup.editor` and `baremetal.editor` [roles](../../../iam/concepts/access-control/roles.md). [Create](backup-baremetal.md#prepare-service-account) one or assign the required roles to an existing service account.
 1. Get an [IAM token](../../../iam/operations/index.md#iam-tokens).
 1. Reconnect to {{ backup-name }} from the outdated server:
 

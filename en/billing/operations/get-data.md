@@ -1,3 +1,8 @@
+---
+title: Downloading personal data linked to a billing account
+description: Follow this guide to download personal data linked to a billing account.
+---
+
 # Downloading personal data linked to a billing account
 
 To download personal data linked to a Yandex billing account:

@@ -68,7 +68,7 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
 
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Policy Reporter, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Policy Reporter, run the following command, specifying the parameters of the resources you created [earlier](#before-you-begin):
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_policy-reporter.helmChart.name }} \

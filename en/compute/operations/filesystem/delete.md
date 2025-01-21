@@ -1,3 +1,8 @@
+---
+title: Deleting a file storage
+description: Follow this guide to delete a file storage.
+---
+
 # Deleting a file storage
 
 1. [Detach the file storage](detach-from-vm.md) from all the [VMs](../../concepts/vm.md) it is attached to.
@@ -7,7 +12,7 @@
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage is located.
+     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage resides.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
      1. In the appropriate file storage row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
@@ -15,65 +20,65 @@
 
    - CLI {#cli}
 
-      {% include [cli-install](../../../_includes/cli-install.md) %}
+     {% include [cli-install](../../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-      1. View the description of the [CLI](../../../cli/) command to delete a file storage:
+     1. View the description of the [CLI](../../../cli/) command to delete a file storage:
 
-         ```bash
-         yc compute filesystem delete --help
-         ```
+        ```bash
+        yc compute filesystem delete --help
+        ```
 
-      1. Get a list of file storages in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+     1. Get a list of file storages in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
-         {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
+        {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
 
-      1. Run the command by specifying the name or ID of the file storage you want to delete:
+     1. Run the command by specifying the name or ID of the file storage you want to delete:
 
-         ```bash
-         yc compute filesystem delete <file_storage_name_or_ID>
-         ```
+        ```bash
+        yc compute filesystem delete <file_storage_name_or_ID>
+        ```
 
-      1. Make sure the file storage has been deleted:
+     1. Make sure the file storage has been deleted:
 
-         ```bash
-         yc compute filesystem list
-         ```
+        ```bash
+        yc compute filesystem list
+        ```
 
    - {{ TF }} {#tf}
 
-      {% include [terraform-install](../../../_includes/terraform-install.md) %}
+     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      1. Open the {{ TF }} configuration file and delete the fragment with the storage description:
+     1. Open the {{ TF }} configuration file and delete the fragment with the storage description:
 
-         {% cut "Sample storage description in the {{ TF }} configuration" %}
+        {% cut "Sample storage description in the {{ TF }} configuration" %}
 
-         ```hcl
-         ...
-         resource "yandex_compute_filesystem" "default" {
-           name  = "fs-name"
-           type  = "network-ssd"
-           zone  = "{{ region-id }}-a"
-           size  = 150
-         }
-         ...
-         ```
+        ```hcl
+        ...
+        resource "yandex_compute_filesystem" "default" {
+          name = "fs-name"
+          type = "network-ssd"
+          zone = "{{ region-id }}-a"
+          size = 150
+        }
+        ...
+        ```
 
-         {% endcut %}
+        {% endcut %}
 
-      1. Apply the changes:
+     1. Apply the changes:
 
-         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+        {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the storage deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     You can check the storage deletion using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
-      ```bash
-      yc compute filesystem list
-      ```
+     ```bash
+     yc compute filesystem list
+     ```
 
    - API {#api}
 
-      Use the [delete](../../api-ref/Filesystem/delete.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Delete](../../api-ref/grpc/Filesystem/delete.md) gRPC API call.
+     Use the [delete](../../api-ref/Filesystem/delete.md) REST API method for the [Filesystem](../../api-ref/Filesystem/index.md) resource or the [FilesystemService/Delete](../../api-ref/grpc/Filesystem/delete.md) gRPC API call.
 
    {% endlist %}

@@ -41,7 +41,7 @@ description: Follow this guide to install Filebeat OSS.
    Where:
    * `<username>`: {{ OS }} username.
    * `<password>`: {{ OS }} user password.
-   * `<host_name>`: Name of the {{ mos-name }} host with the [DATA role](../../../managed-opensearch/concepts/host-roles.md#data), e.g., `rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net`.
+   * `<host_name>`: Name of the {{ mos-name }} host with the [DATA role](../../../managed-opensearch/concepts/host-roles.md#data), e.g., `rc1a-7hkolet********.{{ dns-zone }}`.
 
    A successful response will have this format:
 
@@ -69,7 +69,7 @@ description: Follow this guide to install Filebeat OSS.
    * **Application name**: Specify the app name, e.g., `filebeat-oss`.
    * **{{ OS }} username**: Enter the username that Filebeat OSS will use to connect to the {{ mos-name }} cluster.
    * **{{ OS }} connection password**: Enter the user password for the {{ mos-name }} cluster.
-   * **{{ OS }} FQDN**: Enter the URL and port for the {{ mos-name }} cluster host with the DATA role, e.g., `https://rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net:9200`. For more information about connecting to a cluster, see the [service documentation](../../../managed-opensearch/operations/connect.md).
+   * **{{ OS }} FQDN**: Enter the URL and port for the {{ mos-name }} cluster host with the DATA role, e.g., `https://rc1a-7hkolet********.{{ dns-zone }}:9200`. For more information about connecting to a cluster, see the [service documentation](../../../managed-opensearch/operations/connect.md).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
 
