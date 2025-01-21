@@ -242,6 +242,8 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a Telegram bot
         href: tutorials/telegram-bot-serverless.md
+      - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+        href: tutorials/replicate-logs-to-storage-via-data-streams.md
   - name: Concepts
     items:
       - name: Overview
@@ -308,7 +310,7 @@ items:
         items:
           - name: All SDKs
             href: tools/sdk/index.md
-          - name: AWS SDK for Java
+          - name: AWS SDK for Java v.1.x
             href: tools/aws-sdk-java.md
           - name: AWS SDK for JavaScript
             href: tools/aws-sdk-js.md

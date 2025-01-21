@@ -31,4 +31,8 @@ Additional grants can be provided upon a {{ yandex-cloud }} manager's decision, 
 
 
 ## Using grants {#how-to-use}
-The grant priority depends on its validity period: the earlier it expires, the earlier the grant is used. For more information about using grants, see the [billing cycle description](../payment/billing-cycle-individual).
+Grants are prioritized based on their validity period: the earlier the expiration date, the sooner the grant is used.
+
+{% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
+
+ For more information about using grants, see the [billing cycle description](../payment/billing-cycle-individual).

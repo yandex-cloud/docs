@@ -23,7 +23,7 @@ Application workflow:
 
 To create a web application with Flask:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create and set up a virtual machine](#create-setup-vm).
 1. [Create and run the application](#create-app).
 1. [Create and configure the HTML templates](#html-templates).
@@ -121,7 +121,7 @@ To create a virtual network and subnet for your web server:
 
 {% endlist %}
 
-### Create a security group {#create-sg}
+### Create a security group for your file server {#create-sg}
 
 [Security groups](../../vpc/concepts/security-groups.md) are the main tool for managing network access in {{ yandex-cloud }} and help restrict unauthorized traffic to cloud resources at the cloud network level.
 
@@ -141,15 +141,15 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | Incoming | `Flask`           | `5000` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Incoming | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Outgoing | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Inbound | `Flask`           | `5000` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Inbound | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Outbound | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
   
-  Run this command:
+  Run the following command:
 
   ```bash
   yc vpc security-group create \
@@ -226,7 +226,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.      
@@ -236,7 +236,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `webserver-sg` security group you created earlier.
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `webserver-sg` security group you created in the previous step.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
 
@@ -1210,7 +1210,7 @@ Create a page where the user can add a new post with a title.
     nano templates/base.html
     ```
 
-1. Before the `About`​​ link inside the `<nav>` tag, add `<li>`:
+1. Prepend the `<li>` tag to the `About` link inside `<nav>`:
 
     ```html
     ...

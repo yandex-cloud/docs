@@ -9,21 +9,21 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 
 ## Getting started {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) and [grant](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles to it.
+1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) to it the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
    When creating it, specify the service account and security groups prepared in advance. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 
-1. [Create a node group](node-group/node-group-create.md) of any suitable configuration. When creating it, specify the security groups prepared in advance.
+1. [Create a node group](node-group/node-group-create.md) of any suitable configuration. When creating it, specify the security groups prepared earlier.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Retrieve the service [IP address](../../vpc/concepts/address.md) for `kube-dns`:
+1. Retrieve the `kube-dns` service [IP address](../../vpc/concepts/address.md):
 
    ```bash
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
@@ -31,7 +31,7 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 
 ## Create specifications for NodeLocal DNS and Local Redirect Policy {#create-manifests}
 
-1. Create a file named `node-local-dns.yaml`. In the `node-local-dns` DaemonSet settings, specify the `kube-dns` service IP address:
+1. Create a file named `node-local-dns.yaml`. In the `node-local-dns` `DaemonSet` settings, specify the `kube-dns` IP address:
 
    {% cut "node-local-dns.yaml" %}
 
@@ -207,6 +207,8 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 
    {% endcut %}
 
+   {% include [Namespace warning](../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
+
 1. Create a file named `node-local-dns-lrp.yaml`:
 
    {% cut "node-local-dns-lrp.yaml" %}
@@ -267,8 +269,8 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 
 ## Create a test environment {#create-test-environment}
 
-To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launched in your {{ managed-k8s-name }} cluster containing the `dnsutils` network utility suite.
-1. Launch the `nettool` pod:
+To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) containing the `dnsutils` network utility suite will be launched in your {{ managed-k8s-name }} cluster.
+1. Run the `nettool` pod:
 
 
    ```bash
@@ -277,7 +279,7 @@ To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launc
 
 
 
-1. Make sure the pod status changed to `Running`:
+1. Make sure the pod has entered the `Running` state:
 
    ```bash
    kubectl get pods
@@ -289,7 +291,7 @@ To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launc
    kubectl get pod nettool -o wide
    ```
 
-   The name of the node is shown in the `NODE` column as below:
+   You can find the node name in the `NODE` column, for example:
 
    ```text
    NAME     READY  STATUS   RESTARTS  AGE  IP         NODE        NOMINATED NODE  READINESS GATES
@@ -310,7 +312,7 @@ To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launc
 
 ## Check NodeLocal DNS functionality {#test-nodelocaldns}
 
-To test the local DNS from the `nettool` pod, several DNS requests will be executed. This will change the metrics for the number of DNS requests on the pod servicing NodeLocal DNS.
+To test the local DNS from the `nettool` pod, several DNS requests will be sent. This will change the metrics for the number of DNS requests on the pod servicing NodeLocal DNS.
 1. Retrieve the values of the metrics for DNS requests before testing:
 
    ```bash

@@ -16,6 +16,10 @@ description: Чтобы подключиться к API-шлюзу по прот
 * `x-yc-apigateway-websocket-message` — отправка сообщений через веб-сокет.
 * `x-yc-apigateway-websocket-disconnect` — закрытие соединения.
 
+{{ api-gw-name }} не ограничивает количество WebSocket-соединений, которые подключены к одному API-шлюзу.
+
+Сообщения, отправленные клиентам (например, с помощью вызова gRPC API [Send](../../apigateway/websocket/api-ref/grpc/Connection/send.md)), и пинги внутри WebSocket-соединений не тарифицируются.
+
 ## Операция x-yc-apigateway-websocket-connect {#connect}
 
 Операция выполняется, когда устанавливается новое соединение. {{ api-gw-name }}, выполняя ее, вызывает интеграцию. Если интеграция вызвана успешно, клиенту возвращается ответ с HTTP-кодом `101 Switching Protocol`, после чего веб-сокет считается открытым согласно протоколу [RFC](https://www.rfc-editor.org/rfc/rfc6455#page-12). Иначе возвращается ошибка, полученная от интеграции.

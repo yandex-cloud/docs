@@ -5,6 +5,7 @@ description: Если у вас возникла ошибка при отпра�
 
 # Диагностика ошибок в {{ speechkit-full-name }}
 
+
 {% include [support-with-headers](../../_includes/ai-common/support-with-headers.md) %}
 
 ## Заголовки запросов {#request-headers}

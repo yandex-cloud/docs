@@ -4,7 +4,7 @@ Uploads a static website hosting configuration for a bucket.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
-## Request {#request}
+## Query {#request}
 
 ```bash
 PUT /{bucket}?website HTTP/2

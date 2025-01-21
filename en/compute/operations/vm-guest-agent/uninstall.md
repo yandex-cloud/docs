@@ -1,3 +1,8 @@
+---
+title: Deleting the password reset agent from a Windows Server VM
+description: Follow this guide to delete the password reset agent from a Windows Server VM.
+---
+
 # Deleting the password reset agent from a Windows Server VM
 
 1. [Connect to the VM via RDP](../vm-connect/rdp.md).

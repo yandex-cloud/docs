@@ -2,6 +2,7 @@
 title: How to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}.
 ---
+
 # Transferring data to a {{ PG }} target endpoint
 
 {{ data-transfer-full-name }} enables you to migrate data to a {{ PG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
@@ -65,7 +66,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) role or the [`viewer`](../../../../iam/roles-reference.md#viewer) primitive role assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 
@@ -83,7 +84,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     * Endpoint type: `postgres-target`.
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
-
+    
 - {{ TF }} {#tf}
 
     * Endpoint type: `postgres_target`.

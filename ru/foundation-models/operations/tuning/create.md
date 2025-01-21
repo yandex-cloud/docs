@@ -1,42 +1,17 @@
-# Создать дообучение в {{ foundation-models-name }}
+---
+title: Создать дообучение модели генерации текста в {{ foundation-models-name }}
+description: Следуя данной инструкции, вы сможете создать датасет и дообучить модель генерации текста в {{ foundation-models-name }} с помощью API и {{ ml-sdk-name }}.
+---
 
-_Дообучение моделей по методу {{ lora }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и предоставляется по запросу. Вы можете заполнить заявку в [консоли управления]({{ link-console-main }}/link/foundation-models/)._
+# Создать дообучение модели генерации текста в {{ foundation-models-name }}
+
+{% include [lora-tuning-preview](../../../_includes/foundation-models/lora-tuning-preview.md) %}
 
 Этот пример показывает, как дообучить модель {{ gpt-lite }} по методу {{ lora }} в {{ foundation-models-name }}. 
 
 ## Перед началом работы {#before-begin}
 
-Чтобы воспользоваться примерами:
-
-{% list tabs group=programming_language %}
-
-- SDK {#sdk}
-
-  1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../../../foundation-models/security/index.md#languageModels-user) `ai.editor`.
-  1. [Получите](../../../iam/operations/api-key/create.md) и сохраните API-ключ сервисного аккаунта.
-
-      {% include [sdk-auth-details-paragraph](../../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
-  1. С помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/) установите бета-версию библиотеки {{ ml-sdk-name }}:
-
-    ```bash
-    pip install yandex-cloud-ml-sdk --upgrade --pre
-    ```
-
-- cURL {#curl}
-
-  1. {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
-  1. Установите [gRPCurl](https://github.com/fullstorydev/grpcurl).
-  1. {% include [curl](../../../_includes/curl.md) %}
-  1. (Опционально) Установите [утилиту jq](https://stedolan.github.io/jq/) для потоковой обработки JSON-файлов.
-  1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md) для аутентификации в API.
-  
-     {% note info %}
-
-     У IAM-токена короткое [время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) — не более  {{ iam-token-lifetime }}.
-
-     {% endnote %}
-   
-{% endlist %}
+{% include [tuning-before-beginning](../../../_includes/foundation-models/tuning-before-beginning.md) %}
 
 ## Загрузите датасет {#create-dataset}
 
@@ -60,15 +35,23 @@ _Дообучение моделей по методу {{ lora }} находит
      python3 dataset-create.py
      ```
 
+     Результат:
+
+     ```text
+     new dataset=AsyncDataset(id='fdsfehj6grsu********', folder_id='b1gt6g8ht345********', name='YandexGPT tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 11, 38, 19), updated_at=datetime.datetime(2025, 1, 20, 11, 39, 4), labels=None, status=<DatasetStatus.READY: 3>, task_type='TextToTextGeneration', rows=0, size_bytes=3514)
+     ```
+
+     Сохраните идентификатор созданного датасета (значение поля `id`) — он понадобится при дообучении модели.
+
 - cURL {#curl}
 
-  1. Создайте объект датасет:
+  1. Создайте датасет:
   
      ```bash
      grpcurl \
-       -H "Authorization: Bearer $<IAM-токен>" \
+       -H "Authorization: Bearer <IAM-токен>" \
        -d @ \
-       llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/Create <<EOM
+       {{ api-host-llm }}:443 yandex.cloud.ai.dataset.v1.DatasetService/Create <<EOM
        {
          "folder_id": "<идентификатор_каталога>", 
          "name": "My awesome dataset", 
@@ -78,48 +61,38 @@ _Дообучение моделей по методу {{ lora }} находит
      EOM
      ```
 
-  1. Получите ссылку, по которой вы сможете загрузить данные в датасет. В поле `size_bytes` укажите размер файла с данными для дообучения в байтах. Размер датасета в примере 10 КБ: 
-  
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer $<IAM-токен>" \
-       -d '{"dataset_id": "<идентификатор_датасета>", "size_bytes": 10240}' \
-       llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/GetUploadDraftUrl | jq
-       ```
+     Где:
+     * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, полученный [перед началом работы](#before-begin).
+     * `<идентификатор_каталога>` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором создается датасет.
 
-     В ответ вернется ссылка на созданный шаблон датасета.
+     Результат:
 
-     {% note tip %}
-      
-     Если вы не использовали утилиту jq, в полученной ссылке замените все последовательности символов `\u0026` на `&`, чтобы использовать ее для загрузки датасета.
-
-     {% endnote %}
-
-  1. Загрузите данные:
-  
-      ```bash 
-      curl --request PUT --upload-file <путь_к_файлу> "<ссылка>"
-      ```
-
-  1. После окончания загрузки данных запустите валидацию датасета:
-  
-      ```bash
-      grpcurl \
-        -H "Authorization: Bearer $<IAM-токен>" \
-        -d '{"dataset_id": "<идентификатор_датасета>"}' \
-        llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/Validate
-      ```
-
-      В ответ вернется объект, содержащий идентификатор операции валидации. 
-
-  1. Валидация датасета может занять некоторое время. Чтобы узнать статус операции и, при наличии, получить отчет о возникших ошибках, отправьте запрос, содержащий идентификатор из предыдущего шага:
-  
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer $<IAM-токен>" \
-       -d '{"operation_id": "ftnq****************"}' \
-       llm.api.cloud.yandex.net:443 yandex.cloud.operation.OperationService/Get
+     ```text
+     {
+       "datasetId": "fdso08c1u1cq********",
+       "dataset": {
+         "datasetId": "fdso08c1u1cq********",
+         "folderId": "b1gt6g8ht345********",
+         "name": "My awesome dataset",
+         "status": "DRAFT",
+         "taskType": "TextToTextGeneration",
+         "createdAt": "2025-01-20T10:36:50Z",
+         "updatedAt": "2025-01-20T10:36:50Z",
+         "createdById": "ajeg2b2et02f********",
+         "createdBy": "ajeg2b2et02f********"
+       }
+     }
      ```
+
+     Сохраните идентификатор созданного датасета (значение поля `datasetId`) он понадобится при загрузке данных в датасет.
+
+  1. {% include [tuning-dataset-api-step2](../../../_includes/foundation-models/tuning-dataset-api-step2.md) %}
+
+  1. {% include [tuning-dataset-api-step3](../../../_includes/foundation-models/tuning-dataset-api-step3.md) %}
+
+  1. {% include [tuning-dataset-api-step4](../../../_includes/foundation-models/tuning-dataset-api-step4.md) %}
+
+  1. {% include [tuning-dataset-api-step5](../../../_includes/foundation-models/tuning-dataset-api-step5.md) %}
 
 {% endlist %}
 
@@ -133,21 +106,41 @@ _Дообучение моделей по методу {{ lora }} находит
 
      {% include [sdk-tuning](../../../_includes/foundation-models/examples/tuning-sdk.md) %}
 
+     Где:
+
+     * `<идентификатор_каталога>` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором создан [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md).
+     * `<API-ключ>` — [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта, полученный ранее и необходимый для [аутентификации в API](../../../foundation-models/api-ref/authentication.md).
+
+         {% include [sdk-auth-details-paragraph](../../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
+     * `<идентификатор_датасета>` — сохраненный на предыдущем шаге идентификатор созданного датасета.
+
   1. Выполните созданный файл:
 
      ```bash
      python3 start-tuning.py
      ```
 
+     Результат:
+
+     ```text
+     Resulting GPTModel(uri=gpt://b1gt6g8ht345********/yandexgpt-lite/latest@tamrhtqmscrsr********, config=GPTModelConfig(temperature=None, max_tokens=None))
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hello! How can I help you?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=8, total_tokens=20), model_version='23.10.2024')
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hello! How can I help you?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=8, total_tokens=20), model_version='23.10.2024')
+     ```
+
+     Дообучение модели может занять до 1 суток в зависимости от объема датасета и степени загрузки системы.
+
+  Используйте полученный URI дообученной модели (значение поля `uri`) при [обращении](../../concepts/yandexgpt/models.md#addressing-models) к ней.
+
 - cURL {#curl}
-  
+
   1. Запустите дообучение:
-  
+
      ```bash
      grpcurl \
-       -H "Authorization: Bearer $<IAM-токен>" \
+       -H "Authorization: Bearer <IAM-токен>" \
        -d @ \
-       llm.api.cloud.yandex.net:443 yandex.cloud.ai.tuning.v1.TuningService/Tune <<EOM
+       {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/Tune <<EOM
        {
          "base_model_uri": "gpt://<идентификатор_каталога>/yandexgpt-lite/latest",
          "train_datasets": [{"dataset_id": "<идентификатор_датасета>", "weight": 1.0}],
@@ -157,49 +150,64 @@ _Дообучение моделей по методу {{ lora }} находит
      EOM
      ```
 
-     В ответе сервис вернет объект [Operation](../../../api-design-guide/concepts/operation.md):
+     Где:
+     * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, полученный [перед началом работы](#before-begin).
+     * `<идентификатор_каталога>` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором дообучается модель.
+     * `<идентификатор_датасета>` — идентификатор датасета, сохраненный ранее.
 
-     ```json
-     {"id":"f**********","description":"","createdAt":null,"createdBy":"","modifiedAt":null,"done":false,"metadata":null}
-     ```
+     Результат:
 
-     Сохраните идентификатор (`id`) операции, полученный в ответе.
-
-  1. Дообучение модели может занять до 1 суток в зависимости от объема датасета и загрузки системы. Чтобы проверить готовность дообучения, запросите статус операции:
-  
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer $<IAM-токен>" \
-       -d '{"operation_id": "ftnq****************"}' \
-       llm.api.cloud.yandex.net:443 yandex.cloud.operation.OperationService/Get
-     ```
-
-     Если дообучение завершилось, объект Operation будет содержать идентификатор дообученной модели в поле `targetModelUri:
-
-     ```json
+     ```text
      {
-       "id": "ftnq****************",
-       "createdAt": "2024-12-04T10:56:08Z",
-       "modifiedAt": "2024-12-04T11:14:25Z",
-       "done": true,
+       "id": "ftnlljf53kil********",
+       "createdAt": "2025-01-20T11:17:33Z",
+       "modifiedAt": "2025-01-20T11:17:33Z",
        "metadata": {
-         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata",
-         "status": "COMPLETED",
-         "tuningTaskId": "ftn7****************"
-       },
-       "response": {
-         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningResponse",
-         "status": "COMPLETED",
-         "targetModelUri": "<modelUri_дообученной_модели>",
-         "tuningTaskId": "ftn7****************"
+         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata"
        }
      }
      ```
 
+     В ответе сервис вернет объект [Operation](../../../api-design-guide/concepts/operation.md). Сохраните идентификатор (`id`) операции, полученный в ответе.
+
+  1. Дообучение модели может занять до 1 суток в зависимости от объема датасета и степени загрузки системы. Чтобы проверить готовность дообучения, запросите статус операции:
+
+     ```bash
+     grpcurl \
+       -H "Authorization: Bearer <IAM-токен>" \
+       -d '{"operation_id": "<идентификатор_операции>"}' \
+       {{ api-host-llm }}:443 yandex.cloud.operation.OperationService/Get
+     ```
+
+     Где:
+     * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, полученный [перед началом работы](#before-begin).
+     * `<идентификатор_операции>` — идентификатор операции дообучения модели, полученный на предыдущем шаге.
+
+     Если дообучение завершилось, объект Operation будет содержать URI дообученной модели в поле `targetModelUri`:
+
+     ```json
+     {
+       "id": "ftnlljf53kil********",
+       "createdAt": "2025-01-20T11:17:33Z",
+       "modifiedAt": "2025-01-20T11:25:40Z",
+       "done": true,
+       "metadata": {
+         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata",
+         "status": "COMPLETED",
+         "tuningTaskId": "ftnlljf53kil********"
+       },
+       "response": {
+         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningResponse",
+         "status": "COMPLETED",
+         "targetModelUri": "gpt://b1gt6g8ht345********/yandexgpt-lite/latest@tamr2nc6pev5e********",
+         "tuningTaskId": "ftnlljf53kil********"
+       }
+     }
+     ```
+
+  Используйте полученный URI дообученной модели (значение поля `targetModelUri`) при [обращении](../../concepts/yandexgpt/models.md#addressing-models) к ней.
 
 {% endlist %}
-
-Используйте идентификатор дообученной модели в качестве `modelURI`, чтобы отправлять запросы в дообученную модель.
 
 #### См. также {#see-also}
 

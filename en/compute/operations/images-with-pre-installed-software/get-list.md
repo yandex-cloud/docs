@@ -24,6 +24,8 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
+  A list of public images resides in the **standard-images** folder.
+
   * {% include [standard-images](../../../_includes/standard-images.md) %}
 
       {% note info %}

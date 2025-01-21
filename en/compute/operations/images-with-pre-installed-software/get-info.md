@@ -94,7 +94,7 @@ You can get a public image ID or other information about it.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
       ```bash
       terraform output
@@ -197,7 +197,7 @@ You can get a public image ID or other information about it.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
       ```bash
       terraform output

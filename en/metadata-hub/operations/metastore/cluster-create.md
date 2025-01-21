@@ -17,13 +17,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 1. [Create a service account](../../../iam/operations/sa/create.md).
 1. [Assign the `{{ roles.metastore.integrationProvider }}` role](../../../iam/operations/sa/assign-role-for-sa.md) to the service account. This role enables the cluster [to work with {{ yandex-cloud }} services](../../concepts/metastore-impersonation.md), e.g., {{ cloud-logging-full-name }} and {{ monitoring-full-name }}, under a service account.
 
-    You can also add more roles. Their combination depends on your specific use case. You can view the service roles in the [{{ metastore-name }} section](../../security/metastore-roles.md) and all the available roles in this [reference](../../../iam/roles-reference.md).
-
-1. Optionally, [create a static access key](../../../iam/operations/sa/create-access-key.md) for your service account. This key enables the cluster to access [{{ objstorage-full-name }} buckets](../../../storage/concepts/bucket.md).
-
-    Save the ID and secret key. You will not be able to access them later.
-
-    To work with buckets, assign one of the [{{ objstorage-name }} roles](../../../storage/security/index.md#service-roles) to the service account.
+    You can also add more roles. Their combination depends on your specific use case. To view the service roles, see the [{{ metastore-name }} section](../../security/metastore-roles.md), and for all available roles, see this [reference](../../../iam/roles-reference.md).
 
 1. If you want to save cluster logs to a custom log group, [create one](../../../logging/operations/create-group.md).
 

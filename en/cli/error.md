@@ -1,10 +1,15 @@
+---
+title: CLI troubleshooting
+description: This article describes solutions for typical issues with the CLI.
+---
+
 # CLI troubleshooting
 
 ## CLI installation errors {#installation-errors}
 
 #### Failure writing output to destination {#failure-writing-output-to-destination}
 
-If you installed `curl` in Linux Ubuntu using the [snap package](https://en.wikipedia.org/wiki/Snap_(software)), you may get the `curl: (23) Failure writing output to destination` error while [installing](operations/install-cli.md) the CLI.
+If `curl` was installed on Linux Ubuntu using a [snap package](https://en.wikipedia.org/wiki/Snap_(software)), you may get the `curl: (23) Failure writing output to destination` error while [installing](operations/install-cli.md) the CLI.
 
 To fix this error, delete `curl` and reinstall it using the `apt` [package manager](https://en.wikipedia.org/wiki/APT_(software)):
 
@@ -39,10 +44,10 @@ If you are going to ask for help of cloud support, please send the following tra
 
 To help our support team solve your problem faster, from the error message:
 
-1. Copy all available **IDs**. In the given example, these are `server-request-id`, `client-request-id`, and `client-trace-id`.
+1. Copy all available **IDs**. In our example, they are `server-request-id`, `client-request-id`, and `client-trace-id`.
 1. Copy the **trace file** that was saved to your PC. See the path to the trace file at the end of the error message.
-   In the given example, it is:
-   ```
-   C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
-   ```
-1. Provide this information to the [technical support team]({{ link-console-support }}).
+In our example, it is as follows:
+    ```
+    C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
+    ```
+1. Provide this information to the [support team]({{ link-console-support }}).

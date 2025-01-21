@@ -1,4 +1,4 @@
-1. [Prepare your cloud](#before-begin).
+1. [Prepare your cloud environment](#before-begin).
 1. [Prepare the environment](#prepare).
 1. [Create an instance group with autoscaling and a network load balancer](#create-vm-group).
 1. [Add a network load balancer with a target group](#connect-balancer).
@@ -6,7 +6,7 @@
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare the environment {#prepare}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-autoscale` and assign it the `editor` [role](../../iam/concepts/access-control/roles.md):
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-autoscale`: To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
 
    {% list tabs group=instructions %}
 
@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**. In the window that opens:
         * In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-autoscale`.
-        * To assign the service account the `editor` role for the current folder, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
+        * To assign the service account a role for the current folder, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `compute.editor` and `load-balancer.editor` roles.
         * Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -50,12 +50,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
         name: for-autoscale
         ```
 
-     1. Assign the role to the service account:
+     1. Assign the `compute.editor` role to the service account:
 
         ```bash
-        yc resource-manager folder add-access-binding b1g23ga82bcv******** \
-          --role editor \
-          --subject serviceAccount:ajelabcde12f********
+        yc resource-manager folder add-access-binding <folder_ID> \
+          --role compute.editor \
+          --subject serviceAccount:<service_account_ID>
+        ```
+
+     1. Assign the `load-balancer.editor` role to the service account:
+
+        ```bash
+        yc resource-manager folder add-access-binding <folder_ID> \
+          --role load-balancer.editor \
+          --subject serviceAccount:<service_account_ID>
         ```
 
    - API {#api}
@@ -74,7 +82,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter `yc-auto-network` as the network name.
-     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
+     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
    - CLI {#cli}
@@ -244,7 +252,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - CLI {#cli}
 
-     Run this command:
+     Run the following command:
 
      ```bash
      yc compute instance-group create --file=specification.yaml
@@ -319,14 +327,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, specify `{{ ui-key.yacloud.common.label_auto }}`.
      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**. In the window that opens, specify:
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**: `http`.
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (port the load balancer will accept incoming traffic at): `80`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (port the load balancer will receive incoming traffic at): `80`.
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (port the load balancer will route traffic to): `80`.
         * Click **{{ ui-key.yacloud.common.add }}**.
      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select the `auto-group-tg` instance group and click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify:
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**: `tcp`.
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `80`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**: `tcp`
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `80`
         * Click **{{ ui-key.yacloud.common.apply }}**.
      1. Click **{{ ui-key.yacloud.common.create }}**.
 

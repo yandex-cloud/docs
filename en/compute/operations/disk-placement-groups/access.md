@@ -14,13 +14,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the disk placement group is located.
+  1. In the [management console]({{ link-console-main }}), select the folder hosting your disk placement group.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab, click the name of the group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-  1. In the window that opens, select a group, user, or service account to be granted access to the placement group.
+  1. In the window that opens, select the group, user, or service account you want to grant access to the placement group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -30,7 +30,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the CLI command description for assigning a role for a disk placement group:
+  1. See the description of the CLI command for assigning a role for a disk placement group:
 
      ```bash
      yc compute disk-placement-group add-access-binding --help
@@ -42,13 +42,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute disk-placement-group list
      ```
 
-  1. View the list of roles already assigned for the resource:
+  1. View a list of roles already assigned for the resource in question:
 
      ```bash
      yc compute disk-placement-group list-access-bindings <placement_group_ID>
      ```
 
-  1. Assign the role using the command:
+  1. Assign the role using this command:
 
      * To a user:
 
@@ -84,7 +84,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   To assign a role for a non-replicated disk placement group using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_compute_disk_placement_group_iam_binding" "sa-access" {
@@ -98,9 +98,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `disk_placement_group_id`: Disk placement group ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_disk_placement_group_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
+      For more information about the `yandex_compute_disk_placement_group_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
 
   1. Create resources:
 
@@ -124,13 +124,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the disk placement group is located.
+  1. In the [management console]({{ link-console-main }}), select the folder hosting your disk placement group.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab, click the name of the group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-  1. In the window that opens, select a group, user, or service account to be granted access to the placement group.
+  1. In the window that opens, select the group, user, or service account you want to grant access to the placement group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
   1. To add another role, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -151,7 +151,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute disk-placement-group list-access-bindings <placement_group_ID>
      ```
 
-  1. See the CLI command description for assigning roles for a disk placement group:
+  1. See the description of the CLI command for assigning roles for a disk placement group:
 
      ```bash
      yc compute disk-placement-group set-access-bindings --help
@@ -189,7 +189,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   To assign multiple roles for a disk placement group using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_compute_disk_placement_group_iam_binding" "role-1" {
@@ -209,9 +209,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `disk_placement_group_id`: Disk placement group ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_disk_placement_group_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
+      For more information about the `yandex_compute_disk_placement_group_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
 
   1. Create resources:
 
@@ -225,11 +225,11 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign roles for a resource, use the [setAccessBindings](../../api-ref/DiskPlacementGroup/setAccessBindings.md) REST API method for the [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) resource or the [DiskPlacementGroupService/SetAccessBindings](../../api-ref/grpc/DiskPlacementGroup/setAccessBindings.md) gRPC API call.
+  To assign roles for a disk placement group, use the [setAccessBindings](../../api-ref/DiskPlacementGroup/setAccessBindings.md) REST API method for the [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) resource or the [DiskPlacementGroupService/SetAccessBindings](../../api-ref/grpc/DiskPlacementGroup/setAccessBindings.md) gRPC API call.
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `DiskPlacementGroupService/SetAccessBindings` call completely overwrite access permissions for the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method and the `DiskPlacementGroupService/SetAccessBindings` call completely overwrite access permissions for the resource. All current roles for the resource will be deleted.
 
   {% endnote %}
 
@@ -241,7 +241,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the disk placement group is located.
+  1. In the [management console]({{ link-console-main }}), select the folder hosting your disk placement group.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab, click the name of the group.
@@ -256,7 +256,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the CLI command description for revoking a role for a disk placement group:
+  1. See the description of the CLI command for revoking a role for a disk placement group:
 
      ```bash
      yc compute disk-placement-group remove-access-binding --help
@@ -279,9 +279,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      Where:
 
      * `--role`: ID of the role to revoke.
-     * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
+     * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you want to revoke the role from.
 
-     For example, this command revokes the `{{ roles-viewer }}` role for a placement group from a user with the `ajel6l0jcb9s********` ID:
+     For example, this command revokes the `{{ roles-viewer }}` role for the disk placement group from a user with the `ajel6l0jcb9s********` ID:
 
      ```bash
      yc compute disk-placement-group remove-access-binding my-disk-group \
@@ -297,7 +297,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   
   To revoke a role assigned for a non-replicated disk placement group using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the role description.
+  1. Open the {{ TF }} configuration file and delete the section specifying the role:
 
       ```hcl
       resource "yandex_compute_disk_placement_group_iam_binding" "sa-access" {

@@ -57,7 +57,7 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     --set-file auth.json=sa-key.json \
+     --set-file auth.json=<path_to_sa-key.json> \
      external-secrets ./external-secrets/
    ```
 

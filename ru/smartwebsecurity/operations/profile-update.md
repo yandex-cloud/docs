@@ -20,6 +20,7 @@ description: Следуя данной инструкции, вы сможете
       * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
       * **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** — выберите или создайте [профиль ARL](../concepts/arl.md).
       * Выберите или создайте капчу [{{ captcha-name }}](../../smartcaptcha/) для проверки подозрительных запросов.
+      * {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

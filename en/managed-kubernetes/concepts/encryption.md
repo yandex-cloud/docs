@@ -1,3 +1,8 @@
+---
+title: Encryption in {{ managed-k8s-full-name }}
+description: In this article, you will learn about encryption in {{ managed-k8s-name }}.
+---
+
 # Encryption in {{ managed-k8s-name }}
 
 {{ yandex-cloud }} adopts many [information security measures](../../security/standarts.md). They include multi-level encryption of {{ managed-k8s-name }} data:
@@ -63,6 +68,6 @@ Secrets are decrypted in a similar way.
 
 * [{#T}](../operations/applications/hashicorp-vault.md)
 * [{#T}](../tutorials/marketplace/hashicorp-vault.md)
+* [{#T}](../tutorials/kms-k8s.md)
 * [{#T}](../operations/applications/external-secrets-operator.md)
 * [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
-* [{#T}](../../kms/tutorials/k8s.md)

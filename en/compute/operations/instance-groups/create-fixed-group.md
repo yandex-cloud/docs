@@ -1,16 +1,18 @@
 ---
 title: Creating a fixed-size instance group
-description: Follow this guide to create a fixed-size VM group.
+description: Follow this guide to create a fixed-size instance group.
 ---
 
 # Creating a fixed-size instance group
 
 
-You can create a group with a fixed number of [VM instances](../../concepts/vm.md). The size of this [instance group](../../concepts/instance-groups/index.md) is set manually. For more information, see [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
+You can create a group with a fixed number of [VM instances](../../concepts/vm.md). The size of such an [instance group](../../concepts/instance-groups/index.md) is set manually. For more information, see [{#T}](../../concepts/instance-groups/scale.md#fixed-scale).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
+
+To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
 
 {% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}
 
@@ -28,7 +30,7 @@ To create a fixed-size instance group:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) command to create an instance group:
+  1. See the description of the [CLI](../../../cli/) command for creating an instance group:
 
      ```bash
      {{ yc-compute-ig }} create --help
@@ -46,7 +48,7 @@ To create a fixed-size instance group:
      {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
   1. Create a YAML file with any name, e.g., `specification.yaml`.
-  1. In the created file, indicate the following:
+  1. Define the following in the file you created:
      * General information about the instance group:
 
        ```yaml
@@ -56,13 +58,15 @@ To create a fixed-size instance group:
        ```
 
        Where:
-       * `name`: Instance group name. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
-       * `service_account_id`: Service account ID.
+       * `name`: Instance group name. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
+       * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
+
+          To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
        * `description`: Instance group description.
-     * [Instance template](../../concepts/instance-groups/instance-template.md), such as:
+     * [Instance template](../../concepts/instance-groups/instance-template.md), such as the following:
 
        ```yaml
        instance_template:
@@ -96,18 +100,18 @@ To create a fixed-size instance group:
        * `mode`: [Disk](../../concepts/disk.md) access mode.
          * `READ_ONLY`: Read-only access.
          * `READ_WRITE`: Read/write access.
-       * `image_id`: Public image ID. You can view image IDs in the [management console]({{ link-console-main }}) when creating a VM or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**.
+       * `image_id`: Public image ID. You can view image IDs in the [management console]({{ link-console-main }}) when creating an instance or in [{{ marketplace-name }}](/marketplace) on the image page under **Product IDs**.
        * `type_id`: Disk type.
        * `size`: Disk size.
        * `network_id`: `default-net` network ID.
-       * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group's instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
+       * `primary_v4_address_spec`: IPv4 specification. You can allow public access to the group instances by specifying the IP version for the [public IP address](../../../vpc/concepts/address.md#public-addresses). For more information, see [{#T}](../../concepts/instance-groups/instance-template.md#instance-template).
        * `security_group_ids`: List of [security group](../../../vpc/concepts/security-groups.md) IDs.
        * `scheduling_policy`: Scheduling policy configuration.
        * `preemptible`: Flag for creating [preemptible instances](../../concepts/preemptible-vm.md).
            * `true`: Create a preemptible instance.
            * `false` (default): Create a regular instance.
 
-         When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. VMs may not be able to restart immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
+         When creating a preemptible instance group, keep in mind that the VM instances will terminate after 24 hours of continuous operation or earlier. VM instances may not be able to restart immediately due to insufficient resources. This may occur in the event of a sharp increase in the use of {{ yandex-cloud }} computing resources.
        * `placement_policy` (optional): [Instance placement group](../../concepts/placement-groups.md) parameters:
          * `placement_group_id`: Placement group ID.
      * [Policies](../../concepts/instance-groups/policies/index.md):
@@ -131,13 +135,13 @@ To create a fixed-size instance group:
        Where:
        * `deploy_policy`: Instance [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for the group.
        * `scale_policy`: Instance [scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for the group.
-       * `allocation_policy`: Instance [allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) between [availability zones](../../../overview/concepts/geo-scope.md).
+       * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) instances across [availability zones](../../../overview/concepts/geo-scope.md).
 
      Full code for the `specification.yaml` file:
 
      ```yaml
      name: first-fixed-group
-     service_account_id: ajed6ilf11qg********
+     service_account_id: <service_account_ID>
      description: "This instance group was created using a YAML configuration file."
      instance_template:
        platform_id: standard-v3
@@ -178,7 +182,7 @@ To create a fixed-size instance group:
      {{ yc-compute-ig }} create --file specification.yaml
      ```
 
-     This command creates a group of three same-type instances with the following configuration:
+     This command will create a group of three same-type instances with the following configuration:
      * Name: `first-fixed-group`.
      * OS: CentOS 7.
      * Network: `default-net`.
@@ -190,17 +194,17 @@ To create a fixed-size instance group:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
      resource "yandex_iam_service_account" "ig-sa" {
        name        = "ig-sa"
-       description = "Service account for managing an instance group."
+       description = "Service account for managing the instance group."
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "compute_editor" {
        folder_id  = "<folder_ID>"
-       role       = "editor"
+       role       = "compute.editor"
        member     = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
        depends_on = [
          yandex_iam_service_account.ig-sa,
@@ -212,12 +216,12 @@ To create a fixed-size instance group:
        folder_id           = "<folder_ID>"
        service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
        deletion_protection = "<deletion_protection>"
-       depends_on          = [yandex_resourcemanager_folder_iam_member.editor]
+       depends_on          = [yandex_resourcemanager_folder_iam_member.compute_editor]
        instance_template {
          platform_id = "standard-v3"
          resources {
-           memory = <RAM_size_GB>
-           cores  = <number_of_vCPU_cores>
+           memory = <RAM_in_GB>
+           cores  = <number_of_vCPUs>
          }
 
          boot_disk {
@@ -240,7 +244,7 @@ To create a fixed-size instance group:
 
        scale_policy {
          fixed_scale {
-           size = <number_of_VMs_in_group>
+           size = <number_of_instances_in_group>
          }
        }
 
@@ -271,35 +275,35 @@ To create a fixed-size instance group:
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * `yandex_resourcemanager_folder_iam_member`: Description of access permissions to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `editor` [role](../../../iam/concepts/access-control/roles.md) to the service account.
+     * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VMs in the group, assign the [compute.editor](../../security/index.md#compute-editor) role to the service account.
      * `yandex_compute_instance_group`: Instance group description:
        * General information about the instance group:
          * `name`: Instance group name.
          * `folder_id`: Folder ID.
-         * `service_account_id`: Service account ID.
+         * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
          * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
-       * [VM template](../../concepts/instance-groups/instance-template.md):
+       * [Instance template](../../concepts/instance-groups/instance-template.md):
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-         * `resources`: Number of vCPU cores and RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+         * `resources`: Number of vCPUs and amount of RAM available to the VM instance. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot [disk](../../concepts/disk.md) settings.
            * ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
            * Disk access mode: `READ_ONLY` or `READ_WRITE`.
-         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) configurations. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
-         * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the public key for SSH access to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
+         * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
+         * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the public key for SSH access to the instance. For more information, see [{#T}](../../concepts/vm-metadata.md).
        * [Policies](../../concepts/instance-groups/policies/index.md):
          * `deploy_policy`: Instance [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for the group.
          * `scale_policy`: Instance [scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for the group.
-         * `allocation_policy`: Instance [allocation policy](../../concepts/instance-groups/policies/allocation-policy.md) between [availability zones](../../../overview/concepts/geo-scope.md).
-     * `yandex_vpc_network`: Description of the cloud network.
-     * `yandex_vpc_subnet`: Description of the subnet the instance group will connect to.
+         * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) instances across [availability zones](../../../overview/concepts/geo-scope.md).
+     * `yandex_vpc_network`: Cloud network description.
+     * `yandex_vpc_subnet`: Description of the subnet to connect the instance group to.
 
        {% note info %}
 
-       If you already have suitable resources, such as a service account, cloud network, and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+       If you already have suitable resources, such as a service account, cloud network, and subnet, you do not need to redefine them. Use their names and IDs in the appropriate parameters.
 
        {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

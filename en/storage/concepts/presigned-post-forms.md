@@ -192,7 +192,7 @@ Security policy rules can be of the following types:
 
 Rule type | Description
 ------------|-----------
-Exact match | The form field value must be exactly the same as in the policy.<br/><br/>For example, `{"acl": "public-read"}`. You can also use the alternative format: `[ "eq", "$acl", "public-read" ]`.
+Exact match | The form field value must be exactly the same as in the policy.<br/><br/>Here is an example: `{"acl": "public-read"}`. You can also use the alternative format: `[ "eq", "$acl", "public-read" ]`.
 Partial match | The form field value must start with the string specified in the policy.<br/><br/>Here is an example: `["starts-with", "$key", "key_prefix"]`. If an empty string is specified as a value, the field can take any value.<br/><br/>Here is an example: `["starts-with", "$Content-Type", ""]`.
 `content-length-range` | Size limit for the object to upload.<br/><br/>Here is an example: `["content-length-range", 0, 1048576]`.
 

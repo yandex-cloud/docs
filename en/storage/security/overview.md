@@ -1,3 +1,8 @@
+---
+title: 'Access management methods in {{ objstorage-full-name }}: Overview'
+description: Access management in {{ objstorage-name }}.
+---
+
 # Access management methods in {{ objstorage-name }}: Overview
 
 {{ objstorage-name }} incorporates various access management methods:
@@ -40,7 +45,7 @@ The checks follow this algorithm:
 
 [{{ iam-name }}](./index.md): Basic method for managing access in {{ yandex-cloud }} using role assignment. Enables the basic access control policy. For more details, see [{#T}](./index.md#roles-list).
 
-Access grantees include:
+Access grantees include: 
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/federations.md)
@@ -59,7 +64,7 @@ If you do not need to differentiate access to specific objects, we recommend usi
 
 {% endnote %}
 
-Access grantees include:
+Access grantees include: 
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/federations.md)
@@ -72,7 +77,7 @@ Access is granted to a [bucket](../concepts/bucket.md) or [object](../concepts/o
 
 A [bucket policy](./policy.md) is a list of rules that prohibit or allow [actions](../s3/api-ref/policy/actions.md) when certain [conditions](../s3/api-ref/policy/conditions.md) are met. Allows you to granularly differentiate access to buckets, objects and groups of objects.
 
-Access grantees include:
+Access grantees include: 
 * Yandex account
 * [Service account](../../iam/concepts/users/service-accounts.md)
 * [Federated user](../../iam/concepts/federations.md)

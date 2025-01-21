@@ -37,4 +37,19 @@
 
   {% endnote %}
 
+  {% note info %}
+  
+  Во время тестирования агент автоматически очищает место на диске. Вы можете управлять размером освобождаемого места через параметр `disk_limit` в блоке `rcheck`:
+
+  ```yaml
+  rcheck:
+    enabled: true
+    package: yandextank.plugins.ResourceCheck
+    disk_limit: 2048
+    interval: 10s
+    mem_limit: 512
+  ```
+  
+  {% endnote %}
+
 {% endlist %}

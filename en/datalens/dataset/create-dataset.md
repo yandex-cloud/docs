@@ -1,3 +1,8 @@
+---
+title: Working with a dataset
+description: Follow this guide to learn how to work with a dataset.
+---
+
 # Working with datasets
 
 In this section, you will learn how to work with a dataset:
@@ -269,7 +274,7 @@ Parameters added at the dataset level are available in all charts created based 
 
    * **Name**: Sets the parameter name.
    * **Type**: Parameter [data type](./data-types.md).
-   * **Default value**: This is a required value. It is used when no parameter value is set in the dashboard, chart URL, or chart settings.
+   * **Default value**. This is a required value. It is used when no parameter value is set in the dashboard, chart URL, or chart settings.
 
 1. Click **Add**.
 

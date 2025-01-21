@@ -89,16 +89,12 @@ To create a complex indicator representing a number of measures, use the [markup
 {% cut "Text formatting" %}
 
 ```markdown
-MARKUP(
-    BOLD(SIZE('Payment by card: ', '18px')),
-    BR(),
-    BR(),
-    SIZE(COLOR(STR(COUNTD_IF([OrderID], [PaymentType]='Bank card')),'blue') + ' / ' + STR(COUNTD([OrderID])), '26px'),
-    BR(),
-    BR(),
-    SIZE(STR(ROUND(COUNTD_IF([OrderID], [PaymentType]='Bank card')/COUNTD([OrderID])*100, 2)) +
-    ' % of total', '20px')
-)
+BOLD(SIZE('Payment by card: ', '18px')) +
+BR() + BR() +
+SIZE(COLOR(STR(COUNTD_IF([OrderID], [PaymentType]='Bank card')),'blue') + ' / ' + STR(COUNTD([OrderID])), '26px') +
+BR() + BR() +
+SIZE(STR(ROUND(COUNTD_IF([OrderID], [PaymentType]='Bank card')/COUNTD([OrderID])*100, 2)) +
+' %  in total', '20px')
 ```
 
 ![indicator-fonts](../../_assets/datalens/visualization-ref/indicator-chart/indicator-fonts.png)
@@ -108,18 +104,15 @@ MARKUP(
 {% cut "Indicator with multiple measures" %}
 
 ```markdown
-MARKUP(
-    SIZE('Amount: ', '18px'),
-    BR(),
-    BR(),
-    COLOR(SIZE('- categories: ' + STR(COUNTD([ProductCategory])), '18px'), '#BE2443'),
-    BR(),
-    COLOR(SIZE('- subcategories: ' + STR(COUNTD([ProductSubcategory])), '18px'), 'blue'),
-    BR(),
-    COLOR(SIZE('- brands: ' + STR(COUNTD([ProductBrend])), '18px'), 'green'),
-    BR(),
-    COLOR(SIZE('- products: ' + STR(COUNTD([ProductName])), '18px'), '#FF7E00')
-)
+SIZE('Amount: ', '18px') +
+BR() + BR() +
+COLOR(SIZE('- categories: ' + STR(COUNTD([ProductCategory])), '18px'), '#BE2443') +
+BR() +
+COLOR(SIZE('- subcategories: ' + STR(COUNTD([ProductSubcategory])), '18px'), 'blue') +
+BR() +
+COLOR(SIZE('- brands: ' + STR(COUNTD([ProductBrend])), '18px'), 'green') +
+BR() +
+COLOR(SIZE('- products: ' + STR(COUNTD([ProductName])), '18px'), '#FF7E00')
 ```
 
 ![indicator-some-measures](../../_assets/datalens/visualization-ref/indicator-chart/indicator-some-measures.png)
@@ -129,35 +122,55 @@ MARKUP(
 {% cut "Indicator with a measure by category" %}
 
 ```markdown
-MARKUP(
-    SIZE('Sales: ' + COLOR(STR([Sales])+ ' ₽', 'green'), '26px'),
-    BR(),
-    COLOR(" ▲ ", "green")+": More than ₽50,000,000  | " + COLOR(" ▼ ", "red") + ": ₽50,000,000 or less",
-    BR(),
-    BR(),
-    SIZE(
-        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Home appliances'))+ ' ₽ | ', 'blue') + 
-        COLOR(if(SUM_IF([Sales],[ProductCategory]='Home appliances')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Home appliances')>50,000,000,"green", "red")),
-        '20px'),
-    BR() + 'Home appliances',
-    BR(),
-    BR(),
-    SIZE(
-        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Household chemicals'))+ ' ₽ | ', 'green') + 
-        COLOR(if(SUM_IF([Sales],[ProductCategory]='Household chemicals')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Household chemicals')>50,000,000,"green", "red")),
-        '20px'),
-    BR() + 'Household chemicals',
-    BR(),
-    BR(),
-    SIZE(
-        COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Household products'))+ ' ₽ | ', 'violet') + 
-        COLOR(if(SUM_IF([Sales],[ProductCategory]='Household products')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Household products')>50,000,000,"green", "red")),
-        '20px'),
-    BR() + 'Household products'
-)
+SIZE('Sales: ' + COLOR(STR([Sales])+ ' ₽', 'green'), '26px') +
+BR() +
+COLOR(" ▲ ", "green")+": More than ₽50,000,000  | " + COLOR(" ▼ ", "red") + ": ₽50,000,000 or less" +
+BR() + BR() +
+SIZE(
+    COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Home appliances'))+ ' ₽ | ', 'blue') + 
+    COLOR(if(SUM_IF([Sales],[ProductCategory]='Home appliances')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Home appliances')>50,000,000,"green", "red")),
+    '20px') +
+BR() + 'Home appliances' +
+BR() + BR() +
+SIZE(
+    COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Household chemicals'))+ ' ₽ | ', 'green') + 
+    COLOR(if(SUM_IF([Sales],[ProductCategory]='Household chemicals')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Household chemicals')>50,000,000,"green", "red")),
+    '20px') +
+BR() + 'Household chemicals' +
+BR() + BR() +
+SIZE(
+    COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Household products'))+ ' ₽ | ', 'violet') + 
+    COLOR(if(SUM_IF([Sales],[ProductCategory]='Household products')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Household products')>50,000,000,"green", "red")),
+    '20px') +
+BR() + 'Household products'
 ```
 
 ![indicator-categories](../../_assets/datalens/visualization-ref/indicator-chart/indicator-categories.png)
+
+{% endcut %}
+
+{% cut "Indicator with an image" %}
+
+```markdown
+IMAGE('https://storage.yandexcloud.net/dl--********//datalens.jpg', 32, 32, 'alt-text-1') +
+COLOR(SIZE('| ' + STR(SUM_IF([Usage],[Service]='DataLens')), '32px'), '#AEC5F3') +
+BR()+
+COLOR(SIZE('DataLens', '20px'), '#AEC5F3')+
+BR()+
+BR()+
+IMAGE('https://storage.yandexcloud.net/dl--********//powerbi.jpg', 32, 32, 'alt-text-1') +
+" " + COLOR(SIZE('| ' + STR(SUM_IF([Usage],[Service]='Power BI')), '32px'), '#B8A754')+
+BR()+
+COLOR(SIZE('Power BI', '20px'), '#B8A754')+
+BR()+
+BR()+
+IMAGE('https://storage.yandexcloud.net/dl-********/tableu.jpg', 32, 32, 'alt-text-1') +
+" " + COLOR(SIZE('| ' + STR(SUM_IF([Usage],[Service]='Tableau')), '32px'), '#4D5DAB')+
+BR()+
+COLOR(SIZE('Tableau', '20px'), '#4D5DAB')
+```
+
+![indicator-some-measures](../../_assets/datalens/visualization-ref/indicator-chart/indicator-image.png)
 
 {% endcut %}
 

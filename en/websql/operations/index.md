@@ -1,3 +1,8 @@
+---
+title: Step-by-step guides for {{ websql-full-name }}
+description: This section contains step-by-step guides for {{ websql-name }}.
+---
+
 # Step-by-step guides for {{ websql-full-name }}
 
 * [{#T}](create-connection.md)

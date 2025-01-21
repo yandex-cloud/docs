@@ -53,7 +53,7 @@ description: Follow this guide to install Loki.
 
 1. {% include [kubectl installation](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Loki, run the following command:
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Loki, run the following command, specifying the parameters of the resources you created [earlier](#before-you-begin):
 
     ```bash
     helm pull oci://{{ mkt-k8s-key.yc_loki.helmChart.name }} \
@@ -69,7 +69,7 @@ description: Follow this guide to install Loki.
 
     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-1. Make sure all the pods changed their state to `Running`:
+1. Make sure all Loki pods have entered the `Running` state:
 
     ```bash
     kubectl get pods -A -l "app.kubernetes.io/instance=loki"
@@ -83,7 +83,7 @@ Once deployed, Loki is available within the {{ managed-k8s-name }} cluster at th
 http://<Loki_gateway_service_name>.<namespace>.svc.cluster.local
 ```
 
-To retrieve the namespace and name of the Loki gateway service, run this command:
+To learn the namespace and name of the Loki gateway service, run this command:
 
 ```bash
 kubectl get service -A | grep distributed-gateway

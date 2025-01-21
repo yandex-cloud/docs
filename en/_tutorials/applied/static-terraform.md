@@ -1,10 +1,10 @@
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create an infrastructure](#deploy).
-1. [Check that the website is running](#test-site).
+1. [Test the website](#test-site).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -24,59 +24,59 @@ To host a static website in {{ objstorage-name }} using {{ TF }}:
 
    - Ready-made configuration {#ready}
 
-      1. Create a directory for configuration files.
-      1. Download the [archive](https://{{ s3-storage-host }}/doc-files/static.zip) (2 KB).
-      1. Unpack the archive to the directory. Now, the directory should contain the `static.tf` configuration file, as well as the `index.html` and `error.html` files.
+     1. Create a folder for configuration files.
+     1. Download the [archive](https://{{ s3-storage-host }}/doc-files/static.zip) (2 KB).
+     1. Unpack the archive to the folder. It should now contain the `static.tf` configuration file, plus `index.html` and `error.html`.
 
    - Manually {#manual}
 
-      1. Create a directory for configuration files.
-      1. In the directory, create:
-         1. `static.tf` configuration file:
+     1. Create a folder for configuration files.
+     1. In the folder, create:
+        1. `static.tf` configuration file
 
-            {% cut "static.tf" %}
+           {% cut "static.tf" %}
 
-            {% include [static-tf-config](../../_includes/web/static-tf-config.md) %}
+           {% include [static-tf-config](../../_includes/web/static-tf-config.md) %}
 
-            {% endcut %}
+           {% endcut %}
 
-         1. `index.html` containing the `Hello world!` string:
+        1. `index.html` file containing the text `Hello world!`:
 
-            {% cut "index.html" %}
+           {% cut "index.html" %}
 
-            {% include [static-tf-config](../../_includes/web/index-html-config.md) %}
+           {% include [static-tf-config](../../_includes/web/index-html-config.md) %}
 
-            {% endcut %}
+           {% endcut %}
 
-         1. `error.html` containing the `Error!` string:
+        1. `error.html` file containing the text `Error!`:
 
-            {% cut "error.html" %}
+           {% cut "error.html" %}
 
-            {% include [static-tf-config](../../_includes/web/index-html-config.md) %}
+           {% include [static-tf-config](../../_includes/web/error-html-config.md) %}
 
-            {% endcut %}
+           {% endcut %}
 
    {% endlist %}
 
    For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
-   * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
-   * [Role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
-   * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key)
-   * [Bucket](../../storage/concepts/bucket.md): [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket)
-   * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
-   * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
+    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
+    * [Role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+    * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+    * [Bucket](../../storage/concepts/bucket.md): [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
+    * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
+    * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
-1. In the `static.tf` file, under `locals`, set the user-defined parameters:
+1. Under `locals` in the `static.tf` file, set the following user-defined properties:
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) (if you are using a [Yandex account](../../iam/concepts/users/accounts.md#passport)) or [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md) (if you are using a Yandex account or [federated account](../../iam/concepts/users/accounts.md#saml-federation)) to access {{ yandex-cloud }}. The {{ iam-short-name }} token is valid for up to 12 hours but cannot exceed the federation cookie lifetime.
-   * `cloud_id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) to create resources in.
-   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create resources in.
+   * `cloud_id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) to create the resources in.
+   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the resources in.
 1. Create resources:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-After creating the infrastructure, [check that the website is up and running](#test-site).
+After creating the infrastructure, [test the website](#test-site).
 
-## Check that the website is running {#test-site}
+## Test the website {#test-site}
 
 {% include [static-test-site](../_tutorials_includes/static-test-site.md) %}
 
@@ -84,7 +84,7 @@ After creating the infrastructure, [check that the website is up and running](#t
 
 To stop paying for the resources you created:
 
-1. Open the `static.tf` configuration file and delete from it the description of the infrastructure you created.
+1. Open the `static.tf` configuration file and delete the description of the new infrastructure from it.
 1. Apply the changes:
 
-   {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
+    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

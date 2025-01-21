@@ -40,6 +40,8 @@ items:
         href: concepts/server-configurations.md
       - name: Сеть
         href: concepts/network.md
+      - name: Заблокированные сетевые порты
+        href: concepts/traffic-restrictions.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Правила тарификации

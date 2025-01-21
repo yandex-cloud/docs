@@ -11,6 +11,7 @@ If transferring tables with engines other than `ReplicatedMergeTree` and `Distri
 
 * {{ mch-name }}
 
+    
     1. Make sure the tables you are transferring use the `MergeTree` family engines. Only these tables and [materialized views]({{ ch.docs }}/engines/table-engines/special/materializedview/) (MaterializedView) will be transferred.
 
        In case of a multi-host cluster, only tables and materialized views with the `ReplicatedMergeTree` or `Distributed` engines will be transferred. Make sure these tables and views are present on all the cluster hosts.

@@ -23,7 +23,6 @@ The [AWS SDK for C++](https://aws.amazon.com/ru/sdk-for-cpp/) is a software deve
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
-
 ## Code snippets {#cpp-sdk-examples}
 
 [See C++ code snippets](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) from the developer to interface with S3.

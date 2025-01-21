@@ -33,7 +33,7 @@
 
      1. Введите имя бюджета.
      1. Выберите **{{ ui-key.yacloud_billing.billing.account.budgets.label_type }}**.
-     1. Задайте **Сумму бюджета**: 
+     1. Задайте **Сумму бюджета**:
 
         * для типов **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-cost }}** или **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}** — сумму расходов на потребление;
         * для типа **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}** — остаток на лицевом счете.

@@ -1,9 +1,14 @@
-# Transferring the {{ metastore-name }} cluster logs to {{ cloud-logging-full-name }}
+---
+title: Transferring {{ metastore-full-name }} cluster logs to {{ cloud-logging-full-name }}
+description: Follow this guide to set up the transfer of {{ metastore-name }} cluster logs to {{ cloud-logging-name }}.
+---
 
-You can set up regular collection of {{ metastore-name }} cluster performance logs. Logs are provided to a [log group](../../../logging/concepts/log-group.md) in {{ cloud-logging-full-name }}. You can choose between these two types of log groups:
+# Transferring {{ metastore-name }} cluster logs to {{ cloud-logging-full-name }}
 
-* Log group used by default in the cluster folder
-* Custom log group
+You can set up regular collection of {{ metastore-name }} cluster performance logs. Logs will be delivered to a [log group](../../../logging/concepts/log-group.md) in {{ cloud-logging-full-name }}. You can choose between these two types of log groups:
+
+* Log group used by default in the cluster folder.
+* Custom log group.
 
 ## Getting started {#before-you-begin}
 
@@ -31,7 +36,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
          1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
          1. To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
-         1. Specify the folder whose log group you need to use.
+         1. Specify the folder whose log group you want to be using.
          1. Select the minimum logging level.
 
             Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
@@ -40,7 +45,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    {% endlist %}
 
-1. Test the delivery of cluster logs to the log group.
+1. Test the transfer of cluster logs to the log group.
 
    {% list tabs group=instructions %}
 
@@ -97,7 +102,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
 ## Sending data to a custom log group {#custom}
 
-1. [Create a `metastore-log-group` log group](../../../logging/operations/create-group.md).
+1. [Create a log group](../../../logging/operations/create-group.md) named `metastore-log-group`.
 1. Create a {{ metastore-name }} cluster:
 
    {% list tabs group=instructions %}
@@ -124,7 +129,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    {% endlist %}
 
-1. Test the delivery of cluster logs to the log group.
+1. Test the transfer of cluster logs to the log group.
 
    {% list tabs group=instructions %}
 

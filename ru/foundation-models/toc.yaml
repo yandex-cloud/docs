@@ -43,10 +43,12 @@ items:
             href: operations/assistant/create.md
           - name: Создать ассистента для поиска
             href: operations/assistant/create-with-searchindex.md
-      - name: Дообучение моделей
+      - name: Дообучение моделей в {{ foundation-models-name }}
         items:
-          - name: Дообучение моделей в {{ foundation-models-name }}
+          - name: Дообучение моделей генерации текста
             href: operations/tuning/create.md
+          - name: Дообучение моделей классификаторов
+            href: operations/tuning/tune-classifiers.md
   - name: Концепции
     items:
       - name: О сервисе {{ foundation-models-full-name }}

@@ -18,7 +18,9 @@ To get started with {{ objstorage-name }}:
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
-1. On the [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-access-management }}) page, make sure you have the `editor` [role](../iam/roles-reference.md#editor) or higher. The role must be assigned for the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) you will be working with or the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) the folder belongs to.
+1. [Assign](../iam/operations/roles/grant.md) the `editor` [role](../iam/roles-reference.md#editor) or higher to your {{ yandex-cloud }} account. The role must be assigned for the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) you will be working with or the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) the folder belongs to.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 
 ## Creating the first bucket {#the-first-bucket}
@@ -27,7 +29,7 @@ To create your first bucket in {{ objstorage-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
 1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![bucket](../_assets/storage/bucket.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
-1. Enter the name of the bucket.
+1. Enter a name for the bucket.
 
     The bucket name must be unique across {{ objstorage-name }}. It is used as part of the data access URL and is visible to your data users.
 1. Limit the maximum bucket size, if required.

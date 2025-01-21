@@ -86,7 +86,15 @@ description: Следуя данной инструкции, вы сможете
      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
      * `--subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet).
      * `--public-ip` — флаг, который указывает, если кластеру {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
+
+       {% include [nat-instance-restriction](../../../_includes/managed-kubernetes/nat-instance-restriction.md) %}
+
+       {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+
      * `--release-channel` — [релизный канал](../../concepts/release-channels-and-updates.md#release-channels).
+
+       {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+
      * `--version` — версия {{ k8s }}. Укажите версию, доступную для выбранного релизного канала.
      * `--cluster-ipv4-range` — диапазон [IP-адресов](../../../vpc/concepts/address.md), из которого будут выделяться IP-адреса для [подов](../../concepts/index.md#pod).
      * `--service-ipv4-range` — диапазон IP-адресов, из которого будут выделяться IP-адреса для [сервисов](../../concepts/index.md#service).
@@ -109,14 +117,28 @@ description: Следуя данной инструкции, вы сможете
        node_service_account_id: aje3932acd0c********
        release_channel: REGULAR
      ```
+  
+  1. Настройте [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/) кластера:
 
-  1. Чтобы включить [контроллер сетевых политик](../../concepts/network-policy.md) Calico, передайте в команде создания кластера {{ managed-k8s-name }} флаг `--enable-network-policy`:
+      {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-     ```bash
-     {{ yc-k8s }} cluster create \
-     ...
-       --enable-network-policy
-     ```
+      {% include [calico-cilium-mutual-exclusion](../../../_includes/managed-kubernetes/calico-cilium-mutual-exclusion.md) %}
+
+      * Чтобы включить [контроллер сетевых политик](../../concepts/network-policy.md#calico) Calico, передайте в команде создания кластера {{ managed-k8s-name }} флаг `--enable-network-policy`:
+
+        ```bash
+        {{ yc-k8s }} cluster create \
+        ...
+          --enable-network-policy
+        ```
+
+      * Чтобы включить [туннельный режим](../../concepts/network-policy.md#cilium) Cilium, передайте в команде создания кластера {{ managed-k8s-name }} флаг `--cilium`:
+
+        ```bash
+        {{ yc-k8s }} cluster create \
+        ...
+          --cilium
+        ```
 
   1. Чтобы использовать [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md) для защиты конфиденциальной информации, передайте в команде создания кластера {{ managed-k8s-name }} его имя или идентификатор:
 
@@ -127,7 +149,7 @@ description: Следуя данной инструкции, вы сможете
        --kms-key-id <идентификатор_ключа_шифрования>
      ```
 
-     {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+     {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
   1. Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), передайте настройки отправки в команде создания кластера {{ managed-k8s-name }} в параметре `--master-logging`:
 
