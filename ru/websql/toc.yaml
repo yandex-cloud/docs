@@ -35,5 +35,3 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
-base: ru/websql
-deepBase: 2

@@ -256,7 +256,7 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
 
 - Connecting via SSL {#with-ssl}
 
-
+  
    ```bash
    # Connecting the DEB repository
    RUN apt-get update && \

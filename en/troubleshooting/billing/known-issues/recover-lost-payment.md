@@ -1,6 +1,7 @@
 # What to do if money takes a long time to arrive on the balance after payment
 
 
+
 ## Issue description {#issue-description}
 
 * You transferred money to the balance of your billing account, but the payment data does not show up in the console for a long period of time.
@@ -9,6 +10,7 @@
 
 Funds are automatically credited to the account as soon as {{ yandex-cloud }} receives a confirmation from the bank's payment system.
 Payments from legal entities are usually credited to accounts in the first half of the next business day.
+
 
 
 Check that the following details in the payment order are correct:

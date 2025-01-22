@@ -904,5 +904,3 @@ items:
             href: release-notes/2208.md
   - name: Служба поддержки
     href: troubleshooting.md
-base: ru/tracker
-deepBase: 2

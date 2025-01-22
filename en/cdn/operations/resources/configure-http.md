@@ -99,7 +99,7 @@ To configure the allowed HTTP client requests methods for a resource:
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-
+      
       ```hcl
       terraform {
         required_providers {

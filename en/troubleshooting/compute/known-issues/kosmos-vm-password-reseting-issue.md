@@ -1,6 +1,7 @@
 # Fixing password reset issues for VMs based on a Kosmos VM image
 
 
+
 ## Issue description {#issue-description}
 
 * When you attempt to reset the password for your Administrator account from the management console interface, nothing happens.

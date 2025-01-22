@@ -106,4 +106,4 @@ Verified OK
 
 #### See also {#see-also}
 
-* [Signing and verifying {{ container-registry-name }} Docker images in {{ managed-k8s-name }}](../../container-registry/tutorials/sign-with-cosign.md).
+* [Signing and verifying {{ container-registry-name }} Docker images in {{ managed-k8s-name }}](../../container-registry/tutorials/sign-cr-with-cosign.md).

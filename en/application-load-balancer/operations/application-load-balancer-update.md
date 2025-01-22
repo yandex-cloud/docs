@@ -62,7 +62,7 @@ To update the parameters of an L7 load balancer:
 
      Result:
 
-
+     
      ```bash
      id: a5d88ep483cm********
      name: test-balancer2-updated

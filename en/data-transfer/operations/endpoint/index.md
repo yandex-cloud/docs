@@ -115,7 +115,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 - {{ TF }} {#tf}
 
-
+   
    {% note info %}
 
    You can create endpoints with {{ TF }} only for {{ CH }}, {{ MG }}, {{ MY }}, and {{ PG }} sources and targets.
@@ -123,7 +123,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    {% endnote %}
 
 
-
+   
    {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -154,7 +154,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-
+   
    1. For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 

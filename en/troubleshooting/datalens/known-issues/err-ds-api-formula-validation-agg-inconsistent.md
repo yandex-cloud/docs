@@ -1,6 +1,7 @@
 # Resolving the "ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT - Inconsistent aggregation among operands" error
 
 
+
 ## Issue description {#issue-description}
 
 When validating the formula, you see this error:

@@ -131,5 +131,3 @@ items:
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
-base: ru/managed-airflow
-deepBase: 2

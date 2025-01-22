@@ -15,7 +15,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
   1. In the [management console]({{ link-console-main }}), select the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.  
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
   1. Click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
   1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, set the parameters using suggestions:

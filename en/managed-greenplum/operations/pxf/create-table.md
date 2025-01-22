@@ -50,7 +50,7 @@ The `WRITABLE` option enables you to write data to an external object. To be abl
 
    1. [Create a {{ mch-full-name }} cluster](../../../managed-clickhouse/operations/cluster-create.md) with the `chuser` username.
 
-
+   
    1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
@@ -136,7 +136,7 @@ The `WRITABLE` option enables you to write data to an external object. To be abl
       * User name: `mysqluser`.
       * In the host settings, select the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
 
-
+   
    1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
@@ -205,7 +205,7 @@ The `WRITABLE` option enables you to write data to an external object. To be abl
       * User name: `pguser`.
       * In the host settings, select the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
 
-
+   
    1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
@@ -269,7 +269,7 @@ The `WRITABLE` option enables you to write data to an external object. To be abl
 
 - {{ objstorage-name }} {#storage}
 
-
+   
    1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 

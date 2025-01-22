@@ -1,6 +1,7 @@
 # Checking for restrictions on traffic, connection speed, and bandwidth
 
 
+
 ## Scenario description {#case-description}
 
 You need to find out if the {{ vpc-full-name }} traffic, Internet connection speed, or bandwidth is limited.

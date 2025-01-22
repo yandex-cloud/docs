@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы выдать разрешения ACL для пользователя {{ yandex-cloud }}, сервисного аккаунта или группы пользователей, получите их идентификатор:
 
-
+      
       * [Пользователь](../../../iam/operations/users/get.md).
       * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
       * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
@@ -123,7 +123,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

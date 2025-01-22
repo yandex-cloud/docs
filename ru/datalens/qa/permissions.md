@@ -6,6 +6,7 @@ description: На странице представлены вопросы и о
 # Пользователи и управление доступом
 
 
+
 ### Поддерживает ли {{ datalens-short-name }} вход через SSO? {#sso-in-datalens}
 
 В {{ datalens-full-name }} можно [настроить аутентификацию](../security/add-new-user.md#federated-user) с помощью технологии Single Sign-On (SSO), если имеется [федерация удостоверений](../../organization/concepts/add-federation.md). При этом пользователи {{ datalens-short-name }} смогут аутентифицироваться с помощью своих корпоративных учетных записей.
@@ -45,5 +46,6 @@ description: На странице представлены вопросы и о
 {% include [copy-into-folder](../../_qa/datalens/copy-into-folder.md) %}
 
 {% include [revoke-token.md](../../_qa/datalens/revoke-token.md) %}
+
 
 

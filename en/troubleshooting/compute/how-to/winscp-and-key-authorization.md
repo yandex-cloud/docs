@@ -1,6 +1,7 @@
 # How to use WinSCP to connect to a Linux VM in Yandex Cloud with a key generated at VM creation
 
 
+
 ## Issue description {#case-description}
 
 You need to connect to a Linux VM in Yandex Cloud via WinSCP with the key generated at creation.

@@ -558,7 +558,7 @@ keywords:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+        
         ```bash
         curl \
             --request PATCH \
@@ -588,7 +588,7 @@ keywords:
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-
+        
         * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
             * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
@@ -619,7 +619,7 @@ keywords:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+        
         ```bash
         grpcurl \
             -format json \
@@ -661,7 +661,7 @@ keywords:
 
             В данном случае передается только один параметр.
 
-
+        
         * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
             * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);

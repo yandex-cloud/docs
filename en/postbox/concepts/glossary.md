@@ -1,3 +1,8 @@
+---
+title: Terms and definitions in {{ postbox-full-name }}
+description: In this article, you will learn about the terms and definitions in {{ postbox-name }}.
+---
+
 # Terms and definitions in {{ postbox-name }}
 
 ## Address {#adress}

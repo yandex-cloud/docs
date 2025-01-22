@@ -16,7 +16,7 @@ To create a dashboard:
    - [Pivot table with totaled values](summary-table-with-totals.md)
    - [Events](events.md)
    - [Issue statistics](issues-stat.md)
-   - [Created/Resolved chart](created-and-resolved.md)   
+   - [Created/Resolved chart](created-and-resolved.md)
    - [Cycle time](cycle-time.md)
 
    With widgets, you can view issue analytics. Issues are selected for widgets using a [query language](query-filter.md) or a [filter](create-filter.md). You can select a filter from the list of preset and custom filters or set it manually right on the widget creation page.

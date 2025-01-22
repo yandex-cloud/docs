@@ -108,7 +108,7 @@
 
   1. Укажите параметры трансляции логов в блоке `data.output-elasticsearch.conf` файла `config.yaml`:
 
-
+     
      ```yaml
      ...
        output-elasticsearch.conf: |

@@ -358,7 +358,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
                            <flags_with_{{ CH }}_settings>
          ```
 
-
+      
       * Connecting via SSL:
 
          ```bash

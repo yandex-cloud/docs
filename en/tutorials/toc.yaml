@@ -897,5 +897,3 @@ items:
           Using {{ api-gw-full-name }} to set up speech synthesis in {{
           speechkit-full-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
-base: en/tutorials
-deepBase: 2

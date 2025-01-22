@@ -1,6 +1,7 @@
 # Resolving the "Validation error Request failed with status code 500" error when saving a dashboard
 
 
+
 ## Issue description {#issue-description}
 
 * When saving the dashboard, you see this error:

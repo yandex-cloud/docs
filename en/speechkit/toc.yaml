@@ -259,5 +259,3 @@ items:
         href: qa/tts.md
       - name: All questions on one page
         href: qa/all.md
-base: en/speechkit
-deepBase: 2

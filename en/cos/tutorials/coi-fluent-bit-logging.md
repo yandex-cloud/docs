@@ -1,3 +1,5 @@
-# Transferring logs from {{ coi }} to {{ cloud-logging-full-name }}
+---
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/coi-fluent-bit-logging'
+---
 
-{% include [Transferring logs](../../_tutorials/containers/coi-fluent-bit-logging.md) %}
+{% include [Передача логов](../../_tutorials/containers/coi-fluent-bit-logging.md) %}

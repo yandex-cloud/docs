@@ -420,7 +420,7 @@ Create a _relying party trust_ so that {{ yandex-cloud }} can use {{ microsoft-i
 
    {% endcut %}
 
-
+   
    {% cut "How to get the federation ACS URL" %}
 
    {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -428,7 +428,7 @@ Create a _relying party trust_ so that {{ yandex-cloud }} can use {{ microsoft-i
    {% endcut %}
 
 
-
+   
    ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
 
 
@@ -514,7 +514,7 @@ Configure mapping:
 
     1. Similarly, configure mapping for the `Group` claim if you are using [user group mapping](../../concepts/add-federation.md#group-mapping).
 
-
+    
     1. Similarly, configure mappings for the `Name` and `E-Mail Address` claims if you want the user to be able to contact {{ yandex-cloud }} support from the [management console]({{ link-console-support }}).
 
 

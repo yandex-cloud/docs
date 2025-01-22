@@ -46,5 +46,3 @@ items:
         href: concepts/limits.md
   - name: Правила тарификации
     href: pricing.md
-base: ru/baremetal
-deepBase: 2

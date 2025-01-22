@@ -18,7 +18,7 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
 
    1. Set the log group record retention period.
    1. (Optional) Select a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) or create a new one to redirect records added to the log group to.
-      
+
 
    1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
 
@@ -30,7 +30,7 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
 
    To create a [log group](../concepts/log-group.md), run the command:
 
-
+   
    ```
    yc logging group create \
      --name=group \
@@ -47,7 +47,7 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
 
       {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
-
+   
    * `--data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. This is an optional parameter. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
       > For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
@@ -55,12 +55,12 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
       > * `{{ region-id }}`: Availability zone
       > * `aoeu1kuk2dht********`: Folder ID
       > * `cc8029jgtuab********`: {{ ydb-full-name }} database ID
-      
+
 
 
    Result:
 
-
+   
    ```
    done (1s)
    id: af3flf29t8**********
@@ -94,7 +94,7 @@ description: In this tutorial, you will learn how to create a log group in {{ cl
 
       Here is an example of the configuration file structure:
 
-
+      
       ```hcl
       provider "yandex" {
         token     = "<OAuth_token>"

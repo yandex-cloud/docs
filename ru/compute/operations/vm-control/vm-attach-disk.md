@@ -28,7 +28,7 @@
   1. В открывшемся окне:
      * В поле **{{ ui-key.yacloud.compute.attach-disk.field_instance }}** выберите виртуальную машину, к которой нужно подключить диск.
 
-
+     
      * Если в хотите подключить [зашифрованный](../../concepts/encryption.md) диск, выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) c [ролью](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../../../kms/concepts/key.md), которым зашифрован диск.
 
 

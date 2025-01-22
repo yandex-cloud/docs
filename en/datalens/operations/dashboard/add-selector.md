@@ -14,7 +14,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 1. At the top of the page, click **Edit**.
 1. In the panel at the bottom of the page, choose **Selector**.
 
-
+   
    ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
 
 

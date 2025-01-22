@@ -1,8 +1,7 @@
-default:
-  region: en
-  audience: external
-  yq-full-name: Yandex Query
-  yq-name: Query
-  yq-short-name: YQ
-  backend_name: YDB
-  feature_join: true
+region: en
+audience: external
+yq-full-name: Yandex Query
+yq-name: Query
+yq-short-name: YQ
+backend_name: YDB
+feature_join: true

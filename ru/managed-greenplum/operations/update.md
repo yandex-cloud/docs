@@ -303,7 +303,7 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
-
+        
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
 
@@ -319,7 +319,7 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -345,7 +345,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
-
+        
         ```bash
         {{ yc-mdb-gp }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
@@ -364,7 +364,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-
+    
     * `--datalens-access` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
 
     * `--yandexquery-access` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
@@ -391,7 +391,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Измените в описании кластера {{ mgp-name }} значения нужных дополнительных настроек:
 
-
+        
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
           ...
@@ -439,7 +439,7 @@ description: Следуя данной инструкции, вы сможете
             * `day` — день недели для типа `WEEKLY` в формате `DDD`. Например, `MON`.
             * `hour` — час дня по UTC для типа `WEEKLY` в формате `HH`. Например, `21`.
 
-
+        
         * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
 
         * `access.yandex_query` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
@@ -456,7 +456,7 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -486,7 +486,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+        
         ```json
         {
           "updateMask": "config.backupWindowStart,config.access.dataLens,config.access.yandexQuery,maintenanceWindow,deletionProtection,configSpec.pool.mode,configSpec.pool.size,configSpec.pool.clientIdleTimeout,cloudStorage",
@@ -540,7 +540,7 @@ description: Следуя данной инструкции, вы сможете
                 * `seconds` — от `0` до `59` секунд;
                 * `nanos` — от `0` до `999999999` наносекунд.
 
-
+            
             * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
                 * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
@@ -570,7 +570,7 @@ description: Следуя данной инструкции, вы сможете
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -601,7 +601,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+        
         ```json
         {
           "cluster_id": "<идентификатор_кластера>"
@@ -668,7 +668,7 @@ description: Следуя данной инструкции, вы сможете
                 * `seconds` — от `0` до `59` секунд;
                 * `nanos` — от `0` до `999999999` наносекунд.
 
-
+            
             * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
                 * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
@@ -698,7 +698,7 @@ description: Следуя данной инструкции, вы сможете
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -1072,7 +1072,7 @@ description: Следуя данной инструкции, вы сможете
         {{ yc-mdb-gp }} resource-preset list segment
         ```
 
-
+     
      ```text
      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
      |     ID      |            ZONE IDS            |           DISK TYPES           | CORES |  MEMORY  | HOST COUNT DIVIDER | MAX SEGMENT IN HOST |

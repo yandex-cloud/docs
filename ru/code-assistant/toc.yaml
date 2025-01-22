@@ -16,5 +16,3 @@ items:
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa.md
-base: ru/code-assistant
-deepBase: 2

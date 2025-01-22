@@ -48,7 +48,7 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 
 1. Создайте подсеть в облачной сети `my-yc-network`:
 
-
+   
    ```bash
    yc vpc subnet create \
      --name my-yc-subnet-a \
@@ -105,7 +105,7 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
    1. [Подготовьте](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../glossary/ssh-keygen.md) на ВМ.
    1. Создайте ВМ Linux:
 
-
+      
       ```bash
       yc compute instance create \
         --name my-yc-instance \

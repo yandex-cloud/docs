@@ -17,7 +17,8 @@ description: Из статьи вы узнаете, как задать наст
 ## Сценарии передачи данных в {{ objstorage-full-name }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    * [Поставка данных из {{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
+    
+    * [Поставка данных из {{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).   
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
     
@@ -64,7 +65,7 @@ description: Из статьи вы узнаете, как задать наст
 
 - Бакет {{ objstorage-full-name }} {#obj-storage}
 
-
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — имя [бакета](../../../../storage/concepts/bucket.md), в который будут загружаться данные из источника.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) с ролью `storage.uploader`, под которым будет осуществляться доступ к [{{ yds-full-name }}](../../../../data-streams/).
 

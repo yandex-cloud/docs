@@ -1,6 +1,7 @@
 # Resolving the "Bad Request for url MetrikaHttpApiException direct_client_logins" error
 
 
+
 ## Issue description {#issue-description}
 
 When you are connecting to the Yandex Metrica API, the `direct_client_logins` parameter is not specified in the connection URL

@@ -29,7 +29,7 @@ Create a {{ mmg-name }} version 6.0 target cluster identical to the version 4.4 
 
         To connect to the cluster from the internet, enable public access to its hosts.
 
-
+    
     1. If using security groups in your cluster, make sure they are [configured correctly](../../../managed-mongodb/operations/connect/index.md#configuring-security-groups) and allow connecting to the cluster.
 
 

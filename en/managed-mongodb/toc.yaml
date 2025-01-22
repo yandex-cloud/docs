@@ -391,5 +391,3 @@ items:
         href: qa/mongodb.md
       - name: All questions on one page
         href: qa/all.md
-base: en/managed-mongodb
-deepBase: 2

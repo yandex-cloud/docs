@@ -166,7 +166,7 @@ description: Вы можете создавать резервные копии 
 
   1. Чтобы восстановить отдельный шард, передайте идентификатор одной резервной копии:
 
-
+      
       ```bash
       {{ yc-mdb-ch }} cluster restore \
          --backup-id=<идентификатор_резервной_копии> \
@@ -202,11 +202,11 @@ description: Вы можете создавать резервные копии 
       * `--disk-size` — размер хранилища в гигабайтах.
       * `--disk-type` — [тип диска](../concepts/storage.md):
 
-
+          
           * `network-hdd`;
           * `network-ssd`;
 
-
+          
           * `local-ssd`;
           * `network-ssd-nonreplicated`;
           * `network-ssd-io-m3`.
@@ -494,7 +494,7 @@ description: Вы можете создавать резервные копии 
                 --url-query folderId=<идентификатор_каталога>
             ```
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -548,7 +548,7 @@ description: Вы можете создавать резервные копии 
                 yandex.cloud.mdb.clickhouse.v1.BackupService.List
             ```
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 

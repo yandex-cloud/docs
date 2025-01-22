@@ -642,5 +642,3 @@ items:
         href: qa/troubleshooting.md
       - name: All questions on a single page
         href: qa/all.md
-base: en/managed-kubernetes
-deepBase: 2

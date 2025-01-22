@@ -1,6 +1,3 @@
----
-noIndex: true
----
 
 # Loading data from {{ metrika }} to a {{ CH }} data mart using {{ data-transfer-full-name }}
 

@@ -1,13 +1,3 @@
----
-title: OpenVPN. Creating a VPN connection
-keywords:
-  - openvpn
-  - openvpn setup
-  - open vpn
-  - vpn server setup
-  - vpn connection
-  - vpn connection
----
 
 # Connecting to a cloud network using OpenVPN
 

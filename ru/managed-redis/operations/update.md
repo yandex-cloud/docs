@@ -383,14 +383,14 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-
+     
      ```bash
      {{ yc-mdb-rd }} resource-preset list
      ```
 
      Результат:
 
-
+     
      ```text
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
@@ -551,7 +551,7 @@ description: Из статьи вы узнаете, как изменить на
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
 
-
+  
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
       * Выберите [тип диска](../concepts/storage.md).
@@ -625,7 +625,7 @@ description: Из статьи вы узнаете, как изменить на
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+        
         ```bash
         curl \
             --request PATCH \
@@ -648,7 +648,7 @@ description: Из статьи вы узнаете, как изменить на
 
         * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-
+        
         * `configSpec.resources` — параметры хранилища:
 
             * `diskTypeId` — [тип диска](../concepts/storage.md).
@@ -671,7 +671,7 @@ description: Из статьи вы узнаете, как изменить на
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+        
         ```bash
         grpcurl \
             -format json \
@@ -703,7 +703,7 @@ description: Из статьи вы узнаете, как изменить на
 
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-
+        
         * `config_spec.resources` — параметры хранилища:
 
             * `disk_type_id` — [тип диска](../concepts/storage.md).
@@ -904,7 +904,7 @@ description: Из статьи вы узнаете, как изменить на
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
-
+        
         ```bash
         {{ yc-mdb-rd }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время> \

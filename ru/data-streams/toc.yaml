@@ -151,5 +151,3 @@ items:
         href: kafkaapi/auth.md
   - name: Вопросы и ответы
     href: qa/index.md
-base: ru/data-streams
-deepBase: 2

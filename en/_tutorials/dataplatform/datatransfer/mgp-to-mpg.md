@@ -23,7 +23,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
 
-
+    
     1. If you are using security groups in clusters, make sure they are set up correctly and allow connecting to the clusters:
 
         * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).

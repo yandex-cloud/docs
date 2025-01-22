@@ -35,7 +35,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
     1. Select the {{ GP }} version.
 
-
+    
     1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
@@ -63,7 +63,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         You cannot disable this option after you save your cluster settings.
 
-
+        
         {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -86,7 +86,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
-
+        
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
 
@@ -113,7 +113,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-
+            
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
 
@@ -125,7 +125,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
            * Select the [disk type](../concepts/storage.md).
 
-
+             
              {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
 
@@ -141,7 +141,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
     To create a {{ mgp-name }} cluster:
 
-
+    
     1. Check whether the folder has any subnets for the cluster hosts:
 
         ```bash
@@ -159,7 +159,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
     1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
-
+        
         ```bash
         {{ yc-mdb-gp }} cluster create <cluster_name> \
            --greenplum-version=<Greenplum_version> \
@@ -221,7 +221,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
            --backup-window-start=<backup_start_time>
         ```
 
-
+    
     1. To create a cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, specify their IDs as a comma-separated list in the `--host-group-ids` parameter:
 
         ```bash
@@ -247,7 +247,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-
+    
     1. To enable cluster access from different services, provide the `true` value in the relevant parameters when creating the cluster:
 
         ```bash
@@ -266,7 +266,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - {{ TF }} {#tf}
 
-
+  
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
@@ -274,7 +274,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-
+  
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
@@ -300,7 +300,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Here is an example of the configuration file structure:
 
-
+      
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<cluster_name_in_{{ TF }}>" {
         name                = "<cluster_name>"
@@ -356,7 +356,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
       * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
 
-
+      
       * `access.data_lens`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
 
       * `access.yandex_query`: Access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
@@ -383,7 +383,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
     1. Create a file named `body.json` and add the following contents to it:
 
-
+        
         ```json
         {
           "folderId": "<folder_ID>",
@@ -451,7 +451,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             * `version`: {{ GP }} version.
 
-
+            
             * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
                 * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
@@ -476,7 +476,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `userPassword`: User password.
         * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
-
+        
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
@@ -494,7 +494,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             You cannot disable hybrid storage after you save your cluster settings.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -521,7 +521,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
     1. Create a file named `body.json` and add the following contents to it:
 
-
+        
         ```json
         {
           "folder_id": "<folder_ID>",
@@ -589,7 +589,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             * `version`: {{ GP }} version.
 
-
+            
             * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
                 * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
@@ -614,7 +614,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `user_password`: User password.
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
-
+        
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
@@ -632,7 +632,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             You cannot disable hybrid storage after you save your cluster settings.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -738,7 +738,7 @@ To create a {{ GP }} cluster copy:
 
     Create a {{ mgp-name }} cluster with the following test specifications:
 
-
+    
     * Name: `gp-cluster`
     * Version: `{{ versions.cli.latest }}`.
     * Environment: `PRODUCTION`.
@@ -758,7 +758,7 @@ To create a {{ GP }} cluster copy:
 
     Run the following command:
 
-
+    
     ```bash
     {{ yc-mdb-gp }} cluster create \
        --name=gp-cluster \

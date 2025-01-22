@@ -6,7 +6,7 @@ description: Various {{ container-registry-full-name }} use cases in {{ yandex-c
 # {{ container-registry-name }} tutorials
 
 * [{#T}](run-docker-on-vm/index.md)
-* [{#T}](sign-with-cosign.md)
+* [{#T}](sign-cr-with-cosign.md)
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
 * [{#T}](gitlab-containers.md)
 * [{#T}](ci-cd-serverless.md)

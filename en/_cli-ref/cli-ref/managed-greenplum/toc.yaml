@@ -122,5 +122,3 @@ items:
             href: cli-ref/resource-preset/list/master.md
           - name: segment
             href: cli-ref/resource-preset/list/segment.md
-base: en/_cli-ref/cli-ref/managed-greenplum
-deepBase: 4

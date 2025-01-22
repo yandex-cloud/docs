@@ -43,7 +43,7 @@ To stop an L7 load balancer:
 
      Result:
  
-
+     
      ```bash
      - id: ds79cfnvmti3********
        name: test-load-balancer
@@ -132,7 +132,7 @@ To start a load balancer:
 
      Result:
 
-
+     
      ```bash
      - id: ds79cfnvmti3********
        name: test-load-balancer

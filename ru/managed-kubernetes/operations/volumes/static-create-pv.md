@@ -54,7 +54,6 @@ description: Следуя данной инструкции, вы сможете
 
    Результат:
 
-
    ```text
    NAME                          PROVISIONER                    RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION  AGE
    yc-network-hdd (default)      disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
@@ -62,8 +61,6 @@ description: Следуя данной инструкции, вы сможете
    yc-network-ssd                disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
    yc-network-ssd-nonreplicated  disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
    ```
-
-
 
    {% note info %}
 
@@ -81,17 +78,13 @@ description: Следуя данной инструкции, вы сможете
 
    Для создания объекта `PersistentVolume` на основе существующего облачного диска в параметре `volumeHandle` укажите уникальный идентификатор необходимого диска.
 
-
    {% note info %}
 
    Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-
-
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
-
 
    ```yaml
    apiVersion: v1
@@ -109,8 +102,6 @@ description: Следуя данной инструкции, вы сможете
        volumeHandle: <идентификатор_диска>
      storageClassName: <имя_класса_хранилища>
    ```
-
-
 
 1. Выполните команду:
 

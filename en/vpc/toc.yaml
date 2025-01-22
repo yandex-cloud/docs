@@ -749,5 +749,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/vpc
-deepBase: 2

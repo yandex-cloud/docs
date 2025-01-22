@@ -1,6 +1,7 @@
 # Resolving the ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT error
 
 
+
 ## Issue description {#issue-description}
 
 When switching the display mode of the chart from Line type to Indicator type, you see this error message:

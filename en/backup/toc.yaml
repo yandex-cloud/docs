@@ -340,5 +340,3 @@ items:
     href: release-notes.md
   - name: Troubleshooting
     href: qa/troubleshooting.md
-base: en/backup
-deepBase: 2

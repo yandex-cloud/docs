@@ -1,10 +1,12 @@
+# Transferring logs through {{ unified-agent-short-name }} HTTP input to {{ cloud-logging-full-name }}
+
 [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/) allows you to receive and send user application logs to [{{ cloud-logging-full-name }}](../../logging/).
 
 In this tutorial, you will configure log transfer from a test Python application. The application will send logs to {{ unified-agent-short-name }} [http input](../../monitoring/concepts/data-collection/unified-agent/inputs.md#http_input). {{ unified-agent-short-name }} will send the received logs via the [yc_logs](../../monitoring/concepts/data-collection/unified-agent/outputs.md#yc_logs_output) output to the {{ cloud-logging-name }} `default` log group.
 
 To set up log transfer:
 
-1. [Prepare your cloud](#before-begin).
+1. [Prepare your cloud environment](#before-begin).
 1. [Install and configure {{ unified-agent-full-name }}](#configure-ua).
 1. [Create and run a log-generating application](#generate-logs).
 1. [View the logs](#read-logs).

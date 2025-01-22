@@ -25,7 +25,7 @@ You can request detailed information about each target group you created.
 
    Result:
 
-
+   
    ```text
    +----------------------+-------------+---------------------+-------------+--------------+
    |          ID          |    NAME     |       CREATED       |  REGION ID  | TARGET COUNT |

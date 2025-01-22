@@ -78,5 +78,3 @@ items:
         href: cli-ref/resource-preset/get.md
       - name: list
         href: cli-ref/resource-preset/list.md
-base: en/_cli-ref/cli-ref/managed-elasticsearch
-deepBase: 4

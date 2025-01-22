@@ -6,7 +6,7 @@ In this tutorial, you will [prepare](#prepare) a [Docker image](../../container-
 
 A Docker image is an executable package that contains everything you need to run an application: code, runtime environment, libraries, environment variables, and configuration files.
 
-{% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
+The application must get the number of the port to receive requests at from the `PORT` environment variable. The variable value is set by the service automatically.
 
 To prepare a container's Docker image:
 1. [Create a registry](../../container-registry/operations/registry/registry-create.md) in {{ container-registry-full-name}}.

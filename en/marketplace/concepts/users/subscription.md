@@ -1,3 +1,8 @@
+---
+title: Subscription in {{ marketplace-full-name }}
+description: In this article, you will learn about subscriptions in {{ marketplace-name }}.
+---
+
 # Subscription
 
 A subscription is a prepaid pricing model. Subscription:

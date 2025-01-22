@@ -113,7 +113,7 @@
 
    1. В правом верхнем углу нажмите значок ![save-button](../../_assets/console-icons/chevron-down.svg) → **Сохранить как копию**.
 
-      ![save-chart-as-copy](../../_assets/datalens/solution-01/09-save-chart-as-copy.png)      
+      ![save-chart-as-copy](../../_assets/datalens/solution-01/09-save-chart-as-copy.png)
 
    1. В открывшемся окне введите название нового чарта `SuperHeroes — gender` и нажмите кнопку **Сохранить**.
 
@@ -151,7 +151,7 @@
 
 1. На панели в нижней части страницы выберите виджет **Чарт**.
 
-   ![add-chart](../../_assets/datalens/solution-01/11-add-chart.png)   
+   ![add-chart](../../_assets/datalens/solution-01/11-add-chart.png)
 
 1. В открывшемся окне нажмите кнопку **Выбрать**.
 1. Выберите чарт `SuperHeroes — gender`.
@@ -170,7 +170,7 @@
 
 1. На панели в нижней части страницы выберите виджет **Селектор**.
 
-   ![add-selector](../../_assets/datalens/solution-01/14-add-selector.png)   
+   ![add-selector](../../_assets/datalens/solution-01/14-add-selector.png)
 
 1. Добавьте селектор по цвету глаз:
 

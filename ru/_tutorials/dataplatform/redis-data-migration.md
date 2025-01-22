@@ -43,7 +43,7 @@
             * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
             * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — выберите ту же группу безопасности, что и для кластера {{ mrd-name }}.
 
-
+    
     1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../managed-redis/operations/connect/index.md#configuring-security-groups).
 
 

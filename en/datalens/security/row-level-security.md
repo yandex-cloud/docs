@@ -142,7 +142,7 @@ To avoid this, you can move the access control logic at the row level to the dat
 
 1. Add a new field for storing user IDs to the source data. All requests to the source will be filtered by this field.
 
-
+   
    To view your ID, follow [this link]({{ link-console-access-management }}). If you need another user's ID, ask them to open this link and pass the ID to you.
 
 

@@ -1,6 +1,7 @@
 # Closing documents are unavailable in the console
 
 
+
 ## Issue description {#issue-description}
 
 You cannot download reporting documents on the [billing account management page]({{ link-console-billing }}) under **Reporting documents**
@@ -18,5 +19,5 @@ If you could not download the reporting documents 5-7 days after the beginning o
 When creating the request, provide the following information:
 
 1. The ID of the billing account for which you need closing documents.
-   You can find it on the [page with your billing account details]({{ link-console-billing }}).
+You can find it on the [page with your billing account details]({{ link-console-billing }}).
 2. Problem description.

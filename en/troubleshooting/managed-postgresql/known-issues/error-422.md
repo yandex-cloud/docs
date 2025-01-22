@@ -1,6 +1,7 @@
 # Resolving the "422 UNPROCESSABLE ENTITY The specified extension <'ext_name'> is not present in shared_preload_libraries" error
 
 
+
 ## Issue description {#issue-description}
 
 When trying to install a database extension following the [guide](../../../managed-postgresql/operations/extensions/cluster-extensions), you see this error:

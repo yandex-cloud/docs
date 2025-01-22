@@ -1,6 +1,7 @@
 # Resolving the "Contact your organization's administrator for a new invitation" error
 
 
+
 ## Issue description {#issue-description}
 
 When joining a cloud organization via the invitation link, you see this error message:

@@ -1,5 +1,6 @@
 ---
 title: Backups in {{ serverless-containers-full-name }}
+description: In this article, you will learn about backups in {{ serverless-containers-full-name }} and what information you can get.
 ---
 
 # Backups in {{ serverless-containers-name }}
@@ -13,11 +14,11 @@ Data in {{ serverless-containers-name }} is stored securely and replicated withi
 
 For more information about backing up [Docker images](../../container-registry/concepts/docker-image.md) used to create container revisions, see the [{{ container-registry-full-name }} documentation](../../container-registry/concepts/backup.md).
 
-## Getting a container list {#containers-list}
+## Getting a list of containers {#containers-list}
 
 {% include [container-list](../../_includes/serverless-containers/container-list.md) %}
 
-## Getting a container revision list {#revision-list}
+## Getting a list of container revisions {#revision-list}
 
 {% include [revision-list](../../_includes/serverless-containers/revision-list.md) %}
 

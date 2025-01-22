@@ -1,3 +1,8 @@
+---
+title: Authentication in {{ cloud-registry-full-name }}
+description: Follow this guide to authenticate for the required interface.
+---
+
 # Authentication in {{ cloud-registry-name }}
 
 Before you start using {{ cloud-registry-name }}, you need to [configure Docker](installation.md) and get authenticated to use the appropriate interface:
@@ -31,7 +36,7 @@ You can authenticate:
 
   1. If you do not have Docker yet, [install it](installation.md).
   1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
-  1. Run this command:
+  1. Run the following command:
 
      ```bash
      echo <OAuth_token>|docker login \
@@ -55,7 +60,7 @@ You can authenticate:
 
   1. If you do not have Docker yet, [install it](installation.md).
   1. Get an [IAM token](../../../iam/operations/iam-token/create.md).
-  1. Run this command:
+  1. Run the following command:
 
       ```bash
       echo <IAM_token>|docker login \
@@ -65,7 +70,7 @@ You can authenticate:
       ```
 
       Where:
-      * `<IAM_token>`: Body of the previously obtained IAM token.
+      * `<OAuth>`: Body of the previously obtained IAM token.
       * `--username`: Token type. `iam` means that an IAM token is used for authentication.
       * `{{ cloud-registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 

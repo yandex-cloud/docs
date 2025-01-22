@@ -88,5 +88,3 @@ items:
         href: cli-ref/shards/get.md
       - name: list
         href: cli-ref/shards/list.md
-base: en/_cli-ref/cli-ref/managed-redis
-deepBase: 4

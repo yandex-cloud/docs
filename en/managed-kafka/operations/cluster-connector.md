@@ -481,7 +481,7 @@ Specify the S3 Sink connector parameters:
       * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}**: Endpoint for storage access (to be requested from the storage provider)
       * (Optional) **{{ ui-key.yacloud.kafka.field_connector-region }}**: Region name. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
-
+      
       * (Optional) **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
 
 
@@ -520,7 +520,7 @@ Specify the S3 Sink connector parameters:
     * `--storage-endpoint`: Endpoint for storage access (to be requested from the storage provider). Example: `{{ s3-storage-host }}`.
     * `--region`: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
-
+    
     * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
 
 
@@ -552,7 +552,7 @@ Specify the S3 Sink connector parameters:
             * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
             * **region**: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
-
+            
             * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
 
 
@@ -581,7 +581,7 @@ Specify the S3 Sink connector parameters:
             * `endpoint`: Endpoint for storage access (to be requested from the storage provider) Example: `{{ s3-storage-host }}`.
             * `region`: Region where the S3-compatible storage bucket is located. The default value is `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
-
+            
             * `accessKeyId` (`access_key_id`), `secretAccessKey` (`secret_access_key`): [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
 
 

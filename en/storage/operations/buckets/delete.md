@@ -141,7 +141,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

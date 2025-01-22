@@ -24,7 +24,7 @@ Prepare the infrastructure:
 
     1. [Grant the user](../../../managed-mysql/concepts/settings-list#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges.
 
-
+    
     1. Set up [security groups](../../../managed-mysql/operations/connect.md#configure-security-groups) and make sure they allow cluster connections.
 
 

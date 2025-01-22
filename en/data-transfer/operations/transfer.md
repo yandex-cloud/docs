@@ -102,7 +102,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
              * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
-
+     
      * For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can configure the amount of computing resources per VM in the **Runtime environment** settings section. Select one of the three suggested configurations:
 
          {% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
@@ -260,7 +260,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
             * {% include [field parallel copy](../../_includes/data-transfer/fields/parallel-copy.md) %}
 
 
-
+        
         * For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can edit the amount of computing resources per VM in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.runtime.title }}** settings section. Select one of the three suggested configurations:
 
             {% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}

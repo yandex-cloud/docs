@@ -176,5 +176,3 @@ items:
         href: api-ref/support-headers.md
   - name: FAQ
     href: qa/index.md
-base: en/vision
-deepBase: 2

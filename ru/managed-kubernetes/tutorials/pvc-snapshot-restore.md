@@ -69,7 +69,6 @@ description: Следуя данному руководству, вы научи
 Для проверки работы со снапшотами будет создан [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) и [под](../concepts/index.md#pod), имитирующий рабочую нагрузку.
 1. Создайте файл `01-pvc.yaml` с манифестом `PersistentVolumeClaim`:
 
-
    ```yaml
    ---
    apiVersion: v1
@@ -84,8 +83,6 @@ description: Следуя данному руководству, вы научи
        requests:
          storage: 5Gi
    ```
-
-
 
 1. Создайте `PersistentVolumeClaim`:
 
@@ -194,7 +191,6 @@ description: Следуя данному руководству, вы научи
 Чтобы восстановить снапшот:
 1. Создайте файл `04-restore-snapshot.yaml` с манифестом нового `PersistentVolumeClaim`:
 
-
    ```yaml
    ---
    apiVersion: v1
@@ -213,8 +209,6 @@ description: Следуя данному руководству, вы научи
        requests:
          storage: 10Gi
    ```
-
-
 
    {% note tip %}
 

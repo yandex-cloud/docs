@@ -57,7 +57,7 @@
 
          Для [классического шардирования](#shard-example) создание групп шардов не требуется.
 
-
+    
     1. Если вы используете группы безопасности, [настройте их](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
 
 
@@ -224,7 +224,7 @@
 
 1. Загрузите тестовый набор данных `hits_v1`:
 
-
+   
    ```bash
    curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```

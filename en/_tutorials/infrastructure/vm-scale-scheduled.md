@@ -1,7 +1,3 @@
----
-title: Scheduled scaling of instance groups
-description: Follow this tutorial to create a {{ compute-full-name }} VM group and set up scheduled scaling for it using {{ sf-full-name }} functions and timer.
----
 
 # Scheduled scaling of instance groups
 

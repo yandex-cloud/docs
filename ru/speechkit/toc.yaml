@@ -259,5 +259,3 @@ items:
         href: qa/tts.md
       - name: Все вопросы на одной странице
         href: qa/all.md
-base: ru/speechkit
-deepBase: 2

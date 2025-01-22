@@ -65,6 +65,8 @@ items:
                 href: operations/description-update.md
           - name: Making a revision active
             href: operations/activate-revision.md
+          - name: Changing the container operation mode
+            href: operations/update-runtime.md
           - name: Scaling a container
             items:
               - name: Viewing scaling settings
@@ -153,16 +155,16 @@ items:
         href: concepts/container.md
       - name: Invoking a container
         href: concepts/invoke.md
+      - name: Runtime environment
+        href: concepts/runtime.md
+      - name: Networking
+        href: concepts/networking.md
+      - name: Mounting file systems
+        href: concepts/mounting.md
       - name: Long-lived containers
         href: concepts/long-lived-containers.md
       - name: Container termination notifications
         href: concepts/termination-notifications.md
-      - name: Networking
-        href: concepts/networking.md
-      - name: Runtime environment
-        href: concepts/runtime.md
-      - name: Mounting file systems
-        href: concepts/mounting.md
       - name: Trigger
         items:
           - name: Overview
@@ -381,5 +383,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/serverless-containers
-deepBase: 2

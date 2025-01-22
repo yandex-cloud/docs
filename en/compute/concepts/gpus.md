@@ -90,7 +90,7 @@ The computing resources may have the following configurations:
 
 * {{ t4-ice-lake }} (`standard-v3-t4`):
 
-
+  
   Number of GPUs | VRAM, GB | Number of vCPUs | RAM, GB
   --- | --- | --- | ---
   1 | 16 | 4 | 16

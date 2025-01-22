@@ -144,7 +144,7 @@ description: Следуя данной инструкции, вы сможете
 
           Значения остальных параметров оставьте без изменений.
 
-
+          
           {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
@@ -158,7 +158,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `~/.aws/config`:
 
-
+            
             ```text
             [default]
             region = {{ region-id }}

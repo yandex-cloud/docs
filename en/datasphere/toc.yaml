@@ -567,5 +567,3 @@ items:
         href: troubleshooting/troubles-with-spark.md
       - name: FAQ
         href: qa/index.md
-base: en/datasphere
-deepBase: 2

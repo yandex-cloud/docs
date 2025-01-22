@@ -79,5 +79,3 @@ items:
     href: security-bulletins/index.md
   - name: Диапазоны публичных IP-адресов
     href: ip-list.md
-base: ru/security
-deepBase: 2

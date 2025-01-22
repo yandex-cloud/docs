@@ -9,7 +9,7 @@ Select the guide to explore:
 
 * {{ compute-name }}
 
-   * [Creating a Linux VM](quick-create-linux.md)   
+   * [Creating a Linux VM](quick-create-linux.md)
 
 * {{ ig-name }}
 

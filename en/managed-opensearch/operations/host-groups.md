@@ -135,7 +135,7 @@ To create a host group:
 
         * Number of hosts to create.
 
-
+        
         * Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
 
@@ -261,7 +261,7 @@ To create a host group:
 
     1. Create a file named `body.json` and add the following contents to it:
 
-
+        
         ```json
         {
             "nodeGroupSpec": {
@@ -308,7 +308,7 @@ To create a host group:
         * `zoneIds`: List of availability zones the cluster hosts are located in.
         * `subnetIds`: List of subnet IDs.
 
-
+        
         * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
 
 
@@ -369,7 +369,7 @@ To create a host group:
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
     1. Create a file named `body.json` and add the following contents to it:
 
-
+        
         ```json
         {
             "node_group_spec": {
@@ -416,7 +416,7 @@ To create a host group:
         * `zone_ids`: List of availability zones the cluster hosts are located in.
         * `subnet_ids`: List of subnet IDs.
 
-
+        
         * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
 
 
@@ -496,7 +496,7 @@ To create a host group:
 
             * Network HDD and SSD storage: In increments of 1 GB.
 
-
+            
             * Local SSD storage:
                 * For **Intel Cascade Lake**: In increments of 100 GB.
                 * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
@@ -622,7 +622,7 @@ To create a host group:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+        
         ```json
         {
             "updateMask": "resources,hostsCount,zoneIds,subnetIds,assignPublicIp,diskSizeAutoscaling",
@@ -669,7 +669,7 @@ To create a host group:
             * `zoneIds`: List of availability zones the cluster hosts are located in.
             * `subnetIds`: List of subnet IDs.
 
-
+            
             * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
 
 
@@ -732,7 +732,7 @@ To create a host group:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+        
         ```json
         {
             "cluster_id": "<cluster_ID>",
@@ -789,7 +789,7 @@ To create a host group:
             * `zone_ids`: List of availability zones the cluster hosts are located in.
             * `subnet_ids`: List of subnet IDs.
 
-
+            
             * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
 
 

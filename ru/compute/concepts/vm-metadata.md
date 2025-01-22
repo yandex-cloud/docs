@@ -306,6 +306,7 @@
 
   1. Создайте файл `certificate` и добавьте в него публичный сертификат:
 
+     
 
      ```text
      -----BEGIN CERTIFICATE-----
@@ -327,6 +328,7 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
+
 
 
 
@@ -364,6 +366,7 @@
 
   1. Создайте файл `certificate` и сохраните в него публичный сертификат:
 
+     
 
      ```text
      -----BEGIN CERTIFICATE-----
@@ -392,6 +395,7 @@
      LFFIJGlNWgIhAO0b749SY5+6UMEOLsxgvNzKKcv58BKADfBdJAXE6fRk
      -----END CERTIFICATE-----
      ```
+
 
 
 
@@ -444,7 +448,6 @@
 
   1. Создайте файл `certificate` и сохраните в него публичный сертификат:
 
-
      ```text
      -----BEGIN CERTIFICATE-----
      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
@@ -465,8 +468,6 @@
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-
-
 
   1. Извлеките из сертификата публичный ключ и сохраните его в файл `key`:
 

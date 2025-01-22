@@ -367,5 +367,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/managed-kafka
-deepBase: 2

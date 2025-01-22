@@ -1700,7 +1700,6 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 ### Версия 0.91.0 (12.05.22){#version0.91.0}
 
 
-
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 

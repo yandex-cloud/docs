@@ -163,7 +163,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    {% list tabs group=instructions %}
 
-
+   
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select a folder to host your instance group.
@@ -387,7 +387,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
      The result will be as follows:
      
-
+     
      ```bash
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |

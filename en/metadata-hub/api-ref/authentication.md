@@ -17,4 +17,3 @@ To perform operations via the API, get an [IAM token](../../iam/concepts/authori
 #### See also {#see-also}
 
 [{#T}](../../iam/concepts/users/accounts.md)
-

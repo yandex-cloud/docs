@@ -384,7 +384,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. Under **1. Basic SAML configuration**, specify information on {{ yandex-cloud }} acting as the service provider. To do this, in the **ID (entity)** and **Response URL (assertion consumer service URL)** fields, enter the ACS URL to redirect users to after successful authentication.
 
-
+   
    {% cut "How to get the federation ACS URL" %}
 
    {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}

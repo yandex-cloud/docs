@@ -21,7 +21,7 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_источника>`.
 
-
+    
     1. Если вы используете [группы безопасности](../../../managed-postgresql/operations/connect.md#configuring-security-groups) в кластере, убедитесь, что они настроены правильно и допускают подключение к нему.
 
 

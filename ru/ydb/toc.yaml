@@ -497,5 +497,3 @@ items:
     href: https://ydb.tech/docs/ru/public-talks
   - name: Обучающие курсы
     href: training.md
-base: ru/ydb
-deepBase: 2

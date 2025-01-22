@@ -2,7 +2,7 @@
 
 - {{ mkf-name }}
     
-
+    
     [Создайте пользователя](../../../../managed-kafka/operations/cluster-accounts.md#create-account) с ролью `ACCESS_ROLE_CONSUMER` на топике-источнике.
 
 

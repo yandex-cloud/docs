@@ -144,7 +144,7 @@ To get started with the AWS CLI:
 
           Leave the other parameter values unchanged.
 
-
+          
           {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 

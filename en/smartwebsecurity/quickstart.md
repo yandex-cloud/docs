@@ -216,7 +216,7 @@ ARL allows limiting the number of requests to the protected resource to avoid an
   1. To set [traffic conditions](concepts/conditions.md), select one or more items from the **Conditions** list:
 
       * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`: IP address, IP address range, or IP address region.
-      * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`: HTTP header string.            
+      * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`: HTTP header string.
       * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}`: Domain receiving the request.
       * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`: Request method.
       * `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`: Cookie header string.

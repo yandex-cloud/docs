@@ -1,6 +1,7 @@
 # Resolving the 'failed to query available provider packages' error when using Terraform
 
 
+
 ## Issue description {#issue-description}
 
 When you attempt to use Terraform for creating, modifying, or deleting cloud resources, you see this error message:

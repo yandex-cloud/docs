@@ -42,5 +42,3 @@ items:
         href: cli-ref/registry/set-ip-permissions.md
       - name: update
         href: cli-ref/registry/update.md
-base: en/_cli-ref/cli-ref/cloud-registry
-deepBase: 4

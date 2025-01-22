@@ -72,7 +72,7 @@ QL charts have the same [general settings](../../concepts/chart/settings.md#comm
 
    - {{ monitoring-short-name }}
 
-
+     
      1. Click **Select connection**.
      1. In the list, select a {{ monitoring-short-name }} connection that you have access to.
      1. Click **Create**.

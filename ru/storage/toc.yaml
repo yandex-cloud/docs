@@ -710,5 +710,3 @@ items:
     href: qa.md
   - name: Обучающие курсы
     href: training.md
-base: ru/storage
-deepBase: 2

@@ -702,5 +702,3 @@ items:
         href: qa/access.md
       - name: All questions on one page
         href: qa/index.md
-base: en/iam
-deepBase: 2

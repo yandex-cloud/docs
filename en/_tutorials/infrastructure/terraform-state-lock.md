@@ -1,7 +1,3 @@
----
-title: Locking {{ TF }} states
-description: When working with {{ TF }} in the cloud, you need to ensure that multiple users cannot modify the infrastructure at the same time. To this end, you can use {{ TF }} state locking.
----
 
 # Locking {{ TF }} states using {{ ydb-full-name }}
 

@@ -9,7 +9,7 @@ description: GPU (Graphics Processing Unit) – это графический п
 {{ compute-name }} предоставляет графические ускорители ([GPU](../../glossary/gpu.md)) в различных [конфигурациях](#config) виртуальных машин. GPU обрабатывают некоторые типы данных эффективнее, чем CPU, и могут использоваться для сложных вычислений. Сделать решение задач еще эффективнее и удобнее поможет автоматическое выделение ресурсов в [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md).
 
 В {{ compute-name }} доступны следующие графические карты:
-* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) с 32 ГБ памяти HBM2 (High Bandwidth Memory). 
+* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) с 32 ГБ памяти HBM2 (High Bandwidth Memory).
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/ru-ru/data-center/a100/) с 80 ГБ памяти HBM2.
 * [NVIDIA® Tesla® T4](https://www.nvidia.com/ru-ru/data-center/tesla-t4/) с 16 ГБ памяти GDDR6.
 
@@ -42,11 +42,9 @@ NVIDIA® A100, построенная на базе микроархитекту
 
 NVIDIA® Tesla® T4, построенная на базе архитектуры [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf), использует тензорные ядра Turing и ядра RT, предоставляет 16 ГБ памяти GDDR6 с [пропускной способностью 300 ГБ/с](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
 
-
 ### T4i {#t4i}
 
 T4i использует тензорные ядра и предоставляет 24 ГБ памяти GDDR6 с пропускной способностью 300 ГБ/с.
-
 
 ### Конфигурации виртуальных машин {#config}
 
@@ -90,7 +88,7 @@ T4i использует тензорные ядра и предоставляе
   
 * Платформа {{ t4-ice-lake }} (`standard-v3-t4`):
 
-
+  
   Количество GPU | Объем VRAM, ГБ | Количество vCPU | Объем RAM, ГБ
   --- | --- | --- | ---
   1 | 16 | 4 | 16
@@ -107,8 +105,6 @@ T4i использует тензорные ядра и предоставляе
   1 | 24 | 8 | 32
   1 | 24 | 16 | 64
   1 | 24 | 32 | 128
-
-
 
 GPU в виртуальных машинах предоставляется целиком. Например, если в конфигурации указано 4 GPU, то у вашей ВМ будет 4 полноценных GPU-устройства.
 

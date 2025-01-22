@@ -56,6 +56,6 @@
    * Копию протокола или решения о назначении генерального директора.
    * Идентификатор [платежного аккаунта](../../billing/concepts/billing-account.md#billing-account-id) (billing account ID).
 
-
+   
    {% include [offices-and-foreign-companies](offices-and-foreign-companies.md) %}
 

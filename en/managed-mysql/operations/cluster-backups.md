@@ -79,7 +79,7 @@ You can create backups and restore clusters from existing backups, including poi
               --url-query folderId=<folder_ID>
           ```
 
-
+          
           You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -132,7 +132,7 @@ You can create backups and restore clusters from existing backups, including poi
               yandex.cloud.mdb.mysql.v1.BackupService.List
           ```
 
-
+          
           You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -370,7 +370,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. Request creating a cluster from a backup:
 
-
+      
       ```bash
       {{ yc-mdb-my }} cluster restore \
          --backup-id=<backup_ID> \
@@ -402,7 +402,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
           * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
-
+          
           * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
           * `assign-public-ip`: Flag used if [public access](../concepts/network.md#public-access-to-host) to the host is required, `true` or `false`.
 
@@ -411,10 +411,10 @@ For a new cluster, you should set all the parameters that are required at creati
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Disk type](../concepts/storage.md):
 
-
+          
           * `network-hdd`
           * `network-ssd`
-          * `local-ssd`
+                    * `local-ssd`
           * `network-ssd-nonreplicated`
 
 

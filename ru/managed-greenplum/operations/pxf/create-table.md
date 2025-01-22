@@ -55,7 +55,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
     1. [Создайте кластер {{ mch-full-name }}](../../../managed-clickhouse/operations/cluster-create.md) с именем пользователя `chuser`.
 
-
+    
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -141,7 +141,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * Имя пользователя — `mysqluser`.
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-
+    
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -210,7 +210,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * Имя пользователя — `pguser`;
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-
+    
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -274,7 +274,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
 - {{ objstorage-name }} {#storage}
 
-
+    
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 

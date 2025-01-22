@@ -1,6 +1,7 @@
 # Billing account was created in the "Paid" status after registration
 
 
+
 ## Issue description {#issue-description}
 
 * The billing account was created under paid usage after registration.

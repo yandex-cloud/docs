@@ -1,6 +1,7 @@
 # Resolving the "ERR.DS_API.US.BAD_REQUEST data.key should not start with /" error
 
 
+
 ## Issue description {#issue-description}
 
 When creating a connection, you see the `ERR.DS_API.US.BAD_REQUEST` error.

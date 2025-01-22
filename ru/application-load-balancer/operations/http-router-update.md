@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы сможете
 
      Результат:
      
-     
+          
      ```text
      id: a5dld80l32ed********
      name: new-http-router

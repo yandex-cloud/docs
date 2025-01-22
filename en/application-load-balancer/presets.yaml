@@ -1,3 +1,2 @@
-default:
-  service-full-name: Yandex Application Load Balancer
-  service-name: Application Load Balancer
+service-full-name: Yandex Application Load Balancer
+service-name: Application Load Balancer

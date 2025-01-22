@@ -94,7 +94,7 @@ keywords:
                 --url-query folderId=<идентификатор_каталога>
             ```
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -147,7 +147,7 @@ keywords:
                 yandex.cloud.mdb.opensearch.v1.BackupService.List
             ```
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 

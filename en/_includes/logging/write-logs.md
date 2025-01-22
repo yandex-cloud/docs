@@ -8,7 +8,7 @@
 
     To add records to a log group, run this command:
 
-
+    
     * Linux, MacOS:
         ```bash
         yc logging write \

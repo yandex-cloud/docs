@@ -1,6 +1,7 @@
 # Canceling cloud deletion
 
 
+
 ## Issue description {#case-description}
 
 * The billing account owner received an email stating "Your cloud `b1gXXXXXXXXXXXXXXXXX` will be deleted on 20XX-XX-XX".

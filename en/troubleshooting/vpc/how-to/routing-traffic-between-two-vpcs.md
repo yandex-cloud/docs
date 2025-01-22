@@ -1,6 +1,7 @@
 # How to route traffic between two cloud networks
 
 
+
 ## Scenario description {#case-description}
 
 You need to link two VPC networks.

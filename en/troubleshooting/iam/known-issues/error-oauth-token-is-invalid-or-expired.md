@@ -1,6 +1,7 @@
 # Resolving the "OAuth token is invalid or expired" error
 
 
+
 ## Issue description {#issue-description}
 
 The OAuth token has expired, and you see this error: `OAuth token is invalid or expired`.

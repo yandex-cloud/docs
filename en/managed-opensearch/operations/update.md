@@ -558,7 +558,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+        
         ```bash
         curl \
             --request PATCH \
@@ -588,7 +588,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-
+        
         * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
             * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
@@ -619,7 +619,7 @@ For more information about setting up service accounts, see [Configuring access 
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+        
         ```bash
         grpcurl \
             -format json \
@@ -661,7 +661,7 @@ For more information about setting up service accounts, see [Configuring access 
 
             Only one parameter is provided in this case.
 
-
+        
         * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
             * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)

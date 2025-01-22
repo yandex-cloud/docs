@@ -1,6 +1,7 @@
 # Resolving the ILLEGAL_REQUEST_CONTRACT error when generating a payment invoice
 
 
+
 ## Issue description {#issue-description}
 
 * When trying to generate an invoice on the page with the billing account details, you get this error: `ILLEGAL_REQUEST_CONTRACT`

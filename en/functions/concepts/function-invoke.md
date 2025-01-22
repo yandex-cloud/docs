@@ -1,6 +1,11 @@
+---
+title: Invoking a function in {{ sf-full-name }}
+description: In this guide, you will learn about invoking a {{ sf-name }} function using an HTTPS request, the CLI, a trigger or an {{ api-gw-name }} extension.
+---
+
 # Invoking a function in {{ sf-name }}
 
-You can invoke a function:
+You can invoke a function: 
 * [Using an HTTPS request](#http).
 * [Using the CLI](#cli).
 * [Using a trigger](#trigger).
@@ -16,8 +21,8 @@ The result returned by the function should also be a JSON document. It should co
 
 {% note info %}
 
-You can run a function by specifying the `?integration=raw` request string parameter. When invoked this way, a function cannot parse or set HTTP headers:
-* The contents of the HTTPS request body are provided as the first argument (without converting to a JSON structure).
+You can run a function by specifying the `?integration=raw` request string parameter. When invoked this way, a function cannot parse or set HTTP headers: 
+* HTTPS request body content is provided as the first argument (without converting to a JSON structure).
 * The contents of the HTTPS response body is identical to the function response (without converting or checking the structure), and the HTTP response status is 200.
 
 {% endnote %}
@@ -46,7 +51,7 @@ Where:
 - `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary; however, if any of the headers was repeated multiple times, its list will contain all the values provided for this header. If the header was provided only once, it is included into this dictionary and its list will contain a single value.
 - `queryStringParameters`: Dictionary with query parameters. If the same parameter is set multiple times, the dictionary contains the last specified value.
 - `multiValueQueryStringParameters`: Dictionary with a list of all specified values for each query parameter. If the same parameter is set multiple times, the dictionary contains all the specified values.
-- `requestContext` has the following structure:
+- `requestContext` has the following structure: 
   
     ```
     {
@@ -79,12 +84,12 @@ Where:
     {
         "operationContext": "<dictionary with operation context described in API gateway specification>"
     }
-    ```
+    ```  
 
     Structure of the `authorizer` element:
     ```
     {
-        "jwt": { // Field filled in by the API Gateway JWT authorizer. Contains data from the token about the user and the user's permissions
+        "jwt": { // Field filled in by the API Gateway JWT authorizer. Contains data from the token about the user and the user's permissions'
           "claims": "<dictionary of JWT body fields>",
           "scopes": "<list of JWT owner permissions>"
         }
@@ -100,7 +105,7 @@ Where:
     
     {% endnote %}
     
-- `isBase64Encoded`: If `body` contains Base64-encoded data, then {{ sf-name }} sets the parameter to `true`.
+- `isBase64Encoded`: If `body` contains Base64-encoded data, then {{ sf-name }} sets the parameter to `true`. 
 
 #### Debugging functions {#example}
 
@@ -108,7 +113,7 @@ To debug parameter processing, use a function that returns the JSON structure of
 
 ```js
 module.exports.handler = async (event) => {
-    return {
+    return { 
         body: JSON.stringify(event)
     };
 };
@@ -120,10 +125,10 @@ For example, for the request:
 curl \
   --request POST \
   --data "hello, world!" \
-  "https://{{ sf-url }}/<Function_ID>?a=1&a=2&b=1"
+  "https://{{ sf-url }}/<function_ID>?a=1&a=2&b=1"
 ```
 
-The result looks like this:
+The result looks like this: 
 
 ```text
 {
@@ -170,7 +175,7 @@ The result looks like this:
 }
 ```
 
-### Service data {#service-data}
+### Service data {#service-data} 
 
 Optionally, the function can accept the second argument with the following structure:
 
@@ -198,7 +203,7 @@ Example of using service data in a function:
 module.exports.handler = async (event, context) => {
     const iamToken = context.token;
     ...
-    return {
+    return { 
         body: ...
     };
 };
@@ -208,7 +213,7 @@ module.exports.handler = async (event, context) => {
 
 {{ sf-name }} interprets the function execution result to fill in the HTTPS response contents, headers, and status code. For this to work, the function must return a response in the following structure:
 
-```
+``` 
 {
     "statusCode": <HTTP response code>,
     "headers": <dictionary with HTTP header string values>,
@@ -216,11 +221,11 @@ module.exports.handler = async (event, context) => {
     "body": "<response contents>",
     "isBase64Encoded": <true or false>
 }
-```
+```       
 
-Where:
+Where: 
 
-- `statusCode`: HTTP status code, which the client uses to interpret the request results.
+- `statusCode`: HTTP status code, which the client uses to interpret the request results. 
 - `headers`: Dictionary of strings with HTTP response headers and their values.
 - `multiValueHeaders`: Dictionary where you can list one or more values for HTTP response headers. If the same header is specified in both `headers` and `multiValueHeaders`, the contents of the `headers` dictionary is ignored.
 - `body`: Response body in string format. To work with binary data, the contents can be Base64-encoded. If this is the case, set `isBase64Encoded: true`.
@@ -228,7 +233,7 @@ Where:
 
 ### Handling errors in user-defined function code {#error}
 
-If an unprocessed error occurs in user code, {{ sf-name }} will return a 502 error and error details in the form of this JSON structure:
+If an unprocessed error occurs in user code, {{ sf-name }} will return a 502 error and error details in the form of this JSON structure: 
 
 ```
 {
@@ -262,19 +267,19 @@ If the response structure of your function does not match the description given 
 
 If the error occurs in a user-defined function, the `X-Function-Error: true` header is added to the response.
 
-{{ sf-name }} can return results with the following HTTP codes:
+{{ sf-name }} can return results with the following HTTP codes: 
 
 - `200 OK`: Function executed successfully.
 - `400 BadRequest`: Error in HTTPS request parameters.
-- `403 Forbidden`: Cannot execute the request due to restrictions on client access to the function.
+- `403 Forbidden`: Cannot execute the request due to restrictions on client access to the function. 
 - `404 Not Found`: Function is not found at the specified URL.
 - `413 Payload Too Large`: Request JSON structure [limit](../concepts/limits.md#limits) is exceeded by more than 3.5 MB.
-- `429 TooManyRequests`: Function call intensity is too high:
+- `429 TooManyRequests`: Function call intensity is too high: 
     - The [quota](../concepts/limits.md#functions-quotas) on the number of requests executed is exceeded.
     - Cannot execute the request because all executors are already overloaded by existing requests to this function.
 - `500 Internal Server Error`: Internal server error.
 - `502 BadGateway`: Incorrect function code or format of returned JSON response.
-- `503 Service Unavailable`: {{ sf-name }} is unavailable.
+- `503 Service Unavailable`: {{ sf-name }} is unavailable. 
 - `504 Gateway Timeout`: Maximum function running time before the timeout is exceeded.
 
 ### Filtering message headers {#headers}
@@ -293,8 +298,8 @@ Your function receives and transmits the contents of HTTP headers as JSON fields
     - "Upgrade"
     - "Proxy-Authenticate"
     - "Authorization"
-    - "Connection"
-    - "Content-Md5"
+    - "Connection"        
+    - "Content-Md5"       
     - "Max-Forwards"
     - "Server"
     - "Transfer-Encoding"
@@ -337,7 +342,7 @@ If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forw
 
 A function call via the CLI is an HTTPS request which uses the POST method and the `?integration=raw` parameter (without converting the request into a JSON structure or checking the response).
 
-View the help for the function call command:
+View the help for the function call command: 
 
 ```
 yc serverless function invoke --help
@@ -373,13 +378,13 @@ Detailed description of how to transfer data using different flags and arguments
 
     Similar to command with the `-d` argument set to `@<file_name>`: `yc serverless function invoke <function_ID> -d @<file_path>`
 
-- `--data-stdin`: Data is read from the input stream.
+- `--data-stdin`: Data is read from the input stream. 
 
      ```
      echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function ID> --data-stdin
      ```
 
-    Similar to command with the `-d` argument set to `@-`:
+    Similar to command with the `-d` argument set to `@-`: 
     
     ```
     echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function ID> -d @-`.

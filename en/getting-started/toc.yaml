@@ -45,5 +45,3 @@ items:
         href: free-trial/concepts/trial-ending.md
       - name: Upgrading to the paid version
         href: free-trial/concepts/upgrade-to-paid.md
-base: en/getting-started
-deepBase: 2

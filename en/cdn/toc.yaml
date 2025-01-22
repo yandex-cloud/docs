@@ -399,5 +399,3 @@ items:
     href: release-notes.md
   - name: Troubleshooting
     href: troubleshooting.md
-base: en/cdn
-deepBase: 2

@@ -1,2 +1,1 @@
-default:
-  stage: preview
+stage: preview

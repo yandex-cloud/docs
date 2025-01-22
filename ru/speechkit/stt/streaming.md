@@ -65,13 +65,10 @@
 
 ### Запрос распознавания {#requests}
 
-
 Для распознавания речи приложение сначала должно отправить сообщение с настройками распознавания:
 
 * для API v3 — сообщение [RecognizeStreaming](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming) с типом `session_options`.
 * для API v2 — сообщение `StreamingRecognitionRequest` с типом [RecognitionConfig](api/streaming-api#specification-msg).
-
-
 
 После настройки сессии сервер будет ожидать сообщений с аудиофрагментами (chunks) — отправляйте сообщение `RecognizeStreaming` с типом [session_options](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming) или сообщение `StreamingRecognitionRequest` с типом [audio_content](api/streaming-api#audio-msg) в API v2. При отправке сообщений учитывайте следующие рекомендации:
 

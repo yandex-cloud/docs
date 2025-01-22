@@ -234,7 +234,7 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
        yc vpc subnet list
        ```
 
-
+       
        If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
 

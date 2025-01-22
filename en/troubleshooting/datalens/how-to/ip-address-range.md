@@ -1,6 +1,7 @@
 # How to find IP addresses used for connecting to external data sources
 
 
+
 ## Scenario description {#case-description}
 
 You need to find out from which IP addresses {{ datalens-full-name }} connects to external data sources.

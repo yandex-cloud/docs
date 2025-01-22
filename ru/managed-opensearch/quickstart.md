@@ -46,7 +46,7 @@ description: В этой инструкции вы научитесь созда
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Задайте параметры кластера.
 
-
+    
     Чтобы получить доступ к веб-интерфейсу {{ OS }} Dashboards, запросите публичный доступ — для этого в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** с типом группы **Dashboards** выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
@@ -96,7 +96,7 @@ description: В этой инструкции вы научитесь созда
 
 1. Подключитесь с помощью браузера к веб-интерфейсу [{{ OS }} Dashboards]({{ os.docs }}/dashboards/index/):
 
-
+   
    1. Убедитесь, что к хостам с ролью `DASHBOARDS` есть публичный доступ.
 
 

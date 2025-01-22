@@ -32,4 +32,3 @@ sudo netplan apply
 ```bash
 sudo netplan ip leases eth0 | grep -i dns
 ```
-

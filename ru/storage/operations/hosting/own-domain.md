@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
-
+    
     {% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
 
 

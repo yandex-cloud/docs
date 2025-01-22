@@ -30,7 +30,6 @@ description: Следуя данной инструкции, вы сможете
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** укажите домен DNS для поиска неквалифицированных имен.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}** нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-domain-name-server }}** и укажите адрес вашего [DNS-сервера](../../glossary/dns.md#dns-server). Можно указать несколько DNS-серверов.
       1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ntp-servers }}** нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** и укажите адрес вашего NTP-сервера. Можно указать несколько NTP-серверов.
- 
 
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 

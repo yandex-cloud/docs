@@ -1,3 +1,8 @@
+---
+title: Setting up Maven
+description: Follow this guide to configure Maven.
+---
+
 # Setting up Maven
 
 1. Open the file with the global Maven settings.

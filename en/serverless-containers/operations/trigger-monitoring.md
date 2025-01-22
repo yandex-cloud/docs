@@ -30,7 +30,7 @@ The chart update period is 15 seconds.
       * **Function access errors**: Number of access errors when calling a container.
       * **Function call errors**: Number of errors when calling a container.
 
-
+      
       * **DLQ access errors**: Number of errors when accessing the [Dead Letter Queue](../../serverless-containers/concepts/dlq.md).
       * **Send to DLQ errors**: Number of errors when sending messages to the Dead Letter Queue.
 

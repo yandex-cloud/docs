@@ -1,6 +1,7 @@
 # Resolving the "TestsFailure" error
 
 
+
 ## Issue description {#issue-description}
 
 When building a Docker image, you see this error during testing:

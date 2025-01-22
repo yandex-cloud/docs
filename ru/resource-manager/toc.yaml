@@ -254,5 +254,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/resource-manager
-deepBase: 2

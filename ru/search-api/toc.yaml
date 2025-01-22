@@ -123,5 +123,3 @@ items:
         href: reference/error-codes.md
       - name: Регионы поиска
         href: reference/regions.md
-base: ru/search-api
-deepBase: 2

@@ -65,21 +65,21 @@ Let’s assume an organization has 5 Business plan users of {{ datalens-name }} 
 * In June, `user_1`, `user_2`, and `user_3` were active. The fee for June will be:
   
 
-
+  
   {% include [usd-example](../_pricing_examples/datalens/usd-users-1.md) %}
 
 
 * In July, `user_2` and `user_3` were active. The fee for July will be:
 
 
-
+  
   {% include [usd-example](../_pricing_examples/datalens/usd-users-2.md) %}
 
 
 * In August, `user_1`, `user_2`, `user_3`, `user_4`, and `user_5` were active. The fee for August will be:
 
 
-
+  
   {% include [usd-example](../_pricing_examples/datalens/usd-users-3.md) %}
 
 

@@ -1,7 +1,3 @@
----
-title: Public materials about {{ data-transfer-name }}
-description: Videos of conferences and webinars on {{ data-transfer-name }}.
----
 
 # Public materials about {{ data-transfer-name }}
 

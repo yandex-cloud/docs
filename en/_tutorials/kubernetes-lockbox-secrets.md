@@ -21,7 +21,7 @@ You can also deploy an infrastructure for syncing {{ lockbox-name }} secrets wit
 
 The cost of resources for syncing secrets includes:
 * Fee for using the [{{ managed-k8s-name }} master](../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../managed-kubernetes/pricing.md)).
-* Fee for a [{{ managed-k8s-name }} node group's](../managed-kubernetes/concepts/index.md#node-group) [computing resources](../compute/concepts/vm-platforms.md) and [disks](../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../compute/pricing.md)).   
+* Fee for a [{{ managed-k8s-name }} node group's](../managed-kubernetes/concepts/index.md#node-group) [computing resources](../compute/concepts/vm-platforms.md) and [disks](../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../compute/pricing.md)).
 
 ### Create an infrastructure {#deploy-infrastructure}
 

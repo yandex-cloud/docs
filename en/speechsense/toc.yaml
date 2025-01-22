@@ -177,5 +177,3 @@ items:
     href: pricing.md
   - name: FAQ
     href: qa/index.md
-base: en/speechsense
-deepBase: 2

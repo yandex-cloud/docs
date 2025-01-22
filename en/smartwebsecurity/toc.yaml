@@ -320,5 +320,3 @@ items:
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
-base: en/smartwebsecurity
-deepBase: 2

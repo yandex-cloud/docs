@@ -1,6 +1,7 @@
 # Troubleshooting the console connection error
 
 
+
 ## Issue description {#issue-description}
 
 When trying to open the console through a web browser, the page does not open: an attempt to access the page ends with a timeout error.

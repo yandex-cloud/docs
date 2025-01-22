@@ -46,7 +46,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-
+       
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
@@ -67,7 +67,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
-
+  
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
      * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
@@ -81,7 +81,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * [Priority for assigning the host as a master](../concepts/replication.md#master-failover).
      * [Host priority as a {{ MY }} replica](../concepts/backup.md#size) for creating backups.
 
-
+     
      If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the {{ mmy-name }} cluster. After creating a {{ mmy-name }} cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
 
 
@@ -103,7 +103,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   To create a {{ mmy-name }} cluster:
 
-
+  
   1. Check whether the folder has any [subnets](../../vpc/concepts/network.md#subnet) for the {{ mmy-name }} cluster hosts:
 
      ```bash
@@ -121,8 +121,8 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Specify the {{ mmy-name }} cluster parameters in the create command:
 
-
-
+     
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name=<cluster_name> \
@@ -151,7 +151,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * `environment`: Environment, `prestable` or `production`.
 
-
+     
      * `assign-public-ip`: Public access to the host, `true` or `false`.
 
 
@@ -220,8 +220,8 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      Here is an example of the configuration file structure:
 
-
-
+     
+     
      ```hcl
      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
        name                = "<cluster_name>"
@@ -356,7 +356,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Create a file named `body.json` and add the following contents to it:
 
-
+      
       ```json
       {
           "folderId": "<folder_ID>",
@@ -434,7 +434,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
-
+      
       * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
@@ -448,7 +448,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `diskSize`: Disk size in bytes.
               * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-
+          
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
@@ -505,7 +505,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Create a file named `body.json` and add the following contents to it:
 
-
+      
       ```json
       {
           "folder_id": "<folder_ID>",
@@ -577,7 +577,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
-
+      
       * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
@@ -591,7 +591,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `disk_size`: Disk size in bytes.
               * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-
+          
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
@@ -737,7 +737,7 @@ To create a {{ MY }} cluster copy:
 
   Create a {{ mmy-name }} cluster with the following test specifications:
 
-
+  
   * Name: `my-mysql`.
   * Version: `{{ versions.cli.latest }}`.
   * Environment: `production`.
@@ -752,7 +752,7 @@ To create a {{ MY }} cluster copy:
 
   1. Run this command to create a {{ mmy-name }} cluster:
 
-
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name="my-mysql" \
@@ -791,7 +791,7 @@ To create a {{ MY }} cluster copy:
     * New network: `mynet`.
     * Host: `{{ host-class }}` (one host), new subnet: `mysubnet`, availability zone: `{{ region-id }}-a`. Range for `mysubnet`: `10.5.0.0/24`.
 
-
+    
     * New security group: `mysql-sg`, allowing connections to {{ mmy-name }} clusters from the Internet through port `{{ port-mmy }}`.
 
 
@@ -802,8 +802,8 @@ To create a {{ MY }} cluster copy:
 
   The configuration file for this {{ mmy-name }} cluster is as follows:
 
-
-
+  
+  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
     name                = "my-mysql"
@@ -880,7 +880,7 @@ To create a {{ MY }} cluster copy:
 
   Create a {{ mmy-name }} cluster with the following test specifications:
 
-
+  
   * Name: `my-mysql-3`.
   * Version: `{{ versions.cli.latest }}`.
   * Environment: `prestable`.
@@ -902,7 +902,7 @@ To create a {{ MY }} cluster copy:
 
   1. Run this command to create a {{ mmy-name }} cluster:
 
-
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name="my-mysql-3" \
@@ -958,7 +958,7 @@ To create a {{ MY }} cluster copy:
 
       The host residing in `mysubnet-b` will have the backup priority. Backups will be created from this host's data unless you choose it to be the master host.
 
-
+    
     * New security group: `mysql-sg`, allowing connections to {{ mmy-name }} clusters from the Internet through port `{{ port-mmy }}`.
 
 
@@ -968,8 +968,8 @@ To create a {{ MY }} cluster copy:
 
   The configuration file for this {{ mmy-name }} cluster is as follows:
 
-
-
+  
+  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql-3" {
     name                = "my-mysql-3"

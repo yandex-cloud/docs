@@ -625,5 +625,3 @@ items:
     href: release-notes.md
   - name: Обучающие курсы
     href: training.md
-base: ru/application-load-balancer
-deepBase: 2

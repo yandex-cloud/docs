@@ -1,6 +1,7 @@
 # How to enable Egress NAT
 
 
+
 ## Scenario description {#case-description}
 
 You need to enable Egress NAT in the cloud to access online resources without public IP addresses.

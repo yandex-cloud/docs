@@ -123,5 +123,3 @@ items:
         href: reference/error-codes.md
       - name: Search regions
         href: reference/regions.md
-base: en/search-api
-deepBase: 2

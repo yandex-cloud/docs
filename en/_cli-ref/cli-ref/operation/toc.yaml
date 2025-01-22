@@ -6,5 +6,3 @@ items:
     href: cli-ref/get.md
   - name: wait
     href: cli-ref/wait.md
-base: en/_cli-ref/cli-ref/operation
-deepBase: 4

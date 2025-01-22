@@ -62,5 +62,3 @@ items:
   - name: Документация Яндекс Спичкит Гибрид ({{ sk-hybrid-full-name }})
     href: docs.md
     hidden: true
-base: ru/speechkit-hybrid
-deepBase: 2

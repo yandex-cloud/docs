@@ -19,7 +19,7 @@ Usually, funds are automatically credited to the account as soon as {{ yandex-cl
   Payment must be made from a billing account which is [bound to legal entity](../../../billing/operations/pay-the-bill).
 
 
-
+  
   1. Make sure that the following data is correctly specified in the invoice:
 
   * Payment amount;

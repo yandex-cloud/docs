@@ -1,3 +1,8 @@
+---
+title: Step-by-step guides for {{ postbox-full-name }}
+description: This section contains step-by-step guides for {{ postbox-name }}.
+---
+
 # Step-by-step guides for {{ postbox-name }}
 
 * [{#T}](create-address.md)

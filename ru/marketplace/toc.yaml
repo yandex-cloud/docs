@@ -264,5 +264,3 @@ items:
         href: security/index.md
       - name: Аудитные логи {{ at-name }}
         href: at-ref.md
-base: ru/marketplace
-deepBase: 2

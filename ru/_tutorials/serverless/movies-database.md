@@ -106,7 +106,7 @@
        ```
 
 
-
+  
   1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) {{ TF }} не ниже версии `1.0.8`.
 
 
@@ -178,7 +178,7 @@
        ```
 
 
-
+  
   1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#from-yc-mirror) {{ TF }} не ниже версии `1.0.8`.
 
 

@@ -1,6 +1,7 @@
 # How to back up a VM with rollback support
 
 
+
 ## Scenario description {#case-description}
 
 You need to create a backup of the VM instance that allows for a rollback.

@@ -1,6 +1,7 @@
 # Fixing HTTP 499 errors when working with a cloud function or serverless container
 
 
+
 ## Issue description {#issue-description}
 
 * In the log of the cloud function or serverless container, you see messages like `Error: Code 499 Message: request cancelled`.

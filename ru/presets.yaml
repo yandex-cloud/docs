@@ -6118,6 +6118,7 @@ default:
         label_access_rights-sign-url-access: По временной ссылке
         label_accessRights: Доступ
         label_allow-access: Разрешить доступ
+        label_description: Описание
         label_subtitles: Субтитры
         label_title: Название
         label_visibility-status: Публичный доступ

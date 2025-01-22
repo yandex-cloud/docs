@@ -22,7 +22,7 @@ You can create an empty disk of the specified size.
   1. Add a description for the disk, if required.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
   1. Select the required disk type: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
-      
+
 
   1. Select the required block size (minimum data storage volume). By default, block size is 4 KB for all new disks; however, this is not enough for disks larger than 8 TB.
   1. Specify the required disk size. The maximum disk size depends on the specified block size.

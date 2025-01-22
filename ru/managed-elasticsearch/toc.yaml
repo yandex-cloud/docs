@@ -347,5 +347,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/managed-elasticsearch
-deepBase: 2

@@ -1,6 +1,7 @@
 # Resolving error 403 (header is not provided when using the OPTION method)
 
 
+
 ## Issue description {#issue-description}
 
 When the `CORS` parameter is set up, the headers that come in response from the server, do not include `Access-Control-Allow-Origin` when using the `OPTION` method, and code 403 is returned.

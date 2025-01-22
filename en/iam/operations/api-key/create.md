@@ -154,7 +154,7 @@ To create an API key:
 
   Result:
 
-
+  
   ```text
   - yc.postbox.send
   - yc.ydb.tables.manage

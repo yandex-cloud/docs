@@ -103,7 +103,7 @@ To apply or edit a bucket access policy:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
        * `Principal`: Requested permission subject ID.  You can request permissions for a [user](../../../iam/operations/users/get.md) or [service account](../../../iam/operations/sa/get-id.md). Possible values: `*`, `<subject_ID>`. This is an optional parameter.
 
-
+         
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
@@ -183,7 +183,7 @@ To apply or edit a bucket access policy:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
        * `Principal`: Requested permission subject ID.  You can request permissions for a [user](../../../iam/operations/users/get.md), or [service account](../../../iam/operations/sa/get-id.md). Possible values: `*`, `<subject_ID>`. This is an optional parameter.
 
-
+         
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
@@ -281,7 +281,7 @@ To apply or edit a bucket access policy:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
        * `Principal`: Requested permission subject ID.  You can request permissions for a [user](../../../iam/operations/users/get.md), or [service account](../../../iam/operations/sa/get-id.md). Possible values: `*`, `<subject_ID>`. This is an optional parameter.
 
-
+         
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).

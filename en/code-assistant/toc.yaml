@@ -16,5 +16,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa.md
-base: en/code-assistant
-deepBase: 2

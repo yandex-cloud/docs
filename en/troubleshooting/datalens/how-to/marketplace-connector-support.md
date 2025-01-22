@@ -1,6 +1,7 @@
 # How to connect to MyWarehouse connector
 
 
+
 ## Scenario description {#case-description}
 
 You need to connect to external MyWarehouse connector.

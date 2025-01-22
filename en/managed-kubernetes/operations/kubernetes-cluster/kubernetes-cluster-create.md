@@ -18,7 +18,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   1. Go to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 
-
+  
   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
 
 

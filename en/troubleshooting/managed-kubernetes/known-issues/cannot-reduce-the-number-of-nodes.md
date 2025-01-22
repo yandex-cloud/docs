@@ -1,6 +1,7 @@
 # Number of nodes in the group fails to decrease
 
 
+
 ## Issue description {#issue-description}
 
 The number of nodes in the group does not decrease in the {{ managed-k8s-full-name }} cluster.

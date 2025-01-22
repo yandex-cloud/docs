@@ -154,7 +154,7 @@
 
   Результат:
 
-
+  
   ```text
   - yc.postbox.send
   - yc.ydb.tables.manage

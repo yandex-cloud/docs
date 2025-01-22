@@ -38,7 +38,7 @@ curl --request GET "{{ host }}/v2/myself" \
 
    The response body contains a JSON array with the current user parameters.
 
-
+   
    ```json
       [
          {

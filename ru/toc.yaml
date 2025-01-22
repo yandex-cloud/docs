@@ -173,5 +173,3 @@ items:
     href: glossary/index.md
   - name: Готовые решения для известных сценариев
     href: troubleshooting/index.yaml
-base: ru
-deepBase: 1

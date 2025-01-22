@@ -12,7 +12,11 @@ description: Следуя данной инструкции, вы сможете
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
   1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** в строке с нужным видео нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
-  1. Измените название и описание видео.
+  1. Измените название видео.
+  1. (Опционально) В поле **{{ ui-key.yacloud_video.videos.label_description }}** укажите таймкоды к видео в формате:
+   
+    {% include [video-timecodes](../../../_includes/video/video-timecodes.md) %}
+
   1. В списке **{{ ui-key.yacloud_video.videos.label_accessRights }}** измените тип доступа к видео:
       * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}** — видео будет доступно по специальной ссылке.
       

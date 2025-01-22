@@ -135,7 +135,7 @@ keywords:
 
         * Количество создаваемых хостов.
 
-
+        
         * Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
 
 
@@ -261,7 +261,7 @@ keywords:
 
     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+        
         ```json
         {
             "nodeGroupSpec": {
@@ -308,7 +308,7 @@ keywords:
         * `zoneIds` — список зон доступности, где размещаются хосты кластера.
         * `subnetIds` — список идентификаторов подсетей.
 
-
+        
         * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
 
 
@@ -369,7 +369,7 @@ keywords:
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+        
         ```json
         {
             "node_group_spec": {
@@ -416,7 +416,7 @@ keywords:
         * `zone_ids` — список зон доступности, где размещаются хосты кластера.
         * `subnet_ids` — список идентификаторов подсетей.
 
-
+        
         * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
 
 
@@ -496,7 +496,7 @@ keywords:
 
             * Сетевые HDD- и SSD-диски — с шагом 1 ГБ.
 
-
+            
             * Локальные SSD-диски:
                 * для платформы **Intel Cascade Lake** — с шагом 100 ГБ;
                 * для платформы **Intel Ice Lake** — с шагом {{ local-ssd-v3-step }}.
@@ -622,7 +622,7 @@ keywords:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+        
         ```json
         {
             "updateMask": "resources,hostsCount,zoneIds,subnetIds,assignPublicIp,diskSizeAutoscaling",
@@ -669,7 +669,7 @@ keywords:
             * `zoneIds` — список зон доступности, где размещаются хосты кластера.
             * `subnetIds` — список идентификаторов подсетей.
 
-
+            
             * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
 
 
@@ -732,7 +732,7 @@ keywords:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+        
         ```json
         {
             "cluster_id": "<идентификатор_кластера>",
@@ -789,7 +789,7 @@ keywords:
             * `zone_ids` — список зон доступности, где размещаются хосты кластера.
             * `subnet_ids` — список идентификаторов подсетей.
 
-
+            
             * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
 
 

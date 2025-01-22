@@ -44,7 +44,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
   To create a {{ mch-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
   1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
@@ -52,7 +52,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
   1. From the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the {{ CH }} version which the {{ mch-name }} cluster will use. For most clusters, we recommend selecting the latest LTS version.
 
-
+  
   1. If you are expecting to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 
@@ -60,12 +60,12 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the specifications of all existing instances also change.
 
-
+      
       * Select the [disk type](../concepts/storage.md).
 
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-
+        
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
@@ -110,7 +110,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         Using the {{ yandex-cloud }} interfaces, you can manage a limited number of settings. Using SQL queries, you can [apply {{ CH }} settings at the query level](change-query-level-settings.md).
 
-
+  
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a cloud network to host the cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able to connect to the cluster.
 
 
@@ -136,7 +136,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
   To create a {{ mch-name }} cluster:
 
-
+  
   1. Check whether the folder has any subnets for the cluster hosts:
 
       ```bash
@@ -154,7 +154,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
   1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
-
+      
       ```bash
       {{ yc-mdb-ch }} cluster create \
         --name <cluster_name> \
@@ -185,7 +185,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `zone-id`: Availability zone.
         * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
 
-
+      
       * `--clickhouse-disk-type`: Disk type.
 
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
@@ -227,7 +227,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
            --admin-password "<admin_user_password>"
          ```
 
-
+      
       1. To allow access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md), provide the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
 
@@ -277,13 +277,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   To create a {{ mch-name }} cluster:
 
     1. Using the command line, navigate to the folder that will contain the {{ TF }} configuration files with an infrastructure plan. Create the directory if it does not exist.
 
-
+    
     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
     1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
@@ -317,7 +317,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
        Example structure of a configuration file that describes a cluster with a single host:
 
-
+       
        ```hcl
        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
          name                = "<cluster_name>"
@@ -362,7 +362,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
        1. To enable access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, add a section named `access` with the settings you need:
 
-
+          
           ```hcl
           resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
             ...
@@ -382,7 +382,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
           * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
 
-
+          
           * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
           * `serverless`: Access from {{ sf-name }}, `true` or `false`.
 
@@ -429,7 +429,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             {% endnote %}
 
-
+            
             ```json
             {
               "folderId": "<folder_ID>",
@@ -523,7 +523,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
             * `networkId`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
 
-
+            
             * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
 
 
@@ -582,7 +582,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 * `shardName`: [Shard](../concepts/sharding.md) name. The setting is only relevant for `CLICKHOUSE`-type hosts.
                 * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
-
+                
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
@@ -590,7 +590,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-
+            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -625,7 +625,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             {% endnote %}
 
-
+            
             ```json
             {
               "folder_id": "<folder_ID>",
@@ -720,7 +720,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `network_id`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
 
-
+            
             * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
 
 
@@ -780,7 +780,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 * `shard_name`: [Shard](../concepts/sharding.md) name. The setting is only relevant for `CLICKHOUSE`-type hosts.
                 * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
-
+                
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
@@ -788,7 +788,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-
+            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -908,7 +908,7 @@ To create a {{ CH }} cluster copy:
 
   Create a {{ mch-name }} cluster with the following test specifications:
 
-
+  
   * Name: `mych`.
   * Environment: `production`.
   * Network: `default`.
@@ -923,7 +923,7 @@ To create a {{ CH }} cluster copy:
 
   Run the following command:
 
-
+  
   ```bash
   {{ yc-mdb-ch }} cluster create \
     --name mych \
@@ -951,7 +951,7 @@ To create a {{ CH }} cluster copy:
   * Folder ID: `{{ tf-folder-id }}`.
   * New cloud network: `cluster-net`.
 
-
+  
   * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
 
 
@@ -976,7 +976,7 @@ To create a {{ CH }} cluster copy:
 
       {% include [terraform-mdb-single-network](../../_includes/mdb/terraform-single-network.md) %}
 
-
+  
   1. Configuration file with a description of the security group:
 
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
@@ -1012,7 +1012,7 @@ To create a {{ CH }} cluster copy:
 
     These subnets will belong to the `cluster-net` network.
 
-
+  
   * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
 
 
@@ -1031,7 +1031,7 @@ To create a {{ CH }} cluster copy:
 
       {% include [terraform-mdb-multiple-networks](../../_includes/mdb/terraform-multiple-networks.md) %}
 
-
+  
   1. Configuration file with a description of the security group:
 
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}

@@ -62,7 +62,7 @@ description: Следуя данной инструкции, вы сможете
 
      Результат:
 
-
+     
      ```bash
      id: a5d88ep483cm********
      name: test-balancer2-updated

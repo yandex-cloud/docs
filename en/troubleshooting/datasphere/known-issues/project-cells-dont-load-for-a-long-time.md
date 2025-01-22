@@ -1,6 +1,7 @@
 # Resolving issues with long code execution within DataSphere project cells
 
 
+
 ## Issue description {#issue-description}
 
 * When you try to execute the code from the Jupyter notebook cells within the DataSphere project, you see the `Preparing $CONF_NAME instance` message, where `$CONF_NAME` is the name of the [DataSphere computing resource configuration](../../../datasphere/concepts/configurations.md) you are using.
