@@ -1,3 +1,8 @@
+---
+title: Request handler for a function in Go
+description: In this article, you will learn about the request handler for functions in Go.
+---
+
 # Request handler for a function in Go
 
 A _request handler_ is a method used to process each Go function call. When creating a function version, you should specify the entry point that consists of the file name and the request handler name, e.g., `index.Handler`. The name of the handler file must not contain any `.` before the extension, e.g., `.handler.go`.
@@ -14,11 +19,11 @@ At any given time, one function instance cannot handle more calls than specified
 ## Cloud Functions signature {#functions}
 
 When calling the handler, the runtime environment may pass the following arguments:
-1. Invocation context (the `context` parameter).
+1. Invocation context (the `context` parameter). 
 
     The context contains the requred function version information. The structure of this object is described in [{#T}](context.md).
     If the second argument (HTTP request body) is present, the invocation context must be the first in the list of arguments.
-1. HTTP request body (the `request` parameter).
+1. HTTP request body (the `request` parameter). 
 
     The body can be represented by an array of bytes, a string, a custom type, or a pointer to it. In the first two cases, it represents a pure HTTP request, either as a byte array or as a string.
     If the handler argument has a custom type and the request body is a JSON document, it will be converted to an object of that type using the `json.Unmarshal` method.
@@ -33,13 +38,13 @@ The runtime environment returns the function execution result as a data set:
 
 1. Error (the `error` value).
 
-    If an error occurs when invoking a function, it is recommended to return an appropriate error message. If `error != nil`, the response body, if any, is ignored. **Important**: An error is a **mandatory** return value. In other words, if the response body is missing, an error must be returned as the only return value of the function; otherwise, the error must be the last on the list of return values.
+    If an error occurs when invoking a function, it is recommended to return an appropriate error message. If `error != nil`, the response body, if any, is ignored. **Important**: An error is a **required** return value. In other words, if the response body is missing, an error must be returned as the only return value of the function; otherwise, the error must be the last on the list of return values.
     
 ## Standard Go signature {#go}
 
 {{ sf-name }} supports the following handlers:
 * Functions with the `func (http.ResponseWriter, *http.Request)` signature.
-* Objects that satisfy the [http.Handler](https://pkg.go.dev/net/http#Handler) interface.
+* Objects satisfying the [http.Handler](https://pkg.go.dev/net/http#Handler) interface.
 
 The function can take values passed in the request from the [http.Request](https://pkg.go.dev/net/http#Request) structure and return a response via the [http.ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter) interface.
 
@@ -100,7 +105,7 @@ func Handler(ctx context.Context, request *Request) ([]byte, error) {
   // The function logs contain the values of the invocation context and request body
   fmt.Println("context", ctx)
   fmt.Println("request", request)
-
+  
   // The object containing the response body is converted to an array of bytes
   body, err := json.Marshal(&ResponseBody {
     Context: ctx,
@@ -134,7 +139,7 @@ request &{Hello, world 24}
 JSON document returned:
 
 ```json
-{
+{ 
   "context": {
     "Context": 0
   },
@@ -163,7 +168,7 @@ func Handler() (string, error) {
   if (rand.Int31n(100) >= 50) {
     return "", fmt.Errorf("not so lucky")
   }
-
+  
   return "Lucky one!", nil
 }
 ```

@@ -96,7 +96,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
     To create a function version, run the command:
 
-
+    
     ```
     yc serverless function version create \
       --function-name=bash-function \
@@ -119,7 +119,7 @@ Create and execute a [function](../../concepts/function.md) in Bash that welcome
 
     Result:
 
-
+    
     ```
     done (1s)
     id: d4evvn8obisa********

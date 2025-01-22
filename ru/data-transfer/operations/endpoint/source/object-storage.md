@@ -46,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Бакет {{ objstorage-full-name }} {#obj-storage}
 
-
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — имя [бакета](../../../../storage/concepts/bucket.md).
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}** – выберите из списка [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) с доступом к бакету.
 

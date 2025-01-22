@@ -192,5 +192,3 @@ items:
         href: cli-ref/version/index.md
       - name: list
         href: cli-ref/version/list.md
-base: en/_cli-ref/cli-ref/managed-clickhouse
-deepBase: 4

@@ -124,7 +124,7 @@
 
     {% list tabs group=instructions %}
     
-
+    
     - {{ websql-full-name }} {#websql}
 
         1. [Создайте подключение](../../../websql/operations/create-connection.md#connect-cluster) к БД в кластере {{ mch-name }}.

@@ -55,5 +55,3 @@ items:
         href: qa/additional-grants.md
       - name: Все вопросы на одной странице
         href: qa/all.md
-base: ru/partner
-deepBase: 2

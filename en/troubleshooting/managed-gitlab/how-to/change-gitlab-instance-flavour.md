@@ -1,6 +1,7 @@
 # Changing the instance type for Managed Service for GitLab
 
 
+
 ## Issue description {#case-description}
 
 You need to change the instance type for an existing Managed Service for GitLab instance.

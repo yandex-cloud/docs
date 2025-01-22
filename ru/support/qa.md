@@ -56,7 +56,7 @@ description: На странице представлены вопросы и о
 - [Операционные системы](https://yandex.cloud/ru/marketplace?categories=os) на виртуальных машинах {{ yandex-cloud }}, которые были созданы из предоставленных {{ yandex-cloud }} публичных образов.
 - БД и системы управления кластерами, созданные в сервисах:
     - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
-    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)    
+    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
     - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
     - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
     - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)

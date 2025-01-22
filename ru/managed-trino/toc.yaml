@@ -5,5 +5,3 @@ noIndex: true
 items:
   - name: Правила тарификации
     href: pricing.md
-base: ru/managed-trino
-deepBase: 2

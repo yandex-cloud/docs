@@ -68,7 +68,7 @@ description: Из статьи вы узнаете, как {{ forms-full-name }}
 
     - Для [отправки HTTP-запроса](send-request.md) нажмите кнопку ![](../_assets/forms/api-notification.png) **API** и выберите тип запроса.
 
-
+    
     {% note info %}
 
     Интеграции с сервисами {{ wiki-name }} и {{ tracker-name }} доступны только пользователям [{{ forms-full-name }} для бизнеса](forms-for-org.md).

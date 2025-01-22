@@ -105,7 +105,7 @@ Where:
 * `-J`: Connection to the target host via a jump host VM. Establishes a connection over SSH to the jump host VM that will redirect packages to the target host in the {{ dataproc-name }} cluster.
 * `-L`: Local port redirection to the {{ dataproc-name }} cluster host.
 
-
+    
     To connect to cluster hosts with [image version](../concepts/environment.md) 1.x, use `root` for username; for version 2.x, use `ubuntu`.
 
 

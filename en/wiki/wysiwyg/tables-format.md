@@ -95,7 +95,7 @@ description: In this tutorial, you will learn how to use tables and tables of co
 
    To open the original table embedded in the page:
 
-
+   
    1. Click ![](../../_assets/wiki/table-settings-footer.png) at the bottom of the table.
 
 
@@ -219,7 +219,7 @@ description: In this tutorial, you will learn how to use tables and tables of co
    --- | ---
    | `for` | Address of the page the tree is intended for |
    | `page` | Alternative name (alias) for the `for` parameter |
-   | `depth` | Depth of the tree. Setting this to `0` makes the depth unlimited. |   
+   | `depth` | Depth of the tree. Setting this to `0` makes the depth unlimited. |
    | `show_grids` | Displaying dynamic tables in the tree:<br>`true`: Dynamic tables are included in the tree.<br>`false`: Dynamic tables are not displayed in the tree. |
    | `show_files` | Displaying attached files in the tree:<br>`true`: Files are included in the tree.<br>`false`: Files are not displayed in the tree. |
    | `show_owners` | Displaying page authors:<br>`true`: Authors are displayed.<br>`false`: Authors are hidden. |

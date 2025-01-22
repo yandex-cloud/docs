@@ -1,6 +1,7 @@
 # How to get a reconciliation report
 
 
+
 ## Scenario description {#case-description}
 
 You need to obtain a reconciliation report for one or more closed reporting periods.
@@ -35,6 +36,8 @@ Select your billing account type on the tab below:
    You can also generate and download available reconciliation reports in [Yandex Balance](https://balance.yandex.ru/reconciliations.xml)
 
    If you need a signed original document from , please send the reconciliation report in two copies to the following address:
+
+
 
 
 

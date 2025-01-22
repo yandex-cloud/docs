@@ -83,7 +83,7 @@ Create a VM you will use to connect to the basic internet service infrastructure
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.    
+    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin) image.
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -236,7 +236,7 @@ For your VPN to work properly, allow inbound and outbound traffic to UDP ports `
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your VMs.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.    
+    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [Drupal 10](/marketplace/products/yc/drupal-8) image.
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -285,7 +285,7 @@ To provide secure access to your resources, create an IPSec instance.
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to create your VM.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.    
+    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:

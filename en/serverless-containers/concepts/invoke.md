@@ -1,6 +1,6 @@
 ---
 title: Invoking a container in {{ serverless-containers-full-name }}
-description: You can invoke a container over HTTPS using a trigger or {{ api-gw-full-name }} extension.
+description: You can invoke a container using an HTTPS, trigger, or the {{ api-gw-full-name }} extension.
 ---
 
 # Invoking a container in {{ serverless-containers-name }}
@@ -12,7 +12,9 @@ You can invoke a container:
 
 {% include [active-revision](../../_includes/serverless-containers/active-revision.md) %}
 
-{% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
+{% include [port-variable-note](../../_includes/serverless-containers/port-variable-note.md) %}
+
+{% include [invoke-container](../../_includes/serverless-containers/invoke-container.md) %}
 
 ## HTTPS {#https}
 
@@ -24,49 +26,49 @@ When being passed to the container, some HTTP request and response headers chang
 
 {% list tabs %}
 
-- Request headers
+- Request headers {#request-headers}
+    
+    Removed from a request:
 
-   Removed from a request:
+    - "Expect"
+    - "Te"
+    - "Trailer"
+    - "Upgrade"
+    - "Proxy-Authenticate"
+    - "Authorization"
+    - "Connection"        
+    - "Content-Md5"       
+    - "Max-Forwards"
+    - "Server"
+    - "Transfer-Encoding"
+    - "Www-Authenticate"
+    - "Cookie"
 
-   - "Expect"
-   - "Te"
-   - "Trailer"
-   - "Upgrade"
-   - "Proxy-Authenticate"
-   - "Authorization"
-   - "Connection"
-   - "Content-Md5"
-   - "Max-Forwards"
-   - "Server"
-   - "Transfer-Encoding"
-   - "Www-Authenticate"
-   - "Cookie"
-
-- Response headers
-
-   - Removed from a response:
-      - "Host"
-      - "Authorization"
-      - "User-Agent"
-      - "Connection"
-      - "Max-Forwards"
-      - "Cookie"
-      - "X-Request-Id"
-      - "X-Function-Id"
-      - "X-Function-Version-Id"
-      - "X-Content-Type-Options"
-
-   - Cause an error if present in a response:
-
-      - "Proxy-Authenticate"
-      - "Transfer-Encoding"
-      - "Via"
-
-   - Overwritten by adding the `X-Yf-Remapped-` prefix:
-      - "Content-Md5"
-      - "Date"
-      - "Server"
-      - "Www-Authenticate"
+- Response headers {#response-headers}
+        
+    - Removed from a response:
+        - "Host"
+        - "Authorization"
+        - "User-Agent"
+        - "Connection"
+        - "Max-Forwards"
+        - "Cookie"
+        - "X-Request-Id"
+        - "X-Function-Id"
+        - "X-Function-Version-Id"
+        - "X-Content-Type-Options"
+    
+    - Cause an error if present in a response:
+    
+        - "Proxy-Authenticate"
+        - "Transfer-Encoding"
+        - "Via"
+    
+    - Overwritten by adding the `X-Yf-Remapped-` prefix:
+        - "Content-Md5"
+        - "Date"
+        - "Server"
+        - "Www-Authenticate"
 
 {% endlist %}
 
@@ -82,5 +84,5 @@ When invoking a container using a trigger, an HTTP POST request is sent to the [
 
 ## {{ api-gw-full-name }} extension {#extension}
 
-When invoking a container using the {{ api-gw-name }}, the container is handed over an HTTP request addressed to the API gateway. In this case, the `Host` header specifies the host on which the user accessed the API gateway rather than the container's host. The request source IP is provided in the same way as when [invoking a container using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/containers.md).
+When invoking a container using the {{ api-gw-name }}, the container is handed over an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the container's host. The request source IP is provided in the same way as when [invoking a container using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/containers.md).
 

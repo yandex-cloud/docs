@@ -20,7 +20,7 @@
       sudo update-ca-certificates
       ```
 
-
+  
   1. Создайте [API-ключ](../../iam/concepts/authorization/api-key.md) с ограниченной областью действия и поместите его в локальную переменную `SECRET`:
 
       ```bash
@@ -39,7 +39,7 @@
       curl -X GET "https://<идентификатор_пространства_имен>.{{ schema-registry-endpoint }}/subjects" \
          -H "accept: application/json" --user 'api-key:'$SECRET
       ```
-
+  
 
 - Debezium
 
@@ -54,7 +54,7 @@
   
   1. Скачайте и распакуйте актуальный [Debezium-коннектор](https://debezium.io/releases/) в директорию `/etc/debezium/plugins/`.
 
-
+  
   1. Создайте [API-ключ](../../iam/concepts/authorization/api-key.md) с ограниченной областью действия и поместите его в локальную переменную `SECRET`:
 
       ```bash
@@ -78,7 +78,7 @@
       "value.converter.basic.auth.credentials.source": "USER_INFO",
       "value.converter.basic.auth.user.info": "api-key:%SECRET%"
       ```
-
+  
 
   1. Чтобы подключиться к пространству имен, запустите Debezium.
 

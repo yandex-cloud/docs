@@ -1,6 +1,7 @@
 # How to stop money withdrawals from the billing account
 
 
+
 ## Scenario description {#case-description}
 
 You need to avoid debiting your billing account for unused resources.
@@ -25,5 +26,5 @@ If the above actions did not help, [create a request for technical support]({{ l
 When creating the request, make sure to specify:
 
 1. Billing account ID.
-   You can find this ID on the [page with billing account details]({{ link-console-support }}).
+You can find this ID on the [page with billing account details]({{ link-console-support }}).
 2. Problem description.

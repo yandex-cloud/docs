@@ -218,7 +218,7 @@ keywords:
 
     1. Запросите создание кластера из резервной копии:
 
-
+        
         ```bash
         {{ yc-mdb-es }} cluster restore \
            --backup-id=<идентификатор_резервной_копии> \
@@ -253,7 +253,7 @@ keywords:
 
             * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
-
+            
             * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или   больше подсетей.
             * `assign-public-ip` — флаг, который указывается, если для хоста требуется [публичный доступ](../concepts/network.md#public-access-to-a-host): : `true` или `false`.
 
@@ -264,7 +264,7 @@ keywords:
         * `--datanode-disk-size` — размер хранилища в гигабайтах для хостов с ролью Data node.
         * `--datanode-disk-type` — [тип диска](../concepts/storage.md) для хостов с ролью Data node:
 
-
+            
             * `network-hdd`;
             * `network-ssd`;
             * `local-ssd`;

@@ -1,7 +1,3 @@
----
-title: How to embed {{ captcha-name }} into an Android app on Flutter
-description: Follow this guide to add a CAPTCHA to your Android application built with Flutter.
----
 
 # {{ captcha-full-name }} in an Android app on Flutter
 

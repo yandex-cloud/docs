@@ -443,5 +443,3 @@ items:
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
-base: ru/iot-core
-deepBase: 2

@@ -115,7 +115,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы изменить лог-группу, воспользуйтесь методом REST API [update](../api-ref/LogGroup/update.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Update](../api-ref/grpc/LogGroup/update.md).
 
-
+  
   **Пример запроса**
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}

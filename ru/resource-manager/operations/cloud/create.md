@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание нового облака
 
-[При регистрации](../../../billing/quickstart/index.md#create_billing_account) для вас будет автоматически создано [облако](../../concepts/resources-hierarchy.md#cloud) с именем `cloud-<Яндекс_ID>`. После того, как вы привязали платежный аккаунт, вы сможете создать дополнительное облако.
+[При регистрации](../../../billing/quickstart/index.md#create_billing_account) для вас будет автоматически создано [облако](../../concepts/resources-hierarchy.md#cloud) с именем `cloud-<Яндекс_ID>`. После того как вы привязали платежный аккаунт, вы сможете создать дополнительное облако.
 
 Чтобы создать дополнительное облако:
 
@@ -78,15 +78,23 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Обязательно привяжите облако к платежному аккаунту, чтобы сделать облако активным. Для этого используйте ресурс `yandex_billing_cloud_binding` с указанием на облако в поле `cloud_id`.
+  {% note warning %}
 
-  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+  Обязательно привяжите облако к платежному аккаунту, чтобы сделать облако активным. Создаваемое облако будет находиться в статусе `Creating`, пока к нему не будет привязан платежный аккаунт. Для привязки облака к платежному аккаунту используйте ресурс `yandex_billing_cloud_binding` с указанием идентификатора облака в поле `cloud_id`.
+
+  {% endnote %}
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
       ```hcl
+      # Создание облака
+
       resource "yandex_resourcemanager_cloud" "cloud1" {
         name            = "<имя_облака>"
         organization_id = "<идентификатор_организации>"
       }
+
+      # Привязка облака к платежному аккаунту
 
       resource "yandex_billing_cloud_binding" "mycloud" {
         billing_account_id = "<идентификатор_платежного_аккаунта>"
@@ -103,7 +111,7 @@ description: Следуя данной инструкции, вы сможете
       * `organization_id` — [идентификатор](../../../organization/operations/organization-get-id.md) организации. {{ TF }} позволяет создать облако только для существующей организации.
       * `billing_account_id` — идентификатор [платежного аккаунта](../../../billing/concepts/billing-account.md), к которому будет привязано создаваемое облако.
 
-          Идентификатор платежного аккаунта можно узнать в [интерфейсе {{ billing-name }}]({{ link-console-billing }}) в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-info.title_main }}** на странице нужного платежного аккаунта.
+          [Идентификатор платежного аккаунта](../../../billing/concepts/billing-account.md#billing-account-id) можно узнать в [интерфейсе {{ billing-name }}]({{ link-console-billing }}) в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-info.title_main }}** на странице нужного платежного аккаунта.
       * `cloud_id` — [идентификатор](../../../resource-manager/operations/cloud/get-id.md) облака, которое будет привязано к платежному аккаунту.
 
       Более подробную информацию о параметрах ресурсов `yandex_resourcemanager_cloud` и `yandex_billing_cloud_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-docs-link }}).

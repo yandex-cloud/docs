@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% endnote %}
 
-
+    
     1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
         * [Guide for {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups)
@@ -353,7 +353,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
         - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md).
         - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-
+    
     - If you reserved public static IP addresses for the clusters, release and [delete them](../../vpc/operations/address-delete.md).
 
 

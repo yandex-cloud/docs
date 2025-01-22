@@ -112,7 +112,7 @@
 
 - {{ TF }} {#tf}
 
-
+  
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
@@ -879,4 +879,3 @@
 1. [Удалите](../../storage/operations/buckets/delete.md) бакеты.
 1. [Удалите](../../functions/operations/trigger/trigger-delete.md) триггер `bucket-to-bucket-copying`.
 1. [Удалите](../../functions/operations/function/function-delete.md) функцию `copy-function`.
-

@@ -3,10 +3,12 @@
 In {{ wiki-name }}, you can create pages in private or public [clusters](structure.md#clusters). Use [private pages](structure.md#personal_cluster) to store your drafts and work materials. Use shared themed clusters for documents that can be helpful to colleagues.
 
 
+
 ## Recommendations for working with public pages {#common-rules}
 
 {{ wiki-full-name }} has no strict work rules: each organization can configure their own custom cluster structure. To make it easier to exchange information with colleagues, follow the general recommendations:
-* Create public pages in clusters with a relevant theme.
+
+* Create public pages in clusters with a relevant theme.
 
    If you created a page in a wrong cluster by mistake, you can [move](page-management/move-page.md) the page.
 

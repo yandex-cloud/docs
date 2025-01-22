@@ -4,7 +4,7 @@
 Create a canary release of a {{ sf-name }} function using {{ api-gw-short-name }}.
 
 To create a canary release:
-1. [Prepare your cloud](#before-begin).
+1. [Prepare your cloud environment](#before-begin).
 1. [Create a service account](#create-account).
 1. [Create a {{ sf-name }} function](#create-functions).
 1. [Add tags](#add-tag).
@@ -32,7 +32,7 @@ The cost of resources to support a web application includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `canary-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
@@ -77,7 +77,7 @@ The cost of resources to support a web application includes:
 
 - {{ TF }} {#tf}
 
-
+  
   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
@@ -251,7 +251,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `canary`.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
@@ -311,7 +311,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
                 tag: "${var.function.tag}"
                 service_account_id: <service_account_ID>
         ```
-    1. Run this command:
+    1. Run the following command:
 
         ```bash
         yc serverless api-gateway create --name canary --spec=spec.yaml --canary-weight=50 --canary-variables function.tag=canary
@@ -333,7 +333,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
         created_at: "2023-09-25T16:01:48.926Z"
         name: canary
         status: ACTIVE
-        domain: d5d1ud9bli1e********.apigw.yandexcloud.net
+        domain: {{ api-host-apigw }}
         log_group_id: ckgefpleo5eg********
         connectivity: {}
         log_options:
@@ -406,7 +406,7 @@ Add the `stable` tag to the first function version and the `canary` tag to the s
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy cloud resources.
 
@@ -436,6 +436,6 @@ Make several requests to the created API gateway. About one half of requests sho
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop paying for the created resources:
 1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
 1. [Delete the function](../../functions/operations/function/function-delete.md).

@@ -166,7 +166,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
   1. To restore an individual shard, pass the ID of a single backup:
 
-
+      
       ```bash
       {{ yc-mdb-ch }} cluster restore \
          --backup-id=<backup_ID> \
@@ -202,11 +202,11 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Disk type](../concepts/storage.md):
 
-
+          
           * `network-hdd`
           * `network-ssd`
 
-
+          
           * `local-ssd`
           * `network-ssd-nonreplicated`
 
@@ -493,7 +493,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                 --url-query folderId=<folder_ID>
             ```
 
-
+            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -547,7 +547,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
                 yandex.cloud.mdb.clickhouse.v1.BackupService.List
             ```
 
-
+            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 

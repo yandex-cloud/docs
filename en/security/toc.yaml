@@ -79,5 +79,3 @@ items:
     href: security-bulletins/index.md
   - name: Public IP address ranges
     href: ip-list.md
-base: en/security
-deepBase: 2

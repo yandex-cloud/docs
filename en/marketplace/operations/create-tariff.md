@@ -1,3 +1,8 @@
+---
+title: Creating a service plan
+description: Follow this guide to create a service plan.
+---
+
 # Creating a service plan
 
 1. Log in to the [{{ marketplace-short-name }} partner dashboard]({{ link-cloud-partners }}).
@@ -18,11 +23,11 @@
 1. Enter a service plan name.
 1. Select `{{ ui-key.yacloud_components.marketplace.product-pricing-type_payg }}` ⟶ **Other pricing system**.
 1. In the **Service plan description** field, describe the service plan to create:
-   * Describe the plan you want to create and we will help set it up if possible.
-   * Create a plan on your own: specify the metric for tracking product consumption by users and the unit price.
+    * Describe the plan you want to create and we will help set it up if possible.
+    * Create a plan on your own: specify the metric for tracking product consumption by users and the unit price.
 
-   For more information, see [{#T}](../concepts/api-usage.md).
+    For more information, see [{#T}](../concepts/api-usage.md).
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-The service plan will be submitted for verification and approval. Once the SKU is approved, you will receive an `skuId` representing the service plan just created. You can use the `skuId` in the API to process [application usage records](../api-ref/).
+The service plan will be submitted for verification and approval. Once the SKU is approved, you will receive an `skuId` for the new service plan. You can use the `skuId` in the API to work with [application usage records](../api-ref/).

@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-
+  
   @[youtube](https://www.youtube.com/watch?v=1gFAfVA4XRM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=2&pp=iAQB)
 
 

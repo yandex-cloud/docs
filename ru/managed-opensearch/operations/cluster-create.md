@@ -51,7 +51,7 @@ keywords:
       1. Выберите версию {{ OS }}.
       1. Выберите [плагины](plugins.md#supported-plugins), которые нужно установить в кластер.
 
-
+  
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
@@ -79,7 +79,7 @@ keywords:
 
       1. Выберите количество создаваемых хостов.
 
-
+      
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
 
           {% note tip %}
@@ -102,7 +102,7 @@ keywords:
       1. Укажите расположение хостов по зонам доступности и подсетям.
       1. Выберите количество создаваемых хостов.
         
-
+      
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
 
           {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
@@ -327,7 +327,7 @@ keywords:
 
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+      
       ```json
       {
           "folderId": "<идентификатор_каталога>",
@@ -425,7 +425,7 @@ keywords:
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-
+      
       * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
       * `serviceAccountId` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером.
 
@@ -452,7 +452,7 @@ keywords:
                   * `zoneIds` — список зон доступности, где размещаются хосты кластера.
                   * `subnetIds` — список идентификаторов подсетей.
 
-
+                  
                   * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
 
 
@@ -472,7 +472,7 @@ keywords:
 
           * `dashboardsSpec` — настройки групп хостов `Dashboards`. Содержат параметр `nodeGroups`, структура которого совпадает со структурой `opensearchSpec.nodeGroups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
 
-
+          
           * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
               * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
@@ -506,7 +506,7 @@ keywords:
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+      
       ```json
       {
           "folder_id": "<идентификатор_каталога>",
@@ -604,7 +604,7 @@ keywords:
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-
+      
       * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
       * `service_account_id` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером.
 
@@ -631,7 +631,7 @@ keywords:
                   * `zone_ids` — список зон доступности, где размещаются хосты кластера.
                   * `subnet_ids` — список идентификаторов подсетей.
 
-
+                  
                   * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
 
 
@@ -651,7 +651,7 @@ keywords:
 
           * `dashboards_spec` — настройки групп хостов `Dashboards`. Содержат параметр `node_groups`, структура которого совпадает со структурой `opensearch_spec.node_groups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
 
-
+          
           * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
               * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);

@@ -104,7 +104,7 @@ Before delivery, the content will be compressed by CDN servers using the GZIP co
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-
+      
       ```hcl
       terraform {
         required_providers {

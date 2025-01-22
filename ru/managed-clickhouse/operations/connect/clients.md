@@ -256,7 +256,7 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
 
 - Подключение с SSL {#with-ssl}
 
-
+  
    ```bash
    # Подключить DEB-репозиторий.
    RUN apt-get update && \

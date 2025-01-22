@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Перенесите на рабочую область таблицу `MS_SalesMiniTable`.
 
-   ![drag-table](../_assets/datalens/quickstart/drag-table.png)   
+   ![drag-table](../_assets/datalens/quickstart/drag-table.png)
 
 1. Перейдите на вкладку **Поля**.
 
@@ -77,7 +77,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Создайте показатель с суммой заказа. Для этого в столбце **Агрегация** для поля `Sales` выберите значение **Сумма**.
 
-   ![dataset-sales-sum](../_assets/datalens/quickstart/dataset-sales-sum.png)      
+   ![dataset-sales-sum](../_assets/datalens/quickstart/dataset-sales-sum.png)
 
 1. Создайте показатель с количеством заказов:
 
@@ -86,14 +86,14 @@ description: Следуя данной инструкции, вы сможете
 
 1. Для поля `ShopAddressCoord` измените тип данных: в столбце **Тип** выберите значение **Геоточка**.
 
-   ![dataset-sales-geotype](../_assets/datalens/quickstart/dataset-sales-geotype.png)      
+   ![dataset-sales-geotype](../_assets/datalens/quickstart/dataset-sales-geotype.png)
 
 1. Сохраните датасет:
 
    1. В правом верхнем углу нажмите кнопку **Сохранить**.
    1. Введите название датасета — `Sales Dataset` и нажмите кнопку **Создать**.
 
-      ![create-dataset](../_assets/datalens/quickstart/create-dataset.png)            
+      ![create-dataset](../_assets/datalens/quickstart/create-dataset.png)
 
 ## Создайте чарт — столбчатая диаграмма {#create-column-chart}
 
@@ -110,7 +110,7 @@ description: Следуя данной инструкции, вы сможете
    1. В правом верхнем углу нажмите кнопку **Сохранить**.
    1. В открывшемся окне введите название чарта `Продажи по подкатегориям` и нажмите кнопку **Сохранить**.
 
-      ![create-chart-1](../_assets/datalens/quickstart/create-column-chart.png)            
+      ![create-chart-1](../_assets/datalens/quickstart/create-column-chart.png)
 
 ## Создайте чарт — накопительная диаграмма с областями {#create-area-chart}
 
@@ -118,13 +118,13 @@ description: Следуя данной инструкции, вы сможете
 
    1. В правом верхнем углу нажмите значок ![save-button](../_assets/console-icons/chevron-down.svg) → **Сохранить как копию**.
 
-      ![chart-save-as](../_assets/datalens/quickstart/chart-save-as.png)            
+      ![chart-save-as](../_assets/datalens/quickstart/chart-save-as.png)
 
    1. В открывшемся окне введите название нового чарта `Продажи по неделям` и нажмите кнопку **Сохранить**.
 
 1. Выберите тип визуализации **Накопительная диаграмма с областями**.
 
-   ![type-chart-select](../_assets/datalens/quickstart/type-chart-select.png)      
+   ![type-chart-select](../_assets/datalens/quickstart/type-chart-select.png)
 
 1. Замените подкатегории товаров на дату заказа на оси X. Для этого из раздела **Измерения** перетащите поле `OrderDate` в секцию **X** и наведите его над полем `ProductSubcategory`, пока то не станет красным.
 1. Добавьте в чарт категорию товаров. Для этого из раздела **Измерения** перетащите поле `ProductCategory` в секцию **Цвета**.
@@ -133,14 +133,14 @@ description: Следуя данной инструкции, вы сможете
    1. В секции **X** нажмите на иконку с календарем у поля `OrderDate`.
    1. В поле **Группировка** выберите **Округление** → **Неделя**.
 
-      ![chart-week-grouping](../_assets/datalens/quickstart/chart-week-grouping.png)            
+      ![chart-week-grouping](../_assets/datalens/quickstart/chart-week-grouping.png)
 
    1. Нажмите кнопку **Применить**.
 
 1. Уберите сортировку по показателю продаж — в секции **Сортировка** напротив поля `Sales` нажмите значок ![save-button](../_assets/console-icons/xmark.svg) (значок появляется при наведении указателя на поле).
 1. В правом верхнем углу нажмите кнопку **Сохранить**.
 
-   ![create-chart-2](../_assets/datalens/quickstart/create-area-chart.png)      
+   ![create-chart-2](../_assets/datalens/quickstart/create-area-chart.png)
 
 
 ## Создайте чарт — карта {#create-map-chart}
@@ -163,7 +163,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. В правом верхнем углу нажмите кнопку **Сохранить**.
 
-   ![create-chart-3](../_assets/datalens/quickstart/create-map-chart.png)   
+   ![create-chart-3](../_assets/datalens/quickstart/create-map-chart.png)
 
 
 
@@ -176,7 +176,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Перейдите в воркбук `Quick start` — нажмите его название в пути до чарта.
 
-   ![chart-settings](../_assets/datalens/quickstart/bread-crumbs.png)   
+   ![chart-settings](../_assets/datalens/quickstart/bread-crumbs.png)
 
 1. В правом верхнем углу нажмите **Создать** → ![image](../_assets/console-icons/layout-cells-large.svg) **Дашборд**.
 
@@ -186,13 +186,13 @@ description: Следуя данной инструкции, вы сможете
 1. В открывшемся окне нажмите кнопку **Выбрать**.
 1. Выберите чарт `Карта продаж`.
 
-   ![chart-settings](../_assets/datalens/quickstart/chart-settings.png)      
+   ![chart-settings](../_assets/datalens/quickstart/chart-settings.png)
 
 1. Нажмите кнопку **Добавить**.
 1. Повторите шаги 3-6, чтобы добавить чарты `Продажи по подкатегориям` и `Продажи по неделям`.
 1. Установите размеры чартов с помощью мыши и расположите их на дашборде в удобном для вас порядке.
 
-   ![add-charts](../_assets/datalens/quickstart/add-charts.png)      
+   ![add-charts](../_assets/datalens/quickstart/add-charts.png)
 
 ## Настройте фильтрацию чартов {#add-chart-chart-filtration}
 
@@ -201,11 +201,11 @@ description: Следуя данной инструкции, вы сможете
 
 1. В правом верхнем углу чарта `Карта продаж` нажмите значок ![image](../_assets/console-icons/gear.svg).
 
-   ![chart-settings](../_assets/datalens/quickstart/chart-dash-settings.png)   
+   ![chart-settings](../_assets/datalens/quickstart/chart-dash-settings.png)
 
 1. Включите опцию **Фильтрация**.
 
-   ![chart-filtration-option](../_assets/datalens/quickstart/chart-filtration-option.png)   
+   ![chart-filtration-option](../_assets/datalens/quickstart/chart-filtration-option.png)
 
 1. Нажмите кнопку **Сохранить**.
 
@@ -227,7 +227,7 @@ description: Следуя данной инструкции, вы сможете
    1. В поле **Заголовок** введите `Дата заказа`.
    1. Включите опцию **Диапазон**.
 
-      ![selector-settings](../_assets/datalens/quickstart/selector-settings.png)            
+      ![selector-settings](../_assets/datalens/quickstart/selector-settings.png)
 
    1. Нажмите кнопку **Сохранить**.
 
@@ -237,7 +237,7 @@ description: Следуя данной инструкции, вы сможете
    1. В правом верхнем углу дашборда нажмите кнопку **Сохранить**.
    1. Введите название дашборда `Продажи` и нажмите кнопку **Создать**.
 
-      ![dashboard-saved](../_assets/datalens/quickstart/dashboard-saved.png)            
+      ![dashboard-saved](../_assets/datalens/quickstart/dashboard-saved.png)
 
 ## Изучите, как работает дашборд {#dashboard-work}
 
@@ -246,7 +246,7 @@ description: Следуя данной инструкции, вы сможете
 
    1. В чарте `Карта продаж` нажмите точку на карте. Связанные чарты отфильтруются по выбранному измерению.
 
-      ![chart-chart-filtration](../_assets/datalens/quickstart/chart-chart-filtration.png)      
+      ![chart-chart-filtration](../_assets/datalens/quickstart/chart-chart-filtration.png)
 
    1. Сбросьте фильтрацию чартом: повторно нажмите на выбранную точку или в правом верхнем углу чарта нажмите значок ![image](../_assets/datalens/clear-filters.svg).
 
@@ -255,7 +255,7 @@ description: Следуя данной инструкции, вы сможете
    1. В селекторе `Дата заказа` введите даты начала и конца периода: `01.01.2019 - 31.01.2019`.
    1. Данные отфильтруются по полю `OrderDate` во всех чартах текущей вкладки дашборда, которые построены по тому же датасету.
 
-      ![selector-filtration](../_assets/datalens/quickstart/selector-filtration.png)      
+      ![selector-filtration](../_assets/datalens/quickstart/selector-filtration.png)
 
    1. Сбросьте фильтрацию селектором: в правом углу селектора нажмите значок ![save-button](../_assets/console-icons/xmark.svg)
 

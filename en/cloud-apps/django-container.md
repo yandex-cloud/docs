@@ -16,12 +16,12 @@ The cost of resources for the application includes:
 1. On the left-hand panel, select **Marketplace**.
 1. Select **Django Container** and click **Use**.
 1. Specify the following:
-   * Application name.
-   * (Optional) Application description.
-   * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
+    * Application name.
+    * Application description (not required).
+    * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
 1. Click **Install**.
 
-## Test the controller {#check-result}
+## Test your website {#check-result}
 
 On the **Overview** page, find the API gateway under **Application resources**, go to the gateway page, and copy the service domain link. Follow the link in your browser and open the demo Django website welcome page.
 

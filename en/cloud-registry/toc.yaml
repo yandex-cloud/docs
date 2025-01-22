@@ -156,5 +156,3 @@ items:
                 href: api-ref/Registry/listArtifacts.md
   - name: '{{ at-name }} events'
     href: at-ref.md
-base: en/cloud-registry
-deepBase: 2

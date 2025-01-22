@@ -39,7 +39,7 @@ To update the HTTP router parameters:
 
      Result:
      
-     
+          
      ```text
      id: a5dld80l32ed********
      name: new-http-router

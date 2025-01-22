@@ -1,7 +1,3 @@
----
-title: Guide on creating virtual hosting
-description: This guide will instruct you to set up virtual hosting of multiple websites with different domain names at the same IP address.
----
 
 # Setting up virtual hosting
 

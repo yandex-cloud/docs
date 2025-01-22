@@ -1,6 +1,7 @@
 # Resolving the "Invalid audio received" error
 
 
+
 ## Issue description {#issue-description}
 
 When you make a request to recognize a file, you see this error in the service response:

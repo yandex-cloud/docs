@@ -43,7 +43,7 @@ The cost of building a VM image and creating a VM from it includes:
 1. Install Packer:
    1. Download a Packer distribution and install it by following the [instructions on the official website](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
 
-
+      
       You can also download a Packer distribution for your platform from a [{{ yandex-cloud }} mirror](https://hashicorp-releases.yandexcloud.net/packer/).
 
 
@@ -141,7 +141,7 @@ The cost of building a VM image and creating a VM from it includes:
 1. Create an [HCL](https://github.com/hashicorp/hcl#readme) configuration file, such as `toolbox.pkr.hcl`.
 1. In the configuration file, describe the parameters of the image to create:
 
-
+   
    ```hcl
    # {{ yandex-cloud }} Toolbox VM Image based on Ubuntu 20.04 LTS
    #

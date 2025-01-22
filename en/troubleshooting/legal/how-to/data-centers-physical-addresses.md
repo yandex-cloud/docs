@@ -1,6 +1,7 @@
 # Determine the physical (geographical) address of the Yandex Cloud Data Center
 
 
+
 ## Scenario description {#case-description}
 
 You need to know the exact addresses of the servers located in the Yandex Cloud data processing centers, to include them in the notification documents prepared in connection with the requirements of regulatory authorities.

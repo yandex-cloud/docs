@@ -18,7 +18,7 @@ description: In this tutorial, you will learn how to set up an {{ OS }} target e
 ## Scenarios for transferring data to {{ OS }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-   
+
    * [Delivering data from {{ KF }} to {{ OS }}](../../../tutorials/mkf-to-mos.md).
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}

@@ -329,5 +329,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/network-load-balancer
-deepBase: 2

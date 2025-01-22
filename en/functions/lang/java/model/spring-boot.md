@@ -29,7 +29,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
     pom.xml
     ```
 
-    - `Application.java` file:
+    * `Application.java` file:
 
       ```java
       package util;
@@ -45,7 +45,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
       }
       ```
 
-   - `TestController.java` file:
+    * `TestController.java` file:
 
       ```java
       package util.controller;
@@ -61,7 +61,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
       }
       ```
 
-   - `pom.xml` file:
+    * `pom.xml` file:
 
       ```xml
       <?xml version="1.0" encoding="UTF-8"?>
@@ -122,7 +122,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
 
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `java17`.
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
-    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Upload the previously created archive.
+    * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Upload the archive you created earlier.
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `30`.
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `util.Application`.
@@ -164,7 +164,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
     curl \
       --request GET \
       --header "Authorization: Bearer ${IAM_TOKEN}" \
-      https://<gateway_ID>.apigw.yandexcloud.net/get/Anonymous
+      https://{{ api-host-apigw }}/get/Anonymous
     ```
 
     Result:

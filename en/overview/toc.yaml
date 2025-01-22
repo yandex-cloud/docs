@@ -76,5 +76,3 @@ items:
             href: platform-comparison/vmware/network-subsystem.md
           - name: Management, monitoring, and billing tools
             href: platform-comparison/vmware/management-tools.md
-base: en/overview
-deepBase: 2

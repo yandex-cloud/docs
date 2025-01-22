@@ -22,7 +22,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
 
 1. Save the following `PersistentVolumeClaim` creation specification to a YAML file named `pvc-dynamic.yaml`.
 
-
+   
    {% note info %}
 
    If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
@@ -33,7 +33,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
 
    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-
+   
    ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
@@ -70,7 +70,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
 
    Result:
 
-
+   
    ```text
    Name:          pvc-dynamic
    Namespace:     default
@@ -149,7 +149,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
 
      Result:
 
-
+     
      ```text
      Name:          pvc-dynamic
      Namespace:     default

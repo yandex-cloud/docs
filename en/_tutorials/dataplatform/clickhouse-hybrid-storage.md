@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
 
-
+        
         * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
 
 
@@ -133,7 +133,7 @@ For more information on setting up TTL, see the [{{ CH }} documentation]({{ ch.d
 1. Disconnect from the database.
 1. Download the test dataset:
 
-
+   
    ```bash
    curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```

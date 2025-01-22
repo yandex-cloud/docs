@@ -29,5 +29,3 @@ items:
         href: check-user-data.md
   - name: Правила тарификации
     href: pricing.md
-base: ru/microsoft
-deepBase: 2

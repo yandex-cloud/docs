@@ -40,7 +40,7 @@ When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingre
       Update Complete. ⎈Happy Helming!⎈
       ```
 
-
+   
    {% note tip %}
 
    You can also install an NGINX Ingress controller [using {{ marketplace-full-name }}](applications/ingress-nginx.md).

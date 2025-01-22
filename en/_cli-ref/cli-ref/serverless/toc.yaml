@@ -396,5 +396,3 @@ items:
         href: cli-ref/workflow/list-operations.md
       - name: update
         href: cli-ref/workflow/update.md
-base: en/_cli-ref/cli-ref/serverless
-deepBase: 4

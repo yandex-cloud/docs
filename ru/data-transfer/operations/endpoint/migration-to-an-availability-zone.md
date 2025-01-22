@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Создайте подсеть](../../../vpc/operations/subnet-create.md) в зоне доступности, в которую вы переносите эндпоинт.
 1. Если пользовательская инсталляция установлена на виртуальной машине {{ yandex-cloud }}, выполните действия:
 
-
+   
    1. [Остановите ВМ](../../../compute/operations/vm-control/vm-stop-and-start.md#stop).
    1. [Перенесите ВМ в другую зону доступности](../../../compute/operations/vm-control/vm-change-zone.md).
    1. [Запустите ВМ](../../../compute/operations/vm-control/vm-stop-and-start.md#start).
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Перенесите хосты кластера в другую зону доступности. Подробнее см. в документации сервисов:
 
-   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md);   
+   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md);
    * [{{ mgp-full-name }}](../../../managed-greenplum/operations/cluster-backups.md#restore);
    * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md);
    * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md);

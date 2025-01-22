@@ -28,7 +28,7 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-
+   
    1. [Configure a security group](../../managed-kafka/operations/connect/index.md#configuring-security-groups) for your {{ mkf-name }} cluster and VM so that you can connect to topics from a cloud-based VM.
 
 
@@ -50,7 +50,7 @@ Prepare the infrastructure:
       * Subnet.
       * VM running Ubuntu 22.04.
 
-
+      
       * Default security group and rules required to connect to the cluster and VM from the internet.
 
 
@@ -379,7 +379,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    Delete:
 
-
+   
    1. {{ mkf-name }} [cluster](../../managed-kafka/operations/cluster-delete.md)
    1. [Virtual machine](../../compute/operations/vm-control/vm-delete.md)
    1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md)

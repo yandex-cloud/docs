@@ -44,7 +44,7 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
      ssh-ed25519 AAAAB3Nz.....BdZoeQ==
      ```
 
-
+     
      To learn how to create an SSH key pair, see the [{{ compute-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 

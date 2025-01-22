@@ -80,7 +80,7 @@ To create a {{ PG }} connection:
 
 1. In the window that opens:
 
-
+   
    1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to.
 
    1. Enter the connection name.

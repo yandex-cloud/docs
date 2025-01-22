@@ -1,11 +1,3 @@
----
-description: Network Time Protocol Servers (NTP) enable you to set up synchronization with public NTP servers on {{ yandex-cloud }} VM instances running Windows Server and Linux. This document describes the process of synchronization setup on the servers.
-keywords:
-  - ntp
-  - ntp server
-  - sntp
-  - time synchronization
----
 
 # Configuring clock synchronization using NTP
 
@@ -74,7 +66,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
   1. Specify the addresses of the recommended servers in the `FallbackNTP=` parameter of the `[Time]` section, such as the following:
      
-
+      
       ```text
       FallbackNTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de
       ```
@@ -118,7 +110,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
   1. Specify the recommended server addresses. Comment out default server addresses with `#` at the beginning of the relevant line. Here is an example:
      
-
+      
       ```text
       # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
       # on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
@@ -163,7 +155,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
   1. Specify the recommended server addresses, e.g.:
 
-
+      
 
       ```powershell
       w32tm /config /syncfromflags:manual /manualpeerlist:"0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de"
@@ -235,7 +227,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
   Result:
 
-
+  
   ```bash
       remote           refid      st t when poll reach   delay   offset  jitter
   ==============================================================================
@@ -263,7 +255,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
   Result:
 
-
+  
   ```powershell
   ...
   [TimeProviders]

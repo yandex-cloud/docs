@@ -1,6 +1,7 @@
 # Resolving the "Incorrect format" error Text string too long
 
 
+
 ## Issue description {#issue-description}
 
 When entering a text string, you see this error:

@@ -389,7 +389,7 @@ description: Вы можете создавать резервные копии 
                 --url-query folderId=<идентификатор_каталога>
             ```
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -443,7 +443,7 @@ description: Вы можете создавать резервные копии 
                 yandex.cloud.mdb.redis.v1.BackupService.List
             ```
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 

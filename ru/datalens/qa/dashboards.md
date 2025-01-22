@@ -6,6 +6,7 @@ description: На странице представлены вопросы и о
 # Дашборды
 
 
+
 {% include [configure-link-between-selectors](../../_qa/datalens/configure-link-between-selectors.md) %}
 
 {% include [unavailable-selector-values](../../_qa/datalens/unavailable-selector-values.md) %}
@@ -23,6 +24,7 @@ description: На странице представлены вопросы и о
 Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
 
 {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+
 
 
 

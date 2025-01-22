@@ -208,7 +208,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
 1. Prepare the subnet ID by running the `yc vpc subnet list` command.
 1. Create a JSON file with any name, e.g., `image.json`. Add to it the following configuration:
 
-
+    
     ```json
     {
       "builders": [

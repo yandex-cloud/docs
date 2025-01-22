@@ -19,5 +19,3 @@ items:
     href: pricing.md
   - name: FAQ
     href: qa.md
-base: en/support
-deepBase: 2

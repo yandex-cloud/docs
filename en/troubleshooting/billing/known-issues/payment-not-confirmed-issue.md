@@ -1,6 +1,7 @@
 # Billing account is in the PAYMENT_NOT_CONFIRMED status
 
 
+
 ## Issue description {#issue-description}
 
 The billing account is in the `PAYMENT_NOT_CONFIRMED` status.

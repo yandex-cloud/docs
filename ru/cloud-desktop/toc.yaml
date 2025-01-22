@@ -258,5 +258,3 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
-base: ru/cloud-desktop
-deepBase: 2

@@ -48,5 +48,3 @@ items:
         href: cli-ref/node-group/delete.md
       - name: update
         href: cli-ref/node-group/update.md
-base: en/_cli-ref/cli-ref/managed-opensearch
-deepBase: 4

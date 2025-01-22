@@ -47,7 +47,7 @@ description: Из статьи вы узнаете, как изменить вс
 
       Результат:
 
-
+      
       ```text
       id: dd0gj5tsj2**********
       folder_id: aoek49ghmk**********

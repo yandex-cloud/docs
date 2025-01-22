@@ -383,14 +383,14 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
-
+     
      ```bash
      {{ yc-mdb-rd }} resource-preset list
      ```
 
      Result:
 
-
+     
      ```text
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
@@ -882,7 +882,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
     1. Run the following command with a list of settings to update:
 
-
+        
         ```bash
         {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
             --backup-window-start <time> \

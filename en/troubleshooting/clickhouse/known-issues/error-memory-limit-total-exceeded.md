@@ -1,6 +1,7 @@
 # Fixing the request execution error: Exception Memory limit (total) exceeded
 
 
+
 ## Issue description {#issue-description}
 
 When executing a query in ClickHouse, you get this error:

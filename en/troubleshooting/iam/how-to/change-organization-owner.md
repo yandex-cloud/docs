@@ -1,6 +1,7 @@
 # How to change the organization owner
 
 
+
 ## Scenario description {#case-description}
 
 You need to change the owner of the cloud organization in {{ iam-full-name }}.

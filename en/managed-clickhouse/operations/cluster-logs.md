@@ -90,7 +90,7 @@
 
         * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
 
-
+        
         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
@@ -137,7 +137,7 @@
 
         * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
-
+        
         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
@@ -206,7 +206,7 @@ This method allows you to get cluster logs in real time.
 
             {% include [stream-logs-filter](../../_includes/mdb/api/stream-logs-filter.md) %}
 
-
+        
         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 
@@ -262,7 +262,7 @@ This method allows you to get cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
-
+        
         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 

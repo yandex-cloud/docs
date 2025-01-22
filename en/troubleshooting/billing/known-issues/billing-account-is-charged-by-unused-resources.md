@@ -1,6 +1,7 @@
 # Funds for unused resources are debited from the billing account balance
 
 
+
 ## Issue description {#issue-description}
 
 * Your billing account is debited for resources you created but no longer use.

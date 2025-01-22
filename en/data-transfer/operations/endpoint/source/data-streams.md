@@ -25,7 +25,7 @@ description: Follow this guide to configure an {{ yds-full-name }} source endpoi
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
     * [{{ DS }} to {{ CH }}](../../../tutorials/yds-to-clickhouse.md).
-    * [{{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).    
+    * [{{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
     * [{{ DS }} to {{ ydb-name }}](../../../tutorials/yds-to-ydb.md).
     * [{{ DS }} to {{ mkf-name }}](../../../tutorials/yds-to-kafka.md).
 
@@ -62,12 +62,12 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 - Management console {#console}
 
-
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.transformer.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}**: Select one of the functions created in {{ sf-name }}.
 
-
+            
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or [create](../../../../iam/operations/sa/create.md) a service account you are going to use to start the processing function.
 
 

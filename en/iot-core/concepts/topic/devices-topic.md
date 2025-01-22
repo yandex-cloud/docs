@@ -1,12 +1,12 @@
 ---
 title: Device topics in {{ iot-full-name }}
-description: This page describes all device topics available in {{ iot-full-name }}.
+description: This page describes all device topics available in {{ iot-name }}.
 ---
 
 # Device topics
 
 Device topics available in the service:
-* `$devices/<device_ID>/events`: Topic for sending telemetry data.
+* `$devices/<device_ID>/events`: Topic for sending telemetry data.  
 * `$devices/<device_ID>/state`: Permanent topic for sending telemetry data.
 
    The device can write data to these topics and the registry can read the data from them. Registries subscribed to these topics will know which device sent the data, because the topic contains the device ID.

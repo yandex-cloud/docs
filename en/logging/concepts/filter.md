@@ -38,7 +38,7 @@ You can filter log group records using the filter expression language. With the 
 
    You can filter records using the `--filter` and other flags of the `yc logging read` command at the same time. This combines the conditions with the `AND` operator. For example, you can set a filter using the `--resource-types` flag and the `level` parameter of the `--filter` flag:
 
-
+   
    ```
    yc logging read --group-name=default --resource-types=serverless.function --filter="level=INFO"
    ```

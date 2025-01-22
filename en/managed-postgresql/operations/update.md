@@ -70,7 +70,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
-
+     
      ```bash
      {{ yc-mdb-pg }} resource-preset list
      ```
@@ -435,7 +435,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
     1. Run the following command with a list of settings to update:
 
-
+        
         ```bash
         {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
             --backup-window-start <backup_start_time> \
@@ -470,7 +470,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
     
-
+    
     * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
     * `--yandexquery-access`: Enables cluster access from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and provided upon request.
@@ -488,7 +488,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-
+    
     * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
 
         * `enabled`: If `true`, enables collecting statistics. The default value is `false`.
@@ -563,7 +563,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
-
+  
   1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
 
@@ -604,7 +604,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+     
      ```json
      {
        "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
@@ -665,7 +665,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
        * `backupRetainPeriodDays`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
-
+       
        * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
@@ -675,7 +675,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          * `yandexQuery`: [{{ yq-full-name }}](../../query/index.yaml)
 
 
-
+       
        * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
          * `enabled`: Enable collecting statistics.
@@ -725,7 +725,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+     
      ```json
      {
        "cluster_id": "<cluster_ID>",
@@ -798,7 +798,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
        * `backup_retain_period_days`: Number of days to retain the cluster backup. Possible values: between `7` and `60` days.
 
-
+       
        * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
@@ -808,7 +808,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          * `yandex_query`: [{{ yq-full-name }}](../../query/index.yaml)
 
 
-
+       
        * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
          * `enabled`: Enables statistics collection.

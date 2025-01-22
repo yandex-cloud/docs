@@ -320,5 +320,3 @@ items:
                 href: eventrouter/api-ref/Rule/listOperations.md
   - name: Release notes
     href: release-notes.md
-base: en/serverless-integrations
-deepBase: 2

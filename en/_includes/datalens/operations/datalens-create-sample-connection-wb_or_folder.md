@@ -8,7 +8,7 @@
 
    1. In the window that opens, select `Specify manually` for the connection type and provide the following connection parameters:
 
-
+   
       * Host name: `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}`
       * HTTP interface port: `8443` (default)
       * Username: `samples_ro`

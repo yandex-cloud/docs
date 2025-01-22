@@ -111,6 +111,7 @@ description: На странице представлен список прак�
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](postgresql-to-opensearch.md)
 * [{#T}](opensearch-saml-keycloak.md)
+* [{#T}](opensearch-yandex-lemmer.md)
 
 
 ## {{ PG }} {#postgresql}

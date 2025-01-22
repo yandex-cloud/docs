@@ -22,7 +22,7 @@ To create a {{ ydb-name }} connection:
 
 1. Specify the connection parameters:
 
-
+   
    * **Cloud and folder**. Select the folder where your service account will be located.
    * **Service account**. Select an existing service account or create a new one.
    * **Database**. Select the database to connect or create a new one.
@@ -37,7 +37,7 @@ To create a {{ ydb-name }} connection:
    * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
    * **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
 
-
+   
    ![image](../../../_assets/datalens/operations/connection/connection-ydb.png)
 
 

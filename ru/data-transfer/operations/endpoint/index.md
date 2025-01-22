@@ -115,7 +115,7 @@
 
 - {{ TF }} {#tf}
 
-
+  
   {% note info %}
 
   Создание эндпоинта с помощью {{ TF }} поддерживается только для источников и приемников типа {{ CH }}, {{ MG }}, {{ MY }} и {{ PG }}.
@@ -123,7 +123,7 @@
   {% endnote %}
 
 
-
+  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -154,7 +154,7 @@
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-
+  
   1. Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 

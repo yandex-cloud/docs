@@ -1,12 +1,3 @@
----
-title: Хостинг статического сайта на фреймворке Gatsby
-description: Создание и размещение статического сайта на фреймворке Gatsby в {{ yandex-cloud }}
-keywords:
-  - gatsby
-  - хостинг сайта gatsby
-  - настройка сайта gatsby
-  - gatsby сайт
----
 
 # Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-full-name }}
 

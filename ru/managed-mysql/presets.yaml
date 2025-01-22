@@ -1,12 +1,11 @@
-default:
-  mysql-vars-uri: https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html
-  versions:
-    tf:
-      latest: '8.0'
-      str: 5.7 или 8.0
-    cli:
-      latest: '8.0'
-      str: 5.7 или 8.0
-    console:
-      latest: '8.0'
-      str: 5.7 и 8.0
+mysql-vars-uri: https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html
+versions:
+  tf:
+    latest: '8.0'
+    str: 5.7 или 8.0
+  cli:
+    latest: '8.0'
+    str: 5.7 или 8.0
+  console:
+    latest: '8.0'
+    str: 5.7 и 8.0

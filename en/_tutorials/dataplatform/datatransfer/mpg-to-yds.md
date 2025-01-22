@@ -22,7 +22,7 @@ Prepare the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
 
-
+    
     1. Set up [security groups](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and make sure they allow cluster connections.
 
 

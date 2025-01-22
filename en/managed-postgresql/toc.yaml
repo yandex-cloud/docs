@@ -467,5 +467,3 @@ items:
         href: qa/monitoring.md
       - name: All questions on one page
         href: qa/all.md
-base: en/managed-postgresql
-deepBase: 2

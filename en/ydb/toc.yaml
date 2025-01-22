@@ -419,5 +419,3 @@ items:
     href: faq.md
   - name: Public materials
     href: https://ydb.tech/docs/en/public-talks
-base: en/ydb
-deepBase: 2

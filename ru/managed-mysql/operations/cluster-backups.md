@@ -79,7 +79,7 @@ description: Вы можете создавать резервные копии 
               --url-query folderId=<идентификатор_каталога>
           ```
 
-
+          
           Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -132,7 +132,7 @@ description: Вы можете создавать резервные копии 
               yandex.cloud.mdb.mysql.v1.BackupService.List
           ```
 
-
+          
           Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -370,7 +370,7 @@ description: Вы можете создавать резервные копии 
 
   1. Запросите создание кластера из резервной копии:
 
-
+      
       ```bash
       {{ yc-mdb-my }} cluster restore \
          --backup-id=<идентификатор_резервной_копии> \
@@ -402,7 +402,7 @@ description: Вы можете создавать резервные копии 
 
           * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
-
+          
           * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
           * `assign-public-ip` — флаг, который указывается, если для хоста нужен [публичный доступ](../concepts/network.md#public-access-to-host): `true` или `false`.
 
@@ -411,10 +411,10 @@ description: Вы можете создавать резервные копии 
       * `--disk-size` — размер хранилища в гигабайтах.
       * `--disk-type` — [тип диска](../concepts/storage.md):
 
-
+          
           * `network-hdd`;
           * `network-ssd`;
-          * `local-ssd`;
+                    * `local-ssd`;
           * `network-ssd-nonreplicated`;
           * `network-ssd-io-m3`.
 

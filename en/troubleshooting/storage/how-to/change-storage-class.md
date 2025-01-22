@@ -1,6 +1,7 @@
 # How to change the storage class
 
 
+
 ## Scenario description {#case-description}
 
 You need to change the storage class and figure out whether the change will apply to already stored objects.

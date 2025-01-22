@@ -48,5 +48,3 @@ items:
         href: security/ciem-roles.md
   - name: Правила тарификации
     href: pricing.md
-base: ru/security-deck
-deepBase: 2

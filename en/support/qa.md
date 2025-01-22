@@ -56,7 +56,7 @@ Technical support includes diagnosing issues in third-party software used in con
 - [Operating systems](https://yandex.cloud/en/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
 - Databases and cluster management systems created in:
     - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
-    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)    
+    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
     - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
     - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
     - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)

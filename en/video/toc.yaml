@@ -496,5 +496,3 @@ items:
                 href: api-ref/Video/getManifests.md
   - name: Release notes
     href: release-notes.md
-base: en/video
-deepBase: 2

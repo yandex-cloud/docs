@@ -341,7 +341,7 @@
 
 1. Добавьте в файл `/etc/fluent-bit/fluent-bit.conf` настройки сервиса `fluent-bit`:
 
-
+    
     ```bash
     [INPUT]
         Name  systemd

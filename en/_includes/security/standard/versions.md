@@ -38,7 +38,7 @@ Publication date: 25/09/24.
     * **6.2 Vulnerability scanning is performed at the cloud IP level** was moved to section [3. Secure configuration of a virtual environment](../../../security/standard/virtualenv-safe-config.md#ip-level).
     * **6.3 External security scans are performed according to the cloud rules** was moved to section [3. Secure configuration of a virtual environment](../../../security/standard/virtualenv-safe-config.md#external-security-scans).
     * **6.4 The process of security updates is set up** was moved to section [3. Secure configuration of a virtual environment](../../../security/standard/virtualenv-safe-config.md#security-updates).
-    * **6.5 A web application firewall is used** was updated and moved to section [8. Application security](../../../security/standard/app-security.md#use-waf).
+        * **6.5 A web application firewall is used** was updated and moved to section [8. Application security](../../../security/standard/app-security.md#use-waf).
     * In [{#T}](../../../security/standard/app-security.md#pipeline-artifacts-cosign), added a recommendation to save the asymmetric key pair of a [Cosign](https://github.com/sigstore/cosign) electronic signature in [{{ kms-full-name }}](../../../kms/quickstart/index.md) and to use the saved key pair for signing artifacts and verifying the signature.
 
 * **Deleted the following items**:

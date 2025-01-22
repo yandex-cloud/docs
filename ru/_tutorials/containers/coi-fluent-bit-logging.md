@@ -166,7 +166,7 @@ if __name__ == '__main__':
 
 1. Создайте файл `user-data.yaml`. Он описывает правила, по которым будут читаться логи контейнера. Если необходимо, в секции `users` измените имя пользователя и [SSH-ключ](../../glossary/ssh-keygen.md). Подробнее о том, как [сгенерировать SSH-ключи](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-
+   
    ```yaml
    #cloud-config
    write_files:

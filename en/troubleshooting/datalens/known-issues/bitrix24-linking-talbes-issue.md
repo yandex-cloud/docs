@@ -1,6 +1,7 @@
 # Resolving issues with joined tables when connecting to Bitrix
 
 
+
 ## Issue description {#issue-description}
 
 * You cannot join tables when connecting Bitrix24

@@ -1,6 +1,7 @@
 # How to change the billing account owner
 
 
+
 ## Issue description {#case-description}
 
 * You need to change the type of your billing account (from "individual" to "legal entity")
@@ -48,5 +49,5 @@ If these actions did not help, [create a request for technical support]({{ link-
 When creating the request, make sure to specify:
 
 1. Billing account ID.
-   You can find this ID on the [page with billing account details]({{ link-console-support }}).
+You can find this ID on the [page with billing account details]({{ link-console-support }}).
 2. What exactly needs to be done with the billing account.

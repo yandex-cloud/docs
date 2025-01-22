@@ -30,7 +30,7 @@
         * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
     1. Выберите версию {{ GP }}.
 
-
+    
     1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
@@ -58,7 +58,7 @@
 
         {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
-
+        
         {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -77,7 +77,7 @@
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
-
+        
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
 
@@ -102,7 +102,7 @@
         * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
           * Выберите [тип диска](../concepts/storage.md).
 
-
+            
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
 
@@ -119,7 +119,7 @@
         * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
            * Выберите [тип диска](../concepts/storage.md).
 
-
+             
              {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
 
@@ -137,7 +137,7 @@
 
     Чтобы создать кластер {{ mgp-name }}:
 
-
+    
     1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
         ```bash
@@ -155,7 +155,7 @@
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
-
+        
         ```bash
         {{ yc-mdb-gp }} cluster create <имя_кластера> \
            --greenplum-version=<версия_Greenplum> \
@@ -220,7 +220,7 @@
            --backup-window-start=<время_начала_резервного_копирования>
         ```
 
-
+    
     1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
 
         ```bash
@@ -246,7 +246,7 @@
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-
+    
     1. Чтобы разрешить доступ к кластеру из разных сервисов, передайте значение `true` в соответствующих параметрах при создании кластера:
 
         ```bash
@@ -265,7 +265,7 @@
 
 - {{ TF }} {#tf}
 
-
+  
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
@@ -273,7 +273,7 @@
 
   1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
-
+  
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
@@ -299,7 +299,7 @@
 
       Пример структуры конфигурационного файла:
 
-
+      
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
         name                = "<имя_кластера>"
@@ -357,7 +357,7 @@
 
           {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-
+      
       * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
 
       * `access.yandex_query` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
@@ -384,7 +384,7 @@
 
     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+        
         ```json
         {
           "folderId": "<идентификатор_каталога>",
@@ -452,7 +452,7 @@
 
             * `version` — версия {{ GP }}.
 
-
+            
             * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
                 * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
@@ -480,7 +480,7 @@
         * `userPassword` — пароль пользователя.
         * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-
+        
         * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
@@ -498,7 +498,7 @@
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -525,7 +525,7 @@
 
     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+        
         ```json
         {
           "folder_id": "<идентификатор_каталога>",
@@ -593,7 +593,7 @@
 
             * `version` — версия {{ GP }}.
 
-
+            
             * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
                 * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml): `true` или `false`.
@@ -621,7 +621,7 @@
         * `user_password` — пароль пользователя.
         * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-
+        
         * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
@@ -639,7 +639,7 @@
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -745,7 +745,7 @@
 
     Создайте кластер {{ mgp-name }} с тестовыми характеристиками:
 
-
+    
     * С именем `gp-cluster`.
     * Версии `{{ versions.cli.latest }}`.
     * В окружении `PRODUCTION`.
@@ -765,7 +765,7 @@
 
     Выполните следующую команду:
 
-
+    
     ```bash
     {{ yc-mdb-gp }} cluster create \
        --name=gp-cluster \

@@ -1,6 +1,7 @@
 # How to unlink a bank card from the billing account
 
 
+
 ## Scenario description {#case-description}
 
 You need to unlink the bank card from your {{ yandex-cloud }} billing account.
@@ -18,5 +19,5 @@ To do this, [create a request for technical support]({{ link-console-support }})
 Provide the following information in the request:
 
 1. Billing account ID.
-   You can find this ID on the [page with billing account details]({{ link-console-support }}).
+You can find this ID on the [page with billing account details]({{ link-console-support }}).
 1. Description of actions you want to perform with the billing account.

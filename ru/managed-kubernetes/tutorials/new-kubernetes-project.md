@@ -428,10 +428,7 @@ yc container registry configure-docker
 
 ## Установите {{ alb-name }} {#setup-alb}
 
-
 Чтобы установить [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [воспользуйтесь инструкцией](../operations/applications/alb-ingress-controller.md).
-
-
 
 ## Создайте балансировщик нагрузки {#create-ingress}
 

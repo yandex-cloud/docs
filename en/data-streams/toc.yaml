@@ -149,5 +149,3 @@ items:
         href: kafkaapi/auth.md
   - name: FAQ
     href: qa/index.md
-base: en/data-streams
-deepBase: 2

@@ -29,7 +29,7 @@
 
         {% endnote %}
 
-
+    
     1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
         * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
@@ -353,7 +353,7 @@
         - [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md);
         - [{{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-
+    
     - Если вы зарезервировали для кластеров публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
 

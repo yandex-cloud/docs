@@ -1,6 +1,7 @@
 # Updating software on a Managed Service for GitLab instance
 
 
+
 ## Issue description {#issue-description}
 
 You need to update the version of the installed GitLab Community Edition or GitLab Enterprise Edition package on the Managed Service for GitLab instance.

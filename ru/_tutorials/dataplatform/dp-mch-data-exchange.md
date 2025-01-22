@@ -61,7 +61,7 @@
         * С базой данных `db1`.
         * С пользователем `user1`.
 
-
+    
     1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 

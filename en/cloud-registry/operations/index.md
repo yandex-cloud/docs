@@ -1,3 +1,8 @@
+---
+title: Step-by-step guides for {{ cloud-registry-full-name }}
+description: This section contains step-by-step guides for {{ cloud-registry-name }}.
+---
+
 # Step-by-step guides for {{ cloud-registry-name }}
 
 * [Creating a registry](registry/create.md)

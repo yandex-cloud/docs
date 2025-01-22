@@ -2,7 +2,7 @@
 
 - {{ mkf-name }}
     
-
+    
     [Create a user](../../../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_CONSUMER` role for the source topic.
 
 

@@ -1,6 +1,7 @@
 # Resolving the "max_connections conn_limit is too high" error
 
 
+
 ## Issue description {#issue-description}
 
 You see the `max_connections conn_limit is too high` error.

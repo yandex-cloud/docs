@@ -241,5 +241,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/dns
-deepBase: 2

@@ -162,7 +162,7 @@ Create a dataset based on the `dtp_data` connection:
 
       {% note info %}
 
-
+      
       The example is based on ready-to-use data in coordinate format. 
 
 
@@ -215,7 +215,7 @@ To analyze the number of accidents by region, create a [bar chart](../../datalen
 
    1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 
-      ![save-chart-as-copy](../../_assets/datalens/solution-07/10-save-chart-as-copy.png)      
+      ![save-chart-as-copy](../../_assets/datalens/solution-07/10-save-chart-as-copy.png)
 
    1. In the window that opens, enter `Number of accidents by region` as the name for the new chart and click **Save**.
 
@@ -368,7 +368,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 1. In the panel at the bottom of the page, select **Chart**.
 
-   ![add-chart](../../_assets/datalens/solution-07/21-add-chart.png)   
+   ![add-chart](../../_assets/datalens/solution-07/21-add-chart.png)
 
 1. In the window that opens, click **Select**.
 1. Select the `Accident heat map` chart.
@@ -405,7 +405,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
    1. In the panel at the bottom of the page, choose **Selector**.
 
-      ![add-selector](../../_assets/datalens/solution-07/25-add-selector.png)      
+      ![add-selector](../../_assets/datalens/solution-07/25-add-selector.png)
 
    1. Choose the `Accidents` dataset.
    1. Select the `Region name` field.

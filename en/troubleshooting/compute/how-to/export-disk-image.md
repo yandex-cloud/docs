@@ -1,6 +1,7 @@
 # Exporting disk images of Compute Cloud VM instances
 
 
+
 ## Issue description {#case-description}
 
 * You need to download an image of one or more VM disks to your local storage.

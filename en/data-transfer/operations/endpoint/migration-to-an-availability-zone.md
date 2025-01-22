@@ -14,7 +14,7 @@ You can migrate [transfers](../../concepts/index.md#transfer) from one [availabi
 1. [Create a subnet](../../../vpc/operations/subnet-create.md) in the availability zone you want to move your endpoint to.
 1. If your custom installation is hosted on a {{ yandex-cloud }} VM, follow these steps:
 
-
+   
    1. [Stop the VM](../../../compute/operations/vm-control/vm-stop-and-start.md#stop).
    1. [Move the VM to a different availability zone](../../../compute/operations/vm-control/vm-change-zone.md).
    1. [Run the VM](../../../compute/operations/vm-control/vm-stop-and-start.md#start).
@@ -33,7 +33,7 @@ You can migrate [transfers](../../concepts/index.md#transfer) from one [availabi
 
 1. Move your cluster hosts to a different availability zone. For more information, see the documentation for the following services:
 
-   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md)   
+   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md)
    * [{{ mgp-full-name }}](../../../managed-greenplum/operations/cluster-backups.md#restore)
    * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md)
    * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md)

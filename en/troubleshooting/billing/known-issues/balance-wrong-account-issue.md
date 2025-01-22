@@ -1,6 +1,7 @@
 # Resolving the BALANCE.WRONG.ACCOUNT error
 
 
+
 ## Issue description {#issue-description}
 
 * During the registration of a billing account, you get this error: `balance.WRONG.ACCOUNT`.

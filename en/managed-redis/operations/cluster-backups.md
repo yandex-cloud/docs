@@ -389,7 +389,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
                 --url-query folderId=<folder_ID>
             ```
 
-
+            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -443,7 +443,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
                 yandex.cloud.mdb.redis.v1.BackupService.List
             ```
 
-
+            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 

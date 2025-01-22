@@ -54,7 +54,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
           --url-query folderId=<folder_ID>
       ```
 
-
+      
       You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -83,7 +83,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
           yandex.cloud.mdb.mysql.v1.ClusterService.List
       ```
 
-
+      
       You can request the folder ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 

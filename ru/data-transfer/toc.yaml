@@ -520,5 +520,3 @@ items:
             href: release-notes/2308.md
   - name: Обучающие курсы
     href: training.md
-base: ru/data-transfer
-deepBase: 2

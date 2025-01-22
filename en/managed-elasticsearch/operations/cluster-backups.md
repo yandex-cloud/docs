@@ -218,7 +218,7 @@ When creating a new cluster, set all required parameters.
 
     1. Request the creation of a cluster from a backup:
 
-
+        
         ```bash
         {{ yc-mdb-es }} cluster restore \
            --backup-id=<backup_ID> \
@@ -253,7 +253,7 @@ When creating a new cluster, set all required parameters.
 
             * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
-
+            
             * `subnet-name`: [Subnet](../../vpc/concepts/network.md#subnet) name. Specify if two or more subnets are created in the selected availability zone.
             * `assign-public-ip`: Flag indicating that the host requires [public access](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
@@ -264,7 +264,7 @@ When creating a new cluster, set all required parameters.
         * `--datanode-disk-size`: Storage size in GB for hosts with the Data node role.
         * `--datanode-disk-type`: [Disk type](../concepts/storage.md) for hosts with the Data node role:
 
-
+            
             * `network-hdd`
             * `network-ssd`
             * `local-ssd`

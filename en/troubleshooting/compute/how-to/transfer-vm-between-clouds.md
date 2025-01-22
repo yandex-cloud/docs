@@ -1,6 +1,7 @@
 # Transferring VMs between folders or clouds
 
 
+
 ## Issue description {#case-description}
 
 You need to transfer a VM instance from one cloud or folder to another cloud or folder.

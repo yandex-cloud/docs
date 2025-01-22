@@ -100,5 +100,3 @@ items:
         href: cli-ref/user/revoke-permission.md
       - name: update
         href: cli-ref/user/update.md
-base: en/_cli-ref/cli-ref/managed-mysql
-deepBase: 4

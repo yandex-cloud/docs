@@ -72,5 +72,3 @@ items:
         href: cli-ref/subcluster/list.md
       - name: update
         href: cli-ref/subcluster/update.md
-base: en/_cli-ref/cli-ref/dataproc
-deepBase: 4

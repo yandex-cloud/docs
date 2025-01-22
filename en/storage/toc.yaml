@@ -690,5 +690,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa.md
-base: en/storage
-deepBase: 2

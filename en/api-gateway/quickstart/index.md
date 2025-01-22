@@ -91,10 +91,10 @@ To get started in {{ yandex-cloud }}:
 
     Where `<service_domain>` is the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field you saved earlier.
 
-    Here is an example:
+    For example:
     
     ```bash
-    curl https://d5dm1lba80md********.apigw.yandexcloud.net/hello?user=API
+    curl https://{{ api-host-apigw }}/hello?user=API
     ```
 
     Result:
@@ -197,7 +197,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
      * `content`: Function source code.
      * `content.0.zip_filename`: Path to the ZIP archive containing the function source code.
 
-     For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+     For more information about the `yandex_function` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
      1. In the command line, go to the folder where you created the configuration file.
      1. Run a check using this command:
@@ -206,7 +206,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -367,7 +367,7 @@ Add function information to the API gateway specification.
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -401,10 +401,10 @@ curl <service_domain>/numbers
 
 Where `<service_domain>` is the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field you saved [earlier](#api-gw-test).
 
-Here is an example:
+For example:
 
 ```bash
-curl https://d5dm1lba80md********.apigw.yandexcloud.net/numbers
+curl https://{{ api-host-apigw }}/numbers
 ```
 
 Result:

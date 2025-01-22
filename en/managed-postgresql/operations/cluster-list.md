@@ -52,7 +52,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
        --url-query folderId=<folder_ID>
      ```
 
-
+     
      You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -81,7 +81,7 @@ You can request detailed information about each {{ mpg-short-name }} cluster you
        yandex.cloud.mdb.postgresql.v1.ClusterService.List
      ```
 
-
+     
      You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 

@@ -997,5 +997,3 @@ items:
           Resolving the "Invitation not found" error when connecting to the
           partner program
         href: partner/known-issues/cannot-access-partner-programme.md
-base: en/troubleshooting
-deepBase: 2

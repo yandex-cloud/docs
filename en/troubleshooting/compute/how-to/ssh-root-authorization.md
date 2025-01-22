@@ -1,6 +1,7 @@
 # How to connect via SSH as root with a password or key
 
 
+
 ## Scenario description {#case-description}
 
 You need to connect via SSH from root with a password or key.

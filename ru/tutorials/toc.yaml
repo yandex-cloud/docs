@@ -736,6 +736,8 @@ items:
           Аутентификация в {{ OS }} Dashboards кластера {{ mos-full-name }} с
           помощью {{ keycloak }}
         href: dataplatform/opensearch-saml-keycloak.md
+      - name: Использование плагина yandex-lemmer в {{ mos-full-name }}
+        href: dataplatform/opensearch-yandex-lemmer.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}
@@ -1065,5 +1067,3 @@ items:
             href: ml-ai/archive-from-vision-to-object-storage.md
           - name: Разработка Telegram-бота для распознавания текста и аудио
             href: ml-ai/recognizer-bot.md
-base: ru/tutorials
-deepBase: 2

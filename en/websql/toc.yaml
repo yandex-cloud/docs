@@ -35,5 +35,3 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
-base: en/websql
-deepBase: 2

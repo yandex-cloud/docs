@@ -82,7 +82,7 @@ You can create calculated fields in the dataset or wizard interface.
 
 - Wizard
 
-
+  
   {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 

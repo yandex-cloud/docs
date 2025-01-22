@@ -1,3 +1,8 @@
+---
+title: '{{ sf-full-name }} tutorials'
+description: This section contains tutorials for {{ sf-name }}.
+---
+
 # {{ sf-name }} tutorials
 
 * [{#T}](alice-skill.md)

@@ -312,5 +312,3 @@ items:
                 href: api-ref/Sku/get.md
               - name: List
                 href: api-ref/Sku/list.md
-base: ru/billing
-deepBase: 2

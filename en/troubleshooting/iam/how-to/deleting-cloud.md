@@ -1,6 +1,7 @@
 # Deleting a cloud
 
 
+
 ## Issue description {#case-description}
 
 You need to delete a cloud.

@@ -13,7 +13,7 @@
 
       For example, to configure access to the `first-company` value for the `Company name` field:
 
-
+      
       ```yaml
       'first-company': login-to-access-your-row-data@yandex.ru
       ```

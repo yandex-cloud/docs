@@ -1,6 +1,7 @@
 # How to change the cloud owner
 
 
+
 ## Scenario description {#case-description}
 
 You need to change the cloud owner, and you have access to the old account.

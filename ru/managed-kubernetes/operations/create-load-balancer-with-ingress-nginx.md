@@ -40,7 +40,7 @@
       Update Complete. ⎈Happy Helming!⎈
       ```
 
-
+   
    {% note tip %}
 
    Ingress-контроллер NGINX можно также [установить с помощью {{ marketplace-full-name }}](applications/ingress-nginx.md).

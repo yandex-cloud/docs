@@ -1,6 +1,7 @@
 # How committed volume of services (CVoS) works
 
 
+
 ## Scenario description {#case-description}
 
 You need to understand how the committed volume of services (CVoS) works.

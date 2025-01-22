@@ -613,5 +613,3 @@ items:
     href: logs-ref.md
   - name: Release notes
     href: release-notes.md
-base: en/application-load-balancer
-deepBase: 2

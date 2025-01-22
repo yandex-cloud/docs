@@ -12,7 +12,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   1. On the bucket creation page:
       1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
 
-
+          
           By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
 
 
@@ -60,7 +60,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
       Where `--name` is the name of the bucket. This is a required parameter. For more information, see [Bucket naming rules](../../storage/concepts/bucket.md#naming).
 
-
+      
       By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload](../../storage/operations/hosting/certificate.md) your own security certificate to {{ objstorage-name }}.
 
 
@@ -135,7 +135,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   * `--endpoint-url`: {{ objstorage-name }} endpoint
   * `--bucket`: Bucket name
 
-
+  
   {% note info %}
 
   By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload](../../storage/operations/hosting/certificate.md) your own security certificate to {{ objstorage-name }}. For more information, see [Bucket naming rules](../../storage/concepts/bucket.md#naming).
@@ -210,7 +210,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
@@ -279,7 +279,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
         * `name`: Service account name
         * `bucket`: Bucket name
 
-
+          
           By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
 
 

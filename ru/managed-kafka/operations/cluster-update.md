@@ -849,7 +849,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
-
+        
         ```bash
         {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
            --maintenance-window type=<тип_технического_обслуживания>,`
@@ -933,7 +933,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+        
         ```bash
         curl \
             --request PATCH \
@@ -1002,7 +1002,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+        
         ```bash
         grpcurl \
             -format json \

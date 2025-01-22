@@ -30,7 +30,7 @@ keywords:
 
 - Консоль управления {#console}
 
-
+  
   @[youtube](https://www.youtube.com/watch?v=vWCmvbrhDsI)
 
 

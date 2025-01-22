@@ -335,5 +335,3 @@ items:
     href: at-ref.md
   - name: FAQ
     href: qa/index.md
-base: en/logging
-deepBase: 2

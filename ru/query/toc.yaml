@@ -175,5 +175,3 @@ items:
     href: public_talks.md
   - name: Обучающие курсы
     href: training.md
-base: ru/query
-deepBase: 2

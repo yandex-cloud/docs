@@ -113,7 +113,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
-
+     
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
@@ -265,7 +265,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -437,7 +437,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+    
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

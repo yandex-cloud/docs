@@ -28,7 +28,7 @@ Prepare the infrastructure:
         * Database name: Same as in the source cluster.
         * To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
-
+    
     1. If you are using security groups in your clusters, configure them so that you can connect to the clusters from the internet:
 
         * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).

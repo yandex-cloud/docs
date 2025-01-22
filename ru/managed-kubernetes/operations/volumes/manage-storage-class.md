@@ -40,13 +40,11 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 {% endnote %}
 
 
-
 ## Создайте класс хранилищ {#sc-create}
 
 1. Сохраните спецификацию для создания класса хранилищ в YAML-файл `my-sc-hdd.yaml`:
 
    Подробнее про [формат спецификации для создания класса хранилищ](#sc-spec).
-
 
    ```yaml
    kind: StorageClass
@@ -62,25 +60,17 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
    reclaimPolicy: Retain
    ```
 
-
-
 1. Выполните команду:
-
 
    ```bash
    kubectl create -f my-sc-hdd.yaml
    ```
 
-
-
    Результат:
-
 
    ```text
    storageclass.storage.k8s.io/my-sc-hdd created
    ```
-
-
 
 1. Проверьте, что класс хранилищ создался:
 
@@ -90,15 +80,12 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
    Результат:
 
-
    ```text
    NAME                      PROVISIONER                    AGE
    my-sc-hdd                 disk-csi-driver.mks.ycloud.io  76s
    yc-network-hdd (default)  disk-csi-driver.mks.ycloud.io  16m
    yc-network-ssd            disk-csi-driver.mks.ycloud.io  16m
    ```
-
-
 
 ### Формат спецификации для создания класса хранилищ {#sc-spec}
 

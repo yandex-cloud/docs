@@ -2,7 +2,7 @@
 
 - Kibana {#kibana}
 
-
+  
   **If a host with the _Data node_ role is assigned a public IP address:**
   1. Before connecting, install the [SSL certificate]({{ crt-web-path }}) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
   1. In your browser, go to one of the addresses:

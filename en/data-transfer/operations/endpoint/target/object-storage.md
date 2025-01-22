@@ -17,7 +17,8 @@ description: In this tutorial, you will learn how to set up an {{ objstorage-nam
 ## Scenarios for transferring data to {{ objstorage-full-name }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    * [Delivering data from {{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
+    
+    * [Delivering data from {{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).   
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
     
@@ -64,7 +65,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 - {{ objstorage-full-name }} bucket {#obj-storage}
 
-
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Name of the [bucket](../../../../storage/concepts/bucket.md) to upload source data to.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: [Service account](../../../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../../../data-streams/).
 

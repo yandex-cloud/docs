@@ -1,7 +1,3 @@
----
-title: Публичные материалы о {{ data-transfer-name }}
-description: Видеозаписи конференций и вебинаров, посвященных {{ data-transfer-name }}.
----
 
 # Публичные материалы о {{ data-transfer-name }}
 

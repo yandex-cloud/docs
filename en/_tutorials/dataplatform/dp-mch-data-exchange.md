@@ -61,7 +61,7 @@ Prepare the infrastructure:
         * Database: `db1`.
         * User: `user1`.
 
-
+    
     1. If using security groups in your {{ mch-name }} cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connecting to the cluster.
 
 

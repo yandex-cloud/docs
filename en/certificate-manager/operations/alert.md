@@ -27,7 +27,7 @@ To create an alert:
          * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**.
          * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**.
 
-
+         
          For more information, see [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
 
 
@@ -61,7 +61,7 @@ To create an alert:
          * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**.
          * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**.
 
-
+         
          For more information, see [{#T}](../../monitoring/concepts/alerting/alert.md#condition).
 
 

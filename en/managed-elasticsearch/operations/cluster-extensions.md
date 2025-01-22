@@ -68,7 +68,7 @@ All extensions must be in TXT format and added to a ZIP archive.
        * The extension version number is increased by one.
        * A new extension version is uploaded via the link in the `--uri` parameter and gets a new ID.
 
-
+    
     * `--uri`: [Link](../../storage/operations/objects/link-for-download.md) to a ZIP archive with the extension files in {{ objstorage-full-name }}. You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
 
 
@@ -86,7 +86,7 @@ All extensions must be in TXT format and added to a ZIP archive.
        * The extension version number is increased by one.
        * A new extension version is uploaded via the link in the `uri` parameter and gets a new ID.
 
-
+    
     * [Link](../../storage/operations/objects/link-for-download.md) to a ZIP archive with the extension files in {{ objstorage-full-name }}, in the `uri` parameter. You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
 
 

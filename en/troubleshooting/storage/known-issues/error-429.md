@@ -1,6 +1,7 @@
 # Resolving error 429
 
 
+
 ## Issue description {#issue-description}
 
 When trying to delete several files simultaneously, you see this error:

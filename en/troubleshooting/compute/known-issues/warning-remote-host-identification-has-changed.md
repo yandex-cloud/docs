@@ -1,6 +1,7 @@
 # Fixing the "WARNING REMOTE HOST IDENTIFICATION HAS CHANGED" error
 
 
+
 ## Issue description {#issue-description}
 
 When attempting to connect via SSH, you see this error: `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED`.

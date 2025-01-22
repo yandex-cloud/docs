@@ -31,7 +31,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-
+  
   @[youtube](https://www.youtube.com/watch?v=UByUvah7lDU&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=6&pp=iAQB)
 
 
@@ -50,7 +50,7 @@ description: Следуя данной инструкции, вы сможете
 
      * Выберите тип диска.
 
-
+     
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
-
+      
       {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
@@ -90,7 +90,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
-
+  
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
      * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
 
@@ -101,11 +101,11 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной [подсети](../../vpc/concepts/network.md#subnet). Чтобы выбрать для хоста конкретную подсеть, в строке этого хоста нажмите значок ![image](../../_assets/console-icons/pencil.svg).
 
-
+     
      При настройке параметров хостов обратите внимание, что если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер.
 
 
-
+     
      Чтобы к хосту можно было подключаться из интернета, включите настройку **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
 
@@ -131,7 +131,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы создать кластер {{ mpg-name }}:
 
-
+  
   1. Проверьте, есть ли в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) [подсети](../../vpc/concepts/network.md#subnet) для хостов кластера:
 
      ```bash
@@ -149,7 +149,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
-
+     
      ```bash
      {{ yc-mdb-pg }} cluster create \
        --name <имя_кластера> \
@@ -175,7 +175,7 @@ description: Следуя данной инструкции, вы сможете
      * `environment` — окружение: `prestable` или `production`.
      * `disk-type` — тип диска.
 
-
+     
      * `assign-public-ip` — доступ к хосту из интернета: `true` или `false`.
 
 
@@ -183,7 +183,7 @@ description: Следуя данной инструкции, вы сможете
 
        По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 
-
+     
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной [зоне доступности](../../overview/concepts/geo-scope.md) создано две и больше подсетей.
 
      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
@@ -200,8 +200,8 @@ description: Следуя данной инструкции, вы сможете
 
      Также вы можете указать дополнительную опцию `replication-source` в параметре `--host` для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
 
-
-
+     
+     
      Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
      Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
@@ -234,8 +234,8 @@ description: Следуя данной инструкции, вы сможете
 
      Пример структуры конфигурационного файла:
 
-
-
+     
+     
      ```hcl
      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
@@ -298,7 +298,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
 
-
+     
      * `assign_public_ip` — доступ к хосту из интернета: `true` или `false`.
 
 
@@ -339,7 +339,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+     
      ```json
      {
        "folderId": "<идентификатор_каталога>",
@@ -420,7 +420,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-
+     
      * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
@@ -434,7 +434,7 @@ description: Следуя данной инструкции, вы сможете
          * `diskSize` — размер диска в байтах;
          * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-
+       
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
          * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -490,7 +490,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+     
      ```json
      {
        "folder_id": "<идентификатор_каталога>",
@@ -571,7 +571,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-
+     
      * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
@@ -585,7 +585,7 @@ description: Следуя данной инструкции, вы сможете
          * `disk_size` — размер диска в байтах;
          * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-
+       
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
          * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -734,7 +734,7 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте кластер {{ mpg-name }} с тестовыми характеристиками:
 
-
+  
   * С именем `mypg`.
   * В окружении `production`.
   * В сети `default`.
@@ -748,7 +748,7 @@ description: Следуя данной инструкции, вы сможете
 
   Выполните следующую команду:
 
-
+  
   ```bash
   {{ yc-mdb-pg }} cluster create \
      --name mypg \
@@ -776,7 +776,7 @@ description: Следуя данной инструкции, вы сможете
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
   * В новой сети `mynet`.
 
-
+  
   * В новой группе безопасности `pgsql-sg`, разрешающей подключение к кластеру из интернета через порт `6432`.
 
 
@@ -788,8 +788,8 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для такого кластера выглядит так:
 
-
-
+  
+  
   ```hcl
   resource "yandex_mdb_postgresql_cluster" "mypg" {
     name                = "mypg"

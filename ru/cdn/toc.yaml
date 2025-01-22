@@ -403,5 +403,3 @@ items:
     href: release-notes.md
   - name: Решение проблем
     href: troubleshooting.md
-base: ru/cdn
-deepBase: 2

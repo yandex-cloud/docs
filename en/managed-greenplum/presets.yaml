@@ -1,12 +1,11 @@
-default:
-  state: ga
-  versions:
-    tf:
-      latest: '6.19'
-      str: '6.19'
-    cli:
-      latest: '6.19'
-      str: '6.19'
-    console:
-      latest: '6.19'
-      str: '6.19'
+state: ga
+versions:
+  tf:
+    latest: '6.19'
+    str: '6.19'
+  cli:
+    latest: '6.19'
+    str: '6.19'
+  console:
+    latest: '6.19'
+    str: '6.19'

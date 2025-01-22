@@ -1,7 +1,3 @@
----
-title: Публичные материалы о {{ foundation-models-name }}
-description: Видеозаписи конференций и вебинаров, посвященных {{ foundation-models-name }}.
----
 
 # Публичные материалы о {{ foundation-models-name }}
 

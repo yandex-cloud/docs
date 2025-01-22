@@ -233,7 +233,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 1. Save a configuration file named `example.tf` to the `~/cloud-terraform` directory:
 
-
+   
    ```
    provider "yandex" {
      token     = "<OAuth_token>"

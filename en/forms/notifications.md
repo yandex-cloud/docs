@@ -68,7 +68,7 @@ To integrate your form with other services, you can configure one or more action
 
    - To [send an HTTP request](send-request.md), click ![](../_assets/forms/api-notification.png) **API** and select the request type.
 
-
+   
    {% note info %}
 
    Integration with {{ wiki-name }} and {{ tracker-name }} services is only available to users of [{{ forms-full-name }} for business](forms-for-org.md).

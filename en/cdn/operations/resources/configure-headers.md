@@ -119,7 +119,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-
+      
       ```hcl
       terraform {
         required_providers {

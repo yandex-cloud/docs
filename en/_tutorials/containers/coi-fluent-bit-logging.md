@@ -164,7 +164,7 @@ if __name__ == '__main__':
 
 1. Create a file named `user-data.yaml`. It describes the container log reading rules. If required, change the username and SSH key in the `users` section. Learn more about how to generate SSH keys [here](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-
+   
    ```yaml
    #cloud-config
    write_files:

@@ -61,7 +61,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
    For more information about setting up mirrors, see the [documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 1. Add the following sections at the top of the `.tf` configuration file:
 
-
+   
    ```hcl
    terraform {
      required_providers {

@@ -94,7 +94,7 @@ You can get a list of backups created for the past 14 days.
                 --url-query folderId=<folder_ID>
             ```
 
-
+            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -147,7 +147,7 @@ You can get a list of backups created for the past 14 days.
                 yandex.cloud.mdb.opensearch.v1.BackupService.List
             ```
 
-
+            
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 

@@ -1,6 +1,7 @@
 # Enabling advanced DDoS protection
 
 
+
 ## Scenario description {#case-description}
 
 You need to enable Advanced DDoS protection or Managed WAF.

@@ -1,6 +1,7 @@
 # Linking the cloud to another billing account
 
 
+
 ## Scenario description {#case-description}
 
 You need to change the billing account associated with one or more clouds.

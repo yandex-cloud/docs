@@ -3,9 +3,11 @@ title: Как настроить доступ по {{ oslogin }} на сущес
 description: Следуя данной инструкции, вы сможете настроить доступ к существующей виртуальной машине по {{ oslogin }}.
 ---
 
+
 # Настроить доступ по {{ oslogin }} на существующей ВМ
 
 Если вам необходимо настроить подключение по {{ oslogin }} к уже развернутой виртуальной машине, вы можете самостоятельно установить на нее агент {{ oslogin }}.
+
 
 ## Включить доступ по {{ oslogin }} {#enable-os-login}
 
@@ -27,23 +29,31 @@ description: Следуя данной инструкции, вы сможете
 
     {% list tabs %}
 
-    - Ubuntu 22.04
+    - Ubuntu
 
-      ```bash
-      curl {{ link-oslogin-configs }}/ubuntu-22.04/config_oslogin.sh | bash
-      ```
+      * Ubuntu 24.04
 
-    - Ubuntu 20.04
+        ```bash
+        curl {{ link-oslogin-configs }}/ubuntu-24.04/config_oslogin.sh | bash
+        ```
 
-      ```bash
-      curl {{ link-oslogin-configs }}/ubuntu-20.04/config_oslogin.sh | bash
-      ```
+      * Ubuntu 22.04
 
-    - Ubuntu 18.04
+        ```bash
+        curl {{ link-oslogin-configs }}/ubuntu-22.04/config_oslogin.sh | bash
+        ```
 
-      ```bash
-      curl {{ link-oslogin-configs }}/ubuntu-18.04/config_oslogin.sh | bash
-      ```
+      * Ubuntu 20.04
+
+        ```bash
+        curl {{ link-oslogin-configs }}/ubuntu-20.04/config_oslogin.sh | bash
+        ```
+
+      * Ubuntu 18.04
+
+        ```bash
+        curl {{ link-oslogin-configs }}/ubuntu-18.04/config_oslogin.sh | bash
+        ```
 
     - CentOS 7
 
@@ -68,6 +78,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Включите](../vm-control/vm-update.md#enable-oslogin-access) на виртуальной машине доступ по {{ oslogin }}.
 
 Теперь вы можете подключиться к виртуальной машине по {{ oslogin }} как [с помощью CLI](os-login.md#connect-with-yc-cli), так и [с помощью стандартного SSH-клиента](os-login.md#connect-with-ssh-client). При подключении можно использовать SSH-сертификат или SSH-ключ, предварительно [добавленный](../../../organization/operations/add-ssh.md) в профиль пользователя или сервисного аккаунта в организации {{ org-full-name }}.
+
 
 ## Отключить доступ по {{ oslogin }} {#disable-os-login}
 

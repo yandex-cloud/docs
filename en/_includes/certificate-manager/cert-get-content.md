@@ -74,7 +74,7 @@ To get the contents of a certificate:
   To get the contents of a custom certificate using {{ TF }}:
   1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
 
-
+     
      ```hcl
      data "yandex_cm_certificate_content" "cert_by_id" {
        certificate_id = "<certificate_ID>"

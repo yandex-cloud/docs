@@ -1,6 +1,3 @@
----
-sourcePath: overlay/_includes/pricing/pricing-status.md
----
 ## Cluster status {#running-stopped}
 
 Prices are applied differently depending on the cluster status:

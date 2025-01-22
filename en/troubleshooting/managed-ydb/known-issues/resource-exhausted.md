@@ -1,6 +1,7 @@
 # Resolving the "RESOURCE_EXHAUSTED" error
 
 
+
 ## Issue description {#issue-description}
 
 While working with Managed Service for YDB, you see the `RESOURCE_EXHAUSTED` error.

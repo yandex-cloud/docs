@@ -8,7 +8,7 @@ The users’ speech synthesis requests run through the API gateway that calls [{
 
 To set up {{ speechkit-name }} speech synthesis using {{ api-gw-full-name }}:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a service account](#create-service-account).
 1. [Create an API gateway](#create-gateway).
 1. [Check the result](#check-out).
@@ -38,7 +38,7 @@ The cost of support for the new infrastructure includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `speechkit-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `ai.speechkit-tts.user` role.
@@ -95,7 +95,7 @@ The cost of support for the new infrastructure includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `speechkit-api-gw`.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the following specification and provide the `speechkit-sa` service account [ID](../../iam/operations/sa/get-id.md) in the `service_account_id` parameter:
@@ -112,7 +112,7 @@ The cost of support for the new infrastructure includes:
 
       {% include [api-gw-yaml-spec](../_tutorials_includes/speechkit-integrarion-via-agi-gw/api-gw-yaml-spec.md) %}
 
-  1. Run this command:
+  1. Run the following command:
 
      ```bash
      yc serverless api-gateway create \
@@ -133,7 +133,7 @@ The cost of support for the new infrastructure includes:
      created_at: "2024-08-19T18:58:32.101Z"
      name: speechkit-api-gw
      status: ACTIVE
-     domain: d5ddbmungf72********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      connectivity: {}
      log_options:
        folder_id: b1gt6g8ht345********
@@ -164,7 +164,7 @@ Send a request to your API gateway by providing the service domain value you pre
 ```bash
 curl --verbose \
   https://<service_domain>/synthesis \
-  --data '{"text": “Hello! S+erverless Api G+ateway now has a new feature: converting HTTP request or response body!"}' \
+  --data '{"text": "Hi! S+erverless Api G+ateway now has a new feature: converting HTTP request or response body!"}' \
   | jq -r  '.data' | while read chunk; do base64 -d <<< "$chunk" >> audio.mp3; done
 ```
 

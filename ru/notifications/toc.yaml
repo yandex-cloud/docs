@@ -65,5 +65,3 @@ items:
             href: api-ref/delete-endpoint.md
       - name: Publish
         href: api-ref/publish.md
-base: ru/notifications
-deepBase: 2

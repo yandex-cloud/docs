@@ -51,7 +51,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the {{ OS }} version.
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
-
+  
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
 
@@ -79,7 +79,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
       1. Select the number of hosts to create.
 
-
+      
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
           {% note tip %}
@@ -102,7 +102,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Specify how hosts should be distributed across availability zones and subnets.
       1. Select the number of hosts to create.
         
-
+      
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
 
           {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
@@ -327,7 +327,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
   1. Create a file named `body.json` and add the following contents to it:
 
-
+      
       ```json
       {
           "folderId": "<folder_ID>",
@@ -425,7 +425,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
-
+      
       * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
       * `serviceAccountId`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
 
@@ -452,7 +452,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `zoneIds`: List of availability zones the cluster hosts are located in.
                   * `subnetIds`: List of subnet IDs.
 
-
+                  
                   * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
 
 
@@ -472,7 +472,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
           * `dashboardsSpec`: Settings for `Dashboards` host groups. Contains the `nodeGroups` parameter, of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
 
-
+          
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
@@ -506,7 +506,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Create a file named `body.json` and add the following contents to it:
 
-
+      
       ```json
       {
           "folder_id": "<folder_ID>",
@@ -604,7 +604,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
-
+      
       * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
       * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
 
@@ -631,7 +631,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `zone_ids`: List of availability zones the cluster hosts are located in.
                   * `subnet_ids`: List of subnet IDs.
 
-
+                  
                   * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
 
 
@@ -651,7 +651,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
           * `dashboards_spec`: Settings for `Dashboards` host groups. Contains the `node_groups` parameter, of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
 
-
+          
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)

@@ -1,6 +1,7 @@
 # Using an ISO image for deploying VM instances
 
 
+
 ## Issue description {#case-description}
 
 You need to deploy a VM instance in Compute Cloud from an ISO image

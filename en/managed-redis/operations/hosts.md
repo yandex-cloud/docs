@@ -26,8 +26,8 @@ You can add and remove cluster hosts and manage their settings. For information 
 
   Result:
 
-
-
+  
+  
   ```text
   +---------------------------------+----------------------+------------+---------+--------+-------------------+
   |              NAME               |      CLUSTER ID      | SHARD NAME |  ROLE   | HEALTH |      ZONE ID      |
@@ -112,7 +112,7 @@ Public access to hosts can only be configured for clusters created with enabled 
   1. Specify the host parameters:
      * Availability zone.
 
-
+     
      * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
 
 
@@ -135,7 +135,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
      Result:
 
-
+     
      ```text
      +----------------------+-----------+-----------------------+---------------+------------------+
      |          ID          |   NAME    |       NETWORK ID      |     ZONE      |      RANGE       |
@@ -149,7 +149,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
 
 
-
+     
      If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
 
 

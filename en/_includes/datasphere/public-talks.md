@@ -1,7 +1,3 @@
----
-title: Public materials about {{ ml-platform-name }}
-description: Videos of conferences and webinars on {{ ml-platform-name }}.
----
 
 # Public materials about {{ ml-platform-name }}
 

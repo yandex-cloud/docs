@@ -104,7 +104,7 @@ To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-
+      
       ```hcl
       terraform {
         required_providers {

@@ -46,7 +46,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 - {{ objstorage-full-name }} bucket {#obj-storage}
 
-
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: [Bucket](../../../../storage/concepts/bucket.md) name.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}**: Select a [service account](../../../../iam/concepts/users/service-accounts.md) with access to the bucket from the list.
 

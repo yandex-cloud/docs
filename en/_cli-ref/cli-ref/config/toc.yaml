@@ -24,5 +24,3 @@ items:
     href: cli-ref/set.md
   - name: unset
     href: cli-ref/unset.md
-base: en/_cli-ref/cli-ref/config
-deepBase: 4

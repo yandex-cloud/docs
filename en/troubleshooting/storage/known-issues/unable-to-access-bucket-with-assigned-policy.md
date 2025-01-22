@@ -1,6 +1,7 @@
 # Resolving errors of access to a bucket with an assigned security policy
 
 
+
 ## Issue description {#issue-description}
 
 * When trying to access a bucket with a policy assigned from the management console interface, you see the `Access Denied` error.
