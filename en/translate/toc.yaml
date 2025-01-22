@@ -85,5 +85,3 @@ items:
         href: api-ref/support-headers.md
       - name: QA
         href: qa/index.md
-base: en/translate
-deepBase: 2

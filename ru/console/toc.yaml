@@ -9,5 +9,3 @@ items:
     href: operations/search.md
   - name: Правила тарификации
     href: pricing.md
-base: ru/console
-deepBase: 2

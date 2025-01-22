@@ -337,5 +337,3 @@ items:
     href: release-notes.md
   - name: Обучающие курсы
     href: training.md
-base: ru/load-testing
-deepBase: 2

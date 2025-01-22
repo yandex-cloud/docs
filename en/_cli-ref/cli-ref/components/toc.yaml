@@ -6,5 +6,3 @@ items:
     href: cli-ref/restore.md
   - name: update
     href: cli-ref/update.md
-base: en/_cli-ref/cli-ref/components
-deepBase: 4

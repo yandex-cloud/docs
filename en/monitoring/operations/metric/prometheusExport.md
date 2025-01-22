@@ -39,7 +39,7 @@ An example of metric collection setup from {{ monitoring-name }} in {{ prometheu
    - `translate`: {{ translate-name }}
    - `vision`: {{ vision-name }}
    - `ydb`: {{ ydb-name }}
-   
+
 
 1. Create a static [API key](../../../iam/operations/api-key/create.md) for the [service account](../../../iam/concepts/users/service-accounts).
 1. [Assign the service account the `{{ roles-monitoring-viewer }}` role](../../../iam/operations/roles/grant#access-to-sa) for the selected folder.

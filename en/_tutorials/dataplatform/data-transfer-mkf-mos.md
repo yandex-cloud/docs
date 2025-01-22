@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * With public access to hosts with the `DATA` role.
 
 
-
+        
         1. To connect to the cluster from the user's local machine, configure security groups:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
@@ -44,7 +44,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
 
-
+        
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 

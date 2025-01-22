@@ -98,7 +98,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-
+      
       ```hcl
       terraform {
         required_providers {

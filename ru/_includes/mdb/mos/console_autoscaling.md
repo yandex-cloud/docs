@@ -9,8 +9,8 @@
 
     {% include [storage-resize-steps](storage-resize-steps.md) %}
 
-
+    
     {% include [warn-storage-resize](warn-storage-resize.md) %}
-
+     
 
 Если настроено увеличение хранилища в окно обслуживания, настройте расписание окна обслуживания.

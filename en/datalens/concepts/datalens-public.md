@@ -11,7 +11,7 @@ Before publishing data, make sure that:
 * You have the `{{ permission-admin }}` permission to published charts, dashboards, and related objects.
 * Your charts and dashboards do not contain any personal data or trade secrets. Access to published data is not restricted.
 * The connection your objects run on top of supports data publication. You cannot publish data from the following connections:
-  
+
   * [Snowflake](../operations/connection/create-snowflake.md)
   * [Metrica](../operations/connection/create-metrica-api.md)
   * [AppMetrica](../operations/connection/create-appmetrica.md)

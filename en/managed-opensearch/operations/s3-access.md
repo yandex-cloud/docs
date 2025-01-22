@@ -36,7 +36,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
 - Management console {#console}
 
-
+    
     1. In the [management console]({{ link-console-main }}), select the folder with the appropriate bucket. If there is no such bucket, [create](../../storage/operations/buckets/create.md) one.
 
 

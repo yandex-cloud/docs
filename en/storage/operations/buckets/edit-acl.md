@@ -79,7 +79,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
   : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their IDs:
 
-
+        
         * [User](../../../iam/operations/users/get.md).
         * [Service account](../../../iam/operations/sa/get-id.md)
         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
@@ -158,7 +158,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
   : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their IDs:
 
-
+        
         * [User](../../../iam/operations/users/get.md).
         * [Service account](../../../iam/operations/sa/get-id.md).
         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
@@ -246,7 +246,7 @@ If an [ACL](../../concepts/acl.md) has already been set for a [bucket](../../con
 
        * `id`: ID of the user, service account, or user group. Used with the `CanonicalUser` type of permission grantee.
 
-
+         
          You can get the IDs in any of the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).

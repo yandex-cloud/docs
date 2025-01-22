@@ -1,17 +1,16 @@
-default:
-  region: ru
-  lang: ru
-  product: yandex-cloud
-  api: show
-  versions:
-    tf:
-      latest: '7.17'
-      str: 7.10, 7.11, 7.12, 7.13, 7.14, 7.15, 7.16 или 7.17
-    cli:
-      latest: '7.17'
-      str: 7.10, 7.11, 7.12, 7.13, 7.14, 7.15, 7.16 или 7.17
-    console:
-      latest: '7.17'
-      str: 7.10, 7.11, 7.12, 7.13, 7.14, 7.15, 7.16 и 7.17
-  api-host: api.cloud.yandex.net
-  api-host-mdb: mdb.api.cloud.yandex.net
+region: ru
+lang: ru
+product: yandex-cloud
+api: show
+versions:
+  tf:
+    latest: '7.17'
+    str: 7.10, 7.11, 7.12, 7.13, 7.14, 7.15, 7.16 или 7.17
+  cli:
+    latest: '7.17'
+    str: 7.10, 7.11, 7.12, 7.13, 7.14, 7.15, 7.16 или 7.17
+  console:
+    latest: '7.17'
+    str: 7.10, 7.11, 7.12, 7.13, 7.14, 7.15, 7.16 и 7.17
+api-host: api.cloud.yandex.net
+api-host-mdb: mdb.api.cloud.yandex.net

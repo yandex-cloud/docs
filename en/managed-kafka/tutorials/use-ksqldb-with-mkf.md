@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a {{ mkf-name }} cluster](../operations/cluster-create.md) in any suitable configuration.
 
    * If the ksqlDB server is hosted on the internet, create a {{ mkf-name }} cluster with public access.
-
+   
    * If the ksqlDB server is hosted in {{ yandex-cloud }}, create a {{ mkf-name }} cluster on the same [cloud network](../../vpc/concepts/network.md) as ksqlDB.
 
 

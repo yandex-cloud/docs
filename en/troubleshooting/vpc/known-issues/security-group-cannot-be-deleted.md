@@ -1,6 +1,7 @@
 # Could not delete a security group
 
 
+
 ## Issue description {#issue-description}
 
 You cannot delete the security group and see this error:

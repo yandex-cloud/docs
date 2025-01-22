@@ -27,7 +27,7 @@ You can create a new dataset using one of the following methods:
 
   1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 
-
+  
   1. Click **Create dataset**.
 
 
@@ -220,7 +220,7 @@ You can perform the following operations on dataset fields:
 1. Add a description: You can add a comment to a field in the **Description** column. This can help other users understand what the field is used for or how it is calculated.
 1. Hide fields: You can hide fields you do not need at the moment. Other users will not see these fields in the wizard when creating a chart. To do this, click ![icon](../../_assets/console-icons/eye-slash.svg).
 
-
+   
    ![screenshot](../../_assets/datalens/dataset/dataset-field-settings.png)
 
 
@@ -316,7 +316,7 @@ Before assigning access permissions to a user, [add](../security/add-new-user.md
   1. In the window that opens, click **Dataset access**.
   1. Enter a username or select the **All** group.
 
-
+     
      {% include [datalens-workbooks-collections-access-note](../../_includes/datalens/operations/datalens-workbooks-collections-access-note.md) %}
 
 

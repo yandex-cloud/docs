@@ -71,14 +71,14 @@
 
        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-
+       
        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
 
        Тип диска для кластера {{ mkf-name }} нельзя изменить после создания.
      * Выберите объем хранилища, который будет использоваться для данных.
 
-
+  
   1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** задайте [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища, при достижении которых его размер будет увеличиваться:
 
      {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
@@ -113,14 +113,14 @@
 
         * Репликация возможна при наличии как минимум двух хостов в кластере {{ mkf-name }}.
 
-
+        
         * Если в блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** выбран тип `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mkf-name }}.
 
 
         * Для отказоустойчивости кластера {{ mkf-name }} должны выполняться [определенные условия](../concepts/index.md#fault-tolerance).
         * Добавление в кластер с версией {{ KF }} 3.5 или ниже более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
 
-
+     
      1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер {{ mkf-name }}.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
@@ -157,7 +157,7 @@
 
   1. Укажите параметры кластера {{ mkf-name }} в команде создания (в примере приведены не все параметры):
 
-
+     
      ```bash
      {{ yc-mdb-kf }} cluster create \
         --name <имя_кластера> \
@@ -232,7 +232,7 @@
      {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
-
+  
   1. Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids` при создании кластера:
 
      ```bash
@@ -266,8 +266,8 @@
 
      Пример структуры конфигурационного файла:
 
-
-
+     
+     
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
        environment         = "<окружение>"
@@ -366,7 +366,7 @@
 
             {% endnote %}
 
-
+            
             ```json
             {
               "folderId": "<идентификатор_каталога>",
@@ -451,7 +451,7 @@
             * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
             * `networkId` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
-
+            
             * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. Каждая строка — идентификатор группы безопасности.
 
 
@@ -505,13 +505,13 @@
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-
+            
             Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `hostGroupIds`.
 
             {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -552,7 +552,7 @@
 
             {% endnote %}
 
-
+            
             ```json
             {
               "folder_id": "<идентификатор_каталога>",
@@ -643,7 +643,7 @@
             * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
             * `network_id` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
-
+            
             * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. Каждая строка — идентификатор группы безопасности.
 
 
@@ -697,13 +697,13 @@
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-
+            
             Чтобы создать кластер {{ mkf-name }}, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), передайте список их идентификаторов в параметре `host_group_ids`.
 
             {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -813,7 +813,7 @@
 
   Создайте кластер {{ mkf-name }} с тестовыми характеристиками:
 
-
+  
   * С именем `mykf`.
   * В окружении `production`.
   * С {{ KF }} версии 3.5.
@@ -829,7 +829,7 @@
 
   Выполните следующую команду:
 
-
+  
   ```bash
   {{ yc-mdb-kf }} cluster create \
      --name mykf \
@@ -858,7 +858,7 @@
   * С {{ KF }} версии 3.5.
   * В новой сети `mynet` с подсетью `mysubnet`.
 
-
+  
   * В новой группе безопасности `mykf-sg`, разрешающей подключение к кластеру {{ mkf-name }} из интернета по порту `9091`.
 
 
@@ -870,8 +870,8 @@
 
   Конфигурационный файл для такого кластера {{ mkf-name }} выглядит так:
 
-
-
+  
+  
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
     environment         = "PRODUCTION"

@@ -126,11 +126,11 @@ To sign artifacts within a pipeline, you can use [Cosign](https://github.com/sig
 
 A special build of Cosign allows you to store the created [digital signature key pair](../../../kms/concepts/asymmetric-signature-key.md) in [{{ kms-full-name }}](../../../kms/quickstart/index.md), sign files and artifacts with the private key of the pair, and verify a digital signature using its public key.
 
-For more information, see [{#T}](../../../container-registry/tutorials/sign-with-cosign.md).
+For more information, see [{#T}](../../../container-registry/tutorials/sign-cr-with-cosign.md).
 
 #### 8.7 Verify artifacts on deployment {#artifacts-checked}
 
-To ensure the reliability, security, and compatibility of applications in [{{ managed-k8s-name }}](../../../managed-kubernetes/), a service for automatic scaling and deployment of applications, you need to minimize the risk of issues, vulnerabilities, and failures during your application deployment and runtime. To do this, use [signatures and signature verification](../../../container-registry/tutorials/sign-with-cosign.md) in {{ managed-k8s-name }} with Cosign and [Kyverno](../../../managed-kubernetes/operations/applications/kyverno.md).
+To ensure the reliability, security, and compatibility of applications in [{{ managed-k8s-name }}](../../../managed-kubernetes/), a service for automatic scaling and deployment of applications, you need to minimize the risk of issues, vulnerabilities, and failures during your application deployment and runtime. To do this, use [signatures and signature verification](../../../container-registry/tutorials/sign-cr-with-cosign.md) in {{ managed-k8s-name }} with Cosign and [Kyverno](../../../managed-kubernetes/operations/applications/kyverno.md).
 
 {% list tabs group=instructions %}
 
@@ -142,7 +142,7 @@ To ensure the reliability, security, and compatibility of applications in [{{ ma
 
 **Guides and solutions to use**:
 
-[Guide on setting up the artifact signature](../../../container-registry/tutorials/sign-with-cosign.md).
+[Guide on setting up the artifact signature](../../../container-registry/tutorials/sign-cr-with-cosign.md).
 
 #### 8.8 Use protected templates of a secure pipeline {#pipeline-blocks}
 

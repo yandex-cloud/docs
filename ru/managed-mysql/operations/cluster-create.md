@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-
+  
   @[youtube](https://www.youtube.com/watch?v=XflGoG03SHE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=5&pp=iAQB)
 
 
@@ -66,7 +66,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
-
+  
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
 
      * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
@@ -80,7 +80,7 @@ description: Следуя данной инструкции, вы сможете
      * [Приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
      * [Приоритет хоста как {{ MY }}-реплики](../concepts/backup.md#size) для создания резервной копии.
 
-
+     
      Если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mmy-name }}. После создания кластера {{ mmy-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
 
 
@@ -102,7 +102,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы создать кластер {{ mmy-name }}:
 
-
+  
   1. Проверьте, есть ли в каталоге [подсети](../../vpc/concepts/network.md#subnet) для хостов кластера {{ mmy-name }}:
 
      ```bash
@@ -120,8 +120,8 @@ description: Следуя данной инструкции, вы сможете
 
   1. Укажите параметры кластера {{ mmy-name }} в команде создания:
 
-
-
+     
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name=<имя_кластера> \
@@ -150,7 +150,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `environment` — окружение: `prestable` или `production`.
 
-
+     
      * `assign-public-ip` — публичный доступ к хосту: `true` или `false`.
 
 
@@ -216,8 +216,8 @@ description: Следуя данной инструкции, вы сможете
 
      Пример структуры конфигурационного файла:
 
-
-
+     
+     
      ```hcl
      resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
@@ -352,7 +352,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+      
       ```json
       {
           "folderId": "<идентификатор_каталога>",
@@ -430,7 +430,7 @@ description: Следуя данной инструкции, вы сможете
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-
+      
       * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
@@ -444,7 +444,7 @@ description: Следуя данной инструкции, вы сможете
               * `diskSize` — размер диска в байтах;
               * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-
+          
           * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
               * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -501,7 +501,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+      
       ```json
       {
           "folder_id": "<идентификатор_каталога>",
@@ -573,7 +573,7 @@ description: Следуя данной инструкции, вы сможете
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-
+      
       * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
@@ -587,7 +587,7 @@ description: Следуя данной инструкции, вы сможете
               * `disk_size` — размер диска в байтах;
               * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-
+          
           * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
               * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -733,7 +733,7 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте кластер {{ mmy-name }} с тестовыми характеристиками:
 
-
+  
   * С именем `my-mysql`.
   * Версии `{{ versions.cli.latest }}`.
   * В окружении `production`.
@@ -748,7 +748,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Запустите команду создания кластера {{ mmy-name }}:
 
-
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name="my-mysql" \
@@ -787,7 +787,7 @@ description: Следуя данной инструкции, вы сможете
     * В новой сети `mynet`.
     * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
 
-
+    
     * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру {{ mmy-name }} из интернета через порт `{{ port-mmy }}`.
 
 
@@ -798,8 +798,8 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для такого кластера {{ mmy-name }} выглядит так:
 
-
-
+  
+  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
     name                = "my-mysql"
@@ -876,7 +876,7 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте кластер {{ mmy-name }} с тестовыми характеристиками:
 
-
+  
   * С именем `my-mysql-3`.
   * Версии `{{ versions.cli.latest }}`.
   * В окружении `prestable`.
@@ -898,7 +898,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Запустите команду создания кластера {{ mmy-name }}:
 
-
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name="my-mysql-3" \
@@ -954,7 +954,7 @@ description: Следуя данной инструкции, вы сможете
 
       Хосту в подсети `mysubnet-b` будет присвоен приоритет резервного копирования. Резервные копии будут создаваться из данных с этого хоста, если он не выбран хостом-мастером.
 
-
+    
     * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру {{ mmy-name }} из интернета через порт `{{ port-mmy }}`.
 
 
@@ -964,8 +964,8 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для такого кластера {{ mmy-name }} выглядит так:
 
-
-
+  
+  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql-3" {
     name                = "my-mysql-3"

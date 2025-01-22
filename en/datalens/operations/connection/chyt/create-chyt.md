@@ -1,5 +1,4 @@
 
-
 # Creating a {{ ytsaurus-name }} CHYT connection
 
 

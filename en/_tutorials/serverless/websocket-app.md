@@ -69,7 +69,7 @@ The infrastructure support cost for this tutorial includes:
        sudo apt-get install curl git -y
        ```
 
-     * [jq](https://stedolan.github.io/jq/download/):
+     * [jq](https://stedolan.github.io/jq/download/)
        ```bash
        sudo apt-get install jq
        ```
@@ -134,7 +134,7 @@ The infrastructure support cost for this tutorial includes:
        brew install curl git
        ```
 
-     * [jq](https://stedolan.github.io/jq/download/):
+     * [jq](https://stedolan.github.io/jq/download/)
        ```bash
        brew install jq
        ```
@@ -204,7 +204,7 @@ Register your bot in Telegram and get a token.
     /newbot
     ```
 
-1. In the `name` field, specify a name for the bot you are creating, e.g., `Serverless Game With WebSockets`. This is the name users will see when communicating with the bot.
+1. In the `name` field, specify a name for the bot you are creating, e.g., `Serverless Game With WebSockets`. This is the name users interacting with the bot will see.
 
 1. In the `username` field, enter a username for the new bot, e.g., `ServerlessGameWithWebSocketsBot`. You can use the username to search for the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
@@ -740,7 +740,7 @@ The following service accounts were created when deploying the project:
 * `apigw-s3-viewer` with the `storage.viewer` role to read objects from the {{ objstorage-name }} bucket.
 * `apigw-fn-caller` with the `{{ roles-functions-invoker }}` role to invoke {{ sf-name }} functions.
 
-1. Save IDs of the `apigw-s3-viewer` an `apigw-fn-caller` service accounts to the `APIGW_S3_VIEWER_ID` and `APIGW_FN_CALLER_ID` variables:
+1. Save the IDs of the `apigw-s3-viewer` and `apigw-fn-caller` service accounts to the `APIGW_S3_VIEWER_ID` and `APIGW_FN_CALLER_ID` variables:
 
     ```bash
     echo "export APIGW_S3_VIEWER_ID=$(jq -r <<<  \
@@ -796,12 +796,12 @@ The following service accounts were created when deploying the project:
     ```bash
     yc serverless api-gateway update \
       --name serverless-game-api \
-      --spec=apigw.yml
+      --spec=apigw.yml 
     ```
 
 ## Connect a domain to a Telegram bot {#api-gw-connect}
 
-1. Run this command:
+1. Run the following command: 
 
    ```bash
    yc serverless api-gateway get --name serverless-game-api
@@ -810,17 +810,17 @@ The following service accounts were created when deploying the project:
 1. Copy the API gateway's service domain. You can find it in the previous command output in the `domain` field.
 
 1. Find a Telegram bot named [BotFather](https://t.me/BotFather) and type the `/setdomain` command.
-1. Select your bot from the list and send it the API gateway's service domain. Add `https://` before the domain name. For example, if the API gateway's service domain is `d5d920bqkitf********.apigw.yandexcloud.net`, the URL will be `https://d5d920bqkitf********.apigw.yandexcloud.net`.
+1. Select your bot from the list and send it the API gateway's service domain. Add `https://` before the domain name. For example, if the API gateway's service domain is `{{ api-host-apigw }}`, the URL will be `https://{{ api-host-apigw }}`.
 
 ## Test the app {#test-app}
 
 Follow the link you sent to the Telegram bot, sign in, and open a game.
 
-The game offers player statistics. If the API gateway's service domain is `d5d920bqkitf********.apigw.yandexcloud.net`, the statistics for all players will be available at `https://d5d920bqkitf********.apigw.yandexcloud.net/stats.html`.
+The game offers player statistics. If the API gateway's service domain is `{{ api-host-apigw }}`, the statistics for all players will be available at `https://{{ api-host-apigw }}/stats.html`.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop paying for the created resources:
 * [Delete](../../ydb/operations/manage-databases.md#delete-db) the {{ ydb-name }} databases.
 * [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the {{ yds-name }} stream.
 * [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.

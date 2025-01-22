@@ -65,7 +65,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. Request a list of available host classes (the `ZONE IDS` column specifies the availability zones where you can select the appropriate class):
 
-
+     
      ```bash
      {{ yc-mdb-my }} resource-preset list
      ```
@@ -688,7 +688,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+      
       ```json
       {
           "updateMask": "configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics,maintenanceWindow,deletionProtection",
@@ -738,7 +738,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
           * `backupRetainPeriodDays`: Number of days to retain the cluster backup, between `7` and `60`.
 
-
+          
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
@@ -794,7 +794,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+      
       ```json
       {
           "cluster_id": "<cluster_ID>",
@@ -854,7 +854,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
           * `backup_retain_period_days`: Number of days to retain the cluster backup, between `7` and `60`.
 
-
+          
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
               * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)

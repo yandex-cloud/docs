@@ -7,5 +7,3 @@ items:
     href: operations/update.md
   - name: Pricing policy
     href: pricing.md
-base: en/console
-deepBase: 2

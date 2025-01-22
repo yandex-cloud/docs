@@ -44,7 +44,7 @@
      ssh-ed25519 AAAAB3Nz.....BdZoeQ==
      ```
 
-
+     
      Инструкцию по созданию пары SSH-ключей см. в [документации {{ compute-name }}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 
@@ -55,7 +55,7 @@
        -keyout secrets/ftp.key -out secrets/ftp.pem
      ```
     
-
+    
     {% include [tls-support-alert](../../_includes/storage/tls-support-alert.md) %}
 
 

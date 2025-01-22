@@ -306,5 +306,3 @@ items:
                 href: api-ref/Sku/get.md
               - name: List
                 href: api-ref/Sku/list.md
-base: en/billing
-deepBase: 2

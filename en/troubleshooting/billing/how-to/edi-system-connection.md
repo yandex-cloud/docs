@@ -1,6 +1,7 @@
 # How to connect to an Electronic Document Management system
 
 
+
 ## Issue description {#case-description}
 
 You need to receive closing documents using the services of an Electronic Document Management operator.
@@ -39,5 +40,5 @@ If something went wrong when connecting to the EDM and the recommendations provi
 When creating the request, make sure to specify:
 
 1. Billing account ID.
-   You can find this ID on the [page with billing account details]({{ link-console-support }}).
+You can find this ID on the [page with billing account details]({{ link-console-support }}).
 2. Problem description.

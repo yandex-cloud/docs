@@ -419,7 +419,7 @@
 
    {% endcut %}
 
-
+   
    {% cut "Как получить ACS URL федерации" %}
 
    {% include [get-acs-url](../../../_includes/organization/get-acs-url.md) %}
@@ -427,7 +427,7 @@
    {% endcut %}
 
 
-
+   
    ![image](../../../_assets/iam/federations/specify-console-sso-link.png)
 
 
@@ -513,7 +513,7 @@
 
     1. Аналогичным образом настройте сопоставление для утверждения `Group`, если вы используете [сопоставление групп пользователей](../../concepts/add-federation.md#group-mapping).
 
-
+    
     1. Аналогичным образом настройте сопоставления для утверждений `Name` и `E-Mail Address`, если нужно, чтобы пользователь мог обратиться в службу технической поддержки {{ yandex-cloud }} из [консоли управления]({{ link-console-support }}).
 
 

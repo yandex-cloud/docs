@@ -5,5 +5,3 @@ noIndex: true
 items:
   - name: Pricing policy
     href: pricing.md
-base: en/managed-trino
-deepBase: 2

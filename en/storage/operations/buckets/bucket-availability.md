@@ -94,7 +94,7 @@ By default, [buckets](../../concepts/bucket.md) are created with restricted [acc
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -241,7 +241,7 @@ If your bucket has access policies, you will also need to [configure](./policy.m
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

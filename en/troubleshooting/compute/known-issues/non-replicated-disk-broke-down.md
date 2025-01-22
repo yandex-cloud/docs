@@ -1,6 +1,7 @@
 # Fixing a non-replicable disk breakdown
 
 
+
 ## Issue description {#issue-description}
 
 A non-replicable disk failure has occurred.

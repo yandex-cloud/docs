@@ -144,4 +144,4 @@ The following limitations apply when using parameters:
   1. Delete the selector you added from the dashboard.
 
   The dashboard's `parameter` value will now be applied to all the widgets the remote selector was connected to.
-    
+  

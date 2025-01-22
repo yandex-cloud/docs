@@ -27,7 +27,7 @@ description: Из статьи вы узнаете, как задать наст
 
     * [{{ KF }} в {{ CH }}](../../../tutorials/mkf-to-mch.md);
     * [{{ KF }} в {{ PG }}](../../../tutorials/mkf-to-mpg.md);
-    * [{{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md);    
+    * [{{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md);
     * [{{ KF }} в {{ MG }}](../../../tutorials/mkf-to-mmg.md);
     * [{{ KF }} в {{ MY }}](../../../tutorials/mkf-to-mmy.md);
     * [{{ KF }} в {{ OS }}](../../../tutorials/mkf-to-mos.md);
@@ -73,7 +73,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -120,7 +120,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -162,12 +162,12 @@ description: Из статьи вы узнаете, как задать наст
 
 - Консоль управления {#console}
 
-
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.transformer.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}** — выберите одну из функций, созданных в сервисе {{ sf-name }}.
 
-
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.service_account_id.title }}** — выберите или [создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будет запускаться функция обработки.
 
 

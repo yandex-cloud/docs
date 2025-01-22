@@ -1,7 +1,3 @@
----
-title: '{{ iam-full-name }}. Questions and answers'
-description: What is {{ iam-full-name }} used for? How do I get started with {{ iam-short-name }}? How much do I pay for {{ iam-short-name }}? Find the answers to these and other questions in this article.
----
 
 # General questions about {{ iam-name }}
 

@@ -34,7 +34,7 @@ To track user actions:
 
 1. For the goal, select the **JavaScript event** condition type and specify the ID of the goal with the **contains** condition. Events with the following goal IDs are tracked on the form page:
 
-
+   
    - The user filled in at least one field in the form: `ya-forms_start-change`.
 
 

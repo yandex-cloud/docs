@@ -59,5 +59,3 @@ items:
     href: pricing.md
   - name: '{{ sk-hybrid-name }} releases'
     href: release-notes.md
-base: en/speechkit-hybrid
-deepBase: 2

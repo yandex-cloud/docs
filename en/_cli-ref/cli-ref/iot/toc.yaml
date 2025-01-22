@@ -146,5 +146,3 @@ items:
             href: cli-ref/registry/yds-export/delete.md
           - name: list
             href: cli-ref/registry/yds-export/list.md
-base: en/_cli-ref/cli-ref/iot
-deepBase: 4

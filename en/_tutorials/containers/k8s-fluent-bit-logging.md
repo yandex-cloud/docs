@@ -110,7 +110,7 @@ Prepare the infrastructure:
 
   1. Specify the log output parameters in the `data.output-elasticsearch.conf` section in `config.yaml`:
 
-
+     
      ```yaml
      ...
        output-elasticsearch.conf: |

@@ -30,10 +30,9 @@
   * [Manage data streams in {{ yds-name }}](../data-streams/quickstart/index.md).
   * [Use {{ iot-name }} as your framework for smart home development](../iot-core/quickstart.md).
 * Databases and clusters:
-  * [{{ CH }}](../managed-clickhouse/quickstart.md).  
-  * [{{ MY }}](../managed-mysql/quickstart.md).  
+  * [{{ CH }}](../managed-clickhouse/quickstart.md).
+  * [{{ MY }}](../managed-mysql/quickstart.md).
   * [{{ PG }}](../managed-postgresql/quickstart.md).
-  
   * [{{ OS }}](../managed-opensearch/quickstart.md).
   * [{{ KF }}](../managed-kafka/quickstart.md).
   * [{{ GP }}](../managed-greenplum/quickstart.md).

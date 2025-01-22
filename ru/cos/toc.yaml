@@ -55,5 +55,3 @@ items:
     href: qa/index.md
   - name: Решение проблем
     href: error/index.md
-base: ru/cos
-deepBase: 2

@@ -1,5 +1,5 @@
 Встраивание не поддерживается для непубличных объектов, которые построены на основе следующих подключений: {#unsupported-connections}
-  
+
   * [Snowflake](../../datalens/operations/connection/create-snowflake.md)
   * [Файлы](../../datalens/operations/connection/create-file.md)
   * [Яндекс Документы](../../datalens/operations/connection/create-yadocs.md)

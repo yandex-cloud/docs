@@ -19,5 +19,3 @@ items:
     href: pricing.md
   - name: Вопросы и ответы
     href: qa.md
-base: ru/support
-deepBase: 2

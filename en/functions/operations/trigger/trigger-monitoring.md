@@ -29,7 +29,7 @@ The chart update period is 15 seconds.
       * **Read events**: Number of events causing a trigger to fire.
       * **Function access errors**: Number of access errors when invoking a function.
       * **Function call errors**: Number of errors when invoking a function.
-      * **DLQ access errors**: Number of errors when accessing the [Dead Letter Queue](../../concepts/dlq.md).
+            * **DLQ access errors**: Number of errors when accessing the [Dead Letter Queue](../../concepts/dlq.md).
       * **Send to DLQ errors**: Number of errors when sending messages to the Dead Letter Queue.
 
    You can select the time period to display information for: hour, day, week, month, or a custom interval.

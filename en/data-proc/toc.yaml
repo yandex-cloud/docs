@@ -349,5 +349,3 @@ items:
         href: release-notes/images.md
   - name: FAQ
     href: qa/index.md
-base: en/data-proc
-deepBase: 2

@@ -52,7 +52,7 @@ For example, delivering 17,000 data events will cost:
 
 
 
-
+  
   {% include [usd-lockbox](../_pricing_examples/audit-trails/usd-lockbox.md) %}
 
 
@@ -71,5 +71,5 @@ For example, delivering 17,000 data events will cost:
 
 
 
-
+  
   {% include [usd-storage](../_pricing_examples/audit-trails/usd-storage.md) %}

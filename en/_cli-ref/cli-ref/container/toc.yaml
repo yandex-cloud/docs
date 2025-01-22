@@ -157,5 +157,3 @@ items:
         href: cli-ref/repository/remove-access-binding.md
       - name: set-access-bindings
         href: cli-ref/repository/set-access-bindings.md
-base: en/_cli-ref/cli-ref/container
-deepBase: 4

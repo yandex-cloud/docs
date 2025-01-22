@@ -127,7 +127,7 @@ description: Из статьи вы узнаете, как задать наст
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}** — по значениям какой колонки разбивать (_партицировать_) таблицу. Колонка должна иметь тип <q>время</q>.
 
-
+            
             Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}]({{ ydb.docs }}/concepts/datamodel/table#partitioning).
 
 

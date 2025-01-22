@@ -162,7 +162,7 @@
 
       {% note info %}
 
-
+      
       В примере используются готовые данные в формате координат. 
 
 
@@ -215,7 +215,7 @@
 
    1. В правом верхнем углу нажмите значок ![save-button](../../_assets/console-icons/chevron-down.svg) → **Сохранить как копию**.
 
-      ![save-chart-as-copy](../../_assets/datalens/solution-07/10-save-chart-as-copy.png)      
+      ![save-chart-as-copy](../../_assets/datalens/solution-07/10-save-chart-as-copy.png)
 
    1. В открывшемся окне введите название нового чарта `Количество ДТП по регионам` и нажмите кнопку **Сохранить**.
 
@@ -368,7 +368,7 @@
 
 1. На панели в нижней части страницы выберите виджет **Чарт**.
 
-   ![add-chart](../../_assets/datalens/solution-07/21-add-chart.png)   
+   ![add-chart](../../_assets/datalens/solution-07/21-add-chart.png)
 
 1. В открывшемся окне нажмите кнопку **Выбрать**.
 1. Выберите чарт `Тепловая карта ДТП`.
@@ -405,7 +405,7 @@
 
    1. На панели в нижней части страницы выберите виджет **Селектор**.
 
-      ![add-selector](../../_assets/datalens/solution-07/25-add-selector.png)      
+      ![add-selector](../../_assets/datalens/solution-07/25-add-selector.png)
 
    1. Выберите датасет `ДТП`.
    1. Выберите поле `Название региона`.

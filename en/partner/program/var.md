@@ -42,7 +42,7 @@ The discount does not apply to:
 * Partner's own consumption of services in the partner account.
 * Consumption of the following services:
 
-   * [{{ marketplace-full-name }}](/marketplace)   
+   * [{{ marketplace-full-name }}](/marketplace)
    * [{{ mmg-full-name }}](../../managed-mongodb/)
    * [{{ interconnect-full-name }}](../../interconnect/)
 

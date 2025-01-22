@@ -1,6 +1,7 @@
 # Payment deadline
 
 
+
 ## Scenario description {#case-description}
 
 You need to find out the date for topping up the balance of your billing account.
@@ -24,5 +25,5 @@ If the above actions did not help, [create a request for technical support]({{ l
 Provide the following information in the request:
 
 1. Billing account ID.
-   You can find this ID on the [page with billing account details]({{ link-console-support }}).
+You can find this ID on the [page with billing account details]({{ link-console-support }}).
 2. Problem description.

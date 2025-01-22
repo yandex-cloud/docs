@@ -222,5 +222,3 @@ items:
     href: pricing.md
   - name: История изменений
     href: release-notes.md
-base: ru/interconnect
-deepBase: 2

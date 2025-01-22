@@ -32,7 +32,7 @@ To create a project portfolio:
    * **Status**: Specify the current stage of the portfolio.
    * **Start date** and **End date**.
    * **Responsible**, **Clients**, and **Participants**: Start typing the name or login of the employee and select a relevant option from the list.
-   * **Tags**: Add or select the tags that would make it easier to find the portfolio.   
+   * **Tags**: Add or select the tags that would make it easier to find the portfolio.
 
 
 ## Setting up a hierarchy {#add-portfolios-projects}

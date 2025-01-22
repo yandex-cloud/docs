@@ -85,5 +85,3 @@ items:
         href: api-ref/support-headers.md
       - name: Вопросы и ответы
         href: qa/index.md
-base: ru/translate
-deepBase: 2

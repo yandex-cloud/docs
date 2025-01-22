@@ -18,7 +18,6 @@ description: Следуя данной инструкции, вы сможете
 
    {% cut "sts.yaml" %}
 
-
    ```yaml
    apiVersion: apps/v1
    kind: StatefulSet
@@ -55,8 +54,6 @@ description: Следуя данной инструкции, вы сможете
              storage: 1Gi
    ```
 
-
-
    {% endcut %}
 
 1. Создайте контроллер:
@@ -74,7 +71,6 @@ description: Следуя данной инструкции, вы сможете
 
    Результат:
 
-
    ```text
    NAME               READY  STATUS   RESTARTS  AGE
    pod/ubuntu-test-0  1/1    Running  0         90s
@@ -87,8 +83,6 @@ description: Следуя данной инструкции, вы сможете
    persistentvolumeclaim/pvc-dynamic-ubuntu-test-2  Bound   pvc-f479c8aa-426a-4e43-9749-5e0f********  1Gi       RWO           yc-network-hdd  73s
    ```
 
-
-
 1. Убедитесь, что [диски](../../../compute/concepts/disk.md) для объектов с префиксами `k8s-csi` перешли в статус `READY`:
 
    ```bash
@@ -97,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
 
    Результат:
 
-
+   
    ```text
    +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
    |          ID          |                       NAME                       |    SIZE    |        ZONE       | STATUS |     INSTANCE IDS     | DESCRIPTION |
@@ -192,11 +186,10 @@ description: Следуя данной инструкции, вы сможете
 
    Результат:
 
-
+   
    ```text
    NAME                                      CAPACITY  ACCESS MODES  RECLAIM POLICY  STATUS  CLAIM                              STORAGECLASS    REASON  AGE
    pvc-603ac129-fe56-400a-8481-feaa********  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-0  yc-network-hdd          11m
    pvc-a6fb0761-0771-483c-abfb-d4a8********  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-1  yc-network-hdd          11m
    pvc-f479c8aa-426a-4e43-9749-5e0f********  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-2  yc-network-hdd          11m
    ```
-

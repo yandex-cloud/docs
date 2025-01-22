@@ -204,7 +204,7 @@ Apart from text, you can write [structured logs](../concepts/logs.md#structured-
 
     **index.py**
 
-  
+      
     ```python
     import logging
     import os

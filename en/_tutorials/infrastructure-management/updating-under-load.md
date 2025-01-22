@@ -151,7 +151,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    {% list tabs %}
 
-
+   
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
@@ -372,7 +372,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
       Command result:
 
-
+      
       ```bash
       +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
       |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |

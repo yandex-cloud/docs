@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Prepare the infrastructure:
 
-
+    
     1. [Create a custom {{ ES }} installation]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
 
     1. [Enable access to the cluster from {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).

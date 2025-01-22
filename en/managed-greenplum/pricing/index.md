@@ -63,7 +63,7 @@ You pay for the following:
 
 * Storage allocated for clusters.
 
-
+  
   * You can only order local SSD storage (`local-ssd`) for clusters with two master hosts:
 
     * For Intel Cascade Lake: In increments of 100 GB.

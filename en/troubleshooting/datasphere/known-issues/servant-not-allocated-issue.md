@@ -1,6 +1,7 @@
 # Resolving the "Servant not allocated" error when running code within DataSphere project cells
 
 
+
 ## Issue description {#issue-description}
 
 When trying to execute code from Jupyter notebook cells within the DataSphere project, you see one or more error messages:

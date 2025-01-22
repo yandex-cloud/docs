@@ -283,5 +283,3 @@ items:
         href: qa/alerts.md
       - name: All questions on a single page
         href: qa/all.md
-base: en/monitoring
-deepBase: 2

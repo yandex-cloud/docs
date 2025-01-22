@@ -1,6 +1,7 @@
 # Resolving the "409 BucketAlreadyExists" error
 
 
+
 ## Issue description {#issue-description}
 
 You see this error when trying to create a bucket:

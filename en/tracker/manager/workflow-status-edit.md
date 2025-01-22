@@ -145,7 +145,7 @@ To add a status to a workflow:
 
 1. In the suggested list of statuses, select the one to add to the workflow.
 
-
+   
    The most popular statuses are available in {{ tracker-name }} by default. If you do not see the status you need, the admin can [create one](#create-status).
 
 

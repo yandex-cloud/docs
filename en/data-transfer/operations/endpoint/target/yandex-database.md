@@ -104,7 +104,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Column to split (_partition_) the table based on. The column must be of the _time_ type.
 
-
+            
             For more information about partitioning tables, see the [{{ ydb-full-name }}]({{ ydb.docs }}/concepts/datamodel/table#partitioning) documentation.
 
 

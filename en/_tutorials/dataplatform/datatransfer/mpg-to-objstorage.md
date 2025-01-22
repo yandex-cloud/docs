@@ -21,7 +21,7 @@ Prepare the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`.
 
-
+    
     1. If using [security groups](../../../managed-postgresql/operations/connect.md#configuring-security-groups) in your cluster, make sure they are configured correctly and allow connecting to the cluster.
 
 

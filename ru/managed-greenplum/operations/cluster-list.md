@@ -38,7 +38,7 @@
             --url-query folderId=<идентификатор_каталога>
         ```
 
-
+        
         Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -68,7 +68,7 @@
             yandex.cloud.mdb.greenplum.v1.ClusterService.List
         ```
 
-
+        
         Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 

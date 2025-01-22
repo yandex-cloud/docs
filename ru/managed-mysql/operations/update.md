@@ -65,7 +65,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-
+     
      ```bash
      {{ yc-mdb-my }} resource-preset list
      ```
@@ -699,7 +699,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+      
       ```json
       {
           "updateMask": "configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics,maintenanceWindow,deletionProtection",
@@ -749,7 +749,7 @@ description: Из статьи вы узнаете, как изменить на
 
           * `backupRetainPeriodDays` — сколько дней хранить резервную копию кластера: от `7` до `60` дней.
 
-
+          
           * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
               * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -805,7 +805,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+      
       ```json
       {
           "cluster_id": "<идентификатор_кластера>",
@@ -865,7 +865,7 @@ description: Из статьи вы узнаете, как изменить на
 
           * `backup_retain_period_days` — сколько дней хранить резервную копию кластера: от `7` до `60` дней.
 
-
+          
           * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
               * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);

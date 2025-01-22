@@ -8,13 +8,15 @@
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container whose [revision](../../serverless-containers/concepts/container.md#revision) you want to create.
   1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
-  1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**, you can additionally specify revision parameters:
-      * **{{ ui-key.yacloud.serverless-containers.label_command }}**: Commands that the container will run when started. It matches the `ENTRYPOINT` instruction in the Dockerfile.
-      * **{{ ui-key.yacloud.serverless-containers.label_args }}**: Matches the `CMD` instruction in the Dockerfile. Specify arguments in `key = value` format. If you do not specify this parameter, the default `CMD` value from the Docker image will be used.
+  1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**:
+      * Specify the {{ container-registry-full-name }} Docker image URL.
+      * Additionally specify the revision parameters, if needed:
+          * **{{ ui-key.yacloud.serverless-containers.label_command }}**: Commands that the container will run when started. It matches the `ENTRYPOINT` instruction in the Dockerfile.
+          * **{{ ui-key.yacloud.serverless-containers.label_args }}**: Matches the `CMD` instruction in the Dockerfile. Specify arguments in `key = value` format. If you do not specify this parameter, the default `CMD` value from the Docker image will be used.
 
-          You can provide multiple arguments to a container. To do this, click **{{ ui-key.yacloud.common.add }}**.
+              You can provide multiple arguments to a container. To do this, click **{{ ui-key.yacloud.common.add }}**.
 
-      * **{{ ui-key.yacloud.serverless-containers.label_working-directory }}**: Allows you to change the working directory of a container. It matches the `WORKDIR` instruction in the Dockerfile. We recommend setting absolute paths to folders.
+          * **{{ ui-key.yacloud.serverless-containers.label_working-directory }}**: Allows you to change the working directory of a container. It matches the `WORKDIR` instruction in the Dockerfile. We recommend setting absolute paths to folders.
 
   1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
@@ -34,6 +36,7 @@
     --command '<command_1>','<command_2>' \
     --args '<key_1=value_1>','<key_2=value_2>'
   ```
+
 
   Where:
   * `--cores`: Number of cores available to the container.

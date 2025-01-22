@@ -9,7 +9,7 @@
 
     {% include [storage-resize-steps](storage-resize-steps.md) %}
 
-
+    
     {% include [warn-storage-resize](warn-storage-resize.md) %}
 
 

@@ -387,5 +387,3 @@ items:
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
-base: ru/serverless-containers
-deepBase: 2

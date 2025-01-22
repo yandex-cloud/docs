@@ -89,7 +89,7 @@ When restored to the current state, the new cluster will match the state of:
 
   1. Request creating a cluster from a backup:
 
-
+      
       ```bash
       {{ yc-mdb-pg }} cluster restore \
          --backup-id=<backup_ID> \
@@ -121,7 +121,7 @@ When restored to the current state, the new cluster will match the state of:
 
           * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
-
+          
           * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
           * `assign-public-ip`: Flag to add if [public access to the host](../concepts/network.md#public-access-to-a-host) is required (`true` or `false`).
 
@@ -130,7 +130,7 @@ When restored to the current state, the new cluster will match the state of:
       * `--disk-size`: Storage size in GB.
       * `--disk-type`: [Disk type](../concepts/storage.md):
 
-
+          
           * `network-hdd`
           * `network-ssd`
           * `local-ssd`
@@ -540,7 +540,7 @@ When restored to the current state, the new cluster will match the state of:
            --url-query folderId=<folder_ID>
         ```
 
-
+        
         You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -593,7 +593,7 @@ When restored to the current state, the new cluster will match the state of:
           yandex.cloud.mdb.postgresql.v1.BackupService.List
         ```
 
-
+        
         You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 

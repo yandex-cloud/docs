@@ -92,7 +92,7 @@ IAM-токен действует не больше {{ iam-token-lifetime }} и 
 
 1. В командной строке вашей ОС выполните команду:
     
-
+    
     ```
     pip install yandex_tracker_client
     ```

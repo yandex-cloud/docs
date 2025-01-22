@@ -1,3 +1,8 @@
+---
+title: COI releases
+description: In this article, you will learn how to find out your COI version and read about the previous COI releases.
+---
+
 # COI releases
 
 {% cut "How to find out your COI version" %}
@@ -42,3 +47,4 @@ In version 2.2.0 and higher, the patch (the third number in the version, such as
 ## Previous releases {#previous-releases}
 
 {% include [previous-releases](../_includes/cos/previous-releases.md) %}
+

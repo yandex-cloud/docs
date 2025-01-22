@@ -1,3 +1,8 @@
+---
+title: Integration with the {{ license-manager }} API
+description: Follow this guide to set up integration with the {{ license-manager }} API.
+---
+
 # Integration with the {{ license-manager }} API
 
 If you created a [subscription](../concepts/subscription.md) within one of these service plans:

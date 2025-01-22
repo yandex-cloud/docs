@@ -69,7 +69,7 @@ To create a dataset based on the `Sample ClickHouse` connection:
 
 1. Drag the `MS_SalesMiniTable` table to the workspace.
 
-   ![drag-table](../_assets/datalens/quickstart/drag-table.png)   
+   ![drag-table](../_assets/datalens/quickstart/drag-table.png)
 
 1. Go to the **Fields** tab.
 
@@ -77,7 +77,7 @@ To create a dataset based on the `Sample ClickHouse` connection:
 
 1. Create a measure for the order amount. To do this, select **Sum** for the `Sales` field in the **Aggregation** column.
 
-   ![dataset-sales-sum](../_assets/datalens/quickstart/dataset-sales-sum.png)      
+   ![dataset-sales-sum](../_assets/datalens/quickstart/dataset-sales-sum.png)
 
 1. Create a measure for the number of orders:
 
@@ -86,14 +86,14 @@ To create a dataset based on the `Sample ClickHouse` connection:
 
 1. Change the data type for the `ShopAddressCoord` field: select **Geopoint** in the **Type** column.
 
-   ![dataset-sales-geotype](../_assets/datalens/quickstart/dataset-sales-geotype.png)      
+   ![dataset-sales-geotype](../_assets/datalens/quickstart/dataset-sales-geotype.png)
 
 1. Save the dataset:
 
    1. In the top-right corner, click **Save**.
    1. Enter `Sales Dataset` for the dataset name and click **Create**.
 
-      ![create-dataset](../_assets/datalens/quickstart/create-dataset.png)            
+      ![create-dataset](../_assets/datalens/quickstart/create-dataset.png)
 
 ## Create a column chart {#create-column-chart}
 
@@ -110,7 +110,7 @@ To create a chart based on `Sales Dataset`:
    1. In the top-right corner, click **Save**.
    1. In the window that opens, enter the `Sales by subcategory` name for the chart and click **Save**.
 
-      ![create-chart-1](../_assets/datalens/quickstart/create-column-chart.png)            
+      ![create-chart-1](../_assets/datalens/quickstart/create-column-chart.png)
 
 ## Create a stacked area chart {#create-area-chart}
 
@@ -118,13 +118,13 @@ To create a chart based on `Sales Dataset`:
 
    1. In the top-right corner, click ![save-button](../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 
-      ![chart-save-as](../_assets/datalens/quickstart/chart-save-as.png)            
+      ![chart-save-as](../_assets/datalens/quickstart/chart-save-as.png)
 
    1. In the window that opens, enter the `Sales by week` name for the new chart and click **Save**.
 
 1. Select **Stacked area chart** as the visualization type.
 
-   ![type-chart-select](../_assets/datalens/quickstart/type-chart-select.png)      
+   ![type-chart-select](../_assets/datalens/quickstart/type-chart-select.png)
 
 1. Replace the product subcategories with the order date on the X-axis. To do this, drag the `OrderDate` field from **Dimensions** to the **X** section and hold it over the `ProductSubcategory` field until the latter turns red.
 1. Add the product category to the chart. To do this, drag the `ProductCategory` field from **Dimensions** to the **Colors** section.
@@ -133,14 +133,14 @@ To create a chart based on `Sales Dataset`:
    1. Click the calendar icon next to the `OrderDate` field in the **X** section.
    1. In the **Grouping** field, select **Rounding** → **Week**.
 
-      ![chart-week-grouping](../_assets/datalens/quickstart/chart-week-grouping.png)            
+      ![chart-week-grouping](../_assets/datalens/quickstart/chart-week-grouping.png)
 
    1. Click **Apply**.
 
 1. Remove sorting by sales: click ![save-button](../_assets/console-icons/xmark.svg) (the icon appears when you hover over the field) next to the `Sales` field in the **Sorting** section.
 1. In the top-right corner, click **Save**.
 
-   ![create-chart-2](../_assets/datalens/quickstart/create-area-chart.png)      
+   ![create-chart-2](../_assets/datalens/quickstart/create-area-chart.png)
 
 
 ## Create a map chart {#create-map-chart}
@@ -163,7 +163,7 @@ To create a chart based on `Sales Dataset`:
 
 1. In the top-right corner, click **Save**.
 
-   ![create-chart-3](../_assets/datalens/quickstart/create-map-chart.png)   
+   ![create-chart-3](../_assets/datalens/quickstart/create-map-chart.png)
 
 
 
@@ -176,7 +176,7 @@ To create a dashboard:
 
 1. Go to the `Quick start` workbook by clicking its name in the chart path.
 
-   ![chart-settings](../_assets/datalens/quickstart/bread-crumbs.png)   
+   ![chart-settings](../_assets/datalens/quickstart/bread-crumbs.png)
 
 1. In the top-right corner, click **Create** → ![image](../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
 
@@ -186,13 +186,13 @@ To create a dashboard:
 1. In the window that opens, click **Select**.
 1. Select the `Sales map` chart.
 
-   ![chart-settings](../_assets/datalens/quickstart/chart-settings.png)      
+   ![chart-settings](../_assets/datalens/quickstart/chart-settings.png)
 
 1. Click **Add**.
 1. Repeat steps 3 through 6 to add the `Sales by subcategory` and `Sales by week` charts.
 1. Adjust the size of the charts with your mouse and place them on the dashboard as you prefer.
 
-   ![add-charts](../_assets/datalens/quickstart/add-charts.png)      
+   ![add-charts](../_assets/datalens/quickstart/add-charts.png)
 
 ## Set up chart filtering {#add-chart-chart-filtration}
 
@@ -201,11 +201,11 @@ Add [filtering](./dashboard/chart-chart-filtration.md) by the `Sales map` chart 
 
 1. Click ![image](../_assets/console-icons/gear.svg) in the top-right corner of the `Sales map` chart.
 
-   ![chart-settings](../_assets/datalens/quickstart/chart-dash-settings.png)   
+   ![chart-settings](../_assets/datalens/quickstart/chart-dash-settings.png)
 
 1. Enable the **Filtering** option.
 
-   ![chart-filtration-option](../_assets/datalens/quickstart/chart-filtration-option.png)   
+   ![chart-filtration-option](../_assets/datalens/quickstart/chart-filtration-option.png)
 
 1. Click **Save**.
 
@@ -227,7 +227,7 @@ To add a selector to a dashboard:
    1. In the **Header** field, enter `Order date`.
    1. Enable **Range**.
 
-      ![selector-settings](../_assets/datalens/quickstart/selector-settings.png)            
+      ![selector-settings](../_assets/datalens/quickstart/selector-settings.png)
 
    1. Click **Save**.
 
@@ -237,7 +237,7 @@ To add a selector to a dashboard:
    1. In the top-right corner of the dashboard, click **Save**.
    1. Enter `Sales` for the dashboard name and click **Create**.
 
-      ![dashboard-saved](../_assets/datalens/quickstart/dashboard-saved.png)            
+      ![dashboard-saved](../_assets/datalens/quickstart/dashboard-saved.png)
 
 ## Learn how a dashboard works {#dashboard-work}
 
@@ -246,7 +246,7 @@ To add a selector to a dashboard:
 
    1. Click a point on the map in the `Sales map` chart. This will filter the linked charts by the selected dimension.
 
-      ![chart-chart-filtration](../_assets/datalens/quickstart/chart-chart-filtration.png)      
+      ![chart-chart-filtration](../_assets/datalens/quickstart/chart-chart-filtration.png)
 
    1. Clear chart filtering by clicking the selected point once more or ![image](../_assets/datalens/clear-filters.svg) in the top-right corner of the chart.
 
@@ -255,7 +255,7 @@ To add a selector to a dashboard:
    1. In the `Order date` selector, enter the period start and end dates: `01.01.2019 - 31.01.2019`.
    1. This will filter data by the `OrderDate` field in all charts on the current tab that share the same dataset.
 
-      ![selector-filtration](../_assets/datalens/quickstart/selector-filtration.png)      
+      ![selector-filtration](../_assets/datalens/quickstart/selector-filtration.png)
 
    1. Clear selector filtering by clicking ![save-button](../_assets/console-icons/xmark.svg) in the right corner of the selector.
 

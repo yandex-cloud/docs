@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
     * [{{ DS }} в {{ CH }}](../../../tutorials/yds-to-clickhouse.md);
-    * [{{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md);    
+    * [{{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md);
     * [{{ DS }} в {{ ydb-name }}](../../../tutorials/yds-to-ydb.md);
     * [{{ DS }} в {{ mkf-name }}](../../../tutorials/yds-to-kafka.md).
 
@@ -62,12 +62,12 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.transformer.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}** — выберите одну из функций, созданных в сервисе {{ sf-name }}.
 
-
+            
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или [создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будет запускаться функция обработки.
 
 

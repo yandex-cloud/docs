@@ -188,5 +188,3 @@ items:
             href: release-notes/2208.md
   - name: Support
     href: feedback.md
-base: en/forms
-deepBase: 2

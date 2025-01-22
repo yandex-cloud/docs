@@ -119,5 +119,3 @@ items:
         href: tls.md
       - name: WAF
         href: waf.md
-base: ru/glossary
-deepBase: 2

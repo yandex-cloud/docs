@@ -93,7 +93,7 @@ To start using the client:
 
 1. From your OS command line, run:
 
-
+   
    ```
    pip install yandex_tracker_client
    ```

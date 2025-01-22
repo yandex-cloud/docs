@@ -1,6 +1,7 @@
 # Resolving the INVALID_PERSON_TYPE error when registering a billing account
 
 
+
 ## Issue description {#issue-description}
 
 * When you try to create a billing account and click Register, you see the `INVALID_PERSON_TYPE` error message.

@@ -876,5 +876,3 @@ items:
             href: release-notes/2208.md
   - name: Support
     href: troubleshooting.md
-base: en/tracker
-deepBase: 2

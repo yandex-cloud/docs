@@ -44,7 +44,7 @@ To authenticate as a service account:
 
 1. Make sure that the service account parameters are added correctly:
 
-   
+      
     ```bash
     yc config list
     ```

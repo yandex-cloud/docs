@@ -47,7 +47,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
     1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `storage.editor` role. A service account is required to access the bucket from the source and target clusters.
 
-    1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/sa/create-access-key.md) for this service account.
+        1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/sa/create-access-key.md) for this service account.
 
 
         {% note warning %}
@@ -111,7 +111,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Set up the {{ ES }} source cluster:
 
-
+    
     {% include [source-3p](es-mos-migration/source-3p.md) %}
 
 
@@ -123,7 +123,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 1. Connect the bucket as a snapshot repository on the source cluster:
 
-
+    
     {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
 
 
@@ -135,13 +135,13 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     Example of creating a snapshot named `snapshot_1` for the entire cluster:
 
-
+    
     {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
 
 
     Creating a snapshot may take a long time. Track the progress of the operation [using {{ ES }} tools]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
 
-
+    
     {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
 
 

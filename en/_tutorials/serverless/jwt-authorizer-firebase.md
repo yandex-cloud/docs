@@ -1,12 +1,12 @@
 # Deploying a web app with JWT authorization in {{ api-gw-full-name }} and authentication in Firebase
 
-In this tutorial, you will learn how to implement authentication and authorization based on [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/) protocols in your web app. For authentication, we will use [Google OAuth](https://developers.google.com/identity/protocols/oauth2) and [Firebase](https://firebase.google.com/docs). Authorization will be performed on the [{{ api-gw-name }}](../../api-gateway/) side using a JWT authorizer. A web app will include:
+In this tutorial, you will learn how to implement authentication and authorization based on [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/) protocols in your web app. For authentication, we will use [Google OAuth](https://developers.google.com/identity/protocols/oauth2) and [Firebase](https://firebase.google.com/docs). Authorization will be performed on the [{{ api-gw-name }}](../../api-gateway/) side using a JWT authorizer. Your web app will consist of:
 * Firebase external authentication service.
 * Simple REST API deployed as {{ api-gw-name }}.
 * Static website deployed in a [{{ objstorage-full-name }}](../../storage/) [bucket](../../storage/concepts/bucket.md).
 
 To deploy your web app:
-1. [Prepare your cloud](#prepare-cloud).
+1. [Prepare your cloud environment](#prepare-cloud).
 1. [Create a project and set up Google OAuth in Google Cloud](#create-google-cloud-project).
 1. [Set up authentication in Firebase](#create-firebase-project).
 1. [Complete Google resource configuration](#google-oauth-setup).
@@ -64,7 +64,7 @@ Firebase:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `jwt-api-gw`.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
@@ -180,7 +180,7 @@ Firebase:
      created_at: "2020-06-17T09:20:22.929Z"
      name: jwt-api-gw
      status: ACTIVE
-     domain: d5dug9gkmu187i********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      log_group_id: ckghq1hm19********
      ```
 
@@ -214,7 +214,7 @@ Firebase:
                    schema:
                      type: string
                security:
-                 - OpenIdAuthorizerScheme: [ ]
+                 - OpenIdAuthorizerScheme: [ ] 
          components:
            securitySchemes:
              OpenIdAuthorizerScheme:
@@ -313,7 +313,7 @@ Deploy a static website.
 
      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     1. Run the following command:
+     1. Run this command:
 
         ```bash
         yc storage bucket create \
@@ -372,11 +372,11 @@ Deploy a static website.
         Where:
         * `yandex_iam_service_account`: Description of the [service account](../../iam/concepts/users/service-accounts.md) to create and use the bucket:
           * `name`: Service account name.
-        * `yandex_storage_bucket`: Bucket description:
+        * `--description`: Bucket description:
           * `bucket`: Bucket name.
           * `acl`: Bucket access settings.
 
-        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
      1. Create resources:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -516,7 +516,7 @@ Deploy a static website.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop paying for the created resources:
 1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
 1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
 1. [Delete the project in Firebase](https://support.google.com/firebase/answer/9137886?hl=en).

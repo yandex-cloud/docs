@@ -30,7 +30,7 @@ To access the list of billing accounts, navigate to [**{{ billing-name }}**]({{ 
    * For residents of Russia and Kazakhstan.
    * The account is created as a paid one.
    * You pay for resources using your [bank card](../payment/payment-methods-individual.md).
-   * Your card is debited automatically for the resources you consume. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).   
+   * Your card is debited automatically for the resources you consume. For more information, see [Billing cycle for individuals](../payment/billing-cycle-individual.md).
   
 - Business account {#business}
 

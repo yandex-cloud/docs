@@ -1,6 +1,7 @@
 # Resolving the error: Unrecognized configuration parameter "stats_temp_directory"
 
 
+
 ## Issue description {#issue-description}
 
 When executing the `SHOW stats_temp_directory` request, you see this error in the PostgreSQL cluster logs: `unrecognized configuration parameter "stats_temp_directory"`.

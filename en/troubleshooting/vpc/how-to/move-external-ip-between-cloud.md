@@ -1,6 +1,7 @@
 # Moving an external static IP address to another cloud
 
 
+
 ## Issue description {#issue-description}
 
 You need to transfer an external IP address to another cloud.

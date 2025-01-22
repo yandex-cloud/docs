@@ -1,19 +1,19 @@
-# Interactive debugging of {{ sf-name }} functions
+# Interactive debugging of {{ sf-full-name }} functions
 
 
 In this tutorial, you will set up a system to interactively debug {{ sf-full-name }} [functions](../../functions/concepts/function.md) by redirecting requests to a local server. For more information about this solution, see the [yc-serverless-live-debug](https://github.com/yandex-cloud/yc-serverless-live-debug) repository.
 
 To set up the interactive function debugging system:
 
-1. [Prepare your cloud](#prepare-cloud).
+1. [Prepare your cloud environment](#prepare-cloud).
 1. [Install the required utilities](#install-utilities).
 1. [Create a service account with the admin privileges for the cloud](#create-account).
 1. [Deploy your resources](#create-resources).
 1. [Run the debugging service](#run-client).
 
 If you no longer need the resources you created, [delete them](#clear-out).
-
-## Prepare your cloud {#prepare-cloud}
+ 
+## Prepare your cloud environment {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -53,7 +53,7 @@ The infrastructure support costs include:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-live-debug`.
 
@@ -92,7 +92,7 @@ The infrastructure support costs include:
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-      1. In the configuration file, describe the parameters of the resources you want to create:
+      1. In the configuration file, define the parameters of the resources you want to create:
     
           ```hcl
           resource "yandex_iam_service_account" "sa" {
@@ -108,7 +108,7 @@ The infrastructure support costs include:
           * `description`: Service account description. This is an optional parameter.
           * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
 
-          For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
+          For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
     
       1. Make sure the configuration files are correct.
 
@@ -150,7 +150,7 @@ The infrastructure support costs include:
 
     - CLI {#cli}
 
-      Run this command:
+      Run the following command:
 
       ```
       yc resource-manager cloud add-access-binding <cloud_ID> \
@@ -165,7 +165,7 @@ The infrastructure support costs include:
 
     - {{ TF }} {#tf}
 
-      1. In the configuration file, describe the parameters of the resources you want to create:
+      1. In the configuration file, define the parameters of the resources you want to create:
 
           ```
           resource "yandex_resourcemanager_cloud_iam_member" "{{ roles-admin }}" {
@@ -192,7 +192,7 @@ The infrastructure support costs include:
                terraform plan
               ```
 
-              If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+              If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
       1. Deploy cloud resources.
 
@@ -320,7 +320,7 @@ The infrastructure support costs include:
     Watching changes in: live-debug.config.ts
     WS connection opened
     Local client ready.
-    Check url: https://d5ddt4ltdvh7********.apigw.yandexcloud.net
+    Check url: https://{{ api-host-apigw }}
     Waiting requests...
     ```
 
@@ -329,7 +329,7 @@ The infrastructure support costs include:
 1. Make sure the debug code is working properly. To do this, open another terminal and run this command:
 
     ```
-    curl https://d5ddt4ltdvh7********.apigw.yandexcloud.net
+    curl https://{{ api-host-apigw }}
     ```
 
     Result:

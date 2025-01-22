@@ -45,4 +45,3 @@ If your functions require dynamic libraries to run, you can [add them to a ZIP a
 
 
 You must build the dynamic libraries on Ubuntu 18.04 LTS and link them using `libc` version 2.27.
-

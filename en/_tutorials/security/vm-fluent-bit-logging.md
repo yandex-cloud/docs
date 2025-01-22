@@ -339,7 +339,7 @@ To set up log transfer:
 
 1. Add the `fluent-bit` settings to the `/etc/fluent-bit/fluent-bit.conf` file:
 
-
+    
     ```bash
     [INPUT]
         Name  systemd

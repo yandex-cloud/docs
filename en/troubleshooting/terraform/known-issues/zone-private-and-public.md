@@ -1,6 +1,7 @@
 # Zone is set as public and private at the same time
 
 
+
 ## Issue description {#issue-description}
 
 When you create a DNS zone, it is created both as public and private.

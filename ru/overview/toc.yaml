@@ -80,5 +80,3 @@ items:
     href: ../glossary/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/overview
-deepBase: 2

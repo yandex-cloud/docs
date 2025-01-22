@@ -1,6 +1,7 @@
 # Fixing the "CNAME already exists" error
 
 
+
 ## Issue description {#issue-description}
 
 When creating a resource, you see this error:

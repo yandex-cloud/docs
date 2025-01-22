@@ -115,7 +115,7 @@ description: Follow this guide to update a log group.
 
    To update a log group, use the [update](../api-ref/LogGroup/update.md) REST API method for the [LogGroup](../api-ref/LogGroup/index.md) resource or the [LogGroupService/Update](../api-ref/grpc/LogGroup/update.md) gRPC API call.
 
-
+   
    **Sample request**
 
    {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}

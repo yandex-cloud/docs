@@ -10,7 +10,7 @@ To create an issue:
 
 1. Select the queue to create your issue in.
 
-
+   
    {% note info %}
 
    The default queue selected for new issues is the one that is created automatically when you register your company in {{ tracker-name }}. To see a list of all available queues, delete the queue name in the issue creation window.

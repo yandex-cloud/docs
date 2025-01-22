@@ -47,7 +47,7 @@
         * `ACCESS_ROLE_CONSUMER`,
         * `ACCESS_ROLE_PRODUCER`.
 
-    
+        
     1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
     1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect/index.md#configure-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером {{ mkf-name }} и виртуальной машиной.
 
@@ -66,7 +66,7 @@
         * сеть;
         * подсеть;
 
-
+        
         * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
 
 
@@ -220,7 +220,7 @@
 
 - Вручную {#manual}
 
-
+    
     1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
     1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
     1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).

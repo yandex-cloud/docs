@@ -4,5 +4,3 @@ items:
     href: cli-ref/index.md
   - name: reset-password
     href: cli-ref/reset-password.md
-base: en/_cli-ref/cli-ref/marketplace
-deepBase: 4

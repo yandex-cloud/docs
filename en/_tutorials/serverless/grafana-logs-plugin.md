@@ -122,7 +122,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 
 - {{ TF }} {#tf}
 
-
+  
   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 

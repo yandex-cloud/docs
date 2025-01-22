@@ -257,7 +257,7 @@ To prepare an address for the load balancer:
 
       The `address-for-k8s-health-checks.tf` file describes:
 
-
+      
       * [Static public IP address](../../vpc/concepts/address.md#public-addresses).
       * [Public DNS zone](../../dns/concepts/dns-zone.md#public-zones).
       * [Type A record](../../dns/concepts/resource-record.md#a) for this zone to bind the reserved IP address to the delegated domain.

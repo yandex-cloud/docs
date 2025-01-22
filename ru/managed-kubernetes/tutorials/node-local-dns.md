@@ -1,6 +1,6 @@
 # Настройка NodeLocal DNS Cache
 
-Чтобы снизить нагрузку по [DNS-запросам](../../glossary/dns.md) в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster), включите NodeLocal DNS Cache. 
+Чтобы снизить нагрузку по [DNS-запросам](../../glossary/dns.md) в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster), включите NodeLocal DNS Cache.
 
 {% note tip %}
 

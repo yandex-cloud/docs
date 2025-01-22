@@ -1,3 +1,8 @@
+---
+title: Setting up npm
+description: Follow this guide to configure npm.
+---
+
 # Setting up npm
 
 To do the setting up:

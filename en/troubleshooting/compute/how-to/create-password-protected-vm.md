@@ -1,6 +1,7 @@
 # How to create a VM with password access
 
 
+
 ## Scenario description {#case-description}
 
 You need to create a VM instance with password access.

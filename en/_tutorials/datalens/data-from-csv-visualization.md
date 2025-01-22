@@ -117,7 +117,7 @@ To visualize superheros as good or bad, create the second chart – a bar chart.
 
    1. In the top-right corner, click ![save-button](../../_assets/console-icons/chevron-down.svg) → **Save as copy**.
 
-      ![save-chart-as-copy](../../_assets/datalens/solution-01/09-save-chart-as-copy.png)      
+      ![save-chart-as-copy](../../_assets/datalens/solution-01/09-save-chart-as-copy.png)
 
    1. In the window that opens, enter the `SuperHeroes — alignment` name for the new chart and click **Save**.
 
@@ -143,7 +143,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 1. In the panel at the bottom of the page, select **Chart**.
 
-   ![add-chart](../../_assets/datalens/solution-01/11-add-chart.png)   
+   ![add-chart](../../_assets/datalens/solution-01/11-add-chart.png)
 
 1. In the window that opens, click **Select**.
 1. Choose the `SuperHeroes — gender` chart.
@@ -163,7 +163,7 @@ Add [selectors](../../datalens/dashboard/selector.md) to filter superheroes by r
 
 1. In the panel at the bottom of the page, choose **Selector**.
 
-   ![add-selector](../../_assets/datalens/solution-01/14-add-selector.png)   
+   ![add-selector](../../_assets/datalens/solution-01/14-add-selector.png)
 
 1. Add a selector for race:
 

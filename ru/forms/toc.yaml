@@ -188,5 +188,3 @@ items:
             href: release-notes/2208.md
   - name: Служба поддержки
     href: feedback.md
-base: ru/forms
-deepBase: 2

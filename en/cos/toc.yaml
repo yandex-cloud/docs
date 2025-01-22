@@ -57,5 +57,3 @@ items:
     href: qa/index.md
   - name: Troubleshooting
     href: error/index.md
-base: en/cos
-deepBase: 2

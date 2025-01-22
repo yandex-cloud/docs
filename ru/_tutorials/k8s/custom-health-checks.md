@@ -257,7 +257,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
       В файле `address-for-k8s-health-checks.tf` описаны:
 
-
+      
       * [статический публичный IP-адрес](../../vpc/concepts/address.md#public-addresses);
       * [публичная DNS-зона](../../dns/concepts/dns-zone.md#public-zones);
       * [A-запись](../../dns/concepts/resource-record.md#a) для этой зоны, чтобы привязать зарезервированный IP-адрес к делегированному домену.

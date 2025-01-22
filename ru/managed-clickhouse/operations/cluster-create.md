@@ -40,14 +40,14 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-
+  
   @[youtube](https://www.youtube.com/watch?v=M_RXJfOoEFE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=4&pp=iAQB)
 
 
   Чтобы создать кластер {{ mch-name }}:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
   1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
@@ -55,7 +55,7 @@ description: Следуя данной инструкции, вы сможете
       * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
   1. Выберите версию {{ CH }}, которую будет использовать кластер {{ mch-name }}, из выпадающего списка **{{ ui-key.yacloud.mdb.forms.base_field_version }}**. Для большинства кластеров рекомендуется выбрать самую новую LTS-версию.
 
-
+  
   1. Если вы планируете использовать данные из бакета {{ objstorage-name }} с [ограниченным доступом](../../storage/concepts/bucket#bucket-access), то выберите сервисный аккаунт из выпадающего списка или создайте новый. Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
 
@@ -63,12 +63,12 @@ description: Следуя данной инструкции, вы сможете
 
       * Выберите платформу, тип виртуальной машины и класс хостов — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных экземпляров.
 
-
+      
       * Выберите [тип диска](../concepts/storage.md).
 
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-
+        
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
@@ -113,7 +113,7 @@ description: Следуя данной инструкции, вы сможете
 
         Через интерфейсы {{ yandex-cloud }} можно управлять ограниченным набором настроек. С помощью SQL-запросов можно [установить настройки {{ CH }} на уровне запроса](change-query-level-settings.md).
 
-
+  
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
@@ -139,7 +139,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы создать кластер {{ mch-name }}:
 
-
+  
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
       ```bash
@@ -157,7 +157,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
-
+      
       ```bash
       {{ yc-mdb-ch }} cluster create \
         --name <имя_кластера> \
@@ -188,7 +188,7 @@ description: Следуя данной инструкции, вы сможете
         * `zone-id` — зона доступности.
         * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
-
+      
       * `--clickhouse-disk-type` — тип диска.
 
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
@@ -230,7 +230,7 @@ description: Следуя данной инструкции, вы сможете
            --admin-password "<пароль_пользователя_admin>"
          ```
 
-
+      
       1. Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 
@@ -280,13 +280,13 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   Чтобы создать кластер {{ mch-name }}:
 
     1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
-
+    
     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
     1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
@@ -320,7 +320,7 @@ description: Следуя данной инструкции, вы сможете
 
        Пример структуры конфигурационного файла, в котором описывается кластер из одного хоста:
 
-
+       
        ```hcl
        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
          name                = "<имя_кластера>"
@@ -365,7 +365,7 @@ description: Следуя данной инструкции, вы сможете
 
        1. Чтобы разрешить доступ из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}, добавьте блок `access` с нужными вам настройками:
 
-
+          
           ```hcl
           resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
             ...
@@ -385,7 +385,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
 
-
+          
           * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
           * `serverless` — доступ из {{ sf-name }}: `true` или `false`.
 
@@ -432,7 +432,7 @@ description: Следуя данной инструкции, вы сможете
 
             {% endnote %}
 
-
+            
             ```json
             {
               "folderId": "<идентификатор_каталога>",
@@ -526,7 +526,7 @@ description: Следуя данной инструкции, вы сможете
             * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
             * `networkId` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
-
+            
             * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. массив Каждая строка — идентификатор группы безопасности.
 
 
@@ -585,7 +585,7 @@ description: Следуя данной инструкции, вы сможете
                 * `shardName` — имя [шарда](../concepts/sharding.md). Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
                 * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
-
+                
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
@@ -593,7 +593,7 @@ description: Следуя данной инструкции, вы сможете
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -628,7 +628,7 @@ description: Следуя данной инструкции, вы сможете
 
             {% endnote %}
 
-
+            
             ```json
             {
               "folder_id": "<идентификатор_каталога>",
@@ -723,7 +723,7 @@ description: Следуя данной инструкции, вы сможете
 
             * `network_id` — идентификатор [сети](../../vpc/concepts/network.md), в которой будет размещен кластер.
 
-
+            
             * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. массив Каждая строка — идентификатор группы безопасности.
 
 
@@ -783,7 +783,7 @@ description: Следуя данной инструкции, вы сможете
                 * `shard_name` — имя [шарда](../concepts/sharding.md). Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
                 * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
-
+                
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
@@ -791,7 +791,7 @@ description: Следуя данной инструкции, вы сможете
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-
+            
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -911,7 +911,7 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте кластер {{ mch-name }} с тестовыми характеристиками:
 
-
+  
   * Имя `mych`.
   * Окружение `production`.
   * Сеть `default`.
@@ -926,7 +926,7 @@ description: Следуя данной инструкции, вы сможете
 
   Выполните следующую команду:
 
-
+  
   ```bash
   {{ yc-mdb-ch }} cluster create \
     --name mych \
@@ -954,7 +954,7 @@ description: Следуя данной инструкции, вы сможете
   * Каталог с идентификатором `{{ tf-folder-id }}`.
   * Новая облачная сеть `cluster-net`.
 
-
+  
   * Новая [группа безопасности по умолчанию](connect/index.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
 
 
@@ -979,7 +979,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-mdb-single-network](../../_includes/mdb/terraform-single-network.md) %}
 
-
+  
   1. Конфигурационный файл с описанием группы безопасности:
 
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
@@ -1015,7 +1015,7 @@ description: Следуя данной инструкции, вы сможете
 
     Эти подсети будут принадлежать сети `cluster-net`.
 
-
+  
   * Новая [группа безопасности по умолчанию](connect/index.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
 
 
@@ -1034,7 +1034,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [terraform-mdb-multiple-networks](../../_includes/mdb/terraform-multiple-networks.md) %}
 
-
+  
   1. Конфигурационный файл с описанием группы безопасности:
 
       {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}

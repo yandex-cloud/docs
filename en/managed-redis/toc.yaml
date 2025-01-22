@@ -291,5 +291,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/general.md
-base: en/managed-redis
-deepBase: 2

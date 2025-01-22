@@ -72,7 +72,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     Here is an example of the configuration file structure:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -130,7 +130,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
     Here is an example of the configuration file structure:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"

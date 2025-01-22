@@ -22,7 +22,7 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
 
-
+    
     1. Настройте [группы безопасности](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и убедитесь, что они допускают подключение к кластеру.
 
 

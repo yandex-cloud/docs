@@ -151,5 +151,3 @@ items:
     href: public-talks.md
   - name: FAQ
     href: qa/index.md
-base: en/message-queue
-deepBase: 2

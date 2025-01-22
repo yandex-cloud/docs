@@ -75,11 +75,12 @@ The cost of the resources includes charges for the number of API gateway request
     ```bash
     npm install -g wscat
     ```
-1. Connect to the API gateway. Replace `<API_gateway_ID>` with the API gateway ID.
+1. Connect to the API gateway. Instead of `<API_gateway_domain>`, specify the API gateway domain, formatted as `{{ api-host-apigw }}`.
     ```bash
-    wscat -c wss://<API_gateway_ID>.apigw.yandexcloud.net/connections
+    wscat -c wss://<API_gateway_domain>/connections
     Connected (press CTRL+C to quit)
     ```
+
 1. Type a message and press `Enter`.
 
 The message will be sent to the API gateway via the existing connection. The API gateway will call integration and send a response that you will see on your screen. The response will contain the connection ID:
@@ -87,6 +88,7 @@ The message will be sent to the API gateway via the existing connection. The API
 > Hello!
 < {"connection_id":"<connection_ID>"}
 ```
+
 ## Test the connection {#check}
 
 Open a new terminal window and test the connection using the returned connection ID.
@@ -113,13 +115,15 @@ Open a new terminal window and test the connection using the returned connection
         ```
     1. Go to the terminal window with the established connection. It should display the following information:
         ```bash
-        wscat -c wss://<API_gateway_ID>.apigw.yandexcloud.net/connections
+        wscat -c wss://<API_gateway_domain>/connections
         Connected (press CTRL+C to quit)
         > Hello!
         < {"connection_id":"<connection_ID>"}
         < Hello!
         Disconnected (code: 1000, reason: "")
         ```
+
+        Where `API_gateway_domain` is a string, formatted as `{{ api-host-apigw }}`.
 
 {% endlist %}
 

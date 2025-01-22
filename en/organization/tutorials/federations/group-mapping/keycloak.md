@@ -171,7 +171,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
         {% endcut %}
 
-
+        
         {% cut "How to get the federation ACS URL" %}
 
         {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
@@ -186,7 +186,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
         * **Valid Redirect URIs**
         * **IDP Initiated SSO Relay State**.
     
-
+        
         {% cut "How to get the federation ACS URL" %}
 
         {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}
@@ -249,7 +249,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
     1. In the left-hand panel, select **Clients** and select the previously created application from the list.
     1. Navigate to the **Client scopes** tab and select the ACS URL with the `-dedicated` postfix: `<ACS_URL>-dedicated`.
 
-
+        
         {% cut "How to get the federation ACS URL" %}
 
         {% include [get-acs-url](../../../../_includes/organization/get-acs-url.md) %}

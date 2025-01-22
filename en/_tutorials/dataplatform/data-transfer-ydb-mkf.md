@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
        1. [Create a {{ mkf-name }} target cluster](../../managed-kafka/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
 
-
+       
         1. If you are using security groups, [configure them so that you can connect to the cluster from the internet](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 

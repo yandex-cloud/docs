@@ -10,7 +10,7 @@
 
 1. Выберите подключение **ClickHouse**.
 
-
+   
    1. В открывшемся окне укажите параметры подключения:
 
       * Подключение — тип **Указать вручную**.
@@ -24,7 +24,7 @@
     1. Введите название подключения — `Sample ClickHouse`.
     1. Нажмите кнопку **Создать**.
 
-
+      
       ![create-connection](../../../_assets/datalens/sql-chart/create-sample-connection-sql-chart.png)
 
 

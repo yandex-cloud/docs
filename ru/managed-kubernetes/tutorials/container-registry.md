@@ -201,12 +201,9 @@ yc container registry create --name yc-auto-cr
 
 Для настройки Credential helper выполните команду:
 
-
 ```bash
 yc container registry configure-docker
 ```
-
-
 
 ### Подготовьте Docker-образ {#docker-image}
 

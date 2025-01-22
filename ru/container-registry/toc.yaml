@@ -414,5 +414,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/container-registry
-deepBase: 2

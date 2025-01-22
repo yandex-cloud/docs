@@ -1,6 +1,7 @@
 # Setting up GUI and graphic environment on Linux VMs
 
 
+
 ## Issue description {#case-description}
 
 * You need to use graphical applications on VM instances with Linux OS

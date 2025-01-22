@@ -23,7 +23,7 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 
 1. In the input data bucket, [create a folder](../../storage/operations/objects/upload.md) named `cities` and upload the `cities.csv` file to this folder for processing:
 
-
+    
     {% cut "cities.csv" %}
 
     ```text

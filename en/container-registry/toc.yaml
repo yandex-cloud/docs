@@ -101,7 +101,7 @@ items:
             href: tutorials/image-auto-scan/terraform.md
         hidden: true
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}
-        href: tutorials/sign-with-cosign.md
+        href: tutorials/sign-cr-with-cosign.md
       - name: >-
           Scanning vulnerabilities during continuous deployment of {{
           managed-k8s-name }} applications using {{ GL }}
@@ -398,5 +398,3 @@ items:
     href: error/index.md
   - name: FAQ
     href: qa/index.md
-base: en/container-registry
-deepBase: 2

@@ -100,4 +100,4 @@ DDoS-атаки — одна из главных угроз для интерн�
 
    * [SolidWall WAF](/marketplace/products/solidsoft/solidwall-waf);
    * [Nemesida AI MLC](/marketplace/products/pentestit/nwaf-mlc);
-   * [Nemesida WAF WEB](/marketplace/products/pentestit/nwaf-api-lk-st);   
+   * [Nemesida WAF WEB](/marketplace/products/pentestit/nwaf-api-lk-st);

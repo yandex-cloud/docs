@@ -25,7 +25,7 @@
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** выберите тип мастера {{ managed-k8s-name }}:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}` — создается в [подсети](../../vpc/concepts/network.md#subnet) в одной [зоне доступности](../../overview/concepts/geo-scope.md).
 
-
+     
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}` — создается распределенно в трех подсетях в каждой зоне доступности.
    * Выберите зону доступности, в которой будет создан мастер {{ managed-k8s-name }}.
 
@@ -38,7 +38,7 @@
 
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_subnetwork }}** выберите подсеть, в которой будет создан мастер {{ managed-k8s-name }}. Если подсети нет, [создайте ее](../../vpc/operations/subnet-create.md).
 
-
+     
      Для регионального мастера {{ managed-k8s-name }} необходимо указать подсеть в каждой зоне доступности.
 
 

@@ -1,5 +1,5 @@
 You cannot embed private objects based on the following connections: {#unsupported-connections}
-  
+
   * [Snowflake](../../datalens/operations/connection/create-snowflake.md)
   * [Files](../../datalens/operations/connection/create-file.md)
   * [Yandex Documents](../../datalens/operations/connection/create-yadocs.md)

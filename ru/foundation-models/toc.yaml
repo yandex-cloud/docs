@@ -772,5 +772,3 @@ items:
         href: troubleshooting/known-issues.md
       - name: Коды ошибок
         href: troubleshooting/error-codes.md
-base: ru/foundation-models
-deepBase: 2

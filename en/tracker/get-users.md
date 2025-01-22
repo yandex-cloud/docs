@@ -30,7 +30,7 @@ Authorization: OAuth <OAuth_token>
 
    The response body contains a JSON array with the user parameters.
 
-
+   
    ```json
       [
          {

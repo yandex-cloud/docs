@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 * {{ compute-name }}
 
-    * [Создание виртуальной машины Linux](quick-create-linux.md)    
+    * [Создание виртуальной машины Linux](quick-create-linux.md)
 
 * {{ ig-name }}
 

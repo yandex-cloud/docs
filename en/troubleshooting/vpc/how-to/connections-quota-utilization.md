@@ -1,6 +1,7 @@
 # How to read the "Connections quota utilization" chart
 
 
+
 ## Scenario description {#case-description}
 
 You need to figure out how to read the `Connections quota utilization` chart.

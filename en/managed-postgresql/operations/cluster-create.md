@@ -45,12 +45,12 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm.md) where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the characteristics of all the already created hosts change too.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
-
+     
      * Select the disk type.
 
        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-
+       
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
@@ -70,7 +70,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
-
+      
       {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
@@ -91,7 +91,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
-
+  
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
      * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
 
@@ -102,11 +102,11 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the cluster. By default, each host is created in a separate [subnet](../../vpc/concepts/network.md#subnet). To select a specific subnet for a host, click ![image](../../_assets/console-icons/pencil.svg).
 
-
+     
      When configuring the hosts, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the cluster.
 
 
-
+     
      To connect to the host from the internet, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** setting.
 
 
@@ -132,7 +132,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   To create a {{ mpg-name }} cluster:
 
-
+  
   1. Check whether the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has any [subnets](../../vpc/concepts/network.md#subnet) for the cluster hosts:
 
      ```bash
@@ -150,7 +150,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
 
-
+     
      ```bash
      {{ yc-mdb-pg }} cluster create \
        --name <cluster_name> \
@@ -178,7 +178,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-
+     
      * `assign-public-ip`: Allow access to the host from the internet, `true` or `false`.
 
 
@@ -186,7 +186,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
 
-
+     
      You need to specify the `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
 
      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
@@ -203,8 +203,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      You can also set the additional `replication-source` option in the `--host` parameter to [manually manage replication threads](../concepts/replication.md#replication-manual).
 
-
-
+     
+     
      To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
      To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is available upon request.
@@ -237,8 +237,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      Here is an example of the configuration file structure:
 
-
-
+     
+     
      ```hcl
      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
        name                = "<cluster_name>"
@@ -301,7 +301,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
 
-
+     
      * `assign_public_ip`: Allow access to the host from the internet, `true` or `false`.
 
 
@@ -342,7 +342,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Create a file named `body.json` and add the following contents to it:
 
-
+     
      ```json
      {
        "folderId": "<folder_ID>",
@@ -423,7 +423,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-
+     
      * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
@@ -437,7 +437,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `diskSize`: Disk size in bytes.
          * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-
+       
        * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
@@ -493,7 +493,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Create a file named `body.json` and add the following contents to it:
 
-
+     
      ```json
      {
        "folder_id": "<folder_ID>",
@@ -574,7 +574,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-
+     
      * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
@@ -588,7 +588,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `disk_size`: Disk size in bytes.
          * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-
+       
        * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
@@ -737,7 +737,7 @@ To create a {{ PG }} cluster copy:
 
   Create a {{ mpg-name }} cluster with the following test specifications:
 
-
+  
   * Name: `mypg`.
   * Environment: `production`.
   * Network: `default`.
@@ -751,7 +751,7 @@ To create a {{ PG }} cluster copy:
 
   Run the following command:
 
-
+  
   ```bash
   {{ yc-mdb-pg }} cluster create \
      --name mypg \
@@ -779,7 +779,7 @@ To create a {{ PG }} cluster copy:
   * Folder ID: `{{ tf-folder-id }}`.
   * New network: `mynet`.
 
-
+  
   * New security group: `pgsql-sg`, allowing cluster connections from the internet through port `6432`.
 
 
@@ -791,8 +791,8 @@ To create a {{ PG }} cluster copy:
 
   The configuration file for this cluster is as follows:
 
-
-
+  
+  
   ```hcl
   resource "yandex_mdb_postgresql_cluster" "mypg" {
     name                = "mypg"

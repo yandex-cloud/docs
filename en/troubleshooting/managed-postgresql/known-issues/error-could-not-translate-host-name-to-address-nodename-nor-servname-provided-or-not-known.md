@@ -1,6 +1,7 @@
 # Resolving the psql error: "error: could not translate host name to address: nodename nor servname provided, or not known"
 
 
+
 ## Issue description {#issue-description}
 
 You have no public access to the PostgreSQL cluster and see this error:

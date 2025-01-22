@@ -87,5 +87,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/managed-gitlab
-deepBase: 2

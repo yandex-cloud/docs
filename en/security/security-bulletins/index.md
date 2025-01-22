@@ -232,7 +232,7 @@ Learn more at: https://www.securitylab.ru/vulnerability/527362.php
 1. The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
 
 1. The vulnerability affects such open-source products as ElasticSearch, Elastic Logstash, the NSA’s Ghidra, etc.
-
+   
 1. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
    Hystax is working on new product releases to address the vulnerability.
 

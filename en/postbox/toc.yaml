@@ -103,5 +103,3 @@ items:
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
-base: en/postbox
-deepBase: 2

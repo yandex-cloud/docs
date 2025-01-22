@@ -233,7 +233,7 @@
 
 1. Сохраните конфигурационный файл с именем `example.tf` в директории `~/cloud-terraform`:
 
-
+   
    ```
    provider "yandex" {
      token     = "<OAuth-токен>"

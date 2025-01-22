@@ -334,7 +334,7 @@ pg_restore -h <IP-адрес_или_FQDN_хоста-мастера_класте�
             * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — выберите подсеть в той же облачной сети, в которой размещен кластер-приемник.
             * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` или один адрес из списка зарезервированных IP-адресов.
 
-
+    
     1. Если вы используете группы безопасности для промежуточной виртуальной машины и кластера {{ mpg-name }}, [настройте их](../../managed-postgresql/operations/connect.md#configure-security-groups).
 
 

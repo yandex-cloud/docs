@@ -284,7 +284,7 @@ You can also deploy an infrastructure for scaling your instance group via {{ TF 
       status: ACTIVE
       ```
 
-
+   
    - {{ TF }} {#tf}
 
       See [How to create an infrastructure using {{ TF }}](#terraform).

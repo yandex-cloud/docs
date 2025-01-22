@@ -70,7 +70,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-
+     
      ```bash
      {{ yc-mdb-pg }} resource-preset list
      ```
@@ -435,7 +435,7 @@ description: Из статьи вы узнаете, как изменить на
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
-
+        
         ```bash
         {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
@@ -470,7 +470,7 @@ description: Из статьи вы узнаете, как изменить на
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
     
-
+    
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
     * `--yandexquery-access` — разрешает доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
@@ -488,7 +488,7 @@ description: Из статьи вы узнаете, как изменить на
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-
+    
     * `--performance-diagnostics` — настройки [сбора статистики](./performance-diagnostics.md#activate-stats-collector):
 
         * `enabled` — значение `true` активирует сбор статистики. Значение по умолчанию — `false`.
@@ -563,7 +563,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
-
+  
   1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
 
@@ -604,7 +604,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+     
      ```json
      {
        "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
@@ -665,7 +665,7 @@ description: Из статьи вы узнаете, как изменить на
 
        * `backupRetainPeriodDays` — сколько дней хранить резервную копию кластера. Возможные значения: от `7` до `60` дней.
 
-
+       
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
          * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -675,7 +675,7 @@ description: Из статьи вы узнаете, как изменить на
          * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
 
 
-
+       
        * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled` — активация сбора статистики.
@@ -725,7 +725,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+     
      ```json
      {
        "cluster_id": "<идентификатор_кластера>",
@@ -798,7 +798,7 @@ description: Из статьи вы узнаете, как изменить на
 
        * `backup_retain_period_days` — сколько дней хранить резервную копию кластера. Возможные значения: от `7` до `60` дней.
 
-
+       
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
          * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -808,7 +808,7 @@ description: Из статьи вы узнаете, как изменить на
          * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
 
 
-
+       
        * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
          * `enabled` — активация сбора статистики.

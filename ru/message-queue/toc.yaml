@@ -155,5 +155,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/message-queue
-deepBase: 2

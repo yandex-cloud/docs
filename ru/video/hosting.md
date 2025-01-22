@@ -34,6 +34,10 @@ description: Следуя данной инструкции, вы сможете
     В сервисе действуют [ограничения](./concepts/limits.md) на разрешение публикуемых видео.
 
 1. Введите **{{ ui-key.yacloud_video.videos.label_title }}** видео. Название будет отображаться на всех ресурсах, где будет размещено видео.
+1. (Опционально) В поле **{{ ui-key.yacloud_video.videos.label_description }}** укажите таймкоды к видео в формате:
+   
+    {% include [video-timecodes](../_includes/video/video-timecodes.md) %}
+
 1. В списке **{{ ui-key.yacloud_video.videos.label_accessRights }}** выберите тип доступа к видео:
 
     * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}** — видео будет доступно по специальной ссылке.

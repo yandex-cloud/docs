@@ -1,6 +1,7 @@
 # Limit on negative balance for bank payments
 
 
+
 ## Scenario description {#case-description}
 
 You need to find out if there is a limit to the negative balance when paying by bank transfer.

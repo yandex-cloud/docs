@@ -74,7 +74,6 @@ description: Следуя данной инструкции, вы научите
 
      В ОС ВМ будет автоматически создан пользователь `yc-user` с указанным открытым ключом.
 
-
 {% endlist %}
 
 ## Включение консоли при изменении ВМ {#turn-on-for-current-instance}
@@ -176,4 +175,3 @@ description: Следуя данной инструкции, вы научите
   {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
 {% endlist %}
-

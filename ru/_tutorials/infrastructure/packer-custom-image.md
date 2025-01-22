@@ -44,7 +44,7 @@
 1. Установите Packer:
     1. Скачайте дистрибутив Packer и установите его по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
    
-
+        
         Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала {{ yandex-cloud }}](https://hashicorp-releases.yandexcloud.net/packer/).
    
 
@@ -142,7 +142,7 @@
 1. Создайте конфигурационный файл в формате [HCL](https://github.com/hashicorp/hcl#readme), например `toolbox.pkr.hcl`.
 1. Опишите в конфигурационном файле параметры образа, который необходимо создать:
 
-
+    
     ```hcl
     # {{ yandex-cloud }} Toolbox VM Image based on Ubuntu 20.04 LTS
     #

@@ -563,5 +563,3 @@ items:
         href: troubleshooting/troubles-with-spark.md
       - name: Вопросы и ответы
         href: qa/index.md
-base: ru/datasphere
-deepBase: 2

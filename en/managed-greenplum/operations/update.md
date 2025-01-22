@@ -303,7 +303,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
-
+        
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
 
@@ -317,7 +317,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             You cannot disable this option after you save your cluster settings.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -343,7 +343,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
     1. Run the following command with a list of settings to update:
 
-
+        
         ```bash
         {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
             --backup-window-start <backup_start_time> \
@@ -362,7 +362,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-
+    
     * `--datalens-access`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
 
     * `--yandexquery-access`: Access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
@@ -389,7 +389,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
     1. In the {{ mgp-name }} cluster description, change the values of the required additional settings:
 
-
+        
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
           ...
@@ -437,7 +437,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `day`: Day of the week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
             * `hour`: Hour UTC in `HH` format for the `WEEKLY` type, e.g., `21`.
 
-
+        
         * `access.data_lens`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
 
         * `access.yandex_query`: Access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
@@ -452,7 +452,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             You cannot disable hybrid storage after you save your cluster settings.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -482,7 +482,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+        
         ```json
         {
           "updateMask": "config.backupWindowStart,config.access.dataLens,config.access.yandexQuery,maintenanceWindow,deletionProtection,configSpec.pool.mode,configSpec.pool.size,configSpec.pool.clientIdleTimeout,cloudStorage",
@@ -536,7 +536,7 @@ If you enabled public access to the cluster but cannot access it from the inter
                 * `seconds`: Between `0` and `59` seconds.
                 * `nanos`: Between `0` and `999999999` nanoseconds.
 
-
+            
             * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
                 * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
@@ -566,7 +566,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             You cannot disable hybrid storage after you save your cluster settings.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -597,7 +597,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+        
         ```json
         {
           "cluster_id": "<cluster_ID>"
@@ -664,7 +664,7 @@ If you enabled public access to the cluster but cannot access it from the inter
                 * `seconds`: Between `0` and `59` seconds.
                 * `nanos`: Between `0` and `999999999` nanoseconds.
 
-
+            
             * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
                 * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
@@ -694,7 +694,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             You cannot disable hybrid storage after you save your cluster settings.
 
-
+            
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
@@ -1066,7 +1066,7 @@ We recommend changing the host class only when the cluster has no active workloa
         {{ yc-mdb-gp }} resource-preset list segment
         ```
 
-
+     
      ```text
      +-------------+--------------------------------+--------------------------------+-------+----------+--------------------+---------------------+
      |     ID      |            ZONE IDS            |           DISK TYPES           | CORES |  MEMORY  | HOST COUNT DIVIDER | MAX SEGMENT IN HOST |

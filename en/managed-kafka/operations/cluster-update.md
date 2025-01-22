@@ -450,7 +450,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
     1. Run the following command with a list of settings to update:
 
-
+        
         ```bash
         {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
            --maintenance-window type=<maintenance_type>,`

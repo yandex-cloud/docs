@@ -1,6 +1,6 @@
 ---
 title: Guides on using {{ serverless-containers-full-name }}
-description: In this article, you will learn how to work with the {{ serverless-containers-full-name }} managed service in {{ yandex-cloud }}.
+description: In this article, you will learn how to work with the managed service for {{ serverless-containers-full-name }} in {{ yandex-cloud }}.
 ---
 
 # All {{ serverless-containers-name }} guides
@@ -37,6 +37,7 @@ description: In this article, you will learn how to work with the {{ serverless-
 * [Updating a name](./name-update.md)
 * [Updating a description](./description-update.md)
 * [Making a revision active](./activate-revision.md)
+* [Changing the operation mode](./update-runtime.md)
 * [Viewing scaling settings](./scaling-settings-list.md)
 * [Adding scaling settings](./scaling-settings-add.md)
 * [Deleting scaling settings](./scaling-settings-delete.md)

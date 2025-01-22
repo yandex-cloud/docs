@@ -35,7 +35,7 @@ Manage schema versions with {{ schema-registry-name }}.
       * `subject`: Name of the schema you want to upload to the specified subject.
       * `schemaType`: Schema type: [Avro](https://avro.apache.org/), [JSON Schema](https://json-schema.org/), or [Protobuf](https://protobuf.dev/).
 
-      
+            
       ```bash
       curl \
         --request POST "https://<namespace_ID>.schema-registry.yandexcloud.net/v1/namespace"\

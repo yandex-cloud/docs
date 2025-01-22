@@ -38,7 +38,7 @@ description: In this tutorial, you will learn how to disconnect a domain from an
       yc serverless api-gateway remove-domain --help
       ```
 
-  1. Run this command:
+  1. Run the following command:
 
       ```bash
       yc serverless api-gateway remove-domain <API_gateway_ID> --domain-id <domain_ID>
@@ -54,7 +54,7 @@ description: In this tutorial, you will learn how to disconnect a domain from an
             yc dns zone list-records <DNS_zone_ID>
             ```
         
-            The record in question is of the `ANAME` type and has a value in `<API_gateway_ID>.apigw.yandexcloud.net` format.
+            The record in question is of the `ANAME` type and has a value in `{{ api-host-apigw }}` format.
 
         1. Delete a record:
 

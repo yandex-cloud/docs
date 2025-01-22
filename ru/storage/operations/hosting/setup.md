@@ -113,7 +113,6 @@ description: Следуя данной инструкции, вы сможете
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
@@ -152,8 +151,6 @@ description: Следуя данной инструкции, вы сможете
      
      }
      ```
-
-
 
      Где:
 
@@ -265,7 +262,7 @@ description: Следуя данной инструкции, вы сможете
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -437,7 +434,7 @@ description: Следуя данной инструкции, вы сможете
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+    
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

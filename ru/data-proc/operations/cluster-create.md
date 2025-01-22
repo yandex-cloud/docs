@@ -202,7 +202,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы создать кластер {{ dataproc-name }}:
 
-
+  
   1. Проверьте, есть ли в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) подсети для хостов кластера {{ dataproc-name }}:
 
      ```bash
@@ -362,14 +362,14 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ TF }} {#tf}
 
-
+  
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
   Чтобы создать кластер {{ dataproc-name }}:
   1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
 
-
+  
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Создайте конфигурационный файл с описанием облачной сети, подсетей, группы безопасности и NAT-шлюза.

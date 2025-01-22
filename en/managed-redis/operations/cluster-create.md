@@ -83,7 +83,7 @@ There are no restrictions for non-sharded clusters.
      * Specify the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of the VM to deploy hosts on.
      * Select **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
 
-
+  
      * Select the [disk type](../concepts/storage.md)       * Either the more flexible network SSD (`network-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage
        * Or the faster local SSD (`local-ssd`) storage
 
@@ -95,7 +95,7 @@ There are no restrictions for non-sharded clusters.
 
      * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 
-
+  
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
        * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
        * Security groups for the cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able to connect to the cluster.
@@ -137,7 +137,7 @@ There are no restrictions for non-sharded clusters.
 
   To create a {{ mrd-name }} cluster:
 
-
+  
   1. Check whether the folder has any subnets for the cluster hosts:
 
      ```bash
@@ -161,7 +161,7 @@ There are no restrictions for non-sharded clusters.
 
   1. Specify the cluster parameters in the create command (only some of the supported flags are given in the example):
 
-
+      
       ```bash
       {{ yc-mdb-rd }} cluster create \
         --name <cluster_name> \
@@ -186,7 +186,7 @@ There are no restrictions for non-sharded clusters.
       Where:
       * `--environment`: Environment, `prestable` or `production`.
 
-
+      
       * `--host`: Host parameters:
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
@@ -232,15 +232,15 @@ There are no restrictions for non-sharded clusters.
 
        * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
-
+       
        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
        * Subnets: [Subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
 
        Sample configuration file structure for creating a non-sharded cluster with SSL support:
 
-
-
+       
+       
        ```hcl
        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
          name                = "<cluster_name>"
@@ -327,7 +327,7 @@ There are no restrictions for non-sharded clusters.
 
     1. Create a file named `body.json` and add the following contents to it:
 
-
+        
         ```json
         {
           "folderId": "<folder_ID>",
@@ -390,7 +390,7 @@ There are no restrictions for non-sharded clusters.
                 * `diskSize`: Disk size in bytes.
                 * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-
+            
             * `access.webSql`: Access to cluster databases from the {{ yandex-cloud }} management console through [{{ websql-full-name }}](../../websql/index.yaml), `true` or `false`.
 
 
@@ -416,7 +416,7 @@ There are no restrictions for non-sharded clusters.
 
             If you are creating a sharded cluster with the `local-ssd` disk type, specify at least two hosts per shard, adding the appropriate number of `hostSpecs` blocks.
 
-
+        
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
@@ -459,7 +459,7 @@ There are no restrictions for non-sharded clusters.
 
     1. Create a file named `body.json` and add the following contents to it:
 
-
+        
         ```json
         {
           "folder_id": "<folder_ID>",
@@ -522,7 +522,7 @@ There are no restrictions for non-sharded clusters.
                 * `disk_size`: Disk size in bytes.
                 * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-
+            
             * `access.web_sql`: Access to cluster databases from the {{ yandex-cloud }} management console through [{{ websql-full-name }}](../../websql/index.yaml), `true` or `false`.
 
 
@@ -548,7 +548,7 @@ There are no restrictions for non-sharded clusters.
 
             If you are creating a sharded cluster with the `local-ssd` disk type, specify at least two hosts per shard, adding the appropriate number of `host_specs` blocks.
 
-
+        
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
@@ -696,7 +696,7 @@ To create a {{ RD }} cluster copy:
 
   Run the following command:
 
-
+  
   ```bash
   {{ yc-mdb-rd }} cluster create \
     --name myredis \
@@ -733,8 +733,8 @@ To create a {{ RD }} cluster copy:
 
   The configuration file for this cluster is as follows:
 
-
-
+  
+  
   ```hcl
   resource "yandex_mdb_redis_cluster" "myredis" {
     name                = "myredis"
@@ -813,7 +813,7 @@ To create a {{ RD }} cluster copy:
 
   Run the following command:
 
-
+  
   ```bash
   {{ yc-mdb-rd }} cluster create \
     --name myredis \
@@ -851,8 +851,8 @@ To create a {{ RD }} cluster copy:
 
   The configuration file for this cluster is as follows:
 
-
-
+  
+  
   ```hcl
   resource "yandex_mdb_redis_cluster" "myredis" {
     name                = "myredis"
@@ -936,8 +936,8 @@ To create a {{ RD }} cluster copy:
 
     The configuration file for this cluster is as follows:
 
-
-
+    
+    
     ```hcl
     resource "yandex_mdb_redis_cluster" "myredis" {
       name                = "myredis"

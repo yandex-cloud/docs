@@ -194,5 +194,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/resource-manager
-deepBase: 2

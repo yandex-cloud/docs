@@ -155,7 +155,7 @@
 
      1. Задайте конфигурацию профиля:
 
-
+        
         ```bash
         yc config set service-account-key key.json
         yc config set cloud-id <идентификатор_облака>

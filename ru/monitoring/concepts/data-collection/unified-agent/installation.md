@@ -92,7 +92,7 @@ description: Из статьи вы узнаете, как установить 
 
   Чтобы установить агент через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
-
+  
   ```text
   #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
   ```

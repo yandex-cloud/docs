@@ -1,6 +1,7 @@
 # Domain delegation to Yandex Cloud DNS servers
 
 
+
 ## Issue description {#case-description}
 
 You need to transfer domain name control to Yandex Cloud DNS servers.

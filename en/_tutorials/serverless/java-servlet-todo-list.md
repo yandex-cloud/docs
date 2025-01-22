@@ -4,7 +4,7 @@ Learn how to use serverless technologies and the Java Servlet API to create a si
 
 To create a web application:
 
-1. [Prepare your cloud](#before-begin).
+1. [Prepare your cloud environment](#before-begin).
 1. [Prepare the environment](#preare).
 1. [Create an {{ objstorage-full-name }} bucket](#create-bucket).
 1. [Create a {{ ydb-short-name }} database](#create-db).
@@ -31,7 +31,7 @@ The cost of resources to support a web application includes:
 ## Prepare the environment {#prepare}
 
 1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#cloud-or-folder) it the `{{ roles-editor }}` role for your folder.
-1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-serverless-servlet) with the project:
+1. Clone the [repository](https://github.com/yandex-cloud-examples/yc-serverless-servlet) containing the project:
 
     ```bash
     git clone https://github.com/yandex-cloud-examples/yc-serverless-servlet
@@ -47,7 +47,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you wish to create the bucket.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
@@ -112,10 +112,10 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
    - CLI {#cli}
 
-     Run the following query:
+     Run this request:
 
      ```bash
-     ydb -e grpcs://<YDB_endpoint> -d <db_name> \
+     ydb -e grpcs://<YDB_endpoint> -d <DB_name> \
      scripting yql -s \
      "CREATE TABLE Tasks
      (
@@ -186,14 +186,14 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
        --memory 128m \
        --execution-timeout 10s \
        --source-path ./servlet.zip \
-       --environment DATABASE=<db_name>,ENDPOINT=<YDB_endpoint>
+       --environment DATABASE=<DB_name>,ENDPOINT=<YDB_endpoint>
      ```
 
      Where:
 
-     * `--function-name`: Name of the function a version of which you want to create.
-     * `--runtime`: Runtime environment.
-     * `--entrypoint`: Entry point in the following format: `<function_file_name>`.`<handler_name>`.
+     * `--function-name`: Name of the function whose version you want to create.
+     * `--runtime`: Runtime environment
+     * `entrypoint`: Entry point in `<function_file_name>`.`<handler_name>` format.
      * `--memory`: Amount of RAM.
      * `--execution-timeout`: Maximum function running time before the timeout is reached.
      * `--source-path`: Path to the previously created `servlet.zip` archive with the function code and required dependencies.
@@ -233,7 +233,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-  You can create a function and its version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+  You can create a function and its version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}
@@ -363,14 +363,14 @@ To ensure interaction between services, create an API gateway:
      name: todo-list
      description: simple todo list
      status: ACTIVE
-     domain: d5delqeel34q********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      log_group_id: ckg2hdmevnvc********
      ```
 
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-  You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+  You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}
@@ -381,7 +381,7 @@ To open the app, follow the link in the **{{ ui-key.yacloud.serverless-functions
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop paying for the created resources:
 
 * [Delete the bucket](../../storage/operations/buckets/delete.md).
 * [Delete the database](../../ydb/operations/manage-databases.md#delete-db).

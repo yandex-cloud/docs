@@ -1,6 +1,7 @@
 # Getting access to the GPU g1.1 and higher configurations in DataSphere
 
 
+
 ## Issue description {#issue-description}
 
 When attempting to use the GPU g1.1 or higher configurations in DataSphere, you see this error message:

@@ -10,7 +10,7 @@ To send emails from the issue page:
 
    If you want to send issues from the issue page, you need a shared queue address. The user responses sent to the queue address will be added as issue comments.
 
-
+   
    If you cannot add an address for the queue, it means that your organization does not have a domain. You need a domain to create mailboxes and newsletters, for example, to add an email address for your queue. You can freely [add a domain in {{ ya-360 }}]({{ support-business-domain }}).
 
 

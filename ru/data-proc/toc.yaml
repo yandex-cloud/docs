@@ -353,5 +353,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/data-proc
-deepBase: 2

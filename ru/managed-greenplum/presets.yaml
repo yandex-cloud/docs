@@ -1,13 +1,12 @@
-default:
-  audience: external
-  state: ga
-  versions:
-    tf:
-      latest: '6.25'
-      str: 6.22 или 6.25
-    cli:
-      latest: '6.25'
-      str: 6.22 или 6.25
-    console:
-      latest: '6.25'
-      str: 6.22 или 6.25
+audience: external
+state: ga
+versions:
+  tf:
+    latest: '6.25'
+    str: 6.22 или 6.25
+  cli:
+    latest: '6.25'
+    str: 6.22 или 6.25
+  console:
+    latest: '6.25'
+    str: 6.22 или 6.25

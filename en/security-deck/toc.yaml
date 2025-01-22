@@ -48,5 +48,3 @@ items:
         href: security/ciem-roles.md
   - name: Pricing policy
     href: pricing.md
-base: en/security-deck
-deepBase: 2

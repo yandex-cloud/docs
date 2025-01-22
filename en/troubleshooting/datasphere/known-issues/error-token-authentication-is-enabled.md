@@ -1,6 +1,7 @@
 # Resolving the "Token authentication is enabled" error
 
 
+
 ## Issue description {#issue-description}
 
 When trying to open a project in DataSphere, you see this error: ```Token authentication is enabled```.

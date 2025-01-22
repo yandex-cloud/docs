@@ -177,7 +177,7 @@ description: Следуя данной инструкции, вы сможете
 
         Например, чтобы установить `psql` на [виртуальную машину Linux](../compute/operations/vm-create/create-linux-vm.md) в {{ yandex-cloud }} c Ubuntu 24.04:
 
-
+        
         1. Подключитесь к виртуальной машине по [{{ oslogin }}](../compute/operations/vm-connect/os-login.md) или [SSH](../compute/operations/vm-connect/ssh.md).
 
 

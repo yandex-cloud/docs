@@ -18,7 +18,7 @@ You can write your application in any programming language and have it use any i
 
 {% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
-After receiving a request, a container instance must send a response within the timeout specified in the **{{ ui-key.yacloud.serverless-containers.label_timeout }}** field of the container revision settings. It includes the container instance launch time. Otherwise, the request terminates returning a 504 error.
+{% include [invoke-container](../../_includes/serverless-containers/invoke-container.md) %}
 
 ## Environment variables {#environment-variables}
 
@@ -26,7 +26,8 @@ The table provides a list of environment variables defined in the {{ serverless-
 
 Key | Value
 ---- | ----
-PORT | Network port the runtime uses to send HTTP requests to an application.
+`PORT` | Network port the runtime uses to send HTTP requests to an application.
+`REQUEST_PATH` | Data on an HTTP request to a container if the [container operation mode](container.md#runtime) is **Commands**.
 
 You can add other environment variables when you [create a container revision](../operations/manage-revision.md#create) or build a [Docker image](../../container-registry/concepts/docker-image.md). The [limit](./limits.md#serverless-containers-limits) for maximum environment variable size, including variable names, is 4 KB.
 

@@ -287,5 +287,3 @@ items:
         href: qa/all.md
   - name: Обучающие курсы
     href: training.md
-base: ru/monitoring
-deepBase: 2

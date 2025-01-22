@@ -44,5 +44,3 @@ items:
         href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md
-base: en/baremetal
-deepBase: 2

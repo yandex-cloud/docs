@@ -29,5 +29,3 @@ items:
         href: check-user-data.md
   - name: Pricing policy
     href: pricing.md
-base: en/microsoft
-deepBase: 2

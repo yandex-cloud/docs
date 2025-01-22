@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md). To connect to the cluster from the user's local machine rather than doing so from the {{ yandex-cloud }} cloud network, enable public access to the cluster when creating it.
 
-
+    
     1. If you are using security groups, configure them to enable connecting to the clusters from the internet:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).

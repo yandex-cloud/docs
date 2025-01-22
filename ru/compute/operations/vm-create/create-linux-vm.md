@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-
+  
   @[youtube](https://www.youtube.com/watch?v=PN3b26KXb78)
 
 

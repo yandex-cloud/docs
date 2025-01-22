@@ -1,6 +1,7 @@
 # What is the maximum number of network interfaces that can be connected to a VM
 
 
+
 ## Scenario description {#case-description}
 
 How many network interfaces can be connected to a VM?
