@@ -195,6 +195,20 @@ items:
                 href: api-ref/grpc/ResourcePreset/get.md
               - name: List
                 href: api-ref/grpc/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/grpc/User/index.md
+              - name: Get
+                href: api-ref/grpc/User/get.md
+              - name: List
+                href: api-ref/grpc/User/list.md
+              - name: Create
+                href: api-ref/grpc/User/create.md
+              - name: Update
+                href: api-ref/grpc/User/update.md
+              - name: Delete
+                href: api-ref/grpc/User/delete.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -281,6 +295,20 @@ items:
                 href: api-ref/ResourcePreset/get.md
               - name: List
                 href: api-ref/ResourcePreset/list.md
+          - name: User
+            items:
+              - name: Overview
+                href: api-ref/User/index.md
+              - name: Get
+                href: api-ref/User/get.md
+              - name: List
+                href: api-ref/User/list.md
+              - name: Create
+                href: api-ref/User/create.md
+              - name: Update
+                href: api-ref/User/update.md
+              - name: Delete
+                href: api-ref/User/delete.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}

@@ -31,7 +31,7 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
 - REST API {#api}
 
-  Run this command:
+  Run the following command:
 
   {% include [get-video-link-rest](../../../_includes/video/get-video-link-rest.md) %}
 
@@ -43,7 +43,7 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
 - gRPC API {#grpc-api}
 
-  Run this command:
+  Run the following command:
 
   {% include [get-video-link-grpc](../../../_includes/video/get-video-link-grpc.md) %}
 
@@ -54,3 +54,5 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
   {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
 
 {% endlist %}
+
+{% include [video-object-fit](../../../_includes/video/video-object-fit.md) %}

@@ -1,11 +1,11 @@
-# Deploying and load testing a gRPC service with scaling
+# Deploying and load testing a gRPC service with scaling in {{ managed-k8s-full-name }}
 
 
 Use this tutorial to deploy an autoscalable [gRPC](https://grpc.io/docs/) service in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
 
 To deploy the service and perform load testing:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Prepare a test target](#prepare-target).
 1. [Prepare a domain](#prepare-domain).
 1. [Install Ingress](#install-ingress).
@@ -139,14 +139,14 @@ This instruction will use a gRPC service as a test target.
      name: grpc-demo
      annotations:
        ingress.alb.yc.io/subnets: <subnet_IDs>
-       ingress.alb.yc.io/external-ipv4-address: auto
+       ingress.alb.yc.io/external-ipv4-address: auto 
        ingress.alb.yc.io/protocol: grpc
        ingress.alb.yc.io/security-groups: <security_group_ID>
    spec:
      tls:
        - hosts:
            - <website_name>
-         secretName: yc-certmgr-cert-id-<certificate_ID>
+         secretName: yc-certmgr-cert-id-<certificate_ID> 
      rules:
        - host: <website_name>
          http:

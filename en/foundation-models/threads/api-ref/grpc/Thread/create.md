@@ -43,7 +43,24 @@ Create a new thread.
     "expiration_policy": "ExpirationPolicy",
     "ttl_days": "int64"
   },
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "tools": [
+    {
+      // Includes only one of the fields `search_index`, `function`
+      "search_index": {
+        "search_index_ids": [
+          "string"
+        ],
+        "max_num_results": "google.protobuf.Int64Value"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "google.protobuf.Struct"
+      }
+      // end of the list of possible fields
+    }
+  ]
 }
 ```
 
@@ -72,6 +89,9 @@ Expiration configuration for the thread. ||
 || labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs to label the thread. ||
+|| tools[] | **[Tool](#yandex.cloud.ai.assistants.v1.Tool)**
+
+List of tools that are available for assistants to use in this thread. ||
 |#
 
 ## MessageData {#yandex.cloud.ai.assistants.v1.threads.MessageData}
@@ -155,6 +175,58 @@ Text content of the message. ||
 || ttl_days | **int64** ||
 |#
 
+## Tool {#yandex.cloud.ai.assistants.v1.Tool}
+
+Represents a general tool that can be one of several types.
+
+#|
+||Field | Description ||
+|| search_index | **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
+
+SearchIndexTool tool that performs search across specified indexes.
+
+Includes only one of the fields `search_index`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `search_index`, `function`. ||
+|#
+
+## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool}
+
+Configures a tool that enables Retrieval-Augmented Generation (RAG) by allowing the assistant to search across a specified search index.
+
+#|
+||Field | Description ||
+|| search_index_ids[] | **string**
+
+A list of search index IDs that this tool will query. Currently, only a single index ID is supported. ||
+|| max_num_results | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of results to return from the search.
+Fewer results may be returned if necessary to fit within the prompt's token limit.
+This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
+|#
+
 ## Thread {#yandex.cloud.ai.assistants.v1.threads.Thread}
 
 ```json
@@ -173,7 +245,24 @@ Text content of the message. ||
     "ttl_days": "int64"
   },
   "expires_at": "google.protobuf.Timestamp",
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "tools": [
+    {
+      // Includes only one of the fields `search_index`, `function`
+      "search_index": {
+        "search_index_ids": [
+          "string"
+        ],
+        "max_num_results": "google.protobuf.Int64Value"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "google.protobuf.Struct"
+      }
+      // end of the list of possible fields
+    }
+  ]
 }
 ```
 
@@ -215,6 +304,9 @@ Timestamp representing when the thread will expire. ||
 || labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the thread. ||
+|| tools[] | **[Tool](#yandex.cloud.ai.assistants.v1.Tool2)**
+
+List of tools that are available for assistants to use in this thread. ||
 |#
 
 ## ExpirationConfig {#yandex.cloud.ai.common.ExpirationConfig2}
@@ -227,4 +319,56 @@ Set of key-value pairs that can be used to organize and categorize the thread. |
 - `STATIC`
 - `SINCE_LAST_ACTIVE` ||
 || ttl_days | **int64** ||
+|#
+
+## Tool {#yandex.cloud.ai.assistants.v1.Tool2}
+
+Represents a general tool that can be one of several types.
+
+#|
+||Field | Description ||
+|| search_index | **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool2)**
+
+SearchIndexTool tool that performs search across specified indexes.
+
+Includes only one of the fields `search_index`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool2)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `search_index`, `function`. ||
+|#
+
+## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool2}
+
+Configures a tool that enables Retrieval-Augmented Generation (RAG) by allowing the assistant to search across a specified search index.
+
+#|
+||Field | Description ||
+|| search_index_ids[] | **string**
+
+A list of search index IDs that this tool will query. Currently, only a single index ID is supported. ||
+|| max_num_results | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of results to return from the search.
+Fewer results may be returned if necessary to fit within the prompt's token limit.
+This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool2}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
 |#

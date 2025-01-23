@@ -21,7 +21,8 @@ Creates dataset.
   "metadata": "string",
   "task_type": "string",
   "labels": "map<string, string>",
-  "upload_format": "string"
+  "upload_format": "string",
+  "allow_data_log": "bool"
 }
 ```
 
@@ -49,6 +50,9 @@ Labels of the dataset. Optional. ||
 
 Required field. Upload format of the dataset.
 The list of supported upload formats can be retrieved via ListUploadFormats method. ||
+|| allow_data_log | **bool**
+
+Allow to use the dataset to improve the models quality. Default false. ||
 |#
 
 ## CreateDatasetResponse {#yandex.cloud.ai.dataset.v1.CreateDatasetResponse}
@@ -80,7 +84,8 @@ The list of supported upload formats can be retrieved via ListUploadFormats meth
           "int64"
         ]
       }
-    ]
+    ],
+    "allow_data_log": "bool"
   }
 }
 ```
@@ -154,6 +159,9 @@ User ID of the dataset's creator. ||
 
 User ID of the dataset's last updater. ||
 || validation_error[] | **[ValidationError](#yandex.cloud.ai.dataset.v1.ValidationError)** ||
+|| allow_data_log | **bool**
+
+Allow to use the dataset to improve the models quality. Default false. ||
 |#
 
 ## ValidationError {#yandex.cloud.ai.dataset.v1.ValidationError}

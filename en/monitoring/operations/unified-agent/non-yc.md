@@ -1,3 +1,8 @@
+---
+title: Delivering metrics from hosts outside {{ yandex-cloud }}
+description: Follow this guide to deliver metrics from hosts outside {{ yandex-cloud }}.
+---
+
 # Delivering metrics from hosts outside {{ yandex-cloud }}
 
 To deliver metrics to {{ monitoring-full-name }} from hosts located outside {{ yandex-cloud }}:

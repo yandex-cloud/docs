@@ -290,7 +290,9 @@ Required field. ID of the destination folder. ||
           "gpWorkfileCompression": "boolean",
           "maxStatementMem": "string",
           "logStatement": "string",
-          "gpAddColumnInheritsTableSetting": "boolean"
+          "gpAddColumnInheritsTableSetting": "boolean",
+          "gpEnableGlobalDeadlockDetector": "boolean",
+          "gpGlobalDeadlockDetectorPeriod": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -302,7 +304,9 @@ Required field. ID of the destination folder. ||
           "gpWorkfileCompression": "boolean",
           "maxStatementMem": "string",
           "logStatement": "string",
-          "gpAddColumnInheritsTableSetting": "boolean"
+          "gpAddColumnInheritsTableSetting": "boolean",
+          "gpEnableGlobalDeadlockDetector": "boolean",
+          "gpGlobalDeadlockDetectorPeriod": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -314,7 +318,9 @@ Required field. ID of the destination folder. ||
           "gpWorkfileCompression": "boolean",
           "maxStatementMem": "string",
           "logStatement": "string",
-          "gpAddColumnInheritsTableSetting": "boolean"
+          "gpAddColumnInheritsTableSetting": "boolean",
+          "gpEnableGlobalDeadlockDetector": "boolean",
+          "gpGlobalDeadlockDetectorPeriod": "string"
         }
       },
       // end of the list of possible fields
@@ -1253,6 +1259,16 @@ Default value is ddl
 || gpAddColumnInheritsTableSetting | **boolean**
 
 https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
+|| gpEnableGlobalDeadlockDetector | **boolean**
+
+Controls whether the Greenplum Database Global Deadlock Detector is enabled to manage concurrent UPDATE and DELETE operations on heap tables to improve performance. See Inserting, Updating, and Deleting Datain the Greenplum Database Administrator Guide. The default is off, the Global Deadlock Detector is deactivated.
+If the Global Deadlock Detector is deactivated (the default), Greenplum Database runs concurrent update and delete operations on a heap table serially.
+If the Global Deadlock Detector is enabled, concurrent updates are permitted and the Global Deadlock Detector determines when a deadlock exists, and breaks the deadlock by cancelling one or more backend processes associated with the youngest transaction(s) involved.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_enable_global_deadlock_detector ||
+|| gpGlobalDeadlockDetectorPeriod | **string** (int64)
+
+Specifies the executing interval (in seconds) of the global deadlock detector background worker process.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period ||
 |#
 
 ## ConnectionPoolerConfigSet {#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet}

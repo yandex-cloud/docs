@@ -17,4 +17,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 || [Cluster](Cluster/index.md) | A set of methods for managing Redis clusters. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for working with resource presets. ||
+|| [User](User/index.md) | A set of methods for managing Redis User resources. ||
 |#

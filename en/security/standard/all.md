@@ -20,21 +20,13 @@
 
 {% include notitle [audit-logs](../../_includes/security/standard/audit-logs.md) %}
 
-## 6. Backups {#backup}
 
-{% include notitle [backup](../../_includes/security/standard/backup.md) %}
-
-
-## 7. Physical security {#physical-security}
-
-{% include notitle [physical-security](../../_includes/security/standard/physical-security.md) %}
-
-## 8. Application security {#app-security}
+## 6. Application security {#app-security}
 
 {% include notitle [app-security](../../_includes/security/standard/app-security.md) %}
 
 
-## 9. {{ k8s }} security {#kubernetes-security}
+## 7. {{ k8s }} security {#kubernetes-security}
 
 {% include notitle [kubernetes-security](../../_includes/security/standard/kubernetes-security.md) %}
 

@@ -259,6 +259,20 @@ items:
                 href: api-ref/grpc/PXFDatasource/update.md
               - name: Delete
                 href: api-ref/grpc/PXFDatasource/delete.md
+          - name: ResourceGroup
+            items:
+              - name: Overview
+                href: api-ref/grpc/ResourceGroup/index.md
+              - name: List
+                href: api-ref/grpc/ResourceGroup/list.md
+              - name: GetAtRevision
+                href: api-ref/grpc/ResourceGroup/getAtRevision.md
+              - name: Create
+                href: api-ref/grpc/ResourceGroup/create.md
+              - name: Update
+                href: api-ref/grpc/ResourceGroup/update.md
+              - name: Delete
+                href: api-ref/grpc/ResourceGroup/delete.md
           - name: ResourcePreset
             items:
               - name: Overview
@@ -355,6 +369,20 @@ items:
                 href: api-ref/PXFDatasource/update.md
               - name: Delete
                 href: api-ref/PXFDatasource/delete.md
+          - name: ResourceGroup
+            items:
+              - name: Overview
+                href: api-ref/ResourceGroup/index.md
+              - name: List
+                href: api-ref/ResourceGroup/list.md
+              - name: GetAtRevision
+                href: api-ref/ResourceGroup/getAtRevision.md
+              - name: Create
+                href: api-ref/ResourceGroup/create.md
+              - name: Update
+                href: api-ref/ResourceGroup/update.md
+              - name: Delete
+                href: api-ref/ResourceGroup/delete.md
           - name: ResourcePreset
             items:
               - name: Overview

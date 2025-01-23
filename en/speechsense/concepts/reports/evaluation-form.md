@@ -1,5 +1,6 @@
 ---
-title: _Evaluation form_ report in {{ speechsense-name }}
+title: _Evaluation form_ report in {{ speechsense-full-name }}
+description: In this article, you will learn about the _Evaluation form_ report in {{ speechsense-name }}, how it is generated, how it displays data, and how to use it.
 ---
 
 # _Evaluation form_ report in {{ speechsense-name }}
@@ -17,7 +18,7 @@ Use the following settings to generate an **Evaluation form** report:
 
 * [Evaluation parameters](#parameters): Define a list of criteria for agent performance evaluation.
 * [Weight](#weight): Indicates how critical an evaluation parameter is for agent performance evaluation.
-* [Filters](#filters): Applied to dialogs in the report.
+* [Filters](#filters): Filters applied to dialogs in the report.
 
 With the basic settings configured, you can now [build a report](../../operations/data/manage-reports.md#build-an-evaluation-form). It will present the evaluation parameter values in [chart and table](#display) form.
 
@@ -56,7 +57,7 @@ There are several types of evaluation parameters:
 * **Bot** (only for chats): Bot data.
 * **Speech statistics** (only for audio): Agent and customer speech quality criteria, e.g., speech rate, mutual interruptions, etc.
 * **General metadata**: Data about the conversation audio (collected via PBX) or text chat. Metadata is uploaded to {{ speechsense-name }} together with the conversation audio or text chat and contains its key characteristics, e.g., date, topic, and dialog language.
-* **Customer tags** and **Agent tags**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} detects certain keywords, phrases, or intonations in a dialog, classifies the dialog, and adds a tag to it.
+* **Customer tags** and **Agent tags**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} detects certain keywords, phrases, or intonations in a dialog, classifies the dialog, and marks it with a tag.
 
    {{ speechsense-name }} has preconfigured tags. These can give you a clue as to whether there was an informal greeting or goodbye, whether the agent thanked the customer for waiting, whether it was the customer's repeat call to support, etc. You can learn more about tags [here](../../../speechsense/concepts/tags.md).
 
@@ -77,7 +78,7 @@ You can use filtering to select the dialogs to include in your report. To do thi
 
 * **Period**: Time period of the report.
 * **Filters**: Use the same fields as for the parameters.
-* **Grouping**: Choose how to group data in your report. You can only group by metadata fields, e.g.:
+* **Grouping**: Choose how to group data in your report. You can only group by metadata fields, for example:
 
    * By agent, to analyze the performance of each one.
    * By product, to learn which products agents make fewer mistakes presenting in dialogs.

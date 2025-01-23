@@ -15,7 +15,7 @@ This guide contains information on how to create and set up a [desktop group](co
 
 Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) and deploy a {{ cloud-desktop-name }} [desktop group](./concepts/desktops-and-groups.md) for it:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a user group](#create-user-group).
 1. [Deploy a desktop group](#create-desktop-group).
 1. [Configure an ACL for the desktop group](#setup-acl).
@@ -28,11 +28,13 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it is in `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md).
-1. Make sure you have the following _minimum_ roles:
+1. [Assign](../iam/operations/roles/grant.md) these _minimum_ roles to your {{ yandex-cloud }} account:
     * [organization-manager.admin](../organization/security/index.md#organization-manager-admin) for the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud): To create a user group.
     * [vdi.admin](./security/index.md#vdi-admin) for the [folder](../resource-manager/concepts/resources-hierarchy.md#folder): To create a desktop group and assign an [ACL](./concepts/acl.md) to it.
 
     If you have a primitive [admin](../iam/roles-reference.md#admin) role for a folder, you do not need to assign any additional roles.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 1. To make sure your desktops have access to the internet, [set up](../vpc/concepts/network.md#subnet) a NAT gateway for the [subnets](../vpc/operations/create-nat-gateway.md) that will host them.
 

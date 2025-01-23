@@ -1,3 +1,8 @@
+---
+title: Network
+description: In this article, you will learn about public and private networks.
+---
+
 # Network
 
 ## Public network {#public-network}

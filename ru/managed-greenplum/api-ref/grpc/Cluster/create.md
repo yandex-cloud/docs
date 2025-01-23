@@ -126,7 +126,9 @@ Creates a Greenplum® cluster in the specified folder.
       "gp_workfile_compression": "google.protobuf.BoolValue",
       "max_statement_mem": "google.protobuf.Int64Value",
       "log_statement": "LogStatement",
-      "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+      "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+      "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
+      "gp_global_deadlock_detector_period": "google.protobuf.Int64Value"
     },
     // end of the list of possible fields
     "pool": {
@@ -752,6 +754,16 @@ Default value is ddl
 || gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
+|| gp_enable_global_deadlock_detector | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Controls whether the Greenplum Database Global Deadlock Detector is enabled to manage concurrent UPDATE and DELETE operations on heap tables to improve performance. See Inserting, Updating, and Deleting Datain the Greenplum Database Administrator Guide. The default is off, the Global Deadlock Detector is deactivated.
+If the Global Deadlock Detector is deactivated (the default), Greenplum Database runs concurrent update and delete operations on a heap table serially.
+If the Global Deadlock Detector is enabled, concurrent updates are permitted and the Global Deadlock Detector determines when a deadlock exists, and breaks the deadlock by cancelling one or more backend processes associated with the youngest transaction(s) involved.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_enable_global_deadlock_detector ||
+|| gp_global_deadlock_detector_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies the executing interval (in seconds) of the global deadlock detector background worker process.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfig}
@@ -1140,7 +1152,9 @@ enable Cloud Storage for cluster ||
           "gp_workfile_compression": "google.protobuf.BoolValue",
           "max_statement_mem": "google.protobuf.Int64Value",
           "log_statement": "LogStatement",
-          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+          "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
+          "gp_global_deadlock_detector_period": "google.protobuf.Int64Value"
         },
         "user_config": {
           "max_connections": "google.protobuf.Int64Value",
@@ -1152,7 +1166,9 @@ enable Cloud Storage for cluster ||
           "gp_workfile_compression": "google.protobuf.BoolValue",
           "max_statement_mem": "google.protobuf.Int64Value",
           "log_statement": "LogStatement",
-          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+          "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
+          "gp_global_deadlock_detector_period": "google.protobuf.Int64Value"
         },
         "default_config": {
           "max_connections": "google.protobuf.Int64Value",
@@ -1164,7 +1180,9 @@ enable Cloud Storage for cluster ||
           "gp_workfile_compression": "google.protobuf.BoolValue",
           "max_statement_mem": "google.protobuf.Int64Value",
           "log_statement": "LogStatement",
-          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue"
+          "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+          "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
+          "gp_global_deadlock_detector_period": "google.protobuf.Int64Value"
         }
       },
       // end of the list of possible fields
@@ -2037,6 +2055,16 @@ Default value is ddl
 || gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
+|| gp_enable_global_deadlock_detector | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Controls whether the Greenplum Database Global Deadlock Detector is enabled to manage concurrent UPDATE and DELETE operations on heap tables to improve performance. See Inserting, Updating, and Deleting Datain the Greenplum Database Administrator Guide. The default is off, the Global Deadlock Detector is deactivated.
+If the Global Deadlock Detector is deactivated (the default), Greenplum Database runs concurrent update and delete operations on a heap table serially.
+If the Global Deadlock Detector is enabled, concurrent updates are permitted and the Global Deadlock Detector determines when a deadlock exists, and breaks the deadlock by cancelling one or more backend processes associated with the youngest transaction(s) involved.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_enable_global_deadlock_detector ||
+|| gp_global_deadlock_detector_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies the executing interval (in seconds) of the global deadlock detector background worker process.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period ||
 |#
 
 ## ConnectionPoolerConfigSet {#yandex.cloud.mdb.greenplum.v1.ConnectionPoolerConfigSet}

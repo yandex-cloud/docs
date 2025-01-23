@@ -6,6 +6,12 @@ The {{ oslogin }} agent is based on the [guest agent for Google Compute Engine](
 
 {{ oslogin }} links the account of a VM or {{ k8s }} node user with the account of an organization user. To manage access to virtual machines and nodes, [enable the {{ oslogin }} access option at the organization level](../operations/os-login-access.md) and then [activate](../../compute/operations/vm-control/vm-update.md#enable-oslogin-access) {{ oslogin }} access on each virtual machine or {{ k8s }} node separately.
 
+{% note info %}
+
+{% include [serial-port-settings-default](../../_includes/compute/serial-port-settings-default.md) %}
+
+{% endnote %}
+
 This way you can easily manage access to virtual machines and {{ k8s }} nodes by assigning appropriate roles to users. If you revoke the roles, the user will lose access to all virtual machines and {{ k8s }} nodes where {{ oslogin }} access is enabled.
 
 ## {{ oslogin }} profiles {#os-login-profiles}

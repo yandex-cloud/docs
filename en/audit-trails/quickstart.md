@@ -16,12 +16,14 @@ Follow this guide to create a new trail that will upload audit logs of your orga
 
 1. {% include [add-roles-to-sa](../_includes/audit-trails/add-roles-to-sa.md) %}
 
-1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the following roles:
+1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
     * `iam.serviceAccounts.user` for the service account.
     * `audit-trails.editor` for the folder to host the trail.
     * `audit-trails.viewer` for the organization whose audit logs will be collected.
     * `kms.editor` for the folder where the bucket encryption key will be created.
     * `storage.viewer` for the bucket or folder.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 {% include [bucket-encryption-section](../_includes/audit-trails/bucket-encryption-section.md) %}
 

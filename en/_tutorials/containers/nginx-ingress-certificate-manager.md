@@ -1,3 +1,5 @@
+# Installing an NGINX Ingress controller with a {{ certificate-manager-full-name }} certificate
+
 Manage the [TLS certificate](../../certificate-manager/concepts/index.md) for the NGINX Ingress controller via [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
 The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) syncs the certificate with the [{{ k8s }} secret](../../managed-kubernetes/concepts/encryption.md). This allows you to manage the deployed application's certificate through {{ certificate-manager-name }} by adding a self-signed certificate and updating it on your own or by issuing an automatically renewable Let's Encrypt® certificate.

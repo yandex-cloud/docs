@@ -26,6 +26,7 @@ default:
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
+  api-host-data-transfer-operation: operation.api.cloud.yandex.net/operations
   api-host-iot-broker: iot-broker.api.cloud.yandex.net
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net
@@ -34,6 +35,7 @@ default:
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
+  api-host-mdb-operation: operation.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
   api-host-operation: operation.api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
@@ -595,6 +597,7 @@ default:
   roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
   roles-functions-viewer: functions.viewer
+  roles-iam-sa-admin: iam.serviceAccounts.admin
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-image-user: compute.images.user
   roles-license-manager-subscription-agent: license-manager.subscriptionAgent
@@ -6113,7 +6116,6 @@ default:
         label_thumbnail: Обложка
       videos:
         action_create-video: Загрузить видео
-        label_access_rights-auth-system-access: Для авторизованных пользователей
         label_access_rights-public: Для всех пользователей
         label_access_rights-sign-url-access: По временной ссылке
         label_accessRights: Доступ
@@ -8412,6 +8414,7 @@ default:
         action_empty: Создать
         arl:
           column_rule-conditions: Условия на трафик
+          column_rule-priority: Приоритет
           label_connected-security-profiles: Подключенные профили безопасности
           label_create-profile: Создать профиль ARL
           label_profiles: Профили ARL
@@ -8683,7 +8686,6 @@ default:
         label_desktop: Рабочий стол
         label_desktop-images: Образы
         label_desktops: Рабочие столы
-        label_image: Образ в Compute Cloud
         label_image-source: Источник образа
         section_access: Доступ
         section_disks: Диски

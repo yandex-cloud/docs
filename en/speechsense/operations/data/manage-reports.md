@@ -1,3 +1,8 @@
+---
+title: Working with reports
+description: Follow this guide to learn how to work with reports in {{ speechsense-name }}.
+---
+
 # Working with reports
 
 You can use [{{ speechsense-name }} reports](../../concepts/reports/index.md) to analyze dialogs between agents and customers and evaluate agents' performance. Build a report:

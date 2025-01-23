@@ -423,6 +423,8 @@ items:
                         href: runs/api-ref/grpc/Run/create.md
                       - name: Listen
                         href: runs/api-ref/grpc/Run/listen.md
+                      - name: Attach
+                        href: runs/api-ref/grpc/Run/attach.md
                       - name: Get
                         href: runs/api-ref/grpc/Run/get.md
                       - name: GetLastByThread

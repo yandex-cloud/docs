@@ -23,7 +23,7 @@ Pools are infrastructurally separate data center modules servers physically resi
 A server can have one of the following statuses:
 
 * `PROVISIONING`: Server is being prepared to be leased out to a user.
-* `RUNNING`: Server is leased out and fully available to a user. In this status, the server's power supply can be turned on or off.
+* `READY`: Server is leased out and fully available to a user. In this status, the server's power supply can be turned on or off.
 * `STARTING`: Server is being powered up.
 * `STOPPING`: Server is being powered down.
 * `RESTARTING`: Server is rebooting.

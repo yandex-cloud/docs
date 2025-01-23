@@ -1,3 +1,7 @@
+---
+title: How to create a VM from a custom image
+description: Use this guide to create a VM from a custom image.
+---
 
 # Creating a VM from a custom image
 

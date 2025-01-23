@@ -37,7 +37,13 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/searchIndex
         "chunkOverlapTokens": "string"
       }
       // end of the list of possible fields
+    },
+    // Includes only one of the fields `ngramTokenizer`
+    "ngramTokenizer": {
+      "minGram": "string",
+      "maxGram": "string"
     }
+    // end of the list of possible fields
   },
   "vectorSearchIndex": {
     "docEmbedderUri": "string",
@@ -60,7 +66,13 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/searchIndex
           "chunkOverlapTokens": "string"
         }
         // end of the list of possible fields
+      },
+      // Includes only one of the fields `ngramTokenizer`
+      "ngramTokenizer": {
+        "minGram": "string",
+        "maxGram": "string"
       }
+      // end of the list of possible fields
     },
     "vectorSearchIndex": {
       "docEmbedderUri": "string",
@@ -162,6 +174,15 @@ Defines the configuration for a traditional keyword-based text search index.
 
 Chunking strategy used to split text into smaller chunks before indexing.
 In the case of text search, tokens are individual text characters. ||
+|| ngramTokenizer | **[NgramTokenizer](#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer)**
+
+Tokenizer that generates n-grams.
+
+Includes only one of the fields `ngramTokenizer`.
+
+Tokenizer type used for text search. The tokenizer determines how the
+input text is broken down into tokens before indexing.
+If not specified, the default tokenizer configuration is applied. ||
 |#
 
 ## ChunkingStrategy {#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy}
@@ -193,6 +214,30 @@ The number of tokens that should overlap between consecutive chunks.
 This allows for some context from the previous chunk to be included in the next chunk.
 Constraints: must be less than or equal to half of `max_chunk_size_tokens`.
 Default value: 400 ||
+|#
+
+## NgramTokenizer {#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer}
+
+Configuration for the NgramTokenizer, which splits text into overlapping character sequences (n-grams) of specified lengths.
+
+Example:
+Input text: `hello`
+min_gram = 2, max_gram = 3
+
+Generated tokens:
+* For n = 2 (2-character n-grams): `he`, `el`, `ll`, `lo`
+* For n = 3 (3-character n-grams): `hel`, `ell`, `llo`
+
+Final tokens: `[he, el, ll, lo, hel, ell, llo]`
+
+#|
+||Field | Description ||
+|| minGram | **string** (int64)
+
+Minimum length of characters in a gram. Defaults to 3 ||
+|| maxGram | **string** (int64)
+
+Maximum length of characters in a gram. Defaults to 4 ||
 |#
 
 ## VectorSearchIndex {#yandex.cloud.ai.assistants.v1.searchindex.VectorSearchIndex}
@@ -330,7 +375,13 @@ The parameter k for RRFscore. Default is 60 ||
           "chunkOverlapTokens": "string"
         }
         // end of the list of possible fields
+      },
+      // Includes only one of the fields `ngramTokenizer`
+      "ngramTokenizer": {
+        "minGram": "string",
+        "maxGram": "string"
       }
+      // end of the list of possible fields
     },
     "vectorSearchIndex": {
       "docEmbedderUri": "string",
@@ -353,7 +404,13 @@ The parameter k for RRFscore. Default is 60 ||
             "chunkOverlapTokens": "string"
           }
           // end of the list of possible fields
+        },
+        // Includes only one of the fields `ngramTokenizer`
+        "ngramTokenizer": {
+          "minGram": "string",
+          "maxGram": "string"
         }
+        // end of the list of possible fields
       },
       "vectorSearchIndex": {
         "docEmbedderUri": "string",
@@ -590,6 +647,15 @@ Defines the configuration for a traditional keyword-based text search index.
 
 Chunking strategy used to split text into smaller chunks before indexing.
 In the case of text search, tokens are individual text characters. ||
+|| ngramTokenizer | **[NgramTokenizer](#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer2)**
+
+Tokenizer that generates n-grams.
+
+Includes only one of the fields `ngramTokenizer`.
+
+Tokenizer type used for text search. The tokenizer determines how the
+input text is broken down into tokens before indexing.
+If not specified, the default tokenizer configuration is applied. ||
 |#
 
 ## ChunkingStrategy {#yandex.cloud.ai.assistants.v1.searchindex.ChunkingStrategy2}
@@ -621,6 +687,30 @@ The number of tokens that should overlap between consecutive chunks.
 This allows for some context from the previous chunk to be included in the next chunk.
 Constraints: must be less than or equal to half of `max_chunk_size_tokens`.
 Default value: 400 ||
+|#
+
+## NgramTokenizer {#yandex.cloud.ai.assistants.v1.searchindex.NgramTokenizer2}
+
+Configuration for the NgramTokenizer, which splits text into overlapping character sequences (n-grams) of specified lengths.
+
+Example:
+Input text: `hello`
+min_gram = 2, max_gram = 3
+
+Generated tokens:
+* For n = 2 (2-character n-grams): `he`, `el`, `ll`, `lo`
+* For n = 3 (3-character n-grams): `hel`, `ell`, `llo`
+
+Final tokens: `[he, el, ll, lo, hel, ell, llo]`
+
+#|
+||Field | Description ||
+|| minGram | **string** (int64)
+
+Minimum length of characters in a gram. Defaults to 3 ||
+|| maxGram | **string** (int64)
+
+Maximum length of characters in a gram. Defaults to 4 ||
 |#
 
 ## VectorSearchIndex {#yandex.cloud.ai.assistants.v1.searchindex.VectorSearchIndex2}

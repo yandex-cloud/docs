@@ -39,7 +39,13 @@ Required field. ID of the assistant to update. ||
   "modelUri": "string",
   "instruction": "string",
   "promptTruncationOptions": {
-    "maxPromptTokens": "string"
+    "maxPromptTokens": "string",
+    // Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`
+    "autoStrategy": "object",
+    "lastMessagesStrategy": {
+      "numMessages": "string"
+    }
+    // end of the list of possible fields
   },
   "completionOptions": {
     "maxTokens": "string",
@@ -47,12 +53,17 @@ Required field. ID of the assistant to update. ||
   },
   "tools": [
     {
-      // Includes only one of the fields `searchIndex`
+      // Includes only one of the fields `searchIndex`, `function`
       "searchIndex": {
         "searchIndexIds": [
           "string"
         ],
         "maxNumResults": "string"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "object"
       }
       // end of the list of possible fields
     }
@@ -126,6 +137,31 @@ Defines the options for truncating thread messages within a prompt.
 The maximum number of tokens allowed in the prompt.
 If the prompt exceeds this limit, the thread messages will be truncated.
 Default max_prompt_tokens: 7000 ||
+|| autoStrategy | **object**
+
+Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|| lastMessagesStrategy | **[LastMessagesStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy)**
+
+Retains only the last `num_messages` messages in the thread.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
+
+Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|#
+
+## LastMessagesStrategy {#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy}
+
+Truncates the prompt by retaining only the last `num_messages` messages in the thread.
+
+#|
+||Field | Description ||
+|| numMessages | **string** (int64)
+
+The number of most recent messages to retain in the prompt.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.assistants.v1.CompletionOptions}
@@ -155,7 +191,12 @@ Represents a general tool that can be one of several types.
 
 SearchIndexTool tool that performs search across specified indexes.
 
-Includes only one of the fields `searchIndex`. ||
+Includes only one of the fields `searchIndex`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `searchIndex`, `function`. ||
 |#
 
 ## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool}
@@ -172,6 +213,24 @@ A list of search index IDs that this tool will query. Currently, only a single i
 The maximum number of results to return from the search.
 Fewer results may be returned if necessary to fit within the prompt's token limit.
 This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **object**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
 |#
 
 ## Response {#yandex.cloud.ai.assistants.v1.Assistant}
@@ -197,7 +256,13 @@ This ensures that the combined prompt and search results do not exceed the token
   "modelUri": "string",
   "instruction": "string",
   "promptTruncationOptions": {
-    "maxPromptTokens": "string"
+    "maxPromptTokens": "string",
+    // Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`
+    "autoStrategy": "object",
+    "lastMessagesStrategy": {
+      "numMessages": "string"
+    }
+    // end of the list of possible fields
   },
   "completionOptions": {
     "maxTokens": "string",
@@ -205,12 +270,17 @@ This ensures that the combined prompt and search results do not exceed the token
   },
   "tools": [
     {
-      // Includes only one of the fields `searchIndex`
+      // Includes only one of the fields `searchIndex`, `function`
       "searchIndex": {
         "searchIndexIds": [
           "string"
         ],
         "maxNumResults": "string"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "object"
       }
       // end of the list of possible fields
     }
@@ -318,6 +388,31 @@ Defines the options for truncating thread messages within a prompt.
 The maximum number of tokens allowed in the prompt.
 If the prompt exceeds this limit, the thread messages will be truncated.
 Default max_prompt_tokens: 7000 ||
+|| autoStrategy | **object**
+
+Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|| lastMessagesStrategy | **[LastMessagesStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy2)**
+
+Retains only the last `num_messages` messages in the thread.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
+
+Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|#
+
+## LastMessagesStrategy {#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy2}
+
+Truncates the prompt by retaining only the last `num_messages` messages in the thread.
+
+#|
+||Field | Description ||
+|| numMessages | **string** (int64)
+
+The number of most recent messages to retain in the prompt.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.assistants.v1.CompletionOptions2}
@@ -347,7 +442,12 @@ Represents a general tool that can be one of several types.
 
 SearchIndexTool tool that performs search across specified indexes.
 
-Includes only one of the fields `searchIndex`. ||
+Includes only one of the fields `searchIndex`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool2)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `searchIndex`, `function`. ||
 |#
 
 ## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool2}
@@ -364,4 +464,22 @@ A list of search index IDs that this tool will query. Currently, only a single i
 The maximum number of results to return from the search.
 Fewer results may be returned if necessary to fit within the prompt's token limit.
 This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool2}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **object**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
 |#

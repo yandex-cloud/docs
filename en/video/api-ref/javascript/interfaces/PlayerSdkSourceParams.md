@@ -1,3 +1,8 @@
+---
+title: 'Interface: PlayerSdkSourceParams'
+description: In this article, you will learn about the source parameters for the video player SDK.
+---
+
 # Interface: PlayerSdkSourceParams
 
 ## Hierarchy {#Hierarchy}

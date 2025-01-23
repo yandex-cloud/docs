@@ -1,3 +1,8 @@
+---
+title: Assigning roles
+description: Follow this guide to assign a role for a resource.
+---
+
 # Assigning roles
 
 To grant access to a resource, assign a [role](../../concepts/access-control/roles.md) for it. You can assign a role to:
@@ -134,7 +139,7 @@ To assign a role for an organization:
 
   1. In the left-hand panel, select ![persons-lock](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
-  1. If the user, service account, or user group you need already has at least one role assigned, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) in the row with that user, service account, or group and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+  1. If the user, service account, or user group already has at least one role assigned, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) in the row with that user, service account, or group and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
 
       If the user, service account, or user group is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, select the user, service account, or group from the list. If required, use the search bar.
 
@@ -243,7 +248,7 @@ To assign a role for an organization:
          * `members = ["serviceAccount:<user_ID>"]`: For a service account.
          * `members = ["group:<user_ID>"]`: For a user group.
          * `members = ["system:group:organization:<organization_ID>:users"]`: For all [organization](../../../organization/quickstart.md) users.
-         * `members = ["system:group:federation:<federation_ID>:users"]`: For all [identity federation](../../../organization/concepts/add-federation.md) users.
+         * `members = ["system:group:federation:<organization_ID>:users"]`: For all [identity federation](../../../organization/concepts/add-federation.md) users.
 
       For more information, see the [provider documentation]({{ tf-provider-link }}).
 
@@ -488,9 +493,9 @@ You can assign a role not only for an organization, cloud, or folder but their c
       ```bash
       yc <service_name> <resource> set-access-bindings \
          --id <resource_ID> \
-         --access-binding role=<role_1>,service-account-id=<service_account_ID> \
-         --access-binding role=<role_2>,service-account-id=<service_account_ID> \
-         --access-binding role=<role_3>,service-account-id=<service_account_ID>
+         --access-binding role=<Role_1>,service-account-id=<service_account_ID> \
+         --access-binding role=<Role_2>,service-account-id=<service_account_ID> \
+         --access-binding role=<Role_3>,service-account-id=<service_account_ID>
       ```
 
 - API {#api}

@@ -78,7 +78,7 @@ If you have configured user groups in your identity provider or plan to do so, [
 The best approach to account management, in terms of security, is using identity federations (for more information, see recommendation 1.1). Therefore, you should do your best to ensure that your organization's list of users only contains federated users (those with the <q>FEDERATION ID</q> attribute) and there are as few Yandex ID accounts on the list as possible. The following exceptions are allowed:
 
 * Account with the `billing.accounts.owner` permissions (technically, only a Yandex ID account can have this role at the moment).
-* Account with the `organization-manager.organizations.owner` and `{{ roles-cloud-owner }}` permissions, if used in emergencies only, e.g., when configuration of your federation fails. If necessary, you can [delete](../../../security/operations/account-deletion.md) a privileged passport account with the `organization-manager.organizations.owner` role from an organization.
+* Account with the `organization-manager.organizations.owner` and `{{ roles-cloud-owner }}` permissions, if used in emergencies only, e.g., when configuration of your federation fails. If you need to, you can [delete](../../../security/operations/account-deletion.md) a privileged [Yandex account](../../../iam/concepts/users/accounts.md#passport) with the `organization-manager.organizations.owner` role from an organization.
 * External accounts, such as those of your contract partners or contractors, which, for some reason, you cannot register in your IdP.
 
 {% list tabs group=instructions %}
@@ -132,7 +132,7 @@ You can conveniently control access to resources via [user groups](../../../iam/
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 Remove the group access permissions from the accounts that do not require them.
 
@@ -201,6 +201,8 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
 
 Analyze the accounts found with the `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}` primitive roles assigned and replace them with [service granular roles](../../../iam/roles-reference.md) based on your role matrix.
 
+Follow [this guide](../../../security-deck/operations/ciem/view-permissions.md) to view the full list of a subject's access permissions.
+
 #### 1.5 Cloud entities with service accounts are registered and limited {#sa}
 
 A [service account](../../../iam/concepts/users/service-accounts.md) is an account that can be used by a program to manage resources in {{ yandex-cloud }}. A service account is used to make requests as an application.
@@ -229,7 +231,7 @@ The cloud entities with service accounts assigned must be registered and limited
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder and open the settings of the VM you need.
-  1. Click **Edit**.
+  1. Click **Edit**. 
   1. The service account data is displayed.
   1. Repeat the steps for all VMs in all folders.
 
@@ -246,9 +248,9 @@ The cloud entities with service accounts assigned must be registered and limited
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.service_account_id)' | jq -r '.id'
+      do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.service_account_id)' | jq -r '.id' 
       done;
       done;
       done
@@ -274,7 +276,7 @@ See the list of all regular expressions used to search for cloud accounts' crede
   Yandex.Cloud IAM token
 * **yandex_cloud_iam_api_key_v1** : AQVN[A-Za-z0-9_\-]{35,38}
   Yandex.Cloud API Keys (Speechkit, Vision, Translate)
-* **yandex_passport_oauth_token** : y[0-6]_[-_A-Za-z0-9]{55}
+* **yandex_passport_oauth_token** : y[0-6]_[-_A-Za-z0-9]{55} 
   Yandex Passport OAuth token
 * **yandex_cloud_iam_access_secret** : YC[a-zA-Z0-9_\-]{38}
   Yandex.Cloud AWS API compatible Access Secret
@@ -294,7 +296,7 @@ See the list of all regular expressions used to search for cloud accounts' crede
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
       do yc compute instance get --id=$VM_ID --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("YC[a-zA-Z0-9_\\-]{38}") | .string' && echo $VM_ID
       done;
@@ -308,7 +310,7 @@ See the list of all regular expressions used to search for cloud accounts' crede
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
       do yc compute instance get --id fhm2i4a72v44kdqaqhid --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("t1\\.[A-Z0-9a-z_-]+[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}") | .string'
       done;
@@ -358,8 +360,8 @@ You can disable getting a service account token via Amazon EC2 using the [aws_v1
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.metadata_options.aws_v1_http_token=="ENABLED")' | jq -r '.id'
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.metadata_options.aws_v1_http_token=="ENABLED")' | jq -r '.id' 
       done;
       done;
       done
@@ -388,7 +390,7 @@ Follow the principle of least privilege and [assign to the service account](../.
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Check the list of service accounts.
   1. Repeat the steps for other folders.
@@ -409,8 +411,8 @@ Follow the principle of least privilege and [assign to the service account](../.
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-      do for SA in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc iam service-account list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id + ":" + .[].name'
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do for SA in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc iam service-account list --folder-id=$FOLDER_ID --format=json  | jq -r '.[].id + ":" + .[].name' 
       done;
       done;
       done
@@ -430,7 +432,7 @@ Follow the principle of least privilege and [assign to the service account](../.
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
+      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID  --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
       done;
       ```
 
@@ -439,8 +441,8 @@ Follow the principle of least privilege and [assign to the service account](../.
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-      do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $FOLDER_ID
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do yc resource-manager folder list-access-bindings --id=$FOLDER_ID  --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $FOLDER_ID
       done;
       done
       ```
@@ -451,7 +453,9 @@ Follow the principle of least privilege and [assign to the service account](../.
 
 **Guides and solutions to use:**
 
-[Remove](../../../iam/operations/roles/revoke.md) the excessive permissions from the service account using {{ iam-short-name }}.
+* Use {{ sd-full-name }} to [view](../../../security-deck/operations/ciem/view-permissions.md) the full list of a service account's access permissions.
+* Use {{ sd-name }} to [revoke](../../../security-deck/operations/ciem/revoke-permissions.md) the service account’s excessive access permissions.
+* [Remove](../../../iam/operations/roles/revoke.md) the excessive permissions from the service account using {{ iam-short-name }}.
 
 #### 1.9 Only trusted administrators have access to service accounts {#sa-admins}
 
@@ -465,7 +469,7 @@ Each service account with extended permissions should be placed as a resource in
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and go to the **Access permissions** tab.
   1. Check the access permissions assigned to the service account.
@@ -484,7 +488,7 @@ Each service account with extended permissions should be placed as a resource in
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
+      do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID  --format=json | jq -r '.[] | select(.subject.type=="serviceAccount")' && echo $CLOUD_ID
       done;
       ```
 
@@ -507,7 +511,7 @@ Each service account with extended permissions should be placed as a resource in
 
 {{ yandex-cloud }} allows you to create the following access keys for service accounts:
 
-* [IAM tokens](../../../iam/concepts/authorization/iam-token.md) that are valid for 12 hours.
+* [IAM tokens](../../../iam/concepts/authorization/iam-token.md) that are valid for 12 hours. 
 * [API keys](../../../iam/concepts/authorization/api-key.md): You can choose any validity period.
 * [Authorized keys](../../../iam/concepts/authorization/key.md) with unlimited validity.
 * [AWS API-compatible static access keys](../../../iam/concepts/authorization/access-key.md) with unlimited validity.
@@ -520,7 +524,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and see the date of each key's generation under **Access key properties**.
   1. Repeat the steps for each of your folders.
@@ -539,7 +543,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for SA in $(yc iam service-account list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id');
       do yc iam access-key list --service-account-id=$SA --format=json | jq -r '.[] | "key_id" + ":" + .id + "," + "sa_id" + ":" + .service_account_id + "," + "created_at" + ":" + .created_at '
       done;
@@ -552,7 +556,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for SA in $(yc iam service-account list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id');
       do yc iam key list --service-account-id=$SA --format=json | jq -r '.[] | "key_id" + ":" + .id + "," + "sa_id" + ":" + .service_account_id + "," + "created_at" + ":" + .created_at '
       done;
@@ -565,7 +569,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for SA in $(yc iam service-account list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id');
       do yc iam api-key list --service-account-id=$SA --format=json | jq -r '.[] | "key_id" + ":" + .id + "," + "sa_id" + ":" + .service_account_id + "," + "created_at" + ":" + .created_at '
       done;
@@ -581,7 +585,39 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
 Follow the [guide](../../../iam/operations/compromised-credentials.md#key-reissue) for rotating keys depending on their type.
 
-#### 1.11 Two-factor authentication is set up for privileged accounts {#twofa}
+#### 1.11 API keys have specified scopes {#api-key-scopes}
+
+{% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
+
+The scope limits the use of [API keys](../../../iam/concepts/authorization/api-key.md) in addition to the user's personal access permissions. Configuring scope limits and expiration dates will reduce the risk of unauthorized use of your keys.
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
+  1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, check the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** field in the table with your API keys’ details.
+  1. If all API keys have their scopes specified, the recommendation is fulfilled. Otherwise, proceed to the _Guides and solutions to use_.
+
+- Performing a check via the CLI {#cli}
+
+  Run the command below and specify the name of the service account your API keys belong to:
+
+  ```bash
+  yc iam api-key list --service-account-name <service_account_name>
+  ```
+
+  If all API keys listed in the `SCOPE` filed of the command output have their scopes set, the recommendation is fulfilled. Otherwise, proceed to the _Guides and solutions to use_.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+[Create](../../../iam/operations/api-key/create.md#create-api-key) an API key with a specified scope.
+
+#### 1.12 Two-factor authentication is set up for privileged accounts {#twofa}
 
 We recommend using two-factor authentication (2FA) for cloud infrastructure access control to avoid the risk of compromising user accounts. Access to the {{ yandex-cloud }} management console can be based on 2FA.
 
@@ -596,7 +632,7 @@ For a Yandex ID, set up 2FA using [this guide](https://yandex.com/support/id/au
   1. Open the Yandex ID UI in your browser.
   1. Go to the [Security](https://id.yandex.ru/security) tab.
   1. Make sure login with an additional key is selected as the login option.
-  1. You should have key-based login configured. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. If the key-based login is configured, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
   1. If you are using external IdPs, follow the guides to check the settings.
 
 {% endlist %}
@@ -607,7 +643,7 @@ For a Yandex ID, set up 2FA using [this guide](https://yandex.com/support/id/au
 * [KeyCloak: Creating other credentials](https://www.keycloak.org/docs/latest/server_admin/#creating-other-credentials)
 * [Configure Additional Authentication Methods for AD FS](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs).
 
-#### 1.12 Privileged roles are only granted to trusted administrators {#privileged-users}
+#### 1.13 Only trusted administrators have privileged roles {#privileged-users}
 
 {{ yandex-cloud }} privileged users include accounts with the following roles:
 
@@ -713,7 +749,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="admin")' && echo $FOLDER_ID
       done;
       done
@@ -727,11 +763,11 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
 If any roles granted to untrusted administrators are found, investigate why and remove the respective permissions.
 
-#### 1.13 Strong passwords are set for local users of managed DBs {#mdb-auth}
+#### 1.14 Strong passwords are set for local users of managed databases {#mdb-auth}
 
 To use a database at the application level, in addition to {{ iam-short-name }} service roles, a separate local user is created: the database owner. The following password policy applies to this user:
 
-* The password must contain numbers, uppercase letters, lowercase letters, and special characters.
+* The password must contain numbers, uppercase letters, lowercase letters, and special characters. 
 * It must be at least 8 characters long.
 
 {% list tabs group=instructions %}
@@ -742,7 +778,7 @@ To use a database at the application level, in addition to {{ iam-short-name }} 
 
 {% endlist %}
 
-#### 1.14 Contractor and third-party access control is enabled {#contractors}
+#### 1.15 Contractor and third-party access control is enabled {#contractors}
 
 If you grant third-party contractors access to your clouds, make sure to follow these security measures:
 
@@ -750,7 +786,7 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 * Where possible, create a separate account for third-party employees in your corporate IdP and assign the relevant policies to this account.
 * Require them to handle their account secrets with care.
 * Review the relevance of external user access to your cloud infrastructure.
-* Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible.
+* Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role without data access wherever possible. 
 
 {% list tabs group=instructions %}
 
@@ -760,7 +796,7 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 
 {% endlist %}
 
-#### 1.15 The proper resource model is used {#resourses}
+#### 1.16 The proper resource model is used {#resourses}
 
 When developing an access model for your infrastructure, we recommend the following approach:
 
@@ -779,13 +815,13 @@ When developing an access model for your infrastructure, we recommend the follow
 
 {% endlist %}
 
-#### 1.16 There is no <q>public access</q> to your organization resources {#public-access}
+#### 1.17 There is no <q>public access</q> to your organization's resources {#public-access}
 
-{{ yandex-cloud }} allows you to grant public access to your resources. You can grant public access by assigning access permissions to [public groups](../../../iam/concepts/access-control/public-group.md) (`All authenticated users`, `All users`).
+{{ yandex-cloud }} allows you to grant public access to your resources. You can grant public access by assigning access permissions to [public groups](../../../iam/concepts/access-control/public-group.md) (`All authenticated users`, `All users`). 
 
 Public group details:
 
-* `All authenticated users`: All authenticated users. These are all registered users or {{ yandex-cloud }} service accounts: both from your clouds and other users' clouds.
+* `All authenticated users`: All authenticated users. This means all registered {{ yandex-cloud }} users or service accounts, both from your clouds and other users' clouds.
 * `All users`: Any user. No authentication is required.
 
 {% note warning %}
@@ -868,7 +904,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FOLDER_ID
       done;
       done
@@ -879,7 +915,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for CR in $(yc container registry list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id');
       do yc container registry list-access-bindings --id $CR --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $CR
       done;
@@ -892,9 +928,9 @@ Make sure that these groups have no public access to your resources: clouds, fol
       ```bash
       export ORG_ID=<organization ID>
       for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
       do for FUN in $(yc serverless function list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc serverless function list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
+      do yc serverless function  list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
       done;
       done;
       done
@@ -908,7 +944,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
 
 If you detect that `All users` and `All authenticated users` have the access permissions that they should not have, remove these permissions.
 
-#### 1.17 Contact information of the person in charge of an organization is valid {#org-contacts}
+#### 1.18 Contact information of the person in charge of an organization is valid {#org-contacts}
 
 When registering a cloud in {{ yandex-cloud }}, customers enter their contact information. For example, an email address is used for notifications about incidents, scheduled maintenance activities, and so on.
 
@@ -933,7 +969,7 @@ Make sure the contact information is valid and messages are sent to multiple per
 
 Specify up-to-date contact information using the [guide](../../../billing/operations/change-data.md#change-address).
 
-#### 1.18 The cookie lifetime in a federation is less than 6 hours {#cookie-timeout}
+#### 1.19 The cookie lifetime in a federation is less than 6 hours {#cookie-timeout}
 
 In the [identity federation](../../../organization/concepts/add-federation.md) settings, make sure the **Cookie lifetime** parameter value is less than or equal to 6 hours. Thus you minimize the risk of compromising cloud users' workstations.
 
@@ -964,7 +1000,7 @@ In the [identity federation](../../../organization/concepts/add-federation.md) s
       done
       ```
 
-  1. The output should return an empty string. If the result with the current federation's settings is output, where `cookie_max_age` > 21600s, proceed to the <q>Guides and solutions to use</q>.
+  1. The output should return an empty string. If the output returns the current federation's settings where `cookie_max_age` > 21600s, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -972,9 +1008,9 @@ In the [identity federation](../../../organization/concepts/add-federation.md) s
 
 Set the **Cookie lifetime** to 6 hours (21600 seconds) or less.
 
-#### 1.19 Tokens for cloud functions and VMs are issued via service accounts {#func-token}
+#### 1.20 Tokens for cloud functions and VMs are issued by a service account {#func-token}
 
-To get an IAM token when executing a function, [assign](../../../functions/operations/function-sa.md) a service account to the function. In this case, the function will get an {{ iam-short-name }} token by means of built-in {{ yandex-cloud }} tools so that you do not have to provide any secrets to the function externally. Do the same [for your VMs](../../../compute/operations/vm-info/get-info.md#inside-instance).
+To get an IAM token when executing a function, [assign](../../../functions/operations/function-sa.md) a service account to the function. In this case, the function will get an {{ iam-short-name }} token by means of built-in {{ yandex-cloud }} tools so that you do not have to provide any secrets to the function externally. Do the same [for your VMs](../../../compute/operations/vm-info/get-info.md#inside-instance). For more information about getting an IAM token in a function, see [{#T}](../../../functions/operations/function-sa.md).
 
 {% list tabs group=instructions %}
 
@@ -984,7 +1020,7 @@ To get an IAM token when executing a function, [assign](../../../functions/opera
 
 {% endlist %}
 
-#### 1.20 Impersonation is used wherever possible {#impersonation}
+#### 1.21 Impersonation is used wherever possible {#impersonation}
 
 [Impersonation](../../../iam/operations/sa/set-access-bindings.md#impersonation) allows a user to perform actions under a service account and to temporarily extend user permissions without generating static credentials for the user. It may be useful for use cases such as duty, local development, or permission verification.
 
@@ -1001,7 +1037,7 @@ To get an IAM token when executing a function, [assign](../../../functions/opera
 
 If the `{{ roles-iam-sa-tokencreator }}` role is missing, set up impersonation for service accounts to provide temporary access to critical data by following this [guide](../../../iam/operations/sa/set-access-bindings.md#impersonation).
 
-#### 1.21 Resource labels are used {#labels}
+#### 1.22 Resource labels are used {#labels}
 
 [Labels](../../../resource-manager/concepts/labels.md) are required to monitor data streams and tag critical resources for privilege management.
 For example, to tag resources which handle personal data under Federal Law No. FZ-152 of the Russian Federation on Personal Data, select the `152-fz:true` label for:
@@ -1027,7 +1063,7 @@ For example, to tag resources which handle personal data under Federal Law No. F
 
 [Guide on managing labels](../../../resource-manager/operations/manage-labels.md)
 
-#### 1.22 {{ yandex-cloud }} security notifications are enabled {#security-notifications}
+#### 1.23 {{ yandex-cloud }} security notifications are enabled {#security-notifications}
 
 To get notifications of security-related events, such as vulnerability detection and elimination, we recommend selecting security notifications in the management console.
 
@@ -1046,7 +1082,7 @@ To get notifications of security-related events, such as vulnerability detection
 1. [Make sure](../../../resource-manager/concepts/notify.md) that notifications are set up.
 1. Enable the **Security** option in the notification settings in the management console.
 
-#### 1.23 The {{ roles-auditor }} role is used to prevent access to user data {#roles-auditor}
+#### 1.24 The {{ roles-auditor }} role is used to prevent access to user data {#roles-auditor}
 
 Assign the `{{ roles-auditor }}` role to users who do not need access to data, e.g., external contractors or auditors.
 `{{ roles-auditor }}` is a role with least privilege without access to service data. It grants permission to read service configurations and metadata.
@@ -1121,7 +1157,9 @@ To control access more selectively and implement the principle of least privileg
 1. [Assign](../../../iam/operations/roles/grant.md) the `{{ roles-auditor }}` role to users requiring no data access.
 1. Remove the excessive account permissions using {{ iam-short-name }}.
 
-#### 1.24 Tracking the date of last access key use in {{ iam-full-name }} {#key-usage-control}
+#### 1.25 Tracking the date of last service account authentication and last access key use in {{ iam-full-name }} {#key-usage-control}
+
+{% include [sa-last-used-data](../../iam/sa-last-used-data.md) %}
 
 {% include [key-has-last-used-data](../../iam/key-has-last-used-data.md) %}
 
@@ -1132,9 +1170,22 @@ For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account with access keys belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you need.
   1. You can see the time of the last key use in the table with key info under **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_last-used-at }}**.
 
 {% endlist %}
+
+#### 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} CIEM {#ciem-access-control}
+
+To ensure data and cloud infrastructure security, you need to regularly audit the access permissions of users and service accounts.
+
+[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or CIEM is a tool that provides a centralized view of the full list of accesses to the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke accesses from subjects.
+
+For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
+
+**Guides and solutions to use:**
+
+[{#T}](../../../security-deck/operations/ciem/view-permissions.md).
+[{#T}](../../../security-deck/operations/ciem/revoke-permissions.md).

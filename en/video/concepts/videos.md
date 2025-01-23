@@ -10,7 +10,15 @@ You can upload custom covers for your videos. The cover will appear in the {{ vi
 
 {% include [image-characteristic](../../_includes/video/image-characteristic.md) %}
 
-You can [publish](../operations/video/get-link.md) via a direct link or post to a website either single videos or videos grouped into [playlists](playlists.md) in desired order. For more information on publishing playlists, see [{#T}](../operations/playlists/get-link.md).
+You can [publish](../operations/video/get-link.md) a video and select its access type:
+
+* **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}**: Available via a dedicated link. {#temporary-link}
+
+    {% include [video-temporary-links](../../_includes/video/video-temporary-links.md) %}
+
+* **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link to it. {#permanent-link}
+
+On the website, you can post both single videos and [playlists](playlists.md) with videos in a particular order. In playlists, only videos with permanent links will be available for viewing. For more information on publishing playlists, see [{#T}](../operations/playlists/get-link.md).
 
 ## Statuses {#statuses}
 

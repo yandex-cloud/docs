@@ -41,7 +41,7 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
     ```
 
     Where:
-    * `<folder_ID>`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to save the new key pair in.
+    * `<folder_ID>`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to save the new key pair to.
     * `<key_pair_name>`: Name of the signature key pair you are creating.
 
     Result:
@@ -54,7 +54,7 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
 
     The utility will return the ID of the created signature key pair and save a public signature key to a local file. Save the key pair ID, you will need it in the next steps.
     
-    You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using the appropriate [CLI command](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
+    You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using a [CLI command](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
 
 1. Sign a local file:
 
@@ -66,7 +66,7 @@ You can use digital signature key pairs created with the [Cosign](https://docs.s
     ```
 
     Where:
-    * `<key_pair_ID>`: ID of the signature key pair obtained in the previous step.
+    * `<key_pair_ID>`: ID of the signature key pair you got in the previous step.
     * `<path_to_file>`: Path to the local file you want to sign.
 
     Result:
@@ -92,7 +92,7 @@ cosign verify-blob \
 ```
 
 Where:
-* `--key`: Previously obtained ID of the signature key pair.
+* `--key`: Signature key pair ID obtained earlier.
 * `--signature`: Digital signature value obtained in the previous step.
 * `<path_to_file>`: Path to the local file whose signature you want to verify.
 

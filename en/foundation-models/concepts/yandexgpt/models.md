@@ -1,3 +1,8 @@
+---
+title: Text generation models
+description: In this article, you will learn about text generation models and fine-tuning options.
+---
+
 # Text generation models
 
 {{ yagpt-full-name }} provides access to large generative models:
@@ -33,7 +38,7 @@ Modified models share usage [quotas](../limits.md#quotas) with their basic model
 
 ^1^ {{ meta-disclaimer }}
 
-^2^  32k{{ gpt-pro }} features an expanded context and is designed specifically to handle large texts in synchronous mode. In asynchronous mode, the {{ gpt-pro }} model supports the same amount of context. 
+^2^ {{ gpt-pro }} 32k features an expanded context and is designed specifically to handle large texts in synchronous mode. In asynchronous mode, the {{ gpt-pro }} model supports the same amount of context. 
 
 {% include [release-cycle](../../../_includes/foundation-models/release-cycle.md) %}
 

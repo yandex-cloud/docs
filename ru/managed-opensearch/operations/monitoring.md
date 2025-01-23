@@ -1,3 +1,8 @@
+---
+title: Мониторинг состояния кластера {{ OS }} и хостов
+description: Следуя этой инструкции, вы сможете получить детальную информацию о состоянии кластера {{ mos-name }}.
+---
+
 # Мониторинг состояния кластера {{ OS }} и хостов
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}

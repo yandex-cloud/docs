@@ -33,6 +33,8 @@ items:
             href: operations/waf-profile-create.md
           - name: Editing basic profile settings
             href: operations/waf-profile-update.md
+          - name: Getting information about a profile
+            href: operations/waf-profile-get.md
           - name: Deleting a profile
             href: operations/waf-profile-delete.md
           - name: Configuring a basic rule set
@@ -49,6 +51,8 @@ items:
             href: operations/arl-profile-create.md
           - name: Editing basic profile settings
             href: operations/arl-profile-update.md
+          - name: Getting information about a profile
+            href: operations/arl-profile-get.md
           - name: Deleting a profile
             href: operations/arl-profile-delete.md
           - name: Adding a rule
@@ -74,8 +78,8 @@ items:
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
       - name: >-
-          Migrating services from a NLB to an L7 ALB to for DDoS protection
-          using {{ sws-name }}
+          Migrating services from a NLB to an L7 ALB for DDoS protection using
+          {{ sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md

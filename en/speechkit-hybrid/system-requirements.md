@@ -7,7 +7,9 @@ description: This article describes system and software requirements for servers
 
 {% include [system-requirements](../_includes/speechkit/system-requirements.md) %}
 
-{% include [system-requirements](../_includes/speechkit/system-requirements-gpu.md) %}
+{% include [licensing-server-requirements](../_includes/speechkit/licensing-server-requirements.md) %}
+
+{% include [system-requirements-gpu](../_includes/speechkit/system-requirements-gpu.md) %}
 
 ## Software requirements {#software}
 

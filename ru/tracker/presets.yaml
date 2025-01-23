@@ -1,83 +1,85 @@
-locale: ru
-api-name: Yandex Tracker API
-api-short-name: Tracker API
-host: api.tracker.yandex.net
-ver: v2
-org-id: 'X-Org-ID или X-Cloud-Org-ID: <идентификатор_организации>'
-link-connect: https://connect.yandex.ru/
-link-connect-main: https://connect.yandex.ru/portal/home
-link-admin-fields: https://tracker.yandex.ru/admin/fields
-link-admin-types: https://tracker.yandex.ru/admin/types
-link-admin-resolutions: https://tracker.yandex.ru/admin/resolutions
-link-quick-start: https://tracker.yandex.ru/queues/new/quick-start
-link-repositories: https://tracker.yandex.ru/admin/repositories
-link-tracker-statuses: https://tracker.yandex.ru/admin/statuses
-link-tracker-templates: https://tracker.yandex.ru/settings/templates/issues
-link-sub-roles: https://tracker.yandex.ru/subscriptions/roles
-link-sub-manage: https://tracker.yandex.ru/subscriptions/manage
-link-admin-settings: https://tracker.yandex.ru/admin/orgs
-link-settings: https://tracker.yandex.ru/settings
-link-tracker-promo: /services/tracker
-link-services-tracker: https://connect.yandex.ru/portal/services/tracker
-link-forms: https://forms.yandex.ru/cloud/admin
-link-passport: https://passport.yandex.ru/
-link-500-users: /services/tracker#contact-form
-link-tracker-support: https://support.yandex.cloud/?referral=tracker
-link-migration-form: /services/tracker#tracker-form
-link-billing: https://billing.yandex.cloud
-link-bind-ba: https://tracker.yandex.ru/admin/licenses/users?billing-account=1
-link-tracker-example-1: https://tracker.yandex.ru/<ключ_задачи>
-link-tracker-example-2: https://tracker.yandex.ru/<ключ_очереди>
-link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/
-link-balance-invoices: https://balance.yandex.ru/invoices.xml
-link-id-auth: https://yandex.ru/support/id/authorization/lite.html
-link-ya-360: https://admin.yandex.ru
-link-ya-360-domains: https://admin.yandex.ru/domains/
-link-ya-360-units: https://yandex.ru/support/business/units.html
-link-ya-360-sso: https://yandex.ru/support/business/sso.html
-link-ya-360-tariffs: https://360.yandex.ru/business/tariff/
-link-ya-360-services: https://yandex.ru/support/business/services.html
-link-ya-360-delete: https://yandex.ru/support/business/delete-organisation.html
-link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
-link-ya-360-groups: https://yandex.ru/support/business/projects.html
-link-tracker-feedback: https://forms.yandex.ru/surveys/6767/
-support-connect-account: https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
-support-connect-domain: https://yandex.ru/support/connect/add-domain.html
-support-connect-domains: https://yandex.ru/support/connect/domains.html#proof
-support-connect-services: https://yandex.ru/support/connect/services.html#services__mail-settings
-support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
-support-business-domain: https://yandex.ru/support/business/domains.html
-support-business-domain-main: >-
-  https://yandex.ru/support/business/domains/add-domain.html#add-domain__add-main-domain
-support-business-users: https://yandex.ru/support/business/add-users.html
-support-business-admin: https://yandex.ru/support/business/admin.html
-support-business-import: https://yandex.ru/support/business/import-mailboxes.html
-support-business-link: https://yandex.ru/support/business/
-support-calendar: https://yandex.ru/support/calendar/
-link-wiki-scrum: https://ru.wikipedia.org/wiki/SCRUM
-link-wiki-kanban: >-
-  https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B1%D0%B0%D0%BD_(%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0)
-link-wiki-agile: /blog/posts/2022/10/agile-and-project-management
-link-wiki-agile-en: https://en.wikipedia.org/wiki/Agile_software_development
-link-wiki-poker: https://ru.wikipedia.org/wiki/Покер_планирования
-link-wiki-lean: https://ru.wikipedia.org/wiki/Бережливый_стартап
-mobile-google-link: https://play.google.com/store/apps/details?id=ru.yandex.cloud.tracker
-mobile-apple-link: https://apps.apple.com/ru/app/yandex-cloud/id1351761680
-mobile-huawei-link: https://appgallery.huawei.com/#/app/C107995179
-mobile-apk-link: https://storage.yandexcloud.net/tracker-mobile/android/tracker.apk
-yfm-link: https://diplodoc.com/docs/ru/index-yfm
-link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
-link-rfc7578: https://tools.ietf.org/html/rfc7578
-link-OAuth: https://oauth.yandex.ru/
-link-OAuth-dev-guide: https://yandex.ru/dev/id/doc/ru/
-link-OAuth-register: https://yandex.ru/dev/id/doc/ru/register-client
-link-OAuth-codes: https://yandex.ru/dev/id/doc/ru/codes/code-and-token
-link-OAuth-debug-token: https://yandex.ru/dev/id/doc/ru/tokens/debug-token
-link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
-link-python-official: https://www.python.org/downloads/
-link-yandex: https://yandex.ru
-tracker-settings: Настройки Tracker
-release-date: 1 марта
-example-account: login@yandex.ru
-yfm: Yandex Flavored Markdown
-ya-360: Яндекс 360 для бизнеса
+default:
+  locale: ru
+  api-name: Yandex Tracker API
+  api-short-name: Tracker API
+  host: api.tracker.yandex.net
+  ver: v2
+  org-id: 'X-Org-ID или X-Cloud-Org-ID: <идентификатор_организации>'
+  link-connect: https://connect.yandex.ru/
+  link-connect-main: https://connect.yandex.ru/portal/home
+  link-admin-fields: https://tracker.yandex.ru/admin/fields
+  link-admin-types: https://tracker.yandex.ru/admin/types
+  link-admin-resolutions: https://tracker.yandex.ru/admin/resolutions
+  link-quick-start: https://tracker.yandex.ru/queues/new/quick-start
+  link-repositories: https://tracker.yandex.ru/admin/repositories
+  link-tracker-statuses: https://tracker.yandex.ru/admin/statuses
+  link-tracker-templates: https://tracker.yandex.ru/settings/templates/issues
+  link-sub-roles: https://tracker.yandex.ru/subscriptions/roles
+  link-sub-manage: https://tracker.yandex.ru/subscriptions/manage
+  link-admin-settings: https://tracker.yandex.ru/admin/orgs
+  link-settings: https://tracker.yandex.ru/settings
+  link-tracker-promo: /services/tracker
+  link-services-tracker: https://connect.yandex.ru/portal/services/tracker
+  link-forms: https://forms.yandex.ru/cloud/admin
+  link-passport: https://passport.yandex.ru/
+  link-500-users: /services/tracker#contact-form
+  link-tracker-support: https://support.yandex.cloud/?referral=tracker
+  link-migration-form: /services/tracker#tracker-form
+  link-billing: https://billing.yandex.cloud
+  link-bind-ba: https://tracker.yandex.ru/admin/licenses/users?billing-account=1
+  link-tracker-example-1: https://tracker.yandex.ru/<ключ_задачи>
+  link-tracker-example-2: https://tracker.yandex.ru/<ключ_очереди>
+  link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/
+  link-balance-invoices: https://balance.yandex.ru/invoices.xml
+  link-id-auth: https://yandex.ru/support/id/authorization/lite.html
+  link-ya-360: https://admin.yandex.ru
+  link-ya-360-domains: https://admin.yandex.ru/domains/
+  link-ya-360-units: https://yandex.ru/support/business/units.html
+  link-ya-360-sso: https://yandex.ru/support/business/sso.html
+  link-ya-360-tariffs: https://360.yandex.ru/business/tariff/
+  link-ya-360-services: https://yandex.ru/support/business/services.html
+  link-ya-360-delete: https://yandex.ru/support/business/delete-organisation.html
+  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
+  link-ya-360-groups: https://yandex.ru/support/business/projects.html
+  link-tracker-feedback: https://forms.yandex.ru/surveys/6767/
+  support-connect-account: >-
+    https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
+  support-connect-domain: https://yandex.ru/support/connect/add-domain.html
+  support-connect-domains: https://yandex.ru/support/connect/domains.html#proof
+  support-connect-services: https://yandex.ru/support/connect/services.html#services__mail-settings
+  support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
+  support-business-domain: https://yandex.ru/support/business/domains.html
+  support-business-domain-main: >-
+    https://yandex.ru/support/business/domains/add-domain.html#add-domain__add-main-domain
+  support-business-users: https://yandex.ru/support/business/add-users.html
+  support-business-admin: https://yandex.ru/support/business/admin.html
+  support-business-import: https://yandex.ru/support/business/import-mailboxes.html
+  support-business-link: https://yandex.ru/support/business/
+  support-calendar: https://yandex.ru/support/calendar/
+  link-wiki-scrum: https://ru.wikipedia.org/wiki/SCRUM
+  link-wiki-kanban: >-
+    https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B1%D0%B0%D0%BD_(%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0)
+  link-wiki-agile: /blog/posts/2022/10/agile-and-project-management
+  link-wiki-agile-en: https://en.wikipedia.org/wiki/Agile_software_development
+  link-wiki-poker: https://ru.wikipedia.org/wiki/Покер_планирования
+  link-wiki-lean: https://ru.wikipedia.org/wiki/Бережливый_стартап
+  mobile-google-link: https://play.google.com/store/apps/details?id=ru.yandex.cloud.tracker
+  mobile-apple-link: https://apps.apple.com/ru/app/yandex-cloud/id1351761680
+  mobile-huawei-link: https://appgallery.huawei.com/#/app/C107995179
+  mobile-apk-link: https://storage.yandexcloud.net/tracker-mobile/android/tracker.apk
+  yfm-link: https://diplodoc.com/docs/ru/index-yfm
+  link-iso-8601: http://dotat.at/tmp/ISO_8601-2004_E.pdf
+  link-rfc7578: https://tools.ietf.org/html/rfc7578
+  link-OAuth: https://oauth.yandex.ru/
+  link-OAuth-dev-guide: https://yandex.ru/dev/id/doc/ru/
+  link-OAuth-register: https://yandex.ru/dev/id/doc/ru/register-client
+  link-OAuth-codes: https://yandex.ru/dev/id/doc/ru/codes/code-and-token
+  link-OAuth-debug-token: https://yandex.ru/dev/id/doc/ru/tokens/debug-token
+  link-yandex_tracker_client: https://github.com/yandex/yandex_tracker_client
+  link-python-official: https://www.python.org/downloads/
+  link-yandex: https://yandex.ru
+  tracker-settings: Настройки Tracker
+  release-date: 1 марта
+  example-account: login@yandex.ru
+  yfm: Yandex Flavored Markdown
+  ya-360: Яндекс 360 для бизнеса

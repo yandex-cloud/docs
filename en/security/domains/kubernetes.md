@@ -100,14 +100,14 @@ The access of {{ iam-short-name }} accounts to {{ managed-k8s-name }} resources 
 * [{{ managed-k8s-name }} service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
 * Service roles to access the {{ k8s }} API: These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles are available at cluster level: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
 * Primitive roles: These are global primitive {{ iam-short-name }} roles that include service roles (for example, the primitive role admin includes both the service administration role and the administrative role to access the {{ k8s }} API).
-* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can control {{ iam-short-name }} accounts in terms of access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's {{ iam-short-name }} ID in the **subjects name** field. Here is an example:
+* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can control {{ iam-short-name }} accounts in terms of access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's {{ iam-short-name }} ID in the **subjects name** field. Example:
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
     kind: RoleBinding
     metadata:
     name: iam-user-aje0jndkhkvu04ek #object name RoleBinding
-    namespace: micro1-ns
+    namespace: micro1-ns 
     roleRef:
     apiGroup: rbac.authorization.k8s.io
     kind: ClusterRole
@@ -243,7 +243,7 @@ There are also paid and free specialized solutions for scanning {{ k8s }} node O
 {{ managed-k8s-name }} issues updates in a regular manner. To meet the Information Security standards:
 
 * Select a relevant update channel and enable either automatic installation of updates, or manual installation immediately after publication in the selected channel.
-* Double-check that the ad settings meet the Information Security standards.
+* Check that the update settings meet the Information Security standards.
 * Use one of the three latest {{ k8s }} versions, because updates (including security updates) are only released for these versions.
 
 ## Backup and recovery {#backup-and-restore}
@@ -305,7 +305,7 @@ Audit events are collected from the {{ k8s }} API level by {{ cloud-logging-name
 
 ### {{ k8s }} node level {#kubernetes-nodes-level}
 
-{{ k8s }} node level events are collected and exported similarly to [collecting OS audit logs](../standard/audit-logs.md#os-level).
+{{ k8s }} node level events are collected and exported similarly to [collecting OS audit logs](audit-logs#os-level).
 
 ### {{ k8s }} pod level {#kubernetes-pods-level}
 
@@ -313,7 +313,7 @@ To learn more about options for collecting and exporting pod-level events in {{ 
 
 Examples of collecting and exporting pod logs:
 
-* Exporting logs to {{ cloud-logging-name }} using Fluent Bit is described in the [{{ managed-k8s-name }}](../../managed-kubernetes/tutorials/fluent-bit-logging.md) documentation.
+* Exporting logs to {{ cloud-logging-name }} using Fluent Bit is described in the [{{ managed-k8s-name }} documentation](../../managed-kubernetes/tutorials/fluent-bit-logging.md).
 * Exporting pod logs into Elastic or Splunk is described in the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery/blob/main/README-en.md).
 
 The [Filebeat](/marketplace/products/yc/filebeat) plugin for transferring logs to Elastic and [Fluent Bit with a {{ cloud-logging-name }} plugin](/marketplace/products/yc/fluent-bit) is available in {{ marketplace-name }}.

@@ -1,24 +1,25 @@
-service-name: Yandex Cloud Organization
-link-org-users: https://org.yandex.cloud/users
-link-org-settings: https://org.yandex.cloud/settings
-link-org-federations: https://org.yandex.cloud/federations
-link-org-services: https://org.yandex.cloud/services
-link-org-groups: https://org.yandex.cloud/groups
-link-passport: https://passport.yandex.ru/
-login-example: login@yandex.ru
-yandex-domain: yandex.ru
-link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
-link-keycloak-example: http://keycloak.example.com:8080/realms/master
-link-base64: https://ru.wikipedia.org/wiki/Base64
-link-adfs-add-claim: >-
-  https://docs.microsoft.com/ru-ru/windows-server/identity/ad-fs/operations/add-a-claim-description
-link-adfs: >-
-  https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services
-link-azure-ad: https://azure.microsoft.com/ru-ru/services/active-directory/
-support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
-saml-limit-last-name: 64 символа
-saml-limit-first-name: 64 символа
-saml-limit-display-name: 64 символа
-saml-limit-email: 256 символов
-saml-limit-phone: 64 символа
-saml-limit-thumbnail-photo: 204800 символов
+default:
+  service-name: Yandex Cloud Organization
+  link-org-users: https://org.yandex.cloud/users
+  link-org-settings: https://org.yandex.cloud/settings
+  link-org-federations: https://org.yandex.cloud/federations
+  link-org-services: https://org.yandex.cloud/services
+  link-org-groups: https://org.yandex.cloud/groups
+  link-passport: https://passport.yandex.ru/
+  login-example: login@yandex.ru
+  yandex-domain: yandex.ru
+  link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
+  link-keycloak-example: http://keycloak.example.com:8080/realms/master
+  link-base64: https://ru.wikipedia.org/wiki/Base64
+  link-adfs-add-claim: >-
+    https://docs.microsoft.com/ru-ru/windows-server/identity/ad-fs/operations/add-a-claim-description
+  link-adfs: >-
+    https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services
+  link-azure-ad: https://azure.microsoft.com/ru-ru/services/active-directory/
+  support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
+  saml-limit-last-name: 64 символа
+  saml-limit-first-name: 64 символа
+  saml-limit-display-name: 64 символа
+  saml-limit-email: 256 символов
+  saml-limit-phone: 64 символа
+  saml-limit-thumbnail-photo: 204800 символов

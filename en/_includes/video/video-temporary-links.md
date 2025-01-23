@@ -1,0 +1,1 @@
+The video is available via a temporary link for a maximum of 12 hours.

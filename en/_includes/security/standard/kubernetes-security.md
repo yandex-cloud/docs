@@ -1,4 +1,4 @@
-# 9. Security {{ k8s }}
+# 7. Security {{ k8s }}
 
 
 #### Introduction {#intro}
@@ -11,7 +11,7 @@ The user is responsible for all actions made inside the {{ k8s }} node. The user
 
 The user is responsible for correctly choosing security settings in {{ managed-k8s-name }}, including selecting the [channel](../../../managed-kubernetes/concepts/release-channels-and-updates.md) and the update schedule.
 
-#### 9.1 The use of sensitive data is limited {#not-use-critical-data}
+#### 7.1 The use of sensitive data is limited {#not-use-critical-data}
 
 To comply with PCI DSS or other security standards when using {{ managed-k8s-name }}, do not:
 
@@ -26,7 +26,7 @@ To comply with PCI DSS or other security standards when using {{ managed-k8s-nam
 - Manual check {#manual}
 
   * Make sure that names and descriptions of clusters, node groups, namespaces, services, and pods contain no sensitive data.
-  * Check configuration files for critical data.
+  * Check configuration files for critical data
 
 - Performing a check in the management console {#console}
 
@@ -36,11 +36,11 @@ To comply with PCI DSS or other security standards when using {{ managed-k8s-nam
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 Manually edit the names or contents of manifests and other configuration files if they use sensitive data.
 
-#### 9.2 Resources are isolated from each other {#maximum-isolation}
+#### 7.2 Resources are isolated from each other {#maximum-isolation}
 
 Wherever possible, ensure maximum isolation between resources:
 
@@ -65,13 +65,13 @@ Less strict isolation models are also possible, e.g., where:
 
 {% endlist %}
 
-#### 9.3 There is no access to the {{ k8s }} API and node groups from untrusted networks {#api-security}
+#### 7.3 There is no access to the {{ k8s }} API and node groups from untrusted networks {#api-security}
 
 We do not recommend granting access to the {{ k8s }} API and node groups from non-trusted networks, e.g., from the internet. Use firewall protection where needed (for example, [security groups](../../../vpc/concepts/security-groups.md)).
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
-* [Guide on creating a cluster without internet access](../../../managed-kubernetes/tutorials/k8s-cluster-with-no-internet.md).
+* [Guide on creating a cluster with no internet access](../../../managed-kubernetes/tutorials/k8s-cluster-with-no-internet.md).
 * [Security group setup guide](../../../managed-kubernetes/operations/connect/security-groups.md).
 * Use network policy configuration tools via the [Calico](../../../managed-kubernetes/concepts/network-policy.md#calico) (basic) or [Cilium CNI](../../../managed-kubernetes/concepts/network-policy.md#cilium) (advanced) plugins in {{ yandex-cloud }}. By default, apply the `default deny` rules for incoming and outgoing traffic with only the relevant traffic allowed.
 * For online endpoints, allocate an independent {{ k8s }} cluster or independent node groups (using such mechanisms as [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#:~:text=Node%20affinity%20is%20a%20property,onto%20nodes%20with%20matching%20taints) + [Node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)). By doing this, you establish a DMZ so that if your nodes are compromised online, your attack surface is small.
@@ -80,7 +80,7 @@ We do not recommend granting access to the {{ k8s }} API and node groups from no
   * [NGINX Ingress Controller](../../../managed-kubernetes/tutorials/ingress-cert-manager.md).
   * [Application Load Balancer of an Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
-#### 9.4 Authentication and access management are configured in {{ managed-k8s-name }} {#kubernetes-auth}
+#### 7.4 Authentication and access management are configured in {{ managed-k8s-name }} {#kubernetes-auth}
 
 For the {{ k8s }} cluster to run, you need two service accounts: [the service account of the cluster and the service account of the node group](../../../managed-kubernetes/security/index.md#sa-annotation). The access of IAM accounts to {{ managed-k8s-name }} resources is managed at the following levels:
 
@@ -97,7 +97,7 @@ For the {{ k8s }} cluster to run, you need two service accounts: [the service ac
 
 {% endlist %}
 
-#### 9.5 {{ managed-k8s-name }} uses a safe configuration {#kubernetes-safe-config}
+#### 7.5 {{ managed-k8s-name }} uses a safe configuration {#kubernetes-safe-config}
 
 In {{ managed-k8s-name }}, the user is fully in control of all node group settings, but only partially in control of the [master](../../../managed-kubernetes/concepts/index.md#master) settings. The user is responsible for the whole cluster's security.
 
@@ -112,7 +112,7 @@ The [CIS {{ k8s }} Benchmark](https://www.cisecurity.org/benchmark/kubernetes) s
 
 {% endlist %}
 
-#### 9.6 Data encryption and {{ managed-k8s-name }} secret management are done in _ESO as a Service_ format {#data-encryption}
+#### 7.6 {{ managed-k8s-name }} data encryption and secret management are done in _ESO as a Service_ format {#data-encryption}
 
 At the {{ k8s }} etcd level, encrypt secrets using an in-built [mechanism from {{ yandex-cloud }}](../../../managed-kubernetes/concepts/encryption.md).
 
@@ -120,14 +120,14 @@ We recommend that you use SecretManager solutions to work with {{ k8s }} secrets
 
  {{ lockbox-name }} was integrated with {{ k8s }} using the [External Secrets](https://external-secrets.io/latest/) open-source project. In {{ marketplace-name }}, the solution is available in the basic simplified scenario: [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets).
 
-The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). When using ESO, the global administrator has access to the namespace where ESO is installed, and administrators of individual namespaces create their own [SecretStore](https://external-secrets.io/latest/api/secretstore/) objects (where they specify IAM-authorized access keys for their {{ lockbox-short-name }} secrets). If this SecretStore object is compromised, only the authorized key of one specific namespace is compromised (rather than all of them, as in the case of Shared ClusterSecretStore).
+The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). When using ESO, the global administrator has access to the namespace where ESO is installed, and administrators of individual namespaces create their own [SecretStore](https://external-secrets.io/latest/api/secretstore/) objects (where they specify IAM-authorized access keys for their {{ lockbox-short-name }} secrets). If this SecretStore object is compromised, the authorized key of only one namespace will be compromised – not all of them, as in the case of Shared ClusterSecretStore.
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
-* [Guide on working with External Secrets and {{ lockbox-name }} from the project description](https://external-secrets.io/latest/provider/yandex-lockbox/).
-* [Guide on working with External Secrets and {{ lockbox-name }} from the {{ yandex-cloud }} documentation](https://yandex.cloud/ru/docs/lockbox/tutorials/kubernetes-lockbox-secrets).
+* [Guide on External Secrets and {{ lockbox-name }} from the project description](https://external-secrets.io/latest/provider/yandex-lockbox/).
+* [Guide on External Secrets and {{ lockbox-name }} from the {{ yandex-cloud }} documentation](https://yandex.cloud/ru/docs/lockbox/tutorials/kubernetes-lockbox-secrets).
 
-#### 9.7 Docker images are stored in a {{ container-registry-name }} registry configured for regular image scanning {#docker-images-periodic-scan}
+#### 7.7 Docker images are stored in a {{ container-registry-name }} registry configured for regular image scanning {#docker-images-periodic-scan}
 
 To ensure effective security, we recommend using [{{ container-registry-name }}](../../../container-registry/index.yaml) to store Docker images to be deployed in {{ managed-k8s-name }}. This allows you to quickly respond to new vulnerabilities in images using built-in recurrent vulnerability scanning.
 
@@ -146,16 +146,16 @@ Using {{ container-registry-name }} to store images will also provide centralize
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 * [Guide on scheduled scanning of Docker images](../../../container-registry/operations/scanning-docker-image.md#scheduled).
 
-#### 9.8 One of the three latest {{ k8s }} versions is used, updates are monitored {#version-update}
+#### 7.8 One of the three latest {{ k8s }} versions is used, updates are monitored {#version-update}
 
 For {{ k8s }}, both automatic and manual updates are available for [clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../../managed-kubernetes/concepts/index.md#node-group). You can request a manual update of the {{ k8s }} cluster or its nodes to the latest supported [version](../../../managed-kubernetes/concepts/release-channels-and-updates.md) at any time. Manual updates bypass any configured maintenance windows and maintenance exceptions. {{ k8s }} issues updates in a regular manner. To meet the Information Security standards:
 
 * Select a relevant update channel and enable either automatic installation of updates, or manual installation immediately after publication in the selected channel.
-* Double-check that the ad settings meet the Information Security standards.
+* Check that the update settings meet the Information Security standards.
 * Use one of the three latest {{ k8s }} versions, because updates (including security updates) are only released for these versions.
 
 {% list tabs group=instructions %}
@@ -192,12 +192,12 @@ For {{ k8s }}, both automatic and manual updates are available for [clusters](..
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 * [Guide on how to update a cluster automatically](../../../managed-kubernetes/operations/update-kubernetes.md#cluster-upgrade).
 * [Guide on how to update a cluster manually](../../../managed-kubernetes/operations/update-kubernetes.md#cluster-manual-upgrade).
 
-#### 9.9 Backup is configured {#backup}
+#### 7.9 Backup is configured {#backup}
 
 To ensure continuous operation and data protection, we recommend using backups in {{ managed-k8s-name }}. With backups, you can quickly recover the service without experiencing any data or time loss in the wake of a malfunction or accident. Data in [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) clusters is securely stored and replicated within the {{ yandex-cloud }} infrastructure. However, you can back up data from [{{ k8s }} cluster node groups](../../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-full-name }}](../../../storage/index.yaml) or other types of storage.
 
@@ -209,7 +209,7 @@ To ensure continuous operation and data protection, we recommend using backups i
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 You can create backups of {{ k8s }} cluster node group data using the [Velero](https://velero.io/) tool. It supports working with {{ yandex-cloud }} [disks](../../../compute/concepts/disk.md) using the {{ k8s }} CSI driver and helps create [snapshots of disks and volumes](../../../compute/concepts/snapshot.md).
 
@@ -217,14 +217,14 @@ When working with Velero that is installed manually, you can use [nfs](https://k
 
 * [Guide on {{ k8s }} cluster backup in {{ objstorage-name }}](../../../managed-kubernetes/tutorials/kubernetes-backup.md#backup).
 
-#### 9.10 Check lists are in place for security when creating and using Docker images {#check-list}
+#### 7.10 Check lists are in place for security when creating and using Docker images {#check-list}
 
 Secure Docker image creation and operation practices ensure protection against potential vulnerabilities, malware, and unauthorized access to data. They ensure image integrity and security compliance while also preventing potential threats coming from its deployment in the infrastructure. Use these check lists to meet requirements for secure creation of images:
 
 * [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
 * [{{ k8s }} Security Checklist and Requirements](https://github.com/Vinum-Security/kubernetes-security-checklist/blob/main/README.md).
 
-You can control Dockerfile in your CI/CD pipeline using the [Conftest](https://www.conftest.dev/) utility.
+You can control Dockerfile in your [CI/CD](/blog/posts/2022/10/ci-cd) pipeline using the [Conftest](https://www.conftest.dev/) utility.
 
 When using minimal images or distroless images without a shell, we recommend using [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/).
 
@@ -236,7 +236,7 @@ When using minimal images or distroless images without a shell, we recommend usi
 
 {% endlist %}
 
-#### 9.11 The {{ k8s }} security policy is in place {#security-standards}
+#### 7.11 The {{ k8s }} security policy is in place {#security-standards}
 
 The requirements listed in [{{ k8s }} Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/) allow you to prevent threats related to {{ k8s }} objects, such as unauthorized access to confidential data and execution of malicious code.
 
@@ -250,7 +250,7 @@ These requirements allow you to ensure security and reliability of applications 
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 * You can also use the following tools within CI/CD to monitor compliance with the Pod Security Standards:
 
@@ -259,7 +259,7 @@ These requirements allow you to ensure security and reliability of applications 
 
 * [Kubesec](https://kubesec.io/)
 
-#### 9.12 Audit log collection is set up for incident investigation {#audit-logs}
+#### 7.12 Audit log collection is set up for incident investigation {#audit-logs}
 
 Events available to the user in the {{ managed-k8s-name }} service can be classified as levels:
 

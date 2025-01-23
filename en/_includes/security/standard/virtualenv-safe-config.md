@@ -27,7 +27,7 @@ We do not recommend using access to the serial console unless it is absolutely n
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder to check the VMs in.
-  1. In the list of services, select **{{ compute-name }}**.
+  1. In the services list, select **{{ compute-name }}**.
   1. Open the settings of all the necessary VMs.
   1. Under **Access**, find the **Additional** parameter.
   1. **Serial console access** must be disabled.
@@ -46,7 +46,7 @@ We do not recommend using access to the serial console unless it is absolutely n
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do echo "VM_ID: " && yc compute instance get --id=$VM_ID --full --format=json | jq -r '. | select(.metadata."serial-port-enable"=="1")' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
      done;
      done;
@@ -57,7 +57,7 @@ We do not recommend using access to the serial console unless it is absolutely n
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 If the serial console should not be used on the VM, disable it.
 
@@ -74,7 +74,7 @@ When deploying virtual machines, we recommend:
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder to check the VMs in.
-  1. In the list of services, select **{{ compute-name }}**.
+  1. In the services list, select **{{ compute-name }}**.
   1. Go to the **Disks** tab.
   1. Open the settings of all disks.
   1. Under **Source**, find the **Identifier** parameter.
@@ -94,7 +94,7 @@ When deploying virtual machines, we recommend:
      export ORG_ID=<organization ID>
      export IMAGE_ID=<ID of your benchmark image>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
      do for DISK_ID in $(yc compute disk list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
      do echo "DISK_ID: " && yc compute disk get --id=$DISK_ID \
      --format=json | jq -r --arg IMAGE_ID $IMAGE_ID '. | select(."source_image_id"==$IMAGE_ID | not)' | jq -r '.id' && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
@@ -107,7 +107,7 @@ When deploying virtual machines, we recommend:
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 1. Find out why these VM disks use an image different from the benchmark one.
 1. Recreate the VMs with the appropriate image.
@@ -223,7 +223,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. In the services list, select **{{ objstorage-name }}**.
   1. Click the three dots next to each bucket and check its ACL for `allUsers` and `allAuthenticatedUsers`.
   1. Open the bucket and check the ACL of each of its objects for `allUsers` and `allAuthenticatedUsers`.
   1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to the "Guides and solutions to use".
@@ -239,7 +239,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:** 
 
 If public access is enabled, [remove](../../../iam/operations/roles/revoke.md) it or perform access control (grant permission to access public data consciously).
 
@@ -261,7 +261,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the bucket policies in.
-  1. In the list of services, select {{ objstorage-name }}.
+  1. In the services list, select {{ objstorage-name }}.
   1. Go to **Bucket policy**.
   1. Make sure that at least one policy is enabled. Otherwise, proceed to the "Guides and solutions to use".
 
@@ -276,7 +276,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 [Enable](../../../storage/concepts/policy.md#config-examples) the required policy.
 
@@ -301,7 +301,7 @@ The storage period of critical data in a bucket is determined by the client's in
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. In the services list, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
   1. Go to the **Versioning** tab and make sure it is enabled. Otherwise, proceed to the "Guides and solutions to use".
 
@@ -326,7 +326,7 @@ The storage period of critical data in a bucket is determined by the client's in
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 If public access is enabled, remove it or use access control (by only enabling it when necessary and if approved).
 
@@ -340,7 +340,7 @@ In a similar way, you can request [writing](../../../audit-trails/concepts/event
 
 You can also analyze {{ objstorage-name }} logs in {{ datalens-short-name }}. For more information, see [Analyzing {{ objstorage-name }} logs using {{ datalens-short-name }}](../../../tutorials/datalens/storage-logs-analysis.md).
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 You can only use {{ TF }}/API to check if logging is enabled by following the [instructions](../../../storage/operations/buckets/enable-logging.md).
 
@@ -353,21 +353,21 @@ If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_r
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. In the services list, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
   1. Go to the **CORS** tab and make sure that the configuration is set up. Otherwise, proceed to the "Guides and solutions to use".
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
-[Set up](../../../storage/s3/api-ref/cors/xml-config.md) CORS.
+[Set up](../../../storage/s3/api-ref/cors/xml-config.md) CORS. 
 
 #### 3.11 Use {{ sts-full-name }} to get access keys to {{ objstorage-name }} {#use-sts-for-storage-keys}
 
 [{{ sts-full-name }}](../../../iam/concepts/authorization/sts.md): {{ iam-full-name }} component to get _temporary access keys_ compatible with [AWS S3 API](../../../storage/s3/index.md).
 
-Temporary access keys as an authentication method are only supported in [{{ objstorage-full-name }}](../../../storage/index.yaml).
+Temporary access keys as an authentication method are only supported in [{{  objstorage-full-name }}](../../../storage/index.yaml).
 
 With temporary keys, you can set up granular access to [buckets](../../../storage/concepts/bucket.md) for multiple users with a single [service account](../../../iam/concepts/users/service-accounts.md). The service account permissions must include all the permissions you want to grant using temporary keys.
 
@@ -375,9 +375,9 @@ A temporary access key is created based on a [static key](../../../iam/concepts/
 
 To set up access permissions for the key, you need an [access policy](../../../storage/security/policy.md) in JSON format based on [this schema](../../../storage/s3/api-ref/policy/scheme.md).
 
-Temporary {{ sts-name }} keys inherit the access permissions of the service account, but are limited by the access policy. If you set up a temporary key's access policy to allow operations not allowed for the service account, such operations will not be performed.
+Temporary {{ sts-name }} keys inherit the access permissions of the service account but are limited by the access policy. If you set up a temporary key's access policy to allow operations not allowed for the service account, such operations will not be performed.
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 [Create](../../../iam/operations/sa/create-sts-key.md) a temporary access key using {{ sts-name }}.
 
@@ -394,7 +394,7 @@ With pre-signed URLs, any web user can perform various operations in Object Stor
 
 We recommend using pre-signed URLs to users who are not authorized in the [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud) but need access to specific objects in the bucket. This way you follow the principle of least privilege and avoid opening access to all the objects in the bucket.
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 [Create](../../../storage/concepts/pre-signed-urls.md#creating-presigned-url) a pre-signed URL and communicate it to the user.
 
@@ -402,7 +402,7 @@ We recommend using pre-signed URLs to users who are not authorized in the [cloud
 
 #### 3.13 A security group is assigned in managed databases {#db-security-group}
 
-We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from specific IP addresses. To do this, follow the steps in [Creating a security group](../../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
+We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from particular IP addresses. To do this, follow the steps in [Creating a security group](../../../vpc/operations/security-group-create.md). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
 
 {% list tabs group=instructions %}
 
@@ -420,8 +420,8 @@ We recommend prohibiting internet access to databases that contain critical data
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DB_ID in $(yc managed-postgresql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-postgresql cluster get --id=$DB_ID --format=json | jq -r '. | select(.security_group_ids | not)' | jq -r '.id'
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for DB_ID in $(yc managed-postgresql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-postgresql cluster get --id=$DB_ID --format=json | jq -r '. | select(.security_group_ids | not)' | jq -r '.id' 
      done;
      done;
      done
@@ -436,8 +436,8 @@ We recommend prohibiting internet access to databases that contain critical data
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql cluster get --id=$DB_ID --format=json | jq -r '. | select(.security_group_ids | not)' | jq -r '.id'
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql cluster get --id=$DB_ID --format=json | jq -r '. | select(.security_group_ids | not)' | jq -r '.id' 
      done;
      done;
      done
@@ -447,7 +447,7 @@ We recommend prohibiting internet access to databases that contain critical data
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 If any databases without security groups are found, assign them or enable the **Default security group** [functionality](../../../vpc/concepts/security-groups.md#default-security-group.md).
 
@@ -477,8 +477,8 @@ Assigning a public IP to a managed database raises information security risks. W
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql hosts list --cluster-id=$DB_ID --format=json | jq -r '.[] | select(.assign_public_ip)' | jq -r '.cluster_id'
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql hosts list --cluster-id=$DB_ID --format=json | jq -r '.[] | select(.assign_public_ip)' | jq -r '.cluster_id' 
      done;
      done;
      done
@@ -488,7 +488,7 @@ Assigning a public IP to a managed database raises information security risks. W
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:** 
 
 Disable public access if it is not required.
 
@@ -518,8 +518,8 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql cluster get --id=$DB_ID --format=json | jq -r '. | select(.deletion_protection | not)' | jq -r '.id'
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql cluster get --id=$DB_ID --format=json | jq -r '. | select(.deletion_protection | not)' | jq -r '.id' 
      done;
      done;
      done
@@ -529,7 +529,7 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to enable deletion protection in.
 1. In the list of services, select a service or services with managed databases.
@@ -562,8 +562,8 @@ Do not enable access to databases containing critical data from the management c
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql cluster get --id=$DB_ID --format=json | jq -r '. | select(.config.access.data_lens)' | jq -r '.id'
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql cluster get --id=$DB_ID --format=json | jq -r '. | select(.config.access.data_lens)' | jq -r '.id' 
      done;
      done;
      done
@@ -573,7 +573,7 @@ Do not enable access to databases containing critical data from the management c
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to disable access from {{ datalens-short-name }} in.
 1. In the list of services, select a service or services with managed databases.
@@ -608,8 +608,8 @@ We recommend that you enable this type of access only if needed, because it rais
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql cluster get --id=$DB_ID --format=json | jq -r '. | select(.config.access.web_sql)' | jq -r '.id'
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql cluster get --id=$DB_ID --format=json | jq -r '. | select(.config.access.web_sql)' | jq -r '.id' 
      done;
      done;
      done
@@ -619,7 +619,7 @@ We recommend that you enable this type of access only if needed, because it rais
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:** 
 
 1. In the management console, select the cloud or folder to disable access from the management console in.
 1. In the list of services, select a service or services with managed databases.
@@ -628,78 +628,31 @@ We recommend that you enable this type of access only if needed, because it rais
 
 ### {{ sf-name }} and {{ api-gw-full-name }} {#functions-api-gateway}
 
-#### 3.18 Public cloud functions are only used in exceptional cases {#public-function-access}
+#### 3.18 {{ serverless-containers-short-name }}/{{ sf-name }} uses the internal {{ vpc-short-name }} network {#vpc-functions}
 
-In cases where the use of public functions is not explicitly required, we recommend that you use private functions. For more information about setting up access to functions, see [Managing function access permissions](../../../functions/operations/function/function-public.md). We recommend using private functions and assigning rights to invoke functions to specific cloud users.
+By default, the function is invoked in the isolated IPv4 network with the NAT gateway enabled. For this reason, only public IPv4 addresses are available. You cannot fix the address.
 
-{% list tabs group=instructions %}
+Networking between two functions, as well as between functions and user resources, is limited:
 
-- Performing a check in the management console {#console}
+* Incoming connections are not supported. For example, you cannot access the internal components of a function over the network, even if you know the IP address of its instance.
+* Outgoing connections are supported via TCP, UDP, and ICMP. For example, a function can access a {{ compute-full-name }} VM or a {{ ydb-full-name }} DB on the user's network.
+* Function is cross-zoned: you cannot explicitly specify a subnet or select an availability zone to run a function.
 
-  1. In the management console, select the cloud or folder to check the functions in.
-  1. In the list of services, select **{{ sf-name }}**.
-  1. Open all the functions.
-  1. In the function settings, go to the **Overview** tab.
-  1. If the parameters of each object have the **Public function** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+If necessary, you can specify a cloud network in the function settings. In which case:
 
-- Performing a check via the CLI {#cli}
+* The function will be executed in the specified cloud network. 
+* While being executed, the function will get an IP address in the relevant subnet and access to all the network resources.
+* The function will have access not only to the internet but also to user resources located in the specified network, such as databases, virtual machines, etc. 
+* The function will have an IP address within the `198.19.0.0/16` range when accessing user resources.
 
-  1. Run the command below to search for `allUsers` access permissions at the {{ sf-name }} level in all folders:
-
-     ```bash
-     export ORG_ID=<organization ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for FUN in $(yc serverless function list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-     do yc serverless function list-access-bindings --id $FUN --format=json | jq -r '.[] | select(.subject.id=="allAuthenticatedUsers" or .subject.id=="allUsers")' && echo $FUN
-     done;
-     done;
-     done
-     ```
-
-  1. If none of the specified resources contain `allUsers` and `allAuthenticatedUsers`, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
-
-{% endlist %}
-
-**Guides and solutions to use**:
-
-[Disable](../../../functions/operations/function/function-private.md) public access.
-
-#### 3.19 Side-channel attacks in {{ sf-name }} are addressed {#side-channel-attacks}
-
-Hosts and hypervisors running {{ sf-name }} contain all the applicable updates for side-channel attack protection. However, keep in mind that different clients' functions are not isolated by cores. Thus, there is technically an attack surface between one user's function and another's. {{ yandex-cloud }} security experts believe that side-channel attacks are unlikely in the context of functions, but this risk must be accounted for, particularly in the overall threats and risk analysis model employed by the PCI DSS infrastructure.
-
-{% list tabs group=instructions %}
-
-- Manual check {#manual}
-
-  Make sure the most critical systems do not use {{ sf-name }} or this is considered in the risk analysis model.
-
-{% endlist %}
-
-#### 3.20 Special aspects of time synchronization in {{ sf-name }} are considered {#ntp-functions}
-
-The {{ sf-name }} service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the {{ sf-name }} side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with {{ yandex-cloud }}. For more information about time synchronization, see the {{ compute-short-name }} documentation, [Configuring clock synchronization](../../../compute/tutorials/ntp.md).
-
-#### 3.21 Special aspects of header management in {{ sf-name }} are considered {#http-functions}
-If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. The client needs to manage the response headers on their own in accordance with regulator requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
-
-#### 3.22 {{ serverless-containers-short-name }}/{{ sf-name }} uses the {{ vpc-short-name }} internal network {#vpc-functions}
-
-By default, the function is invoked in the isolated IPv4 network with the NAT gateway enabled. For this reason, only public IPv4 addresses are available.
-
-If necessary, you can specify a cloud network in function settings. In this case, the function:
-
-* Is executed in a given cloud network.
-* Has access to the internet and user resources in the given network, such as databases and VMs.
-* Has an IP address within the `198.19.0.0/16` range when accessing user resources.
+You can only specify a single network for functions, containers, and API gateways that reside in the same cloud. 
 
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the functions in.
-  1. In the list of services, select {{ sf-name }}.
+  1. In the services list, select {{ sf-name }}.
   1. Open all the functions.
   1. In the object settings, go to the **Edit function version** tab.
   1. If the parameters of each object have **Network — {{ vpc-short-name }}** set, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
@@ -711,9 +664,9 @@ If necessary, you can specify a cloud network in function settings. In this case
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
      do for VER in $(yc serverless function version list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-     do yc serverless function version get $VER --format=json | jq -r '. | select(.connectivity.network_id | not)' | jq -r '.id'
+     do yc serverless function version get $VER --format=json | jq -r '. | select(.connectivity.network_id | not)' | jq -r '.id' 
      done;
      done;
      done
@@ -723,7 +676,7 @@ If necessary, you can specify a cloud network in function settings. In this case
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:** 
 
 1. Select the cloud or folder to check the functions in.
 1. Select **{{ sf-name }}** in the list of services.
@@ -731,11 +684,84 @@ If necessary, you can specify a cloud network in function settings. In this case
 1. In the object settings, go to the **Edit function version** tab.
 1. Set **Network — {{ vpc-short-name }}**.
 
+For more information about tracking function versions, see [{#T}](../../../functions/concepts/backup.md).
+
+#### 3.19 Functions are configured for access differentiation, secret and environment variable management, and DBMS connection {#function-access-and-env}
+
+In cases where the use of public functions is not explicitly required, we recommend that you use private functions. For more information about setting up access to functions, see [Managing function access permissions](../../../functions/operations/function/function-public.md). We recommend using private functions and assigning rights to invoke functions to specific cloud users.
+
+A [service account](../../../iam/concepts/users/service-accounts.md) is an account that can be used by programs or functions to manage resources in {{ yandex-cloud }}. If the function version was created with a service account, you can [get](../../../functions/operations/function-sa.md) an IAM token for service account from the function invocation context.
+
+Make sure to assign [roles](../../../iam/concepts/access-control/roles.md) to the service account. A role is a set of permissions to perform operations with the cloud's resources. A function automatically inherits roles assigned for a folder, cloud, or organization. However, they do not appear in the list of assigned roles.
+
+Do not store secrets and variables in the function code. Use [{{ lockbox-full-name }}](../../../lockbox/index.yaml) to store and rotate secrets. You can transmit a {{ lockbox-name }} secret to a function in the environment variable.
+
+For the function to get access to the secret, edit its parameters to specify a service account with the following roles assigned:
+
+* `lockbox.payloadViewer` [for a secret](../../../lockbox/operations/secret-access.md).
+* `kms.keys.encrypterDecrypter` [for an encryption key](../../../kms/operations/key-access.md) if the secret was created using a [{{ kms-full-name }}](../../../kms/index.yaml) encryption key.
+
+A {{ lockbox-name }} secret provided to a function is cached in {{ sf-name }}. After you revoke a service account's access to a secret, the function may continue to store the secret for up to 5 minutes.
+
+Transmitting secrets creates a new function version. You cannot transmit secrets to an existing function version. 
+
+You can add other environment variables when creating a function version. The maximum size of environment variables, including their names, is limited to 4 KB.
+
+You cannot calculate environment variables. Environment variable values are string constants. You can only calculate these within function code. You can retrieve environment variables using standard programming language tools.
+
+You can access the DB cluster hosts from the function only via the [SSL protocol](https://ru.wikipedia.org/wiki/SSL). To do this, [create](../../../functions/operations/database-connection.md) a connection to the {{ mpg-full-name }} or {{ mch-full-name }} cluster hosts that are not configured for public access. Use a service account with a role assigned and enable access for functions on the DBMS side.
+
+**Guides and solutions to use:**
+
+* [Disable](../../../functions/operations/function/function-private.md) public access to a function.
+* [View](../../../functions/operations/function/role-list.md) a list of roles assigned to a function.
+* [Get](../../../functions/operations/function-sa.md) a service account IAM token using a function.
+* [Revoke](../../../functions/operations/function/role-revoke.md) a role assigned to a function.
+* [Connect](../../../functions/operations/database-connection.md) to a database from a function.
+
+For more information about roles and resources you can assign roles for in {{ sf-name }}, see [{#T}](../../../functions/security/index.md).
+
+#### 3.20 Side-channel attacks in {{ sf-name }} are addressed {#side-channel-attacks}
+
+Hosts and hypervisors running {{ sf-name }} contain all the applicable updates for side-channel attack protection. However, keep in mind that functions perform untrusted client code. {{ yandex-cloud }} security experts believe that side-channel attacks are unlikely in the context of functions, but this risk must be accounted for, particularly in the overall threats and risk analysis model employed by the PCI DSS infrastructure.
+
+{% list tabs group=instructions %}
+
+- Manual check {#manual}
+
+  Make sure the most critical systems do not use {{ sf-name }} or this is considered in the risk analysis model.
+
+{% endlist %}
+
+#### 3.21 Special aspects of time synchronization in {{ sf-name }} are addressed {#ntp-functions}
+
+{{ sf-name }} does not guarantee time synchronization prior to or during execution of requests by functions. To get a function log with exact timestamps on the {{ sf-name }} side, use a cloud logging service. For more information on function logging, see [{#T}](../../../functions/concepts/logs.md).
+
+#### 3.22 Special aspects of header management in {{ sf-name }} are addressed {#http-functions}
+
+If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. It is the client's responsibility to manage the response headers according to the regulatory requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
+
+You can run a function by specifying the `?integration=raw` string query parameter. When invoked this way, a function cannot parse or set HTTP headers:
+
+* HTTPS request body content is provided as the first argument (without converting to a JSON structure).
+* HTTPS request body content is the same as the function's response (without converting and checking the structure); the HTTP response status is `200`.
+
+The request must be a JSON structure which contains:
+
+* `httpMethod`: HTTP method: `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, or `PUT`.
+* `headers`: Dictionary of strings with HTTP request headers and their values. If the same header is provided multiple times, the dictionary contains the last provided value.
+* `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary; however, if any of the headers was repeated multiple times, its list will contain all the values provided for this header. If the header was provided only once, it gets included into this dictionary and its list will contain only one value.
+* `queryStringParameters`: Dictionary with query parameters. If the same parameter is set multiple times, the dictionary contains the last specified value.
+* `multiValueQueryStringParameters`: Dictionary with a list of all specified values for each query parameter. If the same parameter is set multiple times, the dictionary contains all the specified values.
+* `requestContext`: Request context.
+
+For the purpose of debugging a function, you can use special requests that return the JSON structure of the request and the result you need for debugging. For more information, see [function debugging](../../../functions/concepts/function-invoke.md#example).
+
 ### {{ ydb-name }} {#ydb-access}
 
 #### 3.23 Recommendations for using confidential data in {{ ydb-short-name }} are addressed {#ydb-confidential-data}
 
-It's prohibited to use confidential data as the names of databases, tables, columns, directories, and so on. It's prohibited to send critical data, such as payment card details, to {{ ydb-name }} (both Dedicated and Serverless) as clear text. Prior to sending data, be sure to encrypt it at the application level. For this you can use the KMS service or any other method compliant with the regulator standard. For data where the storage period is known in advance, we recommend that you configure the [Time To Live]({{ ydb.docs }}/concepts/ttl) option.
+It is prohibited to use confidential data for names of databases, tables, columns, folders, and so on. It is prohibited to send critical data, e.g., payment card details, to {{ ydb-name }} (both Dedicated and Serverless) as clear text. Prior to sending data, be sure to encrypt it at the application level. For this you can use the KMS service or any other method compliant with the regulator standard. For data where the storage period is known in advance, we recommend that you configure the [Time To Live]({{ ydb.docs }}/concepts/ttl) option.
 
 #### 3.24 Recommendations for SQL injection protection in {{ ydb-short-name }} are addressed {#ydb-sql-injection}
 
@@ -751,8 +777,8 @@ When setting up database permissions, use the principle of least privilege.
 
 - Performing a check in the management console {#console}
 
-  1. In the management console, select the cloud or folder to check the database in.
-  1. In the list of services, select **{{ ydb-name }}**.
+  1. In the management console, select the cloud or folder to check the database in. 
+  1. In the services list, select **{{ ydb-name }}**.
   1. Open all the databases.
   1. In the database settings, go to the **Network** tab.
   1. If the parameters of each object have the **Public IP addresses** option disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
@@ -770,8 +796,8 @@ When setting up database permissions, use the principle of least privilege.
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
-     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql hosts list --cluster-id=$DB_ID --format=json | jq -r '.[] | select(.assign_public_ip)' | jq -r '.cluster_id'
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+     do for DB_ID in $(yc managed-mysql cluster list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc managed-mysql hosts list --cluster-id=$DB_ID --format=json | jq -r '.[] | select(.assign_public_ip)' | jq -r '.cluster_id' 
      done;
      done;
      done
@@ -781,7 +807,7 @@ When setting up database permissions, use the principle of least privilege.
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:** 
 
 Disable public access if it is not required.
 
@@ -802,7 +828,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the registry in.
-  1. In the list of services, select **{{ container-registry-short-name }}**.
+  1. In the services list, select **{{ container-registry-short-name }}**.
   1. In the settings of the specific registry, go to the **Access for IP address** tab.
   1. If specific IPs to allow access for are set in the parameters, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
@@ -819,7 +845,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
      do for CR in $(yc container registry list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc container registry list-ip-permissions --id=$CR --format=json | jq -r '.[] | select(.ip)' | jq -r '.action' && echo $CR "IF ACTION PULL/PUSH exist before CR then OK"
      done;
      done;
@@ -830,7 +856,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 Specify the IP addresses for registry access.
 
@@ -844,7 +870,7 @@ We do not recommend that you use privileged containers to run loads that process
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the VMs in.
-  1. In the list of services, select **{{ compute-short-name }}**.
+  1. In the services list, select **{{ compute-short-name }}**.
   1. Open the settings of a specific VM with a **Container Optimized Image**.
   1. In the Docker container's **Settings**, find the **Privileged mode** parameter.
   1. If it is disabled, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
@@ -863,7 +889,7 @@ We do not recommend that you use privileged containers to run loads that process
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
      do yc compute instance get --id=$VM_ID --full --format=json | jq -r '. | select(.metadata."docker-container-declaration")| .metadata."docker-container-declaration" | match("privileged: true") | .string' && echo $VM_ID
      done;
@@ -876,10 +902,10 @@ We do not recommend that you use privileged containers to run loads that process
 {% endlist %}
 
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to check the VMs in.
-1. In the list of services, select **{{ compute-short-name }}**.
+1. In the services list, select **{{ compute-short-name }}**.
 1. Open the settings of a specific VM with a **Container Optimized Image**.
 1. In the Docker container's Settings, disable the **Privileged mode** parameter.
 
@@ -900,7 +926,7 @@ We recommend that you update certificates in advance if they are not [updated au
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the VMs in.
-  1. In the list of services, select **{{ certificate-manager-full-name }}**.
+  1. In the services list, select **{{ certificate-manager-full-name }}**.
   1. Open the settings of each certificate and find the **End date** parameter.
   1. If the parameter shows that the certificate will be valid for at least 30 days more, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
 
@@ -917,7 +943,7 @@ We recommend that you update certificates in advance if they are not [updated au
      ```bash
      export ORG_ID=<organization ID>
      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id');
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
      do for CERT_ID in $(yc certificate-manager certificate list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
      do yc certificate-manager certificate get --id $CERT_ID --format=json | jq -r '. | "Date of the end " + .not_after + " --- Cert_ID " + .id'
      done;
@@ -929,7 +955,7 @@ We recommend that you update certificates in advance if they are not [updated au
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 Update the certificate or set up auto updates.
 
@@ -937,7 +963,7 @@ Update the certificate or set up auto updates.
 
 #### 3.29 {{ GL }} security guidelines are followed {#git-lab-secure}
 
-See the recommendations [here](../../../managed-gitlab/concepts/security.md#secure-instance).
+See the recommendations [here](../../../managed-gitlab/concepts/security.md#secure-instance). 
 
 {% list tabs group=instructions %}
 
@@ -960,7 +986,7 @@ Make sure to provide anti-malware protection within your scope of responsibility
 
 {% endlist %}
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 Follow the vendor guide to install the AV solution.
 
@@ -976,7 +1002,7 @@ Check the recommendations in [{#T}](../../../security/domains/kubernetes.md).
 
 Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by assigning appropriate roles to users or service accounts. If you revoke the roles from a user or service account, they will lose access to all virtual machines and {{ k8s }} nodes with {{ oslogin }} access enabled.
 
-**Guides and solutions to use**:
+**Guides and solutions to use:**
 
 * [Enabling {{ oslogin }} access at the organization level](../../../organization/operations/os-login-access.md).
 * [Setting up {{ oslogin }} access on an existing VM](../../../compute/operations/vm-connect/enable-os-login.md).
@@ -996,7 +1022,7 @@ Examples of free network scanners:
 
 Example of a free scanner operating as an agent on hosts: [Wazuh](https://documentation.wazuh.com/current/user-manual/capabilities/vulnerability-detection/how_it_works.html). Wazuh can also be used as a host-based intrusion detection system (IDS).
 
-You can also use a [solution](/marketplace/products/scanfactory/scanfactory-saas) from {{ marketplace-name }}.
+You can also use a [solution](/marketplace/products/scanfactory/scanfactory) from {{ marketplace-name }}.
 
 {% list tabs group=instructions %}
 
@@ -1020,6 +1046,26 @@ Customers hosting their own software in {{ yandex-cloud }} can perform external 
 
 #### 3.35 The process of security updates is set up {#security-updates}
 
-A client must perform their own security updates within their scope of responsibility. Various automated tools are available for centralized automated OS and software updates.
+Customers must perform security updates themselves within their [scope of responsibility](../../../security/respons.md). Various automated tools are available for centralized automated OS and software updates.
 
 {{ yandex-cloud }} publishes security bulletins to notify customers of newly discovered vulnerabilities and security updates.
+
+### Backups {#backup}
+
+#### 3.36 Use {{ backup-short-name }} or scheduled snapshots {#snapshot}
+
+Make sure to back up all VMs in your organization using one of these options:
+* Scheduled snapshots
+* {{ backup-short-name }}
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. In the management console, select the cloud or folder to check the VMs in.
+  1. In the services list, select {{ compute-short-name }}.
+  1. Make sure that the scheduled snapshot policy is set up on the VMs.
+  1. In the services list, select {{ backup-short-name }}.
+  1. Make sure that it is enabled.
+
+{% endlist %}
