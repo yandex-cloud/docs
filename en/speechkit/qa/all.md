@@ -1,11 +1,11 @@
 ---
-title: '{{ speechkit-full-name }}. Questions and answers'
-description: How do I get the logs of my activity in {{ speechkit-full-name }}? Find the answer to this question and others in this article.
+title: FAQ about {{ speechkit-full-name }}
+description: How do I get the logs of my actions in {{ speechkit-name }}? Find the answer to this and other questions in this article.
 ---
 
-# Questions and answers about {{ speechkit-short-name }}
+# FAQ about {{ speechkit-short-name }}
 
-## General questions {#general}
+## General questions about {#general}
 
 {% include notitle [general](../../_qa/speechkit/general.md) %}
 
@@ -13,6 +13,6 @@ description: How do I get the logs of my activity in {{ speechkit-full-name }}? 
 
 {% include notitle [stt](../../_qa/speechkit/stt.md) %}
 
-## Speech synthesis (TTS) {#tts}
+## Speech synthesis TTS {#tts}
 
 {% include notitle [tts](../../_qa/speechkit/tts.md) %}

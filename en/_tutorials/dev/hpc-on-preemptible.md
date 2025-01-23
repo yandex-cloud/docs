@@ -5,7 +5,7 @@
 Follow this guide to create a cluster of [preemptible VMs](../../compute/concepts/preemptible-vm.md) to perform a shared computational task. For example, to solve a system of linear equations using the [Jacobi method](https://en.wikipedia.org/wiki/Jacobi_method).
 
 To create a cluster and run a computational task:
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a master VM in the cloud](#create-master-vm).
 1. [Prepare the VM's cluster](#prepare-cluster).
 1. [Create a cluster](#create-cluster).
@@ -31,41 +31,41 @@ The cost for hosting servers includes:
 
 To create a VM:
 
-1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for your VM.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` as the boot [disk](../../compute/concepts/disk.md) type.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify parameters for your current computational tasks:
 
-    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
-    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-    * **{{ ui-key.yacloud.component.compute.resources.field_advanced }}**: `{{ ui-key.yacloud.component.compute.resources.field_preemptible }}`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+    * **{{ ui-key.yacloud.component.compute.resources.field_advanced }}**: `{{ ui-key.yacloud.component.compute.resources.field_preemptible }}`
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the subnet ID in the VM availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
-        * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-        * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+        * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If your network has no subnets, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+        * If there are no networks in the list, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-            * In the window that opens, enter the network name and select the folder to host the network.
+            * In the window that opens, specify the network name and select the folder to host it.
             * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
             * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool. If you have reserved a static IP address, you can select it from the list.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `ubuntu`.
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the VM user name, e.g., `ubuntu`.
 
       {% note alert %}
 
-      Do not use `root` or other usernames reserved by the operating system. To perform operations requiring superuser permissions, use the `sudo` command.
+      Do not use `root` or other reserved usernames. To perform actions requiring root privileges, use the `sudo` command.
 
       {% endnote %}
 
@@ -113,17 +113,20 @@ To create a VM:
 1. Create a [VM group](../../compute/concepts/instance-groups/index.md):
    * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, enter a name for the future VM group, e.g., `compute-group`.
    * In the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** field, add a [service account](../../compute/concepts/instance-groups/access.md) to the instance group. If you do not have a service account, click **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**, enter a name, and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+
+     To be able to create, update, and delete VMs in the group, assign the [compute.editor](../../compute/security/index.md#compute-editor) role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of the service account.
+
    * In the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field, select the availability zone the `master-node` VM is in. Make sure the VMs are in the same availability zone to reduce latency between them.
    * Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**. This opens a screen for creating a [template](../../compute/concepts/instance-groups/instance-template.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**. In the window that opens, specify:
        * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: [SSD](../../compute/concepts/disk.md#disks-types).
        * **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}**: From the created [snapshot](../../compute/concepts/snapshot.md) named `master-node-snapshot`.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the same configuration as that of the master VM:
-       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_advanced }}**: `{{ ui-key.yacloud.component.compute.resources.field_preemptible }}`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
+       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+       * **{{ ui-key.yacloud.component.compute.resources.field_advanced }}**: `{{ ui-key.yacloud.component.compute.resources.field_preemptible }}`
      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify the same network and subnet as those of the master VM. Leave **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** for the IP address type.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter your preferred login for the user to create on the VM.

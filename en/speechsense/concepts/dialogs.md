@@ -1,3 +1,8 @@
+---
+title: '{{ speechsense-full-name }} dialogs'
+description: In this tutorial, you will learn about dialogs in {{ speechsense-name }}.
+---
+
 # {{ speechsense-name }} dialogs
 
 _Dialog_ is a {{ speechsense-name }} object. There are two types of dialogs:

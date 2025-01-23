@@ -1,5 +1,6 @@
 ---
-title: Custom certificates in {{ certificate-manager-full-name }}
+title: Custom certificate in {{ certificate-manager-full-name }}
+description: In this tutorial, you will learn what a custom certificate is.
 ---
 
 # Custom certificate
@@ -23,23 +24,23 @@ GOST certificates are not supported.
 Custom certificate requirements:
 * The certificate must meet the X.509 ver.3 standard.
 * The certificate must contain the public key, website domain name, and publisher information.
-* You only import valid certificates.
+* You only import valid certificates. 
 
-   You cannot import a certificate before it becomes valid or after its expiration date.
-* Make sure to decrypt the private key of the certificate.
+    You cannot import a certificate before it becomes valid or after its expiration date.
+* Make sure to decrypt the private key of the certificate. 
 
-   You cannot import a private key that is password-protected.
+    You cannot import a private key that is password-protected.
 * Import the certificate, intermediate certificate chain, and private key in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded format.
 
-## Renew a certificate {#renew}
+## Renewing a certificate {#renew}
 
 {{ certificate-manager-name }} does not manage custom certificates. To make your certificate continuously available to your resources, be sure to renew it on time.
 
-To renew a certificate:
+To renew a certificate: 
 1. Get a new TLS certificate from a third-party certificate authority.
 1. [Renew a certificate](../operations/import/cert-update.md).
 
-   All the resources that use the certificate will get its new version.
+    All the resources that use the certificate will get its new version.
 
 #### See also {#see-also}
 

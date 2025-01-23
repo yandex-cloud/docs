@@ -36,13 +36,11 @@ items:
         items:
           - name: Creating an image from a desktop
             href: operations/images/create-from-desktop.md
-          - name: Creating an image from a Compute Cloud VM
-            href: operations/images/create-from-compute.md
           - name: Deleting a custom image
             href: operations/images/delete.md
       - name: Viewing logs
         href: operations/logging.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Concepts
     items:

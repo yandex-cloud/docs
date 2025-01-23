@@ -10,7 +10,7 @@
 * CAPTCHA — после проверки правилами трафик можно дополнительно направить в [{{ captcha-full-name }}](../smartcaptcha) для защиты от ботов и спама.
 * Профиль ARL — для ограничения количества запросов к защищаемому ресурсу по различным условиям.
 
-Для защиты ресурсов профиль безопасности подключается к [виртуальному хосту](../application-load-balancer/concepts/http-router.md#virtual-host) или [Ingress-контроллеру](../application-load-balancer/tools/k8s-ingress-controller/index.md#smart-web-security) сервиса {{ alb-full-name }}.
+Для защиты ресурсов профиль безопасности подключается к [виртуальному хосту](../application-load-balancer/concepts/http-router.md#virtual-host) или [Ingress-контроллеру](../application-load-balancer/tools/k8s-ingress-controller/index.md#smart-web-security) сервиса {{ alb-full-name }}. Также профиль безопасности может быть подключен к API-шлюзу [API Gateway](../api-gateway/concepts/index.md).
 
 Чтобы начать работу с сервисом:
 

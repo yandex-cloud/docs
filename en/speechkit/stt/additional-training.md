@@ -1,3 +1,8 @@
+---
+title: Extending a speech recognition model
+description: 'In this tutorial, you will learn about methods of extending a speech recognition model: autotuning, model fine-tuning, and the use of audio to improve quality.'
+---
+
 # Extending a speech recognition model
 
 {{ speechkit-name }} provides multiple ways to improve speech recognition:
@@ -23,7 +28,7 @@ Restrictions and requirements:
 
 {% include [autotuning-requirements](../../_includes/speechkit/autotuning-requirements.md) %}
 
-## Model tuning {#advanced-training}
+## Fine-tuning {#advanced-training}
 
 The basic speech recognition model is designed to work with everyday language, but it may not be sufficient to recognize specific vocabulary. By tuning, you can train the model to recognize domain-specific terms from different fields:
 
@@ -61,8 +66,8 @@ If the pattern phrases assume that the glossary terms may have possessive case f
 Then, the `templates.tsv` file may contain entries in the following format:
 
 ```text
-Hello, are you {first-name=first-names.tsv}{middle-name=middle-names.tsv} {last-name=last-names.tsv}?
-Hello, can I talk to {first-name=first-names-ablative.tsv}{middle-name=middle-names-ablative.tsv} representative?
+Hello, are you {first-name=first-names.tsv} {middle-name=middle-names.tsv} {last-name=last-names.tsv}?
+Hello, can I talk to {first-name=first-names-ablative.tsv} {middle-name=middle-names-ablative.tsv}?
 ```
 
 ### Restrictions and requirements for text templates and glossaries {#requirements}

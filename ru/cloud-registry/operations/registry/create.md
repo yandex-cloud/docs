@@ -1,3 +1,8 @@
+---
+title: Создание реестра в {{ cloud-registry-full-name }}
+description: Следуя данной инструкции, вы сможете создать реестр в {{ cloud-registry-name }}.
+---
+
 # Создание реестра
 
 {% list tabs group=instructions %}

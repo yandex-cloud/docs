@@ -6,8 +6,8 @@ description: Various {{ kms-full-name }} use cases in {{ yandex-cloud }}. Encryp
 # {{ kms-full-name }} tutorials
 
 * [Data encryption](encrypt/index.md)
-* [{#T}](k8s.md)
-* [{#T}](sign-with-cosign.md)
+* [{#T}](kms-k8s.md)
+* [{#T}](sign-cr-with-cosign.md)
 * [{#T}](terraform-key.md)
 * [{#T}](terraform-secret.md)
 * [{#T}](vault-secret.md)

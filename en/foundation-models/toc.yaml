@@ -421,6 +421,8 @@ items:
                         href: runs/api-ref/grpc/Run/create.md
                       - name: Listen
                         href: runs/api-ref/grpc/Run/listen.md
+                      - name: Attach
+                        href: runs/api-ref/grpc/Run/attach.md
                       - name: Get
                         href: runs/api-ref/grpc/Run/get.md
                       - name: GetLastByThread
@@ -634,11 +636,15 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Public materials
+    href: public-talks.md
   - name: Release notes
     href: release-notes/index.md
   - name: Troubleshooting
     items:
       - name: FAQ
         href: qa/index.md
+      - name: External errors when working with models
+        href: troubleshooting/known-issues.md
       - name: Error codes
         href: troubleshooting/error-codes.md

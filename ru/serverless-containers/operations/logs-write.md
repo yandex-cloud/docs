@@ -1,3 +1,8 @@
+---
+title: Запись логов в журнал выполнения в {{ serverless-containers-full-name }}
+description: Следуя данной инструкции, вы сможете настроить логирование контейнера.
+---
+
 # Записать логи в журнал выполнения контейнера
 
 {% include [logging-note](../../_includes/functions/logging-note.md) %}

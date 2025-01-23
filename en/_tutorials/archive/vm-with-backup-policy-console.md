@@ -3,7 +3,7 @@
 
 To create a virtual machine with automatic linking to a {{ backup-name }} policy:
 
-1. [Prepare your cloud](#before-begin).
+1. [Prepare your cloud environment](#before-begin).
 1. [Activate the service](#service-activate).
 1. [Create a service account](#create-sa).
 1. [Create a cloud network and subnets](#create-network).
@@ -13,7 +13,7 @@ To create a virtual machine with automatic linking to a {{ backup-name }} policy
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Prepare your cloud environment {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -189,7 +189,7 @@ A rule to enable VM access over SSH will also be added to the security group.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc vpc security-group create backup-sg \
@@ -272,12 +272,12 @@ You can create a new policy or use one of those automatically generated upon ser
   1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. Specify the policy properties:
 
-      * **{{ ui-key.yacloud.common.name }}**: `weekly-backup`.
-      * **{{ ui-key.yacloud.backup.field_repeat-period-type }}**: `{{ ui-key.yacloud.backup.value_period-time-weekly }}`.
-      * **{{ ui-key.yacloud.backup.field_days-of-week }}**: `{{ ui-key.yacloud.backup.value_day-fri }}`.
-      * **{{ ui-key.yacloud.backup.field_time }}**: `03:00`.
-      * **{{ ui-key.yacloud.backup.field_backup-scheme }}**: `{{ ui-key.yacloud.backup.value_type-incremental }}`.
-      * **{{ ui-key.yacloud.backup.field_auto-delete }}**: `{{ ui-key.yacloud.backup.value_retention-save-all }}`.
+      * **{{ ui-key.yacloud.common.name }}**: `weekly-backup`
+      * **{{ ui-key.yacloud.backup.field_repeat-period-type }}**: `{{ ui-key.yacloud.backup.value_period-time-weekly }}`
+      * **{{ ui-key.yacloud.backup.field_days-of-week }}**: `{{ ui-key.yacloud.backup.value_day-fri }}`
+      * **{{ ui-key.yacloud.backup.field_time }}**: `03:00`
+      * **{{ ui-key.yacloud.backup.field_backup-scheme }}**: `{{ ui-key.yacloud.backup.value_type-incremental }}`
+      * **{{ ui-key.yacloud.backup.field_auto-delete }}**: `{{ ui-key.yacloud.backup.value_retention-save-all }}`
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -434,7 +434,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -448,7 +448,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `vm-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify a username: `vm-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `backup-instance`.
@@ -493,7 +493,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
       To learn more about getting the policy ID, see [{#T}](../../backup/operations/policy-vm/get-info.md).
 
-  1. Run this command:
+  1. Run the following command:
 
       ```bash
       yc compute instance create \

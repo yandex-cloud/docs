@@ -21,10 +21,13 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
       Wait for the upload to end.
 
   1. **{{ ui-key.yacloud_video.videos.label_title }}** your video. The title will be displayed on all the resources hosting the video.
-  1. In the **{{ ui-key.yacloud_video.videos.label_accessRights }}** field, set the access permissions for the video:
+  1. In the **{{ ui-key.yacloud_video.videos.label_accessRights }}** list, select the access type for the video:
 
-      * `{{ ui-key.yacloud_video.videos.label_access_rights-auth-system-access }}`: Video will be available to users authorized within your [organization](../../../organization/quickstart.md).
-      * `{{ ui-key.yacloud_video.videos.label_access_rights-public }}`: Video will be publicly available.
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}**: Available via a dedicated link.
+
+        {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
+
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link to it. 
 
   1. Optionally, to add a cover for a video, in the **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** field, click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and choose a cover image.
 
@@ -44,7 +47,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
 - REST API {#api}
 
-  To create a video in {{ video-name }} using the API, register the video on your channel and then upload the video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the point where the failure occurred.
+  To create a video in {{ video-name }} using the API, register the video on your channel and then upload the video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the same position in the file the failure occurred at.
 
   1. Register your video on the channel:
 
@@ -56,6 +59,11 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
       * `<video_name>`: Name the video will get when uploaded to the channel.
       * `<video_file_size>`: Size of the video file to upload, in bytes.
       * `<video_file_name>`: Name of the video file you are going to upload.
+      * Access type for the video:
+        * `public_access`: Available indefinitely to anyone with a link to it. 
+        * `signUrlAccess`: Available via a temporary link.
+          
+           {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
       {% include [register-video-rest-api-output](../../../_includes/video/register-video-rest-api-output.md) %}
 
@@ -79,7 +87,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
 - gRPC API {#grpc-api}
 
-  To create a video in {{ video-name }} using the API, register the video on your channel and then upload the video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the point where the failure occurred.
+  To create a video in {{ video-name }} using the API, register the video on your channel and then upload the video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the same position in the file the failure occurred at.
 
   1. Register your video on the channel:
 
@@ -91,6 +99,11 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
       * `<video_name>`: Name the video will get when uploaded to the channel.
       * `<video_file_size>`: Size of the video file to upload, in bytes.
       * `<video_file_name>`: Name of the video file you are going to upload.
+      * Access type for the video:
+        * `public_access`: Available indefinitely to anyone with a link to it. 
+        * `signUrlAccess`: Available via a temporary link.
+          
+           {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
       {% include [register-video-grpc-api-output](../../../_includes/video/register-video-grpc-api-output.md) %}
 

@@ -2,11 +2,13 @@
 
 _Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage and is available upon request. You can fill out the form in the [management console]({{ link-console-main }}/link/foundation-models/)._
 
+In {{ foundation-models-full-name }}, you can tune classifiers based on {{ gpt-lite }}.
+
 {% include [logging](../../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}
 
 ## Data required for tuning {#data}
 
-For classifier tuning based on {{ yagpt-name }}, prepare a [UTF-8](https://jsonlines.org/) encoded file in [JSON Lines](https://en.wikipedia.org/wiki/UTF-8) format with examples of texts and their classifications. The data structure in the examples will depend on the [type of classification](../classifier/index.md) the model is trained for.
+For classifier tuning based on {{ gpt-lite }}, prepare a [UTF-8](https://jsonlines.org/) encoded file in [JSON Lines](https://en.wikipedia.org/wiki/UTF-8) format with examples of texts and their classifications. The data structure in the examples will depend on the [type of classification](../classifier/index.md) the model is trained for.
 
 {% include [classifier-training](../../../_includes/datasphere/classifier-training.md) %}
 

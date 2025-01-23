@@ -1,1 +1,2 @@
-service-name: YMQ
+default:
+  service-name: YMQ

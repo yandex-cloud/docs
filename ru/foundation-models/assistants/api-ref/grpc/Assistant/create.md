@@ -26,7 +26,13 @@ Create a new assistant.
   "model_uri": "string",
   "instruction": "string",
   "prompt_truncation_options": {
-    "max_prompt_tokens": "google.protobuf.Int64Value"
+    "max_prompt_tokens": "google.protobuf.Int64Value",
+    // Includes only one of the fields `auto_strategy`, `last_messages_strategy`
+    "auto_strategy": "AutoStrategy",
+    "last_messages_strategy": {
+      "num_messages": "int64"
+    }
+    // end of the list of possible fields
   },
   "completion_options": {
     "max_tokens": "google.protobuf.Int64Value",
@@ -34,12 +40,17 @@ Create a new assistant.
   },
   "tools": [
     {
-      // Includes only one of the fields `search_index`
+      // Includes only one of the fields `search_index`, `function`
       "search_index": {
         "search_index_ids": [
           "string"
         ],
         "max_num_results": "google.protobuf.Int64Value"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "google.protobuf.Struct"
       }
       // end of the list of possible fields
     }
@@ -108,6 +119,40 @@ Defines the options for truncating thread messages within a prompt.
 The maximum number of tokens allowed in the prompt.
 If the prompt exceeds this limit, the thread messages will be truncated.
 Default max_prompt_tokens: 7000 ||
+|| auto_strategy | **[AutoStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.AutoStrategy)**
+
+Includes only one of the fields `auto_strategy`, `last_messages_strategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|| last_messages_strategy | **[LastMessagesStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy)**
+
+Retains only the last `num_messages` messages in the thread.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
+
+Includes only one of the fields `auto_strategy`, `last_messages_strategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|#
+
+## AutoStrategy {#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.AutoStrategy}
+
+Auto truncation strategy.
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## LastMessagesStrategy {#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy}
+
+Truncates the prompt by retaining only the last `num_messages` messages in the thread.
+
+#|
+||Field | Description ||
+|| num_messages | **int64**
+
+The number of most recent messages to retain in the prompt.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.assistants.v1.CompletionOptions}
@@ -137,7 +182,12 @@ Represents a general tool that can be one of several types.
 
 SearchIndexTool tool that performs search across specified indexes.
 
-Includes only one of the fields `search_index`. ||
+Includes only one of the fields `search_index`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `search_index`, `function`. ||
 |#
 
 ## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool}
@@ -154,6 +204,24 @@ A list of search index IDs that this tool will query. Currently, only a single i
 The maximum number of results to return from the search.
 Fewer results may be returned if necessary to fit within the prompt's token limit.
 This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
 |#
 
 ## Assistant {#yandex.cloud.ai.assistants.v1.Assistant}
@@ -177,7 +245,13 @@ This ensures that the combined prompt and search results do not exceed the token
   "model_uri": "string",
   "instruction": "string",
   "prompt_truncation_options": {
-    "max_prompt_tokens": "google.protobuf.Int64Value"
+    "max_prompt_tokens": "google.protobuf.Int64Value",
+    // Includes only one of the fields `auto_strategy`, `last_messages_strategy`
+    "auto_strategy": "AutoStrategy",
+    "last_messages_strategy": {
+      "num_messages": "int64"
+    }
+    // end of the list of possible fields
   },
   "completion_options": {
     "max_tokens": "google.protobuf.Int64Value",
@@ -185,12 +259,17 @@ This ensures that the combined prompt and search results do not exceed the token
   },
   "tools": [
     {
-      // Includes only one of the fields `search_index`
+      // Includes only one of the fields `search_index`, `function`
       "search_index": {
         "search_index_ids": [
           "string"
         ],
         "max_num_results": "google.protobuf.Int64Value"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "google.protobuf.Struct"
       }
       // end of the list of possible fields
     }
@@ -277,6 +356,40 @@ Defines the options for truncating thread messages within a prompt.
 The maximum number of tokens allowed in the prompt.
 If the prompt exceeds this limit, the thread messages will be truncated.
 Default max_prompt_tokens: 7000 ||
+|| auto_strategy | **[AutoStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.AutoStrategy2)**
+
+Includes only one of the fields `auto_strategy`, `last_messages_strategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|| last_messages_strategy | **[LastMessagesStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy2)**
+
+Retains only the last `num_messages` messages in the thread.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
+
+Includes only one of the fields `auto_strategy`, `last_messages_strategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|#
+
+## AutoStrategy {#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.AutoStrategy2}
+
+Auto truncation strategy.
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## LastMessagesStrategy {#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy2}
+
+Truncates the prompt by retaining only the last `num_messages` messages in the thread.
+
+#|
+||Field | Description ||
+|| num_messages | **int64**
+
+The number of most recent messages to retain in the prompt.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.assistants.v1.CompletionOptions2}
@@ -306,7 +419,12 @@ Represents a general tool that can be one of several types.
 
 SearchIndexTool tool that performs search across specified indexes.
 
-Includes only one of the fields `search_index`. ||
+Includes only one of the fields `search_index`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool2)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `search_index`, `function`. ||
 |#
 
 ## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool2}
@@ -323,4 +441,22 @@ A list of search index IDs that this tool will query. Currently, only a single i
 The maximum number of results to return from the search.
 Fewer results may be returned if necessary to fit within the prompt's token limit.
 This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool2}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
 |#

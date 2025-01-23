@@ -1,11 +1,11 @@
-# Creating an {{ alb-name }} L7 load balancer with a {{ sws-name }} security profile
+# Creating an {{ alb-full-name }} L7 load balancer with a {{ sws-full-name }} security profile
 
 With {{ sws-full-name }}, you can protect your infrastructure from DDoS attacks and bots at the application level (L7).
 
 You will create a test web server, deploy an {{ alb-name }} [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) for distributing traffic to the test web server, and protect the created infrastructure using a {{ sws-name }} [security profile](../../smartwebsecurity/concepts/profiles.md).
 
 To create an L7 load balancer with a security profile:
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Prepare your infrastructure](#infrastructure-prepare).
 1. [Create a security profile](#profile-create).
 1. [Connect the security profile to a virtual host](#profile-connect).
@@ -43,7 +43,7 @@ To create a security profile:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a profile in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       A preset profile includes:
@@ -68,7 +68,7 @@ To create a security profile:
       1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field, select {{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}.
       1. In the **IP conditions** field that appears, select `Matches or belongs to range` and set the public IP address of the device from which you are going to send requests to the L7 load balancer, e.g., `158.160.100.200`.
       1. Click **{{ ui-key.yacloud.common.add }}**.
-
+        
           The rule you created will appear under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** in the table.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -81,7 +81,7 @@ To create a security profile:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), choose the folder where you want to connect a security profile to an {{ alb-name }} virtual host.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select the `test-sp1` profile.
   1. Click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
   1. In the window that opens, select:
@@ -115,7 +115,7 @@ Smart Protection rules are usually not tested. Such tests would add the paramete
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop paying for the created resources:
 1. [Delete](../../smartwebsecurity/operations/profile-delete.md) the security profile.
 1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the L7 load balancer.
 1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the HTTP router.

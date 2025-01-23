@@ -13,3 +13,4 @@ description: Various {{ cloud-logging-full-name }} use cases in {{ yandex-cloud 
 * [{#T}](grafana-logs-plugin.md)
 * [Interactive debugging of {{ sf-name }}](serverless-live-debug.md) functions
 * [{#T}](logging.md)
+* [{#T}](alb-ingress-controller-log-options.md)

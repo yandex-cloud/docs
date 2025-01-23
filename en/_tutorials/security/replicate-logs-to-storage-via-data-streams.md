@@ -1,4 +1,4 @@
-# Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+# Replicating logs to {{ objstorage-full-name }} using {{ yds-full-name }}
 
 With [{{ yds-full-name }}](../../data-streams/), you can set up automatic replication of service and user application logs to [{{ objstorage-full-name }}](../../storage/).
 
@@ -9,7 +9,7 @@ The solution works as described below:
 
 To set up log replication:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Configure the environment](#prepare-environment).
 1. [Create a bucket](#create-bucket).
 1. [Create a data stream](#create-stream).
@@ -33,7 +33,7 @@ The cost of data storage support includes:
 
 ## Configure the environment {#prepare-environment}
 
-1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `logs-sa`, with the `editor` [role](../../iam/roles-reference.md#editor) assigned for the folder.
+1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `logs-sa`, with the `editor` [role](../../iam/roles-reference.md#editor) for the folder.
 1. [Set up](../../logging/tutorials/) the transfer of logs to the log group. For example, you can [transfer](../../logging/tutorials/vm-fluent-bit-logging.md) logs from a VM instance or [add](../../logging/operations/write-logs.md) test records to the log group.
 
 {% include [create-bucket](../_tutorials_includes/create-bucket.md) %}
@@ -46,10 +46,10 @@ The cost of data storage support includes:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-   1. Next to the log group where the logs are sent, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-   1. In the **{{ ui-key.yacloud.data-streams.label_data-stream }}** field, select the `logs-stream` created before.
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Next to the log group the logs are sent to, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the **{{ ui-key.yacloud.data-streams.label_data-stream }}** field, select the previously created `logs-stream`.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -59,7 +59,7 @@ The cost of data storage support includes:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop paying for the created resources:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../data-transfer/operations/endpoint/#delete).

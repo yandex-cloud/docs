@@ -26,6 +26,7 @@ default:
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
+  api-host-data-transfer-operation: operation.api.cloud.yandex.net/operations
   api-host-iot-broker: iot-broker.api.cloud.yandex.net
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net
@@ -34,6 +35,7 @@ default:
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
+  api-host-mdb-operation: operation.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
   api-host-operation: operation.api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
@@ -6088,7 +6090,6 @@ default:
         label_thumbnail: Thumbnail
       videos:
         action_create-video: Upload video
-        label_access_rights-auth-system-access: Users with permission
         label_access_rights-public: All users
         label_access_rights-sign-url-access: By temporary link
         label_accessRights: Access
@@ -8385,6 +8386,7 @@ default:
         action_empty: Create
         arl:
           column_rule-conditions: Conditions for traffic
+          column_rule-priority: Priority
           label_connected-security-profiles: Connecting a security profile
           label_create-profile: Create ARL profile
           label_profiles: ARL profiles
@@ -8656,7 +8658,6 @@ default:
         label_desktop: Desktop
         label_desktop-images: Images
         label_desktops: Desktops
-        label_image: Image in Compute Cloud
         label_image-source: Image source
         section_access: Access
         section_disks: Disks

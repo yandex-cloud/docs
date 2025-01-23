@@ -1,4 +1,4 @@
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create an instance group](#create-vms).
 1. [Upload the website files](#upload-files).
 1. [Create a network load balancer](#create-load-balancer).
@@ -8,7 +8,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -65,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
           * Select the `nlb-network` cloud network and its subnets.
           * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for accessing the instance:
 
           * In the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field, select the service account to link to the VM.
           * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.

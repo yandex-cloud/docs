@@ -68,16 +68,16 @@ title: How to get information about a security group in {{ vpc-full-name }}
      Where:
      * `data "yandex_vpc_security_group"`: Description of the security group as a data source:
        * `security_group_id`: Security group ID.
-     * `output "group"`: Output variable that contains information about the incoming traffic rules:
+     * `output "group"`: Output variable containing information about the incoming traffic rules:
        * `value`: Returned value.
 
-     You can replace `ingress` with any other parameter to get the information you need. For more information about the `yandex_vpc_security_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_security_group).
+     You can replace `ingress` with any other parameter to get the information you need. For more information about the `yandex_vpc_security_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_security_group).    
 
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
      ```bash
      terraform output
@@ -138,7 +138,7 @@ title: How to get information about a security group in {{ vpc-full-name }}
      * `data "yandex_vpc_security_group_rule"`: Description of the security group rule as a data source:
        * `security_group_binding`: ID of the security group containing the rule.
        * `rule_id`: Rule ID.
-     * `output "rule"`: Output variable that contains information about the rule direction:
+     * `output "rule"`: Output variable with information about the rule direction:
        * `value`: Returned value.
 
      You can replace `direction` with any other parameter to get the information you need. For more information about the `datasource_vpc_security_group_rule` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_security_group_rule).
@@ -147,7 +147,7 @@ title: How to get information about a security group in {{ vpc-full-name }}
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
      ```bash
      terraform output

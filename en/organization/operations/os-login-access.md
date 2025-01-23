@@ -9,9 +9,11 @@ description: Follow this guide to enable {{ oslogin }} access to virtual machine
 
 To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable this feature at the organization level. This will allow you to [enable](../../compute/operations/vm-control/vm-update.md#enable-oslogin-access) {{ oslogin }} access for VMs created from a ready-made image with {{ oslogin }} support or [configure](../../compute/operations/vm-connect/enable-os-login.md) the {{ oslogin }} agent on an already running VM. For more information about {{ oslogin }}, see [{#T}](../../compute/operations/vm-connect/os-login.md).
 
+{% include [serial-port-settings-default](../../_includes/compute/serial-port-settings-default.md) %}
+
 {% note info %}
 
-Images with {{ oslogin }} support are available on [{{ marketplace-full-name }}](/marketplace). VMs created from such images will have **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** enabled in the VM creation and editing form under **{{ ui-key.yacloud.compute.instances.create.section_access }}** in the [management console]({{ link-console-main }}). If this option is disabled, the selected image does not support {{ oslogin }} access.
+Images with {{ oslogin }} support are available on [{{ marketplace-full-name }}](/marketplace). VMs created from such images will have **{{ ui-key.yacloud.compute.instances.create.section_access }}** enabled in the VM creation and editing form under **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** in the [management console]({{ link-console-main }}). If this option is disabled, the selected image does not support {{ oslogin }} access.
 
 {% endnote %}
 
@@ -107,7 +109,7 @@ To enable access via {{ oslogin }} at the organization level:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_os_login_settings" "my_os_login_settings" {
@@ -145,7 +147,7 @@ To enable access via {{ oslogin }} at the organization level:
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy cloud resources.
 
@@ -155,7 +157,7 @@ To enable access via {{ oslogin }} at the organization level:
           terraform apply
           ```
 
-      1. Confirm that you want to create the resources.
+      1. Confirm creating the resources.
 
       The organization settings will then be changed. To make sure {{ oslogin }} access is enabled, run this YC CLI command specifying the organization ID:
 

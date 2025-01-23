@@ -1,3 +1,8 @@
+---
+title: Как начать работать с {{ cloud-registry-name }}
+description: В этой инструкции вы создадите свой первый реестр {{ cloud-registry-name }} и попробуете управлять Docker-образами.
+---
+
 # Как начать работать с {{ cloud-registry-name }}
 
 В этой инструкции вы создадите свой первый [реестр](../concepts/registry.md) и попробуете управлять [Docker-образами](../concepts/docker-image.md).

@@ -1,3 +1,8 @@
+---
+title: User group mapping in {{ keycloak }}
+description: Follow this guide to configure user group mapping in {{ keycloak }}.
+---
+
 # User group mapping in {{ keycloak }}
 
 To configure user group mapping in [{{ keycloak }}](https://www.keycloak.org/) and user groups in the [identity federation](../../../concepts/add-federation.md):
@@ -135,7 +140,7 @@ To make sure that {{ org-name }} can verify the {{ keycloak }} server certificat
 
   1. Click the row with `demo-federation` to add your certificate to.
 
-  1. Click **{{ ui-key.yacloud_org.entity.certificate.action.add }}** under **{{ ui-key.yacloud_org.page.federation.section.certificates }}** at the bottom of the page.
+  1. Click **{{ ui-key.yacloud_org.page.federation.section.certificates }}** under **{{ ui-key.yacloud_org.entity.certificate.action.add }}** at the bottom of the page.
 
   1. Enter a name for the certificate and specify the path to the `keycloak-cert.cer` file.
 
@@ -218,7 +223,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
     1. On the **Keys** tab of the SAML application, check that the **Client Signature Required** option is enabled.
     1. Click the **Import key** button under the automatically generated certificate and select **Certificate PEM** in the **Archive Format** field.
-    1. Click **Browse** and select the previously downloaded {{ yandex-cloud }} SAML certificate you are going to use to sign authentication requests.
+    1. Click **Browse** and select the {{ yandex-cloud }} SAML certificate you downloaded earlier to sign authentication requests.
 
         If you did not download a SAML certificate when creating the federation, you can download it on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
@@ -316,4 +321,4 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
     On successful authentication, the IdP server will redirect you to the ACS URL you specified in the {{ keycloak }} settings and then to the [management console]({{ link-console-main }}) home page.
 
-1. Make sure the created `demo_user1` user belongs to `yc-demo-group` and has the viewer permissions for resources according to the role assigned to the group.
+1. Make sure the created `demo_user1` belongs to `yc_demo_group` and has the viewer permissions for resources according to the role assigned to the group.

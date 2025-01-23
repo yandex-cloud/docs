@@ -31,7 +31,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 &#x2713; **billing.accounts.owner protection**: After performing the initial operations, do not use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a dedicated employee with a federated account.
 
-&#x2713; **organization-manager.organizations.owner protection**: Grant the `organization-manager.organizations.owner` role to a federated account and then delete the passport account with this role from your organization. To mitigate the risks of possible federation failures, follow the steps described in [Deleting a passport account from an organization](../operations/account-deletion.md).
+&#x2713; **organization-manager.organizations.owner protection**: Grant the `organization-manager.organizations.owner` role to a federated account, then delete the Yandex account with this role from your organization. To mitigate the risks of possible federation failures, follow the steps described in [Deleting a Yandex account from an organization](../operations/account-deletion.md).
 
 &#x2713; **Using a correct resource model**: When developing an access model for your infrastructure, use the following approach:
 

@@ -35,7 +35,24 @@ Required field. ID of the thread to update. ||
     "expirationPolicy": "string",
     "ttlDays": "string"
   },
-  "labels": "object"
+  "labels": "object",
+  "tools": [
+    {
+      // Includes only one of the fields `searchIndex`, `function`
+      "searchIndex": {
+        "searchIndexIds": [
+          "string"
+        ],
+        "maxNumResults": "string"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "object"
+      }
+      // end of the list of possible fields
+    }
+  ]
 }
 ```
 
@@ -65,6 +82,9 @@ New expiration configuration for the thread. ||
 || labels | **object** (map<**string**, **string**>)
 
 New set of labels for the thread. ||
+|| tools[] | **[Tool](#yandex.cloud.ai.assistants.v1.Tool)**
+
+A new list of tools that are available for assistants to use in this thread. ||
 |#
 
 ## ExpirationConfig {#yandex.cloud.ai.common.ExpirationConfig}
@@ -77,6 +97,58 @@ New set of labels for the thread. ||
 - `STATIC`
 - `SINCE_LAST_ACTIVE` ||
 || ttlDays | **string** (int64) ||
+|#
+
+## Tool {#yandex.cloud.ai.assistants.v1.Tool}
+
+Represents a general tool that can be one of several types.
+
+#|
+||Field | Description ||
+|| searchIndex | **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
+
+SearchIndexTool tool that performs search across specified indexes.
+
+Includes only one of the fields `searchIndex`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `searchIndex`, `function`. ||
+|#
+
+## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool}
+
+Configures a tool that enables Retrieval-Augmented Generation (RAG) by allowing the assistant to search across a specified search index.
+
+#|
+||Field | Description ||
+|| searchIndexIds[] | **string**
+
+A list of search index IDs that this tool will query. Currently, only a single index ID is supported. ||
+|| maxNumResults | **string** (int64)
+
+The maximum number of results to return from the search.
+Fewer results may be returned if necessary to fit within the prompt's token limit.
+This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **object**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
 |#
 
 ## Response {#yandex.cloud.ai.assistants.v1.threads.Thread}
@@ -99,7 +171,24 @@ New set of labels for the thread. ||
     "ttlDays": "string"
   },
   "expiresAt": "string",
-  "labels": "object"
+  "labels": "object",
+  "tools": [
+    {
+      // Includes only one of the fields `searchIndex`, `function`
+      "searchIndex": {
+        "searchIndexIds": [
+          "string"
+        ],
+        "maxNumResults": "string"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "object"
+      }
+      // end of the list of possible fields
+    }
+  ]
 }
 ```
 
@@ -162,6 +251,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || labels | **object** (map<**string**, **string**>)
 
 Set of key-value pairs that can be used to organize and categorize the thread. ||
+|| tools[] | **[Tool](#yandex.cloud.ai.assistants.v1.Tool2)**
+
+List of tools that are available for assistants to use in this thread. ||
 |#
 
 ## ExpirationConfig {#yandex.cloud.ai.common.ExpirationConfig2}
@@ -174,4 +266,56 @@ Set of key-value pairs that can be used to organize and categorize the thread. |
 - `STATIC`
 - `SINCE_LAST_ACTIVE` ||
 || ttlDays | **string** (int64) ||
+|#
+
+## Tool {#yandex.cloud.ai.assistants.v1.Tool2}
+
+Represents a general tool that can be one of several types.
+
+#|
+||Field | Description ||
+|| searchIndex | **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool2)**
+
+SearchIndexTool tool that performs search across specified indexes.
+
+Includes only one of the fields `searchIndex`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool2)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `searchIndex`, `function`. ||
+|#
+
+## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool2}
+
+Configures a tool that enables Retrieval-Augmented Generation (RAG) by allowing the assistant to search across a specified search index.
+
+#|
+||Field | Description ||
+|| searchIndexIds[] | **string**
+
+A list of search index IDs that this tool will query. Currently, only a single index ID is supported. ||
+|| maxNumResults | **string** (int64)
+
+The maximum number of results to return from the search.
+Fewer results may be returned if necessary to fit within the prompt's token limit.
+This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool2}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **object**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
 |#

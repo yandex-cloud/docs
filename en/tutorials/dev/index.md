@@ -1,3 +1,8 @@
+---
+title: Development and testing guides
+description: Various use cases for development and testing in {{ yandex-cloud }}.
+---
+
 # Development and testing guides
 
 * [Enabling blue-green and canary deployment of web service versions](../web/blue-green-canary-deployment.md)
@@ -8,7 +13,6 @@
 * [{#T}](gitlab-tracker-integration.md)
 * [High-performance computing on preemptible VMs](../testing/hpc-on-preemptible.md)
 * [Load testing a gRPC service](../testing/loadtesting-grpc.md)
-* [Deploying and load testing a gRPC service with scaling](../testing/loadtesting-grpc-autoscaling.md)
 * [Fixed-load HTTPS testing with Phantom](../testing/loadtesting-https-phantom.md)
 * [Step-load HTTPS testing with Pandora](../testing/loadtesting-https-pandora.md)
 * [Load testing using multiple agents](../testing/loadtesting-multiply.md)

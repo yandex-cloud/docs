@@ -1,3 +1,8 @@
+---
+title: Backend groups
+description: In this article, you will learn about backend group types, session affinity, protocol and load balancing settings, and health checks.
+---
+
 # Backend groups
 
 A backend group defines the settings based on which the L7 load balancer sends traffic to the backend endpoints:
@@ -135,7 +140,7 @@ The following health check settings are supported:
   * Request body.
   * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. Here is an example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
 
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 

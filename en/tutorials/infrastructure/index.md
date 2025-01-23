@@ -31,6 +31,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [Locking {{ TF }} states using {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
 * [Using {{ yandex-cloud }} modules in {{ TF }}](../infrastructure-management/terraform-modules.md)
 * [Running a Docker image on a VM](../infrastructure-management/run-docker-on-vm/index.md)
+* [Transferring logs through {{ unified-agent-short-name }} HTTP input to {{ cloud-logging-full-name }}](../infrastructure-management/ua-http-logging.md)
 
 ## Network {#routing}
 
@@ -39,6 +40,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [Routing through a NAT instance](../routing/nat-instance/index.md)
 * [Installing a Cisco CSR 1000v virtual router](../routing/cisco.md)
 * [Installing a Mikrotik CHR virtual router](../routing/mikrotik.md)
+* [Installing an NGINX Ingress controller with a {{ certificate-manager-name }} certificate](../container-infrastructure/nginx-ingress-certificate-manager.md)
 
 ## VPNs {#vpns}
 

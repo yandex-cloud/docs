@@ -1,8 +1,9 @@
 ---
-title: Installation guide for an NGINX Ingress controller with a {{ certificate-manager-full-name }} certificate
-description: This guide describes how you can install an NGINX Ingress controller with a {{ certificate-manager-full-name }} certificate.
+title: Installation guide for an NGINX Ingress controller with a certificate from {{ certificate-manager-full-name }}
+description: Follow this guide to install the NGINX Ingress controller with a certificate from {{ certificate-manager-full-name }}.
+canonical: '{{ link-docs }}/tutorials/infrastructure-management/nginx-ingress-certificate-manager'
 ---
 
 # Installing an NGINX Ingress controller with a {{ certificate-manager-name }} certificate
 
-{% include [nginx-ingress-certificate-manager](../../_tutorials/nginx-ingress-certificate-manager.md) %}
+{% include notitle [nginx-ingress-certificate-manager](../../_tutorials/containers/nginx-ingress-certificate-manager.md) %}

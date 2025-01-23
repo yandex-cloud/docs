@@ -27,9 +27,9 @@ The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }
 
 For more information, see [{#T}](../../../audit-trails/concepts/control-plane-vs-data-plane.md).
 
-To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../../monitoring/). For example, it can help you track spikes in {{ compute-name }} workload, {{ alb-name }} RPS, or significant changes in {{ iam-name }} event statistics.
+ To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../../monitoring/).  For example, it can help you track spikes in {{ compute-name }} workload, {{ alb-name }} RPS, or significant changes in {{ iam-name }} event statistics.
 
-You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events. You can export metrics to a SIEM system via the API, see the [instructions](../../../monitoring/operations/metric/get.md).
+You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events. You can export metrics to a SIEM system via the API, see [this guide](../../../monitoring/operations/metric/get.md). 
 
 [Solution: Monitoring {{ at-name }} and security events using {{ monitoring-name }}](https://github.com/yandex-cloud-examples/yc-audit-trails-monitoring)
 
@@ -46,7 +46,7 @@ You can enable {{ at-full-name }} at the folder, cloud, and organization level. 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the functions in.
-  1. In the list of services, select {{ at-full-name }}.
+  1. In the services list, select {{ at-full-name }}.
   1. Make sure the Filter parameter is set to Organization.
   1. In addition, check that the destination of logs is {{ objstorage-full-name }} bucket, [{{ cloud-logging-name }}](../../../logging/) log group, and {{ yds-name }}, that they are up and running, and that the logs are available for further analysis.
 
@@ -97,11 +97,11 @@ Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, a
 
 If you write {{ at-full-name }} audit logs to a {{ objstorage-full-name }} bucket, make sure the bucket is set up using best security practices, such as:
 
-* 4.1 In {{ objstorage-full-name }}, encryption of data at rest using KMS keys is enabled.
-* 3.8 In {{ objstorage-full-name }}, logging of actions with buckets is enabled.
-* 3.8 In {{ objstorage-full-name }}, the **Object locks** feature is enabled.
-* 3.7 In {{ objstorage-full-name }}, Bucket Policies are used.
-* 3.6 No public access to the {{ objstorage-full-name }} bucket is allowed.
+* [No public access to the {{ objstorage-full-name }} bucket is allowed](../../../security/standard/virtualenv-safe-config.md#bucket-access).
+* [Bucket policies are used in {{ objstorage-full-name }}](../../../security/standard/virtualenv-safe-config.md#bucket-policy).
+* [The **Object lock** feature is enabled in {{ objstorage-full-name }}](../../../security/standard/virtualenv-safe-config.md#object-lock).
+* [Logging of actions with buckets is enabled in {{ objstorage-full-name }}](../../../security/standard/virtualenv-safe-config.md#bucket-logs).
+* [Data encryption at rest using KMS keys is enabled in {{ objstorage-full-name }}](../../../security/standard/encryption.md#storage-kms).
 
 You can use a solution for secure {{ objstorage-full-name }} bucket setup with {{ TF }}.
 
@@ -113,7 +113,7 @@ You can use a solution for secure {{ objstorage-full-name }} bucket setup with {
 
 {% endlist %}
 
-#### 5.5 Audit logs are collected at the OS level {#os-level}
+#### 5.5 Audit logs are collected at the OS level {#os-collection}
 
 When using IaaS cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
   * [Osquery](https://osquery.io/)
@@ -171,24 +171,12 @@ A [data event audit log](../../../audit-trails/concepts/format-data-plane.md) is
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your [trail](../../../audit-trails/concepts/trail.md) is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Select the trail you need.
   1. Make sure the trail info page in **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** lists all the services you want to collect data event logs for, specifying the correct audit log [scope](../../../audit-trails/concepts/trail.md#collecting-area) for each service.
 
       List of supported services:
 
-      * [{{ dns-full-name }}](#dns)
-      * [{{ compute-full-name }}](#compute)
-      * [{{ iam-full-name }}](#iam)
-      * [{{ kms-full-name }}](#kms)
-      * [{{ lockbox-full-name }}](#lockbox)
-      * [{{ mmg-full-name }}](#mmg)
-      * [{{ mmy-full-name }}](#mmy)
-      * [{{ mpg-full-name }}](#mpg)
-      * [{{ objstorage-full-name }}](#objstorage)
-      * [{{ speechsense-full-name }}](#speechsense)
-      * [{{ sws-full-name }}](#sws)
-      * [{{ wiki-full-name }}](#wiki)
-      * [{{ websql-full-name }}](#websql)
+      {% include [cp-events-service-list](../../../_includes/audit-trails/cp-events-service-list.md) %}
 
 {% endlist %}

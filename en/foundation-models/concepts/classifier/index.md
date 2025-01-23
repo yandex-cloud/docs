@@ -9,13 +9,13 @@ There are three types of classification available in {{ foundation-models-name }
 
 Classification models are only available in [synchronous mode](../index.md#working-mode).
 
-{{ foundation-models-name }} provides classifiers of two types: [prompt](#readymade) classifiers based on {{ gpt-lite }} and {{ gpt-pro }} and [trainable](#trainable) classifiers based on {{ gpt-pro }}.
+{{ foundation-models-name }} provides classifiers of two types: [promt](#readymade) classifiers based on {{ gpt-lite }} and {{ gpt-pro }} and [trainable](#trainable) classifiers based on {{ gpt-lite }}.
 
 To use the {{ foundation-models-full-name }} classifier models, you need the `ai.languageModels.user` [role](../../security/index.md#languageModels-user) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 ## Prompt-based classifiers {#readymade}
 
-{{ foundation-models-name }} prompt-based classifiers support binary and multi-class classification, require no model tuning, and are prompt-controlled. The [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API method enables [using](../../operations/classifier/readymade.md) these two prompt-based classifiers: _zero-shot_ and _few-shot_. You can provide between 2 and 20 classes to the `fewShotClassify` method.
+{{ foundation-models-name }} prompt-based classifiers support binary and multi-class classification, require no model tuning, and are prompt-controlled. The [fewShotClassify](../../text-classification/api-ref/TextClassification/fewShotClassify.md) Text Classification API method enables [using](../../operations/classifier/readymade.md) these two prompt-based classifiers: _Zero-shot_ and _few-shot_. You can provide between 2 and 20 classes to the `fewShotClassify` method.
 
 {% note tip %}
 
@@ -110,11 +110,11 @@ You can deliver multiple classification examples in a single request. All exampl
 
 ## Trainable classifiers {#trainable}
 
-If you are not satisfied with the output quality of the [zero-shot](#zero-shot) and [few-shot](#few-shot) classifiers, [tune your own one](../tuning/classifier.md) based on {{ yagpt-name }}. Trainable classifiers can be trained to offer all supported classification types.
+If not satisfied with the output quality of the [zero-shot](#zero-shot) and [few-shot](#few-shot) classifiers, [tune your own one](../tuning/classifier.md) based on {{ gpt-lite }}. Trainable classifiers can be trained to offer all supported classification types.
 
 To [run](../../operations/classifier/additionally-trained.md) a request to the classifier of a model fine-tuned in {{ ml-platform-name }}, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) text classification API method. If you do so, you only need to provide the [model ID](./models.md) and the request text to the model. The names of the classes between which the model will be distributing requests must be specified during model tuning and are not provided in the request.
 
-Request body format for the classifier of a model fine-tuned in {{ ml-platform-name }}:
+Request body format for a fine-tuned classifier:
 
 ```json
 {
@@ -124,7 +124,7 @@ Request body format for the classifier of a model fine-tuned in {{ ml-platform-n
 ```
 
 Where:
-* `modelUri`: [ID of the model](./models.md) that will be used to classify the message. This parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md) and the ID of the model [tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}.
+* `modelUri`: [ID of the model](./models.md) that will be used to classify the message. This parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md) and the ID of the fine-tuned classifier.
 * `text`: Message text. The total number of tokens per request must not exceed 8,000.
 
 Use the `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` endpoint for [requests](../../operations/classifier/additionally-trained.md) to trainable classifiers.

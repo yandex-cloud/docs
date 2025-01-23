@@ -1,9 +1,13 @@
-# {{ yandex-cloud }} infrastructure security standard 1.2
+# {{ yandex-cloud }} infrastructure security standard {{ security-standard-current-version }}
 
 ## Introduction {#intro}
 
 This document provides recommendations for technical protection measures and helps you choose information security measures when deploying information systems in {{ yandex-cloud }}.
+
+{{ yandex-cloud }} ensures the physical security of data centers. See a [detailed description of its physical security measures](../../../security/standarts.md). If critical data is transmitted outside {{ yandex-cloud }}, the customer is responsible for managing physical access at all data processing locations.
+
 The recommendations and security measures described in the standard have links to the **Guides and solutions for setting up** secure resource configurations with standard and additional information security tools available to {{ yandex-cloud }} users.
+
 The standard also describes different methods and tools for verifying recommendation compliance, such as:
 
 * Using the management console UI
@@ -15,28 +19,31 @@ The standard also describes different methods and tools for verifying recommenda
 
 The recommendations are designed for solution architects, technical specialists, and information security experts who use the following services when developing secure cloud systems and security policies to work with the cloud platform:
 
-* [{{ alb-name }}](../../../application-load-balancer/)
-* [{{ at-name }}](../../../audit-trails/)
-* [{{ certificate-manager-name }}](../../../certificate-manager/)
-* [{{ dns-name }}](../../../dns/)
-* [{{ cloud-logging-name }}](../../../logging/)
-* [{{ org-name }}](../../../organization/)
-* [{{ compute-name }}](../../../compute/)
-* [{{ iam-name }} ({{ iam-short-name }})](../../../iam/)
-* [{{ kms-name }}](../../../kms/)
-* [{{ mch-name }}](../../../managed-clickhouse/)
-* [{{ mgl-name }}](../../../managed-gitlab/)
-* [{{ managed-k8s-name }}](../../../managed-kubernetes/)
-* [{{ mmg-name }}](../../../managed-mongodb/)
-* [{{ mmy-name }}](../../../managed-mysql/)
-* [{{ mpg-name }}](../../../managed-postgresql/)
-* [{{ mrd-name }}](../../../managed-redis/)
-* [{{ ydb-name }}](../../../ydb/)
-* [{{ network-load-balancer-name }}](../../../network-load-balancer/)
-* [{{ objstorage-name }}](../../../storage/)
-* [{{ resmgr-name }}](../../../resource-manager/)
-* [{{ vpc-name }}](../../../vpc/)
-* [{{ lockbox-name }}](../../../lockbox/)
+* [{{ alb-full-name }}](../../../application-load-balancer/)
+* [{{ at-full-name }}](../../../audit-trails/)
+* [{{ certificate-manager-full-name }}](../../../certificate-manager/)
+* [{{ dns-full-name }}](../../../dns/)
+* [{{ cloud-logging-full-name }}](../../../logging/)
+* [{{ org-full-name }}](../../../organization/)
+* [{{ compute-full-name }}](../../../compute/)
+* [{{ container-registry-full-name }}](../../../container-registry/)
+* [{{ iam-full-name }} ({{ iam-short-name }})](../../../iam/)
+* [{{ kms-full-name }}](../../../kms/)
+* [{{ lockbox-full-name }}](../../../lockbox/)
+* [{{ mch-full-name }}](../../../managed-clickhouse/)
+* [{{ mgl-full-name }}](../../../managed-gitlab/)
+* [{{ managed-k8s-full-name }}](../../../managed-kubernetes/)
+* [{{ mmg-full-name }}](../../../managed-mongodb/)
+* [{{ mmy-full-name }}](../../../managed-mysql/)
+* [{{ mpg-full-name }}](../../../managed-postgresql/)
+* [{{ mrd-full-name }}](../../../managed-redis/)
+* [{{ ydb-full-name }}](../../../ydb/)
+* [{{ network-load-balancer-full-name }}](../../../network-load-balancer/)
+* [{{ objstorage-full-name }}](../../../storage/)
+* [{{ resmgr-full-name }}](../../../resource-manager/)
+* [{{ sws-full-name }}](../../../smartwebsecurity/)
+* [{{ captcha-full-name }}](../../../smartcaptcha/)
+* [{{ vpc-full-name }}](../../../vpc/)
 
 The standard can be used as the basis for developing company-specific recommendations. Not all of the information security measures and recommendations from this document are applicable. Moreover, additional measures and recommendations that are not included in the current standard may be required.
 

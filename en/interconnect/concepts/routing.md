@@ -1,3 +1,8 @@
+---
+title: Routing
+description: In this article, you will learn about routing, its general guidelines as well as such concepts as even traffic distribution, prioritizing traffic based on its direction, reserving traffic via a VPN gateway, handling static route priority, even distribution and prioritization of traffic for the `0.0.0.0/0` route, and interactiion with security groups.
+---
+
 # Routing
 
 When connecting a client infrastructure via {{ interconnect-full-name }}, you will typically need to set up traffic routing between the cloud resources and client infrastructure resources.
@@ -13,7 +18,7 @@ By **routing**, we mean a number of tools for traffic management in {{ yandex-cl
 * To simplify the setup of fault-tolerant BGP routing on client routers, consider using the same [BGP ASN](priv-con.md#bgp-asn) if multiple routers are used on the client side for connecting to {{ interconnect-name }}. You can use different **BGP ASNs**, e.g., when arranging connections via telecom providers. Keep in mind that {{ yandex-cloud }} is not responsible for configuring the client and telecom provider network hardware.
 
 * Each client router that sets [BGP connectivity](priv-con.md#bgp-peering) with the {{ yandex-cloud }} equipment over **eBGP** should also set BGP connectivity with other client routers over **iBGP**.
-* Use prefixes of a different length on client routers for BGP announcements to distribute outgoing traffic from cloud subnets across communication circuits:
+* Use prefixes of a different length on client routers for BGP announcements to distribute outgoing traffic from cloud subnets across communication circuits: 
     * Prefix with a length of `/8` (short prefix) means the lowest route priority.
     * Prefix with a length of `/32` (long prefix) means the highest route priority.
 

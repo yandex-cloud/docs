@@ -1011,6 +1011,8 @@ items:
           Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
           speechkit-full-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
+      - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
+        href: serverless/api-gw-sws-integration.md
   - name: Машинное обучение и искусственный интеллект
     items:
       - name: Все руководства

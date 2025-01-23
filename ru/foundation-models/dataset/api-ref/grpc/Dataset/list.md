@@ -86,7 +86,8 @@ Page token. To get the next page of results, set `page_token` to the
             "int64"
           ]
         }
-      ]
+      ],
+      "allow_data_log": "bool"
     }
   ],
   "next_page_token": "string"
@@ -166,6 +167,9 @@ User ID of the dataset's creator. ||
 
 User ID of the dataset's last updater. ||
 || validation_error[] | **[ValidationError](#yandex.cloud.ai.dataset.v1.ValidationError)** ||
+|| allow_data_log | **bool**
+
+Allow to use the dataset to improve the models quality. Default false. ||
 |#
 
 ## ValidationError {#yandex.cloud.ai.dataset.v1.ValidationError}

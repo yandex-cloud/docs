@@ -1,3 +1,8 @@
+---
+title: Data search via the gRPC API
+description: Follow this guide to learn how to search for data via the gRPC API.
+---
+
 # Data search via the gRPC API
 
 ## Getting started {#before-you-begin}
