@@ -6,7 +6,7 @@ description:
     требуется надежный и быстрый доступ к данным, так и для проектов с
     невысокими требованиями к инфраструктуре хранения.
   - >-
-    Используя Object Storage, вы можете: <ul> <li>Хранить данные произвольного
+    Используя Object Storage, вы можете: <ul><li>Хранить данные произвольного
     формата как <a href="/docs/storage/concepts/object">объекты</a> с доступом
     по текстовому идентификатору.</li> <li>Использовать различные <a
     href="/docs/storage/concepts/storage-class">классы хранилища</a> для
@@ -14,7 +14,7 @@ description:
     href="/docs/storage/concepts/lifecycles">жизненным циклом</a>.</li>
     <li>Хранить <a href="/docs/storage/concepts/multipart">большие объекты</a>
     размером в несколько терабайт.</li> <li>Опубликовать статический <a
-    href="/docs/storage/concepts/hosting">сайт</a>.</li> </ul>
+    href="/docs/storage/concepts/hosting">сайт</a>.</li></ul>
   - >-
     <a href="/docs/storage/s3/">HTTP API сервиса</a> совместим с API Amazon S3,
     то есть для работы с Object Storage вы можете использовать множество <a

@@ -1,3 +1,8 @@
+---
+title: Network
+description: This article compares the key components of the VMware Cloud Director network architecture and {{ yandex-cloud }}.
+---
+
 # Network
 
 ## General VMware NSX architecture {#architecture-vmware-nsx}

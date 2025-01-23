@@ -24,7 +24,7 @@ You can also set up [video size](#size) and the player [startup options](#parame
 
 To specify video size, set the following parameters in the `iframe` tag: `height` for height and `width` for width. 
 
-Here is an example:
+Example:
 
 ```html
 <iframe width="560" height="315" 
@@ -148,6 +148,14 @@ Mute at startup:
 * `true`: Sound off.
 
 The default value is `false`.
+||
+|| `object_fit` |
+Scale the thumbnail to fit the screen size when loading a video:
+
+* `contain`: Keep the original thumbnail aspect ratio, no cropping.
+* `cover`: Resize the thumbnail to fill the entire frame by changing its aspect ratio or cropping.
+
+The default value is `cover`.
 ||
 ||  `play_on_visible` |
 Stopping playback if the player leaves the visible area and starting playback if the player is in it. The parameter affects both video content and ads. It can take the following values:

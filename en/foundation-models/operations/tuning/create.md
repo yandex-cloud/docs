@@ -87,7 +87,7 @@ Create a tuning dataset:
        llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/GetUploadDraftUrl | jq
        ```
 
-     In response, you will get a link to the dataset template you created.
+     The response will return a link to the dataset template you created.
 
      {% note tip %}
       
@@ -110,7 +110,7 @@ Create a tuning dataset:
         llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/Validate
       ```
 
-      In response, you will get an object containing the validation ID. 
+      The response will return an object containing the validation ID. 
 
   1. Dataset validation may take some time. To find out validation status and get an error report (if any), send a request containing the ID from the previous step:
   

@@ -1,3 +1,8 @@
+---
+title: Finding and fixing errors when creating a demo stand
+description: Follow this guide to find and fix errors when creating a demo stand.
+---
+
 # Finding and fixing errors when creating a demo stand
 
 If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }} demo stand, run diagnostics to detect errors:
@@ -8,9 +13,9 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
    ssh <username>@<VM_public_IP_address>
    ```
 
-   Where `<username>` is the VM account username. You can find the VM's public IP address in the [management console]({{ link-console-main }}), on the VM page.
+   Where `<username>` is the VM account username. You can find the VM's public IP address on the VM page in the [management console]({{ link-console-main }}).
 
-1. Check whether the `8080` and `9080` ports are open to receive client requests:
+1. Check whether ports `8080` and `9080` are open to receive client requests:
 
    ```bash
    telnet <VM_public_address> 8080 && telnet <VM_public_address> 9080
@@ -24,7 +29,7 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
    docker images --digests
    ```
 
-   Make sure the required images are there. They are loaded into the {{ container-registry-full-name }} registry after you [provide](quickstart.md#get-started) the registry ID to the {{ speechkit-name }} command.
+   Make sure the required images are there. They are loaded into the {{ container-registry-full-name }} registry after you [provide the registry ID to the {{ speechkit-name }}](quickstart.md#get-started) command.
 
    Expected result:
 
@@ -36,7 +41,7 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
    {{ registry }}/crp33...7i/release/license_server       0.21  sha256:44d24...3d  59e...62  ...      1.23GB
    ```
 
-   If you changed image labels, make sure you used the required Docker image during [load testing](quickstart.md#stt-and-tts). To do this, in the `DIGEST` column, compare the hash sums of the image you used and the image in the resulting list.
+   If image labels were changed, make sure you used the right Docker image during [load testing](quickstart.md#stt-and-tts). To do this, in the `DIGEST` column, compare the hash sums of the image you used and the image in the resulting list.
 
 1. Make sure Docker containers are successfully launched from the {{ sk-hybrid-name }} images:
 
@@ -56,7 +61,7 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
 
 1. Check the list of open network connections and the network configuration:
 
-   1. Install `netstat`:
+   1. Install the `netstat` utility:
 
       ```bash
       sudo apt install net-tools
@@ -142,17 +147,17 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
       Architecture:   7.0
       ```
 
-1. Check if there are `WARNING`, `ERROR`, `EMERG`, or `ALERT` errors in the STDOUT output of the containers. To do this, dump the output into text files. Run the following command in the `yc-speechkit-hybrid-deployment` repository directory:
+1. Check for `WARNING`, `ERROR`, `EMERG`, or `ALERT` errors in the STDOUT output of the containers. To do this, dump the output into text files. Run the following command in the `yc-speechkit-hybrid-deployment` repository directory:
 
    ```bash
    mkdir -p logs ; cd ./logs
    for c in $(docker ps --format '{{.Names}}' | awk '{print $NF}'); do echo $c && docker logs $c &> $c.log; done
    ```
 
-   If you [contact technical support]({{ link-console-support }}), tell them what command you ran and send the received text files.
+   If [contacting support]({{ link-console-support }}), report the command you executed and send the text files you got.
 
-1. View the contents of the `docker-compose.yaml` file, which is used to launch Docker containers.
+1. Study the contents of the `docker-compose.yaml` file used to launch Docker containers.
 
    `docker-compose.yaml` is described in the `node-deploy.tf` file, in the `COMPOSE_V100_STT_TTS` variable. The contents of the variable are automatically dumped into the `docker-compose.yaml` file. It is hosted and built on the VM that runs {{ sk-hybrid-name }}.
 
-   Errors may occur during the build. To process them, make sure the contents of the `docker-compose.yaml` file match the environment configuration information. This information was collected using the steps described above.
+   You may get errors during the build. To process them, make sure the contents of the `docker-compose.yaml` file are consistent with the environment configuration information. This information was collected using the steps described above.

@@ -1,16 +1,16 @@
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a security group](#create-security-groups).
 1. [Create a VM with a pre-installed web server](#create-vm).
 1. [Upload the website files](#upload-files).
-1. [Configure the DNS](#configure-dns).
+1. [Configure DNS](#configure-dns).
 1. [Test the website](#test-site).
 
 We will use the `example.com` domain name as an example.
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -85,19 +85,19 @@ To create a security group:
 
           For static websites, we recommend using LEMP.
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM. This minimum configuration is enough for functional website testing:
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `web-network` and the subnet to create your VM in.
       * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the access credentials for the VM:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
@@ -123,7 +123,9 @@ To create a security group:
 
       {% endnote %}
 
-      It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can [upload the website files](#upload-files).
+  1. Click **Create VM**.
+
+      It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
 
 {% endlist %}
 
@@ -131,7 +133,7 @@ To create a security group:
 
 {% include [lamp-lemp-paid-upload-files](../_tutorials_includes/lamp-lemp-upload-files.md) %}
 
-## Configure the DNS {#configure-dns}
+## Configure DNS {#configure-dns}
 
 If you have a registered domain name, use the Cloud DNS service to manage the domain.
 
@@ -150,7 +152,7 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
       example.com. A <VM_IP_address>
       ```
 
-  1. Create a [CNAME](../../dns/concepts/resource-record.md#CNAME) record named `www` with `example.com` as its value.
+  1. Create a [CNAME](../../dns/concepts/resource-record.md#CNAME) record named `www` with `example.com` as its value.    
 
       If you use [{{ dns-full-name }}](../../dns/), follow this guide to configure the record:
 

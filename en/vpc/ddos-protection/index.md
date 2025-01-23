@@ -1,9 +1,9 @@
 ---
-title: '{{ ddos-protection-full-name }} at {{ vpc-full-name }}'
+title: '{{ ddos-protection-full-name }} in {{ vpc-full-name }}'
 description: In this tutorial, you will learn about {{ ddos-protection-name }} and extended protection.
 ---
 
-# {{ ddos-protection-full-name }} to {{ vpc-name }}
+# {{ ddos-protection-full-name }} in {{ vpc-name }}
 
 
 {{ ddos-protection-full-name }} is a {{ vpc-short-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-short-name }} is provided in partnership with Qrator Labs.

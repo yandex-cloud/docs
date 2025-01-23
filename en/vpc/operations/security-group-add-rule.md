@@ -15,7 +15,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
 
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
 
@@ -23,13 +23,13 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create traffic management rules:
 
-     1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+     1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab for an outbound rule or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab for an inbound rule.
 
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
 
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that will be open for inbound or outbound traffic.
 
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or specify `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic over any protocol.
 
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
@@ -272,7 +272,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
     {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
-  * New security group rules, in the `additionRuleSpecs[]` array.
+  * New security group rules, in the `additionRuleSpecs[]` array:
 
     * Traffic direction for which the rule is created, in the `additionRuleSpecs[].direction` parameter. The possible values are:
 

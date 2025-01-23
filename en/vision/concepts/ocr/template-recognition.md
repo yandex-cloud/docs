@@ -140,7 +140,7 @@ The response of the `license-plates` model does not contain the `entities` array
 
 {% note warning %}
 
-The `license-plates` model does not support [automatic language detection](../../operations/ocr/text-detection-image.md#ocr-api-recognition). To use this model, make sure you specify the [text language](./supported-languages.md), e.g., `en`.
+The `license-plates` model does not support [automatic language detection](../../operations/ocr/text-detection-image.md#ocr-api-recognition). To use this model, make sure you specify the [text language](./supported-languages.md), e.g., `ru`.
 
 {% endnote %}
 
@@ -166,7 +166,7 @@ Here is an example of the `entities` array returned in the service response for 
    },
    {
     "name": "citizenship",
-    "text": "usa"
+    "text": "rus"
    },
    {
     "name": "birth_date",

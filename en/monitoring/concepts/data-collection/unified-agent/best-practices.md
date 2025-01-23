@@ -1,3 +1,8 @@
+---
+title: Agent best practices
+description: In this article, you will learn about the agent best practices.
+---
+
 # Agent best practices
 
 ## One agent per host {#one-agent-per-host}
@@ -8,7 +13,7 @@ Avoid running more than one {{unified-agent-short-name}} instance on the same ho
 
 When using {{unified-agent-short-name}}, we recommend that you enable collecting health metrics for the agent.
 
-To do so, add to the agent configuration a [delivery route](index.md#routes) with the `agent_metrics` input. Sample configuration:
+To do so, add a [delivery route](index.md#routes) with the `agent_metrics` input to the agent configuration. Configuration example:
 
 ```yaml
 status:
@@ -39,9 +44,9 @@ See also [{#T}](inputs.md#agent_metrics_input).
 
 Use a storage to reliably deliver metrics to {{ monitoring-full-name }} with {{unified-agent-short-name}}. It will let you temporarily store messages sent over a [pipe](index.md#pipes) before being passed on to the channel output.
 
-Using a storage can help you avoid data loss if the agent fails to write the data to the specified output (including repeat attempts). That might happen because of network issues or destination API unavailability.
+Using a storage can help you avoid data loss if the agent fails to write the data to the specified output (including repeat attempts). This may happen due to network issues or destination API unavailability.
 
-Sample agent configuration with a storage:
+Example of agent configuration with a storage:
 
 ```yaml
 status:

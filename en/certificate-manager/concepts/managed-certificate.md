@@ -2,16 +2,16 @@
 
 You can use {{ certificate-manager-name }} to create Let's Encrypt certificates. Request a certificate and pass the domain rights check. After that, {{ certificate-manager-name }} will manage your certificate by working with Let's Encrypt on your behalf.
 
-Let's Encrypt provides Domain Validation TLS certificates with a 90-day validity period. If you need Organization Validation or Extended Validation certificates, use a third-party certificate authority to get the certificate, and then upload it to {{ certificate-manager-name }}. For more information, see [User certificate](imported-certificate.md).
+Let's Encrypt provides Domain Validation TLS certificates with a 90-day validity period. If you need Organization Validation or Extended Validation certificates, use a third-party certificate authority to get the certificate, and then upload it to {{ certificate-manager-name }}. For more information, see [User certificate](imported-certificate.md). 
 
 You can use a certificate created with {{ certificate-manager-name }} in the [specified](services.md) {{ yandex-cloud }} services only.
 
-## Get a certificate {#request}
+## Getting a certificate {#request}
 
 1. Specify the list of domains you need to issue a certificate for.
 1. Select the type of domain rights check: `HTTP` or `DNS`.
 
-    Certificate status after the request is created: `Validating`.
+    Certificate status after the request is created: `Validating`. 
 1. To get a certificate, pass the domain rights check for the domains you specified in the previous step.
 
     Depending on the selected type of check, put the file on the web server or add a `TXT` or `CNAME` resource record with the appropriate value in the DNS service. To learn more about the types of checks and ways to pass them, see [{#T}](challenges.md).
@@ -42,7 +42,7 @@ The stages of issuing a Let's Encrypt certificate are as follows:
 
 1. Passing the domain rights check challenges.
    
-    At this stage, your control of the domains you request the certificate for is verified. To get through this stage, complete the following actions for the type of check you selected:
+    At this stage, your control of the domains you request the certificate for is verified. To get through the stage, complete these actions for the type of check you selected:
 
     * `HTTP`: Put a file on the web server.
     * `DNS`: Add a record in the DNS service.
@@ -68,7 +68,7 @@ To renew a certificate, follow the steps below. Keep track of the lifecycle of y
 {% endnote %}
 
 1. {{ certificate-manager-name }} initiates the certificate renewal procedure 30 days before it expires.
-
+    
     After the renewal procedure starts, the certificate gets the `Renewing` status.
 1. Pass the domain rights check.
 
@@ -76,15 +76,14 @@ To renew a certificate, follow the steps below. Keep track of the lifecycle of y
     
     {% note info %}
     
-    If the certificate is used in a [static website in {{ objstorage-name }}](../../tutorials/web/static/index.md) and does not contain [masked domains](https://en.wikipedia.org/wiki/Wildcard_certificate), the rights check can be performed automatically.
-     For more information, see [Checking rights automatically](challenges.md#auto).
+    If the certificate is used in a [static website in {{ objstorage-name }}](../../tutorials/web/static/index.md) and does contains no [masked domains](https://en.wikipedia.org/wiki/Wildcard_certificate), the rights check can be passed automatically. For more information, see [Checking rights automatically](challenges.md#auto). 
     
     {% endnote %}
     
 1. As soon as the domain rights check is passed, the certificate will be renewed and get the `Issued` status. All the resources that use the certificate will get its new version. 
 
 The certificate will not be renewed if the domain rights check ends with an error, even for a single domain. In which case the certificate's status will change to `Renewal_failed`, and it will remain valid until it's expiration date.
-Some time after the failed renewal, a new attempt will be made to update the certificate.
+Some time after the failed renewal, a new attempt will be made to update the certificate. 
  
 To avoid issues with access to resources that depend on the certificate with the `Renewal_failed` status:
 1. Before the certificate expires, get and [add a new Let's Encrypt certificate](../operations/managed/cert-create.md).

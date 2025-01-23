@@ -1,1 +1,2 @@
-service-name: VPC
+default:
+  service-name: VPC

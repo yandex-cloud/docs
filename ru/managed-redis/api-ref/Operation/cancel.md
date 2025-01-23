@@ -12,7 +12,7 @@ Note that currently Object Storage API does not support cancelling operations.
 ## HTTP request
 
 ```
-GET https://operation.{{ api-host }}/operations/{operationId}:cancel
+GET https://{{ api-host-mdb-operation }}/operations/{operationId}:cancel
 ```
 
 ## Path parameters

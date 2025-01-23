@@ -11,7 +11,10 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../getting-started/).
 1. Accept the user agreement.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) that your account has the `speech-sense.spaces.creator` role assigned.
+1. [Assign](../iam/operations/roles/grant.md) the `speech-sense.spaces.creator` role to your {{ yandex-cloud }} account.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Select the organization to work with {{ speechsense-name }} in or [create](../organization/operations/enable-org.md) a new one.
 
@@ -22,7 +25,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
    {% note tip %}
 
-   You can only manage a billing account if you have a [Yandex account](../iam/concepts/users/accounts.md#passport). If using {{ yandex-cloud }} through an [identity federation](../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
+   To manage a billing account, you must have a [Yandex account](../iam/concepts/users/accounts.md#passport). If using {{ yandex-cloud }} through an [identity federation](../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
 
    {% endnote %}
 

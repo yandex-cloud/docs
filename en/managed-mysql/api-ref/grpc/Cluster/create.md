@@ -270,7 +270,16 @@ Creates a cluster in a folder.
   "deletion_protection": "bool",
   "host_group_ids": [
     "string"
-  ]
+  ],
+  "maintenance_window": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_window`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_window": {
+      "day": "WeekDay",
+      "hour": "int64"
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -324,6 +333,9 @@ This option prevents unintended deletion of the cluster. ||
 || host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.mysql.v1.ConfigSpec}
@@ -1562,6 +1574,58 @@ Host backup priority ||
 Host master promotion priority ||
 |#
 
+## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow}
+
+Configuration of a maintenance window in a MySQL cluster.
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.mysql.v1.AnytimeMaintenanceWindow)**
+
+Maintenance operation can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`.
+
+The maintenance policy in effect. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow)**
+
+Maintenance operation can be scheduled on a weekly basis.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`.
+
+The maintenance policy in effect. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.mysql.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow}
+
+Weelky maintenance window settings.
+
+#|
+||Field | Description ||
+|| day | enum **WeekDay**
+
+Day of the week (in `DDD` format).
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **int64**
+
+Hour of the day in UTC (in `HH` format). ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -2323,7 +2387,7 @@ Current state of the cluster.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster is stopped.
 - `STARTING`: Cluster is starting. ||
-|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.mysql.v1.MaintenanceWindow2)**
 
 Maintenance window settings for the cluster. ||
 || planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.mysql.v1.MaintenanceOperation)**
@@ -3472,20 +3536,20 @@ Interval (in seconds) for `my_session` sampling. ||
 Interval (in seconds) for `my_statements` sampling. ||
 |#
 
-## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow}
+## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow2}
 
 Configuration of a maintenance window in a MySQL cluster.
 
 #|
 ||Field | Description ||
-|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.mysql.v1.AnytimeMaintenanceWindow)**
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.mdb.mysql.v1.AnytimeMaintenanceWindow2)**
 
 Maintenance operation can be scheduled anytime.
 
 Includes only one of the fields `anytime`, `weekly_maintenance_window`.
 
 The maintenance policy in effect. ||
-|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow)**
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow2)**
 
 Maintenance operation can be scheduled on a weekly basis.
 
@@ -3494,14 +3558,14 @@ Includes only one of the fields `anytime`, `weekly_maintenance_window`.
 The maintenance policy in effect. ||
 |#
 
-## AnytimeMaintenanceWindow {#yandex.cloud.mdb.mysql.v1.AnytimeMaintenanceWindow}
+## AnytimeMaintenanceWindow {#yandex.cloud.mdb.mysql.v1.AnytimeMaintenanceWindow2}
 
 #|
 ||Field | Description ||
 || Empty | > ||
 |#
 
-## WeeklyMaintenanceWindow {#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow}
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow2}
 
 Weelky maintenance window settings.
 

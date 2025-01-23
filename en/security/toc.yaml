@@ -25,7 +25,7 @@ items:
           Reference architecture for cloud infrastructure in isolated mode
           without internet access
         href: domains/architecture-isolated.md
-  - name: Standard for securing Yandex Cloud infrastructure 1.2
+  - name: '{{ security-standard-current-version }} infrastructure security standard'
     items:
       - name: All sections on one page
         href: standard/all.md
@@ -41,10 +41,6 @@ items:
         href: standard/encryption.md
       - name: Collecting, monitoring, and analyzing audit logs
         href: standard/audit-logs.md
-      - name: Backups
-        href: standard/backup.md
-      - name: Physical security
-        href: standard/physical-security.md
       - name: Application security
         href: standard/app-security.md
       - name: Security {{ k8s }}
@@ -67,7 +63,7 @@ items:
         href: tutorials/sa-oslogin-ansible.md
   - name: Guides
     items:
-      - name: Deleting a passport account from {{ org-full-name }}
+      - name: Deleting a Yandex account from {{ org-full-name }}
         href: operations/account-deletion.md
       - name: If you are being attacked from {{ yandex-cloud }} addresses
         href: operations/outgoing-ddos.md

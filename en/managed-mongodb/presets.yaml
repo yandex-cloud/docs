@@ -1,12 +1,13 @@
-policy: keep
-versions:
-  tf:
-    latest: '7.0'
-    str: 6.0 or 7.0
-  cli:
-    latest: '7.0'
-    str: 6.0 or 7.0
-  console:
-    latest: '7.0'
-    str: 6.0 and 7.0
-shell-link: https://www.mongodb.com/try/download/shell
+default:
+  policy: keep
+  versions:
+    tf:
+      latest: '7.0'
+      str: 6.0 or 7.0
+    cli:
+      latest: '7.0'
+      str: 6.0 or 7.0
+    console:
+      latest: '7.0'
+      str: 6.0 and 7.0
+  shell-link: https://www.mongodb.com/try/download/shell

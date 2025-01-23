@@ -5,6 +5,57 @@ description: This section contains {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+## Q4 2024 {#q4-2024}
+
+* Added new events for the services:
+
+  {% cut "{{ org-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `AttachRegion` | Connecting a region
+
+  {% endcut %}
+
+  {% cut "{{ ml-platform-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `ActivateDataset` | Activating a dataset
+  `ActivateDocker` | Applying a Docker image to a project
+  `CreateDataset` | Creating a dataset
+  `CreateDocker` | Creating a Docker image
+  `DeactivateDataset` | Deactivating a dataset
+  `DeleteDataset` | Deleting a dataset
+  `DeleteDocker` | Deleting a Docker image
+
+  {% endcut %}
+
+  {% cut "{{ mos-short-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `DeleteBackup` | Deleting backups
+
+  {% endcut %}
+
+  {% cut "{{ objstorage-name }} " %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `PresignURLCreate` | Creating a signed link
+
+  {% endcut %}
+
+
 ## Q3 2024 {#q3-2024}
 
 * Added the option of filtering by event type. For more information, see [Trail settings](./concepts/trail.md#trail-settings).
@@ -54,9 +105,9 @@ description: This section contains {{ at-name }} release notes.
   --- | ---
   `workload.CreateFederatedCredential` | Creating [a link](../iam/concepts/workload-identity.md#federated-credentials) in a service account federation
   `workload.DeleteFederatedCredential` | Deleting a link from a service account federation
-  `workload.oidc.CreateFederation` | Creating a [service account federation](../iam/concepts/workload-identity.md)
-  `workload.oidc.DeleteFederation` | Deleting a service account federation
-  `workload.oidc.UpdateFederation` | Updating a service account federation
+  `workload.oidc.CreateFederation` | Creating a [workload identity federation](../iam/concepts/workload-identity.md)
+  `workload.oidc.DeleteFederation` | Deleting a workload identity federation
+  `workload.oidc.UpdateFederation` | Updating a workload identity federation
 
   [Data events](./concepts/format-data-plane.md):
 
@@ -139,7 +190,7 @@ description: This section contains {{ at-name }} release notes.
 
   Event name | Description
   --- | ---
-  `ComputeNodeAccess` | Connecting the Access Transparency [module](../security-deck/concepts/access-transparency.md) to the Data Proc [subcluster](../data-proc/concepts/index.md#resources)
+  `ComputeNodeAccess` | Connecting an Access Transparency [module](../security-deck/concepts/access-transparency.md) to a Data Proc [subcluster](../data-proc/concepts/index.md#resources)
   `MDBClusterAccess` | Connecting the Access Transparency module to the database cluster
 
   {% endcut %}
@@ -164,9 +215,9 @@ description: This section contains {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `ArlMatchedRequest` | Request matching the ARL rules
-  `WafMatchedExclusionRule` | Triggered WAF exclusion rule
-  `WafMatchedRule` | Triggered WAF rule
+  `ArlMatchedRequest` | Request according to the ARL rules
+  `WafMatchedExclusionRule` | Applied WAF exclusion rule
+  `WafMatchedRule` | Applied WAF rule
 
   {% endcut %}
 
@@ -206,7 +257,7 @@ description: This section contains {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `InitResource` | Initializing VM connection to {{ backup-name }}
+  `InitResource` | Initializing a VM connection to {{ backup-name }}
   `UpdateResource`| Updating the status of VM connection to {{ backup-name }}
 
   {% endcut %}
@@ -234,7 +285,7 @@ description: This section contains {{ at-name }} release notes.
   {% endcut %}
 
   {% cut "{{ ml-platform-name }}" %}
- 
+
   [Management events](./concepts/format.md):
 
   Event | Description
@@ -328,7 +379,7 @@ description: This section contains {{ at-name }} release notes.
   `CancelSubscriptionAutoRenewal` | Canceling automatic subscription renewal
 
   {% endcut %}
-  
+
   {% cut "{{ speechsense-name }}" %}
 
   [Management events](./concepts/format.md):

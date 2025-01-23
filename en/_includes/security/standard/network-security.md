@@ -220,7 +220,7 @@ We recommend that you only allow access to your cloud infrastructure through con
      done
      ```
 
-  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled; if the `SG_ID` is not empty, proceed to **Guides and solutions to use**.
+  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not empty, proceed to **Guides and solutions to use**.
 
 {% endlist %}
 
@@ -230,52 +230,71 @@ We recommend that you only allow access to your cloud infrastructure through con
 
 #### 2.5 DDoS protection is enabled {#ddos-protection}
 
-{{ yandex-cloud }} has basic and extended DDoS protection. Make sure to use at least basic protection.
+{{ yandex-cloud }} provides basic and advanced DDoS protection as well as protection at the application level with {{ sws-full-name }}. Make sure to use at least basic protection.
 
+* [{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}. In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
 * [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Qrator Labs. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
-* [Advanced](/services/ddos-protection) DDoS protection operates at Levels 3 and 7 of the OSI model. You can also follow load and attack parameters and enable Solidwall WAF in your Qrator Labs account. To enable advanced protection, contact your manager or technical support.
+* [Advanced](/services/ddos-protection) DDoS protection operates at Levels 3, 4, and 7 of the OSI model. You can also follow load and attack parameters and enable Solidwall WAF in your Qrator Labs account. To enable advanced protection, contact your manager or technical support.
 
 {% list tabs group=instructions %}
 
-- Performing a check from the management console (basic protection) {#console}
+- Performing a check in the management console {#console}
 
-  1. Open the {{ yandex-cloud }} console in your browser.
-  1. Open all created networks.
-  1. Go to **IP addresses**.
-  1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+  * To make sure you are using DDoS protection at the application level:
 
-- Running a manual check (extended protection) {#manual}
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
+      1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+      1. Make sure you have security profiles created.
+      1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
 
-  Contact your account manager to find out if you have extended DDoS protection activated.
+  * To make sure you are using basic DDoS protection:
+
+      1. In the [management console]({{ link-console-main }}), open all the created networks.
+      1. Go to **IP addresses**.
+      1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+
+- Manual check {#manual}
+
+  Contact your account manager to make sure you have advanced DDoS protection activated. 
 
 - Performing a check via the CLI {#cli}
 
-  1. See what organizations are available to you and write down the `ID` you need:
+  * To make sure you are using DDoS protection at the application level, run this command:
 
-     ```bash
-     yc organization-manager organization list
-     ```
+      ```bash
+      yc smartwebsecurity security-profile list
+      ```
 
-  1. Run the command below to search for IP addresses with no DDOS protection:
+      If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
 
-     ```bash
-     export ORG_ID=<organization ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do echo "Address_ID: " && yc vpc address list --folder-id=$FOLDER_ID \
-     --format=json | jq -r '.[] | select(.external_ipv4_address.requirements.ddos_protection_provider=="qrator" | not)' | jq -r '.id' \
-     && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
-     done;
-     done
-     ```
+  * To make sure you are using basic DDoS protection:
 
-  1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled; otherwise, proceed to **Guides and solutions to use**.
+      1. See what organizations are available to you and write down the `ID` you need:
+
+           ```bash
+           yc organization-manager organization list
+           ```
+
+        1. Run the command below to search for IP addresses with no DDOS protection:
+
+           ```bash
+           export ORG_ID=<organization ID>
+           for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+           do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
+           do echo "Address_ID: " && yc vpc address list --folder-id=$FOLDER_ID \
+           --format=json | jq -r '.[] | select(.external_ipv4_address.requirements.ddos_protection_provider=="qrator" | not)' | jq -r '.id' \
+           && echo "FOLDER_ID: " $FOLDER_ID && echo "-----"
+           done;
+           done
+           ```
+
+        1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled; otherwise, proceed to **Guides and solutions to use**.
 
 {% endlist %}
 
 **Guides and solutions to use:**
 
-
+* [How to create a security profile in {{ sws-name }}](../../../smartwebsecurity/operations/profile-create.md)
 * All [materials](../../../vpc/ddos-protection/index.md) about DDoS protection in {{ yandex-cloud }}.
 
 #### 2.6 Protected remote access is used {#secure-access}
@@ -376,7 +395,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty value is set in `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled; otherwise, proceed to **Guides and solutions to use**.
+  1. If an empty value is set in `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
   1. Run the command below to see if there is Egress NAT (NAT gateway):
 
      ```bash
@@ -388,7 +407,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled; otherwise, proceed to the **Guides and solutions to use**.
+  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to Guides and solutions to use.
   1. Run the command below to see if there is a NAT instance:
 
      ```bash

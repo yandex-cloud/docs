@@ -1,3 +1,8 @@
+---
+title: Deleting user data
+description: In this article, you will learn about deleting user data.
+---
+
 # Deleting user data
 
 
@@ -32,8 +37,8 @@ Records are permanently deleted once the 12-month period expires.
 
 When a cloud is [deleted](../../resource-manager/operations/cloud/delete.md):
 
-1. Active virtual machines and other resources are stopped, but the data is not deleted. You have 60 days to restore the cloud and existing resources.
-1. If the cloud is not restored within 60 days, resources from every service are marked for deletion and then deleted within 72 hours.
+1. Active virtual machines and other resources are stopped, but the data is not deleted. You have 60 days to restore the cloud and resources.
+2. If the cloud is not restored within 60 days, resources from every service are marked for deletion and then deleted within 72 hours.
 
 When a contract is terminated, all user's clouds and resources are immediately marked for deletion and deleted within 72 hours.
 

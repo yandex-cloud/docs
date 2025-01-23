@@ -18,3 +18,5 @@ description: Various use cases for data storage and recovery in {{ yandex-cloud 
 * [Deploying the GlusterFS parallel file system in high availability mode](ha-regional-glusterfs.md)
 * [Deploying the GlusterFS parallel file system in high performance mode](ha-regional-glusterfs-high-performance.md)
 * [Linking a {{ backup-full-name }} policy to a VM automatically](vm-with-backup-policy/index.md)
+* [{#T}](replicate-logs-to-storage-via-data-streams.md)
+* [{#T}](replicate-logs-to-storage.md)

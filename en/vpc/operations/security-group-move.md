@@ -12,7 +12,7 @@ description: Follow this guide to move a security group to a different folder.
   To move a [security group](../concepts/security-groups.md) to a different folder:
 
   1. In the [management console]({{ link-console-main }}), go to the folder where the security group is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the security group you need to move and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. Select the destination folder from the drop-down list.

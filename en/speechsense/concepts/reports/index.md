@@ -1,3 +1,8 @@
+---
+title: Reports in {{ speechsense-full-name }}
+description: In this article, you will learn about report types in {{ speechsense-name }}.
+---
+
 # Reports in {{ speechsense-name }}
 
 {{ speechsense-name }} supports the following types of reports:

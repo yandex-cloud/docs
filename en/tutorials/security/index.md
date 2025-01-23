@@ -1,3 +1,8 @@
+---
+title: Security guides
+description: Various security use cases in {{ yandex-cloud }}.
+---
+
 # Security guides
 
 * [Creating an L7 load balancer with DDoS protection](alb-with-ddos-protection/index.md)
@@ -12,3 +17,29 @@
 * [{#T}](audit-trails-events-to-kuma.md)
 * [{#T}](wlif-github-integration.md)
 * [{#T}](wlif-gitlab-integration.md)
+* [{#T}](coi-fluent-bit-logging.md)
+* [{#T}](../container-infrastructure/k8s-fluent-bit-logging.md)
+* [{#T}](balancer-with-sws-profile.md)
+
+## {{ captcha-full-name }} use cases {#smartcaptcha}
+
+* [{#T}](mobile-app/website.md)
+* [{#T}](mobile-app/android/quickstart-android.md)
+* [{#T}](mobile-app/android/invisible-captcha-android.md)
+* [{#T}](mobile-app/android/quickstart-android-flutter.md)
+* [{#T}](mobile-app/ios/quickstart-ios.md)
+* [{#T}](../container-infrastructure/kubernetes-lockbox-secrets.md)
+* [{#T}](../container-infrastructure/kms-k8s.md)
+* [{#T}](../container-infrastructure/sign-cr-with-cosign.md)
+* [{#T}](terraform-key.md)
+* [{#T}](terraform-secret.md)
+* [{#T}](vault-secret.md)
+
+## Data encryption {#encrypt}
+
+* [{#T}](encrypt/index.md)
+* [{#T}](encrypt/cli-api.md)
+* [{#T}](encrypt/sdk.md)
+* [{#T}](encrypt/aws-encryption-sdk.md)
+* [{#T}](encrypt/google-tink.md)
+* [{#T}](wlif-github-integration.md)

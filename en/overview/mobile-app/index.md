@@ -1,6 +1,11 @@
-# Mobile app {{ yandex-cloud }}
+---
+title: '{{ yandex-cloud }} mobile app'
+description: In this article, you will learn about the {{ yandex-cloud }} mobile app.
+---
 
-With the {{ yandex-cloud }} mobile app, you can:
+# {{ yandex-cloud }} mobile app
+
+With the {{ yandex-cloud }} mobile app, you can: 
 * View information about your resources.
 * Manage funds in your personal account: check the balance, view details, and top up your account.
 * Monitor failures or changes in the resource status.
@@ -19,15 +24,15 @@ The mobile app only runs on smartphones and is available for users of the follow
 
 - Android
 
-   Use {{ yandex-cloud }} for Android devices:
-   * **Required OS version:** 8 or higher.
-   * **Download link:** [Google Play]({{ link-app-android }}).
+  Use {{ yandex-cloud }} for Android devices:
+  * **Required OS version:** 8 or higher
+  * **Download link:** [Google Play]({{ link-app-android }})
 
 - iOS
 
-   Use {{ yandex-cloud }} for iOS devices:
-   * **Required OS version:** 11 or higher.
-   * **Download link:** [App Store]({{ link-app-ios }}).
+  Use {{ yandex-cloud }} for iOS devices:
+  * **Required OS version:** 11 or higher
+  * **Download link:** [App Store]({{ link-app-ios }})
 
 {% endlist %}
 

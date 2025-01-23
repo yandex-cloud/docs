@@ -1,3 +1,8 @@
+---
+title: Data storage subsystem (Storage)
+description: This article compares fault tolerance, disaster recovery, and backup models in VMware Cloud Director and {{ yandex-cloud }}. You will also learn about the different ways to approach data storage.
+---
+
 # Data storage subsystem (Storage)
 
 ## Fault tolerance and disaster recovery models {#disaster-recovery-models}
@@ -14,7 +19,7 @@ DR goes beyond high availability and does not depend on the data center or any o
 
 DR also dictates that all components should be independent to avoid situations where disaster recovery is impossible after a system or human error. Therefore, a cluster spread across multiple sites or any similar implementation are not disaster recovery solutions; they are more likely to fall within the scope of business continuity practices.
 
-vCloud Director and {{ yandex-cloud }} ensure high fault tolerance and have similar architecture. However, unlike VMware, using geographic redundancy in {{ yandex-cloud }} does not require additional modules or settings.
+vCloud Director and {{ yandex-cloud }} provide a high level of fault tolerance and are similar in their architecture, but {{ yandex-cloud }} does not require additional modules or configuration to use geo-redundancy, the way it is implemented in VMware.
 
 ## Comparing fault tolerance, disaster recovery, and backup models {#model-comparison}
 
@@ -24,10 +29,10 @@ vCloud Director and {{ yandex-cloud }} ensure high fault tolerance and have simi
 || **VMware Cloud Director** | **{{ yandex-cloud }}** ||
 || In VMware, a datastore acts as a shared storage for a cluster. It is usually located in a data storage network or shared file storage accessible to all cluster nodes (ESXi hypervisors managed by vSphere vCenter).
 
-In case a node fails, the VM running on this node will immediately restart on another node without losing time to transferring data, as the VM is located in a storage accessible to all cluster nodes.
+If a node fails, the VM running on it will immediately restart on another node without losing time to transfer data, being located in a storage accessible to all cluster nodes.
 
-Therefore, a group of ESXi hypervisors is not a HA solution, because it lacks an orchestrator to automatically select a node to run the load on. It is vCenter that provides dynamic load balancing across cluster nodes.
-| {{ yandex-cloud }} network and server hardware is deployed in [three availability zones](../../concepts/geo-scope.md). These host the platform's basic infrastructure: virtual networks, VMs, and network block storages.
+An ESXi hypervisor group is, therefore, not an HA solution because it lacks an orchestrator to automatically select a node to run the load on. It is vCenter that provides dynamic load balancing across cluster nodes. 
+| {{ yandex-cloud }} network and server hardware is deployed in three [availability zones](../../concepts/geo-scope.md). These host the platform's basic infrastructure: virtual networks, VMs, and network block storages.
 
 Each availability zone is an infrastructure independent of other zones for all basic components: networks, storage resources, and computing resources.
 
@@ -42,7 +47,7 @@ VM disks are created and operate in the Network Block Storage (NBS) subsystem th
 
 #|
 || **VMware Cloud Director** | **{{ yandex-cloud }}** ||
-|| In VMware, a common disaster recovery solution is an independent vSphere cluster utilizing separate storage resources for a datastore. In this scenario, the disaster recovery data center is entirely independent and does not get information about the load and state of the production one.
+|| In VMware, disaster recovery is commonly based on an independent vSphere cluster with separate storage resources for a datastore. In this scenario, the disaster recovery data center is entirely independent and does not get information about the load and state of the production one.
 
 Data synchronization between datastores happens at the storage system level and is usually asynchronous. Additional solutions integrated with vCenter can act as an orchestrator that determines the logic of using either the production or the disaster recovery site.
 
@@ -50,8 +55,8 @@ Most often, for backup purposes, one will use Veeam DR or vCloud Availability in
 
 A common business continuity solution is a stretched metro cluster with synchronous data replication between the sites at the storage system level. Synchronous data replication has a number of limitations, for example, on geographic distribution between the sites, as longer distances increase storage system latency.
 
-VMware solutions for disaster recovery are typically used for sites located closely one to another to ensure synchronous replication of storage system data with acceptable latency of around 10 ms RTT, as in the case of metro clusters. For this reason, such solutions are used less often, since, in the cloud-native approach, it would be more feasible to delegate the logic of site failover to an application. A microservice architecture and container technologies, such as Kubernetes, solve this task, which makes solutions based on metro clusters with synchronous data replication inappropriate for most types of load.
-| DR in {{ yandex-cloud }} can act as an out-of-the-box solution for most cloud services. Availability zones do not share any resources, while data replication methods depend on the cloud services in use.
+VMware solutions for disaster recovery are typically used for sites located closely one to another to ensure synchronous replication of storage system data with acceptable latency of around 10 ms RTT, as in the case of metro clusters. For this reason, such solutions are used less often, since, in the cloud-native approach, it would be more feasible to delegate the logic of site failover to an application. A microservice architecture and container technologies, such as Kubernetes, solve this task, which makes solutions based on metro clusters with synchronous data replication inappropriate for most types of load. 
+| {{ yandex-cloud }}'s DR can be viewed as an affordable out-of-the-box solution for most cloud services. Availability zones do not share any resources, while data replication methods depend on the cloud services in use.
 
 For {{ compute-name }}, you can create a VM snapshot or image stored in an object storage and available in all zones and use it to deploy a VM.
 
@@ -80,16 +85,16 @@ Agentless backup scenarios are also possible and involve installing backup softw
 
 Backup system providers can use both approaches.
 
-VMware does not recommend using disk snapshots as the only backup feature; this may undermine data integrity, since a VM snapshot is associated with the disk by means of the VM itself.
+VMware does not recommend using disk snapshots as the only backup feature; this may undermine data integrity, since a VM snapshot is associated with the disk by means of the VM itself. 
 | {{ yandex-cloud }} provides the following solutions for reliable data storage:
 
-* {{ objstorage-short-name }}: Data replication, versioning, and object locks.
+  * {{ objstorage-short-name }}: Data replication, versioning, object locks.
 
-* Managed database services: Backup tools native to each DBMS, such as [PostgreSQL](../../../managed-postgresql/concepts/backup.md).
+  * Managed database services: Backup tools native to each DBMS, e.g., [PostgreSQL](../../../managed-postgresql/concepts/backup.md).
 
-* {{ compute-name }}: Dedicated {{ backup-full-name }} service.
+  * {{ compute-name }}: A {{ backup-full-name }} service.
 
-[{{ backup-full-name }}](https://yandex.cloud/ru/services/backup) works on an agent-based backup technology. Backup and recovery is available for [{{ compute-name }} VMs](../../../compute/concepts/vm.md) with [supported operating systems](../../../backup/concepts/vm-connection.md#os).
+[{{ backup-full-name }}](https://yandex.cloud/ru/services/backup) uses an agent-based backup technology. Backup and recovery is available for [{{ compute-name }}](../../../compute/concepts/vm.md) VMs with [supported operating systems](../../../backup/concepts/vm-connection.md#os).
 
 You can install a backup agent on a VM guest OS when creating a VM or after deploying it manually.
 
@@ -160,12 +165,12 @@ Managing disk performance level allows you to avoid _noisy neighbors_ in cases w
 #### Features of NBS disks {#ability-nbs}
 
 1. [Disk encryption](../../../compute/concepts/encryption.md):
-
+   
    You can encrypt VM disks with user-managed encryption keys. By default, all data on HDDs and SSDs is encrypted at the storage database level using a system key. In addition, cloud users can encrypt disks with custom keys. This way you can control access to encrypted data: create custom keys for specific users or tasks or promptly deactivate or delete certain keys.
 
-1. [Local SSDs](../../../compute/concepts/dedicated-host.md#resource-disks):
+1. [Local-SSDs](../../../compute/concepts/dedicated-host.md#resource-disks):
 
-   Local disks on dedicated hosts are provided directly to VMs placed on such a host. Such disks do not rely on the virtual network for performance. Local disks do not ensure hardware fault tolerance, which means it is the user that becomes responsible for preventing data loss; this can be arranged by using data mirroring (mdadm) or copying data at the application level.
+   Local disks on dedicated hosts are provided directly to the VMs residing on such a host. Such disks do not rely on the virtual network for performance. Local disks do not ensure hardware fault tolerance, which means it is the user that becomes responsible for preventing data loss; this can be arranged by using data mirroring (mdadm) or copying data at the application level.
 
 1. [Disk snapshots](../../../compute/concepts/snapshot.md):
 

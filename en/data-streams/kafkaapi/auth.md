@@ -1,3 +1,8 @@
+---
+title: Authenticating and connecting to a database using the Kafka API
+description: Follow this guide to authenticate and connect to a database using the Kafka API.
+---
+
 # Authenticating and connecting to a database using the Kafka API
 
 ## Endpoint {#endpoint}

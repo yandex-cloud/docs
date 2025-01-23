@@ -81,6 +81,8 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
+        href: tutorials/api-gw-sws-integration.md
       - name: >-
           Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
           защиты от DDoS-атак с помощью {{ sws-name }}

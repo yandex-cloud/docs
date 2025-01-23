@@ -1,3 +1,8 @@
+---
+title: Editing a dictionary
+description: Follow this guide to edit a space or project dictionary.
+---
+
 # Editing a dictionary
 
 When working with a space or project [dictionary](../../concepts/dictionaries.md), you can:

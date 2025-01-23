@@ -1,0 +1,1 @@
+{% include [alb-ingress-controller-log-options](../../_tutorials/k8s/alb-ingress-controller-log-options.md) %}

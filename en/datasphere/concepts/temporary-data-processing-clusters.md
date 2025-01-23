@@ -1,3 +1,8 @@
+---
+title: Specifics of working with temporary {{ dataproc-full-name }} clusters
+description: In this article, you will learn about working with temporary {{ dataproc-name }} clusters, the Spark connector, and {{ dataproc-name }} templates.
+---
+
 # Specifics of working with temporary {{ dataproc-name }} clusters
 
 If you have no existing {{ dataproc-full-name }} clusters or you need a cluster for a short time, use temporary {{ dataproc-name }} clusters. You can create them using the following:
@@ -29,6 +34,6 @@ To learn more about using {{ dataproc-name }} templates, see [this guide](../ope
 
 #### See also {#see-also}
 
-* [{#T}](data-processing-template.md)
-* [{#T}](../tutorials/data-processing-integration.md)
-* [{#T}](spark-connector.md)
+* [{#T}](data-processing-template.md).
+* [{#T}](../tutorials/data-processing-integration.md).
+* [{#T}](spark-connector.md).

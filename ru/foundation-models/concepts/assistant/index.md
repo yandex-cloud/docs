@@ -1,6 +1,11 @@
+---
+title: '{{ assistant-api }}'
+description: '{{ assistant-api }} — это инструмент создания AI-ассистентов.'
+---
+
 # {{ assistant-api }}
 
-_Функциональность {{ assistant-api }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md)._
+{% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}
 
 {{ assistant-api }} — это инструмент создания AI-ассистентов. С его помощью можно создать персонализированных помощников, реализовывать сценарий генеративного ответа с учетом информации из внешних источников (RAG, Retrieval Augmented Generation), а также сохранять контекст запросов к модели.
 

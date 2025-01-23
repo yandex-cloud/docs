@@ -1,11 +1,11 @@
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create an infrastructure](#deploy).
 1. [Upload the website files](#upload-files).
 1. [Run a fault tolerance test](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -38,7 +38,7 @@ To create an infrastructure using {{ TF }}:
 
     - Manually {#manual}
 
-      1. Create a folder for files.
+      1. Create a folder for the files.
       1. In the directory, create a configuration file named `load-balancer.tf`:
 
           {% cut "load-balancer.tf" %}

@@ -1,3 +1,8 @@
+---
+title: Changing a tag
+description: Follow this guide to change a project tag.
+---
+
 # Changing a tag
 
 When managing a project [tag](../../../concepts/tags.md), you can:

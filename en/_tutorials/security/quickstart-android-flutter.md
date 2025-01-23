@@ -1,4 +1,3 @@
-
 # {{ captcha-full-name }} in an Android app on Flutter
 
 [Flutter](https://ru.wikipedia.org/wiki/Flutter) is a Google framework for developing mobile applications. With Flutter, you can create Android and iOS apps from a single codebase. This simplifies development and allows you to release your products faster. Flutter is powered by [Dart](https://ru.wikipedia.org/wiki/Dart), a programming language with readily available widgets and tooling for UI development.
@@ -21,7 +20,7 @@ To create the project:
 ## Create a CAPTCHA {#create-captcha}
 
 1. [Create a CAPTCHA](../../smartcaptcha/operations/create-captcha.md).
-1. Go to **{{ ui-key.yacloud.common.overview }}** to [get the CAPTCHA keys](../../smartcaptcha/operations/get-keys.md):
+1. See the **{{ ui-key.yacloud.common.overview }}** tab to [get the CAPTCHA keys](../../smartcaptcha/operations/get-keys.md):
    * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}**: To load the page with CAPTCHA.
    * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}**: To get the CAPTCHA challenge results.
 
@@ -305,7 +304,7 @@ This guide assumes that you are using your PC to complete it.
          result = "Not Done";  // resetting status on initial page load
        });
        // uploading CAPTCHA
-       _controller.loadRequest(Uri.parse('<server_application_URL>:5000/captcha?sitekey=<client_key>'));
+       _controller.loadRequest(Uri.parse('<server_application_URL>:5000/captcha?sitekey=<client_key>'));  
        // replace the placeholder with the obtained client key
      }
 
@@ -316,7 +315,7 @@ This guide assumes that you are using your PC to complete it.
      }
 
      Future<void> _sendTokenToServer(String token) async {
-       const String serverValidationUrl = '<server_application_URL>:5000/validate-captcha';
+       const String serverValidationUrl = '<server_application_URL>:5000/validate-captcha';  
        // replace the placeholder with the obtained client key
 
        try {

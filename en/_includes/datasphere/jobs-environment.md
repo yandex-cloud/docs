@@ -1,5 +1,5 @@
 {% note info %}
 
-By default, {{ ml-platform-name }} uses the conda package manager with pre-installed Python 3.10 to run jobs. To reduce environment migration time, use the same Python version for your jobs.
+To run {{ ml-platform-name }} jobs, use [venv](https://docs.python.org/3/tutorial/venv.html). The supported Python versions are 3.8–3.12. 
 
 {% endnote %}

@@ -14,19 +14,19 @@ items:
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
       - name: >-
-          Migrating services from a NLB to an L7 ALB to for DDoS protection
-          using {{ sws-name }}
+          Migrating services from a NLB to an L7 ALB for DDoS protection using
+          {{ sws-name }}
         items:
           - name: Overview
             href: security/migration-from-nlb-to-alb/index.md
           - name: NLB with target resources from VMs
             href: security/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
-          - name: NLB with target resources from an instance group
+          - name: NLB with target resources from a VM group
             href: >-
               security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
           - name: NLB with target resources from a {{ managed-k8s-name }} cluster
             href: security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
-          - name: NLB as a target resource for an ALB
+          - name: NLB as target resource for ALB
             href: security/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
       - name: Terminating TLS connections
         items:
@@ -60,7 +60,41 @@ items:
             href: security/protected-access-to-content/terraform.md
       - name: Uploading audit logs to SIEM KUMA
         href: security/audit-trails-events-to-kuma.md
-      - name: Integrations of service account identity federations
+      - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
+        href: security/coi-fluent-bit-logging.md
+      - name: Adding an HTML page to work with {{ captcha-name }}
+        href: security/mobile-app/website.md
+      - name: Creating an L7 load balancer with a security profile
+        href: security/balancer-with-sws-profile.md
+      - name: '{{ captcha-name }} use cases'
+        items:
+          - name: CAPTCHA in Android apps
+            href: security/mobile-app/android/quickstart-android.md
+          - name: Invisible CAPTCHA in Android apps
+            href: security/mobile-app/android/invisible-captcha-android.md
+          - name: CAPTCHA in an Android app on Flutter
+            href: security/mobile-app/android/quickstart-android-flutter.md
+          - name: CAPTCHA in iOS apps
+            href: security/mobile-app/ios/quickstart-ios.md
+      - name: Data encryption
+        items:
+          - name: Which encryption method should I choose?
+            href: security/encrypt/index.md
+          - name: Encrypting data using the {{ yandex-cloud }} CLI and API
+            href: security/encrypt/cli-api.md
+          - name: Encrypting data using the Yandex Cloud SDK
+            href: security/encrypt/sdk.md
+          - name: Encrypting data using the AWS Encryption SDK
+            href: security/encrypt/aws-encryption-sdk.md
+          - name: Encrypting data using Google Tink
+            href: security/encrypt/google-tink.md
+      - name: Managing KMS keys with {{ TF-full }}
+        href: security/terraform-key.md
+      - name: Encrypting secrets in {{ TF-full }}
+        href: security/terraform-secret.md
+      - name: Auto Unseal in Hashicorp Vault
+        href: security/vault-secret.md
+      - name: Integrations of workload identity federations
         items:
           - name: GitHub
             href: security/wlif-github-integration.md
@@ -92,15 +126,15 @@ items:
         href: archive/object-storage-cloudberry.md
       - name: Backup to {{ objstorage-name }} via Duplicati
         href: archive/object-storage-duplicati.md
-      - name: Backup to {{ objstorage-name }} via Bacula
+      - name: Backing up to {{ objstorage-name }} with Bacula
         href: archive/backup-with-bacula.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
       - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
         href: archive/kubernetes-backup.md
-      - name: Deploying the GlusterFS parallel file system in high availability mode
+      - name: Deploying GlusterFS in high availability mode
         href: archive/ha-regional-glusterfs.md
-      - name: Deploying the GlusterFS parallel file system in high performance mode
+      - name: Deploying GlusterFS in high performance mode
         href: archive/ha-regional-glusterfs-high-performance.md
       - name: Linking a {{ backup-name }} policy to a VM automatically
         items:
@@ -110,6 +144,10 @@ items:
             href: archive/vm-with-backup-policy/console.md
           - name: '{{ TF }}'
             href: archive/vm-with-backup-policy/terraform.md
+      - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+        href: archive/replicate-logs-to-storage-via-data-streams.md
+      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+        href: archive/replicate-logs-to-storage.md
   - name: Development and testing
     items:
       - name: All tutorials
@@ -130,8 +168,6 @@ items:
         href: testing/hpc-on-preemptible.md
       - name: Load testing a gRPC service
         href: testing/loadtesting-grpc.md
-      - name: Deploying and load testing a gRPC service with scaling
-        href: testing/loadtesting-grpc-autoscaling.md
       - name: Fixed-load HTTPS testing with Phantom
         href: testing/loadtesting-https-phantom.md
       - name: Step-load HTTPS testing with Pandora
@@ -198,15 +234,13 @@ items:
             href: infrastructure-management/autoscale-monitoring.md
           - name: Updating an instance group under load
             href: infrastructure-management/updating-under-load.md
-          - name: >-
-              Creating a trigger for budgets that invokes a function to stop VM
-              instances
+          - name: Creating a budget trigger that invokes a function to stop a VM
             href: infrastructure-management/serverless-trigger-budget-vm.md
           - name: Deploying a fault-tolerant architecture with preemptible VMs
             href: infrastructure/nodejs-cron-restart-vm.md
           - name: >-
-              Creating a trigger that invokes a function to stop VM instances
-              and send a Telegram notification
+              Creating a trigger that invokes a function to stop a VM and send a
+              Telegram notification
             href: infrastructure-management/serverless-trigger-budget-queue-vm-tg.md
       - name: Tools
         items:
@@ -232,9 +266,13 @@ items:
                 href: infrastructure-management/run-docker-on-vm/console.md
               - name: '{{ TF }}'
                 href: infrastructure-management/run-docker-on-vm/terraform.md
+          - name: >-
+              Transferring logs through {{ unified-agent-short-name }} HTTP
+              input to {{ cloud-logging-name }}
+            href: infrastructure-management/ua-http-logging.md
       - name: Network
         items:
-          - name: Configuring clock synchronization using NTP
+          - name: Configuring time synchronization using NTP
             href: infrastructure-management/ntp.md
           - name: DHCP settings for working with a corporate DNS server
             href: routing/dhcp-options.md
@@ -278,6 +316,38 @@ items:
             href: infrastructure-management/dns-integration.md
           - name: Creating an ACME resolver webhook for responses to DNS01 checks
             href: infrastructure-management/cert-manager-webhook.md
+  - name: Container infrastructure
+    items:
+      - name: All tutorials
+        href: container-infrastructure/index.md
+      - name: >-
+          Deploying and load testing a gRPC service with scaling in {{
+          managed-k8s-name }}
+        href: container-infrastructure/loadtesting-grpc-autoscaling.md
+      - name: Setting up Gateway API in {{ managed-k8s-name }}
+        href: container-infrastructure/gateway-api.md
+      - name: >-
+          Installing an NGINX Ingress controller with a {{
+          certificate-manager-name }} certificate
+        href: container-infrastructure/nginx-ingress-certificate-manager.md
+      - name: Setting up the {{ alb-name }} Ingress controller
+        href: container-infrastructure/alb-ingress-controller.md
+      - name: Logging settings for {{ alb-name }} Ingress controllers
+        href: container-infrastructure/alb-ingress-controller-log-options.md
+      - name: >-
+          Health checking your applications in a {{ managed-k8s-name }} cluster
+          with the {{ alb-name }} Ingress controller
+        href: container-infrastructure/custom-health-checks.md
+      - name: >-
+          Transferring {{ managed-k8s-name }} cluster logs to {{
+          cloud-logging-name }}
+        href: container-infrastructure/k8s-fluent-bit-logging.md
+      - name: Encrypting secrets in {{ managed-k8s-name }}
+        href: container-infrastructure/kms-k8s.md
+      - name: Syncing {{ lockbox-name }} and {{ managed-k8s-name }} secrets
+        href: container-infrastructure/kubernetes-lockbox-secrets.md
+      - name: Signing and verifying Docker images in {{ managed-k8s-name }}
+        href: container-infrastructure/sign-cr-with-cosign.md
   - name: Application solutions
     items:
       - name: All tutorials
@@ -292,7 +362,7 @@ items:
                 href: web/static/console.md
               - name: Terraform
                 href: web/static/terraform.md
-          - name: Website on a LAMP or LEMP stack
+          - name: Website based on LAMP or LEMP stack
             items:
               - name: Overview
                 href: web/lamp-lemp/index.md
@@ -308,7 +378,7 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Creating a website in WordPress
+          - name: Creating a WordPress website
             items:
               - name: Overview
                 href: web/wordpress/index.md
@@ -328,7 +398,7 @@ items:
               Transferring a WordPress website from a different hosting provider
               to {{ yandex-cloud }}
             href: web/wordpress-transfer.md
-          - name: Building a 1C-Bitrix website
+          - name: Creating a 1C-Bitrix website
             items:
               - name: Overview
                 href: web/bitrix-website/index.md

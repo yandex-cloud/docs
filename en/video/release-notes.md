@@ -5,6 +5,11 @@ description: This section contains {{ video-name }} release notes.
 
 # {{ video-full-name }} release notes
 
+## November – December 2024 {#nov-dec-2024}
+
+* Implemented [channel](concepts/index.md#channels) search by name on the {{ video-name }} [home page]({{ link-video-main }}).
+* You can now share a video via a [temporary link](concepts/videos.md#temporary-link).
+
 ## October 2024 {#oct-2024}
 
 * Published video player SDK for [iOS](./sdk/ios-sdk.md).
@@ -12,7 +17,7 @@ description: This section contains {{ video-name }} release notes.
 ## September 2024 {#sep-2024}
 
 * Added support for [video](./concepts/videos.md#subtitles) [subtitle](./concepts/videos.md) uploading.
-* Published [Video player SDK for JavaScript](./sdk/javascript/index.md)
+* Published a video player SDK for [JavaScript](./sdk/javascript/index.md).
 * Added support for [REST API methods](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/video) for {{ video-name }}; published a [reference](./api-ref/).
 
 ## August 2024 {#aug-2024}

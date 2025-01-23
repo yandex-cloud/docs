@@ -1,3 +1,8 @@
+---
+title: Мониторинг состояния кластера {{ GP }} и хостов
+description: Следуя этой инструкции, вы сможете получить детальную информацию о состоянии кластера {{ mgp-name }}.
+---
+
 # Мониторинг состояния кластера {{ GP }} и хостов
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}

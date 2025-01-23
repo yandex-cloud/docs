@@ -13,29 +13,31 @@ OCR stands for optical character recognition. {{ vision-full-name }} is a comput
 {{ vision-name }} can process image recognition requests both synchronously and asynchronously.
 
 * In synchronous mode, {{ vision-name }} will process your request once it gets it and will provide you with the result in the response. This mode is good for apps that need to communicate with the user. However, you cannot use {{ vision-name }} synchronous mode to process large pieces of information.
-* In asynchronous mode, {{ vision-name}} will get your request and immediately return the operation ID you can use to get the recognition result. Recognizing text in asynchronous mode takes more time but allows processing large volumes of information in a single request. Use asynchronous mode if you do not need an urgent response.
+* In asynchronous mode, {{ vision-name}} will get your request and immediately return the operation ID you can use to get the recognition result. Recognizing text in asynchronous mode takes more time but allows processing large volumes of information in a single request. Use asynchronous mode if you do not need an urgent response. 
 
 ## Recognition models {#models}
 
 {{ vision-name }} provides various models to recognize different types of image and PDF text. In particular, there are models for normal text, multi-column text, tables, handwritten text, or [common documents](template-recognition.md), such as passport or license plate number. With a more suitable model, you get better recognition result. To specify the model you need, use the `model` field in your request.
 
 See below for the list of available recognition models:
-* `page` (default): Suitable for images with any number of text lines within a single column.
-* `page-column-sort`: Use it to recognize multi-column text.
-* `handwritten`: Use it to recognize a combination of typed and handwritten text in English or Russian.
-* `table`: Use it to recognize tables in English or Russian.
-
+  * `page` (default): Suitable for images with any number of text lines within a single column.
+  * `page-column-sort`: Use it to recognize multi-column text.
+  * `handwritten`: Use it to recognize a combination of typed and handwritten text in English or Russian.
+  * `table`: Use it to recognize tables in English or Russian.
+  
 {% include [models-templates](../../../_includes/vision/models-templates.md) %}
 
 ### Language model detection {#detect-model}
 
-For text recognition, {{ vision-name }} uses [language models](supported-languages.md) trained based on specific languages. {{ vision-name }} selects a suitable model automatically from the list you provide in your request.
+For text recognition, {{ vision-name }} uses [language models](supported-languages.md) trained based on specific languages. Most models are selected automatically from the list of languages you provide in your request. Only a single model is used each time you recognize a text. For example, if an image contains text in Chinese and Japanese, only one language will be recognized. To recognize both, send another request specifying the other language.
 
-Only a single model is used each time you recognize a text. For example, if an image contains text in Chinese and Japanese, only one language will be recognized. To recognize both, send another request specifying the other language.
+The `handwritten` and `table` models only support Russian and English. To use these models, explicitly specify one or both languages in the `languageCodes` property for the [OCR API](../../ocr/api-ref/index.md).
+
+To use models for recognizing common documents, specify the language of the [country](template-recognition.md#countries) you need.
 
 {% note tip %}
 
-If your text is in Russian and English, the [English-Russian model](supported-languages.md#engrus) works best. To use this model, specify one of these languages or both in `text_detection_config`, but do not specify any other languages.
+If your text is in Russian and English, the [English-Russian model](supported-languages.md#engrus) works best. To use this model, specify one or both of these languages in `text_detection_config` but do not specify any other languages.
 
 {% endnote %}
 
@@ -77,7 +79,7 @@ During recognition, {{ vision-full-name }} considers data about image rotation s
 
 To fix this error, do one of the following:
 
-* Change the image processor settings so that the rotation angle specified in the `exif` section is considered while viewing images.
+* Change the image processor settings to account for the rotation angle specified in the `exif` section while viewing images.
 * Remove the `Orientation` attribute from the image `exif` section or set it to `0` when providing the image to {{ vision-full-name }}.
 
 #### What's next {#what-is-next}

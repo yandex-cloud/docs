@@ -1,6 +1,7 @@
+# Signing and verifying {{ container-registry-full-name }} Docker images in {{ managed-k8s-full-name }}
 
 
-This scenario describes how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
+This scenario describes how to sign [Docker images](../../container-registry/concepts/docker-image.md) using [Cosign](https://docs.sigstore.dev/cosign/overview/) in [{{ container-registry-full-name }}](../../container-registry/) and then set up signature verification in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) using {{ kms-full-name }} keys.
 
 To sign Docker images and set up their verification:
 1. [Sign a Docker image using Cosign](#cosign).
@@ -84,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% list tabs %}
 
-- Image signature based on asymmetric keys {{ kms-full-name }}
+- Image signature based on asymmetric keys {{ kms-name }}
 
   1. Install a special Cosign build for your OS:
 
@@ -155,8 +156,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
      ```
 
      The utility will return the ID of the created signature key pair and save a public signature key to a local file. Save the key pair ID, you will need it in the next steps.
-
-     You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using a [CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md) command.
+      
+     You can always get the ID of your signature key pair in the [management console]({{ link-console-main }}) or using a [CLI command](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
   1. Sign the image in {{ container-registry-name }}:
 
      ```bash
@@ -275,7 +276,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    ```
 
    Where `--service-account-name`: Name of the service account with the {{ roles-cr-puller }} role.
-1. Install the [Kyverno](https://kyverno.io/docs/) app to the {{ managed-k8s-name }} cluster. You need it to create a policy for verifying Docker image signatures.
+1. Install the [Kyverno](https://kyverno.io/docs/) app in the {{ managed-k8s-name }} cluster. You need it to create a policy for verifying Docker image signatures.
    1. Add a repository named `kyverno`:
 
       ```bash
@@ -378,11 +379,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% note info %}
 
-      By default, when you create a policy, a signature verification request is made to the Transparency Log immutable record storage. You can disable this behavior by adding the `rekor: ignoreTlog: true` parameter to the `keys` element of the policy specification. For more information, see the [Kyverno documentation](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
+      By default, when you create a policy, a signature verification request is made to the Transparency Log immutable record storage. You can disable it by adding the `rekor: ignoreTlog: true` parameter to the `keys` element of the policy specification. For more information, see the [Kyverno documentation](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
 
       {% endnote %}
 
-   1. Run this command:
+   1. Run the following command:
 
       ```bash
       kubectl apply -f ./policy.yaml
@@ -426,7 +427,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   resource Pod/default/pod2 was blocked due to the following policies
 
   check-image:
-    check-image:
+    check-image: 
       failed to verify signature for {{ registry }}/crpsere9njsa********/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
   ```
 

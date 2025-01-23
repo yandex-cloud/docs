@@ -23,6 +23,9 @@ links:
       Deploy a basic infrastructure using convenient tools for managing cloud
       resources
     href: infrastructure/
+  - title: Container infrastructure
+    description: Deploy a container infrastructure in {{ yandex-cloud }}
+    href: container-infrastructure/
   - title: Application solutions
     description: Achieve real-life objectives using {{ yandex-cloud }} tools
     href: applied/

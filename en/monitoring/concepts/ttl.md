@@ -1,3 +1,8 @@
+---
+title: Deleting expired metrics (TTL)
+description: In this article, you will learn how to delete expired metrics (TTL).
+---
+
 # Deleting expired metrics (TTL)
 
 In {{ monitoring-full-name }}, there are two types of metrics:
@@ -14,4 +19,4 @@ Some services have special conditions:
 * For {{ managed-prometheus-name }}, there is a separate retention period [quota](../operations/prometheus/index.md#quotas-per-endpoint) for expired metrics.
 * For {{ compute-full-name }}, expired metrics are stored for 7 days. For example, if your folder hosts a VM and you delete or stop it on `August 1, 2020`, its metrics will be available in {{ monitoring-full-name }} until `August 8, 2020`.
 
-To set a shorter retention period, contact [technical support]({{ link-console-support }}).
+To set a shorter retention period, contact [support]({{ link-console-support }}).

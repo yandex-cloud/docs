@@ -22,3 +22,4 @@ description: Различные сценарии использования {{ a
 * [{#T}](deploy-app-container.md)
 * [{#T}](serverless-url-shortener.md)
 * [{#T}](data-ingestion.md)
+* [{#T}](api-gw-sws-integration.md)

@@ -136,7 +136,79 @@ items:
       - name: Dedicated mode
         href: pricing/dedicated.md
   - name: CLI reference
-    href: ../cli/cli-ref/ydb/cli-ref/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: backup
+        items:
+          - name: Overview
+            href: cli-ref/backup/index.md
+          - name: add-access-binding
+            href: cli-ref/backup/add-access-binding.md
+          - name: delete
+            href: cli-ref/backup/delete.md
+          - name: get
+            href: cli-ref/backup/get.md
+          - name: list
+            href: cli-ref/backup/list.md
+          - name: list-access-bindings
+            href: cli-ref/backup/list-access-bindings.md
+          - name: remove-access-binding
+            href: cli-ref/backup/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/backup/set-access-bindings.md
+      - name: database
+        items:
+          - name: Overview
+            href: cli-ref/database/index.md
+          - name: add-access-binding
+            href: cli-ref/database/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/database/add-labels.md
+          - name: backup
+            href: cli-ref/database/backup.md
+          - name: create
+            href: cli-ref/database/create.md
+          - name: delete
+            href: cli-ref/database/delete.md
+          - name: get
+            href: cli-ref/database/get.md
+          - name: list
+            href: cli-ref/database/list.md
+          - name: list-access-bindings
+            href: cli-ref/database/list-access-bindings.md
+          - name: move
+            href: cli-ref/database/move.md
+          - name: remove-access-binding
+            href: cli-ref/database/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/database/remove-labels.md
+          - name: restore
+            href: cli-ref/database/restore.md
+          - name: set-access-bindings
+            href: cli-ref/database/set-access-bindings.md
+          - name: start
+            href: cli-ref/database/start.md
+          - name: stop
+            href: cli-ref/database/stop.md
+          - name: update
+            href: cli-ref/database/update.md
+      - name: resource-preset
+        items:
+          - name: Overview
+            href: cli-ref/resource-preset/index.md
+          - name: get
+            href: cli-ref/resource-preset/get.md
+          - name: list
+            href: cli-ref/resource-preset/list.md
+      - name: storage-type
+        items:
+          - name: Overview
+            href: cli-ref/storage-type/index.md
+          - name: get
+            href: cli-ref/storage-type/get.md
+          - name: list
+            href: cli-ref/storage-type/list.md
   - name: Amazon DynamoDB-compatible Document API
     items:
       - name: Tools

@@ -1,3 +1,8 @@
+---
+title: Создать простого ассистента
+description: Следуя этой инструкции, вы сможете создать простого ассистента с помощью {{ assistant-api }}.
+---
+
 # Создать простого ассистента
 
 {% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}

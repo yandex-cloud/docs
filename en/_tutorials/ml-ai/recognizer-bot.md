@@ -11,9 +11,9 @@ The {{ api-gw-full-name }} API gateway will receive requests from the bot and fo
 
 To create a bot:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create resources](#prepare).
-1. [Register the Telegram bot](#bot-register).
+1. [Register your Telegram bot](#bot-register).
 1. [Create a function](#create-function).
 1. [Create an API gateway](#create-api-gateway).
 1. [Link the function and the bot](#link-bot).
@@ -197,9 +197,9 @@ The cost of Telegram bot support includes:
 
    1. Add both files to the `index.zip` archive.
 
-## Register the Telegram bot {#bot-register}
+## Register your Telegram bot {#bot-register}
 
-Register the bot in Telegram and get a token.
+Register your bot in Telegram and get a token.
 
 1. Run the [BotFather](https://t.me/BotFather) and send it the following command:
 
@@ -207,8 +207,8 @@ Register the bot in Telegram and get a token.
    /newbot
    ```
 
-1. In the `name` field, specify the name of the bot you are creating. This is the name users will see when communicating with the bot.
-1. In the `username` field, specify the username of the bot you are creating. You can use the username to search for the bot in Telegram. The username must end with `...Bot` or `..._bot`.
+1. In the `name` field, enter a name for the new bot. This is the name the bot users will see.
+1. In the `username` field, enter a username for the new bot. You can use it to locate the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
    As a result, you will get a token. Save it. You will need it later.
 
@@ -240,7 +240,7 @@ Create a function to process user actions in the chat.
         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `recognizer-bot-sa`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-          * `TELEGRAM_TOKEN`: Your Telegram bot token
+          * `TELEGRAM_TOKEN`: Your Telegram bot token.
 
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -358,7 +358,7 @@ Create a function to process user actions in the chat.
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy cloud resources.
 
@@ -387,7 +387,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `recognizer-bot-api-gw`.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
@@ -439,7 +439,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
      * `function_id`: `for-recognizer-bot` function ID.
      * `service_account_id`: `recognizer-bot-sa` service account ID.
 
-  1. Run this command:
+  1. Run the following command:
 
      ```bash
      yc serverless api-gateway create --name recognizer-bot-api-gw --spec=spec.yaml
@@ -459,7 +459,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
      created_at: "2023-09-25T16:01:48.926Z"
      name: recognizer-bot-api-gw
      status: ACTIVE
-     domain: d5d1ud9bli1e********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      log_group_id: ckgefpleo5eg********
      connectivity: {}
      log_options:
@@ -509,7 +509,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy cloud resources.
 

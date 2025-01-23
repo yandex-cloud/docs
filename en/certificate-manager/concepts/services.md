@@ -1,6 +1,6 @@
 ---
 title: Integrating {{ certificate-manager-full-name }} with {{ yandex-cloud }} services
-description: In this tutorial, you will learn in which {{ yandex-cloud }} services you can use certificates from {{ certificate-manager-name }}.
+description: In this tutorial, you will learn which {{ yandex-cloud }} services support {{ certificate-manager-name }} certificates.
 ---
 
 # Integration with {{ yandex-cloud }} services
@@ -19,12 +19,12 @@ You can also store a user certificate's public part as a [{{ lockbox-full-name }
 
 ## {{ objstorage-full-name }} {#os}
 
-If you use a bucket to host a static website, [use a {{ certificate-manager-name }} certificate](../../storage/operations/hosting/certificate.md#cert-manager) to access the website over `HTTPS`. When you change a certificate in {{ certificate-manager-name }}, it updates automatically in all the buckets that use it.
+If using a bucket to host a static website, use a {{ certificate-manager-name }} [certificate](../../storage/operations/hosting/certificate.md#cert-manager) to access the website over `HTTPS`. When you change a certificate in {{ certificate-manager-name }}, it updates automatically in all the buckets that use it.
 
 {% note warning %}
 
-* `HTTPS` access to a bucket is granted within thirty minutes of selecting the certificate.
-* Certificate changes may also take up to half an hour to apply.
+* `HTTPS` access to the bucket becomes available within thirty minutes of selecting a certificate.
+* Certificate updates may take another thirty minutes to apply.
 
 {% endnote %}
 
@@ -41,7 +41,7 @@ A certificate linked to the domain is used to provide a TLS connection.
 
 ## {{ cdn-full-name }} {#cdn}
 
-{{ cdn-full-name }} allows you to set up content delivery to your end users via a content delivery network (CDN).
+{{ cdn-full-name }} allows you to set up content delivery to your end users via a content delivery network (CDN). 
 
 To access [CDN resources](../../cdn/concepts/resource.md) over HTTPS, you can [use](../../storage/operations/hosting/certificate.md#cert-manager) certificates from {{ certificate-manager-name }}.
 

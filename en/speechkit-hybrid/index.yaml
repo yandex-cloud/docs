@@ -1,31 +1,33 @@
 title: Yandex SpeechKit Hybrid
 description:
   - >-
-    SpeechKit Hybrid are the Yandex SpeechKit technologies running in your 
-    infrastructure. SpeechKit Hybrid is built around Docker containers that are
-    great for ensuring security and meeting data management requirements.
+    SpeechKit Hybrid is the Yandex SpeechKit technology running inside your
+    infrastructure. SpeechKit Hybrid is built around Docker containers, which
+    are  great for compliance with security and data management requirements.
   - >-
     SpeechKit Hybrid is based on the same speech synthesis and recognition
-    models as SpeechKit. You can upgrade SpeechKit Hybrid to the current version
-    anytime for free.
+    models as SpeechKit.
 meta:
   title: Yandex SpeechKit Hybrid
   description: >-
-    SpeechKit Hybrid are the Yandex SpeechKit technologies running in your
+    SpeechKit Hybrid is the Yandex SpeechKit technology running inside your
     infrastructure.
 links:
+  - title: Getting started
+    description: Learn how to deploy the service on your hardware
+    href: quickstart
   - title: System requirements
-    description: Find out the system requirements for SpeechKit Hybrid
+    description: System requirements for the SpeechKit Hybrid.
     href: system-requirements
   - title: Speech synthesis
-    description: Find out how text-to-speech conversion works
+    description: Deploying text-to-speech conversion
     href: tts/
   - title: Speech recognition
-    description: Find out how speech recognition works
+    description: Deploying speech recognition
     href: stt/
   - title: Monitoring
-    description: Collection and storage of metrics
+    description: Collecting and storing metrics
     href: monitoring
-  - title: Authentication in the API
-    description: Find out how to authenticate
+  - title: Using the API
+    description: Learn about API authentication and review the API references
     href: auth

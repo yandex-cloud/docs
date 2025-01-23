@@ -3864,7 +3864,16 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
   "deletionProtection": "boolean",
   "hostGroupIds": [
     "string"
-  ]
+  ],
+  "maintenanceWindow": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": "object",
+    "weeklyMaintenanceWindow": {
+      "day": "string",
+      "hour": "string"
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -3916,6 +3925,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || hostGroupIds[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.postgresql.v1.ConfigSpec}
@@ -14030,6 +14042,51 @@ in milliseconds. ||
 || effectiveCacheSize | **string** (int64) ||
 |#
 
+## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}
+
+A maintenance window settings.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operation can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+
+The maintenance policy in effect. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow)**
+
+Maintenance operation can be scheduled on a weekly basis.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+
+The maintenance policy in effect. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow}
+
+Weelky maintenance window settings.
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+Day of the week (in `DDD` format).
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC (in `HH` format). ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -22068,7 +22125,7 @@ Current state of the cluster.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster stopped.
 - `STARTING`: Cluster is starting. ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow2)**
 
 Maintenance window for the cluster. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.postgresql.v1.MaintenanceOperation)**
@@ -28945,7 +29002,7 @@ Threshold of storage usage (in percent) that triggers immediate automatic scalin
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
 |#
 
-## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}
+## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow2}
 
 A maintenance window settings.
 
@@ -28958,7 +29015,7 @@ Maintenance operation can be scheduled anytime.
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
 
 The maintenance policy in effect. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow)**
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow2)**
 
 Maintenance operation can be scheduled on a weekly basis.
 
@@ -28967,7 +29024,7 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
 The maintenance policy in effect. ||
 |#
 
-## WeeklyMaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow}
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow2}
 
 Weelky maintenance window settings.
 

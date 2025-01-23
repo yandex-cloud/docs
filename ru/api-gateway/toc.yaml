@@ -155,6 +155,8 @@ items:
         href: tutorials/serverless-url-shortener.md
       - name: Ввод данных в системы хранения
         href: tutorials/data-ingestion.md
+      - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
+        href: tutorials/api-gw-sws-integration.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

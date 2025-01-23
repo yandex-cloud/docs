@@ -24,7 +24,7 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
   1. Enter the profile name.
   1. (Optional) Enter a description.
   1. (Optional) Add [labels](../../resource-manager/concepts/labels.md) for your profile.
-  1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select an action to be applied to the traffic that mismatches the criteria of other rules: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
+  1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select an action to apply to traffic not covered by the other rules: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
   1. Select or create an [ARL profile](../operations/arl-profile-create.md) to limit the number of requests.
   1. Select or create a [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests:
 
@@ -68,8 +68,8 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
 
      * `--name`: Security profile name. This is a required parameter. If you specify only the profile name without additional parameters, a single [basic rule](../concepts/rules.md#base-rules) will be created in the security profile.
      * `--description`: Text description of the security profile. This is an optional parameter.
-     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional parameter, e.g., `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to perform for the traffic that mismatches the criteria of other rules. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional parameter. Example: `--labels foo=baz,bar=baz'`.
+     * `--default-action`: Action to apply to traffic not covered by the other rules. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
       * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional parameter. For example:
 
@@ -96,7 +96,7 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_sws_security_profile" "demo-profile-simple" {

@@ -41,13 +41,36 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/runs
     }
   ],
   "customPromptTruncationOptions": {
-    "maxPromptTokens": "string"
+    "maxPromptTokens": "string",
+    // Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`
+    "autoStrategy": "object",
+    "lastMessagesStrategy": {
+      "numMessages": "string"
+    }
+    // end of the list of possible fields
   },
   "customCompletionOptions": {
     "maxTokens": "string",
     "temperature": "number"
   },
-  "stream": "boolean"
+  "stream": "boolean",
+  "tools": [
+    {
+      // Includes only one of the fields `searchIndex`, `function`
+      "searchIndex": {
+        "searchIndexIds": [
+          "string"
+        ],
+        "maxNumResults": "string"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "object"
+      }
+      // end of the list of possible fields
+    }
+  ]
 }
 ```
 
@@ -78,6 +101,9 @@ If specified, these options will override the assistant's completion settings fo
 || stream | **boolean**
 
 Enables streaming of intermediate events, such as partial messages. ||
+|| tools[] | **[Tool](#yandex.cloud.ai.assistants.v1.Tool)**
+
+List of tools that are available for the assistant to use in this run. ||
 |#
 
 ## MessageData {#yandex.cloud.ai.assistants.v1.threads.MessageData}
@@ -160,6 +186,31 @@ Defines the options for truncating thread messages within a prompt.
 The maximum number of tokens allowed in the prompt.
 If the prompt exceeds this limit, the thread messages will be truncated.
 Default max_prompt_tokens: 7000 ||
+|| autoStrategy | **object**
+
+Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|| lastMessagesStrategy | **[LastMessagesStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy)**
+
+Retains only the last `num_messages` messages in the thread.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
+
+Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|#
+
+## LastMessagesStrategy {#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy}
+
+Truncates the prompt by retaining only the last `num_messages` messages in the thread.
+
+#|
+||Field | Description ||
+|| numMessages | **string** (int64)
+
+The number of most recent messages to retain in the prompt.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.assistants.v1.CompletionOptions}
@@ -179,6 +230,58 @@ Lower values produce more straightforward responses while higher values lead to 
 Default temperature: 0.3 ||
 |#
 
+## Tool {#yandex.cloud.ai.assistants.v1.Tool}
+
+Represents a general tool that can be one of several types.
+
+#|
+||Field | Description ||
+|| searchIndex | **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
+
+SearchIndexTool tool that performs search across specified indexes.
+
+Includes only one of the fields `searchIndex`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `searchIndex`, `function`. ||
+|#
+
+## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool}
+
+Configures a tool that enables Retrieval-Augmented Generation (RAG) by allowing the assistant to search across a specified search index.
+
+#|
+||Field | Description ||
+|| searchIndexIds[] | **string**
+
+A list of search index IDs that this tool will query. Currently, only a single index ID is supported. ||
+|| maxNumResults | **string** (int64)
+
+The maximum number of results to return from the search.
+Fewer results may be returned if necessary to fit within the prompt's token limit.
+This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **object**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
+|#
+
 ## Response {#yandex.cloud.ai.assistants.v1.runs.Run}
 
 **HTTP Code: 200 - OK**
@@ -193,7 +296,7 @@ Default temperature: 0.3 ||
   "labels": "object",
   "state": {
     "status": "string",
-    // Includes only one of the fields `error`, `completedMessage`
+    // Includes only one of the fields `error`, `completedMessage`, `toolCallList`
     "error": {
       "code": "string",
       "message": "string"
@@ -220,6 +323,18 @@ Default temperature: 0.3 ||
         ]
       },
       "status": "string"
+    },
+    "toolCallList": {
+      "toolCalls": [
+        {
+          // Includes only one of the fields `functionCall`
+          "functionCall": {
+            "name": "string",
+            "arguments": "object"
+          }
+          // end of the list of possible fields
+        }
+      ]
     }
     // end of the list of possible fields
   },
@@ -229,12 +344,35 @@ Default temperature: 0.3 ||
     "totalTokens": "string"
   },
   "customPromptTruncationOptions": {
-    "maxPromptTokens": "string"
+    "maxPromptTokens": "string",
+    // Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`
+    "autoStrategy": "object",
+    "lastMessagesStrategy": {
+      "numMessages": "string"
+    }
+    // end of the list of possible fields
   },
   "customCompletionOptions": {
     "maxTokens": "string",
     "temperature": "number"
-  }
+  },
+  "tools": [
+    {
+      // Includes only one of the fields `searchIndex`, `function`
+      "searchIndex": {
+        "searchIndexIds": [
+          "string"
+        ],
+        "maxNumResults": "string"
+      },
+      "function": {
+        "name": "string",
+        "description": "string",
+        "parameters": "object"
+      }
+      // end of the list of possible fields
+    }
+  ]
 }
 ```
 
@@ -281,6 +419,9 @@ If specified, these options will override the assistant's prompt truncation sett
 
 Configuration options for completion generation.
 If specified, these options will override the assistant's completion settings for this run. ||
+|| tools[] | **[Tool](#yandex.cloud.ai.assistants.v1.Tool2)**
+
+List of tools that are available for the assistant to use in this run. ||
 |#
 
 ## RunState {#yandex.cloud.ai.assistants.v1.runs.RunState}
@@ -297,19 +438,27 @@ Current status of a run.
 - `PENDING`: Run has been created but has not started yet.
 - `IN_PROGRESS`: Run is currently in progress.
 - `FAILED`: Run has failed due to an error.
-- `COMPLETED`: Run has completed successfully. ||
+- `COMPLETED`: Run has completed successfully.
+- `TOOL_CALLS`: The run is waiting for tool calls to be executed and their results to be submitted. ||
 || error | **[Error](#yandex.cloud.ai.common.Error)**
 
 Error information if a run has failed.
 
-Includes only one of the fields `error`, `completedMessage`.
+Includes only one of the fields `error`, `completedMessage`, `toolCallList`.
 
 Oneof field to capture additional data depending on the state of a run. ||
 || completedMessage | **[Message](#yandex.cloud.ai.assistants.v1.threads.Message)**
 
 Final message generated by an assistant if a run has completed successfully.
 
-Includes only one of the fields `error`, `completedMessage`.
+Includes only one of the fields `error`, `completedMessage`, `toolCallList`.
+
+Oneof field to capture additional data depending on the state of a run. ||
+|| toolCallList | **[ToolCallList](#yandex.cloud.ai.assistants.v1.ToolCallList)**
+
+A list of tool calls requested by the assistant.
+
+Includes only one of the fields `error`, `completedMessage`, `toolCallList`.
 
 Oneof field to capture additional data depending on the state of a run. ||
 |#
@@ -415,6 +564,45 @@ Text represents a textual content part of a message.
 Text content of the message. ||
 |#
 
+## ToolCallList {#yandex.cloud.ai.assistants.v1.ToolCallList}
+
+Represents a list of tool calls.
+
+#|
+||Field | Description ||
+|| toolCalls[] | **[ToolCall](#yandex.cloud.ai.assistants.v1.ToolCall)**
+
+A list of tool calls to be executed. ||
+|#
+
+## ToolCall {#yandex.cloud.ai.assistants.v1.ToolCall}
+
+Represents a call to a tool.
+
+#|
+||Field | Description ||
+|| functionCall | **[FunctionCall](#yandex.cloud.ai.assistants.v1.FunctionCall)**
+
+Represents a call to a function.
+
+Includes only one of the fields `functionCall`. ||
+|#
+
+## FunctionCall {#yandex.cloud.ai.assistants.v1.FunctionCall}
+
+Represents the invocation of a function with specific arguments.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function being called. ||
+|| arguments | **object**
+
+The structured arguments passed to the function.
+These arguments must adhere to the JSON Schema defined in the corresponding function's parameters. ||
+|#
+
 ## ContentUsage {#yandex.cloud.ai.assistants.v1.runs.ContentUsage}
 
 Represents the content usage during a run, such as the number of [tokens](/docs/foundation-models/concepts/yandexgpt/tokens) used by the completion model.
@@ -443,6 +631,31 @@ Defines the options for truncating thread messages within a prompt.
 The maximum number of tokens allowed in the prompt.
 If the prompt exceeds this limit, the thread messages will be truncated.
 Default max_prompt_tokens: 7000 ||
+|| autoStrategy | **object**
+
+Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|| lastMessagesStrategy | **[LastMessagesStrategy](#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy2)**
+
+Retains only the last `num_messages` messages in the thread.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
+
+Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+
+Specifies the truncation strategy to use when the prompt exceeds the token limit. ||
+|#
+
+## LastMessagesStrategy {#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy2}
+
+Truncates the prompt by retaining only the last `num_messages` messages in the thread.
+
+#|
+||Field | Description ||
+|| numMessages | **string** (int64)
+
+The number of most recent messages to retain in the prompt.
+If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.assistants.v1.CompletionOptions2}
@@ -460,4 +673,56 @@ Must be greater than zero. This maximum allowed parameter value may depend on th
 Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive).
 Lower values produce more straightforward responses while higher values lead to increased creativity and randomness.
 Default temperature: 0.3 ||
+|#
+
+## Tool {#yandex.cloud.ai.assistants.v1.Tool2}
+
+Represents a general tool that can be one of several types.
+
+#|
+||Field | Description ||
+|| searchIndex | **[SearchIndexTool](#yandex.cloud.ai.assistants.v1.SearchIndexTool2)**
+
+SearchIndexTool tool that performs search across specified indexes.
+
+Includes only one of the fields `searchIndex`, `function`. ||
+|| function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool2)**
+
+Function tool that can be invoked by the assistant.
+
+Includes only one of the fields `searchIndex`, `function`. ||
+|#
+
+## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool2}
+
+Configures a tool that enables Retrieval-Augmented Generation (RAG) by allowing the assistant to search across a specified search index.
+
+#|
+||Field | Description ||
+|| searchIndexIds[] | **string**
+
+A list of search index IDs that this tool will query. Currently, only a single index ID is supported. ||
+|| maxNumResults | **string** (int64)
+
+The maximum number of results to return from the search.
+Fewer results may be returned if necessary to fit within the prompt's token limit.
+This ensures that the combined prompt and search results do not exceed the token constraints. ||
+|#
+
+## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool2}
+
+Represents a function tool that can be invoked by the assistant.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the function. ||
+|| description | **string**
+
+A description of the function's purpose or behavior. ||
+|| parameters | **object**
+
+A JSON Schema that defines the expected parameters for the function.
+The schema should describe the required fields, their types, and any constraints or default values. ||
 |#
