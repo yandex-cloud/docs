@@ -25,9 +25,10 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](mkf-yds-stream.md)
 * [{#T}](yds-to-kafka.md)
 * [{#T}](kafka-connect.md)
-* Using the registry of data format schemas with {{ mkf-full-name }}:
+* Using a schema registry with {{ mkf-full-name }}:
   * [Managing data schemas in {{ mkf-name }}](schema-registry-overview.md)
   * [{#T}](managed-schema-registry.md)
+  * [{#T}](managed-schema-registry-rest.md)
   * [{#T}](confluent-schema-registry.md)
 
 ## {{ AF }} {#airflow}
@@ -38,6 +39,8 @@ description: This page provides a list of tutorials for building a data platform
 
 ## {{ CH }} {#clickhouse}
 
+* [{#T}](ch-to-mch-migration.md)
+* [{#T}](clickhouse-migration.md)
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](dp-mch-data-exchange.md)

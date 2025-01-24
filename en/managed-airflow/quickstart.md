@@ -20,15 +20,17 @@ To get started with the service:
 
    {% include [sg-ui-access](../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the following roles for creating a cluster:
+1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
     * [{{ roles.maf.editor }}](security/index.md#managed-airflow-editor): To create a cluster.
     * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): To use the cluster [network](../vpc/concepts/network.md#network).
     * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
 
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+
 1. [Create a {{ objstorage-full-name }}](../storage/operations/buckets/create.md) bucket for storing {{ maf-name }} [DAG files](concepts/index.md#about-the-service).
 1. [Create a service account](../iam/operations/sa/create.md).
-1. [Assign the service account](../iam/operations/sa/assign-role-for-sa.md) the `managed-airflow.integrationProvider` role for a folder or bucket.
+1. [Assign the service account](../iam/operations/sa/assign-role-for-sa.md) the `{{ roles.maf.integrationProvider }}` role for a folder or bucket.
 1. [Grant the `READ` permission](../storage/operations/buckets/edit-acl.md) for the bucket to the service account.
 
 ## Create a cluster {#cluster-create}

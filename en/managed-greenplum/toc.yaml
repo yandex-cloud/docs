@@ -73,6 +73,8 @@ items:
             href: operations/extensions/pgcrypto.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
+          - name: Yezzey
+            href: operations/extensions/yezzey.md
       - name: Built-in functions
         items:
           - name: >-
@@ -125,18 +127,22 @@ items:
         href: concepts/instance-types.md
       - name: Networking in {{ mgp-name }}
         href: concepts/network.md
+      - name: Storage in {{ mgp-name }}
+        items:
+          - name: Disk types
+            href: concepts/storage.md
+          - name: Types of data storage
+            href: concepts/tables.md
+          - name: Hybrid storage
+            href: concepts/hybrid-storage.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Disk types
-        href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
       - name: Resource groups
         href: concepts/resource-groups.md
       - name: Sharding
         href: concepts/sharding.md
-      - name: Types of data storage
-        href: concepts/tables.md
       - name: Users and roles
         href: concepts/cluster-users.md
       - name: User authentication
@@ -409,5 +415,5 @@ items:
         href: qa/pxf.md
       - name: Monitoring and logs
         href: qa/monitoring.md
-      - name: All questions on one page
+      - name: All questions on a single page
         href: qa/all.md

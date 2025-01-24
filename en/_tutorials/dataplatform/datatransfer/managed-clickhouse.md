@@ -1,4 +1,23 @@
-# Migrating data using {{ data-transfer-full-name }} {#data-transfer}
+# Migrating data using {{ data-transfer-full-name }}
+
+With {{ data-transfer-name }}, you can transfer your database from a third-party {{ CH }} source cluster to a {{ mch-name }} target cluster.
+
+This method allows you to:
+
+* Copy the database without interrupting user service.
+* Go without creating an intermediate VM or granting online access to your {{ mch-name }} target cluster.
+
+You can also use this method to transfer data between two {{ mch-name }} clusters. For a successful transfer, specify the `8443` and `9440` ports in the source endpoint and add the [SSL certificate](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert).
+
+For more information, see [{#T}](../../../data-transfer/concepts/use-cases.md).
+
+
+## Getting started {#before-you-begin}
+
+[Allow connecting to the source cluster from the internet](../../../data-transfer/concepts/network.md#source-external).
+
+
+## Transferring data {#data-transfer}
 
 1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-ch).
 1. Prepare the infrastructure:
@@ -15,6 +34,8 @@
 
             The database name in the target cluster must be the same as the source database name.
 
+            If you are going to connect to the cluster via [{{ websql-full-name }}](../../../websql/concepts/index.md), enable **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}** in the cluster settings.
+
         1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`
@@ -29,8 +50,7 @@
 
                 Select a target cluster from the list and specify its connection settings.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy }}_ type that will use the created endpoints.
-        1. [Activate](../../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy }}_ type that will use the created endpoints and [activate](../../../data-transfer/operations/transfer.md#activate) it.
 
     - Using {{ TF }} {#tf}
 
@@ -65,6 +85,20 @@
                 * `target_clickhouse_version`: {{ CH }} version.
                 * `target_user` and `target_password`: Name and user password of the database owner.
 
+            * [{{ yandex-cloud }} CLI](../../../cli/) parameters to activate the cluster automatically:
+
+                * `profile_name`: Name of your {{ yandex-cloud }} CLI profile.
+
+                    {% include [cli-install](../../../_includes/cli-install.md) %}
+
+        1. (Optional) If you are going to connect to the cluster via [{{ websql-full-name }}](../../../websql/concepts/index.md), add the `access` section to the cluster resource:
+
+            ```hcl
+            access {
+                web_sql = true
+            }
+            ```
+
         1. Check that the {{ TF }} configuration files are correct using this command:
 
             ```bash
@@ -83,22 +117,62 @@
 
     {% endlist %}
 
-1. Wait for the transfer status to change to {{ dt-status-finished }}.
+## Test the transfer {#verify-transfer}
 
-    For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
-
-1. Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Make sure the data from the source {{ CH }} cluster has been moved to the {{ mch-name }} database:
 
     {% list tabs group=instructions %}
+    
+    
+    - {{ websql-full-name }} {#websql}
 
-    - Manually {#manual}
+        1. [Create a connection](../../../websql/operations/create-connection.md#connect-cluster) to the {{ mch-name }} cluster database.
+        1. Make sure the DB contains the tables from the source cluster. To do this, [run this query](../../../websql/operations/query-executor.md#execute-query) to the database via the connection you created:
 
-        * [Delete the {{ mch-name }} cluster](../../../managed-clickhouse/operations/cluster-delete.md).
-        * [Delete the completed transfer](../../../data-transfer/operations/transfer.md#delete).
-        * [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+            ```sql
+            SHOW TABLES FROM <DB_name>;
+            ```
 
-    - Using {{ TF }} {#tf}
+        1. Make sure the tables contain data from the source cluster tables. To do this, [run this query](../../../websql/operations/query-executor.md#execute-query) to the table via the connection you created:
 
-        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+            ```sql
+            SELECT * FROM <DB_name>.<table_name>;
+            ```
+
+
+    - CLI {#cli}
+
+        1. [Get an SSL certificate](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert) to connect to the {{ mch-name }} cluster.      
+        1. [Connect to the database](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) in the {{ mch-name }} cluster using `clickhouse-client`.
+        1. Make sure the DB contains the tables from the source cluster:
+
+            ```sql
+            SHOW TABLES FROM <DB_name>;
+            ```
+ 
+        1. Make sure the tables contain data from the source cluster tables:
+
+            ```sql
+            SELECT * FROM <DB_name>.<table_name>;
+            ```
 
     {% endlist %}
+
+## Delete the resources you created {#clear-out}
+
+Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+
+{% list tabs group=instructions %}
+
+- Manually {#manual}
+
+  * [Delete the {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md) cluster.
+  * [Delete the completed transfer](../../../data-transfer/operations/transfer.md#delete).
+  * [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+
+- Using {{ TF }} {#tf}
+
+  {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
+{% endlist %}

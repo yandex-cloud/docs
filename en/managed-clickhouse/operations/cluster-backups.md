@@ -21,7 +21,7 @@ Backups are created based on a random replica host. If there is no cluster host 
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+  
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
@@ -208,7 +208,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
           
           * `local-ssd`
-          * `network-ssd-nonreplicated`
+          * `network-ssd-nonreplicated`          * `network-ssd-io-m3`
 
 
 
@@ -859,7 +859,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
 {% note warning %}
 
-You can delete only manual backups.
+You can only delete manual backups.
 
 {% endnote %}
 

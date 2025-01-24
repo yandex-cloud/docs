@@ -20,14 +20,17 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+
 1. You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
 
    * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) virtual machine in the same network as the cluster.
 
    * To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
    {% note info %}
 
@@ -89,7 +92,7 @@ You can connect the producer and consumer to the cluster on behalf of one user. 
 To connect to a cluster:
 
 
-1. If using security groups for a cloud network, [configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
+1. If you are using security groups for a cloud network, configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
 
 
 1. Install an SSL certificate on the VM:
@@ -100,7 +103,7 @@ To connect to a cluster:
 
    {% include [default-get-string](../_includes/mdb/mkf/default-send-string.md) %}
 
-   In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} user that you created in the previous step.
+   In the command, specify the broker FQDN, topic name, username and password of the {{ KF }} user you created earlier.
 
    {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
 
@@ -108,7 +111,7 @@ To connect to a cluster:
 
    {% include [default-get-string](../_includes/mdb/mkf/default-get-string.md) %}
 
-   In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} user that you created in the previous step.
+   In the command, specify the broker FQDN, topic name, username and password of the {{ KF }} user you created earlier.
 
    {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
 

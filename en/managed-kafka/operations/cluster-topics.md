@@ -1,6 +1,6 @@
 ---
 title: How to manage topics and {{ KF }} cluster partitions in {{ mkf-full-name }}
-description: Follow this guide to manage topics and partitions.
+description: 'Follow this guide to manage topics and partitions: create a topic, update topic settings, get a list of topics in a cluster, get detailed information about a topic, import a topic to {{ TF }}, delete a topic.'
 ---
 
 # Managing {{ KF }} topics
@@ -31,7 +31,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, set the basic parameters of the topic:
@@ -96,15 +96,81 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
+  For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic) provider documentation.
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To create a topic, use the [create](../api-ref/Topic/create.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Create](../api-ref/grpc/Topic/create.md) gRPC API call and provide the following in the request:
-  * ID of the cluster where you want to create a topic, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Topic settings, in the `topicSpec` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Use the [Topic.create](../api-ref/Topic/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/topics' \
+       --data '{
+                 "topicSpec": {
+                  "name": "<topic_name>",
+                  "partitions": "<number_of_partitions>",
+                  "replicationFactor": "<replication_factor>"
+               }'
+     ```
+
+     Where:
+
+     * `topicSpec` stands for topic settings:
+
+        {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs.md) %}
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Topic/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [TopicService/Create](../api-ref/grpc/Topic/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "topic_spec": {
+                  "name": "<topic_name>",
+                  "partitions": {
+                    "value": "<number_of_partitions>"
+                  },
+                  "replication_factor": {
+                    "value": "<replication_factor>"
+                  }
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.Create
+     ```
+
+     Where:
+
+     * `topic_spec` stands for topic settings:
+
+        {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs.md) %}
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Topic/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -125,12 +191,12 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic you need and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the basic parameters of the topic:
      * Number of topic partitions.
-     * Replication factor. This parameter value should not exceed the number of brokers in the cluster. Minimum value: `1`. Maximum value: `3`. Default value:
+     * Replication factor. This parameter value should not exceed the number of brokers in the cluster. Minimum value: `1`. Maximum value: `3`. Default:
        * For a cluster with one or two brokers: `1`.
        * For a cluster with three or more brokers: `3`.
   1. Change [additional topic settings](../concepts/settings-list.md#topic-settings).
@@ -189,17 +255,129 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To change topic settings, use the [update](../api-ref/Topic/update.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Update](../api-ref/grpc/Topic/update.md) gRPC API call and provide the following in the request:
-  * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
-  * New values for the [topic settings](../concepts/settings-list.md#topic-settings), in the `topicSpec` parameter.
-  * List of settings to update in the `updateMask` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Topic.update](../api-ref/Topic/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
+     {% include [note-rest-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/topics/<topic_name>' \
+       --data '{
+                 "clusterId": "<cluster_ID>",
+                 "updateMask": "topicSpec.partitions,topicSpec.replicationFactor,topicSpec.topicConfig_2_8.<setting_1>,...,topicSpec.topicConfig_2_8.<setting_N>,topicSpec.topicConfig_3.<setting_1>,...,topicSpec.topicConfig_3.<setting_N>",
+                 "topicSpec": {
+                   "partitions": "<number_of_partitions>",
+                   "replicationFactor": "<replication_factor>",
+                   "topicConfig_2_8": {
+                     "<setting_1_for_{{ KF }}_2.8_topic>": "<value_1>",
+                     "<setting_2_for_{{ KF }}_2.8_topic>": "<value_2>",
+                     ...
+                     "<setting_N_for_{{ KF }}_2.8_topic>": "<value_N>"
+                   },
+                   "topicConfig_3": {
+                     "<setting_1_for_{{ KF }}_3.x_topic>": "<value_1>",
+                     "<setting_2_for_{{ KF }}_3.x_topic>": "<value_2>",
+                     ...
+                     "<setting_N_for_{{ KF }}_3.x_topic>": "<value_N>"
+                   }
+                 } 
+               }'
+     ```
+
+     Where:
+
+     * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+       In this case, list all the topic settings to update.
+
+     * `topic_spec` stands for new topic settings:
+
+        {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs-update.md) %}
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Topic/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [TopicService/Update](../api-ref/grpc/Topic/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "topic_name": "<topic_name>",
+             "update_mask": {
+               "paths": [
+                 "topic_spec.partitions",
+                 "topic_spec.replication_factor",
+                 "topic_spec.topic_config_2_8.<setting_1>",
+                 ...,
+                 "topic_spec.topic_config_2_8.<setting_N>",
+                 "topic_spec.topic_config_3.<setting_1>",
+                 ...,
+                 "topic_spec.topic_config_3.<setting_N>"
+               ]
+             },
+             "topic_spec": {
+                  "partitions": {
+                    "value": "<number_of_partitions>"
+                  },
+                  "replication_factor": {
+                    "value": "<replication_factor>"
+                  },
+                  "topic_сonfig_2_8": {
+                     "<setting_1_for_{{ KF }}_2.8_topic>": "<value_1>",
+                     "<setting_2_for_{{ KF }}_2.8_topic>": "<value_2>",
+                     ...
+                     "<setting_N_for_{{ KF }}_2.8_topic>": "<value_N>"
+                   },
+                   "topic_сonfig_3": {
+                     "<setting_1_for_{{ KF }}_3.x_topic>": "<value_1>",
+                     "<setting_2_for_{{ KF }}_3.x_topic>": "<value_2>",
+                     ...
+                     "<setting_N_for_{{ KF }}_3.x_topic>": "<value_N>"
+                   }
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.Update
+     ```
+
+     Where:
+
+     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+       In this case, list all the topic settings to update.
+
+     * `topic_spec` stands for new topic settings:
+
+        {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs-update.md) %}
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Topic/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -210,7 +388,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 
 - CLI {#cli}
@@ -225,13 +403,51 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
   {{ yc-mdb-kf }} topic list --cluster-name <cluster_name>
   ```
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To get a list of topics in a cluster, use the [list](../api-ref/Topic/list.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/List](../api-ref/grpc/Topic/list.md) gRPC API call, and provide the cluster ID in the `clusterId` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+  1. Use the [Topic.list](../api-ref/Topic/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/topics'
+     ```
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Topic/list.md#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [TopicService/List](../api-ref/grpc/Topic/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.List
+     ```
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Topic/list.md#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -242,7 +458,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click the topic name.
 
@@ -258,13 +474,52 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
   {{ yc-mdb-kf }} topic get <topic_name> --cluster-name <cluster_name>
   ```
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To get topic details, use the [get](../api-ref/Topic/get.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Get](../api-ref/grpc/Topic/get.md) gRPC API call and provide the following in the request:
-  * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Use the [Topic.list](../api-ref/Topic/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/topics/<topic_name>'
+     ```
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the topic name with a [list of topics in the cluster](#list-topics).
+
+  1. View the [server response](../api-ref/Topic/get.md#yandex.cloud.mdb.kafka.v1.Topic) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [TopicService/Get](../api-ref/grpc/Topic/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "topic_name": "<topic_name>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.Get
+     ```
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the topic name with a [list of topics in the cluster](#list-topics).
+
+  1. View the [server response](../api-ref/grpc/Topic/list.md#yandex.cloud.mdb.kafka.v1.Topic) to make sure the request was successful.
 
 {% endlist %}
 
@@ -301,7 +556,7 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -339,15 +594,54 @@ Using import, you can bring the existing cluster topics under {{ TF }} managemen
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_topic).
+  For more information, see the [{{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic) provider documentation.
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To delete a topic, use the [delete](../api-ref/Topic/delete.md) REST API method for the [Topic](../api-ref/Topic/index.md) resource or the [TopicService/Delete](../api-ref/grpc/Topic/delete.md) gRPC API call and provide the following in the request:
-  * ID of the cluster where the topic is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](#list-topics).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Use the [Topic.delete](../api-ref/Topic/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request DELETE \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/topics/<topic_name>'
+     ```
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the topic name with a [list of topics in the cluster](#list-topics).
+
+  1. View the [server response](../api-ref/Topic/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [TopicService/Delete](../api-ref/grpc/Topic/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "topic_name": "<topic_name>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.Delete
+     ```
+
+     You can request the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters) and the topic name with a [list of topics in the cluster](#list-topics).
+
+  1. View the [server response](../api-ref/grpc/Topic/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

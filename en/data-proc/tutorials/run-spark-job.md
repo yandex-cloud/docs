@@ -1,5 +1,6 @@
 ---
 title: Apache Spark and PySpark. Starting and managing applications
+description: Follow this guide to launch and learn to manage applications for Spark and PySpark.
 keywords:
   - apache spark
   - spark
@@ -27,40 +28,40 @@ Prepare the infrastructure:
     1. [Create a network](../../vpc/operations/network-create.md) named `data-proc-network`. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** when creating it.
     1. In `data-proc-network`, [create a subnet](../../vpc/operations/subnet-create.md) with the following parameters:
 
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `data-proc-subnet-a`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `data-proc-subnet-a`
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `192.168.1.0/24`
 
-    1. [Create a NAT gateway](../../vpc/operations/create-nat-gateway.md) and a routing table named `data-proc-route-table` in `data-proc-network`. Associate the table with the `data-proc-subnet-a` subnet.
+    1. [Create a NAT gateway](../../vpc/operations/create-nat-gateway.md) and a routing table named `data-proc-route-table` in `data-proc-network`. Associate the table with the `data-proc-subnet-a` subnet:
     1. In the `data-proc-network` network, [create a security group](../../vpc/operations/security-group-create.md) named `data-proc-security-group` with the following rules:
 
         * One rule for inbound and another one for outbound service traffic:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`
 
         * Rule for incoming traffic (for online access to subcluster hosts):
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
         * Rule for outgoing HTTPS traffic:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
         * Rule for outgoing HTTP traffic:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-http }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-http }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
     1. [Create a service account](../../iam/operations/sa/create.md) named `data-proc-sa` with the following roles:
 
@@ -72,12 +73,12 @@ Prepare the infrastructure:
     1. [Grant](../../storage/operations/buckets/edit-acl.md) `READ and WRITE` permissions for `data-proc-bucket` to the `data-proc-sa` service account.
     1. [Create a {{ dataproc-name }} cluster](../operations/cluster-create.md) in any suitable configuration with the following settings:
 
-        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`.
-        * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-a`.
-        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `data-proc-bucket`.
-        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `data-proc-network`.
-        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`.
-        * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** for subclusters: Provided.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `data-proc-sa`
+        * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-a`
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `data-proc-bucket`
+        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `data-proc-network`
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `data-proc-security-group`
+        * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** for subclusters: Provided
 
 - {{ TF }} {#tf}
 

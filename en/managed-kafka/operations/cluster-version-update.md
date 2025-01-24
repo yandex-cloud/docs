@@ -2,7 +2,7 @@
 
 You can upgrade a {{ mkf-name }} cluster to version 3.5 or lower. Upgrading to 3.6 or higher is not supported; however, you can [create a cluster](cluster-create.md#create-cluster) with one of these versions.
 
-We recommend updating {{ KF }} step by step, without skipping any versions. For example, upgrading the version from 2.8 to 3.1 is performed in the following sequence: 2.8 → 3.0 → 3.1.
+We recommend updating {{ KF }} step by step without skipping any versions. For example, the upgrade sequence from version 2.8 to 3.1 is: 2.8 → 3.0 → 3.1.
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
@@ -83,15 +83,87 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To update a cluster, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID, in the `clusterId` parameter. You can get it with a [list of clusters in the folder](./cluster-list.md#list-clusters).
-    * {{ KF }} version number in the `configSpec.version` parameter.
-    * List of cluster configuration fields to update in the `updateMask` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.version",
+                      "configSpec": {
+                        "version": "<version>"
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+          Here only one parameter is specified: `configSpec.version`.
+
+        * `configSpec.version`: target {{ KF }} version, {{ versions.cli.str }}.
+
+       You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.version"
+                    ]
+                  },
+                  "config_spec": {
+                    "version": "<version>"
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.kafka.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+          Here only one parameter is specified: `config_spec.version`.
+
+        * `config_spec.version`: target {{ KF }} version, {{ versions.cli.str }}.
+
+        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

@@ -17,7 +17,7 @@
 Фильтрация доступна для следующих типов чартов, которые созданы в [визарде](../concepts/chart/dataset-based-charts.md):
 
 * [Линейная диаграмма](../visualization-ref/line-chart.md)
-* [Накопительная диаграмма с областями](../visualization-ref/area-chart.md)
+* [Диаграмма с областями](../visualization-ref/area-chart.md)
 * [Столбчатая диаграмма](../visualization-ref/column-chart.md)
 * [Линейчатая диаграмма](../visualization-ref/bar-chart.md)
 * [Точечная диаграмма](../visualization-ref/scatter-chart.md)

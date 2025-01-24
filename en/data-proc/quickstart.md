@@ -20,11 +20,13 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the following roles for creating a cluster:
+1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
     * [dataproc.editor](security/index.md#dataproc-editor): To create a cluster.
     * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): To use the cluster [network](../vpc/concepts/network.md#network).
     * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): To link a [service account](../iam/concepts/users/service-accounts.md) to the cluster and create resources under that service account.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 1. [Set up a NAT gateway](../vpc/operations/create-nat-gateway.md) in the subnet to host the cluster.
 
@@ -42,7 +44,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
 
 ## Create a cluster {#cluster-create}

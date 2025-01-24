@@ -5,7 +5,6 @@ description: Пошаговые инструкции для {{ at-full-name }}. 
 
 # Пошаговые инструкции для {{ at-full-name }}
 
-
 ## Загрузка аудитных логов в {{ cloud-logging-name }} {#logging}
 
 * [{#T}](export-organization-logging.md)
@@ -17,7 +16,6 @@ description: Пошаговые инструкции для {{ at-full-name }}. 
 * [{#T}](export-organization-data-streams.md)
 * [{#T}](export-cloud-data-streams.md)
 * [{#T}](export-folder-data-streams.md)
-
 
 ## Загрузка аудитных логов в {{ objstorage-name }} {#bucket}
 

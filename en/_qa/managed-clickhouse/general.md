@@ -55,13 +55,20 @@ For more information, see [Getting started](../../managed-clickhouse/quickstart.
 
 #### How many database hosts can there be in one cluster? {#how-many-hosts}
 
+
 The minimum number of hosts depends on the selected type of [storage](../../managed-clickhouse/concepts/storage.md):
 
-- If you use non-replicated SSD storage, the minimum number of hosts is 3.
-- If you use local SSD storage, the minimum number of hosts is 2.
-- If using network HDD or network SSD storage, you can create single-host clusters.
+  * At least three hosts for non-replicated SSDs (`network-ssd-nonreplicated`).
 
-The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
+  * At least two hosts for local SSDs (`local-ssd`).
+
+  * At least one host for the following:
+
+    * Network HDDs (`network-hdd`)
+    * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
+    
+
+The maximum number of hosts per cluster is subject to the limits in place.
 
 For more information, see [Quotas and limits](../../managed-clickhouse/concepts/limits.md).
 
@@ -105,9 +112,9 @@ We recommend the latest available LTS version of {{ CH }}. For more information,
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-When new minor versions are released, the cluster software is automatically updated after a short testing period.
+When new minor versions are released, the cluster software is automatically updated after a short testing period. 
 
-Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
+Owners of the affected DB clusters are notified of expected work times and DB availability in advance. 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
@@ -124,7 +131,7 @@ In {{ mch-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-clickhouse/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour data for each host class in the [Pricing policy](../../managed-clickhouse/pricing.md) section.
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour for each host class in the [Pricing policy](../../managed-clickhouse/pricing.md) section.
 
 #### How much does it cost to use my cluster? {#cluster-cost}
 

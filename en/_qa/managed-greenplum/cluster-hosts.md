@@ -2,9 +2,9 @@
 
 A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-A _database cluster_ is one or more database hosts between which replication can be configured.
+A _database cluster_ is one or more database hosts between which you can configure replication.
 
-#### How many DB hosts can a cluster contain? {#how-many-hosts}
+#### How many database hosts can there be in one cluster? {#how-many-hosts}
 
 A {{ mgp-short-name }} cluster includes a minimum of 4 hosts:
 
@@ -21,7 +21,7 @@ For more information on MDB technical and organizational limitations, see [Quota
 
 #### How are DB clusters maintained? {#service-window}
 
-Maintenance in {{ mgp-short-name }} implies:
+In {{ mgp-short-name }}, maintenance implies:
 
 * Automatic installation of DBMS updates and fixes for your database hosts.
 * Changes to the host class and storage size.
@@ -37,7 +37,7 @@ In {{ mgp-short-name }}, the usage cost is calculated based on the following par
 * Selected host class.
 * Size of the storage reserved for the database host.
 * Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-greenplum/pricing/index.md).
-* Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-greenplum/pricing/index.md).
+* Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour for each host class in the [Pricing policy](../../managed-greenplum/pricing/index.md) section.
 
 
 #### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
@@ -47,3 +47,24 @@ In {{ mgp-short-name }}, the usage cost is calculated based on the following par
 To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-greenplum/operations/update.md#change-disk-size).
 
 If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-greenplum/operations/cluster-backups.md#restore) from a backup.
+
+#### Why do I get the minimum memory error for {{ GP }} processes? {#memory-limit}
+
+When creating, modifying, or restoring a cluster, you may get this error:
+
+```text
+Per process memory must be more then '20971520' bytes on segment host, got '<calculated_memory_size>'
+```
+
+This error occurs if the memory size for each {{ GP }} process is less than the specified 20 MB limit. Maximum memory per cluster process is calculated using the following formula:
+
+```text
+<host_segment_RAM> ÷ (<Max_connections> x <number_of_segments_per_host>)
+```
+
+Where `Max_connections` is the {{ GP }} [DBMS setting](../../managed-greenplum/concepts/settings-list.md#setting-max-connections).
+
+To fix the error, do one of the following:
+
+* Reduce the `max_connections` value.
+* Increase memory size by changing the [segment host class](../../managed-greenplum/concepts/instance-types.md).

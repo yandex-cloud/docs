@@ -5,4 +5,5 @@
 Such schemas are stored in a schema registry. For {{ mkf-full-name }}, you can:
 
 * Use an [integrated registry](./managed-schema-registry.md).
+* Use an [integrated registry](./managed-schema-registry-rest.md) via the REST API.
 * Set up and use the [Confluent registry](./confluent-schema-registry.md).

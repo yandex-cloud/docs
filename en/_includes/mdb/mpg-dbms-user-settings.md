@@ -1,3 +1,17 @@
+- **Catchup timeout**{#setting-catchup-timeout} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+
+    The maximum allowed replica's lag behind the master (in seconds).
+
+    If the setting has a non-zero value, the [Odyssey connection pooler](../../managed-postgresql/concepts/pooling.md) will not allow connections to replicas lagging far behind the master. This prevents reading stale data from such replicas.
+
+    Odyssey regularly requests information about lagging replicas from the cluster. When attempting to connect to a replica whose lag exceeds the setting value, the connection will be terminated. Odyssey will return the following message:
+
+    ```text
+    remote server read/write error: failed to wait replica for catchup
+    ```
+
+    The minimum and default value is `0` (allows connecting to any replica regardless of its lag behind the master).
+
 - **Conn limit**{#setting-conn-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Maximum allowed number of connections for the user.
@@ -69,6 +83,25 @@
   You can select multiple values. By default, audit logs are disabled for the user.
 
   For more information about setting up audit logs, see [Using pgaudit](../../managed-postgresql/operations/extensions/pgaudit.md).
+
+- **Pooling mode**{#setting-pooling-mode} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+
+    {% note info %}
+
+    * {{ TF }} and the gRPC API use the `pool_mode` setting name.
+    * In the REST API, the `poolMode` setting name is used.
+
+    {% endnote %}
+
+    [Connection management mode](../../managed-postgresql/concepts/pooling.md) used by the Odyssey connection pooler.
+
+    The possible values are:
+
+    * `SESSION`: Session mode.
+    * `TRANSACTION`: Transaction mode.
+    * `STATEMENT`: Query mode.
+
+    The default value is `SESSION`.
 
 - **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }}
 

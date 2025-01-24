@@ -102,14 +102,14 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-mmy-data-transfer.md
       - name: >-
-          Delivering data to {{ mkf-full-name }} using {{
-          data-transfer-full-name }}
+          "Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}"
         href: tutorials/cdc-data-transfer.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
       - name: WordPress website on a {{ MY }} database
         href: tutorials/wordpress-mysql.md
-      - name: Building a 1C-Bitrix website
+      - name: Creating a 1C-Bitrix website
         items:
           - name: Overview
             href: tutorials/bitrix-website/index.md
@@ -417,5 +417,5 @@ items:
         href: qa/migration.md
       - name: Configuring MySQL
         href: qa/configuring.md
-      - name: All questions on one page
+      - name: All questions on a single page
         href: qa/all.md

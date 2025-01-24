@@ -33,3 +33,12 @@ To resolve the errors:
 
 1. In the target cluster, [add a user](../../managed-postgresql/operations/cluster-users.md#adduser) with access to the migrated database and the same name as the user who created the logical dump in the source cluster.
 1. Use this user to [restore the logical dump](../../managed-postgresql/tutorials/data-migration.md#restore) or [grant their privileges](../../managed-postgresql/operations/grant.md#grant-privilege) to the user who is restoring the logical dump.
+
+#### What should I do if I get the `replication slot already exists` error when performing logical replication? {#repl-slot-exists}
+
+By default, when you [create a subscription](../../tutorials/dataplatform/postgresql-data-migration.md#create-publication-subscription), a replication slot is also created. The `replication slot already exists` error means that a replication slot already exists.
+
+You can fix this error by doing one of the following:
+
+1. Link your subscription to an existing replication slot. To do this, add the `create_slot = false` parameter to the request to create a subscription.
+1. [Delete the existing replication slot](../../managed-postgresql/operations/replication-slots.md#delete) and try creating the subscription again.

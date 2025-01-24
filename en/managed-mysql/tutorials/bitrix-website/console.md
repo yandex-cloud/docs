@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to deploy and set up a Bitrix 
 canonical: '{{ link-docs }}/tutorials/web/bitrix-website/console'
 ---
 
-# Building a 1C-Bitrix website using the management console
+# Creating a 1C-Bitrix website using the management console
 
 To create an infrastructure for your [1C-Bitrix website](index.md) using the {{ yandex-cloud }} management console:
 
@@ -12,4 +12,4 @@ To create an infrastructure for your [1C-Bitrix website](index.md) using the {{ 
 
 #### See also {#see-also}
 
-* [{#T}](terraform.md)
+* [{#T}](terraform.md).

@@ -5,7 +5,7 @@ description: Follow this guide to change a {{ CH }} cluster version.
 
 # {{ CH }} version upgrade
 
-You can update the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy); however, switching from versions lower than 23.8 to 23.8 or higher is performed in steps. For example, for {{ mch-name }}, the upgrade sequence from version 22.8 to 24.3 is: 22.8 → 23.3 → 23.8 → 24.3.
+You can change the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy).
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 

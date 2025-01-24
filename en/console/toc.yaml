@@ -5,5 +5,7 @@ items:
     href: quickstart.md
   - name: Updating management console settings
     href: operations/update.md
+  - name: Using search in the management console
+    href: operations/search.md
   - name: Pricing policy
     href: pricing.md

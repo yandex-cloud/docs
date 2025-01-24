@@ -93,16 +93,90 @@ Learn more about other cluster updates:
 
     {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-    * New cluster name in the `name` parameter.
-    * New cluster description in the `description` parameter.
-    * List of fields to update (in this case, `name` and `description`) in the `updateMask` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "name,description",
+                      "name": "<cluster_name>",
+                      "description": "<new_cluster_description>"
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Specify the relevant parameters:
+            * `name`: To change the cluster name.
+            * `description`: To change the cluster description.
+        * `name`: New cluster name.
+        * `description`: New cluster description.
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "name",
+                      "description"
+                    ]
+                  },
+                  "name": "<cluster_name>",
+                  "description": "<new_cluster_description>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.kafka.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Specify the relevant parameters:
+            * `name`: To change the cluster name.
+            * `description`: To change the cluster description.
+        * `name`: New cluster name.
+        * `description`: New cluster description.
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -110,7 +184,7 @@ Learn more about other cluster updates:
 
 You can increase the number of [broker hosts](../concepts/brokers.md) if the following conditions are met:
 
-* The cluster uses {{ KF }} 3.5 or lower. Clusters running {{ KF }} 3.6 or higher use the [{{ kraft-name }} protocol](../concepts/kraft.md); therefore, such clusters always have three {{ KF }} hosts.
+* The cluster uses {{ KF }} 3.5 or lower. Clusters running {{ KF }} 3.6 or higher use the [{{ kraft-name }}](../concepts/kraft.md) protocol; therefore, such clusters always have three {{ KF }} hosts.
 * The cluster contains at least two broker hosts in different availability zones.
 
 You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
@@ -215,15 +289,134 @@ We recommend changing broker host class only when there is no active workload on
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To change the class and number of broker hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * [Broker host class](../concepts/instance-types.md) in the `configSpec.kafka.resources.resourcePresetId` parameter.
-  * Number of broker hosts in the `configSpec.brokersCount` parameter.
-  * List of settings to update in the `updateMask` parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Request a list of available host classes:
+
+        1. Use the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method and run the request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/resourcePresets'
+            ```
+
+        1. View the [server response](../api-ref/ResourcePreset/list.md#responses) to make sure the request was successful.
+
+    1. Change the class and number of broker hosts as appropriate:
+
+        1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+            {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+            ```bash
+            curl \
+                --request PATCH \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --header "Content-Type: application/json" \
+                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
+                --data '{
+                          "updateMask": "configSpec.kafka.resources.resourcePresetId,configSpec.brokersCount",
+                          "configSpec": {
+                            "kafka": {
+                              "resources": {
+                                "resourcePresetId": "<broker_host_class_ID>"
+                              }
+                            },
+                            "brokersCount": "<number_of_broker_hosts>"
+                          }
+                        }'
+            ```
+
+            Where:
+
+            * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+                Specify the relevant parameters:
+                * `configSpec.kafka.resources.resourcePresetId`: To change the broker host class.
+                * `configSpec.brokersCount`: To change the number of broker hosts.
+
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+
+        1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Request a list of available host classes:
+
+        1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/resource_preset_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.kafka.v1.ResourcePresetService.List
+            ```
+
+        1. View the [server response](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.kafka.v1.ListResourcePresetsResponse) to make sure the request was successful.
+
+    1. Change the host class as appropriate:
+
+        1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+            {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<cluster_ID>",
+                      "update_mask": {
+                        "paths": [
+                          "config_spec.kafka.resources.resource_preset_id",
+                          "config_spec.brokers_count"
+                        ]
+                      },
+                      "config_spec": {
+                        "kafka": {
+                          "resources": {
+                            "resource_preset_id": "<broker_host_class_ID>"
+                          }
+                        },
+                        "brokers_count": {
+                          "value": "<number_of_broker_hosts>"
+                        }
+                      }
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.kafka.v1.ClusterService.Update
+            ```
+
+            Where:
+
+            * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+                Specify the relevant parameters:
+                * `config_spec.kafka.resources.resource_preset_id`: To change the broker host class.
+                * `config_spec.brokers_count`: To change the number of broker hosts.
+
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+
+        1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -274,7 +467,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
   To find out the cluster name or ID, [get a list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
-- Terraform
+- {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -306,15 +499,127 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To change the class of {{ ZK }} hosts, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * {{ ZK }} [host class](../concepts/instance-types.md) in the `configSpec.zookeeper.resources.resourcePresetId` parameter.
-  * List of settings to update in the `updateMask` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Request a list of available host classes:
+
+        1. Use the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method and run the request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/resourcePresets'
+            ```
+
+        1. View the [server response](../api-ref/ResourcePreset/list.md#yandex.cloud.mdb.kafka.v1.ListResourcePresetsResponse) to make sure the request was successful.
+
+    1. Change the host class as appropriate:
+
+        1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+            {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+            ```bash
+            curl \
+                --request PATCH \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --header "Content-Type: application/json" \
+                --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
+                --data '{
+                          "updateMask": "configSpec.zookeeper.resources.resourcePresetId",
+                          "configSpec": {
+                            "zookeeper": {
+                              "resources": {
+                                "resourcePresetId": "<{{ ZK }}_host_class_ID>"
+                              }
+                            }
+                          }
+                        }'
+            ```
+
+            Where:
+
+            * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+                Specify the relevant parameters:
+                * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
+
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+
+        1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Request a list of available host classes:
+
+        1. Use the [ResourcePresetService/List](../api-ref/grpc/ResourcePreset/list.md) call and run the request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/resource_preset_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.kafka.v1.ResourcePresetService.List
+            ```
+
+        1. View the [server response](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.kafka.v1.ListResourcePresetsResponse) to make sure the request was successful.
+
+    1. Change the host class as appropriate:
+
+        1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+            {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<cluster_ID>",
+                      "update_mask": {
+                        "paths": [
+                          "config_spec.zookeeper.resources.resource_preset_id"
+                        ]
+                      },
+                      "config_spec": {
+                        "zookeeper": {
+                          "resources": {
+                            "resource_preset_id": "<{{ ZK }}_host_class_ID>"
+                          }
+                        }
+                      }
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.kafka.v1.ClusterService.Update
+            ```
+
+            Where:
+
+            * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+                Specify the relevant parameters:
+                * `config_spec.zookeeper.resources.resource_preset_id`: To change the {{ ZK }} host class.
+
+            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+
+        1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -330,8 +635,6 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
   1. Enable or disable public access to a cluster via the **Public access** option.
   1. Click **{{ ui-key.yacloud.common.save }}**.
-
-  [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
 
 - CLI {#cli}
 
@@ -361,8 +664,6 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
       * `--assign-public-ip`: Public access to the cluster, `true` or `false`.
 
       To find out the cluster name or ID, [get a list of clusters in the folder](../operations/cluster-list.md#list-clusters).
-
-  [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
 
 - {{ TF }} {#tf}
 
@@ -396,26 +697,124 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
-
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To change security group and public access settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  - Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-  - List of security group IDs in the `securityGroupIds` parameter.
-  - Public access settings in the `configSpec.assignPublicIp` parameter.
-  - List of settings to update in the `updateMask` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
-  [Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "securityGroupIds,configSpec.assignPublicIp",
+                      "securityGroupIds": [
+                        <list_of_security_group_IDs>
+                      ],
+                      "configSpec": {
+                        "assignPublicIp": "<public_access:_true_or_false>"
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Specify the relevant parameters:
+            * `securityGroupIds`: To change the list of security groups.
+            * `configSpec.assignPublicIp`: To change the public access setting.
+        * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
+
+            {% note warning %}
+
+            The list of security groups assigned to the cluster will be completely overwritten by the list in the `securityGroupIds` parameter.
+
+            Before executing your request, make sure the list includes all the required security group IDs, including existing ones.
+
+            {% endnote %}
+
+        * `assignPublicIp`: Internet access to the broker hosts, `true` or `false`.
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "security_group_ids",
+                      "config_spec.assign_public_ip"
+                    ]
+                  },
+                  "security_group_ids": [
+                    <list_of_security_group_IDs>
+                  ],
+                  "config_spec": {
+                    "assign_public_ip": "<public_access:_true_or_false>"
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.kafka.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Specify the relevant parameters:
+            * `security_group_ids`: To change the list of security groups.
+            * `config_spec.assign_public_ip`: To change the public access setting.
+        * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
+
+            {% note warning %}
+
+            The list of security groups assigned to the cluster will be completely overwritten by the list in the `security_group_ids` parameter.
+
+            Before executing your request, make sure the list includes all the required security group IDs, including existing ones.
+
+            {% endnote %}
+
+        * `assign_public_ip`: Internet access to the broker hosts, `true` or `false`.
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
+
+[Restart the cluster](./cluster-stop.md) for the new public access settings to take effect.
 
 You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
@@ -456,6 +855,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
                                `hour=<hour> \
+           --datatransfer-access=<access_to_cluster> \
            --deletion-protection \
            --schema-registry=<data_schema_management>
         ```
@@ -523,26 +923,152 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To change additional cluster settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
+    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.restApiConfig.emabled,configSpec.schemaRegistry,maintenanceWindow,deletionProtection",
+                      "configSpec": {
+                        "schemaRegistry": true,
+                        "restApiConfig": {
+                          "enabled": true
+                        }
+                      },
+                      "maintenanceWindow": {
+                        "anytime": {},
+                        "weeklyMaintenanceWindow": {
+                          "day": "<day_of_week>",
+                          "hour": "<hour_UTC>"
+                        }
+                      },
+                      "deletionProtection": <deletion_protection:_true_or_false>
+                    }'
+        ```
 
 
-    * Cluster deletion protection settings in the `deletionProtection` parameter.
+        Where:
 
-        {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-    * Settings for data schema management using [{{ mkf-msr }}](../concepts/managed-schema-registry.md) in the `configSpec.schemaRegistry` parameter.
+            Specify the relevant parameters:
+            * `configSpec.schemaRegistry`: To enable the settings for data schema management using [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+            * `configSpec.restApiConfig.enabled`: To enable access to sending requests to the {{ KF }} REST API.
 
-        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-    * List of cluster configuration fields to update in the `updateMask` parameter.
+            * `maintenanceWindow`: To change the [maintenance window](../concepts/maintenance.md) settings, including for disabled clusters.
+            * `deletionProtection`: To enable or disable protection of the cluster, its databases, and users against accidental deletion.
+        * `configSpec.schemaRegistry`: Set to `true` to manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md). You will not be able to edit this setting once it is enabled.
+        * `configSpec.restApiConfig.enabled`: Set to `true` for access to sending requests to the {{ KF }} REST API. You will not be able to edit this setting once it is enabled.
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of the options:
+
+            * `anytime`: At any time (default).
+            * `weeklyMaintenanceWindow`: On schedule:
+                * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+
+        * `deletionProtection`: To enable or disable protection of the cluster, its database, and users against accidental deletion.
+
+            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "maintenance_window",
+                      "deletion_protection",
+                      "config_spec.schema_registry",
+                      "config_spec.rest_api_config.enabled"
+                    ]
+                  },
+                  "config_spec": {
+                    "schema_registry": true,
+                    "rest_api_config": {
+                      "enabled": true
+                    }
+                  },
+                  "maintenance_window": {
+                    "anytime": {},
+                    "weekly_maintenance_window": {
+                      "day": "<day_of_week>",
+                      "hour": "<hour_UTC>"
+                    }
+                  },
+                  "deletion_protection": <deletion_protection:_true_or_false>
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.kafka.v1.ClusterService.Update
+        ```
+
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Specify the relevant parameters:
+            * `config_spec.schema_registry`: To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+            * `config_spec.rest_api_config.enabled`: To enable access to sending requests to the {{ KF }} REST API.
+
+
+            * `maintenance_window`: To change the [maintenance window](../concepts/maintenance.md) settings, including for disabled clusters.
+            * `deletion_protection`: To enable or disable protection of the cluster, its databases, and users against accidental deletion.
+        * `schema_registry`: Set to `true` to manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md). You will not be able to edit this setting once it is enabled.
+        * `rest_api_config.enabled`: Set to `true` for access to sending requests to the {{ KF }} REST API. You will not be able to edit this setting once it is enabled.
+
+
+        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings. Select one of the options:
+
+            * `anytime`: Anytime.
+            * `weekly_maintenance_window`: On schedule:
+                * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+
+        * `deletion_protection`: To enable (`true`) or disable (`false`) protection of the cluster, its databases, and users against accidental deletion.
+
+            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -626,19 +1152,122 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
     {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To change {{ KF }} settings, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    * New values of the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) in:
-        * `configSpec.kafka.kafkaConfig_2_8`: If you are using {{ KF }} `2.8`.
-        * `configSpec.kafka.kafkaConfig_3`: If you are using {{ KF }} `3.x`.
+    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
-    * List of settings to update in the `updateMask` parameter.
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.kafka.kafkaConfig_2_8.<setting_1_for_{{ KF }}_2.8_configuration>,...,configSpec.kafka.kafkaConfig_2_8.<setting_N_for_{{ KF }}_2.8_configuration>,configSpec.kafka.kafkaConfig_3.<setting_1_for_{{ KF }}_3.x_configuration>,...,configSpec.kafka.kafkaConfig_3.<setting_N_for_{{ KF }}_3.x_configuration>",
+                      "configSpec": {
+                        "kafka": {
+                          "kafkaConfig_2_8": {
+                            "<setting_1_for_{{ KF }}_2.8_configuration>": "<setting_value>",
+                            "<setting_2_for_{{ KF }}_2.8_configuration>": "<setting_value>",
+                            ...,
+                            "<setting_N_for_{{ KF }}_2.8_configuration>": "<setting_value>"
+                          },
+                          "kafkaConfig_3": {
+                            "<setting_1_for_{{ KF }}_3.x_configuration>": "<setting_value>",
+                            "<setting_2_for_{{ KF }}_3.x_configuration>": "<setting_value>",
+                            ...,
+                            "<setting_N_for_{{ KF }}_3.x_configuration>": "<setting_value>"
+                          }
+                        }
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Specify the relevant parameters:
+            * `configSpec.kafka.kafkaConfig_2_8.<setting_for_{{ KF }}_2.8_configuration>`: For {{ KF }} `2.8`.
+            * `configSpec.kafka.kafkaConfig_3.<setting_for_{{ KF }}_3.x_configuration>`: For {{ KF }} `3.x`.
+        * `configSpec.kafka.kafkaConfig_2_8.<setting_for_{{ KF }}_2.8_configuration`: Specify a new value for the setting if using {{ KF }} `2.8`.
+        * `configSpec.kafka.kafkaConfig_3.<setting_for_{{ KF }}_3.x_configuration`: Specify a new value for the setting if using {{ KF }} `3.x`.
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.kafka.kafka_config_2_8.<setting_1_for_{{ KF }}_2.8_configuration>",
+                      ...,
+                      "config_spec.kafka.kafka_config_2_8.<setting_N_for_{{ KF }}_2.8_configuration>",
+                      "config_spec.kafka.kafka_config_3.<setting_1_for_{{ KF }}_3.x_configuration>",
+                      ...,
+                      "config_spec.kafka.kafka_config_3.<setting_N_for_{{ KF }}_3.x_configuration>"
+                    ]
+                  }
+                  "config_spec": {
+                    "kafka": {
+                      "kafka_config_2_8": {
+                        "<setting_1_for_{{ KF }}_2.8_configuration>": "<setting_value>",
+                        "<setting_2_for_{{ KF }}_2.8_configuration>": "<setting_value>",
+                        ...,
+                        "<setting_N_for_{{ KF }}_2.8_configuration>": "<setting_value>"
+                      },
+                      "kafka_config_3": {
+                        "<setting_1_for_{{ KF }}_3.x_configuration>": "<setting_value>",
+                        "<setting_2_for_{{ KF }}_3.x_configuration>": "<setting_value>",
+                        ...,
+                        "<setting_N_for_{{ KF }}_3.x_configuration>": "<setting_value>"
+                      }
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.kafka.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Specify the relevant parameters:
+            * `config_spec.kafka.kafka_config_2_8.<setting_for_{{ KF }}_2.8_configuration>`: For {{ KF }} `2.8`.
+            * `config_spec.kafka.kafka_config_3.<setting_for_{{ KF }}_3.x_configuration>`: For {{ KF }} `3.x`.
+        * `config_spec.kafka.kafka_config_2_8.<setting_for_{{ KF }}_2.8_configuration`: Specify a new value for the setting if using {{ KF }} `2.8`.
+        * `config_spec.kafka.kafka_config_3.<setting_for_{{ KF }}_3.x_configuration`: Specify a new value for the setting if using {{ KF }} `3.x`.
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -670,10 +1299,56 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
         To find out the cluster name or ID, [get a list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  To move a cluster, use the [move](../api-ref/Cluster/move.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Move](../api-ref/grpc/Cluster/move.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * ID of the destination folder in the `destinationFolderId` parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.move](../api-ref/Cluster/move.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>:move' \
+            --data '{
+                      "destinationFolderId": "<folder_ID>"
+                    }'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Move](../api-ref/grpc/Cluster/move.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "destination_folder_id": "<folder_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.kafka.v1.ClusterService.Move
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

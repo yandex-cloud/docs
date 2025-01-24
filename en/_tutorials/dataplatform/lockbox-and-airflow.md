@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:
 
-   * `managed-airflow.integrationProvider`
+   * `{{ roles.maf.integrationProvider }}`
    * `lockbox.payloadViewer`
 
    {% note info }
@@ -46,11 +46,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 For the {{ AF }} cluster to work correctly, your {{ lockbox-name }} secret's name must have this format: `airflow/<artifact_type>/<artifact_ID>`, where:
 
-   * `<artifact_type>`: Type of the artifact that will be stored in the secret. The following types are available:
+   * `<artifact_type>`: Type of the artifact to store in the secret. The following types are available:
      * `connections`: Connections
      * `variables`: Variables
      * `config`: Configuration data
-   * `<artifact_ID>`: ID that will be used to access the artifact in {{ AF }}.
+   * `<artifact_ID>`: ID to use to access the artifact in {{ AF }}.
 
 [Create a {{ lockbox-name }}](../../lockbox/operations/secret-create.md) secret with the following parameters:
 

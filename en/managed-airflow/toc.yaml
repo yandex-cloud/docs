@@ -43,6 +43,8 @@ items:
     items:
       - name: Resource relationships
         href: concepts/index.md
+      - name: Networking in {{ maf-name }}
+        href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Impersonation

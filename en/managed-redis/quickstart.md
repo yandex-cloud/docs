@@ -13,11 +13,14 @@ To get started with the service:
 ## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+
 1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 1. [Create a Linux VM](../compute/operations/vm-create/create-linux-vm.md#console_1).
 
@@ -100,7 +103,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 
             {% include [unix-certificate](../_includes/mdb/mrd/unix-certificate.md) %}
 
-        1. Run this command:
+        1. Run the following command:
 
             ```bash
             redis-cli -h c-<cluster_ID>.rw.{{ dns-zone }} \

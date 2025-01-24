@@ -1,5 +1,6 @@
 ---
-title: How to set up security groups for a {{ mgl-full-name }} instance
+title: 'Setting up security groups and access restrictions to a {{ mgl-full-name }} instance '
+description: In this article, you will learn how to set up security groups and restrict access to a {{ mgl-name }} instance, as well as review the rules for incoming and outgoing traffic.
 ---
 
 # Setting up security groups and access restrictions to a {{ mgl-name }} instance 
@@ -35,7 +36,7 @@ To set traffic rules for a {{ GL }} instance:
    * `85.32.32.22/32`
 
    To allow all traffic from any IP, specify `0.0.0.0/0`.
-||
+|| 
 || To enable Let’s Encrypt certificate.
 
 This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) when using Git repositories over HTTPS. If you do not specify this rule, add [your own certificate]({{ gl.docs }}/omnibus/settings/ssl/#configure-https-manually) to work over HTTPS. |

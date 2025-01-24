@@ -1,3 +1,8 @@
+---
+title: Host roles in {{ mos-full-name }}
+description: In this article, you will learn about host roles in {{ mos-name }}.
+---
+
 # Host roles in {{ mos-name }}
 
 Each {{ mos-name }} cluster consists of one or more host groups of the `{{ OS }}` and `Dashboards` (optional) types:
@@ -24,7 +29,7 @@ Hosts with this role monitor the state of the cluster and manage its configurati
 
 If you are using hosts with the `MANAGER` role, a group containing three such hosts will be added to the cluster.
 
-If no hosts with the `MANAGER` role are used, this role will be supported by hosts with the `DATA` role. However, with dedicated hosts with the `MANAGER` role, you can increase the overall cluster reliability and reduce the load on hosts with the `DATA` role.
+If no hosts with the `MANAGER` role are used, this role will be supported by hosts with the `DATA` role. However, having dedicated hosts with the `MANAGER` role allows you to increase the overall cluster reliability and reduce the load on hosts with the `DATA` role.
 
 ## Hosts with the DASHBOARDS role {#dashboards}
 

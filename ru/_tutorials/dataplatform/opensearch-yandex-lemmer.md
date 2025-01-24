@@ -29,7 +29,7 @@
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-yandex-lemmer.tf](https://github.com/yandex-cloud-examples/yc-opensearch-index-policy/blob/main/opensearch-yandex-lemmer.tf). В файле описаны:
+        1. Скачайте в ту же рабочую директорию файл конфигурации [opensearch-yandex-lemmer.tf](https://github.com/yandex-cloud-examples/yc-opensearch-yandex-lemmer/blob/main/opensearch-yandex-lemmer.tf). В файле описаны:
 
             * [сеть](../../vpc/concepts/network.md#network);
             * [подсеть](../../vpc/concepts/network.md#subnet);

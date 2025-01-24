@@ -59,15 +59,17 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         * Select an existing service account or create a new one.
 
+           Make sure to assign the `{{ roles.maf.integrationProvider }}` [role](../../iam/concepts/access-control/roles.md) to the service account:
+
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
 
       * [Availability zones](../../overview/concepts/geo-scope) for the cluster
       * Cloud network
       * Subnet in each of the selected availability zones
 
-        {{ yandex-cloud }} manages {{ maf-name }} cluster components in the auxiliary subnet. Make sure the IP address range of the subnets you selected does not overlap with the `{{ airflow-service-address }}` auxiliary subnet address range. Otherwise, you will get an error when creating a cluster.
+        {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
-      * [Security group](../../vpc/concepts/security-groups.md) for the cluster network traffic
+      * [Security group](../concepts/network.md#security-groups) for the cluster network traffic
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
@@ -338,7 +340,10 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `network`: Network settings:
 
             * `subnetIds`: List of subnet IDs.
-            * `securityGroupIds`: List of security group IDs.
+
+                {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+            * `securityGroupIds`: List of [security group](../concepts/network.md#security-groups) IDs.
 
         * `codeSync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
@@ -369,7 +374,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             {% endnote %}
 
-    1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -513,7 +518,10 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `network`: Network settings:
 
             * `subnet_ids`: List of subnet IDs.
-            * `security_group_ids`: List of security group IDs.
+
+                {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+            * `security_group_ids`: List of [security group](../concepts/network.md#security-groups) IDs.
 
         * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
@@ -544,7 +552,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             {% endnote %}
 
-    1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

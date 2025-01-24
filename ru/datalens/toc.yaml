@@ -646,7 +646,7 @@ items:
             href: visualization-ref/index.md
           - name: Линейная диаграмма
             href: visualization-ref/line-chart.md
-          - name: Накопительная диаграмма с областями
+          - name: Диаграмма с областями
             href: visualization-ref/area-chart.md
           - name: Нормированная диаграмма с областями
             href: visualization-ref/normalized-area-chart.md

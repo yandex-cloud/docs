@@ -6,18 +6,19 @@ description: In this article, you will learn about {{ GP }} host classes.
 # {{ GP }} host classes
 
 
-The host class determines the computing power allocated for each host in a cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. Once a cluster is created, you cannot change its host classes.
+The host class determines the computing power allocated for each host in a cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. For information on how to select host classes, see [Calculating the cluster configuration](../operations/calculate-specs.md).
 
 
 For master hosts, the host class determines which [disk types](./storage.md) are available:
 
 * **s2**, **i2**: `local-ssd`, `network-ssd-nonreplicated`.
-* **s3**, **i3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **s3**, **i3**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`, `network-ssd-io-m3`.
 
 For segment hosts, the following disk types are available:
 
 * `local-ssd`
 * `network-ssd-nonreplicated`
+* `network-ssd-io-m3`
 
 The available storage size does not depend on the host class. For storage limitations, see [Quotas and limits](limits.md).
 

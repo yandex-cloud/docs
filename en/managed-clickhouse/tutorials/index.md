@@ -7,6 +7,7 @@ description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
 
 * [Adding data to a DB](insert.md)
 * [{#T}](data-migration.md)
+* [{#T}](ch-to-mch-migration.md)
 * [Sharding tables](sharding.md)
 * [Data resharding in a cluster](mch-mch-resharding.md)
 * [Using hybrid storage](hybrid-storage.md)

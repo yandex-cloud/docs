@@ -25,7 +25,7 @@ The certificate will be saved to the `$HOME\.postgresql\root.crt` file.
 
 For more information about obtaining a certificate and connecting to a database, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
-#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -33,7 +33,7 @@ Here is the full text of the error:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+This means, when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
 
 To fix this error:
 
@@ -58,7 +58,7 @@ To fix this error:
 
 1. [Place the obtained certificate in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
-#### What must I do if I get the _SSL is required_ error when connecting? {#ssl-req}
+#### What should I do if I get the _SSL is required_ error when connecting? {#ssl-req}
 
 The error occurs because you are trying to connect to the cluster with a [public host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). These hosts only support connections with an SSL certificate. You can:
 

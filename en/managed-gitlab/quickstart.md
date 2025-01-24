@@ -1,5 +1,5 @@
 ---
-title: How to get started with {{ mgl-full-name }}
+title: Getting started with {{ mgl-full-name }}
 description: Follow this guide to create and set up a {{ GL }} cluster.
 ---
 
@@ -30,7 +30,9 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
      {% include [create-folder](../_includes/create-folder.md) %}
 
-  1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](security/index.md#roles-list) for creating an instance.
+  1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create an instance.
+
+      {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 {% endlist %}
 
@@ -77,7 +79,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 1. Add a key to the SSH agent:
 
    ```bash
-   ssh-add <path_to_private_key>
+   ssh-add <private_key_path>
    ```
 
 1. [Assign a public SSH key](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account) to the {{ GL }} account.
@@ -134,7 +136,7 @@ To start working with a local copy of your repository using the account you crea
    git@<{{ GL }}_instance_domain>: Permission denied (publickey).
    fatal: Could not read from remote repository.
 
-   Please make sure you have the correct access permissions
+   Please make sure you have the correct access rights
    and the repository exists.
    ```
 
@@ -150,7 +152,7 @@ To start working with a local copy of your repository using the account you crea
 
       ```bash
       Host <{{ GL }}_instance_domain>
-         IdentityFile <path_to_private_key>
+         IdentityFile <private_key_path>
       ```
 
       In the `IdentityFile` parameter, specify the absolute path to the private key you created for the {{ GL }} project.
@@ -173,7 +175,7 @@ To start working with a local copy of your repository using the account you crea
    git add . && git commit -m "<commit_name>"
    ```
 
-1. Push changes to the remote repository:
+1. Push the changes to the remote repository:
 
    ```bash
    git push origin main

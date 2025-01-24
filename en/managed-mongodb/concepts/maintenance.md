@@ -1,14 +1,13 @@
 ---
 title: Maintenance in {{ mmg-full-name }}
-description: Maintenance in {{ mmg-name }} means automatic installation of DBMS updates and fixes for hosts (including disabled clusters), changing host class and storage size, and other maintenance activities.
+description: In {{ mmg-name }}, maintenance means automatic installation of DBMS updates and fixes for hosts (including disabled clusters), changing host class and storage size, and other maintenance activities.
 ---
 
 # Maintenance in {{ mmg-name }}
 
 Maintenance means:
 
-* Automatic installation of MySQL updates and fixes for hosts (including disabled clusters).
-* Changes to the host class and storage size.
+* Automatic installation of DBMS updates and fixes for hosts (including for disabled clusters).
 * Other maintenance activities.
 
 Changing a major DBMS version is not part of maintenance. For more information about version changes, see [{#T}](../operations/cluster-version-update.md).
