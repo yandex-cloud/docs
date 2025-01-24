@@ -1,3 +1,8 @@
+---
+title: Updating management console settings
+description: Follow this guide to change your management console settings.
+---
+
 # Updating management console settings
 
 In the [management console]({{ link-console-main }}), you can update the following settings:

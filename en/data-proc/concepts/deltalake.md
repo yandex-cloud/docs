@@ -1,3 +1,8 @@
+---
+title: Delta Lake in {{ dataproc-full-name }}
+description: In this article, you will learn about Delta Lake in {{ dataproc-name }}, discover Delta Lake benefits, and review compatible Delta Lake and {{ dataproc-name }} versions.
+---
+
 # Delta Lake in {{ dataproc-name }}
 
 [Delta Lake](https://delta.io/) is open-source software that expands [{{ SPRK }}](https://spark.apache.org/) functionality:

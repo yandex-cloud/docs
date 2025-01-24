@@ -1,3 +1,8 @@
+---
+title: Monitoring and managing sessions and queries in the Command Center
+description: Follow this guide to learn how to use the Command Center.
+---
+
 # Monitoring and managing sessions and queries in the Command Center
 
 {{ GP }} Command Center provides the following functionality:
@@ -114,7 +119,7 @@ There might be cases when a user is no longer working with the database, but fai
 1. Filter the sessions by **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
 1. Find the longest lasting session in the `Idle` status.
 1. Click its number. This will open a page with detailed info about this session.
-1. Check when the last query was submitted in the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-started }}** field under **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_section_session-info }}**. If it has been a while, chances are the user is no longer using the database, but the session was not closed. You can terminate the session.
+1. Check when the last query was submitted in the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_section_session-info }}** field under **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-started }}**. If it has been a while, chances are the user is no longer using the database, but the session was not closed. You can terminate the session.
 1. In the top-right corner, click **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
 1. Confirm stopping the session.
 

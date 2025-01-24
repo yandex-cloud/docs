@@ -62,7 +62,6 @@ description: Следуя данной инструкции, вы сможете
 
      Результат:
 
-     
      ```bash
      id: a5d88ep483cm********
      name: test-balancer2-updated
@@ -91,8 +90,6 @@ description: Следуя данной инструкции, вы сможете
        - enpg05a3ck35********
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
-
-
 
   1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
 

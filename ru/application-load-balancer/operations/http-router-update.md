@@ -39,7 +39,6 @@ description: Следуя данной инструкции, вы сможете
 
      Результат:
      
-          
      ```text
      id: a5dld80l32ed********
      name: new-http-router
@@ -63,8 +62,6 @@ description: Следуя данной инструкции, вы сможете
          append: ru-RU
      created_at: "2021-02-11T21:31:01.676592016Z"
      ```
-
- 
 
 - {{ TF }} {#tf}
 

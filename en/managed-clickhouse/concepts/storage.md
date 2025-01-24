@@ -10,7 +10,7 @@ description: In this article, you will learn about disk types in {{ mch-name }},
 
 {% include [storage-type](../../_includes/mdb/mch/storage-type.md) %}
 
-## Hybrid storage {#hybrid-storage-features}
+## Hybrid storage features {#hybrid-storage-features}
 
 If you enable the **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }}** setting when creating or updating a cluster, you will be able to distribute data between cluster storage and [{{ objstorage-full-name }}](../../storage/) object storage. Thus your data will reside in either cluster or object storage, depending on the storage policy you specify. For example, you can choose to store your frequently used (_hot_) data in cluster storage and the rarely used (_cold_) data in the less expensive and slower object storage.
 
@@ -98,7 +98,7 @@ A {{ mch-name }} cluster with enabled hybrid storage has the following settings:
     In this case, <q>cold</q> data requested from object storage is written to fast drives where data processing takes less time.
 
 * `data_cache_max_size`: Sets the maximum cache size (in bytes) allocated in cluster storage for temporarily storage of data requested from object storage. Default value: `1073741824` (1 GB).
-* `move_factor`: Sets the minimum share of free space in cluster storage. If the actual value is less than this setting value, the data is moved to {{ objstorage-full-name }}. Minimum value is `0`, maximum value is `1`, and default value is `0.01`.
+* `move_factor`: Sets the minimum share of free space in cluster storage. If the minimum share is below this value, the data will be moved to {{ objstorage-full-name }}. Minimum value: `0`; maximum value: `1`; default: `0.01`.
 
     Data parts are queued up in descending order by size, and then as many of them are moved as will satisfy the `move_factor` condition.
 
@@ -125,7 +125,10 @@ The number of hosts you can create together with a {{ CH }} cluster depends on t
 
     This cluster will be fault-tolerant.
 
-* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the current quota.
+* You can add any number of hosts within the current quota when using the following disk types:
+
+    * Network HDDs (`network-hdd`)
+    * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 

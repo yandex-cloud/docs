@@ -7,7 +7,7 @@ keywords:
   - OpenSearch
 ---
 
-# Creating a {{ OS }} cluster
+# Creating an {{ OS }} cluster
 
 
 A {{ mos-name }} cluster is a group of multiple interlinked {{ OS }} and [Dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
@@ -52,14 +52,14 @@ When creating a cluster, you need to specify individual parameters for each [hos
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
   
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a cloud network to host the cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#security-groups) to be able to connect to the cluster.
 
 
-  1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the [`{{ OS }}` host group](../concepts/host-roles.md):
+  1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the[ `{{ OS }}`](../concepts/host-roles.md) host group:
 
       1. Select the host group type: `{{ OS }}`
 
-      1. Enter a name for the host group, which must be unique within the cluster.
+      1. Enter a name for the host group. It must be unique within the cluster.
 
       1. Select the `DATA` and `MANAGER` [host roles](../concepts/host-roles.md).
 
@@ -160,7 +160,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
          --opensearch-node-group name=<{{ OS }}_host_group_name>,`
                                 `resource-preset-id=<host_class>,`
                                 `disk-size=<disk_size_in_bytes>,`
-                                `disk-type-id=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd>,`
+                                `disk-type-id=<network-hdd|network-ssd|network-ssd-io-m3|network-ssd-nonreplicated|local-ssd>,`
                                 `hosts-count=<number_of_hosts_in_group>,`
                                 `zone-ids=<availability_zones>,`
                                 `subnet-names=<subnet_names>,`
@@ -216,7 +216,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
   To create a {{ mos-name }} cluster:
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
       * DB cluster: Description of the {{ mos-name }} cluster and its hosts
 
@@ -280,7 +280,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
         }
       }
 
-      resource "yandex_vpc_network" "<network_name>" {
+      resource "yandex_vpc_network" "<network_name>" { 
         name = "<network_name>"
       }
 
@@ -435,7 +435,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
           * `version`: {{ OS }} version.
           * `adminPassword`: `admin` user password.
-          * `opensearchSpec`: Settings for `{{ OS }}` host groups:
+          * `opensearchSpec`: `{{ OS }}` host group settings:
 
               * `plugins`: List of [{{ OS }}](../concepts/plugins.md) plugins you should additionally install in the cluster.
               * `nodeGroups`: Host settings as an array of elements, one for each host group. Each element has the following structure:
@@ -447,8 +447,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
                       * `diskSize`: Disk size in bytes.
                       * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with the two roles, or different groups with the roles.
-                  * `hostsCount`: Number of hosts in the group. It must have at least one `DATA` host and at least three `MANAGER` hosts.
+                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
+                  * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                   * `zoneIds`: List of availability zones the cluster hosts are located in.
                   * `subnetIds`: List of subnet IDs.
 
@@ -462,7 +462,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
                           Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
 
-                          If you set this parameter, configure the maintenance window schedule in the `maintenanceWindow` parameter.
+                          If you have set this parameter, configure the maintenance window schedule in the `maintenanceWindow` parameter.
 
                       * `emergencyUsageThreshold`: Storage utilization percentage to trigger an immediate storage increase.
 
@@ -470,7 +470,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
                       * `diskSizeLimit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
 
-          * `dashboardsSpec`: Settings for `Dashboards` host groups. Contains the `nodeGroups` parameter, of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
+          * `dashboardsSpec`: Settings for `Dashboards` host groups. Contains the `nodeGroups` parameter of the same structure as `opensearchSpec.nodeGroups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
 
           
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
@@ -484,7 +484,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `day`: Day of week, in `DDD` format, for scheduled maintenance.
           * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`. Use the UTC time zone.
 
-  1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -614,9 +614,9 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
           * `version`: {{ OS }} version.
           * `admin_password`: `admin` user password.
-          * `opensearch_spec`: Settings for `{{ OS }}` host groups:
+          * `opensearch_spec`: `{{ OS }}` host group settings:
 
-              * `plugins`: List of [{{ OS }} plugins](../concepts/plugins.md) you should additionally install in the cluster.
+              * `plugins`: List of [{{ OS }}](../concepts/plugins.md) plugins you should additionally install in the cluster.
               * `node_groups`: Host settings as an array of elements, one for each host group. Each element has the following structure:
 
                   * `name`: Host group name.
@@ -626,8 +626,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
                       * `disk_size`: Disk size in bytes.
                       * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with the two roles, or different groups with the roles.
-                  * `hosts_count`: Number of hosts in the group. It must have at least one `DATA` host and at least three `MANAGER` hosts.
+                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or several groups with different roles.
+                  * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                   * `zone_ids`: List of availability zones the cluster hosts are located in.
                   * `subnet_ids`: List of subnet IDs.
 
@@ -641,7 +641,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
                           Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
 
-                          If you set this parameter, configure the maintenance window schedule in the `maintenance_window` parameter.
+                          If you have set this parameter, configure the maintenance window schedule in the `maintenance_window` parameter.
 
                       * `emergency_usage_threshold`: Storage utilization percentage to trigger an immediate storage increase.
 
@@ -649,7 +649,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
                       * `disk_size_limit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
 
-          * `dashboards_spec`: Settings for `Dashboards` host groups. Contains the `node_groups` parameter, of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the only exception: `Dashboards` hosts can only have one role, `DASHBOARDS`, so you do not need to specify it directly.
+          * `dashboards_spec`: Settings for `Dashboards` host groups. Contains the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`. The `roles` parameter is the exception: the `Dashboards` hosts can only have one role, `DASHBOARDS`, so there is no need to specify it.
 
           
           * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
@@ -663,7 +663,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `day`: Day of week, in `DDD` format, for scheduled maintenance.
           * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`. Use the UTC time zone.
 
-  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -684,7 +684,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ OS }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ OS }} cluster has a lot of settings and you need to create a similar one.
+You can create an {{ OS }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ OS }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ OS }} cluster copy:
 
@@ -803,7 +803,7 @@ To create an {{ OS }} cluster copy:
         * Subnet: `{{ network-name }}-{{ region-id }}-a`.
         * Public address: Assigned.
 
-    Run this command:
+    Run the following command:
 
     ```bash
     {{ yc-mdb-os }} cluster create \
@@ -935,3 +935,6 @@ To create an {{ OS }} cluster copy:
     ```
 
 {% endlist %}
+
+
+{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}

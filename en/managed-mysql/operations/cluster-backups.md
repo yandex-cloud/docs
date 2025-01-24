@@ -54,7 +54,7 @@ You can create backups and restore clusters from existing backups, including poi
 
   1. To get a list of cluster backups:
 
-      1. Use the [Cluster.listBackups](../api-ref/Cluster/listBackups.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+      1. Use the [Cluster.listBackups](../api-ref/Cluster/listBackups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
           ```bash
           curl \
@@ -69,7 +69,7 @@ You can create backups and restore clusters from existing backups, including poi
 
   1. To get a list of backups for all the clusters in a folder:
 
-      1. Use the [Backup.list](../api-ref/Backup/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+      1. Use the [Backup.list](../api-ref/Backup/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
           ```bash
           curl \
@@ -94,7 +94,7 @@ You can create backups and restore clusters from existing backups, including poi
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. To get a list of cluster backups:
 
-      1. Use the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Use the [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
           ```bash
           grpcurl \
@@ -116,7 +116,7 @@ You can create backups and restore clusters from existing backups, including poi
 
   1. To get a list of backups for all the clusters in a folder:
 
-      1. Use the [BackupService/List](../api-ref/grpc/Backup/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Use the [BackupService/List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
           ```bash
           grpcurl \
@@ -174,7 +174,7 @@ You can create backups and restore clusters from existing backups, including poi
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Backup.get](../api-ref/Backup/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Backup.get](../api-ref/Backup/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -194,7 +194,7 @@ You can create backups and restore clusters from existing backups, including poi
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [BackupService/Get](../api-ref/grpc/Backup/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [BackupService/Get](../api-ref/grpc/Backup/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -256,7 +256,7 @@ You can create backups and restore clusters from existing backups, including poi
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.backup](../api-ref/Cluster/backup.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.backup](../api-ref/Cluster/backup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -277,7 +277,7 @@ You can create backups and restore clusters from existing backups, including poi
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -325,7 +325,7 @@ For a new cluster, you should set all the parameters that are required at creati
   To restore a previously deleted cluster from a backup:
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
-  1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_ID>`.
+  1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_IP>`.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. To restore the cluster to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the date manually or select it from the drop-down calendar.
@@ -403,7 +403,7 @@ For a new cluster, you should set all the parameters that are required at creati
           * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
           
-          * `subnet-name`: [Subnet name](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
+          * `subnet-name`: [Subnet](../../vpc/concepts/network.md#subnet) name. Specify if two or more subnets are created in the selected availability zone.
           * `assign-public-ip`: Flag used if [public access](../concepts/network.md#public-access-to-host) to the host is required, `true` or `false`.
 
 
@@ -415,7 +415,7 @@ For a new cluster, you should set all the parameters that are required at creati
           * `network-hdd`
           * `network-ssd`
                     * `local-ssd`
-          * `network-ssd-nonreplicated`
+          * `network-ssd-nonreplicated`          * `network-ssd-io-m3`
 
 
 - {{ TF }} {#tf}
@@ -480,7 +480,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
 
-  **To restore a previously deleted cluster from a backup**:
+  **To restore a previously deleted cluster from a backup:**
 
   1. Create a [{{ TF }}](cluster-create.md#create-cluster) configuration file for the new cluster.
 
@@ -572,7 +572,7 @@ For a new cluster, you should set all the parameters that are required at creati
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
           * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
 
-  1. Use the [Cluster.restore](../api-ref/Cluster/restore.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -647,7 +647,7 @@ For a new cluster, you should set all the parameters that are required at creati
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
           * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
 
-  1. Use the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -732,7 +732,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -781,7 +781,7 @@ For a new cluster, you should set all the parameters that are required at creati
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -893,7 +893,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -934,7 +934,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1010,7 +1010,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -1046,7 +1046,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \

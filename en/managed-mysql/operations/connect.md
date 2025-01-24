@@ -32,18 +32,18 @@ Rule settings depend on the connection method you select:
 
     [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
 - From a VM in {{ yandex-cloud }} {#cloud}
 
     1. [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`
         * Security group: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
     1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
@@ -51,18 +51,18 @@ Rule settings depend on the connection method you select:
         For example, you can set the following rules for a VM:
 
         * For incoming traffic:
-           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
-           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
             This rule allows you to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH.
 
         * For outgoing traffic:
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
 
             This rule allows all outgoing traffic, thus enabling you not only to connect to the cluster but also to install the certificates and utilities your VM needs for the connection.
 
@@ -87,29 +87,29 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
-## {{ MY }} host FQDN {#fqdn}
+## FQDNs of {{ MY }} hosts {#fqdn}
 
-To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can use the [FQDN of a particular host](#get-fqdn) in the cluster or a special FQDN always pointing to the [current master host](#fqdn-master) or the [least lagging replica](#fqdn-replica).
 
-* [Request a list of cluster hosts](../operations/hosts.md#list).
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+Host FQDN example:
+
+```text
+{{ host-name }}.{{ dns-zone }}
+```
+
+### Getting host FQDN {#get-fqdn}
+
+You can obtain the {{ MY }} host FQDN by doing one of the following:
+
 * Look up the FQDN in the management console:
 
-   1. Go to the cluster page.
-   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+    1. Go to the cluster page.
+    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-Cluster hosts also use [special FQDNs](#special-fqdns).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
-## Special FQDNs {#special-fqdns}
-
-Alongside regular FQDNs, {{ mmy-name }} provides several special FQDNs, which can also be used when connecting to a cluster.
-
-{% note warning %}
-
-If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master or the most recent replica, you will not be able to access them from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
-
-{% endnote %}
+* [Request a list of cluster hosts](../operations/hosts.md#list) using the CLI or API.
 
 ### Current master {#fqdn-master}
 
@@ -117,17 +117,11 @@ An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the curren
 
 When connecting to this FQDN, both read and write operations are allowed.
 
-Here is an example of connecting to a master host for a cluster with the `c9qash3nb1v9********` ID:
+{% note warning %}
 
-```bash
-mysql --host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
-      --port=3306 \
-      --ssl-ca=~/.mysql/root.crt \
-      --ssl-mode=VERIFY_IDENTITY \
-      --user=<username> \
-      --password \
-      <DB_name>
-```
+If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master host, you will not be able to connect to it from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+
+{% endnote %}
 
 ### Most recent replica {#fqdn-replica}
 
@@ -138,17 +132,11 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../co
 * When connecting to this FQDN, only read operations are allowed.
 * If there are no active replicas in a cluster, you cannot connect to this FQDN as the respective DNS CNAME record will point to a null object (`null`).
 
-Here is an example of connecting to the most recent replica for a cluster with the `c9qash3nb1v9********` ID:
+{% note warning %}
 
-```bash
-mysql --host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
-      --port=3306 \
-      --ssl-ca=~/.mysql/root.crt \
-      --ssl-mode=VERIFY_IDENTITY \
-      --user=<username> \
-      --password \
-      <DB_name>
-```
+If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes the least lagging replica, you will not be able to connect to it from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+
+{% endnote %}
 
 ## Connecting from graphical IDEs {#connection-ide}
 
@@ -166,7 +154,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
      1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
      1. On the **General** tab:
         1. Specify the connection parameters:
-           * **Host**: [Any {{ MY }} host FQDN](#fqdn) or a [special FQDN](#special-fqdns).
+           * **Host**: [Any {{ MY }}](#fqdn) host FQDN or a [special FQDN](#fqdn-master).
            * **Port**: `{{ port-mmy }}`.
            * **User**, **Password**: DB user's name and password.
            * **Database**: Name of the DB to connect to.
@@ -184,7 +172,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
      1. Select **{{ MY }}** from the DB list.
      1. Click **Next**.
      1. Specify the connection parameters on the **Main** tab:
-        * **Server**: [FQDN of any {{ MY }} host](#fqdn) or a [special FQDN](#special-fqdns).
+        * **Server**: [FQDN of any {{ MY }}](#fqdn) host or a [special FQDN](#fqdn-master).
         * **Port**: `{{ port-mmy }}`.
         * **Database**: DB to connect to.
         * **Username**, **Password**: DB username and password.

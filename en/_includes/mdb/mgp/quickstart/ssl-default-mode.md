@@ -1,0 +1,1 @@
+When connecting, you will use an encrypted connection (with SSL) but without authenticating the cluster hosts. This is the [default behavior for all clients]({{ pg-docs }}/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) that use the `libpq` library.

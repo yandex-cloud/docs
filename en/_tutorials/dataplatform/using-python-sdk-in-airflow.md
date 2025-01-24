@@ -17,9 +17,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:
 
    * `compute.viewer`
-   * `managed-airflow.integrationProvider`
+   * `{{ roles.maf.integrationProvider }}`
 
 1. [Create an {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) bucket in any configuration.
+
+1. {% include [aiflow-sa-bucket-acl](../../_includes/managed-airflow/aiflow-sa-bucket-acl.md) %}
 
 1. [Create a {{ maf-name }} cluster](../../managed-airflow/operations/cluster-create.md#create-cluster) with the following parameters:
 

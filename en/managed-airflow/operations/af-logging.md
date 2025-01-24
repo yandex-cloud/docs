@@ -1,4 +1,9 @@
-# Transferring the {{ maf-name }} cluster logs to {{ cloud-logging-full-name }}
+---
+title: Transferring {{ maf-full-name }} cluster logs to {{ cloud-logging-full-name }}
+description: Follow this guide to set up the transfer of {{ maf-name }} cluster logs to {{ cloud-logging-name }}.
+---
+
+# Transferring {{ maf-name }} cluster logs to {{ cloud-logging-full-name }}
 
 You can set up regular collection of {{ maf-name }} cluster performance logs. Logs will be delivered to a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}. You can choose between these two types of log groups:
 
@@ -16,7 +21,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
       1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-      1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable the **{{ ui-key.yacloud.logging.field_logging }}** option.
+      1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
       1. Specify the folder whose log group you want to be using.
       1. Select the minimum logging level.
@@ -147,7 +152,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
       1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-      1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable the **{{ ui-key.yacloud.logging.field_logging }}** option.
+      1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
       1. Specify the log group, `airflow-log-group`.
       1. Select the minimum logging level.

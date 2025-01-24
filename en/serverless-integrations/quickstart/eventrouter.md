@@ -145,9 +145,9 @@ To get started in {{ yandex-cloud }}:
 
     1. Send a message to `sample-queue` using the previously saved queue URL:
 
-        ```bash
+         ```bash
          aws sqs send-message \
-           --message-body "Hello World" \
+           --message-body '"greeting":"Hello World"' \
            --endpoint https://message-queue.api.cloud.yandex.net/ \
            --queue-url <queue_URL>
          ```

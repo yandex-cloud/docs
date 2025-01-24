@@ -1,3 +1,8 @@
+---
+title: Changing {{ CH }} settings at the query level
+description: Follow this guide to change {{ CH }} settings at the query level.
+---
+
 # Changing {{ CH }} settings at the query level
 
 You can specify [{{ CH }} settings at the query level](https://clickhouse.com/docs/en/operations/settings/query-level) to flexibly configure databases in a {{ mch-name }} cluster. You can specify settings in several ways:
@@ -158,7 +163,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [UserService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

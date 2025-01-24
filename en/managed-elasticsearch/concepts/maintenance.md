@@ -1,6 +1,6 @@
 ---
 title: Maintenance in {{ mes-name }}
-description: Maintenance refers to automatic installation of updates and fixes for your {{ ES }} hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities.
+description: Maintenance means automatic installation of {{ ES }} updates and fixes for hosts (including for disabled clusters), changing host class and storage size, and other maintenance activities.
 ---
 
 # Maintenance in {{ mes-name }}
@@ -10,14 +10,13 @@ description: Maintenance refers to automatic installation of updates and fixes f
 Maintenance means:
 
 * Automatic installation of {{ ES }} updates and revisions for hosts (including disabled clusters).
-* Changes to the host class and storage size.
 * Other maintenance activities.
 
-Maintenance includes changes within one {{ ES }} major version. For more information about major version changes, see [{#T}](../operations/cluster-version-update.md).
+Maintenance includes changes within one {{ ES }} major version. For information about migrating between major versions, see [{#T}](../operations/cluster-version-update.md).
 
 ## Maintenance window {#maintenance-window}
 
-You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or updating [its settings](../operations/cluster-update.md):
+You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/cluster-update.md):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 

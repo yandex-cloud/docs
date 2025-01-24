@@ -69,10 +69,6 @@ Rule settings depend on the connection method you select:
 
 
 
-## Automatic primary master host selection {#automatic-master-host-selection}
-
-To automatically select a host to connect to a cluster, use a [special primary master FQDN](#fqdn-master).
-
 ## Getting an SSL certificate {#get-ssl-cert}
 
 To use an SSL connection, get a certificate:
@@ -83,26 +79,36 @@ To use an SSL connection, get a certificate:
 
 ## {{ GP }} host FQDN {#fqdn}
 
-To connect to a master host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+To connect to a master host, you need its [FQDN](../concepts/network.md#hostname). You can use the FQDN of a particular host in the cluster or a [special FQDN](#fqdn-master) always pointing to the primary master host.
 
-* [Request a list of cluster hosts](hosts/cluster-hosts.md).
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains a list of FQDNs for master hosts. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+Host FQDN example:
+
+```text
+{{ host-name }}.{{ dns-zone }}
+```
+
+### Getting host FQDN {#get-fqdn}
+
+You can obtain the {{ GP }} host FQDN by doing one of the following:
+
 * Look up the FQDN in the management console:
 
-   1. Go to the cluster page.
-   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+    1. Go to the cluster page.
+    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-Primary master hosts also use [special FQDNs](#fqdn-master).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
-## Special primary master FQDN {#fqdn-master}
+* [Request a list of cluster hosts](hosts/cluster-hosts.md) using the CLI or API.
+
+### Special primary master FQDN {#fqdn-master}
 
 If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted and both read and write operations are allowed.
 
-Here is an example of connecting to a primary master host in a cluster with the `c9qash3nb1v9********` ID:
+Here is an example of connecting to a primary master host in a cluster with the `{{ cluster-id }}` ID:
 
 ```bash
-psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
+psql "host=c-{{ cluster-id }}.rw.{{ dns-zone }} \
       port={{ port-mgp }} \
       sslmode=verify-full \
       dbname=<DB_name> \

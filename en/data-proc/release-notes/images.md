@@ -2,6 +2,25 @@
 
 For a complete list of current and deprecated {{ dataproc-name }} images, see [{#T}](../concepts/environment.md).
 
+## 2.2.x images (beta) {#2-2-x}
+
+### 2.2.5 (beta) {#2-2-5}
+
+* The following components were updated:
+
+    * Hadoop to 3.3.2
+    * Spark to 3.5.0
+
+* Python upgraded to version [3.11.10](https://docs.python.org/3.11/whatsnew/3.11.html#summary-release-highlights "Список изменений").
+
+* The following libraries were updated:
+
+    * IPython to 8.22.0
+    * ipykernel to 6.29.5
+    * Matplotlib to 3.9.2
+    * pandas to 2.2.2
+    * PyArrow to 14.0.2
+    * scikit-learn to 1.5.1
 
 ## 2.1.x images {#2-1-x}
 
@@ -250,4 +269,3 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
     * scikit-learn to 0.21.3
     * TensorFlow to 1.15.0
     * XGBoost to 0.90
-

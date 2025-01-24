@@ -1,3 +1,8 @@
+---
+title: Migrating {{ MG }} cluster hosts to a different availability zone
+description: Follow this guide to relocate hosts in a {{ MG }} cluster to a different availability zone.
+---
+
 # Migrating {{ MG }} cluster hosts to a different availability zone
 
 {{ mmg-name }} cluster hosts reside in [availability zones](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. To move hosts from one availability zone to another:
@@ -26,7 +31,7 @@
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run this command:
+      Run the following command:
 
       ```bash
       {{ yc-mdb-mg }} host add \
@@ -34,7 +39,7 @@
          --host type=<host_type>,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<host_public_access:_true_or_false>
+               `assign-public-ip=<public_access_to_host:_true_or_false>
       ```
 
       Command specifics:
@@ -54,7 +59,7 @@
              type             = "<host_type>"
              zone_id          = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <host_public_access:_true_or_false>
+             assign_public_ip = <public_access_to_host:_true_or_false>
              ...
            }
          }
@@ -101,7 +106,7 @@
 
       1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 

@@ -231,6 +231,7 @@ default:
   hm1-small: hm1.small (2 vCPU, 16 GB)
   hm1-xlarge: hm1.xlarge (4 vCPU, 48 GB)
   host-class: s2.micro
+  host-name: rc1a-goh2a9tr********
   host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch64
   i2:
     2xlarge: i2.2xlarge (16 vCPU, 128 GB)
@@ -391,7 +392,6 @@ default:
   mch-full-name: Yandex Managed Service for ClickHouse®
   mch-name: Managed Service for ClickHouse®
   mch-short-name: Managed Service for ClickHouse®
-  mdb-host: mdb.cloud.yandex.net
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
   mes-short-name: Managed Service for Elasticsearch
@@ -433,6 +433,9 @@ default:
   mkf-msr: Managed Schema Registry
   mkf-name: Managed Service for Apache Kafka®
   mkf-short-name: Managed Service for Apache Kafka®
+  mkf:
+    kp: Karapace
+    kp-api-version: '6.1'
   ml-platform-full-name: Yandex DataSphere
   ml-platform-name: DataSphere
   ml-platform-short-name: DataSphere
@@ -623,6 +626,7 @@ default:
     maf:
       admin: managed-airflow.admin
       editor: managed-airflow.editor
+      integrationProvider: managed-airflow.integrationProvider
       user: managed-airflow.user
       viewer: managed-airflow.viewer
     mch:
@@ -3982,6 +3986,7 @@ default:
         mysql|month|number: 0.0256
         mysql|month|string: $0.025600
         opensearch|month|string: $0.025600
+        pg|month|number: 0.0256
         pg|month|string: $0.025600
       network-nvme:
         ch|month|number: 0.10408
@@ -4064,10 +4069,12 @@ default:
         v3:
           cpu:
             c100|month|string: $9.388800
+            c100|number: 0.01304
             c100|string: $0.013040
             c50|month|string: $3.916800
             c50|string: $0.005440
           ram|month|string: $2.534400
+          ram|number: 0.00352
           ram|string: $0.003520
       redis:
         backup|month|string: $0.015360

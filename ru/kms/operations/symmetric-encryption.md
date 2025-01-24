@@ -52,7 +52,6 @@
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
 
-
 {% endlist %}
 
 ## Расшифруйте данные {#decryption}
@@ -91,7 +90,6 @@
 - Google Tink {#google-tink}
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
-
 
 {% endlist %}
 

@@ -18,7 +18,10 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and [{{ roles.mpg.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mpg.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
 
    * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
@@ -31,7 +34,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
 1. Install the required dependencies and the {{ PG }} client:
 
@@ -51,16 +54,16 @@ To get started with the service:
 ## Connect to the DB {#connect}
 
 
-1. If using security groups for a cloud network, [configure](operations/connect.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
+1. If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
 
 1. To connect to the DB server, get an SSL certificate:
 
-   {% include [install-certificate](../_includes/mdb/mpg/install-certificate.md) %}
+    {% include [install-certificate](../_includes/mdb/mpg/install-certificate.md) %}
 
 1. Use the `psql` command to connect:
 
-   {% include [default-connstring](../_includes/mdb/mpg/default-connstring.md) %}
+    {% include [default-connstring](../_includes/mdb/mpg/default-connstring.md) %}
 
 ## What's next {#whats-next}
 

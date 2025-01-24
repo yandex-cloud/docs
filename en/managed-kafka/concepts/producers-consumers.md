@@ -1,3 +1,8 @@
+---
+title: Producers and consumers
+description: In this article, you will learn about producers and consumers.
+---
+
 # Producers and consumers
 
 {{ KF }} is a distributed system for exchanging messages between data producers and consumers.

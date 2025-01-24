@@ -1,3 +1,8 @@
+---
+title: '{{ GP }} Command Center'
+description: In this article, you will learn about the {{ GP }} Command Center, the concepts of current state, state history, consumption history, query keys, and query IDs.
+---
+
 # {{ GP }} Command Center
 
 _{{ GP }} Command Center_ is a tool that allows you to:
@@ -18,11 +23,11 @@ The Command Center allows you to analyze the following session and query data:
 
 * [Current state](#current-state)
 * [State history](#states-history)
-* [Resourse consumption history](#consumption-history)
+* [Resource consumption history](#consumption-history)
 
 The Command Center also assigns query [keys](#statement-key) and [IDs](#statement-id) to identify and group queries.
 
-For more information on how to work with the Command Center, see [{#T}](../operations/command-center.md).
+For more information on how to use the Command Center, see [{#T}](../operations/command-center.md).
 
 ## Current state {#current-state}
 
@@ -36,20 +41,20 @@ A _current state_ is a real-time state of sessions or queries in a cluster. The 
 
 The _state history_ shows snapshots of sessions or queries at specific points in the past. The state history allows you to determine which sessions or queries caused abnormal cluster performance.
 
-> For example, you might observe that your overnight [ETL jobs](https://en.wikipedia.org/wiki/Extract,_transform,_load) took a longer time to complete than they normally would. Analyzing the state history helps you gain useful insights into the overnight sessions: what queries were run and how long they took, who was blocking the operations, and when a given query started executing.
+> For example, in the morning you observe that your overnight [ETL jobs](https://en.wikipedia.org/wiki/Extract,_transform,_load) took longer to complete than they normally did. Analyzing the state history helps you gain useful insights into the overnight sessions: what queries were run and how long they took, who was blocking the operations, and when a given query started executing.
 
 ## Consumption history {#consumption-history}
 
 The _consumption history_ shows information about {{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-cpu-time }}, {{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-query-peak-memory }}, and other resource consumption statistics at specific points in the past for completed queries.
 
-> Let's assume that in the [state history](#states-history) you observe an unusually high CPU load over a certain period of time. To find out which queries caused the spike, you can refer to the consumption history. For a sample analysis of this scenario, see [{#T}](../operations/command-center.md#past-statements).
+> Let's assume that in the [state history](#states-history) you observe an unusually high CPU load over a certain period of time. You can refer to the consumption history to find out which queries had caused the spike. For an example of such an analysis, see [{#T}](../operations/command-center.md#past-statements).
 
 The consumption history may contain a large number of completed queries. These queries are grouped together, and their collective statistics are available.
 
 A group of queries is essentially a list which displays information about each query. The information displayed about a query depends on its duration:
 
-* More than one hour: Complete information about a query is saved. This includes details, such as the start time of the query, the user who ran the query, and the amount of resources consumed at each {{ GP }} segment.
-* Less than one hour: Aggregate statistics similar to the [pg_stat_statements]({{ pg.docs.org }}/current/pgstatstatements.html) {{ PG }} views are available. These only show total resource consumption at a certain point in time.
+* More than one hour: Full query information is saved. This includes details, such as the start time of the query, the user who ran the query, and the amount of resources consumed at each {{ GP }} segment.
+* Less than one hour: The information is aggregated the same way as in the [pg_stat_statements]({{ pg.docs.org }}/current/pgstatstatements.html) {{ PG }} view. You can learn only total consumption at a selected time point.
 
 You can group queries by one or multiple parameters:
 
@@ -76,7 +81,7 @@ Where:
 * `timestamp`: {{ GP }} segment start time.
 * `query_number`: Query sequence number within the session.
 
-> Sample key: `7247590/1701763297/5`.
+> Key example: `7247590/1701763297/5`.
 
 ## Query IDs {#statement-id}
 
@@ -97,6 +102,6 @@ If it took less than one hour to complete the query:
 
 As a result, queries that ran for less than one hour and can form a single group receive the same ID. This ID is used to group queries.
 
-> Sample ID: `1f9c40bf`.
+> ID example: `1f9c40bf`.
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

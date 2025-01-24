@@ -4,7 +4,7 @@ View the connection examples in the [documentation](../../managed-mysql/operatio
 
 {{ MY }} hosts with public access only support connections with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
 
-There are also [{#T}](../../managed-mysql/operations/connect.md#special-fqdns) pointing to the **current master** and the cluster's **least lagging replica**.
+There are also special FQDNs pointing to the [current master](../../managed-mysql/operations/connect.md#fqdn-master) and the cluster's [least lagging replica](../../managed-mysql/operations/connect.md#fqdn-replica).
 
 #### Why cannot I connect from the internet? {#from-internet}
 
@@ -17,7 +17,7 @@ Check whether there is public access to the host. To do this, in the [management
 
 Additional information:
 * If public access is only configured for certain hosts in your cluster, automatic master change may make the master unavailable over the internet.
-* If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see whether the current master or replica have public access.
+* If you are using [special FQDNs](../../managed-mysql/operations/connect.md#fqdn-master), check the host list to see that the current master or replica have public access.
 * If you are using [{#T}](../../managed-mysql/concepts/network.md#security-groups), check their [settings](../../managed-mysql/operations/connect.md#configure-security-groups).
 
 #### Why cannot I connect from {{ yandex-cloud }}? {#from-yc}
@@ -31,7 +31,7 @@ To do this, in the management console:
 
 Additional information:
 * If you are connecting to a host with public access, a connection can only be established with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
-* If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see whether the current master or replica have public access.
+* If you are using [special FQDNs](../../managed-mysql/operations/connect.md#fqdn-master), check the host list to see that the current master or replica have public access.
 * If you are using [{#T}](../../managed-mysql/concepts/network.md#security-groups), check their settings.
 
 #### Why cannot I connect to a multi-host cluster? {#to-multi-host-cluster}
@@ -45,7 +45,7 @@ Check whether there is public access to the host. To do this, in the [management
 
 Additional information:
 
-* If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see whether the current master or replica have public access.
+* If you are using [special FQDNs](../../managed-mysql/operations/connect.md#fqdn-master), check the host list to see that the current master or replica have public access.
 
 
 * If you cannot connect to the host you added, check that the cluster [security group](../../managed-mysql/concepts/network.md#security-groups) is configured correctly for the host's subnet.
@@ -55,7 +55,7 @@ Additional information:
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 

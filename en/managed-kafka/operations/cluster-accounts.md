@@ -28,7 +28,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 
 - CLI {#cli}
@@ -51,13 +51,51 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 
   To find out the cluster name, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To get a list of users, use the [list](../api-ref/User/list.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/List](../api-ref/grpc/User/list.md) gRPC API call and provide the ID of the cluster you need in the `clusterId` request parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  To find out the cluster ID, [get a list of clusters in the folder](#list-clusters).
+  1. Use the [User.list](../api-ref/User/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/users'
+     ```
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/User/list.md#yandex.cloud.mdb.kafka.v1.ListUsersResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [UserService/List](../api-ref/grpc/User/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.UserService.List
+     ```
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.kafka.v1.ListUsersResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -75,7 +113,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   To create a user for a producer or consumer in a cluster:
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter your username and password.
@@ -104,7 +142,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
      {{ yc-mdb-kf }} user create <username> \
        --cluster-name <cluster_name> \
        --password <password> \
-       --permission topic=<topic_name>,role=<user_role>
+       --permission topic=<topic_name>,role=<user's_role>
      ```
 
   To create an [admin user](../concepts/topics.md#management) to manage cluster topics:
@@ -158,24 +196,110 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To create a user, use the [create](../api-ref/User/create.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Create](../api-ref/grpc/User/create.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * User settings in the `userSpec` parameter:
-    * Username in the `name` parameter.
-    * User password in the `password` parameter.
-    * Topic access permissions (one or more `permissions` parameters, one for each topic):
-      * Topic name in the `topicName` parameter. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics).
-      * Topic access permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  To create an [admin user](../concepts/topics.md#management) to manage cluster topics, provide the following values under `permission` in the `userSpec` parameter when creating the user:
-  * `topicName`: `*`.
-  * `role`: `ACCESS_ROLE_ADMIN`.
+  1. Use the [User.create](../api-ref/User/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
-  {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/users' \
+       --data '{
+                 "userSpec": {
+                   "name": "<username>",
+                   "password": "<user_password>",
+                   "permissions": [
+                     {
+                       "topicName": "<topic_name>",
+                       "role": "<level_of_topic_access_permissions>",
+                       "allowHosts": [
+                         <list_of_IP_addresses>
+                       ]
+                     }
+                   ]
+                 }
+               }'
+     ```
 
+     Where `userSpec` represents the new {{ KF }} user settings:
+
+     * `name`: Username.
+     * `password`: User password.
+
+       {% include [username-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+
+     * `permissions`: Topic access permissions. Each array element is for a separate topic and has the following structure:
+       * `topicName`: Topic name or name template:
+         * `*` to allow access to any topics.
+         * Full topic name to allow access to a specific topic. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics).
+         * `<prefix>*` to grant access to topics whose names start with the prefix. Let's assume you have topics named `topic_a1`, `topic_a2`, and `a3`. If you put `topic*`, access will be granted to `topic_a1` and `topic_a2`. To include all the cluster's topics, use the `*` mask.
+       * `role`: User’s role, `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topicName: "*"`).
+       * `allowHosts`: (Optional) List of IP addresses the user is allowed to access the topic from.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [UserService/Create](../api-ref/grpc/User/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "user_spec": {
+               "name": "<username>",
+               "password": "<user_password>",
+               "permissions": [
+                  {
+                    "topic_name": "<topic_name>",
+                    "role": "<level_of_topic_access_permissions>",
+                    "allow_hosts": [
+                      <list_of_IP_addresses>
+                    ]
+                  }
+               ]
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.UserService.Create
+     ```
+
+     Where `user_spec` represents the new DB user settings:
+
+     * `name`: Username.
+     * `password`: User password.
+
+       {% include [username-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
+
+     * `permissions`: Topic access permissions. Each array element is for a separate topic and has the following structure:
+       * `topic_name`: Topic name or name template:
+         * `*` to allow access to any topics.
+         * Full topic name to allow access to a specific topic. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics).
+         * `<prefix>*` to grant access to topics whose names start with the prefix. Let's assume you have topics named `topic_a1`, `topic_a2`, and `a3`. If you specify `topic*`, access will be granted to `topic_a1` and `topic_a2`.
+       * `role`: User’s role, `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topic_name: "*"`).
+       * `allow_hosts`: (Optional) List of IP addresses the user is allowed to access the topic from.
+
+     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -186,7 +310,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select:
 
@@ -213,19 +337,109 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
      Using {{ TF }}, you can [change a user's password](#update-password), [grant](#grant-permission) or [revoke](#revoke-permission) topic access permissions.
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To update user settings, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/User/update.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-  * A list of settings to update (single line, comma-separated) in the `updateMask` parameter. If you skip this parameter, the API method will reset any user settings that are not explicitly specified in the request to their default values.
-  * New set of permissions to topics (one or more `permissions` parameters, one for each topic).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [User.update](../api-ref/User/update.md) method and send the following request, e.g., using {{ api-examples.rest.tool }}:
 
-  You can also use the `update` method to [change a user's password](#update-password), and the `grantPermission` and `revokePermission` methods to [grant](#grant-permission) or [revoke](#revoke-permission) topic access permissions.
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/users/<username>' \
+       --data '{
+                 "updateMask": "permissions",
+                 "permissions": [
+                   {
+                    "topicName": "<topic_name>",
+                    "role": "<level_of_topic_access_permissions>",
+                    "allowHosts": [
+                      <list_of_IP_addresses>
+                    ]
+                  }
+                 ]
+               }'
+     ```
+
+     Where:
+
+     * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+        Here only one parameter is specified: `permissions`.
+
+     * `permissions`: New set of access permissions for topics. Each array element is for a separate topic and has the following structure:
+       * `topicName`: Topic name or name template. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics). To include all the cluster's topics, use the `*` mask.
+       * `role`: User’s new role, e.g., `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topicName: "*"`).
+       * `allowHosts`: (Optional) New list of IP addresses the user is allowed to access the topic from.
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+  You can also use the `User.update` method to [change a user's password](#update-password), and the `grantPermission` and `revokePermission` methods to [grant](#grant-permission) or [revoke](#revoke-permission) topic access permissions.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [UserService/Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., using {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "user_name": "<username>",
+             "update_mask": {
+               "paths": [
+                 "permissions"
+               ]
+             },
+             "permissions": [
+               {
+                 "topic_name": "<topic_name>",
+                 "role": "<level_of_topic_access_permissions>",
+                 "allow_hosts": [
+                   <list_of_IP_addresses>
+                 ]
+               }
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.UserService.Update
+     ```
+
+     Where:
+
+     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+        In this case, the array consists of only one string, `permissions`.
+
+     * `permissions`: New set of access permissions for topics. Each array element is for a separate topic and has the following structure:
+       * `topic_name`: Topic name or name template. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics). To include all the cluster's topics, use the `*` mask.
+       * `role`: User’s new role, e.g., `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topic_name: "*"`).
+       * `allow_hosts`: (Optional) New list of IP addresses the user is allowed to access the topic from.
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+  You can also use the `UserService/Update` call to [change a user’s password](#update-password), and the `grantPermission` and `revokePermission` methods to [grant](#grant-permission) or [revoke](#revoke-permission) topic access permissions.
 
 {% endlist %}
 
@@ -236,7 +450,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
   1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
@@ -291,19 +505,87 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To update a user's password, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/User/update.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-  * New user password in the `password` parameter.
-  * Name of the `password` setting in the `updateMask` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+  1. Use the [User.update](../api-ref/User/update.md) method and send the following request, e.g., using {{ api-examples.rest.tool }}:
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/users/<username>' \
+       --data '{
+                 "updateMask": "password",
+                 "password": "<new_user_password>"
+               }'
+     ```
+
+     Where:
+
+     * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+        Here only one parameter is specified: `password`.
+
+     * `password`: New user password.
+
+       {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [UserService/Update](../api-ref/grpc/User/update.md) call and send the following request, e.g., using {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "user_name": "<username>",
+             "update_mask": {
+               "paths": [
+                 "password"
+               ]
+             },
+             "password": "<new_user_password>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.UserService.Update
+     ```
+
+     Where:
+
+     * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+        In this case, the array consists of only one string, `password`.
+
+     * `password`: New user password.
+
+       {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -316,7 +598,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Select the cluster.
   1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the user you need to issue topic permissions to and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
@@ -330,7 +612,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
         * `*` to allow access to any topics.
         * Full topic name to allow access to a specific topic.
-        * `<prefix>*` to grant access to topics whose names start with the specified prefix. Let's assume you have topics named `topic_a1`, `topic_a2`, and `a3`. If you specify `topic*`, access will be granted for `topic_a1` and `topic_a2`.
+        * `<prefix>*` to grant access to topics whose names start with the prefix. Let's assume you have topics named `topic_a1`, `topic_a2`, and `a3`. If you specify `topic*`, access will be granted to `topic_a1` and `topic_a2`.
 
      1. Click **{{ ui-key.yacloud.kafka.button_add-topic }}**.
 
@@ -415,7 +697,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
        * `*` to allow access to any topics.
        * Full topic name to allow access to a specific topic.
-       * `<prefix>*` to grant access to topics whose names start with the specified prefix. Let's assume you have topics named `topic_a1`, `topic_a2`, and `a3`. If you specify `topic*`, access will be granted for `topic_a1` and `topic_a2`.
+       * `<prefix>*` to grant access to topics whose names start with the prefix. Let's assume you have topics named `topic_a1`, `topic_a2`, and `a3`. If you specify `topic*`, access will be granted to `topic_a1` and `topic_a2`.
 
      * `role`: User’s role, `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topic_name = "*"`).
 
@@ -435,16 +717,91 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To grant user permissions, use the [grantPermission](../api-ref/User/grantPermission.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/GrantPermission](../api-ref/grpc/User/grantPermission.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-  * New permission for the topic in the `permission` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [User.grantPermission](../api-ref/User/grantPermission.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/users/<username>:grantPermission' \
+       --data '{
+                 "permission": [
+                   {
+                    "topicName": "<topic_name>",
+                    "role": "<user's_role>",
+                    "allowHosts": [
+                      <list_of_IP_addresses>
+                    ]
+                  }
+                 ]
+               }'
+     ```
+
+     Where:
+
+     * `permission`: New access permission for the topic.
+       * `topicName`: Topic name. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics).
+       * `role`: User’s role, `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topicName = "*"`).
+       * `allowHosts`: (Optional) List of IP addresses the user is allowed to access the topic from.
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/User/grantPermission.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
   Along with access to the topic, users also gain access to data schema subjects. The availability of subjects depends on the specified roles and topics. For more information, see [{#T}](../concepts/managed-schema-registry.md#subjects).
 
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [UserService/GrantPermission](../api-ref/grpc/User/grantPermission.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "user_name": "<username>",
+             "permission": [
+               {
+                 "topic_name": "<topic_name>",
+                 "role": "<user's_role>",
+                 "allow_hosts": [
+                   <list_of_IP_addresses>
+                 ]
+               }
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.UserService.GrantPermission
+     ```
+
+     Where:
+
+     * `permission`: New access permission for the topic.
+       * `topic_name`: Topic name or name template. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics). To include all the cluster's topics, use the `*` mask.
+       * `role`: User’s role, `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topic_name = "*"`).
+       * `allow_hosts`: (Optional) List of IP addresses the user is allowed to access the topic from.
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/grpc/User/grantPermission.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+  Along with access to the topic, users also gain access to data schema subjects. The availability of subjects depends on the specified roles and topics. For more information, see [{#T}](../concepts/managed-schema-registry.md#subjects).
 
 {% endlist %}
 
@@ -457,7 +814,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Select the cluster.
   1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
@@ -508,14 +865,87 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To revoke user permissions, use the [revokePermission](../api-ref/User/revokePermission.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/RevokePermission](../api-ref/grpc/User/revokePermission.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Username in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
-  * The topic permission to be revoked in the `permission` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Use the [User.revokePermission](../api-ref/User/revokePermission.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/users/<username>:revokePermission' \
+       --data '{
+                 "permission": [
+                   {
+                    "topicName": "<topic_name>",
+                    "role": "<user's_role>",
+                    "allowHosts": [
+                      <list_of_IP_addresses>
+                    ]
+                  }
+                 ]
+               }'
+     ```
+
+     Where:
+
+     * `permission`: Access permission for the topic to be revoked:
+       * `topicName`: Topic name. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics).
+       * `role`: User’s role to be revoked, `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER`.
+       * `allow_hosts`: (Optional) List of IP addresses for which the user’s access permissions to the topic will be revoked.
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/User/revokePermission.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [UserService/RevokePermission](../api-ref/grpc/User/revokePermission.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "user_name": "<username>",
+             "permission": [
+               {
+                 "topic_name": "<topic_name>",
+                 "role": "<user's_role>",
+                 "allow_hosts": [
+                   <list_of_IP_addresses>
+                 ]
+               }
+             ]
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.UserService.RevokePermission
+     ```
+
+     Where:
+
+     * `permission`: Access permission for the topic to be revoked:
+       * `topic_name`: Topic name or name template. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics).
+       * `role`: User’s role to be revoked, `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER`.
+       * `allow_hosts`: (Optional) List of IP addresses for which the user’s access permissions to the topic will be revoked.
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/grpc/User/revokePermission.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -552,7 +982,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -589,12 +1019,51 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
+- REST API {#api}
 
-- API {#api}
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  To delete a user, use the [delete](../api-ref/User/delete.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Delete](../api-ref/grpc/User/delete.md) gRPC API call and provide the following in the request:
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Name of the user to delete in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Use the [User.delete](../api-ref/User/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request DELETE \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/users/<username>'
+     ```
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/User/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [UserService/Delete](../api-ref/grpc/User/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/user_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "user_name": "<username>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.UserService.Delete
+     ```
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
+
+  1. View the [server response](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

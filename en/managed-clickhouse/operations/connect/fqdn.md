@@ -1,18 +1,33 @@
+---
+title: FQDNs of {{ CH }} hosts
+description: Follow this guide to get FQDNs of {{ CH }} hosts.
+---
+
 # FQDNs of {{ CH }} hosts
 
-To connect to a cluster host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). You can use the FQDN of a particular host in the cluster or a [special FQDN](#auto) always pointing to the available host.
 
-* [Request a list of cluster hosts](../../operations/hosts.md#list-hosts).
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+Host FQDN example:
+
+```text
+{{ host-name }}.{{ dns-zone }}
+```
+
+## Getting host FQDN {#get-fqdn}
+
+You can obtain the {{ CH }} host FQDN by doing one of the following:
+
 * Look up the FQDN in the management console:
 
-   1. Go to the cluster page.
-   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+  1. Go to the cluster page.
+  1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-Cluster hosts also use [special FQDNs](#auto).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
-### Selecting an available host automatically {#auto}
+* [Request a list of cluster hosts](../hosts.md#list-hosts) using the CLI or API.
+
+## Selecting an available host automatically {#auto}
 
 To avoid connecting to another host manually if the current one becomes unavailable, use a special FQDN. It can be in one of the following formats:
 

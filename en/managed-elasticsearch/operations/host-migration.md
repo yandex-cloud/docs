@@ -1,3 +1,8 @@
+---
+title: Migrating {{ ES }} cluster hosts to a different availability zone
+description: Follow this guide to relocate hosts in a {{ ES }} cluster to a different availability zone.
+---
+
 # Migrating {{ ES }} cluster hosts to a different availability zone
 
 {{ mes-name }} cluster hosts reside in [availability zones](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. To move hosts from one availability zone to another:
@@ -26,7 +31,7 @@
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run this command:
+      Run the following command:
 
       ```bash
       {{ yc-mdb-es }} host add \
@@ -34,7 +39,7 @@
          --host type=datanode,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<host_public_access:_true_or_false>
+               `assign-public-ip=<public_access_to_host:_true_or_false>
       ```
 
       You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
@@ -50,7 +55,7 @@
              type             = "DATA_NODE"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <host_public_access:_true_or_false>
+             assign_public_ip = <public_access_to_host:_true_or_false>
            }
          }
          ```

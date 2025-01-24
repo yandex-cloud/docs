@@ -1,3 +1,8 @@
+---
+title: Migrating a lightweight {{ dataproc-full-name }} cluster to a different availability zone
+description: Follow this guide to migrate a lightweight {{ dataproc-name }} cluster to another availability zone.
+---
+
 # Migrating a lightweight {{ dataproc-name }} cluster to a different availability zone
 
 Subclusters of each {{ dataproc-name }} cluster reside in the same [cloud network](../../vpc/concepts/network.md#network) and [availability zone](../../overview/concepts/geo-scope.md). You can migrate a cluster to a different availability zone. The migration process depends on the cluster type:

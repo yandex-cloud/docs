@@ -71,7 +71,7 @@ Rule settings depend on the connection method you select:
 
         * For outgoing traffic:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
@@ -101,17 +101,23 @@ To connect to public {{ MG }} hosts, get an SSL certificate:
 
 ## Getting FQDNs of {{ MG }} hosts {#get-fqdn}
 
-To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+To connect to a host, you need its fully qualified domain name ([FQDN](../../concepts/network.md#hostname)). Example of a {{ MG }} host FQDN:
 
-* [Request a list of cluster hosts](../hosts.md#list-hosts).
-* Look up the FQDN in the [management console]({{ link-console-main }}):
+```text
+{{ host-name }}.{{ dns-zone }}
+```
+
+You can get the FQDN by doing one of the following:
+
+* Look up the FQDN in the management console:
 
     1. Go to the cluster page.
     1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-* In the management console, copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
+* [Request a list of cluster hosts](../hosts.md#list-hosts) using the CLI or API.
 
 ## Connection limits {#connection-limits}
 

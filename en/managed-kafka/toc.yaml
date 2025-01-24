@@ -69,6 +69,8 @@ items:
             href: tutorials/schema-registry-overview.md
           - name: Working with the managed schema registry
             href: tutorials/managed-schema-registry.md
+          - name: Working with the managed schema registry via the REST API
+            href: tutorials/managed-schema-registry-rest.md
           - name: Using Confluent Schema Registry with {{ mkf-short-name }}
             href: tutorials/confluent-schema-registry.md
       - name: Delivering data using {{ data-transfer-name }}
@@ -123,6 +125,8 @@ items:
         href: concepts/producers-consumers.md
       - name: Managing data schemas
         href: concepts/managed-schema-registry.md
+      - name: APIs in {{ mkf-name }}
+        href: concepts/available-apis.md
       - name: Host classes
         href: concepts/instance-types.md
       - name: Networking in {{ mkf-name }}

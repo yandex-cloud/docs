@@ -23,6 +23,8 @@ Since projects run on different {{ yandex-cloud }} platforms with different comp
 **g2.8** ^2^ | 224 | 8 | 952 | From 320 to 640
 **Configurations with vCPUs based on [Intel Ice Lake](../../../compute/concepts/performance-levels.md) and [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU**
 **gt4.1** ^1^ | 4 | 1 | 16 | 16
+**Configurations with vCPUs based on  [Intel Ice Lake](../../../compute/concepts/performance-levels.md) and [NVIDIA® Tesla® T4i](../../../compute/concepts/gpus.md#t4i) GPU**
+**gt4i.1** ^1^ | 8 | 1 | 32 | 24 
 
 ^1^ Available after you deposit at least $10 to your billing account or upon request to the support team.
 

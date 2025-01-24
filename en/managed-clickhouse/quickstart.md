@@ -18,9 +18,11 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](security.md#roles-list) for creating a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](security.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
 
    To link the service account to a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+
+   {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 1. You can connect to DB [clusters](concepts/index.md) from both inside and outside {{ yandex-cloud }}:
    * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based [VM](../compute/concepts/vm.md) in the same [network](../vpc/concepts/network.md#network) as the DB cluster.
@@ -32,7 +34,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
    ```bash

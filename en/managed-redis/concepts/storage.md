@@ -17,7 +17,7 @@ The number of hosts you can create together with a {{ RD }} cluster depends on t
 
 | Disk type                                                             | Non-sharded cluster  | Sharded cluster    |
 | ------------------------------------------------------------------------- | --------------------------------- | ----------------------------------|
-| Network SSDs (`network-ssd`)                           | 1 host or more                         | 1 host or more (1 shard × 1 host)     |
+| Network SSDs (`network-ssd`), ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)                           | 1 host or more                         | 1 host or more (1 shard × 1 host)     |
 | Local SSDs (`local-ssd`)                           | 3 hosts or more                        | 2 hosts or more (1 shard × 2 hosts)    |
 | Non-replicated SSDs (`network-ssd-nonreplicated`)     | 3 hosts or more                        | 3 hosts or more (1 shard × 3 hosts)    |
 

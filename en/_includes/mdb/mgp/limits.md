@@ -5,7 +5,7 @@
 | Number of clusters per cloud                                            | 16       |
 | Total number of processor cores for all database hosts per cloud | 96       |
 | Total virtual memory for all database hosts per cloud   | 640 GB   |
-| Total storage capacity for all clusters per cloud                     | 4096 GB  |
+| Total storage capacity for all clusters per cloud                     | 4,096 GB  |
 
 
 #### Limits {#limits}
@@ -18,6 +18,6 @@
 | Number of segments per host                                                                                  | 1                                                | 16                                               |
 | Amount of data on the host when using HDD network storage                                       | 10 GB                                            | 2048 GB                                          |
 | Amount of data per host when using network SSD storage                                       | 10 GB                                            | 8,192 GB                                          |
-| Amount of data per host when using non-replicated SSD storage                               | 93 GB                                            | 8184 GB                                          |
-| Amount of data on the host when using local SSD storage (for Intel Cascade Lake)  | 100 GB                                           | 1500 GB                                          |
+| Amount of data per host when using a non-replicated SSD storage or an ultra high-speed network storage with three replicas (SSD) | 93 GB                                            | 8,184 GB                                          |
+| Amount of data on the host when using local SSD storage (for Intel Cascade Lake)  | 100 GB                                           | 1,500 GB                                          |
 | Amount of data per host when using local SSD storage (for Intel Ice Lake)      | {{ local-ssd-v3-step }}                          | {{ local-ssd-v3-max }}                           |
