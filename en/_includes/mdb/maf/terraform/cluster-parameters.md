@@ -85,7 +85,10 @@ Where:
 
 * `service_account_id`: Service account ID.
 * `subnet_ids`: List of subnet IDs.
-* `security_group_ids`: List of security group IDs.
+
+    {% include [choose-subnet](../choose-subnet.md) %}
+
+* `security_group_ids`: List of [security group](../../../../managed-airflow/concepts/network.md#security-groups) IDs.
 * `webserver`, `scheduler`, `worker`, `triggerer`: {{ maf-name }} [component](../../../../managed-airflow/concepts/index.md#components) configuration:
 
     * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.

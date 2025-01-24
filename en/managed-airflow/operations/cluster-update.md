@@ -24,13 +24,13 @@ After creating a cluster, you can change its basic and advanced settings.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, edit the cluster name and description, delete labels, or add new ones.
 
-    1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `managed-airflow.integrationProvider` role. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
+    1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `{{ roles.maf.integrationProvider }}` role. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
         To change your service account in a {{ maf-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
         {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [security group](../../vpc/concepts/security-groups.md) for cluster network traffic or create a new group.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [security group](../concepts/network.md#security-groups) for cluster network traffic or create a new group.
 
        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
@@ -264,7 +264,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
             * `lockbox.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration). The possible values are `true` or `false`.
 
-        * `network.securityGroupIds`: List of security group IDs.
+        * `network.securityGroupIds`: List of [security group](../concepts/network.md#security-groups) IDs.
 
         * `codeSync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
@@ -451,7 +451,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
             * `lockbox.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration). The possible values are `true` or `false`.
 
-        * `network_spec.security_group_ids`: List of security group IDs.
+        * `network_spec.security_group_ids`: List of [security group](../concepts/network.md#security-groups) IDs.
 
         * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.

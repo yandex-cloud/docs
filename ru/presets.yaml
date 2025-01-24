@@ -402,7 +402,6 @@ default:
   mch-full-name: Yandex Managed Service for ClickHouse®
   mch-name: Managed Service for ClickHouse®
   mch-short-name: Managed Service for ClickHouse®
-  mdb-host: mdb.cloud.yandex.net
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
   mes-short-name: Managed Service for Elasticsearch
@@ -4006,6 +4005,7 @@ default:
         mysql|month|number: 0.0256
         mysql|month|string: "0,025600\_$"
         opensearch|month|string: "0,025600\_$"
+        pg|month|number: 0.0256
         pg|month|string: "0,025600\_$"
       network-nvme:
         ch|month|number: 0.10408
@@ -4088,10 +4088,12 @@ default:
         v3:
           cpu:
             c100|month|string: "9,388800\_$"
+            c100|number: 0.01304
             c100|string: "0,013040\_$"
             c50|month|string: "3,916800\_$"
             c50|string: "0,005440\_$"
           ram|month|string: "2,534400\_$"
+          ram|number: 0.00352
           ram|string: "0,003520\_$"
       redis:
         backup|month|string: "0,015360\_$"

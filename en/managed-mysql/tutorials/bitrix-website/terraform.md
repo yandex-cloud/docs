@@ -4,12 +4,12 @@ description: In this tutorial, you will learn how to deploy and set up a Bitrix 
 canonical: '{{ link-docs }}/tutorials/web/bitrix-website/terraform'
 ---
 
-# Building a 1C-Bitrix website using {{ TF }}
+# Creating a 1C-Bitrix website using {{ TF }}
 
-To create an infrastructure for your [1C-Bitrix website](index.md) using {{ TF }}:
+To create an infrastructure for your [1C-Bitrix website](index.md) through {{ TF }}:
 
 {% include [bitrix-website-terraform](../../../_tutorials/applied/bitrix-website-terraform.md) %}
 
 #### See also {#see-also}
 
-* [{#T}](console.md)
+* [{#T}](console.md).

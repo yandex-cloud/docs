@@ -219,6 +219,11 @@ For logical replication to work, create a publication (a group of logically repl
    ```sql
    CREATE SUBSCRIPTION s_data_migration CONNECTION 'host=<source_cluster_address> port=<port> user=<username> sslmode=disable dbname=<DB_name>' PUBLICATION p_data_migration;
    ```
+   {% note tip %}
+
+   By default, `CREATE SUBSCRIPTION` also creates a replication slot. To link a subscription with an existing replication slot without creating a new one, add the `create_slot = false` parameter to the request.
+
+   {% endnote %}
 
 1. To get the replication status, check the `pg_subscription_rel` folders. You can get the general replication status via `pg_stat_subscription` for the target cluster, and via `pg_stat_replication` for the source cluster.
 

@@ -18,7 +18,10 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mmg.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mmg.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
 
    * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
@@ -31,7 +34,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
 1. Install {{ MG }} Shell:
 
@@ -64,7 +67,7 @@ To get started with the service:
 
    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
 
-    To learn how to get a host FQDN, see [this guide](operations/connect/index.md#get-fqdn).
+    To learn how to get host FQDN, see [this guide](operations/connect/index.md#get-fqdn).
 
 ## What's next {#whats-next}
 

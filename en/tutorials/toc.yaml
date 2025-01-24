@@ -540,6 +540,8 @@ items:
             href: dataplatform/schema-registry-overview.md
           - name: Using {{ mkf-msr }} with {{ mkf-name }}
             href: dataplatform/managed-schema-registry.md
+          - name: Using {{ mkf-msr }} with {{ mkf-name }} via the REST API
+            href: dataplatform/managed-schema-registry-rest.md
           - name: Using Confluent Schema Registry with {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
       - name: Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
@@ -550,6 +552,12 @@ items:
           Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud
           }} Python SDK
         href: dataplatform/using-python-sdk-in-airflow.md
+      - name: >-
+          Migrating data to {{ mch-full-name }} using {{ data-transfer-full-name
+          }}
+        href: dataplatform/ch-to-mch-migration.md
+      - name: Migrating data to {{ mch-name }} using {{ CH }}
+        href: dataplatform/clickhouse-migration.md
       - name: >-
           Delivering data from {{ mmy-name }} to {{ mch-name }} using {{
           data-transfer-name }}

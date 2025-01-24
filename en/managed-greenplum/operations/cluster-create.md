@@ -57,11 +57,11 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to enable connecting to the cluster from the internet.
 
 
-    1. (Optional) For clusters with {{ GP }} version 6.25 or higher, enable the **{{ ui-key.yacloud.greenplum.section_cloud-storage }}** option.
+    1. (Optional) Enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
-        It activates the [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension from {{ yandex-cloud }}. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        It enables [hybrid storage](../concepts/hybrid-storage.md). You cannot disable hybrid storage after you save your cluster settings.
 
-        You cannot disable this option after you save your cluster settings.
+        {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
         
         {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
@@ -71,18 +71,14 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, but cannot start with a hyphen. It must be from 1 to 32 characters long.
 
-            {% note info %}
-
-            Such names as `admin`, `gpadmin`, [mdb_admin](../concepts/cluster-users.md#mdb_admin), `mdb_replication`, `monitor`, `none`, `postgres`, `public`, and `repl` are reserved for {{ mgp-name }}. You cannot create users with these names.
-
-            {% endnote %}
+            {% include [reserved-usernames-note](../../_includes/mdb/mgp/reserved-usernames-note.md) %}
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** must be from 8 to 128 characters long.
 
     1. Configure additional cluster settings, if required:
 
         * {% include [Backup time](../../_includes/mdb/console/backup-time.md) %}
-        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance window](../concepts/maintenance.md) settings:
+        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../concepts/maintenance.md) window settings:
 
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
@@ -121,6 +117,9 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         * Number of segment hosts.
         * [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster segment hosts will be deployed.
         * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
            * Select the [disk type](../concepts/storage.md).
@@ -197,6 +196,9 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `--user-password`: Password. It must be from 8 to 128 characters long.
         * `--master-config` and `--segment-config`: Master and segment host configuration:
             * `resource-id`: [Host class](../concepts/instance-types.md).
+
+                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
             * `disk-size`: Storage size in GB.
             * `disk-type`: [Disk type](../concepts/storage.md):
                 * `network-hdd` (for master hosts only)
@@ -356,6 +358,8 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
       * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
 
+          {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
       
       * `access.data_lens`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
 
@@ -363,7 +367,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
 
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mgp }}).
+      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mgp }}).
 
   1. Check that the {{ TF }} configuration files are correct:
 
@@ -472,6 +476,9 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `masterHostCount`: Number of master hosts, `1` or `2`.
         * `segmentHostCount`: Number of segment hosts, from `2` to `32`.
         * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * `userName`: Username.
         * `userPassword`: User password.
         * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -498,7 +505,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-    1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -610,6 +617,9 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `master_host_count`: Number of master hosts, `1` or `2`.
         * `segment_host_count`: Number of segment hosts, from `2` to `32`.
         * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * `user_name`: Username.
         * `user_password`: User password.
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -636,7 +646,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -730,7 +740,7 @@ To create a {{ GP }} cluster copy:
 
 ## Examples {#examples}
 
-### Creating a {#create-example} cluster
+### Creating a cluster {#create-example}
 
 {% list tabs group=instructions %}
 
@@ -756,7 +766,7 @@ To create a {{ GP }} cluster copy:
     * With protection against accidental cluster deletion.
 
 
-    Run the following command:
+    Run this command:
 
     
     ```bash

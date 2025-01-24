@@ -36,7 +36,7 @@ For the created and running databases, {{ mmy-short-name }} automatically create
 
 A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
 
-A _database cluster_ is one or more database hosts between which replication can be configured.
+A _database cluster_ is one or more database hosts between which you can configure replication.
 
 
 #### How do I get started with {{ mmy-short-name }}? {#quickstart}
@@ -56,12 +56,19 @@ For more information, see [Getting started](../../managed-mysql/quickstart.md).
 
 The minimum number of hosts depends on the selected type of [storage](../../managed-mysql/concepts/storage.md):
 
-- If you use non-replicated SSD (`ssd-network-nonreplicated`) or local SSD (`local-ssd`) storage, the minimum number of hosts is 3.
-- If you use network SSD (`network-ssd`) or network HDD (`network-hdd`) storage, you can create a single-host cluster.
+* A minimum of three hosts for these disks:
+
+   * Local SSDs (`local-ssd`)
+   * Non-replicated SSDs (`network-ssd-nonreplicated`)
+
+* At least one host for the following:
+
+   * Network HDDs (`network-hdd`)
+   * Network SSDs (`network-ssd`)   * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 
 
-The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
+The maximum number of hosts per cluster is subject to the limits in place.
 
 For more information, see [Quotas and limits](../../managed-mysql/concepts/limits.md).
 
@@ -111,7 +118,7 @@ In {{ mmy-short-name }}, the usage cost is calculated based on the following par
 - Selected host class.
 - Size of the storage reserved for the database host.
 - Size of the database cluster backups. Backup size equal to the storage size is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-mysql/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour data for each host class in the [Pricing policy](../../managed-mysql/pricing.md) section.
+- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour for each host class in the [Pricing policy](../../managed-mysql/pricing.md) section.
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 

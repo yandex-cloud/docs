@@ -1,6 +1,6 @@
 ---
 title: Migrating {{ MY }} cluster hosts to a different availability zone
-description: Follow this guide to move {{ MY }} cluster hosts to a different availability zone.
+description: Follow this guide to move hosts in a {{ MY }} cluster to a different availability zone.
 ---
 
 # Migrating {{ MY }} cluster hosts to a different availability zone
@@ -32,7 +32,7 @@ description: Follow this guide to move {{ MY }} cluster hosts to a different ava
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run this command:
+      Run the following command:
 
       ```bash
       {{ yc-mdb-my }} host add \
@@ -75,7 +75,7 @@ description: Follow this guide to move {{ MY }} cluster hosts to a different ava
 
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Use the [Cluster.addHosts](../api-ref/Cluster/addHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+      1. Use the [Cluster.addHosts](../api-ref/Cluster/addHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
          ```bash
          curl \
@@ -94,7 +94,7 @@ description: Follow this guide to move {{ MY }} cluster hosts to a different ava
                     }'
          ```
 
-         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -105,7 +105,7 @@ description: Follow this guide to move {{ MY }} cluster hosts to a different ava
          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-      1. Use the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Use the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
          ```bash
          grpcurl \
@@ -128,7 +128,7 @@ description: Follow this guide to move {{ MY }} cluster hosts to a different ava
             yandex.cloud.mdb.mysql.v1.ClusterService.AddHosts
          ```
 
-         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -142,7 +142,7 @@ description: Follow this guide to move {{ MY }} cluster hosts to a different ava
    {{ yc-mdb-my }} host list --cluster-name <cluster_name>
    ```
 
-   The FQDN is specified in the command output under `NAME`. You can also use a [special FQDN](connect.md#special-fqdns) for a connection.
+   The FQDN is specified in the command output under `NAME`. You can also use a [special FQDN](connect.md#fqdn-master) for a connection.
 
 1. Delete the hosts in the source availability zone:
 
@@ -175,7 +175,7 @@ description: Follow this guide to move {{ MY }} cluster hosts to a different ava
 
    - REST API {#api}
 
-      1. Use the [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+      1. Use the [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
          ```bash
          curl \
@@ -192,13 +192,13 @@ description: Follow this guide to move {{ MY }} cluster hosts to a different ava
 
          Where `hostNames` is the array with the host to delete.
 
-         You can provide only one host FQDN in a single request. If you need to delete multiple hosts, make a separate request for each of them.
+         You can provide only one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
 
       1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    - gRPC API {#grpc-api}
 
-      1. Use the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Use the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
          ```bash
          grpcurl \
@@ -219,7 +219,7 @@ description: Follow this guide to move {{ MY }} cluster hosts to a different ava
 
          Where `host_names` is the array with the host to delete.
 
-         You can provide only one host FQDN in a single request. If you need to delete multiple hosts, make a separate request for each of them.
+         You can provide only one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
 
       1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

@@ -51,7 +51,7 @@ You pay for the following:
 
     
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-        
+
         * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
         * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 
@@ -74,6 +74,29 @@ You pay for the following:
     * Adding hosts increases the cluster's total storage size and, consequently, the free volume of backups.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+
+### Example of cluster cost calculation {#example}
+
+The cost of using a cluster with the following parameters for 30 days:
+
+* **{{ PG }}** hosts: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
+
+Cost calculation for {{ PG }} hosts:
+
+
+
+
+{% include [usd-postgresql-host](../_pricing_examples/managed-postgresql/usd-host.md) %}
+
+
+Calculation for the storage cost and total cost:
+
+
+
+
+{% include [usd-postgresql-storage](../_pricing_examples/managed-postgresql/usd-storage.md) %}
+
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}

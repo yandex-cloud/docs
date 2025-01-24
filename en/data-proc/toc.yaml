@@ -171,7 +171,7 @@ items:
         href: concepts/storage.md
       - name: Component properties
         href: concepts/settings-list.md
-      - name: '{{ IBRG }} to {{ dataproc-name }}'
+      - name: '{{ IBRG }} in {{ dataproc-name }}'
         href: concepts/apache-iceberg.md
       - name: Delta Lake in {{ dataproc-name }}
         href: concepts/deltalake.md

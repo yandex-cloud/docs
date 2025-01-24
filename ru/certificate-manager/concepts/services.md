@@ -25,7 +25,6 @@ description: Из статьи вы узнаете, в каких сервиса
 
 {% endnote %}
 
-
 ## {{ alb-full-name }} {#alb}
 
 [{{ alb-name }}](../../application-load-balancer/index.yaml) может обрабатывать TLS-трафик: устанавливать соединения и терминировать TLS-сессии с помощью сертификатов, добавленных в {{ certificate-manager-name }}. Сертификаты из {{ certificate-manager-name }} можно использовать в обработчиках [L7-балансировщиков](../../application-load-balancer/operations/application-load-balancer-create.md).
@@ -41,7 +40,6 @@ description: Из статьи вы узнаете, в каких сервиса
 {{ cdn-full-name }} позволяет организовать доставку контента до конечных потребителей с помощью сети распространения контента (Content Delivery Network, CDN). 
 
 Для доступа к [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS можно [использовать](../../storage/operations/hosting/certificate.md#cert-manager) сертификат из {{ certificate-manager-name }}.
-
 
 ## {{ lockbox-full-name }} {#lockbox}
 

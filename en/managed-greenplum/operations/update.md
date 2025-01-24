@@ -101,7 +101,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -132,7 +132,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -180,7 +180,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the public access setting {{ GP }}:
+  To сhange the public access setting {{ GP }}:
 
   1. View a description of the update cluster configuration CLI command:
 
@@ -203,7 +203,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -241,7 +241,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -313,9 +313,11 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Enables the {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) in clusters with {{ GP }} 6.25 or higher. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**: Enables [hybrid storage](../concepts/hybrid-storage.md).
 
-            You cannot disable this option after you save your cluster settings.
+            You cannot disable hybrid storage after you save your cluster settings.
+
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
             
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
@@ -448,9 +450,11 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/) in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of [hybrid storage](../concepts/hybrid-storage.md).
 
-            You cannot disable hybrid storage after you save your cluster settings.
+            Set to `true` to enable hybrid storage. You cannot disable hybrid storage after you save your cluster settings.
+
+            {% include [hybrid-storage-description](../../_includes/mdb/mgp/hybrid-storage-description.md) %}
 
             
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
@@ -570,7 +574,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -700,7 +704,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -741,7 +745,7 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -790,7 +794,7 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -854,7 +858,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-  1. Change the [{{ GP }} settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+  1. Change the [{{ GP }}](../concepts/settings-list.md) settings by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -864,7 +868,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the [{{ GP }} DBMS settings](../concepts/settings-list.md):
+  To change the [{{ GP }}](../concepts/settings-list.md) DBMS settings:
 
   1. View the full list of settings specified for the cluster:
 
@@ -926,7 +930,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -971,7 +975,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1027,6 +1031,8 @@ You can change the host class for both master hosts and segment hosts. When chan
 
 * The cluster's primary master host will change.
 * Using a [special FQDN](./connect.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
+
+Changing the segment host class [affects](../concepts/instance-types.md#select-class-segment-hosts) the maximum amount of memory allocated to each {{ GP }} server process.
 
 We recommend changing the host class only when the cluster has no active workload.
 
@@ -1132,7 +1138,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1175,7 +1181,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1282,7 +1288,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1325,7 +1331,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

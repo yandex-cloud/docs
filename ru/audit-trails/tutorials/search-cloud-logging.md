@@ -46,10 +46,8 @@ json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" a
 json_payload.resource_metadata.path[1].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[1].resource_name="<имя_каталога>") or (json_payload.resource_metadata.path[2].resource_type="resource-manager.folder" and json_payload.resource_metadata.path[2].resource_name="<имя_каталога>"
 ```
 
-
 ## Что дальше {#whats-next}
 
 Ознакомьтесь с примерами событий в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).
 
 {% include [Yc-security-solutions-library](../../_includes/security-solution-library.md) %}
-

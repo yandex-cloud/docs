@@ -129,7 +129,7 @@ When restored to the current state, the new cluster will match the state of:
       * `--environment`: Environment, `PRESTABLE` or `PRODUCTION`.
 
       
-      * `--mongod-disk-type`: Disk type, `network-hdd` or `network-ssd`.
+      * `--mongod-disk-type`: Disk type, `network-hdd`, `network-ssd`, or `network-ssd-io-m3`.
 
 
       * `--performance-diagnostics`: Enables cluster performance diagnostics, `true` or `false`.
@@ -460,7 +460,7 @@ Create a new {{ mmg-name }} cluster from a backup with the following test charac
 
 - CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

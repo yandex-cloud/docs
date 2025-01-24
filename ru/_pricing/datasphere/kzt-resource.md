@@ -12,3 +12,4 @@
 | g2.4 (112 vCPU, 4 GPU A100) | 464 | {% calc [currency=KZT] 464 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
 | g2.8 (224 vCPU, 8 GPU A100) | 928 | {% calc [currency=KZT] 928 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
 | gt4.1 (4 vCPU, 1 GPU T4) | 36 | {% calc [currency=KZT] 36 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |
+| gt4i.1 (8 vCPU, 1 GPU T4i) | 50 | {% calc [currency=KZT] 50 × 3600 × {{ sku|KZT|ai.datasphere.computing.v1|number }} %} |

@@ -23,6 +23,8 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
 
+            {% include [max-ram-each-process](../../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * **{{ ui-key.yacloud.greenplum.field_expand-close-cluster }}**: [Closing the cluster for access](../../concepts/expand.md#setting-close-cluster).
 
             If this setting is enabled, you cannot connect to the cluster and it receives no new user requests. This will accelerate cluster expansion.
@@ -91,6 +93,8 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
 
+            {% include [max-ram-each-process](../../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * `--close-cluster`: [Closing the cluster for access](../../concepts/expand.md#setting-close-cluster): `true` or `false`.
 
             {% include [setting-close-cluster](../../../_includes/mdb/mgp/expand/setting-close-cluster.md) %}
@@ -115,7 +119,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Expand](../../api-ref/Cluster/expand.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Expand](../../api-ref/Cluster/expand.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -145,6 +149,8 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
             {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
 
+            {% include [max-ram-each-process](../../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * `duration`: [Timeout](../../concepts/expand.md#setting-duration) (in seconds), after which the data redistribution process will be interrupted.
 
             {% include [setting-expand-duration](../../../_includes/mdb/mgp/expand/setting-expand-duration.md) %}
@@ -171,7 +177,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Expand](../../api-ref/grpc/Cluster/expand.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Expand](../../api-ref/grpc/Cluster/expand.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -204,6 +210,8 @@ When a cluster is being expanded, its data is automatically redistributed evenly
         * `add_segments_per_host_count`: Number of segments added per host.
 
             {% include [setting-segment-count](../../../_includes/mdb/mgp/expand/setting-segment-count.md) %}
+
+            {% include [max-ram-each-process](../../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
         * `duration`: [Timeout](../../concepts/expand.md#setting-duration) (in seconds), after which the data redistribution process will be interrupted.
 

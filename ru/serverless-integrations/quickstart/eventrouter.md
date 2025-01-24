@@ -145,9 +145,9 @@ keywords:
 
     1. Отправьте сообщение в очередь `sample-queue`, используя сохраненный ранее URL очереди:
 
-        ```bash
+         ```bash
          aws sqs send-message \
-           --message-body "Hello World" \
+           --message-body '"greeting":"Hello World"' \
            --endpoint https://message-queue.api.cloud.yandex.net/ \
            --queue-url <URL_очереди>
          ```

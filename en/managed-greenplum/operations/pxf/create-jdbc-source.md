@@ -1,3 +1,8 @@
+---
+title: Creating an external JDBC data source
+description: Follow this guide to create an external JDBC data source.
+---
+
 # Creating an external JDBC data source
 
 In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the JDBC connection type, you can use the following:
@@ -73,7 +78,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -112,7 +117,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

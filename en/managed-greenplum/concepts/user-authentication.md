@@ -1,3 +1,8 @@
+---
+title: User authentication in {{ mgp-full-name }}
+description: In this article, you will learn about user authentication in {{ mgp-name }} and how to configure authentication rules.
+---
+
 # User authentication
 
 User authentication in {{ mgp-name }} is set up under **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_page-auth-user }}** using [rules](../operations/user-auth-rules.md). This section is an interface for the [pg_hba.conf]({{ pg-docs }}/auth-pg-hba-conf.html) file management with some limitations:

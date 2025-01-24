@@ -27,10 +27,10 @@ items:
             href: operations/cluster-stop.md
           - name: Managing hosts
             items:
-              - name: Managing {{ ZK }} hosts
-                href: operations/zk-hosts.md
               - name: Managing {{ CH }} hosts
                 href: operations/hosts.md
+              - name: Managing {{ ZK }} hosts
+                href: operations/zk-hosts.md
               - name: Migrating hosts to a different availability zone
                 href: operations/host-migration.md
           - name: Managing backups
@@ -87,8 +87,10 @@ items:
         href: tutorials/index.md
       - name: Adding data to the database
         href: tutorials/insert.md
-      - name: Migrating data to {{ mch-name }}
+      - name: Migrating data to {{ mch-name }} using {{ CH }}
         href: tutorials/data-migration.md
+      - name: Migrating data to {{ mch-name }} using {{ data-transfer-name }}
+        href: tutorials/ch-to-mch-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
       - name: Data resharding in a cluster
@@ -600,5 +602,5 @@ items:
         href: qa/cluster-backups.md
       - name: Monitoring and logs
         href: qa/monitoring.md
-      - name: All questions on one page
+      - name: All questions on a single page
         href: qa/all.md

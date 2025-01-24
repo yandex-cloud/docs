@@ -1,4 +1,9 @@
-# Managing {{ CH }} cluster hosts
+---
+title: Managing {{ CH }} hosts
+description: 'Follow this guide to manage {{ CH }} cluster hosts: get a list of hosts in the cluster, create a host, change {{ CH }} settings for a host, restart a host, and delete a host.'
+---
+
+# Managing {{ CH }} hosts
 
 You can perform the following actions on {{ CH }} hosts:
 

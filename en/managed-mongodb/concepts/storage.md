@@ -14,13 +14,19 @@ description: In this article, you will learn what storage is in {{ mmg-name }}, 
 
 The number of hosts you can create together with a {{ MG }} cluster depends on the selected disk type:
 
-* With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts.
+* You can create a cluster only with three or more hosts when using the following disk types:
+
+    * Local SSDs (`local-ssd`)
+    * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
    This cluster will be fault-tolerant.
 
    Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
 
-* With HDD (`network-hdd`) or SSD (`network-ssd`) network storage, you can add any number of hosts within the current quota.
+* You can add any number of hosts within the current quota when using the following disk types:
+
+    * Network HDDs (`network-hdd`)
+    * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster or [shard](./sharding.md), see [Quotas and limits](./limits.md).
 

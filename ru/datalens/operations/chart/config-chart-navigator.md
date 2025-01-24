@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 Навигатор доступен для чартов из списка, у которых в секции **X** находится поле с типом `Дата` или `Дата и время`:
  
 * [Линейная диаграмма](../../visualization-ref/line-chart.md)
-* [Накопительная диаграмма с областями](../../visualization-ref/area-chart.md)
+* [Диаграмма с областями](../../visualization-ref/area-chart.md)
 * [Нормированная диаграмма с областями](../../visualization-ref/normalized-area-chart.md)
 * [Столбчатая диаграмма](../../visualization-ref/column-chart.md)
 

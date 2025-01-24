@@ -46,7 +46,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
               1. Create an [admin user](../../managed-kafka/operations/cluster-accounts.md).
               1. In addition to `ACCESS_ROLE_ADMIN`, assign the admin user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for `cdc.*` topics whose names begin with the `cdc` prefix.
 
-                 Required topics will be created automatically upon the first change to the source cluster tables you are tracking. This solution can be useful to track changes in multiple tables but requires extra free space in cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
+                 Required topics will be created automatically upon the first change to the source cluster tables you are tracking. This solution can be useful to track changes in multiple tables but requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
 
    - {{ TF }} {#tf}
 
@@ -167,7 +167,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the [previously created](#before-you-begin) {{ mkf-name }} source cluster.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**: Specify the details of the [created](#before-you-begin) {{ KF }} user.
 
@@ -236,7 +236,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md) and [add test data](../../ydb/operations/crud.md) to the `sensors` table:
 
     ```sql
-    REPLACE INTO sensors (device_id, datetime, latitude, longitude, altitude, speed, battery_voltage, cabin_temperature, fuel_level) VALUES
+    REPLACE INTO sensors (device_id, datetime, latitude, longitude, altitude, speed, battery_voltage, cabin_temperature, fuel_level) VALUES 
         ('iv9a94th6rzt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196, 427.5, 0, 23.5, 17, NULL),
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
         ('iv9a94th6rzt********', '2022-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, NULL, 20.5, 15, 20);

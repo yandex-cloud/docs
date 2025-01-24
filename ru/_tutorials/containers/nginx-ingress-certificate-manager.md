@@ -123,6 +123,7 @@
 
 1. Создайте [хранилище секретов (SecretStore)](https://external-secrets.io/v0.5.8/api-secretstore/) `secret-store`, содержащее секрет `yc-auth`:
 
+
    ```bash
    kubectl --namespace ns apply -f - <<< '
    apiVersion: external-secrets.io/v1beta1
@@ -137,6 +138,8 @@
              name: yc-auth
              key: authorized-key'
    ```
+
+
 
 ## Создайте ExternalSecret {#create-externalsecret}
 

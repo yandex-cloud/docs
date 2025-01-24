@@ -16,13 +16,19 @@ description: In this article, you will learn about disk types in {{ mmy-name }} 
 
 The number of hosts you can create together with a {{ MY }} cluster depends on the selected disk type:
 
-* With local SSDs (`local-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts.
+* You can create a cluster only with three or more hosts when using the following disk types:
+
+    * Local SSDs (`local-ssd`)
+    * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
    This cluster will be fault-tolerant.
 
    Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
 
-* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of hosts within the [current quota](./limits.md).
+* You can add any number of hosts within the [current quota](./limits.md) when using the following disk types:
+
+    * Network HDDs (`network-hdd`)
+    * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 

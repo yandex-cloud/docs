@@ -135,7 +135,6 @@ Prepare the infrastructure:
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [Security group](../../../vpc/concepts/security-groups.md) for {{ dataproc-name }} and {{ metastore-name }}.
         * [Service account](../../../iam/concepts/users/service-accounts.md)
-        * [Static access key](../../../iam/concepts/authorization/access-key.md) for [{{ objstorage-full-name }}](../../../storage/concepts/bucket.md) bucket creation.
         * Bucket
         * Two {{ dataproc-name }} clusters.
 
@@ -236,10 +235,10 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 
 1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
-    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`.
-    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`.
-    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`.
-    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-s3-sa`
+    * **{{ ui-key.yacloud.mdb.forms.label_network }}**: `dataproc-network`
+    * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}**: `dataproc-subnet`
+    * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`
 
 1. [Add](../../../data-proc/operations/cluster-update.md) to the `dataproc-target` cluster settings the `spark:spark.hive.metastore.uris` property with the following value: `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}`.
 

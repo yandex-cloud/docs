@@ -300,6 +300,9 @@ If you set the current time as the recovery time, the new cluster will match the
     1. If you want to restore only certain databases or tables, list them in the **{{ ui-key.yacloud.greenplum.field_restore-only }}** field. If you leave the field blank, the whole cluster will be restored.
     1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
     1. In the **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** setting, specify the number of [segments](../concepts/index.md) per host.
+
+        {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
     To restore a previously deleted cluster from a backup:
@@ -315,6 +318,9 @@ If you set the current time as the recovery time, the new cluster will match the
     1. If you want to restore only certain databases or tables, list them in the **{{ ui-key.yacloud.greenplum.field_restore-only }}** field. If you leave the field blank, the whole cluster will be restored.
     1. In the **{{ ui-key.yacloud.greenplum.field_hosts-count }}** setting, specify the number of segment hosts.
     1. In the **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** setting, specify the number of [segments](../concepts/index.md) per host.
+
+        {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
     {{ mgp-name }} will launch the operation to create a cluster from the backup.
@@ -373,6 +379,9 @@ If you set the current time as the recovery time, the new cluster will match the
         * `--master-disk-size`: Size of master host storage in GB.
         * `--master-disk-type`: Master host [disk type](../concepts/storage.md).
         * `--segment-resource-preset`: [Segment host class](../concepts/instance-types.md#available-flavors).
+
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
         * `--segment-disk-size`: Size of segment host storage in GB.
         * `--segment-disk-type`: Segment host [disk type](../concepts/storage.md).
         * `--segment-host-count`: Number of segment hosts.
@@ -453,6 +462,8 @@ If you set the current time as the recovery time, the new cluster will match the
 
             * `segmentHostCount`: Number of segment hosts, from `2` to `32`.
             * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+
+                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
             * `restoreOnly` (optional): List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
 
@@ -539,6 +550,8 @@ If you set the current time as the recovery time, the new cluster will match the
 
             * `segment_host_count`: Number of segment hosts, from `2` to `32`.
             * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+
+                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
             * `restore_only` (optional): List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
 

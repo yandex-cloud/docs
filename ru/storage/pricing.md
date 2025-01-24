@@ -149,7 +149,7 @@ editable: false
 
 {% endnote %}
 
-Каждый месяц первые 10 000 операций PUT, POST, PATCH и LIST а также первые 100 000 операций GET, HEAD, OPTIONS в стандартном хранилище не тарифицируются.
+Каждый месяц первые 10 000 операций PUT, POST, PATCH и LIST, а также первые 100 000 операций GET, HEAD, OPTIONS в стандартном хранилище не тарифицируются.
 
 
 {% list tabs group=pricing %}

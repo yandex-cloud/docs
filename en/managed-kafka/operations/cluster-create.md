@@ -1,8 +1,3 @@
----
-title: Creating an {{ KF }} cluster
-description: Follow this guide to create a {{ KF }} cluster.
----
-
 # Creating an {{ KF }} cluster
 
 
@@ -19,15 +14,16 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 
 ## Differences in cluster configuration with {{ ZK }} and {{ kraft-name }} protocol {#zk-vs-kraft}
 
-If you create a cluster with {{ KF }} 3.5 or lower that has more than one host, three dedicated {{ ZK }} hosts will be added to the cluster. 
+If you create a cluster with {{ KF }} 3.5 or lower that has more than one host, three dedicated {{ ZK }} hosts will be added to the cluster.
 
 Сlusters with {{ KF }} 3.6 or higher support [{{ kraft-name }}](../concepts/kraft.md) ({{ kraft-short-name }} for short). It is used instead of {{ ZK }} to store metadata.
 
 When creating a cluster with the {{ kraft-short-name }} protocol, the following configuration restrictions apply:
-  * You can create a cluster with only one or three [availability zones](../../overview/concepts/geo-scope.md).
-  * Limited number of broker hosts:
-    * If you select one availability zone, you can create one or three broker hosts.
-    * If you select three availability zones, you can only create one broker host.
+
+* You can create a cluster with only one or three [availability zones](../../overview/concepts/geo-scope.md).
+* Limited number of broker hosts:
+  * If you select one availability zone, you can create one or three broker hosts.
+  * If you select three availability zones, you can only create one broker host.
 
 For more information about the differences in cluster configurations with {{ ZK }} and {{ kraft-short-name }}, see [Resource relationships in {{ mkf-name }}](../../managed-kafka/concepts/index.md).
 
@@ -49,7 +45,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
   To create a {{ mkf-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
@@ -101,7 +97,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
         When choosing the number of hosts, keep in mind that:
         * In {{ KF }} versions 3.6 and higher the [number of broker hosts depends](#zk-vs-kraft) on the selected availability zones:
-        
+
            * One availability zone: one or three broker hosts. To use three broker hosts, enable the **{{ ui-key.yacloud.kafka.field_kraft-combined-mode }}** setting.
            * Three availability zones: one broker host.
 
@@ -113,7 +109,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
 
 
-        * To make your {{ mkf-name }} cluster fault-tolerant, you will need to meet [certain conditions](../concepts/index.md#fault-tolerance).
+        * There are [conditions](../concepts/index.md#fault-tolerance) to be satisfied for a fault-tolerant {{ mkf-name }} cluster.
         * Adding more than one host to a cluster with {{ KF }} version 3.5 or lower will automatically add three {{ ZK }} hosts.
 
      
@@ -122,7 +118,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-  1. If you are creating a cluster with {{ KF }} version 3.5 or lower and have specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) intended for each of the selected availability zones.
+  1. If you are creating a cluster with {{ KF }} version 3.5 or lower and have specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }}](../concepts/index.md) hosts intended for each of the selected availability zones.
   1. Configure additional {{ mkf-name }} cluster settings, if required:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -175,7 +171,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      Where:
 
      * `--environment`: Cluster environment, `prestable` or `production`.
-     * `--version`: {{ KF }} version: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, or 3.6.
+     * `--version`: {{ KF }} version, {{ versions.cli.str }}.
      * `--zone-ids` and `--brokers-count`: Availability zones and number of broker hosts per zone.
 
         For [clusters with {{ KF }} version 3.6 and higher](#zk-vs-kraft), only the following configurations are available:
@@ -308,7 +304,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      Where:
 
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
-     * `version`: {{ KF }} version: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, or 3.6.        
+     * `version`: {{ KF }} version, {{ versions.tf.str }}.
      * `zones` and `brokers_count`: Availability zones and number of broker hosts per zone.
 
        If you are creating a [cluster with {{ KF }} version 3.6 or higher](#zk-vs-kraft), specify one of the available configurations:
@@ -340,90 +336,387 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  {% note warning %}
+    {% note warning %}
 
-  When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }} settings.
+    When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }} settings.
 
-  {% endnote %}
+    {% endnote %}
 
-  To create a {{ mkf-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ mkf-name }} cluster, in the `folderId` parameter.
-  * {{ mkf-name }} cluster name in the `name` parameter.
-  * `PRESTABLE` or `PRODUCTION` cluster environment in the `environment` parameter.
-  * {{ KF }} version: 2.8, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, or 3.6 in the `configSpec.version` parameter.
-  * Availability zones in the `configSpec.zoneId` parameter.
-    When creating a [cluster with {{ KF }} version 3.6 and higher](#zk-vs-kraft), you can specify only one or three availability zones.
-  * Number of broker hosts in the `configSpec.brokersCount` parameter.
-    When creating a [cluster with {{ KF }} version 3.6 or higher](#zk-vs-kraft), you can specify only one or three broker hosts:
-      * If three availability zones are specified in the `configSpec.zoneId` parameter, set the number of broker hosts to `1`.
-      * If one availability zone is specified in the `configSpec.zoneId` parameter, set the number of broker hosts to `1` or `3`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  
-  * [Security group](../../vpc/concepts/security-groups.md) IDs in the `securityGroupIds` parameter.
+    1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        1. Create a file named `body.json` and add the following contents to it:
+
+            {% note info %}
+
+            This example does not use all available parameters.
+
+            {% endnote %}
+
+            
+            ```json
+            {
+              "folderId": "<folder_ID>",
+              "name": "<cluster_name>",
+              "environment": "<environment>",
+              "networkId": "<network_ID>",
+              "securityGroupIds": [
+                "<security_group_1_ID>",
+                "<security_group_2_ID>",
+                ...
+                "<security_group_N_ID>"
+              ],
+              "configSpec": {
+                "version": "<{{ KF }}>_version",
+                "kafka": {
+                  "resources": {
+                    "resourcePresetId": "<{{ KF }} host_class>",
+                    "diskSize": "<storage_size_in_bytes>",
+                    "diskTypeId": "<disk_type>"
+                  }
+                },
+                "zookeeper": {
+                  "resources": {
+                    "resourcePresetId": "<{{ ZK }} host_class> ",
+                    "diskSize": "<storage_size_in_bytes>",
+                    "diskTypeId": "<disk_type>"                   
+                  }
+                },
+                "zoneId": [
+                  <list_of_availability_zones>
+                ],
+                "brokersCount": "<number_of_brokers_in_zone>",
+                "assignPublicIp": <public_access:_true_or_false>,
+                "schemaRegistry": <data_schema_management:_true_or_false>,
+                "restApiConfig": {
+                  "enabled": <send_requests_to_{{ KF }}_API:_true_or_false>
+                },
+                "diskSizeAutoscaling": {
+                  <automatic_storage_size_increase_parameters>
+                },
+              },
+              "topicSpecs": [
+                {
+                  "name": "<topic_name>",
+                  "partitions": "<number_of_partitions>",
+                  "replicationFactor": "<replication_factor>"
+                },
+                { <similar_list_of_settings_for_topic_2> },
+                { ... },
+                { <similar_list_of_settings_for_topic_N> }
+              ],
+              "userSpecs": [
+                {
+                  "name": "<username>",
+                  "password": "<user_password>",
+                  "permissions": [
+                    {
+                      "topicName": "<topic_name>",
+                      "role": "<user's_role>"
+                    }
+                  ]
+                },
+                { <similar_configuration_for_user_2> },
+                { ... },
+                { <similar_configuration_for_user_N> }
+              ],
+              "maintenanceWindow": {
+                "anytime": {},
+                "weeklyMaintenanceWindow": {
+                  "day": "<day_of_week>",
+                  "hour": "<hour_UTC>"
+                }
+              },
+              "deletionProtection": <deletion_protection:_true_or_false>
+            }
+            ```
 
 
-  * [Maintenance window](../concepts/maintenance.md) settings (including for disabled {{ mkf-name }} clusters) in the `maintenanceWindow` parameter.
-  * {{ mkf-name }} cluster deletion protection settings in the `deletionProtection` parameter.
+            Where:
 
-    {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+            * `name`: Cluster name.
+            * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+            * `networkId`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
 
-  To manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), set the `configSpec.schemaRegistry` parameter to `true`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
-
-
-  
-  To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `hostGroupIds` parameter.
-
-  {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+            
+            * `securityGroupIds`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
 
 
-  To prevent the cluster disk space from running out, create a cluster that will [increase the storage space automatically](../concepts/storage.md#auto-rescale). For this, provide the following in the request:
+            * `configSpec`: Cluster configuration:
 
-  {% include [api-storage-resize](../../_includes/mdb/mpg/api-storage-resize.md) %}
+                * `version`: {{ KF }} version, {{ versions.cli.str }}.
+                * `kafka`: {{ KF }} configuration:
 
-  {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+                    * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.diskSize`: Disk size in bytes.
+                    * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
+
+                * `zookeeper`: [{{ ZK }}](../concepts/index.md#zookeeper) configuration.
+
+                    * `resources.resourcePresetId`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
+                    * `resources.diskSize`: Disk size in bytes.
+                    * `resources.diskTypeId`: Disk type.
+
+
+                * `zoneId` and `brokersCount`: Availability zones and number of broker hosts per zone.
+
+                  If you are creating a [cluster with {{ KF }} version 3.6 or higher](#zk-vs-kraft), specify one of the available configurations:
+
+                  * `"zoneId": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokersCount": "1"`
+                  * `"zoneId": ["<one_availability_zone>"], "brokersCount": "1"`
+                  * `"zoneId": ["<one_availability_zone>"], "brokersCount": "3"`
+
+                * `assignPublicIp`: Internet access to the broker hosts, `true` or `false`.
+                * `schemaRegistry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
+                * `restApiConfig`: {{ KF }} REST API configuration. For access to sending requests to the {{ KF }} REST API, specify `enabled: true`.
+                * `diskSizeAutoscaling`: Set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size), that will trigger an increase in storage size when reached:
+
+                  {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
+
+            * `topicSpecs`: Topic settings as an array of elements, one for each topic. Each element has the following structure:
+
+                {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs.md) %}
+
+            * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
+
+                {% include [rest-user-specs](../../_includes/mdb/mkf/api/rest-user-specs.md) %}
+
+            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of the options:
+
+                * `anytime`: At any time (default).
+                * `weeklyMaintenanceWindow`: On schedule:
+                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+
+            * `deletionProtection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+            
+            To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `hostGroupIds` parameter.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+
+
+            
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Run this request:
+
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters' \
+              --data '@body.json'
+            ```
+
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    {% note warning %}
+
+    When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }} settings.
+
+    {% endnote %}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        1. Create a file named `body.json` and add the following contents to it:
+
+            {% note info %}
+
+            This example does not use all available parameters.
+
+            {% endnote %}
+
+            
+            ```json
+            {
+              "folder_id": "<folder_ID>",
+              "name": "<cluster_name>",
+              "environment": "<environment>",
+              "network_id": "<network_ID>",
+              "security_group_ids": [
+                "<security_group_1_ID>",
+                "<security_group_2_ID>",
+                ...
+                "<security_group_N_ID>"
+              ],
+              "config_spec": {
+                "version": "<{{ KF }}>_version",
+                "kafka": {
+                  "resources": {
+                    "resource_preset_id": "<{{ KF }} host_class>",
+                    "disk_size": "<storage_size_in_bytes>",
+                    "disk_type_id": "<disk_type>"
+                  }
+                },
+                "zookeeper": {
+                  "resources": {
+                    "resource_preset_id": "<{{ ZK }} host_class> ",
+                    "disk_size": "<storage_size_in_bytes>",
+                    "disk_type_id": "<disk_type>"                   
+                  }
+                },
+                "zone_id": [
+                  <list_of_availability_zones>
+                ],
+                "brokers_count": {
+                  "value": "<number_of_brokers_in_zone>"
+                },
+                "assign_public_ip": <public_access:_true_or_false>,
+                "schema_registry": <data_schema_management:_true_or_false>,
+                "rest_api_config": {
+                  "enabled": <send_requests_to_{{ KF }}_API:_true_or_false>
+                },
+                "disk_size_autoscaling": {
+                  <automatic_storage_size_increase_parameters>
+                },
+              },
+              "topic_specs": [
+                {
+                  "name": "<topic_name>",
+                  "partitions": {
+                    "value": "<number_of_partitions>"
+                  },
+                  "replication_factor": {
+                    "value": "<replication_factor>"
+                  }
+                },
+                { <similar_list_of_settings_for_topic_2> },
+                { ... },
+                { <similar_list_of_settings_for_topic_N> }
+              ],
+              "user_specs": [
+                {
+                  "name": "<username>",
+                  "password": "<user_password>",
+                  "permissions": [
+                    {
+                      "topic_name": "<topic_name>",
+                      "role": "<user's_role>"
+                    }
+                  ]
+                },
+                { <similar_configuration_for_user_2> },
+                { ... },
+                { <similar_configuration_for_user_N> }
+              ],
+              "maintenance_window": {
+                "anytime": {},
+                "weekly_maintenance_window": {
+                  "day": "<day_of_week>",
+                  "hour": "<hour_UTC>"
+                }
+              },
+              "deletion_protection": <deletion_protection:_true_or_false>
+            }
+            ```
+
+
+            Where:
+
+            * `name`: Cluster name.
+            * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+            * `network_id`: ID of the [network](../../vpc/concepts/network.md) the cluster will be in.
+
+            
+            * `security_group_ids`: [Security group](../../vpc/concepts/security-groups.md) IDs as an array of strings. Each string is a security group ID.
+
+
+            * `config_spec`: Cluster configuration:
+
+                * `version`: {{ KF }} version, {{ versions.cli.str }}.
+                * `kafka`: {{ KF }} configuration:
+
+                    * `resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md) call.
+                    * `resources.disk_size`: Disk size in bytes.
+                    * `resources.disk_type_id`: [Disk type](../concepts/storage.md).
+
+                * `zookeeper`: [{{ ZK }}](../concepts/index.md#zookeeper) configuration.
+
+                    * `resources.resource_preset_id`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/grpc/ResourcePreset/list.md) call.
+                    * `resources.disk_size`: Disk size in bytes.
+                    * `resources.disk_type_id`: Disk type.
+
+
+                * `zone_id` and `brokers_count`: Availability zones and number of broker hosts per zone (this number is provided as an object with the `value` field).
+
+                  If you are creating a [cluster with {{ KF }} version 3.6 or higher](#zk-vs-kraft), specify one of the available configurations:
+
+                  * `"zone_id": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokers_count": {"value":"1"}`
+                  * `"zone_id": ["<one_availability_zone>"], "brokers_count": {"value":"1"}`
+                  * `"zone_id": ["<one_availability_zone>"], "brokers_count": {"value":"3"}`
+
+                * `assign_public_ip`: Internet access to the broker hosts, `true` or `false`.
+                * `schema_registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`. You will not be able to edit this setting once you create a {{ mkf-name }} cluster.
+                * `rest_api_config`: {{ KF }} REST API configuration. For access to sending requests to the {{ KF }} REST API, specify `enabled: true`.
+                * `disk_size_autoscaling`: To prevent the cluster disk space from running out, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size) that will trigger an increase in storage size when reached:
+
+                  {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
+
+            * `topic_specs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
+
+                {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs.md) %}
+
+            * `user_specs`: User settings as an array of elements, one for each user. Each element has the following structure:
+
+                {% include [rest-user-specs](../../_includes/mdb/mkf/api/grpc-user-specs.md) %}
+
+            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of the options:
+
+                * `anytime`: At any time (default).
+                * `weekly_maintenance_window`: On schedule:
+                    * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                    * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+
+            * `deletion_protection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+            
+            To create a {{ mkf-name }} cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, provide a list of host group IDs in the `host_group_ids` parameter.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
+
+
+            
+            You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Run this request:
+
+            ```bash
+            curl \
+              --request POST \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters' \
+              --data '@body.json'
+            ```
+
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
 To make sure the cluster created with {{ KF }} version 3.6 or higher uses the {{ kraft-short-name }} protocol, get information about the cluster hosts:
 
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. Click the name of the cluster you created.
-  1. In the left-hand panel, select **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-
-- CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  To get a list of {{ mkf-name }} cluster hosts:
-
-  1. See the description of the CLI command to get a list of {{ mkf-name }} cluster hosts:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster list-hosts --help
-     ```
-  1. Get a list of cluster hosts:
-
-     ```bash
-     {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
-     ```
-
-- API {#api}
-
-  To get a list of {{ mkf-name }} cluster hosts, use the [listHosts](../api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the request.
-
-  To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-
-{% endlist %}
+{% include [list-hosts](../../_includes/mdb/mkf/list-hosts.md) %}
 
 If there are no {{ ZK }} hosts, it means the cluster uses {{ kraft-short-name }}.
 
@@ -526,7 +819,7 @@ To create a {{ KF }} cluster copy:
   * Protection against accidental {{ mkf-name }} cluster deletion: Enabled.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

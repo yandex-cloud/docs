@@ -1,31 +1,30 @@
-# Exporting {{ GP }} data to cold storage
+# Exporting {{ GP }} data to a cold storage
 
 
+In a {{ mgp-full-name }} cluster, you can enable [hybrid storage](../../../managed-greenplum/concepts/hybrid-storage.md) for [append-optimized (AO) and append-optimized column-oriented (AOCO) tables](../../../managed-greenplum/concepts/tables.md). With this done, the [{{ YZ }} extension](../../../managed-greenplum/operations/extensions/yezzey.md) can transfer data from such tables in the cluster storage to a cold storage.
 
-{{ mgp-full-name }} data is stored on cluster disks. With a {{ yandex-cloud }} [{{ YZ }} extension](https://github.com/yezzey-gp/yezzey/), you can move this data to a cold storage in {{ objstorage-full-name }}. This way, it will be stored in a service bucket in a compressed and encrypted form. It is a convenient option if you need to store your data for a long time without using it much. This will make data storage [less costly](../../../storage/pricing.md).
-
-{{ YZ }} supports append-optimized (AO) and append-optimized column-oriented (AOCO) tables. For more information about the tables, see [Data storage types](../../../managed-greenplum/concepts/tables.md) and the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-storage.html).
+Cold storage is a convenient option if you need to store your data for a long time without using it much. This will make data storage [less costly](../../../managed-greenplum/pricing/index.md#rules-storage).
 
 
 {% note info %}
 
-The functionality is supported for clusters with {{ GP }} version 6.25 or higher. This functionality is at the [Preview](../../../overview/concepts/launch-stages.md) stage and is free of charge.
+This feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage and is free of charge.
 
 {% endnote %}
 
 
-To transfer your data from {{ mgp-name }} cluster disks to a cold storage in {{ objstorage-name }}:
+To transfer your data from the cluster storage to a cold storage:
 
-1. [Transfer a {{ GP }} table to {{ objstorage-name }}](#transfer).
+1. [Export the {{ GP }} table to a cold storage](#transfer).
 1. [Check the result](#check).
 
-You can also [transfer your data back](#offload-to-local-storage) to cluster disks.
+You can also [transfer your data back](#offload-to-local-storage) to the cluster storage.
 
-If you no longer need the resources you created, [delete them](#clear-out).
+If you no longer need the created resources, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mgp-name }} cluster](../../../managed-greenplum/operations/cluster-create.md). When creating a cluster, make sure to enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
+1. [Create](../../../managed-greenplum/operations/cluster-create.md) a {{ mgp-name }} cluster. When creating a cluster, make sure to enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
    {% note info %}
 
@@ -39,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
-## Export the {{ GP }} table to {{ objstorage-name }} {#transfer}
+## Export the {{ GP }} table to a cold storage {#transfer}
 
 1. Connect to the cluster:
 
@@ -65,7 +64,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    CREATE EXTENSION yezzey;
    ```
 
-1. Create an append-optimized table named `ao_table`:
+1. Create an AO table named `ao_table`:
 
    ```bash
    CREATE TABLE ao_table (a int)
@@ -79,7 +78,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    INSERT INTO ao_table SELECT * FROM GENERATE_SERIES(1, 10000);
    ```
 
-1. Transfer the `ao_table` data to a cold storage in {{ objstorage-name }}:
+1. Transfer the `ao_table` data to a cold storage:
 
    ```bash
    SELECT yezzey_define_offload_policy('ao_table');
@@ -87,9 +86,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Check the result {#check}
 
-1. Check how much of the cluster local cache and {{ objstorage-name }} space is used by:
+1. Check how much of the cluster local cache and cold storage is used by:
 
-   * Your `ao_table`:
+   * `ao_table`:
 
       ```bash
       SELECT * FROM yezzey_offload_relation_status('ao_table');
@@ -101,15 +100,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
       SELECT * FROM yezzey_offload_relation_status_per_filesegment('ao_table');
       ```
 
-   If there are non-zero values in each `external_bytes` column in the command output, the table is transferred to a cold storage in {{ objstorage-name }}.
+   If there are non-zero values in each `external_bytes` column in the command output, the table was successfully transferred to a cold storage.
 
-1. Check which table segment files are now in {{ objstorage-name }}:
+1. Check which table segment files are now in the cold storage:
 
    ```bash
    SELECT * FROM yezzey_relation_describe_external_storage_structure('ao_table');
    ```
 
-1. Make sure the data can be read from {{ objstorage-name }}:
+1. Make sure you can read data from the transferred table:
 
    ```bash
    SELECT AVG(a) FROM ao_table;
@@ -124,9 +123,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
    (1 row)
    ```
 
-1. Make sure the data can be written to {{ objstorage-name }}:
+1. Make sure you can write data to the transferred table:
 
-   1. Add a series of integers from 1 through 10,000 to your `ao_table`:
+   1. Add a series of integers 1 through 10,000 to `ao_table`:
 
       ```bash
       INSERT INTO ao_table SELECT * FROM GENERATE_SERIES(1, 10000);
@@ -147,9 +146,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       (1 row)
       ```
 
-## Transfer the table from {{ objstorage-name }} to cluster disks {#offload-to-local-storage}
+## Move the table from the cold storage to the cluster storage {#offload-to-local-storage}
 
-To transfer your `ao_table` from {{ objstorage-name }} back to the {{ mgp-name }} cluster disks, run the command below:
+To move `ao_table` from the cold storage back to the cluster storage, run this command:
 
 ```bash
 SELECT yezzey_load_relation('ao_table');

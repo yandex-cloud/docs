@@ -1,3 +1,8 @@
+---
+title: Tips for setting up and using Delta Lake
+description: This article will give you tips on how to set up and use Delta Lake.
+---
+
 # Tips for setting up and using Delta Lake
 
 ## Optimizing data writes to S3-compatible storage {#s3-algorithm}
@@ -8,9 +13,9 @@ If all data within a job is stored in Delta Lake tables, there is no need to con
 
 ## Boosting OPTIMIZE operator performance {#optimize}
 
-The [OPTIMIZE operator](https://docs.delta.io/latest/optimizations-oss.html#compaction-bin-packing) in Delta Lake 2.0.2 speeds up requests to read table data by merging multiple small files into larger ones. This merge is performed within several concurrent jobs. The maximum number of such concurrent jobs is set by the `spark.databricks.delta.optimize.maxThreads` [property](../../concepts/settings-list.md) and amounts to `10` by default.
+The [OPTIMIZE operator](https://docs.delta.io/latest/optimizations-oss.html#compaction-bin-packing) in Delta Lake 2.0.2 speeds up requests to read table data by merging multiple small files into larger ones. This merge is performed within several concurrent jobs. The maximum number of such concurrent jobs is controlled by the `spark.databricks.delta.optimize.maxThreads` [property](../../concepts/settings-list.md) set to `10` by default.
 
-To speed up the optimization procedure when handling large tables, [increase](../../concepts/settings-list.md#change-properties) the property value. You can use much larger values, e.g., `100` or `1000`, if the cluster resources allow running so many concurrent operations.
+To speed up the optimization procedure when handling large tables, [increase](../../concepts/settings-list.md#change-properties) the property value. You can use much larger values, e.g., `100` or `1000`, if the cluster resources allow running this many concurrent operations.
 
 ## Syntax for converting partitioned tables {#partitioned-syntax}
 
@@ -22,7 +27,7 @@ CONVERT TO DELTA table_name PARTITIONED BY (part_col_1 INT, part_col_2 INT);
 
 ## Forcing table change history cleanup {#forced-vacuum}
 
-By default, Delta Lake stores the history of table changes for 30 days. The retention period is set at the table level in the `delta.logRetentionDuration` parameter and can be edited using this command:
+By default, Delta Lake stores the history of table changes for 30 days. This period is set at the table level in the `delta.logRetentionDuration` parameter; you can edit it using this command:
 
 ```sql
 ALTER TABLE <table_schema_and_name> SET TBLPROPERTIES ('delta.logRetentionDuration' = "interval <interval>")
@@ -34,18 +39,18 @@ To force the table change history cleanup:
 
 1. Rearrange the table data to optimize the access:
 
-   ```sql
-   OPTIMIZE <table_name>;
-   ```
+    ```sql
+    OPTIMIZE <table_name>;
+    ```
 
 1. Allow deleting the entire history of changes:
 
-   ```sql
-   SET spark.databricks.delta.retentionDurationCheck.enabled = false;
-   ```
+    ```sql
+    SET spark.databricks.delta.retentionDurationCheck.enabled = false;
+    ```
 
 1. Clear the change history:
 
-   ```sql
-   VACUUM <table_name> RETAIN 0 HOURS;
-   ```
+    ```sql
+    VACUUM <table_name> RETAIN 0 HOURS;
+    ```

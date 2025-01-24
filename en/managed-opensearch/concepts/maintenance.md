@@ -1,6 +1,6 @@
 ---
 title: Maintenance in {{ mos-full-name }}
-description: Maintenance in {{ mos-name }} means automatic installation of updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities.
+description: In {{ mos-name }}, maintenance means automatic installation of DBMS updates and fixes for hosts (including for disabled clusters), changing host class and storage size, and other maintenance activities.
 ---
 
 # Maintenance in {{ mos-name }}
@@ -8,10 +8,10 @@ description: Maintenance in {{ mos-name }} means automatic installation of updat
 Maintenance means:
 
 * Automatic installation of {{ OS }} updates and revisions for host groups (including disabled clusters).
-* Changes to the host class and storage size.
+* Scheduled automatic increase of storage size.
 * Other maintenance activities.
 
-Changing a major DBMS version is not part of maintenance. For more information about major version changes, see [{#T}](../operations/cluster-version-update.md).
+Changing a major DBMS version is not part of maintenance. For more information about migrating between major versions, see [{#T}](../operations/cluster-version-update.md).
 
 ## Maintenance window {#maintenance-window}
 

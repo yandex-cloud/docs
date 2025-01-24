@@ -36,7 +36,7 @@ When changing the host class:
 
 * Your single-host cluster will be unavailable for a few minutes with database connections terminated.
 * Your multi-host cluster will get a new master host. Its hosts will be stopped and updated one by one. Once stopped, a host will be unavailable for a few minutes.
-* Using a [special FQDN](./connect.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
+* Using a [special FQDN](./connect.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster has no active workload.
 
@@ -128,7 +128,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -156,7 +156,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `configSpec.resources.resourcePresetId`: New host class.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -167,7 +167,7 @@ We recommend changing the host class only when the cluster has no active workloa
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -203,7 +203,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `config_spec.resources.resource_preset_id`: New host class.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -283,7 +283,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -311,7 +311,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `configSpec.resources.diskSize`: New disk size in bytes.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -322,7 +322,7 @@ We recommend changing the host class only when the cluster has no active workloa
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -358,7 +358,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `config_spec.resources.disk_size`: New disk size in bytes.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -374,7 +374,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-  1. Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+  1. Configure the [{{ MY }}](../concepts/settings-list.md#dbms-cluster-settings) settings by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -439,7 +439,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -472,7 +472,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -483,7 +483,7 @@ We recommend changing the host class only when the cluster has no active workloa
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -524,7 +524,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -746,7 +746,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 
 
-          * `performanceDiagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+          * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
               * `enabled`: Enables statistics collection.
               * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
@@ -768,7 +768,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -779,7 +779,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
           --data "@body.json"
       ```
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -862,7 +862,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 
 
-          * `performance_diagnostics`: Settings for [collecting statistics](performance-diagnostics.md#activate-stats-collector):
+          * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
               * `enabled`: Enables statistics collection.
               * `sessions_sampling_interval`: Session sampling interval, `1` to `86400` seconds.
@@ -884,9 +884,9 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -973,7 +973,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.move](../api-ref/Cluster/move.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.move](../api-ref/Cluster/move.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -988,7 +988,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       Where `destinationFolderId` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -999,7 +999,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Move](../api-ref/grpc/Cluster/move.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Move](../api-ref/grpc/Cluster/move.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -1018,7 +1018,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       Where `destination_folder_id` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1089,7 +1089,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1118,7 +1118,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1129,7 +1129,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1166,7 +1166,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
-      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

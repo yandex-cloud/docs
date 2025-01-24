@@ -1,6 +1,6 @@
 ---
 title: Connecting to an {{ OS }} cluster in {{ mos-full-name }}
-description: You can connect to {{ OS }} cluster hosts with the DATA role from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs located in the same virtual network.
+description: You can connect to {{ OS }} cluster hosts with the DATA role via the internet if you have set up public access to the host of interest and from {{ yandex-cloud }} VMs residing in the same virtual network.
 keywords:
   - connecting OpenSearch clusters
   - OpenSearch cluster
@@ -33,21 +33,29 @@ To use an encrypted connection, get an SSL certificate:
 
 ## {{ OS }} host FQDN {#fqdn}
 
-To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can use the FQDN of a particular host in the cluster or a [special FQDN](#special-fqdns) always pointing to the available host with the `DASHBOARDS` role.
 
-* [Request a list of cluster hosts](host-groups.md#list-hosts).
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+Host FQDN example:
+
+```text
+{{ host-name }}.{{ dns-zone }}
+```
+
+### Getting host FQDN {#get-fqdn}
+
+You can obtain the {{ OS }} host FQDN by doing one of the following:
+
 * Look up the FQDN in the management console:
 
-   1. Go to the cluster page.
-   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+    1. Go to the cluster page.
+    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-Hosts with the `DASHBOARDS` role also use [special FQDNs](#special-fqdns).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
-## Special FQDN {#special-fqdns}
+* [Request a list of cluster hosts](host-groups.md#list-hosts) using the CLI or API.
 
-Alongside [regular FQDNs](#fqdn), {{ mos-name }} provides a special FQDN, which you can also use when connecting to a cluster.
+### Special FQDN {#special-fqdns}
 
 An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -70,7 +78,7 @@ You can connect to {{ OS }} Dashboards:
 
         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Enter `admin` for the username and the password you set when [creating the cluster](cluster-create.md).
+    1. Enter `admin` for username and the password you set when [creating the cluster](cluster-create.md).
 
 - From a VM in {{ yandex-cloud }} {#cloud}
 
@@ -180,7 +188,7 @@ To connect to a {{ mos-name }} cluster from a Docker container, add the followin
 
 Before connecting, [prepare a certificate](#ssl-cetificate).
 
-To connect, enter `admin` for the username and the password you set when [creating the cluster](cluster-create.md#create-cluster).
+To connect, enter `admin` for username and the password you set when [creating the cluster](cluster-create.md#create-cluster).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

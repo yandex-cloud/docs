@@ -8,10 +8,11 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 * [{#T}](./kafka-connectors.md)
 * [{#T}](./mkf-to-mkf-transfer.md)
 
-## Using the registry of data format schemas with {{ mkf-name }} {#schema-registry}
+## Using a schema registry with {{ mkf-name }} {#schema-registry}
 
 * [{#T}](./schema-registry-overview.md)
 * [{#T}](./managed-schema-registry.md)
+* [{#T}](./managed-schema-registry-rest.md)
 * [{#T}](./confluent-schema-registry.md)
 
 ## Delivering data using {{ data-transfer-name }} {#data-transfer}
