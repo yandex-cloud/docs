@@ -5,7 +5,9 @@ import boto3
 session = boto3.session.Session()
 s3 = session.client(
     service_name='s3',
-    endpoint_url='https://{{ s3-storage-host }}'
+    endpoint_url='https://{{ s3-storage-host }}',
+    # Если используете boto3>=1.36.0, укажите версию сигнатуры 's3'
+    # config=boto3.session.Config(signature_version='s3'),
 )
 
 # Создать новый бакет
