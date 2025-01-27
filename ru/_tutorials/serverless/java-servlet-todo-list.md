@@ -5,7 +5,7 @@
 Чтобы создать веб-приложение:
 
 1. [Подготовьте облако к работе](#before-begin).
-1. [Подготовьте окружение](#preare).
+1. [Подготовьте окружение](#prepare).
 1. [Создайте бакет {{ objstorage-full-name }}](#create-bucket).
 1. [Создайте базу данных {{ ydb-short-name }}](#create-db).
 1. [Создайте функции {{ sf-full-name }}](#create-functions).
