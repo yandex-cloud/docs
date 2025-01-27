@@ -1,3 +1,8 @@
+---
+title: Getting started with {{ cns-full-name }}
+description: '{{ cns-name }} ({{ cns-short-name }}) is a service for multichannel notifications of users. The service''s HTTP API is compatible with the Amazon SNS API.'
+---
+
 # Getting started with {{ cns-full-name }}
 
 {% include [preview-stage](../_includes/notifications/preview-stage.md) %}

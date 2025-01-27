@@ -1,3 +1,9 @@
+---
+title: Instructions for businesses on how to manage users
+description: In this tutorial, you will learn how to add users to a new organization, appoint an administrator, and set user roles as a business.
+---
+
+
 # Managing users
 
 The guide in this checklist item will help you add users to your created organization, appoint an administrator, and set user roles.
@@ -57,7 +63,7 @@ To add federation users to an organization:
 
   1. Select a role from the [{{ yandex-cloud }}](../../iam/roles-reference.md) role reference.
   1. [Get the user ID](../../organization/operations/users-get.md).
-  1. Assign the role using the command:
+  1. Assign the role using this command:
 
     ```bash
     yc <SERVICE-NAME> <RESOURCE> add-access-binding <RESOURCE-NAME>|<RESOURCE-ID> \
@@ -65,7 +71,7 @@ To add federation users to an organization:
       --subject userAccount:<USER-ACCOUNT-ID>
     ```
 
-    where:
+    Where:
 
     * `<SERVICE-NAME>`: Name of the service for whose resource you are assigning the role, e.g., `resource-manager`.
     * `<RESOURCE>`: Resource category, e.g., `cloud`.
@@ -107,8 +113,8 @@ To add federation users to an organization:
     }
     ```
 
-  1. {% include [grant-role-folder-via-curl-step](../../_includes/iam/grant-role-folder-via-curl-step.md) %}
-
+  1. {% include [grant-role-folder-via-curl-step](../../_includes/iam/grant-role-folder-via-curl-step.md) %} 
+  
 {% endlist %}
 
 
@@ -117,13 +123,13 @@ To add federation users to an organization:
 To grant organization management access to a user, assign one of the following roles:
 
 * `organization-manager.admin`: Organization administrator role.
-
+  
   The role allows you to edit organization settings, create identity federations, add and remove users, create other administrators, and manage the organization's cloud resources.
 
 * `organization-manager.organizations.owner`: Organization owner role.
-
+  
   The role allows you to appoint organization owners and use all the administrator privileges.
-
+  
   By default, the user who creates an organization is the organization owner.
 
 * `organization-manager.viewer`: Enables viewing the organization settings without the permission to edit them.

@@ -1,7 +1,7 @@
 Under **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}**, specify which traffic the rule will be used to analyze:
 * `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`: The rule will be used to analyze the whole traffic.
 * `On condition`: The rule will be used to analyze the traffic specified in the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field:
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`: IP address, IP address range, or IP address region.
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`: IP address, IP address range, IP address region, or [address list](../../smartwebsecurity/concepts/lists.md).
     * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`: HTTP header string.
     * `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`: Request path.
     * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}`: Domain receiving the request.

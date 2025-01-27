@@ -49,6 +49,7 @@
 * [{{ sf-full-name }}](../functions/release-notes.md)
 * [{{ iot-full-name }}](../iot-core/release-notes.md)
 * [{{ postbox-full-name }}](../postbox/release-notes.md)
+* [{{ cns-full-name }}](../notifications/release-notes.md)
 
 ## Безопасность {#security}
 

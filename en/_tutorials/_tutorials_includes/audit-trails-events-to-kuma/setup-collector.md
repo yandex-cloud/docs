@@ -1,0 +1,3 @@
+For this step, you will need the distribution and license files included with KUMA. Use them to install and configure the collector in the KUMA network infrastructure. For more information, see [this guide](https://support.kaspersky.com/help/KUMA/3.2/en-US/220708.htm).
+
+Once the setup is successfully completed, audit events will start being delivered to KUMA. The KUMA web interface allows you to [search for related events](https://support.kaspersky.com/help/KUMA/3.2/en-US/217989.htm).

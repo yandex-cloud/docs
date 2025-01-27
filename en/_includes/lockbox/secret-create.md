@@ -4,7 +4,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
@@ -100,25 +100,13 @@ To create a [secret](../../lockbox/concepts/secret.md):
 
 - {{ TF }} {#tf}
 
-  A secret only contains its own metadata, including its name, description, and unique ID. To start using the secret, you need to [create a secret version](../../lockbox/operations/secret-version-manage.md).
+  A secret only contains its own metadata, including its name, description, unique ID, etc. To start using a new secret, you need to [create its version](../../lockbox/operations/secret-version-manage.md).
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
-     terraform {
-       required_providers {
-         yandex = {
-           source = "yandex-cloud/yandex"
-         }
-       }
-       required_version = ">= 0.13"
-     }
-     provider "yandex" {
-       zone = "{{ region-id }}-a"
-     }
-
      resource "yandex_lockbox_secret" "my_secret" {
        name                = "<secret_name>"
        description         = "<secret_description>"
@@ -126,8 +114,8 @@ To create a [secret](../../lockbox/concepts/secret.md):
        kms_key_id          = "<encryption_key_ID>"
        deletion_protection = <deletion_protection_flag>
        labels              = {
-         <label_1_key>  = "<label_1_value>",
-         <label_2_key>  = "<label_2_value>"
+         <label_1_key> = "<label_1_value>",
+         <label_2_key> = "<label_2_value>"
        }
      }
      ```
@@ -136,7 +124,7 @@ To create a [secret](../../lockbox/concepts/secret.md):
      * `name`: Secret name. This is a required parameter.
      * `description`: Secret description. This is an optional parameter.
      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret. This is an optional parameter.
-     * `kms_key_id`: ID of the [{{ kms-name }} encryption key](../../kms/concepts/key.md). The specified {{ kms-name }} key is used to encrypt your secret. If you do not specify a {{ kms-name }} key, a special system key will be used to encrypt the secret. This is an optional parameter.
+     * `kms_key_id`: ID of the [{{ kms-name }}](../../kms/concepts/key.md) encryption key. The specified {{ kms-name }} key is used to encrypt your secret. If you do not specify a {{ kms-name }} key, a special system key will be used to encrypt the secret. This is an optional parameter.
      * `deletion_protection`: Deletion protection flag. To enable protection, set to `true`. To disable protection, set to `false`. The default value is `false`. This is an optional parameter.
      * `labels`: Resource [label](../../overview/concepts/services.md#labels) in `<key>:"<value>"` format. This is an optional parameter.
 

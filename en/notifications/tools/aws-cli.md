@@ -1,3 +1,8 @@
+---
+title: Getting started with {{ cns-full-name }} using AWS CLI
+description: The {{ cns-name }} HTTP API is compatible with the Amazon SNS API.
+---
+
 # Getting started with {{ cns-full-name }} using AWS CLI
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
@@ -14,7 +19,7 @@ With {{ cns-name }}, you can send notifications to apps registered in the follow
 * [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
 
 To get started with the AWS CLI:
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Get a static access key](#static-key).
 1. [Set up the AWS CLI](#aws-cli).
 1. [Create a notification channel](#create-channel).
@@ -22,7 +27,7 @@ To get started with the AWS CLI:
 1. [Create an endpoint](#create-endpoint).
 1. [Send a notification](#publish).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -112,7 +117,7 @@ Where:
 
         {% include [convert-p12-to-pem](../../_includes/notifications/convert-p12-to-pem.md) %}
 
-    Token-based authentication is preferred as it is more modern.
+    Token-based authentication is preferred as a more modern option.
   * FCM: `PlatformCredential` is the Google Cloud service account key in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the legacy API.
 
     We recommend escaping the file contents using the `jq @json <<< cat private_key.json` command, as the AWS CLI accepts this parameter in string format.

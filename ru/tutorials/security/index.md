@@ -11,7 +11,7 @@ description: Различные сценарии использования по
 * [Передача логов с виртуальной машины в {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)
 * [Запись логов балансировщика в {{ PG }}](logging.md)
 * [Безопасное хранение паролей для {{ GL }} CI в виде секретов {{ lockbox-full-name }}](gitlab-lockbox-integration.md)
-* [{#T}](static-key-in-lockbox.md)
+* [{#T}](static-key-in-lockbox/index.md)
 * [{#T}](sa-oslogin-ansible.md)
 * [{#T}](protected-access-to-content/index.md)
 * [{#T}](audit-trails-events-to-kuma/index.md)

@@ -84,7 +84,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
           Если установка плагина прошла успешно, в области уведомлений IDE появится сообщение **Code Assist plugin started**.
       1. Перезапустите IDE.
-  1. Включите автоматическое обновление плагина {{ ca-full-name }}:
+  1. Включите автоматическое обновление плагина {{ ca-full-name }}: {#jb-auto-update}
       1. В интерфейсе IDE от JetBrains в правом верхнем углу нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Settings...**.
       1. Перейдите в раздел настроек **Appearance & Behavior** → **System Settings** → **Updates** и включите опцию **Update plugins automatically**.
       1. Нажмите кнопку **OK**.
@@ -189,19 +189,26 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 ### Обновите плагин {#update-plugin}
 
+
+
+
 {% list tabs group=ide %}
 
 - Visual Studio Code {#vscode}
 
-  Скачайте [актуальную версию плагина {{ ca-name }}]({{ link-ca-vscode }}) для Visual Studio Code и [установите ее](#install-plugin).
+  При запуске плагин автоматически проверяет наличие обновления и устанавливает его.
+
+  Чтобы принудительно запросить обновление, на нижней панели редактора нажмите кнопку ![image](../_assets/code-assistant/vsc-icon-small.svg) и в открывшемся списке выберите **Check For Updates**.
 
 - IDE от JetBrains {#jb}
 
-  1. Скачайте актуальный плагин {{ ca-name }} для своей версии IDE от JetBrains:
+  При запуске плагин автоматически проверяет наличие обновления.
 
-      {% include [jb-download-links](../_includes/code-assistant/jb-download-links.md) %}
+  Если вы не [настроили автоматическое обновление плагинов](#jb-auto-update), чтобы обновить плагин вручную:
 
-  1. [Установите плагин](#install-plugin).
+  1. В правом верхнем углу нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Plugins...**.
+  1. Выберите **Yandex Code Assistant**.
+  1. Если для плагина доступно обновление, вы увидите кнопку **Update**. Нажмите ее.
 
 {% endlist %}
 

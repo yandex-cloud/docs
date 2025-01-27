@@ -34,11 +34,11 @@
 
      {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
-     Если у вас есть зарегистрированное доменное имя (например `example.com`), и вы хотите, чтобы ваш сайт был доступен по адресу `www.example.com`, в качестве имени бакета укажите `www.example.com`.
+     Если у вас есть зарегистрированное доменное имя (например `example.com`), и вы хотите, чтобы ваш сайт был доступен по адресу `example.com`, в качестве имени бакета укажите `example.com`.
 
      {% note info %}
 
-     Если вы планируете использовать собственный домен для сайта, имя бакета должно в точности совпадать с именем вашего домена, а домен должен быть третьего и более уровня. Подробнее см. в разделе [{#T}](../../storage/operations/hosting/own-domain.md).
+     Если вы планируете использовать собственный домен для сайта, имя бакета должно в точности совпадать с именем вашего домена, а домен должен быть второго и более уровня. Подробнее см. в разделе [{#T}](../../storage/operations/hosting/own-domain.md).
 
      {% endnote %}
 
@@ -67,7 +67,7 @@
       1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_website }}**:
 
-          1. Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+          1. Перейдите на вкладку `{{ ui-key.yacloud.storage.bucket.switch_website }}` и выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}` .
           1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите `index.html`.
           1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите `error.html`.
           1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
@@ -77,25 +77,27 @@
 1. Убедитесь, что главная страница сайта открывается. Для этого подключитесь к сайту через браузер по ссылке вида `http://<имя_бакета>.{{ s3-web-host }}`.
 1. Убедитесь, что страница ошибки открывается. Для этого подключитесь к сайту через браузер по ссылке вида `http://<имя_бакета>.{{ s3-web-host }}/error-check`.
 
-{% note info %}
+По умолчанию сайт доступен только по протоколу HTTP, например `http://example.com.{{ s3-web-host }}`. Чтобы поддержать для сайта протокол HTTPS:
+1. Добавьте [собственный сертификат безопасности](../../certificate-manager/operations/import/cert-create.md) или [сертификат от Let's Encrypt](../../certificate-manager/operations/managed/cert-create.md) в сервисе {{ certificate-manager-full-name }}.
+1. [Настройте](../..//storage/operations/hosting/certificate.md) поддержку HTTPS для бакета. После этого сайт будет доступен по протоколу HTTPS `https://example.com.website.yandexcloud.net`.
 
-По умолчанию сайт доступен только по протоколу HTTP, например, `http://www.example.com` или `http://www.example.com.{{ s3-web-host }}`. Чтобы поддержать для сайта протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
+    {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
-{% endnote %}
+1. Чтобы настроить доступ к сайту по короткому доменному имени `example.com`, [настройте DNS](#configure-dns).
 
 ## Настройте DNS {#configure-dns}
 
-Если у вас есть зарегистрированное доменное имя, назначьте его бакету. Для этого создайте в [DNS-запись](../../dns/concepts/resource-record.md) [типа CNAME](../../dns/concepts/resource-record.md#cname).
+Если у вас есть зарегистрированное доменное имя, назначьте его бакету. Для этого создайте в [DNS-запись](../../dns/concepts/resource-record.md) [типа ANAME](../../dns/concepts/resource-record.md#cname).
 
 Вы можете воспользоваться сервисом {{ dns-name }} для управления доменом.
 
 {% note info %}
 
-Имя бакета должно в точности совпадать с именем вашего домена, а домен должен быть третьего и более уровня. Подробнее см. в разделе [{#T}](../../storage/operations/hosting/own-domain.md).
+Имя бакета должно в точности совпадать с именем вашего домена, а домен должен быть второго и более уровня. Подробнее см. в разделе [{#T}](../../storage/operations/hosting/own-domain.md).
 
 {% endnote %}
 
-В инструкции ниже описана настройка DNS для домена третьего уровня `www.example.com`.
+В инструкции ниже описана настройка DNS для домена второго уровня `example.com`.
 
 ### Добавьте зону {#create-dns-zone}
 
@@ -117,9 +119,9 @@
 
 {% endlist %}
 
-### Добавьте ресурсную запись типа CNAME {#create-cname-record}
+### Добавьте ресурсную запись типа ANAME {#create-cname-record}
 
-Создайте в публичной зоне DNS ресурсную запись типа [CNAME](../../dns/concepts/resource-record.md#cname):
+Создайте в публичной зоне DNS ресурсную запись типа [ANAME](../../dns/concepts/resource-record.md#aname):
 
 {% list tabs group=instructions %}
 
@@ -129,15 +131,15 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** и выберите созданную ранее зону DNS. 
   1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}** и в открывшемся окне задайте параметры записи:
 
-      * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_create-subdomain }}` и введите значение поддомена, например: `www`.
-      * В поле **{{ ui-key.yacloud.common.type }}** выберите `CNAME`.
-      * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите значение ресурсной записи. Например: `www.example.com.{{ s3-web-host }}`, где `www.example.com` — имя созданного ранее публичного бакета.
+      * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_create-subdomain }}` и введите значение домена, например: `example.com`.
+      * В поле **{{ ui-key.yacloud.common.type }}** выберите `ANAME`.
+      * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите значение ресурсной записи. Например: `example.com.{{ s3-web-host }}`, где `example.com` — имя созданного ранее публичного бакета.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
-Имя поддомена в CNAME-записи должно соответствовать имени бакета. Например, если вы создаете CNAME-запись с именем `www.example.com.`, ваш бакет должен иметь имя `www.example.com`.
+Имя домена в ANAME-записи должно соответствовать имени бакета. Например, если вы создаете ANAME-запись с именем `example.com`, ваш бакет должен иметь имя `example.com`.
 
 ### Делегируйте доменное имя {#delegate-domain}
 
@@ -171,6 +173,6 @@ ns1.{{ dns-ns-host-sld }}.
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за ресурсы:
-* [Удалите загруженные файлы](../../storage/operations/objects/delete.md).
-* [Удалите бакет](../../storage/operations/buckets/delete.md).
-* [Удалите зону DNS](../../dns/operations/zone-delete.md).
+1. [Удалите загруженные файлы](../../storage/operations/objects/delete.md).
+1. [Удалите бакет](../../storage/operations/buckets/delete.md).
+1. [Удалите зону DNS](../../dns/operations/zone-delete.md).

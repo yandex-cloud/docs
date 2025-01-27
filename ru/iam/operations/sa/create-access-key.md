@@ -175,4 +175,4 @@
 
 * [Настроить инструменты для работы с {{ objstorage-name }}](../../../storage/tools/)
 * [{#T}](assign-role-for-sa.md)
-* [{#T}](../../tutorials/static-key-in-lockbox.md)
+* [{#T}](../../tutorials/static-key-in-lockbox/index.md)

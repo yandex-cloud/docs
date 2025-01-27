@@ -1,3 +1,8 @@
+---
+title: Chart versioning
+description: Chart versioning means storing the history of chart configuration changes through versions. A list of versions is available to users with the lowest level of {{ permission-read }} access to the chart.
+---
+
 # Versioning
 
 Chart versioning means storing the history of chart configuration changes through versions. A list of versions is available to users with the lowest level of **{{ permission-read }}** access to the chart.
@@ -12,7 +17,7 @@ To go to the list of versions, click the ![image](../../../_assets/console-icons
 
 ![image](../../../_assets/datalens/concepts/version-list.png)
 
-To select a version from the list, click it. The version number will be displayed as the value of the `revId` parameter in the chart address string. Click a link with the version number in the `revId` parameter to open the relevant version of the chart directly.
+To select a version from the list, click it. The version number will be displayed in the `revId` parameter in the chart address string. Clicking a link with the version number in the `revId` parameter will open the relevant version of the chart.
 
 When editing within the current version, you can undo/redo any change you have made. To do this, in the top-right part of the screen, click:
 
@@ -30,28 +35,28 @@ Unsaved changes in the current version are reset:
 All versions fall into the following types:
 
 * **Current**: This is the most recently saved version of a chart. All users can see it on dashboards, as well as when directly navigating to charts or opening them for editing from the dashboard context menu. Only one version of a chart can be current.
+  
+  ![image](../../../_assets/datalens/concepts/current-version.png)
 
-   ![image](../../../_assets/datalens/concepts/current-version.png)
+  If a user has **{{ permission-write }}** permissions, they can make any chart version current.
+  
+  {% note warning %}
+  
+  When updating any version, except a draft, a new chart version is created.
 
-   If a user has **{{ permission-write }}** permissions, they can make any chart version current.
-
-   {% note warning %}
-
-   When updating any version, except a draft, a new chart version is created.
-
-   {% endnote %}
-
+  {% endnote %}
+  
 * **Draft**: This is a version with unsaved chart changes. Common users do not see changes being made to a draft. This enables you to hide chart edits until you release a new version. A chart can only have one draft.
 
-   ![image](../../../_assets/datalens/concepts/draft-version.png)
+  ![image](../../../_assets/datalens/concepts/draft-version.png)
 
-   To create a draft after editing a chart, click the down arrow in the top-right corner and select **Save as draft**.
+  To create a draft after editing a chart, click the down arrow in the top-right corner and select **Save as draft**.
 
-   You can display a draft version of your chart on the dashboard. To do this, [add](../../operations/chart/add-parameters.md) the `unreleased` parameter set to `1` to the widget parameters for this chart.
+  You can display a draft version of your chart on the dashboard. To do this, [add](../../operations/chart/add-parameters.md) the `unreleased` parameter set to `1` to the widget parameters on the dashboard for this chart.
 
 * **Outdated**: This is a version that is neither current nor a draft.
 
-   ![image](../../../_assets/datalens/concepts/old-version.png)
+  ![image](../../../_assets/datalens/concepts/old-version.png)
 
 {% note tip %}
 
@@ -63,15 +68,15 @@ You can share any chart version by adding the `revId` parameter to the chart lin
 
 A new version is automatically created:
 
-* In current chart version edit mode, after you click **Save** (which creates a new current version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save as draft** (which creates a new draft version).
-* In draft edit mode or non-current chart version edit mode, after you click **Save as draft** (which creates a new draft version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** (which creates a new current version).
+* In the current chart version edit mode, after you click **Save** (which creates a new current version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save as draft** (which creates a new draft version).
+* In the draft edit mode or non-current chart version edit mode, after you click **Save as draft** (which creates a new draft version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** (which creates a new current version).
 * In draft or non-current chart version view mode, after you click **Make current**.
 
-Here are the chart configuration changes that result in a new version:
+You will also get a new version if you change chart configuration as follows:
 
-* Changing chart settings that can be accessed by clicking ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
-* Adding, renaming, or deleting chart fields.
-* Adding or deleting fields in chart sections.
+* Edit the chart settings you can access by clicking ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
+* Add, rename, or delete chart fields.
+* Add or delete fields in chart sections.
 
 ## Limitations {#restrictions}
 

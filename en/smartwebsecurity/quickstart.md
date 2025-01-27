@@ -22,7 +22,7 @@ To get started with the service:
 * [Configure the L7 network load balancer for additional protection](#configure-balancer)
 
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -115,7 +115,7 @@ WAF allows using rule sets to protect web applications from various information 
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-waf-profile-1`.
-  1. By default, the WAF profile includes a basic rule set called [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the line with its description.
+  1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the line with its description.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -134,7 +134,7 @@ WAF allows using rule sets to protect web applications from various information 
 
   1. Set the required **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-option-2 }}`.
 
-      [Paranoia level](concepts/waf.md#paranoia) classifies rules according to their aggression. The higher the paranoia level, the better your protection, but also the higher the probability of WAF false positives.
+      [Paranoia level](concepts/waf.md#paranoia) classifies rules according to their aggression. The higher the paranoia level, the better the protection, but also the higher the probability of WAF false positives.
 
   1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly values and paranoia levels.
 
@@ -215,7 +215,7 @@ ARL allows limiting the number of requests to the protected resource to avoid an
   1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, select `All traffic` or `On condition`.
   1. To set [traffic conditions](concepts/conditions.md), select one or more items from the **Conditions** list:
 
-      * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`: IP address, IP address range, or IP address region.
+      * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`: IP address, IP address range, IP address region, or [address list](concepts/lists.md).
       * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`: HTTP header string.
       * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}`: Domain receiving the request.
       * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`: Request method.

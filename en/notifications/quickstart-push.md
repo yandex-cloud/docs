@@ -1,3 +1,9 @@
+---
+title: Getting started with push notifications in {{ cns-full-name }}
+description: 'With {{ cns-name }}, you can send push notifications to apps registered in the following services: Apple Push Notification service (APNs), Firebase Cloud Messaging (FCM), Huawei Mobile Services (HMS).'
+---
+
+
 # Getting started with push notifications in {{ cns-full-name }}
 
 {% include [preview-stage](../_includes/notifications/preview-stage.md) %}
@@ -14,12 +20,12 @@ With {{ cns-name }}, you can send push notifications to apps registered in the f
 Push notifications via [RuStore](https://www.rustore.ru/help/sdk/push-notifications) will also be implemented later.
 
 To get started with push notifications:
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a push notification channel](#create-channel).
 1. [Create an endpoint](#create-endpoint).
 1. [Send a notification](#publish).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 

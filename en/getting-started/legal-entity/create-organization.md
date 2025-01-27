@@ -1,4 +1,9 @@
-# Creating an organization
+---
+title: Instructions for businesses on how to create an organization
+description: In this tutorial, you will learn how to create a {{ yandex-cloud }} organization for businesses.
+---
+
+# Create an organization
 
 Before getting started with {{ org-full-name }}, [log in]({{ link-passport-login }}) to your Yandex account.
 
@@ -63,9 +68,9 @@ If you are an administrator or user of multiple organizations, you can switch be
 
 - {{ cloud-center }} interface {#cloud-center}
 
-  1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) under the account you are going to use to create a new organization.
+  1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) account you are going to use to create a new organization.
 
-  1. In the top-left corner, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization and select ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.form.organization.create.action.create }}**.
+  1. In the top-left corner, next to the name of the current organization, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.form.organization.create.action.create }}**.
 
   1. In the window that opens, enter a name and description for your organization.
 

@@ -47,7 +47,6 @@ description: Из статьи вы узнаете, как изменить вс
 
       Результат:
 
-      
       ```text
       id: dd0gj5tsj2**********
       folder_id: aoek49ghmk**********
@@ -74,9 +73,6 @@ description: Из статьи вы узнаете, как изменить вс
               service-account-id: aje3932acd0c********
       status: ACTIVE
       ```
-
-
-
 
 - {{ TF }} {#tf}
 

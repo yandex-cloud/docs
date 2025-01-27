@@ -1,3 +1,8 @@
+---
+title: Expenditure control instructions for businesses
+description: In this tutorial, you will learn how to set up your organization's payments for resources as a business.
+---
+
 # Monitor expenses
 
 The guide in this checklist item will help you activate the paid version and set up payment for resources in your organization.

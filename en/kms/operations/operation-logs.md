@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ kms-name }} resources
 
-All actions with {{ kms-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ kms-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -49,7 +49,7 @@ All actions with {{ kms-name }} resources are logged as a list of operations. Ea
   +----------------------+---------------------+----------------------+---------------------+--------+----------------------+
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc kms symmetric-key list-operations epdplu8jn7sr******** --format yaml
@@ -96,7 +96,7 @@ All actions with {{ kms-name }} resources are logged as a list of operations. Ea
 ## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
     {% list tabs group=instructions %}

@@ -9,11 +9,11 @@ description: In this tutorial, you will learn about installing and running {{ un
 
 {{ unified-agent-short-name }} is supported by the following operating systems:
 
-- Ubuntu 14.04 or higher (it can be [installed using any method](#setup))
-- Debian 9 or higher (Docker image, deb package, or binary file)
-- CentOS 7 or higher (Docker image)
-- Fedora 32 or higher (Docker image)
-- Fedora CoreOS (Docker image)
+- Ubuntu 14.04 or higher (it can be [installed using any method](#setup)).
+- Debian 9 or higher (Docker image, deb package, or binary file).
+- CentOS 7 or higher (Docker image).
+- Fedora 32 or higher (Docker image).
+- Fedora CoreOS (Docker image).
 
 
 
@@ -21,7 +21,7 @@ description: In this tutorial, you will learn about installing and running {{ un
 
 Prior to installing {{ unified-agent-full-name }}, follow these steps:
 
-1. Create a VM in {{ yandex-cloud }} or a host outside {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), for example, Ubuntu 14.04 or older.
+1. Create a VM in {{ yandex-cloud }} or a host outside {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), e.g., Ubuntu 14.04 or higher.
 
 1. (Optional) [Install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{ unified-agent-short-name }}. Docker is pre-installed in Fedora CoreOS.
    - Set up a public IPv4 address (recommended).
@@ -53,15 +53,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   To start a container with the agent, run the following command:
 
-  ```bash
-    sudo docker run \
-      -p 16241:16241 -it --detach --uts=host \
-      --name=ua \
-      -v /proc:/ua_proc \
-      -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs81qpemb4******** \
-      {{ registry }}/yc/unified-agent
-  ```
+
 
   Where `FOLDER_ID` is the ID of the folder to write metrics to.
 
@@ -74,17 +66,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   Sample run container command using a custom configuration file:
 
-  ```bash
-    docker run \
-      -p 16241:16241 -it --detach --uts=host \
-      --name=ua \
-      -v /proc:/ua_proc \
-      -v `pwd`/config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
-      --entrypoint="" \
-      -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs81qpemb4******** \
-      {{ registry }}/yc/unified-agent
-  ```
+
 
   By default, the [status](services.md#status) section of the agent's configuration file specifies `host: null`. Please keep this in mind if you are using your own configuration file.
 
@@ -103,11 +85,11 @@ Install {{ unified-agent-short-name }} using one of the following methods:
       ```
 
       For `ubuntu_name`, specify the OS version:
-        * `ubuntu-14.04-trusty`
-        * `ubuntu-16.04-xenial`
-        * `ubuntu-18.04-bionic`
-        * `ubuntu-20.04-focal`
-        * `ubuntu-22.04-jammy`, starting with version `23.03.02`
+      * `ubuntu-14.04-trusty`
+      * `ubuntu-16.04-xenial`
+      * `ubuntu-18.04-bionic`
+      * `ubuntu-20.04-focal`
+      * `ubuntu-22.04-jammy`, starting with version `23.03.02`
 
       You can also download a specific {{ unified-agent-short-name }} version. To do this, check the available versions and specify the one you need instead of the `latest-version` value:
 
@@ -138,6 +120,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   After installing the package, edit the `/etc/yandex/unified_agent/config.yml` configuration file, e.g., by setting up the agent for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).
 
+
 - Binary file {#binary}
 
   {{ unified-agent-short-name }} is distributed as a binary file built for the x86-64/amd64 architecture for Ubuntu 14.04 or higher.
@@ -155,6 +138,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   Download the agent's executable file and then create a configuration file, for example, with the settings for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).
 
+
   To run the agent, run the following command:
 
   ```bash
@@ -171,9 +155,13 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   To install the agent via the CLI or API, provide the following string in the [user metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
 
+  
   ```text
   #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash
   ```
+
+
+
   To install the agent using {{ TF }}, add this metadata to the configuration file:
 
   ```hcl
@@ -199,9 +187,10 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   The configuration file is set up to send [basic virtual machine metrics](./inputs.md#linux_metrics_input) and [agent health metrics](./inputs.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
 
   You can also [configure](./configuration.md) the delivery of custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
-  
+
+
   Once the VM is deployed, {{ unified-agent-short-name }} will run automatically and start sending basic VM metrics to {{ monitoring-full-name }}.
-  
+
   You are responsible for updating and maintaining the agent.
 
 {% endlist %}

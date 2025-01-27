@@ -140,3 +140,9 @@ description: Следуя данной инструкции, вы сможете
       В процессе удаления потребуется подтверждение для удаления пакетов `cron` и `unscd` — введите `y` и нажмите **Enter**.
 
     {% endlist %}
+
+{% note alert %}
+
+{% include [sudo-and-oslogin](../../../_includes/compute/sudo-and-oslogin.md) %}
+
+{% endnote %}

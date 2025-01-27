@@ -6,16 +6,13 @@ description: In this tutorial, you will learn which {{ yandex-cloud }} services 
 # Integration with {{ yandex-cloud }} services
 
 
-
 You can use {{ certificate-manager-name }} certificates in the following {{ yandex-cloud }} services:
 * [{{ objstorage-full-name }}](#os).
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 * [{{ cdn-full-name }}](#cdn).
 
-You can also store a user certificate's public part as a [{{ lockbox-full-name }}](#lockbox) secret using {{ TF }}.
-
-
+You can also store a user certificate's private key as a [{{ lockbox-full-name }}](#lockbox) secret using {{ TF }}.
 
 ## {{ objstorage-full-name }} {#os}
 
@@ -48,7 +45,7 @@ To access [CDN resources](../../cdn/concepts/resource.md) over HTTPS, you can [u
 
 ## {{ lockbox-full-name }} {#lockbox}
 
-You can store a {{ certificate-manager-name }} user certificate's public part in {{ lockbox-name }} [using {{ TF }}](../operations/import/cert-create.md#create-lockbox).
+You can store a {{ certificate-manager-name }} user certificate's private key in {{ lockbox-name }} [using {{ TF }}](../operations/import/cert-create.md#create-lockbox).
 
 #### See also {#see-also}
 

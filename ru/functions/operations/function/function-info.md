@@ -43,10 +43,8 @@ description: Следуя данной инструкции, вы сможете
 
     Чтобы получить подробную информацию о функции, воспользуйтесь методом REST API [get](../../functions/api-ref/Function/get.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Get](../../functions/api-ref/grpc/Function/get.md).
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     Получить подробную информацию о функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
-
 
 {% endlist %}

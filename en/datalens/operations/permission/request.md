@@ -1,3 +1,8 @@
+---
+title: Request permissions
+description: You can request access permissions for a folder or object that you do not have access to. You can also request new access permissions for a folder or object you have view access to.
+---
+
 # Requesting permissions
 
 {% note info %}
@@ -15,21 +20,21 @@ You can also request editing permissions to a folder or object that you are allo
 
 - Requesting permissions
 
-   1. On the [navigation page]({{ link-datalens-main }}/navigation), find the folder or object and click it.
+  1. On the [navigation page]({{ link-datalens-main }}/navigation), find the relevant folder or object and click it.
 
-      {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
+     {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
-   1. Enter a username, select the permissions, and click **Request**.
+  1. Enter a username, select the permissions, and click **Request**.
 
-- Edit permissions
+- Editing access permissions
 
-   1. On the [navigation page]({{ link-datalens-main }}/navigation), find the folder or object.
+  1. On the [navigation page]({{ link-datalens-main }}/navigation), find the relevant folder or object.
 
-      {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
+     {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
-   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the object or folder and select **Permissions**.
-   1. In the window that opens, click **<Object_type> access**, where `<Object_type>` is a connection, dataset, chart, or dashboard.
-   1. Select the permissions and click **Request**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the object or folder and select **Permissions**.
+  1. In the window that opens, click **<object_type> access**, where `<object_type>` is a connection, dataset, chart, or dashboard.
+  1. Select the permissions and click **Request**.
 
 {% endlist %}
 

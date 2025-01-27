@@ -1,6 +1,6 @@
 ---
 title: '{{ captcha-full-name }} pricing policy'
-description: This article describes the {{ captcha-name }} pricing policy.
+description: This article provides the {{ captcha-name }} pricing policy.
 editable: false
 ---
 
@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
 
 
 {% endnote %}

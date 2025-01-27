@@ -1,5 +1,5 @@
 ---
-title: Create connection
+title: Creating a connection in {{ websql-full-name }}
 description: Follow this guide to create a connection to managed database clusters and a public database via the internet.
 ---
 
