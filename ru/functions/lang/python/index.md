@@ -7,7 +7,6 @@ description: С помощью сервиса {{ sf-name }} вы можете з
 
 С помощью сервиса {{ sf-name }} вы можете запускать приложения написанные на [Python](https://python.org/). 
 
-
 {% include [runtime-introduction](../../../_includes/functions/runtime-introduction.md) %}
 
 | Название | Версия Python | Операционная <br>система | Предзагружаемая | Поддерживается сервисом |
@@ -18,12 +17,9 @@ description: С помощью сервиса {{ sf-name }} вы можете з
 | python311 | 3.11.0 | Ubuntu 18.04 | Да | Нет |
 | python312 | 3.12.0 | Ubuntu 22.04 LTS | Да | Да |
 
-
 {% include [note-preload-runtime](../../../_includes/functions/note-preload-runtime.md) %}
 
-
 В среды выполнения `python37` и `python38` по умолчанию установлена SDK-библиотека для работы с API {{ yandex-cloud }}. Подробнее о способах использования SDK читайте в разделе [Использование SDK](sdk.md). В другие версии среды установить SDK-библиотеку можно, указав зависимость в файле `requirements.txt`.
-
 
 {{ sf-name }} автоматически устанавливает все объявленные зависимости, необходимые для работы функции. Установка зависимостей происходит при создании новой [версии функции](../../operations/function/version-manage.md). Подробнее в разделе [{#T}](dependencies.md).
 

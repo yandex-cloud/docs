@@ -5,6 +5,8 @@ description: You can set up conditions for your security rules. For more informa
 
 # Conditions
 
+{% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
+
 You can set the following rule [conditions](rules.md):
 
 #|
@@ -14,11 +16,14 @@ You can set the following rule [conditions](rules.md):
 * Mismatches or lies outside the range
 * IP belongs to the region
 * IP does not belong to the region
+* IP belongs to the list
+* IP does not belong to the list
 |
 * IP address
 * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 * Address range
 * Two-letter country code as per [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+* Name of the preset or custom address list
 |
 * `1.2.33.44`
 * `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
@@ -49,9 +54,9 @@ prefix, or [regular expression](https://en.wikipedia.org/wiki/Regular_expression
 * Does not start with
 * Matches regular expression
 * Does not match regular expression
-|
-Request path, initial part of the request path, or PIRE library
-regular expression
+| 
+Request path, initial part of the request path, or regular
+expression of the PIRE library
 |
 * `/`
 | _N/A_ ||
@@ -63,10 +68,11 @@ regular expression
 * Matches regular expression
 * Does not match regular expression
 |
-Format: `key: value`, where key is a request
-parameter, value is a specific value for the parameter,
-value prefix, or PIRE library regular expression
-|
+`key: value` format, where `key` is a request parameter, 
+value is a specific parameter value,
+value prefix, or regular expression of the
+PIRE library
+|  
 * `a: 1`
 * `A: 2`
 | _and_ ||
@@ -78,10 +84,10 @@ value prefix, or PIRE library regular expression
 * Matches regular expression
 * Does not match regular expression
 |
-Values of the `Host` header for HTTP/1.1 or
+Values of the `Host` header for HTTP/1.1 or 
 the `authority` pseudoheader for HTTP/2 used to
-select a virtual host, value prefix, or
-PIRE library regular expression
+select a virtual host, value prefix, or 
+regular expression of the PIRE library
 |
 * `example.com`
 | _or_ ||
@@ -93,9 +99,9 @@ PIRE library regular expression
 * Matches regular expression
 * Does not match regular expression
 |
-[HTTP request method](https://en.wikipedia.org/wiki/HTTP#Request_methods) in the upper case; you can use
-an arbitrary value, value prefix,
-or PIRE library regular expression
+[HTTP request method](https://en.wikipedia.org/wiki/HTTP#Request_methods) in uppercase.
+You may use a random value, value prefix,
+or regular expression of the PIRE library
 |
 * `GET`
 * `POST`
@@ -110,9 +116,9 @@ or PIRE library regular expression
 * Matches regular expression
 * Does not match regular expression
 |
-Format: `key: value`, where key is a Cookie header,
-value is a specific Cookie value, value
-prefix, or PIRE library regular expression
+`key: value` format, where `key` is a cookie header,
+and `value` is a specific cookie value, value prefix, 
+or regular expression of the PIRE library
 |
 * `csrftoken=u32t4o3tb`
 | _and_ ||
@@ -125,8 +131,8 @@ prefix, or PIRE library regular expression
 * Matches regular expression
 * Does not match regular expression
 |
-String in the HTTP packet body or
-PIRE library regular expression
+String in the HTTP packet body or 
+regular expression of the PIRE library
 |
 * `<br><input type='submit'>`
 | _or_ ||

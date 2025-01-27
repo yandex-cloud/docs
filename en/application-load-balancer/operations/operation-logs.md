@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ alb-name }} resources
 
-All actions with {{ alb-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ alb-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,7 +8,7 @@ All actions with {{ alb-name }} resources are logged as a list of operations. Ea
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for an [L7 load balancer](../concepts/application-load-balancer.md). The same steps apply to other service resources.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for an [L7 load balancer](../concepts/application-load-balancer.md). The same steps apply to other {{ compute-name }} resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder the load balancer is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
@@ -51,7 +51,7 @@ All actions with {{ alb-name }} resources are logged as a list of operations. Ea
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc alb load-balancer list-operations ds7857cmjtuv******** --format yaml
@@ -109,7 +109,7 @@ All actions with {{ alb-name }} resources are logged as a list of operations. Ea
 ## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
    {% list tabs group=instructions %}

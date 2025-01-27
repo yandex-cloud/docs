@@ -96,7 +96,13 @@ items:
       - name: Захват изменений {{ MY }} и поставка в {{ DS }}
         href: tutorials/mmy-to-yds.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Обзор
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
       - name: >-
           Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
           анализ с помощью {{ datalens-full-name }}

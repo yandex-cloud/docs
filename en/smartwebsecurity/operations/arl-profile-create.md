@@ -1,3 +1,8 @@
+---
+title: How to create a {{ sws-full-name }} ARL profile
+description: Follow this guide to create a {{ sws-full-name }} ARL profile.
+---
+
 # Creating an ARL profile
 
 {% list tabs group=instructions %}

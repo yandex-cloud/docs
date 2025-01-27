@@ -43,8 +43,6 @@ description: Из статьи вы узнаете, как узнать свою
 
 {% include [latest-release](../_includes/cos/latest-release.md) %}
 
-
 ## Предыдущие релизы {#previous-releases}
 
 {% include [previous-releases](../_includes/cos/previous-releases.md) %}
-

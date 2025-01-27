@@ -61,6 +61,8 @@ items:
             href: operations/arl-rule-update.md
           - name: Deleting a rule
             href: operations/arl-rule-delete.md
+      - name: Managing address lists
+        href: operations/list-create.md
       - name: Viewing operations with profiles
         href: operations/operation-logs.md
       - name: Configuring monitoring
@@ -108,6 +110,8 @@ items:
         href: concepts/rules.md
       - name: Conditions
         href: concepts/conditions.md
+      - name: Lists
+        href: concepts/lists.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

@@ -1,5 +1,5 @@
 ---
-title: How to move a VM to a target group in a new availability zone
+title: How to move a VM behind an L7 load balancer to a target group in a new availability zone
 description: Follow this guide to move VMs behind an L7 load balancer to a target group in a new availability zone.
 ---
 
@@ -16,7 +16,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
       1. In the [management console]({{ link-console-main }}), select the folder containing the load balancer.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the row with the load balancer you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+      1. In the row with the load balancer, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
       1. In the window that opens, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable traffic in the availability zone to move your VMs to.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -26,7 +26,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
 
       {% include [default-catalogue.md](../../_includes/default-catalogue.md) %}
 
-      1. See the description of the CLI command to enable load balancer traffic:
+      1. See the description of the CLI command for enabling load balancer traffic:
 
           ```bash
           yc application-load-balancer load-balancer enable-traffic --help
@@ -111,7 +111,7 @@ To move a [VM](../../compute/concepts/vm.md) behind an [L7 load balancer](../con
          * `zone_id`: Availability zones where the load balancer will receive traffic.
          * `subnet_id`: IDs of the subnets in the availability zones.
 
-         For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+         For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
 
       1. Apply the changes:
 

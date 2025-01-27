@@ -64,6 +64,8 @@ items:
             href: operations/streams/add-thumbnail.md
           - name: Getting a server address and broadcast key
             href: operations/streams/get-key.md
+          - name: OBS Studio setup recommendations
+            href: operations/streams/obs-config-help.md
           - name: Starting a broadcast
             href: operations/streams/start.md
           - name: Getting an embed code or link

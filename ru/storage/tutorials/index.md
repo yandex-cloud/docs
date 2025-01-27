@@ -46,7 +46,7 @@ description: На странице представлен список прак�
 * [{#T}](./mpg-to-objstorage.md)
 * [{#T}](./mmy-objs-migration.md)
 * [{#T}](./greenplum-yezzey.md)
-* [{#T}](./static-key-in-lockbox.md)
+* [{#T}](./static-key-in-lockbox/index.md)
 * [{#T}](./terraform-state-storage.md)
 * [{#T}](./terraform-state-lock.md)
 * [{#T}](./api-gw-integration.md)

@@ -83,6 +83,12 @@ description: Управление доступом в сервисе предо�
 
 {% include [compute.osadminlogin](../../_roles/compute/osAdminLogin.md) %}
 
+{% note alert %}
+
+{% include [sudo-and-oslogin](../../_includes/compute/sudo-and-oslogin.md) %}
+
+{% endnote %}
+
 #### compute.disks.user {#compute-disks-user}
 
 {% include [compute.disks.user](../../_roles/compute/disks/user.md) %}

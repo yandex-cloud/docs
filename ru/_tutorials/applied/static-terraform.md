@@ -16,7 +16,7 @@
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-Чтобы разместить статический сайт в {{ objstorage-name }} с помощью {{ TF }}:
+Чтобы создать инфраструктуру для статического сайта в {{ objstorage-name }} с помощью {{ TF }}:
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -24,9 +24,15 @@
 
    - Готовая конфигурация {#ready}
 
-     1. Создайте папку для конфигурационных файлов.
-     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/static.zip) (2 КБ).
-     1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `static.tf`, файлы `index.html` и `error.html`.
+     1. Клонируйте репозиторий с конфигурационными файлами.
+
+        ```bash
+        git clone https://github.com/yandex-cloud-examples/yc-s3-static-website.git
+        ```
+
+     1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+        * `static.tf` — конфигурация создаваемой инфраструктуры.
+        * `index.html` и `error.html` — главная страница сайта и страница ошибки.
 
    - Вручную {#manual}
 
@@ -67,9 +73,9 @@
     * [Ресурсная запись DNS](../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
 1. В файле `static.tf` в блоке `locals` задайте пользовательские параметры:
-   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) (если вы используете [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport)) или [{{ iam-short-name }}-токен](../../iam/concepts/authorization/iam-token.md) (если вы используете аккаунт на Яндексе или [федеративный аккаунт](../../iam/concepts/users/accounts.md#saml-federation)) для доступа к {{ yandex-cloud }}. Время жизни {{ iam-short-name }}-токена — максимум 12 часов, но не больше времени жизни cookie у федерации.
-   * `cloud_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), в котором будут создаваться ресурсы.
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут создаваться ресурсы.
+   * `domain` — доменное имя в формате `example.com`, без точки в конце.
+
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -65,3 +65,5 @@ items:
             href: api-ref/delete-endpoint.md
       - name: Publish
         href: api-ref/publish.md
+  - name: История изменений
+    href: release-notes.md

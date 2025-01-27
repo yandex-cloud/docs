@@ -123,6 +123,8 @@ For more information, see [{#T}](../application-load-balancer/security/index.md)
 For more information, see [{#T}](../audit-trails/security/index.md).
 
 
+
+
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 
 #### certificate-manager.auditor {#certificate-manager-auditor}

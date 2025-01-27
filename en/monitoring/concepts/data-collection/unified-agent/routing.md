@@ -1,3 +1,8 @@
+---
+title: Message routing in {{ monitoring-full-name }}
+description: Message routing features routes, channels, and pipes.
+---
+
 # Routing
 
 Message routing features routes, channels, and pipes.
@@ -8,18 +13,18 @@ This section contains a list of [delivery routes](index.md#routing).
 Delivery routes consist of the following elements:
 
 - `input`: [Input](index.md#inputs):
-   - `plugin`: [Input](inputs.md) plugin
-   - `config`: [Input](#inputs) configuration
-   - `flow_control`: Configuration of the mechanism for creating input sessions
+  - `plugin`: [Input](inputs.md) plugin.
+  - `config`: [Input](#inputs) configuration.
+  - `flow_control`: Configuration of the input session creation mechanism.
 - `channel`: [Channel](index.md#channels):
-   - `pipe`: Pipe:
-      - `filter`: [Filter](filters.md)
-      - `storage`: [Storage](storage.md)
-   - One of the following elements:
-      - `output`: [Output](outputs.md).
-      - `channel_ref`: Link to a named channel.
-      - `case`: Splitter that redirects the input stream to one or more child channels based on a condition.
-      - `fanout`: Splitter that unconditionally directs the input stream to all child channels.
+  - `pipe`: Pipe:
+    - `filter`: [Filter](filters.md).
+    - `storage`: [Storage](storage.md).
+  - One of the following elements:
+    - `output`: [Output](outputs.md).
+    - `channel_ref`: Link to a named channel.
+    - `case`: Splitter that directs the input stream to one or more child channels based on a condition.
+    - `fanout`: Splitter that unconditionally directs the input stream to all child channels.
 
 Example of the `routes` section:
 
@@ -66,20 +71,20 @@ routes:
             ...
 ```
 
-An example of the `case` element:
+Example of the `case` element:
 
 ```yaml
 - input:
     plugin: console
   channel:
-    # The "case" element directs the input stream to the first child channel that matches the "when" condition.
-    # The message is discarded if no matching channel is found for it.
-    # This event is added to the health counters (Errors) and pipeline counters (DroppedMessages/DroppedBytes).
-    # An ERROR-level entry is added to the agent logs.
-    # Situations like this are seen as abnormal.
-    # To avoid them, add the last "catch all channel" element to the case without the 'when' filter.
+    # The `case` element directs the input stream to the first child channel satisfying the "when" condition.
+    # The message will be discarded if no matching channel is found for it.
+    # This fact will be counted by the health counters (Errors) and pipeline counters (DroppedMessages/DroppedBytes).
+    # An ERROR-level entry will be added to the agent's logs.
+    # A situation like this is seen as abnormal.
+    # To avoid it, add "catch all channel" as the last element to `case` without the 'when' filter.
     case:
-      # Inside "when", you can define the conditions for matching between the message and session metadata, similar to the "match" filter.
+      # Inside `when`, you can define conditions for mapping the message and session metadata, similar to the "match" filter.
       - when:
           message:
             message-key: v1
@@ -89,9 +94,9 @@ An example of the `case` element:
           output:
             plugin: dev_null
 
-      # Any message and session elements can be omitted inside when.
-      # The "continue" property is supported — do not stop searching for a suitable channel if the "when" condition is met.
-      # This way you can send incoming messages to multiple matching channels.
+      # Any of the message and session elements can be omitted inside `when`.
+      # The `continue` property is supported. It instructs not to stop searching for a suitable channel if the `when` condition is met.
+      # This way you can direct incoming messages to multiple suitable channels.
       - when:
           message:
             message-key: v1
@@ -100,7 +105,7 @@ An example of the `case` element:
             plugin: dev_null
         continue: true
 
-      # The "when" element may not be there, in which case the input stream is sent to the channel unconditionally if a session can be created for it (if none of its nested filters rejected the session creation).
+      # You may omit the `when` element, in which case the input stream will be unconditionally directed to this channel if a session was successfully created for it (none of its nested filters rejected the session).
       - channel:
           output:
             plugin: dev_null
@@ -108,7 +113,7 @@ An example of the `case` element:
 
 ## channels section {#channels}
 
-You can describe a [channel](index.md#channels) in the `routes`:`channel` section or in a separate `channels` section. You can use channels from the separate section in delivery routes, referring to them by name.
+You can describe a [channel](index.md#channels) in the `routes`:`channel` section or in the separate `channels` section. You can use channels listed in the separate section in delivery routes, referring to them by name.
 
 Example of the `channels` section:
 
@@ -126,7 +131,7 @@ channels:
         plugin: dev_null
 
         # You can add an input ID, output ID, storage ID, and filter ID to any plugin.
-        # This ID will replace the plugin_id label in the monitoring system.
+        # This ID will be substituted into the plugin_id label in monitoring.
         # This ID will also be used to label the plugin's entries in the agent log.
         id: my_dev_null_output
 ```
@@ -143,7 +148,7 @@ Here is an example of a delivery route that uses a named channel:
 
 ## pipes section {#pipes}
 
-You can describe a [pipe](index.md#pipes) in the `routes` section within the `channel`:`pipe` element or in a separate `pipes` section. You can use pipes from the separate section in channels, referring to them by name.
+You can describe a [pipe](index.md#pipes) in the `routes` section within the `channel`:`pipe` element or in the separate `pipes` section. You can use pipes from the separate section in channels, referring to them by name.
 
 Example of the `pipes` section:
 

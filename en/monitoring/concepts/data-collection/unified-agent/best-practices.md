@@ -85,3 +85,43 @@ routes:
 ```
 
 See also [{#T}](storage.md).
+
+## Calculation of CPU usage time {#cpu-time-tracking}
+
+Before, to indicate the percentage of CPU usage on the chart, the `sys.system.CpuUsagePercent` metric was used. Linux no longer provides this metric; however, you can calculate it using the following two metrics:
+
+* `sys.system.UsefulTime`: CPU active usage time.
+* `sys.system.IdleTime`: CPU idle time.
+
+To add a CPU usage percentage chart to a dashboard:
+
+1. [Install and run](./installation.md) {{ unified-agent-short-name }}.
+1. Open the dashboard you need or [create](../../../operations/dashboard/create.md) a new one.
+1. In the upper-right corner, click ![square-plus](../../../../_assets/console-icons/square-plus.svg) and select ![chart-column](../../../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-type.graph }}** to add a new widget to the dashboard.
+1. In the new widget, create three requests in text mode (the ![code](../../../../_assets/console-icons/code.svg) icon):
+
+    1. `UsefulTime` request:
+
+        ```text
+        "sys.system.UsefulTime"{folderId = "<folder_ID>", service = "custom", cpu  = "-"}
+        ```
+
+        Where `<folder_ID>` is the [ID](../../../../resource-manager/operations/folder/get-id.md) of the folder your dashboard is located in.
+
+        Click the ![eye](../../../../_assets/console-icons/eye.svg) icon to hide this metric from the chart.
+    1. `IdleTime` request:
+
+        ```text
+        "sys.system.IdleTime"{folderId = "<folder_ID>", service = "custom", cpu = "-"}
+        ```
+
+        Where `<folder_ID>` is the [ID](../../../../resource-manager/operations/folder/get-id.md) of the folder your dashboard is located in.
+
+        Click the ![eye](../../../../_assets/console-icons/eye.svg) icon to hide this metric from the chart.
+    1. `CpuUsagePercent` request:
+
+        ```text
+        100 * UsefulTime / (IdleTime + UsefulTime)
+        ```
+1. Click **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** and make sure you can see the chart with CPU usage.
+1. In the upper-right corner, click ![floppy-disk.svg](../../../../_assets/console-icons/floppy-disk.svg) to save your widget.

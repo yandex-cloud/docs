@@ -28,7 +28,6 @@
      export HELM_EXPERIMENTAL_OCI=1
      ```
 
-  
   1. Аутентифицируйте свой клиент Helm в [реестре](../../concepts/registry.md) {{ container-registry-name }} одним из способов.
      * С помощью OAuth-токена:
        1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
@@ -53,8 +52,6 @@
      ```text
      Login succeeded
      ```
-
-
 
   1. Создайте Helm-чарт:
   

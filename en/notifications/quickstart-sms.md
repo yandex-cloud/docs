@@ -1,3 +1,8 @@
+---
+title: Getting started with SMS in {{ cns-full-name }}
+description: With {{ cns-name }}, you can send text messages (SMS) using SMS notification channels.
+---
+
 # Getting started with SMS in {{ cns-full-name }}
 
 {% include [preview-stage](../_includes/notifications/preview-stage.md) %}
@@ -17,7 +22,7 @@ To get started with SMS:
 1. [Create a notification channel with an individual sender](#create-individual-channel).
 1. [Exit the sandbox](#quit-from-sandbox).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -92,7 +97,7 @@ To create a channel with an individual sender:
 
 {% endlist %}
 
-After that, a ticket to tech support for registration of the sender’s text name will be automatically generated.
+With that done, a tech support ticket to register the sender's text name will be automatically generated.
 
 {% include [registration-duration-warning](../_includes/notifications/registration-duration-warning.md) %}
 
@@ -117,7 +122,7 @@ After practicing on test phone numbers, you can apply to exit the sandbox mode:
 
 {% endlist %}
 
-Once your request is approved, you will be able to send SMS messages to any Russian phone numbers in [E.164](https://en.wikipedia.org/wiki/E.164) format, e.g., `+79991112233`.
+Once the ticket is approved, you will be able to send SMS messages to any Russian phone numbers in [E.164](https://en.wikipedia.org/wiki/E.164) format, e.g., `+79991112233`.
 
 ## See also {#see-also}
 

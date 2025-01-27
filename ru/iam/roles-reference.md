@@ -124,6 +124,31 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../audit-trails/security/index.md).
 
 
+## {{ baremetal-full-name }} {#baremetal-roles}
+
+#### baremetal.auditor {#baremetal-auditor}
+
+{% include [baremetal-auditor](../_roles/baremetal/auditor.md) %}
+
+#### baremetal.viewer {#baremetal-viewer}
+
+{% include [baremetal-viewer](../_roles/baremetal/viewer.md) %}
+
+#### baremetal.operator {#baremetal-operator}
+
+{% include [baremetal-operator](../_roles/baremetal/operator.md) %}
+
+#### baremetal.editor {#baremetal-editor}
+
+{% include [baremetal-editor](../_roles/baremetal/editor.md) %}
+
+#### baremetal.admin {#baremetal-admin}
+
+{% include [baremetal-admin](../_roles/baremetal/admin.md) %}
+
+Подробнее см. [{#T}](../baremetal/security/index.md).
+
+
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 
 #### certificate-manager.auditor {#certificate-manager-auditor}

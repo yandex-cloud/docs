@@ -23,3 +23,9 @@ The following methods are supported in the [notification channel](../../monitori
 Check the mailbox and phone number settings in the user account's [notification channel](../../monitoring/concepts/alerting/notification-channel.md).
 
 {% include [notifications-requirements](../../_includes/monitoring/notifications-requirements.md) %}
+
+#### What do I do if there is no data? {#alert-no-data}
+
+If there is no data, the timeline for the last hour is displayed. To view the data, change the time in the [evaluation window](../../monitoring/concepts/alerting/alert.md#evaluation-window): it must include the most recent point.
+
+If there are no function errors, no data will be displayed. For more information, see [No data policy](../../compute/concepts/vm-metadata.md).

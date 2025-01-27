@@ -8,8 +8,6 @@
 
 {{ sf-name }} не поддерживает Spring Boot Loader.
 
-
-
 ## Пример: простое приложение с эндпоинтом {#simple-example}
 
 Следующее приложение имеет один эндпоинт: `GET: /get/{name}`. По `GET` запросу по адресу `/get` с указанным параметром пути функция вернет строку `Hello, $name`, где `$name` — переданный параметр пути. В примере используется [публичная](../../../operations/function/function-public.md) функция. Если ваша функция [приватная](../../../operations/function/function-private.md), укажите в спецификации API-шлюза сервисный аккаунт с ролью `functions.functionInvoker`.
@@ -184,4 +182,3 @@
     "isBase64Encoded": false
 }
 ```
-

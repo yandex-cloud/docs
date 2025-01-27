@@ -58,8 +58,14 @@ items:
             href: tutorials/export-logs-to-splunk.md
           - name: Uploading audit logs to ArcSight SIEM
             href: tutorials/export-logs-to-arcsight.md
-          - name: Uploading audit logs to SIEM KUMA
-            href: tutorials/audit-trails-events-to-kuma.md
+          - name: Uploading audit logs to KUMA SIEM
+            items:
+              - name: Overview
+                href: tutorials/audit-trails-events-to-kuma/index.md
+              - name: Management console, CLI, and API
+                href: tutorials/audit-trails-events-to-kuma/console.md
+              - name: '{{ TF }}'
+                href: tutorials/audit-trails-events-to-kuma/terraform.md
   - name: Concepts
     items:
       - name: Overview
@@ -83,7 +89,33 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/audit-trails/cli-ref/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: trail
+        items:
+          - name: Overview
+            href: cli-ref/trail/index.md
+          - name: add-access-binding
+            href: cli-ref/trail/add-access-binding.md
+          - name: create
+            href: cli-ref/trail/create.md
+          - name: delete
+            href: cli-ref/trail/delete.md
+          - name: get
+            href: cli-ref/trail/get.md
+          - name: list
+            href: cli-ref/trail/list.md
+          - name: list-access-bindings
+            href: cli-ref/trail/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/trail/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/trail/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/trail/set-access-bindings.md
+          - name: update
+            href: cli-ref/trail/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

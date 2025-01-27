@@ -110,7 +110,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
      resource "yandex_cm_certificate" "user-certificate" {
@@ -119,7 +119,7 @@ To add a custom certificate to {{ certificate-manager-name }}:
        self_managed {
          certificate = <<-EOT
                        -----BEGIN CERTIFICATE-----
-                       <certificate_content>
+                       <certificate_contents>
                        -----END CERTIFICATE-----
                        EOT
          private_key = <<-EOT
@@ -153,11 +153,11 @@ To add a custom certificate to {{ certificate-manager-name }}:
 
 {% endlist %}
 
-The new certificate will appear in the certificate list with the `Issued` status.
+A new certificate with the `Issued` status will appear in the certificate list.
 
-## Storing a certificate's public part in {{ lockbox-full-name }} {#create-lockbox}
+## Storing a certificate's private key in {{ lockbox-full-name }} {#create-lockbox}
 
-You can store a {{ certificate-manager-name }} user certificate's public part in [{{ lockbox-name }}](../../../lockbox/). To add a certificate:
+To avoid storing a private key of the user certificate as plain text in the {{ TF }} configuration file, write it to [{{ lockbox-name }}](../../../lockbox/):
 
 {% list tabs group=instructions %}
 
@@ -165,16 +165,17 @@ You can store a {{ certificate-manager-name }} user certificate's public part in
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. [Create a secret](../../../lockbox/operations/secret-create.md) and write the private key to it.
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
-       resource "yandex_cm_certificate" "example-lockbox" {
-       name    = "<secret_name>"
+     resource "yandex_cm_certificate" "example-lockbox" {
+       name = "<secret_name>"
 
-     self_managed {
+       self_managed {
          certificate = <<-EOT
                        -----BEGIN CERTIFICATE-----
-                       <certificate_content>
+                       <certificate_contents>
                        -----END CERTIFICATE-----
                        EOT
          private_key_lockbox_secret {
@@ -188,10 +189,10 @@ You can store a {{ certificate-manager-name }} user certificate's public part in
      Where:
      * `name`: {{ lockbox-name }} [secret](../../../lockbox/concepts/secret.md) name.
      * `certificate`: Certificate file contents.
-     * `id`: {{ lockbox-name }} secret ID.
-     * `key`: {{ lockbox-name }} secret key whose value contains the certificate private key.
+     * `id`: ID of the {{ lockbox-name }} secret the private key is located in.
+     * `key`: Key of the {{ lockbox-name }} secret the private key is located in.
 
-     For more information about the `yandex_cm_certificate` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
+     For more information about the `yandex_cm_certificate` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -204,4 +205,4 @@ You can store a {{ certificate-manager-name }} user certificate's public part in
 
 {% endlist %}
 
-The new certificate will appear in the certificate list with the `Issued` status.
+A new certificate with the `Issued` status will appear in the certificate list.

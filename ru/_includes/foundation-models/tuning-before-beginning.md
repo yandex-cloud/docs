@@ -8,10 +8,10 @@
   1. [Получите](../../iam/operations/api-key/create.md) и сохраните API-ключ сервисного аккаунта.
 
       {% include [sdk-auth-details-paragraph](./sdk-auth-details-paragraph.md) %}
-  1. С помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/) установите бета-версию [библиотеки {{ ml-sdk-name }}](../../foundation-models/sdk/index.md):
+  1. С помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/) установите [библиотеку {{ ml-sdk-name }}](../../foundation-models/sdk/index.md):
 
       ```bash
-      pip install yandex-cloud-ml-sdk --upgrade --pre
+      pip install yandex-cloud-ml-sdk
       ```
 
 - cURL {#curl}

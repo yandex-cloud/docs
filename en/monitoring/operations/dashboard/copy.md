@@ -1,5 +1,5 @@
 ---
-title: Copying a dashboard
+title: How to copy a dashboard in {{ monitoring-full-name }}
 description: Follow this guide to copy a dashboard.
 ---
 

@@ -39,7 +39,7 @@ With secret version management, you can:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_lockbox_secret_version_hashed" "my_version" {
@@ -98,6 +98,117 @@ With secret version management, you can:
 
           You can create multiple key-value pairs per version.
     1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}** or **{{ ui-key.yacloud.common.save }}**.
+
+
+- {{ TF }} {#tf}
+
+    #### Secret generation with {{ yandex-cloud }}
+
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+    1. You can create a new generated secret version when [creating](secret-create.md) it. Specify the secret generation parameters in the `yandex_lockbox_secret` resource description under `password_payload_specification` and create a new secret version with a reference to the secret:
+  
+       ```hcl
+       # Creating a generated secret
+       resource "yandex_lockbox_secret" "my_secret" {
+         name = "<secret_name>"
+
+         password_payload_specification {
+           password_key        = "<secret_key>"
+           length              = "<length>"
+           include_uppercase   = true
+           include_lowercase   = true
+           include_digits      = true
+           include_punctuation = true
+         }
+       }
+
+       # Creating a secret version
+       resource "yandex_lockbox_secret_version" "my_version" {
+         secret_id = yandex_lockbox_secret.my_secret.id
+       }
+       ```
+  
+       Where:
+       * `password_payload_specification`: Secret generating parameters:
+         * `password_key`: Secret key. Non-secret name you will use to identify a value.
+         * `length`: Length of the generated secret value. This is a required parameter.
+         * `include_uppercase `: Use uppercase Latin letters (A...Z). The default value is `true`.
+         * `include_lowercase`: Use lowercase Latin letters (a...z). The default value is `true`.
+         * `include_digits`: Use numbers (0...9). The default value is `true`.
+         * `include_punctuation`: Use special characters. The default value is `true`.
+
+       For more information about the `yandex_lockbox_secret` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/lockbox_secret).
+
+    1. Apply the changes:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+  
+    You can check the new secret and its contents using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  
+    ```bash
+    yc lockbox payload get <secret_name_or_ID>
+    ```
+
+    #### Secret generation with a custom script
+
+    You can create a new generated secret version using a secret generation script of your own. The script's output value will not be displayed in {{ TF }} State.
+
+    {% cut "Example of a bash secret generation script" %}
+    
+    ```bash
+    #!/bin/bash
+    choose() { echo ${1:RANDOM%${#1}:1}; }
+    
+    {
+        choose 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        choose 'abcdefghijklmnopqrstuvwxyz'
+        choose '0123456789'
+        choose '!@#$%^\&'
+        for i in $( seq 1 $(( 4 + RANDOM % 8 )) )
+        do
+            choose '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        done
+    } | sort -R | tr -d '\n'
+    echo ""
+    ```
+   
+    {% endcut %}
+
+    1. In the `yandex_lockbox_secret_version` resource description under `entries`, specify the `command.path` parameter, i.e., path to the secret generation script.
+
+       ```hcl
+       # Creating a secret version with a password generation script
+       resource "yandex_lockbox_secret_version" "my_version" {
+         secret_id = "<secret_ID>"
+
+         entries {
+           key = "<secret_key>"
+           command {
+             path = "<path_to_script>"
+           }
+         }
+       }
+       ```
+
+       Where:
+       * `secret_id`: ID of the secret you are creating a version for.
+       * `key`: Secret key. Non-secret name you will use to identify a value.
+       * `path`: Path to the secret generation script.
+
+       For more information about the `yandex_lockbox_secret_version` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/lockbox_secret_version).
+
+    1. Apply the changes:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+  
+    You can check the new secret and its contents using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  
+    ```bash
+    yc lockbox payload get <secret_name_or_ID>
+    ```
 
 {% endlist %}
 
@@ -178,7 +289,7 @@ With secret version management, you can:
       ```
 
       Where:
-     * `<secret_name>`: Name of the secret to create a version for.
+     * `<secret_name>`: Name of the secret you are creating a version for.
      * `--description`: Description of the new secret version (optional).
      * `--payload`: Contents of the new secret version as a YAML or JSON array.
      * `--base-version-id`: ID of the secret version used to create a new secret. If this parameter is not specified, the new version will be created based on the current version.
