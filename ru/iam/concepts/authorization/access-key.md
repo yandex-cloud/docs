@@ -68,4 +68,4 @@ description: Из статьи вы узнаете, зачем нужен ста
 * [{#T}](../../operations/sa/create-access-key.md)
 * [{#T}](./index.md)
 * [{#T}](./sts.md)
-* [{#T}](../../tutorials/static-key-in-lockbox.md)
+* [{#T}](../../tutorials/static-key-in-lockbox/index.md)

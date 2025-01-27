@@ -8,7 +8,7 @@ description: Различные сценарии использования {{ l
 * [{#T}](kubernetes-lockbox-secrets.md)
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](gitlab-lockbox-integration.md)
-* [{#T}](static-key-in-lockbox.md)
+* [{#T}](static-key-in-lockbox/index.md)
 * [{#T}](lockbox-and-airflow.md)
 * [{#T}](websocket-app.md)
 * [{#T}](bucket-to-bucket-copying.md)

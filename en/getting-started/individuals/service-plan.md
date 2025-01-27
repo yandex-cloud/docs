@@ -1,6 +1,6 @@
 ---
-title: Configure a service plan for an individual
-description: In this article, you will learn how to configure a service plan.
+title: Configure a service plan as an individual
+description: In this article, you will learn how to configure a service plan as an individual.
 ---
 
 # Configure a service plan

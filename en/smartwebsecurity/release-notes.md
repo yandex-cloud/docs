@@ -5,16 +5,24 @@ description: This section contains {{ sws-name }} release notes.
 
 # {{ sws-full-name }} release notes
 
+## Q4 2024 {#q4-2024}
+
+* Added [IP blacklists and whitelists](concepts/lists.md). These allow managing the traffic and creating security rules based on IP reputation analysis. You can use the preset {{ yandex-cloud }} blacklists and whitelists or create your own.
+* Added the [calculator](pricing.md) for quicker service cost calculations.
+* Improved low-rate DoS analysis and blocking algorithms.
+* Optimized the error code page size.
+* {{ sws-name }} has successfully passed an external audit for 152-FZ, GOST R 57589, and PCI DSS compliance.
+
 ## Q3 2024 {#q3-2024}
 
 * Web Application Firewall (WAF) and Advanced Rate Limiter (ARL) entered the [General Availability](../overview/concepts/launch-stages.md) stage.
 * There are some changes in the pricing: 
   * You only pay for [legitimate](concepts/rules.md#rule-action) requests.
   * Profiles and rules are not billable.
-* For basic rules, you now can send requests to [{{ captcha-full-name }}](../smartcaptcha/).
-* Implemented sending [data events](./at-ref.md#data-plane-events) to {{ at-full-name }}: `ArlMatchedRequest`, `WafMatchedExclusionRule`, and `WafMatchedRule`.
+* Under basic rules, you now can send requests to [{{ captcha-full-name }}](../smartcaptcha/).
+* Implemented sending [service-level events](./at-ref.md#data-plane-events) to {{ at-full-name }}: `ArlMatchedRequest`, `WafMatchedExclusionRule`, and `WafMatchedRule`.
 * API, CLI, and {{ TF }} are now supported.
-* For traffic conditions that use regular expressions, you can now toggle between case-sensitive and case-insensitive string search. For more information, see [Regular expression format](concepts/conditions.md#regular-expressions).
+* For traffic conditions that use regular expressions, you can now use case-sensitive string search. For more information, see [Regular expression format](concepts/conditions.md#regular-expressions).
 
 ## Q2 2024 {#q2-2024}
 

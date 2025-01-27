@@ -1,3 +1,8 @@
+---
+title: Instructions for individuals on setting up logging and performance analysis
+description: In this tutorial, you will learn how to set up logging and analyze performance as an individual.
+---
+
 # Set up logging and analyze performance
 
 The guide in this checklist item will help you set up operations with logs and analyze performance.
@@ -37,7 +42,7 @@ The guide in this checklist item will help you set up operations with logs and a
     ```
 
     * `--name`: Log group name.
-    * `--retention-period`: Log group record retention period. This is an optional parameter.
+    * `--retention-period`: Retention period for log group records. This is an optional parameter.
 
     Result:
 

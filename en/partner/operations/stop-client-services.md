@@ -1,3 +1,8 @@
+---
+title: Suspending services to customers
+description: In this article, you will learn how to suspend services to a customer.
+---
+
 # Suspending services to customers
 
 {% note warning %}
@@ -15,7 +20,7 @@ Before you effect a suspension, check with the customer if they are going to con
 
 - Partner portal {#partner}
 
-  1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID to which your partner account in {{ yandex-cloud }} is linked. If you have no access, it means the account you use to log in has no partner status assigned.
+  1. Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID linked to your partner account in {{ yandex-cloud }}. If you have no access, it means the account you use to log in has no partner status assigned.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
   1. Select the customer's account from the list and click it.
   1. Go to the **Overview** tab and click **Stop services**.

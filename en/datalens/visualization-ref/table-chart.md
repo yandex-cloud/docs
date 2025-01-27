@@ -31,6 +31,7 @@ Home appliances |	Health and beauty equipment |	Pickup |	2 387 410 |	550 |	581
 
 To simplify the comparison of different values and make the information easier to comprehend, you can use advanced settings when [creating a table](#create-diagram):
 
+* [Setting up table size](#table-size-settings)
 * [Renaming columns](#change-columns-names)
 * [Adding tooltips to table headers](#hint-column)
 * [Setting up table data sorting by multiple columns](#sorting-columns)

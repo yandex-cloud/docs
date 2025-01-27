@@ -54,7 +54,13 @@ items:
           lockbox-name }}
         href: tutorials/gitlab-lockbox-integration.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Обзор
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
       - name: >-
           Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
           использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{

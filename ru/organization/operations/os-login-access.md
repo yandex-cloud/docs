@@ -7,6 +7,12 @@ description: Следуя данной инструкции, вы сможете
 
 Доступ по [{{ oslogin }}](../concepts/os-login.md) позволяет подключаться к ВМ и узлам [кластеров](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ k8s }} c SSH-ключом или SSH-сертификатом [через YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) или [через стандартный SSH-клиент](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client). При подключении с SSH-ключом публичный SSH-ключ необходимо предварительно [добавить](../../organization/operations/add-ssh.md) в профиль пользователя организации в {{ org-full-name }}.
 
+{% note alert %}
+
+{% include [sudo-and-oslogin](../../_includes/compute/sudo-and-oslogin.md) %}
+
+{% endnote %}
+
 Чтобы создавать виртуальные машины или узлы {{ k8s }} с доступом по {{ oslogin }}, разрешите такую возможность на уровне организации. После этого вы сможете [включить](../../compute/operations/vm-control/vm-update.md#enable-oslogin-access) доступ по {{ oslogin }} на ВМ, созданных из подготовленного образа с поддержкой {{ oslogin }}, или самостоятельно [настроить](../../compute/operations/vm-connect/enable-os-login.md) агента {{ oslogin }} на уже работающей ВМ. Подробнее про подключение по {{ oslogin }} см. в разделе [{#T}](../../compute/operations/vm-connect/os-login.md).
 
 {% include [serial-port-settings-default](../../_includes/compute/serial-port-settings-default.md) %}

@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ cloud-desktop-name }} resources
 
-All actions with {{ cloud-desktop-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ cloud-desktop-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -49,7 +49,7 @@ All actions with {{ cloud-desktop-name }} resources are logged as a list of oper
   +----------------------+---------------------+----------------------+---------------------+---------+-----------------+
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc desktops desktop list-operations e3v7nfkhn0q4******** --format yaml

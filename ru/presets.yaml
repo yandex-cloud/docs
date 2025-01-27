@@ -5178,7 +5178,7 @@ default:
         connect: Подключить
         token-label: Токен
       ui_Common_smart-components_attachments-manager:
-        attach: Прикрепить файлы
+        attach: Файл
         attachments-section-title: Файлы
       ui_Common_smart-components_bulk_BulkChangeParametersDialog:
         button-submit-text: Применить
@@ -5931,7 +5931,7 @@ default:
         user:
           action:
             acl: Назначить роли
-            delete: Удалить пользователя
+            delete: Удалить
             remove: Исключить из организации
           caption:
             federation: Федерация
@@ -6006,7 +6006,7 @@ default:
         users:
           action:
             add-federated-users: Добавить федеративных пользователей
-            invite-users: Пригласить пользователей
+            invite-users: Пригласить пользователей с аккаунтом на Яндексе
           label_tab-invitations: Приглашения
       pages:
         acl: Права доступа
@@ -8703,7 +8703,7 @@ default:
           button_action-dynamic: Сделать динамическим
           button_action-static: Сделать статическим
           button_create: Зарезервировать адрес
-          label_title: Публичные IP-адреса
+          label_title: IP-адреса
           popup-confirm_button_disable-protection: Выключить
           popup-confirm_button_dynamic: Изменить
           popup-confirm_button_static: Изменить
@@ -10448,7 +10448,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.15.1
+        tag: v1.18.0
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

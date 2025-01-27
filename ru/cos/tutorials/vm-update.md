@@ -4,7 +4,6 @@
 
 {% list tabs group=instructions %}
 
-
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором была создана ВМ.
@@ -13,7 +12,6 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** на верхней панели.
   1. Внесите необходимые изменения в блоке **{{ ui-key.yacloud.compute.instances.create.section_coi }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
- 
 
 - CLI {#cli}
 

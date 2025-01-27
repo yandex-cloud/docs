@@ -12,7 +12,7 @@ editable: false
 
 
 
-To see the cost of [asymmetric](https://yandex.cloud/en/prices?state=0f25db3ff729#calculator) and [symmetric](https://yandex.cloud/en/prices?state=58d53a138d2f#calculator) encryption, as well as [asymmetric signature](https://yandex.cloud/en/prices?state=b0cf7fa8b77f#calculator), use our calculator on the Yandex Cloud website or see the pricing in this section.
+To calculate the cost of [symmetric](https://yandex.cloud/en/prices?state=58d53a138d2f#calculator), [asymmetric](https://yandex.cloud/en/prices?state=0f25db3ff729#calculator) encryption and [asymmetric signature](https://yandex.cloud/en/prices?state=b0cf7fa8b77f#calculator), use the calculator on the {{ yandex-cloud }} website or see the pricing data in this section.
 
 
 {% endnote %}

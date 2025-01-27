@@ -808,6 +808,7 @@ default:
   vision-full-name: Yandex Vision OCR
   vision-name: Vision OCR
   vision-short-name: Vision OCR
+  VLK: Valkey™
   vpc-full-name: Yandex Virtual Private Cloud
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
@@ -5159,7 +5160,7 @@ default:
         connect: Connect
         token-label: Token
       ui_Common_smart-components_attachments-manager:
-        attach: Attach files
+        attach: File
         attachments-section-title: Files
       ui_Common_smart-components_bulk_BulkChangeParametersDialog:
         button-submit-text: Apply
@@ -5910,7 +5911,7 @@ default:
         user:
           action:
             acl: Assign bindings
-            delete: Delete user
+            delete: Delete
             remove: Remove from organization
           caption:
             federation: Federation
@@ -5985,7 +5986,7 @@ default:
         users:
           action:
             add-federated-users: Add federated users
-            invite-users: Invite users
+            invite-users: Invite users with a Yandex account
           label_tab-invitations: Invitations
       pages:
         acl: Access bindings
@@ -8680,7 +8681,7 @@ default:
           button_action-dynamic: Make dynamic
           button_action-static: Make static
           button_create: Reserve address
-          label_title: Public IP addresses
+          label_title: IP addresses
           popup-confirm_button_disable-protection: Disable
           popup-confirm_button_dynamic: Change
           popup-confirm_button_static: Change
@@ -8703,10 +8704,10 @@ default:
             button_create_subnetwork: Create subnet
             section_subnetworks: Subnets
           security-groups:
-            button_add-rule: Add rule
+            button_add-rule: Add
             button_create: Create security group
             forms:
-              button_select-all-port-range: Select the full range
+              button_select-all-port-range: Select entire range
               field_sg-name: Name
               field_sg-network: Network
               field_sg-rule-cidr-blocks: CIDR blocks
@@ -8742,12 +8743,12 @@ default:
         route-table-form:
           field_name: Name
           field_network-id: Network
-          label_add-static-route: Add a route
+          label_add-static-route: Add
           label_next-hop-address: Next hop
           section_static-routes: Static routes
         route-table:
           create:
-            button_create: Create a routing table
+            button_create: Create routing table
           edit:
             button_edit: Save
         subnet:
@@ -8759,9 +8760,9 @@ default:
           button_action-add-route-table: Link routing table
           button_action-create: Create subnet
           create:
-            button_add-cidr: Add CIDR
-            button_add-domain-name-server: Add domain name server
-            button_add-ntp-server: Add NTP server
+            button_add-cidr: Add
+            button_add-domain-name-server: Add
+            button_add-ntp-server: Add
             button_create: Create subnet
             field_description: Description
             field_domain-name: Domain name
@@ -10427,7 +10428,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: 1.15.1
+        tag: v1.18.0
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

@@ -170,7 +170,13 @@ items:
           }}
         href: tutorials/gatsby-static-website.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Обзор
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
       - name: Миграция базы данных из {{ mpg-name }} в {{ objstorage-name }}
         href: tutorials/mpg-to-objstorage.md
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}

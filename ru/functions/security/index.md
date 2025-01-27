@@ -44,11 +44,9 @@ description: Управление доступом сервиса для зап�
 
 {% include [functions.editor](../../_roles/functions/editor.md) %}
 
-
 #### functions.mdbProxiesUser {#functions-mdbProxiesUser}
 
 {% include [functions.mdbProxiesUser](../../_roles/functions/mdbProxiesUser.md) %}
-
 
 #### functions.admin {#functions-admin}
 

@@ -21,7 +21,7 @@ items:
             href: operations/managed/cert-modify.md
           - name: Deleting a certificate
             href: operations/managed/cert-delete.md
-      - name: User certificate
+      - name: Custom certificate
         items:
           - name: Adding a certificate
             href: operations/import/cert-create.md
@@ -47,6 +47,8 @@ items:
         href: operations/cert-backup.md
       - name: Adding alerts for certificates
         href: operations/alert.md
+      - name: Configuring access to a certificate
+        href: operations/cert-access.md
       - name: Viewing operations with a certificate
         href: operations/operation-logs.md
   - name: Tutorials
@@ -73,7 +75,7 @@ items:
         href: concepts/index.md
       - name: Certificate from Let's Encrypt
         href: concepts/managed-certificate.md
-      - name: User certificate
+      - name: Custom certificate
         href: concepts/imported-certificate.md
       - name: Checking rights for a domain
         href: concepts/challenges.md

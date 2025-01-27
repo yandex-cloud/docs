@@ -274,8 +274,6 @@ POST { "name": "Anonymous" }
 Hello, Anonymous
 ```
 
-
-
 ### Разбор HTTP-запроса за {{ api-gw-name }}
 
 Функция вызывается сервисом {{ api-gw-full-name }} с сервисным аккаунтом, записывает в журнал метод и тело запроса и возвращает приветствие.
@@ -371,4 +369,3 @@ POST { "name": "Anonymous" }
 ```
 Hello, Anonymous
 ```
-

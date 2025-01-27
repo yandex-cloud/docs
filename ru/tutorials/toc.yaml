@@ -47,7 +47,13 @@ items:
           lockbox-full-name }}
         href: security/gitlab-lockbox-integration.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
-        href: security/static-key-in-lockbox.md
+        items:
+          - name: Обзор
+            href: security/static-key-in-lockbox/index.md
+          - name: CLI
+            href: security/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: security/static-key-in-lockbox/terraform.md
       - name: >-
           Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью
           Ansible

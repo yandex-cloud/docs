@@ -134,6 +134,9 @@ These metrics are collected from the `/proc/net/dev` structure.
 | `sys.system.SystemTime` | `RATE` |
 | `sys.system.UpTime` | `RATE` |
 | `sys.system.UpTimeRaw` | `DGAUGE` |
+| `sys.system.UsefulTime` ^1^ | `RATE` |
 | `sys.system.UserTime` | `RATE` |
+
+^1^ Metric is delivered by agent version 24.05.01 or higher
 
 See the description of Linux system metrics in the documentation, e.g., [Linux manual page](https://man7.org/linux/man-pages/man5/proc.5.html).

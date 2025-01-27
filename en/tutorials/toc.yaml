@@ -58,8 +58,14 @@ items:
             href: security/protected-access-to-content/console.md
           - name: '{{ TF }}'
             href: security/protected-access-to-content/terraform.md
-      - name: Uploading audit logs to SIEM KUMA
-        href: security/audit-trails-events-to-kuma.md
+      - name: Uploading audit logs to KUMA SIEM
+        items:
+          - name: Overview
+            href: security/audit-trails-events-to-kuma/index.md
+          - name: Management console, CLI, and API
+            href: security/audit-trails-events-to-kuma/console.md
+          - name: '{{ TF }}'
+            href: security/audit-trails-events-to-kuma/terraform.md
       - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
         href: security/coi-fluent-bit-logging.md
       - name: Adding an HTML page to work with {{ captcha-name }}

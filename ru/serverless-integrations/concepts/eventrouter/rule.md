@@ -22,7 +22,15 @@ _Фильтр_ — выражение в [формате jq](https://jqlang.gith
 
 ## Приемник {#target}
 
-_Приемник_ — это получатель события, например функция {{ sf-name }}, контейнер {{ serverless-containers-name }}, очередь {{ message-queue-name }}, поток данных {{ yds-name }} и т.п.
+_Приемник_ — это получатель события. Поддерживаемые приемники:
+
+* [WebSocket-соединения](../../../api-gateway/concepts/extensions/websocket.md), подключенные к API-шлюзу {{ api-gw-name }};
+* [функции](../../../functions/concepts/function.md) {{ sf-name }};
+* [лог-группы](../../../logging/concepts/log-group.md) {{ cloud-logging-name }};
+* [потоки данных](../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }};
+* [очереди](../../../message-queue/concepts/queue.md) {{ message-queue-name }};
+* [контейнеры](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name  }};
+* [рабочие процессы](../../concepts/workflows/workflow.md) {{ sw-name }}.
 
 {{ er-name }} поддерживает гарантию доставки `At least once`. Если временно невозможно доставить или получить подтверждение о доставке, {{ er-name }} будет повторно пытаться отправить событие до истечения времени жизни события. Количество повторных попыток и максимальное время жизни события задаются в настройках приемника. Событие, которое не удалось обработать, перемещается в указанную клиентом очередь Dead Letter Queue.
 

@@ -20,7 +20,7 @@ async def main():
     )
 
     # Создаем датасет для дообучения базовой модели {{ gpt-lite }}
-    dataset_draft = sdk.datasets.from_path_deferred(
+    dataset_draft = sdk.datasets.draft_from_path(
         task_type="<тип_классификации>",
         path="<путь_к_файлу>",
         upload_format="jsonlines",
@@ -28,7 +28,7 @@ async def main():
     )
 
     # Дождемся окончания загрузки данных и создания датасета
-    operation = await dataset_draft.upload()
+    operation = await dataset_draft.upload_deferred()
     dataset = await operation
     print(f"new {dataset=}")
 

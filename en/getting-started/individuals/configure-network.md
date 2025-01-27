@@ -1,6 +1,6 @@
 ---
-title: How to set up a secure network configuration in {{ yandex-cloud }}
-description: In this tutorial, you will learn how to set up a secure network configuration in {{ yandex-cloud }}.
+title: How to set up a secure {{ yandex-cloud }} network configuration for individuals
+description: In this tutorial, you will learn how to set up a secure {{ yandex-cloud }} network configuration as an individual.
 ---
 
 # Setting up a secure network configuration
@@ -40,7 +40,7 @@ For your internet service to run, you need two static public IP addresses: one t
 
             {% note alert %}
 
-            Do not use `root` or other usernames reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
+            Do not use `root` or other usernames reserved by the OS. To perform operations requiring root privileges, use the `sudo` command.
 
             {% endnote %}
 
@@ -72,7 +72,7 @@ To provide secure access to your resources, create an IPSec instance.
 
             {% note alert %}
 
-            Do not use `root` or other usernames reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
+            Do not use `root` or other usernames reserved by the OS. To perform operations requiring root privileges, use the `sudo` command.
 
             {% endnote %}
 

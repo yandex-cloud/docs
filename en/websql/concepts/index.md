@@ -1,6 +1,6 @@
 # About {{ websql-full-name }}
 
-{{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to public databases and managed database clusters.
+{{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to public databases and managed database clusters. 
 
 Once connected to a database, you will be able to view DB schemas, tables, and views, as well as run queries. It is a web-based tool that simplifies writing queries by suggesting prompts and commands.
 
@@ -11,7 +11,7 @@ You can connect to managed database clusters from clouds and folders that belong
 * {{ PG }}: 12 and higher
 * {{ MY }}: 5 and higher
 * {{ CH }}: 23 and higher
-* {{ RD }} (non-sharded clusters only): 6 and higher
+* {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 and higher
 
 ## GUI {#user-interface}
 
@@ -23,7 +23,7 @@ To work with {{ websql-full-name }}, use:
 
 In the {{ websql-full-name }} interface, the URL of the current page automatically includes the IDs of the {{ websql-full-name }} entities you open. This enables you to share a direct link to a cluster, connection, database, saved query, or historical query in {{ websql-full-name }} with other users.
 
-> For example, while using {{ websql-full-name }}, you saved a query and want to share it with another user. To do this, go to the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section, select the query you need, and copy its URL from the address bar.
+> For example, while using {{ websql-full-name }}, you saved a query and want to share it with another user. To do this, go to the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section, select the query you need, and copy its URL from the address bar. 
 > The URL will look like this:
 > ```
 > https://websql.yandex.cloud/folders/<your_folder_ID>/saved-queries/<saved_query_ID>`
@@ -36,9 +36,9 @@ In {{ websql-full-name }}, you can create, use, and manage DB connections. In th
 * [Connections to {{ yandex-cloud }} clusters](../operations/create-connection.md#connect-cluster): Connections to databases in managed database clusters via the {{ yandex-cloud }} internal network. Such clusters do not necessarily have to be publicly available.
 * [External connections](../operations/create-connection.md#connect-db): Connections to public databases over the internet.
 
-The **{{ yandex-cloud }} connections** subsection automatically displays {{ PG }}, {{ CH }}, {{ MY }}, and {{ RD }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
+The **{{ yandex-cloud }} connections** subsection automatically displays {{ PG }}, {{ CH }}, {{ MY }}, and {{ RD }}/{{ VLK }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
 
-Connections to databases within a single managed database cluster are grouped into an expandable list under the name of that cluster. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update.
+Connections to databases within a single managed database cluster are grouped into an expandable list under the name of that cluster. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update. 
 
 External connections are not grouped together even if they share the same DB host address.
 
@@ -48,7 +48,7 @@ You can also [edit connection settings](../operations/connect.md#change-connecti
 
 ## Queries {#queries}
 
-For each database, you can run queries using tooltips: start typing a query command and select the suitable one from the drop-down list. You can also use ready-made _templates_ or [save your queries](../operations/templates.md#save-query) as [custom templates](#saved-queries).
+For each database, you can run queries using tooltips: start typing a query command and select the suitable one from the drop-down list. You can also use ready-made _templates_ or [save your queries](../operations/templates.md#save-query) as [custom templates](#saved-queries). 
 
 [Query history](#query-log) allows you to [see](../operations/history.md) and repeat your previous queries.
 

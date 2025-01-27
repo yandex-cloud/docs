@@ -207,9 +207,8 @@ description: Следуя данной инструкции, вы сможете
     sanic==22.12.0
     ```
 
-    **index.py**
-
-      
+    **index.py*
+  
     ```python
     import logging
     import os
@@ -246,7 +245,6 @@ description: Следуя данной инструкции, вы сможете
     if __name__ == "__main__":
         app.run(host='0.0.0.0', port=int(os.environ['PORT']), motd=False, access_log=False)
     ```
-
 
     **Dockerfile**
     ```dockerfile

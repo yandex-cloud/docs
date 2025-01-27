@@ -1,3 +1,8 @@
+---
+title: Cloud setup guide for businesses
+description: In this tutorial, you will learn how to set up a cloud as a business.
+---
+
 # Configure your cloud
 
 When a user registers with {{ yandex-cloud }}, a _cloud_ is created for the user. The cloud is a separate workspace with this user as the owner. In this cloud, the `default` folder and `default` network will be created.
@@ -257,7 +262,7 @@ The management console only allows you to change the name of a folder. To change
 
   {% note alert %}
 
-  The `set-access-binding` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
+  The `set-access-binding` method completely rewrites access permissions for the resource! All current roles for the resource will be deleted.
 
   {% endnote %}
 
@@ -309,7 +314,7 @@ The management console only allows you to change the name of a folder. To change
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method completely rewrites access permissions for the resource. All current roles for the resource will be deleted.
 
   {% endnote %}
 

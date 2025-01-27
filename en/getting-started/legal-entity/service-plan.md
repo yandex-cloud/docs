@@ -1,6 +1,6 @@
 ---
-title: Configure a service plan for a legal entity
-description: In this article, you will learn how to configure a service plan.
+title: Configure a service plan as a legal entity
+description: In this article, you will learn how to configure a service plan as a legal entity.
 ---
 
 # Configure a service plan
