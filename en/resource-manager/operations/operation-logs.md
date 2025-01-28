@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ resmgr-name }} resources
 
-All actions with {{ resmgr-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ resmgr-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -19,7 +19,7 @@ All actions with {{ resmgr-name }} resources are logged as a list of operations.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for an {{ resmgr-name }} resource, run this command:
+  To get a list of operations for a {{ resmgr-name }} resource, run this command:
 
   ```bash
   yc resource-manager <resource_type> list-operations <resource_name_or_ID>
@@ -45,7 +45,7 @@ All actions with {{ resmgr-name }} resources are logged as a list of operations.
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc resource-manager folder list-operations b1g681qpemb4******** --format yaml
@@ -91,7 +91,7 @@ All actions with {{ resmgr-name }} resources are logged as a list of operations.
 ## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
     {% list tabs group=instructions %}

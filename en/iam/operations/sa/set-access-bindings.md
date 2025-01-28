@@ -88,7 +88,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
             default_email: test-user@yandex.ru
         ```
 
-    1. Assign the `editor` role to the user `test-user` for the `my-robot` service account. In the subject, specify the `userAccount` type and user ID:
+    1. Assign the `editor` role for the `my-robot` service account to `test-user`. In the subject, specify the `userAccount` type and user ID:
 
         ```bash
         yc iam service-account add-access-binding my-robot \
@@ -118,7 +118,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
        }
        ```
 
-       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+       For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
     1. Make sure the configuration files are correct.
 
@@ -129,7 +129,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Deploy cloud resources.
 
@@ -195,7 +195,6 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
         }
         ```
 
-
     1. Assign the `editor` role for the `my-robot` sevice account. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
        ```bash
@@ -235,7 +234,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     {% note alert %}
 
-    The `set-access-binding` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
+    The `set-access-binding` method completely rewrites access permissions for the resource! All current roles for the resource will be deleted.
 
     {% endnote %}
 
@@ -252,7 +251,6 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
           --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
           --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
-
 
 - {{ TF }} {#tf}
 
@@ -275,7 +273,6 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
-     
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
@@ -295,15 +292,14 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
      ...
      ```
 
-
      {% endcut %}
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
  
   1. Check the configuration using this command:
      ```
      terraform validate
-     ```
+     ``` 
 
      If the configuration is correct, you will get this message:
 
@@ -316,7 +312,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -365,10 +361,9 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     {% note alert %}
 
-    The `setAccessBindings` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
+    The `setAccessBindings` method completely rewrites access permissions for the resource. All current roles for the resource will be deleted.
 
     {% endnote %}
-
 
     ```bash
     curl \
@@ -385,7 +380,6 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
       }]}' \
       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
     ```
-
 
 {% endlist %}
 
@@ -432,7 +426,6 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
         --subject userAccount:gfei8n54hmfh********
       ```
 
-
   1. The user can run the command as the `test-sa` service account using the `--impersonate-service-account-id` flag.
 
       For example, the user can get a list of VMs in `my-folder`:
@@ -464,7 +457,6 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
         --role iam.serviceAccounts.tokenCreator \
         --subject userAccount:gfei8n54hmfh********
       ```
-
 
 {% endlist %}
 
@@ -531,7 +523,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
      {% endcut %}
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
   1. Check the configuration using this command:
      ```
@@ -549,7 +541,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```

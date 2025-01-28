@@ -54,7 +54,7 @@ For IdP-specific examples, see our tutorials:
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. To complete this configuration, you will need to install a {{ yandex-cloud }} SAML certificate for your IdP.
+        * **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} SAML certificate on the IdP side.
 
             {% include [download-saml-cert-when-creating-fed](../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
 
@@ -109,7 +109,7 @@ For IdP-specific examples, see our tutorials:
 
             {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
-        * (Optional) `--encrypted-assertions`: Ensures that authentication requests from {{ yandex-cloud }} contain a digital signature. To complete this configuration, you will need to install a {{ yandex-cloud }} certificate for your IdP.
+        * (Optional) `--encrypted-assertions`: Ensures that authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} certificate on the IdP side.
         * (Optional) `--auto-create-account-on-login`: If enabled, a federated user will be automatically added to your organization once they sign in. Otherwise, you will need to [manually add](./add-account.md#add-user-sso) your federated users.
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
@@ -169,7 +169,7 @@ For IdP-specific examples, see our tutorials:
       * `case_insensitive_name_ids`: If `true`, federated user name IDs will be case-insensitive.
       * `security_settings`: Federation security settings:
 
-          * `encrypted_assertions`: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. To complete this configuration, you will need to install a {{ yandex-cloud }} certificate for your IdP.
+          * `encrypted_assertions`: Ensures authentication requests from {{ yandex-cloud }} contain a digital signature. You will need to install a {{ yandex-cloud }} certificate on the IdP side.
 
           * {% include [force-authn-tf](../../_includes/organization/force-authn-tf.md) %}
 
@@ -235,7 +235,7 @@ For IdP-specific examples, see our tutorials:
           {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
       * `caseInsensitiveNameIds`: If `true`, federated user name IDs will be case-insensitive.
-      * `encryptedAssertions`: If `true`, authentication requests from {{ yandex-cloud }} will contain a digital signature. To complete this configuration, you will need to install a {{ yandex-cloud }} certificate for your IdP.
+      * `encryptedAssertions`: If `true`, authentication requests from {{ yandex-cloud }} will contain a digital signature. You will need to install a {{ yandex-cloud }} certificate on the IdP side.
       * {% include [forceauthn-api-enable](../../_includes/organization/forceauth-api-enable.md) %}
 
   1. {% include [include](../../_includes/iam/create-federation-curl.md) %}
@@ -244,7 +244,7 @@ For IdP-specific examples, see our tutorials:
 
 ## Adding an IdP server certificate to a federation {#add-certificate-fed}
 
-When the identity provider (IdP) informs {{ org-full-name }} that a user has been authenticated, they sign the message with their certificate. To enable {{ org-name }} to verify this certificate, add it to your federation:
+When informing {{ org-full-name }} that a user has been authenticated, the IdP signs the message with its own certificate. To enable {{ org-name }} to verify this certificate, add it to your federation:
 
 1. Get your identity provider certificate.
 
@@ -316,7 +316,7 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
           }
           ```
 
-      1. Use the [create](../saml/api-ref/Certificate/create.md) REST API method for the [Certificate](../saml/api-ref/Certificate/index.md) resource or the [FederationService/Create](../../grpc/certificate_service#Create) gRPC call and provide a file with the request parameters in your request.
+      1. Use the [create](../saml/api-ref/Certificate/create.md) REST API method for the [Certificate](../saml/api-ref/Certificate/index.md) resource or the [FederationService/Create](../saml/api-ref/grpc/Certificate/create.md) gRPC call and provide a file with the request parameters in your request.
 
       Sample cURL request:
 
@@ -335,9 +335,9 @@ When the identity provider (IdP) informs {{ org-full-name }} that a user has bee
 
 ## Adding a federation certificate to an IdP server {#add-certificate-idp}
 
-If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when creating a federation, all authentication requests from {{ yandex-cloud }} will contain a digital signature. The IdP server should be able to verify this signature. To enable this, you will need to add the {{ yandex-cloud }} certificate to the server:
+If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when creating the federation, all authentication requests from {{ yandex-cloud }} will contain a digital signature. The IdP server should be able to verify this signature. To enable this, you will need to add the {{ yandex-cloud }} certificate to the server:
 
-1. If you did not download the {{ yandex-cloud }} SAML certificate when creating the identity federation, download it now:
+1. If you did not download a {{ yandex-cloud }} SAML certificate when creating the identity federation, download it now:
 
     {% list tabs group=instructions %}
 
@@ -345,9 +345,9 @@ If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertio
 
       1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) with an administrator or organization owner account.
       1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
-      1. In the list that opens, select the identity federation you need. In the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field, click ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**.
+      1. In the list that opens, select the identity federation of interest. In the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field, click ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**.
 
-          If you see ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg) to the left of ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**, your current {{ yandex-cloud }} SAML certificate either has expired or is about to expire.
+          If you see ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg) to the left of ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**, your current {{ yandex-cloud }} SAML certificate has either expired or is about to expire.
 
           [Download a re-issued {{ yandex-cloud }} SAML certificate and install it](./renew-yc-certificate.md) in your identity federation.
 
@@ -474,7 +474,7 @@ User data | Comment | SAML message elements
 Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. | `<NameID>`
 Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
 Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
-Full name | Displayed in {{ yandex-cloud }} services.<br>Here is an example: Ivan Ivanov.<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
+Full name | Displayed in {{ yandex-cloud }} services.<br>Example: Ivan Ivanov.<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
 Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `ivanov@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
 Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
 Profile image | Displayed in {{ yandex-cloud }} services.<br>Images are transmitted in [Base64]({{ link-base64 }}) encoding.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `<Attribute>` with the following parameter:<br>`Name="thumbnailPhoto"`

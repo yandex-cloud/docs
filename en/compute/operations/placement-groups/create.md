@@ -26,13 +26,13 @@ Create a [placement group](../../concepts/placement-groups.md).
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) command to create a placement group:
+  1. See the description of the [CLI](../../../cli/) command for creating a placement group:
 
      ```bash
      yc compute placement-group create --help
      ```
 
-  1. Create a placement group in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with one of the placement strategies:
+  1. Create a placement group in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with one of the following placement strategies:
 
      {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
 
@@ -76,7 +76,7 @@ Create a [placement group](../../concepts/placement-groups.md).
      }
      ```
 
-     For more information about the `yandex_compute_placement_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_placement_group).
+     For more information about the `yandex_compute_placement_group` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_placement_group).
   1. In the command line, go to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
@@ -96,7 +96,7 @@ Create a [placement group](../../concepts/placement-groups.md).
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
   1. Apply the configuration changes:
 
      ```bash

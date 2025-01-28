@@ -5,16 +5,6 @@ In this tutorial, you will learn how to create a {{ dataproc-name }} cluster and
 
 ## Create resources {#deploy-infrastructure}
 
-You have to create:
-
-* Network.
-* Subnet.
-* NAT gateway and routing table.
-* Security group for the cluster.
-* Service account for the cluster.
-* Bucket to store job dependencies and results.
-* {{ dataproc-name }} cluster.
-
 {% list tabs group=instructions %}
 
 - Manually {#manual}
@@ -83,6 +73,8 @@ You have to create:
         * NAT gateway and route table.
         * Security group.
         * Service account to work with cloud resources.
+        * Service account for bucket management.
+        * Static access key required to grant the service account the required permissions for the bucket.
         * Bucket to store job dependencies and results.
         * {{ dataproc-name }} cluster.
 
@@ -122,7 +114,7 @@ You have to create:
 
             1. Wait for the operation to complete.
 
-    All the required resources will be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-cloud }}).
+    All the required resources will be created in the specified folder. You can check the new resources and their configuration in the [management console]({{ link-console-cloud }}).
 
 {% endlist %}
 

@@ -205,7 +205,7 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
 
    This file includes the variables:
 
-   * `CI_REGISTRY` and `CI_REGISTRY_KEY`: Added to GitLab at the [previous step](#add-variables).
+   * `CI_REGISTRY` and `CI_REGISTRY_KEY`: Added to GitLab in the [previous step](#add-variables).
    * `CI_PROJECT_DIR`, `CI_PROJECT_PATH`, and `CI_COMMIT_SHORT_SHA`: [Preset in GitLab](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html).
 
 1. Add a comment to the commit in the **Commit message** field: `Create a CI pipeline`.
@@ -293,7 +293,7 @@ To enable scanning, expand your {{ GL }} project's CI script:
 
 To make sure that the image scan was successful:
 
-1. Select **Build** on the left-hand panel in the `gitlab-test` project and select **Pipelines** from the drop-down menu.
+1. Select **Build** on the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
 1. Make sure that the `build` and `test` steps got the `passed` status. This means that the CI script has been executed successfully.
 1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
 1. Open your repository with Docker images from the {{ GL }} project.

@@ -62,8 +62,8 @@ outputs:
   - other/metrics.png  # Relative path to the file.
 
 # Resources required to run a job must be available in the project.
-s3-mounts: # S3 connectors.
-  - <connector_ID>   # S3 connector ID.
+s3-mounts: # S3 connectors
+  - <connector_ID>   # S3 connector ID
                            # Connector name is not set, therefore, the connector can be accessed by its ID.
 datasets:
   - <dataset_ID>:  # ID of the dataset available in the project.
@@ -87,9 +87,21 @@ env:
   python: auto # Full environment build automation.
 
   # python: # Environment parameters are set manually. If no parameters are set, their values will be automatically taken from the current environment.
-  #   type: manual
-  #   version: 3.10.5  # Python version.
-  #   requirements-file: requirements.txt  # File with environment parameters.
+  # type: manual
+  # version: 3.10.13 # Python version
+  # pip:
+  #   index-url: https://pypi.org/simple # Address of the main repository for package installation.
+  #   extra-index-urls: # Addresses of additional repositories.
+  #     - https://pypi.ngc.nvidia.com
+  #   trusted-hosts: # List of trusted hosts.
+  #     - nvidia.com
+  #   no-deps: true  # The default value is `false`
+  # requirements-file: requirements.txt  # File with environment parameters.
+  # root-path:   # Explicit specification of additional entry points.
+  #   - other.py
+  # local-paths: # List of local Python files to transfer. Cannot be used together with `root-paths`.
+  #  - foo.py
+  #  - lib/ 
 
 # Flags for running jobs.
 flags:
@@ -120,7 +132,6 @@ output-datasets:
     labels:                   # Random list of labels to assign to the dataset.
       a: b
       c: d
-
 ```
 
 The `config.yaml` file has multiple sections.
@@ -142,7 +153,7 @@ The `config.yaml` file has multiple sections.
    There are two ways to set up the environment for your Python projects:
 
    * Allow {{ ml-platform-name }} to automatically identify all required dependencies, analyze the current environment on your local computer, and build and migrate the environment. To do this, specify `python: auto` in the `env` section.
-   * You can specify the Python interpreter version and the relevant libraries yourself either directly in the configuration file or in a separate `requirements.txt` file. If you explicitly set at least one parameter, the missing ones will be fetched from the current environment automatically.
+   * You can specify the Python interpreter version, the relevant libraries, and other parameters yourself either directly in the configuration file or in a separate `requirements.txt` file. If you explicitly set at least one parameter, the missing ones will be fetched from the current environment automatically.
 
    {% note warning %}
 
@@ -153,6 +164,8 @@ The `config.yaml` file has multiple sections.
    You can set environment variables under `vars` in the `env` section. Project [secrets](../secrets.md) will also be added to the environment variables when running the job.
 
    {% include [jobs-info](../../../_includes/datasphere/jobs-environment.md) %}
+
+   For a detailed description of the Python environment parameters, see [Job runtime environment](environment.md).
 
 1. The `cloud-instance-types` section defines the valid [computing resource configuration](../configurations.md) types the job can run on. Configurations are specified in order of priority, i.e., if resources are available, the job will use the first configuration to run. If there are no VMs with the first configuration available, the job will try to run on the second one, then the third, and so on.
 
@@ -166,7 +179,7 @@ The `config.yaml` file has multiple sections.
 
 1. `output-dataset` describes the [datasets](../dataset.md) to create upon a successful job completion. Each dataset has a name, description, size, and a list of labels.
 
-   Once a job is completed, a dataset creation message will appear in the `cli` [log](cli.md#logs). Here is an example of how to do it:
+   Once a job is completed, a dataset creation message will appear in the `cli` [log](cli.md#logs). For example:
 
    ```text
    2024-09-13 16:22:28,894 - [INFO] - Created datasets:

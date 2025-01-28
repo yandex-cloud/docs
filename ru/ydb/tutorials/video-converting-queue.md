@@ -1,4 +1,5 @@
 ---
-sourcePath: overlay/tutorials/video-converting-queue.md
+canonical: '{{ link-docs }}/tutorials/serverless/video-converting-queue'
 ---
-{% include [video-converting-queue](../../_includes/video-converting-queue.md) %}
+
+{% include [video-converting-queue](../../_tutorials/serverless/video-converting-queue.md) %}

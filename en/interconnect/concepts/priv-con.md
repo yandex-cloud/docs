@@ -4,11 +4,11 @@ A private connection is a logical connection to your cloud [network](../../vpc/c
 
 {% note warning %}
 
-You cannot set up multiple private connections to a single cloud network in one [point of presence](./pops.md). For redundancy purposes, you can set up multiple private connections in a cloud network at different [points of presence](./pops.md), but no more than one such private connection per point of presence.
+However, you cannot set up multiple private connections to a single cloud network at the same [point of presence](./pops.md). For redundancy purposes, you can establish multiple private connections in the same cloud network at different [points of presence](./pops.md), but not more than one such private connection per point of presence.
 
 {% endnote %}
-
-A private connection is set up inside a [trunk](./trunk.md) and has its own unique **VLAN-ID**.
+ 
+A private connection is set up inside a [trunk](./trunk.md) and has its own unique **VLAN-ID**. 
 
 Maximum IP MTU for a private connection is **8,910 bytes**. Changing IP MTU on the {{ yandex-cloud }} equipment is not allowed.
 
@@ -16,7 +16,7 @@ Maximum IP MTU for a private connection is **8,910 bytes**. Changing IP MTU on t
 
 To set up a private connection, you need a **point-to-point subnet**. It is used to configure IP connectivity between the {{ yandex-cloud }} equipment and the client or telecom provider equipment.
 
-The point-to-point subnet size may be either `/30` or `/31`. Other subnet sizes are not allowed.
+A point-to-point subnet can be either `/30` or `/31` in size. Other subnet sizes are not allowed.
 
 You can use the following IP address ranges in point-to-point subnets:
 
@@ -52,21 +52,19 @@ The following private connection setup options are supported:
 ![prc-direct-link](../../_assets/interconnect/interconnect-bgp-1.svg)
 
 
-
-This scenario implies setting up L3 and BGP connectivity between the client equipment at the point of presence and the {{ yandex-cloud }} equipment. In this case:
+This scenario implies setting up L3 and BGP connectivity between the client equipment at the point of presence and the {{ yandex-cloud }} equipment. In which case:
 
 * It is your responsibility to ensure L3 connectivity from the equipment in your data center to your own equipment at the point of presence.
 * You set up BGP connectivity between your equipment at the point of presence and the {{ yandex-cloud }} equipment.
 * All route announcements over BGP from your equipment at the point of presence enter all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 
-### Private connection via a telecom provider connection (L2 transit) {#prc-sp-l2}
+### Private connection through a telecom provider connection (L2 transit) {#prc-sp-l2}
 
 
 ![prc-sp-l2](../../_assets/interconnect/interconnect-bgp-2.svg)
 
 
-
-This scenario assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. In this case:
+This scenario assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. In which case:
 * The telecom provider sets up L2 connectivity between its equipment at the point of presence and the {{ yandex-cloud }} equipment.
 * L3 and BGP connectivity is set up between your equipment in your data center and the {{ yandex-cloud }} equipment at the point of presence.
 * All route announcements over BGP from your equipment in your data center reach all {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
@@ -77,8 +75,7 @@ This scenario assumes you do not have your own equipment at the point of presenc
 ![prc-sp-l3vpn](../../_assets/interconnect/interconnect-bgp-3.svg)
 
 
-
-This scenario also assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. You cannot set up BGP connectivity to the {{ yandex-cloud }} equipment on your own, technically. In this case:
+This scenario also assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. You cannot set up BGP connectivity to the {{ yandex-cloud }} equipment on your own, technically. In which case:
 
 * The telecom provider sets up L2 connectivity between its equipment at the point of presence and the {{ yandex-cloud }} equipment.
 * L3 and BGP connectivity to {{ yandex-cloud }} is set up between the telecom provider's equipment and the {{ yandex-cloud }} equipment at the point of presence. This connection becomes a part of the client L3VPN, which ensures direct connectivity between your equipment in their data center and {{ yandex-cloud }}.
@@ -88,17 +85,23 @@ This scenario also assumes you do not have your own equipment at the point of pr
 
 ## Cloud subnet announcements and communication with {{ vpc-short-name }} {#prc-announce}
 
-To connect one or more cloud subnets to a private connection, you need to have the following:
-* ID of the virtual network (`vpc_net_id`) to connect to a trunk.
-* List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) distributed across [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes refer to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
+To connect one or more cloud subnets to a private connection, you need to know the following:
+* ID of the virtual network (`vpc_net_id`) that needs to be connected to the trunk.
+* List of announced IPv4 prefixes of virtual network [subnets](../../vpc/concepts/network.md#subnet) with their distribution between [availability zones](../../overview/concepts/geo-scope.md). Typically, prefixes refer to the subnets configured in your cloud. In this case, the announced prefixes and the actual subnet address ranges match.
 
-New subnets that will be created in the virtual network later will not be announced to the {{ interconnect-name }} private connection automatically.
+{% note info %}
 
-To add a new subnet to the existing private connection, contact [support]({{ link-console-support }}) with a request to add a new announcement to the respective {{ interconnect-name }} private connection.
+Please keep in mind that the first IP address (default gateway) and the second IP address (default DNS server) in each subnet will not be available outside the cloud, regardless of the subnet announcement. Network traffic to these IP addresses can only be delivered from inside a {{ yandex-cloud }} VM. 
+
+{% endnote %}
+
+New subnets that will be created in the virtual network later will not be announced to the {{ interconnect-name }} private connection automatically. 
+
+To add a new subnet to an existing private connection, file a request to [support]({{ link-console-support }}) to have a new announcement added to the {{ interconnect-name }} private connection.
 
 {% note warning %}
 
-When using {{ yandex-cloud }} load balancers:
+When using {{ yandex-cloud }} load balancers: 
 * [{{ network-load-balancer-short-name }}](../../network-load-balancer/) (NLB)
 * [{{ alb-name }}](../../application-load-balancer/) (ALB)
 
@@ -131,5 +134,5 @@ To automatically announce new subnets in {{ interconnect-name }}, you can use **
 > {{ region-id }}-d [10.140.0.0/16]
 > ```
 >
-> If you then create a subnet with the `10.128.15.0/24` prefix in this network in the `{{ region-id }}-a` availability zone, it will automatically be available via {{ interconnect-name }} because the `10.128.15.0/24` subnet belongs to the already announced address space, `10.128.0.0/16`.
+> If later you create a subnet with the `10.128.15.0/24` prefix in this network in the `{{ region-id }}-a` availability zone, it will automatically be available via {{ interconnect-name }} because the `10.128.15.0/24` subnet belongs to the already announced address space, `10.128.0.0/16`.
 

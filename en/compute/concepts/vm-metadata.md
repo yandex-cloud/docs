@@ -183,6 +183,53 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
 {% endlist %}
 
+## Processing environment variables in metadata via the CLI {#environment-variables}
+
+With the [{{ yandex-cloud }} CLI](../../cli/index.yaml), you can provide both the names of [environment variables](https://en.wikipedia.org/wiki/Environment_variable) and the values of local environment variables to the VM metadata. These will be substituted into the new VM's metadata when executing the CLI command:
+
+{% list tabs %}
+
+- Providing the values of variables
+
+  To provide the values of local variables to the VM metadata, specify them in the `user-data` key in `$<variable_name>` format. When executing a CLI command, the values of these variables will be substituted into the `cloud-init` configuration from the environment the command is executed in.
+
+  For example:
+
+  ```yaml
+  ...
+  users:
+  - name: $USER_NAME
+  ...
+  ```
+
+  In this case, the `USER_NAME` variable value will be substituted from the environment the CLI command is executed in. For example, if the environment features a variable named `USER_NAME` with `my-user` for value, the string supplied to VM metadata will appear as `- name: my-user` instead of `- name: $USER_NAME`.
+
+  {% note info %}
+
+  If the variable has no value set in the environment, an empty value will be supplied to the metadata without any error message.
+
+  {% endnote %}
+
+- Providing the names of variables
+
+  To provide the names of variables instead of values to the metadata in `$<variable_name>` format, use the two-dollar syntax.
+
+  For example:
+
+  ```bash
+  ...
+  # Save YC params
+  echo "Saving YC params to the ~/.bashrc"
+  cat << EOF >> $$HOME/.bashrc
+  ...
+  ```
+
+  In this case, the `HOME` variable value will not be substituted from the environment the command is executed in. Instead, the `cat << EOF >> $HOME/.bashrc` string will be written to the VM metadata.
+
+{% endlist %}
+
+For an example of using variables when supplying metadata to a VM via the {{ yandex-cloud }} CLI, see [{#T}](../operations/vm-create/create-with-env-variables.md). 
+
 ## Identity document {#identity-document}
 
 When creating a VM, an identity document that stores information about the VM is generated. It contains IDs of the VM, Marketplace product, disk image, etc. VMs can request information about themselves from the metadata service.

@@ -18,13 +18,13 @@ In this tutorial, you will add a new subnet, `10.128.0.0/24`, with the DNS suffi
 
 To add a subnet with DHCP settings:
 
-* [Prepare your cloud](#before-begin).
+* [Prepare your cloud environment](#before-begin).
 * [Create a subnet](#create-subnet).
 * [Test the network](#check-config).
 
 If you no longer need the infrastructure, [delete](#clear-out) the created resources.
 
-## Prepare your cloud {#before-begin}
+## Prepare your cloud environment {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -51,7 +51,7 @@ To create a new subnet with DHCP settings, follow these steps:
 - Management console {#console}
 
   To create a subnet:
-  1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
+  1. Open the **{{ vpc-name }}** section in the folder where you need to create a subnet.
   1. Click the `ad-network` name.
   1. Click **Add subnet**.
   1. Fill out the form:
@@ -66,7 +66,7 @@ To create a new subnet with DHCP settings, follow these steps:
 
   {% include [include](../../_includes/cli-install.md) %}
 
-  Run the following command:
+  Run this command:
 
   ```
   yc vpc subnet create --name test-subnet-1 \
@@ -115,7 +115,7 @@ To check the configuration, create a VM and connect to it via RDP:
       1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` tab and select the **Windows Server** image. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) to create your VM in.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
           * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`.
@@ -155,6 +155,8 @@ To check the configuration, create a VM and connect to it via RDP:
       ```
 
       Where `<image_ID>` is the ID of your Windows Server image used for creating the VM.
+
+      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
       If the command is successful, save the IP address from the `one_to_one_nat` field. The address is used in the next step to create an RDP connection:
 
@@ -225,7 +227,7 @@ To check the configuration, create a VM and connect to it via RDP:
       Autoconfiguration Enabled . . . . : Yes
     ```
 
-1. Check if there is a connection to the `yantoso.net` domain controller.
+1. Check if there is a connection to the `yantoso.net` domain controller. 
 
     To do this, run the following command:
 
@@ -260,7 +262,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     - Management console {#console}
 
-      1. Select the folder that the VM belongs to.
+      1. Select the folder that the VM belongs to. 
       1. On the folder dashboard, go to {{ compute-name }}.
       1. Select the VM → click ![image](../../_assets/console-icons/ellipsis.svg) → select **Delete**.
       1. Confirm the deletion.
@@ -279,7 +281,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     {% endlist %}
 
-1. Delete the `test-subnet-1` subnet.
+1. Delete `test-subnet-1`.
 
     {% list tabs group=instructions %}
 

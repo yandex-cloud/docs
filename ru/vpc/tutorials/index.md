@@ -29,3 +29,4 @@ description: Различные сценарии использования {{ v
 * [Использование модулей {{ yandex-cloud }} в {{ TF }}](terraform-modules.md)
 * [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](mssql-alwayson-lb.md)
 * [Организация доступа через {{ interconnect-name }} к облачным сетям, размещенным за NGFW](cic-with-ngfw.md)
+* [{#T}](airflow-auto-tasks.md)

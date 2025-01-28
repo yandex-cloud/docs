@@ -50,7 +50,6 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
     1. To revoke a resource role from a subject, find the resource description in the configuration file:
 
-
         ```
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
             cloud_id    = "<cloud_ID>"
@@ -75,7 +74,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Deploy cloud resources.
 
@@ -116,7 +115,6 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
             ]
         }
         ```
-
 
     1. Revoke a role by deleting the assigned permissions:
 

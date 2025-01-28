@@ -6,7 +6,7 @@ In this section, you will learn how to synthesize speech from text using the {{ 
 
 {% include [ai-before-beginning](../../_includes/speechkit/ai-before-beginning.md) %}
 
-In the example below, authentication is performed under a Yandex account.
+In the example below, a Yandex account is used for authentication.
 
 ## Getting started {#before-you-begin}
 

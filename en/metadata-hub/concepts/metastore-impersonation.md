@@ -1,3 +1,8 @@
+---
+title: Impersonation in {{ metastore-name }}
+description: Impersonation allows a {{ metastore-name }} cluster to work with cloud resources on behalf of a service account.
+---
+
 # Impersonation in {{ metastore-name }}
 
 {% include [Preview](../../_includes/note-preview.md) %}

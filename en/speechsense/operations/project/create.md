@@ -1,3 +1,8 @@
+---
+title: Creating a project in {{ speechsense-full-name }}
+description: Follow this guide to create a project in {{ speechsense-name }}.
+---
+
 # Creating a project
 
 To create a project, you need either the `{{ roles-speechsense-admin }}` or `{{ roles-speechsense-editor }}` role for the space.

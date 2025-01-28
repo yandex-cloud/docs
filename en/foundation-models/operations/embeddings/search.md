@@ -46,6 +46,8 @@ In the example, the `doc_texts` array contains the source data for vectorization
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
+      For more information about accessing text vectorization models, see [{#T}](../../concepts/embeddings.md#addressing-models).
+
   1. Run the created file:
 
       ```bash

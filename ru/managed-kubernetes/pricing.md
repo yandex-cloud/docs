@@ -4,8 +4,8 @@ description: В статье содержатся правила тарифик�
 editable: false
 ---
 
-# Правила тарификации для {{ managed-k8s-name }}
 
+# Правила тарификации для {{ managed-k8s-name }}
 
 {% note tip %}
 
@@ -15,9 +15,8 @@ editable: false
 
 
 
+
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -26,11 +25,13 @@ editable: false
 Узлы тарифицируются по [правилам тарификации {{ compute-full-name }}](../compute/pricing.md).
 
 
+
 ## Цены для региона Россия {#prices}
 
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 ### Мастер {#master}

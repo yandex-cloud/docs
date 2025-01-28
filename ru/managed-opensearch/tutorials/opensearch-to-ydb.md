@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/dataplatform/opensearch-to-ydb'
 ---
 
 # Миграция данных из {{ mos-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}

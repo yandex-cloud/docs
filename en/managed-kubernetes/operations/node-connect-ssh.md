@@ -64,11 +64,10 @@ Prepare the keys for use with your {{ managed-k8s-name }} cluster node. To do th
 
   Create keys using the PuTTY app:
   1. [Download](https://www.putty.org) and install PuTTY.
-  1. Make sure the directory where you installed PuTTY is included in `PATH`:
-     1. Right-click **My computer**. Click **Properties**.
-     1. In the window that opens, select **Additional system parameters**, then **Environment variables** (located in the lower part of the window).
-     1. Under **System variables**, find `PATH` and click **Edit**.
-     1. In the **Variable value** field, append the path to the directory where you installed PuTTY.
+  1. Add the folder with PuTTY to the `PATH` variable:
+
+      {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
+
   1. Launch the PuTTYgen app.
   1. Select **Ed25519** as the pair type to generate. Click **Generate** and move the cursor in the field above it until key creation is complete.
 
@@ -131,7 +130,7 @@ Example:
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
   1. Set the node group parameters.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the information required to access the {{ managed-k8s-name }} node:
-      * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -260,7 +259,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
         --metadata-from-file ssh-keys=<credentials_file_path>
       ```
 
-      You can request the name of a node group with a [list of node groups in the folder](./node-group/node-group-list.md#list).
+      You can request the name of a node group with the [list of node groups in the folder](./node-group/node-group-list.md#list).
 
 - {{ TF }} {#tf}
 
@@ -459,22 +458,22 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it is started (wi
 - Windows 7/8 {#windows7-8}
 
   In Windows, a connection is established using the PuTTY application.
-  1. Run the Pageant application.
-     1. Right-click the pageant icon in the task bar.
+  1. Run Pageant.
+     1. Right-click the Pageant icon in the task bar.
      1. In the context menu, select **Add key**.
-     1. Select a PuTTY-generated private key in `.ppk` format. If a password is set for the key, enter it.
+     1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if any.
   1. Run PuTTY.
      1. In the **Host Name (or IP address)** field, enter the [public IP address](#node-public-ip) of the VM you want to connect to. Set the port to `22` and connection type to **SSH**.
 
         ![ssh_add_ip](../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
      1. In the tree on the left, select **Connection** - **SSH** - **Auth**.
-     1. Set the **Allow agent forwarding** option.
-     1. In the **Private key file for authentication** field, select the file with the private key.
+     1. Enable **Allow agent forwarding**.
+     1. In the **Private key file for authentication** field, select the private key file.
 
         ![ssh_choose_private_key](../../_assets/compute/ssh-putty/ssh_choose_private_key.png)
 
-     1. Go back to the **Sessions** menu. In the **Saved sessions** field, enter any session name and click **Save**. The session settings are saved under the specified name. You can use this session profile to connect using Pageant.
+     1. Go back to the **Sessions** menu. In the **Saved sessions** field, enter any name for the session and click **Save**. This will save the session settings under the specified name. You can use this session profile to connect with Pageant.
 
         ![ssh_save_session](../../_assets/compute/ssh-putty/ssh_save_session.png)
 
@@ -482,19 +481,19 @@ You can connect to a {{ managed-k8s-name }} node over SSH once it is started (wi
 
         ![ssh_unknown_host_warning](../../_assets/compute/ssh-putty/ssh_unknown_host_warning.png)
 
-        Click **Yes**. A terminal window will open prompting you to enter the username of the user on whose behalf the connection is being established.
+        Click **Yes**. This will open a terminal window prompting you to enter the username to use for connection.
 
         Enter the username:
         * If you provided SSH connection credentials when you [created the node group](#node-create) using the management console, enter the username you specified in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
-        * If you provided SSH connection credentials when you [created the node group](#node-create) using the CLI, {{ TF }}, API, or [updated the credentials](#node-add-metadata), enter the username that you [specified in the SSH connection credentials file](#key-format).
+        * If you provided SSH connection credentials when you [created the node group](#node-create) using the CLI, {{ TF }}, API, or [updated the credentials](#node-add-metadata), enter the username that you [specified in the SSH connection credentials file](#key-format). 
 
-        Click **Enter**. If all the settings are correct, the connection with the server will be established.
+        Click **Enter**. If everything is configured correctly, a connection to the server will be established.
 
         ![ssh_login](../../_assets/compute/ssh-putty/ssh_login.png)
 
-  If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
+  If you saved the session profile in PuTTY, you can use Pageant for future connections:
   1. Right-click the pageant icon in the task bar.
-  1. Select the **Saved sessions** menu item.
+  1. Select **Saved sessions**.
   1. In the saved sessions list, select the session you need.
 
 {% endlist %}

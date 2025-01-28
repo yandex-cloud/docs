@@ -1,6 +1,8 @@
-# 6. Application security
+# Application security requirements
 
-### Recommendations for protecting your application against bots {#protecting-recommendations}
+## 6. Application security {#app-security}
+
+### Bot protection {#protecting-recommendations}
 
 #### 6.1 Use {{ captcha-full-name }} {#use-smartcaptcha}
 
@@ -20,7 +22,7 @@ To mitigate the risks associated with automated attacks on applications, we reco
 
 [Guide on creating a CAPTCHA in {{ captcha-full-name }}](../../../smartcaptcha/operations/create-captcha.md).
 
-### Recommendations on building a secure pipeline {#pipeline-recommendations}
+### Building a secure pipeline {#pipeline-recommendations}
 
 {{ yandex-cloud }} allows customers to achieve compliance of software they develop at all [Supply-chain Levels for Software Artifacts (SLSA)](https://slsa.dev/), provided that they follow the guidelines given in this section. When using [{{ mgl-full-name }}](../../../managed-gitlab/), a customer automatically achieves [SLSA Level 2 compliance](https://about.gitlab.com/blog/2022/11/30/achieve-slsa-level-2-compliance-with-gitlab/).
 
@@ -34,7 +36,7 @@ To mitigate the risks associated with automated attacks on applications, we reco
 
   1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
   1. Select the appropriate registry in **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Go to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab and click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
+  1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab and click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
   1. Make sure Docker image scans on push are enabled.
 
 {% endlist %}
@@ -55,7 +57,7 @@ We recommend setting up a schedule for scans to be run at least once a week.
 
   1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
   1. Select the appropriate registry in **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Go to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab and click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
+  1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab and click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
   1. Make sure that scheduled Docker image scans are enabled with a frequency of at least once a week.
 
 {% endlist %}
@@ -163,19 +165,19 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Make sure you have security profiles created.
-  1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc smartwebsecurity security-profile list
   ```
 
-  If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -194,7 +196,7 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check a security profile for a WAF rule.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Make sure your security profile has a security rule of the **web application firewall** type.
 
 {% endlist %}
@@ -214,7 +216,7 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to check for ARL profiles.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../../_assets/smartwebsecurity/arl.svg) **ARL profiles** and make sure you have ARL profiles connected to your security profile.
 
 {% endlist %}
@@ -236,7 +238,7 @@ If you close a thread manually, it will be created again. If a merge request is 
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your {{ GL }} instance is located.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Select the instance you need and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner of the page.
   1. Make sure to select a configured approval rule [configuration](../../../managed-gitlab/concepts/approval-rules.md#packages) in the **{{ ui-key.yacloud.gitlab.field_approval-rules }}** field.
 

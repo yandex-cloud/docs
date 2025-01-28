@@ -133,3 +133,6 @@
 
 {% endlist %}
 
+#### См. также {#see-also}
+
+* [{#T}](../../compute/operations/vm-control/vm-transferring-public-ip.md)

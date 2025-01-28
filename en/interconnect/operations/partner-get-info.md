@@ -4,15 +4,9 @@ title: How to get information about {{ interconnect-name }} partners
 
 # Getting information about {{ interconnect-name }} partners
 
-{% include [cic-api-access](../../_includes/interconnect/cic-api-access.md) %}
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Get information about {{ yandex-cloud }} partners providing {{ interconnect-name }}:
 
@@ -43,3 +37,4 @@ title: How to get information about {{ interconnect-name }} partners
       * `STATUS`: Partnership status. `DOWN` means this partner is not available for connection.
 
 {% endlist %}
+

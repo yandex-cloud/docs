@@ -5,6 +5,11 @@ description: This section contains {{ objstorage-name }} release notes.
 
 # {{ objstorage-full-name }} release notes
 
+## Q4 2024 {#q4-2024}
+
+* Announced end of support for the TLS protocol versions 1.0 and 1.1 as of July 1, 2025. For more information, see [{#T}](./concepts/tls.md).
+* In the [{{ yandex-cloud }} CLI](../cli/quickstart.md), added the [yc storage s3api](../cli/cli-ref/storage/cli-ref/s3api/index.md) group of commands to work with [objects](./concepts/object.md).
+
 ## Q3 2024 {#q3-2024}
 
 * Added support for accessing {{ objstorage-name }} using [{{ sts-name }} temporary keys](./operations/buckets/create-sts-key.md).

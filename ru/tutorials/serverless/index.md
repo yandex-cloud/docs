@@ -18,4 +18,6 @@
 * [{#T}](deploy-app-container.md)
 * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)
 * [{#T}](speechkit-integrarion-via-agi-gw.md)
+* [{#T}](connect-from-cf.md)
+* [{#T}](connect-from-cf-nodejs.md)
 * [{#T}](api-gw-sws-integration.md)

@@ -74,8 +74,6 @@ module.exports.handler = function (event, context) {
 Функция делает запрос к `https://example.com/` и возвращает HTTP-код ответа и содержимое JSON-документа:
 
 ```js
-const fetch = require("node-fetch");
-
 module.exports.handler = async function (event) {
     
     const response = await fetch('https://example.com/');

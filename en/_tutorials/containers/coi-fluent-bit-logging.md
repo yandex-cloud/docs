@@ -250,6 +250,8 @@ yc compute instance create \
   --service-account-name <service_account_name>
 ```
 
+{% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 ## View the logs {#read-logs}
 
 {% list tabs group=instructions %}

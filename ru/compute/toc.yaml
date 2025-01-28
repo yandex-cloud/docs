@@ -101,6 +101,8 @@ items:
             href: operations/vm-control/vm-detach-public-ip.md
           - name: Сделать публичный IP-адрес ВМ статическим
             href: operations/vm-control/vm-set-static-ip.md
+          - name: Перенести публичный IP-адрес от одной ВМ на другую
+            href: operations/vm-control/vm-transferring-public-ip.md
           - name: Изменить внутренний IP-адрес ВМ
             href: operations/vm-control/internal-ip-update.md
           - name: Изменить ВМ

@@ -1,4 +1,6 @@
-# 1. Authentication and access management
+# Authentication and access management requirements
+
+## 1. Authentication and access management {#authentication}
 
 
 In {{ yandex-cloud }}, identification, authentication, and access control is performed by [{{ iam-full-name }} ({{ iam-short-name }})](../../../iam/) and [{{ org-full-name }}](../../../organization/).
@@ -14,6 +16,8 @@ Yandex ID and federated accounts are authenticated in their own systems. {{ yand
 User access to cloud resources is regulated by [roles](../../../iam/concepts/access-control/roles.md). {{ yandex-cloud }} services may provide different levels of granularity while granting permissions: in some cases, a role can be assigned directly to a service resource, in other cases, permissions are only granted at the level of the folder or cloud where the service resource is located.
 
 This ensures interaction of different categories of resources, roles, and users in the {{ yandex-cloud }} infrastructure. Access to resources is managed by {{ iam-short-name }}. {{ iam-short-name }} controls each request and makes sure that all operations with resources are only run by users who have the appropriate permissions.
+
+### Identity federations {#federations}
 
 #### 1.1 An identity federation (single sign-on, SSO) is configured {#saml-federation}
 
@@ -41,7 +45,7 @@ To make sure all authentication requests from {{ yandex-cloud }} contain a digit
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to **All services** → **{{ org-full-name }}** → **Federations**.
-  1. Make sure the list contains at least one identity federation configured. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure the list contains at least one identity federation configured. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 - Performing a check via the CLI {#cli}
 
@@ -58,7 +62,7 @@ To make sure all authentication requests from {{ yandex-cloud }} contain a digit
         --organization-id=<organization ID>
       ```
 
-  1. Make sure the list contains at least one identity federation configured. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure the list contains at least one identity federation configured. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -87,7 +91,7 @@ The best approach to account management, in terms of security, is using identity
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to **All services** → **{{ org-full-name }}** → **Users**.
-  1. If the **Federation** column is set to **federation** for all the accounts (but for those on the above list of exceptions allowed), the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. If the **Federation** column is set to **federation** for all the accounts (but for those on the above list of exceptions allowed), the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 - Performing a check via the CLI {#cli}
 
@@ -104,7 +108,7 @@ The best approach to account management, in terms of security, is using identity
         --format=json | jq -r '.[] | select(.subject_claims.sub!="<ID of account from list of allowed exceptions>")' | jq -r 'select(.subject_claims.federation | not)'
       ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -112,7 +116,48 @@ The best approach to account management, in terms of security, is using identity
 
 Remove all the accounts that have a Yandex ID from your organization, except those on the list of allowed exceptions.
 
-#### 1.3 Only appropriate administrators can manage {{ iam-short-name }} group membership {#iam-admins}
+#### 1.3 The cookie lifetime in a federation is less than 6 hours {#cookie-timeout}
+
+In the [identity federation](../../../organization/concepts/add-federation.md) settings, make sure the **Cookie lifetime** parameter value is less than or equal to 6 hours. Thus you minimize the risk of compromising cloud users' workstations.
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. Open the {{ yandex-cloud }} management console in your browser.
+  1. Go to the **Organizations** tab.
+  1. Next, open the **Federations** tab and select your federation.
+  1. Find the **Cookie lifetime** parameter.
+  1. Make sure its value is less than or equal to 6 hours. Otherwise, proceed to <q>Guides and solutions to use</q>.
+
+- Performing a check via the CLI {#cli}
+
+  1. See what organizations are available to you and write down the ID you need:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Run the command below to search for accounts with primitive roles assigned at the organization level:
+
+      ```bash
+      export ORG_ID=<organization ID>
+      for FED in $(yc organization-manager federation saml list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do yc organization-manager federation saml get --id bpfdshe1skaqcjp6uc50 --format=json | jq -r '. | select(.cookie_max_age>"21600s")'
+      done
+      ```
+
+  1. The output should return an empty string. If the output returns the current federation's settings where `cookie_max_age` > 21600s, proceed to <q>Guides and solutions to use</q>.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+Set the **Cookie lifetime** to 6 hours (21600 seconds) or less.
+
+### Access management {#access-control}
+
+#### 1.4 Only appropriate administrators can manage {{ iam-short-name }} group membership {#iam-admins}
 
 You can conveniently control access to resources via [user groups](../../../iam/operations/groups/create.md). Make sure to control access to a group as a resource. Users with access permissions for a group can manage other users' membership in that group. Users get these permissions in the following cases:
 
@@ -128,7 +173,7 @@ You can conveniently control access to resources via [user groups](../../../iam/
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to **All services** → **{{ org-full-name }}** → **Groups** → **Select a group** → **Group access permissions**.
   1. Toggle the **Inherited roles** switch.
-  1. If the list does not contain any accounts that must have no permission to manage group membership, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. If the list does not contain any accounts that must have no permission to manage group membership, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -136,7 +181,7 @@ You can conveniently control access to resources via [user groups](../../../iam/
 
 Remove the group access permissions from the accounts that do not require them.
 
-#### 1.4 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, and {{ roles-auditor }} {#min-privileges}
+#### 1.5 Service roles are used instead of primitive roles: {{ roles-admin }}, {{ roles-editor }}, {{ roles-viewer }}, {{ roles-auditor }} {#min-privileges}
 
 The [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access) requires assigning users the minimum required roles. We do not recommend using primitive roles, such as `{{ roles-admin }}`, `{{ roles-editor }}`, `{{ roles-viewer }}`, and `{{ roles-auditor }}` that are valid for all services, because this contradicts the principle of least privilege. To ensure more selective access control and implementation of the principle of least privilege, use service roles that only contain permissions for a certain type of resources in a given service. You can see the list of all service roles in the [{{ yandex-cloud }} roles reference](../../../iam/roles-reference.md).
 
@@ -148,11 +193,11 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to **All services** → **{{ org-full-name }}** → **Users**.
-  1. Make sure no accounts in the **Access permissions** column have these primitive roles: `{{ roles-admin }}`, `{{ roles-editor }}`, or `{{ roles-viewer }}`. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure no accounts in the **Access permissions** column have these primitive roles: `{{ roles-admin }}`, `{{ roles-editor }}`, or `{{ roles-viewer }}`. Otherwise, proceed to <q>Guides and solutions to use</q>.
   1. Next, go to the global cloud menu (click the cloud in the initial cloud menu). Select the **Access permissions** tab.
-  1. Make sure no accounts in the **Roles** column have these primitive roles: `{{ roles-admin }}`, `{{ roles-editor }}`, or `{{ roles-viewer }}`. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure no accounts in the **Roles** column have these primitive roles: `{{ roles-admin }}`, `{{ roles-editor }}`, or `{{ roles-viewer }}`. Otherwise, proceed to <q>Guides and solutions to use</q>.
   1. Next, go to each folder of each cloud and, similarly, navigate to the **Access permissions** tab.
-  1. Make sure no accounts in the **Roles** column have these primitive roles: `{{ roles-admin }}`, `{{ roles-editor }}`, or `{{ roles-viewer }}`. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure no accounts in the **Roles** column have these primitive roles: `{{ roles-admin }}`, `{{ roles-editor }}`, or `{{ roles-viewer }}`. Otherwise, proceed to <q>Guides and solutions to use</q>.
  
 - Performing a check via the CLI {#cli}
 
@@ -171,7 +216,7 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
         --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="viewer")'
       ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
   1. Run the command below to search for accounts with primitive roles assigned at the cloud level:
 
       ```bash
@@ -181,7 +226,7 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
       done
       ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
   1. Run the command below to search for accounts with primitive roles assigned at the level of all folders in your clouds:
 
       ```bash
@@ -193,7 +238,7 @@ Use the [{{ roles-auditor }}](../../../iam/roles-reference.md#auditor) role with
       done
       ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -203,7 +248,84 @@ Analyze the accounts found with the `{{ roles-admin }}`, `{{ roles-editor }}`, a
 
 Follow [this guide](../../../security-deck/operations/ciem/view-permissions.md) to view the full list of a subject's access permissions.
 
-#### 1.5 Cloud entities with service accounts are registered and limited {#sa}
+#### 1.6 The {{ roles-auditor }} role is used to prevent access to user data {#roles-auditor}
+
+Assign the `{{ roles-auditor }}` role to users who do not need access to data, e.g., external contractors or auditors.
+`{{ roles-auditor }}` is a role with least privilege without access to service data. It grants permission to read service configurations and metadata.
+The `{{ roles-auditor }}` role allows you to perform the following operations:
+
+* View information about a resource.
+* View resource metadata.
+* View a list of operations with a resource.
+
+To control access more selectively and implement the principle of least privilege, use the `{{ roles-auditor }}` role by default.
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+  1. Click the **Access permissions** tab.
+  1. Click **Assign roles**.
+  1. In the **Configure access bindings** window, click **Select user**.
+  1. Select a user from the list or search by user.
+  1. Click **Add role**.
+  1. Select the `{{ roles-auditor }}` role in the folder.
+  1. Click **Save**.
+
+- Performing a check via the CLI {#cli}
+
+  1. See what organizations are available to you and write down the ID you need:
+
+     ```bash
+     yc organization-manager organization list
+     ```
+
+  1. Run the command below to search for accounts with the `{{ roles-auditor }}` role assigned at the organization level:
+
+     ```bash
+     export ORG_ID=<organization_ID>
+     yc organization-manager organization list-access-bindings \
+     --id=${ORG_ID} \
+     --format=json | jq -r '.[] | select(.role_id=="auditor")'
+     ```
+
+     If the list of accounts is empty, proceed to <q>Guides and solutions to use</q>.
+
+  1. Run the command below to search for accounts with the `{{ roles-auditor }}` role assigned at the cloud level:
+
+     ```bash
+     export ORG_ID=<organization_ID>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+     do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
+     done
+     ```
+
+     If the list of accounts is empty, proceed to <q>Guides and solutions to use</q>.
+
+  1. Run the command below to search for accounts with the `{{ roles-auditor }}` role assigned at the level of all folders in your clouds:
+
+     ```bash
+     export ORG_ID=<organization_ID>
+     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
+     do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
+     done;
+     done
+     ```
+
+     If the list of accounts is empty, proceed to <q>Guides and solutions to use</q>.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+1. [Assign](../../../iam/operations/roles/grant.md) the `{{ roles-auditor }}` role to users requiring no data access.
+1. Remove the excessive account permissions using {{ iam-short-name }}.
+
+### Service accounts {#service-accounts}
+
+#### 1.7 Cloud entities with service accounts are registered and limited {#sa}
 
 A [service account](../../../iam/concepts/users/service-accounts.md) is an account that can be used by a program to manage resources in {{ yandex-cloud }}. A service account is used to make requests as an application.
 
@@ -223,7 +345,7 @@ A [service account](../../../iam/concepts/users/service-accounts.md) is an accou
   --jump REJECT
   ```
 
-The cloud entities with service accounts assigned must be registered and limited, because, for example, if a service account is assigned to a VM, a hacker may get the service account's token from the metadata service from within the VM.
+The cloud entities with service accounts assigned must be registered and limited because, for example, if a service account is assigned to a VM, a hacker may get the service account's token from the metadata service from within the VM.
 
 {% list tabs group=instructions %}
 
@@ -256,129 +378,13 @@ The cloud entities with service accounts assigned must be registered and limited
       done
       ```
 
-  1. If there are no lines in the list or only accounted entities are output, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. If there are no lines in the list or only accounted entities are output, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
 **Guides and solutions to use:**
 
 Remove the service accounts from the cloud entities that do not require them.
-
-#### 1.6 There are no cloud keys represented as plaintext in the VM metadata service {#cloud-keys}
-
-Do not write service account keys and other keys to the [VM metadata](../../../compute/concepts/vm-metadata.md) directly. [Assign a service account](../../../compute/operations/vm-connect/auth-inside-vm.md) to a VM instance and get a token using the metadata service. You can store sensitive data in any metadata field. However, the most common one is `user-data` (due to its use in the cloud-init utility).
-
-See the list of all regular expressions used to search for cloud accounts' credential secrets:
-
-* **yandex_cloud_iam_cookie_v1** : c1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
-  Yandex.Cloud Session Cookie
-* **yandex_cloud_iam_token_v1** : t1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
-  Yandex.Cloud IAM token
-* **yandex_cloud_iam_api_key_v1** : AQVN[A-Za-z0-9_\-]{35,38}
-  Yandex.Cloud API Keys (Speechkit, Vision, Translate)
-* **yandex_passport_oauth_token** : y[0-6]_[-_A-Za-z0-9]{55} 
-  Yandex Passport OAuth token
-* **yandex_cloud_iam_access_secret** : YC[a-zA-Z0-9_\-]{38}
-  Yandex.Cloud AWS API compatible Access Secret
-
-{% list tabs group=instructions %}
-
-- Performing a check via the CLI {#cli}
-
-  1. See what organizations are available to you and write down the ID you need:
-
-      ```bash
-      yc organization-manager organization list
-      ```
-
-  1. Run the command below to search for cloud keys in the metadata service represented as plaintext, using the example of {{ yandex-cloud }} AWS API Compatible Access Secret:
-
-      ```bash
-      export ORG_ID=<organization ID>
-      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc compute instance get --id=$VM_ID --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("YC[a-zA-Z0-9_\\-]{38}") | .string' && echo $VM_ID
-      done;
-      done;
-      done
-      ```
-
-  1. If there are no lines in the list, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
-  1. Run the command below to search for plaintext cloud keys in the metadata service. Here we use a {{ yandex-cloud }} {{ iam-short-name }} token as an example:
-
-      ```bash
-      export ORG_ID=<organization ID>
-      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-      do yc compute instance get --id fhm2i4a72v44kdqaqhid --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("t1\\.[A-Z0-9a-z_-]+[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}") | .string'
-      done;
-      done;
-      done
-      ```
-
-  1. If there are no lines in the list, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
-
-{% endlist %}
-
-**Guides and solutions to use:**
-
-Remove the keys from the metadata of the VMs with deviations found:
-
-{% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}
-
-#### 1.7 Getting a token via AWS IMDSv1 is disabled on the VM {#aws-token}
-
-The cloud has a [metadata service](../../../compute/concepts/vm-metadata.md) that provides information about VM performance.
-
-From inside a VM, metadata is available in the following formats:
-
-* Google Compute Engine (some fields are not supported).
-* Amazon EC2 (some fields are not supported).
-
-Amazon EC2 Instance Metadata Service version 1 (IMDSv1) has a number of drawbacks. The most critical of them is that there is a risk of compromising a service account token via the metadata service using a Server-Side Request Forgery (SSRF) attack. For more information, see the [official AWS blog](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/). Therefore, AWS has released IMDSv2, the second version of the metadata service.
-
-So far, {{ yandex-cloud }} does not support version 2, so it is strongly recommended to technically disable getting a service account token via the Amazon EC2 metadata service.
-
-The Google Compute Engine metadata service uses an additional header to protect against SSRF and enhance security.
-
-You can disable getting a service account token via Amazon EC2 using the [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) VM parameter.
-
-{% list tabs group=instructions %}
-
-- Performing a check via the CLI {#cli}
-
-  1. See what organizations are available to you and write down the ID you need:
-
-      ```bash
-      yc organization-manager organization list
-      ```
-
-  1. Run the command below to search for VMs with IMDSv1 enabled for getting a token:
-
-      ```bash
-      export ORG_ID=<organization ID>
-      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.metadata_options.aws_v1_http_token=="ENABLED")' | jq -r '.id' 
-      done;
-      done;
-      done
-      ```
-
-  1. If there are no lines in the list, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
-
-{% endlist %}
-
-**Guides and solutions to use:**
-
-Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) parameter to `DISABLED` for the found VMs:
-
-```bash
-yc compute instance update <VM_ID> \
-  --metadata-options aws-v1-http-token=DISABLED
-```
 
 #### 1.8 Service accounts have minimum privileges granted {#sa-privileges}
 
@@ -390,7 +396,7 @@ Follow the principle of least privilege and [assign to the service account](../.
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Check the list of service accounts.
   1. Repeat the steps for other folders.
@@ -447,7 +453,7 @@ Follow the principle of least privilege and [assign to the service account](../.
       done
       ```
 
-  1. Make sure the lists indicate no excessive permissions. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure the lists indicate no excessive permissions. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -469,11 +475,11 @@ Each service account with extended permissions should be placed as a resource in
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and go to the **Access permissions** tab.
   1. Check the access permissions assigned to the service account.
-  1. Make sure the list only contains valid administrators. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure the list only contains valid administrators. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 - Performing a check via the CLI {#cli}
 
@@ -499,7 +505,7 @@ Each service account with extended permissions should be placed as a resource in
         --id <service_account_ID>
       ```
  
-  1. Make sure the list only contains valid administrators. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure the list only contains valid administrators. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -524,11 +530,11 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and see the date of each key's generation under **Access key properties**.
   1. Repeat the steps for each of your folders.
-  1. Make sure the keys were created less than 90 days ago. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure the keys were created less than 90 days ago. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 - Performing a check via the CLI {#cli}
 
@@ -577,7 +583,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
       done
       ```
 
-  1. Make sure no list of keys of any type contains keys with the `created_at` value older than 90 days. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure no list of keys of any type contains keys with the `created_at` value older than 90 days. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -585,7 +591,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
 Follow the [guide](../../../iam/operations/compromised-credentials.md#key-reissue) for rotating keys depending on their type.
 
-#### 1.11 API keys have specified scopes {#api-key-scopes}
+#### 1.11 Service account API keys have specified scopes {#api-key-scopes}
 
 {% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
 
@@ -596,7 +602,7 @@ The scope limits the use of [API keys](../../../iam/concepts/authorization/api-k
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, check the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** field in the table with your API keys’ details.
   1. If all API keys have their scopes specified, the recommendation is fulfilled. Otherwise, proceed to the _Guides and solutions to use_.
@@ -617,7 +623,157 @@ The scope limits the use of [API keys](../../../iam/concepts/authorization/api-k
 
 [Create](../../../iam/operations/api-key/create.md#create-api-key) an API key with a specified scope.
 
-#### 1.12 Two-factor authentication is set up for privileged accounts {#twofa}
+#### 1.12 Tokens for cloud functions and VMs are issued by a service account {#func-token}
+
+To get an IAM token when executing a function, [assign](../../../functions/operations/function-sa.md) a service account to the function. In this case, the function will get an {{ iam-short-name }} token by means of built-in {{ yandex-cloud }} tools so that you do not have to provide any secrets to the function externally. Do the same [for your VMs](../../../compute/operations/vm-info/get-info.md#inside-instance). For more information about getting an IAM token in a function, see [{#T}](../../../functions/operations/function-sa.md).
+
+{% list tabs group=instructions %}
+
+- Manual check {#manual}
+
+  Analyze all of your VMs and cloud functions in terms of manually created service account tokens. Tokens are used properly if you assign a service account to an entity and use the account's token from within via the metadata service.
+
+{% endlist %}
+
+#### 1.13 Impersonation is used wherever possible {#impersonation}
+
+[Impersonation](../../../iam/operations/sa/set-access-bindings.md#impersonation) allows a user to perform actions under a service account and to temporarily extend user permissions without generating static credentials for the user. It may be useful for use cases such as duty, local development, or permission verification.
+
+{% list tabs group=instructions %}
+
+- Performing a check in the management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), click the name of the cloud you need in the left-hand panel.
+  1. Go to the **Access permissions** tab and check if the `{{ roles-iam-sa-tokencreator }}` role is there.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+If the `{{ roles-iam-sa-tokencreator }}` role is missing, set up impersonation for service accounts to provide temporary access to critical data by following this [guide](../../../iam/operations/sa/set-access-bindings.md#impersonation).
+
+
+### VM metadata {#vm-metadata}
+
+#### 1.14 There are no cloud keys represented as plain text in the VM metadata service {#cloud-keys}
+
+Do not write service account keys and other keys to the [VM metadata](../../../compute/concepts/vm-metadata.md) directly. [Assign a service account](../../../compute/operations/vm-connect/auth-inside-vm.md) to a VM instance and get a token using the metadata service. You can store sensitive data in any metadata field. However, the most common one is `user-data` (due to its use in the cloud-init utility).
+
+See the list of all regular expressions used to search for cloud accounts' credential secrets:
+
+* **yandex_cloud_iam_cookie_v1** : c1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
+  Yandex.Cloud Session Cookie
+* **yandex_cloud_iam_token_v1** : t1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
+  Yandex.Cloud IAM token
+* **yandex_cloud_iam_api_key_v1** : AQVN[A-Za-z0-9_\-]{35,38}
+  Yandex.Cloud API Keys (Speechkit, Vision, Translate)
+* **yandex_passport_oauth_token** : y[0-6]_[-_A-Za-z0-9]{55} 
+  Yandex Passport OAuth token
+* **yandex_cloud_iam_access_secret** : YC[a-zA-Z0-9_\-]{38}
+  Yandex.Cloud AWS API compatible Access Secret
+
+{% list tabs group=instructions %}
+
+- Performing a check via the CLI {#cli}
+
+  1. See what organizations are available to you and write down the ID you need:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Run the command below to search for cloud keys in the metadata service represented as plaintext, using the example of {{ yandex-cloud }} AWS API Compatible Access Secret:
+
+      ```bash
+      export ORG_ID=<organization ID>
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
+      do yc compute instance get --id=$VM_ID --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("YC[a-zA-Z0-9_\\-]{38}") | .string' && echo $VM_ID
+      done;
+      done;
+      done
+      ```
+
+  1. If there are no lines in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
+  1. Run the command below to search for plaintext cloud keys in the metadata service. Here we use a {{ yandex-cloud }} {{ iam-short-name }} token as an example:
+
+      ```bash
+      export ORG_ID=<organization ID>
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
+      do yc compute instance get --id fhm2i4a72v44kdqaqhid --full --format=json | jq -r '. | select(.metadata."user-data")| .metadata."user-data" | match("t1\\.[A-Z0-9a-z_-]+[=]{0,2}\\.[A-Z0-9a-z_-]{86}[=]{0,2}") | .string'
+      done;
+      done;
+      done
+      ```
+
+  1. If there are no lines in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+Remove the keys from the metadata of the VMs with deviations found:
+
+{% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}
+
+#### 1.15 Getting a token via AWS IMDSv1 is disabled on the VM {#aws-token}
+
+The cloud has a [metadata service](../../../compute/concepts/vm-metadata.md) that provides information about VM performance.
+
+From inside a VM, metadata is available in the following formats:
+
+* Google Compute Engine (some fields are not supported).
+* Amazon EC2 (some fields are not supported).
+
+Amazon EC2 Instance Metadata Service version 1 (IMDSv1) has a number of drawbacks. The most critical of them is that there is a risk of compromising a service account token via the metadata service using a Server-Side Request Forgery (SSRF) attack. For more information, see the [official AWS blog](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/). Therefore, AWS has released IMDSv2, the second version of the metadata service.
+
+So far, {{ yandex-cloud }} does not support version 2, so it is strongly recommended to technically disable getting a service account token via the Amazon EC2 metadata service.
+
+The Google Compute Engine metadata service uses an additional header to protect against SSRF and enhance security.
+
+You can disable getting a service account token via Amazon EC2 using the [aws_v1_http_token:DISABLED](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) VM parameter.
+
+{% list tabs group=instructions %}
+
+- Performing a check via the CLI {#cli}
+
+  1. See what organizations are available to you and write down the ID you need:
+
+      ```bash
+      yc organization-manager organization list
+      ```
+
+  1. Run the command below to search for VMs with IMDSv1 enabled for getting a token:
+
+      ```bash
+      export ORG_ID=<organization ID>
+      for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
+      do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
+      do for VM_ID in $(yc compute instance list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); do yc compute instance get --id=$VM_ID --format=json | jq -r '. | select(.metadata_options.aws_v1_http_token=="ENABLED")' | jq -r '.id' 
+      done;
+      done;
+      done
+      ```
+
+  1. If there are no lines in the list, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
+
+{% endlist %}
+
+**Guides and solutions to use:**
+
+Under metadata_options, set the [aws_v1_http_token](../../../compute/api-ref/grpc/Instance/create.md#yandex.cloud.compute.v1.MetadataOptions) parameter to `DISABLED` for the found VMs:
+
+```bash
+yc compute instance update <VM_ID> \
+  --metadata-options aws-v1-http-token=DISABLED
+```
+
+### Privileged accounts {#privileged-accounts}
+
+#### 1.16 Two-factor authentication is set up for privileged accounts {#twofa}
 
 We recommend using two-factor authentication (2FA) for cloud infrastructure access control to avoid the risk of compromising user accounts. Access to the {{ yandex-cloud }} management console can be based on 2FA.
 
@@ -632,7 +788,7 @@ For a Yandex ID, set up 2FA using [this guide](https://yandex.com/support/id/au
   1. Open the Yandex ID UI in your browser.
   1. Go to the [Security](https://id.yandex.ru/security) tab.
   1. Make sure login with an additional key is selected as the login option.
-  1. If the key-based login is configured, the recommendation is fulfilled. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. If the key-based login is configured, the recommendation is fulfilled. Otherwise, proceed to <q>Guides and solutions to use</q>.
   1. If you are using external IdPs, follow the guides to check the settings.
 
 {% endlist %}
@@ -643,7 +799,7 @@ For a Yandex ID, set up 2FA using [this guide](https://yandex.com/support/id/au
 * [KeyCloak: Creating other credentials](https://www.keycloak.org/docs/latest/server_admin/#creating-other-credentials)
 * [Configure Additional Authentication Methods for AD FS](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs).
 
-#### 1.13 Only trusted administrators have privileged roles {#privileged-users}
+#### 1.17 Only trusted administrators have privileged roles {#privileged-users}
 
 {{ yandex-cloud }} privileged users include accounts with the following roles:
 
@@ -669,7 +825,7 @@ The most appropriate approach would be to not use this account on a regular basi
 * After that, if you do not use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily.
 * Change the password to a newly generated one each time you use the account.
 
-We recommend disabling 2FA only for this account and if it is not assigned to a specific employee. Thus you can avoid linking this critical account to a personal device.
+We recommend disabling 2FA only for this account and if it is not assigned to a specific employee.<q></q> Thus you can avoid linking this critical account to a personal device.
 
 To manage a billing account, assign the `{{ roles-admin }}` or `{{ roles-editor }}` role for the billing account to a dedicated employee with a federated account.
 
@@ -716,7 +872,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
   1. Open the {{ yandex-cloud }} management console in your browser.
   1. Next, go to each folder of each cloud and, similarly, select the **Access permissions** tab.
   1. Check to whom the `{{ roles-admin }}` role is granted.
-  1. Make sure all the privileged roles are granted to trusted administrators. Otherwise, proceed to the "Guides and solutions to use".
+  1. Make sure all the privileged roles are granted to trusted administrators. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 - Performing a check via the CLI {#cli}
 
@@ -755,7 +911,7 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
       done
       ```
 
-  1. Make sure all the privileged roles are granted to trusted administrators. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure all the privileged roles are granted to trusted administrators. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -763,7 +919,9 @@ Assign federated accounts the `{{ roles-admin }}` roles for clouds, folders, and
 
 If any roles granted to untrusted administrators are found, investigate why and remove the respective permissions.
 
-#### 1.14 Strong passwords are set for local users of managed databases {#mdb-auth}
+### Local users of managed databases {#mdb-users} 
+
+#### 1.18 Strong passwords are set for local users of managed databases {#mdb-auth}
 
 To use a database at the application level, in addition to {{ iam-short-name }} service roles, a separate local user is created: the database owner. The following password policy applies to this user:
 
@@ -778,7 +936,9 @@ To use a database at the application level, in addition to {{ iam-short-name }} 
 
 {% endlist %}
 
-#### 1.15 Contractor and third-party access control is enabled {#contractors}
+### Third party access {#outstaff-access}
+
+#### 1.19 Contractor and third-party access control is enabled {#contractors}
 
 If you grant third-party contractors access to your clouds, make sure to follow these security measures:
 
@@ -796,7 +956,9 @@ If you grant third-party contractors access to your clouds, make sure to follow 
 
 {% endlist %}
 
-#### 1.16 The proper resource model is used {#resourses}
+### Resource model {#resource-framework}
+
+#### 1.20 The proper resource model is used {#resourses}
 
 When developing an access model for your infrastructure, we recommend the following approach:
 
@@ -815,7 +977,7 @@ When developing an access model for your infrastructure, we recommend the follow
 
 {% endlist %}
 
-#### 1.17 There is no <q>public access</q> to your organization's resources {#public-access}
+#### 1.21 There is no <q>public access</q> to your organization's resources {#public-access}
 
 {{ yandex-cloud }} allows you to grant public access to your resources. You can grant public access by assigning access permissions to [public groups](../../../iam/concepts/access-control/public-group.md) (`All authenticated users`, `All users`). 
 
@@ -936,7 +1098,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
       done
       ```
 
-  1. Make sure none of the specified resources contain `allUsers` or `allAuthenticatedUsers`. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure none of the specified resources contain `allUsers` or `allAuthenticatedUsers`. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -944,7 +1106,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
 
 If you detect that `All users` and `All authenticated users` have the access permissions that they should not have, remove these permissions.
 
-#### 1.18 Contact information of the person in charge of an organization is valid {#org-contacts}
+#### 1.22 Contact information of the person in charge of your organization is valid {#org-contacts}
 
 When registering a cloud in {{ yandex-cloud }}, customers enter their contact information. For example, an email address is used for notifications about incidents, scheduled maintenance activities, and so on.
 
@@ -961,7 +1123,7 @@ Make sure the contact information is valid and messages are sent to multiple per
   1. Go to the **Account data** tab.
   1. At the bottom, click **Edit data in Yandex Balance**.
   1. Verify the specified contact information.
-  1. Make sure the contact details are valid. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure the contact details are valid. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 {% endlist %}
 
@@ -969,75 +1131,7 @@ Make sure the contact information is valid and messages are sent to multiple per
 
 Specify up-to-date contact information using the [guide](../../../billing/operations/change-data.md#change-address).
 
-#### 1.19 The cookie lifetime in a federation is less than 6 hours {#cookie-timeout}
-
-In the [identity federation](../../../organization/concepts/add-federation.md) settings, make sure the **Cookie lifetime** parameter value is less than or equal to 6 hours. Thus you minimize the risk of compromising cloud users' workstations.
-
-{% list tabs group=instructions %}
-
-- Performing a check in the management console {#console}
-
-  1. Open the {{ yandex-cloud }} management console in your browser.
-  1. Go to the **Organizations** tab.
-  1. Next, open the **Federations** tab and select your federation.
-  1. Find the **Cookie lifetime** parameter.
-  1. Make sure its value is less than or equal to 6 hours. Otherwise, proceed to the <q>Guides and solutions to use</q>.
-
-- Performing a check via the CLI {#cli}
-
-  1. See what organizations are available to you and write down the ID you need:
-
-      ```bash
-      yc organization-manager organization list
-      ```
-
-  1. Run the command below to search for accounts with primitive roles assigned at the organization level:
-
-      ```bash
-      export ORG_ID=<organization ID>
-      for FED in $(yc organization-manager federation saml list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-      do yc organization-manager federation saml get --id bpfdshe1skaqcjp6uc50 --format=json | jq -r '. | select(.cookie_max_age>"21600s")'
-      done
-      ```
-
-  1. The output should return an empty string. If the output returns the current federation's settings where `cookie_max_age` > 21600s, proceed to <q>Guides and solutions to use</q>.
-
-{% endlist %}
-
-**Guides and solutions to use:**
-
-Set the **Cookie lifetime** to 6 hours (21600 seconds) or less.
-
-#### 1.20 Tokens for cloud functions and VMs are issued by a service account {#func-token}
-
-To get an IAM token when executing a function, [assign](../../../functions/operations/function-sa.md) a service account to the function. In this case, the function will get an {{ iam-short-name }} token by means of built-in {{ yandex-cloud }} tools so that you do not have to provide any secrets to the function externally. Do the same [for your VMs](../../../compute/operations/vm-info/get-info.md#inside-instance). For more information about getting an IAM token in a function, see [{#T}](../../../functions/operations/function-sa.md).
-
-{% list tabs group=instructions %}
-
-- Manual check {#manual}
-
-  Analyze all of your VMs and cloud functions in terms of manually created service account tokens. Tokens are used properly if you assign a service account to an entity and use the account's token from within via the metadata service.
-
-{% endlist %}
-
-#### 1.21 Impersonation is used wherever possible {#impersonation}
-
-[Impersonation](../../../iam/operations/sa/set-access-bindings.md#impersonation) allows a user to perform actions under a service account and to temporarily extend user permissions without generating static credentials for the user. It may be useful for use cases such as duty, local development, or permission verification.
-
-{% list tabs group=instructions %}
-
-- Performing a check in the management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), click the name of the cloud you need in the left-hand panel.
-  1. Go to the **Access permissions** tab and check if the `{{ roles-iam-sa-tokencreator }}` role is there.
-
-{% endlist %}
-
-**Guides and solutions to use:**
-
-If the `{{ roles-iam-sa-tokencreator }}` role is missing, set up impersonation for service accounts to provide temporary access to critical data by following this [guide](../../../iam/operations/sa/set-access-bindings.md#impersonation).
-
-#### 1.22 Resource labels are used {#labels}
+#### 1.23 Resource labels are used {#labels}
 
 [Labels](../../../resource-manager/concepts/labels.md) are required to monitor data streams and tag critical resources for privilege management.
 For example, to tag resources which handle personal data under Federal Law No. FZ-152 of the Russian Federation on Personal Data, select the `152-fz:true` label for:
@@ -1063,7 +1157,9 @@ For example, to tag resources which handle personal data under Federal Law No. F
 
 [Guide on managing labels](../../../resource-manager/operations/manage-labels.md)
 
-#### 1.23 {{ yandex-cloud }} security notifications are enabled {#security-notifications}
+### Notifications and audit {#notifications-and-audit}
+
+#### 1.24 {{ yandex-cloud }} security notifications are enabled {#security-notifications}
 
 To get notifications of security-related events, such as vulnerability detection and elimination, we recommend selecting security notifications in the management console.
 
@@ -1082,81 +1178,6 @@ To get notifications of security-related events, such as vulnerability detection
 1. [Make sure](../../../resource-manager/concepts/notify.md) that notifications are set up.
 1. Enable the **Security** option in the notification settings in the management console.
 
-#### 1.24 The {{ roles-auditor }} role is used to prevent access to user data {#roles-auditor}
-
-Assign the `{{ roles-auditor }}` role to users who do not need access to data, e.g., external contractors or auditors.
-`{{ roles-auditor }}` is a role with least privilege without access to service data. It grants permission to read service configurations and metadata.
-The `{{ roles-auditor }}` role allows you to perform the following operations:
-
-* View information about a resource.
-* View resource metadata.
-* View a list of operations with a resource.
-
-To control access more selectively and implement the principle of least privilege, use the `{{ roles-auditor }}` role by default.
-
-{% list tabs group=instructions %}
-
-- Performing a check in the management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. Click the **Access permissions** tab.
-  1. Click **Assign roles**.
-  1. In the **Configure access bindings** window, click **Select user**.
-  1. Select a user from the list or search by user.
-  1. Click **Add role**.
-  1. Select the `{{ roles-auditor }}` role in the folder.
-  1. Click **Save**.
-
-- Performing a check via the CLI {#cli}
-
-  1. See what organizations are available to you and write down the ID you need:
-
-     ```bash
-     yc organization-manager organization list
-     ```
-
-  1. Run the command below to search for accounts with the `{{ roles-auditor }}` role assigned at the organization level:
-
-     ```bash
-     export ORG_ID=<organization_ID>
-     yc organization-manager organization list-access-bindings \
-     --id=${ORG_ID} \
-     --format=json | jq -r '.[] | select(.role_id=="auditor")'
-     ```
-
-     If the list of accounts is empty, go to the <q>Guides and solutions to use</q>.
-
-  1. Run the command below to search for accounts with the `{{ roles-auditor }}` role assigned at the cloud level:
-
-     ```bash
-     export ORG_ID=<organization_ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do yc resource-manager cloud list-access-bindings --id=$CLOUD_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
-     done
-     ```
-
-     If the list of accounts is empty, go to the <q>Guides and solutions to use</q>.
-
-  1. Run the command below to search for accounts with the `{{ roles-auditor }}` role assigned at the level of all folders in your clouds:
-
-     ```bash
-     export ORG_ID=<organization_ID>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); \
-     do yc resource-manager folder list-access-bindings --id=$FOLDER_ID --format=json | jq -r '.[] | select(.role_id=="auditor")'
-     done;
-     done
-     ```
-
-     If the list of accounts is empty, go to the <q>Guides and solutions to use</q>.
-
-{% endlist %}
-
-**Guides and solutions to use:**
-
-1. [Assign](../../../iam/operations/roles/grant.md) the `{{ roles-auditor }}` role to users requiring no data access.
-1. Remove the excessive account permissions using {{ iam-short-name }}.
-
 #### 1.25 Tracking the date of last service account authentication and last access key use in {{ iam-full-name }} {#key-usage-control}
 
 {% include [sa-last-used-data](../../iam/sa-last-used-data.md) %}
@@ -1170,7 +1191,7 @@ For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account with access keys belongs to.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you need.
   1. You can see the time of the last key use in the table with key info under **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_last-used-at }}**.

@@ -1,5 +1,5 @@
 ---
-title: Getting started
+title: How to use the free trial
 description: The trial period is a one-time introductory offer for new clients. The trial period is available to you if you have not purchased {{ yandex-cloud }} services or activated the trial period before.
 ---
 
@@ -34,7 +34,7 @@ You might also find these links useful:
 * [{#T}](usage-monitor.md)
 * [{#T}](trial-ending.md)
 * [{#T}](upgrade-to-paid.md)
-* [{{ yandex-cloud }} platform overview](../../overview/index.yaml)
+* [{{ yandex-cloud }} overview](../../overview/index.yaml)
 * [{{ yandex-cloud }} documentation](/docs)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

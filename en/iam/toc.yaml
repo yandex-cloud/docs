@@ -86,6 +86,11 @@ items:
             href: operations/service-control/list-get.md
           - name: Enabling and disabling services
             href: operations/service-control/enable-disable.md
+      - name: Workload identity federations
+        stage: preview
+        items:
+          - name: Setting up workload identity federations
+            href: operations/wlif/setup-wlif.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -160,7 +165,150 @@ items:
   - name: Role reference
     href: roles-reference.md
   - name: CLI reference
-    href: ../cli/cli-ref/iam/cli-ref/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: access-key
+        items:
+          - name: Overview
+            href: cli-ref/access-key/index.md
+          - name: create
+            href: cli-ref/access-key/create.md
+          - name: delete
+            href: cli-ref/access-key/delete.md
+          - name: get
+            href: cli-ref/access-key/get.md
+          - name: list
+            href: cli-ref/access-key/list.md
+      - name: api-key
+        items:
+          - name: Overview
+            href: cli-ref/api-key/index.md
+          - name: create
+            href: cli-ref/api-key/create.md
+          - name: delete
+            href: cli-ref/api-key/delete.md
+          - name: get
+            href: cli-ref/api-key/get.md
+          - name: list
+            href: cli-ref/api-key/list.md
+          - name: list-scopes
+            href: cli-ref/api-key/list-scopes.md
+          - name: update
+            href: cli-ref/api-key/update.md
+      - name: create-token
+        href: cli-ref/create-token.md
+      - name: key
+        items:
+          - name: Overview
+            href: cli-ref/key/index.md
+          - name: create
+            href: cli-ref/key/create.md
+          - name: delete
+            href: cli-ref/key/delete.md
+          - name: get
+            href: cli-ref/key/get.md
+          - name: list
+            href: cli-ref/key/list.md
+      - name: revoke-token
+        href: cli-ref/revoke-token.md
+      - name: role
+        items:
+          - name: Overview
+            href: cli-ref/role/index.md
+          - name: get
+            href: cli-ref/role/get.md
+          - name: list
+            href: cli-ref/role/list.md
+      - name: service-account
+        items:
+          - name: Overview
+            href: cli-ref/service-account/index.md
+          - name: add-access-binding
+            href: cli-ref/service-account/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/service-account/add-labels.md
+          - name: create
+            href: cli-ref/service-account/create.md
+          - name: delete
+            href: cli-ref/service-account/delete.md
+          - name: get
+            href: cli-ref/service-account/get.md
+          - name: list
+            href: cli-ref/service-account/list.md
+          - name: list-access-bindings
+            href: cli-ref/service-account/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/service-account/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/service-account/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/service-account/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/service-account/set-access-bindings.md
+          - name: update
+            href: cli-ref/service-account/update.md
+      - name: service-control
+        items:
+          - name: Overview
+            href: cli-ref/service-control/index.md
+          - name: disable
+            href: cli-ref/service-control/disable.md
+          - name: enable
+            href: cli-ref/service-control/enable.md
+          - name: get
+            href: cli-ref/service-control/get.md
+          - name: list
+            href: cli-ref/service-control/list.md
+      - name: user-account
+        items:
+          - name: Overview
+            href: cli-ref/user-account/index.md
+          - name: get
+            href: cli-ref/user-account/get.md
+      - name: workload-identity
+        items:
+          - name: Overview
+            href: cli-ref/workload-identity/index.md
+          - name: federated-credential
+            items:
+              - name: Overview
+                href: cli-ref/workload-identity/federated-credential/index.md
+              - name: create
+                href: cli-ref/workload-identity/federated-credential/create.md
+              - name: delete
+                href: cli-ref/workload-identity/federated-credential/delete.md
+              - name: get
+                href: cli-ref/workload-identity/federated-credential/get.md
+              - name: list
+                href: cli-ref/workload-identity/federated-credential/list.md
+          - name: oidc
+            items:
+              - name: Overview
+                href: cli-ref/workload-identity/oidc/index.md
+              - name: federation
+                items:
+                  - name: Overview
+                    href: cli-ref/workload-identity/oidc/federation/index.md
+                  - name: add-audiences
+                    href: cli-ref/workload-identity/oidc/federation/add-audiences.md
+                  - name: add-labels
+                    href: cli-ref/workload-identity/oidc/federation/add-labels.md
+                  - name: create
+                    href: cli-ref/workload-identity/oidc/federation/create.md
+                  - name: delete
+                    href: cli-ref/workload-identity/oidc/federation/delete.md
+                  - name: get
+                    href: cli-ref/workload-identity/oidc/federation/get.md
+                  - name: list
+                    href: cli-ref/workload-identity/oidc/federation/list.md
+                  - name: remove-audiences
+                    href: >-
+                      cli-ref/workload-identity/oidc/federation/remove-audiences.md
+                  - name: remove-labels
+                    href: cli-ref/workload-identity/oidc/federation/remove-labels.md
+                  - name: update
+                    href: cli-ref/workload-identity/oidc/federation/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -700,5 +848,5 @@ items:
         href: qa/general.md
       - name: Logging in and accessing resources
         href: qa/access.md
-      - name: All questions on one page
+      - name: All questions on a single page
         href: qa/index.md

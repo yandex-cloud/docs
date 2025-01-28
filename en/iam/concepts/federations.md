@@ -1,6 +1,6 @@
 # Identity federations
 
-Using [{{ org-full-name }}](../../organization/), you can configure Single Sign-On authentication in {{ yandex-cloud }} through your Identity Provider, such as Active Directory or Google Workspace.
+Using [{{ org-full-name }}](../../organization/), you can configure Single Sign-On authentication in {{ yandex-cloud }} through your Identity Provider, such as Active Directory or Google Workspace. 
 
 This authentication approach is called an identity federation: company employees use their corporate accounts and only authenticate in the corporate authentication system. To access resources in {{ yandex-cloud }}, they don't need Yandex ID accounts.
 

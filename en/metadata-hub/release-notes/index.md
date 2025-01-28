@@ -44,7 +44,7 @@ Added the ability to manage connections to the following databases:
 
 ### New features {#new-features-august}
 
-Added support for custom {{ RD }} DB installation and [{{ mrd-name }}](../../managed-redis/concepts/index.md) cluster connections.
+Added support for custom {{ RD }} DB installation and [Managed Service for Redis](../../managed-redis/concepts/index.md) cluster connections.
 
 ## July {#july}
 

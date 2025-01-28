@@ -28,6 +28,13 @@ To create a [resource](../../concepts/resource.md):
         * Click **{{ ui-key.yacloud.common.create }}**. In the **{{ ui-key.yacloud.cdn.label_origins-group }}** field, you will see the name of the created origin group.
 
      For more information, see [{#T}](../../concepts/origins.md).
+
+  1. Add [labels](../../concepts/labels.md), if required:
+
+      1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+      1. Enter a label in `key: value` format.
+      1. Click **Enter**.
+
   1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, enter **{{ ui-key.yacloud.cdn.label_personal-domain }}**. You can add multiple **Domain names**. Names may include characters other than [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII), e.g., Сyrillic, or [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). The first name is considered the primary domain name.
 
      {% note warning %}
@@ -155,6 +162,8 @@ To create a [resource](../../concepts/resource.md):
      * `--rewrite-flag`: [Flag](../../concepts/http-rewrite.md#flag). The possible values are:
 
          {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+
+     * To add [labels](../../concepts/labels.md), use the `--add-labels` parameter, e.g., `--add-labels key1=value1`.
 
      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 

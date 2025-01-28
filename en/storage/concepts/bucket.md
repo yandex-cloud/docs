@@ -1,6 +1,6 @@
 ---
 title: Bucket
-description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Names of {{ yandex-cloud }} buckets are unique, i.e., you cannot create two buckets with the same name even if they reside in two different folders and in different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
+description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Names of {{ yandex-cloud }} buckets are unique, i.e., you cannot create two buckets with the same name – even in different folders of different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
 keywords:
   - what is a bucket
   - bucket
@@ -26,7 +26,7 @@ A bucket name is used as part of the data access URL and is visible to your user
 
 The naming requirements are as follows:
 
-- Bucket names are unique throughout {{ objstorage-name }}, i.e., you cannot create two buckets with the same name even in different folders belonging to different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
+- Bucket names are unique throughout {{ objstorage-name }}, i.e., you cannot create two buckets with the same name – even in different folders of different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
 - Bucket names are subject to the following restrictions:
 
    {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
@@ -52,6 +52,10 @@ You can use the following URL formats to access a bucket:
 {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
 For more information on HTTPS support when hosting websites in {{ objstorage-name }}, see [{#T}](./hosting.md).
+
+
+{% include [tls-support-alert](../../_includes/storage/tls-support-alert.md) %}
+
 
 
 ## Bucket settings {#bucket-settings}

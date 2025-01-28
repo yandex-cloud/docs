@@ -17,7 +17,7 @@ items:
         items:
           - name: Creating a Linux VM
             href: operations/vm-create/create-linux-vm.md
-          - name: Creating a VM from a set of disks
+          - name: Creating a VM from disks
             href: operations/vm-create/create-from-disks.md
           - name: Creating a VM with disks from snapshots
             href: operations/vm-create/create-from-snapshots.md
@@ -25,6 +25,8 @@ items:
             href: operations/vm-create/create-from-user-image.md
           - name: Creating a VM with a custom configuration script
             href: operations/vm-create/create-with-cloud-init-scripts.md
+          - name: Creating a VM with metadata from environment variables
+            href: operations/vm-create/create-with-env-variables.md
           - name: Creating a VM with a GPU
             href: operations/vm-create/create-vm-with-gpu.md
           - name: Making a VM preemptible
@@ -71,7 +73,7 @@ items:
         items:
           - name: Getting information about a VM
             href: operations/vm-info/get-info.md
-          - name: Getting serial port's output
+          - name: Getting serial port output
             href: operations/vm-info/get-serial-port-output.md
       - name: Managing a VM
         items:
@@ -85,9 +87,9 @@ items:
             href: operations/vm-control/vm-detach-disk.md
           - name: Moving a VM to a different availability zone
             href: operations/vm-control/vm-change-zone.md
-          - name: Moving a VM to another folder
+          - name: Moving a VM to a different folder
             href: operations/vm-control/vm-change-folder.md
-          - name: Moving a VM to another cloud
+          - name: Moving a VM to a different cloud
             href: operations/vm-control/vm-change-cloud.md
           - name: Adding another network interface to a VM
             href: operations/vm-control/attach-network-interface.md
@@ -95,11 +97,11 @@ items:
             href: operations/vm-control/detach-network-interface.md
           - name: Assigning a public IP address to a VM
             href: operations/vm-control/vm-attach-public-ip.md
-          - name: Removing a public IP address from a VM
+          - name: Unassigning a public IP address from a VM
             href: operations/vm-control/vm-detach-public-ip.md
-          - name: Making a VM's public IP address static
+          - name: Making a VM public IP address static
             href: operations/vm-control/vm-set-static-ip.md
-          - name: Changing a VM's internal IP address
+          - name: Changing a VM internal IP address
             href: operations/vm-control/internal-ip-update.md
           - name: Updating a VM
             href: operations/vm-control/vm-update.md
@@ -113,7 +115,7 @@ items:
             href: operations/vm-control/vm-access.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
-      - name: Working on a VM
+      - name: Using a VM
         items:
           - name: Connecting to a VM via SSH
             href: operations/vm-connect/ssh.md
@@ -125,7 +127,7 @@ items:
             href: operations/vm-connect/powershell.md
           - name: '{{ oslogin }}'
             items:
-              - name: Creating a VM from a {{ oslogin }}
+              - name: Creating a VM with {{ oslogin }} support
                 href: operations/vm-connect/os-login-create-vm.md
               - name: Configuring {{ oslogin }} on an existing VM
                 href: operations/vm-connect/enable-os-login.md
@@ -137,15 +139,15 @@ items:
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
-          - name: Restoring access to a VM
+          - name: Recovering access to a VM
             href: operations/vm-connect/recovery-access.md
       - name: Managing the password reset agent
         items:
-          - name: Verifying agent operation
+          - name: Testing the agent
             href: operations/vm-guest-agent/check.md
           - name: Installing the agent
             href: operations/vm-guest-agent/install.md
-          - name: Resetting the administrator password
+          - name: Resetting the admin password
             href: operations/vm-guest-agent/reset-password.md
           - name: Deleting the agent
             href: operations/vm-guest-agent/uninstall.md
@@ -163,13 +165,13 @@ items:
             href: operations/disk-create/from-snapshot.md
           - name: Recovering a disk from an image
             href: operations/disk-create/from-image.md
-      - name: Disk management
+      - name: Managing a disk
         items:
           - name: Updating a disk
             href: operations/disk-control/update.md
           - name: Configuring disk snapshot schedules
             href: operations/disk-control/configure-schedule.md
-          - name: Moving a disk to another folder
+          - name: Moving a disk to a different folder
             href: operations/disk-control/disk-change-folder.md
           - name: Moving a disk to a different availability zone
             href: operations/disk-control/disk-change-zone.md
@@ -183,11 +185,11 @@ items:
             href: operations/disk-control/delete.md
       - name: Disk snapshots
         items:
-          - name: Creating snapshots
+          - name: Creating a snapshot
             href: operations/disk-control/create-snapshot.md
           - name: Getting information about a disk snapshot
             href: operations/snapshot-control/get-snapshot.md
-          - name: Deleting snapshots
+          - name: Deleting a snapshot
             href: operations/snapshot-control/delete.md
           - name: Creating a snapshot schedule
             href: operations/snapshot-control/create-schedule.md
@@ -221,7 +223,7 @@ items:
         items:
           - name: Preparing a disk image
             href: operations/image-create/custom-image.md
-          - name: Uploading your image
+          - name: Uploading a custom image
             href: operations/image-create/upload.md
           - name: Creating an image from a disk
             href: operations/image-create/create-from-disk.md
@@ -239,7 +241,7 @@ items:
             href: operations/image-control/import.md
           - name: Configuring image access permissions
             href: operations/image-control/access.md
-          - name: Deleting a disk image
+          - name: Deleting an image
             href: operations/image-control/delete.md
       - name: File storages
         items:
@@ -263,11 +265,11 @@ items:
             href: operations/serial-console/index.md
           - name: Connecting to a serial console via SSH
             href: operations/serial-console/connect-ssh.md
-          - name: Connecting to a serial console via the CLI
+          - name: Connecting to a serial console using the CLI
             href: operations/serial-console/connect-cli.md
-          - name: Starting your terminal in the Windows serial console (SAC)
+          - name: Starting a command prompt in the Windows SAC
             href: operations/serial-console/windows-sac.md
-          - name: Disabling access to the serial console
+          - name: Disabling access to a serial console
             href: operations/serial-console/disable.md
       - name: Creating an instance group
         items:
@@ -279,9 +281,9 @@ items:
             href: operations/instance-groups/create-with-load-balancer.md
           - name: Creating an autoscaling instance group
             href: operations/instance-groups/create-autoscaled-group.md
-          - name: Creating an instance group from a Container Optimized Image
+          - name: Creating an instance group with Container Optimized Image
             href: operations/instance-groups/create-with-coi.md
-          - name: Creating an instance group based on the YAML specification
+          - name: Creating an instance group based on a YAML specification
             href: operations/instance-groups/create-from-yaml.md
           - name: Creating an instance group in a placement group
             href: operations/placement-groups/create-ig-in-pg.md
@@ -289,9 +291,9 @@ items:
             href: operations/instance-groups/create-with-fixed-ip.md
           - name: Creating an instance group connected to a file storage
             href: operations/instance-groups/create-with-filesystem.md
-          - name: Creating a VM group connected to {{ objstorage-name }}
+          - name: Creating an instance group connected to {{ objstorage-name }}
             href: operations/instance-groups/create-with-bucket.md
-      - name: Getting information about instance groups
+      - name: Getting information about an instance group
         items:
           - name: Getting a list of instance groups
             href: operations/instance-groups/get-list.md
@@ -299,11 +301,11 @@ items:
             href: operations/instance-groups/get-info.md
           - name: Getting a list of instances in a group
             href: operations/instance-groups/get-list-instances.md
-      - name: Managing a VM group
+      - name: Managing an instance group
         items:
-          - name: Editing an instance group
+          - name: Updating an instance group
             href: operations/instance-groups/update.md
-          - name: Editing an instance group based on the YAML specification
+          - name: Updating an instance group based on a YAML specification
             href: operations/instance-groups/update-from-yaml.md
           - name: Moving an instance group to a different availability zone
             href: operations/instance-groups/move-group.md
@@ -315,21 +317,21 @@ items:
               Moving an instance group with an L7 load balancer to a different
               availability zone
             href: operations/instance-groups/move-group-with-alb.md
-          - name: Configuring application health check on the VM
+          - name: Configuring application health checks on a VM instance
             href: operations/instance-groups/enable-autohealing.md
           - name: Updating a group
             items:
-              - name: Incremental update
+              - name: Rolling update
                 href: operations/instance-groups/deploy/rolling-update.md
-              - name: Uninterrupted updates
+              - name: Zero-downtime update
                 href: operations/instance-groups/deploy/zero-downtime.md
           - name: Pausing an instance group
             href: operations/instance-groups/pause-processes.md
           - name: Resuming an instance group
             href: operations/instance-groups/resume-processes.md
-          - name: Restarting group instances one by one
+          - name: Sequentially restarting instances in a group
             href: operations/instance-groups/rolling-restart.md
-          - name: Recreating group instances one by one
+          - name: Sequentially recreating instances in a group
             href: operations/instance-groups/rolling-recreate.md
           - name: Stopping an instance group
             href: operations/instance-groups/stop.md
@@ -349,7 +351,7 @@ items:
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Creating a VM on a dedicated host
             href: operations/dedicated-host/running-host-vms.md
-          - name: Configuring dedicated host group access permissions
+          - name: Configuring access permissions for a dedicated host group
             href: operations/dedicated-host/access.md
       - name: GPU clusters
         items:
@@ -373,7 +375,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Configuring clock synchronization using NTP
+      - name: Configuring time synchronization using NTP
         href: tutorials/ntp.md
       - name: Running an instance group with autoscaling
         items:
@@ -391,7 +393,7 @@ items:
             href: tutorials/vm-scale-scheduled/console.md
           - name: '{{ TF }}'
             href: tutorials/vm-scale-scheduled/terraform.md
-      - name: Autoscaling a group of VMs to process messages from a queue
+      - name: Autoscaling a group of instances to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
@@ -399,7 +401,7 @@ items:
         href: tutorials/rds-gw.md
       - name: Getting started with Packer
         href: tutorials/packer-quickstart.md
-      - name: Transferring logs from a VM instance to {{ cloud-logging-full-name }}
+      - name: Transferring logs from a VM to {{ cloud-logging-full-name }}
         href: tutorials/vm-fluent-bit-logging.md
       - name: Building a VM image with infrastructure tools using Packer
         href: tutorials/packer-custom-image.md
@@ -411,7 +413,7 @@ items:
         href: tutorials/hystax-backup.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
-      - name: Assigning a domain name to a VM with a web server
+      - name: Assigning a domain name to a web server VM
         items:
           - name: Overview
             href: tutorials/bind-domain-vm/index.md
@@ -429,13 +431,11 @@ items:
             href: tutorials/nat-instance/console.md
           - name: '{{ TF }}'
             href: tutorials/nat-instance/terraform.md
-      - name: >-
-          Creating a trigger for budgets that invokes a function to stop VM
-          instances
+      - name: Creating a budget trigger that invokes a function to stop a VM
         href: tutorials/serverless-trigger-budget-vm.md
       - name: >-
-          Creating a trigger that invokes a function to stop VM instances and
-          send a Telegram notification
+          Creating triggers that invoke a function to stop a VM and send a
+          Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: OpenCart online store
         items:
@@ -465,11 +465,11 @@ items:
             href: tutorials/single-node-file-server/console.md
           - name: '{{ TF }}'
             href: tutorials/single-node-file-server/terraform.md
-      - name: Configuring an SFTP server based on CentOS 7
+      - name: Configuring an SFTP server on CentOS 7
         href: tutorials/backup-and-archive-to-sftp.md
-      - name: Deploying the GlusterFS parallel file system in high availability mode
+      - name: Deploying GlusterFS in high availability mode
         href: tutorials/ha-regional-glusterfs.md
-      - name: Deploying the GlusterFS parallel file system in high performance mode
+      - name: Deploying GlusterFS in high performance mode
         href: tutorials/ha-regional-glusterfs-high-performance.md
       - name: Backup to {{ objstorage-name }} via Bacula
         href: tutorials/backup-with-bacula.md
@@ -488,8 +488,8 @@ items:
           dedicated DMZ based on the Check Point NGFW
         href: tutorials/high-accessible-dmz.md
       - name: >-
-          Cloud infrastructure segmentation with Check Point Next-Generation
-          Firewall
+          Cloud infrastructure segmentation with the Check Point next-generation
+          firewall
         href: tutorials/network-segmentation-checkpoint.md
       - name: Configuring a secure GRE tunnel over IPsec
         href: tutorials/gre-over-ipsec.md
@@ -517,7 +517,7 @@ items:
             href: tutorials/rds-gw.md
   - name: Concepts
     items:
-      - name: Relationship between resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Virtual machines
         items:
@@ -543,9 +543,9 @@ items:
             href: concepts/vm-metadata.md
           - name: VM maintenance policies
             href: concepts/vm-policies.md
-          - name: Resetting a Windows VM password
+          - name: Resetting Windows VM passwords
             href: concepts/guest-agent.md
-      - name: Graphics accelerators (GPUs)
+      - name: Graphics processing units (GPUs)
         href: concepts/gpus.md
       - name: Disks and file storages
         items:
@@ -591,7 +591,7 @@ items:
                 href: concepts/instance-groups/policies/healing-policy.md
           - name: Scaling types
             href: concepts/instance-groups/scale.md
-          - name: Instance health checks and autohealing
+          - name: Instance health checks and automatic recovery
             href: concepts/instance-groups/autohealing.md
           - name: Updating
             items:
@@ -601,21 +601,21 @@ items:
                 href: concepts/instance-groups/deploy/zones.md
               - name: Deployment algorithm
                 href: concepts/instance-groups/deploy/deploy.md
-              - name: Rules for updating virtual machines
+              - name: Rules for updating instances
                 href: concepts/instance-groups/deploy/instance.md
               - name: Updating secondary disks in an instance template
                 href: concepts/instance-groups/deploy/secondary-disk.md
-          - name: Integration with network and L7 load balancers
+          - name: Integrating with network and L7 load balancers
             href: concepts/instance-groups/balancers.md
           - name: Handling a stateful workload
             href: concepts/instance-groups/stateful-workload.md
           - name: Stopping and pausing an instance group
             href: concepts/instance-groups/stopping-pausing.md
-          - name: Restarting and recreating instances in a group one by one
+          - name: Sequentially restarting and recreating instances in a group
             href: concepts/instance-groups/rolling-actions.md
           - name: Statuses
             href: concepts/instance-groups/statuses.md
-      - name: Dedicated hosts
+      - name: Dedicated host
         href: concepts/dedicated-host.md
       - name: Encryption
         href: concepts/encryption.md
@@ -1864,9 +1864,9 @@ items:
         href: qa/instance-groups.md
       - name: Monitoring
         href: qa/monitoring.md
-      - name: Licensing agencies
+      - name: Licensing
         href: qa/licensing.md
       - name: Troubleshooting
         href: qa/troubleshooting.md
-      - name: All questions on one page
+      - name: All questions on a single page
         href: qa/all.md

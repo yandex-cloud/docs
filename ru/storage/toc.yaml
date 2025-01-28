@@ -258,6 +258,8 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка Telegram-бота
         href: tutorials/telegram-bot-serverless.md
+      - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
+        href: tutorials/replicate-logs-to-storage.md
       - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
       - name: Создание сервера MLFlow для логирования экспериментов и артефактов
@@ -268,6 +270,12 @@ items:
         href: tutorials/yq-federative-queries.md
       - name: Распознавание архива изображений в {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
+      - name: Конвертация видео в GIF на Python
+        href: tutorials/video-converting-queue.md
+      - name: Автоматизация задач с помощью {{ maf-short-name }}
+        href: tutorials/airflow-auto-tasks.md
+      - name: Обработка файлов детализации в сервисе {{ billing-name }}
+        href: tutorials/billing.md
   - name: Концепции
     items:
       - name: Обзор

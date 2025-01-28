@@ -34,7 +34,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `win-secret-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -78,8 +78,8 @@ The infrastructure support cost includes:
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
      1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify the key attributes:
-         * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`
-         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`
+         * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`.
+         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
          * Leave the other parameters at their default settings.
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -87,7 +87,7 @@ The infrastructure support cost includes:
 
    - CLI {#cli}
 
-     Run the following command:
+     Run this command:
 
      ```bash
      yc kms symmetric-key create \
@@ -128,7 +128,7 @@ The infrastructure support cost includes:
 
    - CLI {#cli}
 
-      Run the following command:
+      Run this command:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -138,7 +138,7 @@ The infrastructure support cost includes:
 
    - API {#api}
 
-      To assign the service account a role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a service account a role for a folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -166,7 +166,7 @@ The password must:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
-   1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `win-secret`.
    1. In the **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}** field, specify the `win-secret-key` key.
@@ -178,7 +178,7 @@ The password must:
 
 - CLI {#cli}
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       yc lockbox secret create \
@@ -262,7 +262,7 @@ The password must:
 
    - CLI {#cli}
 
-      Run the following command:
+      Run this command:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -272,7 +272,7 @@ The password must:
 
    - API {#api}
 
-      To assign the service account a role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a service account a role for a folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -366,7 +366,7 @@ Create a VM with the Windows OS having the administrator and user accounts.
 
    - CLI {#cli}
 
-      Run the following command:
+      Run this command:
 
       ```bash
       yc compute instance create --name win-test --hostname windows10 --zone {{ region-id }}-a --create-boot-disk image-id=<imade_id> --cores 2 --core-fraction 100 --memory 4 --metadata-from-file user-data=init.ps1  --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 --service-account-name win-test-sa --platform standard-v3
@@ -376,6 +376,8 @@ Create a VM with the Windows OS having the administrator and user accounts.
 
       * imade_id: ID of the image with the Windows OS.
       * subnet_name: Subnet name in the folder where you want to place the VM.
+
+      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
    {% endlist %}
 

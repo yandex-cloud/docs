@@ -15,7 +15,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket whose labels you need to add or edit.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need to add or edit labels in.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -31,7 +31,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for changing the bucket settings:
+  1. View the description of the CLI command to update the bucket settings:
 
        ```bash
        yc storage bucket update --help
@@ -142,7 +142,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   To add or update bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md) S3 API method.
 
-  **Sample gRPC API call**
+  **Example of gRPC API call**
 
   ```bash
   export IAM_TOKEN="<IAM_token>"
@@ -156,7 +156,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   Where:
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
   * `name`: Bucket name.
-  * `update_mask`: List of bucket parameters to update.
+  * `update_mask`: List of bucket parameters you want to update.
   * `tags`: List of bucket labels.
   * `key`: Label key.
   * `value`: Label value.
@@ -286,8 +286,8 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   Where:
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
   * `name`: Bucket name.
-  * `view`: Amount of information being provided (`VIEW_FULL` means full information about the bucket).
-
+  * `view`: Scope of information provided (`VIEW_FULL` means full information about the bucket).
+ 
   Result:
 
   ```json
@@ -331,7 +331,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
-  1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the appropriate label.
+  1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the label.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -340,7 +340,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for changing the bucket settings:
+  1. View the description of the CLI command to update the bucket settings:
 
       ```bash
       yc storage bucket update --help
@@ -448,7 +448,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   Where:
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
   * `name`: Bucket name.
-  * `update_mask`: List of bucket parameters to update.
+  * `update_mask`: List of bucket parameters you want to update.
   * `tags`: List of bucket labels.
 
   Result:

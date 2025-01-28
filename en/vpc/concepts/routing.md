@@ -1,5 +1,5 @@
 ---
-title: Routing
+title: Routing in {{ vpc-full-name}}
 description: With static routing, you can route traffic from a subnet to the specified IP address ranges through the VMs specified as the next hop. Routing is based on route tables. Route tables are linked to a subnet and cannot contain duplicate prefixes.
 keywords:
   - static routing
@@ -18,7 +18,7 @@ When you create a virtual machine (VM) in {{ yandex-cloud }}, it receives a [set
 
 ## VM route table {#rt-vm}
 
-In {{ yandex-cloud }}, VM instances are typically created with a single network interface. When being created, a VM will have a route table with only one route: the one to the default gateway with the `0.0.0.0/0` prefix. For this route (prefix), the gateway is always the **first IP address** on the subnet to which the VM network interface is connected.
+In {{ yandex-cloud }}, a VM is typically created with a single network interface. A newly created VM will have one route only in its route table: the one to the default gateway with the `0.0.0.0/0` prefix. For this route (prefix), the gateway is always the **first IP address** on the subnet to which the VM network interface is connected.
 
 Let's assume a VM network interface is connected to a subnet with the `192.168.10.0/24` prefix. When the VM was created, its network interface was assigned the `192.168.10.5` IP address in this subnet. The route table for the VM will appear as follows:
 
@@ -85,11 +85,11 @@ In complex routing scenarios with multiple default routes in the VPC network (su
 ## Limitations {#restrictions}
 
 1. A {{ vpc-short-name }} route table can only have one entry per destination prefix. Duplicating destination prefixes within the same {{ vpc-short-name }} route table is not allowed. This also applies to the `0.0.0.0/0` default route prefix.
-1. A virtual machine can access the internet and you can access the VM via a public IP address only if there is no `0.0.0.0/0` default static route in its subnet. If a virtual machine is behind a NAT instance, you can connect to it via an internal IP address, using the NAT instance as a jump host:
+1. A virtual machine can access the internet and you can access the VM via a public IP address only if there is no `0.0.0.0/0` default static route in its subnet. If a virtual machine is behind a NAT instance, you can connect to it via an internal IP address using the NAT instance as a jump host:
 
    ```bash
    ssh -J <NAT_instance_username>@<NAT_instance_public_IP_address> \
-     <VM_user_name>@<VM_internal_IP_address>
+     <instance_username>@<VM_internal_IP_address>
    ```
 
 1. {{ vpc-short-name }} route tables cannot use link-local IP address prefixes, such as `169.254.0.0/16` and more specific ones, as they are reserved for {{ vpc-name }} internal use.

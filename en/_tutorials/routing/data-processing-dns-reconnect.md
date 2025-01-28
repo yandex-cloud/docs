@@ -75,6 +75,8 @@ Prepare the infrastructure:
         * NAT gateway and route table.
         * [Security groups](../../vpc/concepts/security-groups.md).
         * Service account to work with cloud resources.
+        * Service account for bucket management.
+        * Static access key required to grant the service account the required permissions for the bucket.
         * Bucket to store job dependencies and results.
         * {{ dataproc-name }} cluster.
 
@@ -82,6 +84,7 @@ Prepare the infrastructure:
 
         * `folder_id`: Folder ID.
         * `path_to_ssh_public_key`: Path to the public SSH key.
+        * `os_sa_name`: Name of the service account for bucket management.
         * `bucket`: Bucket name.
 
     1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
@@ -103,7 +106,7 @@ Prepare the infrastructure:
 
 ## Create a DNS zone and a CNAME record {#dns-record}
 
-Create the resources:
+Create resources:
 
 {% list tabs group=instructions %}
 
@@ -116,8 +119,8 @@ Create the resources:
        * **{{ ui-key.yacloud.common.name }}**: `dp-private-zone`.
 
     1. [Create a DNS record](../../dns/operations/resource-record-create.md) of the CNAME type with the following settings:
-       * **{{ ui-key.yacloud.common.name }}**: `data-proc-test-user.org.`
-       * **{{ ui-key.yacloud.dns.label_records }}**: [FQDN of the {{ dataproc-name }} cluster master host](../../data-proc/operations/connect.md#fqdn)
+       * **{{ ui-key.yacloud.common.name }}**: `data-proc-test-user.org.`.
+       * **{{ ui-key.yacloud.dns.label_records }}**: [FQDN of the {{ dataproc-name }} cluster master host](../../data-proc/operations/connect.md#fqdn).
 
 - {{ TF }} {#tf}
 

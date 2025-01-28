@@ -4,15 +4,9 @@ title: How to get information about {{ interconnect-name }} public connections
 
 # Getting information about public connections
 
-{% include [cic-api-access](../../_includes/interconnect/cic-api-access.md) %}
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. See the description of the CLI command to get information on [public connections](../concepts/pub-con.md):
 
@@ -23,7 +17,7 @@ title: How to get information about {{ interconnect-name }} public connections
   1. Get a list of public connections in the folder:
 
       ```bash
-      yc cic public-connection list --folder-id b1gqf2hjizv2jwj4dnga 
+      yc cic public-connection list --folder-id b1gqf2hjizv2jw******
       ```
 
       Result:
@@ -32,8 +26,8 @@ title: How to get information about {{ interconnect-name }} public connections
       +----------------------+--------------------+----------------------+---------------+
       |          ID          |        NAME        | TRUNK CONNECTION ID  | SERVICE TYPES |
       +----------------------+--------------------+----------------------+---------------+
-      | euuiog88zphgsq3c15pq | customer-name-pub1 | euuqqctbrflq3ir4n4p2 | APIGW, ML     |
-      | euucr7p47329kqxrp4kh | customer-name-pub2 | euuvdjl5shd0fv7bqt38 | APIGW, ML     |
+      | euuiog88zphgsq****** | customer-name-pub1 | euuqqctbrflq3i****** | APIGW, ML     |
+      | euucr7p47329kq****** | customer-name-pub2 | euuvdjl5shd0fv****** | APIGW, ML     |
       +----------------------+--------------------+----------------------+---------------+
       ```
 
@@ -41,17 +35,17 @@ title: How to get information about {{ interconnect-name }} public connections
 
       ```bash
       # yc cic public-connection get <public_connection_ID>
-      yc cic public-connection get euuiog88zphgsq3c15pq 
+      yc cic public-connection get euuiog88zphgsq****** 
       ```
 
       Result:
 
       ```text
-      id: euuiog88zphgsq3c15pq
+      id: euuiog88zphgsq******
       name: customer-name-pub1
-      folder_id: b1gqf2hjizv2jwj4dnga
+      folder_id: b1gqf2hjizv2jw******
       region_id: ru-central1
-      trunk_connection_id: euuqqctbrflq3ir4n4p2
+      trunk_connection_id: euuqqctbrflq3i******
       vlan_id: "1428"
       ipv4_peering:
         peering_subnet: 178.170.2xx.x2/31

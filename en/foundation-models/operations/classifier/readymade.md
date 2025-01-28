@@ -41,6 +41,8 @@ To use the examples:
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
+      For more information about accessing classifier models, see [{#T}](../../../foundation-models/concepts/classifier/models.md#addressing-models).
+
   1. Run the created file:
 
       ```bash

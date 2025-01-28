@@ -187,4 +187,8 @@ description: Следуя данной инструкции, вы сможете
 
 #### См. также {#see-also}
 
+* [{#T}](./reset-password.md)
+* [{#T}](./add-new-ssh-key.md)
+* [{#T}](./restore-grub.md)
+* [{#T}](./switch-raid-member.md)
 * [{#T}](../image-upload.md)

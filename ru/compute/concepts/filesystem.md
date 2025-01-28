@@ -12,7 +12,7 @@ _Файловое хранилище_ — это виртуальная файл
 
 Хранилище подключается к ВМ через интерфейс [Filesystem in Userspace](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)) (FUSE) как устройство [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html), не связанное напрямую с файловой системой хоста.
 
-По умолчанию для файловых хранилищ установлены нулевые [квоты](limits.md#compute-quotas). Чтобы повысить [квоты]({{ link-console-quotas }}), обратитесь в [техническую поддержку](../../support/overview.md).
+Для файловых хранилищ действуют [технические ограничения на операции чтения и записи](storage-read-write.md), а также [квоты](limits.md#compute-quotas) и [лимиты](limits.md#compute-limits-disks) {{ compute-name }}. По умолчанию для файловых хранилищ установлены нулевые квоты. Чтобы повысить [квоты]({{ link-console-quotas }}), обратитесь в [техническую поддержку](../../support/overview.md).
 
 ## Файловое хранилище как ресурс {{ yandex-cloud }} {#file-storage-as-resource}
 

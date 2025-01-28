@@ -494,6 +494,8 @@ items:
             href: infrastructure/minecraft-server.md
           - name: Развертывание мультиплеер-сервера для GTA V в {{ yandex-cloud }}
             href: infrastructure/gta-v-server.md
+          - name: Конвертация видео в GIF на Python
+            href: serverless/video-converting-queue.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
@@ -562,6 +564,8 @@ items:
           Поставка данных из {{ yds-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
+      - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
+        href: dataplatform/ydb-to-yds.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
         href: dataplatform/kafka-connect.md
       - name: Использование схем формата данных с {{ mkf-name }}
@@ -826,6 +830,26 @@ items:
           Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с
           помощью {{ data-transfer-full-name }}
         href: dataplatform/ydb-to-object-storage.md
+      - name: Обработка аудитных логов {{ at-name }}
+        href: dataplatform/audit-log-processing.md
+      - name: Обработка логов {{ cloud-logging-name }}
+        href: dataplatform/cloud-logging-processing.md
+      - name: Обработка потока изменений Debezium
+        href: dataplatform/debezium-yq.md
+      - name: Анализ данных с помощью {{ jlab }}
+        href: dataplatform/jupyter-yq.md
+      - name: Обработка файлов детализации в сервисе {{ billing-name }}
+        href: dataplatform/billing-detail-files-processing.md
+      - name: Ввод данных в системы хранения
+        href: dataplatform/data-ingestion.md
+      - name: Умная обработка логов
+        href: dataplatform/log-ingestion.md
+      - name: Передача данных в микросервисных архитектурах
+        href: dataplatform/message-broker.md
+      - name: >-
+          Миграция данных в {{ objstorage-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/yds-obj-migration.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
@@ -1017,6 +1041,12 @@ items:
           Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
           speechkit-full-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
+      - name: Подключение к {{ ydb-short-name }} из функции {{ sf-name }} на Python
+        href: serverless/connect-from-cf.md
+      - name: >-
+          Подключение к базе данных {{ ydb-short-name }} из функции {{ sf-name
+          }} на Node.js
+        href: serverless/connect-from-cf-nodejs.md
       - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
         href: serverless/api-gw-sws-integration.md
   - name: Машинное обучение и искусственный интеллект

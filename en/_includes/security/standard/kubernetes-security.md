@@ -1,7 +1,7 @@
-# 7. Security {{ k8s }}
+# {{ k8s }} security requirements
 
+## 7. {{ k8s }} security {#kubernetes-security}
 
-#### Introduction {#intro}
 
 [{{ managed-k8s-full-name }}](../../../managed-kubernetes/index.yaml) provides an environment for managing containerized applications in {{ yandex-cloud }} infrastructure. Deploy, scale, and manage applications in containers using {{ k8s }}.
 
@@ -10,6 +10,8 @@ The user is responsible for all actions made inside the {{ k8s }} node. The user
 {{ yandex-cloud }} is responsible for the {{ k8s }} API security.
 
 The user is responsible for correctly choosing security settings in {{ managed-k8s-name }}, including selecting the [channel](../../../managed-kubernetes/concepts/release-channels-and-updates.md) and the update schedule.
+
+### Overview {#general}
 
 #### 7.1 The use of sensitive data is limited {#not-use-critical-data}
 
@@ -141,7 +143,7 @@ Using {{ container-registry-name }} to store images will also provide centralize
 
   1. In the [management console]({{ link-console-main }}), select the folder the registry with Docker images belongs to.
   1. Select the appropriate registry in **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Go to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab and click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
+  1. Navigate to the **{{ ui-key.yacloud.cr.registry.label_vulnerabilities-scanner }}** tab and click **{{ ui-key.yacloud.cr.registry.button_change-scan-settings }}**.
   1. Make sure that scheduled Docker image scans are enabled with a frequency of at least once a week.
 
 {% endlist %}
@@ -224,7 +226,7 @@ Secure Docker image creation and operation practices ensure protection against p
 * [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
 * [{{ k8s }} Security Checklist and Requirements](https://github.com/Vinum-Security/kubernetes-security-checklist/blob/main/README.md).
 
-You can control Dockerfile in your [CI/CD](/blog/posts/2022/10/ci-cd) pipeline using the [Conftest](https://www.conftest.dev/) utility.
+You can control Dockerfile in your CI/CD pipeline using the [Conftest](https://www.conftest.dev/) utility.
 
 When using minimal images or distroless images without a shell, we recommend using [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/).
 
@@ -252,7 +254,7 @@ These requirements allow you to ensure security and reliability of applications 
 
 **Guides and solutions to use:**
 
-* You can also use the following tools within CI/CD to monitor compliance with the Pod Security Standards:
+* To control compliance with Pod Security Standards, you can also use the following tools within CI/CD:
 
   * [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
   * The gator CLI

@@ -49,13 +49,17 @@ After solving the problem, depending on the status of the transfer, activate it 
 
 {% include [insufficiency-resources](../../_includes/data-transfer/troubles/insufficiency-resources.md) %}
 
+{% include [permission-denied](../../_includes/data-transfer/troubles/permission-denied.md) %}
+
+{% include [unable-to-parse-obj](../../_includes/data-transfer/troubles/unable-to-parse-obj.md) %}
+
 ### Decrease in transfer speed {#speed-degrade}
 
 **Issue**:
 
 {% include [speed-degrade](../../_includes/data-transfer/speed-degrade.md) %}
 
-**Solution**:
+**Solution:**
 
 Use the `Drop` or `Truncate` cleanup policy.
 
@@ -75,7 +79,7 @@ Error example:
 {"code": 13, "message": "internal"}
 ```
 
-**Solution**: Contact [support]({{ link-console-support }}) or your account manager and provide the `request_id`. If you are using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
+**Solution:** Contact [support]({{ link-console-support }}) or your account manager and provide the `request_id`. If you are using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
 
 ## Network {#network}
 

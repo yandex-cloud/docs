@@ -6,7 +6,6 @@ editable: false
 
 # {{ kms-name }} pricing policy
 
-
 {% note tip %}
 
 
@@ -15,9 +14,8 @@ editable: false
 To calculate the cost of [symmetric](https://yandex.cloud/en/prices?state=58d53a138d2f#calculator), [asymmetric](https://yandex.cloud/en/prices?state=0f25db3ff729#calculator) encryption and [asymmetric signature](https://yandex.cloud/en/prices?state=b0cf7fa8b77f#calculator), use the calculator on the {{ yandex-cloud }} website or see the pricing data in this section.
 
 
+
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

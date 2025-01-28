@@ -74,8 +74,6 @@ module.exports.handler = function (event, context) {
 The function sends a request to `https://example.com/` and returns the HTTP response code and the contents of a JSON document:
 
 ```js
-const fetch = require("node-fetch");
-
 module.exports.handler = async function (event) {
 
     const response = await fetch('https://example.com/');

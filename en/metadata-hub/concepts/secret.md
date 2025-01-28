@@ -1,3 +1,8 @@
+---
+title: Secrets in {{ metadata-hub-name }}
+description: A secret is a set of versions that store the connection's secure data. A version contains sets of keys and values.
+---
+
 # Secret
 
 {% include notitle [preview](../../_includes/note-preview.md) %}

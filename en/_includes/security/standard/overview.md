@@ -68,8 +68,8 @@ Before you perform checks, make sure that:
 * The jq utility is installed.
 
 You can automate the audit of compliance with all the recommendations using available solutions from our partners:
-* [Neocat](/marketplace/products/neoflex/neocat): Product for cloud security management from Neoflex. It is used as an isolated installation within the user cloud perimeter and no administrator privileges need to be granted.
-* Cloud Advisor: Agentless platform that identifies and prioritizes cloud security risks, helps you reduce costs, ensure compliance with regulatory requirements, and manage your cloud infrastructure.
+* [Neocat](/marketplace/products/neoflex/neocat): A cloud security management product by Neoflex. Operates as an isolated installation within the user's cloud perimeter and requires no administrator privileges.
+* Cloud Advisor: An agentless platform that identifies and prioritizes cloud security risks, helps you reduce costs, ensures regulatory compliance, and facilitates your cloud infrastructure management.
 
 ### Responsibility limitation {#liability-limit}
 

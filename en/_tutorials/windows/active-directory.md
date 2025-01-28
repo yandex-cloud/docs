@@ -5,7 +5,7 @@
 
 
 
-The scenario provides an example of how to deploy Active Directory in {{ yandex-cloud }}.
+The tutorial provides an example of how to deploy Active Directory in {{ yandex-cloud }}.
 
 To deploy the Active Directory infrastructure:
 1. [Prepare your cloud](#before-you-begin).
@@ -55,7 +55,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-networ
 
      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     To create a cloud network, run the command:
+     To create a cloud network, run this command:
 
      ```bash
      yc vpc network create --name ad-network
@@ -70,14 +70,14 @@ Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-networ
    - Management console {#console}
 
        To create a subnet:
-       1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
+       1. Open the **{{ vpc-name }}** section in the folder where you need to create a subnet.
        1. Click the name of the cloud network.
        1. Click **Add subnet**.
        1. Fill out the form: enter `ad-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
        1. Enter the subnet CIDR: IP address and `10.1.0.0/16` as subnet mask.
        1. Click **Create subnet**.
 
-       Repeat the steps for two more subnets:
+       Repeat these steps for two more subnets:
        * Name: `ad-subnet-b`: Availability zone: `{{ region-id }}-b`. CIDR: `10.2.0.0/16`.
        * Name: `ad-subnet-d`. Availability zone: `{{ region-id }}-d`. CIDR: `10.3.0.0/16`.
 
@@ -115,7 +115,7 @@ To do this, in the root folder of the command line, create a file named `setpass
 
 ```powershell
 #ps1
-Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your_password>" -AsPlainText -Force)
+Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
 ```
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
@@ -137,17 +137,17 @@ Create two VMs for Active Directory domain controllers. These VMs will not have 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
       * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `ad-subnet-a`.
@@ -185,6 +185,8 @@ Create two VMs for Active Directory domain controllers. These VMs will not have 
     --metadata-from-file user-data=setpass
   ```
 
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 {% endlist %}
 
 ## Create a VM for a bastion host {#jump-server-vm}
@@ -201,17 +203,17 @@ A file server with internet access is used to configure VMs with Active Director
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
   
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` availability zone.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot disk size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required platform, number of vCPUs, and amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
   
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `ad-subnet-d`.
@@ -240,9 +242,9 @@ A file server with internet access is used to configure VMs with Active Director
 
 ## Install and configure Active Directory {#install-ad}
 
-Active Directory VMs do not have internet access. To configure them, use the `jump-server-vm` VM through [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol).
-1. [Connect](../../compute/operations/vm-connect/rdp.md) to `jump-server-vm` through RDP. Use `Administrator` for username, and your password.
-1. Run RDP and connect to `ad-vm-a` using its local IP address, `Administrator` username and your password.
+Active Directory VMs do not have internet access. To configure them, use `jump-server-vm` through [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol).
+1. [Connect](../../compute/operations/vm-connect/rdp.md) to `jump-server-vm` through RDP. Use `Administrator` as your username and your password.
+1. Run RDP and connect to `ad-vm-a` using its local IP address, the `Administrator` username and your password.
 1. Run PowerShell and set a static IP address:
 
    ```powershell
@@ -269,7 +271,7 @@ Active Directory VMs do not have internet access. To configure them, use the `ju
    Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
    ```
 
-   Then enter the password and confirm it.
+   Next, enter the password and confirm it.
 
    Windows will restart automatically. Reconnect to `ad-vm-a` and launch PowerShell.
 1. Rename the default site to `{{ region-id }}-a`:
@@ -302,7 +304,7 @@ Active Directory VMs do not have internet access. To configure them, use the `ju
        Rename-ADObject -NewName '{{ region-id }}'
    ```
 
-1. Set the DNS redirect server:
+1. Set the DNS server forwarder:
 
    ```powershell
    Set-DnsServerForwarder '10.1.0.2'
@@ -353,10 +355,10 @@ Active Directory VMs do not have internet access. To configure them, use the `ju
        -Force:$true
    ```
 
-   Then enter the password and confirm it.
+   Next, enter the password and confirm it.
 
    Windows will restart automatically. Reconnect to `ad-vm-b` and launch PowerShell.
-1. Set the DNS redirect server:
+1. Set the DNS server forwarder:
 
    ```powershell
    Set-DnsServerForwarder '10.2.0.2'
@@ -396,4 +398,4 @@ Active Directory VMs do not have internet access. To configure them, use the `ju
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the deployed servers, delete all the [VMs](../../compute/operations/vm-control/vm-delete.md).
+To stop paying for the deployed servers, delete all [VMs](../../compute/operations/vm-control/vm-delete.md) you created.

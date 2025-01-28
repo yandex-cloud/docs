@@ -6,4 +6,4 @@ description: Следуя данной инструкции, вы сможете
 # Поиск данных в детализации с помощью запросов {{ yq-full-name }}
 
 
-{% include [query-billing-integration](../../query/_includes/billing.md) %}
+{% include [query-billing-integration](../../_tutorials/dataplatform/billing-detail-files-processing.md) %}

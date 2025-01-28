@@ -17,9 +17,7 @@ description: Follow this guide to create a private subnet for your servers in {{
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the [pool](../concepts/servers.md#server-pools) the server will be leased from.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for your subnet. The naming requirements are as follows:
 
-     * It must be 2 to 63 characters long.
-     * It may contain lowercase Latin letters, numbers, and hyphens.
-     * It must start with a letter and cannot end with a hyphen.
+     {% include [name-format](../../_includes/name-format.md) %}
 
   1. Optionally, add a **{{ ui-key.yacloud.baremetal.field_description }}** for the subnet.
   1. Optionally, add labels.

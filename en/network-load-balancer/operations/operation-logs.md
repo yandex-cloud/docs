@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ network-load-balancer-name }} resources
 
-All actions with {{ network-load-balancer-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ network-load-balancer-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,7 +8,7 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
 
 - Management console {#console}
 
-  To view all operations with the resources, in the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
+  To view all operations with {{ compute-name }} resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
 
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a network load balancer. The same steps apply to a target group.
 
@@ -39,7 +39,7 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
   yc load-balancer network-load-balancer list-operations enpaud0h342p********
   ```
 
-  You can get the network load balancer ID with a [list of network load balancers in the folder](load-balancer-list.md#list).
+  You can get the network load balancer ID with the [list of network load balancers in the folder](load-balancer-list.md#list).
 
   Result:
 
@@ -51,7 +51,7 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
   +----------------------+---------------------+----------------------+---------------------+--------+----------------------------+
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc load-balancer network-load-balancer list-operations enp87akr8sdr******** --format yaml
@@ -80,14 +80,14 @@ All actions with {{ network-load-balancer-name }} resources are logged as a list
 
   For example, for a network load balancer, use the [listOperations](../api-ref/NetworkLoadBalancer/listOperations.md) REST API method for the [NetworkLoadBalancer](../api-ref/NetworkLoadBalancer/index.md) resource or the [NetworkLoadBalancerService/ListOperations](../api-ref/grpc/NetworkLoadBalancer/listOperations.md) gRPC API call. Provide the network load balancer ID in the `networkLoadBalancerId` parameter of the request.
 
-  You can get the network load balancer ID with a [list of network load balancers in the folder](load-balancer-list.md#list).
+  You can get the network load balancer ID with the [list of network load balancers in the folder](load-balancer-list.md#list).
 
 {% endlist %}
 
 ## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
     {% list tabs group=instructions %}

@@ -1,3 +1,8 @@
+---
+title: Text vectorization models
+description: In this tutorial, you will learn about text vectorization models available in {{ foundation-models-name }}.
+---
+
 # Text vectorization
 
 Computers process all information as numbers. To effectively process texts written in natural languages, AI models convert words, phrases, and sentences into numeric vectors of a fixed size preserving the characteristics of words and relations between them.
@@ -6,14 +11,66 @@ The process of converting text into such vectors is called _vectorization_, and 
 
 ## Models for text vectorization {#yandexgpt-embeddings}
 
-{{ foundation-models-full-name }} provides two text vectorization models. You can access the model's API via its [URI](https://en.wikipedia.org/wiki/URI) which contains the [folder ID](../../resource-manager/operations/folder/get-id.md). The `/latest` segment specifies the model version and is optional.
+{{ foundation-models-full-name }} provides two text vectorization models.
 
-| What for | Output vector size | Operation mode | URI |
+| **Target** | **URI** | **Output vector size** | **[Operating modes](./index.md#working-mode)** |
 |---|---|---|---|
-| Vectorization of large source texts, e.g., documentation articles | {{ emb-vector }} | Synchronous | `emb://<folder_ID>/text-search-doc/latest` |
-| Vectorization of short texts, such as search queries, requests, etc. | {{ emb-vector }} | Synchronous | `emb://<folder_ID>/text-search-query/latest` |
+| Vectorization of large source texts, e.g., documentation articles | `emb://<folder_ID>/text-search-doc/latest` | {{ emb-vector }} | Synchronous |
+| Vectorization of short texts, such as search queries, requests, etc. | `emb://<folder_ID>/text-search-query/latest` | {{ emb-vector }} | Synchronous |
 
 To use the {{ foundation-models-full-name }} text vectorization models, you need the `ai.languageModels.user` [role](../security/index.md#languageModels-user) or higher for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+## Accessing models {#addressing-models}
+
+You can access text vector representation models in a number of ways.
+
+{% list tabs group=programming_language %}
+
+- SDK {#sdk}
+
+  When working with text vector representation models via [{{ ml-sdk-full-name }}](../sdk/index.md), use one of the following formats:
+
+  * **Model name**, provided as a string.
+
+      ```python
+      model = (
+        sdk.models.text_embeddings("text-search-doc")
+      )
+      ```
+
+  * **Model name and version**, provided as strings in the `model_name` and `model_version` fields, respectively.
+
+      ```python
+      model = (
+        sdk.models.text_embeddings(model_name="text-search-query", model_version="latest")
+      )
+      ```
+
+  * **Model URI**, provided as a string containing the full [URI](#yandexgpt-embeddings) of the model.
+
+      ```python
+      model = (
+        sdk.models.text_embeddings("emb://b1gt6g8ht345********/text-search-query/latest")
+      )
+      ```
+
+- API {#curl}
+
+  To [access](../operations/embeddings/search.md) a model via the [REST API](../embeddings/api-ref/index.md) or [gRPC API](../embeddings/api-ref/grpc/index.md), specify the model's [URI](#yandexgpt-embeddings) containing the [folder ID](../../resource-manager/operations/folder/get-id.md) in the `modelUri` field of the request body. The `/latest` segment indicates the model version and is optional.
+
+  **Example:**
+
+  ```json
+  {
+    "modelUri":
+      emb://b1gt6g8ht345********/text-search-doc/latest
+    ...
+  }
+  ```
+
+  To access the `Latest` version, you do not need to specify the model version explicitly because `Latest` is used by default.
+
+{% endlist %}
 
 ## Embedding use case {#example}
 
@@ -33,9 +90,9 @@ This primitive example demonstrates how you can use embeddings to find the close
   Result:
 
   ```text
-  Alexander Sergeyevich Pushkin (May 26 [June 6], 1799, Moscow — January 29 [February 10], 1837, St. Petersburg) was a Russian poet, playwright, and novelist, the progenitor of Russian realism, a literary critic and theorist, historian, essay writer, and journalist.
-    
-    
+  Alexander Sergeyevich Pushkin (May 26 [June 6], 1799, Moscow — January 29 [February 10], 1837, St. Petersburg)
+    was a Russian poet, playwright, and novelist, the progenitor of Russian realism,
+    a literary critic and theorist, historian, essay writer, and journalist.
   ```
 
 - Python 3 {#python}

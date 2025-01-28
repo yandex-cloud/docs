@@ -31,9 +31,9 @@ description: На странице представлен список прак�
 * [Мониторинг показаний датчиков и уведомления о событиях](../iot/monitoring.md)
 * [Эмуляция множества IoT-устройств](../testing/iot-emulation.md)
 
-
 ## Прочее {#other}
 
 * [Публикация обновлений для игр с помощью {{ cdn-full-name }}](../web/prefetch.md)
 * [{#T}](../infrastructure-management/sap.md)
 * [{#T}](../infrastructure/minecraft-server.md)
+* [{#T}](../serverless/video-converting-queue.md)

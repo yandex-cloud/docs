@@ -1,3 +1,8 @@
+---
+title: Getting started with {{ metastore-full-name }}
+description: In {{ metadata-hub-name }}, you can create {{ metastore-full-name }} clusters and use them to work with {{ dataproc-full-name }} clusters.
+---
+
 # Getting started with {{ metastore-full-name }}
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
@@ -13,6 +18,8 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
    {% include [create-folder](../../_includes/create-folder.md) %}
 
 1. To link your [service account](../../iam/concepts/users/service-accounts.md) to a {{ metastore-name }} cluster, [make sure](../../iam/operations/roles/get-assigned-roles.md) your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+
+    {% include [note-managing-roles](../../_includes/mdb/note-managing-roles.md) %}
 
 1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet to host {{ metastore-name }} and {{ dataproc-name }} clusters.
 
@@ -60,11 +67,11 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 
 1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) to interact with a {{ dataproc-name }} cluster.
 
-1. In the network you created earlier, [create a {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create-cluster) cluster. In the settings, set:
+1. In the network you created earlier, [create a {{ dataproc-name }}](../../data-proc/operations/cluster-create.md#create-cluster) cluster. In the settings, specify:
 
    * `SPARK` and `YARN` services.
    * Service account you created earlier.
-   * The `spark:spark.sql.hive.metastore.sharedPrefixes` property to `com.amazonaws,ru.yandex.cloud`. Required for PySpark jobs and integration with {{ metastore-name }}.
+   * `spark:spark.sql.hive.metastore.sharedPrefixes` property with the `com.amazonaws,ru.yandex.cloud` value. Required for PySpark jobs and integration with {{ metastore-name }}.
    * Bucket you created earlier.
    * Security group you configured earlier.
 

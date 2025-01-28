@@ -73,6 +73,8 @@ items:
         href: tutorials/logging.md
       - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
         href: tutorials/alb-ingress-controller-log-options.md
+      - name: Обработка логов {{ cloud-logging-name }}
+        href: tutorials/cloud-logging.md
   - name: Концепции
     items:
       - name: Лог-группа

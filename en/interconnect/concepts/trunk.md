@@ -57,7 +57,6 @@ One may outline this connection as follows:
 ![direct-link](../../_assets/interconnect/interconnect-phy-1.svg)
 
 
-
 The client equipment is located at a [point of presence](./pops.md) and connected to the {{ yandex-cloud }} equipment directly through an optical cross-connection routed within the point of presence.
 
 The transceiver transmitting side (Tx) on the {{ yandex-cloud }} equipment is connected to the transceiver receiving side (Rx) on the client equipment using optical fiber. The transceiver transmitting side (Tx) on the client equipment is connected to the transceiver receiving side (Rx) on the {{ yandex-cloud }} equipment with optical fiber. A pair of these optical fibers makes up an optical cross-connect.
@@ -70,7 +69,6 @@ One may outline this connection as follows:
 
 
 ![direct-link](../../_assets/interconnect/interconnect-phy-2.svg)
-
 
 
 A trunk in this setup option has the following components:
@@ -120,14 +118,12 @@ You can leverage the following multiplexing options:
 ![trunk-over-direct-link](../../_assets/interconnect/interconnect-trn-1.svg)
 
 
-
 This option assumes setting up a 802.1Q trunk over a direct physical connection between the client equipment at the [point of presence](./pops.md) and the {{ yandex-cloud }} equipment.
 
 #### Connection via a telecom provider (L2 transit) {#mux-sp-L2}
 
 
 ![trunk-over-sp-l2](../../_assets/interconnect/interconnect-trn-2.svg)
-
 
 
 This option is used when the client does not have their own equipment at the point of presence. In which case:
@@ -141,7 +137,6 @@ This option is used when the client does not have their own equipment at the poi
 
 
 ![trunk-over-sp-l3vpn](../../_assets/interconnect/interconnect-trn-3.svg)
-
 
 
 This option is used when the client does not have their own equipment at the point of presence. In which case:

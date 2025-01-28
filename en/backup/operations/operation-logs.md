@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ backup-name }} resources
 
-All actions with {{ backup-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ backup-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,14 +8,14 @@ All actions with {{ backup-name }} resources are logged as a list of operations.
 
 - Management console {#console}
 
-  To view all operations with the resources, in the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. In the list that opens, you will also see operations with the resources that were deleted.
+  To view all operations with {{ backup-name }} resources, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
 
 {% endlist %}
 
 ## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
     {% list tabs group=instructions %}

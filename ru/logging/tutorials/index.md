@@ -14,3 +14,4 @@ description: Различные сценарии использования {{ c
 * [Интерактивная отладка функций {{ sf-name }}](serverless-live-debug.md)
 * [{#T}](logging.md)
 * [{#T}](alb-ingress-controller-log-options.md)
+* [{#T}](cloud-logging.md)

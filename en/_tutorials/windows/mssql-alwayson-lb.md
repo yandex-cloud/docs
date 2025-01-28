@@ -9,7 +9,7 @@ The use case describes how to deploy an Always On availability group in {{ yande
 
 To create and configure an Always On availability group with an internal network load balancer:
 
-1. [Prepare your cloud](#before-begin).
+1. [Prepare your cloud environment](#before-begin).
 1. [Create a network infrastructure](#prepare-network).
 1. [Create an internal network load balancer](#create-load-balancer).
 1. [Prepare VMs for the availability group](#create-vms).
@@ -17,7 +17,7 @@ To create and configure an Always On availability group with an internal network
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Prepare your cloud environment {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -383,6 +383,8 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
      --async
   ```
 
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 
 - PowerShell {#powershell}
 
@@ -402,8 +404,9 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
      --host-id <dedicated_host_ID> `
      --async
-
   ```
+
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
   
 {% endlist %}
@@ -605,7 +608,7 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 ### Install and configure Active Directory {#install-ad}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username, and your password. 
+1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password. 
 1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
 1. On `ya-ad`, run PowerShell and set the required server roles:
 
@@ -682,9 +685,9 @@ Connect to each VM instance you created and [activate your own Windows Server li
 
 ### Create users and groups in Active Directory {#create-ad-users-groups}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username, and your password.
+1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 
-1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
+1. Connect to the `ya-ad` VM from `ya-jump1` under the same account using RDP.
 
 1. On `ya-ad`, run PowerShell and create the `mssql-svc` service account:
 
@@ -1040,7 +1043,7 @@ Install SQL Server on your database servers:
 
     {% endlist %}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username, and your password.
+1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 
 1. Connect to the `ya-mssql1` VM from `ya-jump1` under the same account using RDP. Configure a static IP address with its own subnet mask:
 
@@ -1070,7 +1073,7 @@ Install SQL Server on your database servers:
 
 ### Create a Windows Server Failover Cluster {#configure-failover-cluster}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username, and your password.
+1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 1. Connect to the `ya-mssql1` VM from `ya-jump1` using RDP under the `yantoso\Administrator` account.
 1. Create a cluster of three DB servers:
 
