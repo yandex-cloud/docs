@@ -1,4 +1,6 @@
 ---
+title: Free Trial. Trial period restrictions
+description: The free trial is intended for testing and exploring the features of the cloud infrastructure. During the trial period, you can use {{ yandex-cloud }} resources with some restrictions.
 editable: false
 ---
 

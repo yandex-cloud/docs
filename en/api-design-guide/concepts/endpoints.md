@@ -86,6 +86,10 @@ curl https://{{ api-host }}/endpoints
    "address": "{{ api-host-certmanager-certcontent }}:443"
   },
   {
+   "id": "cloudapps",
+   "address": "cloudapps.{{ api-host }}:443"
+  },
+  {
    "id": "cloudbackup",
    "address": "backup.{{ api-host }}:443"
   },

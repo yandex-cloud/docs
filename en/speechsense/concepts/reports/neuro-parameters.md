@@ -1,10 +1,15 @@
+---
+title: Neuroparameters
+description: In reports, a neuroparameter is a dialog property. {{ speechsense-name }} uses it for semantic analysis to determine whether a dialog matches this property.
+---
+
 # Neuroparameters
 
 {% include [preview-note](../../../_includes/note-preview.md) %}
 
 In reports, a _neuroparameter_ is a dialog property. {{ speechsense-name }} uses it for semantic analysis to determine whether a dialog matches this property. Let's assume you specified a particular topic as a neuroparameter. {{ speechsense-name }} will check whether that topic was mentioned in the dialog.
 
-As a neuroparameter, you can select a reason, topic, or outcome suggested by {{ speechsense-name }} as a possible option. You can also specify your own property; in this case, it will not depend on the choice between reasons, topics, or outcomes.
+As a neuroparameter, you can select a reason, topic, or outcome suggested by {{ speechsense-name }} as a possible option. You can also specify your own property, in which case it will not depend on the choice between reasons, topics, or outcomes.
 
 For reports, {{ speechsense-name }} divides dialogs into two groups: those that match the specified property and those that do not. You choose which group to use in the report.
 

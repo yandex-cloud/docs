@@ -57,6 +57,8 @@ You can request {{ yagpt-full-name }} models in [asynchronous mode](../../concep
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
+      {% include [yandexgpt-model-version-sdk-info](../../../_includes/foundation-models/yandexgpt/yandexgpt-model-version-sdk-info.md) %}
+
   1. Run the created file:
 
       ```bash

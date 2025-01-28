@@ -1,5 +1,5 @@
 ---
-title: How to manage connections. Step-by-step guides
+title: How to get information about a {{ metadata-hub-name }} connection. Step-by-step guides
 description: Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to view connections.
 ---
 
@@ -15,14 +15,14 @@ To view created connections:
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Select **{{ metadata-hub-full-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click the line with the connection to view its details.
 
 {% endlist %}
 
 For the selected connection, you can view information about its dependencies on other services and the history of operations.
 
-You can open the selected connection in [{{ websql-full-name }}](../../websql/concepts/index.md) to make database requests. Click the **Open in {{ websql-name }}** link in the top-right corner.
+You can open the selected connection in [{{ websql-full-name }}](../../websql/concepts/index.md) to make database requests. Click the **{{ ui-key.yacloud.connection-manager.label_open-websql }}** link in the top-right corner.
 
 ## Viewing connection dependencies {#dependencies}
 
@@ -32,8 +32,8 @@ You can open the selected connection in [{{ websql-full-name }}](../../websql/co
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Select **{{ metadata-hub-full-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** and click the name of the connection you need.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **Dependencies**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** and click the name of the connection you need.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.connection-manager.label_dependences }}**.
 
      The dependency list shows managed database clusters and service instances that use {{ connection-manager-name }} to store connection information. Click a line in the dependency list to go to a cluster or service instance.
 
@@ -47,8 +47,8 @@ You can open the selected connection in [{{ websql-full-name }}](../../websql/co
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Select **{{ metadata-hub-full-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager** and click the name of the connection you need.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **Operations**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** and click the name of the connection you need.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
      In the list of operations, you can view all the operations for the selected connection since its creation:
 

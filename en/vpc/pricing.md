@@ -1,4 +1,6 @@
 ---
+title: '{{ vpc-full-name }} pricing policy'
+description: This article provides the {{ vpc-name }} pricing policy.
 editable: false
 ---
 

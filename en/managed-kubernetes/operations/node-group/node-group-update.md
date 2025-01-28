@@ -199,7 +199,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
      ```bash
      {{ yc-k8s }} node-group update <node_group_ID_or_name> \
      ...
-       --network-interface subnets=<node_group_subnet_name>, ipv4-address=nat
+       --network-interface security-group-ids=[<security_group_IDs>],ipv4-address=nat
      ```
 
      You can find out the names and IDs of {{ managed-k8s-name }} node groups from the [list of node groups in the folder](node-group-list.md#list).
@@ -572,7 +572,7 @@ After you change the metadata, the node group status will temporarily change to 
               --metadata <key>=<value>
             ```
 
-            You can request the name of a node group with a [list of node groups in the folder](./node-group-list.md#list).
+            You can request the name of a node group with the [list of node groups in the folder](./node-group-list.md#list).
 
             You can request a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
 
@@ -604,7 +604,7 @@ After you change the metadata, the node group status will temporarily change to 
               --keys <key>
             ```
 
-            You can request the name of a node group with a [list of node groups in the folder](./node-group-list.md#list).
+            You can request the name of a node group with the [list of node groups in the folder](./node-group-list.md#list).
 
             You can request a list of existing metadata with [detailed information about the node group](./node-group-list.md#get).
 

@@ -35,11 +35,11 @@ To go to cloud and service management:
 
 ## Cloud {#cloud}
 
-A cloud is your organization's workspace. All clouds connected to your organization are displayed in the [{{ yandex-cloud }} management console]({{ link-console-main }}).
+A cloud is your organization's workspace. All clouds connected to your organization are displayed in the [{{ yandex-cloud }}]({{ link-console-main }}) management console.
 
 A corporate administrator can create new directories and resources in the cloud, connect {{ yandex-cloud }} services, and manage relevant access. Learn more about using {{ yandex-cloud }} resources in the [{{ resmgr-full-name }} documentation](../../resource-manager/concepts/resources-hierarchy.md).
 
-The organization's first cloud will connect automatically when an administrator logs in to the management console. To connect an additional cloud, you need to create a [billing account](../../billing/quickstart/).
+The organization's first cloud will be created and connected automatically as soon as an administrator logs in to the management console. To [create](../../resource-manager/operations/cloud/create.md) and [connect](../../billing/operations/pin-cloud.md#bind-cloud) an additional cloud, you need to create a [billing account](../../billing/quickstart/).
 
 If there are multiple organizations registered in your account, you can [move](../../resource-manager/operations/cloud/change-organization.md) clouds between them. To do this, you need the `{{ roles-cloud-owner }}` [role](../security/index.md#organization-manager-organizations-owner) for the cloud being transferred and the `{{ roles-organization-owner }}` [role](../../resource-manager/security/index.md#resource-manager-clouds-owner) for the organization to transfer the cloud to.
 

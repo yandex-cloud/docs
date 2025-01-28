@@ -1,7 +1,7 @@
-# 5. Collecting, monitoring, and analyzing audit logs
+# Requirements for collecting, monitoring, and analyzing audit logs
 
+## 5. Collecting, monitoring, and analyzing audit logs {#audit-logs}
 
-#### Introduction {#intro}
 
 An audit log is a record of all events in the system, including access to it and operations performed. By collecting and verifying audit logs, you can monitor compliance with the established security procedures and standards and identify vulnerabilities in your security mechanisms.
 
@@ -16,6 +16,8 @@ There are different levels of audit log events:
 For more information about {{ k8s }} events, see [Collecting, monitoring, and analyzing audit logs in {{ managed-k8s-full-name }}](../../../security/domains/kubernetes.md#collection-monitoring-analysis-audit-logs).
 
 {% endnote %}
+
+### Overview {#general}
 
 #### 5.1 {{ at-full-name }} is enabled at the organization level {#audit-trails}
 
@@ -46,7 +48,7 @@ You can enable {{ at-full-name }} at the folder, cloud, and organization level. 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the functions in.
-  1. In the services list, select {{ at-full-name }}.
+  1. In the list of services, select {{ at-full-name }}.
   1. Make sure the Filter parameter is set to Organization.
   1. In addition, check that the destination of logs is {{ objstorage-full-name }} bucket, [{{ cloud-logging-name }}](../../../logging/) log group, and {{ yds-name }}, that they are up and running, and that the logs are available for further analysis.
 
@@ -113,7 +115,7 @@ You can use a solution for secure {{ objstorage-full-name }} bucket setup with {
 
 {% endlist %}
 
-#### 5.5 Audit logs are collected at the OS level {#os-collection}
+#### 5.5 Audit logs are collected at the OS level {#os-level}
 
 When using IaaS cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
   * [Osquery](https://osquery.io/)
@@ -171,7 +173,7 @@ A [data event audit log](../../../audit-trails/concepts/format-data-plane.md) is
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your [trail](../../../audit-trails/concepts/trail.md) is located.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Select the trail you need.
   1. Make sure the trail info page in **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** lists all the services you want to collect data event logs for, specifying the correct audit log [scope](../../../audit-trails/concepts/trail.md#collecting-area) for each service.
 

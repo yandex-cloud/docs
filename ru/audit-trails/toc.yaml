@@ -47,6 +47,8 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Настройка реагирования в {{ sf-name }}
         href: tutorials/logging-functions.md
+      - name: Обработка аудитных логов {{ at-name }}
+        href: tutorials/audit-trails.md
       - name: Экспорт аудитных логов в SIEM
         items:
           - name: Загрузка аудитных логов в {{ mos-full-name }}

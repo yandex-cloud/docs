@@ -15,7 +15,7 @@ To increase the quota, re-create the VM.
 
 To deploy the Remote Desktop Services infrastructure:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a script to manage a local administrator account](#admin-script).
 1. [Create a VM for Remote Desktop Services](#add-vm).
@@ -27,7 +27,7 @@ To deploy the Remote Desktop Services infrastructure:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -65,7 +65,7 @@ Create a cloud network named `my-network` with subnets in all availability zones
   
      {% include [default-catalogue](../../_includes/default-catalogue.md) %} 
 
-     To create a cloud network, run the command:
+     To create a cloud network, run this command:
 
      ```
      yc vpc network create --name my-network
@@ -84,7 +84,7 @@ Create a cloud network named `my-network` with subnets in all availability zones
      - Management console {#console}
 
        To create a subnet:
-       1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
+       1. Open the **{{ vpc-name }}** section in the folder where you need to create a subnet.
        1. Click the name of the cloud network.
        1. Click **Add subnet**.
        1. Fill out the form: enter `my-subnet-d` as the subnet name and select the `{{ region-id }}-d` availability zone from the drop-down list.
@@ -139,13 +139,13 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
   1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `RDS` and select the appropriate [RDS](/marketplace?tab=software&search=windows+rds) image: 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
       * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Network named `my-network` and subnet named `my-subnet-d`.
@@ -168,6 +168,8 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk-rds-5 \
      --metadata-from-file user-data=setpass
   ```
+
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 - API {#api}
 
@@ -199,7 +201,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    
    {% endlist %}
 
-1. Connect to `my-rds-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` for username, and your password.
+1. Connect to `my-rds-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 1. Assign Active Directory roles:
 
     {% list tabs group=programming_language %}
@@ -225,7 +227,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       
     {% endlist %}
 
-   Windows will restart automatically. Reconnect to `my-rds-vm`. Use `yantoso\Administrator` for username, and your password. Relaunch PowerShell.
+   Windows will restart automatically. Reconnect to `my-rds-vm`. Use `yantoso\Administrator` as your username and your password. Relaunch PowerShell.
 
 ## Set up the firewall rules {#firewall}
 

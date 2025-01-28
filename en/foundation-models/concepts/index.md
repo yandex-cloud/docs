@@ -5,7 +5,7 @@ description: '{{ foundation-models-full-name }} is a service that provides acces
 
 # About {{ foundation-models-full-name }}
 
-{{ foundation-models-full-name }} comprises several large generative neural networks plus an efficient toolset you can use to leverage their capabilities to advance your business. {{ foundation-models-name }} is a part of {{ ai-studio-full-name }}.
+{{ foundation-models-full-name }} comprises several large generative models plus an efficient toolset you can use to leverage their capabilities to advance your business. {{ foundation-models-name }} is a part of {{ ai-studio-full-name }}.
 
 [{{ yagpt-full-name }}](yandexgpt/index.md) offers text content generation models. You can use it to generate product descriptions, articles, news stories, newsletters, blog posts, and many other things. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect. For the full list of generative text models, see [{#T}](yandexgpt/models.md).
 
@@ -13,7 +13,7 @@ description: '{{ foundation-models-full-name }} is a service that provides acces
 
 With {{ yagpt-name }} classifiers, you can classify various texts. Special models are better at it than the {{ gpt-lite }}and {{ gpt-pro }} models, their API being tailored for classification tasks. For more information about the supported classification types, see [{#T}](classifier/index.md). 
 
-To create images in {{ foundation-models-name }} use the {{ yandexart-name }} neural network that will help you create detailed and realistic images based on a text prompt. 
+To create images in {{ foundation-models-name }} use the {{ yandexart-name }} neural network that will help you create detailed and realistic images based on a text prompt.
 
 For information on the {{ foundation-models-name }} restrictions, refer to [{#T}](limits.md).
 

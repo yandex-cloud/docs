@@ -8,17 +8,17 @@ Users get permissions along with resource roles. For more information about how 
 
 Before authorization, a user must get authenticated, i.e., they must log in using their account. Authentication is performed in different ways depending on the type of account and the interface used:
 
-* [Authentication using a Yandex account](#passport)
+* [Authentication with a Yandex account](#passport)
 * [Service account authentication](#sa)
 * [Federated user authentication](#saml-federation)
 
-### Authentication using a {{ yandex-cloud }} account {#passport}
+### Authentication using a Yandex account {#passport}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  You are automatically authenticated when logging in to your Yandex or Yandex 360 account.
+  When logging in to your Yandex or Yandex 360 account, you will be authenticated automatically.
 
 
 - CLI {#cli}
@@ -31,11 +31,11 @@ Before authorization, a user must get authenticated, i.e., they must log in usin
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
 
   To perform operations in the API:
-
+  
   1. [Get an IAM token](../../operations/iam-token/create.md) in exchange for your [OAuth token](oauth-token.md).
   1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-      {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
+     {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
 
 {% endlist %}
 
@@ -53,15 +53,15 @@ Before authorization, a user must get authenticated, i.e., they must log in usin
 
   * Using an [IAM token](iam-token.md):
 
-      This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). That's why this is a good method for applications that automatically request an IAM token.
+      This is the recommended authentication method, but IAM tokens have a short [lifetime](iam-token.md#lifetime). This makes it a good method for applications that automatically request an IAM token.
 
-      [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
+    [Instructions for how to get an IAM token](../../operations/iam-token/create-for-sa.md).
   * With [API keys](api-key).
 
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
-    [Instructions for how to get an API key](../../operations/api-key/create.md).
-  * Using [static access keys](access-key.md). This method should be used in services with an AWS-compatible API, such as {{ objstorage-name }} and {{ message-queue-name }}.
+      [Instructions for how to get an API key](../../operations/api-key/create.md).
+  * Using [static access keys](access-key.md). Use this method for services with an AWS-compatible API, such as {{ objstorage-name }} and {{ message-queue-name }}.
 
       [Instructions for how to get a static access key](../../operations/sa/create-access-key.md).
 

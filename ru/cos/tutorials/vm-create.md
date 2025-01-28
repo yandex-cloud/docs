@@ -82,7 +82,10 @@
      * `--zone` — зона доступности.
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--service-account-name` — имя сервисного аккаунта.
-     * `--create-boot-disk size` — размер загрузочного диска. Должен быть не менее 30 ГБ.
+     * `--create-boot-disk size` — размер загрузочного диска.
+
+        {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
+
      * `--public-ip` — выделение публичного IP-адреса для ВМ.
      * `--container-name` — имя Docker-контейнера.
      * `--container-image` — имя Docker-образа для запуска Docker-контейнера.
@@ -150,7 +153,10 @@
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     * `--create-boot-disk size` — размер загрузочного диска. Должен быть не менее 30 ГБ.
+     * `--create-boot-disk size` — размер загрузочного диска.
+
+        {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
+
      * `--service-account-name` — имя сервисного аккаунта.
      * `--public-ip` — выделение публичного IP-адреса для ВМ.
 

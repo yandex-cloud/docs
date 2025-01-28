@@ -27,6 +27,12 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% endnote %}
 
+      * To add [labels](../../concepts/labels.md):
+
+          * Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          * Enter a label in `key: value` format.
+          * Click **Enter**.
+
       * To configure a [TLS certificate](../../concepts/clients-to-servers-tls.md) for a CDN resource, in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
 
           * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
@@ -144,6 +150,8 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       To disable the IP-based access policy, use the `--clear-ip-address-acl` parameter.
 
+      To add or remove [labels](../../concepts/labels.md), use the `--add-labels`, `--remove-labels`, and `--remove-all-labels` parameters.
+
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
@@ -174,7 +182,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```bash
@@ -183,7 +191,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the changes to the CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc cdn resource list

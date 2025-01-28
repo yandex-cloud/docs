@@ -1,6 +1,6 @@
 ---
-title: Signing requests
-description: Follow this guide to set up request signature.
+title: Signing requests to {{ objstorage-full-name }}
+description: Follow this guide to set up signing for requests to {{ objstorage-name }}.
 ---
 
 # Signing requests

@@ -1,2 +1,1 @@
-To install the AWS SDK for PHP, follow the [instructions](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_index.html) on the vendor's website.
-
+To install the AWS SDK for PHP, follow the [guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_index.html) on the vendor's website. We recommend using the [Composer](https://getcomposer.org/) dependency manager.

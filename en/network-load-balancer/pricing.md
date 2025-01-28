@@ -1,6 +1,9 @@
 ---
+title: '{{ network-load-balancer-full-name }} pricing policy'
+description: This article provides the {{ network-load-balancer-name }} pricing policy.
 editable: false
 ---
+
 # {{ network-load-balancer-name }} pricing policy
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}

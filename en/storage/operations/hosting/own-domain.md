@@ -40,13 +40,13 @@ To support your own domain:
       1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, specify the resource record time to live or select a value from the list.
       1. Click **{{ ui-key.yacloud.common.create }}**.
       1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-
+      
       To get access to public zone domain names, delegate the domain. To do this, specify these server addresses in your online account with domain registrar: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
 
       It may take some time to delegate the domain and update the resource records.
 
       You can also [create a DNS zone](../../../dns/operations/zone-create-public.md) and [resource record](../../../dns/operations/resource-record-create) using {{ dns-name }}.
-
+      
       {% cut "Example of DNS zone and resource record parameters" %}
 
       DNS zone parameters:
@@ -68,8 +68,8 @@ To support your own domain:
       Example of DNS zone parameters:
       * Zone: `example.com.`
       * Type: `Public`
-
-      [CNAME](../../../dns/concepts/resource-record.md#cname) resource record example:
+      
+      [CNAME](../../../dns/concepts/resource-record.md#cname) resource record example: 
 
       ```text
       example.com CNAME example.com.{{ s3-web-host }}
@@ -95,6 +95,10 @@ To support your own domain:
     1. {% include [add-cert.md](../../../_includes/storage/add-cert.md) %}
 
     {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
+
+    
+    {% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
+
 
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}

@@ -3,11 +3,11 @@
 
 [Packer](https://www.packer.io/) enables you to create [VM disk images](../../compute/concepts/image.md) with parameters specified in a configuration file. This guide describes how to create a disk image in [{{ compute-full-name }}](../../compute/) using Packer.
 
-In this scenario, Packer will create and launch a virtual machine with [Debian 11](/marketplace/products/yc/debian-11) from {{ marketplace-name }} and [nginx](https://nginx.org/en/) web server. Then, it will delete the VM and create an image of its boot disk. After that, the disk will also be deleted.
+In this scenario, Packer will create and launch a virtual machine with [Debian 11](/marketplace/products/yc/debian-11) from {{ marketplace-name }} and with a [nginx](https://nginx.org/en/) web server installed. Then, it will delete the VM and create an image of its boot disk. After that, the disk will also be deleted.
 
 To create an image:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Install Packer](#install-packer).
 1. [Prepare the image configuration](#prepare-image-config).
 1. [Create an image](#create-image).
@@ -16,14 +16,14 @@ To create an image:
 If you no longer need the image you created, [delete it](#clear-out).
 
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
 ### Configure the environment and infrastructure {#prepare-environment}
 
-1. Install the {{ yandex-cloud }} [CLI](../../cli/quickstart.md#install).
+1. Install the {{ yandex-cloud }} [command line interface](../../cli/quickstart.md#install) (CLI).
 
     {% note tip %}
 
@@ -47,7 +47,7 @@ The cost of creating a disk image using Packer includes:
 
 {% note warning %}
 
-{{ yandex-cloud }} requires Packer 1.5 or higher.
+{{ yandex-cloud }} requires Packer version 1.5 or higher.
 
 Do not use popular package managers, such as Homebrew or APT, to install Packer. Their repositories may contain obsolete versions.
 
@@ -109,11 +109,7 @@ Install a Packer distribution for your platform from a [mirror](https://hashicor
   1. Download a Packer distribution from the [mirror](https://hashicorp-releases.yandexcloud.net/packer/) and extract it into the `packer` folder:
   1. Add `packer` to the `PATH` variable:
 
-      1. Click **Start** and type **Change system environment variables** in the Windows search bar.
-      1. Click **Environment Variables...** at the bottom right.
-      1. In the window that opens, find the `PATH` parameter and click **Edit**.
-      1. Add the path to the `packer` folder to the list.
-      1. Click **OK**.
+      {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
 
   1. Run a new command line session and make sure that Packer is installed:
 
@@ -176,7 +172,7 @@ Download and install a Packer distribution following the [instructions on the of
 
 To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builders/yandex):
 
-1. Create a file named `config.pkr.hcl` with the following contents:
+1. Create the `config.pkr.hcl` file with the following contents:
 
     ```hcl
     packer {

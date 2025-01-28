@@ -130,7 +130,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example-old }}
@@ -144,7 +144,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example }}/protocol/saml
@@ -156,7 +156,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example-old }}/protocol/saml
@@ -229,7 +229,7 @@ To follow the steps in this section, you will need:​
         * `--auto-create-account-on-login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-          If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+          If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `--encrypted-assertions`: Flag enabling a digital signature for authentication requests. To complete the configuration, download and [install](#signature) a {{ yandex-cloud }} certificate.
 
@@ -255,7 +255,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/auth/realms/master
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
             ```
             {{ link-keycloak-example-old }}
@@ -269,7 +269,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example }}/protocol/saml
@@ -281,7 +281,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example-old }}/protocol/saml
@@ -342,7 +342,7 @@ To follow the steps in this section, you will need:​
         * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-          If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+          If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
@@ -368,7 +368,7 @@ To follow the steps in this section, you will need:​
 
             If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-            Here is an example:
+            For example:
 
             ```
             {{ link-keycloak-example-old }}
@@ -382,7 +382,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
             ```
             {{ link-keycloak-example }}/protocol/saml
@@ -394,7 +394,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/auth/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
             ```
             {{ link-keycloak-example-old }}/protocol/saml
@@ -466,7 +466,7 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/realms/master
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. Here is an example:
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
 
           ```
           {{ link-keycloak-example }}
@@ -478,7 +478,7 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/auth/realms/master
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. Here is an example:
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
 
           ```
           {{ link-keycloak-example-old }}
@@ -493,9 +493,9 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/realms/master/protocol/saml
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL, 
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-          Here is an example:
+          For example:
 
           ```
           {{ link-keycloak-example }}/protocol/saml
@@ -509,7 +509,7 @@ To follow the steps in this section, you will need:​
 
           If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-          Here is an example:
+          For example:
 
           ```
           {{ link-keycloak-example-old }}/protocol/saml
@@ -521,7 +521,7 @@ To follow the steps in this section, you will need:​
       * `auto_create_account_on_login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-        If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+        If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
       * `case_insensitive_name_ids`: Toggles username case sensitivity.
         If this option is enabled, the IDs of federated user names will be case-insensitive.
       * `security_settings`: Federation security settings:
@@ -747,7 +747,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the **Archive Format** field, select **Certificate PEM**. (You may need to generate certificates first so that clicking **Import key** makes the **Certificate PEM** option available.)
       {#signature}
-      1. Click **Browse** and select the {{ yandex-cloud }} SAML certificate you downloaded earlier to sign authentication requests. If you did not download a SAML certificate, you can do this on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+      1. Click **Browse** and select the {{ yandex-cloud }} SAML certificate you downloaded earlier to sign authentication requests. If you did not download a SAML certificate when creating the federation, you can download it on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
       1. Click **Confirm**.
 
@@ -759,7 +759,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
       1. In the **Archive Format** field, select **Certificate PEM**.
       {#signature}
-      1. Click **Select file** and select the {{ yandex-cloud }} SAML certificate you downloaded earlier to sign authentication requests. If you have not downloaded the SAML certificate when creating the federation, you can download it on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
+      1. Click **Select file** and select the {{ yandex-cloud }} SAML certificate you downloaded earlier to sign authentication requests. If you did not download a SAML certificate when creating the federation, you can download it on the {{ org-full-name }} federation info page by clicking ![ArrowDownToLine](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** in the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** field.
 
       1. Click **Import**.
 

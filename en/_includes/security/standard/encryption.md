@@ -1,7 +1,7 @@
-# 4. Data encryption and key and secret management
+# Requirements for data encryption and key and secret management
 
+## 4. Data encryption and key management {#data-encryption-and-key-management}
 
-### Introduction {#intro}
 
 {{ yandex-cloud }} provides built-in encryption features for a number of services. It is the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management are performed by [{{ kms-name }}](../../../kms/) ({{ kms-short-name }}).
 
@@ -26,11 +26,11 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the services list, select **{{ objstorage-name }}**.
+  1. In the list of services, select **{{ objstorage-name }}**.
   1. Go to the bucket settings.
   1. Go to the **Encryption** tab.
   1. Make sure that encryption is enabled and the {{ kms-short-name }} encryption key is specified.
-  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -43,7 +43,7 @@ To protect critical data in {{ objstorage-full-name }}, we recommend using bucke
      --bucket <bucket_name>
      ```
 
-  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If encryption is enabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -87,7 +87,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
   1. Make sure you have enabled access over HTTPS and specified a TLS certificate.
-  1. If access over HTTPS is enabled, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If access over HTTPS is enabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -97,7 +97,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
   yc storage bucket get-https <bucket_name>
   ```
 
-  If the command returns a certificate ID in the `certificate_id` field, it means access over HTTPS is enabled and the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  If the command returns a certificate ID in the `certificate_id` field, it means access over HTTPS is enabled and the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -114,10 +114,10 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
 - Performing a check in the management console {#console}
  
   1. In the management console, select the cloud or folder to check the load balancers in.
-  1. In the services list, select **{{ alb-name }}**.
+  1. In the list of services, select **{{ alb-name }}**.
   1. Go to the load balancer settings.
   1. Make sure that **HTTPS** is specified for the load balancer.
-  1. If HTTPS is specified, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If HTTPS is specified, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -140,7 +140,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -159,7 +159,7 @@ Enable an HTTPS listener using the instructions.
   1. In the management console, select the cloud or folder to check the gateways in.
   1. In the list of services, select **{{ api-gw-name }} → Gateway settings → Domains**.
   1. Make sure the domain and certificate are enabled.
-  1. If the domain and certificate are active, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If the domain and certificate are active, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -182,7 +182,7 @@ Enable an HTTPS listener using the instructions.
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -201,11 +201,11 @@ Enable an HTTPS listener using the instructions.
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the resources in.
-  1. In the services list, select **{{ cdn-name }}**.
+  1. In the list of services, select **{{ cdn-name }}**.
   1. Go to the resource settings, the **Additional** tab.
   1. Make sure the **Origin request protocol** field is set to **HTTPS**.
   1. Make sure the **Certificate** field specifies your own certificate or a **Let’s encrypt** certificate.
-  1. If HTTPS and your own certificate are specified, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If HTTPS and your own certificate are specified, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -228,7 +228,7 @@ Enable an HTTPS listener using the instructions.
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -334,10 +334,10 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the keys in.
-  1. In the services list, select **{{ kms-name }}**.
+  1. In the list of services, select **{{ kms-name }}**.
   1. Go to the **Keys** tab.
   1. Make sure the **Encryption algorithm** field is set to **AES-256 HSM**.
-  1. If AES-256 HSM is specified, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If AES-256 HSM is specified, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -358,7 +358,7 @@ We recommend using HSMs for {{ kms-short-name }} keys to enhance the security le
      done
      ```
 
-  1. If the encryption algorithm contains AES-256 HSM, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If the encryption algorithm contains AES-256 HSM, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -404,7 +404,7 @@ To check the {{ kms-short-name }} key access permissions, check who has access p
      yc organization-manager organization list-access-bindings --id=${ORG_ID} --format=json | jq -r '.[] | select(.role_id=="admin" or .role_id=="editor" or .role_id=="kms.admin" or .role_id=="kms.editor" or .role_id=="kms.keys.encrypterDecrypter")'
      ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
   1. Find accounts with roles assigned at the cloud level:
 
@@ -415,7 +415,7 @@ To check the {{ kms-short-name }} key access permissions, check who has access p
      done
      ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
   1. Run the command below to search for accounts with primitive roles assigned at the level of all folders in your clouds:
 
@@ -428,7 +428,7 @@ To check the {{ kms-short-name }} key access permissions, check who has access p
      done
      ```
 
-  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+  1. If there are no accounts in the list, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
   1. Find accounts with roles assigned at the key level:
 
@@ -463,7 +463,7 @@ A secure value for AES-GCM mode is encryption using 4294967296 (= 2<sup>32</sup>
 
 {% note info %}
 
-Destroying any version of a key means destroying all data encrypted with it. You can protect a key against deletion by setting the deletionProtection parameter. However, it does not protect against deleting individual versions.
+Destroying any version of a key means destroying all data encrypted with it. You can protect a key against deletion by setting the deletionProtection parameter. However, it does not protect against deleting individual versions.
 
 {% endnote %}
 
@@ -474,10 +474,10 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the keys in.
-  1. In the services list, select **{{ kms-name }}**.
+  1. In the list of services, select **{{ kms-name }}**.
   1. Go to the key settings.
   1. Find the **Rotation period** parameter.
-  1. If the parameter is set to any value different from **No rotation**, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If the parameter is set to any value different from **No rotation**, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -498,7 +498,7 @@ For more information about key rotation, see the {{ kms-short-name }} documentat
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -515,10 +515,10 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, mak
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the keys in.
-  1. In the services list, select **{{ kms-name }}**.
+  1. In the list of services, select **{{ kms-name }}**.
   1. Go to the key settings.
   1. Find the **Deletion protection** parameter.
-  1. If it is set to **Yes**, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If it is set to **Yes**, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -539,7 +539,7 @@ Deleting a {{ kms-short-name }} key always means destroying data. Therefore, mak
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -574,10 +574,10 @@ When working in {{ TF }}, we recommend using a script to [fill in](https://terra
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the secrets in.
-  1. In the services list, select **{{ lockbox-short-name }}**.
+  1. In the list of services, select **{{ lockbox-short-name }}**.
   1. Make sure that at least one {{ lockbox-short-name }} secret is used.
   1. Find the **Deletion protection** parameter.
-  1. If {{ lockbox-short-name }} is used or {{ k8s }} VMs or entities have Hashicorp Vault installed, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If {{ lockbox-short-name }} is used or {{ k8s }} VMs or entities have Hashicorp Vault installed, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -598,7 +598,7 @@ When working in {{ TF }}, we recommend using a script to [fill in](https://terra
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -621,10 +621,10 @@ Make sure that the secrets are used as described above.
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the functions in.
-  1. In the services list, select **{{ sf-name }}**.
+  1. In the list of services, select **{{ sf-name }}**.
   1. Go to the function settings, the **Editor** tab.
   1. Find the **{{ lockbox-short-name }} secrets** parameter.
-  1. If the parameters of each object specify **{{ lockbox-short-name }} secrets** or there are no environment variables with secret data, the recommendation is fulfilled. Otherwise, proceed to the "Guides and solutions to use".
+  1. If the parameters of each object specify **{{ lockbox-short-name }}** secrets or there are no environment variables with secret data, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -641,7 +641,7 @@ Make sure that the secrets are used as described above.
      done
      ```
 
-  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+  1. If an empty list is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 

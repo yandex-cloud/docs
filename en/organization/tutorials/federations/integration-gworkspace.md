@@ -113,7 +113,7 @@ To create a federation:
         * `--auto-create-account-on-login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
         
@@ -190,7 +190,7 @@ To create a federation:
       * `auto_create_account_on_login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
       This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-          If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+          If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `case_insensitive_name_ids`: Toggles username case sensitivity.
           If this option is enabled, the IDs of federated user names will be case-insensitive.
@@ -253,7 +253,7 @@ To create a federation:
         * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
         
@@ -414,7 +414,7 @@ User data | Comment | Application Attributes
 Unique user ID | Required attribute. Using an email address is recommended. | **Name ID** field in service provider settings
 Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-Full name | Displayed in {{ yandex-cloud }} services.<br>Here is an example: Ivan Ivanov.<br> Value length limit: {{ saml-limit-display-name }}. | Attribute unavailable
+Full name | Displayed in {{ yandex-cloud }} services.<br>Example: Ivan Ivanov.<br> Value length limit: {{ saml-limit-display-name }}. | Attribute unavailable
 Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `ivanov@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
 Profile image | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | Attribute unavailable

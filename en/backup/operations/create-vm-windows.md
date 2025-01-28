@@ -19,7 +19,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#windows).
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for your VM.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Choose a subnet in the selected availability zone.
@@ -107,7 +107,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) matching the selected subnet.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) corresponding to the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
       * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Windows-based operating systems](../concepts/vm-connection.md#windows).
@@ -144,6 +144,8 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       ...
       placement_policy: {}
       ```
+
+      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 {% endlist %}
 

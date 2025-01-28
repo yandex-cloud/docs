@@ -60,6 +60,8 @@ To use the examples:
       * `message2`: Clarifying part of the image generation prompt.
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
+
+      For more information about accessing the image generation model, see [{#T}](../../../foundation-models/concepts/classifier/models.md#addressing-models).
       
   1. Run the created file:
 

@@ -5,7 +5,9 @@ description: Триггер — условие, при выполнении ко
 
 # Триггеры в {{ api-gw-full-name }}. Обзор
 
-_Триггер_ — условие, при выполнении которого автоматически отправляется сообщение в [WebSocket-соединения](../extensions/websocket.md). Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например {{ objstorage-full-name }}, {{ message-queue-full-name }} и {{ container-registry-full-name }}. 
+_Триггер_ — условие, при выполнении которого сообщения автоматически отправляются в [WebSocket-соединения](../extensions/websocket.md), подключенные к API-шлюзу по пути, указанному пользователем. Сам API-шлюз при этом не вызывается.
+
+Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например {{ objstorage-full-name }}, {{ message-queue-full-name }} и {{ container-registry-full-name }}.
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 

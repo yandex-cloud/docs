@@ -13,7 +13,7 @@ editable: false
 
 
 
-To see the cost of speech [synthesis](https://yandex.cloud/en/prices?state=ba3807f79625#calculator) and [recognition](https://yandex.cloud/en/prices?state=82857f5d8751#calculator), use our calculator on the Yandex Cloud website or see the pricing in this section.
+To calculate the cost of speech [synthesis](https://yandex.cloud/en/prices?state=ba3807f79625#calculator) and [recognition](https://yandex.cloud/en/prices?state=82857f5d8751#calculator), use the calculator on the {{ yandex-cloud }} website or see the pricing data in this section.
 
 
 {% endnote %}
@@ -75,11 +75,11 @@ In [streaming mode](stt/streaming.md), billing begins as soon as you send a [mes
 >
 > * One audio fragment that is 37 seconds long is billed as 45 seconds.
 >
->    **Explanation**: The audio is divided into two 15-second segments and one 7-second segment. The length of the last segment is rounded up to 15 seconds. Thus, we have three segments, 15 seconds each.
+>    **Explanation:** The audio is divided into two 15-second segments and one 7-second segment. The length of the last segment is rounded up to 15 seconds. Thus, we have three segments, 15 seconds each.
 >
 > * Two audio fragments that are 5 and 8 seconds long are billed as 30 seconds.
 >
->    **Explanation**: The length of each audio is rounded up to 15 seconds. Thus, we have two segments, 15 seconds each.
+>    **Explanation:** The length of each audio is rounded up to 15 seconds. Thus, we have two segments, 15 seconds each.
 
 #### Asynchronous recognition with {#rules-stt-long}
 
@@ -89,7 +89,7 @@ The billing unit is a one-second segment of two-channel audio. Shorter segments 
 
 The minimum billable amount is 15 seconds for every pair of channels. Shorter audio fragments are billed as 15 seconds.
 
-**Examples of rounding audio length**:
+**Examples of rounding the length of audio**
 
 Length | Number of channels | Seconds charged
 --- | --- | ---

@@ -4,15 +4,9 @@ title: How to get information about trunks in {{ interconnect-name }}
 
 # Getting information about trunks
 
-{% include [cic-api-access](../../_includes/interconnect/cic-api-access.md) %}
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. See the description of the CLI command to get information about [trunks](../concepts/trunk.md):
 
@@ -23,7 +17,7 @@ title: How to get information about trunks in {{ interconnect-name }}
   1. Get a list of trunks in the specified folder:
 
       ```bash
-      yc cic trunk list --folder-id b1gqf2hjizv2jwj4dnga 
+      yc cic trunk list --folder-id b1gqf2hjizv2jw******
       ```
 
       Result:
@@ -32,8 +26,8 @@ title: How to get information about trunks in {{ interconnect-name }}
       +----------------------+--------------------+----------------------------+------------------+----------+
       |          ID          |        NAME        | POINT OF PRESENCE ID (POP) | TRANSCEIVER TYPE | CAPACITY |
       +----------------------+--------------------+----------------------------+------------------+----------+
-      | euuqqctbrflq3ir4n4p2 | customer-name-m9   | ru-msk-m9-0                | 10GBASE-LR       | 5 GBPS   |
-      | euuvdjl5shd0fv7bqt38 | customer-name-ost  | ru-msk-ost-0               | 10GBASE-LR       | 5 GBPS   |
+      | euuqqctbrflq3i****** | customer-name-m9   | ru-msk-m9-0                | 10GBASE-LR       | 5 GBPS   |
+      | euuvdjl5shd0fv****** | customer-name-ost  | ru-msk-ost-0               | 10GBASE-LR       | 5 GBPS   |
       +----------------------+--------------------+----------------------------+------------------+----------+
       ```
 
@@ -41,15 +35,15 @@ title: How to get information about trunks in {{ interconnect-name }}
 
       ```bash
       # yc cic trunk get <trunk ID>
-      yc cic trunk get euuqqctbrflq3ir4n4p2
+      yc cic trunk get euuqqctbrflq3i******
       ```
 
       Result:
 
       ```yml
-      id: euuqqctbrflq3ir4n4p2
+      id: euuqqctbrflq3i******
       name: customer-name-m9
-      folder_id: b1gqf2hjizv2jwj4dnga
+      folder_id: b1gqf2hjizv2jw******
       region_id: ru-central1
       single_port_direct_joint:
         transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
@@ -75,7 +69,7 @@ title: How to get information about trunks in {{ interconnect-name }}
            * `port_names`: List of physical ports in the LAG.
         * `partner_joint_info`: Partner trunk:
            * `partner_id`: Partner ID.
-           * `service_key`: Service key for the partner trunk.
+           * `service_key`: Service key for a trunk via a partner.
       * `point_of_presence_id`: [Point of presence](../concepts/pops.md) ID.
       * `capacity`: Trunk [capacity](../concepts/capacity.md). 
 

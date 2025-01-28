@@ -20,8 +20,18 @@ items:
             href: operations/servers/server-lease-cancel.md
           - name: Подключиться к KVM-консоли
             href: operations/servers/server-kvm.md
-          - name: Воспользоваться диском Rescue-CD
-            href: operations/servers/rescue-boot.md
+          - name: Заменить диск в RAID-массиве
+            href: operations/servers/switch-raid-member.md
+          - name: Диск Rescue-CD
+            items:
+              - name: Воспользоваться Rescue-CD
+                href: operations/servers/rescue-boot.md
+              - name: Сбросить пароль на сервере
+                href: operations/servers/reset-password.md
+              - name: Добавить новый SSH-ключ пользователя
+                href: operations/servers/add-new-ssh-key.md
+              - name: Восстановить загрузчик ОС
+                href: operations/servers/restore-grub.md
       - name: Создать VRF
         href: operations/network-create.md
       - name: Создать подсеть

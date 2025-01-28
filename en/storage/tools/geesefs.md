@@ -120,6 +120,10 @@ GeeseFS does not support the following:
   1. [Download](https://winfsp.dev/rel/) and install WinFSP.
   1. [Download](https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-win-x64.exe) the `geesefs-win-x64.exe` file.
   1. Rename `geesefs-win-x64.exe` to `geesefs.exe` for convenience.
+  1. Сreate a folder named `geesefs` and move the `geesefs.exe` file there.
+  1. Add `geesefs` to the `PATH` variable:
+
+      {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
 
 {% endlist %}
 
@@ -150,6 +154,8 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
       <bucket_name> <mount_point>
     ```
 
+    The key file must have the same structure as `~/.aws/credentials`.
+
   * Using environment variables:
 
     ```bash
@@ -176,9 +182,14 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
     If the key file is located elsewhere, specify its path in the `--shared-config` parameter when mounting the bucket:
 
     ```cmd
-    geesefs <bucket_name> <mount_point> ^
-      --shared-config <path_to_key_file>
+    geesefs ^
+      --shared-config <path_to_key_file> ^
+      <bucket_name> <mount_point>
     ```
+
+    The key file must have the same structure as `~/.aws/credentials`.
+
+    Specify a non-existing folder as the mount point.
 
   * Using environment variables:
 
@@ -199,9 +210,15 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
 
 * For one-time bucket mounting, run the following command:
 
-    ```bash
-    geesefs <bucket_name> <mount_point>
-    ```
+    1. Make sure the `.aws/credentials` file contains the up-to-date static key data.
+
+    1. Run this command:
+
+        ```bash
+        geesefs <bucket_name> <mount_point>
+        ```
+
+        Specify a non-existing folder as the mount point.
 
 * To automatically mount a bucket at system startup:
 
@@ -223,7 +240,7 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
 
     {% note info %}
 
-    To ensure that the bucket is mounted correctly, provide the full absolute path to the mount point without `~`. Example: `/home/user/mountpoint`.
+    To ensure that the bucket is mounted correctly, provide the full absolute path to the mount point without `~`, e.g., `/home/user/mountpoint`.
 
     {% endnote %}
 
@@ -232,7 +249,7 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
     Create a Windows service that will automatically run at system startup:
 
     1. Run `CMD` as an administrator.
-    1. Run the following command:
+    1. Run this command:
 
         ```cmd
         sc create <service_name> ^

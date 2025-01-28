@@ -7,6 +7,7 @@ description: Различные сценарии использования {{ y
 
 * [{#T}](java-servlet-todo-list.md)
 * [{#T}](slack-bot-serverless.md)
+* [{#T}](telegram-bot-serverless.md)
 * [{#T}](connect-from-cf.md)
 * [{#T}](connect-from-cf-nodejs.md)
 * [{#T}](video-converting-queue.md)
@@ -19,6 +20,9 @@ description: Различные сценарии использования {{ y
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](yds-to-ydb.md)
+* [{#T}](yds-to-kafka.md)
+* [{#T}](mmy-to-yds.md)
+* [{#T}](mpg-to-yds.md)
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](mpg-ydb-replication.md)
 * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)

@@ -6,7 +6,7 @@ You can use the [{{ ml-platform-name }}]({{ link-datalens-main }}) interface to 
 
 To create and set up a community and multiple projects:
 
-1. [Get an IAM token](#get-iam).
+1. Get an [IAM token](#get-iam).
 1. [Create projects](#create-projects).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -70,7 +70,7 @@ To create projects, copy and paste the code into notebook cells and run them.
     res.json()
     ```
 
-1. Specify the ID of the organization to create a community in:
+1. Specify the [ID](../../organization/operations/organization-get-id.md) of the organization to create a community in:
 
     ```python
     ORGANIZATION_ID = "<organization_ID>"

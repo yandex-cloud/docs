@@ -1,6 +1,6 @@
 # Updating a VM
 
-After you create a VM, you can edit its name, description, tags, platform, or metadata.
+After you create a VM, you can edit its name, description, labels, platform, or metadata.
 
 For information about editing a VM configuration, see [{#T}](vm-update-resources.md).
 
@@ -13,7 +13,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM.
   1. Click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. Edit the VM parameters, e.g., rename it by editing the **{{ ui-key.yacloud.common.name }}** field.
+  1. Change the VM parameters, e.g., rename the VM by editing the **{{ ui-key.yacloud.common.name }}** field.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
@@ -22,7 +22,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for updating VM parameters:
+  1. See the description of the CLI command for updating VM parameters:
 
      ```bash
      yc compute instance update --help
@@ -32,8 +32,8 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
-  1. Change the VM parameters, e.g., rename it:
+  1. Select `ID` or `NAME` of the VM you need, e.g., `first-instance`.
+  1. Change the VM parameters, e.g., rename the VM:
 
      ```bash
      yc compute instance update first-instance \
@@ -48,7 +48,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 
 {% note info %}
 
-Changing the VM name does not change the host name or the FQDN. For more information about generating the FQDN, see [{#T}](../../concepts/network.md#hostname).
+Changing the VM name does not change the host name or FQDN. For more information about generating the FQDN, see [{#T}](../../concepts/network.md#hostname).
 
 {% endnote %}
 
@@ -56,7 +56,7 @@ Changing the VM name does not change the host name or the FQDN. For more informa
 
 ### Viewing a list of configurable parameters {#viewing-a-list-of-configurable-parameters}
 
-To view the list of configurable parameters, run the command:
+To view a list of configurable parameters, run this command:
 
 {% list tabs group=instructions %}
 
@@ -101,15 +101,15 @@ To change the name and description of a VM, follow these steps:
 
 {% note alert %}
 
-Do not update the VM name if the VM belongs to a {{ managed-k8s-name }} cluster [node group](../../../managed-kubernetes/concepts/index.md#node-group). The names of these VMs are generated automatically, and updating them will disrupt cluster operations.
+Do not rename a VM if it belongs to a {{ managed-k8s-name }} cluster [node group](../../../managed-kubernetes/concepts/index.md#node-group). The names of these VMs are generated automatically, and changing them will disrupt the cluster.
 
 {% endnote %}
 
 ### Changing metadata {#changing-metadata}
 
-Metadata based on different operating systems may differ. When you change an existing set of metadata, it is completely replaced by the set passed in the command.
+Metadata can vary across different operating systems. When you change the existing metadata, it is completely replaced by the data you provide in the command.
 
-To update VM metadata, follow these steps:
+To change VM metadata, follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -124,15 +124,17 @@ To update VM metadata, follow these steps:
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
   1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
-  1. Retrieve VM information with its metadata. All user-defined metadata is specified in the `user-data` key.
+  1. Get the VM info with its metadata. All custom metadata is specified in the `user-data` key.
 
      ```bash
      yc compute instance get --full first-instance
      ```
 
-  1. Update the VM metadata. You can change the metadata using the flags:
-     * `--metadata`: To change a value from a single string.
-     * `--metadata-from-file`: To change a value from multiple strings.
+  1. Change the VM metadata. You can change it using these flags:
+     * `--metadata`: To change a single-line value.
+     * `--metadata-from-file`: To change a multi-line value.
+
+     {% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 {% endlist %}
 
@@ -161,7 +163,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ os
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for updating VM parameters:
+  1. See the description of the CLI command for updating VM parameters:
 
      ```bash
      yc compute instance update --help
@@ -171,7 +173,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ os
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select `ID` or `NAME` of the VM you need, e.g., `first-instance`.
 
   1. Enable access via {{ oslogin }}:
 
@@ -182,7 +184,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ os
 
 - API {#api}
 
-  Use the `metadata` field to provide the `enable-oslogin=true` pair in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
+  Use the `metadata` field to provide `enable-oslogin=true` in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 

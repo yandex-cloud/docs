@@ -1,10 +1,14 @@
-# 2. Network security
+# Network security requirements
+
+## 2. Network security {#network-security}
 
 
 This section provides users with recommendations on security settings in [{{ vpc-full-name }}](../../../vpc/).
 
 
 To isolate applications from each other, put resources in different [security groups](../../../vpc/concepts/security-groups.md), and, if strict isolation is required, in different [networks](../../../vpc/concepts/network.md#network). By default, internal network traffic is allowed, while traffic between networks is not. Traffic between networks is only allowed via a [VM](../../../compute/concepts/vm.md) with two network interfaces in different networks, VPN, or [{{ interconnect-full-name }}](../../../interconnect/index.yaml).
+
+### Overview {#general}
 
 #### 2.1 Cloud objects use a firewall or security groups {#firewall}
 
@@ -13,8 +17,8 @@ With built-in security groups, you can manage VM access to resources and securit
 You can use security groups to protect:
 * VM
 * [Managed databases](/services#data-platform)
-* [{{ alb-full-name }}](../../../application-load-balancer/) [load balancers](../../../application-load-balancer/concepts/application-load-balancer.md)
-* [{{ managed-k8s-full-name }}](../../../managed-kubernetes/) [clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster)
+* [{{ alb-full-name }}](../../../application-load-balancer/)](../../../application-load-balancer/concepts/application-load-balancer.md) [load balancers
+* [{{ managed-k8s-full-name }}](../../../managed-kubernetes/)](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) [clusters
 
 The list of available services is being extended.
 
@@ -34,7 +38,7 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
   1. Open the [{{ yandex-cloud }} management console]({{ link-console-main }}) in your browser.
   1. Go to each cloud and [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) and open all resources listed in "Objects that security groups can be applied to", one by one.
   1. In the object settings, find the **Security group** parameter and make sure that at least one security group is assigned.
-  1. If the parameters of each object with security group support have at least one group set, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+  1. If the parameters of each object with security group support have at least one group set, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
   Check whether the NGFW is used instead of security groups:
   1. Open the {{ yandex-cloud }} management console in your browser.
@@ -62,7 +66,7 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. If you get the cloud resource `ID` in the output, proceed to **Guides and solutions to use**.
+  1. If an empty string is output, the recommendation is fulfilled. If you get the cloud resource `ID` in the output, proceed to _Guides and solutions to use_.
 
   Check whether the NGFW is used instead of a security group:
   1. Run the command to search for the NGFW in the cloud. By default, the command searches for Checkpoint or Usergate. If you use a custom image, specify it.
@@ -77,7 +81,7 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
      done
      ```
 
-  1. If you get the `ID` of a VM with the NGFW in the output, the recommendation is fulfilled. If you get an empty string, proceed to **Guides and solutions to use**.
+  1. If you get the `ID` of a VM with the NGFW in the output, the recommendation is fulfilled. If you get an empty string, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -151,7 +155,7 @@ Make sure to only allow access through the ports that your application requires 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to each cloud and then to each folder and each {{ vpc-name }}.
   1. Go to **Security groups**.
-  1. If there is no security group containing network access rules that allow access through any port and from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+  1. If there is no security group containing network access rules that allow access through any port and from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -174,7 +178,7 @@ Make sure to only allow access through the ports that your application requires 
      done
      ```
 
-  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If you see a non-empty `SG_ID`, proceed to **Guides and solutions to use**.
+  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If you see a non-empty `SG_ID`, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -220,7 +224,7 @@ We recommend that you only allow access to your cloud infrastructure through con
      done
      ```
 
-  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not empty, proceed to **Guides and solutions to use**.
+  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not empty, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -243,15 +247,15 @@ We recommend that you only allow access to your cloud infrastructure through con
   * To make sure you are using DDoS protection at the application level:
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
-      1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
       1. Make sure you have security profiles created.
-      1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+      1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
   * To make sure you are using basic DDoS protection:
 
       1. In the [management console]({{ link-console-main }}), open all the created networks.
       1. Go to **IP addresses**.
-      1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+      1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Manual check {#manual}
 
@@ -265,7 +269,7 @@ We recommend that you only allow access to your cloud infrastructure through con
       yc smartwebsecurity security-profile list
       ```
 
-      If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to the Guides and solutions to use.
+      If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
   * To make sure you are using basic DDoS protection:
 
@@ -288,7 +292,7 @@ We recommend that you only allow access to your cloud infrastructure through con
            done
            ```
 
-        1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled; otherwise, proceed to **Guides and solutions to use**.
+        1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 
@@ -364,7 +368,7 @@ Possible options for setting up outbound internet access:
 * VM cost (vCPU, RAM, disk space) ||
 |#
 
-Regardless of which option you select for setting up outbound internet access, be sure to limit traffic using one of the mechanisms described above. To build a secure system, use static IP addresses, since they can be added to the list of exceptions of the receiving party's firewall.
+Regardless of which option you select for setting up outbound internet access, be sure to limit traffic using one of the mechanisms described above. To build a secure system, use static IP addresses because they can be added to the list of exceptions of the receiving party's firewall.
 
 {% list tabs group=instructions %}
 
@@ -373,7 +377,7 @@ Regardless of which option you select for setting up outbound internet access, b
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
   1. Go to **IP addresses**.
-  1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+  1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
 - Performing a check via the CLI {#cli}
 
@@ -395,7 +399,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty value is set in `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+  1. If an empty value is set in `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
   1. Run the command below to see if there is Egress NAT (NAT gateway):
 
      ```bash
@@ -407,7 +411,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to Guides and solutions to use.
+  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. otherwise, proceed to the Guides and solutions to use.
   1. Run the command below to see if there is a NAT instance:
 
      ```bash
@@ -420,7 +424,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. If you see the NAT instance `ID`, proceed to **Guides and solutions to use**.
+  1. If an empty string is output, the recommendation is fulfilled. If you see the NAT instance `ID`, proceed to _Guides and solutions to use_.
 
 {% endlist %}
 

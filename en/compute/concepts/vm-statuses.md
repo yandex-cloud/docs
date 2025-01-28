@@ -1,6 +1,6 @@
 ---
-title: What statuses a VM in {{ compute-full-name }} may have
-description: In this tutorial, you will learn what statuses a VM in {{ compute-name }} may have.
+title: VM statuses in {{ compute-full-name }}
+description: In this tutorial, you will learn about the VM statuses in {{ compute-name }}.
 ---
 
 # VM statuses
@@ -10,59 +10,59 @@ description: In this tutorial, you will learn what statuses a VM in {{ compute-n
 A VM can have one of the following statuses:
 
 - `PROVISIONING`: {{ yandex-cloud }} is allocating resources to the VM.
-- `STARTING`: VM is being started.
-- `RUNNING`: VM has been started and is running.
-- `STOPPING`: VM is being stopped.
-- `STOPPED`: VM has been stopped.
-- `RESTARTING`: VM is being restarted.
+- `STARTING`: VM is starting.
+- `RUNNING`: VM is running.
+- `STOPPING`: VM is stopping.
+- `STOPPED`: VM is stopped.
+- `RESTARTING`: VM is restarting.
 - `UPDATING`: VM is being updated.
 - `CRASHED`: VM crashed and will be restarted automatically.
-- `ERROR`: Fatal error occurred and the VM cannot be recovered.
+- `ERROR`: Fatal error; the VM cannot be recovered.
 - `DELETING`: VM is being deleted.
 
 ## Operations on a VM {#operations-on-VM}
 
 The diagram below shows only switching statuses under normal operation during the following actions:
 
-- VM [creation](#create)
-- VM [stop and start](#stop-and-start)
-- VM [restart](#restart)
+- [Creating](#create) a VM.
+- [Stopping and starting](#stop-and-start) a VM.
+- [Restarting](#restart) a VM.
 
 The diagram does not show the following intermediate statuses:
 
-- `UPDATING` ([update](#update))
-- `DELETING` ([deletion](#delete))
-- `CRASHED` and `ERROR` ([errors](#error))
+- `UPDATING` for [updating](#update).
+- `DELETING` for [deleting](#delete).
+- `CRASHED` and `ERROR` for [error situations](#error).
 
 ![image](../../_assets/compute/create-and-run.svg)
 
-### Creation {#create}
+### Creating {#create}
 
-When a VM is [created](../operations/vm-create/create-linux-vm.md), it gets the `PROVISIONING` status. At this stage, the VM is allocated computing resources, such as the number and performance of processor cores (vCPUs) and the amount of RAM. It is also assigned an IP address and gets its disks created.
+A newly [created](../operations/vm-create/create-linux-vm.md) VM gets the `PROVISIONING` status. This is when computing resources are allocated to the VM: the number and capacity of vCPUs, the amount of RAM. It also gets an IP address, and its disks are created.
 
-After this, the VM will automatically start and switch to the `STARTING` status.
+With that done, the VM automatically starts and enters the `STARTING` status.
 
-If the startup is successful, the VM's status will change to `RUNNING` and the operating system will start loading. Once this is complete, you will be able to connect to your VM.
+Once successfully started, it will get the `RUNNING` status, and the operating system will start booting up. After that you will be able to connect to the VM.
 
-### Stop and start {#stop-and-start}
+### Stopping and starting {#stop-and-start}
 
-When a VM [stops](../operations/vm-control/vm-stop-and-start.md#stop), the hypervisor sends a shutdown signal to the VM operating system. The OS needs to terminate the current processes nice and easy within the next 30 seconds to avoid data loss. When this time expires, the VM process is forced to stop, and the VM gets the `STOPPED` status.
+^6^ When a VM [stops](../operations/vm-control/vm-stop-and-start.md#stop), the hypervisor sends a shutdown signal to the VM operating system. The OS has 30 seconds to gracefully terminate all running processes to avoid data loss. When this time expires, the VM's process is forced to stop, and the VM enters the `STOPPED` status.
 
 At the next [start](../operations/vm-control/vm-stop-and-start.md#start), the VM will go through the same statuses as when it was created: `PROVISIONING` → `STARTING` → `RUNNING`.
 
-### Restart {#restart}
+### Restarting {#restart}
 
-When being [restarted](../operations/vm-control/vm-stop-and-start.md#restart), the VM switches to the `RESTARTING` status. Since all computing resources have been already allocated for it, it will go back to the `RUNNING` status once it is restarted.
+When [restarting](../operations/vm-control/vm-stop-and-start.md#restart), the VM gets the `RESTARTING` status. All its computing resources being already allocated, following the restart, the VM will go back to the `RUNNING` status.
 
 ### Updating {#update}
 
-You can update the VM parameters, such as change its name, regardless of the VM status. Once updated (the `UPDATING` status), the VM will go back to the previous status.
+You can update the VM parameters, such as change its name, regardless of the VM status. Following an update (the `UPDATING` status), the VM will go back to its previous status.
 
 If you update the [metadata](vm-metadata.md), it will be available from inside the VM immediately after the update. You do not need to stop or restart the VM in this case.
 
-### Delete {#delete}
+### Deleting {#delete}
 
-When you [delete](../operations/vm-control/vm-delete.md) a VM, all ongoing operations are first cancelled or stopped, and then the VM switches to the `DELETING` status.
+When you [delete](../operations/vm-control/vm-delete.md) a VM, first all ongoing operations are canceled and stopped, then the VM enters the `DELETING` status.
 
 When the deletion is complete, the VM disappears from the list of available resources.
 
@@ -70,11 +70,13 @@ When the deletion is complete, the VM disappears from the list of available reso
 
 There are two error statuses:
 
-- `CRASHED`: Error occurred and the VM cannot continue working.
+- `CRASHED`: Error; the VM cannot continue to operate.
 
-    If the VM has switched to this status, {{ yandex-cloud }} will try to restart it. Restart attempts will be repeated until the VM status changes to `RUNNING` or `ERROR`.
+    If the VM has entered this status, {{ yandex-cloud }} will try to restart it. Restart attempts will be repeated until the VM's status changes to `RUNNING` or `ERROR`.
 
-- `ERROR`: Fatal error occurred and the VM cannot be recovered.
+- `ERROR`: Fatal error; the VM cannot be recovered.
 
-    If the VM has switched to this status or is continuously switching to the `CRASHED` status, contact [technical support](../../support/overview.md) or create a new VM.
+    To fix the error, try [stopping](../operations/vm-control/vm-stop-and-start.md#stop) and re-[starting](../operations/vm-control/vm-stop-and-start.md#start) the VM.
+
+    If the `ERROR` status persists or the VM keeps getting the `CRASHED` status, contact [support](../../support/overview.md) or create a new VM.
 

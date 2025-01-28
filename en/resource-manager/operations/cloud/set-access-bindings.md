@@ -69,7 +69,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
           default_email: test-user@yandex.ru
       ```
 
-  1. Assign the `editor` role for the `my-cloud` cloud to `test-user`. In the subject, specify the `userAccount` type and user ID:
+  1. Assign the `editor` role for `my-cloud` to `test-user`. In the subject, specify the `userAccount` type and user ID:
 
       ```bash
       yc resource-manager cloud add-access-binding my-cloud \
@@ -90,8 +90,8 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md).
         * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
         * `federatedUser:<federated_account_ID>`: [Federated account ID](../../../organization/operations/users-get.md).
-        * `system:group:organization:<organization_ID>:users`: ID of the [organization](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
-        * `system:group:federation:<federation_ID>:users`: ID of the [identity federation](../../../organization/concepts/add-federation.md) to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
+        * `system:group:organization:<organization_ID>:users`: [Organization ID](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
+        * `system:group:federation:<federation_ID>:users`: [Identity federation ID](../../../organization/concepts/add-federation.md) to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
 
       Here is an example of the configuration file structure:
 
@@ -106,8 +106,6 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         member   = "userAccount:<user_ID>"
       }
       ```
-
-
 
       For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
   1. In the command line, go to the folder where you created the configuration file.
@@ -188,7 +186,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       }
       ```
 
-  1. Assign the `editor` role for the `my-cloud` cloud to the user. In the `action` property, enter `ADD` and specify the `userAccount` user type and ID under `subject`.
+  1. Assign the `editor` role for `my-cloud` to the user. In the `action` property, enter `ADD` and specify the `userAccount` type and user ID under `subject`.
 
       ```bash
       curl \
@@ -207,7 +205,6 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
       ```
 
-
 {% endlist %}
 
 
@@ -225,7 +222,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
   {% note alert %}
 
-  The `set-access-binding` method completely rewrites access permissions for the resource! All current resource roles will be deleted.
+  The `set-access-binding` method completely rewrites access permissions for the resource! All current roles for the resource will be deleted.
 
   {% endnote %}
 
@@ -239,15 +236,15 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
       ```bash
       yc resource-manager cloud set-access-bindings my-cloud \
-        --access-binding role=editor,subject=userAccount:<first_user_ID>
-        --access-binding role=viewer,subject=userAccount:<second_user_ID>
+        --access-binding role=editor,subject=userAccount:<user_1_ID>
+        --access-binding role=viewer,subject=userAccount:<user_2_ID>
       ```
 
   To assign a role to a [service account](../../../iam/concepts/users/service-accounts.md), [user group](../../../organization/concepts/groups.md), or [system group](../../../iam/concepts/access-control/system-group.md) instead of a user, see [these examples](../../../iam/operations/roles/grant.md#multiple-roles).
 
 - {{ TF }} {#tf}
 
-  1. Describe the cloud access permission parameters in the configuration file. Assign the `editor` role to one user and the `viewer` role to another:
+  1. Describe the cloud access permission parameters in the configuration file. Assign the `editor` role to one user and the `viewer` role to another user:
 
       ```hcl
       data "yandex_resourcemanager_cloud" "project1" {
@@ -257,13 +254,13 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
       resource "yandex_resourcemanager_cloud_iam_member" "editor" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
         role     = "editor"
-        member   = "userAccount:<first_user_ID>"
+        member   = "userAccount:<user_1_ID>"
       }
 
       resource "yandex_resourcemanager_cloud_iam_member" "viewer" {
         cloud_id = "${data.yandex_resourcemanager_cloud.project1.id}"
         role     = "viewer"
-        member   = "userAccount:<second_user_ID>"
+        member   = "userAccount:<user_2_ID>"
       }
       ```
 
@@ -299,7 +296,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
 - API {#api}
 
-  Assign the `editor` role to one user and the `viewer` role to another:
+  Assign the `editor` role to one user and the `viewer` role to another user:
 
   ```bash
   curl \
@@ -312,7 +309,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         "accessBinding": {
             "roleId": "editor",
             "subject": {
-                "id": "<first_user_ID>",
+                "id": "<user_1_ID>",
                 "type": "userAccount"
             }
         }
@@ -321,7 +318,7 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
         "accessBinding": {
             "roleId": "viewer",
             "subject": {
-                "id": "<second_user_ID>",
+                "id": "<user_2_ID>",
                 "type": "userAccount"
     }}}]}' \
     https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:updateAccessBindings
@@ -331,10 +328,9 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method completely rewrites access permissions for the resource. All current roles for the resource will be deleted.
 
   {% endnote %}
-
 
   ```bash
   curl \
@@ -344,14 +340,13 @@ To grant a user access to cloud resources, assign the user a [role](../../../iam
     --data '{
     "accessBindings": [{
         "roleId": "editor",
-        "subject": { "id": "<first_user_ID>", "type": "userAccount" }
+        "subject": { "id": "<user_1_ID>", "type": "userAccount" }
     },{
         "roleId": "viewer",
-        "subject": { "id": "<second_user_ID>", "type": "userAccount" }
+        "subject": { "id": "<user_2_ID>", "type": "userAccount" }
     }]}' \
     https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/b1gg8sgd16g7********:setAccessBindings
   ```
-
 
 {% endlist %}
 

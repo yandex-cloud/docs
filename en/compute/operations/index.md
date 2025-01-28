@@ -5,13 +5,14 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 
 # Step-by-step guides for {{ compute-name }}
 
-## Creating VMs {#vm-create}
+## Creating a VM {#vm-create}
 
 * [{#T}](vm-create/create-linux-vm.md)
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
 * [{#T}](vm-create/create-with-cloud-init-scripts.md)
+* [{#T}](vm-create/create-with-env-variables.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
@@ -65,7 +66,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-control/vm-access.md)
 * [{#T}](vm-control/vm-delete.md)
 
-## Working on a VM {#vm-use}
+## Using a VM {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
 * [{#T}](vm-connect/rdp.md)
@@ -135,7 +136,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](image-create/create-from-snapshot.md)
 * [{#T}](image-create/create-from-image.md)
 
-## Managing images {#image-control}
+## Managing an image {#image-control}
 
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/image-control-get-info.md)
@@ -163,7 +164,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](serial-console/windows-sac.md)
 * [{#T}](serial-console/disable.md)
 
-## Creating instance groups {#ig-create}
+## Creating an instance group {#ig-create}
 
 * [{#T}](instance-groups/create-fixed-group.md)
 * [{#T}](instance-groups/create-with-balancer.md)
@@ -176,7 +177,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](instance-groups/create-with-filesystem.md)
 * [{#T}](instance-groups/create-with-bucket.md)
 
-## Getting information about instance groups {#ig-info}
+## Getting information about an instance group {#ig-info}
 
 * [{#T}](instance-groups/get-list.md)
 * [{#T}](instance-groups/get-info.md)

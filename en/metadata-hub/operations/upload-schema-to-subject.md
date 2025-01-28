@@ -12,11 +12,11 @@ description: Follow this guide to upload a schema and create a subject.
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to upload a schema to a subject.
-  1. Select **{{ metadata-hub-full-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/layout-cells.svg) **{{ schema-registry-name }}**.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
   1. Select the namespace you want to upload a schema for.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **Schemas**.
-  1. Click **Upload schema**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.schema-registry.label_schemas }}**.
+  1. Click **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.
   1. Select the method for schema uploading into the new subject and specify the following parameters:
       * **Name**: Unique subject name.
       * (Optional) Add a description for the subject.
@@ -33,6 +33,6 @@ description: Follow this guide to upload a schema and create a subject.
   1. If a schema references another schema, in the **References** section, click ![add](../../_assets/console-icons/plus.svg) and enter the [reference](../../metadata-hub/concepts/schema-registry.md#reference) name, the subject name the schema is registered under for linking, and the subject version containing the referenced schema.
   1. To apply [data schema normalization](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#schema-normalization), enable the **Normalization** setting.
   1. If you want to skip schema compatibility checking, enable the relevant option.
-  1. Click **Upload schema**.
+  1. Click **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.
 
 {% endlist %}

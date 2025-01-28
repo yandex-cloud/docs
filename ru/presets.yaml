@@ -185,7 +185,6 @@ default:
   dt-status-stopped: '**Остановлен**'
   dt-status-stopping: '**Останавливается**'
   dt-type-copy: '**Копирование**'
-  dt-type-copy-reg: '**Периодическое копирование**'
   dt-type-copy-repl: '**Копирование и репликация**'
   dt-type-repl: '**Репликация**'
   dt-white-ip-list-uri: >-
@@ -6187,6 +6186,7 @@ default:
         label_certificate: Сертификаты
         label_default-log-group: Лог-группа по умолчанию
         label_detailed-settings: Расширенные настройки
+        label_disable-traffic: Прием трафика
         label_discard-grpc-codes: gRPC-коды
         label_discard-http-code-intervals: Классы HTTP-кодов
         label_discard-http-codes: HTTP-коды
@@ -8228,11 +8228,14 @@ default:
         label_environment: Переменные окружения
         label_image-url: URL образа
         label_public-container: Публичный контейнер
+        label_runtime-http-server: HTTP-сервер
+        label_runtime-task-execution: Выполнение команд
         label_service-account: Сервисный аккаунт
         label_timeout: Таймаут, с
         label_url: Ссылка для вызова
         label_working-directory: Рабочая директория
         popup-confirm-edit-active-revision_button_confirm: Подтвердить
+        section_general: Базовые параметры
         section_image: Параметры образа
         section_parameters: Настройки
         section_resources: Ресурсы

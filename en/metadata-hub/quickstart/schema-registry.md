@@ -26,6 +26,7 @@ Manage schema versions with {{ schema-registry-name }}.
 
 - API {#api}
 
+  
   1. Install [cURL](https://curl.haxx.se).
   1. [Log in](../api-ref/authentication.md) to perform operations in the API.
   1. [In the new namespace settings](../operations/update-name-space.md), copy its ID.
@@ -50,7 +51,7 @@ Manage schema versions with {{ schema-registry-name }}.
             }' \
         $<namespace_ID>/subjects/<subject_name>/versions
         {"id":1}
-      ```
+      ```     
 {% endlist %}
 
 ## What's next {what-is-next}
