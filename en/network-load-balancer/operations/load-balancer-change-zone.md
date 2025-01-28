@@ -1,5 +1,5 @@
 ---
-title: How to move a VM to a target group in a new availability zone
+title: How to move a VM to a target group behind a network load balancer in a new availability zone
 description: Follow this guide to move VMs behind a {{ network-load-balancer-full-name }} network load balancer to a target group in a different availability zone.
 ---
 

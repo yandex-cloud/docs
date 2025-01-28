@@ -7,11 +7,15 @@ description: Follow this guide to configure HTTPS for hosting in {{ objstorage-n
 
 If you are using a bucket to [host a static website](../../concepts/hosting.md), then to access the website via HTTPS, you will need to upload your own security certificate and a corresponding secret key.
 
+
+{% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
+
+
 {{ objstorage-name }} only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates.
 
 {% note info %}
 
-Access to the bucket over HTTPS is granted within thirty minutes of uploading the certificate.
+Access to the bucket via HTTPS becomes available within thirty minutes of uploading a certificate.
 
 {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
@@ -28,12 +32,12 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
     1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
     1. Click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
     1. In the **{{ ui-key.yacloud.storage.bucket.https.field_source }}** field, select **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
-    1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens.
-
+    1. In the **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** field, select the certificate from the list that opens. 
+    
         {% note info %}
-
-        If you do not have a certificate in {{ certificate-manager-full-name }}, click **Go to {{ certificate-manager-name }}** and follow the [guide](../../../certificate-manager/quickstart/index.md) on how to create your first certificate.
-
+        
+        If you do not have a certificate in {{ certificate-manager-full-name }}, click **Go to {{ certificate-manager-name }}** and follow the [guide](../../../certificate-manager/quickstart/index.md) on how to create your first certificate.  
+        
         {% endnote %}
 
     1. Click **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
@@ -48,13 +52,13 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
      ```bash
      yc storage bucket update --help
-     ```
+     ```  
 
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
-     yc storage bucket set-https --name <bucket_name> --certificate-id <certificate_ID>
-     ```
+     yc storage bucket set-https --name <bucket_name> --certificate-id <certificate_ID> 
+     ```  
 
      Where:
      * `--name`: Name of the bucket to configure HTTPS for.
@@ -70,7 +74,7 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 - {{ TF }} {#tf}
 
   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
-
+ 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   
@@ -96,16 +100,16 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
      Where:
      * `certificate_id`: Сertificate ID in {{ certificate-manager-name }} that will be used for the bucket.
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
   1. Check the configuration using this command:
 
      ```bash
      terraform validate
      ```
-
+     
      If the configuration is correct, you will get this message:
-
+     
      ```bash
      Success! The configuration is valid.
      ```
@@ -115,15 +119,15 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
      ```bash
      terraform plan
      ```
-
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
      ```bash
      terraform apply
      ```
-
+     
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can use the [management console]({{ link-console-main }}) to check the selected certificate.

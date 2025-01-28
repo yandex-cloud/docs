@@ -88,7 +88,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the `backup.editor` role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+  To assign the `backup.editor` role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -174,7 +174,7 @@ A rule to enable VM access over SSH will also be added to the security group.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `backup-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `cloud-network`.
-  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
   1. Add the following outgoing traffic rules one by one:
 
       {% include [outgoing-traffic](../../_includes/backup/outgoing-rules.md) %}
@@ -434,7 +434,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+  1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -462,6 +462,8 @@ You can create a new policy or use one of those automatically generated upon ser
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
   1. Describe the custom metadata configuration in the `user-data.yaml` file:
 
@@ -493,7 +495,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
       To learn more about getting the policy ID, see [{#T}](../../backup/operations/policy-vm/get-info.md).
 
-  1. Run the following command:
+  1. Run this command:
 
       ```bash
       yc compute instance create \

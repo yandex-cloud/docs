@@ -1,32 +1,23 @@
-{% include [overview](../../_includes/security/standard/overview.md) %}
+---
+title: '{{ yandex-cloud }} infrastructure security standard 1.2: All sections on one page'
+description: This document lists sections with recommendations on technical protection measures and helps you choose information security measures when deploying information systems in {{ yandex-cloud }}.
+---
 
-## 1. Authentication and access management {#authentication}
+{% include [overview](../../_includes/security/standard/overview.md) %}
 
 {% include notitle [authentication](../../_includes/security/standard/authentication.md) %}
 
-## 2. Network security {#network-security}
-
 {% include notitle [network-security](../../_includes/security/standard/network-security.md) %}
-
-## 3. Secure configuration of a virtual environment {#virtualenv-safe-config}
 
 {% include notitle [virtualenv-safe-config](../../_includes/security/standard/virtualenv-safe-config.md) %}
 
-## 4. Data encryption and key management {#data-encryption-and-key-management}
-
 {% include notitle [data-encryption-and-key-management](../../_includes/security/standard/encryption.md) %}
-
-## 5. Collecting, monitoring, and analyzing audit logs {#audit-logs}
 
 {% include notitle [audit-logs](../../_includes/security/standard/audit-logs.md) %}
 
 
-## 6. Application security {#app-security}
-
 {% include notitle [app-security](../../_includes/security/standard/app-security.md) %}
 
-
-## 7. {{ k8s }} security {#kubernetes-security}
 
 {% include notitle [kubernetes-security](../../_includes/security/standard/kubernetes-security.md) %}
 

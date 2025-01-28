@@ -63,6 +63,8 @@ items:
         href: concepts/topic-table-transactions.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Ввод данных в системы хранения
         href: tutorials/data-ingestion.md
       - name: Умная обработка логов
@@ -111,6 +113,10 @@ items:
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: tutorials/websocket-app.md
+      - name: Обработка аудитных логов {{ at-name }}
+        href: tutorials/audit-trails.md
+      - name: Обработка потока изменений Debezium
+        href: tutorials/debezium.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

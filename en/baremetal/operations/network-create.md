@@ -15,9 +15,7 @@ description: Follow this guide to create a virtual routing and forwarding segmen
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, specify a name for your VRF. The naming requirements are as follows:
 
-     * It must be 2 to 63 characters long.
-     * It may contain lowercase Latin letters, numbers, and hyphens.
-     * It must start with a letter and cannot end with a hyphen.
+     {% include [name-format](../../_includes/name-format.md) %}
 
   1. Optionally, add a VRF **{{ ui-key.yacloud.baremetal.field_description }}**.
   1. Optionally, add labels.

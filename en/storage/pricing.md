@@ -1,25 +1,27 @@
 ---
+title: '{{ objstorage-full-name }} pricing policy'
+description: This article provides the {{ objstorage-name }} pricing policy.
 editable: false
 ---
 
-# {{ objstorage-name }} pricing policy
 
+# {{ objstorage-name }} pricing policy
 
 {% note tip %}
 
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
 
 
 {% endnote %}
 
-
-
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 ## What goes into the cost of using {{ objstorage-short-name }} {#rules}
 
@@ -36,9 +38,11 @@ The {{ objstorage-name }} usage cost is based on:
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
+
 ### Using storage {#rules-storage}
 
 Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
+
 
 ### Performing operations with data {#rules-operations}
 
@@ -48,11 +52,13 @@ Data operations are billed according to the following policy:
 * You are not charged for deleting data (DELETE operation).
 
 
+
 ## Prices for the Russia region {#prices}
 
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
 
 
 ### Data storage {#prices-storage}
@@ -78,8 +84,6 @@ Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 
 
 
-
-
 {% include [usd-used-space-standard](../_pricing_examples/storage/usd-used-space-standard.md) %}
 
 
@@ -88,9 +92,8 @@ Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 
 
 
-
-
 {% include [usd-used-space-ice](../_pricing_examples/storage/usd-used-space-ice.md) %}
+
 
 
 ### Data operations {#prices-operations}
@@ -112,9 +115,8 @@ The first 10,000 PUT, POST, PATCH, and LIST operations and the first 100,000 GET
 
 
 
-
-
 {% include [usd-operations](../_pricing_examples/storage/usd-operations.md) %}
+
 
 
 ### Egress traffic {#prices-traffic}
@@ -130,8 +132,6 @@ The minimum billing unit is 1 MB. The billing period is a calendar month.
 
 
 The first 100 GB of outgoing traffic per month for {{ objstorage-name }} are free of charge.
-
-
 
 
 

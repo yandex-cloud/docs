@@ -8,7 +8,6 @@ Here is an example of connectivity setup:
 ![interconnect](../../_assets/interconnect/interconnect.svg)
 
 
-
 In this example, the client has the following resources:
 
 * On-premise infrastructure where the client resources, such as dedicated servers, are deployed.

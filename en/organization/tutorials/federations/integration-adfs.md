@@ -23,7 +23,6 @@ To follow the steps in this section, you will need:​
     1. [Deploy and configure {{ microsoft-idp.ad-short }} Domain Services (AD DS)](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-) if you have not already done so. You must have AD AS to deploy {{ microsoft-idp.adfs-abbreviated }}.
     1. [Deploy and configure an {{ microsoft-idp.adfs-abbreviated }}](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-a-federation-server-farm) farm of one or more servers.
 
-
         {% note tip %}
 
         Add multiple servers to your {{ microsoft-idp.adfs-abbreviated }} farm for fault tolerance.
@@ -119,7 +118,7 @@ To create a federation:
 
             This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
         * `--issuer`: ID of the identity provider that will be used for authentication.
@@ -189,7 +188,7 @@ To create a federation:
 
           This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-          If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+          If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `case_insensitive_name_ids`: Toggles username case sensitivity.
           If this option is enabled, the IDs of federated user names will be case-insensitive.
@@ -254,7 +253,7 @@ To create a federation:
 
          This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-         If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+         If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated via an identity provider. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
       * `issuer`: ID of the identity provider that will be used for authentication.
@@ -283,7 +282,7 @@ To create a federation:
 
 ## Specify certificates for the federation {#add-certificate}
 
-When the identity provider informs {{ org-full-name }} that a user has been authenticated, they sign the message with their certificate. To enable {{ org-name }} to verify this certificate, add it to your federation:
+When informing {{ org-full-name }} that a user has been authenticated, the identity provider signs the message with its own certificate. To enable {{ org-name }} to verify this certificate, add it to your federation:
 
 1. Get an {{ microsoft-idp.adfs-abbreviated }} farm certificate:
 
@@ -470,7 +469,7 @@ Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **S
 Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute.<br> Value length limit: {{ saml-limit-first-name }}. | `Given Name`
 Full name | Displayed in {{ yandex-cloud }} services. Example: Ivan Ivanov.<br>We recommend using the **Display-Name** attribute.<br> Value length limit: {{ saml-limit-display-name }}. | `Name`
 Email | Used to send notifications from {{ yandex-cloud }} services. Example: `ivanov@example.com`.<br>We recommend using the **E-Mail-Address** attribute.<br> Value length limit: {{ saml-limit-email }}. | `E-Mail Address`
-Phone | Used to send notifications from {{ yandex-cloud }} services. Example: +71234567890.<br>We recommend using the `Telephone-Number` attribute.<br> Value length limit: {{ saml-limit-phone }}. | `phone`
+Phone | Used to send notifications from {{ yandex-cloud }} services. Example: +71234567890<br>We recommend using the `Telephone-Number` attribute.<br> Value length limit: {{ saml-limit-phone }}. | `phone`
 Profile image | Displayed in {{ yandex-cloud }} services.<br>We recommend using the `thumbnailPhoto` attribute. [How to add a profile image](#add-avatar).<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `thumbnailPhoto`
 
 #### Configure attribute and claim mappings {#do-claims-mapping}

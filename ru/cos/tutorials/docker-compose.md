@@ -57,7 +57,10 @@
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
      * `--ssh-key` — путь к файлу и имя файла с [открытым ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     * `--create-boot-disk size` — размер загрузочного диска. Должен быть не менее 30 ГБ.
+     * `--create-boot-disk size` — размер загрузочного диска.
+
+        {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
+
      * `--network-interface` — сетевые настройки ВМ.
      * `--service-account-name` — имя сервисного аккаунта.
      * `--docker-compose-file` — YAML-файл со спецификацией контейнеров.

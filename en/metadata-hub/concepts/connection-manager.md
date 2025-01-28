@@ -1,3 +1,8 @@
+---
+title: Connecting {{ metadata-hub-name }} to a database
+description: With {{ connection-manager-full-name }}, you can manage database connection parameters.
+---
+
 # Connection
 
 {% include notitle [preview](../../_includes/note-preview.md) %}

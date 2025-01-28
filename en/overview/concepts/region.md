@@ -2,7 +2,7 @@
 
 A region is a geographic area that combines [availability zones](geo-scope.md). Each region has its own infrastructure and [services](services.md).
 
-Your region depends on the management console in which you signed up for an account. In the management console, you will only see the services and resources for the appropriate region.
+Your region depends on the management console in which you signed up for an account. In the management console, the user sees only the services and resources of the selected region.
 
 Regions available in {{ yandex-cloud }}:
 
@@ -16,12 +16,14 @@ Service {{ billing-name }} | [https://billing.yandex.cloud](https://billing.yand
 
 The following items are region-specific:
 
-* {{ yandex-cloud }} API endpoint addresses
+* {{ yandex-cloud }} API endpoint addresses:
+    * [API endpoint addresses in the Russia region](https://yandex.cloud/ru/docs/api-design-guide/concepts/endpoints).
+    * [API endpoint addresses in the Kazakhstan region](https://yandex.cloud/ru-kz/docs/api-design-guide/concepts/endpoints).
 * {{ yandex-cloud }} CLI profile settings
-   * [How to create a CLI profile in the Russia region](https://yandex.cloud/en/docs/cli/operations/profile/profile-create)
-   * [How to create a CLI profile in the Kazakhstan region](https://yandex.cloud/ru-kz/docs/cli/operations/profile/profile-create)
+    * [How to create a CLI profile in the Russia region](https://yandex.cloud/en/docs/cli/operations/profile/profile-create)
+    * [How to create a CLI profile in the Kazakhstan region](https://yandex.cloud/ru-kz/docs/cli/operations/profile/profile-create)
 
-Your data is stored within your region and cannot be accessed from another. For example, {{ objstorage-full-name }} buckets created in the Russia region are not available in the Kazakhstan region.
+User data is stored and available only within an individual region. For example, {{ objstorage-full-name }} buckets created in the Russia region are not available in the Kazakhstan region.
 
 You can log in to the management console of each region. To start working in a new region, sign up and create a billing account there:
 * [Quick start guide for the Russia region](https://yandex.cloud/en/docs/overview/quickstart)

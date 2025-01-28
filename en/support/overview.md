@@ -17,11 +17,11 @@ Depending on your service plan, you can contact technical support using one of t
 The expected response time is shown in the table below.
 
 
-| Channel                                                                  | Basic                                       | Business                                                                | Premium                                                               |
-|----------------------------------------------------------------------------------|-----------------------------------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------------|
-|                                                                                  | For personal and research projects     | For professional projects                                                   | For business projects with stringent fault tolerance requirements.   |
-| Request to [Support Center](support-center.md)                                   | Standard: 24 hours<br>Increase quotas: 30 minutes | Standard: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Standard: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
-| Chat, [Telegram](tg-chat.md)                                                      | 15 minutes                                      | 5 minutes                                                               | 5 minutes, a messenger of your choice                                         |
+| Channel | Basic | Business | Premium  |
+|--|--|--|--|
+| | For personal and research projects | For professional projects | For business projects with stringent fault tolerance requirements. |
+| Request to [Support Center](support-center.md) | Standard: 24 hours<br>Increase quotas: 30 minutes within the specified [limits](../overview/concepts/quotas-limits.md) | Standard: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes within the specified [limits](../overview/concepts/quotas-limits.md) | Standard: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes within the specified [limits](../overview/concepts/quotas-limits.md) |
+| Chat, [Telegram](tg-chat.md) | 15 minutes | 5 minutes | 5 minutes, a messenger of your choice |
 
 
 

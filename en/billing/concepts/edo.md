@@ -7,7 +7,7 @@ description: Electronic document management is used for the electronic exchange 
 
 {% note info %}
 
-Electronic document management (EDM) is only available to residents of Russia.
+Electronic document management (EDM) is only available to residents of Russia. Processing of incoming documents from Yandex contractors is not supported.
 
 {% endnote %}
 

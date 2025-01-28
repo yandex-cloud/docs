@@ -87,7 +87,7 @@ You can install the {{ backup-name }} agent yourself on a VM or {{ baremetal-nam
 
 {% endlist %}
 
-If you have issues while installing the agent, [contact]({{ link-console-support }}) technical support.
+If you have issues installing the agent, [contact]({{ link-console-support }}) technical support.
 
 ## Service account {#sa}
 

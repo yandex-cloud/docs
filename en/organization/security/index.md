@@ -95,13 +95,14 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. [Get the user ID](../operations/users-get.md).
 
-  1. Assign the role using the command:
+  1. Assign the role using this command:
 
       ```bash
       yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
           --role <role_ID> \
           --subject <subject_type>:<subject_ID>
       ```
+
       * `<service_name>`: Name of the service for whose resource you are assigning the role, e.g., `organization-manager`.
       * `<resource>`: Resource category. For an organization, it is always `organization`.
       * `<resource_name_or_ID>`: Resource name or ID. For an organization, use its [technical name](../operations/org-profile.md).
@@ -125,7 +126,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
      * `organization_id`: [Organization ID](../operations/organization-get-id.md).
      * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
      * `members`: Array of the IDs of users to assign the role to:
-       * `userAccount:{user_id}`: ID of the user Yandex account.
+       * `userAccount:{user_id}`: User Yandex account ID.
        * `serviceAccount:{service_account_id}`: Service account ID.
        * `federatedUser:{federated_user_id}`: Federated user ID.
 
@@ -141,7 +142,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
     
@@ -255,7 +256,6 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       +------------------------------------------+--------------+----------------------+
       ```
 
-
   1. To delete access permissions, run this command:
 
       ```bash
@@ -274,7 +274,6 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
           --role organization-manager.admin \
           --subject userAccount:aje6o61dvog2********
       ```
-
 
 - API {#api}
 

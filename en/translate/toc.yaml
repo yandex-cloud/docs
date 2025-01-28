@@ -81,7 +81,7 @@ items:
     items:
       - name: Handling errors
         href: api-ref/errors-handling.md
-      - name: Support headers
+      - name: Troubleshooting
         href: api-ref/support-headers.md
-      - name: QA
+      - name: FAQ
         href: qa/index.md

@@ -324,12 +324,12 @@ description: Пошаговая инструкция по изменению г�
      ```bash
      yc alb backend-group update-http-backend \
        --backend-group-name <имя_группы_бэкендов> \
-       --name <имя_добавляемого_бэкенда> \
+       --name <имя_бэкенда> \
        --weight <вес_бэкенда> \
        --port <порт_бэкенда> \
        --target-group-id=<идентификатор_целевой_группы> \
        --panic-threshold 90 \
-       --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+       --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,expected-statuses=211,\
      timeout=10s,interval=2s,host=your-host.com,path=/ping
      ```
 
@@ -395,6 +395,7 @@ description: Пошаговая инструкция по изменению г�
        --target-group-id=<идентификатор_целевой_группы> \
        --panic-threshold 90 \
        --enable-proxy-protocol \
+       --keep-connections-on-host-health-failure \
        --stream-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
      timeout=10s,interval=2s,send-text=<данные_к_эндпоинту>,receive-text=<данные_от_эндпоинта>
      ```

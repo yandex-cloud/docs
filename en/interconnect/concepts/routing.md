@@ -1,5 +1,5 @@
 ---
-title: Routing
+title: Traffic routing between the cloud resources and client infrastructure resources
 description: In this article, you will learn about routing, its general guidelines as well as such concepts as even traffic distribution, prioritizing traffic based on its direction, reserving traffic via a VPN gateway, handling static route priority, even distribution and prioritization of traffic for the `0.0.0.0/0` route, and interactiion with security groups.
 ---
 
@@ -8,7 +8,6 @@ description: In this article, you will learn about routing, its general guidelin
 When connecting a client infrastructure via {{ interconnect-full-name }}, you will typically need to set up traffic routing between the cloud resources and client infrastructure resources.
 
 By **routing**, we mean a number of tools for traffic management in {{ yandex-cloud }}.
-
 
 ## General best practices for {{ interconnect-name }} routing {#cic-routing}
 
@@ -101,7 +100,6 @@ You can use a VPN gateway to make the {{ interconnect-name }} connection failsaf
 ![cic-routing-3](../../_assets/interconnect/cic-routing-3.svg)
 
 
-
 Two long prefixes from the client infrastructure, `10.0.0.0/9` and `10.128.0.0/9`, are announced over BGP by a client router via `M9` point of presence to {{ yandex-cloud }}.
 
 A backup connection from {{ yandex-cloud }} to the client infrastructure is set up by deploying a VPN gateway with IPSEC support in the `{{ region-id }}-b` availability zone and setting up static routing in the VPC network.
@@ -117,7 +115,6 @@ To set up traffic from the cloud network via a VPN gateway for a separate prefix
 
 
 ![cic-routing-4](../../_assets/interconnect/cic-routing-4.svg)
-
 
 
 A short prefix from the client infrastructure, `10.0.0.0/8`, is announced over BGP by a client router via the `M9` point of presence to {{ yandex-cloud }}.

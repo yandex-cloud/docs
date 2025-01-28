@@ -1,22 +1,22 @@
 # Getting the Lockbox secret value on the {{ GL }} side
 
-[Workload identity federations](../../iam/concepts/workload-identity) allow you to configure a link between external systems and {{ yandex-cloud }} via the [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) protocol. This allows external systems to perform actions on {{ yandex-cloud }} resources on behalf of service accounts without generating static credentials, such as authorized keys or IAM tokens. This is a more secure method that minimizes the risk of credential leakage and the possibility of unauthorized access.
+{% include [move-groups-api](../../_includes/iam/wlif-instructions-intro.md) %}
 
 This tutorial shows you as an example how to get the [{{ lockbox-full-name }}](../../lockbox/) [secret](../../lockbox/concepts/secret) value from the {{ GL }} side under a {{ yandex-cloud }} service account. Similarly, you can perform any action via the {{ yandex-cloud }} [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.yaml), or [{{ TF }}]({{ tf-provider-link }}).
 
 To get the {{ lockbox-name }} secret value under a {{ GL }} account:
 
 1. [Create a {{ GL }} project](#create-gitlab-project)
-1. [Prepare your cloud](#prepare-cloud).
+1. [Prepare your cloud environment](#prepare-cloud).
 1. [Configure a {{ GL }} CI/CD script](#gitlab-actions-workflow).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a {{ GL }} project {#create-gitlab-project}
 
-[Create a new {{ GL }} project]({{ gl.docs }}/ee/user/project/) or use an existing one where you have permissions to view and run {{ GL }} CI/CD pipelines.
+[Create a new {{ GL }}]({{ gl.docs }}/ee/user/project/) project or use an existing one where you have permissions to view and run {{ GL }} CI/CD pipelines.
 
-## Prepare your cloud {#prepare-cloud}
+## Prepare your cloud environment {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -34,7 +34,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a workload identity federation.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-   1. Go to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
+   1. In the left-hand panel, select ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
    1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
    1. In the **{{ ui-key.yacloud.iam.federations.field_issuer }}** field, enter the OIDC provider's URL: `https://gitlab.com`.
    1. In the **{{ ui-key.yacloud.iam.federations.field_audiences }}** field, enter the token recipient: `https://gitlab.com/<group_name>/<gitlab_project_name>`.
@@ -105,7 +105,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-   1. From the list, select the `sa-lockbox` service account.
+   1. In the list of service accounts, select `sa-lockbox`.
    1. Go to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
    1. Click **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
    1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select the federation you created earlier.
@@ -144,7 +144,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
        IAM_TOKEN="$(curl -s
        -H "Content-Type: application/x-www-form-urlencoded" 
        -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&requested_token_type=urn:ietf:params:oauth:token-type:access_token&audience=${SA_ID}&subject_token=${GITLAB_OIDC_TOKEN}&subject_token_type=urn:ietf:params:oauth:token-type:id_token" 
-       -X POST https://auth.yandex.cloud/oauth/token | jq -r '.access_token')"
+       -X POST https://{{ auth-main-host }}/oauth/token | jq -r '.access_token')"
       # Requesting secret value via the API using an IAM token in {{ yandex-cloud }}
       - SECRET_ID="<secret_ID>"
       - >-

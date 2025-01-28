@@ -54,6 +54,10 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
      openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
        -keyout secrets/ftp.key -out secrets/ftp.pem
      ```
+    
+    
+    {% include [tls-support-alert](../../_includes/storage/tls-support-alert.md) %}
+
 
 1. Create an `env.list` file with environment variables for the Docker container:
 

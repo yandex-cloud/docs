@@ -99,9 +99,9 @@ items:
         href: tutorials/datalens.md
       - name: Обработка аудитных логов {{ at-name }}
         href: tutorials/audit-trails.md
-      - name: Обработка файлов детализации биллинга
+      - name: Обработка файлов детализации в сервисе {{ billing-name }}
         href: tutorials/billing.md
-      - name: Анализ данных с помощью Jupyter
+      - name: Анализ данных с помощью {{ jlab }}
         href: tutorials/jupyter.md
       - name: Автоматизация задач с помощью {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md

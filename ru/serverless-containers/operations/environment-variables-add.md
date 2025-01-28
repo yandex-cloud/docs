@@ -10,7 +10,7 @@
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер, для ревизии которого хотите добавить переменную окружения.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-    1. В открывшемся окне, в блоке **{{ ui-key.yacloud.serverless-containers.section_image }}**, укажите переменную окружения и нажмите **{{ ui-key.yacloud.common.add }}**. Можно добавить несколько переменных окружения.
+    1. В открывшемся окне в блоке **{{ ui-key.yacloud.serverless-containers.section_image }}** укажите переменную окружения и нажмите **{{ ui-key.yacloud.common.add }}**. Можно добавить несколько переменных окружения.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. Будет создана новая ревизия контейнера с указанными переменными окружения.
     
 - CLI {#cli}

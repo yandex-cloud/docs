@@ -62,7 +62,7 @@ To get started in {{ yandex-cloud }}:
   1. In the left-hand panel, select ![image](../../_assets/console-icons/palette.svg) **{{ yandexart-name }}**.
   1. In the input field, describe the image you want to generate. You should use vivid and detailed descriptions, specify styles if you want your image styled in a certain way.
   1. Leave the [**seed**](../concepts/yandexart/index.md) parameter random or specify any value.
-  1. Click **Generate**. Generating an image takes some time. The output will appear on the left side of the screen.
+  1. Click **Generate**. Generating an image takes some time The output will appear on the left side of the screen.
 
 - SDK {#sdk}
 
@@ -78,6 +78,8 @@ To get started in {{ yandex-cloud }}:
           {% include [sdk-input-format](../../_includes/foundation-models/sdk-input-format.md) %}
 
       {% include [sdk-code-legend](../../_includes/foundation-models/examples/sdk-code-legend.md) %}
+
+      For more information about accessing a model, see [{#T}](../concepts/yandexart/models.md#addressing-models).
       
   1. Run the created file:
 
@@ -152,7 +154,7 @@ To get started in {{ yandex-cloud }}:
      * `<request_ID>`: `id` field value obtained in response to the generation request.
      
 
-     **Result**:
+     **Result:** 
 
      ![succulent](../../_assets/yandexgpt/succulent.jpeg)
 

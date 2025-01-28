@@ -27,10 +27,20 @@ items:
         href: tutorials/trunk-priv-add.md
       - name: Creating a direct trunk and a public connection in it
         href: tutorials/trunk-pub-add.md
-      - name: Adding a private connection to a direct or partner trunk
+      - name: Adding a private connection to a trunk
         href: tutorials/priv-add.md
-      - name: Adding a public connection to a direct or partner trunk
+      - name: Adding a public connection to a trunk
         href: tutorials/pub-add.md
+      - name: Changing trunk capacity
+        href: tutorials/trunk-capacity-change.md
+      - name: Changing a set of IP prefixes in a private connection
+        href: tutorials/priv-prefixes-change.md
+      - name: Deleting a private connection
+        href: tutorials/priv-del.md
+      - name: Deleting a public connection
+        href: tutorials/pub-del.md
+      - name: Deleting a trunk
+        href: tutorials/trunk-del.md
       - name: Integrating with a corporate DNS service
         href: tutorials/dns-integration.md
       - name: >-

@@ -6,7 +6,6 @@ editable: false
 
 # Правила тарификации для {{ kms-name }}
 
-
 {% note tip %}
 
 
@@ -15,9 +14,8 @@ editable: false
 
 
 
+
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

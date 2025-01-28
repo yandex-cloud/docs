@@ -181,7 +181,6 @@ default:
   dt-status-stopped: '**Stopped**'
   dt-status-stopping: '**Stopping**'
   dt-type-copy: '**Snapshot**'
-  dt-type-copy-reg: '**Regular snapshot**'
   dt-type-copy-repl: '**Snapshot and increment**'
   dt-type-repl: '**Replication**'
   dt-white-ip-list-uri: >-
@@ -6167,6 +6166,7 @@ default:
         label_certificate: Certificates
         label_default-log-group: Default log group
         label_detailed-settings: Advanced settings
+        label_disable-traffic: Receive traffic
         label_discard-grpc-codes: gRPC codes
         label_discard-http-code-intervals: HTTP code classes
         label_discard-http-codes: HTTP codes
@@ -8206,11 +8206,14 @@ default:
         label_environment: Environment variables
         label_image-url: Image URL
         label_public-container: Public container
+        label_runtime-http-server: HTTP server
+        label_runtime-task-execution: Command running
         label_service-account: Service account
         label_timeout: Timeout, s
         label_url: Link to invoke
         label_working-directory: Working directory
         popup-confirm-edit-active-revision_button_confirm: Confirm
+        section_general: General information
         section_image: Image settings
         section_parameters: Settings
         section_resources: Resources

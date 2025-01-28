@@ -10,16 +10,7 @@ Most {{ yandex-cloud }} services support resource labeling.
 
 A _label_ is a key-value pair in `<label_name>=<label_value>` format. You can use labels to break resources into logical groups.
 
-Labels are subject to the following limitations:
-
-* Maximum number of labels per resource: 64.
-* The key:
-   * Must be from 1 to 63 characters long.
-   * May contain lowercase Latin letters, numbers, hyphens, and underscores.
-   * Use a letter for the first character.
-* The value:
-   * May be up to 63 characters long.
-   * May contain lowercase Latin letters, numbers, hyphens, and underscores.
+{% include [tags-restrictions](../../_includes/tags-restrictions.md) %}
 
 ## Label usage examples {#examples}
 
@@ -43,7 +34,7 @@ Labels are subject to the following limitations:
 
 {% note info %}
 
-Certain service resources do not support labels, and certain interfaces do not display them. For example, the management console interface or the {{ cloud-center }} one might not display resource labels.
+Some service resources do not support labels, and some interfaces may not display them. For example, resource labels may not be visible in the management console interface or {{ cloud-center }} interface.
 
 {% endnote %}
 
@@ -51,6 +42,7 @@ Certain service resources do not support labels, and certain interfaces do not d
 
 * [{{ api-gw-full-name }}](../../api-gateway/index.yaml)
 * [{{ alb-full-name }}](../../application-load-balancer/index.yaml)
+* [{{ cdn-full-name }}](../../cdn/index.yaml)
 * [{{ dns-full-name }}](../../dns/index.yaml)
 * [{{ cloud-logging-full-name }}](../../logging/index.yaml)
 * [{{ compute-full-name }}](../../compute/index.yaml)

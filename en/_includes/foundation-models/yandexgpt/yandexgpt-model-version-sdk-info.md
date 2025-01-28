@@ -1,0 +1,1 @@
+For more information about accessing a specific model version, see [{#T}](../../../foundation-models/concepts/yandexgpt/models.md#addressing-models).

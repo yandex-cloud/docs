@@ -11,7 +11,7 @@ In this scenario, users from the `Administrators` group will get access to a tes
 
 To deploy the Remote Desktop Gateway infrastructure:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a security group](#sg).
 1. [Create a VM for the gateway](#create-gw).
@@ -20,7 +20,7 @@ To deploy the Remote Desktop Gateway infrastructure:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -102,12 +102,12 @@ Create a cloud network named `rdgw-network` with a subnet in the availability zo
       
       Result:
       
-      ```
-      id: e9b95m6al33r62n5vkab
-      folder_id: big67u7m5flplkc6vvpc
+      ``` 
+      id: e9b95m6al33r********
+      folder_id: big67u7m5flp********
       created_at: "2021-06-09T10:49:21Z"
       name: rdgw-subnet
-      network_id: qqppl6fduhct76qkjh6s
+      network_id: qqppl6fduhct********
       zone_id: {{ region-id }}-d
       v4_cidr_blocks:
       - 10.1.0.0/16
@@ -134,7 +134,7 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
    1. In the **Network** field, select the network to assign the security group to: `rdgw-network`.
    1. Under **Rules**, create the following traffic management rules according to the instructions below the table:
       
-        | Traffic</br>direction | Description | Port</br>range | Protocol | Source</br>type | Source/Purpose |
+        | Traffic</br>direction | Description | Port</br>range | Protocol | Source</br>type | Source/Purpose | 
         |---|---|---|---|---|---|
         | Incoming | icmp | — | ICMP | CIDR | 0.0.0.0/0 |
         | Incoming | self-security | Any | Any | Security group | Current |
@@ -167,15 +167,15 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
   
    Result:
 
-   ```
-   id: enp136p8s2ael7ob6klg
-   folder_id: big67u7m5flplkc6vvpc
+   ``` 
+   id: enp136p8s2ae********
+   folder_id: big67u7m5flp********
    created_at: "2021-06-09T10:50:29Z"
    name: my-rdgw-sg
-   network_id: qqppl6fduhct76qkjh6s
+   network_id: qqppl6fduhct********
    status: ACTIVE
    rules:
-   - id: env98jerk9b3tcp68k61
+   - id: env98jerk9b3********
      description: icmp
      direction: INGRESS
      protocol_name: ICMP
@@ -205,16 +205,16 @@ Create a VM with a public address:
          * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
          * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
          * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-         * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+         * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
          * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `60 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
          * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Network named `rdgw-network` and subnet named `rdgw-subnet`.
@@ -237,7 +237,7 @@ Create a VM with a public address:
     
         ```powershell
         #ps1
-        Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
+        Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force) 
         ```
    
     1. Create a VM and specify the created script as the metadata source. In the `security-group-ids` parameter, insert the ID of the `my-rdgw-group` security group:
@@ -254,44 +254,46 @@ Create a VM with a public address:
          --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
          --metadata-from-file user-data=setpass
        ```
-   
-      Result:
-   
-      ```
-      done (25s)
-      id: frmogfp7mm1kg87c25f3
-      folder_id: big67u7m5flplkc6vvpc
-      created_at: "2021-06-09T10:51:58Z"
-      name: my-rds-gw
-      zone_id: {{ region-id }}-d
-      platform_id: standard-v3
-      resources:
-      memory: "4294967296"
-      cores: "2"
-      core_fraction: "100"
-      status: RUNNING
-      boot_disk:
-      mode: READ_WRITE
-      device_name: fhmplfvr7g6pfv63fsr7
-      auto_delete: true
-      disk_id: fhmplfvr7g6pfv63fsr7
-      network_interfaces:
-      - index: "0"
-        mac_address: d0:0d:18:83:c8:7b
-        subnet_id: e9b95m6al33r62n5vkab
-        primary_v4_address:
-        address: 10.1.0.3
-        one_to_one_nat:
-        address: 178.154.231.126
-        ip_version: IPV4
-        security_group_ids:
-         - enp136p8s2ael7ob6klg
-           fqdn: my-rds-gw.{{ region-id }}.internal
-           scheduling_policy: {}
-           network_settings:
-           type: STANDARD
-           placement_policy: {}
-      ```
+
+       Result:
+
+       ``` 
+       done (25s)
+       id: frmogfp7mm1k********
+       folder_id: big67u7m5flp********
+       created_at: "2021-06-09T10:51:58Z"
+       name: my-rds-gw
+       zone_id: {{ region-id }}-d
+       platform_id: standard-v3
+       resources:
+       memory: "4294967296"
+       cores: "2"
+       core_fraction: "100"
+       status: RUNNING
+       boot_disk:
+       mode: READ_WRITE
+       device_name: fhmplfvr7g6p********
+       auto_delete: true
+       disk_id: fhmplfvr7g6p********
+       network_interfaces:
+       - index: "0"
+         mac_address: d0:0d:18:83:c8:7b
+         subnet_id: e9b95m6al33r********
+         primary_v4_address:
+         address: 10.1.0.3
+         one_to_one_nat:
+         address: 178.154.231.126
+         ip_version: IPV4
+         security_group_ids:
+          - enp136p8s2a********
+            fqdn: my-rds-gw.{{ region-id }}.internal
+            scheduling_policy: {}
+            network_settings:
+            type: STANDARD
+            placement_policy: {}
+       ```
+
+       {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 {% endlist %}
 
@@ -394,7 +396,7 @@ The gateway VM with a RDGW role configured allows `BUILTIN\Administrators` local
 
 ## Test the RDGW {#test-rdgw}
 
-1. Create a VM with no internet access and connect to it during the test.
+1. Create a VM with no internet access and connect to it during the test. 
 
     {% list tabs group=instructions %}
 
@@ -406,16 +408,16 @@ The gateway VM with a RDGW role configured allows `BUILTIN\Administrators` local
             * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
             * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
             * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-            * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+            * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
             * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
         1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-        1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `60 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot disk size: `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-            * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-            * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-            * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-            * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+            * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+            * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+            * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
             * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Network named `rdgw-network` and subnet named `rdgw-subnet`.
@@ -446,8 +448,8 @@ The gateway VM with a RDGW role configured allows `BUILTIN\Administrators` local
    
       ``` 
       done (19s)
-      id: fhm5pflreh2jellq97r0
-      folder_id: big67u7m5flplkc6vvpc
+      id: fhm5pflreh2j********
+      folder_id: big67u7m5flp********
       created_at: "2021-06-09T11:53:03Z"
       name: test-vm
       zone_id: {{ region-id }}-d
@@ -459,13 +461,13 @@ The gateway VM with a RDGW role configured allows `BUILTIN\Administrators` local
       status: RUNNING
       boot_disk:
       mode: READ_WRITE
-      device_name: fhmmf65nlbt131b3e36l
+      device_name: fhmmf65nlbt1********
       auto_delete: true
-      disk_id: fhmmf65nlbt131b3e36l
+      disk_id: fhmmf65nlbt1********
       network_interfaces:
       - index: "0"
         mac_address: d0:0d:5d:ef:bb:74
-        subnet_id: e9b95m6al33r62n5vkab
+        subnet_id: e9b95m6al33r********
         primary_v4_address:
         address: 10.1.0.4
         fqdn: test-vm.{{ region-id }}.internal
@@ -479,7 +481,7 @@ The gateway VM with a RDGW role configured allows `BUILTIN\Administrators` local
 
       Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
 
-    {% endlist %}
+    {% endlist %} 
 
 1. Import the created certificate to the `Trusted Roots Certificate Authorities` directory on the computer that you will use to connect to the test VM.
     

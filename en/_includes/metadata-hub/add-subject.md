@@ -1,5 +1,5 @@
-1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **Schemas**.
-1. Click **Upload schema**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.schema-registry.label_schemas }}**.
+1. Click **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.
 1. Select the method for schema uploading into the new subject and specify the following parameters:
     * **Name**: Unique subject name.
     * Optionally, add a connection description and a label.
@@ -13,7 +13,7 @@
         * `NONE`: Schema compatibility checks are disabled.
           For more information about schema compatibility types, see the [Confluent documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
 1. Set the schema format to [Avro](https://avro.apache.org/), [JSON Schema](https://json-schema.org/), or [Protobuf](https://protobuf.dev/) and attach the file.
-1. If a schema references another schema, in the **References** section, click ![add](../../_assets/console-icons/plus.svg) and enter the [reference](../../metadata-hub/concepts/schema-registry.md#reference) name, the subject name the schema is registered under for reference purposes, and the registered subject's schema version.
+1. If a schema references another schema, in the **References** section, click ![add](../../_assets/console-icons/plus.svg) and enter the [reference](../../metadata-hub/concepts/schema-registry.md#reference) name, the subject name the schema for is registered under for linking, and the registered subject's schema version.
 1. Select **Normalization** to apply [data schema normalization](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#schema-normalization).
 1. If you want to skip schema compatibility checking, enable the relevant option.
-1. Click **Upload schema**.
+1. Click **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.

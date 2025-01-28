@@ -27,6 +27,8 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка Slack-бота
         href: tutorials/slack-bot-serverless.md
+      - name: Разработка Telegram-бота
+        href: tutorials/telegram-bot-serverless.md
       - name: >-
           Подключение к {{ ydb-short-name }} из функции {{ sf-full-name }} на
           Python
@@ -87,10 +89,20 @@ items:
           Поставка данных из {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/mkf-ydb-stream.md
+      - name: Сохранение потока данных {{ yds-name }} в {{ mch-name }}
+        href: tutorials/yds-to-clickhouse.md
+      - name: >-
+          Поставка данных из очереди {{ yds-name }} в {{ mkf-name }} с помощью
+          {{ data-transfer-name }}
+        href: tutorials/yds-to-kafka.md
       - name: >-
           Поставка данных из очереди {{ yds-name }} в {{ ydb-name }} с помощью
           {{ data-transfer-name }}
         href: tutorials/yds-to-ydb.md
+      - name: Захват изменений {{ MY }} и поставка в {{ DS }}
+        href: tutorials/mmy-to-yds.md
+      - name: Захват изменений {{ PG }} и поставка в {{ DS }}
+        href: tutorials/mpg-to-yds.md
       - name: Интерактивная отладка функций {{ sf-name }}
         href: tutorials/serverless-live-debug.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}

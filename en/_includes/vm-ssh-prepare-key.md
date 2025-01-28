@@ -30,17 +30,16 @@
 
      After running this command, you will be prompted to specify the name and path to the key files, as well as enter the password for the private key. If you only specify the name, the key pair will be created in the current directory. The public key will be saved in a file with the `.pub` extension, while the private key, in a file without extension.
 
-     By default, the command prompts you to save the key under the `id_ed25519` name in the following directory: `C:\Users\<username>/.ssh`. If there is already an SSH key named `id_ed25519` in this directory, you may accidentally overwrite it and lose access to the resources it is used in. Therefore, you may want to use unique names for all SSH keys.
+     By default, the command prompts you to save the key under the `id_ed25519` name in the following folder: `C:\Users\<username>/.ssh`. If there is already an SSH key named `id_ed25519` in this directory, you may accidentally overwrite it and lose access to the resources it is used in. Therefore, you may want to use unique names for all SSH keys.
 
 - Windows 7/8 {#windows7-8}
 
   Create keys using the PuTTY app:
   1. [Download](https://www.putty.org) and install PuTTY.
-  1. Make sure the directory where you installed PuTTY is included in `PATH`:
-     1. Right-click **My computer**. Click **Properties**.
-     1. In the window that opens, select **Additional system parameters**, then **Environment variables** (located in the lower part of the window).
-     1. Under **System variables**, find `PATH` and click **Edit**.
-     1. In the **Variable value** field, append the path to the directory where you installed PuTTY.
+  1. Add the folder with PuTTY to the `PATH` variable:
+
+      {% include [windows-environment-vars](windows-environment-vars.md) %}
+
   1. Launch the PuTTYgen app.
   1. Select **EdDSA** as the pair type to generate. Click **Generate** and move the cursor in the field above it until key creation is complete.
 
@@ -48,6 +47,6 @@
 
   1. In **Key passphrase**, enter a strong password. Enter it again in the field below.
   1. Click **Save private** key and save the private key. Do not share its key phrase with anyone.
-  1. Click **Save public key** and save the public key in the following file: `<key_name>.pub`.
+  1. Click **Save public key** and save the public key to a file named `<key_name>.pub`.
 
 {% endlist %}

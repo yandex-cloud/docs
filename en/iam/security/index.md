@@ -118,8 +118,8 @@ The table below lists the roles required to perform a particular action. You can
 Action | Methods | Required roles
 ----- | ----- | -----
 **Viewing data** | |
-[Getting an IAM token](../operations/iam-token/create.md) | `create` | no roles needed, only authentication
-[Viewing user data](../operations/users/get.md) | `get`, `getByLogin` | no roles needed, only authentication
+[Getting an IAM token](../operations/iam-token/create.md) | `create` | None, authentication only
+[Viewing user data](../operations/users/get.md) | `get`, `getByLogin` | None, authentication only
 [Viewing service account data](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` or `viewer` for the service account
 Viewing information about a folder or cloud | `get`, `list` | `iam.auditor` for the folder or cloud
 Viewing information about any resource | `get`, `list` | `viewer` for the resource

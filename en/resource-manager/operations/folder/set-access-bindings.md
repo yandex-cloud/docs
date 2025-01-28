@@ -98,7 +98,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role you want to assign. This is a required parameter.
+     * `role`: Role to assign. This is a required parameter.
 
        {% note info %}
 
@@ -115,7 +115,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
-     
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
@@ -129,7 +128,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      }
      ...
      ```
-
 
      {% endcut %}
 
@@ -151,7 +149,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -192,6 +190,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
        ]
       }
       ```
+
   1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
       ```bash
       curl \
@@ -210,6 +209,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
        }
       }
       ```
+
   1. Assign the `editor` role to the user for `my-folder`. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
       ```bash
@@ -228,7 +228,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
         }}}]}' \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
       ```
-
 
 {% endlist %}
 
@@ -249,7 +248,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% note alert %}
 
-  The `set-access-binding` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
+  The `set-access-binding` method completely rewrites access permissions for the resource! All current roles for the resource will be deleted.
 
   {% endnote %}
 
@@ -282,7 +281,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role you want to assign. This is a required parameter.
+     * `role`: Role to assign. This is a required parameter.
 
        {% note info %}
 
@@ -294,7 +293,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
-     
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
@@ -313,7 +311,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      }
      ...
      ```
-
 
      {% endcut %}
 
@@ -335,7 +332,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -384,10 +381,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method completely rewrites access permissions for the resource. All current roles for the resource will be deleted.
 
   {% endnote %}
-
 
   ```bash
   curl \
@@ -404,7 +400,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
     }]}' \
     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
   ```
-
 
 {% endlist %}
 
@@ -433,12 +428,12 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% endnote %}
 
-  To assign a service account a role to a folder created with {{ TF }}:
+  To assign a service account a role for a folder created with {{ TF }}:
 
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role you want to assign. This is a required parameter.
+     * `role`: Role to assign. This is a required parameter.
 
        {% note info %}
 
@@ -484,7 +479,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -520,7 +515,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   1. Select a role from the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md).
   1. [Get the user ID](../../../iam/operations/users/get.md).
-  1. Assign the role using the command:
+  1. Assign the role using this command:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_name_or_ID> \

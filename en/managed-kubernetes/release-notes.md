@@ -2,6 +2,23 @@
 
 Updates appear in the service's [release channels](./concepts/release-channels-and-updates.md) in a sequence. First, updates with new features and improvements are released in the `rapid` channel, after a while, in the `regular` channel, and only then they become available in the `stable` channel.
 
+## Q4 2024 {#q4-2024}
+
+### New features {#q4-2024-new-features}
+
+* Added support for {{ k8s }} version [1.31](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md). For more information, see [{#T}](./concepts/release-channels-and-updates.md).
+* Updated [Cilium](https://cilium.io/) from version [1.12.9](https://github.com/cilium/cilium/releases/tag/v1.12.9) to [1.15.10](https://github.com/cilium/cilium/releases/tag/v1.15.10) for clusters with {{ k8s }} version 1.31 and higher.
+* Updated [CoreDNS](https://coredns.io/) from version [1.9.4](https://github.com/coredns/coredns/releases/tag/v1.9.4) to [1.11.3](https://github.com/coredns/coredns/releases/tag/v1.11.3) for all supported {{ k8s }} versions.
+
+### Fixes and improvements {#q4-2024-problems-solved}
+
+* Added a _preflight check_ for compatibility of objects or configurations with the new {{ k8s }} version before cluster upgrade.
+
+  If the check identifies incompatible objects or configurations, the upgrade will return an error with a list of incompatible resources and a description. 
+
+  Currently, only [Cilium network policies](./concepts/network-policy.md#cilium) are checked.
+* Fixed an issue that in some cases made it impossible to connect a new node to the cluster, the node ending up with a permanent `NOT_CONNECTED` status.
+
 ## Q3 2024 {#q3-2024}
 
 ### New features {#q3-2024-new-features}

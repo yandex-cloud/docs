@@ -45,6 +45,8 @@ items:
             href: operations/resources/configure-additions.md
           - name: Disabling a resource
             href: operations/resources/disable-resource.md
+          - name: Managing resource labels
+            href: operations/resources/labeling.md
           - name: Deleting a resource
             href: operations/resources/delete-resource.md
           - name: Viewing resource statistics
@@ -119,6 +121,8 @@ items:
         href: concepts/ip-address-acl.md
       - name: Log export
         href: concepts/logs.md
+      - name: Labels
+        href: concepts/labels.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

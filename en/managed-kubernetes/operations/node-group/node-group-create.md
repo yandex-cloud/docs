@@ -40,11 +40,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        --disk-size <storage_size_in_GB> \
        --disk-type <storage_type> \
        --fixed-size <fixed_number_of_nodes_in_group> \
-       --location <cluster_host_placement_settings> \
+       --location zone=[<availability_zone>],subnet-id=[<subnet_ID>] \
        --memory <amount_of_RAM_in_GB> \
        --name <node_group_name> \
        --network-acceleration-type <network_acceleration_type> \
-       --network-interface security-group-ids=[<security_group_IDs>],subnets=[<subnet_names>],ipv4-address=<IP_address_assignment_method> \
+       --network-interface security-group-ids=[<security_group_IDs>],ipv4-address=<IP_address_assignment_method> \
        --platform-id <platform_ID> \
        --container-runtime containerd \
        --preemptible \
@@ -75,7 +75,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        You cannot change the scaling type after you create a node group.
 
-     * `--location`: [Availability zone](../../../overview/concepts/geo-scope.md), [network](../../../vpc/concepts/network.md#network), and [subnet](../../../vpc/concepts/network.md#subnet) to host {{ managed-k8s-name }} nodes. You can specify several options.
+     * `--location`: [Availability zone](../../../overview/concepts/geo-scope.md) and [subnet](../../../vpc/concepts/network.md#subnet) to host {{ managed-k8s-name }} nodes. You can specify more than one option but only a single subnet per zone. Use a separate `--location` parameter for each of the availability zones.
 
        If you provide `--location`, `--network-interface`, and `--public-ip` in the same command, you will [get an error](../../qa/troubleshooting.md#conflicting-flags). It is enough to specify the location of a {{ managed-k8s-name }} node group either in `--location` or `--network-interface`.
 
@@ -381,7 +381,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 
 - CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   {{ yc-k8s }} node-group create \

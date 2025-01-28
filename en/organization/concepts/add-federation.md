@@ -1,10 +1,10 @@
 # SAML-compatible identity federations
 
-{{ yandex-cloud }} supports [SAML 2.0](https://wiki.oasis-open.org/security)-based identity federations. This is a popular markup language to enable Single Sign-On (SSO), a technology that allows users to access multiple apps without having to enter their username and password every time. For example, whenever you visit a website and see the _Sign in with Yandex_, _Google_ or _Facebook_ buttons, you are dealing with single sign-on authentication.
+{{ yandex-cloud }} supports [SAML 2.0](https://wiki.oasis-open.org/security)-based identity federations. This is a popular markup language to enable Single Sign-On (SSO), a technology that allows users to access multiple apps without having to enter their username and password every time. For example, whenever you visit a website and see the _Sign in with Yandex_, _Google_, or _Facebook_ buttons, all these are examples of the single sign-on system at work.
 
 This technology is called _identity federation_, which implies storing all usernames and passwords with a trusted _Identity Provider (IdP)_. While a service provider (SP), e.g., {{ yandex-cloud }}, refers users to the identity provider's (IdP's) server for authentication.
 
-If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. In this case, you do not need to create a new Yandex account for every employee. They can get access to {{ yandex-cloud }} services using their corporate accounts.
+If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. In which case you do not need to create a new Yandex account for every employee. They can get access to {{ yandex-cloud }} services using their corporate accounts.
 
 ## Configuring federations in {{ org-full-name }} {#federation-usage}
 

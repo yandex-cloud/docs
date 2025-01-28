@@ -15,7 +15,7 @@ The following types of accounts are currently available to {{ yandex-cloud }} us
 
 ### Yandex ID accounts {#passport-accounts}
 
-[Yandex ID](https://yandex.com/support/passport/index.html) enables authentication and authorization of Yandex users and stores users' personal data. For authentication with your Yandex ID, use your username and password or your PIN and the Yandex.Key app if two-factor authentication is set up. If you pass authentication, Yandex ID sets a cookie for the yandex.TLD domain in your browser. Yandex.ID authenticates users, sets the cookies, and stores the cryptographic keys to control cookie integrity.
+[Yandex ID](https://yandex.com/support/passport/index.html) enables authentication and authorization of Yandex users and stores users' personal data. For authentication with your Yandex ID, use your username and password or your PIN and the Yandex.Key app if two-factor authentication is set up. If you pass authentication, Yandex ID sets a cookie for the yandex.TLD domain in your browser. Yandex.ID authenticates users, sets the cookies, and stores the cryptographic keys to control cookie integrity. 
 
 The set cookie is used by {{ iam-short-name }} to authenticate the user and issue them an IAM token to access the {{ yandex-cloud }} API. {{ iam-short-name }} stores the cryptographic keys used to control IAM token integrity.
 
@@ -33,24 +33,24 @@ After receiving and verifying the SAML token signature, {{ iam-short-name }} cre
 
 [Service accounts](../iam/concepts/users/service-accounts.md) are a special type of account for accessing {{ yandex-cloud }} resources on behalf of an application. Service account authentication can be done using the following types of keys:
 
-* Authorized keys: RSA keys that are generated in {{ iam-short-name }}. Such keys can be downloaded by the user only once after their creation. {{ iam-short-name }} only stores the public part of the key. Its private part stays with the user. It is the user's responsibility to keep the private part safe. For more information, refer to [Authorized keys](../iam/concepts/authorization/key.md).
-* Static keys used to access {{ message-queue-short-name }} (YMQ) and {{ objstorage-full-name }}. Copies of static keys are issued to the user immediately after they're created by {{ iam-short-name }}. Static keys are stored in {{ iam-short-name }} and used to check the integrity of requests to YMQ and {{ objstorage-full-name }}. For more information, refer to [Static access keys compatible with the AWS API](../iam/concepts/authorization/access-key.md).
-* API keys used to access the {{ yandex-cloud }} API. API keys are used in some services for simplified authentication. For more information, refer to [API key](../iam/concepts/authorization/api-key.md).
+* Authorized keys: RSA keys that are generated in {{ iam-short-name }}. Such keys can be downloaded by the user only once after their creation. {{ iam-short-name }} only stores the public part of the key. Its private part stays with the user. It is the user's responsibility to keep the private part safe. See [Authorized keys](../iam/concepts/authorization/key.md). 
+* Static keys used to access {{ message-queue-short-name }} (YMQ) and {{ objstorage-full-name }}. Copies of static keys are issued to the user immediately after they're created by {{ iam-short-name }}. Static keys are stored in {{ iam-short-name }} and used to check the integrity of requests to YMQ and {{ objstorage-full-name }}. See [Static access keys compatible with the AWS API](../iam/concepts/authorization/access-key.md). 
+* API keys used to access the {{ yandex-cloud }} API. API keys are used in some services for simplified authentication. See [API key](../iam/concepts/authorization/api-key.md). 
 
 ## Network security {#network-sec}
 
 To protect the cloud network infrastructure hosted in {{ yandex-cloud }}, we recommend managing incoming and outgoing traffic and dividing the virtual networks of the {{ yandex-cloud }} environment into segments based on tasks.
 
-For incoming traffic management, you should use a load balancer and VMs without public IPs. This reduces the attack surface and limits traffic to VMs using the appropriate protocols. You can integrate a network load balancer with Yandex DDoS Protection to safeguard your service from DDoS attacks. We recommend using virtual images or cloud services with a Web Application Firewall (WAF) to protect against Layer 7 (L7) DDoS attacks.
+For incoming traffic management, you should use a load balancer and VMs without public IPs. This reduces the attack surface and limits traffic to VMs using the appropriate protocols. You can integrate a network load balancer with Yandex DDoS Protection to safeguard your service from DDoS attacks. We recommend using virtual images or cloud services with a Web Application Firewall (WAF) to protect against Layer 7 (L7) DDoS attacks.  
 
 For outgoing traffic management, we recommend using VMs without public IPs and granting them internet access through a NAT instance that functions as a network gateway or proxy server.
 
-For access control in {{ yandex-cloud }}, you can create a separate network for each of your development teams or each environment (development, testing, and production). With this approach, we recommend using network device images available on {{ marketplace-name }} to link networks to each other and control network flows between segments.
+For access control in {{ yandex-cloud }}, you can create a separate network for each of your development teams or each environment (development, testing, and production). With this approach, we recommend using network device images available on {{ marketplace-name }} to link networks to each other and control network flows between segments. 
 
 We also recommend connecting to your local infrastructure or the internet using a VPN instance, network images from {{ marketplace-name }}, or {{ interconnect-full-name }}.
 
 ## Additional data protection tools {#more-tools}
 
-{{ yandex-cloud }} protects customer data using cryptography tools. The user can additionally secure their data using {{ kms-short-name }} ({{ kms-name }}). It's designed to manage the user's cryptographic keys in {{ yandex-cloud }} and provides additional data encryption features.
+{{ yandex-cloud }} protects customer data using cryptography tools. The user can additionally secure their data using {{ kms-short-name }} ({{ kms-name }}). It's designed to manage the user's cryptographic keys in {{ yandex-cloud }} and provides additional data encryption features. 
 
 Read more in the [{{ kms-full-name }} documentation](../kms/).

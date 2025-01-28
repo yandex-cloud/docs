@@ -20,3 +20,5 @@ items:
         href: vm-folder-watchdog.md
       - name: Instance Group Scheduled Scaler
         href: yc-ig-scheduled-scale.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md

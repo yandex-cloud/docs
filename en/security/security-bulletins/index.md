@@ -116,7 +116,7 @@ CVSS rating:
 
 #### General impact
 
-The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
+The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, etc.
 
 For a complete list of software affected by the vulnerability, see:
 * https://github.com/NCSC-NL/log4shell/tree/main/software
@@ -171,7 +171,7 @@ CVSSv3.1 rating: 9.0 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H)
 
 #### General impact
 
-The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
+The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, etc. 
 
 For a complete list of software affected by the vulnerability, see:
 * https://github.com/NCSC-NL/log4shell/tree/main/software
@@ -197,9 +197,9 @@ Log4j 1.x is not affected by the vulnerability.
 * Java 7: Upgrade to Log4j 2.12.2.
 * If you cannot upgrade the library now, remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`.
 
-Users are advised not to enable JNDI in Log4j 2.16.0. If the JMS Appender is required, use Log4j 2.12.2.
+Users are advised not to enable JNDI in Log4j 2.16.0. If the JMS Appender is required, use Log4j 2.12.2. 
 
-Note that only the `log4j-core JAR` file is affected by this vulnerability. Applications using only the `log4j-api JAR` file without the `log4j-core JAR` file are not affected by this.
+Note that only the `log4j-core JAR` file is affected by this vulnerability. Applications using only the `log4j-api JAR` file without `log4j-core JAR` are not affected.
 
 Source: https://logging.apache.org/log4j/2.x/security.html
 
@@ -213,7 +213,7 @@ Vulnerability [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CV
 
 A zero-day exploit was discovered that results in remote code execution (RCE) by having a certain line entered into a log.
 
-An attacker that can control log messages or log message parameters can execute arbitrary code downloaded from LDAP servers when the `message lookup substitution` feature is active. Starting with log4j version 2.15.0, this behavior is disabled by default.
+An attacker with control over log messages or log message parameters can run any code downloaded from LDAP servers provided `message lookup substitution` is on. Starting with log4j version 2.15.0, this behavior is disabled by default.
 
 A detailed description of the exploit and this behavior is provided in a [Lunasec article](https://www.lunasec.io/docs/blog/log4j-zero-day/).
 
@@ -223,18 +223,18 @@ Vulnerability description: [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvenam
 
 CVSSv3.1 rating: 10.0 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:P/RL:O/RC:C)
 
-Learn more at: https://www.securitylab.ru/vulnerability/527362.php
+Learn more at: https://www.securitylab.ru/vulnerability/527362.php 
 
 ### Impact
 
 #### General impact
 
-1. The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, and others.
+1. The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, etc. 
 
-1. The vulnerability affects such open-source products as ElasticSearch, Elastic Logstash, the NSA’s Ghidra, etc.
-   
-1. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
-   Hystax is working on new product releases to address the vulnerability.
+2. The vulnerability affects such open-source products such as ElasticSearch, Elastic Logstash, the NSA’s Ghidra, etc.
+
+3. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
+Hystax is working on new product releases to address the vulnerability.
 
 #### Impact on {{ yandex-cloud }} services
 
@@ -246,23 +246,23 @@ Services that used the {{ mes-full-name }} library, {{ dataproc-full-name }}, an
 
 If your infrastructure uses this library or the products listed in the "General Impact" section, follow the steps below.
 
-#### Log4j 1.x
+#### Log4j 1.x 
 
-Since Log4j 1.x does not support [Lookups](https://logging.apache.org/log4j/2.x/manual/lookups.html), the overall risk of exploiting the vulnerability for applications using Log4j 1.x is low.
+Since Log4j 1.x does not support [Lookups](https://logging.apache.org/log4j/2.x/manual/lookups.html), the overall risk of exploiting the vulnerability for applications using Log4j 1.x is low. 
 
-Applications using Log4j 1.x are only vulnerable to this attack when they use [JNDI](https://logging.apache.org/log4j/2.x/manual/lookups.html#JndiLookup). In that case, make sure your logging configuration has no `JMSAppender` configured.
+Applications using Log4j 1.x are only vulnerable to this attack when they use [JNDI](https://logging.apache.org/log4j/2.x/manual/lookups.html#JndiLookup). In this case, make sure your configuration is not using `JMSAppender`. 
 
-#### Log4j 2.x
+#### Log4j 2.x 
 
 * Java 8 (and later): Upgrade to Log4j 2.16.0.
 * Java 7: Upgrade to release Log4j 2.12.2 as soon as it is available.
 * If you cannot upgrade the library now, remove the `JndiLookup` class from the classpath: `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`.
 
-Note that only the `log4j-core JAR` file is affected by this vulnerability. Applications using only the `log4j-api JAR` file without the `log4j-core JAR` file are not affected by this.
+Note that only the `log4j-core JAR` file is affected by this vulnerability. Applications using only the `log4j-api JAR` file without `log4j-core JAR` are not affected.
 
 Source: https://logging.apache.org/log4j/2.x/security.html
 
-#### Hystax
+#### Hystax 
 
 Hystax Acura Controller: allow ingress traffic for UDP port 12201 only for a list of source IP ranges with replication agents deployed.
 
@@ -274,7 +274,7 @@ If you placed Hystax Acura Controller behind a network load balancer in your inf
 
 In {{ GL }} versions starting 11.9, a [security issue](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22205) was discovered, which resulted in a remote command execution. An attack may be carried out by sending two requests that require no authentication.
 
-The vulnerability is caused by not properly validating uploaded image files by an external file parser using the ExifTool library ([CVE-2021-22204](https://security-tracker.debian.org/tracker/CVE-2021-22204)).
+The vulnerability is caused by not properly validating uploaded image files by an external file parser using the ExifTool library ([CVE-2021-22204](https://security-tracker.debian.org/tracker/CVE-2021-22204)). 
 
 The issue is fixed in {{ GL }} versions 13.10.3, 13.9.6, and 13.8.8.
 
@@ -295,7 +295,7 @@ If you are using a deprecated {{ GL }} image from {{ marketplace-full-name }} or
 * [Action needed by self-managed customers in response to CVE-2021-22205](https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/)
 * [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
 
-## 12/10/2021: CVE-2021-25741: Risk of accessing a host's filesystem {#CVE-2021-25741}
+## 12/10/2021: CVE-2021-25741: Risk of accessing a host's file system {#CVE-2021-25741}
 
 ### Description
 
@@ -331,13 +331,13 @@ In 32-bit {{ RD }} versions 4.0 and higher, an integer overflow vulnerability wa
 
 ### Impact on {{ yandex-cloud }} services
 
-{{ mrd-full-name }} uses 64-bit {{ RD }} instances and is not affected by the vulnerability.
+Yandex Managed Service for Redis uses a 64-bit {{ RD }} version and is not affected by the vulnerability.
 
 ## 26/01/2021: CVE-2021-3156: Privilege escalation through vulnerabilities in sudo.
 
 ### Description
 
-A number of [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) vulnerabilities were discovered in `sudo`. They allow attackers to execute privilege escalation to `root`.
+A number of [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156) vulnerabilities were discovered in `sudo`. They allow attackers to escalate privileges to `root`.
 
 ### Impact on {{ yandex-cloud }} services
 
@@ -371,8 +371,8 @@ To make data transmission more secure, {{ yandex-cloud }} recommends that all us
 
 ### Impact on {{ yandex-cloud }} services
 
-All {{ yandex-cloud }} services support TLS 1.2 and higher. Legacy protocols will gradually be discontinued. We recommend that you upgrade your applications to the latest TLS versions in advance.
-
+All {{ yandex-cloud }} services support TLS 1.2 and higher. Legacy protocols will gradually be discontinued. We recommend that you upgrade your applications to the latest TLS versions in advance. 
+ 
 ## 20/09/2020: CVE-2020-1472 (aka Zerologon)
 
 ### Description
@@ -401,7 +401,7 @@ In addition to the updates, to restrict access to your domain controller from un
 
 On certain Intel CPU models, VUSec [detected a new attack](https://www.vusec.net/projects/crosstalk/) called Special Register Buffer Data Sampling Attack (or CrossTalk). During this attack, a malicious process can get the results returned by the RDRAND and RDSEED instructions from another process, even when the malicious and legitimate processes run on different physical CPU cores. The attack is assigned the ID [CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543).
 
-Intel's report: [Deep Dive: Special Register Buffer Data Sampling](https://software.intel.com/security-software-guidance/insights/deep-dive-special-register-buffer-data-sampling).
+Report from Intel: [Deep Dive: Special Register Buffer Data Sampling](https://software.intel.com/security-software-guidance/insights/deep-dive-special-register-buffer-data-sampling).
 
 
 ### Impact on {{ yandex-cloud }} services
@@ -440,8 +440,8 @@ List of domains included in Public Suffix List:
 
 Domains in the Public Suffix List get the properties of top-level domains, such as .ru or .com:
 * Browsers will not save the cookies set for the listed domains.
-* Browsers will not allow you to change the page's `Origin` request headers to root domains.
+* Browsers will not allow you to change the page's `Origin` request header to root domains.
 
 ### Impact on {{ yandex-cloud }} services
 
-These changes will improve the security for {{ yandex-cloud }} users.
+These changes will improve security for {{ yandex-cloud }} users.

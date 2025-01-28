@@ -1,16 +1,10 @@
-## Setting up a private connection {#priv-create}
+## Establishing a private connection {#priv-create}
 
-To set up a new private connection in an existing trunk, create a [new support request]({{ link-console-support }}).
+To establish a new private connection in an existing trunk, create a [new support request]({{ link-console-support }}).
 
-### Contacting support to set up a new private connection {#priv-ticket}
+### Contacting support for a new private connection {#priv-ticket}
 
-{% note warning %}
-
-All private connection attribute values in the support request text below are provided for indicative purposes only. Each customer should have their own attribute values.
-
-{% endnote %}
-
-Write a support request as follows:
+Follow this request format:
 ```s
 Subject: [CIC] Add a new private connection to an existing trunk.
 
@@ -18,7 +12,7 @@ Request text:
 Please add a new private connection to an existing trunk.
 Connection parameters:
 
-trunk_id: euus5dfgchu23b81d472
+trunk_id: euus5dfgchu23b******
 vlan_id: 101
 ipv4_peering:
   peering_subnet: 192.168.10.0/30
@@ -27,7 +21,7 @@ ipv4_peering:
   peer_bgp_asn: 65001
   #cloud_bgp_asn: {{ cic-bgp-asn }}
 vpc:
-  vpc_net_id: enpdffqsg8r221d7vjq5
+  vpc_net_id: enpdffqsg8r221******
     vpc_subnets:
       {{ region-id }}-a: [10.60.192.0/21]
       {{ region-id }}-b: [10.60.200.0/21, 10.60.220.0/24]
@@ -50,16 +44,16 @@ Where:
 
 Once you complete all required actions for setting up a private connection, the support team will provide the customer with the ID of the created private connection.
 
-Here is how the support team may respond to the request for creating a private connection (this sample is provided for indicative purposes only):
+Here is an example of support's response when requested to create a private connection (for information):
 ```s
-id: cf3qdug4fsf737g2gpdu
+Adding a private connection to the trunk completed successfully.
+Connection ID: cf3qdug4fsf737******
 ```
-
-Where `id` is the ID of the new private connection.
 
 ### Monitoring the status of a private connection {#priv-check}
 
 * Use the [monitoring service](../../interconnect/concepts/monitoring.md#private-mon) to monitor, on your own, when the private connection BGP session on the {{ yandex-cloud }} equipment switches to the running status.
 * The support team will notify you once they finish configuring BGP announcements for the subnet prefixes you requested. It may take up to two business days to configure BGP announcements.
 * You should check the IP connectivity between your equipment and the cloud resources to be accessible through the configured private connection yourself and notify the support team of the check results.
-* If there are any IP connectivity issues, contact support so that they may run diagnostics and troubleshooting.
+* If there are any IP connectivity issues, contact support for diagnostics and troubleshooting.
+

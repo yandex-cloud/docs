@@ -51,13 +51,7 @@ description: В данном разделе приведены описания 
 
 Имя сервиса — `cloudapps`.
 
-Имя события | Описание
---- | ---
-`CreateCloudApplication` | Создание приложения
-`DeleteCloudApplication` | Удаление приложения
-`SetApplicationAccessBindings` | Назначение прав доступа для приложения
-`UpdateApplicationAccessBindings` | Изменение прав доступа для приложения
-`UpdateCloudApplication` | Изменение приложения
+{% include [cloud-apps-events](../../_includes/audit-trails/events/cloud-apps-events.md) %}
 
 ## {{ backup-full-name }} {#backup}
 

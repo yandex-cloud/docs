@@ -1,5 +1,5 @@
 ---
-title: How to create a direct trunk connection and a public connection in it in {{ interconnect-full-name }}
+title: How to create a direct trunk and a public connection in it in {{ interconnect-full-name }}
 description: Follow this guide to create a direct trunk and a public connection in it.
 canonical: '{{ link-docs }}/tutorials/routing/trunk-pub-add'
 ---

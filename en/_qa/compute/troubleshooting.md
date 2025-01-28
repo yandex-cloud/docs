@@ -59,6 +59,8 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
         --metadata-from-file user-data=vm-init.tpl
       ```
 
+      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
 - {{ TF }} {#tf}
 
   1. Create a file with the cloud-init configuration, e.g., `vm-init.tpl`:
@@ -82,7 +84,7 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
         name        = "multi-net-vm"
         platform_id = "standard-v2"
         zone        = "{{ region-id }}-a"
-
+       
         resources {
           cores  = "2"
           memory = "2"
@@ -125,7 +127,7 @@ To fix this issue, try upgrading the VM's operating system to its latest version
 
 If upgrading the OS is not possible or does not help:
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
 
     If the SSH connection fails due to network connectivity issues, [remove](../../compute/operations/vm-control/detach-network-interface.md) all the additional network interfaces and [reboot](../../compute/operations/vm-control/vm-stop-and-start.md#restart) the VM.
 

@@ -21,7 +21,7 @@ To view assigned roles:
 
 - Management console {#console}
 
-  To view the roles of a [user with a Yandex account](../../concepts/users/accounts.md#passport), [federated user](../../concepts/users/accounts.md#saml-federation), or [service account](../../concepts/users/service-accounts.md) for a cloud:
+  To view the roles of a [user with a Yandex account,](../../concepts/users/accounts.md#passport), [federated user](../../concepts/users/accounts.md#saml-federation), or [service account](../../concepts/users/service-accounts.md) for a cloud:
 
     {% include [include](../../../_includes/iam/configure-roles-console.md) %}
 

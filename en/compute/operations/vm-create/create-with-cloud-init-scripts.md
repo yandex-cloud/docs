@@ -1,13 +1,13 @@
 ---
 title: How to create a VM with a custom script
-description: In this guide, you will use scripts in cloud-init to install additional software and complete the configuration of your VM while creating it.
+description: This guide will show you how to use `cloud-init` scripts to install additional software and customize your VM while creating it.
 ---
 
 # Creating a VM with a custom configuration script
 
 You can create a VM with a preset software configuration by using the `user-data` key in the VM [metadata](../../concepts/vm-metadata.md).
 
-The [cloud-init](https://cloudinit.readthedocs.io/en/latest/) agent running on the VM will process the configuration you set in the `user-data` key. Cloud-init supports different metadata transmission formats, e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/reference/examples.html).
+The [cloud-init](https://cloudinit.readthedocs.io/en/latest/) agent running on the VM will process the configuration you set in the `user-data` key. `Cloud-init` supports different metadata transmission formats, e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/reference/examples.html).
 
 ## Creating a VM with a custom configuration script {#create-vm-with-user-script}
 
@@ -23,7 +23,7 @@ To create a VM with a custom configuration script:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -56,8 +56,10 @@ To create a VM with a custom configuration script:
   * `subnet-name`: Name of the [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) specified in the `--zone` parameter.
   * `security-group-ids`: [Security group](../../../vpc/concepts/security-groups.md) ID.
   * `--metadata-from-file`: `user-data` key and its value, i.e., path to the `cloud-config` configuration file in YAML format, e.g., `--metadata-from-file user-data="/home/user/metadata.yaml"`.
-  
+
       See configuration examples for `user-data` under [Examples](#examples).
+
+  {% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 - {{ TF }} {#tf}
 
@@ -83,7 +85,7 @@ To create a VM with a custom configuration script:
 
 - API {#api}
 
-  Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource and provide the object with the `cloud-config` YAML configuration under `metadata` in the request body. For a multiline configuration, use `\n` as a separator. See the examples below.
+  To create a VM, use the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource and provide the object with the `cloud-config` YAML configuration under `metadata` in the request body. For a multiline configuration, use `\n` as a separator. Here is an example:
 
   ```json
   {

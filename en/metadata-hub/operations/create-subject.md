@@ -17,11 +17,11 @@ You can create a subject:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a subject.
-  1. Select **{{ metadata-hub-full-name }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/layout-cells.svg) **{{ schema-registry-name }}**.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
   1. Select the namespace you want to create a subject in.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **Subjects**.
-  1. In the top-right corner, click **Create subject**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.schema-registry.label_subjects }}**.
+  1. In the top-right corner, click **{{ ui-key.yacloud.schema-registry.label_create-subject-action }}**.
   1. Specify the following parameters:
       * Subject name and description.
       * **Compatibility check level**:
@@ -35,10 +35,10 @@ You can create a subject:
           For more information about schema compatibility types, see the [Confluent documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
       * Under **Schema**:
           * Set the schema format to [Protobuf](https://protobuf.dev/), [Avro](https://avro.apache.org/), or [JSON Schema](https://json-schema.org/) and attach the file.
-          * If a schema references another schema, in the **References** section, click ![add](../../_assets/console-icons/plus.svg) and enter the [reference](../../metadata-hub/concepts/schema-registry.md#reference) name, the subject name the schema is registered under for linking, and the registered subject's schema version.
+          * If a schema references another schema, in the **References** section, click ![add](../../_assets/console-icons/plus.svg) and enter the [reference](../../metadata-hub/concepts/schema-registry.md#reference) name, the subject name the schema for is registered under for linking, and the registered subject's schema version.
           * To apply [data schema normalization](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#schema-normalization), enable the **Normalization** setting.
           * If you want to skip schema compatibility checking, enable the relevant option.
-  1. Click **Create**.
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

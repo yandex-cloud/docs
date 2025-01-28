@@ -33,7 +33,7 @@ Depending on the selected management interface, steps to create `Multi-folder VP
 
 To create a test infrastructure and enable networking between resources:
 
-1. [Prepare your cloud](#prepare-cloud).
+1. [Prepare your cloud environment](#prepare-cloud).
 1. [Create folders without a {{ vpc-short-name }} network](#create-folders).
 1. [Create a {{ vpc-short-name }} cloud network with subnets](#create-vpc).
 1. [Move the subnets](#move-subnets).
@@ -42,14 +42,14 @@ To create a test infrastructure and enable networking between resources:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#prepare-cloud}
+## Prepare your cloud environment {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
@@ -398,7 +398,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the data for access to the VM:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `ycuser`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify a username: `ycuser`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `net-vm`.
@@ -467,6 +467,8 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
        --network-interface subnet-name=subnet-d,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
      ```
+
+     {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
   1. Save the VM public IPs to use them later:
 

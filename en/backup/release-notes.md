@@ -5,6 +5,22 @@ description: This section contains {{ backup-name }} release notes.
 
 # {{ backup-full-name }} release notes
 
+## Q4 2024 {#q4-2024}
+
+* Added support for new operating systems:
+    * For {{ compute-full-name }} VMs:
+      * [Debian 12](/marketplace/products/yc/debian-12)
+      * [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
+    * For {{ baremetal-full-name }} servers:
+      * Debian 10
+      * Debian 11
+      * Ubuntu 24.04 LTS
+* Added support for {{ baremetal-name }} server backup management in the [management console]({{ link-console-main }}).
+* Added new [{{ yandex-cloud }} CLI](../cli/quickstart.md) features:
+  * [Viewing](./operations/backup-vm/view-disk-layout.md) the parameters of backup disks and partitions.
+  * Service [activation](./operations/activate-service.md).
+  * [Connecting](./operations/connect-vm-oslogin-linux.md) and [reconnecting](./operations/refresh-connection-oslogin-linux.md) a VM with OS Login.
+
 ## Q3 2024 {#q3-2024}
 
 * Enabled setting an existing backup policy when [creating a VM with a {{ backup-name }} connection](./operations/create-vm.md) in the management console, YC CLI, {{ TF }}, and API.

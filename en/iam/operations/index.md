@@ -75,3 +75,7 @@ The guides on managing identity federations are now included in the {{ org-full-
 
 - [{#T}](service-control/list-get.md)
 - [{#T}](service-control/enable-disable.md)
+
+## Workload identity federations {#wlif}
+
+- [{#T}](wlif/setup-wlif.md)

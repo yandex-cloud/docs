@@ -150,6 +150,7 @@ description: На странице представлен список прак�
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](yds-to-ydb.md)
+* [{#T}](ydb-to-yds.md)
 
 ## {{ dns-full-name }} {#dns}
 
@@ -168,4 +169,19 @@ description: На странице представлен список прак�
 * [{#T}](metastore-import.md)
 
 
+## {{ yq-full-name }} {#query}
+
+* [{#T}](audit-log-processing.md)
+* [{#T}](cloud-logging-processing.md)
+* [{#T}](debezium-yq.md)
+* [{#T}](jupyter-yq.md)
+* [{#T}](billing-detail-files-processing.md)
+
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+
+## {{ yds-full-name }} {#yds}
+
+* [{#T}](data-ingestion.md)
+* [{#T}](log-ingestion.md)
+* [{#T}](message-broker.md)
+* [{#T}](yds-obj-migration.md)

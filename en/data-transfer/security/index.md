@@ -62,11 +62,35 @@ To use the service, log in to the management console with a [Yandex account](../
 
 ## Roles required {#required-roles}
 
-To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where the projects are being created. With the `viewer` role, you can only view the list of the projects and the contents of uploaded files.
+To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher for the folder where you want to create {{ data-transfer-name }} resources. With the `viewer` role, you can only view the list of the projects and the contents of uploaded files.
 
-To create or edit an endpoint of a managed database, you need the service or primitive [`viewer` role](../../iam/roles-reference.md#viewer) assigned for the folder hosting a cluster of this managed database.
+If you are creating a managed database endpoint for a cluster residing in a different folder, you will need a service or primitive [`viewer` role](../../iam/roles-reference.md#viewer) for that folder.
 
-You can always assign a role offering more permissions than the one specified. For example, you can assign the `admin` role instead of `editor`.
+If you are creating a managed database endpoint for a third-party cluster with internet access, you will need the primitive `admin` role or the `data-transfer.admin` service role for the folder where you are creating the endpoint.
+
+You can always assign a role offering more permissions (e.g., `admin` instead of `editor`) or assign roles that allow only specific actions. For more information about the roles required to perform particular actions with {{ data-transfer-name }} resources, see this table:
+
+| Action                                                                    | Required roles             |
+|-----------------------------------------------------------------------------|------------------------------|
+| Getting metadata on transfers and endpoints                              | `data-transfer.viewer`       |
+| Getting information about {{ data-transfer-name }} quotas               | `data-transfer.viewer`       |
+| Getting information about transfers and endpoints                               | `data-transfer.viewer`       |
+| Creating an endpoint in {{ yandex-cloud }}                                       | `data-transfer.editor` |
+| Updating an endpoint in {{ yandex-cloud }}                                      | `data-transfer.editor` |
+| Deleting an endpoint in {{ yandex-cloud }}                                       | `data-transfer.editor` |
+| Creating a data transfer in {{ yandex-cloud }}                    | `data-transfer.privateAdmin` |
+| Updating a data transfer in {{ yandex-cloud }}                   | `data-transfer.privateAdmin` |
+| Activating a data transfer in {{ yandex-cloud }}               | `data-transfer.privateAdmin` |
+| Deactivating a data transfer in {{ yandex-cloud }}             | `data-transfer.privateAdmin` |
+| Deleting a data transfer in {{ yandex-cloud }}                    | `data-transfer.editor` |
+| Creating an endpoint in or outside {{ yandex-cloud }}                  | `data-transfer.editor`        |
+| Updating an endpoint in or outside {{ yandex-cloud }}                 | `data-transfer.editor`        |
+| Deleting an endpoint in or outside {{ yandex-cloud }}                  | `data-transfer.editor`        |
+| Creating a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.admin`        |
+| Updating a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.admin`       |
+| Activating a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.admin`   |
+| Deactivating a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.admin` |
+| Deleting a data transfer to {{ yandex-cloud }} or over the internet | `data-transfer.editor`        |
 
 ## What's next {#whats-next}
 

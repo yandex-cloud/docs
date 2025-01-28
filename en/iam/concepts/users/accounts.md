@@ -20,7 +20,7 @@ _Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) o
 
 {% include [yandex-account-2fa-warning.md](../../../_includes/iam/yandex-account-2fa-warning.md) %}
 
-## Federated accounts {#saml-federation}
+## Federated account {#saml-federation}
 
 A _federated account_ is a user account from an identity federation, e.g., Active Directory.
 

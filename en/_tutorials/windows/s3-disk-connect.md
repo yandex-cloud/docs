@@ -10,7 +10,7 @@ This section describes how to connect a bucket in Windows. When connecting in ot
 
 To mount your bucket as a disk:
 
-1. [Prepare your cloud](#before-begin).
+1. [Prepare your cloud environment](#before-begin).
 1. [Set up a work environment](#environment-prepare).
 1. [Create a service account](#create-sa).
 1. [Create a static access key](#create-static-key).
@@ -44,11 +44,7 @@ The cost for bucket support includes:
 1. Download the [archive with the rclone utility](https://rclone.org/downloads/) from the developer's website and unpack it to your local working folder.
 1. Add the folders containing the utilities and the distribution to the `PATH` variable. To do this:
 
-    1. Click **Start** and type **Change system environment variables** in the Windows search bar.
-    1. Click **Environment Variables...** at the bottom right.
-    1. In the window that opens, find the `PATH` parameter and click **Edit**.
-    1. Add paths to the directories with the utilities to the list.
-    1. Click **OK**.
+    {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
 
 ## Create a service account {#create-sa}
 
@@ -101,7 +97,7 @@ The cost for bucket support includes:
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and the secret key. After you close the dialog, the key value will become unavailable.
+  1. Save the ID and secret key. After you close this dialog, the key value will not be shown again.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -124,7 +120,7 @@ The cost for bucket support includes:
 
      For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
-  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
+  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the secret key again.
 
 - API {#api}
 
@@ -192,7 +188,7 @@ The cost for bucket support includes:
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy cloud resources.
   

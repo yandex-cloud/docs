@@ -75,36 +75,51 @@
 
 ## Установите External Secrets Operator {#install-eso}
 
-1. Добавьте Helm-репозиторий `external-secrets`:
+{% list tabs group=instructions %}
 
-   ```bash
-   helm repo add external-secrets https://charts.external-secrets.io
-   ```
 
-1. Установите External Secrets Operator в кластер {{ managed-k8s-name }}:
+- {{ marketplace-full-name }} {#marketplace}
 
-   ```bash
-   helm install external-secrets \
-     external-secrets/external-secrets \
-     --namespace external-secrets \
-     --create-namespace
-   ```
+    Установите приложение [External Secrets Operator с поддержкой {{ lockbox-name }}](/marketplace/products/yc/external-secrets) из {{ marketplace-name }} [по инструкции](../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) со следующими параметрами:
 
-   Эта команда создаст новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) `external-secrets`, необходимое для работы External Secrets Operator.
+    * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) `external-secrets`.
+    * **Ключ сервисной учетной записи** — вставьте содержимое файла `authorized-key.json`, созданного [ранее](#before-you-begin).
 
-   Результат:
 
-   ```text
-   NAME: external-secrets
-   LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-   NAMESPACE: external-secrets
-   STATUS: deployed
-   REVISION: 1
-   TEST SUITE: None
-   NOTES:
-   external-secrets has been deployed successfully!
-   ...
-   ```
+- Вручную {#manual}
+
+    1. Добавьте Helm-репозиторий `external-secrets`:
+
+        ```bash
+        helm repo add external-secrets https://charts.external-secrets.io
+        ```
+
+    1. Установите External Secrets Operator в кластер {{ managed-k8s-name }}:
+
+        ```bash
+        helm install external-secrets \
+          external-secrets/external-secrets \
+          --namespace external-secrets \
+          --create-namespace
+        ```
+
+        Эта команда создаст новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) `external-secrets`, необходимое для работы External Secrets Operator.
+
+        Результат:
+
+        ```text
+        NAME: external-secrets
+        LAST DEPLOYED: Sun Sep 19 11:20:58 2021
+        NAMESPACE: external-secrets
+        STATUS: deployed
+        REVISION: 1
+        TEST SUITE: None
+        NOTES:
+        external-secrets has been deployed successfully!
+        ...
+        ```
+
+{% endlist %}
 
 ## Настройте кластер {{ managed-k8s-name }} {#configure-cluster}
 
@@ -237,6 +252,29 @@
 
   Установите приложение [Ingress NGINX](/marketplace/products/yc/ingress-nginx) из {{ marketplace-name }} [по инструкции](../../managed-kubernetes/operations/applications/ingress-nginx.md).
 
+  SSL-сертификат будет доступен только в пространстве имен `ns`, где создан секрет с этим сертификатом. Чтобы Ingress мог использовать этот сертификат в любом пространстве имен, добавьте в конфигурацию контроллера параметр `--default-ssl-certificate`:
+
+  1. Выполните команду:
+
+     ```bash
+     kubectl edit deployment ingress-nginx-controller
+     ```
+
+  1. В открывшемся окне добавьте параметр `--default-ssl-certificate`:
+
+     ```bash
+     spec:
+       template:
+         spec:
+           containers:
+           - args:
+             - /nginx-ingress-controller
+             ...
+             - --default-ssl-certificate=ns/k8s-secret
+     ```
+
+  При изменении параметра `--default-ssl-certificate` перезапустите Ingress-контроллер NGINX.
+
 
 - Вручную {#manual}
 
@@ -266,10 +304,17 @@
      Update Complete. ⎈Happy Helming!⎈
      ```
 
-  1. Установите контроллер в стандартной конфигурации. Контроллер будет установлен вместе с {{ network-load-balancer-name }}:
+  1. Установите контроллер. Он будет установлен вместе с {{ network-load-balancer-name }}:
 
      ```bash
      helm install ingress-nginx ingress-nginx/ingress-nginx
+     ```
+
+     SSL-сертификат будет доступен только в пространстве имен `ns`, где создан секрет с этим сертификатом. Чтобы Ingress мог использовать этот сертификат в любом пространстве имен, установите контроллер с параметром `default-ssl-certificate`:
+
+     ```bash
+     helm install ingress-nginx ingress-nginx/ingress-nginx \
+       --set controller.extraArgs.default-ssl-certificate="ns/k8s-secret"
      ```
 
      Результат:
@@ -287,6 +332,8 @@
      You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
      ...
      ```
+
+     При изменении параметра `default-ssl-certificate` перезапустите Ingress-контроллер NGINX.
 
   Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
 

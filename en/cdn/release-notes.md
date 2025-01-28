@@ -5,6 +5,10 @@ description: This section contains {{ cdn-name }} release notes.
 
 # {{ cdn-full-name }} release notes
 
+## Q4 2024 {#q4-2024}
+
+Added the option to [assign](./operations/resources/labeling.md) {{ resmgr-full-name }} [labels](./concepts/labels.md) to CDN resources.
+
 ## Q3 2024 {#q3-2024}
 
 * Added the [request redirection](./concepts/http-rewrite.md) feature. This setting is available in the management console, YC CLI and API.

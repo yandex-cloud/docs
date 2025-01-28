@@ -13,7 +13,7 @@ editable: false
 
 
 
-To see the cost of analyzing an [audio conversation](https://yandex.cloud/en/prices?state=b22c4c9e4f90#calculator) or [text transcript](https://yandex.cloud/en/prices?state=5d33b1fb1362#calculator), use our calculator on the Yandex Cloud website or see the pricing in this section.
+To calculate the cost of analytics for [text](https://yandex.cloud/en/prices?state=5d33b1fb1362#calculator) and [audio](https://yandex.cloud/en/prices?state=b22c4c9e4f90#calculator) dialogues, use the calculator on the {{ yandex-cloud }} website or see the pricing data in this section.
 
 
 {% endnote %}

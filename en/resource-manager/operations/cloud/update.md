@@ -14,6 +14,57 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
 
   1. Click **{{ ui-key.yacloud.iam.cloud.edit.popup-edit-cloud_button_save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  1. View the description of the cloud update command:
+
+      ```bash
+      yc resource-manager cloud update --help
+      ```
+
+  1. Get a list of available clouds:
+
+      ```bash
+      yc resource-manager cloud list
+      ```
+
+      Result:
+
+      ```text
+      +----------------------+------------------+----------------------+--------+
+      |          ID          |       NAME       |   ORGANIZATION ID    | LABELS |
+      +----------------------+------------------+----------------------+--------+
+      | b1go33ek97iq******** | my-cloud         | bpf2c65rqcl8******** |        |
+      | b1gbi30tq0m9******** | my-new-cloud     | bpfaidqca8vd******** |        |
+      +----------------------+------------------+----------------------+--------+
+      ```
+
+  1. To rename a cloud, run this command:
+
+      ```bash
+      yc resource-manager cloud update \
+        --name <current_cloud_name> \
+        --new-name <new_cloud_name>
+      ```
+
+      Where:
+
+      * `--name`: Current name of the cloud you want to change. Instead of the cloud name, you can provide its [ID](../../../resource-manager/operations/cloud/get-id.md) in the `--id` parameter.
+      * `--new-name`: New cloud name.
+
+          {% include [name-format.md](../../../_includes/name-format.md) %}
+
+      Result:
+
+      ```text
+      id: b1go33ek97iq********
+      created_at: "2024-12-10T09:25:22Z"
+      name: my-old-cloud
+      organization_id: bpf2c65rqcl8********
+      ```
+
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -55,7 +106,7 @@ To rename a cloud, you must have the [`editor`](../../../iam/roles-reference.md#
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
   1. Apply the configuration changes:
 
       ```bash

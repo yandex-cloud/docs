@@ -78,7 +78,7 @@ HTTP method to use to send the request: `GET`, `PUT`, `HEAD`, or `DELETE`.
 
 #### CanonicalURL {#canonical-url}
 
-URL-encoded object key, e.g., `/folder/object.ext`.
+URL-encoded object key. Example: `/folder/object.ext`.
 
 {% note info %}
 
@@ -98,7 +98,7 @@ X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2
 
 #### CanonicalHeaders {#canonical-headers}
 
-This section includes the list of the request headers and their values.
+This section includes the list of the request headers and their values. 
 
 The list must follow these requirements:
 
@@ -183,7 +183,7 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
     ```
     GET
     /object-for-share.txt
-    X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEK0Iv6x********eLTAdg%2F20231208%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20231208T184504Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
+    X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEK0Iv6x********eLTAdg%2F20231208%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20231208T184504Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host 
     host:<bucket_name>.{{ s3-storage-host }}
 
     host
@@ -392,5 +392,75 @@ This subsection provides examples of generating pre-signed URLs with the help of
 
     print(presigned_url)
     ```
+
+- JavaScript {#javascript}
+    
+    The examples below use the [@aws-sdk/client-s3](https://www.npmjs.com/package/%40aws-sdk/client-s3) and [@aws-sdk/s3-request-presigner](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner) libraries.
+
+    * **Downloading an object**
+
+      The example generates a pre-signed URL for downloading `object-for-share` from `bucket-with-objects`. The URL is valid for 100 seconds.
+
+      ```js
+      import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
+      import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+
+      const S3_ENDPOINT = "https://{{ s3-storage-host }}";
+
+      const ACCESS_KEY_ID = "JK38EXAMP********";
+      const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
+
+      const s3Client = new S3Client({
+        region: "{{ region-id }}",
+        endpoint: S3_ENDPOINT,
+        credentials: {
+          accessKeyId: ACCESS_KEY_ID,
+          secretAccessKey: SECRET_ACCESS_KEY,
+        },
+      });
+
+      const command = new GetObjectCommand({
+        Bucket: "bucket-with-objects",
+        Key: "object-for-share",
+      });
+      const objectPresignedUrl = await getSignedUrl(s3Client, command, {
+        expiresIn: 100,
+      });
+
+      console.log(objectPresignedUrl);
+      ```
+
+    * **Uploading an object**
+
+      This example generates a pre-signed URL for uploading the `object-for-share` file into `bucket-with-objects`. The URL is valid for 100 seconds.
+
+      ```js
+      import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+      import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+
+      const S3_ENDPOINT = "https://{{ s3-storage-host }}";
+
+      const ACCESS_KEY_ID = "JK38EXAMP********";
+      const SECRET_ACCESS_KEY = "ExamP1eSecReTKeykdo********";
+
+      const s3Client = new S3Client({
+        region: "{{ region-id }}",
+        endpoint: S3_ENDPOINT,
+        credentials: {
+          accessKeyId: ACCESS_KEY_ID,
+          secretAccessKey: SECRET_ACCESS_KEY,
+        },
+      });
+
+      const command = new PutObjectCommand({
+        Bucket: "bucket-with-objects",
+        Key: "object-for-share",
+      });
+      const objectPresignedUrl = await getSignedUrl(s3Client, command, {
+        expiresIn: 100,
+      });
+
+      console.log(objectPresignedUrl);
+      ```
 
 {% endlist %}
