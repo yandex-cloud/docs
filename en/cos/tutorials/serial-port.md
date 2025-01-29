@@ -6,7 +6,7 @@ description: Follow this guide to create a VM from a {{ coi }} and set up a redi
 # Configuring data output from a Docker container to a serial port
 
 To create a [VM](../../compute/concepts/vm.md) from an [image](../../compute/concepts/image.md), such as a [{{ coi }}](../concepts/index.md), and set up a redirect of the application output stream to the VM's [serial port](../../compute/operations/serial-console/index.md#configuration):
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Create a VM specification file](#prepare-specification-vm).
 1. [Create a Docker container specification file](#prepare-specification-docker).
 1. [Get the ID of the image to create the VM](#get-id).
@@ -15,7 +15,7 @@ To create a [VM](../../compute/concepts/vm.md) from an [image](../../compute/con
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 If the required [Docker image](../../container-registry/concepts/docker-image.md) is pushed to [{{ container-registry-name }}](../../container-registry/), create a [service account](../../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the [registry](../../container-registry/concepts/registry.md) in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
 
@@ -119,6 +119,8 @@ The infrastructure support cost includes:
         * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `--network-interface`: VM network settings.
         * `--metadata-from-file`: YAML [metadata](../../compute/concepts/vm-metadata.md) files for creating the VM.
+
+            {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
         * `--create-boot-disk`: ID of the image to create a boot disk from.
 
         Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).

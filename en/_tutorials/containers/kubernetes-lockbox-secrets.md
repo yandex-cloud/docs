@@ -13,7 +13,7 @@ To set up secret syncing:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-You can also deploy an infrastructure for syncing {{ lockbox-name }} secrets with {{ managed-k8s-name }} cluster secrets via {{ TF }} using a [ready-made configuration file](#terraform).
+You can also deploy an infrastructure for syncing {{ lockbox-name }} secrets with {{ managed-k8s-name }} cluster secrets via {{ TF }} using a [ready-made configuration file](#tf).
 
 ## Getting started {#before-you-begin}
 

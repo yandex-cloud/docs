@@ -1,3 +1,8 @@
+---
+title: Signing requests to {{ postbox-full-name }}
+description: Many requests to {{ postbox-name }} are authenticated on the service side; therefore, they must be signed when sending.
+---
+
 # Signing requests
 
 Many requests to {{ postbox-name }} are authenticated on the service side; therefore, they must be signed when sending. {{ postbox-name }} supports [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) for signing. It is used in the `Authorization` header.
@@ -55,7 +60,7 @@ Where:
 
    You can also add any request header to the list. The more headers you sign, the safer your request is going to be.
 
-   Here is an example: 
+   Example: 
 
    ```
    host:{{ postbox-host }}

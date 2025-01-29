@@ -1,1 +1,1 @@
-{% include [local-dns-cache](../../_tutorials/infrastructure-management/local-dns-cache.md) %}
+{% include [local-dns-cache](../../_tutorials/infrastructure/local-dns-cache.md) %}

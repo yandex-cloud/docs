@@ -44,11 +44,9 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md).
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-    You can create function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
+    You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 
@@ -110,7 +108,8 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the `java-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the `java17` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Select the `{{ java-full-ver }}` runtime environment.
+    1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-java.zip`
@@ -131,7 +130,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     ```bash
     yc serverless function version create \
       --function-name=java-function \
-      --runtime java11 \
+      --runtime {{ java-cli-ver }} \
       --entrypoint Handler \
       --memory 128m \
       --execution-timeout 3s \
@@ -140,7 +139,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
     Where:
 
-    * `--function-name`: Name of the function a version of which you want to create.
+    * `--function-name`: Name of the function whose version you want to create.
     * `--runtime`: Runtime environment.
     * `--entrypoint`: Entry point.
     * `--memory`: Amount of RAM.
@@ -154,7 +153,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
-    runtime: java11
+    runtime: {{ java-cli-ver }}
     entrypoint: Handler
     resources:
         memory: "134217728"
@@ -170,11 +169,9 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}
 

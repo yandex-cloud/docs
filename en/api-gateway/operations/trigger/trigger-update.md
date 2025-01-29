@@ -1,3 +1,8 @@
+---
+title: Updating a trigger in {{ api-gw-full-name }}
+description: Follow this guide to update any trigger parameters in {{ api-gw-full-name }}, except for the trigger type and launched resource type.
+---
+
 # Updating a trigger in {{ api-gw-full-name }}
 
 You can update any parameters except for the trigger type and launched resource type.
@@ -36,8 +41,8 @@ Your changes will apply within five minutes.
   1. Update the trigger parameters, e.g., rename it:
 
       ```bash
-      yc serverless trigger update <trigger_type> <trigger_name> \
-        --new-name <new_trigger_name>
+      yc serverless trigger update <trigger_type> <trigger_name> \ 
+        --new-name <new_trigger_name> 
       ```
 
       Result:

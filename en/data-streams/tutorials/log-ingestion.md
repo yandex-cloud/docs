@@ -1,6 +1,6 @@
 # Smart log processing
 
-Logging is used for app diagnostics. However, just having logs is not sufficient to perform analysis, they need to be stored and handled in a convenient way. For this purpose, logs are sent to storage systems, such as [Hadoop](/services/data-proc), [{{ CH }}](/services/managed-clickhouse), or to purpose-designed cloud systems, such as [{{ cloud-logging-name }}](../../logging/).
+Apps generate logs to enable diagnostics. However, it is not enough just to have logs for analysis: you need to be able to store and process them in a convenient way. This is the reason why logs go into storage systems like [Hadoop](/services/data-proc), [{{ CH }}](/services/managed-clickhouse) or specialized cloud systems, such as [{{ cloud-logging-name }}](../../logging/).
 
 Applications do not usually write logs to storage systems directly. Instead, they send them to intermediate aggregator applications. These aggregators can receive logs by intercepting stdout/stderr streams, read log files from disk, get them via syslog or over HTTP, and in many other ways.
 
@@ -26,7 +26,7 @@ The same logs are often stored in multiple storage systems at once: in {{ CH }} 
 
 With data buses, this can be done even more easily: just send a log once to a data bus and then, from it, run two data transfer processes inside {{ yandex-cloud }}. This solution will also let you add a third storage system, such as {{ GP }} or {{ ES }}, at any time.
 
-The approach using multiple storage systems is very convenient to ensure compliance with Federal Law No. 152-FZ, PCI DSS, and other standards that stipulate that logs shall be stored for at least a year. In this case, you can send logs for the past month to one storage system for quick access, and logs that will be stored for a long time can be sent to {{ objstorage-name }} cold storage.
+The multiple storage system approach is very convenient for ensuring compliance with FZ-152, PCI DSS, and other standards requiring that logs be stored for at least a year. In this case, you can send logs for the past month to one storage system for quick access, and logs that will be stored for a long time can be sent to {{ objstorage-name }} cold storage.
 
 ### Masking data and processing logs {#mask}
 
@@ -44,7 +44,7 @@ To configure smart log processing:
 1. Set up a log aggregator: [fluentd](../quickstart/fluentd.md), [logstash](../quickstart/logstash.md), or any other aggregator that supports the [Kinesis Data Streams API](../kinesisapi/api-ref.md).
 1. Set up {{ data-transfer-full-name }} to transfer data to the selected storage system.
 
-   An example of setting up data delivery from {{ yds-short-name }} is given in the [tutorial on how to save data to {{ CH }}](send-to-clickhouse.md).
+    An example of setting up data delivery from {{ yds-short-name }} is given in the [tutorial on how to save data to {{ CH }}](send-to-clickhouse.md).
 1. Connect an arbitrary data processing function to {{ data-transfer-full-name }}. The [example](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) shows a sample function code.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

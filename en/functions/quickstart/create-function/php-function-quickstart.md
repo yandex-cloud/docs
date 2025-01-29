@@ -44,11 +44,9 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md).
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}
 
@@ -69,6 +67,8 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
             'body' => json_encode($resp),
         ];
     }
+
+    ?>
     ```
 
 1. Add the `hello.php` file into the `hello-php.zip` archive.
@@ -83,11 +83,12 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the `php-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the `php8` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Select the `{{ php-full-ver }}` runtime environment.
+    1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-php.zip`
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `hello.Handler`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `hello.handler`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
         * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
@@ -104,7 +105,7 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
     ```bash
     yc serverless function version create \
       --function-name=php-function \
-      --runtime php74 \
+      --runtime {{ php-cli-ver }} \
       --entrypoint hello.handler \
       --memory 128m \
       --execution-timeout 3s \
@@ -115,7 +116,7 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
 
     * `--function-name`: Name of the function whose version you want to create.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point in the following format: `<function_file_name>.<handler_name>`.
+    * `entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
     * `--execution-timeout`: Maximum function running time before the timeout is reached.
     * `--source-path`: ZIP archive with the function code and required dependencies.
@@ -127,7 +128,7 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
-    runtime: php74
+    runtime: {{ php-cli-ver }}
     entrypoint: hello.handler
     resources:
         memory: "134217728"
@@ -141,13 +142,11 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
 
 - API {#api}
 
-    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
-
+    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}
 

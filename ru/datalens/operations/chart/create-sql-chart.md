@@ -16,6 +16,8 @@ description: Следуя данной инструкции, вы сможете
 
 Для QL-чартов доступны те же [общие настройки](../../concepts/chart/settings.md#common-settings) и [настройки секций](../../concepts/chart/settings.md#section-settings), что и для чартов на основе датасета. Для полей чарта доступны только некоторые [настройки показателей](../../concepts/chart/settings.md#indicator-settings).
 
+На каждом шаге можно [отменить или повторно выполнить](../../concepts/chart/settings.md#undo-redo) внесенные изменения в пределах текущей версии.
+
 ## Создание QL-чарта через главную страницу {#main-page}
 
 

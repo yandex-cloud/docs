@@ -23,6 +23,8 @@ items:
             href: quickstart/create-function/bash-function-quickstart.md
           - name: Java
             href: quickstart/create-function/java-function-quickstart.md
+          - name: Kotlin
+            href: quickstart/create-function/kotlin-function-quickstart.md
       - name: Creating a trigger
         items:
           - name: Overview
@@ -433,9 +435,7 @@ items:
         href: tutorials/nodejs-typescript.md
       - name: Developing a custom integration
         href: tutorials/api-gw-integration.md
-      - name: >-
-          Creating a trigger for budgets that invokes a function to stop VM
-          instances
+      - name: Creating a budget trigger that invokes a function to stop a VM
         href: tutorials/serverless-trigger-budget-vm.md
       - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
@@ -454,8 +454,8 @@ items:
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
       - name: >-
-          Creating a trigger that invokes a function to stop VM instances and
-          send a Telegram notification
+          Creating triggers that invoke a function to stop a VM and send a
+          Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: >-
           Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data

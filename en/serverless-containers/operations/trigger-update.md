@@ -1,3 +1,8 @@
+---
+title: Updating a trigger in {{ serverless-containers-name }}
+description: In this tutorial, you will learn how to update any trigger parameters in {{ serverless-containers-name }} except for the trigger type and launched resource type.
+---
+
 # Updating a trigger in {{ serverless-containers-name }}
 
 You can update any parameters except for the trigger type and launched resource type.
@@ -37,7 +42,7 @@ Your changes will apply within five minutes.
 
       ```bash
       yc serverless trigger update <trigger_type> <trigger_name> \
-        --new-name <new_trigger_name>
+        --new-name <new_trigger_name> 
       ```
 
       Result:
@@ -87,7 +92,7 @@ Your changes will apply within five minutes.
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = <number_of_retry_attempts>
-          retry_interval     = <interval_between_retry_attempts>
+          retry_interval     = <time_between_retry_attempts>
         }
         dlq {
           queue_id           = "<dead-letter_queue_ID>"
@@ -114,13 +119,13 @@ Your changes will apply within five minutes.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about the `function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about the `function_trigger` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc serverless trigger list

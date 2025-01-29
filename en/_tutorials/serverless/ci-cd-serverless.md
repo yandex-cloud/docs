@@ -1,7 +1,7 @@
 # Building a CI/CD pipeline in {{ GL }} using serverless products
 
 
-You can build a continuous integration / continuous delivery (CI/CD) pipeline using serverless products.
+You can build a continuous integration/continuous delivery (CI/CD) pipeline using serverless products.
 
 As a project example, we will use a web app based on [Django](https://www.djangoproject.com/) that simulates a shopping cart in an online store. Product descriptions are stored in a database, while the product cart status is stored by the service in a user session. The Django app is deployed in a [{{ serverless-containers-name }} container](../../serverless-containers/concepts/container.md) with secrets securely delivered to the app using [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) accepts user requests and redirects them to the app's container.
 
@@ -49,7 +49,7 @@ Install the following items in the local environment:
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
-1. Go to the project directory and run the `bootstrap.sh` script by specifying your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID:
+1. Navigate to the project directory; run the `bootstrap.sh` script and specify your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID:
 
    ```bash
    YC_CLOUD_ID=<cloud_ID> ./bootstrap.sh
@@ -127,16 +127,16 @@ Create a {{ mgl-name }} instance and a [VM](../../compute/concepts/vm.md) with a
 1. Add environment variables with the protection option disabled. All required variables and their values were output following the execution of the `bootstrap.sh` script:
    * `cloud_id`: Your cloud ID.
    * `CI_REGISTRY`: ID of the {{ container-registry-name }} registry in the `infra` folder prefixed with the `{{ registry }}/` prefix.
-   * `CI_REGISTRY_KEY`: `builder` service account [key](../../iam/concepts/users/service-accounts.md#sa-key).
+   * `CI_REGISTRY_KEY`: The `builder` service account [key](../../iam/concepts/users/service-accounts.md#sa-key).
    * `cart_prod`: Name of the production folder in {{ yandex-cloud }}.
    * `DOCAPI_ENDPOINT_prod`: Document API endpoint of the [{{ ydb-full-name }}](../../ydb/) database in the `prod` folder.
    * `PROD_SA_ID`: The `deployer` service account ID in the `prod` folder.
-   * `SA_PROD_DEPLOYER_PRIVATE_KEY`: `deployer` service account key in the `prod` folder.
+   * `SA_PROD_DEPLOYER_PRIVATE_KEY`: The `deployer` service account key in the `prod` folder.
    * `prod_container_id`: ID of the {{ serverless-containers-name }} container in the `prod` folder.
    * `cart_testing`: Name of the test folder in {{ yandex-cloud }}.
    * `DOCAPI_ENDPOINT_testing`: Document API endpoint of the {{ ydb-name }} database in the `testing` folder.
-   * `TESTING_SA_ID`: `deployer` service account ID in the `testing` folder.
-   * `SA_TESTING_DEPLOYER_PRIVATE_KEY`: `deployer` service account key in the `testing` folder.
+   * `TESTING_SA_ID`: The `deployer` service account ID in the `testing` folder.
+   * `SA_TESTING_DEPLOYER_PRIVATE_KEY`: The `deployer` service account key in the `testing` folder.
 
    To add a variable:
    1. Click **Add variable**.

@@ -62,6 +62,8 @@ default:
   backup-short-name: Cloud Backup
   baremetal-full-name: Yandex BareMetal
   baremetal-name: BareMetal
+  bash-cli-ver: bash-2204
+  bash-full-ver: Bash 22.04
   billing-docs-email: cloud_docs@support.yandex.ru
   billing-interface: Yandex Cloud Billing interface
   billing-name: Yandex Cloud Billing
@@ -202,6 +204,8 @@ default:
     docs: https://docs.gitlab.com
   GLA: GitLab Agent
   GLR: GitLab Runner
+  go-cli-ver: golang121
+  go-full-ver: Go 1.21
   google-looker: Looker Studio
   GP: Greenplum®
   gp:
@@ -247,6 +251,8 @@ default:
   iot-full-name: Yandex IoT Core
   iot-name: Yandex IoT Core
   iot-short-name: Yandex IoT Core
+  java-cli-ver: java21
+  java-full-ver: Java 21
   jlab: Jupyter
   k8s: Kubernetes
   k8s-api-link: >-
@@ -267,6 +273,8 @@ default:
   kms-full-name: Yandex Key Management Service
   kms-name: Key Management Service
   kms-short-name: KMS
+  kotlin-cli-ver: kotlin20
+  kotlin-full-ver: Kotlin 2.0
   kraft-name: Apache Kafka® Raft
   kraft-short-name: KRaft
   lang: en
@@ -484,6 +492,8 @@ default:
   network-load-balancer-name: Network Load Balancer
   network-load-balancer-short-name: Network Load Balancer
   network-name: default
+  nodejs-cli-ver: nodejs18
+  nodejs-full-ver: Node.js 18
   objstorage-full-name: Yandex Object Storage
   objstorage-name: Object Storage
   objstorage-sftps-gateway-uri: cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway
@@ -516,6 +526,8 @@ default:
         latest: '17'
         str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, and 17
   pgadmin: "pgAdmin\_4"
+  php-cli-ver: php82
+  php-full-ver: PHP 8.2
   port-any: 0-65535
   port-http: 80
   port-https: 443
@@ -545,6 +557,8 @@ default:
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   prometheus-name: Prometheus
   promql-name: PromQL
+  python-cli-ver: python312
+  python-full-ver: Python 3.12
   RD: Valkey™
   region-id: ru-central1
   registry: cr.yandex

@@ -1,3 +1,8 @@
+---
+title: Unified analysis of streaming and analytical data using the example of developing an antifraud system
+description: In this article, you will learn about using stream processing to detect fraudulent transactions.
+---
+
 # Unified analysis of streaming and analytical data
 
 Let's say we need to develop an anti-fraud system to detect fraudulent transactions. They need to be detected in real time, so it's convenient to use [streaming data processing](./stream-processing.md) for our purposes.
@@ -42,6 +47,6 @@ In the unified Lambda architecture, a single system processes both analytical an
 
 In this architecture, the runtime system should enable the processing of analytical data and data streams using common tools. This lets you unify all workflows around processing these types of data.
 
-{{ yq-full-name }} is an example of implementing this architecture. {{ yq-full-name }} lets you interact with streaming and analytical data stored in different storage systems in a unified way. This permits:
-- Data processing to be unified thanks to using a single runtime environment.
-- System maintenance facilitation thanks to using a single data processing system.
+{{yq-full-name}} is an example of such architecture. You can use {{yq-full-name}} to work with streaming and analytical data stored in different storage systems in a unified way. This will allow you to:
+- Unify data processing by using a single runtime environment.
+- Streamline system maintenance with a single data processing system.

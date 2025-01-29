@@ -1,3 +1,8 @@
+---
+title: Trial period for {{ marketplace-short-name }} products
+description: A trial period is the time within which a {{ marketplace-short-name }} product is available to the user free of charge.
+---
+
 # Trial period
 
 A trial period is the time within which a {{ marketplace-short-name }} product is available to the user free of charge. You can only create a trial period for a plan with the `{{ ui-key.yacloud_components.marketplace.product-pricing-type_payg }}` pricing policy for the SKUs based on the VM consumption parameters. We do not recommend creating a trial period of less than 30 days.

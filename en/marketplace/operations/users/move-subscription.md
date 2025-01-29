@@ -1,5 +1,6 @@
 ---
 title: How to move a subscription purchased on {{ marketplace-full-name }} to another folder
+description: In this tutorial, you will learn how to move a subscription purchased on {{ marketplace-full-name }} to another folder.
 ---
 
 # Moving a subscription from one folder to another

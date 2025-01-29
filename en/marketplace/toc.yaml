@@ -77,7 +77,7 @@ items:
                     href: metering/api-ref/grpc/ProductUsage/index.md
                   - name: Write
                     href: metering/api-ref/grpc/ProductUsage/write.md
-      - name: License Manager API reference
+      - name: '{{ license-manager }} API reference'
         items:
           - name: Getting started with the {{ license-manager }} API
             href: license-manager/api-ref/quickstart.md
@@ -154,7 +154,7 @@ items:
                     href: license-manager/api-ref/Operation/get.md
                   - name: Cancel
                     href: license-manager/api-ref/Operation/cancel.md
-      - name: License Manager SaaS API reference
+      - name: '{{ license-manager }} SaaS API reference'
         items:
           - name: Getting started with the {{ license-manager }} SaaS API
             href: license-manager/saas/api-ref/quickstart.md
@@ -210,6 +210,35 @@ items:
                     href: license-manager/saas/api-ref/Operation/get.md
                   - name: Cancel
                     href: license-manager/saas/api-ref/Operation/cancel.md
+      - name: '{{ cloud-apps-name }} Workload API reference'
+        items:
+          - name: Getting started with the {{ cloud-apps-name }} Workload API
+            href: cloudapps/workload/api-ref/quickstart.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: workload/api-ref/grpc/index.md
+              - name: CloudApplication
+                items:
+                  - name: Overview
+                    href: workload/api-ref/grpc/CloudApplication/index.md
+                  - name: Get
+                    href: workload/api-ref/grpc/CloudApplication/get.md
+                  - name: ResolveByWorkload
+                    href: >-
+                      workload/api-ref/grpc/CloudApplication/resolveByWorkload.md
+          - name: REST
+            items:
+              - name: Overview
+                href: workload/api-ref/index.md
+              - name: CloudApplication
+                items:
+                  - name: Overview
+                    href: workload/api-ref/CloudApplication/index.md
+                  - name: Get
+                    href: workload/api-ref/CloudApplication/get.md
+                  - name: ResolveByWorkload
+                    href: workload/api-ref/CloudApplication/resolveByWorkload.md
   - name: Users
     expanded: true
     items:
