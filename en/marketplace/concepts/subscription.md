@@ -1,3 +1,8 @@
+---
+title: Partner subscription
+description: In this article, you will learn about the terms of partner subscriptions.
+---
+
 # Subscription
 
 Subscriptions are prepaid pricing models. A subscription is valid for only one product instance. For a single product, you can create multiple subscriptions with different costs for different periods. There are two ways to create a subscription: with and without integration with the [{{ license-manager }} API](../license-manager/api-ref/quickstart.md) or [{{ license-manager }} SaaS API](../license-manager/saas/api-ref/quickstart.md).

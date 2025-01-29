@@ -1,1 +1,1 @@
-{% include [loadtesting-multiply](../../_tutorials/testing/loadtesting-multiply.md) %}
+{% include [loadtesting-multiply](../../_tutorials/dev/loadtesting-multiply.md) %}

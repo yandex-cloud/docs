@@ -1,3 +1,8 @@
+---
+title: Unified analysis of streaming and analytical data using the example of calculating the cost of taxi rides
+description: "In this example, you will calculate the cost of taxi rides in specific locations\_using a single query against analytical and streaming data."
+---
+
 # Unified analysis of streaming and analytical data
 
 In this example, you will calculate the cost of taxi rides in specific locations using a single query against [analytical](../concepts/batch-processing.md) and [streaming](../concepts/stream-processing.md) data.
@@ -10,7 +15,7 @@ In both cases, we use a reference stored in {{ objstorage-name }} to filter our 
 
 To run this example:
 
-1. [Get things ready](#before-you-begin).
+1. [Get ready](#before-you-begin).
 1. [Analyze the data from {{ objstorage-name }}](#batch).
 1. [Analyze the streaming data from {{ yds-name }}](#stream).
 
@@ -23,7 +28,7 @@ To run this example:
 ## Get started {#before-you-begin}
 
 1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). [Create](../../iam/operations/sa/create.md#create-sa) a service account named `datastream-connection-account` with the `ydb.editor` role.
 1. Data streams use {{ ydb-full-name }}. You will need to [create](../../ydb/quickstart.md#serverless) a serverless database.
@@ -34,7 +39,7 @@ To run this example:
 
 {% include [tutorial-batch](../_includes/create-tutorial-batch-infra.md) %}
 
-### Run the query {#batch-run-query}
+### Run a query {#batch-run-query}
 
 1. In the query editor in the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}**.
 1. Enter the query text in the text field:
@@ -107,7 +112,7 @@ Once the analytical query is complete, you will see the result: distribution of 
 
 Data generation to the `yellow-taxi` stream will start. Use the **{{ ui-key.yql.yq-tutorial.stop-stream.button-label }}** and **{{ ui-key.yql.yq-tutorial.run-stream.button-label }}** buttons to control the data generator.
 
-### Run the query {#stream-run-query}
+### Run a query {#stream-run-query}
 
 1. In the query editor in the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-streaming-query.button-text }}**.
 1. Enter the query text in the text field:
@@ -168,7 +173,7 @@ Once you run the query to the streaming data, you will see the result with the t
 
 ## See also {#see-also}
 
-* [HOP. Window parameters in streamed data processing](../concepts/stream-processing-windows.md)
+* [HOP. Window parameters in streamed data processing](../concepts/stream-processing-windows.md)
 * [Aggregate functions. YQL syntax]({{ ydb.docs }}/yql/reference/builtins/aggregation)
 * [SQL expression format](../sources-and-sinks/data-streams-binding.md#model-dannyh)
 * [{#T}](../concepts/batch-processing.md)

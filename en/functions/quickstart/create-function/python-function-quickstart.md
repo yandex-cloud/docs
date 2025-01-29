@@ -44,11 +44,9 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md).
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
-    You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
+    You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 
@@ -85,7 +83,8 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the `python-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the `python311` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Select the `{{ python-full-ver }}` runtime environment.
+    1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-py.zip`
@@ -106,7 +105,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     ```bash
     yc serverless function version create \
       --function-name=python-function \
-      --runtime python311 \
+      --runtime {{ python-cli-ver }} \
       --entrypoint hello.handler \
       --memory 128m \
       --execution-timeout 3s \
@@ -117,7 +116,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
     * `--function-name`: Name of the function whose version you want to create.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point in the following format: `<function_file_name>.<handler_name>`.
+    * `entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
     * `--execution-timeout`: Maximum function running time before the timeout is reached.
     * `--source-path`: ZIP archive with the function code and required dependencies.
@@ -129,7 +128,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2023-08-16T19:09:19.531Z"
-    runtime: python311
+    runtime: {{ python-cli-ver }}
     entrypoint: hello.handler
     resources:
         memory: "134217728"
@@ -143,13 +142,11 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
 - API {#api}
 
-    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) API method.
-
+    You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}
 

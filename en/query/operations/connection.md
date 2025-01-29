@@ -1,6 +1,11 @@
+---
+title: Managing {{ yq-full-name }} connections to data sources and targets
+description: A connection is required for {{ yq-name }} to access data sources and targets.
+---
+
 # Managing connections
 
-A [connection](../concepts/glossary.md#connection) is required for connecting {{ yq-full-name }} to a data source and target.
+A [connection](../concepts/glossary.md#connection) is required for {{ yq-full-name }} to access data sources and targets.
 
 ## Creating a connection {#create}
 
@@ -25,7 +30,7 @@ To create a connection:
        For a private bucket, select:
        * **{{ ui-key.yql.yq-connection-form.cloud.input-label }}** where the data source is located.
        * Select a bucket or create a new one.
-       * Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be used to access the data.
+       * Select or create a [service account](../../iam/concepts/users/service-accounts.md) you will use to access the data.
 
    - {{ yds-short-name }}
 

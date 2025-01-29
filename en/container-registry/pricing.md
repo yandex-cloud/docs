@@ -1,4 +1,6 @@
 ---
+title: '{{ container-registry-full-name }} pricing policy'
+description: This article provides the {{ container-registry-name }} pricing policy.
 editable: false
 ---
 
@@ -51,13 +53,13 @@ The cost of 1 GB per month is fixed and does not depend on the number of days in
 Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
 ```text
-Storage_price = Price_per_GB_per_month * 15 * 12 / 24 / 30
+Storage_cost = Price_per_GB_per_month * 15 * 12 / 24 / 30
 ```
 
 
 ### Vulnerability scanner {#scanner}
 
-The cost of using the [vulnerability scanner](concepts/vulnerability-scanner.md) for Docker images depends on how many scans you run.
+The cost of using the [vulnerability scanner](concepts/vulnerability-scanner.md) for Docker images depends on how many scans you run:
 
 First-time scan of the first six different Docker images per month is free of charge. Further six scans of any Docker images per month are free of charge.
 

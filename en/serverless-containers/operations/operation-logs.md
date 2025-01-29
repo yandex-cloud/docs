@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ serverless-containers-name }} resources
 
-All actions with {{ serverless-containers-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ serverless-containers-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,7 +8,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a container. The same steps apply to other service resources.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for a container. The same steps apply to other {{ serverless-containers-name }} resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder with the container.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
@@ -24,7 +24,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for an {{ serverless-containers-name }} resource, run this command:
+  To get a list of operations for a {{ serverless-containers-name }} resource, run this command:
 
   ```bash
   yc serverless <resource_type> list-operations <resource_name_or_ID>
@@ -49,7 +49,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc serverless container list-operations <resource_name_or_ID> --format yaml
@@ -84,7 +84,7 @@ All actions with {{ serverless-containers-name }} resources are logged as a list
 ## Getting detailed information about an operation {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
+1. Copy the operation ID.
 1. Get detailed information about the operation:
 
     {% list tabs group=instructions %}

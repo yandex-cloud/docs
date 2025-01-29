@@ -1,1 +1,1 @@
-{% include [terraform-quickstart](../../_tutorials/infrastructure-management/terraform-quickstart.md) %}
+{% include [terraform-quickstart](../../_tutorials/infrastructure/terraform-quickstart.md) %}

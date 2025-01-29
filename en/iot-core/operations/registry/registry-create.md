@@ -1,6 +1,6 @@
 ---
-title: Creating a registry
-description: Follow this guide to create a registry.
+title: Creating a {{ iot-full-name }} registry
+description: Follow this guide to create a {{ iot-name }} registry.
 ---
 
 # Creating a registry
@@ -97,7 +97,7 @@ description: Follow this guide to create a registry.
       Where:
 
       * `--registry-name`: Registry name.
-      * `--certificate-file`: Path to the public key of the certificate, e.g., `cert.pem`.
+      * `--certificate-file`: Path to the public key of the certificate, such as `cert.pem`.
 
       Result:
 
@@ -167,7 +167,7 @@ description: Follow this guide to create a registry.
       }
       ```
 
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
       
   1. Make sure the configuration files are correct.
       1. In the command line, go to the folder where you created the configuration file.
@@ -177,8 +177,8 @@ description: Follow this guide to create a registry.
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
+      If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+         
   1. Deploy cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
@@ -187,7 +187,7 @@ description: Follow this guide to create a registry.
           terraform apply
           ```
 
-      1. Confirm that you want to create the resources.
+      1. Confirm creating the resources.
       
           All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

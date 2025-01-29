@@ -1,1 +1,1 @@
-{% include [packer-custom-image](../../_tutorials/infrastructure-management/packer-custom-image.md) %}
+{% include [packer-custom-image](../../_tutorials/infrastructure/packer-custom-image.md) %}
