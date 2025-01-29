@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ api-gw-name }} resources
 
-All actions with {{ api-gw-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ api-gw-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,7 +8,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for an API gateway. The same steps apply to other service resources.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for an API gateway. The same steps apply to other {{ api-gw-name }} resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the API gateway.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
@@ -49,7 +49,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc serverless api-gateway list-operations <API_gateway_name_or_ID> --format yaml
@@ -92,7 +92,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run the following command:
+      Run this command:
 
       ```bash
       yc operation get <operation_ID>

@@ -1,5 +1,5 @@
 ---
-title: Subscription in {{ marketplace-full-name }}
+title: User subscription in {{ marketplace-full-name }}
 description: In this article, you will learn about subscriptions in {{ marketplace-name }}.
 ---
 

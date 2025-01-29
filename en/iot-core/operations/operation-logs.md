@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ iot-name }} resources
 
-All actions with {{ iot-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ iot-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,7 +8,7 @@ All actions with {{ iot-name }} resources are logged as a list of operations. Ea
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a registry. The same steps apply to other service resources.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for a registry. The same steps apply to other {{ iot-name }}} resources.
 
   1. In the [management console]({{ link-console-main }}), open the folder the registry is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.

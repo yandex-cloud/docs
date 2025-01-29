@@ -33,4 +33,5 @@ description: Следуя данной инструкции, вы сможете
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/chart/index.md).
+* [{#T}](../../concepts/chart/index.md)
+* [{#T}](../../concepts/chart/settings.md)

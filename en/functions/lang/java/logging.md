@@ -1,3 +1,8 @@
+---
+title: Java function runtime logging
+description: '{{ sf-name }} automatically captures a Java application''s standard output streams and sends them to the centralized logging system in {{ yandex-cloud }}.'
+---
+
 # Java function runtime logging
 
 {{ sf-name }} automatically captures an application's standard output streams and sends them to the centralized logging system in {{ yandex-cloud }}. Along with application runtime logging, the system logs request execution events.

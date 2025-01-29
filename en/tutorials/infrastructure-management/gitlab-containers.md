@@ -5,4 +5,4 @@ description: This tutorial describes how to build an application in a Docker con
 
 # Continuous deployment of containerized applications using {{ GL }}
 
-{% include [gitlab-containers](../../_tutorials/infrastructure-management/gitlab-containers.md) %}
+{% include [gitlab-containers](../../_tutorials/dev/gitlab-containers.md) %}

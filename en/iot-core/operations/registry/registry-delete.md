@@ -1,6 +1,6 @@
 ---
-title: How to delete a registry
-description: Follow this guide to delete a registry.
+title: How to delete an {{ iot-full-name }} registry
+description: Follow this guide to delete an {{ iot-short-name }} registry.
 ---
 
 # Deleting a registry
@@ -89,7 +89,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
   1. Apply the configuration changes:
 
       ```bash

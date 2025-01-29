@@ -5,14 +5,14 @@ In this scenario, you will develop a skill for Alice and deploy a web app for cr
 
 
 To deploy a project:
-1. [Prepare the environment](#prepare).
+1. [Prepare your environment](#prepare).
 1. [Create resources](#create-resources).
 1. [Set the project variables](#set-variables).
 1. [Deploy the project](#deploy).
 1. [Register Alice's skill](#register-skill).
 1. [Test the skill](#test-skill).
 
-## Prepare the environment {#prepare}
+## Prepare your environment {#prepare}
 
 1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you do not have any. For convenience, you can use a separate folder named `alice-skill`.
@@ -80,10 +80,8 @@ cp secure-config-template.json secure-config.json
 
 Substitute the values from the variables:
 * `oauth_secret`: Password of the app registered in [Yandex OAuth](https://oauth.yandex.com/).
-* `hash`: Base64-encoded random 64-byte string (e.g., `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqK********`).
-* `block`: Base64-encoded random 32-byte string (e.g., `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijI********`).
-
-You can generate random values at [generate.plus](https://generate.plus/en/base64).
+* `hash`: Base64-encoded random 64-byte string (e.g., `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqK********`). You can generate a random value in the terminal using `openssl rand -base64 64 | tr -d '\n'`.
+* `block`: Base64-encoded random 32-byte string (e.g., `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijI********`). You can generate a random value in the terminal using `openssl rand -base64 32 | tr -d '\n'`.
 
 Make sure the `variables.json` file contains the correct path to `secure-config.json`.
 

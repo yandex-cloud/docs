@@ -1,1 +1,1 @@
-{% include [jenkins](../../_tutorials/infrastructure-management/jenkins.md) %}
+{% include [jenkins](../../_tutorials/dev/jenkins.md) %}

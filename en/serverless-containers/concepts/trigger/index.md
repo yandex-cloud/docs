@@ -1,15 +1,15 @@
 ---
-title: Triggers. Overview
-description: Triggers are the criteria that automatically invoke a container when met. Triggers allow you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ iot-full-name }}.
+title: Triggers in {{ serverless-containers-name }}. Overview
+description: Triggers are criteria that automatically invoke a container when met. Triggers let you automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ iot-full-name }}.
 ---
 
-# Triggers in {{ serverless-containers-name }} Overview
+# Triggers in {{ serverless-containers-name }}. Overview
 
-_Triggers_ are the criteria that automatically launch a {{ serverless-containers-name }} [container](../container.md) when met. Triggers allow you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}.
+_Triggers_ are criteria that automatically launch a {{ serverless-containers-name }} [container](../container.md) when met. Triggers enable you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}. 
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
-The following types of triggers are available in {{ serverless-containers-name }}:
+The following types of triggers are available in {{ serverless-containers-name }}: 
 * [Timer](timer.md)
 * [Trigger for {{ message-queue-name }}](ymq-trigger.md)
 * [Trigger for {{ objstorage-name }}](os-trigger.md)
@@ -24,7 +24,7 @@ The following types of triggers are available in {{ serverless-containers-name }
 
 Triggers invoke a container based on preset [quotas and limits](../limits.md).
 
-Before the trigger passes messages to a container, it changes their format. Each trigger has a specific message format. Read more about this in the trigger description.
+Before delivering messages to the container, the trigger changes their format. Each trigger type uses a message format of its own. Read more about this in the trigger description.
 
 ## See also {#see-also_}
 

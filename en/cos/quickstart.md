@@ -1,3 +1,8 @@
+---
+title: Getting started with {{ cos-name }}
+description: Create a VM from a {{ coi }} and run a Docker container on it.
+---
+
 # Creating a VM from a {{ coi }}
 
 Create a VM from a [{{ coi }}](concepts/index.md) and run a Docker container on it.
@@ -12,7 +17,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.

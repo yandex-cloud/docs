@@ -1,15 +1,15 @@
 ---
-title: Triggers. Overview
+title: Triggers in {{ api-gw-full-name }} Overview
 description: A trigger is a condition that, when met, causes a message to be automatically sent to WebSocket connections. Triggers enable you to automate your work with other {{ yandex-cloud }} services, such as Yandex Object Storage, Yandex Message Queue, and Yandex IoT Core.
 ---
 
 # Triggers in {{ api-gw-full-name }} Overview
 
-A _trigger_ is a condition that, when met, causes a message to be automatically sent to [WebSocket connections](../extensions/websocket.md). Triggers let you automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}.
+A _trigger_ is a condition that, when met, causes a message to be automatically sent to [WebSocket connections](../extensions/websocket.md). Triggers let you automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}. 
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 
-The following types of triggers are available in {{ api-gw-full-name }}:
+The following types of triggers are available in {{ api-gw-full-name }}: 
 * [Timer](timer.md)
 * [Trigger for {{ message-queue-name }}](ymq-trigger.md)
 * [Trigger for {{ objstorage-name }}](os-trigger.md)

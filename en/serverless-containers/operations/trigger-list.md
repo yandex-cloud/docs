@@ -1,5 +1,5 @@
 ---
-title: How to get information about a trigger in {{ serverless-containers-full-name }}
+title: How to get a list of triggers in {{ serverless-containers-full-name }}
 description: In this tutorial, you will learn how to get a list of triggers and trigger details in {{ serverless-containers-full-name }}.
 ---
 

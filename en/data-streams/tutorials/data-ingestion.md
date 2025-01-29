@@ -1,8 +1,13 @@
+---
+title: Entering data into storage systems using {{ yds-full-name }}
+description: This guide describes how to enter data into storage systems using {{ yds-full-name }}.
+---
+
 # Entering data into storage systems
 
 Mobile phones, various smart devices, and external services are increasingly replacing application components as data sources.
 
-Data from these sources is received in a great number of small batches. Often, slow communication channels are used for data transmission, while the communication time is limited. Under these conditions, it's important to promptly save the data received. Processing of this data can be performed later. Therefore, data is first sent to data streaming buses and then taken for processing from there.
+Data from such sources comes in massive numbers of small batches. Data is often transmitted through slow communication channels, whereas the communication time is limited. Under these conditions, it's important to promptly save the data received. Processing of this data can be performed later. Therefore, data is first sent to data streaming buses and then taken for processing from there.
 
 As a data streaming bus, {{ yds-full-name }} provides optimal operation modes for sources and targets:
 
@@ -38,7 +43,7 @@ Unlike message queues, data buses store data until the retention period expires 
 
 The same data is often stored in multiple storage systems at once: in {{ CH }} for fast analysis and in {{ objstorage-name }} for long-term storage. With data buses, you can easily handle this: as different apps can read data concurrently, you can set up sending the same data to both storage systems: {{ CH }} and {{ objstorage-name }}. This solution will also let you add a third storage system, such as {{ GP }} or {{ ES }}, at any time.
 
-The approach using multiple storage systems is very convenient to ensure compliance with Federal Law No. 152-FZ, PCI DSS, and other standards that stipulate that data shall be stored for at least a year. In this case, data for the past month can be sent to one storage system so that it can be accessed whenever required, while data to be stored for a long term can be sent to {{ objstorage-name }} cold storage.
+The multiple storage system approach is very convenient for ensuring compliance with Federal Law No. 152-FZ, PCI DSS, and other standards requiring data to be stored for at least a year. In this case, data for the past month can be sent to one storage system so that it can be accessed whenever required, while data to be stored for a long term can be sent to {{ objstorage-name }} cold storage.
 
 ### Masking data and processing logs {#mask}
 
@@ -50,23 +55,23 @@ Once processed, the data can be sent to multiple target systems at once: access 
 
 ### Reading data {#read}
 
-Data stored in {{ yds-short-name }} can be processed programmatically. {{ yds-short-name }} is compatible with the Amazon Kinesis Data Streams API, which lets you use SDKs for different programming languages such as C++, Java, Go, and Python.
+You can process the data saved in {{ yds-short-name }} programmatically. {{ yds-short-name }} is compatible with the Amazon Kinesis Data Streams API, allowing you to use SDKs for different programming languages: C++, Java, Go, Python, etc.
 
 ## Setup {#setup}
 
 To set up data input to storage systems:
 
 1. [Create a data stream](../quickstart/create-stream.md) {{ yds-short-name }}.
-1. [Set up](../quickstart/index.md) the AWS SDK.
+1. [Configure](../quickstart/index.md) the AWS SDK.
 1. Set up {{ data-transfer-full-name }} to transfer data to the selected storage system.
 
-   An example of setting up data delivery from {{ yds-short-name }} is given in the [tutorial on how to save data to {{ CH }}](send-to-clickhouse.md).
+    An example of setting up data delivery from {{ yds-short-name }} is given in the [tutorial on how to save data to {{ CH }}](send-to-clickhouse.md).
 1. Connect an arbitrary data processing function to {{ data-transfer-full-name }}. See the function code in the [example](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) or use SDKs to directly read data from {{ yds-short-name }}:
-   * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/).
-   * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html).
-   * [Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/AmazonKinesisClient.html).
-   * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html).
-   * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html).
-   * [HTTP Kinesis Data Streams API](../kinesisapi/api-ref.md).
+    * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/).
+    * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html).
+    * [Java](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/kinesis/AmazonKinesisClient.html).
+    * [JavaScript](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-kinesis/index.html).
+    * [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html).
+    * [HTTP Kinesis Data Streams API](../kinesisapi/api-ref.md).
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

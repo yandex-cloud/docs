@@ -1,3 +1,8 @@
+---
+title: Updating a trigger in {{ sf-name }}
+description: In this tutorial, you will learn how to update any trigger parameters in {{ sf-name }} except for the trigger type and launched resource type.
+---
+
 # Updating a trigger in {{ sf-name }}
 
 You can update any parameters except for the trigger type and launched resource type.
