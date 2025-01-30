@@ -409,11 +409,11 @@ items:
           Сборка образа ВМ с набором инфраструктурных инструментов с помощью
           Packer
         href: tutorials/packer-custom-image.md
-      - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
+      - name: Миграция в {{ yandex-cloud }} с помощью Хайстекс Акура
         href: tutorials/hystax-migration.md
-      - name: Защита от сбоев с помощью Hystax Acura
+      - name: Защита от сбоев с помощью Хайстекс Акура
         href: tutorials/hystax-disaster-recovery.md
-      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
+      - name: Резервное копирование ВМ с помощью Хайстекс Акура
         href: tutorials/hystax-backup.md
       - name: Развертывание отказоустойчивой архитектуры с прерываемыми ВМ
         href: tutorials/nodejs-cron-restart-vm.md
