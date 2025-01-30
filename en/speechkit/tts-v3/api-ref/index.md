@@ -9,7 +9,7 @@ The SpeechKit Text To Speech API v3 allows application developers to use speech 
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/tts/v3).
 
-**Service URL**: `https://tts.{{ api-host }}`
+**Service URL**: `https://{{ api-host-sk-tts }}`
 
 #|
 ||Service | Description ||
