@@ -29,7 +29,7 @@
 
 {% endnote %}
 
-В стоимость ресурсов для использования "Хайстекс Акура - Миграция" входят:
+В стоимость ресурсов для использования «Хайстекс Акура — Миграция» входят:
 * Плата за диски и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за хранение образов (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 * Плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
@@ -37,7 +37,7 @@
 
 ## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
 
-Приложение "Хайстекс Акура - Миграция" будет выполнять действия от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
+Приложение «Хайстекс Акура — Миграция» будет выполнять действия от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `hystax-acura-account` с ролями `editor`, `marketplace.meteringAgent`.
 1. [Создайте](../../iam/operations/authorized-key/create.md) авторизованный ключ для сервисного аккаунта.
 
@@ -73,7 +73,7 @@
 
 ## Создайте ВМ с Хайстекс Акура {#create-acura-vm}
 
-Создайте ВМ с загрузочным диском из образа ["Хайстекс Акура - Миграция" в {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration):
+Создайте ВМ с загрузочным диском из образа [«Хайстекс Акура — Миграция» в {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration):
 
 {% list tabs group=instructions %}
 
@@ -87,7 +87,7 @@
 
       * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
       * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-      * В списке публичных образов выберите ["Хайстекс Акура - Миграция" в {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+      * В списке публичных образов выберите [«Хайстекс Акура — Миграция» в {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите размер загрузочного [диска](../../compute/concepts/disk.md): `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -169,7 +169,7 @@
 
    {% note info %}
 
-   После первоначального запуска ВМ с "Хайстекс Акура - Миграция" происходит процесс установки, который может занять более 20 минут.
+   После первоначального запуска ВМ с «Хайстекс Акура — Миграция» происходит процесс установки, который может занять более 20 минут.
 
    {% endnote %}
 
