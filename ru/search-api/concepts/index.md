@@ -41,7 +41,7 @@ description: Из данного раздела вы узнаете, что пр
 
 ## Интерфейс API v2 {#api-v2}
 
-[API v2](../operations/web-search.md) — интерфейс, тесно интегрированный в [экосистему {{ yandex-cloud }}](../../overview/concepts/services.md). Интерфейс позволяет [выполнять](../operations/web-search.md) текстовые запросы методом `POST`, получая результат в формате [XML](./response.md) или [HTML](./html-response.md) в отложенном (асинхронном) режиме.
+[API v2](../operations/web-search.md) — интерфейс, тесно интегрированный в [экосистему {{ yandex-cloud }}](../../overview/concepts/services.md). Интерфейс позволяет выполнять текстовые запросы методом `POST`, получая результат в формате [XML](./response.md) или [HTML](./html-response.md) в [синхронном](../operations/web-search-sync.md) или [отложенном](../operations/web-search.md) (асинхронном) режиме.
 
 При использовании API v2 тип поиска задается непосредственно в [теле](./web-search.md#parameters) каждого запроса. [Регистрироваться](../operations/workaround.md#registration) в сервисе, а также задавать доверенные IP-адреса при использовании API v2 не нужно.
 

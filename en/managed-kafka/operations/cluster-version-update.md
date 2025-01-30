@@ -1,8 +1,16 @@
 # {{ KF }} version upgrade
 
+
+{% note info %}
+
+Starting February 1, 2025, support for {{ KF }} versions 3.2 and 3.3 will be discontinued, so you will not be able to create a cluster with these versions. We recommend that you upgrade your clusters to version 3.5 beforehand.
+
+{% endnote %}
+
+
 You can upgrade a {{ mkf-name }} cluster to version 3.5 or lower. Upgrading to 3.6 or higher is not supported; however, you can [create a cluster](cluster-create.md#create-cluster) with one of these versions.
 
-We recommend updating {{ KF }} step by step without skipping any versions. For example, the upgrade sequence from version 2.8 to 3.1 is: 2.8 → 3.0 → 3.1.
+We recommend updating {{ KF }} step by step, without skipping any versions. For example, the upgrade sequence from version 2.8 to 3.1 is: 2.8 → 3.0 → 3.1.
 
 To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
@@ -113,9 +121,9 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
           Here only one parameter is specified: `configSpec.version`.
 
-        * `configSpec.version`: target {{ KF }} version, {{ versions.cli.str }}.
+        * `configSpec.version`: target {{ KF }} version, {{ versions.cli.str-without-latest }}.
 
-       You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+       You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -159,9 +167,9 @@ During an upgrade, topics may be unavailable if their [replication factor](../co
 
           Here only one parameter is specified: `config_spec.version`.
 
-        * `config_spec.version`: target {{ KF }} version, {{ versions.cli.str }}.
+        * `config_spec.version`: target {{ KF }} version, {{ versions.cli.str-without-latest }}.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

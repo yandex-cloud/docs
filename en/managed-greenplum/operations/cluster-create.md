@@ -1,8 +1,3 @@
----
-title: Creating a {{ GP }} cluster
-description: Follow this guide to create {{ GP }} clusters.
----
-
 # Creating a {{ GP }} cluster
 
 
@@ -107,11 +102,11 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
           * Select the [disk type](../concepts/storage.md).
 
-            {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
             
             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
+
+          * Select the storage size.
 
     1. Specify the parameters of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#segment).
 
@@ -127,6 +122,8 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
              
              {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
 
+
+           * Select the storage size.
 
     1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -448,7 +445,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         Where:
 
-        * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `config`: Cluster settings:
@@ -589,7 +586,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         Where:
 
-        * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `config`: Cluster settings:

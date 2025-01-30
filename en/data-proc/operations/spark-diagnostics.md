@@ -49,9 +49,9 @@ For more information about the YARN scheduler, see the [Hadoop documentation](ht
 When running Spark jobs, executors send regular _heartbeat_ messages to the driver informing it of executor status and task progress. If the driver does not get any heartbeat messages from an executor during a certain interval, it considers this executor unhealthy and requests the YARN resource manager to forcibly terminate it. In this case, the driver logs will contain a message of the following type:
 
 ```text
-23/02/23 20:22:09 WARN TaskSetManager: Lost task 28.0 in stage 13.0 (TID 242)
-        (rc1c-dataproc-*****.mdb.yandexcloud.net executor 5): ExecutorLostFailure
-        (executor 5 exited caused by one of the running tasks)
+23/02/23 20:22:09 WARN TaskSetManager: Lost task 28.0 in stage 13.0 (TID 242) 
+        (rc1c-dataproc-*****.{{ dns-zone }} executor 5): ExecutorLostFailure 
+        (executor 5 exited caused by one of the running tasks) 
         Reason: Executor heartbeat timed out after 138218 ms
 ```
 

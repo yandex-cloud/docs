@@ -1,6 +1,6 @@
 ---
-title: '{{ RD }} replication and fault tolerance'
-description: '{{ mrd-name }} uses native {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel.'
+title: '{{ VLK }} replication and fault tolerance'
+description: '{{ mrd-name }} uses native {{ VLK }} replication and provides high availability of cluster data using {{ VLK }} Sentinel.'
 keywords:
   - Valkey replication
   - Valkey
@@ -9,7 +9,7 @@ keywords:
 
 # Replication and fault tolerance
 
-{{ mrd-name }} uses native {{ RD }} replication and provides high availability of cluster data using [rdsync](https://github.com/yandex/rdsync), a host status management agent.
+{{ mrd-name }} uses native {{ VLK }} replication and provides high availability of cluster data using [rdsync](https://github.com/yandex/rdsync), a host status management agent.
 
 ## Replication {#replication}
 
@@ -22,7 +22,7 @@ Due to limited resources, **b1**, **b2**, and **b3** class hosts are not replica
 
 
 
-For more information about how replication works in {{ RD }}, read the [relevant documentation](https://valkey.io/topics/replication/).
+For more information about how replication works in {{ VLK }}, read the [relevant documentation](https://valkey.io/topics/replication/).
 
 ## Fault tolerance {#availability}
 
@@ -44,7 +44,7 @@ Sharded clusters with the **local-ssd** disk type and only one host per shard ar
 
 If the master host fails, a host with the least lag behind the master will become a new master.
 
-You can influence master selection in a {{ RD }} cluster by [configuring priorities](../operations/hosts.md#update) for cluster hosts. The host with the highest priority will become a new master. If the replica host with the highest priority requires full data resync, the priority value will be ignored and a host with the least lag behind the master will become a new master.
+You can influence master selection in a {{ VLK }} cluster by [configuring priorities](../operations/hosts.md#update) for cluster hosts. The host with the highest priority will become a new master. If the replica host with the highest priority requires full data resync, the priority value will be ignored and a host with the least lag behind the master will become a new master.
 
 You can set host priority:
 
@@ -61,13 +61,13 @@ A master host can be changed either automatically, as a result of a failure, or 
 
 {% note warning %}
 
-Disabling persistence is only fine in case data integrity is not important for your application, e.g., when using {{ mrd-name }} as cache. This is because, in this case, the most recent data captured in {{ RD }} will only be stored in RAM and may be lost if a server crashes.
+Disabling persistence is only fine in case data integrity is not important for your application, e.g., when using {{ mrd-name }} as cache. This is because, in this case, the most recent data captured in {{ VLK }} will only be stored in RAM and may be lost if a server crashes.
 
 {% endnote %}
 
 ### Persistence settings {#persistence-on}
 
-By default, cluster persistence is enabled and uses the following {{ RD }} settings:
+By default, cluster persistence is enabled and uses the following {{ VLK }} settings:
 
 * **save ""**{#setting-save-rdb}
 
@@ -75,15 +75,15 @@ By default, cluster persistence is enabled and uses the following {{ RD }} setti
 
 * **appendonly yes**{#setting-appendonly}
 
-  AOF (Append Only File) mode is enabled. In this mode, {{ RD }} logs every write operation without changing already written data.
+  AOF (Append Only File) mode is enabled. In this mode, {{ VLK }} logs every write operation without changing already written data.
 
 * **no-appendfsync-on-rewrite yes**{#setting-no-appendfsync}
 
-  The AOF `fsync` policy being set to `everysec`, the AOF log's background save (`BGSAVE`) or rewrite (`BGREWRITEAOF`) process performs many disk I/O operations. {{ RD }} may block calling `fsync()` for too long in some Linux configurations.
+  The AOF `fsync` policy being set to `everysec`, the AOF log's background save (`BGSAVE`) or rewrite (`BGREWRITEAOF`) process performs many disk I/O operations. {{ VLK }} may block calling `fsync()` for too long in some Linux configurations.
 
   The setting prevents calling `fsync()` within the main system process when running `BGSAVE` or `BGREWRITEAOF`.
 
-  When you run `BGREWRITEAOF`, `fsync()` is in progress. {{ RD }} writes the shortest sequence of commands needed to rebuild the current dataset in memory. You can manage data size using the [aof-rewrite-incremental-fsync](#setting-rewrite-incremental) setting.
+  When you run `BGREWRITEAOF`, `fsync()` is in progress. {{ VLK }} writes the shortest sequence of commands needed to rebuild the current dataset in memory. You can manage data size using the [aof-rewrite-incremental-fsync](#setting-rewrite-incremental) setting.
 
 * **auto-aof-rewrite-percentage 100**{#setting-rewrite-percentage}
 
@@ -105,11 +105,11 @@ By default, cluster persistence is enabled and uses the following {{ RD }} setti
 
   Enables using the RDB file as a prefix to the AOF file when rewriting or restoring it.
 
-For more information on {{ RD }} persistence mechanisms, refer to the [DBMS documentation](https://valkey.io/topics/persistence) and the [valkey.conf](https://github.com/valkey-io/valkey/blob/unstable/valkey.conf) config file description.
+For more information on {{ VLK }} persistence mechanisms, refer to the [DBMS documentation](https://valkey.io/topics/persistence) and the [valkey.conf](https://github.com/valkey-io/valkey/blob/unstable/valkey.conf) config file description.
 
 ### Disabling persistence {#persistence-off}
 
-With persistence disabled, the following {{ RD }} settings take effect:
+With persistence disabled, the following {{ VLK }} settings take effect:
 
 * **save ""**
 

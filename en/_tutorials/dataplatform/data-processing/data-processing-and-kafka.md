@@ -86,6 +86,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * [Subnet](../../../vpc/concepts/network.md#subnet).
       * [Security group](../../../vpc/concepts/security-groups.md) required for the {{ dataproc-name }} and {{ mkf-name }} clusters.
       * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ dataproc-name }} cluster.
+      * Service account for managing the {{ objstorage-full-name }} bucket.
       * [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md).
       * [Static access key](../../../iam/concepts/authorization/access-key.md) required to grant the service account the required permissions for the bucket.
       * {{ dataproc-name }} cluster.
@@ -235,7 +236,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endcut %}
 
-1. [Get the {{ KF }} host FQDN](../../../managed-kafka/operations/connect/index.md#get-fqdn) and specify it in each script.
+1. [Get the {{ KF }}](../../../managed-kafka/operations/connect/index.md#get-fqdn) host FQDN and specify it in each script.
 1. [Upload](../../../storage/operations/objects/upload.md) the prepared scripts to the bucket root.
 1. [Create a PySpark job](../../../data-proc/operations/jobs-pyspark.md#create) for writing a message to the {{ KF }} topic. In the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field, specify the `s3a://dataproc-bucket/kafka-write.py` script path.
 1. Wait for the [job status](../../../data-proc/operations/jobs-pyspark.md#get-info) to change to `Done`.

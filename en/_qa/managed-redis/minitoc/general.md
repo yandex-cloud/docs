@@ -16,7 +16,7 @@
 
 * [How are DB clusters maintained?](#service-window)
 
-* [Which {{ RD }} version does {{ mrd-short-name }} use?](#dbms-version)
+* [Which {{ VLK }} version does {{ mrd-short-name }} use?](#dbms-version)
 
 * [What happens when a new DBMS version is released?](#new-version)
 

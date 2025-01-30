@@ -1,11 +1,11 @@
 ---
-title: Sharding in {{ RD }}
-description: In {{ mrd-name }}, sharding is implemented based on {{ RD }} Cluster. {{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
+title: Sharding in {{ VLK }}
+description: In {{ mrd-name }}, sharding is implemented based on {{ VLK }} Cluster. {{ VLK }} Cluster allows you to create a {{ VLK }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which helps bypass the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs.
 ---
 
 # Sharding in {{ mrd-name }}
 
-Sharding in {{ mrd-name }} works based on [{{ RD }} Cluster](https://valkey.io/topics/cluster-tutorial).
+Sharding in {{ mrd-name }} works based on [{{ VLK }} Cluster](https://valkey.io/topics/cluster-tutorial).
 
 ## Advantages of sharding {#advantages}
 
@@ -13,11 +13,11 @@ Sharding allows you to distribute loads across database hosts, which helps bypas
 
 Horizontal scaling involves distributing datasets and load across multiple nodes. A single machine may underperform in terms of capacity or speed; however, in a horizontally-scaled cluster, each machine processes only a portion of total workload and stores only a portion of total data. This helps make your system more efficient compared to a single high-capacity server.
 
-You can read more about {{ RD }} database sharding in the [{{ RD }} documentation](https://valkey.io/topics/cluster-spec/).
+You can read more about {{ VLK }} database sharding in the [{{ VLK }} documentation](https://valkey.io/topics/cluster-spec/).
 
-## {{ RD }} Cluster structure {#valkey-cluster-structure}
+## {{ VLK }} Cluster structure {#redis-cluster-structure}
 
-{{ RD }} Cluster allows you to create a {{ RD }} installation with automatic data sharding between the hosts. {{ RD }} Cluster comprises multiple hosts for storing your data. {{ RD }} Cluster is divided into shards, each consisting of a master and a set of replicas. Data from clients is written to the master hosts and then [replicated](replication.md).
+{{ VLK }} Cluster allows you to create a {{ VLK }} installation with automatic data sharding between the hosts. {{ VLK }} Cluster comprises multiple hosts for storing your data. {{ VLK }} Cluster is divided into shards, each consisting of a master and a set of replicas. Data from clients is written to the master hosts and then [replicated](replication.md).
 
 Each cluster has 16,348 *hash slots* evenly distributed across the shards. Slots define the dataset stored in the shard.
 
@@ -26,7 +26,7 @@ Each cluster has 16,348 *hash slots* evenly distributed across the shards. Slots
 
 All hosts in the cluster use service connections to exchange data about slots and regularly request statuses from each other.
 
-If the majority of master hosts fails to get a response from the host being polled, the host is considered to be down. If it is the master host that is down, one of its replicas becomes master. If all replicas fail or none of them can become master, the shard stops receiving queries. In a cluster with two or more shards, if a single shard is down, the {{ RD }} Cluster itself will continue to work. The remaining shards will still be available for reading and writing data.
+If the majority of master hosts fails to get a response from the host being polled, the host is considered to be down. If it is the master host that is down, one of its replicas becomes master. If all replicas fail or none of them can become master, the shard stops receiving queries. In a cluster with two or more shards, if a single shard is down, the {{ VLK }} Cluster itself will continue to work. The remaining shards will still be available for reading and writing data.
 
 To make sure your cluster is stable, create at least one master host with a single replica. Masters and their replicas must reside in different availability zones, regardless of their number.
 

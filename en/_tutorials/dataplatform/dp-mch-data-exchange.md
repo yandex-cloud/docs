@@ -26,7 +26,7 @@ Prepare the infrastructure:
         * One rule for inbound and another one for outbound service traffic:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-security-group }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
@@ -165,7 +165,7 @@ Prepare the infrastructure:
 
         # Specifying the port and {{ CH }} cluster parameters
         jdbcPort = 8443
-        jdbcHostname = "c-<{{ CH }}_cluster_ID>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<{{ CH }}_cluster_ID>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -228,7 +228,7 @@ Prepare the infrastructure:
 
         # Specifying the port and {{ CH }} cluster parameters
         jdbcPort = 8443
-        jdbcHostname = "c-<{{ CH }}_cluster_ID>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<{{ CH }}_cluster_ID>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 

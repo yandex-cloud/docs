@@ -7,6 +7,40 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.142.0 (30.01.25) {#version0.142.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ dataproc-name }} {#dataproc}
+
+* В команду `yc dataproc cluster create` добавлен параметр `--environment` для указания окружения, пример: `--environment prestable`.
+
+##### {{ iam-name }} {#iam}
+
+* Добавлена команда `yc iam refresh-token list` для вывода refresh-токенов.
+* Добавлена команда `yc iam refresh-token revoke` для отзыва refresh-токенов.
+
+##### {{ objstorage-name }} {#storage}
+
+* Добавлены команды для чтения, изменения и удаления меток объекта:
+  * `yc storage s3api get-object-tagging`;
+  * `yc storage s3api put-object-tagging`;
+  * `yc storage s3api delete-object-tagging`.
+ 
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mmg-name }}**
+
+* В команды `yc managed-mongodb cluster create`, `yc managed-mongodb cluster restore` и `yc managed-mongodb cluster update` добавлен параметр `--websql-access`, который позволяет настроить доступ в {{ MG }} через {{ websql-name }}.
+
+* В команду `yc managed-mongodb cluster restore` добавлены опции, необходимые для восстановления шардированного кластера {{ MG }}.
+
+**{{ mrd-name }}**
+
+* В команды `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` добавлен параметр `--backup-retain-period-days`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.141.0 (16.12.24) {#version0.141.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -48,9 +82,6 @@ yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=
 ```bash 
 yc managed-greenplum cluster create --cloud-storage enabled=true
 ```
-
-## Предыдущие релизы {#previous-releases}
-
 
 ### Версия 0.140.0 (29.11.24) {#version0.140.0}
 

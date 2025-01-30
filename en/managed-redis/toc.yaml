@@ -15,7 +15,7 @@ items:
             href: operations/cluster-create.md
           - name: Updating cluster settings
             href: operations/update.md
-          - name: '{{ RD }} version upgrade'
+          - name: '{{ VLK }} version upgrade'
             href: operations/cluster-version-update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
@@ -89,7 +89,7 @@ items:
         href: concepts/storage.md
       - name: Maintenance
         href: concepts/maintenance.md
-      - name: '{{ RD }} settings'
+      - name: '{{ VLK }} settings'
         href: concepts/settings-list.md
   - name: Access management
     href: security/index.md

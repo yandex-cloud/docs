@@ -1,21 +1,21 @@
 ---
-title: How do I connect to a non-sharded {{ RD }} cluster in {{ mrd-full-name }}?
-description: Follow this guide to connect to a non-sharded {{ RD }} cluster.
+title: How do I connect to a non-sharded {{ VLK }} cluster in {{ mrd-full-name }}?
+description: Follow this guide to connect to a non-sharded {{ VLK }} cluster.
 ---
 
-# Connecting to a non-sharded {{ RD }} cluster
+# Connecting to a non-sharded {{ VLK }} cluster
 
-You can connect to a non-sharded {{ RD }} cluster:
+You can connect to a non-sharded {{ VLK }} cluster:
 
-* Using {{ RD }} Sentinel.
+* Using {{ VLK }} Sentinel.
 
-    {{ RD }} Sentinel is a {{ RD }} host management system that provides monitoring, notification, [automatic failover](../failover.md), and reporting of up-to-date host addresses to the clients.
+    {{ VLK }} Sentinel is a {{ VLK }} host management system that provides monitoring, notification, [automatic failover](../failover.md), and reporting of up-to-date host addresses to the clients.
 
-    Unencrypted connection is supported via port `{{ port-mrd-sentinel }}` for clusters with any version of {{ RD }}.
+    Unencrypted connection is supported via port `{{ port-mrd-sentinel }}` for clusters with any version of {{ VLK }}.
 
     If a client application does not support connecting via Sentinel, connect directly to the master host. If there is no need for a direct connection, use Sentinel for more reliable cluster host management.
 
-    For more information about Sentinel, see [{#T}](../../concepts/replication.md) and the [{{ RD }} documentation](https://valkey.io/topics/sentinel).
+    For more information about Sentinel, see [{#T}](../../concepts/replication.md) and the [{{ VLK }} documentation](https://valkey.io/topics/sentinel).
 
 * Directly to the master host.
 
@@ -37,7 +37,7 @@ If, when the [master host is changed automatically](../../concepts/replication.m
 
 ### Current master {#fqdn-master}
 
-In a non-sharded cluster, an FQDN of `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host. You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
+In a non-sharded cluster, an FQDN of `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host. You can request  the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -48,7 +48,7 @@ redis-cli -h c-c9qash3nb1v9********.rw.{{ dns-zone }} \
   -p 6380 \
   --tls \
   --cacert ~/.redis/{{ crt-local-file }} \
-  -a <{{ RD }}_password>
+  -a <{{ VLK }}_password>
 ```
 
 ## Connecting from graphical IDEs {#connection-ide}
@@ -63,13 +63,13 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
 - DBeaver {#dbeaver}
 
-    Connections to {{ RD }} clusters are only available in [DBeaver business editions](https://dbeaver.com/buy/).
+    Connections to {{ VLK }} clusters are only available in [DBeaver business editions](https://dbeaver.com/buy/).
 
     To connect to a cluster:
 
     1. Create a new DB connection:
         1. In the **Database** menu, select **New connection**.
-        1. Select **{{ RD }}** from the DB list.
+        1. Select **{{ VLK }}** from the DB list.
         1. Click **Next**.
         1. Specify the connection parameters on the **Main** tab:
             * **Host**: [FQDN of the master host](./index.md#fqdn) or a [special FQDN](./non-sharded.md#special-fqdns) always pointing to the current master host.

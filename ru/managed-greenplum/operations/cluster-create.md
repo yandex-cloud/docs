@@ -31,9 +31,12 @@
     1. Выберите версию {{ GP }}.
 
     
-    1. (Опционально) Выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md), на которых будет размещен кластер.
+    1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md). Можно назначить группы на один из видов хостов {{ GP }} либо сразу на оба.
+
+        Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
 
@@ -50,7 +53,6 @@
         * Выберите зону доступности и подсеть для размещения кластера. Чтобы создать новую подсеть, нажмите кнопку **{{ ui-key.yacloud.common.label_create-new_female }}** рядом с нужной зоной доступности.
 
         * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, чтобы подключаться к кластеру из интернета.
-
 
     1. (Опционально) Включите опцию **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
@@ -221,13 +223,18 @@
         ```
 
     
-    1. Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметре `--host-group-ids`:
+    1. (Опционально) Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметрах `--master-host-group-ids` и `--segment-host-group-ids`:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <имя_кластера> \
            ...
-           --host-group-ids=<идентификаторы_групп_выделенных_хостов>
+           --master-host-group-ids=<идентификаторы_групп_выделенных_хостов_для_хостов-мастеров> \
+           --segment-host-group-ids=<идентификаторы_групп_выделенных_хостов_для_хостов-сегментов>
         ```
+
+        Вы можете назначить группы на один из видов хостов {{ GP }} либо сразу на оба.
+
+        Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
@@ -366,6 +373,25 @@
 
       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mgp }}).
 
+  
+  1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, укажите группы [выделенных хостов](../../compute/concepts/dedicated-host.md):
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
+        ...
+        master_host_group_ids = [<идентификаторы_групп_выделенных_хостов_для_хостов-мастеров>]
+        segment_host_group_ids = [<идентификаторы_групп_выделенных_хостов_для_хостов-сегментов>]
+        ...
+      }
+      ```
+
+      Вы можете назначить группы на один из двух видов хостов {{ GP }} либо сразу на оба.
+
+      Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+
+      {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
+
   1. Проверьте корректность файлов конфигурации {{ TF }}:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -436,7 +462,13 @@
           },
           "cloudStorage": {
             "enable": <использование_гибридного_хранилища>
-          }
+          },
+          "masterHostGroupIds": [
+            "string"
+          ],
+          "segmentHostGroupIds": [
+            "string"
+          ]
         }
         ```
 
@@ -464,11 +496,11 @@
             * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
             * `assignPublicIp` — публичный доступ к хостам кластера: `true` или `false`.
 
-            * `masterConfig.resources`, `segmentConfig.resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
+        * `masterConfig.resources`, `segmentConfig.resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
 
-                * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
-                * `diskSize` — размер диска в байтах;
-                * `diskTypeId` — [тип диска](../concepts/storage.md).
+            * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+            * `diskSize` — размер диска в байтах;
+            * `diskTypeId` — [тип диска](../concepts/storage.md).
 
         * `masterHostCount` — количество хостов-мастеров: `1` или `2`.
         * `segmentHostCount` — количество хостов-сегментов: от `2` до `32`.
@@ -500,6 +532,14 @@
 
             
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+
+
+        
+        * `masterHostGroupIds` и `segmentHostGroupIds` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.
+
+            Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
 
     1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
@@ -577,7 +617,13 @@
           },
           "cloud_storage": {
             "enable": <использование_гибридного_хранилища>
-          }
+          },
+          "master_host_group_ids": [
+            "string"
+          ],
+          "segment_host_group_ids": [
+            "string"
+          ]
         }
         ```
 
@@ -605,11 +651,11 @@
             * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
             * `assign_public_ip` — публичный доступ к хостам кластера: `true` или `false`.
 
-            * `master_config.resources`, `segment_config.resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
+        * `master_config.resources`, `segment_config.resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
 
-                * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
-                * `disk_size` — размер диска в байтах;
-                * `disk_type_id` — [тип диска](../concepts/storage.md).
+            * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+            * `disk_size` — размер диска в байтах;
+            * `disk_type_id` — [тип диска](../concepts/storage.md).
 
         * `master_host_count` — количество хостов-мастеров: `1` или `2`.
         * `segment_host_count` — количество хостов-сегментов: от `2` до `32`.
@@ -641,6 +687,14 @@
 
             
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+
+
+        
+        * `master_host_group_ids` и `segment_host_group_ids` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.
+
+            Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
 
     1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:

@@ -17,14 +17,14 @@ Prepare the infrastructure:
     1. [Create a service account](../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign the `dataproc.agent` and `dataproc.provisioner` roles to it.
     1. {% include [basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
     1. [Create a cloud network](../../vpc/operations/network-create.md) named `dataproc-network`.
-    1. In the `dataproc-network` network, [create a subnet](../../vpc/operations/subnet-create.md) in any availability zone.
+    1. In `dataproc-network`, [create a subnet](../../vpc/operations/subnet-create.md) in any availability zone.
     1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet you created.
     1. In `dataproc-network`, [create a security group](../../vpc/operations/security-group-create.md) named `dataproc-sg` and add the following rules to it:
 
         * One rule for inbound and another one for outbound service traffic:
 
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
@@ -201,7 +201,7 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 
         # Specifying the port and {{ CH }} cluster parameters
         jdbcPort = 8443
-        jdbcHostname = "c-<cluster_ID>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<cluster_ID>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -228,8 +228,8 @@ Transfer the joined table from {{ objstorage-name }} to {{ CH }}:
 1. [Create a PySpark job](../../data-proc/operations/jobs-pyspark.md#create) by specifying the path to the script file in the **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** field: `s3a://<input_bucket_name>/scripts/parquet-to-ch.py`.
 1. Wait for the job to complete and make sure the joined table has been moved to the cluster:
 
-    1. [Connect to the {{ mch-name }} cluster's database](../../managed-clickhouse/operations/connect/clients.md) named `db1` as `user1`.
-    1. Run the following query:
+    1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `db1` database in the {{ mch-name }} cluster as `user1`.
+    1. Run this request:
 
         ```sql
         SELECT * FROM measurements;

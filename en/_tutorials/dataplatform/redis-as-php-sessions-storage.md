@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         * Incoming traffic on port `22` from any IP addresses for SSH.
         * Outgoing and incoming traffic on ports `80` and `443` to and from any IP address for HTTP/HTTPS.
-        * Outgoing and incoming traffic on port `6379` to and from internal network IP addresses for {{ RD }}.
+        * Outgoing and incoming traffic on port `6379` to and from internal network IP addresses for {{ VLK }}.
 
         For more information, see [{#T}](../../vpc/concepts/security-groups.md).
 
@@ -60,7 +60,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         * Password to access the {{ mrd-name }} cluster.
         * ID of the public LAMP/LEMP [image](../../compute/operations/images-with-pre-installed-software/get-list.md).
-        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
+        * Username and path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file for accessing the virtual machine. By default, the specified username is ignored in the image that is currently used. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
     1. Check that the {{ TF }} configuration files are correct using this command:
 
@@ -112,8 +112,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     The `php.ini` file is usually located in the following directory:
 
-    * `/etc/php/7.2/apache2/` for Apache.
-    * `/etc/php/7.2/fpm/` for NGINX.
+    * `/etc/php/7.2/apache2/` for Apache
+    * `/etc/php/7.2/fpm/` for NGINX
 
     To find out the location of `php.ini`, run the `sudo find /etc/ -name php.ini` command.
 
@@ -134,7 +134,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         ...
         [Session]
         session.save_handler = redis
-        session.save_path = "tcp://<{{ RD }}_master_host_FQDN>:6379?auth=<password>"
+        session.save_path = "tcp://<{{ VLK }}_master_host_FQDN>:6379?auth=<password>"
         ```
 
       - Sharded cluster {#sharded}
@@ -161,8 +161,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Restart the web server:
 
-    * `sudo systemctl restart apache2` for Apache.
-    * `sudo systemctl restart php7.2-fpm` for NGINX.
+    * `sudo systemctl restart apache2` for Apache
+    * `sudo systemctl restart php7.2-fpm` for NGINX
 
 ## Check whether PHP session data is saved to the {{ mrd-name }} cluster {#test-settings}
 
@@ -179,15 +179,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
     $_SESSION['count'] = $count * 2;
     ```
 
-    Each time the page is refreshed, the output value will increase. The `$count` variable value will be saved in the session data. A unique key will be created for each session in {{ RD }}.
+    Each time the page is refreshed, the output value will increase. The `$count` variable value will be saved in the session data. A unique key will be created for each session in {{ VLK }}.
 
-1. Connect to the {{ RD }} cluster from the VM via `redis-cli`:
+1. Connect to the {{ VLK }} cluster from the VM via `redis-cli`:
 
     ```bash
     redis-cli -c -h <master_host_FQDN> -a <password>
     ```
 
-    Enter the following command to see what keys are stored in {{ RD }}:
+    Enter the following command to see what keys are stored in {{ VLK }}:
 
     ```text
     KEYS *
@@ -197,7 +197,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     (empty list or set)
     ```
 
-    The returned result shows that no data is currently stored in {{ RD }}.
+    The returned result shows that no data is currently stored in {{ VLK }}.
 
 1. Check whether user sessions are saved when connecting to the web server:
 
@@ -208,7 +208,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     The fact that the `$count` variable value is saved between the browser page updates shows that the configured PHP session storage mechanism in the {{ mrd-name }} cluster works well.
 
-1. Repeat the query to view the keys stored in {{ RD }}:
+1. Repeat the query to view the keys stored in {{ VLK }}:
 
     ```text
     KEYS *
@@ -219,7 +219,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     2) "PHPREDIS_SESSION:c5r0mbe1v84pn2b5kj********"
     ```
 
-    The returned result shows that, for each session in {{ RD }}, its own key is created.
+    The returned result shows that, for each session in {{ VLK }}, its own key is created.
 
 ## Delete the resources you created {#clear-out}
 

@@ -14,10 +14,13 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте атрибуты ключа:
+
      * Имя и опциональное описание в свободной форме.
      * Алгоритм шифрования, например `AES-256`.
      * Период [ротации](../concepts/index.md#rotation) (частота смены версии ключа по умолчанию).
-     * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+     * (Опционально) Включите защиту от удаления.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   Вместе с ключом создается его первая версия: нажмите на ключ в списке, чтобы открыть страницу с его атрибутами.
 
@@ -29,7 +32,8 @@
   yc kms symmetric-key create \
     --name example-key \
     --default-algorithm aes-256 \
-    --rotation-period 24h
+    --rotation-period 24h \
+    --deletion-protection
   ```
 
   Где:
@@ -37,6 +41,7 @@
   * `--name` — имя ключа.
   * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
   * `--rotation-period` — период ротации ключа. Чтобы создать ключ без автоматической ротации, не указывайте параметр `--rotation-period`.
+  * `--deletion-protection` — защита от удаления ключа. Чтобы создать ключ без защиты от удаления, не указывайте параметр `--deletion-protection`.
 
   Вместе с ключом создается его первая версия. Она указана в поле `primary_version`.
 
@@ -79,7 +84,8 @@
     --name example-key \
     --new-name example-key-2 \
     --default-algorithm aes-128 \
-    --rotation-period 48h
+    --rotation-period 48h \
+    --deletion-protection
   ```
 
   Где:
@@ -88,6 +94,7 @@
   * `--new-name` — новое имя ключа.
   * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
   * `--rotation-period` — период ротации ключа. Чтобы отключить автоматическую ротацию измененного ключа, не указывайте параметр `--rotation-period`.
+  * `--deletion-protection` — защита от удаления ключа. Чтобы отключить защиту от удаления, вместо этого укажите параметр `--no-deletion-protection`.
 
 - {{ TF }} {#tf}
 
@@ -99,10 +106,11 @@
      ```hcl
      ...
      resource "yandex_kms_symmetric_key" "key-a" {
-       name              = "example-symmetric-key"
-       description       = "description for key"
-       default_algorithm = "AES_128"
-       rotation_period   = "8760h"
+       name                = "example-symmetric-key"
+       description         = "description for key"
+       default_algorithm   = "AES_128"
+       rotation_period     = "8760h"
+       deletion_protection = true
      }
      ...
      ```
@@ -186,6 +194,8 @@
 Через 3 дня после запроса на удаление ключа сам ключ и его версии удаляются безвозвратно: если у вас остались зашифрованные с помощью этого ключа данные, расшифровать их будет невозможно.
 
 {% endnote %}
+
+Если у ключа включена защита от удаления, предварительно [отключите](#update) ее.
 
 Чтобы удалить ключ:
 

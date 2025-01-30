@@ -2,10 +2,10 @@
 editable: false
 ---
 
+
 # Правила тарификации для {{ mch-short-name }}
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mch-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
-
 
 {% note tip %}
 
@@ -15,9 +15,8 @@ editable: false
 
 
 
+
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -26,6 +25,7 @@ editable: false
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+
 
 ## Из чего складывается стоимость использования {{ mch-short-name }} {#rules}
 
@@ -43,6 +43,7 @@ editable: false
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
+
 ### Использование хостов БД {#rules-hosts-uptime}
 
 Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами. Поддерживаемые конфигурации ресурсов приведены в разделе [Классы хостов](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены для региона Россия](#prices).
@@ -56,6 +57,7 @@ editable: false
 {% endnote %}
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост СУБД или {{ ZK }} не может выполнять свои основные функции, не тарифицируется.
+
 
 ### Использование дискового пространства {#rules-storage}
 
@@ -90,6 +92,7 @@ editable: false
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
+
 ### Пример расчета стоимости кластера {#example}
 
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
@@ -116,6 +119,7 @@ editable: false
 
 
 
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -127,6 +131,7 @@ editable: false
 По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены для региона Россия](#prices) стоят прочерки. Размер хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
+
 
 
 
@@ -144,10 +149,12 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
+
 ### Вычислительные ресурсы хостов {{ CH }} {#prices-clickhouse}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 
@@ -168,6 +175,7 @@ editable: false
 
 
 
+
 #### Цены в месяц {#prices-clickhouse-month}
 
 
@@ -182,6 +190,7 @@ editable: false
   {% include [kzt-host-ch.md](../_pricing/managed-clickhouse/kzt-host-ch-month.md) %}
 
 {% endlist %}
+
 
 
 
@@ -213,6 +222,7 @@ editable: false
   {% include [kzt-host-zoo.md](../_pricing/managed-clickhouse/kzt-host-zoo.md) %}
 
 {% endlist %}
+
 
 
 

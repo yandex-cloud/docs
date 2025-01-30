@@ -1,9 +1,9 @@
 ---
-title: Migrating {{ RD }} cluster hosts to a different availability zone
-description: Follow this guide to move hosts in a {{ RD }} cluster to a different availability zone.
+title: Migrating {{ VLK }} cluster hosts to a different availability zone
+description: Follow this guide to move hosts in a {{ VLK }} cluster to a different availability zone.
 ---
 
-# Migrating {{ RD }} cluster hosts to a different availability zone
+# Migrating {{ VLK }} cluster hosts to a different availability zone
 
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
@@ -51,7 +51,7 @@ description: Follow this guide to move hosts in a {{ RD }} cluster to a differen
                `assign-public-ip=<public_access_to_host:_true_or_false>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 

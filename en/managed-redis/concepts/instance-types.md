@@ -3,14 +3,14 @@ title: '{{ mrd-name }} host classes'
 description: 'The host class determines the computing power allocated for each host in a Valkey™ cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host also depends on the maxmemory configuration parameter for Valkey™ hosts: the maximum amount of data equals 75% of available memory.'
 ---
 
-# {{ RD }} host classes
+# {{ VLK }} host classes
 
 
 The host class determines the computing power allocated for each host in a cluster. When you change the class for a cluster, all existing hosts change to match it.
 
 {% note info %}
 
-The amount of memory allocated to a host also depends on the `maxmemory` configuration parameter for {{ RD }} hosts: the maximum amount of data equals {{ mrd-memory-used }} of available memory. For more information, see [Memory management](memory-management.md).
+The amount of memory allocated to a host also depends on the `maxmemory` configuration parameter for {{ VLK }} hosts: the maximum amount of data equals {{ mrd-memory-used }} of available memory. For more information, see [Memory management](memory-management.md).
 
 {% endnote %}
 
@@ -36,7 +36,7 @@ Configuration types:
 
     A cluster with this configuration type can only contain one host per cluster or [shard](./sharding.md).
 
-* **high-memory**: Standard configurations for {{ RD }}.
+* **high-memory**: Standard configurations for {{ VLK }}.
 
     A cluster with this configuration type may contain one or more hosts (within the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts per cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
 

@@ -32,7 +32,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `dataproc-s3-sa` и назначьте ему роли `dataproc.agent`, `dataproc.provisioner` и `storage.uploader`.
+    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `dataproc-s3-sa` и назначьте ему роли `dataproc.agent`, `dataproc.provisioner`, `managed-metastore.integrationProvider` и `storage.uploader`.
     1. В {{ objstorage-full-name }} [создайте бакет](../../../storage/operations/buckets/create.md) `dataproc-bucket` и предоставьте сервисному аккаунту разрешение `READ и WRITE` для этого бакета.
     1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) `dataproc-network`.
     1. В этой сети [создайте подсеть](../../../vpc/operations/subnet-create.md) `dataproc-subnet`.
@@ -244,7 +244,7 @@
 
 1. [Добавьте в настройки кластера](../../../data-proc/operations/cluster-update.md) `dataproc-target` свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 
-    Чтобы узнать IP-адрес кластера {{ metastore-name }}, в консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** и на левой панели выберите страницу ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. IP-адрес кластера указан в блоке **{{ ui-key.yacloud.common.section-base }}**.
+    Чтобы узнать IP-адрес кластера {{ metastore-name }}, в консоли управления выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на левой панели выберите страницу ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
 
 ## Импортируйте данные {#import-data}
 

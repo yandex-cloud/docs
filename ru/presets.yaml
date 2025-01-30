@@ -8093,6 +8093,7 @@ default:
           import-export:
             action_export: Экспортировать
             action_import: Импортировать
+        field_metastore-endpoint-ip: IP-адрес
         label_metastore: Metastore-сервер
       mongodb:
         cluster:

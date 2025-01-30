@@ -4,10 +4,10 @@ description: Расчет стоимости использования {{ mmy-n
 editable: false
 ---
 
+
 # Правила тарификации для {{ mmy-name }}
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mmy-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
-
 
 {% note tip %}
 
@@ -17,9 +17,8 @@ editable: false
 
 
 
+
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -29,6 +28,7 @@ editable: false
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
+
 ## Из чего складывается стоимость использования {{ mmy-short-name }} {#rules}
 
 Расчет стоимости использования {{ mmy-name }} учитывает:
@@ -36,6 +36,7 @@ editable: false
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
 
 ### Использование хостов БД {#rules-hosts-uptime}
 
@@ -54,6 +55,7 @@ editable: false
 Поддерживаемые конфигурации ресурсов приведены в разделе [Классы хостов](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ MY }} не может выполнять свои основные функции, не тарифицируется.
+
 
 ### Использование дискового пространства {#rules-storage}
 
@@ -74,6 +76,7 @@ editable: false
     * Количество хостов кластера не влияет на размер хранилища и, соответственно, на бесплатный объем резервных копий.
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
 
 ### Пример расчета стоимости кластера {#example}
 
@@ -119,6 +122,7 @@ editable: false
 
 
 
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -130,6 +134,7 @@ editable: false
 По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены](#prices) стоят прочерки. Размер хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
+
 
 ## Цены для региона Россия {#prices}
 
@@ -149,10 +154,12 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
+
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 #### Стандартные хосты {#standard-hosts}
@@ -195,6 +202,7 @@ editable: false
 
 
 
+
 #### Выделенные хосты {#dedicated-hosts}
 
 Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
@@ -215,9 +223,11 @@ editable: false
 
 
 
+
 ### Хранилище и резервные копии {#prices-storage}
 
 {% include [local-ssd for Ice Lake by query only](../_includes/ice-lake-local-ssd-note.md) %}
+
 
 
 #### Стандартные хосты {#standard-hosts-storage}
@@ -234,6 +244,7 @@ editable: false
   {% include [kzt-storage-standard.md](../_pricing/managed-mysql/kzt-storage-standard.md) %}
 
 {% endlist %}
+
 
 #### Выделенные хосты {#dedicated-hosts-storage}
 

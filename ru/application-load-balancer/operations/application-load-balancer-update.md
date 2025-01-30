@@ -21,6 +21,8 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
 
+          {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+
       1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** включите или отключите входящий трафик для каждой зоны в отдельности с помощью опции **{{ ui-key.yacloud.alb.label_disable-traffic }}**.
 
       1. В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).

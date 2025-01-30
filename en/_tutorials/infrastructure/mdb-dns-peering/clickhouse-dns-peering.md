@@ -109,7 +109,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Select the zone from the list.
-    1. Check that the record list includes a record in the following format: `c-<cluster_ID>.rw.mdb.yandexcloud.net.`.
+    1. Check that the record list contains a record in the following format: `c-<cluster_ID>.rw.{{ dns-zone }}.`.
 
 ## Check whether the cluster is available from a different cloud network {#check-cluster-availability}
 

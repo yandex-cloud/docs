@@ -68,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
       from yandex.cloud.ai.stt.v3 import stt_pb2, stt_service_pb2_grpc
 
       request = stt_pb2.RecognizeFileRequest(
-        uri='https://storage.yandexcloud.net/<название_бакета>/<путь_к_WAV-файлу_в_бакете>',
+        uri='https://{{ s3-storage-host }}/<название_бакета>/<путь_к_WAV-файлу_в_бакете>',
         recognition_model=stt_pb2.RecognitionModelOptions(
           model='general',
           audio_format=stt_pb2.AudioFormatOptions(
@@ -80,7 +80,7 @@ description: Следуя данной инструкции, вы сможете
       )
 
       cred = grpc.ssl_channel_credentials()
-      chan = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+      chan = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
       stub = stt_service_pb2_grpc.AsyncRecognizerStub(chan)
 
       # Выберите один из способов аутентификации:
@@ -127,7 +127,7 @@ description: Следуя данной инструкции, вы сможете
       )
 
       cred = grpc.ssl_channel_credentials()
-      chan = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+      chan = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
       stub = stt_service_pb2_grpc.AsyncRecognizerStub(chan)
 
       # Аутентификация с IAM-токеном

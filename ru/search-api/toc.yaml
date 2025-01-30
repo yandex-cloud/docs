@@ -29,7 +29,9 @@ items:
             href: operations/mobile.md
       - name: API v2
         items:
-          - name: Выполнение поисковых запросов
+          - name: Выполнение поисковых запросов в синхронном режиме
+            href: operations/web-search-sync.md
+          - name: Выполнение поисковых запросов в отложенном режиме
             href: operations/web-search.md
           - name: Мобильная выдача
             href: operations/v2-mobile.md

@@ -1,4 +1,4 @@
-# Backups
+# Backups in {{ mgl-name }}
 
 {{ mgl-name }} supports automatic and manual [instance](./index.md#instance) backups.
 

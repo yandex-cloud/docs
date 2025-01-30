@@ -14,7 +14,8 @@ description: Пошаговые инструкции по выполнению �
 * [{#T}](./searching.md)
 * [{#T}](./mobile.md)
 
-## Работа с {{ search-api-name }} через интерфейс API v2 {#api-v1}
+## Работа с {{ search-api-name }} через интерфейс API v2 {#api-v2}
 
+* [{#T}](./web-search-sync.md)
 * [{#T}](./web-search.md)
 * [{#T}](./v2-mobile.md)

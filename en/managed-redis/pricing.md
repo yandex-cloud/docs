@@ -6,18 +6,16 @@ editable: false
 
 In this section, you can find the {{ mrd-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
-
 {% note tip %}
 
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=c46046673ba9#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=c46046673ba9#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+
 
 
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -37,7 +35,7 @@ The {{ mrd-name }} usage cost is based on:
 
 Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ RD }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ VLK }} host is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -64,10 +62,10 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 The cost of using a cluster with the following parameters for 30 days:
 
-* **{{ RD }}** hosts: Three `hm3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ VLK }}** hosts: Three `hm3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of SSD network storage.
 
-Cost calculation for {{ RD }} hosts:
+Cost calculation for {{ VLK }} hosts:
 
 
 

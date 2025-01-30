@@ -6,6 +6,22 @@ Below is a list of [current](#current-images) and [deprecated](#deprecated-image
 
 {{ dataproc-name }} has no native mechanism for image version upgrades. To upgrade your image version, create a new cluster. To make sure the version you use is always up-to-date, automate the creation and removal of temporary {{ dataproc-name }} clusters using [{{ maf-full-name }}](../tutorials/airflow-automation.md). To run jobs automatically, apart from {{ maf-name }} you can also use [{{ ml-platform-full-name }}](../tutorials/datasphere-integration.md).
 
+## Environment {#environment}
+
+When [creating a cluster](../operations/cluster-create.md#create), you can choose one of the following environments:
+
+* `PRODUCTION`: For stable versions of your apps.
+* `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+
+When you create a cluster, the environment affects the choice of the image build, giving its version with accuracy down to the minor one. You start using new image builds:
+
+* For `PRODUCTION`: At least one week after the release. 
+* For `PRESTABLE`: Directly after the release.
+
+Once stabilized, each minor version supports backward compatibility. However, we recommend using a test configuration with the `PRESTABLE` environment for processes requiring regular creation of clusters. This will allow you so detect likely backward compatibility issues earlier.
+
+Once a cluster is created, the environment does not affect its operation. You cannot change an existing cluster's environment.
+
 ## Current images {#current-images}
 
 

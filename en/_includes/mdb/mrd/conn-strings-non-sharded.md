@@ -6,27 +6,27 @@
 
     {% include [Install requirements](./connect/bash/install-requirements.md) %}
 
-    **Connecting via Sentinel**:
+    **Connecting via Sentinel:**
 
-    1. Get the address of the master host by using Sentinel and any {{ RD }} host:
+    1. Get the address of the master host by using Sentinel and any {{ VLK }} host:
 
         ```bash
         redis-cli \
-            -h <FQDN_of_any_{{ RD }}_host> \
+            -h <FQDN_of_any_{{ VLK }}_host> \
             -p {{ port-mrd-sentinel }} \
             sentinel \
-            get-master-addr-by-name <{{ RD }}_cluster_name> | head -n 1
+            get-master-addr-by-name <{{ VLK }}_cluster_name> | head -n 1
         ```
 
     1. Connect to the host with this address:
 
         ```bash
         redis-cli \
-            -h <{{ RD }}_master_host_address> \
-            -a <{{ RD }}_password>
+            -h <{{ VLK }}_master_host_address> \
+            -a <{{ VLK }}_password>
         ```
 
-    **Connecting directly to the master host**:
+    **Connecting directly to the master host:**
 
     ```bash
     redis-cli \
@@ -38,7 +38,7 @@
 
     {% include [Install requirements SSL](./connect/bash/install-requirements-ssl.md) %}
 
-    **Connecting directly to the master host**:
+    **Connecting directly to the master host:**
 
     {% include [default-connstring](default-connstring.md) %}
 
@@ -56,7 +56,7 @@
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel**:
+    **Code example for connecting through Sentinel:**
 
     `connect.go`
 
@@ -72,10 +72,10 @@
     	conn := redis.NewUniversalClient(
     		&redis.UniversalOptions{
     			Addrs: []string{
-    				"<{{ RD }}_host_1_FQDN>:{{ port-mrd-sentinel }}",
+    				"<{{ VLK }}_host_1_FQDN>:{{ port-mrd-sentinel }}",
     				...
-    				"<{{ RD }}_host_N_FQDN>:{{ port-mrd-sentinel }}"},
-    			MasterName: "<{{ RD }}_cluster_name>",
+    				"<{{ VLK }}_host_N_FQDN>:{{ port-mrd-sentinel }}"},
+    			MasterName: "<{{ VLK }}_cluster_name>",
     			Password:   "<password>",
     			ReadOnly:   false,
     		},
@@ -95,7 +95,7 @@
     }
     ```
 
-    **Code example for connecting directly to the master**:
+    **Code example for connecting directly to the master:**
 
     `connect.go`
 
@@ -199,7 +199,7 @@
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel**:
+    **Code example for connecting through Sentinel:**
 
     `src/java/com/example/App.java`
 
@@ -212,13 +212,13 @@
 
     public class App {
       public static void main(String[] args) {
-        String redisName = "<{{ RD }}_cluster_name>";
+        String redisName = "<{{ VLK }}_cluster_name>";
         String redisPass = "<password>";
 
         HashSet sentinels = new HashSet();
-        sentinels.add("<{{ RD }}_host_1_FQDN>:{{ port-mrd-sentinel }}");
+        sentinels.add("<{{ VLK }}_host_1_FQDN>:{{ port-mrd-sentinel }}");
         ...
-        sentinels.add("<{{ RD }}_host_N_FQDN>:{{ port-mrd-sentinel }}");
+        sentinels.add("<{{ VLK }}_host_N_FQDN>:{{ port-mrd-sentinel }}");
 
         try {
           JedisSentinelPool pool = new JedisSentinelPool(redisName, sentinels);
@@ -236,7 +236,7 @@
     }
     ```
 
-    **Code example for connecting directly to the master**:
+    **Code example for connecting directly to the master:**
 
     `src/java/com/example/App.java`
 
@@ -310,17 +310,17 @@
 
 {% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
-{% include [after-connect](./connect/java/after-connect.md) %}
+{% include [Подключение к кластеру](./connect/java/after-connect.md) %}
 
 ### Node.js {#nodejs}
 
-{% include [Install dependencies](./connect/nodejs/install-requirements.md) %}
+{% include [Установка зависимостей](./connect/nodejs/install-requirements.md) %}
 
 {% list tabs group=connection %}
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel**:
+    **Code example for connecting through Sentinel:**
 
     `app.js`
 
@@ -330,11 +330,11 @@
 
     const conn = new Redis({
         sentinels: [
-            { host: "<{{ RD }}_host_1_FQDN>", port: {{ port-mrd-sentinel }} },
+            { host: "<{{ VLK }}_host_1_FQDN>", port: {{ port-mrd-sentinel }} },
             ...
-            { host: "<{{ RD }}_host_N_FQDN>", port: {{ port-mrd-sentinel }} },
+            { host: "<{{ VLK }}_host_N_FQDN>", port: {{ port-mrd-sentinel }} },
         ],
-        name: "<{{ RD }}_cluster_name>",
+        name: "<{{ VLK }}_cluster_name>",
         password: "<password>"
     });
 
@@ -356,7 +356,7 @@
     });
     ```
 
-    **Code example for connecting directly to the master**:
+    **Code example for connecting directly to the master:**
 
     `app.js`
 
@@ -440,7 +440,7 @@
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel**:
+    **Code example for connecting through Sentinel:**
 
     `connect.php`
 
@@ -450,13 +450,13 @@
     Predis\Autoloader::register();
 
     $sentinels = [
-        "<{{ RD }}_host_1_FQDN>:{{ port-mrd-sentinel }}>",
+        "<{{ VLK }}_host_1_FQDN>:{{ port-mrd-sentinel }}>",
         ...
-        "<{{ RD }}_host_N_FQDN>:{{ port-mrd-sentinel }}>",
+        "<{{ VLK }}_host_N_FQDN>:{{ port-mrd-sentinel }}>",
     ];
     $options = [
         "replication" => "sentinel",
-        "service" => "<{{ RD }}_cluster_name>",
+        "service" => "<{{ VLK }}_cluster_name>",
         "parameters" => [
             "password" => "<password>",
         ],
@@ -471,7 +471,7 @@
     ?>
     ```
 
-    **Code example for connecting directly to the master**:
+    **Code example for connecting directly to the master:**
 
     `connect.php`
 
@@ -535,7 +535,7 @@
 
 ### Python {#python}
 
-**Before connecting, install the dependencies**:
+**Before connecting, install the dependencies:**
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip && \
@@ -546,7 +546,7 @@ pip3 install redis
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel**:
+    **Code example for connecting through Sentinel:**
 
     `connect.py`
 
@@ -554,11 +554,11 @@ pip3 install redis
     from redis.sentinel import Sentinel
 
     sentinels = [
-        "<{{ RD }}_host_1_FQDN>",
+        "<{{ VLK }}_host_1_FQDN>",
         ...
-        "<{{ RD }}_host_N_FQDN>"
+        "<{{ VLK }}_host_N_FQDN>"
     ]
-    name = "<{{ RD }}_cluster_name>"
+    name = "<{{ VLK }}_cluster_name>"
     pwd = "<password>"
 
     sentinel = Sentinel([(h, {{ port-mrd-sentinel }}) for h in sentinels], socket_timeout=0.1)
@@ -569,7 +569,7 @@ pip3 install redis
     print(slave.get("foo"))
     ```
 
-    **Sample code for connecting without an SSL connection directly to the master host**:
+    **Sample code for connecting without an SSL connection directly to the master host:**
 
     `connect.py`
 
@@ -619,7 +619,7 @@ pip3 install redis
 
 - Connecting without SSL {#without-ssl}
 
-    **Code example for connecting through Sentinel**:
+    **Code example for connecting through Sentinel:**
 
     `connect.rb`
 
@@ -629,13 +629,13 @@ pip3 install redis
     require 'redis'
 
     SENTINELS = [
-      { host: '<{{ RD }}_host_1_FQDN>', port: {{ port-mrd-sentinel }} },
+      { host: '<{{ VLK }}_host_1_FQDN>', port: {{ port-mrd-sentinel }} },
       ...
-      { host: '<{{ RD }}_host_N_FQDN>', port: {{ port-mrd-sentinel }} }
+      { host: '<{{ VLK }}_host_N_FQDN>', port: {{ port-mrd-sentinel }} }
     ]
 
     conn = Redis.new(
-      host: '<{{ RD }}_cluster_name>',
+      host: '<{{ VLK }}_cluster_name>',
       sentinels: SENTINELS,
       role: 'master',
       password: '<password>'
@@ -647,7 +647,7 @@ pip3 install redis
     conn.close
     ```
 
-    **Sample code for connecting without an SSL connection directly to the master host**:
+    **Sample code for connecting without an SSL connection directly to the master host:**
 
     `connect.rb`
 

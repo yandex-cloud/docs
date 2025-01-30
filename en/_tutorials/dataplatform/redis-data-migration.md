@@ -1,7 +1,7 @@
-# Migrating a database from a third-party {{ RD }} cluster to {{ mrd-full-name }}
+# Migrating a database from a third-party {{ VLK }} cluster to {{ mrd-full-name }}
 
 
-For data migration, {{ RD }} uses a _logical dump_: this is a file with a sequence of commands to restore the state of databases in the cluster. There are several ways to create a dump. The following example will use [redis-dump-go](https://github.com/yannh/redis-dump-go/).
+For data migration, {{ VLK }} uses a _logical dump_: this is a file with a sequence of commands to restore the state of databases in the cluster. There are several ways to create a dump. The following example will use [redis-dump-go](https://github.com/yannh/redis-dump-go/).
 
 {% note info %}
 
@@ -9,7 +9,7 @@ A binary RDB dump cannot be used for migration, because {{ mrd-name }} does not 
 
 {% endnote %}
 
-To migrate {{ RD }} databases from the _source cluster_ to the _target cluster_:
+To migrate {{ VLK }} databases from the _source cluster_ to the _target cluster_:
 
 1. [Connect to the source cluster and create a logical dump](#create-dump).
 1. (Optional) [Upload the dump to the intermediate virtual machine](#load-vm).
@@ -127,10 +127,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
     ./redis-dump-go -h
     ```
 
-1. If connecting to the {{ RD }} cluster requires a password, enter it in the `REDISDUMPGO_AUTH` environment variable:
+1. If connecting to the {{ VLK }} cluster requires a password, enter it in the `REDISDUMPGO_AUTH` environment variable:
 
     ```bash
-    export REDISDUMPGO_AUTH="<{{ RD }}_password>"
+    export REDISDUMPGO_AUTH="<{{ VLK }}_password>"
     ```
 
 1. Start an interactive `screen` session:
@@ -143,8 +143,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     ```bash
     ./redis-dump-go \
-        -host <master_host_IP_address_or_FQDN_in_{{ RD }}_cluster> \
-        -port <{{ RD }}_port> > <dump_file>
+        -host <master_host_IP_address_or_FQDN_in_{{ VLK }}_cluster> \
+        -port <{{ VLK }}_port> > <dump_file>
     ```
 
     {% note tip %}
@@ -189,7 +189,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         ```bash
         host=$(redis-cli \
-          -h <FQDN_of_any_{{ RD }}_host> \
+          -h <FQDN_of_any_{{ VLK }}_host> \
           -p {{ port-mrd-sentinel }} \
           sentinel \
           get-master-addr-by-name \
@@ -248,7 +248,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         ```bash
         host=$(redis-cli \
-               -h <FQDN_of_any_{{ RD }}_host> \
+               -h <FQDN_of_any_{{ VLK }}_host> \
                -p {{ port-mrd-sentinel }} \
                sentinel \
                get-master-addr-by-name \
