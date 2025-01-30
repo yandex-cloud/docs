@@ -12,6 +12,14 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 
 {% endnote %}
 
+
+{% note info %}
+
+Starting February 1, 2025, support for {{ KF }} versions 3.2 and 3.3 will be discontinued, so you will not be able to create a cluster with these versions.
+
+{% endnote %}
+
+
 ## Differences in cluster configuration with {{ ZK }} and {{ kraft-name }} protocol {#zk-vs-kraft}
 
 If you create a cluster with {{ KF }} 3.5 or lower that has more than one host, three dedicated {{ ZK }} hosts will be added to the cluster.
@@ -45,7 +53,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
   To create a {{ mkf-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), go to the appropriate [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
@@ -123,7 +131,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
 
-  1. Configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings), if required.
+  1. Configure the [{{ KF }}](../concepts/settings-list.md#cluster-settings) settings, if required.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Wait until the {{ mkf-name }} cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take some time.
 
@@ -478,7 +486,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
-            * `topicSpecs`: Topic settings as an array of elements, one for each topic. Each element has the following structure:
+            * `topicSpecs`: The topic settings as an array of elements. Each element is for a separate topic and has the following structure:
 
                 {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs.md) %}
 

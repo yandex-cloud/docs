@@ -1,8 +1,8 @@
-# Managing connections
+# Managing {{ PG }} connections
 
-{{ PG }} [allocates a separate process](https://www.postgresql.org/docs/current/connect-estab.html) for each established connection. With numerous client connections, it creates multiple processes and manages distributed data structures. As a result, there may be insufficient computing resources, which affects the DBMS performance.
+{{ PG }} [allocates a separate process](https://www.postgresql.org/docs/current/connect-estab.html) for each established connection. With numerous client connections, it creates multiple processes and manages distributed data structures. As a result, the DBMS may experience a lack of computing resources affecting its performance.
 
-To resolve the insufficient resources issue, connection poolers, e.g., [PgPool-II](https://www.pgpool.net) or [PgBouncer](https://www.pgbouncer.org/), are often added before a {{ PG }} cluster. The connection poolers manage connections to allow a large number of clients to connect to the DBMS without affecting performance. A relatively small number of re-usable connections are maintained between the connection pooler and the DBMS. After the client is disconnected, the connection is returned to the pool and can be reused by the same or a new client.
+To address the insufficient resources issue, connection poolers, e.g., [PgPool-II](https://www.pgpool.net) or [PgBouncer](https://www.pgbouncer.org/), are commonly added before the {{ PG }} cluster. The connection poolers manage connections to allow a large number of clients to connect to the DBMS without affecting performance. A relatively small number of re-usable connections are maintained between the connection pooler and the DBMS. After the client is disconnected, the connection is returned to the pool and can be reused by the same or a new client.
 
 This deployment scenario complicates the administration, as the servers hosting the connection pooler are added to the DBMS infrastructure.
 
@@ -73,7 +73,7 @@ When integrated with Odyssey, {{ mpg-name }} clusters:
 
     {% note tip %}
 
-    If you have issues while connecting to a {{ mpg-name }} cluster, contact support. To have your issue resolved faster, provide the full text of the error message, including the connection ID.
+    If you have issues connecting to a {{ mpg-name }} cluster, contact support. To have your issue resolved faster, provide the full text of the error message, including the connection ID.
 
     {% endnote %}
 

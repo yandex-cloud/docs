@@ -1,12 +1,12 @@
 ---
 title: Resource relationships in {{ mrd-full-name }}
-description: '{{ RD }} is a high-performance in-memory DBMS for storing key-value data. {{ mrd-name }} allows you to easily create {{ RD }} host clusters with a high level of fault tolerance. The main entity used in {{ mrd-name }} is a database cluster.'
+description: '{{ VLK }} is a high-performance in-memory DBMS for storing key-value data. {{ mrd-name }} allows you to easily create {{ VLK }} host clusters with a high level of fault tolerance. The main entity used in {{ mrd-name }} is a database cluster.'
 ---
 
 # Resource relationships in {{ mrd-name }}
 
 
-{{ RD }} is a high-performance DBMS for storing key-value data that runs in RAM. {{ mrd-name }} allows you to easily create {{ RD }} host clusters with a high level of fault tolerance.
+{{ VLK }} is a high-performance DBMS for storing key-value data that runs in RAM. {{ mrd-name }} allows you to easily create {{ VLK }} host clusters with a high level of fault tolerance.
 
 The main entity used in {{ mrd-name }} is a _database cluster_.
 
@@ -25,7 +25,7 @@ When creating a cluster, specify:
 
 {% note info %}
 
-The amount of memory allocated to a host also depends on the `maxmemory` configuration parameter for {{ RD }} hosts: the maximum amount of data equals 75% of available memory. For example, for a host class with 8 GB RAM, the `maxmemory` value will be 6 GB.
+The amount of memory allocated to a host also depends on the `maxmemory` configuration parameter for {{ VLK }} hosts: the maximum amount of data equals 75% of available memory. For example, for a host class with 8 GB RAM, the `maxmemory` value will be 6 GB.
 
 {% endnote %}
 

@@ -37,7 +37,7 @@
     curl \
       --header "Authorization: Bearer $IAM_TOKEN" \
       --header "x-folder-id: $FOLDER_ID" \
-      --data @request.json https://tts.{{ api-host }}:443/tts/v3/utteranceSynthesis | \
+      --data @request.json https://{{ api-host-sk-tts }}:443/tts/v3/utteranceSynthesis | \
       jq -r  '.result.audioChunk.data' | \
       while read chunk; do base64 -d <<< "$chunk" >> audio.wav; done
     ```

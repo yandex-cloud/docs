@@ -1,14 +1,14 @@
-# {{ RD }} version upgrade
+# {{ VLK }} version upgrade
 
 You can upgrade a {{ mrd-name }} cluster to any supported version.
 
 
 ## Supported versions {#version-supported}
 
-All {{ RD }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the [{{ RD }} documentation](https://valkey.io/topics/releases/).
+All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the relevant [{{ VLK }} documentation](https://valkey.io/topics/releases/).
 
 
-### Viewing a list of available {{ RD }} versions {#version-list}
+### Viewing a list of available {{ VLK }} versions {#version-list}
 
 {% list tabs group=instructions %}
 
@@ -24,8 +24,8 @@ All {{ RD }} versions, which were supported in {{ mrd-name }}, will remain avail
 
 Make sure this does not affect your applications:
 
-1. See the {{ RD }} [changelog](https://docs.redis.com/latest/rs/release-notes/) to check how updates might affect your applications.
-1. Try a version upgrade on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, provided {{ mrd-name }} [supports](#version-supported) the {{ RD }} version in the backup.
+1. See the {{ VLK }} [changelog](https://docs.redis.com/latest/rs/release-notes/) to check how updates might affect your applications.
+1. Try a version upgrade on a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, provided {{ mrd-name }} [supports](#version-supported) the {{ VLK }} version in the backup.
 1. [Create a backup](cluster-backups.md#create-backup) of the main cluster directly before the version upgrade.
 
 ## Upgrading a cluster {#start-update}
@@ -33,7 +33,7 @@ Make sure this does not affect your applications:
 {% note alert %}
 
 * After updating the DBMS, the cluster cannot be rolled back to the previous version.
-* The success of a {{ RD }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
+* The success of a {{ VLK }} version upgrade depends on multiple factors, including cluster settings and data stored in databases. We recommend that you begin by [upgrading a test cluster](#before-update) that has the same data and settings.
 
 {% endnote %}
 
@@ -55,19 +55,19 @@ Make sure this does not affect your applications:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Get a list of your {{ RD }} clusters using this command:
+  1. Get a list of your {{ VLK }} clusters using this command:
 
      ```bash
      {{ yc-mdb-rd }} cluster list
      ```
 
-  1. Get information about the cluster you need and check the {{ RD }} version in the `config.version` parameter:
+  1. Get information about the cluster you need and check the {{ VLK }} version in the `config.version` parameter:
 
      ```bash
      {{ yc-mdb-rd }} cluster get <cluster_name_or_ID>
      ```
 
-  1. Run the {{ RD }} upgrade:
+  1. Run the {{ VLK }} upgrade:
 
      ```bash
      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
@@ -95,7 +95,7 @@ Make sure this does not affect your applications:
             --data '{
                       "updateMask": "configSpec.version",
                       "configSpec": {
-                        "version": "<{{ RD }}_version>"
+                        "version": "<{{ VLK }}_version>"
                       }
                     }'
         ```
@@ -106,9 +106,9 @@ Make sure this does not affect your applications:
 
             Only one parameter is provided in this case.
 
-        * `configSpec.version`: New {{ RD }} version.
+        * `configSpec.version`: New {{ VLK }} version.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -137,7 +137,7 @@ Make sure this does not affect your applications:
                     "paths": [ "config_spec.version" ]
                   },
                   "config_spec": {
-                    "version": "<{{ RD }}_version>"
+                    "version": "<{{ VLK }}_version>"
                   } 
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -150,9 +150,9 @@ Make sure this does not affect your applications:
 
             Only one parameter is provided in this case.
 
-        * `config_spec.version`: New {{ RD }} version.
+        * `config_spec.version`: New {{ VLK }} version.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

@@ -1,3 +1,7 @@
+---
+title: How to connect to a Linux VM via SSH
+description: 'Using this guide, you can connect to a VM with an SSH key pair: the public key resides on the VM, and the private one is kept by the user.'
+---
 
 # Connecting to a Linux VM via SSH
 

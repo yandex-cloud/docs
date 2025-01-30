@@ -44,11 +44,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * Select the [disk type](../concepts/storage.md).
 
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-       
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
-
 
      * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
@@ -155,10 +151,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `assign-public-ip`: Public access to the host, `true` or `false`.
 
 
-     * `--disk-type`: Disk type.
-
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
+     * `disk-type`: [Disk type](../concepts/storage.md).
      * `priority`: Host priority when selecting a new master host, between `0` and `100`.
      * `backup-priority`: Backup priority, between `0` and `100`.
      * `mysql-version`: {{ MY }} version, `{{ versions.cli.str }}`.
@@ -206,7 +199,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To create a {{ mmy-name }} cluster:
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
      * DB cluster: Description of the cluster and its hosts
      * Database: Description of the cluster DB
 
@@ -337,7 +330,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mmy }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -429,7 +422,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Where:
 
-      * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -483,7 +476,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
           * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
 
-  1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -572,7 +565,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Where:
 
-      * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
       * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -623,7 +616,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
           * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
 
-  1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \

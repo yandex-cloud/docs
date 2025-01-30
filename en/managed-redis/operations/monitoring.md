@@ -1,9 +1,9 @@
 ---
-title: Monitoring the state of a {{ RD }} cluster and hosts
+title: Monitoring the state of a {{ VLK }} cluster and hosts
 description: You can track the state of a {{ mrd-name }} cluster and its individual hosts with the monitoring tools in the management console. These tools display diagnostic information as charts.
 ---
 
-# Monitoring the state of a {{ RD }} cluster and hosts
+# Monitoring the state of a {{ VLK }} cluster and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -49,11 +49,11 @@ To view detailed information about the {{ mrd-name }} cluster state:
   * **Connected Clients**: Number of open connections for each cluster host.
 
       If a cluster is [sharded](../concepts/sharding.md) or uses [replication](../concepts/replication.md), some of the connections will be used for exchanging data between cluster hosts.
-      Errors occuring when connecting to a cluster may result from inactive applications keeping connections open too long. If this is the case, [modify the {{ RD }}](../operations/update.md#change-redis-config) settings to change the value of the [Timeout](../concepts/settings-list.md#settings-timeout) parameter.
+      Errors occuring when connecting to a cluster may result from inactive applications keeping connections open too long. If this is the case, [modify the {{ VLK }}](../operations/update.md#change-redis-config) settings to change the value of the [Timeout](../concepts/settings-list.md#settings-timeout) parameter.
 
-  * **Copy-on-write allocation**: Memory consumption by {{ RD }} processes when using [COW (copy-on-write)](https://en.wikipedia.org/wiki/Copy-on-write) (in bytes).
+  * **Copy-on-write allocation**: Memory consumption by {{ VLK }} processes when using [COW (copy-on-write)](https://en.wikipedia.org/wiki/Copy-on-write) (in bytes).
 
-      The graph shows the most recent parameter values measured by {{ RD }}:
+      The graph shows the most recent parameter values measured by {{ VLK }}:
 
       * **module_fork_last_cow_size**: Amount of data copied during a `fork()` call using COW.
       * **aof_last_cow_size**: Amount of data copied when creating an AOF file.
@@ -65,18 +65,18 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
   * **Evicted keys**: Number of keys deleted from memory when inserting new data.
 
-      By default, memory management uses a **noeviction** policy: do not delete keys and return an error if there is insufficient memory to insert new data. To use a different memory management policy, [modify the {{ RD }} settings](./update.md#change-redis-config) to change the value of the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) parameter.
+      By default, memory management uses a **noeviction** policy: do not delete keys and return an error if there is insufficient memory to insert new data. To use a different memory management policy, [modify the {{ VLK }} settings](./update.md#change-redis-config) to change the value of the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) parameter.
 
-  * **Inner memory limit**: Amount of RAM (in bytes) available for {{ RD }} processes:
+  * **Inner memory limit**: Amount of RAM (in bytes) available for {{ VLK }} processes:
 
       * **maxmemory**: Maximum amount of memory allocated for user data.
       * **used_memory**: Actual memory usage by a host.
 
-      If **used_memory** reaches **maxmemory** when trying to insert new records, {{ RD }} will apply the memory management mode controlled by the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) setting.
+      If **used_memory** reaches **maxmemory** when trying to insert new records, {{ VLK }} will apply the memory management mode controlled by the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) setting.
 
       {% note info %}
 
-      The value of **maxmemory** for {{ RD }} hosts is set to {{ mrd-memory-used }} of the available memory. For more information, see [Memory management](../concepts/memory-management.md).
+      The value of **maxmemory** for {{ VLK }} hosts is set to {{ mrd-memory-used }} of the available memory. For more information, see [Memory management](../concepts/memory-management.md).
 
       {% endnote %}
 
@@ -92,11 +92,11 @@ To view detailed information about the {{ mrd-name }} cluster state:
   * **Outer memory limit**: Shows the total amount of RAM (in bytes) available for use on hosts:
 
       * **memory_limit**: Amount of memory allocated to each host.
-      * **used_memory_rss**: Process memory usage by {{ RD }} processes.
+      * **used_memory_rss**: Process memory usage by {{ VLK }} processes.
 
-      When the value of **used_memory_rss** approaches the value of **memory_limit**, a {{ RD }} process may be killed by the operating system. To avoid this:
-      * Change the application logic to reduce the amount of data stored in {{ RD }}.
-      * [Go to the {{ RD }} settings](./update.md#change-redis-config) and change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value responsible for the RAM management policy in case of memory pressure.
+      When the value of **used_memory_rss** approaches the value of **memory_limit**, a {{ VLK }} process may be killed by the operating system. To avoid this:
+      * Change the application logic to reduce the amount of data stored in {{ VLK }}.
+      * [Go to the {{ VLK }} settings](./update.md#change-redis-config) and change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value responsible for the RAM management policy in case of memory pressure.
       * [upgrade the host to a higher class](./update.md#change-resource-preset).
 
   * **Redis Used Memory on Masters**: RAM usage on master hosts (in bytes):
@@ -107,7 +107,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
       * **mem_clients_normal**: To serve external connections.
       * **mem_clients_slaves**: To serve replication connections.
       * **mem_replication_backlog**: For a circular replication buffer.
-      * **used_memory_startup**: For {{ RD }} processes at startup (for example, after a cluster reboot).
+      * **used_memory_startup**: For {{ VLK }} processes at startup (for example, after a cluster reboot).
       * **used_memory_dataset**: For data storage.
 
   * **Redis Used Memory on Replicas**: RAM usage on replicas (in bytes):
@@ -118,14 +118,14 @@ To view detailed information about the {{ mrd-name }} cluster state:
       * **mem_clients_normal**: To serve external connections.
       * **mem_clients_slaves**: To serve replication connections.
       * **mem_replication_backlog**: For a circular replication buffer.
-      * **used_memory_startup**: For {{ RD }} processes at startup (for example, after a cluster reboot).
+      * **used_memory_startup**: For {{ VLK }} processes at startup (for example, after a cluster reboot).
       * **used_memory_dataset**: For data storage.
 
-  * **Redis-server OOM kills**: Number of {{ RD }} processes terminated because of a RAM shortage (_OOM_ stands for out-of-memory).
+  * **Redis-server OOM kills**: Number of {{ VLK }} processes terminated because of a RAM shortage (_OOM_ stands for out-of-memory).
 
       To reduce the number of terminations:
-      * Change the application logic to reduce the amount of data stored in {{ RD }}.
-      * [Go to the {{ RD }} settings](./update.md#change-redis-config) and change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value responsible for the RAM management policy in case of memory pressure.
+      * Change the application logic to reduce the amount of data stored in {{ VLK }}.
+      * [Go to the {{ VLK }} settings](./update.md#change-redis-config) and change the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) value responsible for the RAM management policy in case of memory pressure.
       * [upgrade the host to a higher class](./update.md#change-resource-preset).
 
   * **Replication buffer size**: [Replication](../concepts/replication.md#replication) buffer size (in bytes):
@@ -133,7 +133,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
       * **repl_backlog_size**: Maximum amount of memory available for the replication buffer.
       * **repl_backlog_histlen**: Portion of the replication buffer currently in use by data.
 
-      When the circular buffer runs out of memory, complete replication starts. This will reduce cluster performance because full replication significantly increases RAM usage as well as CPU and network workload.
+      When the circular buffer runs out of memory, complete replication starts. This will reduce cluster performance since full replication significantly increases RAM usage as well as CPU and network workload.
 
   * **Replication Lag**: Replica's lag behind the master (in seconds).
 

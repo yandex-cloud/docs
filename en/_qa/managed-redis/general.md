@@ -1,13 +1,13 @@
 #### What is {{ mrd-short-name }}? {#what-is}
 
-{{ mrd-short-name }} is a service that helps you create, operate, and scale {{ RD }} databases in a cloud infrastructure.
+{{ mrd-short-name }} is a service that helps you create, operate, and scale {{ VLK }} databases in a cloud infrastructure.
 
 With {{ mrd-short-name }}, you can:
 - Create a database with the required performance characteristics.
 - Scale your processing power and storage size allocated to your databases as needed.
 - Get database logs.
 
-{{ mrd-short-name }} takes on time-consuming {{ RD }} infrastructure administration tasks:
+{{ mrd-short-name }} takes on time-consuming {{ VLK }} infrastructure administration tasks:
 - Monitors resource usage.
 - Automatically creates DB backups.
 - Provides fault tolerance through automatic failover to backup replicas.
@@ -83,9 +83,9 @@ In {{ mrd-short-name }}, maintenance implies:
 
 For more information, see [Maintenance](../../managed-redis/concepts/maintenance.md).
 
-#### Which {{ RD }} version does {{ mrd-short-name }} use? {#dbms-version}
+#### Which {{ VLK }} version does {{ mrd-short-name }} use? {#dbms-version}
 
-{{ mrd-short-name }} supports {{ RD }} versions {{ versions.console.str }}.
+{{ mrd-short-name }} supports {{ VLK }} versions {{ versions.console.str }}.
 
 
 #### What happens when a new DBMS version is released? {#new-version}
@@ -123,7 +123,7 @@ Clusters with the `b2.medium` or `b3-c1-m4` host class may contain only one host
 
 #### Is database host backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ RD }}, a full backup takes place once a day and saves all DB cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
+Yes, backup is enabled by default. For {{ VLK }}, a full backup takes place once a day and saves all DB cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
 
 By default, backups are stored for seven days.
 
@@ -141,7 +141,7 @@ For all DBMS types, you can track:
 - Memory, network, or disk usage as a percentage of the set limits for the corresponding cluster host class.
 - Amount of data in the DB cluster and the remaining free space in the data storage.
 
-For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ RD }}, you can track:
+For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ VLK }}, you can track:
 - Average query execution time.
 - Number of queries per second.
 - Number of errors in logs, etc.
@@ -154,8 +154,8 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `Alarm`: 90% of the disk space
-* `Warning`: 80% of the disk space
+* `Alarm`: 90% of disk space
+* `Warning`: 80% of disk space
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
@@ -189,7 +189,7 @@ Consider switching to a faster disk type by [restoring the cluster](../../manage
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -197,7 +197,7 @@ Here is the full text of the error:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+This means, when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
 
 To fix this error:
 

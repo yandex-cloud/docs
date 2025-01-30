@@ -1,6 +1,6 @@
-# Connecting to a sharded {{ RD }} cluster
+# Connecting to a sharded {{ VLK }} cluster
 
-To connect to a [sharded](../../concepts/sharding.md) {{ RD }} cluster, in connection strings, specify the FQDNs of master hosts in each shard.
+To connect to a [sharded](../../concepts/sharding.md) {{ VLK }} cluster, in connection strings, specify the FQDNs of master hosts in each shard.
 
 Encrypted connection is supported via port `{{ port-mrd-tls }}` and unencrypted via port `{{ port-mrd }}`.
 
@@ -18,13 +18,13 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
 - DBeaver {#dbeaver}
 
-    Connections to {{ RD }} clusters are only available in [DBeaver business editions](https://dbeaver.com/buy/).
+    Connections to {{ VLK }} clusters are only available in [DBeaver business editions](https://dbeaver.com/buy/).
 
     To connect to a cluster:
 
     1. Create a new DB connection:
         1. In the **Database** menu, select **New connection**.
-        1. Select **{{ RD }}** from the DB list.
+        1. Select **{{ VLK }}** from the DB list.
         1. Click **Next**.
         1. Specify the connection parameters on the **Main** tab:
             * **Host**: Specify comma-separated FQDNs of master hosts in each shard.

@@ -1,4 +1,4 @@
-# Stopping and starting a {{ RD }} cluster
+# Stopping and starting a {{ VLK }} cluster
 
 You can stop and restart a DB cluster as needed. There is no charge while your cluster is idle: you continue to pay only for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
 
@@ -27,7 +27,7 @@ You can stop and restart a DB cluster as needed. There is no charge while your c
     {{ yc-mdb-rd }} cluster stop <cluster_name_or_ID>
     ```
 
-    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -35,7 +35,7 @@ You can stop and restart a DB cluster as needed. There is no charge while your c
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Stop](../api-ref/Cluster/stop.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Stop](../api-ref/Cluster/stop.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -45,7 +45,7 @@ You can stop and restart a DB cluster as needed. There is no charge while your c
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:stop'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -57,7 +57,7 @@ You can stop and restart a DB cluster as needed. There is no charge while your c
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Stop](../api-ref/grpc/Cluster/stop.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Stop](../api-ref/grpc/Cluster/stop.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -73,7 +73,7 @@ You can stop and restart a DB cluster as needed. There is no charge while your c
             yandex.cloud.mdb.redis.v1.ClusterService.Stop
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -104,7 +104,7 @@ You can restart **STOPPED** clusters.
     {{ yc-mdb-rd }} cluster start <cluster_name_or_ID>
     ```
 
-    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -112,7 +112,7 @@ You can restart **STOPPED** clusters.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Start](../api-ref/Cluster/start.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Start](../api-ref/Cluster/start.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -122,7 +122,7 @@ You can restart **STOPPED** clusters.
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -133,7 +133,7 @@ You can restart **STOPPED** clusters.
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Start](../api-ref/grpc/Cluster/start.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Start](../api-ref/grpc/Cluster/start.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -149,7 +149,7 @@ You can restart **STOPPED** clusters.
             yandex.cloud.mdb.redis.v1.ClusterService.Start
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/start.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

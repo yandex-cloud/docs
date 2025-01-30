@@ -1,4 +1,4 @@
-# Managing {{ RD }} cluster hosts
+# Managing {{ VLK }} cluster hosts
 
 You can add and remove cluster hosts and manage their settings. For information about moving cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).
 
@@ -40,7 +40,7 @@ You can add and remove cluster hosts and manage their settings. For information 
 
 
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -48,7 +48,7 @@ You can add and remove cluster hosts and manage their settings. For information 
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -57,7 +57,7 @@ You can add and remove cluster hosts and manage their settings. For information 
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/hosts'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse) to make sure the request was successful.
 
@@ -69,7 +69,7 @@ You can add and remove cluster hosts and manage their settings. For information 
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -85,7 +85,7 @@ You can add and remove cluster hosts and manage their settings. For information 
             yandex.cloud.mdb.redis.v1.ClusterService.ListHosts
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.redis.v1.ListClusterHostsResponse) to make sure the request was successful.
 
@@ -133,7 +133,7 @@ Public access to hosts can only be configured for clusters created with enabled 
      yc vpc subnet list
 	   ```
 
-     Result:
+	 Result:
 
      
      ```text
@@ -172,7 +172,7 @@ Public access to hosts can only be configured for clusters created with enabled 
      ```
 
      Where:
-     * `--cluster-name`: {{ mrd-name }} cluster name. You can retrieve it with a [list of clusters in a folder](cluster-list.md#list-clusters).
+     * `--cluster-name`: {{ mrd-name }} cluster name. You can get  it with the [list of clusters in a folder](cluster-list.md#list-clusters).
      * `--host`: Host parameters:
        * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
@@ -269,7 +269,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
   Where `--assign-public-ip` is public access to the host, `true` or `false`.
 
-  You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -310,7 +310,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -339,7 +339,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -351,7 +351,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -386,7 +386,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -402,7 +402,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 
 ## Removing a host {#remove}
 
-You can remove a host from a {{ RD }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
+You can remove a host from a {{ VLK }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
 If the host is the master at the time of deletion, {{ mrd-name }} will automatically assign another replica as the master.
 
@@ -431,7 +431,7 @@ You cannot remove a host if the number of hosts in a cluster or cluster shard is
     --cluster-name=<cluster_name>
   ```
 
-  You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 

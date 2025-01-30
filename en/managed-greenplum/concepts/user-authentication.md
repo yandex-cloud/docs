@@ -38,7 +38,7 @@ The name of a database user group must begin with `+`, e.g, `+dbwriters`.
 
 As an address, you can use a host's FQDN, IP range, or the special `all` value that allows connections from any host:
 
-* `rc1b-drajz6j1rv******.mdb.yandexcloud.net`
+* `{{ host-name }}.{{ dns-zone }}`
 * `172.20.143.89/32`
 * `::0/0`
 * `all`

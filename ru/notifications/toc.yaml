@@ -29,6 +29,8 @@ items:
         href: tools/aws-cli.md
       - name: AWS SDK для Python (boto3)
         href: tools/sdk-python.md
+      - name: AWS SDK для PHP
+        href: tools/sdk-php.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник API

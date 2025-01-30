@@ -71,7 +71,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
       {{ yc-mdb-ch }} user get <username> <cluster_name_or_ID>
       ```
 
-   1. View the description of the CLI command for changing user settings:
+   1. View the description of the CLI command to update the user settings:
 
       ```bash
       {{ yc-mdb-ch }} user update --help
@@ -93,7 +93,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-   1. In the {{ mch-name }} cluster user description, under `settings`, change the values of the following parameters:
+   1. In the {{ mch-name }} cluster user description, under `settings`, edit the following parameters:
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -102,8 +102,8 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
           name = <username>
           ...
           settings {
-            <parameter1_name> = <Value_1>
-            <parameter2_name> = <Value_2>
+            <parameter1_name> = <Value1>
+            <parameter2_name> = <Value2>
             ...
           }
         }
@@ -151,7 +151,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
         * `settings`: Required [{{ CH }} settings](../concepts/settings-list.md#user-level-settings) with new values.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
+        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
 
     1. View the [server response](../api-ref/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -194,7 +194,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
         * `settings`: Required [{{ CH }} settings](../concepts/settings-list.md#user-level-settings) with new values.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
+        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](./cluster-users.md#list-users).
 
     1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -380,7 +380,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
       * Here is an example of connecting without SSL with the [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) setting:
 
          ```bash
-         clickhouse-client --host rc1d-***.mdb.yandexcloud.net \
+         clickhouse-client --host {{ host-name }}.{{ dns-zone }} \
                            --user user1 \
                            --database db1 \
                            --port 9440 \

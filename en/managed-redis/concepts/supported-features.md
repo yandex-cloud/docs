@@ -1,11 +1,11 @@
 ---
 title: Available {{ mrd-full-name }} commands
-description: This page provides a list of {{ RD }} commands which you cannot run in a {{ RD }} cluster.
+description: This page provides a list of {{ VLK }} commands which you cannot run in a {{ VLK }} cluster.
 ---
 
 # Available {{ mrd-name }} commands
 
-{{ mrd-name }} allows you to run [any {{ RD }}](https://valkey.io/commands) commands, except the following ones:
+{{ mrd-name }} allows you to run [any {{ VLK }}](https://valkey.io/commands) commands, except the following ones:
 
 * For a non-sharded cluster:
 

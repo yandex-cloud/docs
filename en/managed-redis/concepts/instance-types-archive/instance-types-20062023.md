@@ -1,6 +1,6 @@
 ---
-title: '{{ mrd-name }} host classes'
-description: 'The host class determines the computing power allocated for each host in a Valkey™ cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host also depends on the maxmemory configuration parameter for Valkey™ hosts: the maximum amount of data equals 75% of available memory.'
+title: Managed Service for Redis host classes prior to June 20, 2023
+description: 'The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change accordingly. The amount of memory allocated to a host also depends on the maxmemory configuration parameter for Redis hosts: the maximum amount of data equals 75% of available memory.'
 ---
 
 # {{ RD }} host classes before June 20, 2023
@@ -24,7 +24,7 @@ The host class also determines which [disk types](.././storage.md) are available
 
 
 
-The storage space available to the host should be at least twice as large as the selected memory size. For more information on {{ mrd-name }} technical and organizational limitations, see [Quotas and limits](../limits.md).
+The storage space available to the host should be at least twice as large as the selected memory size. For more information on Managed Service for Redis technical and organizational limitations, see [Quotas and limits](../limits.md).
 
 ## Available host classes {#available-flavors}
 

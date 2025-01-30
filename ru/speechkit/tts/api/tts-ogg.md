@@ -249,7 +249,7 @@
   };
 
   axios
-    .post('https://{{ api-host-sk-tts }}/speech/v1/tts:synthesize', formData, {
+    .post('https://tts.{{ api-host }}/speech/v1/tts:synthesize', formData, {
       headers,
       responseType: 'arraybuffer'
     })

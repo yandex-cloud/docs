@@ -1,5 +1,5 @@
 ---
-title: Managing disk space
+title: Disk space management in {{ mpg-name }}
 description: When the storage is more than 97% full, the host automatically switches to read-only mode. You can track storage usage, configure its automatic expansion, and disable the read-only mode.
 ---
 
@@ -13,7 +13,7 @@ To avoid issues with writing to the database, use one of the following methods:
 
 
 * [Manually get the cluster out of the read-only mode](#read-only-solutions) and free up the storage space by deleting some data.
-* [Increase the storage size](#change-disk-size) to automatically disable the read-only mode.
+* [Increase the storage size](#change-disk-size) to automatically disable the read-only mode. You can also change the disk type.
 * [Set up automatic storage size increase](#disk-size-autoscale).
 
 
@@ -31,7 +31,7 @@ To avoid issues with writing to the database, use one of the following methods:
         * **{{ ui-key.yacloud_monitoring.services.label_postgresql }}** service
         * {{ mpg-name }} cluster ID
 
-            You can [get](../operations/cluster-list.md#list-clusters) the cluster ID with a list of clusters in the folder.
+            You can [get](../operations/cluster-list.md#list-clusters) the cluster ID with the list of clusters in the folder.
 
         * `disk.free_bytes` label
 
@@ -90,11 +90,15 @@ To disable the read-only mode:
 
 - Management console {#console}
 
-    To increase the cluster storage size:
+    To change the disk type and increase the storage size for a cluster:
 
     1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+
+        * Select the [disk type](../concepts/storage.md).
+        * Specify the required disk size.
+
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -103,24 +107,25 @@ To disable the read-only mode:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To increase the cluster storage size:
+    To change the disk type and increase the storage size for a cluster:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help
         ```
 
-    1. Specify the required storage in the cluster update command (it must be at least as large as `disk_size` in the cluster properties):
+    1. Specify the [disk type](../concepts/storage.md) and required storage size in the cluster update command (at least as large as `disk_size` in the cluster properties):
 
         ```bash
         {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
+            --disk-type <disk_type> \
             --disk-size <storage_size_in_GB>
         ```
 
 - {{ TF }} {#tf}
 
-    To increase the cluster storage size:
+    To change the disk type and increase the storage size for a cluster:
 
     1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -128,14 +133,15 @@ To disable the read-only mode:
 
         For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-    1. In the {{ mpg-name }} cluster description, change the `disk_size` attribute value under `config.resources`:
+    1. In the {{ mpg-name }} cluster description, change the `disk_type_id` and `disk_size` attributes in the `config.resources` block:
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
           ...
           config {
             resources {
-              disk_size = <storage_size_in_GB>
+              disk_type_id = "<disk_type>"
+              disk_size    = <storage_size_in_GB>
               ...
             }
           }
@@ -169,9 +175,10 @@ To disable the read-only mode:
        --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>' \
        --data '{
-                 "updateMask": "configSpec.resources.diskSize",
+                 "updateMask": "configSpec.resources.diskTypeId,configSpec.resources.diskSize",
                  "configSpec": {
                    "resources": {
+                     "diskTypeId": "<disk_type>",
                      "diskSize": "<storage_size_in_bytes>"
                    }
                  }
@@ -182,11 +189,12 @@ To disable the read-only mode:
 
      * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-       Only one parameter is provided in this case.
+     * `configSpec.resources`: Storage parameters:
 
-     * `configSpec.resources.diskSize`: New storage size in bytes.
+         * `diskTypeId`: [Disk type](../concepts/storage.md).
+         * `diskSize`: New storage size in bytes.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -212,11 +220,13 @@ To disable the read-only mode:
              "cluster_id": "<cluster_ID>",
              "update_mask": {
                "paths": [
+                 "config_spec.resources.disk_type_id",
                  "config_spec.resources.disk_size"
                ]
              },
              "config_spec": {
                "resources": {
+                 "disk_type_id": "<disk_type>",
                  "disk_size": "<storage_size_in_bytes>"
                }
              }
@@ -229,11 +239,12 @@ To disable the read-only mode:
 
      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-       Only one parameter is provided in this case.
+     * `config_spec.resources`: Storage parameters:
 
-     * `config_spec.resources.disk_size`: New storage size in bytes.
+         * `disk_type_id`: [Disk type](../concepts/storage.md).
+         * `disk_size`: New storage size in bytes.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
@@ -276,7 +287,7 @@ To disable the read-only mode:
 
     To set up automatic increase of storage size:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help
@@ -354,7 +365,7 @@ To disable the read-only mode:
        * `day`: Day of week, in `DDD` format, for scheduled maintenance.
        * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -427,7 +438,7 @@ To disable the read-only mode:
        * `day`: Day of week, in `DDD` format, for scheduled maintenance.
        * `hour`: Hour, in `HH` format, for scheduled maintenance. The values range from `1` to `24`.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 

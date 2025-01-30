@@ -777,7 +777,7 @@ items:
           using {{ data-transfer-full-name }}
         href: dataplatform/object-storage-to-greenplum.md
       - name: >-
-          Migrating a database from a third-party {{ RD }} cluster to {{
+          Migrating a database from a third-party {{ VLK }} cluster to {{
           mrd-name }}
         href: dataplatform/redis-data-migration.md
       - name: Using a {{ mrd-name }} cluster as a PHP session storage

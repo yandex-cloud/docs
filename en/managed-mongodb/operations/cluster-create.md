@@ -55,11 +55,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       * Select the [disk type](../concepts/storage.md).
 
-        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-        
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
-
 
       * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
@@ -163,8 +159,6 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       * `--mongod-disk-type`: Disk type.
 
-        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
 
       * `--performance-diagnostics`: Enables cluster performance diagnostics, `true` or `false`.
       * `--deletion-protection`: Cluster deletion protection.
@@ -187,7 +181,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   To create a {{ mmg-name }} cluster:
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      * Database cluster: Description of the cluster and its hosts.
 
@@ -275,7 +269,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmg }}).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mmg }}).
 
   1. Make sure the settings are correct.
 
@@ -285,7 +279,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration in the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
@@ -423,7 +417,7 @@ To create a {{ MG }} cluster copy:
   * Protection against accidental cluster deletion.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

@@ -3,7 +3,7 @@ title: Information about clusters in {{ mrd-short-name }}
 description: You can request detailed information about each {{ mrd-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mrd-name }}.
 ---
 
-# Information about existing {{ RD }} clusters
+# Information about existing {{ VLK }} clusters
 
 You can request detailed information about each {{ mrd-short-name }} cluster you created.
 
@@ -22,7 +22,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To request a list of {{ RD }} clusters in the default folder, run the command:
+  To request a list of {{ VLK }} clusters in the default folder, run the command:
   
   ```bash
   {{ yc-mdb-rd }} cluster list
@@ -45,7 +45,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.list](../api-ref/Cluster/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.list](../api-ref/Cluster/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -69,7 +69,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.List](../api-ref/grpc/Cluster/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.List](../api-ref/grpc/Cluster/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -109,13 +109,13 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
   
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  To get information about the {{ RD }} cluster, run the following command:
+  To get information about the {{ VLK }} cluster, run the following command:
   
   ```bash
   {{ yc-mdb-rd }} cluster get <cluster_name_or_ID>
   ```
 
-  You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+  You can request the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
 - REST API {#api}
 
@@ -123,7 +123,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -132,7 +132,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.redis.v1.Cluster) to make sure the request was successful.
 
@@ -144,7 +144,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -160,7 +160,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
             yandex.cloud.mdb.redis.v1.ClusterService.Get
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.redis.v1.Cluster) to make sure the request was successful.
 
@@ -168,7 +168,7 @@ You can request detailed information about each {{ mrd-short-name }} cluster you
 
 ## Viewing operations with clusters {#list-operations}
 
-All actions with {{ mrd-name }} clusters are logged as a list of operations. Each operation is assigned a unique ID.
+All actions with {{ mrd-name }} clusters are logged as a list of operations. Each operation gets its own unique ID.
 
 ### Getting a list of operations {#get-operations}
 
@@ -212,9 +212,9 @@ All actions with {{ mrd-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+---- ---+----------------------+
   ```
 
-  You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+  You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc managed-redis cluster list-operations epdplu8jn7sr******** --format yaml
@@ -244,7 +244,7 @@ All actions with {{ mrd-name }} clusters are logged as a list of operations. Eac
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.ListOperations](../api-ref/Cluster/listOperations.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -253,7 +253,7 @@ All actions with {{ mrd-name }} clusters are logged as a list of operations. Eac
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/operations'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.redis.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
@@ -265,7 +265,7 @@ All actions with {{ mrd-name }} clusters are logged as a list of operations. Eac
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.ListOperations](../api-ref/grpc/Cluster/listOperations.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -281,7 +281,7 @@ All actions with {{ mrd-name }} clusters are logged as a list of operations. Eac
             yandex.cloud.mdb.redis.v1.ClusterService.ListOperations
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.redis.v1.ListClusterOperationsResponse) to make sure the request was successful.
 
@@ -330,7 +330,7 @@ All actions with {{ mrd-name }} clusters are logged as a list of operations. Eac
 
           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      1. Use the [Operation.Get](../api-ref/Operation/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+      1. Use the [Operation.Get](../api-ref/Operation/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
           ```bash
           curl \
@@ -349,7 +349,7 @@ All actions with {{ mrd-name }} clusters are logged as a list of operations. Eac
 
       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-      1. Use the [OperationService.Get](../api-ref/grpc/Operation/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+      1. Use the [OperationService.Get](../api-ref/grpc/Operation/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
           ```bash
           grpcurl \

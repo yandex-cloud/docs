@@ -12,9 +12,9 @@ After creating a cluster, you can:
 * [Change the public access setting](#change-public-access).
 * [Change additional cluster settings](#change-additional-settings).
 * [Edit the scheduled maintenance operations settings](#change-background-settings).
-* [Update settings {{ GP }}](#change-gp-settings) according to the {{ GP }} documentation.
+* [Update {{ GP }} settings](#change-gp-settings) according to the {{ GP }} documentation.
 * [Change the host class](#change-resource-preset).
-* [Increase storage size](#change-disk-size).
+* [Change the disk type and increase storage size](#change-disk-size).
 
 To move a cluster to a different availability zone, [restore it from a backup](cluster-backups.md#restore). While restoring the cluster, specify a new availability zone. You will thus move the cluster hosts.
 
@@ -45,7 +45,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
      {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View a description of the update cluster configuration CLI command:
+  1. View the description of the CLI command to update the cluster configuration:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -120,7 +120,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
         Where `updateMask` is the list of parameters to update as a single string, separated by commas.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -157,7 +157,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
         Where `update_mask` is the list of parameters to update as an array of `paths[]` strings.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -182,7 +182,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
   To сhange the public access setting {{ GP }}:
 
-  1. View a description of the update cluster configuration CLI command:
+  1. View the description of the CLI command to update the cluster configuration:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -229,7 +229,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
         * `assignPublicIp`: Public access to cluster hosts, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -273,7 +273,7 @@ If you use [external data sources](../concepts/external-tables.md) for PXF opera
 
         * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -337,7 +337,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
   To change additional cluster settings:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
@@ -379,7 +379,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    You can [get the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
+    You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -389,7 +389,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
 
-    1. In the {{ mgp-name }} cluster description, change the values of the required additional settings:
+    1. In the {{ mgp-name }} cluster description, edit the required additional settings:
 
         
         ```hcl
@@ -585,7 +585,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             --data "@body.json"
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -702,7 +702,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -783,7 +783,7 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
             * `analyzeTimeout`: Maximum duration of the `ANALYZE` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
             * `vacuumTimeout`: Maximum duration of the `VACUUM` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -842,7 +842,7 @@ You can edit your cluster's [scheduled maintenance operations](../concepts/maint
             * `analyze_timeout`: Maximum duration of the `ANALYZE` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
             * `vacuum_timeout`: Maximum duration of the `VACUUM` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -876,7 +876,7 @@ You can change the DBMS settings of the hosts in your cluster.
      {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View a description of the update cluster configuration CLI command:
+  1. View the description of the CLI command to update the cluster configuration:
 
       ```bash
       {{ yc-mdb-gp }} cluster update-config --help
@@ -963,7 +963,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
             See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1019,7 +1019,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
             See the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1053,7 +1053,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -1169,7 +1169,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
         * `masterConfig.resources.resourcePresetId` and `segmentConfig.resources.resourcePresetId`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1221,7 +1221,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
         * `master_config.resources.resource_preset_id` and `segment_config.resources.resource_preset_id`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1235,14 +1235,40 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - Management console {#console}
 
-  To increase the cluster storage size:
+  To change the disk type and  increase the storage size for a cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster you need.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-  1. Edit the settings in the **{{ ui-key.yacloud.mdb.forms.section_storage }}** section.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
+
+      * Select the [disk type](../concepts/storage.md).
+      * Specify the required disk size.
+
   1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  To increase the cluster storage size:
+
+  1. View the description of the CLI command to update the cluster:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster update --help
+      ```
+
+  1. Specify the required storage size for the master hosts or segment hosts in the cluster update command (at least as large as `disk_size` in the cluster properties):
+
+      ```bash
+      {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
+         --master-config disk-size <storage_size_in_GB> \
+         --segment-config disk-size <storage_size_in_GB>
+      ```
 
 - {{ TF }} {#tf}
 
@@ -1252,20 +1278,22 @@ We recommend changing the host class only when the cluster has no active workloa
 
         For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
 
-    1. In the {{ mgp-name }} cluster description, change the `disk_size` attribute value under `master_subcluster.resources` or `segment_subcluster.resources`:
+    1. In the {{ mgp-name }} cluster description, edit the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
           ...
           master_subcluster {
             resources {
-              disk_size = <storage_size_in_GB>
+              disk_type_id = "<disk_type>"
+              disk_size    = <storage_size_in_GB>
               ...
             }
           }
           segment_subcluster {
             resources {
-              disk_size = <storage_size_in_GB>
+              disk_type_id = "<disk_type>"
+              disk_size    = <storage_size_in_GB>
               ...
             }
           }
@@ -1299,14 +1327,16 @@ We recommend changing the host class only when the cluster has no active workloa
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>' \
             --data '{
-                      "updateMask": "masterConfig.resources.diskSize,segmentConfig.resources.diskSize",
+                      "updateMask": "masterConfig.resources.diskTypeId,masterConfig.resources.diskSize,segmentConfig.resources.diskTypeId,segmentConfig.resources.diskSize",
                       "masterConfig": {
                         "resources": {
+                          "diskTypeId": "<disk_type>",
                           "diskSize": "<storage_size_in_bytes>"
                         }
                       },
                       "segmentConfig": {
                         "resources": {
+                          "diskTypeId": "<disk_type>",
                           "diskSize": "<storage_size_in_bytes>"
                         }
                       }
@@ -1317,9 +1347,12 @@ We recommend changing the host class only when the cluster has no active workloa
 
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-        * `masterConfig.resources.diskSize` and `segmentConfig.resources.diskSize`: New disk size in bytes for master and segment hosts.
+        * `masterConfig.resources`, `segmentConfig.resources`: Storage parameters for master hosts and segment hosts:
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+            * `diskTypeId`: [Disk type](../concepts/storage.md).
+            * `diskSize`: New storage size in bytes.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1346,17 +1379,21 @@ We recommend changing the host class only when the cluster has no active workloa
                   "cluster_id": "<cluster_ID>",
                   "update_mask": {
                     "paths": [ 
+                      "master_config.resources.disk_type_id",
                       "master_config.resources.disk_size",
+                      "segment_config.resources.disk_type_id",
                       "segment_config.resources.disk_size"
                     ]
                   },
                   "master_config": {
                     "resources": {
+                      "disk_type_id": "<disk_type>",
                       "disk_size": "<storage_size_in_bytes>"
                     }
                   },
                   "segment_config": {
                     "resources": {
+                      "disk_type_id": "<disk_type>",
                       "disk_size": "<storage_size_in_bytes>"
                     }
                   }
@@ -1369,9 +1406,12 @@ We recommend changing the host class only when the cluster has no active workloa
 
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-        * `master_config.resources.disk_size` and `segment_config.resources.disk_size`: New disk size in bytes for master and segment hosts.
+        * `master_config.resources`, `segment_config.resources`: Storage parameters for master hosts and segment hosts:
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+            * `disk_type_id`: [Disk type](../concepts/storage.md).
+            * `disk_size`: New storage size in bytes.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

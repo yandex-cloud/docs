@@ -81,7 +81,7 @@ description: Следуя данной инструкции, вы сможете
      * Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
      * Выберите [зону доступности](../../overview/concepts/geo-scope.md).
      * Выберите [подсеть](../../vpc/concepts/network.md#subnet) в указанной зоне доступности. Если подсети нет, создайте ее.
-     * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Эту настройку нельзя изменить после создания хоста.
+     * Если хост должен быть доступен снаружи {{ yandex-cloud }}, включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
 
           
@@ -134,7 +134,10 @@ description: Следуя данной инструкции, вы сможете
         --network-name <имя_сети> \
         --host zone-id=<зона_доступности>,`
               `subnet-id=<идентификатор_подсети>,`
-              `assign-public-ip=<публичный_доступ> \
+              `assign-public-ip=<публичный_доступ_к_хосту>,`
+              `hidden=<скрытие_хоста>,`
+              `secondary-delay-secs=<отставание_реплики_в_секундах>,`
+              `priority=<приоритет_хоста> \
         --mongod-resource-preset <класс_хоста> \
         --user name=<имя_пользователя>,password=<пароль_пользователя> \
         --database name=<имя_БД> \
@@ -156,12 +159,15 @@ description: Следуя данной инструкции, вы сможете
          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
          * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
          * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+         * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
+         * `secondary-delay-secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
+         * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
 
       * `--mongod-disk-type` — тип диска.
 
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.
-      * `--deletion-protection` — защита от удаления кластера.
+      * `--deletion-protection` — защита кластера, его баз данных и пользователей от непреднамеренного удаления. Включенная защита не помешает подключиться вручную и удалить содержимое базы данных.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -215,6 +221,11 @@ description: Следуя данной инструкции, вы сможете
          zone_id          = "<зона_доступности>"
          subnet_id        = "<идентификатор_подсети>"
          assign_public_ip = <публичный_доступ>
+         host_parameters {
+           hidden               = <скрытие_хоста>
+           secondary_delay_secs = <отставание_реплики_в_секундах>
+           priority             = <приоритет_хоста>
+         }
        }
      }
 
@@ -258,9 +269,13 @@ description: Следуя данной инструкции, вы сможете
        * `zone_id` — зона доступности.
        * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
        * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+       * `host_parameters` — дополнительные параметры хоста:
+         * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
+         * `secondary_delay_secs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
+         * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
 
 
-     * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+     * `deletion_protection` — защита кластера, его баз данных и пользователей от непреднамеренного удаления: `true` или `false`. Включенная защита не помешает подключиться вручную и удалить содержимое базы данных.
      * `version` — версия {{ MG }}: {{ versions.tf.str }}.
 
      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
@@ -283,29 +298,372 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы создать кластер {{ mmg-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-    * Имя кластера в параметре `name`.
-    * Окружение кластера в параметре `environment`.
-    * Идентификатор сети в параметре `networkId`.
-    * Конфигурацию кластера в параметре `configSpec`.
-    * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    
-    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        
+        ```json
+        {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "networkId": "<идентификатор_сети>",
+          "securityGroupIds": [
+            "<идентификатор_группы_безопасности_1>",
+            "<идентификатор_группы_безопасности_2>",
+            ...
+            "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletionProtection": <защита_от_удаления:_true_или_false>,
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          },
+          "configSpec": {
+            "version": "<версия_{{ MG }}>",
+            "mongodb": {
+              "mongod": {
+                "resources": {
+                  "resourcePresetId": "<класс_хоста>",
+                  "diskSize": "<размер_хранилища_в_байтах>",
+                  "diskTypeId": "<тип_диска>"
+                }
+              }
+            },
+            "backupWindowStart":  {
+              "hours": "<часы>",
+              "minutes": "<минуты>",
+              "seconds": "<секунды>",
+              "nanos": "<наносекунды>"
+            },  
+            "backupRetainPeriodDays": "<время_хранения_резервных_копий_в_днях>",
+            "performanceDiagnostics": {
+              "profilingEnabled": <включить_профилировщик:_true_или_false>
+            }
+          },
+          "databaseSpecs": [
+            {
+              "name": "<имя_БД>"
+            },
+            { <аналогичный_набор_настроек_для_БД_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_БД_N> }
+          ],
+          "userSpecs": [
+            {
+              "name": "<имя_пользователя>",
+              "password": "<пароль_пользователя>",
+              "permissions": [
+                {
+                  "databaseName": "<имя_БД>",
+                  "roles": [
+                    "<роль_1>", "<роль_2>", ..., "<роль_N>"
+                  ]
+                }
+              ]
+            },
+            { <аналогичный_набор_настроек_для_пользователя_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_пользователя_N> }
+          ],
+          "hostSpecs": [
+            {
+              "zoneId": "<зона_доступности>",
+              "subnetId": "<идентификатор_подсети>",
+              "assignPublicIp": <публичный_доступ_к_хосту:_true_или_false>,
+              "type": "<тип_хоста>",
+              "shardName": "<имя_шарда>",
+              "hidden": <скрытие_хоста:_true_или_false>,
+              "secondaryDelaySecs": "<отставание_реплики_в_секундах>",
+              "priority": "<приоритет_хоста>",
+              "tags": "<метки_хоста>"
+            },
+            { <аналогичный_набор_настроек_для_хоста_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_хоста_N> }
+          ],
+        }
+        ```
 
 
-    * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
+        Где:
 
-      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+        * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+        * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-    * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
-    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+        
+        * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+        * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+
+        * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
+
+          * `anytime` — техническое обслуживание происходит в любое время.
+          * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю, в указанное время:
+
+            * `day` — день недели в формате `DDD`.
+            * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
+
+        * `configSpec` — настройки кластера:
+
+            * `version` — версия {{ MG }}: 5.0, 6.0 или 7.0.
+            * `mongod` — тип хоста.
+
+              * `resources` — ресурсы кластера:
+
+                * `resourcePresetId` — [класс хостов](../concepts/instance-types.md).
+                * `diskSize` — размер диска в байтах.
+                * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+            * `backupWindowStart` — настройки окна [резервного копирования](../concepts/backup.md).
+
+              В параметре укажите время, когда начинать резервное копирование:
+
+              * `hours` — от `0` до `23` часов.
+              * `minutes` — от `0` до `59` минут.
+              * `seconds` — от `0` до `59` секунд.
+              * `nanos` — от `0` до `999999999` наносекунд.
+
+            * `backupRetainPeriodDays` — время хранения резервных копий в днях.
+
+            * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+              * `profilingEnabled` — включение [профилировщика](tools.md#explore-profiler). 
+
+        * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
+
+            {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+        * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+
+          * `name` — имя пользователя.
+          * `password` — пароль пользователя.
+          * `permissions` — настройки разрешений пользователя:
+
+            * `databaseName` — имя базы данных, к которой пользователь получает доступ.
+            * `roles` — массив ролей пользователя. Каждая роль представлена в виде отдельной строки в массиве. Список доступных значений см. в разделе [Пользователи и роли](../concepts/users-and-roles.md).
+
+            Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
+
+        * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
+
+          * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
+          * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
+          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу.
+          * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
+          * `shardName` — имя шарда в шардированном кластере.
+          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
+          * `secondaryDelaySecs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
+          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+          * `tags`— метки хоста.
+
+  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters' \
+          --data "@body.json"
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        
+        ```json
+        {
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "network_id": "<идентификатор_сети>",
+          "security_group_ids": [
+            "<идентификатор_группы_безопасности_1>",
+            "<идентификатор_группы_безопасности_2>",
+            ...
+            "<идентификатор_группы_безопасности_N>"
+          ],
+          "deletion_protection": <защита_от_удаления:_true_или_false>,
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час>"
+            }
+          },
+          "config_spec": {
+            "version": "<версия_{{ MG }}>",
+            "mongodb": {
+              "mongod": {
+                "resources": {
+                  "resource_preset_id": "<класс_хоста>",
+                  "disk_size": "<размер_хранилища_в_байтах>",
+                  "disk_type_id": "<тип_диска>"
+                }
+              }
+            },
+            "backup_window_start": {
+              "hours": "<часы>",
+              "minutes": "<минуты>",
+              "seconds": "<секунды>",
+              "nanos": "<наносекунды>"
+            },
+            "backup_retain_period_days": "<время_хранения_резервных_копий_в_днях>",
+            "performance_diagnostics": {
+              "profiling_enabled": <включить_профилировщик:_true_или_false>
+            }
+          },
+          "database_specs": [
+            {
+              "name": "<имя_БД>"
+            },
+            { <аналогичный_набор_настроек_для_БД_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_БД_N> }
+          ],
+          "user_specs": [
+            {
+              "name": "<имя_пользователя>",
+              "password": "<пароль_пользователя>",
+              "permissions": [
+                {
+                  "database_name": "<имя_БД>",
+                  "roles": [
+                    "<роль_1>", "<роль_2>", ..., "<роль_N>"
+                  ]
+                }
+              ]
+            },
+            { <аналогичный_набор_настроек_для_пользователя_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_пользователя_N> }
+          ],
+          "host_specs": [
+            {
+              "zone_id": "<зона_доступности>",
+              "subnet_id": "<идентификатор_подсети>",
+              "assign_public_ip": <публичный_доступ_к_хосту:_true_или_false>,
+              "type": "<тип_хоста>",
+              "shard_name": "<имя_шарда>",
+              "hidden": <скрытие_хоста:_true_или_false>,
+              "secondary_delay_secs": "<отставание_реплики_в_секундах>",
+              "priority": "<приоритет_хоста>",
+              "tags": "<метки_хоста>"
+            },
+            { <аналогичный_набор_настроек_для_хоста_2> },
+            { ... },
+            { <аналогичный_набор_настроек_для_хоста_N> }
+          ]
+        }
+        ```
+
+
+        Где:
+
+        * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+        * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+        
+        * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+
+
+        * `deletion_protection` — защита кластера, его баз данных и пользователей от непреднамеренного удаления. Включенная защита не помешает подключиться вручную и удалить содержимое базы данных.
+
+        * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
+
+          * `anytime` — техническое обслуживание происходит в любое время.
+          * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю, в указанное время:
+
+            * `day` — день недели в формате `DDD`.
+            * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
+
+        * `config_spec` — настройки кластера:
+
+          * `version` — версия {{ MG }}: 5.0, 6.0 или 7.0.
+            * `mongod` — тип хоста.
+
+              * `resources` — ресурсы кластера:
+
+                * `resource_preset_id` — [класс хостов](../concepts/instance-types.md).
+                * `disk_size` — размер диска в байтах.
+                * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+            * `backup_window_start` — настройки окна [резервного копирования](../concepts/backup.md).
+
+              В параметре укажите время, когда начинать резервное копирование:
+
+              * `hours` — от `0` до `23` часов.
+              * `minutes` — от `0` до `59` минут.
+              * `seconds` — от `0` до `59` секунд.
+              * `nanos` — от `0` до `999999999` наносекунд.
+
+            * `backup_retain_period_days` — время хранения резервных копий в днях.
+
+            * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
+              * `profiling_enabled` — включение [профилировщика](tools.md#explore-profiler).
+
+        * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
+
+            {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+        * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
+
+          * `name` — имя пользователя.
+          * `password` — пароль пользователя.
+          * `permissions` — настройки разрешений пользователя:
+
+            * `database_name` — имя базы данных, к которой пользователь получает доступ.
+            * `roles` — массив ролей пользователя. Каждая роль представлена в виде отдельной строки в массиве. Список доступных значений см. в разделе [Пользователи и роли](../concepts/users-and-roles.md).
+
+            Для каждой базы данных добавьте отдельный элемент с настройками разрешений в массив `permissions`.
+
+        * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
+
+          * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+          * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
+          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу.
+          * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
+          * `shard_name` — имя шарда в шардированном кластере.
+          * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
+          * `secondaryDelaySecs` — отставание реплики от мастера в секундах. Может быть полезно для восстановления данных в случае ошибочных операций.
+          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+          * `tags`— метки хоста.
+
+  1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.ClusterService.Create \
+          < body.json
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

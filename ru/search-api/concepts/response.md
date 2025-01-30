@@ -376,5 +376,7 @@ https://yandex.com.tr/search/xml?l10n=en&user=xml-search-user&key=03.79031114:b6
 
 * [{#T}](./get-request.md)
 * [{#T}](./post-request.md)
+* [{#T}](../operations/web-search-sync.md)
+* [{#T}](../operations/web-search.md)
 * [{#T}](../operations/searching.md)
 * [{#T}](./web-search.md)

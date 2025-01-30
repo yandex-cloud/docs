@@ -1,4 +1,4 @@
-# Viewing {{ RD }} cluster logs
+# Viewing {{ VLK }} cluster logs
 
 {{ mrd-name }} allows you to [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
 
@@ -45,7 +45,7 @@
         Where:
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
-        * `--columns`: List of columns for data output:
+        * `--columns`: List of data columns:
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
             * `pid`: ID of the current session’s server process.
@@ -62,7 +62,7 @@
 
     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -79,7 +79,7 @@
 
         * `serviceType`: Type of the service to request logs for. The possible value is `REDIS`.
 
-        * `columnFilter`: List of columns for data output:
+        * `columnFilter`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
@@ -92,7 +92,7 @@
 
         * `toTime`: Right boundary of a time range, the format is the same as for `fromTime`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/listLogs.md#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) to make sure the request was successful.
 
@@ -104,7 +104,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -130,7 +130,7 @@
 
         * `service_type`: Type of the service to request logs for. The possible value is `REDIS`.
 
-        * `column_filter`: List of columns for data output:
+        * `column_filter`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
@@ -143,7 +143,7 @@
 
         * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/listLogs#yandex.cloud.mdb.redis.v1.ListClusterLogsResponse) to make sure the request was successful.
 
@@ -175,7 +175,7 @@ This method allows you to get cluster logs in real time.
 
     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.StreamLogs](../api-ref/Cluster/streamLogs.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -193,7 +193,7 @@ This method allows you to get cluster logs in real time.
 
         * `serviceType`: Type of the service to request logs for. The possible value is `REDIS`.
 
-        * `columnFilter`: List of columns for data output:
+        * `columnFilter`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
@@ -212,7 +212,7 @@ This method allows you to get cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.redis.v1.StreamLogRecord) to make sure the request was successful.
 
@@ -224,7 +224,7 @@ This method allows you to get cluster logs in real time.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.StreamLogs](../api-ref/grpc/Cluster/streamLogs.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -251,7 +251,7 @@ This method allows you to get cluster logs in real time.
 
         * `service_type`: Type of the service to request logs for. The possible value is `REDIS`.
 
-        * `column_filter`: List of columns for data output:
+        * `column_filter`: List of data columns:
 
             * `hostname`: [Host name](hosts.md#list-hosts).
             * `message`: Message output by the service.
@@ -270,7 +270,7 @@ This method allows you to get cluster logs in real time.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.redis.v1.StreamLogRecord) to make sure the request was successful.
 

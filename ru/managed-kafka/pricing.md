@@ -6,7 +6,6 @@ editable: false
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mkf-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
-
 {% note tip %}
 
 
@@ -15,9 +14,8 @@ editable: false
 
 
 
+
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

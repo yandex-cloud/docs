@@ -66,7 +66,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         * **Url**: `jdbc:clickhouse:http://c-<cluster_ID>.rw.{{ dns-zone }}:8123/db1`
         * **User**: `chuser`
 
-        You can get the cluster ID with a [list of clusters](../../../managed-clickhouse/operations/cluster-list.md#list-clusters) in the folder.
+        You can get the cluster ID with the [list of clusters](../../../managed-clickhouse/operations/cluster-list.md#list-clusters) in the folder.
 
         With no data source created, you need to provide the source connection parameters in the SQL query for creating an external table.
 
@@ -114,7 +114,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
             ```sql
             CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-            LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<cluster_ID>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
+            LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mch-http }}/db1&USER=chuser&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
             FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
             ```
 
@@ -152,7 +152,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         * **Url**: `jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mmy }}/db1`
         * **User**: `mysqluser`
 
-        You can get the cluster ID with a [list of clusters](../../../managed-mysql/operations/cluster-list.md#list-clusters) in the folder.
+        You can get the cluster ID with the [list of clusters](../../../managed-mysql/operations/cluster-list.md#list-clusters) in the folder.
 
         With no data source created, you need to provide the source connection parameters in the SQL query for creating an external table.
 

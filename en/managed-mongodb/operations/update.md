@@ -3,12 +3,12 @@ title: How to change {{ MG }} cluster settings in {{ mmg-full-name }}
 description: Follow this guide to change {{ MG }} cluster settings.
 ---
 
-# Updating {{ MG }} cluster settings
+# Updating {{ MG }} cluster settings 
 
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-* [Increase storage size](#change-disk-size).
+* [Change the disk type and increase storage size](#change-disk-size).
 * [Configure](#change-mongod-config) {{ MG }} servers as described in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
 * [Change additional cluster settings](#change-additional-settings).
 * [Move a cluster](#move-cluster) to another folder.
@@ -47,7 +47,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster update --help
@@ -157,11 +157,15 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - Management console {#console}
 
-  To increase the cluster storage size:
+  To change the disk type and  increase the storage size for a cluster:
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+
+      * Select the [disk type](../concepts/storage.md).
+      * Specify the required disk size.
+
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -170,15 +174,15 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To increase the cluster storage size:
+  To change the disk type and increase the storage size for a cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster update --help
       ```
 
-  1. Specify the required storage size in the update cluster command. It must be at least as large as the current `disk_size` value in the cluster properties.
+  1. Specify the [disk type](../concepts/instance-types.md) and required storage size in the cluster update command (at least as large as `disk_size` in the cluster properties).
 
       When increasing the storage size, keep in mind the host role: it depends on the [sharding type](../concepts/sharding.md#shard-management). You can use parameters for hosts with different roles in a single command.
 
@@ -186,6 +190,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
           ```bash
           {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
+             --mongod-disk-type <disk_type> \
              --mongod-disk-size <storage_size_in_GB>
           ```
 
@@ -193,6 +198,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
           ```bash
           {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
+             --mongoinfra-disk-type <disk_type> \
              --mongoinfra-disk-size <storage_size_in_GB>
           ```
 
@@ -200,6 +206,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
           ```bash
           {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
+             --mongos-disk-type <disk_type> \
              --mongos-disk-size <storage_size_in_GB>
           ```
 
@@ -207,54 +214,148 @@ We recommend changing the host class only when the cluster has no active workloa
 
           ```bash
           {{ yc-mdb-mg }} cluster update <cluster_name_or_ID> \
+             --mongocfg-disk-type <disk_type> \
              --mongocfg-disk-size <storage_size_in_GB>
           ```
 
-      If all these conditions are met, {{ mmg-short-name }} will launch the operation to increase the storage size.
-  
+      If all the conditions are met, {{ mmg-short-name }} will start the storage reconfiguration operation.
+
 - {{ TF }} {#tf}
 
-  To increase the cluster storage size:
+  To change the disk type and  increase the storage size for a cluster:
 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
-    
+
       For more information about creating this file, see [Creating clusters](cluster-create.md).
-    
-  1. In the {{ mmg-name }} cluster description, change the `disk_size` parameter value for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, or `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
+
+  1. In the {{ mmg-name }} cluster description, edit the `disk_type_id` and `disk_size` parameters for the following resources: `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, and `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
       Example:
-    
+
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
         ...
         resources_mongod {
-          disk_size = <storage_size_in_GB>
+          disk_type_id = "<disk_type>"
+          disk_size    = <storage_size_in_GB>
           ...
         }
       }
       ```
 
     1. Make sure the settings are correct.
-    
+
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-    
+
     1. Confirm updating the resources.
-    
+
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-   
+
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To increase the cluster storage size, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-  * New storage size in the `configSpec.mongodbSpec_<{{ MG }}_version>.mongod.resources.diskSize` parameter.
-  * List of settings to update in the `updateMask` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
+          --data '{
+                    "updateMask": "configSpec.mongodb.<{{ MG }}_host_type>.resources.diskTypeId,configSpec.mongodb.<{{ MG }}_host_type>.resources.diskSize",
+                    "configSpec": {
+                      "mongodb": { 
+                        "<{{ MG }}_host_type>": {
+                          "resources": {
+                            "diskTypeId": "<disk_type>",
+                            "diskSize": "<storage_size_in_bytes>"
+                          }  
+                        }
+                      }
+                    }
+                  }'
+      ```             
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+      * `configSpec.mongodb.<{{ MG }}_host_type>.resources`: Storage parameters:
+
+          * `diskTypeId`: [Disk type](../concepts/storage.md).
+          * `diskSize`: New storage size in bytes.
+
+        {{ MG }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
+
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.mongodb.<{{ MG }}_host_type>.resources.disk_type_id",
+                    "config_spec.mongodb.<{{ MG }}_host_type>.resources.disk_size"
+                  ]
+                },
+                "config_spec": {
+                  "mongodb": {
+                    "<{{ MG }}_host_type>": {
+                      "resources": {
+                        "disk_type_id": "<disk_type>",
+                        "disk_size": "<storage_size_in_bytes>"
+                      }    
+                    }
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+      * `config_spec.mongodb.<{{ MG }}_host_type>.resources.disk_size`: Storage parameters:
+
+          * `disk_type_id`: [Disk type](../concepts/storage.md).
+          * `disk_size`: New storage size in bytes.
+
+        {{ MG }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
+
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -331,7 +432,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
   To change additional cluster settings:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-mg }} cluster update --help
@@ -373,7 +474,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
         {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters) in the folder.
+    You can get the cluster ID and name with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
 - {{ TF }} {#tf}
 
@@ -494,7 +595,7 @@ You can change the DBMS settings of the hosts in your cluster.
            --destination-folder-name=<destination_folder_name>
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -525,7 +626,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-mg }} cluster update --help

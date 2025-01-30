@@ -45,14 +45,10 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm.md) where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the characteristics of all the already created hosts change too.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
-     
      * Select the disk type.
 
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-       
+     
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
-
 
 
      * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
@@ -176,8 +172,6 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `environment`: Environment, `prestable` or `production`.
      * `disk-type`: Disk type.
 
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
      
      * `assign-public-ip`: Allow access to the host from the internet, `true` or `false`.
 
@@ -224,7 +218,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To create a {{ mpg-name }} cluster:
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
      * DB cluster: Description of the cluster and its hosts
      * Database: Description of the cluster DB
      * User: Description of the cluster user
@@ -416,7 +410,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      Where:
 
-     * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+     * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -567,7 +561,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      Where:
 
-     * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+     * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
      * `name`: Cluster name.
      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -749,7 +743,7 @@ To create a {{ PG }} cluster copy:
   * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash
