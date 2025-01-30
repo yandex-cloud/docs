@@ -224,7 +224,7 @@ items:
         href: tutorials/data-from-yandex-query-visualization.md
       - name: Публикация обновлений для игр
         href: tutorials/prefetch.md
-      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
+      - name: Резервное копирование ВМ с помощью Хайстекс Акура
         href: tutorials/hystax-backup.md
       - name: >-
           Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
