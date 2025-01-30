@@ -80,13 +80,16 @@ description: Следуя данной инструкции, вы сможете
         content {
           zip_filename = "<путь_к_ZIP-архиву>"
         }
-        
-        storage_mounts {
-          mount_point_name = "<точка_монтирования>"
-          bucket           = "<имя_бакета>"
-          prefix           = "<имя_папки>"
-          read_only        = <флаг_только_для_чтения>
+
+        mounts {
+          name = "<точка_монтирования>"
+          mode        = "<rw/ro>"
+          object_storage {
+            bucket = "<имя_бакета>"
+            prefix = "<имя_папки>"
+          }
         }
+
       }
       ```
 
