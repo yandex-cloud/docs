@@ -96,7 +96,6 @@ In complex routing scenarios with multiple default routes in the VPC network (su
 1. You cannot use the IP address of a load balancer's [traffic listener](../../network-load-balancer/concepts/listener.md) as `next hop`.
 1. When using {{ vpc-short-name }} route tables to route reverse traffic from [target resources](../../network-load-balancer/concepts/target-resources.md) of an internal load balancer, consider the [traffic routing specifics](../../network-load-balancer/concepts/specifics.md#nlb-int-routing).
 1. You cannot use IP addresses of an application-level load balancer's [traffic listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) as `next hop`.
-1. A {{ yandex-cloud }} virtual network does not allow transmitting traffic through itself. In other words, only [private IP address ranges in {{ vpc-name }}](../../vpc/concepts/network.md#subnet) can be used as destination prefixes and gateways for static routes in {{ vpc-short-name }} route tables. Traffic to public destination prefixes or gateways with public IP addresses in the {{ vpc-short-name }} route table will be discarded.
 1. To learn more about the quota-related restrictions on the use of route tables and static routes, see [Quotas and limits](./limits.md#vpc-quotas) in the {{ vpc-name }} documentation.
 
 ## Static route use cases {#refs}

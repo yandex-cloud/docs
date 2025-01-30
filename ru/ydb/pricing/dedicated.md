@@ -8,7 +8,15 @@ editable: false
 
 
 
-{% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=2443a6ec26b9#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
@@ -48,7 +56,6 @@ editable: false
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в час (например, стоимость хранения 1 ГБ в течение 1,5 часов равна стоимости хранения в течение 2 часов).
 
-
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../../_includes/mdb/cvos.md) %}
@@ -60,7 +67,6 @@ editable: false
 Объем хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
-
 
 ## Цены для региона Россия {#prices}
 

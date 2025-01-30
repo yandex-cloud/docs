@@ -21,6 +21,8 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
 
+        {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+
   1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите для узлов балансировщика подсети в разных [зонах доступности](../../overview/concepts/geo-scope.md) и включите прием трафика в этих подсетях.
 
       Чтобы не создавать узел балансировщика в определенной зоне доступности, нажмите ![xmark](../../_assets/console-icons/xmark.svg) в соответствующей строке.

@@ -47,29 +47,29 @@ You need to create and configure [security groups](../../vpc/concepts/security-g
 
      - To all addresses
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
      - To the addresses used by {{ yandex-cloud }}
 
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-https }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
          * `84.201.181.26/32`: Getting the {{ dataproc-name }} cluster status, running jobs, UI Proxy.
          * `158.160.59.216/32`: Monitoring the {{ dataproc-name }} cluster state, autoscaling.
-         * `213.180.193.243/32`: Access to {{ objstorage-name }}.
+         * `213.180.193.243/32`: Access to {{ objstorage-name }} .
          * `84.201.181.184/32`: {{ cloud-logging-name }} address.
 
      {% endlist %}
 
    * Rule that allows access to NTP servers for time syncing:
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 If you plan to use multiple security groups for your {{ dataproc-name }} cluster, allow all traffic between these groups.
 
@@ -100,10 +100,13 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      The naming requirements are as follows:
 
-     * It must be unique within the folder.
+     * The name must be unique within the folder.
 
      {% include [name-format.md](../../_includes/name-format.md) %}
 
+  1. Select the [environment](../concepts/environment.md#environment) to create the cluster in (you cannot change the environment once the cluster is created):
+     * `PRODUCTION`: For stable versions of your apps.
+     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
   1. Add or delete cluster [labels](../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
   1. Specify the following cluster settings:
 
@@ -131,10 +134,12 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
           ["arg1","arg2",...,"argN"]
           ```
 
-     * [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) name selection format, **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
+     * [{{ objstorage-full-name }}](../../storage/concepts/bucket.md) bucket name selection format, **{{ ui-key.yacloud.forms.label_form-list }}** or **{{ ui-key.yacloud.forms.label_form-id }}**.
      * Bucket that will be used by the cluster.
 
-        Depending on the format you selected, either pick a name from the list or specify it manually. You can get it with a [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
+        Depending on the format you selected, either pick a name from the list or specify it manually. You can get it with the [list of buckets in the folder](../../storage/operations/buckets/get-info.md#get-information).
+
+        The [service account](../../iam/concepts/users/service-accounts.md) of the {{ dataproc-name }} cluster must have `READ and WRITE` permissions for this bucket.
 
      * Format in which to specify a network for the {{ dataproc-name }} cluster.
      * Network for the cluster.
@@ -217,6 +222,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      ```bash
      {{ yc-dp }} cluster create <cluster_name> \
+       --environment=<environment> \
        --bucket=<bucket_name> \
        --zone=<availability_zone> \
        --service-account-name=<service_account_name> \
@@ -239,7 +245,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
                     `hosts-count=<number_of_hosts>,`
                     `assign-public-ip=<public_access_to_subcluster_host> \
        --deletion-protection \
-       --ui-proxy=<access_to_component_web_interfaces> \
+       --ui-proxy=<access_to_component_web_interfaсes> \
        --log-group-id=<log_group_ID> \
        --security-group-ids=<list_of_security_group_IDs>
      ```
@@ -251,6 +257,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      {% endnote %}
 
      Where:
+     * `--environment`: Cluster [environment](../concepts/environment.md#environment), either `prestable` or `production`.
      * `--bucket`: Name of an {{ objstorage-name }} bucket where job dependencies and results will be stored. The [service account](../../iam/concepts/users/service-accounts.md) of the {{ dataproc-name }} cluster must have `READ and WRITE` permissions for this bucket.
      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) where the {{ dataproc-name }} cluster hosts will reside.
      * `--service-account-name`: Name of the {{ dataproc-name }} cluster service account.
@@ -365,13 +372,13 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
   
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Create a configuration file describing the cloud network and subnets.
+  1. Create a configuration file with a description of your cloud network, subnets, security group, and NAT gateway.
 
      The {{ dataproc-name }} cluster resides in a cloud network. If you already have a suitable network, you do not need to describe it again.
 
      {{ dataproc-name }} cluster hosts reside in subnets of the selected cloud network. If you already have suitable subnets, you do not need to describe them again.
 
-     Example structure of a configuration file that describes a cloud network with a single subnet:
+     Example structure of a configuration file describing a single-subnet cloud network, security group, NAT gateway, and route table:
 
      ```hcl
      resource "yandex_vpc_network" "test_network" {
@@ -383,15 +390,66 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
        zone           = "<availability_zone>"
        network_id     = yandex_vpc_network.test_network.id
        v4_cidr_blocks = ["<subnet>"]
+       route_table_id = yandex_vpc_route_table.data-processing-rt.id
+     }
+
+     resource "yandex_vpc_gateway" "data-processing-gateway" {
+       name = "data-processing-gateway"
+       shared_egress_gateway {}
+     }
+
+     resource "yandex_vpc_route_table" "data-processing-rt" {
+       network_id = "${yandex_vpc_network.test-network.id}"
+
+       static_route {
+         destination_prefix = "0.0.0.0/0"
+         gateway_id         = "${yandex_vpc_gateway.data-processing-gateway.id}"
+       }
+     }
+
+     resource "yandex_vpc_security_group" "data-processing-sg" {
+       description = "Security group for DataProc"
+       name        = "data-processing-security-group"
+       network_id  = yandex_vpc_network.data-proc-network.id
+
+       egress {
+         description    = "Allow outgoing HTTPS traffic"
+         protocol       = "TCP"
+         port           = 443
+         v4_cidr_blocks = ["0.0.0.0/0"]
+       }
+
+       ingress {
+         description       = "Allow any incomging traffic within the security group"
+         protocol          = "ANY"
+         from_port         = 0
+         to_port           = 65535
+         predefined_target = "self_security_group"
+       }
+
+       egress {
+         description       = "Allow any outgoing traffic within the security group"
+         protocol          = "ANY"
+         from_port         = 0
+         to_port           = 65535
+         predefined_target = "self_security_group"
+       }
+
+       egress {
+         description    = "Allow outgoing traffic to NTP servers for time synchronization"
+         protocol       = "UDP"
+         port           = 123
+         v4_cidr_blocks = ["0.0.0.0/0"]
+       }
      }
      ```
 
-  
-  1. Create a configuration file with a description of the following resources:
-      * [Service account](../../iam/concepts/users/service-accounts.md) to which you need to grant access to the {{ dataproc-name }} cluster.
+
+  1. Create a configuration file describing the following resources:
+      * [Service account](../../iam/concepts/users/service-accounts.md) that needs access to the {{ dataproc-name }} cluster and {{ objstorage-name }} bucket.
       * Service account to create the {{ objstorage-name }} bucket.
       * [Static key](../../iam/concepts/authorization/access-key.md).
-      * {{ objstorage-name }} bucket for storing [job](../concepts/jobs.md) execution results
+      * {{ objstorage-name }} bucket to store [job](../concepts/jobs.md) execution results in.
 
      ```hcl
      resource "yandex_iam_service_account" "data_proc_sa" {
@@ -416,9 +474,9 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
        description = "<service_account_description>"
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "storage-editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "storage-admin" {
        folder_id = "<folder_ID>"
-       role      = "storage.editor"
+       role      = "storage.admin"
        member    = "serviceAccount:${yandex_iam_service_account.bucket_sa.id}"
      }
 
@@ -428,8 +486,14 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      resource "yandex_storage_bucket" "data_bucket" {
        depends_on = [
-         yandex_resourcemanager_folder_iam_member.storage-editor
+         yandex_resourcemanager_folder_iam_member.storage-admin
        ]
+
+       grant {
+         id          = yandex_iam_service_account.data_proc_sa.id
+         type        = "CanonicalUser"
+         permissions = ["READ","WRITE"]
+       }
 
        bucket     = "<bucket_name>"
        access_key = yandex_iam_service_account_static_access_key.bucket_sa_static_key.access_key
@@ -445,13 +509,18 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
 
      ```hcl
      resource "yandex_dataproc_cluster" "data_cluster" {
-       bucket              = "<bucket_name>"
+       bucket              = "${yandex_storage_bucket.data_bucket.bucket}"
        name                = "<cluster_name>"
        description         = "<cluster_description>"
+       environment         = "<cluster_environment>"
        service_account_id  = yandex_iam_service_account.data_proc_sa.id
        zone_id             = "<availability_zone>"
-       security_group_ids  = ["<list_of_security_group_IDs>"]
+       security_group_ids  = [yandex_vpc_security_group.data-processing-sg.id]
        deletion_protection = <cluster_deletion_protection>
+       depends_on = [
+         yandex_resourcemanager_folder_iam_member.dataproc-provisioner,
+         yandex_resourcemanager_folder_iam_member.dataproc-agent
+       ]
 
        cluster_config {
          version_id = "<image_version>"
@@ -464,7 +533,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
              ...
            }
            ssh_public_keys = [
-             file("${file("<path_to_public_SSH_key>")}")
+             file("<path_to_public_SSH_key>")
            ]
          }
 
@@ -573,6 +642,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
   To create a {{ dataproc-name }} cluster, use the [create](../api-ref/Cluster/create) API method and include the following in the request:
   * ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the {{ dataproc-name }} cluster, in the `folderId` parameter.
   * {{ dataproc-name }} cluster name in the `name` parameter.
+  * Cluster [environment](../concepts/environment.md#environment) in the `environment` parameter: `prestable` or `production`.
   * {{ dataproc-name }} cluster configuration in the `configSpec` parameter, including:
     * [Image version](../concepts/environment.md) in the `configSpec.versionId` parameter.
 
@@ -699,6 +769,7 @@ To create a {{ dataproc-name }} cluster copy:
 
   Create a {{ dataproc-name }} cluster to run Spark jobs without HDFS and data storage subclusters with the following test settings:
   * Name: `my-dataproc`.
+  * Environment: `production`.
   * Bucket: `dataproc-bucket`.
   * Availability zone: `{{ zone-id }}`.
   * Service account: `dataproc-sa`.
@@ -717,6 +788,7 @@ To create a {{ dataproc-name }} cluster copy:
 
   ```bash
   {{ yc-dp }} cluster create my-dataproc \
+     --environment=production \
      --bucket=dataproc-bucket \
      --zone={{ zone-id }} \
      --service-account-name=dataproc-sa \

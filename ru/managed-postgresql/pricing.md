@@ -4,10 +4,10 @@ description: Расчет стоимости использования {{ mpg-n
 editable: false
 ---
 
+
 # Правила тарификации для {{ mpg-name }}
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mpg-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
-
 
 {% note tip %}
 
@@ -17,9 +17,8 @@ editable: false
 
 
 
+
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -29,6 +28,7 @@ editable: false
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
+
 ## Из чего складывается стоимость использования {{ mpg-short-name }} {#rules}
 
 Расчет стоимости использования {{ mpg-name }} учитывает:
@@ -37,11 +37,13 @@ editable: false
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
+
 ### Использование хостов БД {#rules-hosts-uptime}
 
 Стоимость начисляется за каждый час работы хоста в соответствии с его классом. Точные характеристики классов приведены в разделе [Классы хостов](concepts/instance-types.md).
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ PG }} не может выполнять свои основные функции, не тарифицируется.
+
 
 ### Использование дискового пространства {#rules-storage}
 
@@ -74,6 +76,7 @@ editable: false
     * При добавлении хостов увеличивается общий размер хранилища кластера и, соответственно, бесплатный объем резервных копий.
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
 
 ### Пример расчета стоимости кластера {#example}
 
@@ -119,6 +122,7 @@ editable: false
 
 
 
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -130,6 +134,7 @@ editable: false
 По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены](#prices) стоят прочерки. Размер хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
+
 
 ## Цены для региона Россия {#prices}
 
@@ -145,10 +150,12 @@ editable: false
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
+
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 
@@ -169,6 +176,7 @@ editable: false
 
 
 
+
 #### Цены в месяц {#host-price-per-month}
 
 
@@ -183,6 +191,7 @@ editable: false
   {% include [kzt-host-resources-monthly](../_pricing/managed-postgresql/kzt-host-resources-monthly.md) %}
 
 {% endlist %}
+
 
 
 

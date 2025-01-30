@@ -13,7 +13,7 @@ description: In this article, you will learn about disk types in {{ mrd-name }} 
 
 ## Selecting the disk type during cluster creation {#storage-type-selection}
 
-The number of hosts you can create together with a {{ RD }} cluster depends on the disk type you select and whether you enabled [sharding](./sharding.md):
+The number of hosts you can create together with a {{ VLK }} cluster depends on the disk type you select and whether you enabled [sharding](./sharding.md):
 
 | Disk type                                                             | Non-sharded cluster  | Sharded cluster    |
 | ------------------------------------------------------------------------- | --------------------------------- | ----------------------------------|

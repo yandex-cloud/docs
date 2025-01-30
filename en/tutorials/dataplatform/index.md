@@ -133,7 +133,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](postgresql-to-opensearch.md)
 
 
-## {{ RD }} {#redis}
+## {{ VLK }} {#redis}
 
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)

@@ -7,7 +7,7 @@ description: This section contains {{ mrd-name }} release notes.
 
 ## December 2024 {#dec-2024}
 
-The service switched to [{{ RD }}](https://valkey.io/) DBMS, an open source Redis project branch.
+The service switched to [{{ VLK }}](https://valkey.io/) DBMS, an open source Redis project branch.
 
 ## September 2024 {#sep-2024}
 

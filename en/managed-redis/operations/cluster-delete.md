@@ -1,9 +1,9 @@
 ---
-title: Deleting a {{ RD }} cluster
-description: After you delete a {{ RD }} database cluster, its backups will be kept for seven days for recovery purposes. To restore a deleted cluster from a backup you will need its ID; therefore, make sure the cluster ID is secure before deleting the cluster.
+title: Deleting a {{ VLK }} cluster
+description: After you delete a {{ VLK }} database cluster, its backups will be kept for seven days for recovery purposes. To restore a deleted cluster from a backup you will need its ID; therefore, make sure the cluster ID is secure before deleting the cluster.
 ---
 
-# Deleting a {{ RD }} cluster
+# Deleting a {{ VLK }} cluster
 
 ## Before deleting a cluster {#before-you-delete}
 
@@ -35,7 +35,7 @@ description: After you delete a {{ RD }} database cluster, its backups will be k
   {{ yc-mdb-rd }} cluster delete <cluster_name_or_ID>
   ```
 
-  You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
+  You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
@@ -58,7 +58,7 @@ description: After you delete a {{ RD }} database cluster, its backups will be k
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -86,7 +86,7 @@ description: After you delete a {{ RD }} database cluster, its backups will be k
             yandex.cloud.mdb.redis.v1.ClusterService.Delete
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

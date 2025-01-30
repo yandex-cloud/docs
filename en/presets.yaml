@@ -8085,6 +8085,7 @@ default:
           import-export:
             action_export: Export
             action_import: Import
+        field_metastore-endpoint-ip: IP address
         label_metastore: Metastore
       mongodb:
         cluster:

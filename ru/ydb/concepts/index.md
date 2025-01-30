@@ -5,7 +5,6 @@ description: Из статьи вы узнаете про СУБД {{ ydb-short-
 
 # Обзор {{ ydb-full-name }}
 
-
 Сервис {{ ydb-full-name }} обеспечивает создание и управление базами данных {{ ydb-short-name }} в {{ yandex-cloud }}.
 
 Подробнее о концепциях сервиса {{ ydb-full-name }} читайте в следующих статьях:
@@ -35,8 +34,6 @@ description: Из статьи вы узнаете про СУБД {{ ydb-short-
 * [Ограничения базы данных]({{ ydb.docs }}/concepts/limits-ydb).
 * [Кластер {{ ydb-short-name }}]({{ ydb.docs }}/concepts/cluster/).
 
-
 ## Соглашение об уровне обслуживания {#sla}
 
 Для сервиса действует [соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla). Уровень обслуживания сервиса определен в документе [Уровень обслуживания Yandex {{ ydb-name }}](https://yandex.ru/legal/cloud_sla_ydb).
-

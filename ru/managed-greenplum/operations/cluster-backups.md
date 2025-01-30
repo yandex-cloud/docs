@@ -303,6 +303,14 @@
 
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
+    
+    1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md). Можно назначить группы на один из двух видов хостов {{ GP }} либо сразу на оба.
+
+        Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+
+        {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
+
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
     Чтобы восстановить из резервной копии удаленный ранее кластер:
@@ -320,6 +328,14 @@
     1. В настройке **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** укажите количество [сегментов](../concepts/index.md) на хост.
 
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
+    
+    1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md). Можно назначить группы на один из двух видов хостов {{ GP }} либо сразу на оба.
+
+        Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+
+        {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -360,7 +376,9 @@
            --restore-only=<список_БД_и_таблиц_для_восстановления> \
            --zone-id=<зона_доступности> \
            --subnet-id=<идентификатор_подсети> \
-           --assign-public-ip=<публичный_доступ_к_кластеру>
+           --assign-public-ip=<публичный_доступ_к_кластеру> \
+           --master-host-group-ids=<идентификаторы_групп_выделенных_хостов_для_хостов-мастеров> \
+           --segment-host-group-ids=<идентификаторы_групп_выделенных_хостов_для_хостов-сегментов>
         ```
 
 
@@ -390,6 +408,12 @@
         * `--zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
         
+        * `--master-host-group-ids` и `--segment-host-group-ids` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.
+
+            Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
         * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
         * `--assign-public-ip` — флаг, который указывается, если кластеру требуется доступ из интернета.
 
@@ -402,6 +426,7 @@
 
     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
+        
         ```json
         {
           "backupId": "<идентификатор_резервной_копии>",
@@ -432,9 +457,16 @@
             "<БД_и_таблица_2>",
             ...
             "<БД_и_таблица_N>"
+          ],
+          "masterHostGroupIds": [
+            "string"
+          ],
+          "segmentHostGroupIds": [
+            "string"
           ]
         }
         ```
+
 
         Где:
 
@@ -454,18 +486,26 @@
             * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
             * `assignPublicIp` — публичный доступ к хостам кластера: `true` или `false`.
 
-            * `masterResources`, `segmentResources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
+        * `masterResources`, `segmentResources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
 
-                * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
-                * `diskSize` — размер диска в байтах;
-                * `diskTypeId` — [тип диска](../concepts/storage.md).
+            * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+            * `diskSize` — размер диска в байтах;
+            * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-            * `segmentHostCount` — количество хостов-сегментов: от `2` до `32`.
-            * `segmentInHost` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+        * `segmentHostCount` — количество хостов-сегментов: от `2` до `32`.
+        * `segmentInHost` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-            * `restoreOnly` — (опционально) список БД и таблиц, которые будут восстановлены из резервной копии. Поддерживаются форматы `<БД>/<схема>/<таблица>`, `<БД>/<таблица>` и `<БД>`. Допускается использование подстановочного символа `*`. Если не использовать этот параметр, кластер будет восстановлен целиком.
+        * `restoreOnly` — (опционально) список БД и таблиц, которые будут восстановлены из резервной копии. Поддерживаются форматы `<БД>/<схема>/<таблица>`, `<БД>/<таблица>` и `<БД>`. Допускается использование подстановочного символа `*`. Если не использовать этот параметр, кластер будет восстановлен целиком.
+
+        
+        * `masterHostGroupIds` и `segmentHostGroupIds` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.
+
+            Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
 
     1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -490,6 +530,7 @@
 
     1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
+        
         ```json
         {
           "backup_id": "<идентификатор_резервной_копии>",
@@ -520,9 +561,16 @@
             "<БД_и_таблица_2>",
             ...
             "<БД_и_таблица_N>"
+          ],
+          "master_host_group_ids": [
+            "string"
+          ],
+          "segment_host_group_ids": [
+            "string"
           ]
         }
         ```
+
 
         Где:
 
@@ -542,18 +590,26 @@
             * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
             * `assign_public_ip` — публичный доступ к хостам кластера: `true` или `false`.
 
-            * `master_resources`, `segment_resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
+        * `master_resources`, `segment_resources` — конфигурация хостов-мастеров и хостов-сегментов кластера:
 
-                * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
-                * `disk_size` — размер диска в байтах;
-                * `disk_type_id` — [тип диска](../concepts/storage.md).
+            * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+            * `disk_size` — размер диска в байтах;
+            * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-            * `segment_host_count` — количество хостов-сегментов: от `2` до `32`.
-            * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
+        * `segment_host_count` — количество хостов-сегментов: от `2` до `32`.
+        * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-            * `restore_only` — (опционально) список БД и таблиц, которые будут восстановлены из резервной копии. Поддерживаются форматы `<БД>/<схема>/<таблица>`, `<БД>/<таблица>` и `<БД>`. Допускается использование подстановочного символа `*`. Если не использовать этот параметр, кластер будет восстановлен целиком.
+        * `restore_only` — (опционально) список БД и таблиц, которые будут восстановлены из резервной копии. Поддерживаются форматы `<БД>/<схема>/<таблица>`, `<БД>/<таблица>` и `<БД>`. Допускается использование подстановочного символа `*`. Если не использовать этот параметр, кластер будет восстановлен целиком.
+
+        
+        * `master_host_group_ids` и `segment_host_group_ids` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.
+
+            Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
 
     1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 

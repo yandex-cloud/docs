@@ -1,18 +1,18 @@
 ---
-title: How to create a {{ RD }} cluster
-description: Follow this guide to create a {{ RD }} cluster with a single or multiple DB hosts.
+title: How to create a {{ VLK }} cluster
+description: Follow this guide to create a {{ VLK }} cluster with a single or multiple DB hosts.
 ---
 
-# Creating a {{ RD }} cluster
+# Creating a {{ VLK }} cluster
 
 
-A {{ RD }} cluster is one or more database hosts between which you can configure replication. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
+A {{ VLK }} cluster is one or more database hosts between which you can configure replication. Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and asynchronously duplicates changes on replicas.
 
 For more information about {{ mrd-name }} cluster structure, see [Resource relationships](../concepts/index.md).
 
 {% note info %}
 
-* The number of hosts you can create together with a {{ RD }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors) as well as on whether [sharding](../concepts/sharding.md) is enabled.
+* The number of hosts you can create together with a {{ VLK }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors) as well as on whether [sharding](../concepts/sharding.md) is enabled.
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
@@ -84,13 +84,11 @@ There are no restrictions for non-sharded clusters.
      * Select **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
 
   
-     * Select the [disk type](../concepts/storage.md)       * Either the more flexible network SSD (`network-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage
+     * Select the [disk type](../concepts/storage.md):
+       * Either the more flexible network SSD (`network-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage
        * Or the faster local SSD (`local-ssd`) storage
 
        {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
-
-
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
      * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
@@ -194,8 +192,6 @@ There are no restrictions for non-sharded clusters.
          * `replica-priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
       * `--disk-type-id`: Disk type.
 
-         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
       * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
 
@@ -253,7 +249,7 @@ There are no restrictions for non-sharded clusters.
 
          config {
            password = "<password>"
-           version  = "<{{ RD }}_version>"
+           version  = "<{{ VLK }}_version>"
          }
 
          resources {
@@ -290,7 +286,7 @@ There are no restrictions for non-sharded clusters.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
-       * `version`: {{ RD }} version, {{ versions.tf.str }}.
+       * `version`: {{ VLK }} version, {{ versions.tf.str }}.
        * `host`: Host parameters:
          * `zone_id`: Availability zone.
          * `subnet_id`: ID of a subnet in the selected availability zone.
@@ -305,7 +301,7 @@ There are no restrictions for non-sharded clusters.
 
        {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
-       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mrd }}).
+       For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mrd }}).
 
     1. Make sure the settings are correct.
 
@@ -315,7 +311,7 @@ There are no restrictions for non-sharded clusters.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       After this, all required resources will be created in the specified folder, and the [FQDNs of the cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+       After this, all required resources will be created in the specified folder, and the [FQDNs of the cluster hosts](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration in the [management console]({{ link-console-main }}).
 
        {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
@@ -334,7 +330,7 @@ There are no restrictions for non-sharded clusters.
           "name": "<cluster_name>",
           "environment": "<environment>",
           "configSpec": {
-            "version": "<{{ RD }}_version>",
+            "version": "<{{ VLK }}_version>",
             "resources": {
               "resourcePresetId": "<host_class>",
               "diskSize": "<storage_size_in_bytes>",
@@ -378,12 +374,12 @@ There are no restrictions for non-sharded clusters.
 
         Where:
 
-        * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
         * `configSpec`: Cluster settings:
 
-            * `version`: {{ RD }} version.
+            * `version`: {{ VLK }} version.
             * `resources`: Cluster resources:
 
                 * `resourcePresetId`: [Host class](../concepts/instance-types.md).
@@ -466,7 +462,7 @@ There are no restrictions for non-sharded clusters.
           "name": "<cluster_name>",
           "environment": "<environment>",
           "config_spec": {
-            "version": "<{{ RD }}_version>",
+            "version": "<{{ VLK }}_version>",
             "resources": {
               "resource_preset_id": "<host_class>",
               "disk_size": "<storage_size_in_bytes>",
@@ -510,12 +506,12 @@ There are no restrictions for non-sharded clusters.
 
         Where:
 
-        * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
         * `config_spec`: Cluster settings:
 
-            * `version`: {{ RD }} version.
+            * `version`: {{ VLK }} version.
             * `resources`: Cluster resources:
 
                 * `resource_preset_id`: [Host class](../concepts/instance-types.md).
@@ -597,9 +593,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ RD }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ RD }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ RD }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ VLK }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ VLK }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ VLK }} cluster has a lot of settings and you need to create a similar one.
 
-To create a {{ RD }} cluster copy:
+To create a {{ VLK }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -616,7 +612,7 @@ To create a {{ RD }} cluster copy:
         resource "yandex_mdb_redis_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ RD }} cluster to the environment variable:
+    1. Write the ID of the initial {{ VLK }} cluster to the environment variable:
 
         ```bash
         export REDIS_CLUSTER_ID=<cluster_ID>
@@ -624,7 +620,7 @@ To create a {{ RD }} cluster copy:
 
         You can request the ID with the [list of clusters in the folder](../../managed-redis/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ RD }} cluster into the {{ TF }} configuration:
+    1. Import the settings of the initial {{ VLK }} cluster into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_redis_cluster.old ${REDIS_CLUSTER_ID}
@@ -694,7 +690,7 @@ To create a {{ RD }} cluster copy:
   * Password: `user1user1`.
   * Protection against accidental cluster deletion.
 
-  Run the following command:
+  Run this command:
 
   
   ```bash
@@ -770,7 +766,7 @@ To create a {{ RD }} cluster copy:
     network_id = yandex_vpc_network.mynet.id
 
     ingress {
-      description    = "{{ RD }}"
+      description    = "{{ VLK }}"
       port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
@@ -811,7 +807,7 @@ To create a {{ RD }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
   * Password: `user1user1`.
 
-  Run the following command:
+  Run this command:
 
   
   ```bash
@@ -897,7 +893,7 @@ To create a {{ RD }} cluster copy:
     network_id = yandex_vpc_network.mynet.id
   
     ingress {
-      description    = "{{ RD }}"
+      description    = "{{ VLK }}"
       port           = {{ port-mrd-tls }}
       protocol       = "TCP"
       v4_cidr_blocks = ["10.5.0.0/24"]
@@ -929,7 +925,7 @@ To create a {{ RD }} cluster copy:
       * `subnet-b` with the `10.2.0.0/24` range
       * `subnet-d` with the `10.3.0.0/24` range
     * Three `{{ mrd-host-class }}` class hosts, one in each subnet.
-    * New `redis-sg` security group allowing connections via ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([{{ RD }} Sentinel](./connect/index.md)) from any subnet addresses.
+    * New `redis-sg` security group allowing connections via ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](./connect/index.md)) from any subnet addresses.
     * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
     * Password: `user1user1`.
     * Protection against accidental cluster deletion.
@@ -1005,7 +1001,7 @@ To create a {{ RD }} cluster copy:
       network_id = yandex_vpc_network.mynet.id
 
       ingress {
-        description    = "{{ RD }}"
+        description    = "{{ VLK }}"
         port           = {{ port-mrd }}
         protocol       = "TCP"
         v4_cidr_blocks = [
@@ -1016,7 +1012,7 @@ To create a {{ RD }} cluster copy:
       }
 
       ingress {
-        description    = "{{ RD }} Sentinel"
+        description    = "{{ VLK }} Sentinel"
         port           = {{ port-mrd-sentinel }}
         protocol       = "TCP"
         v4_cidr_blocks = [

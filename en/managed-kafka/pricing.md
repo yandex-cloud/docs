@@ -6,18 +6,16 @@ editable: false
 
 In this section, you can find the {{ mkf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
-
 {% note tip %}
 
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=285af0b6c6a6#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=285af0b6c6a6#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+
 
 
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
@@ -74,7 +72,7 @@ The minimum billing unit is one minute (for example, 1.5 minutes of host operati
 You pay for the storage allocated for DB clusters.
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
-    * For Intel Cascade Lake: In increments of 100 GB.
+    * For Intel Cascade Lake: In increments of 100 GB.
     * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) for clusters with three or more broker hosts in increments of 93 GB.
 

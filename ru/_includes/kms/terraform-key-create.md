@@ -4,10 +4,11 @@
 
    ```hcl
    resource "yandex_kms_symmetric_key" "key-a" {
-     name              = "<имя_ключа>"
-     description       = "<описание_ключа>"
-     default_algorithm = "AES_128"
-     rotation_period   = "8760h"
+     name                = "<имя_ключа>"
+     description         = "<описание_ключа>"
+     default_algorithm   = "AES_128"
+     rotation_period     = "8760h"
+     deletion_protection = true
      lifecycle {
        prevent_destroy = true
      }
@@ -23,10 +24,12 @@
    * `description` — описание ключа.
    * `default_algorithm` — алгоритм шифрования. Возможные значения: `AES-128`, `AES-192` или `AES-256`.
    * `rotation_period` — период [ротации](../../kms/concepts/version.md#rotate-key) (частота смены версии ключа по умолчанию). Чтобы создать ключ без автоматической ротации, не указывайте параметр `rotation_period`.
+   * `deletion_protection` — защита от удаления ключа. Чтобы создать ключ без защиты от удаления, не указывайте параметр `deletion_protection`.
+   * `lifecycle.prevent_destroy` — защита от удаления ключа при выполнении команд {{ TF }}. Чтобы создать ключ без такой защиты, не указывайте блок `lifecycle`.
 
    {% note warning %}
 
-   Удаление ключа {{ kms-short-name }} равносильно уничтожению всех зашифрованных с его помощью данных — без ключа восстановить данные не получится. Блок `lifecycle` необходим, чтобы обезопасить ключ от удаления (например, командой `terraform destroy`).
+   Удаление ключа {{ kms-short-name }} равносильно уничтожению всех зашифрованных с его помощью данных — без ключа восстановить данные не получится. Параметр `deletion_protection` и блок `lifecycle` необходимы, чтобы обезопасить ключ от удаления (например, командой `terraform destroy`).
 
    {% endnote %}
 

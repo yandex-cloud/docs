@@ -8,7 +8,7 @@ description: In this tutorial, you will learn how to change settings for a {{ MY
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-* [Increase storage size](#change-disk-size).
+* [Change the disk type and increase storage size](#change-disk-size).
 * [Change {{ MY }} settings](#change-mysql-config).
 
     {% note warning %}
@@ -57,7 +57,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the host class for the cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -156,7 +156,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `configSpec.resources.resourcePresetId`: New host class.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -203,7 +203,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `config_spec.resources.resource_preset_id`: New host class.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -217,11 +217,15 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - Management console {#console}
 
-  To increase the cluster storage size:
+  To change the disk type and increase the storage size for a cluster:
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+
+      * Select the [disk type](../concepts/storage.md).
+      * Specify the required disk size.
+
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -230,36 +234,38 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To increase the cluster storage size:
+  To change the disk type and increase the storage size for a cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
       ```
 
-  1. Specify the required storage in the cluster update command (it must be at least as large as `disk_size` in the cluster properties):
+  1. Specify the [disk type](../concepts/storage.md) and required storage size in the cluster update command (at least as large as `disk_size` in the cluster properties):
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
+        --disk-type <disk_type> \
         --disk-size <storage_size_in_GB>
       ```
 
 - {{ TF }} {#tf}
 
-  To increase the cluster storage size:
+  To change the disk type and  increase the storage size for a cluster:
 
   1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [Creating clusters](./cluster-create.md).
 
-  1. Under `resources`, change the `disk_size` parameter value:
+  1. Under `resources`, change the `disk_type_id` and `disk_size` parameter values:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
         resources {
-          disk_size = <storage_size_in_GB>
+          disk_type_id = "<disk_type>"
+          disk_size    = <storage_size_in_GB>
           ...
         }
       }
@@ -294,9 +300,10 @@ We recommend changing the host class only when the cluster has no active workloa
           --header "Content-Type: application/json" \
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
           --data '{
-                    "updateMask": "configSpec.resources.diskSize",
+                    "updateMask": "configSpec.resources.diskTypeId,configSpec.resources.diskSize",
                     "configSpec": {
                       "resources": {
+                        "diskTypeId": "<disk_type>",
                         "diskSize": "<storage_size_in_bytes>"
                       }
                     }
@@ -307,11 +314,12 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-          Only one parameter is provided in this case.
+      * `configSpec.resources`: Storage parameters:
 
-      * `configSpec.resources.diskSize`: New disk size in bytes.
+          * `diskTypeId`: [Disk type](../concepts/storage.md).
+          * `diskSize`: New storage size in bytes.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -337,11 +345,13 @@ We recommend changing the host class only when the cluster has no active workloa
                 "cluster_id": "<cluster_ID>",
                 "update_mask": {
                   "paths": [
+                    "config_spec.resources.disk_type_id",
                     "config_spec.resources.disk_size"
                   ]
                 },
                 "config_spec": {
                   "resources": {
+                    "disk_type_id": "<disk_type>",
                     "disk_size": "<storage_size_in_bytes>"
                   }
                 }
@@ -354,11 +364,12 @@ We recommend changing the host class only when the cluster has no active workloa
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-          Only one parameter is provided in this case.
+      * `config_spec.resources`: Storage parameters:
 
-      * `config_spec.resources.disk_size`: New disk size in bytes.
+          * `disk_type_id`: [Disk type](../concepts/storage.md).
+          * `disk_size`: New storage size in bytes.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -386,7 +397,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To update the [{{ MY }} settings](../concepts/settings-list.md#dbms-cluster-settings):
 
-  1. View a description of the update cluster configuration CLI command:
+  1. View the description of the CLI command to update the cluster configuration:
 
       ```bash
       {{ yc-mdb-my }} cluster update-config --help
@@ -472,7 +483,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -524,7 +535,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
           See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -552,7 +563,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
   To change additional cluster settings:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -595,7 +606,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
     * `performance-diagnostics`: Enabling statistics collection for [cluster performance diagnostics](performance-diagnostics.md). For `sessions-sampling-interval` and `statements-sampling-interval`, possible values range from `1` to `86400` seconds.
 
-    You can [get the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
+    You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -779,7 +790,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
           --data "@body.json"
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -884,7 +895,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -938,7 +949,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
            --destination-folder-name=<destination_folder_name>
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -988,7 +999,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       Where `destinationFolderId` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1018,7 +1029,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       Where `destination_folder_id` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1043,7 +1054,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -1118,7 +1129,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1166,7 +1177,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
       * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

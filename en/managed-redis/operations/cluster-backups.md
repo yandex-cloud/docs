@@ -1,6 +1,6 @@
 ---
-title: Managing {{ RD }} backups
-description: You can create backups and restore clusters from existing {{ RD }} backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup.
+title: Managing {{ VLK }} backups
+description: You can create backups and restore clusters from existing {{ VLK }} backups. When you restore a cluster from a backup, you create a new cluster with the backup data. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore your data from a backup.
 ---
 
 # Managing backups in {{ mrd-name }}
@@ -49,13 +49,13 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
   To restore a cluster from a backup:
 
-  1. View a description of the CLI restore {{ RD }} cluster command:
+  1. View a description of the CLI restore {{ VLK }} cluster command:
 
       ```bash
       {{ yc-mdb-rd }} cluster restore --help
       ```
 
-  1. Getting a list of available {{ RD }} cluster backups:
+  1. Getting a list of available {{ VLK }} cluster backups:
 
       ```bash
       {{ yc-mdb-rd }} backup list
@@ -85,7 +85,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
          --disk-size 20
       ```
 
-      This results in a new {{ RD }} cluster with the following characteristics:
+      This results in a new {{ VLK }} cluster with the following characteristics:
 
       * Name: `mynewrd`
       * Environment: `PRODUCTION`
@@ -252,7 +252,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
   To create a cluster backup:
 
-  1. View a description of the CLI create {{ RD }} backup command:
+  1. View a description of the CLI create {{ VLK }} backup command:
 
       ```bash
       {{ yc-mdb-rd }} cluster backup --help
@@ -272,7 +272,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Backup](../api-ref/Cluster/backup.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -281,7 +281,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:backup'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -293,7 +293,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -309,7 +309,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
             yandex.cloud.mdb.redis.v1.ClusterService.Backup
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -339,7 +339,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of {{ RD }} cluster backups available in the default folder, run the command:
+  To get a list of {{ VLK }} cluster backups available in the default folder, run the command:
 
   ```bash
   {{ yc-mdb-rd }} backup list
@@ -364,7 +364,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
     1. To get a list of cluster backups:
 
-        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+        1. Use the [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -373,13 +373,13 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
                 --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
     1. To get a list of backups for all the clusters in a folder:
 
-        1. Use the [Backup.List](../api-ref/Backup/list.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+        1. Use the [Backup.List](../api-ref/Backup/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -405,7 +405,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
     1. To get a list of cluster backups:
 
-        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Use the [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -421,13 +421,13 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
                 yandex.cloud.mdb.redis.v1.ClusterService.ListBackups
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
     1. To get a list of backups for all the clusters in a folder:
 
-        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Use the [BackupService.List](../api-ref/grpc/Backup/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -473,13 +473,13 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ RD }} cluster backup, run the command:
+  To get information about a {{ VLK }} cluster backup, run the command:
 
   ```bash
   {{ yc-mdb-rd }} backup get <backup_ID>
   ```
 
-  You can retrieve the backup ID with a [list of backups](#list-backups).
+  You can retrieve the backup ID with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -487,7 +487,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Backup.Get](../api-ref/Backup/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -496,7 +496,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/backups/<backup_ID>'
         ```
 
-        You can get the backup ID together with a [list of backups](#list-backups).
+        You can request  the backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.redis.v1.Backup) to make sure the request was successful.
 
@@ -508,7 +508,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [BackupService.Get](../api-ref/grpc/Backup/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -524,7 +524,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
             yandex.cloud.mdb.redis.v1.BackupService.Get
         ```
 
-        You can get the backup ID together with a [list of backups](#list-backups).
+        You can request  the backup ID together with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.redis.v1.Backup) to make sure the request was successful.
 
@@ -567,7 +567,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -605,7 +605,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -617,7 +617,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -661,7 +661,7 @@ If you chose the **local-ssd** disk type when restoring the cluster from a backu
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

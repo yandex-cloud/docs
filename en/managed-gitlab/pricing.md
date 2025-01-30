@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=fa8a272b5f0e#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=fa8a272b5f0e#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
 
 
 {% endnote %}
@@ -28,7 +28,7 @@ When using {{ mgl-name }}, you pay for:
 
 Other consumed resources to be additionally paid for:
 * The space used in {{ objstorage-full-name }} to store backups.
-* Amount of outgoing traffic from {{ yandex-cloud }} to the internet.
+* Volume of outgoing traffic from {{ yandex-cloud }} to the internet.
 
 In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</sup> bytes.
 

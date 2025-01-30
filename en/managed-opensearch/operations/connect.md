@@ -35,13 +35,13 @@ To use an encrypted connection, get an SSL certificate:
 
 To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can use the FQDN of a particular host in the cluster or a [special FQDN](#special-fqdns) always pointing to the available host with the `DASHBOARDS` role.
 
-Host FQDN example:
+Example of the host FQDN:
 
 ```text
 {{ host-name }}.{{ dns-zone }}
 ```
 
-### Getting host FQDN {#get-fqdn}
+### Getting a host FQDN {#get-fqdn}
 
 You can obtain the {{ OS }} host FQDN by doing one of the following:
 
@@ -57,7 +57,7 @@ You can obtain the {{ OS }} host FQDN by doing one of the following:
 
 ### Special FQDN {#special-fqdns}
 
-An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 The service does not provide special FQDNs for hosts with the `DATA` role.
 
@@ -76,7 +76,7 @@ You can connect to {{ OS }} Dashboards:
     1. Install the [SSL certificate](#ssl-certificate) in your browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
     1. On the cluster page in the management console, click **OpenSearch Dashboards** or go to `https://c-<cluster_ID>.rw.{{ dns-zone }}>` in your browser.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Enter `admin` for username and the password you set when [creating the cluster](cluster-create.md).
 

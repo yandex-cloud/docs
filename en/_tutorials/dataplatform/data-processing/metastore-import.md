@@ -134,8 +134,10 @@ Prepare the infrastructure:
         * [NAT gateway](../../../vpc/concepts/gateways.md) and route table required for {{ dataproc-name }}.
         * [Subnet](../../../vpc/concepts/network.md#subnet).
         * [Security group](../../../vpc/concepts/security-groups.md) for {{ dataproc-name }} and {{ metastore-name }}.
-        * [Service account](../../../iam/concepts/users/service-accounts.md)
-        * Bucket
+        * [Service account](../../../iam/concepts/users/service-accounts.md) required for the {{ dataproc-name }} cluster.
+        * Service account required to create an {{ objstorage-name }} bucket.
+        * [Static access key](../../../iam/concepts/authorization/access-key.md) required to create a [{{ objstorage-full-name }}](../../../storage/concepts/bucket.md) bucket.
+        * Bucket.
         * Two {{ dataproc-name }} clusters.
 
     1. Specify the following in the `metastore-import.tf` file:

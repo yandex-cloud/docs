@@ -1,6 +1,6 @@
 ---
 title: Getting started with {{ mrd-full-name }}
-description: Follow this guide to create a {{ RD }} cluster and connect to it.
+description: Follow this guide to create a {{ VLK }} cluster and connect to it.
 ---
 
 # Getting started with {{ mrd-name }}
@@ -34,20 +34,20 @@ To get started with the service:
 
     Set the other parameters as you need.
 
-1. [Create a security group](../vpc/operations/security-group-create.md) in the same network as the VM. This security group will be assigned to the {{ RD }} cluster when creating it.
+1. [Create a security group](../vpc/operations/security-group-create.md) in the same network as the VM. This security group will be assigned to the {{ VLK }} cluster when creating it.
 
-    In the security group, add a [rule](./operations/connect/index.md#configuring-security-groups) that allows connections to a [non-sharded {{ RD }} cluster](./concepts/sharding.md). Configuire the rule to allow incoming traffic from the default security group assigned to the VM.
+    In the security group, add a [rule](./operations/connect/index.md#configuring-security-groups) that allows connections to a [non-sharded {{ VLK }} cluster](./concepts/sharding.md). Configuire the rule to allow incoming traffic from the default security group assigned to the VM.
 
 
 ## Create a cluster {#cluster-create}
 
 
-Create a non-sharded {{ RD }} cluster [without public access](./concepts/network.md#public-access-to-host). You can only [connect](#connect) to such a cluster from a VM in the cluster network.
+Create a non-sharded {{ VLK }} cluster [without public access](./concepts/network.md#public-access-to-host). You can only [connect](#connect) to such a cluster from a VM in the cluster network.
 
 
 To create a cluster:
 
-1. In the management console, select the folder where you want to create a {{ RD }} cluster.
+1. In the management console, select the folder where you want to create a {{ VLK }} cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify the following cluster parameters:
@@ -94,7 +94,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
         ```bash
         redis-cli -h c-<cluster_ID>.rw.{{ dns-zone }} \
           -p {{ port-mrd }} \
-          -a <{{ RD }}_password>
+          -a <{{ VLK }}_password>
         ```
 
     - Connecting via SSL {#with-ssl}
@@ -103,23 +103,23 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 
             {% include [unix-certificate](../_includes/mdb/mrd/unix-certificate.md) %}
 
-        1. Run the following command:
+        1. Run this command:
 
             ```bash
             redis-cli -h c-<cluster_ID>.rw.{{ dns-zone }} \
               -p {{ port-mrd-tls }} \
-              -a <{{ RD }}_password> \
+              -a <{{ VLK }}_password> \
               --tls \
               --cacert ~/.redis/{{ crt-local-file }}
             ```
 
     {% endlist %}
 
-    You can get the cluster ID with a [list of clusters in the folder](./operations/cluster-list.md#list-clusters).
+    You can request  the cluster ID with the [list of clusters in the folder](./operations/cluster-list.md#list-clusters).
 
     {% include [see-fqdn-in-console](../_includes/mdb/see-fqdn-in-console.md) %}
 
-1. Once connected, send the `PING` command. {{ RD }} should respond with `PONG`.
+1. Once connected, send the `PING` command. {{ VLK }} should respond with `PONG`.
 
 ## What's next {#whats-next}
 

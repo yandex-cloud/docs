@@ -8,18 +8,16 @@ editable: false
 
 In this section, you can find the {{ mpg-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
-
 {% note tip %}
 
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=ae5598bac8c3#calculator) on the {{ yandex-cloud }} website or see the pricing in this section.
+
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=ae5598bac8c3#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
 
 
 {% endnote %}
-
-
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 

@@ -67,3 +67,7 @@ description: Из этой статьи вы узнаете, как создат
 {% endlist %}
 
 Если в вашем аккаунте зарегистрировано несколько организаций, вы можете [переносить](../../resource-manager/operations/cloud/change-organization.md) облака из одной организации в другую. Для этого у вас должна быть [роль](../../resource-manager/security/index.md#resource-manager-clouds-owner) `{{ roles-cloud-owner }}` на переносимое облако и [роль](../security/index.md#organization-manager-organizations-owner) `{{ roles-organization-owner }}` на организацию, в которую вы это облако собираетесь перенести.
+
+#### См. также {#see-also}
+
+* [{#T}](../../billing/operations/change-organization.md)

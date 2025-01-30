@@ -1,5 +1,5 @@
 ---
-title: Managing disk space
+title: Managing disk space in a {{ mkf-name }} cluster
 description: You can monitor storage usage and increase its size either manually or automatically.
 ---
 
@@ -28,14 +28,14 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
         * **{{ ui-key.yacloud_monitoring.services.label_managed-kafka }}**
         * {{ mkf-name }} cluster ID.
 
-            You can get the ID with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+            You can get the ID with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
         * `disk.free_bytes` label.
 
     1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}**: Set the condition for free disk space usage to trigger the alert:
 
         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}**: `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (minimum metric value for the period).
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`
+        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
         * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `95` (95% of the storage size).
         * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `90` (90% of the storage size).
         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Preferred metric update period.
@@ -70,7 +70,7 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
 
     To increase the hosts' storage size:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -182,7 +182,7 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
         * `configSpec.kafka.resources.diskSize`: Broker host storage size in bytes.
         * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size in bytes. Use only for clusters with {{ KF }} 3.5 or lower.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -240,7 +240,7 @@ As soon as the [storage](../concepts/storage.md) is 97% full, the host automatic
         * `config_spec.kafka.resources.disk_size`: Broker host storage size in bytes.
         * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size in bytes. Use only for clusters with {{ KF }} 3.5 or lower.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -274,7 +274,7 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
 
     To set up automatic increase of storage size:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -330,7 +330,7 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
 
         {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -385,7 +385,7 @@ Set up [automatic storage increase](../concepts/storage.md#auto-rescale) to prev
 
         {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+        You can request  the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
