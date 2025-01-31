@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Registry id.|
 |`--name`|<b>`string`</b><br/>Registry name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--node-path`|<b>`string`</b><br/>The path to a specific node where the registry artifact is located|
 
 #### Global Flags

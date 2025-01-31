@@ -62,8 +62,50 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/cloud-registry/cli-ref/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: artifact
+        items:
+          - name: Overview
+            href: cli-ref/artifact/index.md
+          - name: delete
+            href: cli-ref/artifact/delete.md
+          - name: get
+            href: cli-ref/artifact/get.md
+      - name: registry
+        items:
+          - name: Overview
+            href: cli-ref/registry/index.md
+          - name: add-access-binding
+            href: cli-ref/registry/add-access-binding.md
+          - name: add-ip-permissions
+            href: cli-ref/registry/add-ip-permissions.md
+          - name: create
+            href: cli-ref/registry/create.md
+          - name: delete
+            href: cli-ref/registry/delete.md
+          - name: get
+            href: cli-ref/registry/get.md
+          - name: list
+            href: cli-ref/registry/list.md
+          - name: list-access-bindings
+            href: cli-ref/registry/list-access-bindings.md
+          - name: list-artifacts
+            href: cli-ref/registry/list-artifacts.md
+          - name: list-ip-permissions
+            href: cli-ref/registry/list-ip-permissions.md
+          - name: remove-access-binding
+            href: cli-ref/registry/remove-access-binding.md
+          - name: remove-ip-permissions
+            href: cli-ref/registry/remove-ip-permissions.md
+          - name: set-access-bindings
+            href: cli-ref/registry/set-access-bindings.md
+          - name: set-ip-permissions
+            href: cli-ref/registry/set-ip-permissions.md
+          - name: update
+            href: cli-ref/registry/update.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

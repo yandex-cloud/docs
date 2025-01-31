@@ -404,6 +404,8 @@ items:
             href: cli-ref/s3api/create-multipart-upload.md
           - name: delete-object
             href: cli-ref/s3api/delete-object.md
+          - name: delete-object-tagging
+            href: cli-ref/s3api/delete-object-tagging.md
           - name: delete-objects
             href: cli-ref/s3api/delete-objects.md
           - name: get-object
@@ -412,6 +414,8 @@ items:
             href: cli-ref/s3api/get-object-legal-hold.md
           - name: get-object-retention
             href: cli-ref/s3api/get-object-retention.md
+          - name: get-object-tagging
+            href: cli-ref/s3api/get-object-tagging.md
           - name: head-object
             href: cli-ref/s3api/head-object.md
           - name: list-multipart-uploads
@@ -424,6 +428,8 @@ items:
             href: cli-ref/s3api/put-object-legal-hold.md
           - name: put-object-retention
             href: cli-ref/s3api/put-object-retention.md
+          - name: put-object-tagging
+            href: cli-ref/s3api/put-object-tagging.md
           - name: upload-part
             href: cli-ref/s3api/upload-part.md
           - name: upload-part-copy

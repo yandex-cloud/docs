@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Greenplum cluster id.|
 |`--name`|<b>`string`</b><br/>Greenplum cluster name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--service-type`|<b>`string`</b><br/>Type of the service to request logs about. Values: 'greenplum', 'greenplum-pooler', 'greenplum-pxf'|
 |`--columns`|<b>`value[,value]`</b><br/>Columns from logs table to request|
 |`--filter`|<b>`string`</b><br/>Filter expression that filters resources listed in the response. Entire filter must be surrounded with quotes.<br/>Examples: "message.hostname='node1.db.cloud.yandex.net'", "message.error_severity IN ('ERROR', 'FATAL', 'PANIC') AND message.hostname = 'node1.db.cloud.yandex.net'"|

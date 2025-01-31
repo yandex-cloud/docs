@@ -95,11 +95,9 @@ description: Из статьи вы узнаете, как управлять з
 
 {% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 
-
 ## Получить логи выполнения задания {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-processing/jobs-get-logs.md) %}
-
 
 {% note info %}
 

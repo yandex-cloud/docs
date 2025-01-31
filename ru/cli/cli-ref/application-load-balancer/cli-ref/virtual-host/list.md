@@ -17,7 +17,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--http-router-id`|<b>`string`</b><br/>ID of the Http router.|
 |`--http-router-name`|<b>`string`</b><br/>Name of the Http router.|
 

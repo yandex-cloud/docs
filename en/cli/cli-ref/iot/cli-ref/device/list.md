@@ -17,7 +17,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--registry-id`|<b>`string`</b><br/>Registry id.|
 |`--registry-name`|<b>`string`</b><br/>Registry name.|
 

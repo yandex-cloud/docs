@@ -68,9 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-        
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
-
 
 
       * Выберите размер диска, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).

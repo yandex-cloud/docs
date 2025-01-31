@@ -19,8 +19,8 @@ Syntax:
 |----|----|
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
 |`--key`|<b>`string`</b><br/>[REQUIRED] Object key|
-|`--upload-id`|<b>`string`</b><br/>Upload ID of the multipart upload to abort.|
-|`--part-number`|<b>`int32`</b><br/>[REQUIRED] Part number of the object being read.|
+|`--upload-id`|<b>`string`</b><br/>Upload ID is used to reference a specific upload.|
+|`--part-number`|<b>`int32`</b><br/>[REQUIRED] Part number of the object being uploaded.|
 |`--body`|<b>`string`</b><br/>Object data.|
 |`--content-md5`|<b>`string`</b><br/>128-bit MD5 hash value of the request body, base64 encoded.|
 |`--content-length`|<b>`int`</b><br/>Length of the request body (without headers) in compliance with RFC 2616.|

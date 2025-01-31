@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--service-account-id`|<b>`string`</b><br/>service account id.|
 |`--service-account-name`|<b>`string`</b><br/>service account name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 
 #### Global Flags
 

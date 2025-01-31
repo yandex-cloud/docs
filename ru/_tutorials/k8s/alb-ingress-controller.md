@@ -393,6 +393,36 @@
 
      * `ingress.alb.yc.io/use-regex` — поддержка регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса. Если передана строка `true`, поддержка включена. Применимо, только если для параметра `pathType` указано значение `Exact`.
 
+     * `ingress.alb.yc.io/balancing-panic-threshold` — пороговое значения для активации [режима паники](../../application-load-balancer/concepts/backend-group.md#panic-mode). Режим включится, если процент работоспособных эндпоинтов опустится ниже указанного значения. Значение по умолчанию — `0`, при котором режим паники не активируется никогда.
+
+     * `ingress.alb.yc.io/balancing-locality-aware-routing` — процент входящего трафика, который балансировщик передает бэкендам из своей зоны доступности. Остальной трафик поровну делится между другими зонами. Значение по умолчанию — `0`. [Подробнее о локализации трафика](../../application-load-balancer/concepts/backend-group.md#locality).
+
+     * `ingress.alb.yc.io/autoscale-max-size` — максимальное суммарное количество ресурсных единиц. По умолчанию количество не ограничено. Значение должно быть не меньше, чем количество зон доступности балансировщика, умноженное на минимальное количество ресурсных единиц в каждой зоне. [Подробнее о настройках автомасштабирования](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+
+     * `ingress.alb.yc.io/modify-header-request-append` — добавляет строку к значению заголовка запроса. Заголовок и строка указываются в формате:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-request-append: <имя_изменяемого_заголовка>=<строка>
+       ```
+
+     * `ingress.alb.yc.io/modify-header-request-replace` — заменяет значение заголовка запроса. Заголовок и его новое значение указываются в формате:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-request-replace: <имя_изменяемого_заголовка>=<новое_значение_заголовка>
+       ```
+
+     * `ingress.alb.yc.io/modify-header-request-rename` — переименовывает заголовок запроса. Заголовок и его новое имя указываются в формате:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-request-rename: <имя_изменяемого_заголовка>=<новое_имя_заголовка>
+       ```
+
+     * `ingress.alb.yc.io/modify-header-request-remove` — удаляет заголовок запроса. Заголовок для удаления указывается в формате:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-request-remove: <имя_удаляемого_заголовка>=true
+       ```
+
      {% endcut %}
 
      Если вы используете несколько Ingress-контроллеров, для каждого из них создайте ресурс [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md). В конфигурации `Ingress` укажите нужный `IngressClass` в поле `spec.ingressClassName`.

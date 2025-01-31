@@ -17,7 +17,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
 |`--filter`|<b>`string`</b><br/>A filter expression that filters profiles listed in the response.<br/>The expression must specify:<br/>1. The field name. Currently you can use filtering by subject_id, uid or login.<br/>2. An = operator.<br/>3. The value in double quotes (").<br/>E.g. login="example-login"|
 
