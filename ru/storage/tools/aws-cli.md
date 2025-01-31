@@ -112,6 +112,14 @@ description: Из статьи вы узнаете, что такое AWS Comman
       {{ storage-aws-cli-alias }} ls
       ```
 
+* Для проверки контрольной суммы при загрузке объектов в бакет AWS CLI по умолчанию использует [Signature Version 4](https://docs.aws.amazon.com/AmazonS3/latest/API/specify-signature-version.html). Для корректной работы с {{ objstorage-name }} и избежания ошибки `XAmzContentSHA256Mismatch` может потребоваться принудительно понизить версию подписи с помощью команды:
+  
+  ```bash
+  aws configure set default.s3.signature_version s3
+  ```
+  
+  где `default` - это имя профиля.
+
 ## Примеры операций {#aws-cli-examples}
 
 {% note info %}
