@@ -110,7 +110,6 @@ FROM system.storage_policies;
 
 Подробнее о настройках гибридного хранилища см. в [документации {{ CH }}](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
 
-
 ## Выбор типа дисков при создании кластера {#storage-type-selection}
 
 Количество хостов, которые можно создать вместе с кластером {{ CH }}, зависит от выбранного типа дисков:
@@ -132,5 +131,4 @@ FROM system.storage_policies;
     * сверхбыстрые сетевые SSD-диски с тремя репликами (`network-ssd-io-m3`).
 
 Подробнее об ограничениях на количество хостов в кластере см. в разделе [Квоты и лимиты](./limits.md).
-
 

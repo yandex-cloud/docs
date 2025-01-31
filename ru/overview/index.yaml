@@ -51,6 +51,9 @@ links:
   - title: API
     description: ''
     href: api
+  - title: SDK
+    description: ''
+    href: sdk/overview
   - title: Соглашение об уровне обслуживания
     description: ''
     href: sla

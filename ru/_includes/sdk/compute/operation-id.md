@@ -1,0 +1,1 @@
+Где `ID` — идентификатор [операции](../../../api-design-guide/concepts/about-async.md) создания ВМ.

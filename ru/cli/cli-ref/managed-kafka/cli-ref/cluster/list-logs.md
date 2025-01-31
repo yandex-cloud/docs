@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Kafka cluster id.|
 |`--name`|<b>`string`</b><br/>Kafka cluster name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--columns`|<b>`value[,value]`</b><br/>Columns from logs table to request|
 |`--filter`|<b>`string`</b><br/>Filter expression that filters resources listed in the response. Entire filter must be surrounded with quotes.<br/>Examples: "message.hostname='node1.db.cloud.yandex.net'"|
 |`--since`|<b>`timestamp`</b><br/>Start timestamp for the logs request. Format: timestamp in HH:MM:SS format or RFC-3339, or duration since now.<br/>Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|

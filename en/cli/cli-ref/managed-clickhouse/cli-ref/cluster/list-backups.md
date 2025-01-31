@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 
 #### Global Flags
 

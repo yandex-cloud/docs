@@ -17,7 +17,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--filter`|<b>`string`</b><br/>Filter expression. As example:<br/>--filter='id IN ("1", "2", "3")'<br/>--filter='name contains agent and labels.key=value1 AND labels.another-key=value2'|
 
 #### Global Flags

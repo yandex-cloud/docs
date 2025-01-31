@@ -17,6 +17,14 @@ description: Из статьи вы узнаете, что такое boto3 и b
 
 ## Установка {#installation}
 
+{% include [note-boto-versions](../../_includes/aws-tools/note-boto-versions.md) %}
+
+Для установки boto3 версии 1.35.99 в терминале выполните команду:
+
+```bash
+pip3 install boto3==1.35.99
+```
+
 {% include [install-boto](../../_includes/aws-tools/install-boto.md)%}
 
 ## Настройка {#setup}

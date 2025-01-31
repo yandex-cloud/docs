@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
 |`--key`|<b>`string`</b><br/>[REQUIRED] Object key|
-|`--upload-id`|<b>`string`</b><br/>Upload ID of the multipart upload to abort.|
+|`--upload-id`|<b>`string`</b><br/>Upload ID is used to reference a specific upload.|
 
 #### Global Flags
 

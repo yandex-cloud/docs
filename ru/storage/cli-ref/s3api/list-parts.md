@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
 |`--key`|<b>`string`</b><br/>[REQUIRED] Object key|
-|`--upload-id`|<b>`string`</b><br/>Upload ID of the multipart upload to abort.|
+|`--upload-id`|<b>`string`</b><br/>Upload ID is used to reference a specific upload.|
 |`--page-size`|<b>`int32`</b><br/>The number of items to return per page.|
 |`--starting-token`|<b>`string`</b><br/>A token to specify where to start paginating. This is the NextToken from a previously truncated response.|
 

@@ -9,9 +9,7 @@ description: Что такое {{ mmg-name }}? Для каких задач ст
 
 {% include [general](../../_qa/managed-mongodb/general.md) %}
 
-
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
 
 {% include [logs](../../_qa/logs.md) %}
 

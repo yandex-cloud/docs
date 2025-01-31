@@ -18,7 +18,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
-|`--delimiter`|<b>`string`</b><br/>A delimiter is a character you use to group keys.|
+|`--delimiter`|<b>`string`</b><br/>A delimiter is a character that is used to group keys.|
 |`--page-size`|<b>`int32`</b><br/>The number of items to return per page.|
 |`--starting-token`|<b>`string`</b><br/>A token to specify where to start paginating. This is the NextToken from a previously truncated response.|
 |`--prefix`|<b>`string`</b><br/>Limits the response to keys that begin with the specified prefix.|

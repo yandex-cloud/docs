@@ -18,7 +18,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
-|`--delete`|<b>`string`</b><br/>The path to the JSON document or the JSON document itself with the list of keys to delete. JSON Syntax: {"Objects": [{"Key": "string", "VersionId": "string"}, ...], "Quiet": true\|false}|
+|`--delete`|<b>`string`</b><br/>The URL of the JSON file in format: file://\<path\>, or the JSON itself with the list of keys to delete. JSON Syntax: {"Objects": [{"Key": "string", "VersionId": "string"}, ...], "Quiet": true\|false}|
 |`--bypass-governance-retention`|Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.|
 
 #### Global Flags

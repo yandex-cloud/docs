@@ -9,6 +9,12 @@
 
 1. Установите необходимое программное обеспечение:
 
+   {% note info %}
+
+   Следующие команды установки предназначены для Ubuntu. Для других дистрибутивов используйте команды вашего менеджера пакетов.
+
+   {% endnote %}
+
    ```bash
    sudo apt-get update
    sudo apt-get install -y apache2 libapache2-mod-php php-gd php-mbstring php-mysql

@@ -498,10 +498,16 @@ items:
     href: pricing.md
   - name: Управление доступом
     href: security/index.md
-  - name: Справочник CLI Functions
-    href: ../cli/cli-ref/serverless/cli-ref/function/index.md
-  - name: Справочник CLI Triggers
-    href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Functions
+        href: ../cli/cli-ref/serverless/cli-ref/function/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: MDB Proxy
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API Functions

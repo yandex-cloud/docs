@@ -19,8 +19,8 @@ Syntax:
 |----|----|
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
 |`--key`|<b>`string`</b><br/>[REQUIRED] Object key|
-|`--upload-id`|<b>`string`</b><br/>Upload ID of the multipart upload to abort.|
-|`--multipart-upload`|<b>`string`</b><br/>The URL of the JSON document or the JSON document itself with the list of parts to delete. JSON Syntax: {"Parts": [{"PartNumber": integer, "ETag": "string"}, ...]}|
+|`--upload-id`|<b>`string`</b><br/>Upload ID is used to reference a specific upload.|
+|`--multipart-upload`|<b>`string`</b><br/>The URL of the JSON file in format: file://\<path\>, or the JSON itself with the list of parts to coalesce into a single object. JSON Syntax: {"Parts": [{"PartNumber": integer, "ETag": "string"}, ...]}|
 
 #### Global Flags
 

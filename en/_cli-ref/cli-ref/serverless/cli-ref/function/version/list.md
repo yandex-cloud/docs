@@ -18,7 +18,7 @@ Syntax:
 |----|----|
 |`--function-id`|<b>`string`</b><br/>Function id.|
 |`--function-name`|<b>`string`</b><br/>Function name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 
 #### Global Flags
 

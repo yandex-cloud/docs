@@ -101,9 +101,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной [подсети](../../vpc/concepts/network.md#subnet). Чтобы выбрать для хоста конкретную подсеть, в строке этого хоста нажмите значок ![image](../../_assets/console-icons/pencil.svg).
 
-     
      При настройке параметров хостов обратите внимание, что если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер.
-
 
      
      Чтобы к хосту можно было подключаться из интернета, включите настройку **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
@@ -168,8 +166,7 @@ description: Следуя данной инструкции, вы сможете
        --deletion-protection
      ```
 
-
-
+     
      Где:
 
      * `environment` — окружение: `prestable` или `production`.
@@ -201,11 +198,9 @@ description: Следуя данной инструкции, вы сможете
      Также вы можете указать дополнительную опцию `replication-source` в параметре `--host` для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
 
      
-     
      Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
      Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
-
 
 
      {% note info %}
@@ -234,7 +229,6 @@ description: Следуя данной инструкции, вы сможете
 
      Пример структуры конфигурационного файла:
 
-     
      
      ```hcl
      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -290,8 +284,6 @@ description: Следуя данной инструкции, вы сможете
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
-
-
 
 
      Где:
@@ -789,7 +781,6 @@ description: Следуя данной инструкции, вы сможете
   Конфигурационный файл для такого кластера выглядит так:
 
   
-  
   ```hcl
   resource "yandex_mdb_postgresql_cluster" "mypg" {
     name                = "mypg"
@@ -849,8 +840,6 @@ description: Следуя данной инструкции, вы сможете
     }
   }
   ```
-
-
 
 
 {% endlist %}
