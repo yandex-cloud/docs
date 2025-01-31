@@ -23,7 +23,7 @@ Aliases:
 |----|----|
 |`--id`|<b>`string`</b><br/>instance group id.|
 |`--name`|<b>`string`</b><br/>instance group name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--filter`|<b>`string`</b><br/>Filter expression|
 |`--since`|<b>`timestamp`</b><br/>Start timestamp for the event list. Format: timestamp in HH:MM:SS format or RFC-3339, or duration since now.<br/>Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|
 |`--until`|<b>`timestamp`</b><br/>End timestamp for the event list. Format: timestamp in HH:MM:SS format or RFC-3339, or duration since now.<br/>Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|

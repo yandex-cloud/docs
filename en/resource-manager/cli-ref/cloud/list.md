@@ -17,7 +17,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--organization-id`|<b>`string`</b><br/>Set the ID of the organization to use.|
 
 #### Global Flags

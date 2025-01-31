@@ -24,7 +24,7 @@ Syntax:
 |`--recovery-target-timestamp`|<b>`int`</b><br/>Timestamp of the moment to which the MongoDB cluster should be restored. Format: UNIX Epoch time (POSIX time).<br/>Example: '1600884000' is UNIX Epoch time for '2020-09-23T18:00:00+00:00'.|
 |`--network-id`|<b>`string`</b><br/>Network id.|
 |`--network-name`|<b>`string`</b><br/>Network name.|
-|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created for the MongoDB cluster being restored.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> <li><code>hidden</code>:     Set hidden parameter to the host being added</li> <li><code>secondary-delay-secs</code>:     Set secondaryDelaySecs parameter to the host being added</li> <li><code>priority</code>:     Set priority parameter to the host being added</li> <li><code>tags</code>:     Set tags parameter to the host being added</li> </ul>|
+|`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created for the MongoDB cluster being restored.<br/><br/>Possible property names:<br/><ul> <li><code>shard-name</code>:     Host shard name.</li> <li><code>type</code>:     Type of the host to be created. Supported values: 'mongod', 'mongos', 'mongocfg', 'mongoinfra'.</li> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> <li><code>hidden</code>:     Set hidden parameter to the host being added</li> <li><code>secondary-delay-secs</code>:     Set secondaryDelaySecs parameter to the host being added</li> <li><code>priority</code>:     Set priority parameter to the host being added</li> <li><code>tags</code>:     Set tags parameter to the host being added</li> </ul>|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of labels as key-value pairs to add for the cluster being restored.|
 |`--folder-id`|<b>`string`</b><br/>ID of folder where restored cluster will be created.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the MongoDB cluster.|
@@ -33,10 +33,20 @@ Syntax:
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retain period of automatically created backup in days.|
 |`--performance-diagnostics`|Enable or disable performance diagnostics|
 |`--datalens-access`|Allow access for DataLens|
+|`--websql-access`|Allow access for Web SQL|
 |`--datatransfer-access`|Allow access for DataTransfer|
 |`--mongod-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|
 |`--mongod-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role in GB.|
 |`--mongod-disk-type`|<b>`string`</b><br/>Storage type for mongodb host with corresponding role.|
+|`--mongocfg-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|
+|`--mongocfg-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role in GB.|
+|`--mongocfg-disk-type`|<b>`string`</b><br/>Storage type for mongodb host with corresponding role.|
+|`--mongos-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|
+|`--mongos-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role in GB.|
+|`--mongos-disk-type`|<b>`string`</b><br/>Storage type for mongodb host with corresponding role.|
+|`--mongoinfra-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to mongodb host with corresponding role (CPU, RAM etc.).|
+|`--mongoinfra-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to mongodb host with corresponding role in GB.|
+|`--mongoinfra-disk-type`|<b>`string`</b><br/>Storage type for mongodb host with corresponding role.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -219,10 +219,14 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI Containers
-    href: ../cli/cli-ref/serverless/cli-ref/container/index.md
-  - name: Справочник CLI Triggers
-    href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Containers
+        href: ../cli/cli-ref/serverless/cli-ref/container/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API Containers

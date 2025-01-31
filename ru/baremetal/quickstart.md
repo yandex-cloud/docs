@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Сервис будет запущен в стадии Preview в 4 квартале 2024 года.
+Сервис находится на стадии [Preview](../overview/concepts/launch-stages.md).
 
 {% endnote %}
 

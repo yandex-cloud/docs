@@ -19,8 +19,8 @@ Syntax:
 |----|----|
 |`--bucket`|<b>`string`</b><br/>[REQUIRED] Bucket name|
 |`--key`|<b>`string`</b><br/>[REQUIRED] Object key|
-|`--upload-id`|<b>`string`</b><br/>Upload ID of the multipart upload to abort.|
-|`--part-number`|<b>`int32`</b><br/>[REQUIRED] Part number of the object being read.|
+|`--upload-id`|<b>`string`</b><br/>Upload ID is used to reference a specific upload.|
+|`--part-number`|<b>`int32`</b><br/>[REQUIRED] Part number of the object being uploaded.|
 |`--copy-source`|<b>`string`</b><br/>Specifies the source object for the copy operation.|
 |`--copy-source-range`|<b>`string`</b><br/>The range of bytes to copy from the source object (e.g., bytes=0-9)|
 |`--copy-source-if-match`|<b>`string`</b><br/>Copies the object if its entity tag (ETag) matches the specified tag.|

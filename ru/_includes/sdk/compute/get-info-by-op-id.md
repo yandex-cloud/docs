@@ -1,0 +1,1 @@
+Отслеживать статус операции вы можете с помощью [API](../../../api-design-guide/concepts/operation.md#monitoring) или [{{ yandex-cloud }} CLI](../../../cli/cli-ref/operation/cli-ref/get.md).

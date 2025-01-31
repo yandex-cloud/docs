@@ -34,6 +34,9 @@ Syntax:
 	- [yc iam key delete](key/delete.md) — Delete the specified IAM key
 	- [yc iam key get](key/get.md) — Show information about the specified IAM key
 	- [yc iam key list](key/list.md) — List IAM keys for authenticated account or the specified service account
+- [yc iam refresh-token](refresh-token/index.md) — Manage refresh tokens
+	- [yc iam refresh-token list](refresh-token/list.md) — List subjects Refresh Tokens
+	- [yc iam refresh-token revoke](refresh-token/revoke.md) — Revoke subjects Refresh Tokens. Refresh Tokens can be revoked by refresh token, refresh token id, or a group of subject id, client id and client instance info. If none of the flags are set, all Refresh Tokens for the authenticated user will be revoked.
 - [yc iam role](role/index.md) — Manage roles
 	- [yc iam role get](role/get.md) — Show information about the specified role
 	- [yc iam role list](role/list.md) — List roles

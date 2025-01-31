@@ -36,6 +36,14 @@ items:
         href: concepts/limits.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: '{{ sw-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/workflow/index.md
+      - name: '{{ er-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/eventrouter/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API {{ sw-name }}

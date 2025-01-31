@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Trigger id.|
 |`--name`|<b>`string`</b><br/>Trigger name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 
 #### Global Flags
 

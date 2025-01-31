@@ -20,7 +20,9 @@ description: Из статьи вы узнаете, что такое AWS Comman
 
 ## Установка {#installation}
 
-{% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
+{% include [note-aws-cli-versions](../../_includes/aws-tools/note-aws-cli-versions.md) %}
+
+{% include [install-aws-cli-versions](../../_includes/aws-tools/install-aws-cli-versions.md) %}
 
 ## Настройка {#setup}
 
@@ -81,6 +83,8 @@ description: Из статьи вы узнаете, что такое AWS Comman
 
 
 ## Особенности {#specifics}
+
+{% include [note-aws-cli-versions](../../_includes/aws-tools/note-aws-cli-versions.md) %}
 
 Учитывайте особенности AWS CLI при работе с {{ objstorage-name }}:
 

@@ -128,6 +128,4 @@ spark:spark.driver.cores : 1
 
 Чтобы включить его, задайте настройку `dataproc:hive.thrift.impl : spark` — сервер будет доступен на TCP-порте `10000`. По умолчанию задано значение `dataproc:hive.thrift.impl : hive` — на TCP-порте `10000` запускается Apache HiveServer2, если используется сервис Hive.
 
-
 Функциональность доступна начиная [с версии образа 2.0.48](../release-notes/images.md#2.0.48).
-

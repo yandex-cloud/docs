@@ -24,7 +24,20 @@ Syntax:
 |`--network-id`|<b>`string`</b><br/>Network id.|
 |`--network-name`|<b>`string`</b><br/>Network name.|
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created for the Redis cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the host resides.</li> <li><code>assign-public-ip</code>:     Whether the host should get a public IP address.</li> <li><code>replica-priority</code>:     Replica priority (100 by default)</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> </ul>|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
+|`--folder-id`|<b>`string`</b><br/>ID of folder where restored cluster will be created.|
+|`--enable-tls`|Enables tls for Redis cluster.|
+|`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON or OFF).|
+|`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
+|`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Redis cluster.|
 |`--redis-version`|<b>`string`</b><br/>Version of Redis used in the cluster. Values: 7.2|
+|`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
+|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
+|`--disk-type-id`|<b>`string`</b><br/>Disk type id (e.g., network-ssd).|
+|`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--backup-retain-period-days`|<b>`int`</b><br/>Retain period of automatically created backup in days.|
+|`--datalens-access`|Allow access for DataLens|
+|`--websql-access`|Allow access for Web SQL|
 |`--password`|<b>`string`</b><br/>Authentication password.|
 |`--max-memory-policy`|<b>`string`</b><br/>Redis maxmemory setting. Values: 'volatile-lru', 'allkeys-lru', 'volatile-lfu', 'allkeys-lfu', 'volatile-random', 'allkeys-random', 'volatile-ttl', 'noeviction'|
 |`--timeout`|<b>`int`</b><br/>Time seconds that Redis keeps the connection open while the client is idle.|
@@ -46,18 +59,6 @@ Syntax:
 |`--allow-data-loss`|Allows some data to be lost in favor of faster switchover/restart.|
 |`--use-luajit`|Use JIT for lua scripts and functions.|
 |`--io-threads-allowed`|Allow redis to use io-threads.|
-|`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
-|`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
-|`--disk-type-id`|<b>`string`</b><br/>Disk type id (e.g., network-ssd).|
-|`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
-|`--datalens-access`|Allow access for DataLens|
-|`--websql-access`|Allow access for Web SQL|
-|`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
-|`--folder-id`|<b>`string`</b><br/>ID of folder where restored cluster will be created.|
-|`--enable-tls`|Enables tls for Redis cluster.|
-|`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON or OFF).|
-|`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
-|`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Redis cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

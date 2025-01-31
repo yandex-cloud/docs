@@ -20,7 +20,7 @@ Syntax:
 |`--image-id`|<b>`string`</b><br/>Image id.|
 |`--repository-id`|<b>`string`</b><br/>Repository id.|
 |`--repository-name`|<b>`string`</b><br/>Repository name.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--filter`|<b>`string`</b><br/>Filter by status.|
 
 #### Global Flags

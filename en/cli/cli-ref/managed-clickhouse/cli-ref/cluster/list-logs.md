@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 |`--service-type`|<b>`string`</b><br/>Type of the service to request logs from. Values: 'clickhouse'|
 |`--columns`|<b>`value[,value]`</b><br/>Columns from the logs table to request.|
 |`--filter`|<b>`string`</b><br/>Filter expression that filters resources listed in the response. Entire filter must be surrounded with quotes.<br/>Examples: "message.hostname='node1.db.cloud.yandex.net'", "message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'"|

@@ -5,17 +5,15 @@
 
 {% note info %}
 
-
 * Количество хостов-брокеров, которые можно создать вместе с кластером {{ mkf-name }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
 * Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
-
 
 {% endnote %}
 
 
 {% note info %}
 
-С 1 февраля 2025 года будет прекращена поддержка {{ KF }} версий 2.8, 3.0, 3.1, 3.2 и 3.3. Создать кластер с этими версиями будет невозможно.
+С 1 марта 2025 года будет прекращена поддержка {{ KF }} версий 2.8, 3.0, 3.1, 3.2 и 3.3. Создать кластер с этими версиями будет невозможно.
 
 {% endnote %}
 
@@ -71,9 +69,7 @@
 
        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-       
        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
-
 
        Тип диска для кластера {{ mkf-name }} нельзя изменить после создания.
      * Выберите объем хранилища, который будет использоваться для данных.
@@ -113,9 +109,7 @@
 
         * Репликация возможна при наличии как минимум двух хостов в кластере {{ mkf-name }}.
 
-        
         * Если в блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** выбран тип `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mkf-name }}.
-
 
         * Для отказоустойчивости кластера {{ mkf-name }} должны выполняться [определенные условия](../concepts/index.md#fault-tolerance).
         * Добавление в кластер с версией {{ KF }} 3.5 или ниже более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
@@ -267,7 +261,6 @@
      Пример структуры конфигурационного файла:
 
      
-     
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
        environment         = "<окружение>"
@@ -307,8 +300,6 @@
      ```
 
 
-
-
      Где:
 
      * `environment` — окружение кластера: `PRESTABLE` или `PRODUCTION`.
@@ -324,7 +315,6 @@
      * `deletion_protection` — защита от удаления кластера: `true` или `false`.
      * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
      * `schema_registry` — управление схемами данных: `true` или `false`.
-
 
      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -871,7 +861,6 @@
   Конфигурационный файл для такого кластера {{ mkf-name }} выглядит так:
 
   
-  
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
     environment         = "PRODUCTION"
@@ -923,8 +912,6 @@
     }
   }
   ```
-
-
 
 
 {% endlist %}

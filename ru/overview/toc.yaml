@@ -50,6 +50,12 @@ items:
         href: mobile-app/index.md
       - name: API
         href: api.md
+      - name: SDK
+        items:
+          - name: Обзор
+            href: sdk/overview.md
+          - name: Начало работы
+            href: sdk/quickstart.md
       - name: Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows
         href: concepts/console-syntax-guide.md
   - name: Сопоставление с другими платформами

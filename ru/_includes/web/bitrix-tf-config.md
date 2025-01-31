@@ -1,4 +1,6 @@
 ```hcl
+# Объявление переменных для конфиденциальных параметров
+
 variable "folder_id" {
   type = string
 }
@@ -20,6 +22,8 @@ variable "mysql_password" {
   sensitive = true
 }
 
+# Настройка провайдера
+
 terraform {
   required_providers {
     yandex = {
@@ -32,6 +36,8 @@ terraform {
 provider "yandex" {
   zone = var.folder_id
 }
+
+# Создание облачной сети и подсетей
 
 resource "yandex_vpc_network" "network-1" {
   name = "network1"
@@ -57,6 +63,8 @@ resource "yandex_vpc_subnet" "subnet-3" {
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.3.0/24"]
 }
+
+# Создание групп безопасности
 
 resource "yandex_vpc_security_group" "sg-vm" {
   name        = "bitrix-sg-vm"
@@ -114,9 +122,13 @@ resource "yandex_vpc_security_group" "sg-mysql" {
   }
 }
 
+# Добавление готового образа ВМ
+
 data "yandex_compute_image" "ubuntu-image" {
   family = "ubuntu-2204-lts"
 }
+
+# Создание загрузочного диска
 
 resource "yandex_compute_disk" "boot-disk" {
   name     = "bootdisk"
@@ -125,6 +137,8 @@ resource "yandex_compute_disk" "boot-disk" {
   size     = "24"
   image_id = data.yandex_compute_image.ubuntu-image.id
 }
+
+# Создание ВМ
 
 resource "yandex_compute_instance" "vm-bitrix" {
   name        = "bitrixwebsite"
@@ -152,6 +166,8 @@ resource "yandex_compute_instance" "vm-bitrix" {
   }
 }
 
+# Создание кластера Managed Service for MySQL
+
 resource "yandex_mdb_mysql_cluster" "bitrix-cluster" {
   name               = "BitrixMySQL"
   environment        = "PRESTABLE"
@@ -178,10 +194,14 @@ resource "yandex_mdb_mysql_cluster" "bitrix-cluster" {
   }
 }
 
+# Создание БД MySQL
+
 resource "yandex_mdb_mysql_database" "bitrix-db" {
   cluster_id = yandex_mdb_mysql_cluster.bitrix-cluster.id
   name       = "db1"
 }
+
+# Создание пользователя БД
 
 resource "yandex_mdb_mysql_user" "bitrix-user" {
   cluster_id = yandex_mdb_mysql_cluster.bitrix-cluster.id

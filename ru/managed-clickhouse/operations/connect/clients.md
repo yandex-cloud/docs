@@ -256,7 +256,6 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
 
 - Подключение с SSL {#with-ssl}
 
-  
    ```bash
    # Подключить DEB-репозиторий.
    RUN apt-get update && \
@@ -282,7 +281,6 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
             {{ crt-local-dir }}{{ crt-local-file-int }} && \
        update-ca-certificates
    ```
-
 
 {% endlist %}
 

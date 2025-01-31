@@ -206,7 +206,6 @@ keywords:
      Пример структуры конфигурационного файла:
 
      
-     
      ```hcl
      resource "yandex_mdb_elasticsearch_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
@@ -260,8 +259,6 @@ keywords:
        v4_cidr_blocks = ["<диапазон>"]
      }
      ```
-
-
 
 
      Где:
@@ -374,7 +371,6 @@ keywords:
   Создайте кластер {{ mes-name }}. Конфигурационный файл для кластера {{ mes-name }} выглядит так:
 
   
-  
   ```hcl
   resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
     name                = "my-es-clstr"
@@ -440,8 +436,6 @@ keywords:
     }
   }
   ```
-
-
 
 
   Где применены тестовые характеристики:
