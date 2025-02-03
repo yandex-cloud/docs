@@ -106,3 +106,18 @@ s3cmd get s3://bucket/object local_file
 ```bash
 s3cmd del s3://bucket/object
 ```
+
+### Загрузка объекта с указанием MIME-типов {#mime-types}
+
+Для указания [MIME-типов](https://ru.wikipedia.org/wiki/Список_MIME-типов) при загрузке объектов используйте команду `put` со следующими флагами:
+
+```bash
+s3cmd put \
+  --no-guess-mime-type \
+  --no-mime-magic \
+  --mime-type="application/javascript" \
+  <путь_к_локальному_файлу> \
+  s3://<имя_бакета>/
+```
+
+Где `--mime-type` — MIME-тип вашего объекта.

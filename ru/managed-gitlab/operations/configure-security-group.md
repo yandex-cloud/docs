@@ -64,6 +64,24 @@ description: Из статьи вы узнаете про настройку г�
 
    Чтобы разрешить трафик с любых IP-адресов, укажите `0.0.0.0/0`.
 ||
+|| Для запросов в службу [метаданных](../../compute/concepts/vm-metadata.md) при обновлении инстанса. |
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `80`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `169.254.169.254/32`.
+||
+|| Для запросов в службу DNS. |
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `53`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_udp }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `<второй_IP-адрес_в_подсети>/32`. Например для подсети `10.128.0.0/24` это будет CIDR `10.128.0.2/32`.
+||
+|| Для запросов к NTP-серверам для поддержки двухфакторной аутентификации. |
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `123`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_udp }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `0.0.0.0/0`.
+||
 |#
 
 ## Правила для исходящего трафика {#egress-rules}

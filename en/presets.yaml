@@ -6095,7 +6095,7 @@ default:
         action_stop-stream: Finish
         label_episode-autoplay: Auto play video
         label_episode-hidden: Hide controls in player
-        label_episode-mute: Play video without sound by default (recommended)
+        label_episode-mute: Play video without sound by default
         label_stream-type: Stream type
         label_type-on-demand: On demand
         label_type-schedule: By schedule
@@ -6665,7 +6665,7 @@ default:
         compute:
           network-select:
             field_address: IP address
-            field_external: Public IP
+            field_external: Public IP address
             field_internal-ipv4: Internal IPv4 address
             field_security-groups: Security groups
             field_subnetwork: Subnet
@@ -7648,7 +7648,7 @@ default:
       load-balancer:
         network-load-balancer:
           button_add-listener: Add listener
-          button_attach-tg: Attach target group
+          button_attach-tg: Attach
           button_create: Create a network load balancer
           column_ip-address: IP address
           form:
@@ -7683,7 +7683,7 @@ default:
           section_attached-target-groups: Target groups
           section_listeners: Listeners
         target-group:
-          button_create: Create target group
+          button_create: Create a target group
           label_list: Target groups
           label_targets-section-title: Targets
       load-testing:
@@ -8409,7 +8409,7 @@ default:
         list:
           button_create: Create connection
       smart-web-security:
-        action_empty: Create
+        action_empty: Create profile
         arl:
           column_rule-conditions: Conditions for traffic
           column_rule-priority: Priority
