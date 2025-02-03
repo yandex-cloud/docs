@@ -505,7 +505,7 @@ items:
       - name: Triggers
         href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
       - name: MDB Proxy
-        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+        href: ../cli/cli-ref/serverless/cli-ref/mdbproxy/index.md
       - name: Network
         href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: Справочник {{ TF }}

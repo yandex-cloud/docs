@@ -6,7 +6,9 @@ description: Из статьи вы узнаете, что такое AWS SDK д
 # AWS SDK для JavaScript
 
 
-[AWS SDK для JavaScript](https://aws.amazon.com/ru/sdk-for-javascript) — это комплект средств разработки для взаимодействия с сервисами AWS, совместимый с {{ objstorage-full-name }}.
+[AWS SDK для JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/) — это комплект средств разработки для взаимодействия с сервисами AWS, совместимый с {{ objstorage-full-name }}.
+
+С помощью AWS SDK для Node.js вы создадите бакет, загрузите в него объекты, получите список объектов, извлечете отдельный объект, очистите содержимое бакета и удалите  бакет.
 
 ## Подготовка к работе {#before-you-begin}
 
@@ -14,96 +16,146 @@ description: Из статьи вы узнаете, что такое AWS SDK д
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Установка {#installation}
+## Подготовка проекта {#setup-project}
 
-{% include [install-js-sdk](../../_includes/aws-tools/install-js-sdk.md) %}
-
-## Настройка {#setup}
+### Подготовка аутентификационных данных {#setup-project-aws-tools}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
+### Подготовка директории проекта {#setup-project-folder}
+
+{% include [nodejs-project-folder-setup](../_includes_service/storage-sdk-nodejs-project-setup.md) %}
+
 ## Примеры кода {#js-sdk-examples}
 
-Пример кода для создания бакета находится в директории `javascriptv3/example_code/nodegetstarted/src` репозитория.
-
-Чтобы подключиться к {{ objstorage-name }} и создать бакет:
-
-1. Установите зависимости, описанные в файле `javascriptv3/example_code/nodegetstarted/package.json`:
-
-    ```bash
-    npm install node -g
-    cd aws-doc-sdk-examples/javascriptv3/example_code/nodegetstarted
-    npm install
-    ```
-
-1. В директории `javascriptv3/example_code/nodegetstarted/src/libs/` откройте файл `s3Client.js` с описанием клиента для {{ objstorage-name }}.
-1. Замените содержимое файла на следующий код:
+Далее будут описаны способы выполнения базовых операций с бакетом с помощью AWS SDK для Node.js.
+1. В файл `index.js` вставьте следующий код:
 
     ```js
-    import { S3Client } from "@aws-sdk/client-s3";
-    // Установка региона {{ objstorage-name }}
-    const REGION = "{{ region-id }}";
-    // Установка эндпоинта {{ objstorage-name }}
-    const ENDPOINT = "https://{{ s3-storage-host }}";
-    // Создание клиента для {{ objstorage-name }}
-    const s3Client = new S3Client({ region: REGION, endpoint: ENDPOINT });
-    export { s3Client };
-    ```
+    import { readFileSync } from "node:fs"
+    import
+    {
+        S3Client,
+        PutObjectCommand,
+        CreateBucketCommand,
+        DeleteObjectCommand,
+        DeleteBucketCommand,
+        paginateListObjectsV2,
+        GetObjectCommand,
+        ListObjectsV2Command,
+    } from "@aws-sdk/client-s3";
 
-1. В директории `javascriptv3/example_code/nodegetstarted/src/` откройте файл `sample.js` с кодом для создания бакета и объекта в нем.
+    (async function ()
+    {
+        // Создание s3 клиента для взаимодействия с aws.
+        // Данные для авторизации берутся из вашего окружения, но вы можете указать их явно. Например:
+        // `new S3Client({ region: 'ru-central1', credentials: {...} })`
+        const s3Client = new S3Client({});
 
-    {% cut "Содержимое sample.js" %}
-
-    ```js
-    // Импорт клиентов и команд AWS SDK для работы с Node.js
-    import { PutObjectCommand, CreateBucketCommand } from "@aws-sdk/client-s3";
-    import { s3Client } from "./libs/s3Client.js";
-
-    // Установка параметров
-    const params = {
-      Bucket: "<имя_бакета>", // Имя бакета, например 'sample-bucket-101'.
-      Key: "<имя_объекта>", // Имя объекта, например 'sample_upload.txt'.
-      Body: "<содержимое_объекта>", // Содержимое объекта, например 'Hello world!".
-    };
-
-    const run = async () => {
-      // Создание бакета
-      try {
-        const data = await s3Client.send(
-            new CreateBucketCommand({ Bucket: params.Bucket })
+        const bucketName = `test-bucket-${Date.now()}`;
+        // Создать новый бакет
+        console.log(`Creating the bucket ${bucketName}.`);
+        await s3Client.send(
+            new CreateBucketCommand({
+                Bucket: bucketName,
+            }),
         );
-        console.log(data);
-        console.log("Successfully created a bucket called ", data.Location);
-        return data; // Для модульного тестирования.
-      } catch (err) {
-        console.log("Error", err);
-      }
-      // Создание объекта и загрузка его в бакет
-      try {
-        const results = await s3Client.send(new PutObjectCommand(params));
-        console.log(
-            "Successfully created " +
-            params.Key +
-            " and uploaded it to " +
-            params.Bucket +
-            "/" +
-            params.Key
+        console.log(`The bucket ${bucketName} was created.\n\n`);
+
+        // Загрузить объекты в бакет
+        // Из строки
+        console.log('Creating a object from string.');
+        await s3Client.send(
+            new PutObjectCommand({
+                Bucket: bucketName,
+                Key: "bucket-text",
+                Body: 'Hello bucket!',
+            }),
         );
-        return results; // Для модульного тестирования.
-      } catch (err) {
-        console.log("Error", err);
-      }
-    };
-    run();
+        console.log('The object from string was created.\n');
+        // Из файлов
+        console.log('Creating the first object from local file.');
+        await s3Client.send(
+            new PutObjectCommand({
+                Bucket: bucketName,
+                Key: "my-package.json",
+                Body: readFileSync('package.json'),
+            }),
+        );
+        console.log('The first object was created.\nCreating the second object from local file.');
+        await s3Client.send(
+            new PutObjectCommand({
+                Bucket: bucketName,
+                Key: "my-package-lock.json",
+                Body: readFileSync('package-lock.json'),
+            }),
+        );
+        console.log('The second object was created.\n');
+
+        // Получить список объектов
+        console.log('Getting bucket objects list.');
+        const command = new ListObjectsV2Command({ Bucket: bucketName });
+        const { Contents } = await s3Client.send(command);
+        const contentsList = Contents.map((c) => ` • ${c.Key}`).join("\n");
+        console.log("Here's a list of files in the bucket:");
+        console.log(`${contentsList}\n`);
+
+        // Удалить несколько объектов
+        console.log('Deleting objects.');
+        await s3Client.send(
+            new DeleteObjectCommand({ Bucket: bucketName, Key: "my-package.json" }),
+        );
+        await s3Client.send(
+            new DeleteObjectCommand({ Bucket: bucketName, Key: "my-package-lock.json" }),
+        );
+        console.log('The objects were deleted.\n');
+
+        // Получить объект
+        console.log('Getting your "bucket-text" object')
+        const { Body } = await s3Client.send(
+            new GetObjectCommand({
+                Bucket: bucketName,
+                Key: "bucket-text",
+            }),
+        );
+        console.log('Your "bucket-text" content:')
+        console.log(await Body.transformToString(), '\n');
+
+        // Удаление объектов в бакетах и затем самого бакета
+        // Получаем список объектов постранично
+        const paginator = paginateListObjectsV2(
+            { client: s3Client },
+            { Bucket: bucketName },
+        );
+        for await (const page of paginator)
+        {
+            const objects = page.Contents;
+            if (objects)
+            {
+                // Выполняем команду удаления для каждого объекта через итерацию страниц с объектами
+                for (const object of objects)
+                {
+                    // Отправляем команду на удаление
+                    await s3Client.send(
+                        new DeleteObjectCommand({ Bucket: bucketName, Key: object.Key }),
+                    );
+                }
+            }
+        }
+
+        // Удаляем ранее созданный бакет
+        await s3Client.send(new DeleteBucketCommand({ Bucket: bucketName }));
+        console.log('Your bucket was emptied and deleted.');
+    })()
     ```
-
-    {% endcut %}
-
-1. В блоке `const params` задайте имя бакета, имя и содержимое объекта в бакете.
+  
+    В этом фрагменте кода мы добавили [IIFE - Immediately Invoked Function Expression](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). Это позволит вызвать скрипт при запуске файла.
 1. Запустите приложение:
 
     ```bash
-    node sample.js
+    node index.js
     ```
+
+    В выводе консоли появится пошаговое описание результатов операции.
 
 Подробности о работе с AWS SDK для JavaScript см. в [документации AWS](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).

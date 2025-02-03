@@ -6101,7 +6101,7 @@ default:
         action_stop-stream: Завершить
         label_episode-autoplay: Запускать видео автоматически
         label_episode-hidden: Скрывать элементы управления в плеере
-        label_episode-mute: По умолчанию воспроизводить без звука (рекомендуется)
+        label_episode-mute: По умолчанию воспроизводить без звука
         label_stream-type: Тип потока
         label_type-on-demand: По требованию
         label_type-schedule: По расписанию
@@ -6671,7 +6671,7 @@ default:
         compute:
           network-select:
             field_address: IP-адрес
-            field_external: Публичный адрес
+            field_external: Публичный IP-адрес
             field_internal-ipv4: Внутренний IPv4-адрес
             field_security-groups: Группы безопасности
             field_subnetwork: Подсеть
@@ -8417,7 +8417,7 @@ default:
         list:
           button_create: Создать подключение
       smart-web-security:
-        action_empty: Создать
+        action_empty: Создать профиль
         arl:
           column_rule-conditions: Условия на трафик
           column_rule-priority: Приоритет
