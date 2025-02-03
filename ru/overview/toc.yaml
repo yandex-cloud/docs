@@ -20,6 +20,8 @@ items:
         href: concepts/region.md
       - name: Устройство сети
         href: concepts/network.md
+      - name: Диапазоны публичных IP-адресов
+        href: concepts/public-ips.md
       - name: Взаимодействие пользователей и ресурсов
         href: roles-and-resources.md
       - name: Удаление данных пользователей
