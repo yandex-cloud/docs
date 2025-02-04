@@ -62,7 +62,6 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `yq-sa`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роли:
-     * `datasphere.community-project.editor` — для запуска вычислений {{ ml-platform-name }}.
      * `yq.editor` — для отправки запросов {{ yq-name }}.
      * `storage.viewer` — для просмотра содержимого бакета и объектов {{ objstorage-name }}.
      * `managed-clickhouse.viewer` — для просмотра содержимого кластера {{ mch-name }}.
@@ -78,6 +77,7 @@
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. На вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** нажмите **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
 1. Выберите аккаунт `yq-sa` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. Измените роль сервисного аккаунта на **Editor**.
 
 ### Создайте авторизованный ключ для сервисного аккаунта {#create-key}
 

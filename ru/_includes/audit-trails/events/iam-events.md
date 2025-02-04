@@ -17,6 +17,7 @@
 `DetectLeakedCredential` | Обнаружение секрета в открытом источнике
 `DisableService` | Отзыв у сервиса доступа к ресурсам других сервисов в облаке
 `EnableService` | Выдача сервису доступа к ресурсам других сервисов в облаке
+`RevokeLeakedCredential` | Отзыв скомпрометированного секрета
 `SetServiceAccountAccessBindings` | Назначение прав доступа для сервисного аккаунта
 `UpdateAccessKey` | Обновление статического ключа
 `UpdateApiKey` | Обновление API-ключа

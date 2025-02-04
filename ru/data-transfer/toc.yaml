@@ -482,30 +482,34 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
-      - name: Декабрь 2024
-        href: release-notes/2412.md
-      - name: Ноябрь 2024
-        href: release-notes/2411.md
-      - name: Октябрь 2024
-        href: release-notes/2410.md
-      - name: Сентябрь 2024
-        href: release-notes/2409.md
-      - name: Август 2024
-        href: release-notes/2408.md
-      - name: Июль 2024
-        href: release-notes/2407.md
-      - name: Июнь 2024
-        href: release-notes/2406.md
-      - name: Май 2024
-        href: release-notes/2405.md
-      - name: Апрель 2024
-        href: release-notes/2404.md
-      - name: Март 2024
-        href: release-notes/2403.md
-      - name: Февраль 2024
-        href: release-notes/2402.md
-      - name: Январь 2024
-        href: release-notes/2401.md
+      - name: Январь 2025
+        href: release-notes/2501.md
+      - name: 2024 год
+        items:
+          - name: Декабрь 2024
+            href: release-notes/2412.md
+          - name: Ноябрь 2024
+            href: release-notes/2411.md
+          - name: Октябрь 2024
+            href: release-notes/2410.md
+          - name: Сентябрь 2024
+            href: release-notes/2409.md
+          - name: Август 2024
+            href: release-notes/2408.md
+          - name: Июль 2024
+            href: release-notes/2407.md
+          - name: Июнь 2024
+            href: release-notes/2406.md
+          - name: Май 2024
+            href: release-notes/2405.md
+          - name: Апрель 2024
+            href: release-notes/2404.md
+          - name: Март 2024
+            href: release-notes/2403.md
+          - name: Февраль 2024
+            href: release-notes/2402.md
+          - name: Январь 2024
+            href: release-notes/2401.md
       - name: 2023 год
         items:
           - name: Декабрь 2023
