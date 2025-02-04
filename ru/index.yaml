@@ -201,6 +201,9 @@ links:
   - title: Smart Web Security
     description: Сервис для продвинутой защиты от DDoS-атак
     href: smartwebsecurity/
+  - title: '{{ src-full-name }}'
+    description: Платформа для разработки исходного кода
+    href: sourcecraft/
   - title: '{{ speechkit-name }}'
     description: Комплекс технологий распознавания и синтеза речи
     href: speechkit/

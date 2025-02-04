@@ -20,5 +20,6 @@
 * [{{ mmg-full-name }}](../../managed-mongodb/)
 * [{{ mmy-full-name }}](../../managed-mysql/)
 * [{{ mpg-full-name }}](../../managed-postgresql/)
+* [{{ mrd-full-name }}](../../managed-redis/)
 * [{{ objstorage-full-name }}](../../storage/)
 * [{{ websql-full-name }}](../../websql/)

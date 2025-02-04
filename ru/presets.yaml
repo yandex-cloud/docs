@@ -344,6 +344,7 @@ default:
   link-sla-greenplum: https://yandex.ru/legal/cloud_sla_greenplum/
   link-sla-kafka: https://yandex.ru/legal/cloud_sla_kfk/
   link-speechsense-main: https://speechsense.yandex.cloud/
+  link-src-main: https://sourcecraft.dev
   link-support-mail: cloud@support.yandex.ru
   link-tracker: https://tracker.yandex.ru/
   link-tracker-cloudless: https://yandex.ru/support/tracker/ru/
@@ -749,6 +750,8 @@ default:
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPRK: Apache Spark™
+  src-full-name: SourceCraft
+  src-name: SourceCraft
   storage-aws-cli-alias: ycs3
   sts-full-name: Yandex Security Token Service
   sts-host: sts.yandexcloud.net
@@ -8528,6 +8531,7 @@ default:
           label_synthesis-settings: Настройки синтеза
         speech-to-text:
           field_language: Язык
+          label_button_copy-text: Скопировать текст
           label_button_start-recognition: Распознать
           label_language-auto: Автоматически
       storage:

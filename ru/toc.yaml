@@ -136,6 +136,8 @@ items:
     href: smartcaptcha/index.yaml
   - name: Smart Web Security
     href: smartwebsecurity/index.yaml
+  - name: '{{ src-full-name }}'
+    href: sourcecraft/index.yaml
   - name: '{{ speechkit-name }}'
     href: speechkit/index.yaml
   - name: SpeechSense
