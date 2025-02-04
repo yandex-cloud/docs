@@ -14,10 +14,12 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с сервисом.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. В открывшемся окне выберите блок **{{ ui-key.yacloud.yagpt.speechkit.services.stt.title }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.yagpt.speechkit.services.stt.title }}**.
 1. В поле **{{ ui-key.yacloud.speechkit.speech-to-text.field_language }}** выберите нужный язык или оставьте значение `{{ ui-key.yacloud.speechkit.speech-to-text.label_language-auto }}`.
 1. Нажмите **Выбрать файл** или перетащите аудиофайл в зону загрузки.
 1. Нажмите кнопку ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-to-text.label_button_start-recognition }}**, чтобы распознать речь в аудиофайле.
+
+Подробную инструкцию см. на странице [{#T}](../operations/stt-playground.md).
 
 {{ speechkit-name }} Playground предоставляет базовые возможности распознавания речи. Более гибкие настройки распознавания доступны только через [API](#stt-quickstart).
 
@@ -27,7 +29,7 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с сервисом.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. В открывшемся окне выберите блок **{{ ui-key.yacloud.yagpt.speechkit.services.speech-synthesys.title }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.yagpt.speechkit.services.speech-synthesys.title }}**.
 1. В блоке настроек в левой части окна:
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_pauses-title }}** — выберите длительность пауз между словами или задайте ее самостоятельно.
    * **{{ ui-key.yacloud.speechkit.help-speech-synthesis.context_word-title }}** — расставьте акценты на нужных словах.
@@ -42,6 +44,8 @@
    * **{{ ui-key.yacloud.speechkit.speech-synthesis.field_audio }}** — выберите необходимый формат аудио.
 1. Нажмите кнопку ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-synthesis.label_button_playback }}**, чтобы синтезировать речь.
 1. Чтобы скачать результат, нажмите ![image](../../_assets/console-icons/arrow-down-to-line.svg).
+
+Подробную инструкцию см. на странице [{#T}](../operations/tts-playground.md).
 
 {{ speechkit-name }} Playground предоставляет базовые возможности синтеза речи. Более гибкие настройки синтеза доступны только через [API](#tts-quickstart).
 

@@ -15,6 +15,48 @@ items:
         href: quickstart/tts-quickstart-v1.md
       - name: Как синтезировать речь в API v3
         href: quickstart/tts-quickstart-v3.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Распознавание речи с помощью Playground
+        href: operations/stt-playground.md
+      - name: Синтез речи с помощью Playground
+        href: operations/tts-playground.md
+      - name: Распознавание
+        items:
+          - name: Потоковое распознавание аудиофайла API v3
+            href: stt/api/streaming-examples-v3.md
+          - name: Потоковое распознавание речи с микрофона API v3
+            href: stt/api/microphone-streaming.md
+          - name: Автоматическое определение языка — API v3
+            href: stt/api/stt-language-labels-example.md
+          - name: Потоковое распознавание API v2
+            href: stt/api/streaming-examples.md
+          - name: Синхронное распознавание API v1
+            href: stt/api/request-examples.md
+          - name: Асинхронное распознавание аудиофайлов в формате WAV — API v3
+            href: stt/api/transcribation-api-v3.md
+          - name: Асинхронное распознавание формата LPCM — API v2
+            href: stt/api/transcribation-lpcm.md
+          - name: Асинхронное распознавание формата OggOpus — API v2
+            href: stt/api/transcribation-ogg.md
+          - name: Регулярное асинхронное распознавание аудиофайлов — API v2
+            href: stt/api/batch-transcribation.md
+      - name: Синтез
+        items:
+          - name: Синтез речи в API v3
+            href: tts/api/tts-examples-v3.md
+          - name: Синтез речи в REST API v3
+            href: tts/api/tts-v3-rest.md
+          - name: Синтез речи по шаблонам
+            href: tts/api/tts-templates.md
+          - name: Синтез речи по шаблонам Brand Voice Call Center
+            href: tts/api/tts-templates-bvcc.md
+          - name: Синтез речи в формате WAV — API v1
+            href: tts/api/tts-wav.md
+          - name: Синтез речи в формате OggOpus — API v1
+            href: tts/api/tts-ogg.md
+          - name: Синтез речи из текста SSML — API v1
+            href: tts/api/tts-ssml.md
   - name: Распознавание речи
     items:
       - name: О технологии
@@ -191,42 +233,6 @@ items:
           Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
           speechkit-name }}
         href: tutorials/speechkit-integrarion-via-agi-gw.md
-      - name: Распознавание
-        items:
-          - name: Потоковое распознавание аудиофайла API v3
-            href: stt/api/streaming-examples-v3.md
-          - name: Потоковое распознавание речи с микрофона API v3
-            href: stt/api/microphone-streaming.md
-          - name: Автоматическое определение языка — API v3
-            href: stt/api/stt-language-labels-example.md
-          - name: Потоковое распознавание API v2
-            href: stt/api/streaming-examples.md
-          - name: Синхронное распознавание API v1
-            href: stt/api/request-examples.md
-          - name: Асинхронное распознавание аудиофайлов в формате WAV — API v3
-            href: stt/api/transcribation-api-v3.md
-          - name: Асинхронное распознавание формата LPCM — API v2
-            href: stt/api/transcribation-lpcm.md
-          - name: Асинхронное распознавание формата OggOpus — API v2
-            href: stt/api/transcribation-ogg.md
-          - name: "Регулярное асинхронное распознавание аудиофайлов —\_API v2"
-            href: stt/api/batch-transcribation.md
-      - name: Синтез
-        items:
-          - name: Синтез речи в API v3
-            href: tts/api/tts-examples-v3.md
-          - name: Синтез речи в REST API v3
-            href: tts/api/tts-v3-rest.md
-          - name: Синтез речи по шаблонам
-            href: tts/api/tts-templates.md
-          - name: Синтез речи по шаблонам Brand Voice Call Center
-            href: tts/api/tts-templates-bvcc.md
-          - name: Синтез речи в формате WAV — API v1
-            href: tts/api/tts-wav.md
-          - name: Синтез речи в формате OggOpus — API v1
-            href: tts/api/tts-ogg.md
-          - name: Синтез речи из текста SSML — API v1
-            href: tts/api/tts-ssml.md
   - name: Поддерживаемые форматы аудио
     href: formats.md
   - name: Интеграция телефонии

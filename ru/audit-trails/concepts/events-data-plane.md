@@ -25,6 +25,7 @@ description: В данном разделе приведены описания 
 * [{{ mmg-full-name }}](#mmg)
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
+* [{{ mrd-full-name }}](#mrd)
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ sd-full-name }}](#security-deck)
 * [{{ speechsense-full-name }}](#speechsense)
@@ -92,6 +93,12 @@ description: В данном разделе приведены описания 
 Имя сервиса — `mdb.postgresql`.
 
 {% include [mpg-events-dp](../../_includes/audit-trails/events/mpg-events-dp.md) %}
+
+## {{ mrd-full-name }} {#mrd}
+
+Имя сервиса — `mdb.redis`.
+
+{% include [mrd-events-dp](../../_includes/audit-trails/events/mrd-events-dp.md) %}
 
 ## {{ objstorage-full-name }} {#objstorage}
 

@@ -1,4 +1,4 @@
-| Услуга | Цена за 15 секунд аудио,<br/>вкл. НДС|
+| Услуга | Цена за 15 секунд аудио,<br/>вкл. НДС |
 | --- | --- |
 | [Потоковое распознавание](../../{{ speechkit-slug }}/stt/streaming.md)                                          | {{ sku|RUB|speechkit.stt.v1|string }} |
 | [Синхронное распознавание файлов](../../{{ speechkit-slug }}/stt/request.md)                                    | {{ sku|RUB|speechkit.stt.v1|string }} |

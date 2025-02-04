@@ -8520,6 +8520,7 @@ default:
           label_synthesis-settings: Synthesis settings
         speech-to-text:
           field_language: Language
+          label_button_copy-text: Copy text
           label_button_start-recognition: Start recognition
           label_language-auto: Automatic
       storage:

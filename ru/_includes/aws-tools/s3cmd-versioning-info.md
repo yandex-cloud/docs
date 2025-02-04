@@ -1,0 +1,1 @@
+S3cmd не поддерживает работу с [версиями](../../storage/concepts/versioning.md) объектов. Чтобы работать с версиями объектов, используйте [AWS CLI](../../storage/tools/aws-cli.md).
