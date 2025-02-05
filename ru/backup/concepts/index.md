@@ -4,7 +4,7 @@
 
 {% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 Копии ВМ и серверов {{ baremetal-name }} создаются по принципу application-consistent: сохраняются не только данные на дисках, но и данные, которые были отправлены в запись на диск и еще не успели записаться. Такой подход позволяет возобновить работу приложений, запущенных в момент создания копии, сразу после восстановления ВМ или сервера {{ baremetal-name }} из резервной копии. Это важно для ВМ и серверов, которые входят в состав систем хранения данных. Например, когда на ВМ или сервере {{ baremetal-name }} запущена система управления базами данных (СУБД).
 

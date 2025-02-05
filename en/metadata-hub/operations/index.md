@@ -32,6 +32,7 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
 * Namespace:
   * [{#T}](create-name-space.md)
   * [{#T}](update-name-space.md)
+  * [{#T}](connect-to-namespace.md)
   * [{#T}](delete-name-space.md)
 * Schemas:
   * [{#T}](upload-schema-to-subject.md)

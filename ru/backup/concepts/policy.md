@@ -8,7 +8,7 @@
 
 По умолчанию ВМ и серверы {{ baremetal-full-name }} в {{ backup-name }} не связаны ни с одной политикой резервного копирования. Чтобы начать создавать резервные копии, привяжите [виртуальную машину](../operations/policy-vm/attach-and-detach-vm.md) или [сервер {{ baremetal-name }}](../operations/backup-baremetal/backup-baremetal.md#agent-install) к одной или нескольким политикам.
 
-{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 В политике вы указываете:
 

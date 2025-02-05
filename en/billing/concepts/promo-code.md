@@ -5,7 +5,6 @@ A **promo code** is a password that allows you to get an additional discount on 
 ## Get and activate a promo code {#activate-promocode}
 
 A promo code can be provided to you as part of a Yandex promotional offer.
-
 You can activate your promo code only once. For more information, see [Activate a promo code](../operations/activate-promocode.md).
 
 ## Terms of use and validity period {#terms-of-use}
@@ -20,4 +19,5 @@ The terms of use and the validity period are specified in the message containing
 All previously issued and unused promo codes that were provided to access the {{ yandex-cloud }} management console are no longer valid starting November 27, 2018.
 
 {% endnote %}
+
 

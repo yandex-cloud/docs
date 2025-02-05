@@ -21,7 +21,7 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
   1. In the window that opens, specify the connection name and click **Create**.
   1. Select **{{ yandex-cloud }} Billing Dashboard** in the list.
   1. Go to the **Resources** tab.
-  1. In the **Usage date** field, select the period in question. A date is defined as an interval from 0:00 to 23:59 (UTC+3).
+  1. In the **Usage date** field, select a time period. A date is defined as an interval from 0:00 to 23:59 (UTC+3).
   1. Click ![options-grey](../../_assets/console-icons/ellipsis.svg) next to the **Resource total cost** chart and select **Edit**.
   1. In the editor that opens:
       1. Under **Columns**, delete the **Cost** and **Credit** columns.

@@ -18,18 +18,14 @@ To transfer funds, you should first get a [payment invoice](../concepts/bill.md)
 {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
 
-
 ## Payment terms {#limits}
 
 Invoices must be paid before the deadline set out in the agreement. How fast the funds will be credited to your personal account depends on the bank performing the transaction.
 
 The due date for payments is specified in Chapter 6 (Payment Procedure) of the [agreement](../concepts/contract.md) or in a monthly [report](../concepts/act.md#report-of-completion) that we send to our clients.
 
-
 {% note info %}
 
 We recommend that you keep track of the money you spend from your personal account and [maintain a positive balance at all times](../operations/pay-the-bill.md). If the personal account balance drops to zero, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md#conditions). For more information, see [Billing cycle](../payment/billing-cycle-business.md).
 
 {% endnote %}
-
-

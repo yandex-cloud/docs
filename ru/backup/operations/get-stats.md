@@ -2,7 +2,7 @@
 
 {{ backup-name }} автоматически поставляет метрики количества защищенных виртуальных машин и серверов {{ baremetal-full-name }}, а также объема хранилища, занятого резервными копиями, в сервис [{{ monitoring-full-name }}](../../monitoring/).
 
-{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 Чтобы посмотреть статистику:
 

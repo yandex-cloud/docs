@@ -9,7 +9,7 @@ A completion report is a primary accounting document confirming the provision of
 
 ### Creating a completion report {#create-act}
 
-Reports are generated at the end of the reporting period for the amount actually spent from the [personal account](../concepts/personal-account.md) balance.
+Reports are generated at the end of the reporting period for the amount actually used from the [personal account](../concepts/personal-account.md).
 
 Reports are then used as a basis for generating [invoices](../concepts/invoice.md).
 
@@ -27,7 +27,7 @@ Reports are then used as a basis for generating [invoices](../concepts/invoice.m
 
 * Non-residents of Russia and Kazakhstan {#nonresidents}
 
-   No report will be issued to non-residents of Russia and Kazakhstan.
+  No report will be issued to non-residents of Russia and Kazakhstan.
 
 {% endlist %}
 

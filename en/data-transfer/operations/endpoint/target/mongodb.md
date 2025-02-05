@@ -18,12 +18,12 @@ description: In this tutorial, you will learn how to set up a {{ MG }} target en
 ## Scenarios for transferring data to {{ MG }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-
-    * [Migrating the {{ MG }} cluster](../../../tutorials/managed-mongodb.md).
-    * [Migrating a {{ MG }} cluster from 4.4 to 6.0](../../../tutorials/mongodb-versions.md).
+    
+    * [Migrating a {{ MG }}](../../../tutorials/managed-mongodb.md) cluster.
+    * Migrating a [{{ MG }} cluster from 4.4 to 6.0](../../../tutorials/mongodb-versions.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-
+    
     * [Delivering data from {{ KF }} to {{ MG }}](../../../tutorials/mkf-to-mmg.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
@@ -35,7 +35,7 @@ Configure one of the supported data sources:
 * [{{ MG }}](../source/mongodb.md)
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)
 * [{{ DS }}](../source/data-streams.md)
-* [{{ KF }}](../source/kafka.md)​
+* [{{ KF }}](../source/kafka.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
@@ -58,7 +58,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmg.viewer }}` role](../../../../managed-mongodb/security/index.md#mmg-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../managed-mongodb/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 

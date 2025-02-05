@@ -13,7 +13,59 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения меток объекта в бакете:
+
+      ```bash
+      yc storage s3api put-object-tagging --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE    | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | my-bucket        | b1g5dk66rc1u******** | 53687091200 | STANDARD              | 2024-12-17 07:17:04 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. В терминале выполните команду, которая перезаписывает все имеющиеся у объекта метки:
+
+      ```bash
+      yc storage s3api put-object-tagging \
+        --bucket <имя_бакета> \
+        --key <ключ_объекта> \
+        --version-id <идентификатор_версии> \
+        --tagging TagSet=[{Key=<ключ_метки>,Value=<значение_метки>},{Key=<ключ_метки>,Value=<значение_метки>}]
+      ```
+
+      Где:
+      * `--bucket` — имя бакета.
+      * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
+      * `--version-id` — [версия](../../concepts/versioning.md) объекта. Необязательный параметр.
+      * `--tagging` — массив меток объекта, где:
+        * `Key` — ключ метки, тип: `string`.
+        * `Value` — значение метки, тип: `string`.
+
+      Результат:
+
+      ```text
+      request_id: ac9066e5********
+      ```
+
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -77,7 +129,60 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для просмотра меток объекта в бакете:
+
+      ```bash
+      yc storage s3api get-object-tagging --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE    | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | my-bucket        | b1g5dk66rc1u******** | 53687091200 | STANDARD              | 2024-12-17 07:17:04 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Получите информацию о метках объекта:
+
+      ```bash
+      yc storage s3api get-object-tagging \
+        --bucket <имя_бакета> \
+        --key <ключ_объекта> \
+        --version-id <идентификатор_версии>
+      ```
+
+      Где:
+      * `--bucket` — имя бакета.
+      * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
+      * `--version-id` — [версия](../../concepts/versioning.md) объекта. Необязательный параметр.
+
+      Результат:
+
+      ```text
+      request_id: 2defc7b2********
+      tag_set:
+        - key: key-for-my-object-2
+          value: second-value
+        - key: key-for-my-object-1
+          value: first-value
+      ```
+
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -122,7 +227,55 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для удаления меток объекта в бакете:
+
+      ```bash
+      yc storage s3api delete-object-tagging --help
+      ```
+
+  1. Получите список бакетов в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Результат:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE    | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | my-bucket        | b1g5dk66rc1u******** | 53687091200 | STANDARD              | 2024-12-17 07:17:04 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Удалите метки объекта в бакете:
+
+      ```bash
+      yc storage s3api delete-object-tagging \
+        --bucket <имя_бакета> \
+        --key <ключ_объекта> \
+        --version-id <идентификатор_версии>
+      ```
+
+      Где:
+      * `--bucket` — имя бакета.
+      * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
+      * `--version-id` — [версия](../../concepts/versioning.md) объекта. Необязательный параметр.
+
+      Результат:
+
+      ```text
+      request_id: 1131dfc4********
+      ```
+
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 

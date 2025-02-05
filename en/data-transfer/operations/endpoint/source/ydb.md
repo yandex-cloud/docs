@@ -19,7 +19,7 @@ description: In this tutorial, you will learn how to configure a {{ ydb-full-nam
 ## Scenarios for transferring data from {{ ydb-name }} {#scenarios}
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
-    
+
     * [Capturing changes from {{ PG }} and delivering to {{ DS }}](../../../tutorials/ydb-to-yds.md).
     * [Capturing changes from {{ PG }} and delivering to {{ KF }}](../../../tutorials/cdc-ydb.md).
 
@@ -57,7 +57,7 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 
   * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/database-name.md) %}
 
-
+  
   * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/service-account.md) %}
 
   * {% include [YDB UI](../../../../_includes/data-transfer/fields/ydb/ui/security-groups.md) %}
@@ -82,6 +82,30 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
       If a consumer is specified, the `ydb.viewer` role is enough for the service account specified in the endpoint settings to connect the transfer to {{ ydb-short-name }}. If no consumer is specified, the service account must have the `ydb.editor` role to create the default consumer.
 
       {% endnote %}
+
+- {{ TF }} {#tf}
+
+  * Endpoint type: `ydb_source`.
+
+  {% include [Managed YDB {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-ydb-source.md) %}
+
+  Here is an example of the configuration file structure (not all parameters are given):
+
+  ```hcl
+  resource "yandex_datatransfer_endpoint" "ydb-source" { 
+    name = "<endpoint_name>"
+    settings {
+      ydb_source {
+        database               = "<YDB_database_name>"        
+        service_account_id     = "<service_account_ID>"
+        paths                  = ["<list_of_paths_to_transferrable_YDB_objects>"]
+        changefeed_custom_name = "<changefeed_name>"
+      }
+    }
+  }
+  ```
+
+  For more information, see the [{{ TF }}]({{ tf-provider-dt-endpoint }}) provider documentation.
 
 {% endlist %}
 
