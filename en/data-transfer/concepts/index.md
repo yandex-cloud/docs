@@ -17,27 +17,24 @@ An _endpoint_ is a configuration used to connect to a service: _datasource_ or _
 
 The following can be the data source or target:
 
-
-| Service | Source | Target |
+| Service                                                                                                                                |                                Source                                |               Target               |
 |---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------:|:------------------------------------:|
-| {{ KF }} topic: Your own or as part of the [{{ mkf-short-name }} service](../../managed-kafka/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| AWS CloudTrail message stream | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| Your own BigQuery database | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| {{ CH }} database: Your own or as part of the [{{ mch-short-name }} service](../../managed-clickhouse/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Your own {{ ES }} database                                                                                                     |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ GP }} database: Your own or as part of the [{{ mgp-short-name }} service](../../managed-greenplum/)                             |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ MG }} database: Your own or as part of the [{{ mmg-short-name }} service](../../managed-mongodb/)                               |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ MY }} database: Your own or as part of the [{{ mmy-short-name }} service](../../managed-mysql/)                                 |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ KF }} topic: Your own or as part of [{{ mkf-short-name }}](../../managed-kafka/)                                       |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| AWS CloudTrail message stream                                                                                                        |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
+| Your own BigQuery database                                                                                                      |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
+| {{ CH }} database: Your own or as part of [{{ mch-short-name }}](../../managed-clickhouse/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| Your own {{ ES }} database                                                                                                                                                                                |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ GP }} database: Your own or as part of [{{ mgp-short-name }}](../../managed-greenplum/)                             |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ MG }} database: Your own or as part of [{{ mmg-short-name }}](../../managed-mongodb/)                               |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ MY }} database: Your own or as part of [{{ mmy-short-name }}](../../managed-mysql/)                                 |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | Your own Oracle database                                                                                                        |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
-| {{ PG }} database: Your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ OS }} database: Your own or as part of the [{{ mos-short-name }} service](../../managed-opensearch/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ PG }} database: Your own or as part of [{{ mpg-short-name }}](../../managed-postgresql/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ OS }} database: Your own or as part of [{{ mos-short-name }}](../../managed-opensearch/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | S3-compatible bucket |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
-| [{{ yds-full-name }}](../../data-streams/) data stream                                                                              |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ ydb-name }} database: As part of the [{{ ydb-name }} service](../../ydb/)                                                           |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| [{{ yds-full-name }}](../../data-streams/) data stream                                                                               |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ ydb-name }} database: As part of [{{ ydb-name }}](../../ydb/)                                                           |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | [{{ objstorage-full-name }}](../../storage/) bucket                                                                                    |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | 
-
-
 
 ## Transfer {#transfer}
 

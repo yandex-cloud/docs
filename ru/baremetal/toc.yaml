@@ -18,6 +18,10 @@ items:
             href: operations/servers/server-stop-and-start.md
           - name: Отказаться от аренды серверы
             href: operations/servers/server-lease-cancel.md
+          - name: Переустановить ОС сервера
+            items:
+              - name: Переустановить ОС из образа Marketplace
+                href: operations/servers/reinstall-os-from-marketplace.md
           - name: Подключиться к KVM-консоли
             href: operations/servers/server-kvm.md
           - name: Заменить диск в RAID-массиве

@@ -57,5 +57,6 @@ Manage schema versions with {{ schema-registry-name }}.
 ## What's next {what-is-next}
 
 After you create a namespace and register a schema:
+1. [Connect to the namespace](../operations/connect-to-namespace).
 1. [Add schemas to the subject](../operations/add-schema.md).
 1. [Compare schema versions](../operations/compare-schemas.md).

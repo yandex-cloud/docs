@@ -272,9 +272,9 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 ##### {{ backup-name }} {#backup}
 
 * Добавлены следующие команды:
-  * `yc backup agent install` — для установки агента резервного копирования и подключения ВМ с установленным {{ oslogin }} к {{ backup-name }}.
-  * `yc backup agent reinstall` — для повторной установки агента резервного копирования для ВМ с установленным {{ oslogin }}.
-  * `yc backup agent debug-info` — для получения логов установки агента резервного копирования для ВМ с установленным {{ oslogin }}.
+  * `yc backup agent install` — для установки [агента {{ backup-name }}](../backup/concepts/agent.md) и подключения ВМ с установленным {{ oslogin }} к {{ backup-name }}.
+  * `yc backup agent reinstall` — для повторной установки агента {{ backup-name }} для ВМ с установленным {{ oslogin }}.
+  * `yc backup agent debug-info` — для получения логов установки агента {{ backup-name }} для ВМ с установленным {{ oslogin }}.
   * `yc backup provider activate` — для активации сервиса и подключения к провайдеру резервного копирования.
 
 * При выполнении команд теперь проверяется, активирован ли сервис {{ backup-name }} в каталоге.

@@ -42,7 +42,7 @@ description: Следуя данной инструкции, вы сможете
 
           ```bash
           wget https://storage.yandexcloud.net/backup-distributions/agent_reinit_bms.sh
-          sudo bash bms_agent_reinit.sh -t=<IAM-токен>
+          sudo bash agent_reinit_bms.sh -t=<IAM-токен>
           ```
 
           Где `-t` — IAM-токен, полученный ранее.

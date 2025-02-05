@@ -33,15 +33,15 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 Configure one of the supported data sources:
 
-* [{{ PG }}](../source/postgresql.md).
-* [{{ MY }}](../source/mysql.md).
-* [{{ KF }}](../source/kafka.md).
-* [{{ ydb-name }}](../source/ydb.md).
-* [{{ AB }}](../../../transfer-matrix.md#airbyte).
-* [{{ DS }}](../source/data-streams.md).
-* [{{ objstorage-full-name }}](../source/object-storage.md).
-* [{{ ES }}](../source/elasticsearch.md).
-* [{{ OS }}](../source/opensearch.md).
+* [{{ PG }}](../source/postgresql.md)
+* [{{ MY }}](../source/mysql.md)
+* [{{ KF }}](../source/kafka.md)
+* [{{ ydb-name }}](../source/ydb.md)
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)
+* [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ES }}](../source/elasticsearch.md)
+* [{{ OS }}](../source/opensearch.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
@@ -69,6 +69,8 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 - Management console {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTargetAdvancedSettings.save_tx_order.title }}**: Do not split an event stream into independent queues by table.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.supported_codecs.title }}**: Set the required data compression format (`{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.gzip.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.zstd.title }}`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.raw.title }}`).
 
 {% endlist %}
 

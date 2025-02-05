@@ -20,7 +20,8 @@
 1. [Активируйте {{ backup-name }}](#activate-provider).
 1. [Арендуйте тестовый сервер](#server-lease).
 1. [Подключитесь к серверу](#server-connect).
-1. [Установите агент резервного копирования](#agent-install).
+1. [Установите агент {{ backup-name }}](#agent-install).
+1. [Привяжите сервер к политике резервного копирования](#assign-policy).
 1. [Запустите создание резервной копии](#execute-policy).
 1. [Восстановите сервер из резервной копии](#server-recovery).
 
@@ -29,10 +30,6 @@
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
-{% include [include](../../_includes/cli-install.md) %}
-
-{% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -128,7 +125,7 @@
       1. Введите имя подсети `bm-subnetwork` и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
       1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
 
-          Чтобы агент {{ backup-name }} мог обмениваться данными с серверами [провайдера резервного копирования](../../backup/concepts/index.md#providers), на сервере должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }} согласно таблице: {#ip-access}
+          Чтобы [агент {{ backup-name }}](../../backup/concepts/agent.md) мог обмениваться данными с серверами [провайдера резервного копирования](../../backup/concepts/index.md#providers), на сервере должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }} согласно таблице: {#ip-access}
 
           {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %} 
 
@@ -211,7 +208,7 @@
 
 {% endlist %}
 
-## Установите агент резервного копирования {#agent-install}
+## Установите агент {{ backup-name }} {#agent-install}
 
 1. Скопируйте на сервер файл с авторизованным ключом сервисного аккаунта, [созданным ранее](#prepare-service-account). Для этого _на локальной машине_ выполните команду:
 
@@ -226,6 +223,12 @@
     curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
     ```
 
+1. Установите утилиту [jq](https://jqlang.github.io/jq/):
+
+    ```bash
+    apt update && apt install -y jq
+    ```
+
 1. Аутентифицируйтесь в {{ yandex-cloud }} CLI от имени сервисного аккаунта:
 
     ```bash
@@ -238,52 +241,107 @@
     yc iam create-token
     ```
 
-1. Установите утилиту [jq](https://jqlang.github.io/jq/):
-
-    ```bash
-    apt update && apt install -y jq
-    ```
-
-1. Установите агент резервного копирования:
+1. Установите агент {{ backup-name }}, указав полученный ранее IAM-токен сервисного аккаунта:
 
     ```bash
     wget https://{{ s3-storage-host }}/backup-distributions/agent_installer_bms.sh && \
     sudo bash ./agent_installer_bms.sh \
-      -t=<IAM-токен> \
-      -p=<идентификатор_политики_резервного_копирования>
+      -t=<IAM-токен>
     ```
 
-    Где:
-
-    * `-t` — полученный ранее IAM-токен сервисного аккаунта. Обязательный параметр.
-    * `-p` — идентификатор [политики резервного копирования](../../backup/concepts/policy.md), которую нужно привязать к серверу. Несколько идентификаторов указываются через запятую. Необязательный параметр.
-
-    Дождитесь сообщения о регистрации агента:
+    Дождитесь сообщения о регистрации агента {{ backup-name }}:
 
     ```text
     ...
     Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
     ```
 
+## Привяжите сервер к политике резервного копирования {#assign-policy}
+
+Резервные копии создаются в {{ backup-name }} только в рамках [политик резервного копирования](../../backup/concepts/policy.md). По умолчанию серверы {{ baremetal-name }} не привязаны ни к одной политике.
+
+Чтобы привязать сервер к политике резервного копирования:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите привязать сервер к политике.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. На панели слева выберите ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
+  1. Выберите политику, к которой вы хотите привязать сервер.
+  
+      При необходимости [создайте](../../backup/operations/policy-vm/create.md) новую политику резервного копирования.
+  1. В блоке **{{ ui-key.yacloud.backup.title_linked-recourses }}** нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_billing.backup.button_attach-instance }}**.
+  1. В открывшемся окне выберите вкладку **{{ ui-key.yacloud.backup.value_bms-recourses }}** и в списке серверов выберите нужный сервер.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
+
+- CLI {#cli}
+
+  1. Посмотрите описание команды CLI для привязки сервера {{ baremetal-name }} к политике: 
+
+      ```bash
+      yc backup policy apply --help
+      ```
+
+  1. Узнайте идентификатор политики, к которой вы хотите привязать сервер:
+
+      {% include [get-policy-id](../../_includes/backup/operations/get-policy-id.md) %}
+
+      При необходимости [создайте](../../backup/operations/policy-vm/create.md) новую политику резервного копирования.
+
+  1. Узнайте идентификатор сервера, который нужно привязать. Для этого в [консоли управления]({{ link-console-main }}) в списке сервисов нужного [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**. Идентификаторы указаны в списке серверов в поле **{{ ui-key.yacloud.common.id }}**.
+
+  1. Привяжите сервер к политике резервного копирования, указав ее идентификатор:
+
+      ```bash
+      yc backup policy apply <идентификатор_политики> \
+        --instance-ids <идентификатор_сервера>
+      ```
+
+      Где `--instance-ids` — идентификатор привязываемого к политике сервера {{ baremetal-name }}.
+
+  Подробнее о команде читайте в [справочнике CLI](../../cli/cli-ref/backup/cli-ref/policy/apply.md).
+
+{% endlist %}
+
 ## Запустите создание резервной копии {#execute-policy}
 
-Чтобы запустить создание резервной копии вне расписания политики резервного копирования, выполните команду:
+Чтобы запустить создание резервной копии сервера {{ baremetal-name }} вне расписания политики резервного копирования:
 
-```bash
-yc backup policy execute \
-  --id <идентификатор_политики> \
-  --instance-id <идентификатор_сервера>
-```
+{% list tabs group=instructions %}
 
-Дождитесь завершения операции.
+- Консоль управления {#console}
 
-Также вы можете выполнить команду в асинхронном режиме с помощью параметра `--async` и отслеживать процесс резервного копирования с помощью команды [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md).
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика резервного копирования.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. На панели слева выберите ![bms](../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
+  1. В строке с нужным сервером нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_start_backup }}**.
+  1. В открывшемся окне выберите политику резервного копирования, в соответствии с которой будет создана резервная копия, и нажмите **{{ ui-key.yacloud.common.create }}**.
+
+  Запустится процесс создания резервной копии сервера {{ baremetal-name }}. Прогресс создания копии будет отображаться в строке соответствующего сервера в поле **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}**.
+
+- CLI {#cli}
+
+  Выполните команду, указав идентификаторы политики резервного копирования и сервера:
+
+  ```bash
+  yc backup policy execute \
+    --id <идентификатор_политики> \
+    --instance-id <идентификатор_сервера>
+  ```
+
+  Дождитесь завершения операции.
+
+  Также вы можете выполнить команду в асинхронном режиме с помощью параметра `--async` и отслеживать процесс резервного копирования с помощью команды [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md).
+
+{% endlist %}
 
 ## Восстановите сервер из резервной копии {#server-recovery}
 
 {% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-Если вам нужно восстановить резервную копию с одного сервера на другой, или если на исходном сервере была переустановлена операционная система, заново [установите](#agent-install) агент резервного копирования на этом сервере.
+Если вам нужно восстановить резервную копию с одного сервера на другой, или если на исходном сервере была переустановлена операционная система, заново [установите](#agent-install) агент {{ backup-name }} на этом сервере.
 
 {% include [avoid-errors-when-restoring-from-backup.md](../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
 
@@ -293,26 +351,49 @@ yc backup policy execute \
 
 {% endnote %}
 
-1. Получите список резервных копий сервера:
+Чтобы восстановить сервер из резервной копии:
 
-    ```bash
-    yc backup backup list \
-      --instance-id <идентификатор_сервера>
-    ```
+{% list tabs group=instructions %}
 
-    Сохраните идентификатор (`ID`) резервной копии.
+- Консоль управления {#console}
 
-1. Восстановите сервер из резервной копии:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. На панели слева выберите ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** и откройте вкладку **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
+  1. В строке с резервной копией, из которой нужно восстановить сервер {{ baremetal-name }}, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
+  1. В открывшемся окне выберите сервер, из которого была создана выбранная резервная копия. В списке этот сервер будет отмечен как `({{ ui-key.yacloud.backup.context_current-bms }})`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
-    ```bash
-    yc backup backup recover \
-      --source-backup-id="<идентификатор_резервной_копии>" \
-      --destination-instance-id="<идентификатор_сервера>"
-    ```
+  Будет запущен процесс восстановления сервера {{ baremetal-name }} из резервной копии — дождитесь его завершения.
 
-    Дождитесь завершения операции.
+- CLI {#cli}
 
-    Также вы можете выполнить команду в асинхронном режиме с помощью параметра `--async` и отслеживать процесс резервного копирования с помощью команды [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md).
+  1. Получите список резервных копий сервера, указав его идентификатор:
+
+      ```bash
+      yc backup backup list \
+        --instance-id <идентификатор_сервера>
+      ```
+
+      Сохраните идентификатор (`ID`) резервной копии.
+
+  1. Восстановите сервер из резервной копии, указав их идентификаторы:
+
+      ```bash
+      yc backup backup recover \
+        --destination-instance-id="<идентификатор_сервера>" \
+        --source-backup-id="<идентификатор_резервной_копии>"
+      ```
+
+      Будет запущен процесс восстановления сервера {{ baremetal-name }} из резервной копии — дождитесь его завершения.
+
+      Также вы можете выполнить команду в асинхронном режиме с помощью параметра `--async` и отслеживать процесс резервного копирования с помощью команды [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md).
+
+      Подробнее о команде `yc backup backup recover` см. в [справочнике CLI](../../cli/cli-ref/backup/cli-ref/backup/recover.md).
+
+{% endlist %}
+
+{% include [non-native-bms-restore-connectivity-loss](../../_includes/backup/operations/non-native-bms-restore-connectivity-loss.md) %}
 
 ## Как отказаться от аренды и удалить ресурсы {#clear-out}
 

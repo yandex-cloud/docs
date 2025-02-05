@@ -102,7 +102,7 @@ The table contains the following columns:
 * `sku_id`: Consumed product ID.
 * `sku_name`: Product name.
 * `date`: Consumption charge date. A date is defined as an interval from 0:00 to 23:59 (UTC+3).
-* `currency`: Billing account currency. The possible values are `RUB`, `USD`, and `KZT`.
+* `currency`: Billing account currency. Possible values: `RUB`, `USD`, and `KZT`.
 * `pricing_quantity`: Number of product units consumed. The decimal separator is a period.
 * `pricing_unit`: Product consumption unit.
 * `cost`: Total cost of consumption. The decimal separator is a period.

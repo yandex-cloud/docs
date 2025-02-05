@@ -1,0 +1,1 @@
+When you set up your first data delivery from a topic data has been written to for a long time or resume such a delivery after prolonged downtime, you may get a `Found rewind` error. To resolve this issue, you can temporarily enable this setting, activate the transfer, and disable the setting again after all the data is read and delay is reduced.

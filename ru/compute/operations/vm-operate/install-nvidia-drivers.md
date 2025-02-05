@@ -3,10 +3,12 @@ title: Установка NVIDIA-драйверов
 description: Следуя данной инструкции, вы сможете установить NVIDIA-драйверы.
 ---
 
+
 # Установка NVIDIA-драйверов
 
 
 Для совместимости с [GPU](../../concepts/gpus.md) на виртуальной машине должны быть установлены драйверы NVIDIA. Драйверы можно установить как при [подготовке образа](../image-create/custom-image.md), так и изнутри ВМ после ее создания.
+
 
 ## Драйверы для Tesla® V100 {#install-v100-drivers}
 
@@ -22,9 +24,8 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите кнопку **Загрузить сейчас**.
 1. Запустите загруженный установщик и следуйте инструкциям.
 
-## Драйверы для Ampere® A100 {#install-a100-drivers}
 
-В {{ compute-short-name }} доступно две [конфигурации](../../concepts/gpus.md#config) ВМ на платформе AMD EPYC® with NVIDIA® Ampere® A100: с 1 GPU и с 8 GPU. Для конфигурации с 8 GPU необходимо дополнительно установить [Fabric Manager](https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html).
+## Драйверы для Ampere® A100 {#install-a100-drivers}
 
 Чтобы установить драйверы для графической карты NVIDIA® Ampere® A100:
 
@@ -37,25 +38,3 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите кнопку **Поиск**. Откроется страница с подходящим драйвером.
 1. Нажмите кнопку **Загрузить сейчас**.
 1. Запустите загруженный установщик и следуйте инструкциям.
-
-Чтобы установить и настроить Fabric Manager:
-
-1. В терминале выполните:
-
-   ```bash
-   sudo apt install -y nvidia-driver-<версия_драйвера>-server nvidia-utils-<версия_драйвера>-server nvidia-fabricmanager-<версия_драйвера>
-   sudo systemctl enable nvidia-fabricmanager
-   sudo systemctl start nvidia-fabricmanager
-   ```
-
-   {% note info %}
-   
-   При установке укажите нужную версию драйвера (например, 460).
-
-   {% endnote %}
-
-1. Проверьте работу Fabric Manager:
-
-   ```bash
-   nvidia-smi nvlink -s
-   ```

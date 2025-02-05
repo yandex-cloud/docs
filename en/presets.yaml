@@ -5439,6 +5439,10 @@ default:
         field_organization: Organization
         field_person-id: Payer
     yacloud_billing:
+      backup:
+        button_attach-instance: Attach VM
+        button_attach-instance-submit: Attach
+        label_policies: Backup policies
       billing:
         account:
           acts_batch-download-text_pdf: Download documents (PDF)
@@ -6294,13 +6298,18 @@ default:
         title_kms-key: Encryption key
       backup:
         action_add-to-recovery-list: Add to list of files to be recovered
+        action_bms-recovery: Recover BareMetal server
+        action_detach-baremetal-instance: Detach server from policy
         action_detach-vm-instance: Detach VM from policy
         action_recovery: Restore VM
         action_recovery-start: Recover
+        action_start_backup: Create backup
         button_action-activate: Activate
         button_attach-instance: Attach VM
         button_attach-instance-submit: Attach
         button_create-policy: Create policy
+        column_baremetal-instance-status: Server status
+        context_current-bms: current
         context_current-vm: current
         field_auto-delete: Retain backups
         field_backup-scheme: Type
@@ -6319,10 +6328,13 @@ default:
           value_overwrite-none: Do not overwrite files
           value_overwrite-older: Overwrite only existing files
         label_backups: Backups
+        label_baremetal-instances: BareMetal servers
         label_create: Connected
         label_instances: Virtual machines
         label_policies: Backup policies
         title_backup: Backups
+        title_linked-recourses: Attached resources
+        value_bms-recourses: BareMetal servers
         value_day-fri: Friday
         value_period-time-daily: Every day
         value_period-time-hourly: Every hour
@@ -6336,6 +6348,8 @@ default:
         action_destroy-raid: Remove RAID
         action_disk-layout-settings: Configure disk layout
         action_reboot-server: Reboot
+        action_reinstall-server-os: Re-install
+        action_reinstall-server-os-menu: Re-install OS
         action_stop-prolongation-server: Disable autorenewal
         action_stop-prolongation-server-dialog: Disable
         action-create-subnetwork: Create a private subnet
@@ -6361,6 +6375,7 @@ default:
         label_public-ip-no: No address
         label_subnetworks: Private subnets
         title_routing-settings: Routing settings
+        title_section-disk: Disk
         title_section-lease-conditions: Lease conditions
         title_section-server-config: Configuration
         title_section-server-info: Server information

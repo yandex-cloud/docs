@@ -18,7 +18,6 @@ If you want to use only the **Transfer from your bank account** payment method, 
 
 {% endnote %}
 
-
 You cannot unlink a bank card from an active billing account. However, you can [change the linked card](../operations/pin-card.md#change_card) or [delete the card from your account profile](../operations/pin-card.md#remove-card) after [inactivating the account](../operations/delete-account.md).
 
 ## Personal account top-up {#refill}
@@ -27,16 +26,11 @@ You cannot unlink a bank card from an active billing account. However, you can [
 
 For more information, see [Billing cycle](billing-cycle-individual.md).
 
-
 ## Debiting funds {#write-off}
 
 {% include [pay-by-card-business](../_includes/pay-by-card-business.md) %}
 
-
-
-
 For more information, see [Billing cycle](billing-cycle-business.md).
-
 
 ## Charged amount {#payment-amount}
 

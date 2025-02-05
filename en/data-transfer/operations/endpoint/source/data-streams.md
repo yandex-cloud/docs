@@ -95,11 +95,17 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**:
 
-       * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}
+       * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}    
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.supported_codecs.title }}**: Set the required data compression format (`{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.gzip.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.zstd.title }}`, or `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.raw.title }}`).
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.allow_ttl_rewind.title }}**: Select this option to continue a transfer if a topic's TTL is exceeded (some data will be lost). If the option is not selected, a transfer will be aborted with a data loss error.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.allow_ttl_rewind.title }}**: Enable this setting to allow the transfer to start or continue reading from a topic where some data was deleted after its retention period had expired. If this setting is off, your transfer will stop with an error in those cases where topic data is deleted after reaching the end of its retention period. This usually happens when a transfer lacks time to migrate all data and the read delay exceeds the retention period.
+    
+        {% note warning %}   
+
+        {% include [ttl](../../../../_includes/data-transfer/notes/ttl.md) %} 
+
+        {% endnote %}
 
 {% endlist %}
 

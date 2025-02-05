@@ -5448,6 +5448,10 @@ default:
         field_organization: Организация
         field_person-id: Плательщик
     yacloud_billing:
+      backup:
+        button_attach-instance: Привязать ВМ
+        button_attach-instance-submit: Привязать
+        label_policies: Политики копирования
       billing:
         account:
           acts_batch-download-text_pdf: Скачать документы (PDF)
@@ -6303,13 +6307,18 @@ default:
         title_kms-key: Ключ шифрования
       backup:
         action_add-to-recovery-list: Добавить к списку файлов для восстановления
+        action_bms-recovery: Восстановить сервер BareMetal
+        action_detach-baremetal-instance: Отвязать сервер от политики
         action_detach-vm-instance: Отвязать ВМ от политики
         action_recovery: Восстановить ВМ
         action_recovery-start: Восстановить
+        action_start_backup: Создать резервную копию
         button_action-activate: Активировать
         button_attach-instance: Привязать ресурс
         button_attach-instance-submit: 'Привязать  '
         button_create-policy: Создать политику
+        column_baremetal-instance-status: Статус сервера
+        context_current-bms: текущий
         context_current-vm: текущая
         field_auto-delete: Хранение копий
         field_backup-scheme: Тип
@@ -6328,10 +6337,13 @@ default:
           value_overwrite-none: Не перезаписывать файлы
           value_overwrite-older: Перезаписать только существующие файлы
         label_backups: Резервные копии
+        label_baremetal-instances: Серверы BareMetal
         label_create: Подключён
         label_instances: Виртуальные машины
         label_policies: Политики копирования
         title_backup: Резервное копирование
+        title_linked-recourses: Привязанные ресурсы
+        value_bms-recourses: Серверы BareMetal
         value_day-fri: Пятница
         value_period-time-daily: Каждый день
         value_period-time-hourly: Каждый час
@@ -6345,6 +6357,8 @@ default:
         action_destroy-raid: Разобрать RAID
         action_disk-layout-settings: Настроить разделы диска
         action_reboot-server: Перезапустить
+        action_reinstall-server-os: Переустановить
+        action_reinstall-server-os-menu: Переустановить ОС
         action_stop-prolongation-server: Выключить автопродление
         action_stop-prolongation-server-dialog: Выключить
         action-create-subnetwork: Создать приватную подсеть
@@ -6370,6 +6384,7 @@ default:
         label_public-ip-no: Без адреса
         label_subnetworks: Приватные подсети
         title_routing-settings: Настройки для маршрутизации
+        title_section-disk: Диск
         title_section-lease-conditions: Условия аренды
         title_section-server-config: Конфигурация
         title_section-server-info: Информация о сервере

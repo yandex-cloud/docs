@@ -11,16 +11,19 @@ description: Из статьи вы узнаете, как удалить рез
 
 {% endnote %}
 
-{% include [baremetal-note-extended](../../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
+
+Чтобы удалить резервную копию:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Перейдите на вкладку ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
-  1. Напротив резервной копии, которую нужно удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. На панели слева выберите ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
+  1. В зависимости от того, резервную копию какого ресурса вы хотите удалить, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
+  1. В строке с резервной копией, которую нужно удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 - CLI {#cli}
@@ -43,7 +46,7 @@ description: Из статьи вы узнаете, как удалить рез
 
       {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
 
-      Чтобы узнать идентификатор сервера {{ baremetal-name }}, в [консоли управления]({{ link-console-main }}) в списке сервисов нужного [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**. Идентификатор указан в поле **{{ ui-key.yacloud.common.id }}** в строке с нужным сервером.
+      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
 
   1. Удалите резервную копию:
 
@@ -62,7 +65,7 @@ description: Из статьи вы узнаете, как удалить рез
 
 - API {#api}
 
-  Чтобы удалить резервную копию, воспользуйтесь методом REST API [delete](../../backup/api-ref/Backup/delete.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Delete](../../backup/api-ref/grpc/Backup/delete.md).
+  Воспользуйтесь методом REST API [delete](../../backup/api-ref/Backup/delete.md) для ресурса [Backup](../../backup/api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Delete](../../backup/api-ref/grpc/Backup/delete.md).
 
 {% endlist %}
 

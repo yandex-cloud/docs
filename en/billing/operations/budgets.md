@@ -1,6 +1,6 @@
-# Enabling notifications
+# Enabling notifications 
 
-To manage costs in {{ yandex-cloud }}, you can configure notifications using [budgets](../concepts/budget.md).
+To manage costs in {{ yandex-cloud }}, you can configure notifications using [budgets](../concepts/budget.md). 
 
 Available budget types:
 * _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-cost }}_: Notification is sent when the cost of resources, without discounts applied, exceeds a specified usage limit.
@@ -33,8 +33,8 @@ To create a budget:
 
      1. Enter the budget name.
      1. Select **{{ ui-key.yacloud_billing.billing.account.budgets.label_type }}**.
-     1. Set the **Budget amount**: 
-        
+     1. Set **Budget amount**:
+
         * For the **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-cost }}** or **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}** type, specify the total usage cost.
         * For the **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}** type, specify the account balance.
 
@@ -44,7 +44,7 @@ To create a budget:
         * Set the budget end date. The end date defines when the budget stops tracking usage or the account balance and sending notifications. The end date is the last day of the month. It must be within five years of the current date.
 
      1. Under **{{ ui-key.yacloud_billing.billing.account.budgets.label_notify }}**, select the users to notify.
-     1. For the **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}** types, define the budget **{{ ui-key.yacloud_billing.billing.account.budgets.section_scope }}**. You can select individual clouds, folders, and services to include in a set budget. By default, data is collected from all the clouds, folders, and services that the selected billing account has access to.
+     1. For the **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-cost }}** and **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}** types, define the budget **{{ ui-key.yacloud_billing.billing.account.budgets.section_scope }}**. You can select individual clouds, folders, and services to include in a set budget. By default, data is collected from all the clouds, folders, and services that the selected billing account has access to. 
      1. Set at least one utilization threshold to trigger notifications. You can specify a threshold as a percentage or a cash value and select the users to receive notifications. A budget can have multiple thresholds.
    
      {% note info %}
@@ -60,7 +60,7 @@ To create a budget:
 - API {#api}
 
   To create a budget, use the [create](../api-ref/Budget/create.md) REST API method for the [Budget](../api-ref/Budget/index.md) resource or the [BudgetService/Create](../api-ref/grpc/Budget/create.md) gRPC API call.
-
+  
 {% endlist %}
 
 

@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, как изменить по
 
 {% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
 
-{% include [baremetal-note-extended](../../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
 
 ## Изменить основные параметры {#update-basic-parameters}
 
@@ -209,25 +209,28 @@ description: Из статьи вы узнаете, как изменить по
 
 {% endlist %}
 
-## Изменить список виртуальных машин и серверов {{ baremetal-name }} {#update-vm-list}
+## Изменить список виртуальных машин и серверов {{ baremetal-full-name }} {#update-vm-list}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  {% note info %}
-
-  В настоящий момент в консоли управления можно изменить только список виртуальных машин, привязанных к политике резервного копирования. Чтобы изменить список серверов {{ baremetal-name }}, используйте {{ yandex-cloud }} CLI или API.
-
-  {% endnote %}
-
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика резервного копирования.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
-  1. Выберите политику резервного копирования, в которой нужно изменить список [виртуальных машин](../../../compute/concepts/vm.md).
-  1. Измените список ВМ:
-     * Чтобы добавить новую ВМ, в блоке **{{ ui-key.yacloud.backup.value_vm-recourses }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**. В открывшемся окне выберите ВМ, которую нужно привязать к политике резервного копирования, и нажмите кнопку **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
-     * Чтобы удалить ВМ, в блоке **{{ ui-key.yacloud.backup.value_vm-recourses }}** напротив ВМ, которую нужно отвязать от политики резервного копирования, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_detach-vm-instance }}**.
+  1. Выберите политику резервного копирования, в которой нужно изменить список [виртуальных машин](../../../compute/concepts/vm.md) или [серверов](../../../baremetal/concepts/servers.md) {{ baremetal-name }}.
+  1. Измените список привязанных ресурсов:
+     * Чтобы привязать новую ВМ или сервер {{ baremetal-name }}, нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_billing.backup.button_attach-instance }}** и в открывшемся окне:
+
+        * В зависимости от того, какой ресурс вы хотите привязать к политике, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}** и в списке выберите нужные ВМ или сервер.
+
+           Если ВМ или сервера {{ baremetal-name }}, которые вы хотите привязать к политике, нет в списке, убедитесь, что они подключены к {{ backup-name }}.
+        * Нажмите кнопку **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
+     * Чтобы отвязать ВМ или сервер {{ baremetal-name }}:
+
+        * В зависимости от того, какой ресурс вы хотите отвязать от политики резервного копирования, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
+        * В строке с ВМ или сервером {{ baremetal-name }}, которые нужно отвязать от политики, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно **{{ ui-key.yacloud.backup.action_detach-vm-instance }}** или **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**.
+        * В открывшемся окне подтвердите это действие.
 
 - CLI {#cli}
 
@@ -243,7 +246,7 @@ description: Из статьи вы узнаете, как изменить по
 
      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
 
-     Чтобы узнать идентификаторы серверов {{ baremetal-name }}, в [консоли управления]({{ link-console-main }}) в списке сервисов нужного [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**. Идентификаторы указаны в списке серверов в поле **{{ ui-key.yacloud.common.id }}**.
+     {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
 
   1. Измените список ВМ и серверов {{ baremetal-name }} в политике резервного копирования.
      * Чтобы привязать ВМ или сервер {{ baremetal-name }} к политике резервного копирования:
@@ -254,14 +257,14 @@ description: Из статьи вы узнаете, как изменить по
        yc backup policy apply --help
        ```
 
-       Привяжите ВМ или серверы {{ baremetal-name }} к политике резервного копирования, указав их идентификаторы:
+       Привяжите ВМ или серверы {{ baremetal-name }} к политике резервного копирования, указав ее идентификатор:
 
        ```bash
        yc backup policy apply <идентификатор_политики_резервного_копирования> \
          --instance-ids <идентификаторы_ВМ_или_серверов_{{ baremetal-name }}>
        ```
 
-       Где `--instance-ids` — идентификаторы ВМ или серверов {{ baremetal-name }}, которые нужно привязать к политике резервного копирования. Несколько идентификаторов указываются через запятую.
+       Где `--instance-ids` — идентификаторы подключенных к {{ backup-name }} виртуальных машин и серверов {{ baremetal-name }}, которые нужно привязать к политике резервного копирования. Несколько идентификаторов указываются через запятую.
 
        Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
      * Чтобы отвязать ВМ или серверы {{ baremetal-name }} от политики резервного копирования:
@@ -272,7 +275,7 @@ description: Из статьи вы узнаете, как изменить по
        yc backup policy revoke --help
        ```
 
-       Отвяжите ВМ или серверы {{ baremetal-name }} от политики резервного копирования, указав их идентификаторы:
+       Отвяжите ВМ или серверы {{ baremetal-name }} от политики резервного копирования, указав ее идентификатор:
 
        ```bash
        yc backup policy revoke <идентификатор_политики_резервного_копирования> \
