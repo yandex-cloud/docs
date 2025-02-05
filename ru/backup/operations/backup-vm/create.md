@@ -9,8 +9,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
 
-О том, как создать резервную копию [сервера {{ baremetal-name }}](../../../baremetal/concepts/servers.md), см. в инструкции [Запуск создания резервной копии](../backup-baremetal/backup-baremetal.md#execute-policy).
-
 Резервные копии в {{ backup-name }} создаются автоматически по расписанию, указанному в политике.
 
 Чтобы создать резервную копию вне расписания:
@@ -19,20 +17,13 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  {% note info %}
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика резервного копирования.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. В зависимости от ресурса, для которого вы хотите создать резервную копию, на панели слева выберите ![vm](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** или ![bms](../../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
+  1. В строке с нужной виртуальной машиной или сервером {{ baremetal-name }} нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_start_backup }}**.
+  1. В открывшемся окне выберите политику резервного копирования, в соответствии с которой будет создана резервная копия, и нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  В настоящий момент с помощью консоли управления можно создавать резервные копии только для виртуальных машин {{ compute-full-name }}. Чтобы вне расписания создать резервную копию сервера {{ baremetal-name }}, используйте {{ yandex-cloud }} CLI.
-
-  {% endnote %}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать резервную копию.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Выберите ВМ в [статусе](../../../compute/concepts/vm-statuses.md#list-of-statuses) `Running`, резервную копию которой вы хотите создать.
-  1. Перейдите на вкладку **Резервные копии**.
-  1. Нажмите кнопку **Создать резервную копию**.
-  1. В открывшемся окне выберите политику, в рамках которой необходимо создать резервную копию, и нажмите **Создать**.
-
-  Запустится процесс создания копии ВМ.
+  Запустится процесс создания резервной копии ВМ или сервера {{ baremetal-name }}. Прогресс создания копии будет отображаться в строке соответствующих ВМ или сервера {{ baremetal-name }} в поле **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}**.
 
 - CLI {#cli}
 
@@ -54,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
 
-      Чтобы узнать идентификатор сервера {{ baremetal-name }}, в [консоли управления]({{ link-console-main }}) в списке сервисов нужного [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**. Идентификатор указан в поле **{{ ui-key.yacloud.common.id }}** в строке с нужным сервером.
+      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
 
   1. Создайте резервную копию:
 

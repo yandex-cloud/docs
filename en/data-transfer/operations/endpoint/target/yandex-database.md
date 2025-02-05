@@ -18,13 +18,13 @@ description: In this tutorial, you will learn how to set up an {{ ydb-name }} ta
 ## Scenarios for transferring data to {{ ydb-name }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-    
+
     * [Migration with change of storage from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
     * [Migration with change of storage from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
     * [Migration with change of storage from {{ OS }} to {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    
+
     * [Delivering data from {{ KF }} to {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
     * [Delivering data from {{ DS }} to {{ ydb-short-name }}](../../../tutorials/yds-to-ydb.md).
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
@@ -44,7 +44,7 @@ Configure one of the supported data sources:
 * [{{ objstorage-full-name }}](../source/object-storage.md)
 * [{{ PG }}](../source/postgresql.md)
 * [{{ ES }}](../source/elasticsearch.md)
-* [{{ OS }}](../source/opensearch.md)
+* [{{ OS }}](../source/opensearch.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
@@ -64,7 +64,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`ydb.viewer`](../../../../ydb/security/index.md#ydb-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
@@ -76,6 +76,29 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 - Management console {#console}
 
     {% include [YDB UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-database.md) %}
+
+- {{ TF }} {#tf}
+
+    * Endpoint type: `ydb_target`.
+
+    {% include [Managed YDB {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-ydb-target.md) %}
+
+    Here is an example of the configuration file structure (not all parameters are given):
+
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "ydb-target" {
+    name        = "<target_endpoint_name>"
+    settings {
+        ydb_target {
+          database       = "<target_database_path>"
+          cleanup_policy = "<data_cleanup_policy>"
+          service_account_id = "<service_account_ID>"          
+        }
+      }
+    }
+    ```
+
+    For more information, see the [{{ TF }}]({{ tf-provider-dt-endpoint }}) provider documentation.
 
 {% endlist %}
 
@@ -112,7 +135,15 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.alt_names.title }}**: Fill if you need to rename the source database tables when transferring them to the target database.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}**: Select this option to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}**: Select this option to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used. 
+
+- {{ TF }} {#tf}
+
+    * `path`: Subdirectory to host your tables.
+
+    * `default_compression`: Compression setting for the default column group.
+
+    * `is_table_column_oriented`: Set to `true` to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used.
 
 {% endlist %}
 

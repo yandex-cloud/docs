@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
    - {{ yandex-cloud }} CLI {#cli}
 
      1. {% include [cli-install](../../_includes/cli-install.md) %}
-     1. Посмотрите описание команды CLI для переустановки агента {{ backup-name }}:
+     1. Посмотрите описание команды CLI для переустановки [агента {{ backup-name }}](../concepts/agent.md):
 
         ```bash
         yc backup agent reinstall --help
@@ -40,7 +40,7 @@ description: Следуя данной инструкции, вы сможете
 
         Где `id` — уникальный идентификатор ВМ. Обязательный параметр.
 
-        После выполнения команды появится предупреждение о переустановке агента резервного копирования: `This command will launch commands on specified instance to reinstall backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Подтвердите переустановку — в терминале введите `yes` и нажмите `Enter`. После этого запустится процесс переустановки агента, который займет некоторое время.
+        После выполнения команды появится предупреждение о переустановке агента {{ backup-name }}: `This command will launch commands on specified instance to reinstall backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Подтвердите переустановку — в терминале введите `yes` и нажмите `Enter`. После этого запустится процесс переустановки агента {{ backup-name }}, который займет некоторое время.
 
         Результат:
 

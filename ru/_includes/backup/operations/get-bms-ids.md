@@ -1,0 +1,1 @@
+Чтобы узнать идентификаторы серверов {{ baremetal-name }}, в [консоли управления]({{ link-console-main }}) в списке сервисов нужного [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**. Идентификаторы указаны в списке серверов в поле **{{ ui-key.yacloud.common.id }}**.

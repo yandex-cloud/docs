@@ -342,7 +342,7 @@ items:
         items:
           - name: Все SDK
             href: tools/sdk/index.md
-          - name: AWS SDK для Java v.1.x
+          - name: AWS SDK для Java
             href: tools/aws-sdk-java.md
           - name: AWS SDK для JavaScript
             href: tools/aws-sdk-js.md

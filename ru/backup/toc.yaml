@@ -44,11 +44,11 @@ items:
             href: operations/policy-vm/create.md
           - name: Изменить политику
             href: operations/policy-vm/update.md
-          - name: Привязать ВМ к политике
+          - name: Привязать ВМ или сервер {{ baremetal-name }} к политике
             href: operations/policy-vm/attach-and-detach-vm.md
           - name: Получить информацию о политике
             href: operations/policy-vm/get-info.md
-          - name: Отвязать ВМ от политики
+          - name: Отвязать ВМ или сервер {{ baremetal-name }} от политики
             href: operations/policy-vm/detach-vm.md
           - name: Удалить политику
             href: operations/policy-vm/delete.md
@@ -56,11 +56,13 @@ items:
         items:
           - name: Создать копию
             href: operations/backup-vm/create.md
-          - name: Восстановить ВМ из копии
+          - name: Восстановить ВМ или сервер {{ baremetal-name }} из копии
             href: operations/backup-vm/recover.md
-          - name: Восстановить ВМ из копии другой ВМ
+          - name: >-
+              Восстановить ВМ или сервер {{ baremetal-name }} из копии другой ВМ
+              или сервера {{ baremetal-name }}
             href: operations/backup-vm/non-native-recovery.md
-          - name: Восстановить на ВМ отдельные директории и файлы
+          - name: Восстановить отдельные директории и файлы из резервной копии
             href: operations/backup-vm/recover-file-by-file.md
           - name: Посмотреть параметры дисков и разделов в резервной копии
             href: operations/backup-vm/view-disk-layout.md
@@ -92,6 +94,8 @@ items:
         href: concepts/policy.md
       - name: Резервные копии
         href: concepts/backup.md
+      - name: Агент {{ backup-name }}
+        href: concepts/agent.md
       - name: Квоты
         href: concepts/limits.md
   - name: Управление доступом
