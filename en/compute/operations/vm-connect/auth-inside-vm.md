@@ -1,19 +1,19 @@
-# Working with {{ yandex-cloud }} from inside a VM
+# Using {{ yandex-cloud }} from within a VM
 
-This section describes how to work with {{ yandex-cloud }} from inside a [VM](../../concepts/vm.md) via the API or CLI.
+This section describes how to use {{ yandex-cloud }} from within a [VM](../../concepts/vm.md) via the API or CLI.
 
-To automate operations with {{ yandex-cloud }} from inside a VM, we recommend using [service accounts](../../../iam/concepts/users/service-accounts.md). This is more secure since you do not need to save your [OAuth token](../../../iam/concepts/authorization/oauth-token.md) on a VM and can restrict access rights to a service account.
+To automate working with {{ yandex-cloud }} from within a VM, we recommend using [service accounts](../../../iam/concepts/users/service-accounts.md). This is more secure since you do not need to keep your [OAuth token](../../../iam/concepts/authorization/oauth-token.md) on the VM and can restrict access permissions for your service account.
 
-{{ yandex-cloud }} provides simplified authentication via the API and CLI from inside a VM for service accounts. To authenticate:
-1. If you do not have a service account yet, [create one](../../../iam/operations/sa/create.md) and [configure access rights for it](../../../iam/operations/sa/assign-role-for-sa.md).
+Yandex Cloud provides simplified API and CLI authentication from within a VM for service accounts. To authenticate:
+1. If you do not have a service account yet, [create one](../../../iam/operations/sa/create.md) and [configure access permissions for it](../../../iam/operations/sa/assign-role-for-sa.md).
 1. [Link the service account](#link-sa-with-instance) to your VM.
-1. [Authenticate from inside a VM](#auth-inside-vm).
+1. [Get authenticated from within your VM](#auth-inside-vm).
 
 ## Link your service account {#link-sa-with-instance}
 
-Link your service account to an existing or new VM. You can only link one service account.
+Link your service account to an existing or new VM. You can only link a single service account.
 
-To link a service account to a VM, you must have permission to use this account. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
+To link a service account to a VM, you need a permission to use this account. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
 
 ### Linking to an existing VM {#link-with-exist-instance}
 
@@ -34,7 +34,7 @@ To link a service account to a VM, you must have permission to use this account.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Update the VM parameters by specifying the service account via the `--service-account-name` or `--service-account-id` option:
+  Update the VM parameters by specifying the service account using `--service-account-name` or `--service-account-id`:
 
   ```bash
   yc compute instance update my-instance --service-account-name test
@@ -52,9 +52,9 @@ To link a service account to a VM, you must have permission to use this account.
 
 - Management console {#console}
 
-  In the management console, you can link a service account to a virtual machine located in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the VM being created. If the service account is in a different folder, use the CLI or API.
+  In the management console, you can link a service account to a virtual machine. This service account must be in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the VM. If the service account is in a different folder, use the CLI or API.
 
-  To link a service account to a VM, select it under **{{ ui-key.yacloud.compute.instances.create.section_additional }}** in the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field when [creating a VM](../index.md#vm-create). You can select an existing service account or create a new one.
+  To link a service account to a VM, select it under **{{ ui-key.yacloud.compute.instances.create.section_additional }}** in the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field when [creating the VM](../index.md#vm-create). You can select an existing service account or create a new one.
 
 - CLI {#cli}
 
@@ -62,7 +62,7 @@ To link a service account to a VM, you must have permission to use this account.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Create a VM by specifying the service account using the `--service-account-name` or `--service-account-id` option:
+  Create a VM by specifying the service account using `--service-account-name` or `--service-account-id`:
 
   ```bash
   yc compute instance create \
@@ -78,15 +78,15 @@ To link a service account to a VM, you must have permission to use this account.
 
 {% endlist %}
 
-## Authenticating from inside a VM {#auth-inside-vm}
+## Authentication from within a VM {#auth-inside-vm}
 
-To authenticate from inside a VM on behalf of the linked service account:
+To get authenticated from within your VM using the linked service account:
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  1. [Connect](../vm-connect/ssh.md) to your VM over SSH.
+  1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
 
   1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -96,22 +96,21 @@ To authenticate from inside a VM on behalf of the linked service account:
      yc config profile create my-robot-profile
      ```
 
-
   1. Configure your profile to run commands.
 
      {% include [add-folder](../../../_includes/cli-add-folder.md) %}
 
-     You can also get a [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md), for example, to authenticate with the API:
+     You can also get a [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md), e.g., to get authenticated with the API:
 
      ```bash
      yc iam create-token
      ```
 
-     The [lifetime of an {{ iam-name }} token](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an {{ iam-name }} token more often, e.g., every hour. To learn the remaining token lifetime, use the API instructions.
+     The [lifetime of an {{ iam-name }} token](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an {{ iam-name }} token more often, e.g., every hour. To learn the remaining token lifetime, follow the steps for the API.
 
 - API {#api}
 
-  1. Connect to the VM via [SSH](../vm-connect/ssh.md).
+  1. Connect to the VM [over SSH](../vm-connect/ssh.md).
   1. Get an {{ iam-name }} token from metadata in Google Compute Engine format:
 
      ```bash

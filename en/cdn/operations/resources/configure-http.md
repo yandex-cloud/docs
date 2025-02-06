@@ -99,7 +99,6 @@ To configure the allowed HTTP client requests methods for a resource:
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-      
       ```hcl
       terraform {
         required_providers {
@@ -130,8 +129,6 @@ To configure the allowed HTTP client requests methods for a resource:
       }
       ```
 
-
-
       Where:
 
       * `cname`: Primary domain name used for content distribution. This is a required parameter.
@@ -144,7 +141,7 @@ To configure the allowed HTTP client requests methods for a resource:
 
       For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```
@@ -162,7 +159,7 @@ To configure the allowed HTTP client requests methods for a resource:
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```

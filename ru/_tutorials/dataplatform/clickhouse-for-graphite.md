@@ -26,13 +26,11 @@
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки БД {{ CH }} для Graphite входит:
 * плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](../../managed-clickhouse/pricing.md));
 * плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-
 
 
 ## Создайте кластер {#cluster-create}

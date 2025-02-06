@@ -166,7 +166,13 @@ items:
       - name: Hosting a static Gatsby website in {{ objstorage-name }}
         href: tutorials/gatsby-static-website.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Overview
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
       - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
         href: tutorials/mpg-to-objstorage.md
       - name: >-
@@ -242,8 +248,18 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a Telegram bot
         href: tutorials/telegram-bot-serverless.md
+      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+        href: tutorials/replicate-logs-to-storage.md
       - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
+      - name: Creating an MLFlow server for logging experiments and artifacts
+        href: tutorials/mlflow-datasphere.md
+      - name: Working with data using {{ yq-full-name }}
+        href: tutorials/yq-storage.md
+      - name: Federated data queries using {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
+      - name: Recognizing text in image archives in {{ vision-name }}
+        href: tutorials/archive-from-vision-to-object-storage.md
   - name: Concepts
     items:
       - name: Overview

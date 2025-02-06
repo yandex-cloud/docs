@@ -21,7 +21,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки шлюза UserGate входит:
@@ -29,7 +28,6 @@
 * плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование [UserGate NGFW](/marketplace/products/usergate/ngfw);
 * плата за использование публичного статического IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ## Создайте облачную сеть и подсеть {#create-network}
 

@@ -12,13 +12,13 @@ To create a [VM](../../concepts/vm.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** from the list of services.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
-  1. (Optional) Configure the boot [disk](../../concepts/disk.md) in the **{{ ui-key.yacloud.compute.instances.create.section_storages }}** section:
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) for your VM.
+  1. Optionally, configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required disk size.
@@ -29,7 +29,7 @@ To create a [VM](../../concepts/vm.md):
 
       {% note info %}
 
-      Each public image has its own minimum requirements for a VM. A [{{ GL }}](/marketplace/products/yc/gitlab) image from {{ marketplace-full-name }}, for instance, requires at least 4 virtual cores and 8 GB of RAM.
+      Each public image has specific minimum system requirements that a VM must meet. For example, a [{{ GL }}](/marketplace/products/yc/gitlab) image from {{ marketplace-full-name }} requires at least 4 virtual cores and 8 GB of RAM.
 
       {% endnote %}
 
@@ -38,11 +38,11 @@ To create a [VM](../../concepts/vm.md):
 
       {% note info %}
 
-      On VMs with access via {{ oslogin }} enabled, provide your custom SSH keys through [metadata](../../concepts/vm-metadata.md#how-to-send-metadata).
+      On VMs with {{ oslogin }} access enabled, provide your custom SSH keys through [metadata](../../concepts/vm-metadata.md#how-to-send-metadata).
 
       {% endnote %}
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a name for your VM:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -51,7 +51,7 @@ To create a [VM](../../concepts/vm.md):
   1. {% include [section-additional](../../../_includes/compute/create/section-additional.md) %}
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  VM creation takes several minutes. When the VM status changes to `RUNNING`, proceed to [configure the software](setup.md). You can monitor VM statuses on the list of VMs in the folder.
+  It takes a few minutes to create a VM. When the VM status changes to `RUNNING`, proceed to [configure the software](setup.md). To monitor VM statuses, check the list of VMs in the folder.
 
 - CLI {#cli}
 
@@ -59,7 +59,7 @@ To create a [VM](../../concepts/vm.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to create a VM:
+  1. See the description of the CLI command for creating a VM:
 
      ```bash
      yc compute instance create --help
@@ -109,10 +109,10 @@ To create a [VM](../../concepts/vm.md):
 
         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) corresponding to the selected subnet.
-      * `--network-interface`: VM [network interface](../../concepts/network.md) settings.
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) matching the selected subnet.
+      * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
           * `subnet-name`: Name of the selected subnet.
-          * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+          * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, omit this parameter.
 
           {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
@@ -123,10 +123,7 @@ To create a [VM](../../concepts/vm.md):
 
           {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-          If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
-
-
-
+          If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in the `--metadata-from-file` parameter.
 
   {% include [vm-create-check](../../../_includes/compute/vm-create-check.md) %}
 
@@ -136,7 +133,7 @@ To create a [VM](../../concepts/vm.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
 
@@ -154,7 +151,7 @@ To create a [VM](../../concepts/vm.md):
        zone        = "<availability_zone>"
 
        resources {
-         cores  = "<number_of_vCPU_cores>"
+         cores  = "<number_of_vCPUs>"
          memory = "<RAM_in_GB>"
        }
 
@@ -195,39 +192,39 @@ To create a [VM](../../concepts/vm.md):
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-     * `yandex_compute_instance`: VM description.
+     * `yandex_compute_instance`: VM description:
        * `name`: VM name.
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
        * `zone`: Availability zone the VM will be in.
-       * `resources`: Number of vCPU cores and RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+       * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
        * `boot_disk`: Boot disk settings. Specify the disk ID.
-       * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+       * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
-       * `metadata`: In the metadata, provide the username and [public key for SSH access to the VM](../vm-connect/ssh.md#creating-ssh-keys). For more information, see [{#T}](../../concepts/vm-metadata.md).
+       * `metadata`: In the metadata, provide the username and [public key for SSH access](../vm-connect/ssh.md#creating-ssh-keys) to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
 
            If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`.
-     * `yandex_vpc_network`: Description of the cloud network.
-     * `yandex_vpc_subnet`: Description of the subnet your VM will be connected to.
+     * `yandex_vpc_network`: Cloud network description.
+     * `yandex_vpc_subnet`: Description of the subnet to connect your VM to.
 
      {% note info %}
 
-     If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+     If you already have suitable resources, such as a cloud network and subnet, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
 
      {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_instance).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash

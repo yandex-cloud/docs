@@ -25,14 +25,12 @@
 
 {% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инсталляции Active Directory входят:
 * Плата за постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за использование динамических или статических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-
 
 ## Создайте облачную сеть и подсети {#create-network}
 

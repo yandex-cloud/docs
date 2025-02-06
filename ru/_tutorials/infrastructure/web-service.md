@@ -40,7 +40,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой инфраструктуры входят:
@@ -48,7 +47,6 @@
 * плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование публичных статических IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
-
 
 ## Настройте удаленную площадку {#remote-setup}
 

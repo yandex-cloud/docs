@@ -11,10 +11,7 @@ Buckets support [labels](../../resource-manager/concepts/labels.md) {{ resmgr-fu
 
 You can view spending details for buckets or other resources of {{ yandex-cloud }} [services](../../resource-manager/concepts/labels.md#services) marked with a specific label. For example, using labels, you can view expenses for a particular project or organizational department.
 
-
-You can view expenses by labeled resources in a [CSV file with usage details](../../billing/operations/get-folder-report.md#format) and on the [{{ datalens-full-name }} dashboard](../../billing/operations/dashboard.md).
-
-
+You can view expenses by labeled resources in a CSV [file with usage details](../../billing/operations/get-folder-report.md#format) and on the [{{ datalens-full-name }} dashboard](../../billing/operations/dashboard.md).
 
 
 {% include [tags-restrictions](../../_includes/tags-restrictions.md) %}

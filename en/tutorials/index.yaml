@@ -44,3 +44,8 @@ links:
   - title: Serverless technologies
     description: Create your own apps and set up integrations with serverless technologies
     href: serverless/
+  - title: Machine learning and artificial intelligence
+    description: >-
+      Use the capabilities offered by {{ yandex-cloud }} to create machine
+      learning and artificial intelligence solutions
+    href: ml-ai/

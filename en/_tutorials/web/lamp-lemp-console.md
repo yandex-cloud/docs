@@ -94,10 +94,10 @@ To create a security group:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `web-network` and the subnet to create your VM in.
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the access credentials for the VM:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser privileges, use the `sudo` command.
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
@@ -111,7 +111,7 @@ To create a security group:
 
           If users cannot add SSH keys to their profiles in the organization, the added public SSH key will only be saved to the user profile of the VM being created.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `lamp-vm` or `lemp-vm`. The naming requirements are as follows:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `lamp-vm` or `lemp-vm`. The name should match the following format:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -125,7 +125,7 @@ To create a security group:
 
   1. Click **Create VM**.
 
-      It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
+      It may take a few minutes to create your VM. When the VM status changes to `RUNNING`, you can [upload the website files to it](#upload-files).
 
 {% endlist %}
 
@@ -175,7 +175,7 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
       1. Create a [CNAME](../../dns/concepts/resource-record.md#cname) record:
          * Select the `example.com` DNS zone from the list.
          * Click **Create record**.
-         * Set the record parameters:
+         * Specify the record parameters:
            * **Name**: `www`.
            * **Record type**: Select `CNAME`.
            * **TTL** (record time to live): Keep the default value.
@@ -220,7 +220,7 @@ To stop paying for the resources you created:
 - Management console {#console}
 
   1. [Delete](../../compute/operations/vm-control/vm-delete.md) `lamp-vm` (`lemp-vm`).
-  1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one specifically for this VM.
+  1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one for your VM.
   1. [Delete](../../dns/operations/resource-record-delete.md) the DNS records and [delete](../../dns/operations/zone-delete.md) the DNS zone if you used {{ dns-name }}.
 
 {% endlist %}

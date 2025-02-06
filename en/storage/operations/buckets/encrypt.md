@@ -44,9 +44,8 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
   To get started, [obtain an IAM token](../../../iam/operations/iam-token/create-for-sa.md#via-cli) for your service account and save it to a file.
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
-     
      ```
      provider "yandex" {
        cloud_id                 = "<cloud_ID>"
@@ -94,8 +93,6 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
      }
      ```
 
-
-
      Where:
 
      * `service_account_key_file`: Path to file with your service account's IAM token (or the file contents).
@@ -107,15 +104,15 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
         ```
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -123,9 +120,9 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
      terraform apply
      ```
 
-     1. Confirm that you want to create the resources.
+     1. Confirm creating the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -183,9 +180,9 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
      ```bash
      terraform validate
      ```
-
+     
      If the configuration is correct, you will get this message:
-
+     
      ```bash
      Success! The configuration is valid.
      ```
@@ -195,8 +192,8 @@ Data in {{ objstorage-short-name }} is encrypted using [envelope encryption](../
      ```bash
      terraform plan
      ```
-
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 

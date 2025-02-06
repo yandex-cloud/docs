@@ -21,8 +21,7 @@ yc serverless function version create --metadata-options aws-v1-http-endpoint=di
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-Added the `--metadata-options` parameter to the `yc serverless container revision deploy` command to specify the options to get metadata in a container.
-Usage example: 
+Added the `--metadata-options` parameter to the `yc serverless container revision deploy` command to specify the options to get metadata in a container. Usage example: 
 
 ```bash
 yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
@@ -214,7 +213,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `yc storage s3api delete-object`: Deleting an object.
   * `yc storage s3api copy-object`: Copying an existing bucket object.
   * `yc storage s3api head-object`: Getting object metadata.
-  * `yc storage s3api delete-object`: Deleting an object group.
+  * `yc storage s3api delete-objects`: Deleting an object group.
 
   To work with objects, in the `~/.config/yandex-cloud/config.yaml` YC CLI configuration file, specify the {{ objstorage-name }} endpoint.
 
@@ -1698,7 +1697,6 @@ Added {{ mgp-name }} primary support commands:
 
 
 ### Version 0.91.0 (12/05/22) {#version0.91.0}
-
 
 
 #### Changes to {{ yandex-cloud }} services {#services}

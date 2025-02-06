@@ -26,7 +26,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки балансировщика с записью логов входят:
@@ -36,7 +35,6 @@
 * плата за вызовы функции для обработки логов и вычислительные ресурсы, выделенные на выполнение функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
 * плата за запись и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md));
 * плата за использование ресурсов {{ alb-name }} (см. [тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md)).
-
 
 ## Создайте облачную сеть {#create-network}
 

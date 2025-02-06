@@ -16,10 +16,10 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+  1. Go to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
 
   
-  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
+  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../../../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account).
 
 
   1. If you do not have a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../../resource-manager/operations/folder/create.md).
@@ -57,7 +57,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   To create a cluster:
 
-  1. Specify the {{ managed-k8s-name }} cluster parameters in the create command (the example below does not list all possible parameters):
+  1. Specify the {{ managed-k8s-name }} cluster parameters in the create command (not all parameters are given in the example):
 
      ```bash
      {{ yc-k8s }} cluster create \
@@ -86,7 +86,15 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
      * `--subnet-name`: [Subnet](../../../vpc/concepts/network.md#subnet) name.
      * `--public-ip`: Flag indicating that the {{ managed-k8s-name }} cluster needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
+
+       {% include [nat-instance-restriction](../../../_includes/managed-kubernetes/nat-instance-restriction.md) %}
+
+       {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+
      * `--release-channel`: [Release channel](../../concepts/release-channels-and-updates.md#release-channels).
+
+       {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+
      * `--version`: {{ k8s }} version. Specify a version available for the selected release channel.
      * `--cluster-ipv4-range`: Range of [IP addresses](../../../vpc/concepts/address.md) for allocating [pod](../../concepts/index.md#pod) addresses.
      * `--service-ipv4-range`: Range of IP addresses for allocating [service](../../concepts/index.md#service) addresses.
@@ -94,7 +102,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create {{ managed-k8s-name }} cluster resources.
      * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will pull the required [Docker images](../../../container-registry/concepts/registry.md) from the [registry](../../../container-registry/concepts/docker-image.md) on behalf of this account.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
 
@@ -109,14 +117,28 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
        node_service_account_id: aje3932acd0c********
        release_channel: REGULAR
      ```
+  
+  1. Configure the cluster’s [Container Network Interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/):
 
-  1. To enable the Calico [network policy controller](../../concepts/network-policy.md), set the `--enable-network-policy` flag in the {{ managed-k8s-name }} cluster create command:
+      {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-     ```bash
-     {{ yc-k8s }} cluster create \
-     ...
-       --enable-network-policy
-     ```
+      {% include [calico-cilium-mutual-exclusion](../../../_includes/managed-kubernetes/calico-cilium-mutual-exclusion.md) %}
+
+      * To enable the Calico [network policy controller](../../concepts/network-policy.md#calico), set the `--enable-network-policy` flag in the {{ managed-k8s-name }} cluster create command:
+
+        ```bash
+        {{ yc-k8s }} cluster create \
+        ...
+          --enable-network-policy
+        ```
+
+      * To enable the Cilium [tunnel mode](../../concepts/network-policy.md#cilium), provide the `--cilium` flag in the {{ managed-k8s-name }} cluster create command:
+
+        ```bash
+        {{ yc-k8s }} cluster create \
+        ...
+          --cilium
+        ```
 
   1. To use the [{{ kms-full-name }}](../../concepts/encryption.md) encryption key for protecting sensitive data, provide the key name or ID in the {{ managed-k8s-name }} cluster creation command:
 
@@ -127,7 +149,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
        --kms-key-id <encryption_key_ID>
      ```
 
-     {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+     {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
   1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `--master-logging` property of the {{ managed-k8s-name }} cluster create command:
 
@@ -154,7 +176,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a {{ managed-k8s-name }} cluster:
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
      * {{ managed-k8s-name }} cluster: Cluster description.
      * [Network](../../../vpc/concepts/network.md#network): Description of the cloud network to host the {{ managed-k8s-name }} cluster. If you already have a suitable network, you do not need to describe it again.
 

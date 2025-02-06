@@ -54,7 +54,6 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    Result:
 
-   
    ```text
    NAME                          PROVISIONER                    RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION  AGE
    yc-network-hdd (default)      disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
@@ -62,8 +61,6 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    yc-network-ssd                disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
    yc-network-ssd-nonreplicated  disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
    ```
-
-
 
    {% note info %}
 
@@ -81,18 +78,14 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    To create a `PersistentVolume` from an existing cloud drive, enter its unique disk ID in the `volumeHandle` parameter.
 
-   
    {% note info %}
 
    If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-
-
    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-   
    ```yaml
    apiVersion: v1
    kind: PersistentVolume
@@ -109,8 +102,6 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
        volumeHandle: <disk_ID>
      storageClassName: <storage_class_name>
    ```
-
-
 
 1. Run this command:
 
@@ -258,13 +249,13 @@ In the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** management co
 ## How to delete a volume {#delete-volume}
 
 Disks are not deleted automatically from {{ compute-name }} when you delete `PersistentVolume`. To delete the volume completely:
-1. Delete the `PersistentVolumeClaim` object:
+1. Delete the `PersistentVolumeClaim` object.
 
    ```bash
    kubectl delete pvc <PersistentVolumeClaim_object_ID>
    ```
 
-1. Delete the `PersistentVolume` object:
+1. Delete the `PersistentVolume` object.
 
    ```bash
    kubectl delete pv <PersistentVolume_object_ID>

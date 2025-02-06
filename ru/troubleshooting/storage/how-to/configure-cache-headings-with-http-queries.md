@@ -11,12 +11,12 @@
 
 Чтобы добавить `Cache-Control` к уже загруженному объекту можно воспользоваться утилитой `s3cmd`. Для этого выполните команду: 
 ```
-s3cmd --add-header 'Cache-Control:3600' modify s3://<your-bucket-name>/object-name.
+s3cmd --add-header 'Cache-Control:max-age=3600' modify s3://<your-bucket-name>/object-name.
 ```
 
 Чтобы добавить заголовок `Cache-Control` во время загрузки объекта в бакет средствами `s3cmd`, укажите параметр `--add-header`: 
 ```
-s3cmd --add-header 'Cache-Control:3600' put local_file s3://<your-bucket-name>/object-name. 
+s3cmd --add-header 'Cache-Control:max-age=3600' put local_file s3://<your-bucket-name>/object-name. 
 ```
 
 {% note info %}

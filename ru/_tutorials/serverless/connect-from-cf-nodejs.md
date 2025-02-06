@@ -25,13 +25,11 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для этого сценария входит:
 * Плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 * Плата за выполнение запросов к БД (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)).
-
 
 ## Подготовьте окружение {#prepare-environment}
 

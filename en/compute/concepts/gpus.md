@@ -3,13 +3,13 @@ title: Graphics accelerators (GPUs)
 description: GPU (Graphics Processing Unit) is a graphics processor that outperforms vCPU for certain types of data. It can be used for complex computing. {{ compute-name }} provides graphics accelerators (GPUs) as part of graphics cards.
 ---
 
-# Graphics accelerators (GPUs)
+# Graphics processing units (GPUs)
 
 
 {{ compute-name }} provides graphics accelerators (GPUs) for different VM [configurations](#config). GPUs outperform CPUs for certain types of data and can be used for complex computing. For even more performance and convenience, you can use automatic allocation of resources in [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md).
 
 The following GPUs are available in {{ compute-name }}:
-* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) with 32 GB HBM2 (High Bandwidth Memory). 
+* [NVIDIA® Tesla® V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) with 32 GB HBM2 (High Bandwidth Memory).
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/en-us/data-center/a100/) with 80 GB HBM2.
 * [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6.
 
@@ -42,11 +42,9 @@ The NVIDIA® A100 GPU based on the [Ampere®](https://www.nvidia.com/en-us/data-
 
 NVIDIA® Tesla® T4 based on the [Turing™](https://images.nvidia.com/aem-dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf) architecture uses Turing tensor cores and RT cores and offers 16 GB of GDDR6 memory with [300 GB/s bandwidth](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-t4/t4-tensor-core-datasheet-951643.pdf).
 
-
 ### T4i {#t4i}
 
 T4i GPU uses Tensor Cores and offers 24 GB GDDR6 memory with up to 300 GB/s bandwidth.
-
 
 ### VM configurations {#config}
 
@@ -87,7 +85,7 @@ The computing resources may have the following configurations:
   2 | 160 | 36 | 288
   4 | 320 | 72 | 576
   8 | 640 | 180 | 1440
-
+  
 * {{ t4-ice-lake }} (`standard-v3-t4`):
 
   
@@ -108,8 +106,6 @@ The computing resources may have the following configurations:
   1 | 24 | 16 | 64
   1 | 24 | 32 | 128
 
-
-
 VM GPUs are provided in full. For example, if a configuration has four GPUs specified, your VM will have four full-featured GPU devices.
 
 
@@ -127,7 +123,7 @@ For information about the cost of VMs with GPUs, see [{#T}](../pricing.md#prices
 
 ## GPU clusters {#gpu-clusters}
 
-You can group several VMs into a cluster. This will allow you to accelerate distributed training tasks that require higher computing capacity than individual VMs can provide. Make sure the cluster is created in the same availability zone as its VMs. The cluster VMs are interconnected through InfiniBand, a secure high-speed network.
+You can group several VMs into a cluster. This will allow you to accelerate distributed training tasks that require higher computing capacity than individual VMs can provide. Make sure the cluster is created in the same availability zone as its VMs. The cluster VMs are interconnected through InfiniBand, a secure high-speed network. 
 
 You can add VMs from different folders, networks, and subnets to your cluster. For the cluster VMs to interact properly, we recommend using a [security group](../../vpc/concepts/security-groups.md) that allows unlimited traffic within the group. The default security group meets this requirement. If you edited the default security group, add a group with unlimited internal traffic.
 

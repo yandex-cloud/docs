@@ -16,23 +16,29 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-To host a static website in {{ objstorage-name }} using {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+To create an infrastructure for a static website in {{ objstorage-name }} using {{ TF }}:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Prepare files with the infrastructure description:
 
    {% list tabs group=infrastructure_description %}
 
    - Ready-made configuration {#ready}
 
-     1. Create a folder for configuration files.
-     1. Download the [archive](https://{{ s3-storage-host }}/doc-files/static.zip) (2 KB).
-     1. Unpack the archive to the folder. It should now contain the `static.tf` configuration file, plus `index.html` and `error.html`.
+     1. Clone the repository with configuration files.
+
+        ```bash
+        git clone https://github.com/yandex-cloud-examples/yc-s3-static-website.git
+        ```
+
+     1. Navigate to the repository directory. Make sure it contains the following files:
+        * `static.tf`: Your infrastructure configuration.
+        * `index.html` and `error.html`: Website's main page and the error page.
 
    - Manually {#manual}
 
      1. Create a folder for configuration files.
      1. In the folder, create:
-        1. `static.tf` configuration file
+        1. `static.tf` configuration file:
 
            {% cut "static.tf" %}
 
@@ -58,7 +64,7 @@ To host a static website in {{ objstorage-name }} using {{ TF }}:
 
    {% endlist %}
 
-   For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+   For more information about the properties of {{ TF }} resources, see the provider documentation:
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * [Role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
     * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
@@ -67,9 +73,9 @@ To host a static website in {{ objstorage-name }} using {{ TF }}:
     * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
 1. Under `locals` in the `static.tf` file, set the following user-defined properties:
-   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) (if you are using a [Yandex account](../../iam/concepts/users/accounts.md#passport)) or [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md) (if you are using a Yandex account or [federated account](../../iam/concepts/users/accounts.md#saml-federation)) to access {{ yandex-cloud }}. The {{ iam-short-name }} token is valid for up to 12 hours but cannot exceed the federation cookie lifetime.
-   * `cloud_id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) to create the resources in.
    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the resources in.
+   * `domain`: Domain name in `example.com` format, without a dot at the end.
+
 1. Create resources:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

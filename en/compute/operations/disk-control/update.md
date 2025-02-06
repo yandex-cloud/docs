@@ -6,13 +6,13 @@ description: Follow this guide to update a disk.
 # Updating a disk
 
 
-After you create a [disk](../../concepts/disk.md), you can:
+After creating a [disk](../../concepts/disk.md), you can:
 * [Change the disk name and description](#change-disk-name).
 * [Increase the size of your disk](#change-disk-size), even if it is attached to a [running](../../concepts/vm-statuses.md#list-of-statuses) [VM](../../concepts/vm.md).
 
 ## Changing the disk name and description {#change-disk-name}
 
-To change disk name and description:
+To change the name and description of a disk:
 
 {% list tabs group=instructions %}
 
@@ -21,11 +21,11 @@ To change disk name and description:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a disk.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the disk you need and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Change the disk name and description.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the disk and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Edit the disk name and description.
   1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
-  {{ compute-name }} will start the operation to update the disk.
+  {{ compute-name }} will initiate disk updating.
 
 - CLI {#cli}
 
@@ -33,7 +33,7 @@ To change disk name and description:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) disk update command:
+  1. See the description of the [CLI](../../../cli/) command for updating a disk:
 
      ```bash
      {{ yc-compute }} disk update --help
@@ -43,7 +43,7 @@ To change disk name and description:
 
      {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-  1. Select the `ID` or `NAME` of the disk you need, e.g., `first-disk`.
+  1. Select `ID` or `NAME` of the disk, e.g., `first-disk`.
   1. Specify the name and description in the disk update command:
 
      ```bash
@@ -52,13 +52,13 @@ To change disk name and description:
        --description "Updated disk via CLI"
      ```
 
-     {{ compute-name }} will start the operation to update the disk.
+     {{ compute-name }} will initiate disk updating.
 
 - API {#api}
 
-  To change the disk name or description, use the [update](../../api-ref/Disk/update.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Update](../../api-ref/grpc/Disk/update.md) gRPC API call.
+  To change the name or description of a disk, use the [update](../../api-ref/Disk/update.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Update](../../api-ref/grpc/Disk/update.md) gRPC API call.
 
-  To request the list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/Disk/list.md) gRPC API call.
+  To request a list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/Disk/list.md) gRPC API call.
 
 {% endlist %}
 
@@ -66,7 +66,7 @@ To change disk name and description:
 
 {% note info %}
 
-You can only change the size of a disk by increasing it. You cannot reduce the size of a disk.
+You can only increase the size of a disk. Reducing it is not supported.
 
 {% endnote %}
 
@@ -79,11 +79,11 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the disk you need and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the disk and select **{{ ui-key.yacloud.common.edit }}**.
   1. Increase the disk size.
   1. Click **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
 
-     {{ compute-name }} will launch the operation to change the disk size.
+     {{ compute-name }} will initiate disk resizing.
 
 - CLI {#cli}
 
@@ -91,7 +91,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI disk update command:
+  1. See the description of the CLI command for updating a disk:
 
      ```bash
      {{ yc-compute }} disk update --help
@@ -101,7 +101,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
      {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-  1. Select the `ID` or `NAME` of the disk you need, e.g., `first-disk`.
+  1. Select `ID` or `NAME` of the disk, e.g., `first-disk`.
   1. Specify the size, e.g., 32 GB, in the disk update command:
 
      ```bash
@@ -109,7 +109,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
        --size 32
      ```
 
-     {{ compute-name }} will launch the operation to change the disk size.
+     {{ compute-name }} will initiate disk resizing.
 
 - {{ TF }} {#tf}
 
@@ -125,10 +125,10 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
   {% endnote %}
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
      ```hcl
-     # Creating a disk.
+     # Creating a disk
 
      resource "yandex_compute_disk" "first-disk" {
        name     = "<disk_name>"
@@ -138,7 +138,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
        image_id = "<image_ID>"
      }
 
-     # Creating a VM.
+     # Creating a VM
 
      resource "yandex_compute_instance" "vm-lamp" {
        name        = "<VM_name>"
@@ -147,8 +147,8 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
        resources {
          core_fraction = <vCPU_performance_level>
-         cores         = <number_of_vCPU_cores>
-         memory        = <RAM_size_GB>
+         cores         = <number_of_vCPUs>
+         memory        = <RAM_in_GB>
        }
 
        boot_disk {
@@ -167,7 +167,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
      }
      ```
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -180,12 +180,12 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
      }
      ```
 
-     Where `size` is the new disk size.
+     Where `size` is the new size for the disk.
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     This will increase the disk size. You can check the size of the disk and its settings using the [management console]({{ link-console-main }}) or this CLI command:
+     This will increase the disk size. You can check the disk size and settings using the [management console]({{ link-console-main }}) or this CLI command:
 
      ```bash
      yc compute disk get <disk_name>
@@ -195,7 +195,7 @@ You can increase the disk size even on a [running](../../concepts/vm-statuses.md
 
   You can increase the disk size by using the [update](../../api-ref/Disk/update.md) REST API method for the [Disk](../../api-ref/Disk/) resource or the [DiskService/Update](../../api-ref/grpc/Disk/update.md) gRPC API call.
 
-  To request the list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/Disk/list.md) gRPC API call.
+  To request a list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/Disk/list.md) gRPC API call.
 
 {% endlist %}
 
@@ -205,7 +205,7 @@ To change the size of the boot disk, [restart](../vm-control/vm-stop-and-start.m
 
 After increasing the disk size, you also need to increase the size of its partitions and file systems. For boot disks, this happens automatically after you restart the VM. 
 
-You can also increase the size of any disk of the VM without restarting it. The workflow depends on the file system of the disk partition you need:
+You can also increase the size of any VM disk without restarting the VM. The workflow depends on the file system of the disk partition in question:
 
 {% list tabs %}
 
@@ -234,9 +234,9 @@ You can also increase the size of any disk of the VM without restarting it. The 
      └─vdb1 252:17   0  32G  0 part /data
      ```
 
-     Disk partitions are listed in the `NAME` column. If the `MOUNTPOINTS` column contains a value for the partition you need, it means the partition is mounted.
+     Disk partitions are listed under `NAME`. If the `MOUNTPOINTS` column contains a value for the partition you need, it means the partition is mounted.
 
-  1. Unmount the partition if you want to check and restore its file system before changing the partition size. Otherwise, proceed to the next step.
+  1. Unmount the partition if you want to check and recover its file system before resizing the partition. Otherwise, proceed to the next step.
   
      1. Unmount the disk:
 
@@ -246,7 +246,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
 
         Where `/data` is the partition mount point.
 
-     1. Check and restore the file system:
+     1. Check and recover the file system:
 
         ```bash
         sudo e2fsck -f /dev/vdb1
@@ -264,7 +264,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
         /dev/vdb1: 11/2097152 files (0.0% non-contiguous), 143890/8388352 blocks
         ```
 
-  1. Change the partition size:
+  1. Resize the partition:
 
      ```bash
      sudo growpart /dev/vdb 1
@@ -272,7 +272,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
 
      Where:
      * `/dev/vdb`: Device name.
-     * `1` is the partition number, so it is separated by a space.
+     * `1`: Partition number, which must be separated by a space.
 
      Result:
 
@@ -280,13 +280,13 @@ You can also increase the size of any disk of the VM without restarting it. The 
      CHANGED: partition=1 start=2048 old: size=67106816 end=67108864 new: size=134215647,end=134217695
      ```
 
-  1. Change the file system size:
+  1. Resize the file system:
 
      ```bash
      sudo resize2fs /dev/vdb1
      ```
 
-     Where `dev/vdb1` is the name of the partition.
+     Where `dev/vdb1` is the partition name.
 
      Result:
 
@@ -295,13 +295,13 @@ You can also increase the size of any disk of the VM without restarting it. The 
      The filesystem on /dev/vdb1 is now 16776955 (4k) blocks long.
      ```
 
-  1. If you ran a file system check and unmounted the partition, mount it again:
+  1. If you unmounted the partition to perform a file system check, remount it:
 
      ```bash
      sudo mount /dev/vdb1 /data
      ```
 
-  1. Make sure that the partition increased:
+  1. Make sure the partition size has increased:
 
      ```bash
      lsblk
@@ -343,7 +343,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
      └─vdb1 252:17   0  32G  0 part /data
      ```
 
-     Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINTS` column.
+     Disk partitions are listed under `NAME`. Partition mount points are displayed under `MOUNTPOINTS`.
 
   1. Run this command:
 
@@ -353,7 +353,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
 
      Where:
      * `/dev/vdb`: Device name.
-     * `1` is the partition number, so it is separated by a space.
+     * `1`: Partition number, which must be separated by a space.
 
      Result:
 
@@ -369,7 +369,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
 
      Where:
      * `/data`: Mount point of the partition whose size you need to increase.
-     * `-d`: Partition extension parameter.
+     * `-d`: Parameter for increasing partition size.
 
      Result:
 
@@ -387,7 +387,7 @@ You can also increase the size of any disk of the VM without restarting it. The 
      data blocks changed from 2621440 to 11796219
      ```
 
-  1. Make sure that the partition increased:
+  1. Make sure the partition size has increased:
 
      ```bash
      lsblk /dev/vdb
@@ -402,4 +402,3 @@ You can also increase the size of any disk of the VM without restarting it. The 
      ```
 
 {% endlist %}
-

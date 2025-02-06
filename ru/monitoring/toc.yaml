@@ -133,6 +133,8 @@ items:
             href: operations/prometheus/ingestion/index.md
           - name: Remote Write
             href: operations/prometheus/ingestion/remote-write.md
+          - name: Диагностика и устранение проблем
+            href: operations/prometheus/ingestion/troubleshooting.md
       - name: Чтение метрик
         items:
           - name: Обзор

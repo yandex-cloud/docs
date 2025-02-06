@@ -210,7 +210,7 @@ items:
               Scanning {{ container-registry-name }} for vulnerabilities during
               continuous deployment of applications using {{ GL }}
             href: tutorials/cr-scanner-with-k8s-and-gitlab.md
-          - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+          - name: Building a CI/CD pipeline in {{ GL }} with serverless products
             href: tutorials/ci-cd-serverless.md
       - name: Working with DNS
         items:

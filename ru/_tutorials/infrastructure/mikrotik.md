@@ -14,7 +14,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 {% note alert %}
@@ -27,7 +26,6 @@
 
 * плата за диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-
 
 ## Создайте ВМ с Mikrotik Cloud Hosted Router {#create-router}
 

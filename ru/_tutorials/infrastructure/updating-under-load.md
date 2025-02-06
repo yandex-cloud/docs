@@ -15,13 +15,11 @@
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки группы ВМ {{ yandex-cloud }} входит плата за:
 * [Диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) – [тарифы {{ compute-full-name }}](../../compute/pricing.md).
 * Использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md) – [тарифы {{ vpc-full-name }}](../../vpc/pricing.md).
-
 
 ## Подготовьте окружение {#create-environment}
 
@@ -163,7 +161,6 @@
 
    {% list tabs group=instructions %}
 
-   
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать группу ВМ.
@@ -199,7 +196,6 @@
         * Включите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**.
         * В поле **{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** укажите `load-generator`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
- 
 
    - CLI {#cli}
 
@@ -386,8 +382,7 @@
      ```
 
      Результат выполнения команды:
-     
-     
+
      ```bash
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
@@ -395,8 +390,6 @@
      | b0ruab1ccvpd******** | load-generator | {{ region-id }}     | EXTERNAL |              1 | b0r1tabcphde********   | ACTIVE |
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      ```
-     
-     
 
    - API {#api}
 

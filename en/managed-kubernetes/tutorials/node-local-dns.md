@@ -355,7 +355,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To change configuration, edit the relevant `configmap`. For example, to enable DNS request logging for the `cluster.local` zone:
 
-1. Run the following command:
+1. Run this command:
 
    ```bash
    kubectl -n kube-system edit configmap node-local-dns
@@ -555,7 +555,7 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
 
 - Selected pods
 
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      kubectl edit deployment <pod_deployment_name>
@@ -584,7 +584,7 @@ To run [test requests](https://kubernetes.io/docs/tasks/administer-cluster/dns-d
 
 ## Check logs {#check-logs}
 
-Run the following command:
+Run this command:
 
 ```bash
 kubectl logs --namespace=kube-system -l k8s-app=node-local-dns -f

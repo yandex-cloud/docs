@@ -312,3 +312,5 @@ items:
                 href: api-ref/Sku/get.md
               - name: List
                 href: api-ref/Sku/list.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md

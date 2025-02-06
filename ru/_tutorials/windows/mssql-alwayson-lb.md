@@ -23,7 +23,6 @@
 
 {% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки группы доступности входят:
@@ -33,7 +32,6 @@
 * плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 Вы можете воспользоваться [перемещением лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию SQL Server в {{ yandex-cloud }}.
-
 
 ## Создайте сетевую инфраструктуру {#prepare-network}
 
@@ -289,11 +287,9 @@
 ## Подготовьте виртуальные машины для группы доступности {#create-vms}
 
 
-
 ### Подготовьте образы Windows Server {#prepare-images}
 
 Перед созданием ВМ подготовьте свой образ Windows Server, чтобы использовать его в {{ yandex-cloud }} со своей собственной лицензией.
-
 
 
 ### Создайте файл с учетными данными администратора {#prepare-admin-credentials}
@@ -351,11 +347,7 @@
 
 ### Создайте виртуальные машины {#create-group-vms}
 
-
-
 ВМ нужно создавать на [выделенных хостах](../../compute/concepts/dedicated-host.md). Получить идентификатор выделенного хоста можно с помощью {{ yandex-cloud }} CLI, выполнив команду `yc compute host-group list-hosts` (подробнее о команде см. в [справочнике](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md)).
-
-
 
 #### Создайте ВМ для бастионного хоста {#create-jump-server}
 
@@ -364,8 +356,6 @@
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
-
-
 
   ```
   yc compute instance create \
@@ -385,10 +375,7 @@
 
   {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
-
 - PowerShell {#powershell}
-
-
 
   ```
   yc compute instance create `
@@ -408,7 +395,6 @@
 
   {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
-  
 {% endlist %}
 
 #### Создайте ВМ для Active Directory {#create-ad-controller}
@@ -416,8 +402,6 @@
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
-
-
 
   ```
   yc compute instance create \
@@ -435,10 +419,7 @@
      --async
   ```
 
-
 - PowerShell {#powershell}
-
-
 
   ```
   yc compute instance create `
@@ -457,7 +438,6 @@
 
   ```
 
-
 {% endlist %}
 
 #### Создайте ВМ для серверов SQL Server {#create-ad-server}
@@ -467,8 +447,6 @@
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
-
-
 
   ```
   yc compute instance create \
@@ -488,9 +466,6 @@
      --async
   ```
 
-
-
-
   ```
   yc compute instance create \
      --name ya-mssql2 \
@@ -508,9 +483,6 @@
      --host-id <идентификатор_выделенного_хоста> \
      --async
   ```
-
-
-
 
   ```
   yc compute instance create \
@@ -530,10 +502,7 @@
      --async
   ```
 
-
 - PowerShell {#powershell}
-
-
 
   ```
   yc compute instance create `
@@ -553,9 +522,6 @@
      --async
   ```
 
-
-
-
   ```
   yc compute instance create `
      --name ya-mssql2 `
@@ -573,9 +539,6 @@
      --host-id <идентификатор_выделенного_хоста> `
      --async
   ```
-
-
-
 
   ```
   yc compute instance create `
@@ -595,15 +558,11 @@
      --async
   ```
 
-
 {% endlist %}
-
-
 
 ### Перенесите свои лицензии для Windows Server {#byol}
 
 Подключитесь к каждой созданной ВМ и [активируйте на ней свою лицензию для Windows Server](../../microsoft/byol.md).
-
 
 
 ### Установите и настройте Active Directory {#install-ad}

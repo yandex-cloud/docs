@@ -43,10 +43,8 @@
 
 1. Установите Packer:
     1. Скачайте дистрибутив Packer и установите его по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
-   
-        
+
         Также вы можете скачать дистрибутив Packer для вашей платформы из [зеркала {{ yandex-cloud }}](https://hashicorp-releases.yandexcloud.net/packer/).
-   
 
     1. После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`. Для этого выполните команду: 
 

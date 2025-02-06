@@ -2,7 +2,7 @@
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
-1. Воспользуйтесь методом [Cluster.AddZookeeper](../../../../managed-clickhouse/api-ref/Cluster/addZookeeper.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+1. Воспользуйтесь методом [Cluster.AddZookeeper](../../../../managed-clickhouse/api-ref/Cluster/addZookeeper.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
     ```bash
     curl \
@@ -18,11 +18,9 @@
                },
                "hostSpecs": [
                  {
-                   "zoneId": "<зона_доступности>",
                    "type": "ZOOKEEPER",
-                   "subnetId": "<идентификатор_подсети>",
-                   "shardName": "<имя_шарда>",
-                   "assignPublicIp": <публичный_доступ_к_хосту>
+                   "zoneId": "<зона_доступности>",
+                   "subnetId": "<идентификатор_подсети>"
                  },
                  { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
                  { ... },
@@ -36,7 +34,7 @@
 
     * `resources` — набор ресурсов для хостов {{ ZK }}:
 
-      * `resourcePresetId` — [класс хостов](../../../../managed-clickhouse/concepts/instance-types.md);
+      * `resourcePresetId` — идентификатор [класса хостов](../../../../managed-clickhouse/concepts/instance-types.md);
       * `diskSize` — размер диска в байтах;
       * `diskTypeId` — [тип диска](../../../../managed-clickhouse/concepts/storage.md).
 
@@ -44,10 +42,15 @@
 
       * `type` — тип хоста `ZOOKEEPER`;
       * `zoneId` — зона доступности;
-      * `subnetId` — идентификатор подсети;
-      * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+      * `subnetId` — идентификатор подсети.
 
-    * `convertTablesToReplicated` — преобразование нереплицируемых таблиц в [реплицируемые](../../../../managed-clickhouse/concepts/replication.md#replicated-tables): `true` или `false`.
+    * `convertTablesToReplicated` — преобразование нереплицируемых таблиц в [реплицируемые](../../../../managed-clickhouse/concepts/replication.md#replicated-tables): `true` или `false`. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+
+      {% note warning %}
+
+      После включения этой настройки ее нельзя отключить.
+
+      {% endnote %}
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 

@@ -13,9 +13,7 @@
 Чтобы настроить необходимую инфраструктуру для хранения исходного кода, сборки Docker-образа и развертывания приложения:
 1. [Подготовьте облако к работе](#before-you-begin).
 
-   
    1. [Изучите список необходимых платных ресурсов](#paid-resources).
-
 
 1. [Подготовьте инфраструктуру](#deploy-infrastructure).
 1. [Создайте инстанс {{ GL }}](#create-gitlab).
@@ -32,7 +30,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
@@ -40,7 +37,6 @@
 * Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Хранение созданных Docker-образов (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
 * Использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 

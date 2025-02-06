@@ -287,12 +287,6 @@ default:
   link-auth-logout: https://auth.yandex.cloud/logout
   link-azure-ad: https://azure.microsoft.com/en-us/services/active-directory/
   link-base64: https://en.wikipedia.org/wiki/Base64
-  link-ca-jb-2024-1: >-
-    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/241/yandex-code-assist.zip
-  link-ca-jb-2024-2: >-
-    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/242/yandex-code-assist.zip
-  link-ca-jb-2024-3: >-
-    https://storage.yandexcloud.net/yandex-code-assistant/plugins/jetbrains/243/yandex-code-assist.zip
   link-ca-jb-repository: https://proxy.src.yandexcloud.net/proxy/plugin/jetbrains/stable
   link-ca-vscode: >-
     https://storage.yandexcloud.net/yandex-code-assistant/plugins/vscode/yandex-code-assist.vsix

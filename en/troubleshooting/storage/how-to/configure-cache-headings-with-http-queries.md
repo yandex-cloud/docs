@@ -13,12 +13,12 @@ You can add the `Cache-Control` header to system metadata during the upload or m
 To add `Cache-Control` to a previously uploaded object, you can use the `s3cmd` utility.
 To do this, run the following command:
 ```
-s3cmd --add-header 'Cache-Control:3600' modify s3://<your-bucket-name>/object-name.
+s3cmd --add-header 'Cache-Control:max-age=3600' modify s3://<your-bucket-name>/object-name.
 ```
 
 To add the `Cache-Control` header during the object upload to the bucket using `s3cmd`, specify the `--add-header` parameter:
 ```
-s3cmd --add-header 'Cache-Control:3600' put local_file s3://<your-bucket-name>/object-name.
+s3cmd --add-header 'Cache-Control:max-age=3600' put local_file s3://<your-bucket-name>/object-name.
 ```
 
 {% note info %}

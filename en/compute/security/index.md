@@ -83,6 +83,12 @@ You can also assign roles for individual resources of the service:
 
 {% include [compute.osadminlogin](../../_roles/compute/osAdminLogin.md) %}
 
+{% note alert %}
+
+{% include [sudo-and-oslogin](../../_includes/compute/sudo-and-oslogin.md) %}
+
+{% endnote %}
+
 #### compute.disks.user {#compute-disks-user}
 
 {% include [compute.disks.user](../../_roles/compute/disks/user.md) %}

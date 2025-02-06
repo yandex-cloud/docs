@@ -72,14 +72,11 @@
 
     {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
 
-
 {% cut "Управление ресурсами от имени аккаунта на Яндексе или федеративного аккаунта" %}
 
 {% include [terraform-credentials-user](../_tutorials_includes/terraform-credentials-user.md) %}
 
 {% endcut %}
-
-
 
 ### Создайте файл конфигурации {{ TF }} {#configure-terraform}
 
