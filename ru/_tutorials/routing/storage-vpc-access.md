@@ -94,7 +94,6 @@ warp get \
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
@@ -103,7 +102,6 @@ warp get \
 * плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-name }}](../../network-load-balancer/pricing.md)).
 * плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ## Подготовьте среду для развертывания ресурсов {#setup-environment}
 

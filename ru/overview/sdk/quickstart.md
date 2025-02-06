@@ -68,7 +68,7 @@ sourcePath: ru/sdk/sdk/quickstart.md
         ```
 
         {{ yandex-cloud }} SDK поддерживает версию Node.js 12 и выше. Если Node.js не установлен или нужна более новая версия, выберите подходящий вариант установки на [сайте Node.js](https://nodejs.org/en/download/package-manager).
-    1. Склонируйте репозиторий с примерами {{ yandex-cloud }} SDK для Node.js:
+    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для Node.js](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-node-js.git):
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-node-js.git
@@ -89,7 +89,7 @@ sourcePath: ru/sdk/sdk/quickstart.md
         ```
 
         Если Go не установлен, выберите подходящий вариант установки на [сайте Go](https://go.dev/doc/install).
-    1. Склонируйте репозиторий с примерами {{ yandex-cloud }} SDK для Go:
+    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для Go](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-go.git):
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-go.git
@@ -116,7 +116,7 @@ sourcePath: ru/sdk/sdk/quickstart.md
         ```
         
         Если Python не установлен, выберите подходящий вариант установки на [сайте Python](https://www.python.org/downloads).
-    1. Склонируйте репозиторий с примерами {{ yandex-cloud }} SDK для Python:
+    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для Python](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-python.git):
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-python.git
@@ -138,7 +138,7 @@ sourcePath: ru/sdk/sdk/quickstart.md
 
         Если Java не установлен, выберите подходящий вариант установки на [сайте Oracle](https://www.oracle.com/java/technologies/downloads/).
     1. Дополнительно [установите Apache Maven](https://maven.apache.org/install.html) для сборки проекта.
-    1. Склонируйте репозиторий с примерами {{ yandex-cloud }} SDK для Java:
+    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для Java](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-java.git):
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-java.git

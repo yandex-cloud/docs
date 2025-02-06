@@ -32,7 +32,6 @@
 
 {% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инсталляции Microsoft Exchange входят:
@@ -41,7 +40,6 @@
 * плата за балансировку трафика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
 * плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-
 
 ## Создайте облачную сеть и подсети {#create-network}
 

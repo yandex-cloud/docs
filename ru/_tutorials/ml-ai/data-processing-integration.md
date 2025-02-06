@@ -14,11 +14,9 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки кластера {{ dataproc-name }} входит плата за вычислительные ресурсы кластера и объем хранилища (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#infra}
 

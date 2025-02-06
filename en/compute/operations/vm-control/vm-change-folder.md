@@ -1,21 +1,21 @@
-# Moving a VM to another folder
+# Moving a VM to a different folder
 
 When you create a VM, it is placed in the current folder.
 
-In {{ yandex-cloud }}, you can move a VM to another folder within one cloud. You do not have to stop the VM when moving it.
+In {{ yandex-cloud }}, you can move a VM to a different folder within a single cloud. You do not have to stop the VM to move it.
 
 You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ## Limitations {#limits}
 
-Limitations when moving a VM:
+When moving a VM, keep in mind the following limitations:
 
-* In [{{ monitoring-full-name }}](../../../monitoring/), metrics are not movable. The metrics in the previous folder stay there and new metrics will already be created in the new folder.
-* You can move VMs only within a single cloud.
+* [{{ monitoring-full-name }}](../../../monitoring/) does not support metric relocation: existing metrics remain in the source folder, and new ones will be created in the destination folder.
+* You can only move VMs within a single cloud.
 
 ## Moving a VM {#relocate-vm}
 
-### Updating a VM's folder {#change-folder}
+### Updating a VM folder {#change-folder}
 
 {% list tabs group=instructions %}
 
@@ -40,7 +40,7 @@ Limitations when moving a VM:
       | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
       | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
-      ```
+      ```      
 
   1. Get a list of all folders in the default cloud:
 
@@ -59,13 +59,13 @@ Limitations when moving a VM:
       +----------------------+--------------------+------------------+--------+
       ```
 
-  1. View the description of the CLI command for moving a VM:
+  1. See the description of the CLI command for moving a VM:
 
       ```bash
       yc compute instance move --help
       ```
 
-  1. Move the VM to another folder with the following parameters:
+  1. Move the VM to a different folder with the following parameters: 
       
       * In `id`, enter the VM ID, e.g., `fhm0b28lgfp4********`.
       * In `destination-folder-id`, specify the destination folder ID, e.g., `b1gd129pp9ha********`.
@@ -84,9 +84,9 @@ Limitations when moving a VM:
 
   **Example**
 
-  Below is a sample Bash script for Linux OS.
+  Below is an example of a Bash script for Linux.
   
-  To use the example, [authenticate](../../api-ref/authentication.md) in the API and install [cURL](https://curl.haxx.se).
+  To use it, [get authenticated](../../api-ref/authentication.md) with the API and install [cURL](https://curl.haxx.se).
 
   You can move a VM without stopping it.
 
@@ -102,7 +102,7 @@ Limitations when moving a VM:
       sudo nano <file_name>
       ```
   
-  1. Place the script in the file:
+  1. Place the script in the file: 
 
       ```bash
       #!/bin/bash
@@ -134,7 +134,7 @@ Limitations when moving a VM:
 
       Where:
 
-      * `IAM_TOKEN`: IAM token for authenticating with the API.
+      * `IAM_TOKEN`: IAM token for API authentication.
       * `instanceId`: ID of the VM to move.
       * `bootDiskId`: ID of the boot disk of the VM to move.
       * `destinationFolderId`: ID of the folder to move the VM to.
@@ -153,9 +153,9 @@ Limitations when moving a VM:
 
 {% endlist %}
 
-### Updating a VM's subnet {#change-subnet}
+### Updating a VM subnet {#change-subnet}
 
-Moved VM's network interfaces remain connected to the [subnets](../../../vpc/concepts/network.md#subnet) in the source folder. To connect your VM to subnets in the destination folder:
+After moving a VM, its network interfaces remain connected to the [subnets](../../../vpc/concepts/network.md#subnet) in the source folder. To connect your VM to subnets in the destination folder, follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -177,7 +177,7 @@ Moved VM's network interfaces remain connected to the [subnets](../../../vpc/con
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the update subnet CLI command:
+  1. See the description of the CLI command for updating a subnet:
 
       ```bash
       yc compute instance update-network-interface --help
@@ -189,7 +189,7 @@ Moved VM's network interfaces remain connected to the [subnets](../../../vpc/con
       yc compute instance stop fhm0b28lgfp4********
       ```
 
-  1. Get a list of VM's network interfaces by specifying the VM ID:
+  1. Get a list of VM network interfaces by specifying the VM ID:
 
      ```bash
      yc compute instance get fhm0b28lgfp4********
@@ -233,9 +233,9 @@ Moved VM's network interfaces remain connected to the [subnets](../../../vpc/con
       Where:
 
       * `--subnet-id`: Subnet in the destination folder.
-      * `--ipv4-address`: Internal IP address of the VM's network interface in the subnet in the destination folder. Set to `auto` to automatically assign the internal address.
-      * `--network-interface-index`: VM's network interface number you saved earlier.
-      * `--security-group-id`: ID of the security group to assign to the VM's network interface.
+      * `--ipv4-address`: Internal IP address of the VM network interface in the subnet in the destination folder. Set to `auto` to enable automatic internal address assignment.
+      * `--network-interface-index`: VM's network interface number you previously saved.
+      * `--security-group-id`: Security group that will be assigned to the VM's network interface.
 
       Result:
 

@@ -18,7 +18,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для распознавания изображений и хранения данных входят:
@@ -26,7 +25,6 @@
 * Плата за хранение данных в [бакете](../../storage/concepts/bucket.md) и [операции](../../storage/operations/index.md) с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}](../../vision/pricing.md)).
-
 
 ## Создайте бакет {#create-bucket}
 

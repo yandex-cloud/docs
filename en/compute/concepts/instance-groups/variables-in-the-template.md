@@ -6,15 +6,15 @@ A _system variable_ is a value calculated by {{ ig-name }} when a VM is created;
 
 A _user-defined variable_ is a value taken from a list by {{ ig-name }}. The list is created by the user in advance and its variables are described in `key:value` format.
 
-## Fields that support variables {#support-fields}
+## Fields supporting variables {#support-fields}
 
-A VM instance template is described in a YAML file using the `instance_template` key. You can specify the system and user-defined variables instead of the values of the following template fields:
+The VM template is described in a YAML file using the `instance_template` key. You can put system and user-defined variables instead of values in the following template fields:
 
 * `instance_template.fqdn`: Host FQDN.
-* `instance_template.hostname`: Hostname.
-* `instance_template.metadata`: Instance metadata. Variables can only be used in the `metadata` field key values.
-* `instance_template.name`: Instance name.
-* `instance_template.labels`: Instance [labels](../../../resource-manager/concepts/labels.md). Variables can only be used in the `labels` field key values.
+* `instance_template.hostname`: Host name.
+* `instance_template.metadata`: VM metadata. Variables can only be used in the `metadata` field key values.
+* `instance_template.name`: VM name.
+* `instance_template.labels`: [VM](../../../resource-manager/concepts/labels.md) labels. Variables can only be used in the `labels` field key values.
 * `instance_template.boot_disk_spec.disk_id`: Boot disk ID.
 * `instance_template.boot_disk_spec.disk_spec.description`: Boot disk description.
 * `instance_template.boot_disk_spec.disk_spec.image_id`: Boot disk image ID.
@@ -44,18 +44,18 @@ You can see an [example](#example) of substitution stages below.
 
 {{ ig-name }} will only replace the fixed list of system variables with the calculated values:
 
-| System variable | Description |
---- | ---
-| `{instance_group.id}` | Instance group ID |
-| `{instance_group.labels.label_key}` | Value of the instance group label with `label_key` as its key. |
-| `{instance.index}` | Unique instance number in the group. |
-| `{instance.index_in_zone}` | Instance number in the zone. It is unique for a specific group</br>of instances within a zone. |
-| `{instance.labels.another_label_key}` | Value of the instance label with `another_label_key` as its key. |
-| `{instance.short_id}` | Instance ID that is unique within the group. It consists of four alphabetic characters. |
-| `{instance.tag}` | Tag of an instance in the group within the availability zone. For more information, see the [Allocation policy](policies/allocation-policy.md). |
-| `{instance.zone_id}` | Zone ID |
+System variable | Description | Possible values
+--- | --- | ---
+`{instance_group.id}` | Instance group ID | String value, e.g., `cl1cd2vd4ohr********`. For more info, see [Getting information about an instance group](../../operations/instance-groups/get-info.md).
+`{instance_group.labels.label_key}` | Value of an instance group's [label](../../../resource-manager/concepts/labels.md) with `label_key` for key. | String value, e.g., `label_value`. For more info, see [Getting information about an instance group](../../operations/instance-groups/get-info.md).
+`{instance.index}` | Unique instance number in the group. | Values: 1 to N, where N is the number of instances in the group.  
+`{instance.index_in_zone}` | Instance number in the availability zone. It is unique for a specific instance group within a zone. | Values: 1 to N, where N is the number of instances in a single availability zone.
+`{instance.labels.another_label_key}` | Value of a particular instance's label with `another_label_key` for key. | String value, e.g., `another_label_value`. For more info, see [Getting information about a VM](../../operations/vm-info/get-info.md).
+`{instance.short_id}` | Instance ID that is unique within the group. | String value consisting of four alphabetic characters, e.g., `ilum`.
+`{instance.tag}` | Tag of an instance in the group within the availability zone. | Value, specified in the `allocation_policy.zones.instance_tags_pool` field. For more information, see the [Allocation policy](policies/allocation-policy.md).
+`{instance.zone_id}` | Availability zone ID. | Value, specified in the `allocation_policy.zones.zone_id` field. For more information, see the [Allocation policy](policies/allocation-policy.md).
 
-> For example, when creating an instance group, {{ ig-name }} will assign an ID to the group and substitute `{instance_group.id}` of each instance with it.
+>For example, when creating an instance group, {{ ig-name }} will assign an ID to the group and substitute it instead of `{instance_group.id}` for each instance.
 
 ### Value substitution: Stage 2 {#second-stage}
 
@@ -68,23 +68,23 @@ At this stage, {{ ig-name }} will do the following:
 
 ## Conversion of variables {#converting-rules}
 
-System and user-defined variables are specified as values for template fields in curly brackets (`{}`). {{ ig-name }} will convert them according to the rules below:
+System and user-defined variables are specified as values for template fields in curly brackets `{}`. {{ ig-name }} converts them according to the rules below.
 
-| Template field value | Field value</br>after conversion | Conversion description |
+Template field value | Field value</br>after conversion | Conversion description
 --- | --- | ---
-| `{specified_key}` | `value` | The value is inserted from the list created in advance. |
-| `{unknown_key}` | `{unknown_key}` | If the specified key is not supported by the substitution feature, {{ ig-name }} will not replace it. |
-| `not_var{{specified_key}}` | `{specified_key}` | At stage 1, the internal level of brackets is removed. |
-| `not_var{{unknown_key}}` | `not_var{{unknown_key}}` | Keys that are not supported by the substitution feature will not change. |
+`{specified_key}` | `value`  | The value will be inserted from the list prepared in advance.
+`{unknown_key}` | `{unknown_key}` | If the specified key is not supported by the substitution feature, {{ ig-name }} will not replace it.
+`not_var{{specified_key}}` | `{specified_key}` | At Stage 1, the internal level of brackets will be removed.
+`not_var{{unknown_key}}` | `not_var{{unknown_key}}` | Keys that are not supported by the substitution feature will not change.
 
 ## Example of running substitution stages {#example}
 
 1. Let's assume the instance template specifies the following:
 
    * List of user-defined variables in `key:value` format in the `variables` section.
-   * System and user-defined variables in the [supported](#support-fields) fields:
-     * The `instance_template.name` field specifies the `{short_zone_var_{instance.zone_id}}` user-defined variable and the `{instance.index}` system variable.
-     * The `instance_template.hostname` field specifies the `{instance.index}` system variable.
+   * System and user-defined variables in [allowed](#support-fields) fields:
+     * The `{short_zone_var_{instance.zone_id}}` user-defined variable and the `{instance.index}` system variable are specified in the `instance_template.name` field.
+     * The system `{instance.index}` variable is specified in the `instance_template.hostname` field.
 
    ```yaml
    ...
@@ -102,7 +102,7 @@ System and user-defined variables are specified as values for template fields in
    ...
    ```
 
-1. At stage 1, {{ ig-name }} will replace the [system variables](#first-stage) with the calculated values:
+1. At Stage 1, {{ ig-name }} will replace the [system variables](#first-stage) with the calculated values:
 
    ```yaml
    ...
@@ -123,11 +123,11 @@ System and user-defined variables are specified as values for template fields in
    Where:
 
    * In the `instance_template.name` field:
-      * The `{short_zone_var_{instance.zone_id}}` variable is converted to the `{short_zone_var_{{ region-id }}-a}` variable.
-      * The `{instance.index}` system variable is converted to index `1`.
-   * In the `instance_template.hostname` field, the `{instance.index}` system variable is converted to index `1`.
+     * The `{short_zone_var_{instance.zone_id}}` variable will be converted to `{short_zone_var_{{ region-id }}-a}`.
+     * The `{instance.index}` system variable will be converted to `1`.
+   * In the `instance_template.hostname` field, the `{instance.index}` system variable will be converted to `1`.
 
-1. At stage 2, {{ ig-name }} will convert the resulting variables to the values from the list in the `variables` section:
+1. At Stage 2, {{ ig-name }} will convert the resulting variables to the values listed in the `variables` section:
 
    ```yaml
    ...
@@ -145,7 +145,7 @@ System and user-defined variables are specified as values for template fields in
    ...
    ```
 
-   In the `instance_template.name` field, the `{short_zone_var_{{ region-id }}-a}` variable is converted to the `rc1a` value.
+   In the `instance_template.name` field, the `{short_zone_var_{{ region-id }}-a}` variable will be converted to `rc1a`.
 
 ### See also {#see-also}
 

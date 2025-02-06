@@ -3,7 +3,7 @@
     {% include [api-auth-token](../../api-auth-token.md) %}
 
 1. {% include [grpc-api-setup-repo](../../grpc-api-setup-repo.md) %}
-1. Воспользуйтесь вызовом [ClusterService.AddZookeeper](../../../../managed-clickhouse/api-ref/grpc/Cluster/addZookeeper.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+1. Воспользуйтесь вызовом [ClusterService.AddZookeeper](../../../../managed-clickhouse/api-ref/grpc/Cluster/addZookeeper.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -23,8 +23,7 @@
                {
                  "type": "ZOOKEEPER",
                  "zone_id": "<зона_доступности>",
-                 "subnet_id": "<идентификатор_подсети>",
-                 "assign_public_ip": <публичный_доступ_к_хосту>
+                 "subnet_id": "<идентификатор_подсети>"
                },
                { <аналогичный_набор_настроек_для_создаваемого_хоста_2> },
                { ... },
@@ -40,7 +39,7 @@
 
     * `resources` — набор ресурсов для хостов {{ ZK }}:
 
-      * `resource_preset_id` — [класс хостов](../../../../managed-clickhouse/concepts/instance-types.md);
+      * `resource_preset_id` — идентификатор [класса хостов](../../../../managed-clickhouse/concepts/instance-types.md);
       * `disk_size` — размер диска в байтах;
       * `disk_type_id` — [тип диска](../../../../managed-clickhouse/concepts/storage.md).
 
@@ -50,10 +49,15 @@
 
       * `type` — тип хоста `ZOOKEEPER`;
       * `zone_id` — зона доступности;
-      * `subnet_id` — идентификатор подсети;
-      * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+      * `subnet_id` — идентификатор подсети.
 
-    * `convert_tables_to_replicated` — преобразование нереплицируемых таблиц в [реплицируемые](../../../../managed-clickhouse/concepts/replication.md#replicated-tables): `true` или `false`.
+    * `convert_tables_to_replicated` — преобразование нереплицируемых таблиц в [реплицируемые](../../../../managed-clickhouse/concepts/replication.md#replicated-tables): `true` или `false`. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+
+      {% note warning %}
+
+      После включения этой настройки ее нельзя отключить.
+
+      {% endnote %}
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 

@@ -46,7 +46,7 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [{#T}](./mpg-to-objstorage.md)
 * [{#T}](./mmy-objs-migration.md)
 * [{#T}](./greenplum-yezzey.md)
-* [{#T}](./static-key-in-lockbox.md)
+* [{#T}](./static-key-in-lockbox/index.md)
 * [{#T}](./terraform-state-storage.md)
 * [{#T}](./terraform-state-lock.md)
 * [{#T}](./api-gw-integration.md)
@@ -56,5 +56,10 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [{#T}](./websocket-app.md)
 * [{#T}](./java-servlet-todo-list.md)
 * [{#T}](./telegram-bot-serverless.md)
-* [Visualizing {{ yq-full-name }}](data-from-yandex-query-visualization.md) data
+* [Visualizing {{ yq-full-name }}](./data-from-yandex-query-visualization.md) data
+* [{#T}](./replicate-logs-to-storage.md)
 * [{#T}](./replicate-logs-to-storage-via-data-streams.md)
+* [{#T}](./mlflow-datasphere.md)
+* [{#T}](./yq-storage.md)
+* [{#T}](yq-federative-queries.md)
+* [Recognizing text in image archives in {{ vision-full-name }}](archive-from-vision-to-object-storage.md)

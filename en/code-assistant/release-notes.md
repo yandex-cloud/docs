@@ -5,10 +5,16 @@ description: This section contains {{ ca-name }} release notes.
 
 # {{ ca-full-name }} release notes
 
+## December 2024 {#dec-2024}
+
+* Added support for automatic plugin updates for [JetBrains IDE](https://www.jetbrains.com/ides/) and [Visual Studio Code](https://code.visualstudio.com/).
+* Changed the installation method for the JetBrains IDE plugin. The plugin installed using the new method will be updated automatically. For more information, see [Installing and configuring a plugin](./quickstart.md#install-plugin).
+* Added a tooltip generation indicator in the JetBrains IDE.
+
 ## November 2024 {#nov-2024}
 
-* The {{ ca-name }} plugin is available for [JetBrains IDE](https://www.jetbrains.com/ides/) version 2024.3.
-* Added a tooltip generation indicator in [Visual Studio Code](https://code.visualstudio.com/).
+* The {{ ca-name }} plugin is available for JetBrains IDE version 2024.3.
+* Added a tooltip generation indicator in Visual Studio Code.
 
 ## October 2024 {#oct-2024}
 

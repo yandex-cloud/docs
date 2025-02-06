@@ -274,8 +274,8 @@ To create a service account that lets nodes download the necessary Docker images
    {% endlist %}
 
 1. Assign the service account the following roles for the folder:
-   * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor)​.
-   * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin)​.
+   * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor).
+   * [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin).
    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader).
    * [compute.viewer](../../compute/security/index.md#compute-viewer).
 
@@ -428,10 +428,7 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
 
 ## Install {{ alb-name }} {#setup-alb}
 
-
 To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [follow this guide](../operations/applications/alb-ingress-controller.md).
-
-
 
 ## Create a load balancer {#create-ingress}
 

@@ -41,7 +41,7 @@ To support your own domain:
       1. Click **{{ ui-key.yacloud.common.create }}**.
       1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
       
-      To get access to public zone domain names, delegate the domain. To do this, specify these server addresses in your online account with domain registrar: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
+      To get access to public zone domain names, delegate the domain. To do this, specify these server addresses in your domain registrar account: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.
 
       It may take some time to delegate the domain and update the resource records.
 

@@ -26,14 +26,12 @@
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки бакета входит:
 
 * плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-storage));
 * плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations)).
-
 
 
 ## Подготовьте рабочее окружение {#environment-prepare}

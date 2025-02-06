@@ -20,7 +20,6 @@ To expand a [volume](../../concepts/volume.md):
 
 To enable the volume expansion feature, make sure the [storage class](manage-storage-class.md) (`StorageClass`) description contains the `allowVolumeExpansion: true` parameter. In {{ managed-k8s-name }} storage, this feature is enabled by default:
 
-
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -35,15 +34,12 @@ allowVolumeExpansion: true
 reclaimPolicy: Delete
 ```
 
-
-
 ## Create a PersistentVolumeClaim object {#create-pvc}
 
 1. Save the following [PersistentVolumeClaim creation](dynamic-create-pv.md) specification to a YAML file named `pvc-expansion.yaml`.
 
    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-   
    ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
@@ -57,8 +53,6 @@ reclaimPolicy: Delete
        requests:
          storage: 1Gi
    ```
-
-
 
 1. Create the `PersistentVolumeClaim` object:
 

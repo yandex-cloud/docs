@@ -26,7 +26,7 @@ The infrastructure support cost includes:
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }}](../../vpc/pricing.md) pricing).
 
 
-## Create a security group for your file server {#create-sg}
+## Create a security group {#create-sg}
 
 Create a [security group](../../vpc/concepts/security-groups.md) with a rule that allows traffic to ports `22005` and `22006`. These are the default ports in the GTA V server configuration file.
 
@@ -35,10 +35,10 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select your folder.
-   1. In the list services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `gta-v-sg`.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the security group name, e.g., `gta-v-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `default`.
    1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
@@ -82,12 +82,12 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-          * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
-          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `gta-v-sg` security group you created in the previous step.
+          * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `gta-v-sg` security group you created earlier.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
+          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser privileges, use the `sudo` command.
           * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `gta-v-server`.

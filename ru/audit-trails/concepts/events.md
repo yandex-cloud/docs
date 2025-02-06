@@ -59,6 +59,12 @@ description: В данном разделе приведены описания 
 
 {% include [backup-events](../../_includes/audit-trails/events/backup-events.md) %}
 
+## {{ billing-name }} {#billing}
+
+Имя сервиса — `billing`.
+
+{% include [billing-events](../../_includes/audit-trails/events/billing-events.md) %}
+
 ## {{ cdn-full-name }} {#cdn}
 
 Имя сервиса — `cdn`.

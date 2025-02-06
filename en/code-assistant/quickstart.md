@@ -10,12 +10,12 @@ description: Install the {{ ca-name }} plugin for Visual Studio Code and JetBrai
 {% include [about-service](../_includes/code-assistant/about-service.md) %}
 
 To get started with the service:
-1. [Prepare your cloud](#before-you-begin).
+1. [Prepare your cloud environment](#before-you-begin).
 1. [Install and configure the plugin](#install-plugin).
 1. [Test the plugin](#work-with-plugin).
 1. [Manage the plugin](#manage-plugin).
 
-## Prepare your cloud {#before-you-begin}
+## Prepare your cloud environment {#before-you-begin}
 
 {% note info %}
 
@@ -84,7 +84,7 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
           If the plugin is installed successfully, you will see the **Code Assist plugin started** message in the IDE notification area.
       1. Restart the IDE.
-  1. Enable automatic updates of the {{ ca-full-name }} plugin:
+  1. Enable automatic updates of the {{ ca-full-name }} plugin: {#jb-auto-update}
       1. In the JetBrains IDE interface, click ![image](../_assets/console-icons/gear.svg) in the upper right corner and select **Settings...**.
       1. Go to **Appearance & Behavior** → **System Settings** → **Updates** and enable **Update plugins automatically**.
       1. Click **OK**.
@@ -193,15 +193,19 @@ You can enable or disable auto suggestions only in Visual Studio Code.
 
 - Visual Studio Code {#vscode}
 
-  Download the [{{ ca-name }} current version]({{ link-ca-vscode }}) for Visual Studio Code and [install it](#install-plugin).
+  Once you run the plugin, it will automatically check for an update and install it.
+
+  To force an update, in the editor’s bottom panel, click ![image](../_assets/code-assistant/vsc-icon-small.svg) and select **Check For Updates** from the list that opens.
 
 - JetBrains IDE {#jb}
 
-  1. Download the appropriate {{ ca-name }} plugin for your JetBrains IDE version:
+  Once you run the plugin, it will automatically check for an update.
 
-      {% include [jb-download-links](../_includes/code-assistant/jb-download-links.md) %}
+  If you did not [set up automatic plugin updates](#jb-auto-update), you can update it manually:
 
-  1. [Install the plugin](#install-plugin).
+  1. In the top-right corner, click ![image](../_assets/console-icons/gear.svg) and select **Plugins...**.
+  1. Select **Yandex Code Assistant**.
+  1. If an update is available for the plugin, you will see the **Update** button. Click it.
 
 {% endlist %}
 

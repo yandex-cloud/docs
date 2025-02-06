@@ -48,7 +48,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      yc storage bucket update --help
      ```
      
-  1. Create a hosting settings file in JSON format. For example:
+  1. Create a hosting settings file in JSON format. Here is an example:
      
      ```json
      {
@@ -113,7 +113,6 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
-     
      ```hcl
      provider "yandex" {
        token     = "<OAuth>"
@@ -153,8 +152,6 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      }
      ```
 
-
-
      Where:
 
      * `access_key`: Static access key ID.
@@ -170,7 +167,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
@@ -179,7 +176,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
      If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -320,7 +317,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -374,7 +371,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
      yc storage bucket update --help
      ```
      
-  1. Create a file with conditional redirect settings in JSON format. For example:
+  1. Create a file with conditional redirect settings in JSON format. Here is an example:
      
      ```json
      {
@@ -509,7 +506,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 

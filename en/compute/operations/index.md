@@ -1,6 +1,6 @@
 ---
-title: Working with VMs. Step-by-step guides
-description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts.
+title: How to use VMs. Step-by-step guides
+description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to use VMs, manage their resources, and connect to them via SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts.
 ---
 
 # Step-by-step guides for {{ compute-name }}
@@ -46,7 +46,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-info/get-info.md)
 * [{#T}](vm-info/get-serial-port-output.md)
 
-## Managing VMs {#vm-control}
+## Managing a VM {#vm-control}
 
 * [{#T}](vm-control/vm-stop-and-start.md)
 * [{#T}](vm-control/vm-reset-password.md)
@@ -94,7 +94,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-create/from-snapshot.md)
 * [{#T}](disk-create/from-image.md)
 
-## Disk management {#disk-control}
+## Managing a disk {#disk-control}
 
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
@@ -156,7 +156,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](filesystem/delete.md)
 
 
-## Managing the serial console {#serial-console}
+## Managing a serial console {#serial-console}
 
 * [{#T}](serial-console/index.md)
 * [{#T}](serial-console/connect-ssh.md)
@@ -183,7 +183,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](instance-groups/get-info.md)
 * [{#T}](instance-groups/get-list-instances.md)
 
-## Managing instance groups {#ig-control}
+## Managing an instance group {#ig-control}
 
 * [{#T}](instance-groups/update.md)
 * [{#T}](instance-groups/update-from-yaml.md)

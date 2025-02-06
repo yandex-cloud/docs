@@ -17,7 +17,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки отказоустойчивой архитектуры {{ yandex-cloud }} входит:
@@ -25,7 +24,6 @@
 * Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за постоянно запущенный [кластер {{ mpg-full-name }}](../../managed-postgresql/concepts/index.md) (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ## Настройте тестовый стенд {#prepare}
 

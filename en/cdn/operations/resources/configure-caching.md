@@ -125,7 +125,6 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
   1. In the configuration file, describe the parameters of the `yandex_cdn_resource` CDN resource you want to create:
 
-      
       ```hcl
       terraform {
         required_providers {
@@ -159,8 +158,6 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
       }
       ```
 
-
-
       Where:
 
       * `cname`: Primary domain name used for content distribution. This is a required parameter.
@@ -176,7 +173,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
       For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```
@@ -194,7 +191,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -203,7 +200,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the changes to the CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc cdn resource list

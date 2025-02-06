@@ -9,14 +9,12 @@
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость развертывания инфраструктуры для данного решения на базе IPsec-шлюзов входят:
 
 * Плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
 * Плата за использование статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
-
 
 ### Создайте пару ключей SSH {#create-ssh-keys}
 

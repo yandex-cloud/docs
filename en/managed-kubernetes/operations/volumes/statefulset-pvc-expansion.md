@@ -18,7 +18,6 @@ To increase [volume](../../concepts/volume.md) size for the StatefulSet controll
 
    {% cut "sts.yaml" %}
 
-   
    ```yaml
    apiVersion: apps/v1
    kind: StatefulSet
@@ -55,8 +54,6 @@ To increase [volume](../../concepts/volume.md) size for the StatefulSet controll
              storage: 1Gi
    ```
 
-
-
    {% endcut %}
 
 1. Create a controller:
@@ -74,7 +71,6 @@ To increase [volume](../../concepts/volume.md) size for the StatefulSet controll
 
    Result:
 
-   
    ```text
    NAME               READY  STATUS   RESTARTS  AGE
    pod/ubuntu-test-0  1/1    Running  0         90s
@@ -86,8 +82,6 @@ To increase [volume](../../concepts/volume.md) size for the StatefulSet controll
    persistentvolumeclaim/pvc-dynamic-ubuntu-test-1  Bound   pvc-a6fb0761-0771-483c-abfb-d4a8********  1Gi       RWO           yc-network-hdd  81s
    persistentvolumeclaim/pvc-dynamic-ubuntu-test-2  Bound   pvc-f479c8aa-426a-4e43-9749-5e0f********  1Gi       RWO           yc-network-hdd  73s
    ```
-
-
 
 1. Make sure the [disks](../../../compute/concepts/disk.md) for objects with the `k8s-csi` prefix changed their status to `READY`:
 

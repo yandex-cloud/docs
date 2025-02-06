@@ -19,14 +19,12 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки чат-бота входят:
 
 * плата за использование API-шлюза (см. тарифы [{{ api-gw-full-name }}](../../api-gateway/pricing.md));
 * плата за использование функций (см. тарифы [{{ sf-full-name }}](../../functions/pricing.md)).
-
 
 ## Подготовьте окружение {#prepare}
 

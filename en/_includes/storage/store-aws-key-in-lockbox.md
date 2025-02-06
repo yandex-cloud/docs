@@ -1,1 +1,1 @@
-You can safely store an {{ objstorage-name }} static access key in {{ lockbox-full-name }}. For more information, see [{#T}](../../storage/tutorials/static-key-in-lockbox.md).
+You can use {{ lockbox-full-name}} to safely store the static key for access to {{ objstorage-name}}. For more information, see [{#T}](../../storage/tutorials/static-key-in-lockbox/index.md).

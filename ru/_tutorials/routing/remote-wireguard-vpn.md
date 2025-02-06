@@ -33,7 +33,6 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
@@ -42,7 +41,6 @@
 * плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за использование сервиса {{ mpg-name }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
 * плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md) (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
-
 
 ## Подготовьте среду для развертывания ресурсов {#setup-environment}
 

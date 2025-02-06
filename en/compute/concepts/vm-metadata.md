@@ -183,7 +183,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
 {% endlist %}
 
-## Processing environment variables in metadata via the CLI {#environment-variables}
+## Handling environment variables in metadata through CLI {#environment-variables}
 
 With the [{{ yandex-cloud }} CLI](../../cli/index.yaml), you can provide both the names of [environment variables](https://en.wikipedia.org/wiki/Environment_variable) and the values of local environment variables to the VM metadata. These will be substituted into the new VM's metadata when executing the CLI command:
 
@@ -193,7 +193,7 @@ With the [{{ yandex-cloud }} CLI](../../cli/index.yaml), you can provide both th
 
   To provide the values of local variables to the VM metadata, specify them in the `user-data` key in `$<variable_name>` format. When executing a CLI command, the values of these variables will be substituted into the `cloud-init` configuration from the environment the command is executed in.
 
-  For example:
+  Here is an example:
 
   ```yaml
   ...
@@ -202,7 +202,7 @@ With the [{{ yandex-cloud }} CLI](../../cli/index.yaml), you can provide both th
   ...
   ```
 
-  In this case, the `USER_NAME` variable value will be substituted from the environment the CLI command is executed in. For example, if the environment features a variable named `USER_NAME` with `my-user` for value, the string supplied to VM metadata will appear as `- name: my-user` instead of `- name: $USER_NAME`.
+  In this case, when executing the CLI command, the value of the `USER_NAME` variable will be substituted from the environment running that command. For example, if the environment features a variable named `USER_NAME` set to `my-user`, the string supplied to VM metadata will appear as `- name: my-user` instead of `- name: $USER_NAME`.
 
   {% note info %}
 
@@ -214,7 +214,7 @@ With the [{{ yandex-cloud }} CLI](../../cli/index.yaml), you can provide both th
 
   To provide the names of variables instead of values to the metadata in `$<variable_name>` format, use the two-dollar syntax.
 
-  For example:
+  Here is an example:
 
   ```bash
   ...
@@ -224,11 +224,11 @@ With the [{{ yandex-cloud }} CLI](../../cli/index.yaml), you can provide both th
   ...
   ```
 
-  In this case, the `HOME` variable value will not be substituted from the environment the command is executed in. Instead, the `cat << EOF >> $HOME/.bashrc` string will be written to the VM metadata.
+  In which case the `HOME` variable value will not be substituted from the environment the CLI command is executed in. Instead, the `cat << EOF >> $HOME/.bashrc` string will be written to the VM metadata.
 
 {% endlist %}
 
-For an example of using variables when supplying metadata to a VM via the {{ yandex-cloud }} CLI, see [{#T}](../operations/vm-create/create-with-env-variables.md). 
+For an example of using variables when providing VM with metadata through the {{ yandex-cloud }} CLI, see [{#T}](../operations/vm-create/create-with-env-variables.md). 
 
 ## Identity document {#identity-document}
 
@@ -422,7 +422,6 @@ Apart from identity documents, the VM metadata service provides their cryptograp
 
   1. Create a `certificate` file and save a public certificate to it:
 
-     
      ```text
      -----BEGIN CERTIFICATE-----
      MIIC4TCCAcmgAwIBAgIUP0zcGO1MeRwze8VdSMEt/OdBXoIwDQYJKoZIhvcNAQEL
@@ -443,8 +442,6 @@ Apart from identity documents, the VM metadata service provides their cryptograp
      r9ZBjEa0oLFVV0pP5Tj4Gf1DDpuJ
      -----END CERTIFICATE-----
      ```
-
-
 
   1. Extract a public key from the certificate and save it to a file named `key`:
 

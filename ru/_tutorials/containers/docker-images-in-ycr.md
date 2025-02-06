@@ -41,7 +41,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
@@ -50,7 +49,6 @@
 * Использование динамического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Хранение созданных Docker-образов и сканер уязвимостей, если вы его [активируете](#vulnerability-scanner) (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
 * Использование мастера {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
