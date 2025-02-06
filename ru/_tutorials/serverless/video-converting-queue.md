@@ -21,7 +21,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
@@ -29,7 +28,6 @@
 * плата за вызовы функций (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
 * плата за выполнение запросов к базе данных  (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)); 
 * плата за хранение данных в бакете (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
-
 
 ## Подготовьте ресурсы {#create-resources}
 

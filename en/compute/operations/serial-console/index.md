@@ -74,7 +74,6 @@ To enable serial console access when creating a VM, set the `serial-port-enable`
 
      A user named `yc-user` with the specified public key will be automatically created in the VM OS.
 
-
 {% endlist %}
 
 ## Enabling the console when updating a VM {#turn-on-for-current-instance}
@@ -84,7 +83,7 @@ To enable serial console access when updating a VM, set the `serial-port-enable`
 
    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
 
 1. Set `serial-port-enable=1` in the VM metadata:
 
@@ -97,9 +96,9 @@ To enable serial console access when updating a VM, set the `serial-port-enable`
 
    The command will start activating the serial console on the VM named `first-instance`.
 
-## Configuring serial console access for a VM {#configuration}
+## Configuring a VM to enable serial port access {#configuration}
 
-To configure access via the serial console, a VM must have a [public IP address](../../../vpc/concepts/address.md#public-addresses). You can look up the address in the [management console]({{ link-console-main }}) in the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section, the **{{ ui-key.yacloud.compute.switch_instances }}** page. If you created a VM without a public IP address, you can [assign one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can unassign the address as you will not need it for connecting via the serial console.
+To configure serial console access, a VM must have a [public IP address](../../../vpc/concepts/address.md#public-addresses). You can look up the address in the [management console]({{ link-console-main }}) in the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** section, the **{{ ui-key.yacloud.compute.switch_instances }}** page. If you created a VM without a public IP address, you can [assign one](../vm-control/vm-attach-public-ip.md). Once the configuration is complete, you can unassign the address as you will not need it for connecting via the serial console.
 
 For the serial console to be accessible from the OS side, configure the OS accordingly.
 
@@ -114,7 +113,7 @@ To connect to a Linux serial console, make sure [SSH password authentication is 
 If you are using a custom image, make sure SSH access with a username and password is disabled.
 
 To disable SSH password authentication:
-1. Open the SSH server configuration file (`/etc/ssh/sshd_config` by default). Only a superuser has read and write access to the file.
+1. Open the SSH server configuration file (`/etc/ssh/sshd_config` by default). Only a superuser has read and write permissions for the file.
 1. Set `PasswordAuthentication` to `no`.
 1. Restart the SSH server:
 
@@ -122,23 +121,23 @@ To disable SSH password authentication:
    sudo systemctl restart ssh*
    ```
 
-#### Create a password for the Linux user {#create-pass}
+#### Creating a password for a Linux user {#create-pass}
 
-Some OS's may request user credentials to access a VM. Before connecting to such VMs, create a local password for the default user.
+Some operating systems may prompt you for your user credentials to access the VM. So, before connecting to VMs running on such systems, create a local password for the default user.
 
 To create a local password, use the CLI.
 1. Get a list of VMs in the default folder:
 
    {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
-1. Get the public IP address of the VM.
+1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
+1. Get the public IP address of your VM:
 
    ```bash
    yc compute instance get first-instance
    ```
 
-   In the command output, find the address of the VM in the `one_to_one_nat` section:
+   In the command output, find the VM address in the `one_to_one_nat` section:
 
    ```bash
    ...
@@ -161,7 +160,7 @@ To create a local password, use the CLI.
    sudo passwd yc-user
    ```
 
-1. Terminate the SSH session with the `exit` command.
+1. Terminate the SSH session by running `exit`.
 
 #### Enable the authorization method you need {#ssh-authorization}
 
@@ -176,4 +175,3 @@ To create a local password, use the CLI.
   {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
 {% endlist %}
-

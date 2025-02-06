@@ -1,0 +1,1 @@
+A user with [superuser](https://en.wikipedia.org/wiki/Superuser) permissions for a VM can retain access to it even if the [roles are revoked](../../organization/security/index.md#revoke). To prevent user access to a VM with old permissions, [create](../../compute/operations/images-with-pre-installed-software/create.md) a new VM from a clean image.

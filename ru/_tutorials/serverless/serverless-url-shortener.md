@@ -20,7 +20,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для сценария входят:
@@ -28,7 +27,6 @@
 * Плата за обращения к базе данных (см. [тарифы {{ ydb-name }}](../../ydb/pricing/serverless.md)).
 * Плата за вызовы функции (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
 * Плата за запросы к API-шлюзу (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
-
 
 ## Настройте хостинг страницы сокращателя {#object-storage}
 

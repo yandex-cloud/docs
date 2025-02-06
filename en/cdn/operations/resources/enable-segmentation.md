@@ -21,7 +21,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   1. At the top right, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-  1. In the **{{ ui-key.yacloud.cdn.label_resource-content-slice }}** field, enable the **{{ ui-key.yacloud.cdn.label_resource-content-optimize-true }}** option.
+  1. In the **{{ ui-key.yacloud.cdn.label_resource-content-slice }}** field, enable **{{ ui-key.yacloud.cdn.label_resource-content-optimize-true }}**.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -98,7 +98,6 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   1. In the configuration file, describe the parameters of the CDN resource to create:
 
-      
       ```hcl
       terraform {
         required_providers {
@@ -129,8 +128,6 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       }
       ```
 
-
-
       Where:
 
       * `cname`: Primary domain name used for content distribution. This is a required parameter.
@@ -143,7 +140,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
       For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```
@@ -161,7 +158,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```
@@ -170,7 +167,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the changes to the CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc cdn resource list

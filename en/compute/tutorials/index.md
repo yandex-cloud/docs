@@ -41,7 +41,8 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](ci-cd-serverless.md)
 * [{#T}](bastion.md)
 * [{#T}](route-switcher.md)
-* [{#T}](site-to-site-openvpn.md) 
+* [{#T}](site-to-site-openvpn.md)
+* [{#T}](mlflow-datasphere.md)
 
 ## Microsoft products in {{ yandex-cloud }}
 

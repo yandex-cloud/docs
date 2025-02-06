@@ -95,7 +95,7 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
 
   To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-  1. Describe the CORS object configurations in JSON format. For example:
+  1. Describe the CORS object configurations in JSON format. Here is an example:
 
      ```json
      {
@@ -129,9 +129,8 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
 
   Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
-     
      ```hcl
      provider "yandex" {
        cloud_id  = "<cloud_ID>"
@@ -174,8 +173,6 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
      }
      ```
 
-
-
      Where:
 
      * `access_key`: Static access key ID.
@@ -194,23 +191,23 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm that you want to create the resources.
+     1. Confirm creating the resources.
 
      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 

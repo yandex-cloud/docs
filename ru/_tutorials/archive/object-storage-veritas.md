@@ -19,7 +19,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки резервного копирования с помощью Veritas Backup Exec входят:
@@ -29,7 +28,6 @@
 * плата за исходящий трафик из {{ yandex-cloud }} в интернет.
 
 [Подробнее о тарифах {{ objstorage-full-name }}](../../storage/pricing.md#prices).
-
 
 ## Создайте бакет {#create-bucket}
 

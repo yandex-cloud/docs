@@ -17,7 +17,6 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
@@ -26,7 +25,6 @@
 * плата за количество запросов к API-шлюзу (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
 * плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
 * плата за запись и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md));
-
 
 ## Установите необходимые утилиты {#install-utilities}
 

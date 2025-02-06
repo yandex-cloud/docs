@@ -25,7 +25,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       1. Choose a subnet in the selected availability zone.
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       1. Select a [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name and description. The naming requirements are as follows:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name and description. The name should match the following format:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

@@ -31,7 +31,7 @@ To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
 ## Create service accounts {#create-sa}
 
 Create [service accounts](../../iam/operations/sa/create.md):
-* Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+* Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../resource-manager/concepts/resources-hierarchy.md#folder) for the [folder](../security/index.md#yc-api) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create {{ managed-k8s-name }} cluster resources.
 * Service account for [{{ managed-k8s-name }} nodes](../concepts/index.md#node-group) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the folder with the Docker image registry. {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
 ### Create a service account for resources {#res-sa}
@@ -201,12 +201,9 @@ To facilitate authentication in {{ container-registry-name }}, configure a [Dock
 
 To configure a credential helper, run the following command:
 
-
 ```bash
 yc container registry configure-docker
 ```
-
-
 
 ### Prepare a Docker image {#docker-image}
 

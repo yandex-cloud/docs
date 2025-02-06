@@ -25,7 +25,7 @@ To create a bucket for static website files:
 
   1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create a bucket in.
   1. On the folder page, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the bucket. Once configured, the bucket will be available at two addresses:
+  1. In the **{{ ui-key.yacloud.common.name }}** field, specify the bucket name. Once configured, the bucket will be available at two addresses:
 
      * `http(s)://<bucket_name>.{{ s3-web-host }}`
      * `http(s)://{{ s3-web-host }}/<bucket_name>`
@@ -34,11 +34,11 @@ To create a bucket for static website files:
 
      {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
-     If you have a registered domain name (e.g., `example.com`) and you want your website to be accessible at `www.example.com`, specify `www.example.com` as the bucket name.
+     If you have a registered domain name (e.g., `example.com`) and you want your website to be accessible at `example.com`, specify `example.com` as the bucket name.
 
      {% note info %}
 
-     If you plan to use your own domain for the website, the bucket name must be an exact match of your domain name. Use a third-level domain or higher. For more information, see [{#T}](../../storage/operations/hosting/own-domain.md).
+     If you plan to use your own domain for the website, the bucket name must be an exact match of your domain name. Use a second-level domain or higher. For more information, see [{#T}](../../storage/operations/hosting/own-domain.md).
 
      {% endnote %}
 
@@ -67,7 +67,7 @@ To create a bucket for static website files:
       1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. On the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab:
 
-          1. Select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
+          1. Go to the `{{ ui-key.yacloud.storage.bucket.switch_website }}` tab and select `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
           1. In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify `index.html`.
           1. In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify `error.html`.
           1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
@@ -77,25 +77,27 @@ To create a bucket for static website files:
 1. Make sure your website's home page opens. To do this, access the website from a browser at `http://<bucket_name>.{{ s3-web-host }}`.
 1. Make sure the error page opens. To do this, access the website from a browser at `http://<bucket_name>.{{ s3-web-host }}/error-check`.
 
-{% note info %}
+By default, the website is accessible only over HTTP, e.g., at `http://example.com.{{ s3-web-host }}`. To provide HTTPS support for your website:
+1. Add your [own security certificate](../../certificate-manager/operations/import/cert-create.md) or a [Let's Encrypt certificate](../../certificate-manager/operations/managed/cert-create.md) in {{ certificate-manager-full-name }}.
+1. [Configure](../..//storage/operations/hosting/certificate.md) HTTPS support for your bucket. Your website will then be accessible over HTTPS at `https://example.com.website.yandexcloud.net`.
 
-By default, the website is accessible only over HTTP, e.g., at `http://www.example.com` or `http://www.example.com.{{ s3-web-host }}`. To enable HTTPS for your website, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
+    {% include [bucket-https](../../_includes/storage/bucket-https.md) %}
 
-{% endnote %}
+1. For access by the short domain name (`example.com`), [configure DNS](#configure-dns).
 
 ## Configure DNS {#configure-dns}
 
-If you have a registered domain name, assign it to the bucket. To do this, create a [CNAME](../../dns/concepts/resource-record.md) [DNS record](../../dns/concepts/resource-record.md#cname).
+If you have a registered domain name, assign it to the bucket. To do this, create an [ANAME](../../dns/concepts/resource-record.md) [DNS record](../../dns/concepts/resource-record.md#cname).
 
-You can use the {{ dns-name }} service to manage the domain.
+You can use {{ dns-name }} to manage the domain.
 
 {% note info %}
 
-The bucket name must exactly match the name of your domain, and this must be a third-level domain or higher. For more information, see [{#T}](../../storage/operations/hosting/own-domain.md).
+The bucket name must be an exact match of your domain name. Use a second-level domain or higher. For more information, see [{#T}](../../storage/operations/hosting/own-domain.md).
 
 {% endnote %}
 
-The tutorial below describes how to configure DNS for the third-level `www.example.com` domain name.
+The tutorial below describes how to set up DNS for an `example.com` second-level domain.
 
 ### Add a zone {#create-dns-zone}
 
@@ -117,27 +119,27 @@ To create a public DNS zone:
 
 {% endlist %}
 
-### Add a CNAME resource record {#create-cname-record}
+### Add an ANAME resource record {#create-cname-record}
 
-Create a [CNAME](../../dns/concepts/resource-record.md#cname) resource record in the public DNS zone:
+Create an [ANAME](../../dns/concepts/resource-record.md#aname) resource record in the public DNS zone:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder that houses the public DNS zone.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and select the DNS zone you created earlier.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and select the DNS zone you created earlier. 
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. In the window that opens, set the record parameters:
 
-      * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_create-subdomain }}` and enter the subdomain value, e.g., `www`.
-      * In the **{{ ui-key.yacloud.common.type }}** field, select `CNAME`.
-      * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the resource record value, e.g., `www.example.com.{{ s3-web-host }}`, where `www.example.com` is the name of the public bucket created earlier.
+      * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_create-subdomain }}` and enter the domain value, e.g., `example.com`.
+      * In the **{{ ui-key.yacloud.common.type }}** field, select `ANAME`.
+      * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the resource record value, e.g., `example.com.{{ s3-web-host }}`, where `example.com` is the name of the public bucket created earlier.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
-The subdomain name in the CNAME record must match the name of the bucket. For example, if you are creating a CNAME record named `www.example.com.`, your bucket name should be `www.example.com`.
+The domain name in the ANAME record must match the name of the bucket. For example, if you are creating an ANAME record named `example.com`, your bucket name should be `example.com`.
 
 ### Delegate the domain name {#delegate-domain}
 
@@ -171,6 +173,6 @@ After you configure and test availability, upload the remaining files that are n
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources:
-* [Delete the uploaded files](../../storage/operations/objects/delete.md).
-* [Delete the bucket](../../storage/operations/buckets/delete.md).
-* [Delete the DNS zone](../../dns/operations/zone-delete.md).
+1. [Delete the uploaded files](../../storage/operations/objects/delete.md).
+1. [Delete the bucket](../../storage/operations/buckets/delete.md).
+1. [Delete the DNS zone](../../dns/operations/zone-delete.md).

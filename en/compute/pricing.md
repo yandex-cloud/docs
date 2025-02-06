@@ -4,11 +4,10 @@ description: This article provides the {{ compute-name }} pricing policy.
 editable: false
 ---
 
-
 # {{ compute-name }} pricing policy
 
-{% note tip %}
 
+{% note tip %}
 
 
 
@@ -18,17 +17,18 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 {% endnote %}
 
+
+
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 ## What goes into the cost of using {{ compute-short-name }} {#rules}
 
 The {{ compute-name }} usage cost is based on:
 * VM computing resources:
   * Type and number of cores (vCPUs).
-  * Number of graphics accelerators ([GPUs](concepts/gpus.md)); 
+  * Number of graphics accelerators ([GPUs](concepts/gpus.md)). 
   * Amount of RAM.
 * Operating systems.
 * Type and size of storage:
@@ -42,7 +42,6 @@ The {{ compute-name }} usage cost is based on:
 
 The monthly prices are based on 720 hours per month.
 
-
 ### VM usage {#instance}
 
 The cost of a VM depends on the allocated computing resources, operating system, and usage time. Attached disks and network usage are charged separately.
@@ -55,7 +54,6 @@ When creating a VM, you can specify a public IP address for it.
 
 For information about external IP address usage pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
 
-
 #### Computing resources {#instance-resources}
 
 When creating a VM, specify the number of vCPUs and [GPUs](concepts/gpus.md), as well as the basic core performance level and RAM in GB. For more information, see [{#T}](concepts/performance-levels.md).
@@ -63,7 +61,6 @@ When creating a VM, specify the number of vCPUs and [GPUs](concepts/gpus.md), as
 The basic level of vCPU performance depends on the [platform](concepts/vm-platforms.md) you select.
 
 {{ price-per-hour-count-per-second }}
-
 
 #### Example of calculating the cost of computing resources {#instance-resources-example}
 
@@ -93,18 +90,15 @@ Both VMs were running for 30 days.
 
 As you can see, the cost of the VM using 20% vCPU is almost half as much as that of the VM using 100% vCPU.
 
-
 #### Operating systems {#instance-os}
 
 VM OS usage also comes at a charge. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
 
 {{ price-per-hour-count-per-second }}
 
-
 #### Using a Microsoft license {#license-microsoft}
 
 To learn how to use Microsoft licenses, see [{#T}](../microsoft/licensing.md).
-
 
 ### Storage usage (disks, snapshots, and images) {#disk}
 
@@ -126,13 +120,11 @@ If you connect such a disk to a VM as additional storage, you will be charged fo
 
 {% endnote %}
 
-
 ### {{ ig-name }} usage {#instance-groups}
 
 The {{ ig-name }} component can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
 All other {{ yandex-cloud }} services, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) the same as in other services.
-
 
 
 ### Dedicated host usage {#dedicated-hosts}
@@ -155,7 +147,6 @@ An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged 
 
 
 {% endcut %}
-
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
@@ -184,14 +175,12 @@ All prices below do not include VAT.
 CVoS adjusted price is only available for regular VMs.
 
 
-
 ### VM computing resources {#prices-instance-resources}
 
 
 
 
 {% include [usd-instance-resources.md](../_pricing/compute/usd-instance-resources.md) %}
-
 
 
 
@@ -203,7 +192,6 @@ CVoS adjusted price is only available for regular VMs.
 
 
 
-
 ### Disks, snapshots, and images {#prices-storage}
 
 
@@ -212,14 +200,12 @@ CVoS adjusted price is only available for regular VMs.
 {% include [usd-storage.md](../_pricing/compute/usd-storage.md) %}
 
 
-
 ### File storages {#prices-nfs}
 
 
 
 
 {% include [usd-nfs.md](../_pricing/compute/usd-nfs.md) %}
-
 
 
 
@@ -232,7 +218,6 @@ The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage.
 {% include [usd-host-resources.md](../_pricing/compute/usd-host-resources.md) %}
 
 {% include [usd-local-nvme.md](../_pricing/compute/usd-local-nvme.md) %}
-
 
 
 

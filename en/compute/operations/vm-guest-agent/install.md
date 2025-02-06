@@ -5,32 +5,29 @@ description: Follow this guide to install the password reset agent on a Windows 
 
 # Installing the password reset agent on a Windows Server VM
 
-
-
-To reset user passwords on Windows Server VMs using {{ yandex-cloud }}, install the password reset agent and its update software.
-
+To reset user passwords on Windows Server VMs using {{ yandex-cloud }}, install the password reset agent and its updater.
 
 {% include [password-reset-linux](../../../_includes/compute/password-reset-linux.md) %}
 
-The agent is installed using the agent update software. The agent source code is available on [GitHub](https://github.com/yandex-cloud/yc-guest-agent).
+To install the agent, use the agent updater. The agent source code is available on [GitHub](https://github.com/yandex-cloud/yc-guest-agent).
 
-To install the agent and configure its auto update:
+To deploy the agent and configure its automatic updates:
 
 1. [Connect to the VM via RDP](../vm-connect/rdp.md).
-1. Download and set up the agent update software:
+1. Download and set up the agent updater:
 
    {% list tabs group=programming_language %}
    
    - PowerShell {#powershell}
    
-     1. Get the software's most recent version number:
+     1. Get the number of the updater's latest version:
      
         ```powershell
         $YCAgentUpdaterBaseUri = "https://{{ s3-storage-host }}/{{ compute-guest-agent-bucket }}"
         $YCAgentUpdaterVersion = (Invoke-RestMethod "$YCAgentUpdaterBaseUri/release/stable").Trim()
         ```
    
-     1. Download the software and verify its checksum.
+     1. Download the updater and verify its checksum:
      
         ```powershell
         $YCAgentUpdaterDir = "C:\Program Files\Yandex.Cloud\Guest Agent Updater"
@@ -63,7 +60,7 @@ To install the agent and configure its auto update:
         & $YCAgentUpdaterDir\guest-agent-updater.exe update
         ```
         
-     1. Make sure the agent is installed as a service and that the service is running:
+     1. Make sure the agent is installed as a service and the service is running:
      
         ```powershell
         Get-Service "yc-guest-agent"
@@ -85,9 +82,9 @@ To install the agent and configure its auto update:
         Start-Service "yc-guest-agent"
         ```
         
-        To verify that the service is running, repeat step 4.
+        To make sure the service is running, repeat step 4.
         
-     1. Configure a job to update the agent weekly at a random time.
+     1. Set up a job to update the agent weekly at a random time:
      
         ```powershell
         $YCAgentUpdaterLogFilepath = "C:\Windows\Temp\guest-agent-updater.log"
@@ -131,7 +128,7 @@ To install the agent and configure its auto update:
         $Timeout = 30
         $Deadline = ([datetime]::Now).AddSeconds($timeout)
         
-        while ((Get-ScheduledTask $YCAgentUpdaterTaskName).State -ne "Ready") {
+        while ((Get-ScheduledTask $YCAgentUpdaterTaskName).State -ne "Ready") {    
           Start-Sleep -Seconds 1
         
           if ([datetime]::Now -gt $Deadline) {

@@ -22,14 +22,12 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin-datasphere.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость работы модели входит:
 
 * плата за использование бакета (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
 * плата за использование вычислительных ресурсов (см. [тарифы {{ ml-platform-full-name }}](../../datasphere/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 

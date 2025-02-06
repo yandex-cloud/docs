@@ -22,18 +22,14 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
 
 1. Save the following `PersistentVolumeClaim` creation specification to a YAML file named `pvc-dynamic.yaml`.
 
-   
    {% note info %}
 
    If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-
-
    To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
-   
    ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
@@ -47,8 +43,6 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
        requests:
          storage: 4Gi
    ```
-
-
 
 1. Run this command:
 
@@ -70,7 +64,6 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
 
    Result:
 
-   
    ```text
    Name:          pvc-dynamic
    Namespace:     default
@@ -80,8 +73,6 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
    ----    ------                ----              ----                         -------
    Normal  WaitForFirstConsumer  9s (x3 over 15s)  persistentvolume-controller  waiting for first consumer to be created before binding
    ```
-
-
 
 ## Create a pod with a dynamically provisioned volume {#create-pod}
 
@@ -149,7 +140,6 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
 
      Result:
 
-     
      ```text
      Name:          pvc-dynamic
      Namespace:     default
@@ -159,8 +149,6 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
        Normal  Provisioning           4m10s                  disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00d********  External provisioner is provisioning volume for claim "default/pvc-dynamic"
        Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00d********  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00d********
      ```
-
-
 
 ## How to delete a volume {#delete-volume}
 

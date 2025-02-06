@@ -47,7 +47,7 @@
         Хосты кластера должны быть доступны из интернета.
 
     1. [Создайте два дополнительных шарда](../../managed-clickhouse/operations/shards.md#add-shard) с именами `shard2`, `shard3`.
-    1. [Добавьте в кластер три хоста {{ ZK }}](../../managed-clickhouse/operations/zk-hosts.md#add-zk-host).
+    1. [Добавьте в кластер три хоста {{ ZK }}](../../managed-clickhouse/operations/zk-hosts.md#add-zk).
     1. [Создайте группы шардов](../../managed-clickhouse/operations/shard-groups.md#create-shard-group). Их количество зависит от типа шардирования:
 
         * [Шардирование с использованием групп шардов](#shard-groups-example) требует одну группу шардов с именем `sgroup`, которая включает шарды `shard1` и `shard2`.

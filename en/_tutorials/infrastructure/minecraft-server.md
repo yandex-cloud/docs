@@ -26,7 +26,7 @@ The infrastructure support cost includes:
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
-## Create a security group for your file server {#create-sg}
+## Create a security group {#create-sg}
 
 Create a [security group](../../vpc/concepts/security-groups.md) with a rule allowing traffic to port `25565`. This port is set by default in the server configuration file.
 
@@ -38,7 +38,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `minecraft-sg`.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the security group name, e.g., `minecraft-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `default`.
    1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
@@ -55,7 +55,6 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 ## Create a VM for the Minecraft server {#vm-minecraft}
 
 1. Create an SSH key pair:
-
    ```bash
    ssh-keygen -t ed25519
    ```
@@ -87,13 +86,13 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter thesubnet ID in the VM availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the subnet ID in the VM availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
               * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If your network has no subnets, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
               * If there are no networks in the list, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-                  * In the window that opens, specify the network name and select the folder to host it.
-                  * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
+                  * In the window that opens, specify the network name and select the folder where you want to create it.
+                  * Optionally, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** to automatically create subnets in all availability zones.
                   * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
@@ -105,7 +104,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
             {% note alert %}
 
-            Do not use `root` or other reserved usernames. To perform actions requiring root privileges, use the `sudo` command.
+            Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
 
             {% endnote %}
 
@@ -130,7 +129,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
    {% endnote %}
 
-## Install the required utilities {#install-tools}
+## Install the required tools {#install-tools}
 
 1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the created VM.
 1. Install the necessary Java packages from the repository and the `screen` utility to run the terminal session in background mode:

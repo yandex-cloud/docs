@@ -2,10 +2,10 @@ title: Yandex Object Storage
 description:
   - >-
     Yandex Object Storage is a universal, scalable data storage solution. It is
-    equally suitable for high-load services requiring reliable and fast access
-    to data and for projects with moderate storage infrastructure requirements.
+    equally suited for high-load services requiring reliable and fast access to
+    data and for projects with moderate storage infrastructure requirements.
   - >-
-    With Object Storage, you can: <ul> <li>Store data of any format as <a
+    With Object Storage, you can: <ul><li>Store data of any format as <a
     href="/docs/storage/concepts/object">objects</a> with access by text
     ID.</li> <li>Use different <a
     href="/docs/storage/concepts/storage-class">storage classes</a> for objects
@@ -16,19 +16,18 @@ description:
     href="/docs/storage/concepts/hosting">website</a>.</li></ul>
   - >-
     The <a href="/docs/storage/s3/">Yandex Object Storage HTTP API</a> is
-    compatible with the Amazon S3 API, which means you can use many <a
-    href="/docs/storage/tools">tools</a> built for object storages.
+    compatible with the Amazon S3 API, which means there are many object storage
+    management <a href="/docs/storage/tools/">tools</a> you can use.
   - >-
-    The Yandex Cloud infrastructure <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is
-    protected</a> ursuant to the Russian Federal Law No. 152-FZ on Personal
-    Data.
+    The Yandex Cloud infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
+    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    The service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
     service level is set out in the document titled <a
-    href="https://yandex.com/legal/cloud_sla_storage"> Yandex Object Storage
-    service level</a>.
+    href="https://yandex.com/legal/cloud_sla_storage">Service level for Yandex
+    Object Storage</a>.
 nav:
   title: Yandex Object Storage
 meta:
@@ -48,7 +47,7 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access permissions to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

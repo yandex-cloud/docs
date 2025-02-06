@@ -31,7 +31,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры OpenVPN входят:
@@ -39,7 +38,6 @@
 * плата за диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за лицензию OpenVPN Access Server (при использовании более двух подключений).
-
 
 ## Создайте сеть и подсети {#create-environment}
 

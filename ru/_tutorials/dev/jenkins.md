@@ -22,14 +22,12 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
 * Плата за постоянно запущенные ВМ (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 * Плата за хранение созданных образов (см. [тарифы {{ compute-name }}](../../compute/pricing#prices-storage)).
 * Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ## Настройте окружение {#prepare}
 
