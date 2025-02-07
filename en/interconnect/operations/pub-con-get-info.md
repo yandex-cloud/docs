@@ -1,5 +1,6 @@
 ---
 title: How to get information about {{ interconnect-name }} public connections
+description: Follow this guide to get information about {{ interconnect-name }} public connections.
 ---
 
 # Getting information about public connections

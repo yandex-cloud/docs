@@ -1,6 +1,12 @@
 # Servers
 
-A {{ baremetal-name }} server is a physical server fully [configured](./server-configurations.md) for use. It is connected to a [network](./network.md) over two network interfaces with a throughput of 1 or 10 Gbit/s. The server's hardware and network resources are physically isolated and can be accessed only by the user leasing the server. The server is leased out without access to BIOS settings.
+A {{ baremetal-name }} server is a fully [configured](./server-configurations.md) physical server connected to the [network](./network.md) via two 1 Gbps or 10 Gbps network interfaces. Its hardware and network resources are physically isolated and can be accessed only by the user leasing the server.
+
+{% note warning %}
+
+Default BIOS settings are optimal for a {{ baremetal-name }} server. We do not recommend changing them.
+
+{% endnote %}
 
 ## Server lease {#server-lease}
 
@@ -37,6 +43,8 @@ A server can have one of the following statuses:
 ## Quarantine {#quarantine}
 
 Quarantine: A transition state before server lease is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
+
+At any time during the quarantine period, you can restore the server for further use. To restore the server, contact [support]({{ link-console-support }}).
 
 #### See also {#see-also}
 

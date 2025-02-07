@@ -42,7 +42,7 @@ The trail contains all the audit log settings:
 * **{{ ui-key.yacloud.common.name }}**: Required parameter.
 * **{{ ui-key.yacloud.common.description }}**: Optional parameter.
 * **{{ ui-key.yacloud.audit-trails.label_destination }}** section:
-    * **{{ ui-key.yacloud.audit-trails.label_destination }}**: Values are `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`, or `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
+    * **{{ ui-key.yacloud.audit-trails.label_destination }}**: `{{ ui-key.yacloud.audit-trails.label_objectStorage }}`, `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}`, or `{{ ui-key.yacloud.audit-trails.label_dataStream }}`.
     * For the `{{ ui-key.yacloud.audit-trails.label_objectStorage }}` value:
         * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name.
         * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](./format.md#log-file-name) of the audit log file.
@@ -53,7 +53,7 @@ The trail contains all the audit log settings:
 * **{{ ui-key.yacloud.audit-trails.label_service-account }}** section: Service account to use for uploading audit logs to a bucket, a log group, or a data stream. If the account needs more roles, a warning with a list of roles will show up.
 * **{{ ui-key.yacloud.audit-trails.label_path-filter-section }}** section:
     * **Status**: Toggles the collection of management event audit logs.
-    * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`, or `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}` values.
+    * **{{ ui-key.yacloud.audit-trails.label_resource-type }}**: `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}`, `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}`, or `{{ ui-key.yacloud.audit-trails.label_resource-manager.folder }}`.
     * For the `{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}` value:
         * **{{ ui-key.yacloud.audit-trails.label_organization-manager.organization }}**: Name of the current organization. The value is populated automatically.
     * For the `{{ ui-key.yacloud.audit-trails.label_resource-manager.cloud }}` value:

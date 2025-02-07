@@ -97,7 +97,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 ## Create a chart with a configurable date dimension {#create-chart-grouping}
 
 1. In the top-right corner of the dataset, click **Create chart**.
-1. Select **Stacked area chart** as the visualization type.
+1. Select **Area chart** as the visualization type.
 
    ![image](../../_assets/datalens/solution-parameters/select-area-chart.png)
 

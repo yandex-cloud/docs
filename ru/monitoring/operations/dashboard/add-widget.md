@@ -13,7 +13,8 @@ description: Из статьи вы узнаете, как добавить ви
 ## График {#new}
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
-1. Настройте новый график, указав запросы и настроив отображение метрик. 
+1. Настройте график, указав запросы и отображение метрик.
+1. (Опционально) Добавьте [параметры](add-parameters.md) и настройте [повторение графиков](add-parameters.md#repeated-graphs).
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
 
 ## Алерт {#alert}

@@ -30,7 +30,6 @@ description: Follow this guide to create a subnet.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** field, specify a DNS domain to search for unqualified names.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}** field, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-domain-name-server }}** and enter the address of your DNS server. You can specify multiple DNS servers.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ntp-servers }}** field, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** and enter the address of your NTP server. You can specify multiple NTP servers.
- 
 
   1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -147,7 +146,7 @@ description: Follow this guide to create a subnet.
 
   1. In the configuration file, describe the subnet parameters:
 
-     * `name`: Subnet name. The naming requirements are as follows:
+     * `name`: Subnet name. The name should match the following format:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
@@ -170,20 +169,20 @@ description: Follow this guide to create a subnet.
 
      To add, update, or delete a subnet, use the `yandex_vpc_subnet` resource indicating the network in the `network_id` field (see an [example](#examples)).
 
-     For more information about the `yandex_vpc_subnet` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
+     For more information about the `yandex_vpc_subnet` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -265,20 +264,20 @@ description: Follow this guide to create a subnet.
      }
      ```
 
-     For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
+     For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 

@@ -1,5 +1,6 @@
 ---
 title: How to get information about trunks in {{ interconnect-name }}
+description: Follow this guide to get information about trunks in {{ interconnect-name }}.
 ---
 
 # Getting information about trunks

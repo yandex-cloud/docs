@@ -5443,7 +5443,6 @@ default:
         field_person-id: Плательщик
     yacloud_billing:
       backup:
-        button_attach-instance: Привязать ВМ
         button_attach-instance-submit: Привязать
         label_policies: Политики копирования
       billing:
@@ -5716,6 +5715,7 @@ default:
         status_warn: Warning
         title_aggregation-last_non_nan: Последнее
         title_aggregation-min: Минимум
+        title_alerts-config: Настройки алерта
         title_comparison-eq: Равно
         title_comparison-gt: Больше
         title_comparison-gte: Больше или равно
@@ -5821,7 +5821,9 @@ default:
         title:
           alert-conditions: Условия срабатывания
           alert-config: Настройки алерта
+          annotations: Аннотации
           evaluation-window: Окно вычисления
+          no-data: Обработка отсутствия данных
           notification-channels: Уведомления
           time-shift: Задержка вычисления
       prometheus:
@@ -5844,6 +5846,7 @@ default:
           alert-manager-key-value: Конфигурация Alert manager
       querystring:
         action:
+          add-query: Добавить запрос
           execute-query: Выполнить запрос
       service:
         field:
@@ -5857,9 +5860,14 @@ default:
       wizard:
         axes:
           linear: Линейный
+        general:
+          chartsInRow: Количество графиков в ряд
+          repeatByParam: Повторение по параметру
+          repeatSettings: Повторение графиков
         tab:
           axes: Оси
           downsampling: Прореживание
+          general: Основные
         vis:
           downsampling:
             none: Без прореживания
@@ -8493,8 +8501,6 @@ default:
           label_paranoia-option-2: 2 и ниже
           label_profiles: Профили WAF
           label_save-settings: Сохранить настройки
-          label_size-limit: Максимальный размер тела запроса
-          section_analyze-request: Анализ запроса
           title_exclusion-rule-condition-section: Условия на трафик
           title_exclusion-rule-rules-section: Область применения
           title_exclusion-rules: Правила-исключения

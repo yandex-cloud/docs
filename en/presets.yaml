@@ -587,6 +587,7 @@ default:
   roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
   roles-functions-viewer: functions.viewer
+  roles-iam-sa-admin: iam.serviceAccounts.admin
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
   roles-image-user: compute.images.user
   roles-license-manager-subscription-agent: license-manager.subscriptionAgent
@@ -708,6 +709,7 @@ default:
   saml-limit-thumbnail-photo: 204800 characters
   sample-rfc3339-timestamp: '2006-01-02T15:04:05Z'
   schema-registry-endpoint: schema-registry.yandexcloud.net:443
+  schema-registry-full-name: Yandex Schema Registry
   schema-registry-name: Schema Registry
   sd-full-name: Yandex Security Deck
   sd-name: Security Deck
@@ -5434,7 +5436,6 @@ default:
         field_person-id: Payer
     yacloud_billing:
       backup:
-        button_attach-instance: Attach VM
         button_attach-instance-submit: Attach
         label_policies: Backup policies
       billing:
@@ -5707,6 +5708,7 @@ default:
         status_warn: Warning
         title_aggregation-last_non_nan: Last
         title_aggregation-min: Minimum
+        title_alerts-config: Alerts config
         title_comparison-eq: Equals to
         title_comparison-gt: Greater than
         title_comparison-gte: Greater than or equals
@@ -5812,7 +5814,9 @@ default:
         title:
           alert-conditions: Alert conditions
           alert-config: Alert configuration
+          annotations: Annotations
           evaluation-window: Evaluation window
+          no-data: No data policy
           notification-channels: Notifications
           time-shift: Evaluation delay
       prometheus:
@@ -5835,6 +5839,7 @@ default:
           alert-manager-key-value: Alert manager configuration
       querystring:
         action:
+          add-query: Add query
           execute-query: Execute query
       service:
         field:
@@ -5848,9 +5853,14 @@ default:
       wizard:
         axes:
           linear: Linear
+        general:
+          chartsInRow: Number of graphs per row
+          repeatByParam: Repeat by parameter
+          repeatSettings: Repeat graphs
         tab:
           axes: Axes
           downsampling: Downsampling
+          general: General
         vis:
           downsampling:
             none: No downsampling
@@ -8482,8 +8492,6 @@ default:
           label_paranoia-option-2: 2 or lower
           label_profiles: WAF profiles
           label_save-settings: Save settings
-          label_size-limit: Maximum request body size
-          section_analyze-request: Request analysis
           title_exclusion-rule-condition-section: Traffic conditions
           title_exclusion-rule-rules-section: Scope of use
           title_exclusion-rules: Exclusion rules

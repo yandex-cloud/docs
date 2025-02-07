@@ -28,6 +28,8 @@ items:
             href: operations/video/upload.md
           - name: Editing a video
             href: operations/video/update.md
+          - name: Adding timecodes
+            href: operations/video/add-timecodes.md
           - name: Adding a thumbnail
             href: operations/video/add-thumbnail.md
           - name: Managing subtitles
@@ -64,7 +66,7 @@ items:
             href: operations/streams/add-thumbnail.md
           - name: Getting a server address and broadcast key
             href: operations/streams/get-key.md
-          - name: OBS Studio setup recommendations
+          - name: OBS Studio configuration recommendations
             href: operations/streams/obs-config-help.md
           - name: Starting a broadcast
             href: operations/streams/start.md
@@ -107,6 +109,9 @@ items:
         href: operations/player-control.md
       - name: Troubleshooting
         href: troubleshooting.md
+      - name: Protected content
+        hidden: true
+        href: troubleshooting-drm.md
       - name: SDK
         items:
           - name: Overview

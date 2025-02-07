@@ -9,7 +9,7 @@ description: In this tutorial, you will learn how to stop and start an L7 load b
 
 The **{{ ui-key.yacloud.common.stop }}** command shuts down an [L7 load balancer](../concepts/application-load-balancer.md). Once shut down, the load balancer changes its status to `STOPPED`. As long as the load balancer is stopped, you are not charged for its use.
 
-You can restart a load balancer at any time to continue using it. All the data and changes you have made are saved.
+You can restart a load balancer at any time to continue using it. All your data and changes will be saved.
 
 To stop an L7 load balancer:
 
@@ -42,8 +42,7 @@ To stop an L7 load balancer:
      ```
 
      Result:
- 
-     
+
      ```bash
      - id: ds79cfnvmti3********
        name: test-load-balancer
@@ -79,8 +78,6 @@ To stop an L7 load balancer:
        log_group_id: ckgjhe81a23v********
        created_at: "2022-02-11T09:01:46.724279145Z"
      ```
-
-
 
   1. Stop the load balancer by including its ID or name in the command below:
 
@@ -132,7 +129,6 @@ To start a load balancer:
 
      Result:
 
-     
      ```bash
      - id: ds79cfnvmti3********
        name: test-load-balancer
@@ -168,8 +164,6 @@ To start a load balancer:
        log_group_id: ckgjhe81a23v********
        created_at: "2022-02-11T09:01:46.724279145Z"
      ```
-
-
 
   1. Start the load balancer by including its ID or name in the command below:
 

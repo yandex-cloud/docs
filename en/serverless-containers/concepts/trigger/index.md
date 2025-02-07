@@ -5,7 +5,7 @@ description: Triggers are criteria that automatically invoke a container when me
 
 # Triggers in {{ serverless-containers-name }}. Overview
 
-_Triggers_ are criteria that automatically launch a {{ serverless-containers-name }} [container](../container.md) when met. Triggers enable you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}. 
+_Triggers_ are criteria that automatically launch a {{ serverless-containers-name }} [container](../container.md) when met. Triggers allow you to automate your work with other {{ yandex-cloud }} services, such as {{ objstorage-full-name }}, {{ message-queue-full-name }}, and {{ container-registry-full-name }}. 
 
 {% include [trigger-time](../../../_includes/functions/trigger-time.md) %}
 

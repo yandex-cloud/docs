@@ -125,10 +125,14 @@ items:
           Настройка логирования для L7-балансировщика {{ alb-name }} с помощью
           Ingress-контроллера
         href: tutorials/alb-ingress-controller-log-options.md
-      - name: >-
-          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-name
-          }}
-        href: tutorials/application-load-balancer-website.md
+      - name: Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-name }}
+        items:
+          - name: Обзор
+            href: tutorials/application-load-balancer-website/index.md
+          - name: Консоль управления
+            href: tutorials/application-load-balancer-website/console.md
+          - name: '{{ TF }}'
+            href: tutorials/application-load-balancer-website/terraform.md
       - name: >-
           Проверка состояния приложений в кластере {{ managed-k8s-name }} с
           помощью L7-балансировщика {{ alb-name }}

@@ -25,7 +25,6 @@ If using a bucket to host a static website, use a {{ certificate-manager-name }}
 
 {% endnote %}
 
-
 ## {{ alb-full-name }} {#alb}
 
 [{{ alb-name }}](../../application-load-balancer/index.yaml) can handle TLS traffic: establish connections and terminate TLS sessions using certificates added to {{ certificate-manager-name }}. Certificates from {{ certificate-manager-name }} can be used in [L7 load balancer](../../application-load-balancer/operations/application-load-balancer-create.md) listeners.
@@ -41,7 +40,6 @@ A certificate linked to the domain is used to provide a TLS connection.
 {{ cdn-full-name }} allows you to set up content delivery to your end users via a content delivery network (CDN). 
 
 To access [CDN resources](../../cdn/concepts/resource.md) over HTTPS, you can [use](../../storage/operations/hosting/certificate.md#cert-manager) certificates from {{ certificate-manager-name }}.
-
 
 ## {{ lockbox-full-name }} {#lockbox}
 

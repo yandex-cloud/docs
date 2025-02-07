@@ -1,6 +1,11 @@
+---
+title: Creating a Docker image in {{ cloud-registry-name }}
+description: This guide describes how to create and build a Docker image based on a Dockerfile in {{ cloud-registry-name }}.
+---
+
 # Creating a Docker image in {{ cloud-registry-name }}
 
-The guide describes how to create and build a [Docker image](../../concepts/docker-image.md) from a Dockerfile.
+This guide describes how to create and build a [Docker image](../../concepts/docker-image.md) based on a Dockerfile.
 
 To work with Docker images, [install and configure](installation.md) Docker.
 

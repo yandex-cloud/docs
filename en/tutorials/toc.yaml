@@ -45,7 +45,13 @@ items:
           secrets
         href: security/gitlab-lockbox-integration.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
-        href: security/static-key-in-lockbox.md
+        items:
+          - name: Overview
+            href: security/static-key-in-lockbox/index.md
+          - name: CLI
+            href: security/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: security/static-key-in-lockbox/terraform.md
       - name: >-
           Service account with an {{ oslogin }} profile for VM management via
           Ansible
@@ -132,7 +138,7 @@ items:
         href: archive/object-storage-cloudberry.md
       - name: Backup to {{ objstorage-name }} via Duplicati
         href: archive/object-storage-duplicati.md
-      - name: Backing up to {{ objstorage-name }} with Bacula
+      - name: Backup to {{ objstorage-name }} via Bacula
         href: archive/backup-with-bacula.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
@@ -245,7 +251,7 @@ items:
           - name: Deploying a fault-tolerant architecture with preemptible VMs
             href: infrastructure/nodejs-cron-restart-vm.md
           - name: >-
-              Creating a trigger that invokes a function to stop a VM and send a
+              Creating triggers that invoke a function to stop a VM and send a
               Telegram notification
             href: infrastructure-management/serverless-trigger-budget-queue-vm-tg.md
       - name: Tools
@@ -404,7 +410,7 @@ items:
               Transferring a WordPress website from a different hosting provider
               to {{ yandex-cloud }}
             href: web/wordpress-transfer.md
-          - name: Creating a 1C-Bitrix website
+          - name: Building a 1C-Bitrix website
             items:
               - name: Overview
                 href: web/bitrix-website/index.md
@@ -422,7 +428,7 @@ items:
                 href: internet-store/opencart/terraform.md
           - name: Setting up virtual hosting
             href: web/virtual-hosting.md
-          - name: Assigning a domain name to a VM with a web server
+          - name: Assigning a domain name to a web server VM
             items:
               - name: Overview
                 href: web/bind-domain-vm/index.md
@@ -462,8 +468,6 @@ items:
             href: web/prefetch.md
           - name: Creating an SAP program in {{ yandex-cloud }}
             href: infrastructure-management/sap.md
-          - name: Developing a Telegram bot for text and audio recognition
-            href: ml-ai/recognizer-bot.md
           - name: Deploying a Minecraft server in {{ yandex-cloud }}
             href: infrastructure/minecraft-server.md
           - name: Deploying a multiplayer server for GTA V in {{ yandex-cloud }}
@@ -538,6 +542,8 @@ items:
           Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
+      - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
+        href: dataplatform/ydb-to-yds.md
       - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
       - name: Using data format schemas with {{ mkf-name }}
@@ -981,3 +987,5 @@ items:
           Using {{ api-gw-full-name }} to set up speech synthesis in {{
           speechkit-full-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
+      - name: '{{ api-gw-name }} protection with {{ sws-name }}'
+        href: serverless/api-gw-sws-integration.md

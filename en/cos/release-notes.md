@@ -37,14 +37,12 @@ description: In this article, you will learn how to find out your COI version an
 
 {% note info %}
 
-In version 2.2.0 and higher, the patch (the third number in the version, such as 3 in 1.2.3) stands for the update of system components and packages and is not mentioned in the list of releases.
+In version 2.2.0 and higher, the patch (the third number in the version, such as 3 in 1.2.3) indicates an update of system components and packages and is not mentioned in the list of releases.
 
 {% endnote %}
 
 {% include [latest-release](../_includes/cos/latest-release.md) %}
 
-
 ## Previous releases {#previous-releases}
 
 {% include [previous-releases](../_includes/cos/previous-releases.md) %}
-

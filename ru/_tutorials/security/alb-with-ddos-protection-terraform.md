@@ -24,7 +24,7 @@
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-Чтобы создайть инфраструктуру с помощью {{ TF }}:
+Чтобы создать инфраструктуру с помощью {{ TF }}:
 
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
@@ -100,7 +100,7 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. Откройте конфигурационный файл `tls-termination-config.tf` и удалите описание создаваемой инфраструктуры из файла.
+1. Откройте конфигурационный файл `alb-with-ddos-protection.tf` и удалите описание создаваемой инфраструктуры из файла.
 1. Примените изменения:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

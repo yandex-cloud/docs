@@ -1,6 +1,6 @@
 ---
 title: How to delete an alias in {{ datalens-full-name }}
-description: Follow this guide to delete an alias.
+description: Follow this guide to delete an alias in {{ datalens-name }}.
 ---
 
 # Deleting an alias
@@ -13,7 +13,7 @@ To delete an [alias](../../dashboard/link.md#alias):
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
-1. To the right of the widget you want to delete a link for, click ![image](../../../_assets/datalens/links.svg).
+1. To the right of the widget to delete a link for, click ![image](../../../_assets/datalens/links.svg).
 
    1. In the list, hover over the widget you want to unlink and click ![image](../../../_assets/datalens/aliases.svg).
    1. In the window that opens, expand the **Added aliases** list and click ![image](../../../_assets/console-icons/trash-bin.svg) next to the alias.

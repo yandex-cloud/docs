@@ -484,6 +484,12 @@ items:
         href: tutorials/serverless-url-shortener.md
       - name: '{{ tracker-full-name }}: data export and visualization'
         href: tutorials/data-from-tracker.md
+      - name: Running computations in {{ ml-platform-name }} using the API
+        href: tutorials/batch-code-execution.md
+      - name: Developing a Telegram bot for text and audio recognition
+        href: tutorials/recognizer-bot.md
+  - name: Tools
+    href: tools.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

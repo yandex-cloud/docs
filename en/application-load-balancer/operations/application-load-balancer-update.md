@@ -13,7 +13,7 @@ To update the parameters of an L7 load balancer:
 
   1. In the [management console]({{ link-console-main }}), select the folder where the load balancer was created.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Click the name of the load balancer you need.
+  1. Click the name of the load balancer in question.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the required load balancer settings:
 
@@ -62,7 +62,6 @@ To update the parameters of an L7 load balancer:
 
      Result:
 
-     
      ```bash
      id: a5d88ep483cm********
      name: test-balancer2-updated
@@ -92,8 +91,6 @@ To update the parameters of an L7 load balancer:
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
 
-
-
   1. (Optional) Update the parameters for writing [logs](../logs-ref.md) to [{{ cloud-logging-full-name }}](../../logging/):
 
       1. View the description of the CLI command to manage load balancer logging:
@@ -113,7 +110,7 @@ To update the parameters of an L7 load balancer:
 
           Where:
 
-          * `--log-group-id`: ID of the [log group](../../logging/concepts/log-group.md).
+          * `--log-group-id`: [Log group](../../logging/concepts/log-group.md) ID.
           * `--discard`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules). Rule parameters:
             * `codes`: HTTP codes, classes of HTTP codes, or gRPC codes.
             * `percent`: Discarded logs percentage.
@@ -297,7 +294,7 @@ To update the parameters of an L7 load balancer:
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -339,7 +336,7 @@ To delete a listener for your L7 load balancer:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for deleting a listener:
+  1. See the description of the CLI command for deleting a listener:
 
      ```bash
      yc alb load-balancer remove-listener --help
@@ -416,7 +413,7 @@ To delete a listener for your L7 load balancer:
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 

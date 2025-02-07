@@ -5,22 +5,21 @@ description:
     distribute Docker images.
   - >-
     Container Registry offers a reliable storage solution independent of
-    external locks.  In Container Registry, Docker images are stored in the same
-    Yandex Cloud  <a href="/docs/overview/concepts/geo-scope">data centers</a>
-    as the rest of the cloud infrastructure,  ensuring high speed Docker image
-    operations and no expenses for external traffic.
+    external locks. Docker images in {{ container-registry-name }} are stored in
+    the same Yandex Cloud <a href="/docs/overview/concepts/geo-scope">data
+    centers</a> as the rest of the cloud infrastructure, ensuring high-speed
+    image processing and zero external traffic costs.
   - >-
     Container Registry comes with a built-in <a
     href="/docs/container-registry/concepts/vulnerability-scanner">vulnerability
-    scanner</a>  that enables you to scan Docker images both upon uploading them
-    to the registry and later on a schedule,  as well as flexibly manage scan
-    results.
+    scanner</a> which can scan Docker images either when uploaded to the
+    registry or based on a schedule, with flexible scan output management.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
+    The service is subject to a <a
+    href="https://yandex.ru/legal/cloud_sla">Service Level Agreement</a>. The
+    service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_ycr">Service Level for Yandex
-    Container Registry</a>.
+    Container</a>.
 meta:
   title: Yandex Container Registry
   description: >-
@@ -40,13 +39,13 @@ links:
     description: HTTP API method descriptions
     href: api-ref/
   - title: Tutorials
-    description: Use Container Registry to perform common Docker image management tasks
+    description: Perform common Docker image management tasks using Container Registry
     href: tutorials/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

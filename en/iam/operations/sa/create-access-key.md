@@ -21,7 +21,7 @@ To create a static access key:
 
       {% note alert %}
 
-      After you close the dialog, the private key value will become unavailable.
+      After you close this dialog, the key value will not be shown again.
 
       {% endnote %}
 
@@ -70,13 +70,13 @@ To create a static access key:
       secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
       ```
 
-  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
+  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the secret key again.
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
@@ -92,20 +92,20 @@ To create a static access key:
      * `description`: Key description. This is an optional parameter.
      * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional parameter. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
 
-     For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -113,7 +113,7 @@ To create a static access key:
         terraform apply
         ```
 
-     1. Confirm the static access key creation by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the static access key: type `yes` in the terminal and press **Enter**.
 
         If any errors occur when creating the key, {{ TF }} will indicate them.
         If the key is successfully created, {{ TF }} will write it into its configuration, but will not show it to the user. The terminal will display only the ID of the created key.
@@ -175,4 +175,4 @@ Add a description when creating an access key.
 
 * [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/)
 * [{#T}](assign-role-for-sa.md)
-* [{#T}](../../tutorials/static-key-in-lockbox.md)
+* [{#T}](../../tutorials/static-key-in-lockbox/index.md)

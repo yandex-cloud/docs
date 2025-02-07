@@ -7,33 +7,11 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Создание трейла
+        href: operations/create-trail.md
       - name: Обработка ошибок
         href: operations/error.md
-      - name: Загрузка аудитных логов в {{ cloud-logging-name }}
-        items:
-          - name: Организация
-            href: operations/export-organization-logging.md
-          - name: Облако
-            href: operations/export-cloud-logging.md
-          - name: Каталог
-            href: operations/export-folder-logging.md
-      - name: Загрузка аудитных логов в {{ yds-name }}
-        items:
-          - name: Организация
-            href: operations/export-organization-data-streams.md
-          - name: Облако
-            href: operations/export-cloud-data-streams.md
-          - name: Каталог
-            href: operations/export-folder-data-streams.md
-      - name: Загрузка аудитных логов в {{ objstorage-name }}
-        items:
-          - name: Организация
-            href: operations/export-organization-bucket.md
-          - name: Облако
-            href: operations/export-cloud-bucket.md
-          - name: Каталог
-            href: operations/export-folder-bucket.md
-      - name: Посмотреть операции с трейлом
+      - name: Просмотр операций с трейлом
         href: operations/operation-logs.md
   - name: Практические руководства
     items:

@@ -17,9 +17,6 @@ description: Follow this guide to update basic WAF profile settings.
       * **{{ ui-key.yacloud.common.name }}**.
       * **{{ ui-key.yacloud.common.description }}**.
       * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). To add a label, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-
-  1. {% include [waf-inspect-request](../../_includes/smartwebsecurity/waf-inspect-request.md) %}
-
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ TF }} {#tf}
@@ -72,13 +69,6 @@ description: Follow this guide to update basic WAF profile settings.
             is_blocking = false
           }
         }
-
-        analyze_request_body {
-          is_enabled        = true
-          size_limit        = 8
-          size_limit_action = "IGNORE"
-        }
-      }
       ```
 
      {% endcut %}
@@ -89,7 +79,7 @@ description: Follow this guide to update basic WAF profile settings.
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the updates of your resources in the [management console]({{ link-console-main }}).
+  You can check the resources’ updates in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

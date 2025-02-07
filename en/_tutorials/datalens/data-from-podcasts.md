@@ -27,7 +27,7 @@ To visualize and analyze the data, follow these steps:
 1. [Make a dashboard or chart public](#publish-dashboard-chart).
 1. [Add a chart or dashboard to your website](#add-dashboard-chart).
 
-We recommend checking the [FAQ](#qa) section for answers to common questions that users of Yandex Music podcast statistics may have.
+We recommend checking out this [FAQ](#qa) section covering questions commonly asked by Yandex Music podcast statistics users.
 
 ## 1. Set up a connection {#configure-connection}
 
@@ -46,7 +46,7 @@ Set up {{ datalens-short-name }} depending on your experience:
 
 {% note warning %}
 
- Only users with permissions to a Yandex Music podcast can create connections and process podcast analytics. If you do not have access to any podcast, no data will be displayed on the dashboard.
+ Only users with permissions for a Yandex Music podcast can create connections and process podcast analytics. If you do not have access to any podcast, no data will be displayed on the dashboard.
  
  You will get access after uploading a podcast to Yandex Music. The podcast is linked to the Yandex email address you specified when uploading it.
    
@@ -124,7 +124,7 @@ You can change the order of charts and selectors, increase or decrease their siz
     1. Select the **Country** field. This automatically fills in the **Title** with the name of the selected field.
     1. Activate the **Show next to the selector title** option.
     1. Click the **Show** checkbox next to the selector title.
-    1. Enable the **Multiple choice** option.
+    1. Enable **Multiple choice**.
     1. In the **Default value** list, select **Russia** (or any other country).
     1. Click **Add**.
    
@@ -179,7 +179,7 @@ Let's say we want to build a chart with the total number of times streams were l
 
    ![image](../../_assets/datalens/solution-10/17-dataset-podcasts.png)  
 
-1. Select **Stacked area chart** as the visualization type.
+1. Select **Area chart** as the visualization type.
 1. Add a dimension named **Listening date** to the **X** section.
 1. Add a measure named **Listeners** to the **Y** section.
 1. Add the **Listening date** dimension to the **Filters** section.
@@ -308,7 +308,7 @@ Choose which data you want to restrict access to:
          ![image](../../_assets/datalens/solution-10/26-podcast-access-for-field.png) 
     
     1. Click **Save**. After you save the dataset, its data will only be available to `my-login@yandex.com`.
-    1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example: `* : my-login@yandex.com, friend-login@yandex.com`.
+    1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.com, friend-login@yandex.com`.
     
 - Episodes
 
@@ -326,7 +326,7 @@ Choose which data you want to restrict access to:
         ![image](../../_assets/datalens/solution-10/28-podcast-access-for-field.png) 
         
     1. Click **Save**. After you save the dataset, its data will only be available to `my-login@yandex.com`.
-    1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example: `* : my-login@yandex.com, friend-login@yandex.com`.
+    1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.com, friend-login@yandex.com`.
 
 {% endlist %}
 
@@ -362,7 +362,7 @@ To grant a user access to your {{ datalens-short-name }} instance:
         
         1. In the **Configuring access permissions for a field** window, set a filter as shown in this example:
            `'The most interesting podcast': partner-login@yandex.com`
-           where:
+           Where:
             * `The most interesting podcast`: Podcast name.
             * `partner-login@yandex.com`: Partner username.
         
@@ -377,7 +377,7 @@ To grant a user access to your {{ datalens-short-name }} instance:
         
         1. In the **Configuring access permissions for a field** window, set a filter as shown in this example:
            `'Episode No. 5': partner-login@yandex.com`
-           where:
+           Where:
             * `Episode No. 5`: Episode name.
             * `partner-login@yandex.com`: Partner username.
         
@@ -454,26 +454,26 @@ You can only embed individual charts. Embedding the entire dashboard is not supp
 
 {% cut "Why can you only connect with a Yandex account?" %}
 
-Using a Yandex account in Yandex Music and {{ datalens-short-name }} ensures high data security.
+   Using a Yandex account in Yandex Music and {{ datalens-short-name }} ensures high data security.
 
 {% endcut %}
 
-{% cut "I know for a fact that some of my friends have listened to the podcast but the statistics show a lower number. Why? " %}
-
+{% cut "I know for a fact that some of my friends have listened to the podcast but the statistics show a lower number. Why? " %}   
+   
   Data is updated daily at 13:00. If someone listens to a podcast after this time, the data will only appear in the statistics the next day. Playbacks of less than 1 second are not included in the statistics.
 
 {% endcut %} 
 
 {% cut "There are more service subscribers than DataLens shows. Why?" %}
 
-New subscribers appear in the service instantly, while in the statistics only the next day. If a person subscribes to a podcast today, the number of subscribers in the statistics will increase tomorrow.
+   New subscribers appear in the service instantly, while in the statistics only the next day. If a person subscribes to a podcast today, the number of subscribers in the statistics will increase tomorrow.
 
 {% endcut %}
 
 {% cut "Why are some of my podcast episodes not included in the statistics?" %}
-
-The statistics only show episodes with a history of listens. The episode you cannot see now will appear on the charts as soon as the first listen takes place.
-
+ 
+   The statistics only show episodes with a history of listens. The episode you cannot see now will appear on the charts as soon as the first listen takes place.
+   
 {% endcut %}
 
 {% cut "Are editorial promos shown in the statistics?" %}
@@ -483,25 +483,25 @@ The statistics only show episodes with a history of listens. The episode you can
 {% endcut %}
 
 {% cut "Can I edit a standard dashboard?" %}
-
-Yes, you can edit the dashboard and related objects.
-
+  
+   Yes, you can edit the dashboard and related objects.
+   
 {% endcut %}
 
 {% cut "I deleted a dashboard accidentally. How do I restore it?" %}
-
-Re-create a connection and the dashboard will expand again.
-
+   
+   Re-create a connection and the dashboard will expand again.
+   
 {% endcut %}
 
 {% cut "Why are chart settings so complicated?" %}
-
-{{ datalens-short-name }} is a full-fledged data analysis and visualization tool. Use its rich set of settings to create different types of visualizations that meet a variety of user requirements.
+   
+   {{ datalens-short-name }} is a full-fledged data analysis and visualization tool. Use its rich set of settings to create different types of visualizations that meet a variety of user requirements.
 
 {% endcut %}
 
 {% cut "What else can I use DataLens for?" %}
 
-You are not restricted to using {{ datalens-short-name }}. You can connect to your own data sources, build charts and dashboards, and share them with your colleagues.
+   You are not restricted to using {{ datalens-short-name }}. You can connect to your own data sources, build charts and dashboards, and share them with your colleagues.
 
 {% endcut %}

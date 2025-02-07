@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ captcha-name }}
-description: This section describes the resources for which you can assign a role and the roles existing in the service.
+description: This section describes the resources you can assign a role for and roles available in {{ captcha-name }}.
 ---
 
 # Access management in {{ captcha-name }}
@@ -50,12 +50,12 @@ The list below shows all roles considered when verifying access permissions in {
 
 ## What roles do I need {#choosing-roles}
 
-The table shows actions and minimum roles required to perform them. You can always assign a role offering more permissions than the one specified in the table. For example, you can assign the `smart-captcha.editor` role instead of the `smart-captcha.viewer` role.
+The table shows actions and minimum roles required to perform them. You can always assign a role offering more permissions than the one specified in the table. For example, you can assign `smart-captcha.editor` instead of `smart-captcha.viewer`.
 
-| Action | Role |
+Action | User role
 ----- | -----
-| Viewing CAPTCHA information | `smart-captcha.viewer` |
-| Creating a CAPTCHA | `smart-captcha.editor` |
-| Editing a CAPTCHA | `smart-captcha.editor` |
-| Deleting a CAPTCHA | `smart-captcha.editor` |
-| Managing roles of CAPTCHA users | `smart-captcha.admin` |
+Viewing CAPTCHA information | `smart-captcha.viewer`
+Creating a CAPTCHA | `smart-captcha.editor`
+Editing a CAPTCHA | `smart-captcha.editor`
+Deleting a CAPTCHA | `smart-captcha.editor`
+Managing roles of CAPTCHA users | `smart-captcha.admin`

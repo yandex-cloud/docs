@@ -12,7 +12,7 @@ description: Следуя данному руководству, вы сможе
 
 В общем виде для настройки реагирования через {{ sf-name }} понадобятся следующие компоненты:
 
-1. Трейл — загружает [аудитные логи в лог-группу](../operations/export-cloud-logging.md).
+1. Трейл — [загружает аудитные логи в лог-группу](../operations/create-trail.md).
 2. [Лог-группа](../../logging/concepts/log-group.md) — выступает промежуточным звеном между трейлом и триггером {{ sf-name }}.
 3. [Триггер для {{ cloud-logging-full-name }}](../../functions/concepts/trigger/cloud-logging-trigger.md) — вызывает функцию при добавлении записи в лог-группу.
 4. [Функция {{ sf-name }}](../../functions/concepts/function.md) — выполняет логику реагирования.  

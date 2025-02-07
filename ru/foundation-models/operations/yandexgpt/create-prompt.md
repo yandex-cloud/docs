@@ -42,11 +42,14 @@ description: Следуя данной инструкции, вы научите
   
      ```json
      {
-       "modelUri": "gpt://<идентификатор_каталога>/yandexgpt-lite",
+       "modelUri": "gpt://<идентификатор_каталога>/yandexgpt",
        "completionOptions": {
          "stream": false,
          "temperature": 0.1,
-         "maxTokens": "1000"
+         "maxTokens": "1000",
+         "reasoningOptions": {
+           "mode": "DISABLED"
+         }
        },
        "messages": [
          {

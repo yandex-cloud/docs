@@ -8,7 +8,7 @@ description: Следуя данному руководству, вы сможе
 
 В [{{ yq-full-name }}](../../query/) интегрирована поддержка {{ at-name }}. Вы можете анализировать события ресурсов {{ yandex-cloud }}, выполняя [аналитические](../../query/concepts/batch-processing.md) и [потоковые](../../query/concepts/stream-processing.md) запросы на языке {{ yql-short-name }}.
 
-Аналитические запросы можно выполнять для логов, которые хранятся в [бакете](../operations/export-organization-bucket.md), а потоковые — для логов в [потоке данных](../operations/export-organization-data-streams.md) {{ yds-full-name }}.
+Аналитические запросы можно выполнять для логов, которые хранятся в бакете, а потоковые — для логов в потоке данных {{ yds-full-name }}.
 
 ![](../../_assets/audit-trails/tutorials/audit-trails-query.png)
 

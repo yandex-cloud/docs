@@ -12,13 +12,17 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
   1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, in the row with the video you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
-  1. Edit the video title and description.
+  1. Edit the name of your video.
+  1. (Optional) Under **{{ ui-key.yacloud_video.videos.label_description }}**, specify the timecodes for your video in the following format:
+   
+     {% include [video-timecodes](../../../_includes/video/video-timecodes.md) %}
+
   1. In the **{{ ui-key.yacloud_video.videos.label_accessRights }}** list, edit the video access type:
-      * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}**: Available via a dedicated link.
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}**: Video will be available via a dedicated link.
       
         {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
-      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link to it.
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Video will be available indefinitely to anyone with a link to it.
   1. To change the cover:
 
       1. If the video has a cover, hover over the cover preview and click ![image](../../../_assets/console-icons/circle-xmark.svg).

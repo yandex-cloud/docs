@@ -235,9 +235,15 @@ items:
               - name: '{{ TF }}'
                 href: web/load-balancer-website/terraform.md
           - name: >-
-              Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
-              alb-name }}
-            href: web/application-load-balancer-website.md
+              Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-name
+              }}
+            items:
+              - name: Обзор
+                href: web/application-load-balancer-website/index.md
+              - name: Консоль управления
+                href: web/application-load-balancer-website/console.md
+              - name: '{{ TF }}'
+                href: web/application-load-balancer-website/terraform.md
           - name: >-
               Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name
               }}

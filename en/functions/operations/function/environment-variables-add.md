@@ -100,7 +100,7 @@ When you add environment variables, a new version of the function is created. Yo
        terraform plan
        ```
 
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
          
     1. Apply the configuration changes:
 
@@ -116,11 +116,9 @@ When you add environment variables, a new version of the function is created. Yo
 
     To add environment variables, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     You can add environment variables using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}
 

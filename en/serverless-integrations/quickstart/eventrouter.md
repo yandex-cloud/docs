@@ -18,8 +18,8 @@ In this guide, you will create a queue in [{{ message-queue-name }}](../../messa
 ## Getting started {#before-you-begin}
 
 To get started in {{ yandex-cloud }}:
-1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create a service account {#create-sa}
@@ -139,7 +139,7 @@ To get started in {{ yandex-cloud }}:
 
     1. [Install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) the AWS CLI.
     1. [Create](../../iam/operations/sa/create-access-key.md) static access keys for the `sa-for-eventrouter` service account. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
-    1. Set up the AWS CLI:
+    1. Configure the AWS CLI:
 
        {% include [configure-aws-cli](../../_includes/message-queue/configure-aws-cli.md) %}
 

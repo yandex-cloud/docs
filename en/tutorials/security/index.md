@@ -11,7 +11,7 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [Transferring logs from a VM instance to {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)
 * [Writing load balancer logs to {{ PG }}](logging.md)
 * [Secure storage of {{ GL }} CI passwords as {{ lockbox-full-name }}](gitlab-lockbox-integration.md) secrets
-* [{#T}](static-key-in-lockbox.md)
+* [{#T}](static-key-in-lockbox/index.md)
 * [{#T}](sa-oslogin-ansible.md)
 * [{#T}](protected-access-to-content/index.md)
 * [{#T}](audit-trails-events-to-kuma/index.md)

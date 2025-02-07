@@ -13,8 +13,6 @@ _Invocation context_ is an object that is optionally accepted by the [request ha
 
 To extract information from the invocation context, use its `Value(key)` method and provide to it as a string one of the keys described above as the `key` parameter.
 
-
-
 ### Authentication in the {{ yandex-cloud }} API {#token}
 
 If a function has a specified service account, you can use the [SDK](sdk.md) to obtain information that is necessary for authentication on behalf of this service account. To get this information, use the following methods:
@@ -26,4 +24,3 @@ token, err := creds.IAMToken(ctx)
 
 The `token.IamToken` field contains the required [IAM token](../../../iam/concepts/authorization/iam-token.md).
 The code above works via the [metadata service](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) that is available in the function environment with the specified service account. 
-

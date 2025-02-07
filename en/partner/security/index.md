@@ -1,9 +1,11 @@
 ---
-title: Manage access
+title: Access management in {{ billing-name }}
 description: In this article, you will learn about the service roles and primitive roles in {{ billing-name }}, and take a look at the operations available for roles of each type.
 ---
 
 # Access management
+
+{% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
 
 ## Which roles exist in the service {#roles-list}
 

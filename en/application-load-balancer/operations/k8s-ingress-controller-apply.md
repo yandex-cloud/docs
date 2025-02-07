@@ -18,7 +18,7 @@ To manage {{ alb-name }} resources using an [Ingress controller](../tools/k8s-in
 
 To apply a configuration:
 1. Select the folder with the configuration files.
-1. Run the following command:
+1. Run this command:
 
    ```bash
    kubectl apply -f .
@@ -39,4 +39,4 @@ To apply a configuration:
    <Ingress_name>  <none>  <domain_name>  <IP_address>  80,443  15h
    ```
 
-   An IP address should appear in the `ADDRESS` column. If it did not, the load balancer was not created or was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod) (not `yc-alb-ingress-controller-hc-*`).
+   The IP address should appear in the `ADDRESS` column. If it did not, the load balancer was not created or threw an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod) (not `yc-alb-ingress-controller-hc-*`).

@@ -67,6 +67,8 @@ items:
         href: operations/operation-logs.md
       - name: Настроить мониторинг
         href: operations/monitoring.md
+      - name: Настроить алерты
+        href: operations/alerting.md
   - name: Практические руководства
     items:
       - name: Создание L7-балансировщика с профилем безопасности

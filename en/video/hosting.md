@@ -16,7 +16,7 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
 
 {% include [link-to-api-quickstart](../_includes/video/link-to-api-quickstart.md) %}
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_includes/video/before-you-begin.md) %}
 
@@ -34,9 +34,13 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
     {{ video-name }} [limits](./concepts/limits.md) the resolution of the videos you are publishing.
 
 1. **{{ ui-key.yacloud_video.videos.label_title }}** your video. The title will be displayed on all the resources hosting the video.
+1. (Optional) Under **{{ ui-key.yacloud_video.videos.label_description }}**, specify the timecodes for your video in the following format:
+   
+    {% include [video-timecodes](../_includes/video/video-timecodes.md) %}
+
 1. In the **{{ ui-key.yacloud_video.videos.label_accessRights }}** list, select the access type for the video:
 
-    * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}**: Available via a dedicated link.
+    * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}**: Video will be available via a dedicated link.
           
         {% include [video-temporary-links](../_includes/video/video-temporary-links.md) %}
 

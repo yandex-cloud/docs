@@ -112,7 +112,7 @@ To create a chart based on `Sales Dataset`:
 
       ![create-chart-1](../_assets/datalens/quickstart/create-column-chart.png)
 
-## Create a stacked area chart {#create-area-chart}
+## Create an area chart {#create-area-chart}
 
 1. Copy the chart you created in the previous step:
 
@@ -122,7 +122,7 @@ To create a chart based on `Sales Dataset`:
 
    1. In the window that opens, enter the `Sales by week` name for the new chart and click **Save**.
 
-1. Select **Stacked area chart** as the visualization type.
+1. Select **Area chart** as the visualization type.
 
    ![type-chart-select](../_assets/datalens/quickstart/type-chart-select.png)
 

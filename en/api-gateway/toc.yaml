@@ -119,13 +119,15 @@ items:
         href: tutorials/slack-bot-serverless.md
       - name: Developing a Telegram bot
         href: tutorials/telegram-bot-serverless.md
+      - name: Developing a Telegram bot for text and audio recognition
+        href: tutorials/recognizer-bot.md
       - name: Developing a custom integration
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
       - name: Working with an API gateway via WebSocket
         href: tutorials/api-gw-websocket.md
-      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
@@ -147,6 +149,8 @@ items:
         href: tutorials/serverless-url-shortener.md
       - name: Entering data into storage systems
         href: tutorials/data-ingestion.md
+      - name: '{{ api-gw-name }} protection with {{ sws-name }}'
+        href: tutorials/api-gw-sws-integration.md
   - name: Concepts
     items:
       - name: Resource relationships

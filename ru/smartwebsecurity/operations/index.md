@@ -43,3 +43,4 @@ description: На странице представлен список поша�
 * [{#T}](list-create.md)
 * [{#T}](operation-logs.md)
 * [{#T}](monitoring.md)
+* [{#T}](alerting.md)

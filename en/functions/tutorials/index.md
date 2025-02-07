@@ -34,3 +34,5 @@ description: This section contains tutorials for {{ sf-name }}.
 * [Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}](./events-from-postbox-to-yds.md)
 * [{#T}](./serverless-url-shortener.md)
 * [{#T}](data-from-tracker.md)
+* [{#T}](batch-code-execution.md)
+* [{#T}](recognizer-bot.md)

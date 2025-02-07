@@ -1,3 +1,8 @@
+---
+title: Pushing a Docker image to a registry in {{ cloud-registry-name }}
+description: This guide describes how to push a local Docker image to a {{ cloud-registry-name }}.
+---
+
 # Pushing a Docker image to a registry in {{ cloud-registry-name }}
 
 These instructions describe how to push a local [Docker image](../../concepts/docker-image.md) to a registry.

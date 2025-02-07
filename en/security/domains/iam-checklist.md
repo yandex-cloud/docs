@@ -23,7 +23,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
    * Assign only roles you need right now. Do not assign roles you may only need in the future.
    * Note that when you assign a role for a folder, cloud, or organization, [all the nested resources will inherit](../../iam/concepts/access-control/index.md#inheritance) this role's permissions.
    * Assign the [admin](../../iam/roles-reference.md#admin) role only to users whose duties involve managing access to resources. 
-   * Assign the cloud or organization [owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) role only to users whose duties involve performing any actions with resources. An administrator can take away another administrator's access permissions, and an owner can revoke another owner's role.
+   * Assign the cloud or organization [owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) role only to users whose duties involve performing any actions with resources. An administrator can take away another administrator's access permissions, and an owner can revoke a role from another owner.
    * Assign users service and primitive level `editor` roles to enable them to create and delete resources.
    * Use [impersonation](../../iam/concepts/access-control/index.md#impersonation) to allow users to manage cloud resources on behalf of a service account. Use service accounts with the required roles rather than assigning roles to specific users. This approach temporarily expands user permissions without generating static credentials for the user.
 
@@ -53,7 +53,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 &#x2713; **Key usage monitoring**: In the [management console]({{ link-console-main }}), the page with the service account information shows the last use date and time for each key. This information allows you to track down unauthorized use of keys and to delete unused keys without the risk of disrupting {{ yandex-cloud }} services.
 
-&#x2713; **Storing service account keys in secrets**: If using static keys, [store them in {{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox.md).
+&#x2713; **Storing service account keys in secrets**: If using static keys, [store them in {{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox/index.md).
 
 &#x2713; **Periodic rotation of service account keys**: Keys with no expiration date ([authorized keys](../../iam/concepts/authorization/key.md) and [static keys](../../iam/concepts/authorization/access-key.md)) require [manual rotation](../../iam/operations/compromised-credentials.md#key-reissue). You can check out the date when a key was created in its properties. Perform key rotation at least once in 90 days.
 
@@ -63,7 +63,7 @@ This section provides recommendations on how to make the best use of {{ yandex-c
 
 &#x2713; **Handling compromised secrets**: If secrets were compromised, revoke them and issue new ones; check for unauthorized actions and delete unauthorized resources. Report the incident to the [support]({{ link-console-support }}) team and protect your secrets against vulnerabilities. You can learn more about action plan for handling compromised secrets [here](../../iam/operations/compromised-credentials.md).
 
-&#x2713; **Using {{ lockbox-name }} secrets for storing access keys and tokens**: Store keys and tokens in [{{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox.md) and use their payload when you need to apply a key or token.
+&#x2713; **Using {{ lockbox-name }} secrets for storing access keys and tokens**: Store keys and tokens in [{{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox/index.md) and use their payload when you need to apply a key or token.
 
 &#x2713; **Using API keys with limited access**: create [API keys with limited scope and validity period](../../iam/concepts/authorization/api-key.md#scoped-api-keys) for working with the list of required services to lower the risk of unauthorized use of the keys.
 

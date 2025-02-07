@@ -1,6 +1,11 @@
+---
+title: Creating a Docker image
+description: This guide describes how to create and build a Docker image based on a Dockerfile in {{ container-registry-name }}.
+---
+
 # Creating a Docker image
 
-The guide describes how to create and build a [Docker image](../../concepts/docker-image.md) from a Dockerfile.
+This guide describes how to create and build a [Docker image](../../concepts/docker-image.md) based on a Dockerfile.
 
 To work with Docker images, [install and configure](../configure-docker.md) Docker.
 
@@ -17,7 +22,7 @@ To work with Docker images, [install and configure](../configure-docker.md) Dock
 
      The described Docker image is based on Ubuntu and will execute one simple command.
 
-  1. Assemble the Docker image. As the `<registry_ID>` use the `ID` you got when [creating the registry](../registry/registry-create.md).
+  1. Assemble the Docker image. For `<registry_ID>`, use the `ID` you got when [creating the registry](../registry/registry-create.md).
 
      ```bash
      docker build . \
@@ -30,5 +35,5 @@ To work with Docker images, [install and configure](../configure-docker.md) Dock
 
 Once these commands are executed, a Docker image will be created in your repository with the `hello` tag and the full address of the repository, which includes:
 * {{ container-registry-name }} address: `{{ registry }}`.
-* Your registry ID (`<registry_ID>`).
-* Name of your `ubuntu` repository.
+* Your registry ID: `<registry_ID>`.
+* Name of your repository: `ubuntu`.

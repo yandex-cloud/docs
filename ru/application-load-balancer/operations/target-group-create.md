@@ -179,6 +179,6 @@ description: Для создания целевой группы {{ alb-full-nam
 
 #### См. также {#see-also}
 
-* [{#T}](../tutorials/application-load-balancer-website.md)
+* [{#T}](../tutorials/application-load-balancer-website/index.md)
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/console.md)

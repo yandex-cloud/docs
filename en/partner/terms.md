@@ -5,6 +5,8 @@ description: In this article, you will learn about the terms and definitions of 
 
 # Terms and definitions
 
+{% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
+
 #### Direct partner {#direct-partner}
 
 A business authorized to purchase {{ yandex-cloud }} services for sale and distribution to third parties (users) on behalf and at the expense of the partner as per the terms of the [partner agreement](https://yandex.ru/legal/cloud_partnership/?lang=en).
