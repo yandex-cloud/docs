@@ -55,8 +55,10 @@ items:
     items:
       - name: Overview
         href: concepts/data-collection/unified-agent/index.md
-      - name: Installation and startup
+      - name: Installing and updating
         href: concepts/data-collection/unified-agent/installation.md
+      - name: Starting and stopping
+        href: concepts/data-collection/unified-agent/run-and-stop.md
       - name: Configuration
         items:
           - name: Overview

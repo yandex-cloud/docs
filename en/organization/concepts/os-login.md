@@ -14,6 +14,12 @@ The {{ oslogin }} agent is based on the [guest agent for Google Compute Engine](
 
 This way you can easily manage access to virtual machines and {{ k8s }} nodes by assigning appropriate roles to users. If you revoke the roles, the user will lose access to all virtual machines and {{ k8s }} nodes where {{ oslogin }} access is enabled.
 
+{% note alert %}
+
+{% include [sudo-and-oslogin](../../_includes/compute/sudo-and-oslogin.md) %}
+
+{% endnote %}
+
 ## {{ oslogin }} profiles {#os-login-profiles}
 
 For each user and service account in an organization, you can create _{{ oslogin }} profiles_ containing the name (login) and ID (UID) of the user or service account, which help to identify them in the operating systems of your VMs and {{ k8s }} cluster nodes.

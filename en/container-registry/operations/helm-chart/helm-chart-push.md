@@ -28,7 +28,6 @@ To push a Helm chart:
      export HELM_EXPERIMENTAL_OCI=1
      ```
 
-  
   1. Authenticate your Helm client in the {{ container-registry-name }} [registry](../../concepts/registry.md) using one of the available methods.
      * With an OAuth token:
        1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
@@ -53,8 +52,6 @@ To push a Helm chart:
      ```text
      Login succeeded
      ```
-
-
 
   1. Create a Helm chart:
 

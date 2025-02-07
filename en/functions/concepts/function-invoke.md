@@ -50,7 +50,7 @@ Where:
 - `headers`: Dictionary of strings with HTTP request headers and their values. If the same header is provided multiple times, the dictionary contains the last provided value.
 - `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary; however, if any of the headers was repeated multiple times, its list will contain all the values provided for this header. If the header was provided only once, it is included into this dictionary and its list will contain a single value.
 - `queryStringParameters`: Dictionary with query parameters. If the same parameter is set multiple times, the dictionary contains the last specified value.
-- `multiValueQueryStringParameters`: Dictionary with a list of all specified values for each query parameter. If the same parameter is set multiple times, the dictionary contains all the specified values.
+- `multiValueQueryStringParameters`: Dictionary with the list of all specified values for each query parameter. If the same parameter is set multiple times, the dictionary contains all the specified values.
 - `requestContext` has the following structure: 
   
     ```
@@ -394,9 +394,6 @@ Detailed description of how to transfer data using different flags and arguments
 
 When invoking a function using a trigger, the JSON description of a trigger event is provided in the body of an HTTP request to the function. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about [triggers](trigger/index.md).
 
-
-
 ## Invoking a function using a {{ api-gw-full-name }} extension {#extension}
 
 When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
-

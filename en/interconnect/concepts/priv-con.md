@@ -4,7 +4,7 @@ A private connection is a logical connection to your cloud [network](../../vpc/c
 
 {% note warning %}
 
-However, you cannot set up multiple private connections to a single cloud network at the same [point of presence](./pops.md). For redundancy purposes, you can establish multiple private connections in the same cloud network at different [points of presence](./pops.md), but not more than one such private connection per point of presence.
+However, you cannot set up multiple private connections to a single cloud network at the same [point of presence](./pops.md). For redundancy purposes, you can set up multiple private connections per cloud network in different [points of presence](./pops.md); however, you cannot have more than one private connection per point of presence.
 
 {% endnote %}
  

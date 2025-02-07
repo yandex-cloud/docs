@@ -8,16 +8,16 @@ description:
     href="/docs/cloud-desktop/concepts/desktops-and-groups">desktop</a>
     infrastructure.
   - >-
-    With Cloud Desktop, you can: <ul> <li>Quickly create virtual workspaces for
-    new employees.</li> <li>Safely connect remote employees to your enterprise
-    network.</li>  <li>Allow your employees to work from any up-to-date device
-    with internet access, including their own devices (<a
-    href="https://https://en.wikipedia.org/wiki/Bring_your_own_device">BYOD</a>).</li>
-    <li>Manage  desktop computing resources.</li> <li>Administer desktops
+    Use this service to: <ul> <li>Quickly create virtual workspaces for new
+    employees.</li> <li>Safely connect remote employees to your corporate
+    network.</li>  <li>Allow your employees to work from any modern modern
+    internet-enabled device, including a privately owned one (<a
+    href="https://en.wikipedia.org/wiki/Bring_your_own_device">BYOD</a>).</li>
+    <li>Manage desktop computing resources.</li> <li>Administer desktops
     remotely.</li>  <li>Create desktop groups with the same computing resources
     and cloud <a href="/docs/vpc/concepts/network">network</a>.</li> </ul>
   - >-
-    To connect to desktops, use <a
+    Connect to desktops using the <a
     href="https://en.wikipedia.org/wiki/Remote_Desktop_Protocol">Remote Desktop
     Protocol</a> (RDP).
 meta:
@@ -36,10 +36,10 @@ links:
     description: 'Learn about the basic concepts of the service: desktops and their groups'
     href: concepts/desktops-and-groups
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Setting up access permissions for the service
+    description: Configure access permissions to use the service
     href: security/
   - title: API reference
     description: HTTP API method descriptions

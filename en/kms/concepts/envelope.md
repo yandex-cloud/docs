@@ -1,15 +1,15 @@
 ---
 title: Envelope encryption in {{ kms-full-name }}
-description: Encryption using the encrypt method is limited by the maximum size of data to be encrypted (32 KB). As your data volumes increase, {{ kms-short-name }} experiences an increased workload. This results in decreased performance of the encrypt and decrypt methods. Envelope encryption is mainly implemented on the client side and helps avoid these issues.
+description: Encryption using the encrypt method is limited by the maximum size of data to be encrypted (32 KB). As your data volumes increase, {{ kms-short-name }} experiences an increased workload. This results in decreased performance of the _encrypt_ and _decrypt_ methods. Envelope encryption is mainly implemented on the client side and helps avoid these issues.
 ---
 
 # Envelope encryption
 
-Encryption using the [encrypt](../api-ref/SymmetricCrypto/encrypt) method is limited by the maximum size of data to be encrypted (32 KB). Larger data volumes cause a number of problems:
+Encryption with the [encrypt](../api-ref/SymmetricCrypto/encrypt) method has a limit on the maximum size of data to encrypt (32 KB). Larger data volumes cause a number of problems:
 * Increased load on {{ kms-short-name }} caused by encryption and decryption operations.
 * Reduced encryption and decryption performance if using the encrypt and decrypt methods with larger encryption data volumes.
 
-   The encrypt and decrypt operation time includes transferring data from the client to {{ kms-short-name }} and back. As the amount of encrypted data increases, its transmission time and the load on the network increase, too.
+    The encrypt and decrypt operation time includes transferring data from the client to {{ kms-short-name }} and back. As the amount of encrypted data increases, its transmission time and the load on the network increase, too.
 
 Envelope encryption is mainly implemented on the client side and helps avoid the problems listed above.
 
@@ -22,11 +22,11 @@ Unlike <q>direct</q> encryption, where a {{ kms-short-name }} key acts as a data
 Encryption is preformed as follows:
 1. The client generates a DEK and locally encrypts data with it.
 
-   To generate a high-entropy key, we recommend using the [generateDataKey](../api-ref/SymmetricCrypto/generateDataKey). It generates keys based on the Fortuna algorithm that collects entropy from various sources (RDSEED and RDRAND, /dev/urandom, host entropy).
+    To generate a high-entropy key, we recommend using the [generateDataKey](../api-ref/SymmetricCrypto/generateDataKey). It generates keys based on the Fortuna algorithm that collects entropy from various sources (RDSEED and RDRAND, /dev/urandom, host entropy).
 1. The client sends an [encrypt](../api-ref/SymmetricCrypto/encrypt.md) request to {{ kms-short-name }} for DEK encryption.
 1. In response, the client receives the encrypted DEK.
 
-   In this scheme, the {{ kms-short-name }} key that the DEK is encrypted with acts as a KEK.
+    In this scheme, the {{ kms-short-name }} key that the DEK is encrypted with acts as a KEK.
 1. The unencrypted DEK is destroyed by the client.
 1. The encrypted DEK is saved by the client along with the ciphertext.
 
@@ -48,13 +48,13 @@ Decryption is performed as follows:
 
 Envelope encryption shifts some of the responsibility for secure data encryption to the client. When implementing this scheme, it's important to:
 * Use secure algorithms for local encryption.
-* Make sure you don't save DEKs as plaintext.
+* Make sure not to save DEKs as plaintext.
 
-   {% note warning %}
+    {% note warning %}
 
-   A plaintext DEK should only be decrypted for the duration of data encryption or decryption operations and destroyed immediately afterwards.
+    A plaintext DEK should only be decrypted for the duration of data encryption or decryption operations and destroyed immediately afterwards.
 
-   {% endnote %}
+    {% endnote %}
 
 * Use different DEKs for different data.
 * Generate new DEKs when data is re-encrypted.

@@ -79,6 +79,8 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: '{{ api-gw-name }} protection with {{ sws-name }}'
+        href: tutorials/api-gw-sws-integration.md
       - name: >-
           Migrating services from a NLB to an L7 ALB for DDoS protection using
           {{ sws-name }}

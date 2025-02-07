@@ -25,7 +25,7 @@ If the problem persists, update your video card drivers:
 
 - Windows {#windows}
 
-   {% include [update-drivers-windows](../_qa/video/update-drivers-windows.md) %}
+  {% include [update-drivers-windows](../_qa/video/update-drivers-windows.md) %}
 
 {% endlist %}
 
@@ -45,13 +45,13 @@ The video has been removed from publication or deleted.
 Try doing the following in a sequence:
 
 1. Check if you have entered the page address correctly.
-1. Check your internet speed with the [Internetometer]({{ link-yandex }}/internet/).
+1. Check your internet speed with [Internetometer]({{ link-yandex }}/internet/).
 1. [Clear your browser cache]({{ link-yandex }}/support/common/browsers-settings/browsers-cache.html).
 1. Disable installed extensions in your browser.
 
-   {% include [disable-browser-extensions](../_qa/video/disable-browser-extensions.md) %}
+    {% include [disable-browser-extensions](../_qa/video/disable-browser-extensions.md) %}
 
-## The video player does not work {#loading-issues}
+## The video player does not work {#player-issues}
 
 #### The player froze {#video-doesnt-load}
 
@@ -81,7 +81,7 @@ By default, the video loads without sound. If unable to increase volume in your 
 
 - Windows {#windows}
 
-   {% include [update-drivers-windows](../_qa/video/update-drivers-windows.md) %}
+  {% include [update-drivers-windows](../_qa/video/update-drivers-windows.md) %}
 
 {% endlist %}
 
@@ -94,28 +94,28 @@ By default, the video loads without sound. If unable to increase volume in your 
 
 - Windows {#windows}
 
-   Windows versions 7, 8, and 10 indexed N and KN feature no codecs required for the video player to work.
+  Windows versions 7, 8, and 10 indexed N and KN feature no codecs required for the video player to work.
 
-   You can download and install them yourself:
+  You can download and install them yourself:
 
-   * [Windows 7](https://support.microsoft.com/en-us/help/968212/description-of-the-windows-media-format-feature-pack-for-windows-7-n-a)
-   * [Windows 8 and higher](https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions)
+  * [Windows 7](https://support.microsoft.com/en-us/help/968212/description-of-the-windows-media-format-feature-pack-for-windows-7-n-a)
+  * [Windows 8 or higher](https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions)
 
 - Ubuntu {#ubuntu}
 
-   By default, Ubuntu does not feature codecs for video playback. To install the codecs:
+  By default, Ubuntu does not feature codecs for video playback. To install the codecs:
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       sudo apt-get update && sudo apt-get install ubuntu-restricted-extras
       ```
 
-   1. Enter the root password and click **Y**.
+  1. Enter the root password and click **Y**.
 
       Wait for the installation to complete and restart your computer.
 
-   1. (Optional) You can install an additional codec pack. Run this command:
+  1. (Optional) You can install an additional codec pack. Run this command:
 
       ```bash
       sudo apt-get install libavcodec-extra && sudo apt-get install chromium-codecs-ffmpeg-extra
@@ -138,4 +138,4 @@ Minimum internet speed | Video quality
 0.9 Mbps | 360p
 0.37 Mbps | 144p
 
-If you cannot change video quality in the player settings, check your internet speed using the [Internetometer](https://yandex.ru/internet/).
+If you cannot change video quality in the player settings, check your internet speed using [Internetometer](https://yandex.ru/internet/).

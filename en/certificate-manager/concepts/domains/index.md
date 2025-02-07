@@ -1,13 +1,13 @@
 ---
 title: Domain
-description: A domain is a unique domain name that can be used in {{ yandex-cloud }} services that require confirmation of the user's rights to the domain.
+description: A domain is a unique domain name you can use in {{ yandex-cloud }} services that require a confirmation of the user's domain rights.
 ---
 
 # Domain
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 
-A domain is a unique domain name that can be used in [{{ yandex-cloud }} services](services.md) that require confirmation of the user's rights to the domain.
+A domain is a unique domain name you can use in [{{ yandex-cloud }} services](services.md) that require a confirmation of the user's domain rights.
 
 ## Confirming rights for domains {#confirmation}
 
@@ -17,20 +17,20 @@ To confirm your ownership of a domain, link a valid [Let's Encrypt certificate](
 
 * You cannot [add](../../operations/domain/domain-create.md) a domain confirmed by another user.
 * The period of domain ownership after its confirmation is one year.
-
-   After this period expires, you need to confirm the domain ownership again.
+ 
+    After this period expires, you need to confirm the domain ownership again.
 
 {% endnote %}
 
 ## Domain statuses {#statuses}
 
 Domains can have the following statuses:
-* `Validating`: The domain is pending the domain rights check.
-* `Valid`: The domain is confirmed and can be used in services integrated with {{ certificate-manager-name }}.
-* `Invalid`: The domain failed the domain rights check.
-* `Revalidating`: The domain is pending the domain rights recheck as the previous check validity expired.
+* `Validating`: Domain is awaiting a successful domain rights check.
+* `Valid`: Domain has been confirmed and can be used in services integrated with {{ certificate-manager-name }}.
+* `Invalid`: Domain failed the domain rights check.
+* `Revalidating`: Domain is awaiting a repeat domain rights check as the previous one has expired.
 
 #### See also {#see-also}
 
 - [Services integrated with the domain management system](services.md)
-- [Check rights for domain](../challenges.md)
+- [Domain rights check](../challenges.md)

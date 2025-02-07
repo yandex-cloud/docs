@@ -76,7 +76,7 @@ You can set autoscaling for a group of resource units of your load balancer when
 
 For {{ alb-name }} to provide load balancer availability as specified in the [service level agreement](https://yandex.com/legal/cloud_sla_apploadbalancer/), load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per each [resource unit](../pricing.md) at peak load.
 
-> For instance, if a load balancer uses eight resource units in each availability zone as shown in this [example](#lcu-scaling-example), each subnet should have at least 8 × 2 = 16 addresses available. For each load balancer, we recommend specifying subnets with the size of at least /27.
+> For example, if a load balancer uses eight resource units in each availability zone, as shown in this [example](#lcu-scaling-example), each subnet should have at least 8 × 2 = 16 free addresses. For the load balancer, we recommend specifying subnets at least /27 in size.
 
 ## Listener {#listener}
 
@@ -138,9 +138,7 @@ For more information on how to view logs, see [{#T}](../operations/application-l
 
 A full list of logged parameters is provided in the [log reference](../logs-ref.md).
 
-
 You can also [send load balancer logs to a PostgreSQL DB](../tutorials/logging.md).
-
 
 ### Rules for discarding logs {#discard-logs-rules}
 

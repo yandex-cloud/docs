@@ -8,8 +8,6 @@ In case your application logic uses the [HttpServletRequest](https://docs.oracle
 
 {{ sf-name }} does not support Spring Boot Loader.
 
-
-
 ## Example of a simple application with an endpoint {#simple-example}
 
 The following application has a single endpoint: `GET: /get/{name}`. In response to a `GET` request at `/get` with the path parameter specified, the function will return `Hello, $name`, where `$name` is the provided path parameter. In our example, we use a [public](../../../operations/function/function-public.md) function. If your function is [private](../../../operations/function/function-private.md), specify a service account with the `functions.functionInvoker` role in the API gateway specification.
@@ -184,4 +182,3 @@ Sample direct request where {{ api-gw-name }} is not used to invoke the function
     "isBase64Encoded": false
 }
 ```
-

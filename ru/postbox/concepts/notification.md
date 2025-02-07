@@ -23,6 +23,14 @@
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
         }
     },
     "send": {  },

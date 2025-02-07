@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Настройка хостинга
 
 
-Вы можете разместить свой статический сайт в {{ objstorage-name }}. Статический сайт строится на клиентских технологиях, таких как HTML, CSS и JavaScript. Он не может содержать каких-либо скриптов, требующих запуска на стороне веб-сервера.
+{% include [static-site-information](../../../_includes/storage/static-site-information.md) %}
 
 В бакетах {{ objstorage-name }} поддерживаются:
 
@@ -351,7 +351,7 @@ description: Следуя данной инструкции, вы сможете
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}** нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
   1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}** укажите как минимум одно условие переадресации:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** — HTTP-код, которым {{ objstorage-name }} должен был бы ответить на запрос без переадресации.
-      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}** — начало ключа объекта в запросе. 
+      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}** — начало ключа объекта в запросе. [Подробнее о ключах и устройстве статического сайта](#static-site-information).
   1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}** задайте параметры переадресации:
       * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}**, по которому должен быть отправлен переадресованный запрос.
       * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** хоста, на который должны перенаправляться запросы, удовлетворившие условию.

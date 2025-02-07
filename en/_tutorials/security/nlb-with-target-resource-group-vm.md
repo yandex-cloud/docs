@@ -1,29 +1,29 @@
-# Migrating services from a NLB with target resources from an instance group to an L7 ALB
+# Migrating services from a NLB load balancer with target resources represented by an instance group to an L7 ALB load balancer
 
 
-In this tutorial, you will learn how to integrate [{{ network-load-balancer-full-name }}](../../network-load-balancer/) with a group of VMs. This VM group tracks the number of VMs in the group and changes the composition of the load balancer's target group as needed. A VM group can only integrate with one of the load balancers: either the network load balancer or the [{{ alb-full-name }}](../../application-load-balancer/) L7 load balancer. Therefore, when migrating, you need to change the integration with the target group for the VM group: replace the network load balancer target group with the L7 load balancer target group.
+In this tutorial, you will learn how to integrate a NLB load balancer with a group of VMs. This VM group tracks the number of VMs in the group and changes the composition of the load balancer's target group as needed. A VM group can only integrate with one of the load balancers: either a network load balancer or a [{{ alb-full-name }}](../../application-load-balancer/) L7 load balancer. Therefore, when migrating, you need to change the integration with the target group for the VM group: replace the network load balancer target group with the L7 load balancer target group.
 
 To migrate a service from a network load balancer to an L7 load balancer:
 
 1. [See recommendations for service migration](#recommendations).
-1. [Complete the prerequisite steps](#before-you-begin).
+1. [Complete these steps before you begin](#before-you-begin).
 1. [Create a {{ sws-full-name }} profile](#create-profile-sws).
 1. [Create an L7 load balancer](#create-alb). At this step, you will connect your {{ sws-name }} profile to a virtual host of the L7 load balancer.
-1. [Migrate user load from the network load balancer to the L7 load balancer](#migration-nlb-to-alb).
+1. [Migrate the user load from the network load balancer to the L7 load balancer](#migration-nlb-to-alb).
 
 ## Service migration recommendations {#recommendations}
 
-1. In addition to DDoS protection at level L7 of the OSI model using [{{ sws-full-name }}](../../smartwebsecurity/), we recommend enabling DDoS protection at L3-L4. To do this, [reserve a public static IP address with DDoS protection](../../vpc/operations/enable-ddos-protection.md#enable-on-reservation) in advance and use this address for the L7 load balancer's listener.
+1. In addition to DDoS protection at OSI L7 using [{{ sws-full-name }}](../../smartwebsecurity/), we recommend enabling DDoS protection at L3-L4. To do this, [reserve a public static IP address with DDoS protection](../../vpc/operations/enable-ddos-protection.md#enable-on-reservation) in advance and use this address for the L7 load balancer's listener.
 
     If the network load balancer's listener already uses a public IP address with DDoS protection, you can save it and use it for the L7 load balancer.
 
-    If the network load balancer's listener uses a public IP address without DDoS protection, the only way to enable L7 load balancer DDoS protection at level L3-L4 is to change the public IP address for your service.
+    If the network load balancer's listener uses a public IP address without DDoS protection, DDoS protection at L3-L4 when migrating to an L7 load balancer can only be achieved by changing the public IP for your service.
 
     When using L3-L4 DDoS protection, configure a trigger threshold for the L3-L4 protection mechanisms aligned with the amount of legitimate traffic to the protected resource. To set up this threshold, contact [support]({{ link-console-support }}).
 
     Also, set the MTU value to `1450` for the target resources downstream of the load balancer. For more information, see [Setting up MTU when enabling DDoS protection](../../vpc/operations/adjust-mtu-ddos-protection.md).
 
-1. We recommend performing migration during the hours when user load is at its lowest. The migration process for a VM group changes the integration with the target group and migrates the public IP address from the network load balancer to the L7 load balancer. Your service will be unavailable during this period. The downtime depends on the number of VMs in the group, [deployment policy](../../compute/concepts/instance-groups/policies/deploy-policy.md) settings and may take from several minutes to tens of minutes under normal conditions.
+1. We recommend performing migration during the hours when the user load is at its lowest. The migration process for a VM group changes the integration with the target group and migrates the public IP address from the network load balancer to the L7 load balancer. Your service will be unavailable during this period. The downtime depends on the number of VMs in the group, [deployment policy](../../compute/concepts/instance-groups/policies/deploy-policy.md) settings and may take from several minutes to tens of minutes under normal conditions.
 
 1. When using an L7 load balancer, requests to backends come with the source IP address from the range of internal IP addresses of the subnets specified when creating the L7 load balancer. The original IP address of the request source (user) is specified in the `X-Forwarded-For` header. If you want to log public IP addresses of users on the web server, reconfigure it.
 
@@ -33,7 +33,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 1. [Create subnets](../../vpc/operations/subnet-create.md) in three availability zones. These will be used for the L7 load balancer.
 
-1. Create [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) that allow the L7 load balancer to receive incoming traffic and send it to the target resources, and allow the target resources to receive incoming traffic from the load balancer.
+1. Create [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) that allow the L7 load balancer to receive incoming traffic and send it to the target resources and allow the target resources to receive incoming traffic from the load balancer.
 
 1. When using HTTPS, [add your service's TLS certificate](../../certificate-manager/operations/import/cert-create.md#create-certificate) to [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
@@ -62,7 +62,7 @@ These settings are limited to logging the info about the traffic without applyin
 
         * **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_target-group }}`.
         * **{{ ui-key.yacloud.alb.label_target-groups }}**: Target group you created earlier.
-        * **{{ ui-key.yacloud.alb.label_port }}**: Your service's TCP port the VMs are accepting incoming traffic on.
+        * **{{ ui-key.yacloud.alb.label_port }}**: TCP port of your service the VMs accept incoming traffic on.
         * Under **{{ ui-key.yacloud.alb.label_protocol-settings }}**, specify the settings for connecting the L7 load balancer to the backend. Depending on the protocol type on your backend, select `{{ ui-key.yacloud.alb.label_proto-http-plain }}` or `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
         * Under **HTTP health check**, configure the health check using [these recommendations](../../application-load-balancer/concepts/best-practices.md).
         * (Optional) Set other settings as per [this guide](../../application-load-balancer/operations/backend-group-create.md).
@@ -129,13 +129,15 @@ These settings are limited to logging the info about the traffic without applyin
             --resolve <service_domain_name>:<service_port>:<public_IP_address_of_L7_load_balancer>
         ```
 
-## Migrate user load from the network load balancer to the L7 load balancer {#migration-nlb-to-alb}
+## Migrate the user load from the network load balancer to the L7 load balancer {#migration-nlb-to-alb}
 
 {% note warning %}
 
 Backend VMs will be recreated during the migration process.
 
 {% endnote %}
+
+If the network load balancer's listener uses a public IP address without DDoS protection, memorize the current [health check](../../network-load-balancer/concepts/health-check.md) settings for the target group in the network load balancer before proceeding to the next step.
 
 1. Change the integration with the target group for the VM group:
 
@@ -163,7 +165,7 @@ Backend VMs will be recreated during the migration process.
 1. Select one of the options to further migrate the user load from the network load balancer to the L7 load balancer depending on whether the network load balancer listener has a public IP address with or without DDoS protection:
 
     * [The network load balancer listener uses a public IP address with DDoS protection](#ip-with-ddos-protection). During migration, the public IP address for your service will remain the same.
-    * [The network load balancer listener uses a public IP address without DDoS protection](ip-without-ddos-protection). During migration, the public IP address for your service will change.
+    * [The network load balancer listener uses a public IP address without DDoS protection](#ip-without-ddos-protection). During migration, the public IP address for your service will change.
 
 ### The network load balancer listener uses a public IP address with DDoS protection {#ip-with-ddos-protection}
 
@@ -171,7 +173,7 @@ Backend VMs will be recreated during the migration process.
 
 1. [Delete the listener](../../network-load-balancer/operations/listener-remove.md) in the network load balancer to release the static public IP address.
 
-1. In the L7 load balancer, assign to the listener the public IP address previously assigned to the network load balancer:
+1. In the L7 load balancer, assign to the listener the public IP address previously used by the network load balancer:
 
     {% list tabs group=instructions %}
 
@@ -230,21 +232,19 @@ Backend VMs will be recreated during the migration process.
 
 1. Delete the now free static public IP address you selected when creating the L7 load balancer.
 
-1. (Optional) [Delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md) after migrating user load to the L7 load balancer.
+1. (Optional) [Delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md) after migrating the user load to the L7 load balancer.
 
 ### The network load balancer listener uses a public IP address without DDoS protection {#ip-without-ddos-protection}
 
-1. Memorize the current settings of [health checks](../../network-load-balancer/concepts/health-check.md) for the target group in the network load balancer.
-
 1. Monitor the [status of the target resources](../../network-load-balancer/operations/check-resource-health.md) of the network load balancer. Wait until the target resources are automatically deleted from the target group.
 
-1. [Create a target group](../../network-load-balancer/operations/target-group-create.md) for the network load balancer. Add the VMs created when changing the VM group.
+1. [Create a target group](../../network-load-balancer/operations/target-group-create.md) for the network load balancer. Add the VMs recreated when changing the VM group.
 
 1. In network load balancer, [connect the target group](../../network-load-balancer/operations/target-group-attach.md) created in the previous step. When connecting the target group, configure the health checks the original target group had.
 
 1. Wait until the VM [health checks](../../network-load-balancer/operations/check-resource-health.md) in the network load balancer target group get the `Healthy` status. This will make your service once again available through the network load balancer.
 
-1. To migrate user load from a network load balancer to an L7 load balancer, in the DNS service of your domain's public zone, change the A record value for the service domain name to the public IP address of the L7 load balancer. If the public domain zone was created in [{{ dns-full-name }}](../../dns/), change the record using this guide.
+1. To migrate the user load from a network load balancer to an L7 load balancer, in the DNS service of your domain's public zone, change the A record value for the service domain name to the public IP address of the L7 load balancer. If the public domain zone was created in [{{ dns-full-name }}](../../dns/), change the record using [this guide[.
 
     {% note info %}
 
@@ -254,6 +254,6 @@ Backend VMs will be recreated during the migration process.
 
 1. As the DNS record updates propagate, follow the increase of requests to the L7 load balancer from the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.
 
-1. Follow the decrease of the network load balancer load using the `processed_bytes` and `processed_packets` [load balancer metrics](../../monitoring/metrics-ref/network-load-balancer-ref.md). You can [create a dashboard](../../monitoring/operations/dashboard/create.md) to visualize these metrics. The absence of load on the network load balancer for a prolonged period of time indicates that the user load has been transfered to the L7 load balancer.
+1. Follow the decrease of the network load balancer load using the `processed_bytes` and `processed_packets` [load balancer metrics](../../monitoring/metrics-ref/network-load-balancer-ref.md). You can [create a dashboard](../../monitoring/operations/dashboard/create.md) to visualize these metrics. The absence of load on the network load balancer for a prolonged period of time indicates that the user load has been transferred to the L7 load balancer.
 
-1. (Optional) [Delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md) after migrating user load to the L7 load balancer.
+1. (Optional) [Delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md) after migrating the user load to the L7 load balancer.

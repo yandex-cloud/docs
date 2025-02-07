@@ -10,10 +10,10 @@ Create [DNS zones](concepts/dns-zone.md), add to them `A` records for your test 
 
 ## Getting started {#before-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
 
 
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 
 
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default [virtual network](../vpc/concepts/network.md#network) with [subnets](../vpc/concepts/network.md#subnet) in all [availability zones](../overview/concepts/geo-scope.md).
@@ -61,7 +61,7 @@ Create a new domain zone:
 
   1. Open the list of zones and select `test-zone`.
   1. Select **{{ ui-key.yacloud.dns.label_zone-record-sets }}** in the menu on the left.
-  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. Set the record parameters:
+  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. Specify the record parameters:
      1. **{{ ui-key.yacloud.common.name }}**: `test-vm-1`.
      1. **{{ ui-key.yacloud.common.type }}**: `A`.
      1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
@@ -153,7 +153,7 @@ Create a new public domain zone:
 
   1. Open the list of zones and select `test-public-zone`.
   1. Select **{{ ui-key.yacloud.dns.label_zone-record-sets }}** in the menu on the left.
-  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. Set the record parameters:
+  1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. Specify the record parameters:
      1. **{{ ui-key.yacloud.common.name }}**: `www`.
      1. **{{ ui-key.yacloud.common.type }}**: `A`.
      1. **{{ ui-key.yacloud.dns.label_form-ttl }}**: `600`.
@@ -173,7 +173,7 @@ Create a new public domain zone:
 
 {% endlist %}
 
-Delegate your domain name by specifying the addresses of the `ns1.{{ dns-ns-host-sld }}.` and `ns2.{{ dns-ns-host-sld }}.` {{ yandex-cloud }} name servers at your registrar.
+Delegate your domain name by specifying the addresses of the {{ yandex-cloud }} `ns1.{{ dns-ns-host-sld }}.` and `ns2.{{ dns-ns-host-sld }}.` name servers at your registrar.
 
 ### Test the availability of domain names in the public zone {#test-public-resolving}
 

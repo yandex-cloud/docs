@@ -37,4 +37,19 @@
 
   {% endnote %}
 
+  {% note info %}
+  
+  During testing, the agent automatically cleans up disk space. You can manage the amount of space freed up via the `disk_limit` parameter under `rcheck`:
+
+  ```yaml
+  rcheck:
+    enabled: true
+    package: yandextank.plugins.ResourceCheck
+    disk_limit: 2048
+    interval: 10s
+    mem_limit: 512
+  ```
+  
+  {% endnote %}
+
 {% endlist %}

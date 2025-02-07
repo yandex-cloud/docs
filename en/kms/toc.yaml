@@ -35,7 +35,7 @@ items:
             href: operations/signature-verification.md
           - name: Digital signature of files and artifacts using Cosign
             href: operations/signature-verification-cosign.md
-      - name: Viewing service resource operations
+      - name: Viewing operations with resources
         href: operations/operation-logs.md
   - name: Concepts
     items:

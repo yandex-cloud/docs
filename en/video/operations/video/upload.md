@@ -21,13 +21,17 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
       Wait for the upload to end.
 
   1. **{{ ui-key.yacloud_video.videos.label_title }}** your video. The title will be displayed on all the resources hosting the video.
+  1. (Optional) Under **{{ ui-key.yacloud_video.videos.label_description }}**, specify the timecodes for your video in the following format:
+   
+     {% include [video-timecodes](../../../_includes/video/video-timecodes.md) %}
+
   1. In the **{{ ui-key.yacloud_video.videos.label_accessRights }}** list, select the access type for the video:
 
       * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}**: Available via a dedicated link.
 
         {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
-      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link to it. 
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link.
 
   1. Optionally, to add a cover for a video, in the **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** field, click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and choose a cover image.
 
@@ -47,7 +51,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
 - REST API {#api}
 
-  To create a video in {{ video-name }} using the API, register the video on your channel and then upload the video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the same position in the file the failure occurred at.
+  To create a {{ video-name }} video using the API, register the video on the channel and then upload the video file into it via the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the same position in the file it was interrupted at.
 
   1. Register your video on the channel:
 
@@ -87,7 +91,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
 - gRPC API {#grpc-api}
 
-  To create a video in {{ video-name }} using the API, register the video on your channel and then upload the video file over the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the same position in the file the failure occurred at.
+  To create a {{ video-name }} video using the API, register the video on the channel and then upload the video file into it via the [tus](https://tus.io/protocols/resumable-upload) protocol. If the upload fails, resume it from the same position in the file it was interrupted at.
 
   1. Register your video on the channel:
 

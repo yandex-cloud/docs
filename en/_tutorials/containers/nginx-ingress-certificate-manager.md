@@ -123,6 +123,7 @@ The infrastructure support cost includes:
 
 1. Create a [secret storage (SecretStore)](https://external-secrets.io/v0.5.8/api-secretstore/) named `secret-store` containing the `yc-auth` secret:
 
+
    ```bash
    kubectl --namespace ns apply -f - <<< '
    apiVersion: external-secrets.io/v1beta1
@@ -137,6 +138,8 @@ The infrastructure support cost includes:
              name: yc-auth
              key: authorized-key'
    ```
+
+
 
 ## Create an ExternalSecret {#create-externalsecret}
 

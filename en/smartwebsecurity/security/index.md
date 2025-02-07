@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ sws-name }}
-description: This section describes the resources for which you can assign a role and the roles existing in the service.
+description: This section describes the resources you can assign a role for and roles available in {{ sws-name }}.
 ---
 
 # Access management in {{ sws-name }}

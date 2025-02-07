@@ -39,7 +39,6 @@ To update the HTTP router parameters:
 
      Result:
      
-          
      ```text
      id: a5dld80l32ed********
      name: new-http-router
@@ -64,8 +63,6 @@ To update the HTTP router parameters:
      created_at: "2021-02-11T21:31:01.676592016Z"
      ```
 
- 
-
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
@@ -84,7 +81,7 @@ To update the HTTP router parameters:
      ...
      ```
 
-     For more information about the `yandex_alb_http_router` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_http_router).
+     For more information about the `yandex_alb_http_router` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_http_router).
 
   1. To add, update, or delete HTTP router virtual hosts, use the `yandex_alb_virtual_host` resource indicating the router in the `http_router_id` field:
 
@@ -104,7 +101,7 @@ To update the HTTP router parameters:
      }
      ```
 
-     For more information about the `yandex_alb_virtual_host` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more information about the `yandex_alb_virtual_host` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_virtual_host).
 
   1. Check the configuration using this command:
 
@@ -124,7 +121,7 @@ To update the HTTP router parameters:
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -574,7 +571,7 @@ To add a new route to an HTTP router's virtual host:
      }
      ```
 
-     For more information about the `yandex_alb_virtual_host` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/alb_virtual_host).
+     For more information about the `yandex_alb_virtual_host` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_virtual_host).
 
      The sequence of routes inside a virtual host description matters. For more information, see the [concept](../../application-load-balancer/concepts/http-router.md#virtual-host).
 
@@ -596,7 +593,7 @@ To add a new route to an HTTP router's virtual host:
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 

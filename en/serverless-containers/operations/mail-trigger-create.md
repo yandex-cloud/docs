@@ -4,7 +4,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
 ## Getting started {#before-you-begin}
 
-To create a trigger, you need:
+To create a trigger, you will need:
 
 * A container that the trigger will invoke. If you do not have a container:
 
@@ -76,7 +76,7 @@ To create a trigger, you need:
     ```bash
     yc serverless trigger create mail \
       --name <trigger_name> \
-      --batch-size <message_group_size> \
+      --batch-size <message_batch_size> \
       --batch-cutoff <maximum_timeout> \
       --attachements-bucket <bucket_name> \
       --attachements-service-account-id <service_account_ID> \
@@ -143,7 +143,7 @@ To create a trigger, you need:
            id                 = "<container_ID>"
            service_account_id = "<service_account_ID>"
            retry_attempts     = <number_of_retry_attempts>
-           retry_interval     = <interval_between_retry_attempts>
+           retry_interval     = <time_between_retry_attempts>
          }
          mail {
            attachments_bucket_id = "<bucket_name>"

@@ -1,9 +1,9 @@
 ---
-title: How to install and run {{ unified-agent-full-name }}
-description: In this tutorial, you will learn about installing and running {{ unified-agent-full-name }}.
+title: How to install and update {{ unified-agent-full-name }}
+description: In this tutorial, you will learn how to install and update {{ unified-agent-full-name }}.
 ---
 
-# Installing and running {{ unified-agent-full-name }}
+# Installing and updating {{ unified-agent-full-name }}
 
 ## List of supported operating systems {#supported-os}
 
@@ -43,34 +43,11 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   {{ unified-agent-short-name }} is distributed as a Docker image. The image is published in the `{{ registry }}/yc` repository with the `unified_agent` name and the `latest` tag. The image includes a binary file with the agent and a configuration file used to set up the agent [for Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md) in {{ monitoring-full-name }}.
 
-  {% note warning %}
+  To upload a Docker image, run this command:
 
-  To monitor secondary disks attached to the host, specify the paths to their mount points using the `-v` parameter of the `docker run` command. For more information, see [{#T}](./inputs.md#linux_metrics_input).
-
-  {% endnote %}
-
-  The agent's configuration file is located at `/etc/yandex/unified_agent/config.yml` and parameterized by environment variables. For more information about starting a Docker container, see [below](#configure-docker).
-
-  To start a container with the agent, run the following command:
-
-
-
-  Where `FOLDER_ID` is the ID of the folder to write metrics to.
-
-  To launch a container with its own configuration file, add the `-v` parameter to the container start command and specify the _full path_ to the configuration file. Before running a container, delete the following lines from the configuration file:
-
-  ```yaml
-  import:
-  - /etc/yandex/unified_agent/conf.d/*.yml
+  ```bash
+  sudo docker pull {{ registry }}/yc/unified-agent:latest
   ```
-
-  Sample run container command using a custom configuration file:
-
-
-
-  By default, the [status](services.md#status) section of the agent's configuration file specifies `host: null`. Please keep this in mind if you are using your own configuration file.
-
-  For more information about agent configuration, see [{#T}](./configuration.md).
 
 - deb package {#deb}
 
@@ -78,47 +55,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   To install {{ unified-agent-short-name }}:
 
-  1. Download the latest deb package:
-
-      ```bash
-      ubuntu_name="ubuntu-22.04-jammy" ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
-      ```
-
-      For `ubuntu_name`, specify the OS version:
-      * `ubuntu-14.04-trusty`
-      * `ubuntu-16.04-xenial`
-      * `ubuntu-18.04-bionic`
-      * `ubuntu-20.04-focal`
-      * `ubuntu-22.04-jammy`, starting with version `23.03.02`
-
-      You can also download a specific {{ unified-agent-short-name }} version. To do this, check the available versions and specify the one you need instead of the `latest-version` value:
-
-      ```(bash)
-      curl --silent https://{{ s3-storage-host }}/yc-unified-agent/all-versions
-      ```
-
-  1. Check the deb package version using the `ls` command.
-  1. Install the deb package:
-
-      ```bash
-      sudo dpkg -i yandex-unified-agent_24.09.03_amd64.deb
-      ```
-
-  To make sure {{ unified-agent-short-name }} is successfully installed and running, run the `systemctl status unified-agent` command. Command output example:
-
-  ```bash
-  user@my-vm:~$ systemctl status unified-agent
-  ● unified-agent.service - Yandex Unified Agent service
-     Loaded: loaded (/lib/systemd/system/unified-agent.service; enabled; vendor preset: enabled)
-     Active: active (running) since Tue 2021-02-09 15:57:08 UTC; 2 weeks 2 days ago
-   Main PID: 141403 (unified_agent)
-      Tasks: 8 (limit: 507)
-     Memory: 9.4M
-     CGroup: /system.slice/unified-agent.service
-             └─141403 /usr/bin/unified_agent --config /etc/yandex/unified_agent/config.yml --log-priority NOTICE
-  ```
-
-  After installing the package, edit the `/etc/yandex/unified_agent/config.yml` configuration file, e.g., by setting up the agent for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).
+  {% include [agent-setup-deb](../../../../_includes/monitoring/agent-setup-deb.md) %}
 
 
 - Binary file {#binary}
@@ -128,24 +65,9 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   To download the latest version of the agent's binary file, run:
 
   ```bash
-  ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
+  ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) \
+  bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
   ```
-
-  To find out all the available versions of the agent, run this command:
-  ```(bash)
-  curl --silent https://{{ s3-storage-host }}/yc-unified-agent/all-versions
-  ```
-
-  Download the agent's executable file and then create a configuration file, for example, with the settings for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).
-
-
-  To run the agent, run the following command:
-
-  ```bash
-  ./unified_agent --config unified_agent.yml
-  ```
-
-  Where `--config` is the configuration file path.
 
 - When creating a VM {#vm}
 
@@ -182,7 +104,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   To install the agent and send metrics, make sure the VM has access to the internet.
 
-  The agent is installed with a default configuration file located at `/etc/yandex/unified_agent/config.yml`.
+  The agent is installed with a default configuration file located at `/etc/yc/unified_agent/config.yml`.
 
   The configuration file is set up to send [basic virtual machine metrics](./inputs.md#linux_metrics_input) and [agent health metrics](./inputs.md#agent_metrics_input). You will be [charged](../../../pricing.md) for metric delivery.
 
@@ -195,21 +117,49 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 {% endlist %}
 
-## Parameters for running a Docker container with {{ unified-agent-short-name }} {#configure-docker}
 
-If you install {{ unified-agent-short-name }} using Docker, you can configure the agent using environment variables. In that case, you will not need to edit the configuration file located at `/etc/yandex/unified_agent/config.yml`. The environment variables are listed in the table below.
+## Updating {#update}
 
-Environment variable | Default value | Description
--------------------- | --------------------- | --------
-`UA_STATUS_PORT` | `16241` | Port where the [agent status](./services.md#status) will be available.
-`UA_LOG_PRIORITY` | `NOTICE` | [Agent's logging](./services.md#agent_log) level.
-`FOLDER_ID` | No | ID of the folder to write metrics to (a required parameter).
-`PROC_DIRECTORY` | `/proc` | Directory with mounted [procfs](https://en.wikipedia.org/wiki/Procfs) from where the agent will get [Linux system metrics](./inputs.md#linux_metrics_input).
-`SYS_DIRECTORY` | `/sys` | Directory with mounted [sysfs](https://en.wikipedia.org/wiki/Sysfs) from where the agent will get [Linux system metrics](./inputs.md#linux_metrics_input).
-`UA_LINUX_RESOURCE_CPU`<br/>`UA_LINUX_RESOURCE_MEMORY`<br/>`UA_LINUX_RESOURCE_NETWORK`</br>`UA_LINUX_RESOURCE_STORAGE`<br/>`UA_LINUX_RESOURCE_IO`<br/>`UA_LINUX_RESOURCE_KERNEL` | `basic` | Level of detail of [system metrics](./inputs.md#linux_metrics_input): CPU, network, disks, I/O system, and Linux kernel.
+Update {{ unified-agent-short-name }} using one of the following methods:
+
+{% list tabs group=unified_agent %}
+
+- Docker image {#docker}
+
+  1. Stop the `ua` container:
+
+      ```bash
+      sudo docker stop ua
+      ```
+
+  1. Delete the container:
+
+      ```bash
+      sudo docker rm ua
+      ```
+
+  1. [Run](./run-and-stop.md#run) the container.
+
+- deb package {#deb}
+
+  Re-download and install the deb package:
+
+  {% include [agent-setup-deb](../../../../_includes/monitoring/agent-setup-deb.md) %}
+
+- Binary file {#binary}
+
+  {% include [agent-update-binary](../../../../_includes/monitoring/agent-update-binary.md) %}
+
+- When creating a VM {#vm}
+
+  {% include [agent-update-binary](../../../../_includes/monitoring/agent-update-binary.md) %}
+
+{% endlist %}
+
 
 #### What's next {#what-is-next}
 
-- Read about [{{ unified-agent-short-name }} concepts](./index.md).
+- [Learn how to run and stop {{ unified-agent-short-name }}](./run-and-stop.md).
+- [Read about {{ unified-agent-short-name }} concepts](./index.md).
 - [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md).
 - [Read the {{ unified-agent-short-name }} operating guidelines](./best-practices.md).

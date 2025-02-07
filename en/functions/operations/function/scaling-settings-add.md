@@ -127,7 +127,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     To add scaling settings:
 
-    1. In the configuration file, describe the parameters of the resources you want to create:
+    1. In the configuration file, define the parameters of the resources you want to create:
 
        * `yandex_function`: Description of the function being created and its source code.
          * `name`: Function name.
@@ -200,7 +200,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
        terraform plan
        ```
 
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
     1. Apply the configuration changes:
 

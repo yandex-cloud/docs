@@ -15,8 +15,8 @@ There are various types of encrypted data: from passwords, OAuth tokens, and SSH
 
 ## Interfaces for using the service {#interface}
 
-To interact with {{ kms-short-name }}, you can use:
-* [The management console]({{ link-console-main }}).
+To work with {{ kms-short-name }}, you can use:
+* [Management console]({{ link-console-main }}).
 * [Command line interface (CLI)](../../cli/).
 * SDK: in [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), or [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
 * API: [REST](../api-ref/) or [gRPC](../api-ref/grpc/).
@@ -47,24 +47,24 @@ An [asymmetric digital signature key pair](asymmetric-signature-key.md) is a {{ 
 
 You can use {{ kms-short-name }} keys:
 * In {{ yandex-cloud }} services:
-   * [Managed Service for Kubernetes](../../managed-kubernetes/)
-   * [Certificate Manager](../../certificate-manager/)
+  * [Managed Service for Kubernetes](../../managed-kubernetes/)
+  * [Certificate Manager](../../certificate-manager/)
 * When working with [{{ TF }}](../tutorials/terraform-key.md).
 * In cryptographic libraries:
-   * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md)
-   * [Google Tink](../tutorials/encrypt/google-tink.md)
+  * [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md)
+  * [Google Tink](../tutorials/encrypt/google-tink.md)
 
 ### Secure key storage {#keys-storage}
 
 The cryptographic key material is stored in encrypted form and is not available as plaintext outside {{ kms-short-name }}. When using the service API, you can encrypt or decrypt the transmitted data with a specific key, but you cannot get the crypto material in an explicit form. It can only be restored to RAM, and just for the duration of operations with the corresponding key.
 
-If you use a [Hardware Security Module (HSM)](hsm.md), user keys never leave the HSM as plaintext. Key creation also takes place inside the HSM.
+If you use a [Hardware Security Module (HSM)](hsm.md), user keys never leave the HSM as plaintext. Key creation also takes place inside the HSM. 
 
-All access control features provided by {{ iam-name }} are available for keys. For more information about access control and role assignment, see [{#T}](../security/index.md).
+All access control features provided by {{ iam-name }} are available for keys. For more information on access control and role assignment, see [{#T}](../security/index.md).
 
 ### Key usage audit {#keys-audit}
 
-You can't read the ciphertext without access to the appropriate key. All key operations are written to audit logs. So, in addition to encryption, an important advantage of using {{ kms-short-name }} is the verification of access to encrypted data via key logs.
+You cannot read the ciphertext without access to the appropriate key. All key operations are written to audit logs. So, in addition to encryption, an important advantage of using {{ kms-short-name }} is the verification of access to encrypted data via key logs.
 
 Each entry in the audit log contains the following information:
 * Date and time.
@@ -72,4 +72,4 @@ Each entry in the audit log contains the following information:
 * The key used.
 * Subject ({{ yandex-cloud }} or service account).
 
-To retrieve logs, please contact [technical support]({{ link-console-support }}).
+To get audit logs, contact [support]({{ link-console-support }}).

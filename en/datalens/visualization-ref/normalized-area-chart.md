@@ -111,7 +111,7 @@ To create a normalized area chart:
 
   {% endcut %}
 
-* To display the absolute values of variables, use a [stacked area chart](area-chart.md).
+* To display the absolute values of variables, use an [area chart](area-chart.md).
 
 #### See also {#see-also}
 

@@ -1,3 +1,8 @@
+---
+title: Calculated fields in {{ datalens-name }}
+description: A calculated field is an additional data field with values calculated using a formula.
+---
+
 # Calculated fields
 
 A calculated field is an additional [data field](../../dataset/index.md#field) with values calculated using a formula.

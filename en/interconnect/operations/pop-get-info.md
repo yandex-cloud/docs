@@ -1,5 +1,6 @@
 ---
 title: How to get information about {{ interconnect-name }} points of presence
+description: Follow this guide to get information about {{ interconnect-name }} points of presence.
 ---
 
 # Getting information about points of presence

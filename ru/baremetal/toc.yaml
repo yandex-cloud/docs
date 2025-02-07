@@ -5,6 +5,7 @@ items:
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
+    extended: true
     items:
       - name: Все инструкции
         href: operations/index.md
@@ -16,6 +17,8 @@ items:
             href: operations/servers/server-update.md
           - name: Остановить и запустить сервер
             href: operations/servers/server-stop-and-start.md
+          - name: Сбросить пароль на сервере
+            href: operations/servers/reset-password.md
           - name: Отказаться от аренды серверы
             href: operations/servers/server-lease-cancel.md
           - name: Переустановить ОС сервера
@@ -26,25 +29,22 @@ items:
             href: operations/servers/server-kvm.md
           - name: Заменить диск в RAID-массиве
             href: operations/servers/switch-raid-member.md
-          - name: Диск Rescue-CD
-            items:
-              - name: Воспользоваться Rescue-CD
-                href: operations/servers/rescue-boot.md
-              - name: Сбросить пароль на сервере
-                href: operations/servers/reset-password.md
-              - name: Добавить новый SSH-ключ пользователя
-                href: operations/servers/add-new-ssh-key.md
-              - name: Восстановить загрузчик ОС
-                href: operations/servers/restore-grub.md
-      - name: Создать VRF
-        href: operations/network-create.md
-      - name: Создать подсеть
-        href: operations/subnet-create.md
-      - name: Загрузить образ
-        href: operations/image-upload.md
-      - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
-        href: operations/backup-baremetal.md
+          - name: Воспользоваться Rescue-CD
+            href: operations/servers/rescue-boot.md
+          - name: Добавить новый SSH-ключ пользователя
+            href: operations/servers/add-new-ssh-key.md
+          - name: Восстановить загрузчик ОС
+            href: operations/servers/restore-grub.md
+          - name: Загрузить образ
+            href: operations/image-upload.md
+      - name: Сеть
+        items:
+          - name: Создать VRF
+            href: operations/network-create.md
+          - name: Создать подсеть
+            href: operations/subnet-create.md
   - name: Концепции
+    expanded: true
     items:
       - name: Обзор
         href: concepts/index.md
@@ -58,6 +58,11 @@ items:
         href: concepts/traffic-restrictions.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Практические руководства
+    expanded: true
+    items:
+      - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
+        href: operations/backup-baremetal.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

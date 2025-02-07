@@ -12,20 +12,17 @@ If a public zone is registered in {{ yandex-cloud }}:
 * To create a subzone, you need the rights to manage the parent zone.
 * To manage a subzone and its records, no rights to the parent zone are required.
 
-This prevents the creation of subzones for the zones registered in {{ yandex-cloud }} and that users don't have access to.
-You can create zones and subzones in different folders. To do this, assign a user or [service account](../../iam/concepts/users/service-accounts.md) the `editor` role for the folder where the parent zone is located. For more information, see [{#T}](../security/index.md).
+This prevents the creation of subzones for the zones registered in {{ yandex-cloud }} that users have no access to.
+You can create zones and subzones in different folders. To do this, assign the `editor` role for the folder the parent zone is in to a user or [service account](../../iam/concepts/users/service-accounts.md). For more information, see [{#T}](../security/index.md).
 
-For instance, the `example.com.` parent zone is in a folder named `my-folder`. If you have the rights to manage this zone, you can create subzones such as `test.example.com.` and `production.example.com.` in the `my-test-folder` and `my-production-folder` folders, respectively.
+For example, the `example.com.` parent zone is in the folder named `my-folder`. If you have the permissions to manage this zone, you can create the `test.example.com.` and `production.example.com.` subzones in the folders named `my-test-folder` and `my-production-folder`, respectively.
 
 ## Public zones {#public-zones}
 
 Domain names in public zones are available from the internet. If you have a registered domain, you can delegate it. To do this, specify the addresses of {{ yandex-cloud }} name servers in the `NS` records of your registrar:
 
-
 * `ns1.{{ dns-ns-host-sld }}.`
 * `ns2.{{ dns-ns-host-sld }}.`
-
-
 
 If you have already set up domain delegation, delete other `NS` records.
 
@@ -35,9 +32,9 @@ Make sure to transfer resource records (A, CNAME, TXT, etc., except for NS) from
 
 {% endnote %}
 
-You cannot create public top-level domain (TLD) zones.
+You cannot create top-level domain (TLD) zones.
 
-For security reasons, nested public zones can only be created by users and service accounts with the `dns.editor`, `dns.admin`, `editor`, or `admin` role in the folder where the parent public zone is located. Remember this when organizing the structure of your domain names. For more complex scenarios, contact [support](../../support/overview.md).
+For security reasons, nested public zones can only be created by users and service accounts with the `dns.editor`, `dns.admin`, `editor`, or `admin` role for the folder the parent public zone is in. Remember this when organizing the structure of your domain names. For more complex scenarios, contact [support](../../support/overview.md).
 
 The service does not require confirmation of domain ownership. You can use a domain zone even though it is not registered to you. If you delegated your domain to {{ dns-name }} without creating a respective public DNS zone in {{ dns-name }}, this zone can be used by someone else. Therefore, we recommend that you first create a public DNS zone in {{ dns-name }} and then delegate your domain.
 
@@ -49,15 +46,15 @@ If somebody is using your public DNS zone, contact [support](../../support/overv
 
 Requests to public DNS zones and requests for external DNS names from your VMs are public DNS requests. {{ dns-name }} is used for public DNS requests even if your cloud doesn't contain any DNS zones other than service zones.
 
-We recommend [using caching resolvers](../tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. You can use these to reduce the number of public DNS requests, and thereby, your [costs](../pricing.md#public-dns-requests).
+We recommend using [caching resolvers](../tutorials/local-dns-cache.md), such as `systemd-resolved`, `dnsmasq`, or `unbound`. You can use these to reduce the number of public DNS requests, and thereby, your [costs](../pricing.md#public-dns-requests).
 
 ## Private zones {#private-zones}
 
-Domain names from private zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within private zones, you can use the entire namespace in the subnets of the selected network, including `internal.` and `.`.
+Domain names from private zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within private zones, you can use the entire namespace in the selected network's subnets, including `internal.` and `.`.
 
 {% note warning %}
 
-A created private zone overlaps public zones. If you create a private zone named `example.com`, all `example.com.` subdomains in this {{ vpc-short-name }} network, which are accessible from the internet, will be inaccessible.
+A created private zone overlaps public zones. If you create a private zone named `example.com`, all the `example.com.` subdomains accessible from the internet will become unavailable in this {{ vpc-short-name }} network.
 
 {% endnote %}
 
@@ -92,14 +89,14 @@ Service zones can be created in {{ vpc-short-name }} networks automatically. A l
 
 These zones contain records with internal FQDNs of VMs and MDB database names, VM user names, and reverse records. You cannot edit records that are created automatically, but you can manage records that are added manually.
 
-For security reasons, it is not allowed to create user records, such as `*.yandexcloud.net` and `*.cloud.yandex.net`. To set up easy-to-remember domain names for resources, we recommend registering [CNAME](resource-record.md#cname) or [ANAME](resource-record.md#aname) records in your private DNS zones.
+For security reasons, it is not allowed to create user records formatted as `*.yandexcloud.net` and `*.cloud.yandex.net`. To set up easy-to-memorize domain names for resources, we recommend registering [CNAME](resource-record.md#cname) or [ANAME](resource-record.md#aname) records in your private DNS zones.
 
 To increase fault tolerance, some traffic may be routed to third-party recursive resolvers. To avoid this, contact [support](../../support/overview.md).
 
 ## Reverse zones {#reverse-zone}
 
-In regular DNS records, a domain name is mapped to an IP address. For example, the `ya.ru` domain matches the `77.88.55.242` IP address. Reverse DNS resolves IP addresses back to domain names. For example, the `77.88.55.242` IP address will match the `ya.ru` domain.
+In regular DNS records, a domain name is mapped to an IP address. For example, the `ya.ru` domain corresponds to `77.88.55.242`. Reverse DNS converts IP addresses back to domain names. For example, `77.88.55.242` will correspond to `ya.ru`.
 
-Reverse DNS records are placed in special DNS zones that are called ARPA zones. IPv4 and IPv6 blocks reside in separate zones.
+Reverse DNS records reside in special DNS zones called ARPA zones. IPv4 and IPv6 blocks reside in separate zones.
 
 You can [delegate reverse zone management](../qa/index.md#dns-reverse-zone).

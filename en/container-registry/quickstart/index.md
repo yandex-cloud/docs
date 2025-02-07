@@ -1,6 +1,11 @@
+---
+title: Getting started with {{ container-registry-name }}
+description: Use this guide to create your first {{ container-registry-name }} registry and try your hand at managing Docker images.
+---
+
 # Getting started with {{ container-registry-name }}
 
-Use this guide to create your first [registry](../concepts/registry.md) and try managing [Docker images](../concepts/docker-image.md).
+Use this guide to create your first [registry](../concepts/registry.md) and try your hand at managing [Docker images](../concepts/docker-image.md).
 
 ## Getting started {#before-you-begin}
 
@@ -46,7 +51,7 @@ To work with {{ container-registry-name }} and Docker images, [install the {{ ya
       During setup, information about the current user profile is saved.
    1. Make sure that Docker is configured.
 
-      In the `/home/<user>/.docker/config.json` configuration file, you should see the following line:
+      The following line must appear in the `/home/<user>/.docker/config.json` configuration file:
 
       ```json
       "{{ registry }}": "yc"

@@ -1,6 +1,6 @@
 ---
 title: User group mapping in {{ microsoft-idp.entra-id-full }}
-description: How to configure user group mapping when authenticating users in an organization.
+description: How to configure user group mapping in {{ microsoft-idp.entra-id-full }} when authenticating users in an organization.
 ---
 
 # User group mapping in {{ microsoft-idp.entra-id-full }}

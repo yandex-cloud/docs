@@ -1,6 +1,6 @@
 # Getting started with {{ sws-full-name }}
 
-{{ sws-name }} protects your infrastructure from cybersecurity threats at application layer L7 of the OSI model. These may include DDoS attacks, bots, and SQL injections. In addition, you can enable DDoS protection at levels L3 and L4 using [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md).
+{{ sws-name }} protects your infrastructure from cybersecurity threats at OSI application level (L7). These may include DDoS attacks, bots, and SQL injections. In addition, you can enable DDoS protection at levels L3 and L4 using [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md).
 
 {{ sws-name }} is an assortment of tools you can use either separately or in a combination for optimized protection for your resources. The main {{ sws-name }} component is a _security profile_ to which you can connect:
 
@@ -10,19 +10,19 @@
 * CAPTCHA. After you have checked traffic with rules, you can additionally route it to [{{ captcha-full-name }}](../smartcaptcha) for protection against bots and spam.
 * ARL profile. To limit the number of requests to the protected resource based on various conditions.
 
-To protect resources, you need to connect a security profile to a [virtual host](../application-load-balancer/concepts/http-router.md#virtual-host) or an [Ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md#smart-web-security) in {{ alb-full-name }}.
+To protect resources, you need to connect a security profile to a [virtual host](../application-load-balancer/concepts/http-router.md#virtual-host) or an [Ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md#smart-web-security) in {{ alb-full-name }}. You can also connect your security profile to an [API gateway](../api-gateway/concepts/index.md).
 
 To get started with the service:
 
-* [Prepare your cloud](#before-you-begin)
-* [Create and check a security profile](#security-profile)
-* [Connect the security profile to a virtual host](#profile-connect)
-* (Optional) [Create and connect a WAF profile](#waf)
-* (Optional) [Create and connect an ARL profile](#arl)
-* [Configure the L7 network load balancer for additional protection](#configure-balancer)
+* [Get your cloud ready](#before-you-begin).
+* [Create and check a security profile](#security-profile).
+* [Connect the security profile to a virtual host](#profile-connect).
+* (Optional) [Create and connect a WAF profile](#waf).
+* (Optional) [Create and connect an ARL profile](#arl).
+* [Configure the L7 network load balancer for additional protection](#configure-balancer).
 
 
-## Prepare your cloud environment {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -66,9 +66,9 @@ If you have no L7 load balancer configured, you can deploy a [test infrastructur
   1. Select the `test-sp1` profile you created earlier.
   1. Make sure the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab contains a rule with the following parameters:
 
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`.
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
-      * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`.
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}`
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`
 
       This rule sends all incoming traffic of the protected resource for automatic analysis using ML and behavioral analysis algorithms. As a result of automatic analysis:
 
@@ -210,7 +210,7 @@ ARL allows limiting the number of requests to the protected resource to avoid an
 
   1. On the ARL profile's review page that opens, click **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `arl-rule-1`.
-  1. In the Priority field, set the rule's priority within the ARL profile, e.g., `1000`.
+  1. In the **{{ ui-key.yacloud.smartcaptcha.field_security-rule_priority }}** field, set the rule's priority within the ARL profile, e.g., `1000`.
   1. (Optional) To test the ARL rule, enable the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (Dry run)** mode. Requests will not be blocked in this mode.
   1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, select `All traffic` or `On condition`.
   1. To set [traffic conditions](concepts/conditions.md), select one or more items from the **Conditions** list:

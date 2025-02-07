@@ -1,6 +1,6 @@
 # Creating a VM and an instance group from a {{ coi }} using {{ TF }}
 
-To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/vm.md) or an [instance group](../../compute/concepts/instance-groups/index.md) from a [{{ coi }}](../concepts/index.md), follow the steps below.
+To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/vm.md) or [instance group](../../compute/concepts/instance-groups/index.md) from a [{{ coi }}](../concepts/index.md), follow the steps below.
 
 ## Getting started {#before-begin}
 
@@ -146,7 +146,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
           Enter a value:
         ```
 
-     1. Confirm that you want to create the resources. To do this, type `yes`:
+     1. Confirm creating the resources. To do this, type `yes`:
 
         ```bash
         Enter a value: yes
@@ -233,7 +233,6 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 1. Save a configuration file named `example.tf` to the `~/cloud-terraform` directory:
 
-   
    ```
    provider "yandex" {
      token     = "<OAuth_token>"
@@ -287,12 +286,10 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
    }
    ```
 
-
-
    Where:
 
-   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) to access {{ yandex-cloud }}.
-   * `name`: Name of the instance group.
+   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) for {{ yandex-cloud }} access.
+   * `name`: Instance group name.
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
    * `instance_template.network_interface.network_id`: [Network](../../vpc/concepts/network.md) ID.
    * `instance_template.network_interface.subnet_ids`: List of [subnet](../../vpc/concepts/network.md#subnet) IDs.
@@ -365,7 +362,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
           Enter a value:
         ```
 
-     1. Confirm that you want to create the resources. To do this, type `yes`:
+     1. Confirm creating the resources. To do this, type `yes`:
 
         ```bash
         Enter a value: yes

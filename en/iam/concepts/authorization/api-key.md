@@ -32,7 +32,7 @@ The scope limits the use of API keys in addition to the user's personal access p
 
 Available scopes are listed below:
 
-* `yc.postbox.send`: For sending e-mails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
+* `yc.postbox.send`: For sending emails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 * `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
 
@@ -59,7 +59,8 @@ The following services support authentication based on API keys:
 * [{{ translate-full-name }}](../../../translate/api-ref/authentication.md)
 * [{{ vision-full-name }}](../../../vision/api-ref/authentication.md)
 * {{ yds-full-name }}: [Kafka API](../../../data-streams/kafkaapi/index.md).
-* {{ ydb-full-name }}: Only in {{ PG }}-compatible mode. Use the appropriate [authentication method](../../../ydb/operations/connection#auth) for other modes.
+* {{ ydb-full-name }}: Only in {{ PG }}-compatible mode. Use a suitable [authentication method](../../../ydb/operations/connection#auth) for other modes.
+* [{{ metadata-hub-full-name }}](../../../metadata-hub/concepts/index.md): Within [{{ schema-registry-full-name }}](../../../metadata-hub/operations/connect-to-namespace.md).
 
 #### See also {#see-also}
 

@@ -1,7 +1,6 @@
 title: Yandex Cloud Notification Service
 href: index.yaml
 stage: preview
-noIndex: true
 items:
   - name: Getting started
     expanded: true
@@ -66,3 +65,5 @@ items:
             href: api-ref/delete-endpoint.md
       - name: Publish
         href: api-ref/publish.md
+  - name: Release notes
+    href: release-notes.md

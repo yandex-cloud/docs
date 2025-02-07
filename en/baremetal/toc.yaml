@@ -40,7 +40,11 @@ items:
         href: concepts/server-configurations.md
       - name: Network
         href: concepts/network.md
+      - name: Blocked network ports
+        href: concepts/traffic-restrictions.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
     href: pricing.md

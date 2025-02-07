@@ -1,3 +1,8 @@
+---
+title: Creating a {{ cloud-registry-full-name }} registry
+description: Follow this guide to create a {{ cloud-registry-name }} registry.
+---
+
 # Creating a registry
 
 {% list tabs group=instructions %}

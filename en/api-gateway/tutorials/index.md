@@ -9,6 +9,7 @@ description: Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](alice-shareable-todolist.md)
 * [{#T}](slack-bot-serverless.md)
 * [{#T}](telegram-bot-serverless.md)
+* [{#T}](recognizer-bot.md)
 * [{#T}](api-gw-integration.md)
 * [{#T}](movies-database.md)
 * [{#T}](api-gw-websocket.md)
@@ -21,3 +22,4 @@ description: Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](deploy-app-container.md)
 * [{#T}](serverless-url-shortener.md)
 * [{#T}](data-ingestion.md)
+* [{#T}](api-gw-sws-integration.md)

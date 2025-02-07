@@ -17,10 +17,16 @@ The report builder has these structural elements:
 1. Panel for [adding widgets](./report-operations.md#add-widget) to the report.
 1. Basic controls:
 
-   * **Report settings**: Opens the [report settings](./report-operations.md#report-settings) window.
-   * **Page settings**: Opens the [current page settings](./report-operations.md#page-settings) window.
+   * ![icon](../../_assets/console-icons/gear.svg) **Report settings**: Opens the [report settings](./report-operations.md#report-settings) window.
+   * ![icon](../../_assets/console-icons/play.svg) **Preview**: Opens a full-screen view of the report as document or presentation.
    * **Export**: Exports the report in `.pdf`.
    * **Save**: Saves the report.
+   * ![icon](../../_assets/console-icons/arrows-rotate-right.svg): Refreshes report charts with applied parameters.
+   * ![icon](../../_assets/console-icons/hand-stop.svg): Moves the report page around the screen. When clicked again, returns you to move widget mode.
+   * ![icon](../../_assets/console-icons/magnifier-minus.svg): Zooms out on the report.
+   * ![icon](../../_assets/console-icons/magnifier-plus.svg): Zooms in on the report.
+   * ![icon](../../_assets/console-icons/square-dashed.svg): Resets the report display scale and centers it on the screen.
+   * ![icon](../../_assets/console-icons/gear.svg): Opens the [current page settings](./report-operations.md#page-settings) window.
 
 1. Area for working with the contents of the current report page.
 

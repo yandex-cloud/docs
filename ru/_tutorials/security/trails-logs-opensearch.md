@@ -32,13 +32,9 @@
 
 ## Создайте трейл, который отправляет логи в поток данных {{ yds-name }} {#create-trail}
 
-Подготовьте окружение и создайте трейл в зависимости от ресурсов {{ yandex-cloud }}:
+[Создайте трейл](../../audit-trails/operations/create-trail.md), который отправляет логи в поток данных с именем `audit‑trails`. Использование потока с таким именем позволяет упростить загрузку объектов библиотеки [Security Content](#additional-content).
 
-* [Организации](../../audit-trails/operations/export-organization-data-streams.md).
-* [Облака](../../audit-trails/operations/export-cloud-data-streams.md).
-* [Каталога](../../audit-trails/operations/export-folder-data-streams.md).
-
-Обязательно назовите поток `audit‑trails`, чтобы упростить загрузку объектов библиотеки [Security Content](#additional-content).
+При создании трейла выберите нужную [область сбора логов](../../audit-trails/concepts/trail.md#collecting-area).
 
 ## Создайте кластер {{ mos-name }} {#create-os}
 
@@ -267,3 +263,4 @@
 Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
 
 @[youtube](bzWmmPp6KFg)
+

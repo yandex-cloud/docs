@@ -1,13 +1,13 @@
 ---
-title: Network
-description: In this article, you will learn about public and private networks.
+title: Networking in {{ baremetal-full-name }}
+description: In this article, you will learn about public and private networks in {{ baremetal-full-name }}.
 ---
 
 # Network
 
 ## Public network {#public-network}
 
-A network with internet access, to which all servers are physically connected.
+A network with internet access, to which all servers are physically connected. On [some](./traffic-restrictions.md) TCP and UDP ports, network traffic between the private network and the internet is limited.
 
 ## Private network {#private-network}
 
@@ -40,13 +40,17 @@ If DHCP is disabled on a server, consider the following when configuring the net
 * The host IP address is specified in the **Public IPv4 address** field on the page with server information.
 * The gateway IP address is less than the host IP address by one.
 
-Example:
-* Server public IPv4 address: `1.2.3.111`.
-* Subnet CIDR: `1.2.3.110/31`.
-* Gateway IP address: `1.2.3.110`.
+Here is an example:
+* Server public IPv4 address: `198.51.100.111`.
+* Subnet CIDR: `198.51.100.110/31`.
+* Gateway IP address: `198.51.100.110`.
 
 A server network interface connected to a private network is given an IP address from the CIDR specified in the settings for routing the private subnet to which the server is connected.
 
 If the server OS is installed from {{ marketplace-short-name }} images, DHCP IP address acquisition is enabled by default on all physical interfaces of this server.
 
 Within a private network, the DHCP server is automatically activated as soon as the routing settings are specified in the parameters of that subnet. Until the routing settings are defined, the private subnet runs as an L2 network. In which case you need to manually assign IP addresses to its servers.
+
+#### See also {#see-also}
+
+* [{#T}](./traffic-restrictions.md)

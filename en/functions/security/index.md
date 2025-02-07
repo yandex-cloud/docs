@@ -44,11 +44,9 @@ The list below shows all roles considered when verifying access permissions in {
 
 {% include [functions.editor](../../_roles/functions/editor.md) %}
 
-
 #### functions.mdbProxiesUser {#functions-mdbProxiesUser}
 
 {% include [functions.mdbProxiesUser](../../_roles/functions/mdbProxiesUser.md) %}
-
 
 #### functions.admin {#functions-admin}
 

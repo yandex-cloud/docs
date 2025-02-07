@@ -6,7 +6,6 @@ description: In this article, you will learn about exporting audit logs to SIEM 
 # Exporting audit logs to SIEM systems
 
 
-
 You can export audit log files to SIEM systems.
 
 The {{ yandex-cloud }} team has prepared a set of solutions for exporting audit logs into several SIEM systems. You can find solution files in the respective sections of the [{{ yandex-cloud }} Security Solution Library repository](https://github.com/yandex-cloud-examples/yc-security-solutions-library).

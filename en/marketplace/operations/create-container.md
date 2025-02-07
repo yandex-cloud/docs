@@ -4,7 +4,7 @@ To add a software product for {{ managed-k8s-name }} in {{ marketplace-short-nam
 
 For more information about setting up [subscription-based](license-manager-integration.md#managed-k8s) product access, see [Integration with the {{ license-manager }} API](../concepts/subscription.md).
 
-You can also create products for {{ compute-full-name }} to run on [Linux](create-image.md) operating systems by following the relevant guidelines.
+You can also create products for {{ compute-full-name }} to run on [Linux](create-image.md) by following the relevant guidelines.
 
 ## Hosting and naming images {#registry}
 
@@ -154,8 +154,8 @@ The manifest uses YAML format and contains the following data:
      user_values:
      - name: app.port
        title:
-         en: <English_title>
-         ru: <Russian_title>
+         en: <english_title>
+         ru: <russian_title>
      ```
    * `description`: Variable description, either in Russian or English. The value must start with a capital letter.
 
@@ -168,7 +168,7 @@ The manifest uses YAML format and contains the following data:
             ru: <Russian_description>
       ```
 
-   * `required` (optional): `Required` flag. The flag can be set for any variable type except `boolean_value`. The available values are `true` and `false`.
+   * `required` (optional): *Required* flag. The flag can be set for any variable type except `boolean_value`. The available values are `true` and `false`.
 
    * Variable type. Legal values:
       * `simple_disabled`. May contain a default value and the enable flag.
@@ -241,7 +241,7 @@ The manifest uses YAML format and contains the following data:
                 - <integer_3>
         ```
 
-      * `string_value`: It may contain a flag and a *secret field*, as well as a value length limit.
+      * `string_value`: May contain a flag and a *secret field*, as well as a value length limit.
 
         ```yaml
         user_values:

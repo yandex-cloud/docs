@@ -137,13 +137,13 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<interval_between_retry_attempts>"
+          retry_interval     = "<time_between_retry_attempts>"
         }
         logging {
           group_id       = "<log_group_ID>"
           resource_types = [ "<resource_type>" ]
           resource_ids   = [ "<resource_ID>" ]
-          stream_names   = [ "<logging_stream>" ]
+          stream_names   = [ "<log_stream>" ]
           levels         = [ "logging_level", "logging_level" ]
           batch_cutoff   = "<maximum_timeout>"
           batch_size     = "<message_group_size>"
@@ -169,7 +169,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       * `logging`: Trigger parameters:
 
-        * `group_id`: ID of the log group that will invoke the container when entries are added to it.
+        * `group_id`: ID of the log group that will invoke a container when entries are added to it.
         * `resource_types`: Types of resources, e.g., of the {{ sf-name }} function. This is an optional parameter.
         * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., of the {{ sf-name }} functions. This is an optional parameter.
         * `stream_names`: Log streams. This is an optional parameter.
@@ -181,7 +181,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create resources:
 

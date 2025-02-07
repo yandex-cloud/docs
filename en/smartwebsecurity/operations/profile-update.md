@@ -20,6 +20,7 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
       * **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
       * **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}**: Select or create an [ARL profile](../concepts/arl.md).
       * Select or create a [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests.
+      * {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -57,9 +58,9 @@ description: Follow this guide to edit basic settings in a {{ sws-full-name }} s
      * `--new-name`: New name for the security profile. This is an optional parameter if the profile name remains unchanged.
      * `--description`: Text description of the security profile. This is an optional parameter.
      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional parameter, e.g., `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to perform for the traffic that mismatches the criteria of other rules. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--default-action`: Action to apply to traffic not covered by the other rules. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
-     * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional parameter. For example:
+     * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional parameter. Here is an example:
 
          {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
 

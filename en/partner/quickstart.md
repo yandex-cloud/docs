@@ -1,5 +1,7 @@
 # How to participate in the partner program
 
+{% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
+
 The partner program enables you to make profit and grow your own business by addressing customer needs using the {{ yandex-cloud }} platform. You can become a partner through either the [VAR](./program/var.md) or the [referral](./program/referral.md) partnership program, as well as participate in both programs at once.
 
 The partner program will enable you to:

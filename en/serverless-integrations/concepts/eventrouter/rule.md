@@ -22,7 +22,15 @@ A _filter_ is an expression in [jq format](https://jqlang.github.io/jq/manual/) 
 
 ## Target {#target}
 
-_Target_ is the consumer of an event, e.g., a {{ sf-name }} function, a {{ serverless-containers-name }} container, a {{ message-queue-name }} queue, a {{ yds-name }} data stream, etc.
+_Target_ is the consumer of an event. Supported targets:
+
+* [WebSocket connections](../../../api-gateway/concepts/extensions/websocket.md) connected to the {{ api-gw-name }} API gateway.
+* {{ sf-name }} [functions](../../../functions/concepts/function.md).
+* {{ cloud-logging-name }} [log groups](../../../logging/concepts/log-group.md).
+* {{ yds-name }} [streams](../../../data-streams/concepts/glossary.md#stream-concepts).
+* {{ message-queue-name }} [queues](../../../message-queue/concepts/queue.md).
+* {{ serverless-containers-name }} [containers](../../../serverless-containers/concepts/container.md).
+* {{ sw-name }} [workflows](../../concepts/workflows/workflow.md).
 
 {{ er-name }} supports the `At least once` delivery guarantee. If unable either to deliver an event or get a delivery confirmation, {{ er-name }} will be retrying to send the event before the event lifetime expires. The number of retries and the maximum event lifetime are set in the target settings. An event that could not be processed is moved to the dead-letter queue specified by the client.
 

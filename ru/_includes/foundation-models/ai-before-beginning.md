@@ -8,8 +8,9 @@
 
   1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть хотя бы минимальная роль для работы с нужной моделью:
-     * `{{ roles-yagpt-user }}` или выше — для работы с {{ yagpt-full-name }}.
+     * `{{ roles-yagpt-user }}` или выше — для работы с моделями генерации текста..
      * `{{ roles-yaart-user }}` или выше — для работы с {{ yandexart-name }}.
+     * `ai.assistants.editor` и `{{ roles-yagpt-user }}` или выше — для работы с {{ assistant-api }}.
      
      Идентификатор каталога понадобится, чтобы получить URI модели.
 
@@ -22,8 +23,9 @@
 - Сервисный аккаунт {#service-account}
 
    Для работы с моделями {{ foundation-models-name }} сервисный аккаунт должен иметь хотя бы минимальную соответствующую роль:
-     * `{{ roles-yagpt-user }}` или выше — для работы с {{ yagpt-full-name }}.
-     * `{{ roles-yaart-user }}` или выше — для работы с {{ yandexart-name }}. 
+     * `{{ roles-yagpt-user }}` или выше — для работы с моделями генерации текста.
+     * `{{ roles-yaart-user }}` или выше — для работы с {{ yandexart-name }}.
+     * `ai.assistants.editor` и `{{ roles-yagpt-user }}` или выше — для работы с {{ assistant-api }}.
       
    API {{ foundation-models-name }} поддерживает два способа аутентификации с сервисным аккаунтом:
 

@@ -201,7 +201,7 @@ items:
         href: tutorials/index.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
-      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
         href: tutorials/ci-cd-serverless.md
       - name: >-
           Setting up a {{ mpg-full-name }} connection from a {{

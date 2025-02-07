@@ -80,9 +80,6 @@ When being passed to the container, some HTTP request and response headers chang
 
 When invoking a container using a trigger, an HTTP POST request is sent to the [address the container is invoked at](../operations/invocation-link.md). The request body contains a JSON description of the trigger event. The request source IP is provided in the same way as when [invoking a container using HTTPS](#ip). Learn more about [triggers](trigger/index.md).
 
-
-
 ## {{ api-gw-full-name }} extension {#extension}
 
 When invoking a container using the {{ api-gw-name }}, the container is handed over an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the container's host. The request source IP is provided in the same way as when [invoking a container using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/containers.md).
-

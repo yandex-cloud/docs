@@ -63,7 +63,7 @@ Learn more about secure network configuration and use in the [respective section
 
 &#x2713; **Logging actions with a bucket**: [Set up](../../storage/operations/buckets/enable-logging.md) logging of actions with a bucket and [enable](../../audit-trails/concepts/events-data-plane.md#objstorage) collection of the service's events in {{ at-full-name }}.
 
-&#x2713; **Secure use of AWS-compatible tools**: Configure access to a storage for [AWS-compatible tools](../../storage/tools/index.md) using [static keys](../../iam/operations/sa/create-access-key.md) and store the keys in a [{{ lockbox-name }} secret](../../iam/tutorials/static-key-in-lockbox.md).
+&#x2713; **Secure use of AWS-compatible tools**: Configure access to a storage for [AWS-compatible tools](../../storage/tools/index.md) using [static keys](../../iam/operations/sa/create-access-key.md) and store the keys in a [{{ lockbox-name }} secret](../../iam/tutorials/static-key-in-lockbox/index.md).
 
 &#x2713; **Cross-Origin Resource Sharing (CORS)**: [Configure](../../storage/operations/buckets/cors.md) CORS in accordance with your company's security policies. If you are using the bucket to host a static website, [enable](../../storage/operations/hosting/certificate.md#cert-manager) HTTPS access using a {{ certificate-manager-name }} certificate.
 

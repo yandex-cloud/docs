@@ -37,7 +37,7 @@ A signature based on a private key is used for messages of up to 32 KB.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the digital signature public key.
 
     - CLI {#cli}
@@ -122,7 +122,7 @@ A signature based on a private key is used for messages of up to 32 KB.
           ```
 
           Where:
-          * `<signature_file_path>`: Path to the signature file created at the previous step.
+          * `<signature_file_path>`: Path to the signature file you got in the previous step.
           * `<signature_file>`: Path to the new signature file in `DER` format.
 
       The `DER` signature file you get can be used to [verify](#verify-digital-signature) the signature using `OpenSSL`.
@@ -149,7 +149,7 @@ A hash-based signature is used for messages or files over 32 KB in size.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
       1. In the left-hand panel, select ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
       1. Go to the **{{ ui-key.yacloud.kms.asymmetric-key.form.label_signature }}** tab.
-      1. In the row with the appropriate key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
+      1. In the line with the key pair, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.kms.asymmetric-keys.action_public-key }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.kms.asymmetric-keys.button_download }}** to download the signature public key.
 
     - CLI {#cli}
@@ -191,8 +191,8 @@ A hash-based signature is used for messages or files over 32 KB in size.
           * `sha256sum`: For SHA-256 algorithms.
           * `sha384sum`: For SHA-384 algorithms.
           * `sha512sum`: For SHA-512 algorithms.
-      * `<source_file_path>`: Path to the file whose hash you want to get.
-      * `<hash_file_path>`: Path to the file to save the hash to.
+      * `<path_to_source_file>`: Path to the file for hashing.
+      * `<path_to_hash_file>`: Path to the file to save the hash to.
 
     - PowerShell {#powershell}
 
@@ -210,8 +210,8 @@ A hash-based signature is used for messages or files over 32 KB in size.
           * `SHA256`: For SHA-256 algorithms.
           * `SHA384`: For SHA-384 algorithms.
           * `SHA512`: For SHA-512 algorithms.
-      * `<source_file_path>`: Path to the file whose hash you want to get.
-      * `<hash_file_path>`: Path to the file to save the hash to.
+      * `<path_to_source_file>`: Path to the file for hashing.
+      * `<path_to_hash_file>`: Path to the file to save the hash to.
 
     This will create a text file containing the hash of the source file.
 

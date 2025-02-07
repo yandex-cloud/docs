@@ -149,6 +149,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](ydb-to-clickhouse.md)
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](yds-to-ydb.md)
+* [{#T}](ydb-to-yds.md)
 
 ## {{ dns-full-name }} {#dns}
 

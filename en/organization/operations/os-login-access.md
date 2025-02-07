@@ -7,6 +7,12 @@ description: Follow this guide to enable {{ oslogin }} access to virtual machine
 
 [{{ oslogin }}](../concepts/os-login.md) access allows you to connect to VMs and {{ k8s }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes with an SSH key or SSH certificate [using the YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) or a [standard SSH client](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client). If you are connecting with an SSH key, you need to [add](../../organization/operations/add-ssh.md) the public SSH key to the organization user profile in {{ org-full-name }} first.
 
+{% note alert %}
+
+{% include [sudo-and-oslogin](../../_includes/compute/sudo-and-oslogin.md) %}
+
+{% endnote %}
+
 To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable this feature at the organization level. This will allow you to [enable](../../compute/operations/vm-control/vm-update.md#enable-oslogin-access) {{ oslogin }} access for VMs created from a ready-made image with {{ oslogin }} support or [configure](../../compute/operations/vm-connect/enable-os-login.md) the {{ oslogin }} agent on an already running VM. For more information about {{ oslogin }}, see [{#T}](../../compute/operations/vm-connect/os-login.md).
 
 {% include [serial-port-settings-default](../../_includes/compute/serial-port-settings-default.md) %}
@@ -140,7 +146,7 @@ To enable access via {{ oslogin }} at the organization level:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the folder where you created the configuration file.
+      1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
@@ -149,7 +155,7 @@ To enable access via {{ oslogin }} at the organization level:
 
       If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
 

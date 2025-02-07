@@ -16,6 +16,10 @@ To connect to an API gateway via WebSocket, client applications need to send a [
 * `x-yc-apigateway-websocket-message`: Sending messages via a web socket.
 * `x-yc-apigateway-websocket-disconnect`: Closing a connection.
 
+{{ api-gw-name }} does not limit the number of WebSocket connections per API gateway.
+
+The messages sent to clients (e.g., using the [Send](../../apigateway/websocket/api-ref/grpc/Connection/send.md) gRPC API call) and the pings within WebSocket connections are free of charge.
+
 ## x-yc-apigateway-websocket-connect operation {#connect}
 
 The operation is performed when a new connection is established. {{ api-gw-name }} invokes an integration when performing the operation. If the integration is invoked successfully, the client gets a response with the `101 Switching Protocol` HTTP code, after which a web socket is considered open as per [RFC](https://www.rfc-editor.org/rfc/rfc6455#page-12). Otherwise, the integration returns an error.
@@ -33,7 +37,7 @@ For this operation, you can set up [authorization using a function](../extension
 
 Clients can use the [RFC](https://www.rfc-editor.org/rfc/rfc6455#page-12)-specified `Sec-WebSocket-Protocol` header to request sub-protocol support from the API gateway. The API gateway provides this header in an HTTP request to an integration.
 
-This operation is not required. If the operation is not defined in the specification, the `101 Switching Protocol` HTTP code is returned by default after connecting to the client. Add integrations to this operation if you need to:
+This operation is optional. If the operation is not defined in the specification, the `101 Switching Protocol` HTTP code is returned by default after connecting to the client. Add integrations to this operation if you need to:
 * Implement specific sub-protocols to enable the communication between the client and the API gateway.
 * Know when a connection is opened and closed.
 * Based on authorization, manage who can and cannot connect using WebSocket.
