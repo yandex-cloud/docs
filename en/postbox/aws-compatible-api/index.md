@@ -1,5 +1,5 @@
 ---
-title: How to use the Amazon API to access {{ postbox-name }}
+title: How to use the Amazon API for accessing {{ postbox-name }}
 description: In this article, you will learn how to get started with the {{ postbox-name }} API and what an API request looks like.
 keywords:
   - ses
@@ -28,12 +28,12 @@ keywords:
 
 1. [Create a static access key](../../iam/operations/sa/create-access-key.md).
 
-   It is required for authorization when submitting requests to the Amazon API. To store the key safely, use [{{ lockbox-full-name }}](../../lockbox/tutorials/static-key-in-lockbox.md).
+   It is required for authorization when submitting requests to the Amazon API. To store the key safely, use [{{ lockbox-full-name }}](../../lockbox/tutorials/static-key-in-lockbox/index.md).
 
 ## General API request format {#common-request-form}
 
 ```text
-<HTTP method> <endpoint> HTTP/2
+<HTTP_method> <endpoint> HTTP/2
 Host: {{ postbox-host }}
 {Authorization|X-YaCloud-SubjectToken}: <authentication_credentials>
 X-Amz-Date: <time_in_ISO_8601_format>

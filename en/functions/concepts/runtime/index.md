@@ -24,7 +24,7 @@ The runtime environment is updated while relevant language version updates are r
 
 Runtime environments available in {{ sf-name }}.
 
-| First name | ID | Preloaded | Supported by |
+| Name | ID | Preloaded | Supported by |
 | ---- | ---- | ---- | ---- |
 | **Node.js** |  |  |
 | Node.js 10 | `nodejs10` | No | No |

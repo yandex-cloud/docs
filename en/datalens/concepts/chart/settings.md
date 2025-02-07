@@ -52,6 +52,10 @@ For more information, see [this guide](../../operations/chart/config-chart-navig
 
 * **On**: Shows the **Total** row.
 * **Off**: Hides the **Total** row. ||
+|| Stacking | Stacked or isolated data display for each category in the [area chart](../../visualization-ref/area-chart.md#stacking).<br/><br/>Possible values:
+
+* **On**: Displays stacked data.
+* **Off**: Displays unstacked data. ||
 |#
 
 ## Field settings {#field-settings}
@@ -95,7 +99,7 @@ If you apply an aggregation to the dimension, it will become a measure and the r
 || Aggregation | Sets the aggregation type. Aggregation functions are available according to the [{#T}](../../dataset/data-model.md#aggregation) table. Not available for [QL charts](./ql-charts.md). ||
 || Markdown | The field value will be formatted according to [{#T}](../../dashboard/markdown.md). Only available for `String` type fields. ||
 || Format | Sets value display format. ||
-|| Decimal places | Sets the number of characters displayed after the decimal point in a value. Not available for [QL charts](./ql-charts.md). ||
+|| Decimal places | Sets the number of decimal places. Not available for [QL charts](./ql-charts.md). ||
 || Display groups of thousands | Enables displaying groups of thousands for numeric values.<br/><br/>Possible values:
 
 * **With separator**: Displays spaces between groups of thousands.
@@ -174,7 +178,7 @@ Some of these settings may not be available for some axes.
 * **Hide**: Hides null values in charts.
 * **Connect**: Connects field values where there are null values in between.
 * **Display as 0**: Displays null values in charts as zero (0) field values.
-* **Use the previous value**: Replaces chart empty values with the value from the previous data point from the X axis. Available in the Y axis settings for the [stacked area chart](../../visualization-ref/area-chart.md). ||
+* **Use previous**: Replaces the chart's empty values with the value of the previous point on the axis. Available in the Y axis settings for the [area chart](../../visualization-ref/area-chart.md). ||
 || Scaling | Sets the chart axis scale.<br/><br/>Possible values:
 
 * **Auto**: Enables autoscaling. You can specify how {{ datalens-short-name }} sets the scale: from 0 to the maximum field value (**Autoscale from 0 to max**) or from the minimum to the maximum field values (**Autoscale from min to max**).

@@ -24,6 +24,16 @@ items:
                 href: operations/docker/push.md
               - name: Pulling a Docker image from a registry
                 href: operations/docker/pull.md
+          - name: Helm chart
+            items:
+              - name: Getting information about existing Helm charts
+                href: operations/helm/list.md
+              - name: Pushing a Helm chart to a registry
+                href: operations/helm/push.md
+              - name: Pulling a Helm chart from a registry
+                href: operations/helm/pull.md
+              - name: Deleting a Helm chart from a registry
+                href: operations/helm/delete.md
           - name: Java artifact
             items:
               - name: Setting up Maven

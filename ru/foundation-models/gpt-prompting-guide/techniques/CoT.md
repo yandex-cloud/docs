@@ -116,5 +116,6 @@ Auto-CoT состоит из двух основных этапов:
 
 #### См. также {#see-also}
 
+* [{#T}](../../concepts/yandexgpt/chain-of-thought.md)
 * [{#T}](few-shot.md)
 * [{#T}](../../concepts/tuning/index.md)

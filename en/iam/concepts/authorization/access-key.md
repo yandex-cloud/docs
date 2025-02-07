@@ -68,4 +68,4 @@ The following services support authentication based on static access keys:
 * [{#T}](../../operations/sa/create-access-key.md)
 * [{#T}](./index.md)
 * [{#T}](./sts.md)
-* [{#T}](../../tutorials/static-key-in-lockbox.md)
+* [{#T}](../../tutorials/static-key-in-lockbox/index.md)

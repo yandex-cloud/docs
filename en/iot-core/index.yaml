@@ -2,17 +2,18 @@ title: Yandex IoT Core
 description:
   - >-
     Yandex IoT Core is a fault-tolerant cloud-based MQTT server that ensures
-    secure two-way communication between devices and local or cloud resources.
+    secure two-way communication between your devices and local or cloud
+    resources.
 meta:
   title: Yandex IoT Core
   description: >-
-    Yandex IoT Core is a fault-tolerant cloud-based MQTT server that ensures
+    Yandex IoT Core is a cloud-based fault-tolerant MQTT server that ensures
     secure two-way communication between devices and local or cloud resources.
 links:
   - title: Getting started
-    description: Create your first registry and add a device
-    href: quickstart
-  - title: Step-by-step instructions
+    description: Create your first device registry or broker
+    href: quickstart-overview
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
@@ -25,10 +26,10 @@ links:
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

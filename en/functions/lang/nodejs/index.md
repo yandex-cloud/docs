@@ -7,10 +7,9 @@ description: With {{ sf-name }}, you can run applications written in Node.js. Th
 
 With {{ sf-name }}, you can run applications written in [Node.js](https://nodejs.org/en/docs/).
 
-
 {% include [runtime-introduction](../../../_includes/functions/runtime-introduction.md) %}
 
-| Name | Node.js version | {{ yandex-cloud }}<br>SDK version | Operating <br>system | Preloaded | Supported by the service |
+| Name | Node.js version | {{ yandex-cloud }}<br>SDK version | Operating <br>system | Preloaded  | Supported by |
 |----|----|----|----|----|----|
 | nodejs10 | 10.16.3 | 1.3.3 | Ubuntu 18.04 | No | No |
 | nodejs12 | 12.22.10 | 1.3.3 | Ubuntu 18.04 | No | No |
@@ -18,12 +17,9 @@ With {{ sf-name }}, you can run applications written in [Node.js](https://nodejs
 | nodejs16 | 16.14.1 | None | Ubuntu 18.04 | Yes | No |
 | nodejs18 | 18.16.1 | None | Ubuntu 22.04 LTS | Yes | Yes |
 
-
 {% include [note-preload-runtime](../../../_includes/functions/note-preload-runtime.md) %}
 
-
 Some runtime environments have an SDK library installed by default to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
-
 
 When creating a new [function version](../../concepts/function.md#version), {{ sf-name }} will automatically install all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
 

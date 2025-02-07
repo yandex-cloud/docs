@@ -47,7 +47,6 @@ Your changes will apply within five minutes.
 
       Result:
 
-      
       ```text
       id: dd0gj5tsj2**********
       folder_id: aoek49ghmk**********
@@ -74,9 +73,6 @@ Your changes will apply within five minutes.
               service-account-id: aje3932acd0c********
       status: ACTIVE
       ```
-
-
-
 
 - {{ TF }} {#tf}
 

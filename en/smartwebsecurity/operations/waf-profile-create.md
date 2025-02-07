@@ -15,10 +15,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
   1. Enter the profile name.
   1. (Optional) Enter a description.
   1. (Optional) Add [labels](../../resource-manager/concepts/labels.md) for your profile.
-  1. By default, the WAF profile includes a basic rule set called [OWASP Core Rule Set](https://coreruleset.org/). Click the row with the rule set to view the rules it includes.
-
-  1. {% include [waf-inspect-request](../../_includes/smartwebsecurity/waf-inspect-request.md) %}
-
+  1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). Click the row with the rule set to view the rules it includes.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }} {#tf}
@@ -27,7 +24,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       # In the basic set, rules of this paranoia level and below will be active
@@ -67,17 +64,10 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
             is_blocking = false
           }
         }
-
-        analyze_request_body {
-          is_enabled        = true
-          size_limit        = 8
-          size_limit_action = "IGNORE"
-        }
-      }
       ```
 
       Where:
-      * `waf_paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) classifies rules according to their aggression. The higher the paranoia level, the better your protection, but also the higher the probability of WAF false positives.
+      * `waf_paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the higher the probability of WAF false positives.
       * `data "yandex_sws_waf_rule_set_descriptor"`: {{ TF }} data source for a basic rule set. From the data source, you can get a list of rules and their IDs.
       * `resource "yandex_sws_waf_profile"`: {{ TF }} resource to manage the WAF profile.
          * `name`: WAF profile name.
@@ -93,15 +83,10 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
 
             * `rule_set`: Rule set. Specify name (`name`) and version (`version`) of the rule set.
 
-         * `dynamic "rule"`: Dynamic activation of rules from the basic set if their paranoia level is not higher than specified in the `waf_paranoia_level` variable. For dynamically configured rules, you can [change the parameters](configure-set-rules.md) manually. For example, you can turn a rule into a blocking one or activate a rule with paranoia level higher than specified in the variable.
+         * `dynamic "rule"`: Dynamic activation of rules from the basic set if their paranoia level is not higher than set in the `waf_paranoia_level` variable. For dynamically configured rules, you can [change the parameters](configure-set-rules.md) manually. For example, you can turn a rule into a blocking one or activate a rule with the paranoia level higher than specified in the variable.
             * `rule_id`: Rule ID.
             * `is_enabled`: Flag to enable or disable a rule.
             * `is_blocking`: [Blocking](../concepts/waf.md#anomaly) rule flag.
-
-         * `analyze_request_body`: [Request analysis parameters](../concepts/waf.md#request-analysis-parameters) block:
-            * `is_enabled`: Flag enabling request body inspection.
-            * `size_limit`: Maximum request body size in KB. The default value is 8 KB. Currently, you cannot change the default value.
-            * `size_limit_action`: Action if the maximum size is exceeded. The possible values are `IGNORE` (do not analyze the request body) or `DENY` (block the request).
 
       For more information about the `yandex_sws_waf_profile` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/sws_waf_profile).
 

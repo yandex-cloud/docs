@@ -4,8 +4,8 @@ Learn how to use serverless technologies and the Java Servlet API to create a si
 
 To create a web application:
 
-1. [Prepare your cloud environment](#before-begin).
-1. [Prepare the environment](#preare).
+1. [Get your cloud ready](#before-begin).
+1. [Prepare the environment](#prepare).
 1. [Create an {{ objstorage-full-name }} bucket](#create-bucket).
 1. [Create a {{ ydb-short-name }} database](#create-db).
 1. [Create functions {{ sf-full-name }}](#create-functions).
@@ -73,7 +73,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
      1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-     1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The naming requirements are as follows:
+     1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The name should match the following format:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
@@ -148,7 +148,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
   1. Set **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** to `10`.
   1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, enter the account that you created when [preparing the environment](#prepare).
-  1. Add environment variables:
+  1. Add these environment variables:
      * `ENDPOINT`: Enter the first part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one between `grpcs://` and `/?database=`), e.g., `ydb.serverless.yandexcloud.net:2135`.
      * `DATABASE`: Enter the second part of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value saved when [creating the {{ ydb-short-name }} database](#create-db) (the one following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -192,7 +192,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
      Where:
 
      * `--function-name`: Name of the function whose version you want to create.
-     * `--runtime`: Runtime environment
+     * `--runtime`: Runtime environment.
      * `entrypoint`: Entry point in `<function_file_name>`.`<handler_name>` format.
      * `--memory`: Amount of RAM.
      * `--execution-timeout`: Maximum function running time before the timeout is reached.
@@ -381,7 +381,7 @@ To open the app, follow the link in the **{{ ui-key.yacloud.serverless-functions
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the created resources:
+To stop paying for the resources you created:
 
 * [Delete the bucket](../../storage/operations/buckets/delete.md).
 * [Delete the database](../../ydb/operations/manage-databases.md#delete-db).

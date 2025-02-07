@@ -21,3 +21,20 @@ description: Из статьи вы узнаете, как добавить па
 1. Настройте параметр и нажмите **{{ ui-key.yacloud_monitoring.component.parametrizer.save }}**.
 
 [Подставить параметр](../../concepts/visualization/dashboard.md#templates) можно при [добавлении виджета на дашборд](add-widget.md).
+
+## Повторение графиков по параметрам {#repeated-graphs}
+
+Функция повторения графиков по определенному параметру позволяет строить несколько одинаковых графиков, но с разными значениями этого параметра.
+
+Чтобы включить повторение графиков:
+
+1. Добавьте параметр на дашборд.
+1. На виджете графика вверху справа нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
+1. На панели графика вверху справа нажмите ![image](../../../_assets/console-icons/gear.svg).
+1. Откройте раздел **{{ ui-key.yacloud_monitoring.wizard.tab.general }}**.
+1. Настройте **{{ ui-key.yacloud_monitoring.wizard.general.repeatSettings }}**:
+   1. В списке **{{ ui-key.yacloud_monitoring.wizard.general.repeatByParam }}** выберите ранее созданный параметр.
+   1. В списке **{{ ui-key.yacloud_monitoring.wizard.general.chartsInRow }}** выберите, сколько графиков расположить в одной линии.
+1. Закройте панель настроек и справа вверху нажмите ![image](../../../_assets/console-icons/floppy-disk-blue.svg).
+1. Вернитесь на дашборд и посмотрите построенные графики.
+1. Выбирайте разные значения для параметров в списке вверху — графики будут перестраиваться для выбранных значений.

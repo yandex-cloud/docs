@@ -1,6 +1,11 @@
+---
+title: Getting started with {{ cloud-registry-name }}
+description: Use this guide to create your first {{ cloud-registry-name }} registry and try your hand at managing Docker images.
+---
+
 # Getting started with {{ cloud-registry-name }}
 
-Use this guide to create your first [registry](../concepts/registry.md) and try managing [Docker images](../concepts/docker-image.md).
+Use this guide to create your first [registry](../concepts/registry.md) and try your hand at managing [Docker images](../concepts/docker-image.md).
 
 ## Getting started {#before-you-begin}
 

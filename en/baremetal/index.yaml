@@ -15,8 +15,11 @@ links:
     description: Basic concepts and how the service works
     href: concepts/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
+  - title: Access management
+    description: Configure access permissions to use the service
+    href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing

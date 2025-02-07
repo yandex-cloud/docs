@@ -21,10 +21,10 @@
 
 ## Настройте {{ at-name }} {#at-setup}
 
-Создайте трейлы:
+[Создайте два трейла](../../audit-trails/operations/create-trail.md):
 
-* [для загрузки аудитных логов каталога в бакет {{ objstorage-name }}](../../audit-trails/operations/export-folder-bucket.md);
-* [для отправки аудитных логов каталога в поток {{ yds-name }}](../../audit-trails/operations/export-folder-data-streams.md).
+* для загрузки аудитных логов каталога в бакет {{ objstorage-name }};
+* для отправки аудитных логов каталога в поток {{ yds-name }}.
 
 ## Настройте интеграцию {{ at-name }} и {{ yq-name }} {#integration}
 

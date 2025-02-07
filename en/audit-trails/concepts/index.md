@@ -1,6 +1,6 @@
 ---
 title: '{{ at-full-name }}. Overview'
-description: '{{ at-full-name }} lets you collect audit logs about {{ yandex-cloud }} resource events and upload them for further analysis and export.'
+description: With {{ at-full-name }}, you can collect audit logs about {{ yandex-cloud }} resource events and export those logs for further analysis or export.
 ---
 
 # {{ at-full-name }} overview
@@ -21,7 +21,7 @@ Collecting audit logs enables you to use analytical tools and promptly respond t
 The following [management events](./events.md) are logged:
 
 * Logins by federated users
-* Creating/deleting service accounts
+* Creating or deleting service accounts
 * Creating/deleting keys of service accounts
 * Editing user roles and service accounts
 * Creating/deleting resources

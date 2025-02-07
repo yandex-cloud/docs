@@ -50,7 +50,7 @@ description: Follow this guide to create a function.
 
     To create a function:
 
-    1. In the configuration file, describe the parameters of the resources you want to create:
+    1. In the configuration file, define the parameters of the resources you want to create:
 
        * `yandex_function`: Description of the new function and its source code:
          * `name`: Function name.
@@ -77,7 +77,6 @@ description: Follow this guide to create a function.
 
         Here is an example of the configuration file structure:
 
-        
         ```
         provider "yandex" {
             token     = "<service_account_OAuth_token_or_static_key>"
@@ -105,8 +104,6 @@ description: Follow this guide to create a function.
         }
         ```
 
-
-
         For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
@@ -127,7 +124,7 @@ description: Follow this guide to create a function.
        terraform plan
        ```
         
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
          
     1. Apply the configuration changes:
 
@@ -146,10 +143,8 @@ description: Follow this guide to create a function.
 
     To create a function, use the [create](../../functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/api-ref/grpc/Function/create.md) gRPC API call.
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}

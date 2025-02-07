@@ -1,27 +1,29 @@
 title: Yandex Certificate Manager
 description:
   - >-
-    This service allows you to obtain and update TLS certificates from Let's
-    Encrypt<sup>®</sup> and upload your own certificates to access static
-    websites over HTTPS.
+    Yandex Certificate Manager is a service you can use to obtain and update TLS
+    certificates from Let's Encrypt and upload your own certificates to access
+    websites, API Gateway instances, or Cloud CDN resources over HTTPS, as well
+    as handle TLS traffic in Application Load Balancer.
 meta:
   title: Yandex Certificate Manager
   description: >-
-    This service allows you to obtain and update TLS certificates from Let's
-    Encrypt® and upload your own certificates to access static websites over
-    HTTPS.
+    Yandex Certificate Manager is a service you can use to obtain and update TLS
+    certificates from Let's Encrypt and upload your own certificates to access
+    websites, API Gateway instances, or Cloud CDN resources over HTTPS, as well
+    as handle TLS traffic in Application Load Balancer.
 links:
   - title: Getting started
     description: Create your first certificate
     href: quickstart/
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about service concepts and entities
     href: concepts/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
     description: Permissions required to use the service

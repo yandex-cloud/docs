@@ -16,6 +16,8 @@ In this section, you will learn how to work with a report:
 * [Configuring widgets](#report-widget-settings)
 * [Configuring a report](#report-settings)
 * [Configuring pages](#page-settings)
+* [Configuring scaling](#scaling-settings)
+* [Enabling preview](#report-preview)
 * [Exporting a report](#report-export)
 
 ## Creating a report {#create-report}
@@ -171,13 +173,28 @@ Report settings are valid for all its pages:
 1. Customize the appearance:
 
    * **Theme**: Select a page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
+   * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hexadecimal format or select one from the color palette.
    * **Format**: `A4` or `A3`.
    * **Orientation**: `Album` or `Portrait`.
+   * (Optional) Enable the **Display grid** option for easy alignment of widgets in your report.
+     
+     {% cut "Report without grid display" %}
+
+     ![report-grid-off](../../_assets/datalens/report/report-grid-off.png)
+
+     {% endcut %}
+
+     {% cut "Report with grid display" %}
+
+     ![report-grid-on](../../_assets/datalens/report/report-grid-on.png)
+
+     {% endcut %}
 
 1. Configure footer settings:
 
-   * **{{ datalens-short-name }}** standard footer adds a footer: `Built in {{ datalens-full-name }}`.
+   * **Footer text**: Displays the footer you enter in the field on the right. If you leave this field empty, no footer will be displayed. By default, this option is disabled and the standard footer is displayed: `Built in {{ datalens-short-name }}`.
+   * **Footer link**: Adds a link to your footer. Your link address is specified in the field on the right.
    * **First page footer**: Repeats the footer on the first page. By default, no footer is displayed on the first page.
    * **Page numbering**: Adds a page number to the footer.
 
@@ -195,12 +212,41 @@ Page settings have a higher priority than the same report settings. If page sett
 1. At the top right, click ![icon](../../_assets/console-icons/gear.svg) **Page settings** and configure the settings as needed:
 
    * **Theme**: Page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
+   * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hexadecimal format or select one from the color palette.
    * **Format**: `A4` or `A3`.
    * **Orientation**: `Album` or `Portrait`.
 
 1. In the top-right corner, click **Save**.
 
-## Exporting a report {#report-export}
+## Configuring scaling {#scaling-settings}
+
+Use the controls in the upper right corner to change the display scale or move the report pages around the screen:
+
+* To move a report page, click ![icon](../../_assets/console-icons/hand-stop.svg) or press and hold the **space** key on your keyboard. To return to widget moving mode, click ![icon](../../_assets/console-icons/hand-stop.svg) again or release the **space** key on your keyboard.
+* To zoom out, click ![icon](../../_assets/console-icons/magnifier-minus.svg) or press `Ctrl` (`Cmd`) + `-` on your keyboard.
+* To zoom in, click ![icon](../../_assets/console-icons/magnifier-plus.svg) or press `Ctrl` (`Cmd`) + `+` on your keyboard.
+* To reset the display scale and center the report on the screen, click ![icon](../../_assets/console-icons/square-dashed.svg) or press `Ctrl` (`Cmd`) + `0` on your keyboard.
+
+## Enabling preview {#report-preview}
+
+To enable full-screen report view mode, click ![icon](../../_assets/console-icons/play.svg) **Preview** in the upper right corner and select the preview mode: ![icon](../../_assets/console-icons/layout-split-rows.svg) **In document format** or ![icon](../../_assets/console-icons/chevrons-expand-up-right.svg) **In presentation format**:
+
+* Preview in document format: the report pages are displayed one by one, top to bottom, on a single browser screen.
+
+  You can navigate through the report pages vertically by scrolling.
+  
+  ![report-page](../../_assets/datalens/report/preview-document-2pages.png)
+
+* Preview in presentation format: the report pages are presented as separate slides. You can navigate between the report pages by using:
+  
+  * **Right and left** arrows on the keyboard to go to the next or previous page, respectively.
+  * Navigation controls at the bottom of the screen to go to the next, previous, first, last page, or particular page by number.
+
+  ![report-page](../../_assets/datalens/report/preview-presentation.png)
+
+To exit the preview mode, click **Close** at the top of the screen or press **Esc** on the keyboard.
+
+## Exporting a report {#export-project}
 
 To export a report, click **Export**. The report will be exported to a `.pdf` file.

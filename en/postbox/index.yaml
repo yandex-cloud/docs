@@ -2,15 +2,14 @@ title: Yandex Cloud Postbox
 description:
   - Yandex Cloud Postbox is a transactional email service.
   - >-
-    Cloud Postbox allows you to save money and time on server management,
-    network configuration, and reputation monitoring of IP addresses. The
-    service offers: <ul><li>A ready-made infrastructure that Yandex users for
-    its own tasks.</li> <li>A flexible monitoring and logging system via
-    integration with the Yandex Monitoring and Yandex Cloud Logging services.
-
-    </li> <li>Compliance with requirements of international and national
-    standards.</li> <li>Simplified integration with other {{ yandex-cloud }}
-    services and your applications. </li></ul>
+    Use Cloud Postbox to save time and money on server management, network
+    configuration, and reputation monitoring of IP addresses. Yandex Cloud
+    Postbox provides: <ul><li>Ready-made infrastructure used by Yandex for its
+    own tasks.</li> <li>Flexible monitoring and logging through integration with
+    <a href="/docs/monitoring/">Yandex Monitoring</a> and <a
+    href="/docs/logging/">Yandex Cloud Logging</a>.</li> <li>Compliance with
+    international and national standards.</li> <li>Simplified integration with
+    other {{ yandex-cloud }} services and your applications.</li></ul>
 nav:
   title: Yandex Cloud Postbox
 meta:
@@ -26,7 +25,7 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations

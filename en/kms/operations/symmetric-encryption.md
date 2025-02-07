@@ -17,7 +17,7 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
   * `--id`: ID of the [KMS key](../concepts/key.md). Make sure you set either the `--id` or `--name` flag.
   * `--name`: Name of the KMS key. Make sure you set either the `--id` or `--name` flag.
   * `--version-id` (optional): [Version](../concepts/version.md) of the KMS key to use for encryption. The primary version is used by default.
-  * `--plaintext-file`: Input file with plaintext.
+  * `--plaintext-file`: Input plaintext file.
   * `--aad-context-file` (optional): Input file with [AAD context](../concepts/symmetric-encryption.md#add-context).
   * `--ciphertext-file`: Output file with ciphertext.
 
@@ -52,7 +52,6 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
 
-
 {% endlist %}
 
 ## Decrypt data {#decryption}
@@ -67,7 +66,7 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
   * `--name`: Name of the KMS key. Make sure you set either the `--id` or `--name` flag.
   * `--ciphertext-file`: Input file with ciphertext.
   * `--aad-context-file` (optional): Input file with [AAD context](../concepts/symmetric-encryption.md#add-context).
-  * `--plaintext-file`: Output file with plaintext.
+  * `--plaintext-file`: Output plaintext file.
 
   ```bash
   yc kms symmetric-crypto decrypt \
@@ -91,7 +90,6 @@ In this section, you will learn how to use {{ kms-short-name }} to encrypt and d
 - Google Tink {#google-tink}
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
-
 
 {% endlist %}
 

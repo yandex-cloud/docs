@@ -17,7 +17,7 @@ To create an additional cloud:
   1. Go to the [management console]({{ link-console-main }}).
   1. In the upper left corner next to the **{{ ui-key.yacloud.cloud-tree-list.value_search-placeholder }}** field, click ![plus](../../../_assets/console-icons/plus.svg). In the window that opens:
   
-      1. Enter a name for the cloud. The naming requirements are as follows:
+      1. Enter a name for the cloud. The name should match the following format:
 
           {% include [name-format.md](../../../_includes/name-format.md) %}
       1. If you have multiple organizations, select the one you need.
@@ -57,7 +57,7 @@ To create an additional cloud:
 
       Where:
 
-      * `--name`: Name of the cloud you are creating. The naming requirements are as follows:
+      * `--name`: Name of the cloud you are creating. The name should match the following format:
 
           {% include [name-format.md](../../../_includes/name-format.md) %}
       * `--billing-account-id`: ID of the [billing account](../../../billing/concepts/billing-account.md) to link the new cloud to.
@@ -78,15 +78,23 @@ To create an additional cloud:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To activate the cloud, make sure to link it to your billing account. To do this, use the `yandex_billing_cloud_binding` resource indicating the cloud in the `cloud_id` field.
+  {% note warning %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  To activate the cloud, make sure to link it to your billing account. Until then, the new cloud will remain in the `Creating` status. To link the cloud to your billing account, use the `yandex_billing_cloud_binding` resource and specify the cloud ID in the `cloud_id` field.
+
+  {% endnote %}
+
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
+      # Creating a cloud
+
       resource "yandex_resourcemanager_cloud" "cloud1" {
         name            = "<cloud_name>"
         organization_id = "<organization_ID>"
       }
+
+      # Linking the cloud to the billing account
 
       resource "yandex_billing_cloud_binding" "mycloud" {
         billing_account_id = "<billing_account_ID>"
@@ -96,14 +104,14 @@ To create an additional cloud:
 
       Where:
 
-      * `name`: Cloud name. The naming requirements are as follows:
+      * `name`: Cloud name. The name should match the following format:
       
         {% include [name-format.md](../../../_includes/name-format.md) %}
         
       * `organization_id`: Organization [ID](../../../organization/operations/organization-get-id.md). {{ TF }} allows you to create a cloud only for an existing organization.
       * `billing_account_id`: ID of the [billing account](../../../billing/concepts/billing-account.md) to link the new cloud to.
 
-          You can get the billing account ID in the [{{ billing-name }} interface]({{ link-console-billing }}) under **{{ ui-key.yacloud_billing.billing.account.dashboard-info.title_main }}** on the billing account page.
+          You can get the [billing account ID](../../../billing/concepts/billing-account.md#billing-account-id) in the [{{ billing-name }}]({{ link-console-billing }}) interface under **{{ ui-key.yacloud_billing.billing.account.dashboard-info.title_main }}** on the billing account page.
       * `cloud_id`: [ID](../../../resource-manager/operations/cloud/get-id.md) of the cloud to link to the billing account.
 
       For more information about the `yandex_resourcemanager_cloud` and `yandex_billing_cloud_binding` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-docs-link }}).

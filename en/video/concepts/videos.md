@@ -69,7 +69,13 @@ The following viewing statistics are currently available:
 
 ## Subtitles {#subtitles}
 
-Supported subtitle formats: SRT and VTT. The maximum subtitle file size is 500 MB. You can load several subtitle files in one or more languages for one video. View the list of supported languages in [{{ video-name }} interface]({{ link-video-main }}).
+Supported subtitle formats: SRT and VTT. The maximum subtitle file size is 500 MB. You can load several subtitle files in one or more languages for one video. View the list of supported languages in [{{ video-name }}]({{ link-video-main }}) interface.
+
+## Timecodes {#timecodes}
+
+You can [split your video into chapters](../operations/video/add-timecodes.md). The time and chapter name formats are as follows:
+
+{% include [video-timecodes](../../_includes/video/video-timecodes.md) %}
 
 ## See also {#see-also}
 

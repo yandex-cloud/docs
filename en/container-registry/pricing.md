@@ -10,9 +10,7 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
 
 ## What goes into the cost of using {{ container-registry-name }} {#rules}
 

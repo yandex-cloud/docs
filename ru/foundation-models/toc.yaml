@@ -61,6 +61,8 @@ items:
             href: concepts/yandexgpt/models.md
           - name: Токены
             href: concepts/yandexgpt/tokens.md
+          - name: Режим рассуждений
+            href: concepts/yandexgpt/chain-of-thought.md
       - name: Генерация изображений
         items:
           - name: Обзор {{ yandexart-name }}

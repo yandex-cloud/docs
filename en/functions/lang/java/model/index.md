@@ -5,13 +5,11 @@ description: In this article, you will learn about the Java-based programming mo
 
 # Java programming model
 
-
 {{ sf-name }} provides four models for programming in Java: using the [Function](jdk-function.md) and [YcFunction](yc-function.md) interfaces, the [HttpServlet](servlet-api.md) class, and the [Spring Boot](spring-boot.md) framework. The first three methods of setting a function handler involve writing their own implementations of these interfaces or classes, and the last one involves loading an application in its original form without any changes.
 
 The difference between the [Function](jdk-function.md) and [YcFunction](yc-function.md) models is in the presence of the [invocation context](../context.md). For example, if you need to work with {{ yandex-cloud }} services using the [SDK](../sdk.md), we recommend opting for [YcFunction](yc-function.md). With the [HttpServlet](servlet-api.md) class based model, you can get full control over the return value and `HTTP` method used to call the function. Just as `YcFunction`, it also provides access to the [invocation context](../context.md).
 
-
-For the [Function](jdk-function.md) and [YcFunction](yc-function.md) models, there are two separate types: `byte[]` and `String`. Using them is different from using other types. If you use them as the handler function argument type, the runtime environment will not convert the incoming request into a `JSON` interpretation for these types and will deliver it directly to the user handler function, unless the [?integration=raw](../../../concepts/function-invoke.md#http) parameter is used.
+There are two separate types for the [Function](jdk-function.md) and [YcFunction](yc-function.md) models: `byte[]` and `String`. Using them is different from using other types. If you use them as the handler function argument type, the runtime environment will not convert the incoming request into a `JSON` interpretation for these types and will deliver it directly to the user handler function, unless the [?integration=raw](../../../concepts/function-invoke.md#http) parameter is used.
 
 {% note info %}
 

@@ -220,7 +220,7 @@ description: Из статьи вы узнаете, как изменить по
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Выберите политику резервного копирования, в которой нужно изменить список [виртуальных машин](../../../compute/concepts/vm.md) или [серверов](../../../baremetal/concepts/servers.md) {{ baremetal-name }}.
   1. Измените список привязанных ресурсов:
-     * Чтобы привязать новую ВМ или сервер {{ baremetal-name }}, нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_billing.backup.button_attach-instance }}** и в открывшемся окне:
+     * Чтобы привязать новую ВМ или сервер {{ baremetal-name }}, нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** и в открывшемся окне:
 
         * В зависимости от того, какой ресурс вы хотите привязать к политике, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}** и в списке выберите нужные ВМ или сервер.
 

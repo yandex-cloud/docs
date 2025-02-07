@@ -56,7 +56,7 @@ A mobile endpoint contains information about a token to send push notifications 
 
 Push notification tokens have a limited lifetime that depends on a specific platform, user actions, and other factors.
 
-{{ cns-short-name }} gets feedback from each platform when sending notifications and uses it to manage tokens. If the token has changed, {{ cns-short-name }} will write a new token to the endpoint, or delete the endpoint if the token is out of date.
+{{ cns-short-name }} gets feedback from each platform when sending notifications and uses it to manage tokens. If a token is out of date, {{ cns-short-name }} will delete the endpoint.
 
 Recommended algorithm for working with tokens using a mobile app:
 1. The app registers in the mobile notification service, e.g., APNs, and receives a token to send push notifications.

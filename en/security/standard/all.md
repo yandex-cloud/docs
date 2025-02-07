@@ -1,5 +1,5 @@
 ---
-title: '{{ yandex-cloud }} infrastructure security standard 1.2: All sections on one page'
+title: '{{ yandex-cloud }} infrastructure security standard: All sections on one page'
 description: This document lists sections with recommendations on technical protection measures and helps you choose information security measures when deploying information systems in {{ yandex-cloud }}.
 ---
 

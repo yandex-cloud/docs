@@ -1,3 +1,8 @@
+---
+title: Writing to the execution log in {{ sf-full-name }}
+description: Follow this guide to configure function logging.
+---
+
 # Writing to the function execution log
 
 {% include [logging-note](../../../_includes/functions/logging-note.md) %}
@@ -145,7 +150,7 @@
         * `log_group_id`: ID of the log group to write logs to.
         * `min_level`: Minimum logging level. This is an optional parameter.
 
-        For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about the `yandex_function` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -165,7 +170,7 @@
         terraform plan
         ```
           
-        The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+        The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
          
     1. Apply the configuration changes:
 

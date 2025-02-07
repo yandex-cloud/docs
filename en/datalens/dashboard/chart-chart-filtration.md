@@ -1,6 +1,6 @@
 # Filtering charts by other charts
 
-{{ datalens-short-name }} allows you to [set up](../operations/dashboard/add-filtration.md) filtering of charts by other charts on the dashboard. A chart with filtering configured can thus be used as a selector for other charts.
+{{ datalens-short-name }} allows you to set up [filtering of charts by other charts](../operations/dashboard/add-filtration.md) on the dashboard. A chart with filtering configured can thus be used as a selector for other charts.
 
 To apply filtering, click an individual item in the filtering chart, e.g., a point on a graph, a column, or a pie chart segment. The linked charts will then be filtered by the selected dimensions.
 
@@ -17,7 +17,7 @@ You can choose multiple filtering values on the same chart:
 Filtering is available for the following types of charts created using the [wizard](../concepts/chart/dataset-based-charts.md):
 
 * [Line chart](../visualization-ref/line-chart.md)
-* [Stacked area chart](../visualization-ref/area-chart.md)
+* [Area chart](../visualization-ref/area-chart.md)
 * [Column chart](../visualization-ref/column-chart.md)
 * [Bar chart](../visualization-ref/bar-chart.md)
 * [Scatter chart](../visualization-ref/scatter-chart.md)

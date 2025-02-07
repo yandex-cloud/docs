@@ -628,7 +628,7 @@ items:
                 href: operations/chart/create-multidataset-chart.md
               - name: Adding a hierarchy
                 href: operations/chart/add-hierarchy.md
-              - name: Configuring the navigator
+              - name: Configuring a navigator
                 href: operations/chart/config-chart-navigator.md
               - name: Configuring the display of null values
                 href: operations/chart/chart-null-settings.md
@@ -646,7 +646,7 @@ items:
             href: visualization-ref/index.md
           - name: Line chart
             href: visualization-ref/line-chart.md
-          - name: Stacked area chart
+          - name: Area chart
             href: visualization-ref/area-chart.md
           - name: Normalized stacked area chart
             href: visualization-ref/normalized-area-chart.md

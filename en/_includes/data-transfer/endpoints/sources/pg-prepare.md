@@ -166,8 +166,6 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
                 
                 1. Copy the `wal2json.dll` file from the `build/release` folder to the `lib` folder of your {{ PG }} version.
 
-       {% endlist %}
-
        **Configuration**
         
         1. In the `postgresql.conf` file, set the value of the `wal_level` parameter to `logical`:

@@ -1,6 +1,6 @@
 ---
 title: How to get information about a trigger in {{ api-gw-full-name }}
-description: In this tutorial, you will learn how to get a list of triggers and trigger details in {{ api-gw-full-name }}.
+description: In this tutorial, you will learn how to get trigger details in {{ api-gw-full-name }}.
 ---
 
 # Getting information about a trigger in {{ api-gw-name }}

@@ -11,7 +11,7 @@ description:
     deployment.
   - >-
     <ul> <li>Create a secure storage for your artifacts in just a few minutes.
-    Manage access and operations  via roles and permissions provided with <a
+    Manage access and operations via roles and permissions provided with <a
     href="/docs/iam/security">Identity and Access Management<a/>.</li>
     <li>Stored encrypted, all your artifacts will be securely protected from
     unauthorized access and threats.</li> <li>You can scale Cloud Registry to
@@ -21,8 +21,8 @@ description:
     management console.</li> <li>We take full care of your registry
     infrastructure and guarantee its security according to industry best
     practices. You only pay for the actual space used to store your
-    artifacts.</li> </ul>
-  - "Yandex Cloud infrastructure is <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">protected</a> in compliance with Federal Law No. 152-FZ \"On Personal Data\" of the Russian Federation and complies with the following international and Russian standards ISO, GDPR, PCI DSS, and GOST R\_57580."
+    artifacts.</li></ul>
+  - "Yandex Cloud infrastructure is <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">protected</a> pursuant to Federal Law No. 152-FZ \"On Personal Data\" of the Russian Federation and complies with the following international and Russian standards: ISO, GDPR, PCI DSS, and GOST R\_57580."
 meta:
   title: Yandex Cloud Registry
   description: >-
@@ -39,7 +39,7 @@ links:
     description: Learn more about Container Registry's concepts and resources
     href: concepts/
   - title: Access management
-    description: Set up access permissions to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

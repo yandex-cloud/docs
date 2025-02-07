@@ -1,5 +1,6 @@
 ---
 title: How to get information about {{ interconnect-name }} partners
+description: Follow this guide to get information about {{ interconnect-name }} partners.
 ---
 
 # Getting information about {{ interconnect-name }} partners

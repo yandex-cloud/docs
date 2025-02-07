@@ -8,38 +8,35 @@ You can request detailed information about each target group you created.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-   1. In the left-hand panel, select ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. In the left-hand panel, select ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of target groups in the default folder, run this command:
+    To get a list of target groups in the default folder, run this command:
 
-   ```bash
-   yc load-balancer target-group list
-   ```
+    ```bash
+    yc load-balancer target-group list
+    ```
 
-   Result:
+    Result:
 
-   
-   ```text
-   +----------------------+-------------+---------------------+-------------+--------------+
-   |          ID          |    NAME     |       CREATED       |  REGION ID  | TARGET COUNT |
-   +----------------------+-------------+---------------------+-------------+--------------+
-   | enp1d7t5pdea******** | test-group1 | 2023-02-03 07:17:56 | {{ region-id }} |            1 |
-   | ...                  |             |                     |             |              |
-   +----------------------+-------------+---------------------+-------------+--------------+
-   ```
-
-
+    ```text
+    +----------------------+-------------+---------------------+-------------+--------------+
+    |          ID          |    NAME     |       CREATED       |  REGION ID  | TARGET COUNT |
+    +----------------------+-------------+---------------------+-------------+--------------+
+    | enp1d7t5pdea******** | test-group1 | 2023-02-03 07:17:56 | {{ region-id }} |            1 |
+    | ...                  |             |                     |             |              |
+    +----------------------+-------------+---------------------+-------------+--------------+
+    ```
 
 - API {#api}
 
-   Use the [list](../api-ref/TargetGroup/list.md) API method and provide the folder ID in the `folderId` request parameter.
+    Use the [list](../api-ref/TargetGroup/list.md) API method and provide the folder ID in the `folderId` parameter of the request.
 
 {% endlist %}
 
@@ -49,28 +46,28 @@ You can request detailed information about each target group you created.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-   1. In the left-hand panel, select ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
-   1. Click the name of the target group you need.
+    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. In the left-hand panel, select ![trgroups.svg](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
+    1. Click the name of the target group you need.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get information about a target group, run this command:
+    To get information about a target group, run this command:
 
-   ```bash
-   yc load-balancer target-group get <target_group_name_or_ID>
-   ```
+    ```bash
+    yc load-balancer target-group get <target_group_name_or_ID>
+    ```
 
-   You can get the target group ID and name with a [list of target groups in the folder](#list).
+    You can get the target group ID and name with a [list of target groups in the folder](#list).
 
 - API {#api}
 
-   Use the [get](../api-ref/TargetGroup/get.md) API method and provide the target group ID in the `targetGroupId` request parameter.
+    Use the [get](../api-ref/TargetGroup/get.md) API method and provide the target group ID in the `targetGroupId` parameter of the request.
 
-   You can get the target group ID with a [list of target groups in the folder](#list).
+    You can get the target group ID with a [list of target groups in the folder](#list).
 
 {% endlist %}

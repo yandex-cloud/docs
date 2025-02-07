@@ -95,7 +95,6 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 
 The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
 
-
 Action | Methods | Required roles
 --- | --- | ---
 **Viewing data** |
@@ -116,8 +115,6 @@ Get information on [lifecycle policies](../operations/lifecycle-policy/lifecycle
 **Scan for vulnerabilities** |
 [Scan](../operations/scanning-docker-image.md) a Docker image. | `scan` | `container-registry.images.scanner` for the registry or repository containing the Docker image
 Get the results of a Docker image scan. | `get`, `getLast`, `list`, `listVulnerabilities` | `container-registry.images.scanner` for the registry or repository containing the Docker image
-
-
 
 #### What's next {what-is-next}
 

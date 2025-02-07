@@ -1,5 +1,7 @@
 # Referral program
 
+{% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
+
 A _referral program_ is a program for acquisition of new {{ yandex-cloud }} customers through distribution of referral links. The links are unique and allow for partner identification. A partner who has acquired a customer gets a [commission](#sum) for the customer's paid resource consumption.
 
 Program participants:

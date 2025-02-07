@@ -12,15 +12,15 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
   1. Click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
   1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, set the parameters using suggestions:
 
-      * (Optional) Enter the **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** of the Docker container to run on the VM. The naming requirements are as follows:
+      * (Optional) Enter the **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** of the Docker container to run on the VM. The name should match the following format:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -82,7 +82,7 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--zone`: Availability zone.
      * `--ssh-key`: Contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
      * `--service-account-name`: Service account name.
-     * `--create-boot-disk`: Boot disk size. It must be at least 30 GB.
+     * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
      * `--public-ip`: Public IP address allocated to the VM.
      * `--container-name`: Docker container name.
      * `--container-image`: Name of the Docker image used to run the Docker container.

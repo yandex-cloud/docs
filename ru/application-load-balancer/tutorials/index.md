@@ -17,6 +17,6 @@ description: Различные сценарии использования {{ a
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)
 * [{#T}](high-accessible-dmz.md)
-* [{#T}](application-load-balancer-website.md)
+* [{#T}](application-load-balancer-website/index.md)
 * [{#T}](custom-health-checks.md)
 * [{#T}](balancer-with-sws-profile.md)

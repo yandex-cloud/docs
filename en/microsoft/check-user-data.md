@@ -6,21 +6,19 @@ One of the conditions of using Microsoft licensed products is providing addition
 
 For businesses:
 
-* Company name.
-* TIN.
-* Address.
-* Country.
+* Company name
+* TIN
+* Address
+* Country
 
 For individuals:
 
-* First and last name.
-* Address.
-* Country.
+* First and last name
+* Address
+* Country
 
 
-
-
-## Updating details {#how-to-update}
+## Updating the details {#how-to-update}
 
 {% note info %}
 
@@ -39,4 +37,3 @@ To check and update user details, follow these steps:
 1. Update the details. For more information, see the [Yandex Balance documentation](https://yandex.ru/support/balance/operations/change-data.html).
 
 When deploying the product moving forward, you will not need to provide the details again.
-

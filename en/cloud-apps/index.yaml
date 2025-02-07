@@ -1,8 +1,8 @@
 title: Yandex Cloud Apps
 description:
-  - |-
+  - >-
     <em>Yandex Cloud Apps is currently at the <a
-        href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
     Yandex Cloud Apps is a service that enables deploying a Yandex Cloud based
     app with a single click.
@@ -13,8 +13,8 @@ description:
   - >-
     Partners may publish their own Cloud Apps based apps in Yandex Cloud
     Marketplace. For more information, see <a
-    href="/docs/marketplace/operations/create-new-version#cloud-apps">how to
-    create a new version of a product</a>.
+    href="/docs/marketplace/operations/create-new-version#cloud-apps">Creating a
+    new product version</a>.
 meta:
   title: Cloud Apps
   description: >-

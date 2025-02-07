@@ -1,6 +1,8 @@
 # Partner portal
 
-[Partner portal]({{ link-cloud-partners }}) is the main partner tool that allows managing customers, [tracking their resource consumption](./operations/get-client-stat.md), registering [orders](./program/var-tools.md#deal-reg) and [projects](./program/var-tools.md#project-reg), viewing partner bonuses and accrued rebates, as well as managing [referral links](./program/referral.md).
+{% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
+
+[Partner portal]({{ link-cloud-partners }}) is the main partner tool you can use to manage customers, [track their resource consumption](./operations/get-client-stat.md), register [orders](./program/var-tools.md#deal-reg) and [projects](./program/var-tools.md#project-reg), view partner bonuses and accrued rebates, as well as manage [referral links](./program/referral.md).
 
 The partner portal offers the following sections:
 
@@ -19,14 +21,14 @@ In this section, you can find information on your customers and users with acces
 
 * **Portal dashboard** tab. List of all your customers with their current statuses. Here, you can track information on current customers and [add new ones](./program/var-pin-client.md).
 
-   Customer statuses:
+  Customer statuses:
 
-   * `Active`: Subaccount is verified and ready to use. You will receive invoices for the paid resources consumed by the customer.
-   * `Verification required`: Subaccount has been created and is awaiting customer's verification by email.
-   * `Suspended`: Partner has suspended services and interaction with the customer.
-   * `Inactive`: Subaccount is deleted. To delete a billing account, please contact [technical support]({{ link-console-support }}).
+  * `Active`: Subaccount is verified and ready to use. You will receive invoices for the paid resources consumed by the customer.
+  * `Verification required`: Subaccount has been created and is awaiting customer's verification by email.
+  * `Suspended`: Partner has suspended services and interaction with the customer.
+  * `Inactive`: Subaccount is deleted. To delete a billing account, contact [support]({{ link-console-support }}).
 
-   To see detailed information on a customer, click the line with the subaccount.
+  To see detailed information on a customer, click the line with the subaccount.
 
 * **Permissions** tab. List of all your employees with access to the partner portal. Here, you can assign roles to existing users or add new ones.
 

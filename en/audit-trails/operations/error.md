@@ -14,12 +14,10 @@ A few minutes after the cause of the error is removed, the trail's status will r
 
 {% endnote %}
 
-
 Destination objects:
-* [{{ objstorage-name }} bucket](#storage)
-* [{{ yds-name }} stream](#data-streams)
-* [{{ cloud-logging-name }} log group](#cloud-logging)
-
+* [{{ objstorage-name }} bucket](#storage).
+* [{{ yds-name }} stream](#data-streams).
+* [log group {{ cloud-logging-name }}](#cloud-logging).
 
 ## {{ objstorage-name }} bucket {#storage}
 
@@ -55,7 +53,6 @@ Make sure the {{ kms-full-name }} key used to [encrypt](../../storage/tutorials/
 ### UNKNOWN or INTERNAL_ERROR {#bucket-internal-error}
 
 Contact [support]({{ link-console-support }}) for additional information and recommendations.
-
 
 ## {{ yds-name }} data stream {#data-streams}
 
@@ -98,7 +95,6 @@ Check the log group specified in the [trail settings](../concepts/trail.md#trail
 ### UNKNOWN or INTERNAL_ERROR {#logging-internal-error}
 
 Contact [support]({{ link-console-support }}) for additional information and recommendations.
-
 
 ## See also
 

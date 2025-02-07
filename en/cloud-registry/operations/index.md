@@ -17,6 +17,13 @@ description: This section contains step-by-step guides for {{ cloud-registry-nam
 * [Pushing a Docker image to a registry](docker/push.md)
 * [Pulling a Docker image from a registry](docker/pull.md)
 
+### Helm {#helm}
+
+* [Getting information about existing Helm charts](helm/list.md)
+* [Pushing a Helm chart to a registry](helm/push.md)
+* [Pulling a Helm chart from a registry](helm/pull.md)
+* [Deleting a Helm chart from a registry](helm/delete.md)
+
 ### Maven {#maven}
 
 * [Setting up Maven](maven/installation.md)

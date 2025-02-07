@@ -25,7 +25,7 @@ items:
             href: operations/docker-image/docker-image-delete.md
       - name: Managing a Helm chart
         items:
-          - name: Getting information about available Helm charts
+          - name: Getting information about existing Helm charts
             href: operations/helm-chart/helm-chart-list.md
           - name: Pushing a Helm chart to a registry
             href: operations/helm-chart/helm-chart-push.md
@@ -108,7 +108,7 @@ items:
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Continuous deployment of containerized applications using {{ GL }}
         href: tutorials/gitlab-containers.md
-      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Storing Docker images created in {{ mgl-full-name }} projects
         href: tutorials/image-storage.md
@@ -120,6 +120,14 @@ items:
         href: tutorials/loadtesting-external-agent.md
       - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: tutorials/deploy-app-container.md
+      - name: Deploying a gRPC service based on a Docker image
+        href: tutorials/grpc-node.md
+      - name: Deploying a service in {{ ml-platform-name }} from a Docker image
+        href: tutorials/node-from-docker.md
+      - name: >-
+          Deploying a service in {{ ml-platform-name }} from a Docker image with
+          FastAPI
+        href: tutorials/node-from-docker-fast-api.md
   - name: Concepts
     items:
       - name: Overview

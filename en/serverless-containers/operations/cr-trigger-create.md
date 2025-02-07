@@ -124,7 +124,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
   To create a trigger for {{ container-registry-name }}:
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -133,7 +133,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<interval_between_retry_attempts>"
+          retry_interval     = "<time_between_retry_attempts>"
         }
         container_registry {
           registry_id      = "<registry_ID>"

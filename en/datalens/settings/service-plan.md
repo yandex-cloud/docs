@@ -37,6 +37,8 @@ To switch to a different service plan:
 
 {% note info %}
 
+Only users with a Yandex ID or Yandex 360 account can create new billing accounts. You cannot use a federated account for that.
+
 To link a billing account, the user needs to following [roles](../security/roles.md#service-roles):
 
 * `billing.accounts.editor` or higher for a billing account.

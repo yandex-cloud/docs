@@ -1,8 +1,6 @@
-# Stacked area chart ![](../../_assets/datalens/area.svg)
+# Area chart ![](../../_assets/datalens/area.svg)
 
-This chart shows how a measure changed over time. The area between the axis and the line is filled with colors, which shows the volume. If multiple data categories are displayed, they overlap. The top line represents all data.
-
-It is handy to use this type of chart when it is important to see totals by category, e.g., total sales by product category.
+This chart shows how a measure changed over time. The area between the axis and the line is filled with colors, which shows the volume. Multiple data categories can be stacked one on top of the other or overlap, depending on the [setup](#stacking).
 
 ![area-chart-groupped](../../_assets/datalens/visualization-ref/area-chart/area-chart-groupped.png)
 
@@ -10,18 +8,18 @@ It is handy to use this type of chart when it is important to see totals by cate
 
 Year |	Home appliances |	Household goods  | Household cleaners
 ----- | ---------| ---------- | ---------- 
-January 2019|	128K |	55K | 26K
-February 2019|	97K |	79K | 18K
-March 2019|	187K |	105K | 41K
-April 2019|	188K | 137K | 34K
-May 2019|	230K |	121K | 43K
-June 2019|	256K |	162K | 59K
-July 2019|	284K |	206K | 67K
-August 2019|	409K |	204K | 72K
-September 2019|	314K |	209K | 86K
-October 2019|	324K |	262K | 79K
-November 2019|	385K |	238K | 101K
-December 2019|	451K |	307K | 111K
+January 2017 |	325K |	248K | 96K
+February 2017 |	437K |	247K | 91K
+March 2017 |	490K |	314K | 111K
+April 2017 |	458K | 310K | 125K
+May 2017 |	530K |	368K | 127K
+June 2017 |	593K |	411K | 158K
+July 2017 |	555K |	457K | 138K
+August 2017 |	612K |	402K | 129K
+September 2017 |	646K |	407K | 138K
+October 2017 |	804K |	454K | 157K
+November 2017 |	716K |	406K | 160K
+December 2017 |	753K |	471K | 201K
 
 {% endcut %}
 
@@ -51,13 +49,23 @@ To create an area chart:
 1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **Chart**.
 1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
-1. Select **Stacked area chart** as the chart type.
+1. Select **Area chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as areas along the Y axis.
 
-### Configuring display of null values {#null-settings}
+### Configuring display of `null` values {#null-settings}
 
 {% include [datalens-chart-null-settings](../../_includes/datalens/datalens-chart-null-settings.md) %}
+
+### Configuring a stacked chart {#stacking}
+
+Use the **Stacking** option in the [chart settings](../concepts/chart/settings.md#common-settings) to toggle between stacked or unstacked chart display.
+
+A stacked chart shows a ratio of measures by category to the total value. Use this chart type when you need to see how each measure contributes to the total. For example, you can get the breakdown of total sales by product category. If you have multiple data categories, the areas are stacked one on top of the other. The top line represents all data.
+
+An unstacked chart shows the changes in a measure separately for each category. You can use this chart type when you need to compare measures by categories, e.g., total sales in each product category. If you have multiple data categories, the areas overlap. Each line corresponds to measure values for an individual category.
+
+![area-chart-no-stack](../../_assets/datalens/visualization-ref/area-chart/area-chart-no-stack.png)
 
 ## Recommendations {#recomendations}
 

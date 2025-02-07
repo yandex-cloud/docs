@@ -274,8 +274,6 @@ Response returned:
 Hello, Anonymous
 ```
 
-
-
 ### Parsing an {{ api-gw-name }} HTTP request
 
 The function is invoked by {{ api-gw-full-name }} with a service account, logs the request method and body, and returns a greeting.
@@ -371,4 +369,3 @@ Response returned:
 ```
 Hello, Anonymous
 ```
-
