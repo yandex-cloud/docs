@@ -9,7 +9,7 @@ description: Из этой статьи вы узнаете, как удалит
 
 Удалить организацию может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. Как назначить роль пользователю, читайте в разделе [Роли](../security/index.md#admin).
 
-Перед удалением организации [удалите](../../resource-manager/operations/cloud/delete.md) из нее все облака.
+Перед удалением организации удалите из нее все [облака](../../resource-manager/operations/cloud/delete.md), а также привязанный к ней [платежный аккаунт](../../billing/operations/delete-account.md).
 
 {% endnote %}
 

@@ -5421,8 +5421,8 @@ default:
       tickets:
         common:
           action_create-ticket: Создать обращение
-          label_ticket-type-critical: Критичная проблема
-          label_ticket-type-incident: Проблема
+          label_ticket-type-critical: Критичный приоритет
+          label_ticket-type-incident: Средний приоритет
           label_ticket-type-question: Вопрос
         filters:
           action_reset-filters: Сбросить фильтры

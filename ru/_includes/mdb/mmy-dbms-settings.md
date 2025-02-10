@@ -6,6 +6,8 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
 - **Auto increment**{#setting-auto-increment-increment} {{ tag-all }}
 
   Задает интервал между значениями столбцов с атрибутом `AUTO_INCREMENT`.
@@ -95,6 +97,8 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin).
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
 - **Default time zone**{#setting-time-zone} {{ tag-all }}
 
   Часовой пояс сервера.
@@ -149,6 +153,12 @@
 
   Подробнее см. в [рекомендациях по настройке параметра](../../managed-mysql/qa/configuring.md#innodb-buffer-pool-size) и в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
+  {% note warning %}
+
+  Изменение этого параметра приведет к перезапуску кластера, если кластер использует {{ MY }} версии 5.7. Для кластера {{ MY }} версии 8.0 перезапуск произойдет только при уменьшении параметра.
+
+  {% endnote %}
+
 - **Innodb compression level**{#setting-innodb-compression-level} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
   Уровень сжатия `zlib`, используемый для сжатых таблиц и индексов InnoDB.
@@ -173,6 +183,8 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
 - **Innodb ft min token size**{#setting-ft-min-token-size} {{ tag-all }}
 
   Минимальная длина слов, хранящихся в индексе InnoDB `FULLTEXT`.
@@ -180,6 +192,8 @@
   Минимальное значение — `0`, максимальное значение — `16`, по умолчанию — `3`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Innodb io capacity**{#setting-innodb-io-capacity} {{ tag-all }}
 
@@ -223,6 +237,8 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size).
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
 - **Innodb lru scan depth**{#setting-innodb-lru-scan-depth} {{ tag-con }} {{ tag-api }}
 
   Количество свободных страниц, которое Innodb старается сохранить в каждом буферном пуле, чтобы ускорить операции чтения и создания страниц.
@@ -248,6 +264,8 @@
   По умолчанию эта политика выключена.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_numa_interleave).
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Innodb online alter log max size**{#setting-online-alter-log-max-size} {{ tag-all }}
 
@@ -281,6 +299,8 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_purge_threads).
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
 - **Innodb read io threads**{#setting-innodb-read-io-threads} {{ tag-all }}
 
   Количество потоков ввода-вывода InnoDB, используемых для операций чтения.
@@ -288,6 +308,8 @@
   Минимальное значение — `1`, максимальное значение — `16`, по умолчанию — `4`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_read_io_threads).
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Innodb status output**{#setting-innodb-status-output} {{ tag-con }}
 
@@ -313,6 +335,8 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path).
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
 - **Innodb thread concurrency**{#setting-innodb-thread-concurrency} {{ tag-all }}
 
   Максимальное число потоков, которые могут исполняться внутри InnoDB.
@@ -328,6 +352,8 @@
   Минимальное значение — `1`, максимальное значение — `16`, по умолчанию — `4`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads).
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Interactive timeout**{#setting-interactive-timeout} {{ tag-all }}
 
@@ -462,6 +488,8 @@
   Минимальное значение — `1024` (1 КБ), максимальное значение — `8192` (8 КБ), по умолчанию — `1024` (1 КБ).
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Max execution time**{#setting-max-execution-time} {{ tag-all }}
 
@@ -743,6 +771,8 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache_instances).
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
 - **Thread cache size**{#setting-thread-cache-size} {{ tag-all }}
 
   Количество потоков, которые кешируются для обработки новых сетевых соединений. При установке нового подключения сначала используются потоки из кеша, а потом создаются новые. Увеличьте значение этой настройки, чтобы повысить производительность в случае, когда устанавливается большое количество новых соединений.
@@ -764,6 +794,8 @@
   Минимальное значение — `131072` (128 КБ), максимальное значение — `16777216` (16 МБ), по умолчанию — `196608` (192 КБ).
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_thread_stack).
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Tmp table size**{#setting-tmp-table-size} {{ tag-all }}
 
