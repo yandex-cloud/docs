@@ -46,7 +46,7 @@
      namespace: kube-system
      labels:
        k8s-app: mtu-fix
-       version: 1v
+       version: 2v
    spec:
      selector:
        matchLabels:
@@ -57,39 +57,32 @@
            k8s-app: mtu-fix
        spec:
          hostPID: true
+         hostIPC: true
          hostNetwork: true
          containers:
          - name: mtu-fix
-           image: {{ registry }}/crpjfmfou6gflobbfvfv/ipfixik:0.1.0
+           image: {{ registry }}/yc/mk8s-openssl:stable
            command:
              - bash
              - -c
              - |
-               ip link set dev eth0 mtu 1450
-               sleep infinity
-           imagePullPolicy: Always
+               chroot /host /bin/bash -c "ip link set dev eth0 mtu 1450 &&  sleep infinity"
+           imagePullPolicy: IfNotPresent
            securityContext:
              privileged: true
            resources:
              limits:
-               memory: 200Mi
+               memory: 100Mi
              requests:
                cpu: 100m
-               memory: 200Mi          
+               memory: 100Mi
            volumeMounts:
-           - mountPath: /sys/
-             name: sys
-           - mountPath: /proc/
-             name: proc
+             - mountPath: /host
+               name: host-namespace
          volumes:
-         - name: sys
-           hostPath:
-             path: /sys/
-             type: Directory
-         - name: proc
-           hostPath:
-             path: /proc/
-             type: Directory
+           - name: host-namespace
+             hostPath:
+               path: /
    ```
     
    Сохраните его в файл с любым именем, например `ds-mtu-fix.yml`.

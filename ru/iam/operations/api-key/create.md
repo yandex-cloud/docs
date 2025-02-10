@@ -146,7 +146,7 @@
 
 - CLI {#cli}
 
-  Чтобы посмотреть доступные области действия API-ключа, выполните команду:
+  Чтобы посмотреть доступные [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) API-ключа, выполните команду:
 
   ```bash
   yc iam api-key list-scopes
@@ -154,14 +154,24 @@
 
   Результат:
 
-  
+
   ```text
+  - yc.ai.foundationModels.execute
+  - yc.ai.imageGeneration.execute
+  - yc.ai.languageModels.execute
+  - yc.ai.speechkitStt.execute
+  - yc.ai.speechkitTts.execute
+  - yc.ai.translate.execute
+  - yc.ai.vision.execute
+  - yc.monitoring.manage
+  - yc.monitoring.read
   - yc.postbox.send
+  - yc.search-api.execute
+  - yc.serverless.containers.invoke
+  - yc.serverless.functions.invoke
   - yc.ydb.tables.manage
   - yc.ydb.topics.manage
   ```
-
-
 
 - API {#api}
 

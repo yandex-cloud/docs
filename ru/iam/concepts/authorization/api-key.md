@@ -32,7 +32,20 @@ _API-ключ_ — секретный ключ, используемый тол�
 
 Доступные области действия:
 
+
+* `yc.ai.foundationModels.execute` — для отправки запросов к [{{ assistant-api }}](../../../foundation-models/assistants/api-ref/index.md), [Image Generation API](../../../foundation-models/image-generation/api-ref/index.md), [Text Generation API](../../../foundation-models/text-generation/api-ref/index.md), [API {{ speechkit-name }}](../../../speechkit/concepts/api.md), [API {{ translate-full-name }}](../../../translate/concepts/api.md) и [{{ vision-name }} API](../../../vision/ocr/api-ref/index.md).
+* `yc.ai.imageGeneration.execute` — для отправки запросов к моделям генерации изображений в сервисе {{ foundation-models-full-name }} через [Image Generation API](../../../foundation-models/image-generation/api-ref/index.md).
+* `yc.ai.languageModels.execute` — для отправки запросов к моделям генерации текста в сервисе {{ foundation-models-full-name }} через [Text Generation API](../../../foundation-models/text-generation/api-ref/index.md).
+* `yc.ai.speechkitStt.execute` — для [распознавания речи](../../../speechkit/stt/index.md) через [API {{ speechkit-name }}](../../../speechkit/concepts/api.md).
+* `yc.ai.speechkitTts.execute` — для [синтеза речи](../../../speechkit/tts/index.md) через [API {{ speechkit-name }}](../../../speechkit/concepts/api.md).
+* `yc.ai.translate.execute` — для перевода текста через [API {{ translate-full-name }}](../../../translate/concepts/api.md).
+* `yc.ai.vision.execute` — для оптического распознавания текста с помощью [{{ vision-name }} API](../../../vision/ocr/api-ref/index.md).
+* `yc.monitoring.manage` — для просмотра и записи данных в {{ monitoring-full-name }} через [API {{ monitoring-name }}](../../../monitoring/api-ref/index.md).
+* `yc.monitoring.read` — для просмотра данных в {{ monitoring-full-name }} через [API {{ monitoring-name }}](../../../monitoring/api-ref/index.md).
 * `yc.postbox.send` — для отправки писем через API [{{ postbox-name }}](../../../postbox/index.yaml).
+* `yc.search-api.execute` — для отправки поисковых запросов к [{{ search-api-name }}](../../../search-api/api-ref/index.md).
+* `yc.serverless.containers.invoke` — для вызова контейнеров через [API {{ serverless-containers-short-name }}](../../../serverless-containers/containers/api-ref/index.md).
+* `yc.serverless.functions.invoke` — для вызова функций через [API {{ sf-short-name }}](../../../functions/functions/api-ref/index.md).
 * `yc.ydb.tables.manage` — для работы с {{ ydb-short-name }} в режиме совместимости с {{ PG }}.
 * `yc.ydb.topics.manage` — для работы с [Kafka API](../../../data-streams/kafkaapi/auth.md) в {{ yds-full-name }}.
 

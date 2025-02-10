@@ -5414,8 +5414,8 @@ default:
       tickets:
         common:
           action_create-ticket: Create ticket
-          label_ticket-type-critical: Critical issue
-          label_ticket-type-incident: Issue
+          label_ticket-type-critical: Critical priority
+          label_ticket-type-incident: Medium priority
           label_ticket-type-question: Question
         filters:
           action_reset-filters: Reset filters
