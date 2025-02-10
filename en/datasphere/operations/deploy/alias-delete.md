@@ -1,6 +1,6 @@
 ---
-title: Deleting an alias
-description: Follow this guide to delete an alias.
+title: Deleting an alias in {{ ml-platform-full-name }}
+description: Follow this guide to delete an alias in {{ ml-platform-name }}.
 ---
 
 # Deleting an alias

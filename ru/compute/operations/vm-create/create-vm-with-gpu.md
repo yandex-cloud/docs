@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
        --memory=96 \
        --gpus=1 \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
+       --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu,kms-key-id=<идентификатор_ключа> \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
@@ -79,9 +79,16 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
-     * `--create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
+     * `--create-boot-disk` — [образ](../images-with-pre-installed-software/get-list.md) операционной системы:
 
-       {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
+         * `image-family` — [семейство образов](../../concepts/image.md#family), например, `ubuntu-1604-lts-gpu`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+         * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+
+           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+           
+           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 

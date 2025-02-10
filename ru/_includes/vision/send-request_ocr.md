@@ -12,7 +12,12 @@
     --header "Authorization: Bearer ${IAM_TOKEN}" \
     --header "x-folder-id: <идентификатор_каталога>" \
     --header "x-data-logging-enabled: true" \
-    --data "@body.json" \
+    --data '{
+      "mimeType": "JPEG",
+      "languageCodes": ["ru","en"],
+      "model": "handwritten",
+      "content": "<изображение_в_кодировке_base64>"
+    }' \
     https://ocr.{{ api-host }}/ocr/v1/recognizeText \
     --output output.json
   ```
@@ -26,7 +31,7 @@
 
   ```python
   data = {"mimeType": <mime_type>,
-          "languageCodes": ["*"],
+          "languageCodes": ["ru","en"],
           "content": content}
 
   url = "https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText"

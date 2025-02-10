@@ -6,6 +6,7 @@ description: Различные сценарии использования по
 # Руководства по безопасности
 
 * [Создание L7-балансировщика с защитой от DDoS](alb-with-ddos-protection/index.md)
+* [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
 * [Терминирование TLS-соединений](tls-termination/index.md)
 * [Передача логов с виртуальной машины в {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)

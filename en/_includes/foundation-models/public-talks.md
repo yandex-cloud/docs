@@ -3,6 +3,10 @@
 
 ## Videos {#video}
 
+### 2025 {#2025}
+
+* {{ yandexart-name }} for businesses. Watch the video on [YouTube](https://www.youtube.com/watch?v=I9Fpsxv8Hlc) or [Yandex](https://runtime.strm.yandex.ru/player/episode/vplefdetiqv7tasxrbyk).
+
 ### 2024 {#2024}
 
 * Creating AI assistants. [Click here to view the video](https://www.youtube.com/watch?v=kKbMaWSi20I).
@@ -37,7 +41,7 @@
 
 ### 2023 {#2023-articles}
 
-* Feedback analysis, chat assistance, and creatives: what {{ yagpt-full-name }}'s skillset. [Read our article](https://vc.ru/services/945084-analiz-otzyvov-pomosh-v-chate-i-kreativy-chto-umeet-yandexgpt-api)
+* Feedback analysis, chat assistance, and creatives: {{ yagpt-full-name }}'s skillset. [Read our article](https://vc.ru/services/945084-analiz-otzyvov-pomosh-v-chate-i-kreativy-chto-umeet-yandexgpt-api)
 
 * How to ditch servers, get your business analytics going, and give {{ yagpt-name }} a test. [Read our article](https://vc.ru/offline/845622-oboitis-bez-serverov-nastroit-biznes-analitiku-i-protestirovat-yandexgpt)
 

@@ -53,15 +53,47 @@ common:
     to: /tutorials/dataplatform/data-processing-to-data-processing
   - from: ^/vpc/tutorials/dataproc-nat-instance
     to: /vpc/tutorials/data-processing-nat-instance
+  - from: ^/security/standard/backup
+    to: /security/standard/virtualenv-safe-config
+  - from: ^/security/standard/physical-security
+    to: /security/standard/index
 
 ru-ru: 
-  - from: ^/security/standard/backup
-    to: /security/standard/virtualenv-safe-config
-  - from: ^/security/standard/physical-security
-    to: /security/standard/index
+  - from: ^/audit-trails/operations/export-organization-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-organization-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-organization-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-bucket
+    to: /audit-trails/operations/create-trail
 
 ru-kz:
-  - from: ^/security/standard/backup
-    to: /security/standard/virtualenv-safe-config
-  - from: ^/security/standard/physical-security
-    to: /security/standard/index
+  - from: ^/audit-trails/operations/export-organization-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-organization-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-organization-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-bucket
+    to: /audit-trails/operations/create-trail

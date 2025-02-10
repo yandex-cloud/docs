@@ -1,6 +1,6 @@
 ---
 title: Guides on using {{ foundation-models-full-name }}
-description: This page contains all guides on how to use {{ foundation-models-full-name }} in {{ yandex-cloud }}. See how it works.
+description: This page presents all the guides on how to use {{ foundation-models-full-name }} in {{ yandex-cloud }}. See how it works.
 ---
 
 # Step-by-step guides for {{ foundation-models-full-name }}
@@ -29,6 +29,11 @@ description: This page contains all guides on how to use {{ foundation-models-fu
 
 * [{#T}](./assistant/create.md)
 * [{#T}](./assistant/create-with-searchindex.md)
+
+## {{ foundation-models-name }} model tuning {#tuning}
+
+* [{#T}](./tuning/create.md)
+* [{#T}](./tuning/tune-classifiers.md)
 
 ## General step-by-step guides {#general}
 

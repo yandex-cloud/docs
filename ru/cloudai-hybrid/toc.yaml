@@ -2,13 +2,15 @@ title: '{{ cloudml-full-name }}'
 href: index.yaml
 noIndex: true
 items:
-  - name: Функциональные характеристрики и архитектура
+  - name: Функциональные характеристики и архитектура
     href: architecture.md
   - name: Системные требования
     href: system-requirements.md
-  - name: Начало работы
+  - name: Установка программного обеспечения
     href: quickstart.md
-  - name: Правила тарификации
+  - name: Эксплуатация программного обеспечения
+    href: usage.md
+  - name: Стоимость программного обеспечения
     href: pricing.md
   - name: Документация "{{ cloudml-full-name }}"
     href: docs.md

@@ -71,14 +71,20 @@ items:
         href: tutorials/index.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
-      - name: Autoscaling a group of VMs to process messages from a queue
+      - name: Autoscaling a group of instances to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: >-
-          Creating a trigger that invokes a function to stop VM instances and
-          send a Telegram notification
+          Creating triggers that invoke a function to stop a VM and send a
+          Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Overview
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
       - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
   - name: Access management

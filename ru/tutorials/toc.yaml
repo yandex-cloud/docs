@@ -14,6 +14,10 @@ items:
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
       - name: >-
+          Создание L7-балансировщика с профилем безопасности {{ sws-name }}
+          через Ingress-контроллер {{ alb-name }}
+        href: security/alb-ingress-with-sws-profile.md
+      - name: >-
           Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
           защиты от DDoS-атак с помощью {{ sws-name }}
         items:
@@ -142,6 +146,8 @@ items:
         href: archive/object-storage-duplicati.md
       - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
         href: archive/backup-with-bacula.md
+      - name: Резервное копирование в {{ objstorage-name }} с помощью Veeam Backup
+        href: archive/backup-with-veeam.md
       - name: >-
           Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
           Exec

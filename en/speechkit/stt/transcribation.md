@@ -21,6 +21,7 @@ View the list of supported languages in [{#T}](models.md#languages).
 
 ## How to asynchronously recognize pre-recorded audio {#async-recognition}
 
+
 The {{ speechkit-name }} API v2 and v3 are used for asynchronous speech recognition. To recognize pre-recorded audio:
 
 1. [Create a service account](../../iam/operations/sa/create.md).

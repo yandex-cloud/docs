@@ -234,6 +234,8 @@ items:
         href: tutorials/object-storage-duplicati.md
       - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
         href: tutorials/backup-with-bacula.md
+      - name: Резервное копирование в {{ objstorage-name }} с помощью Veeam Backup
+        href: tutorials/backup-with-veeam.md
       - name: >-
           Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
           Exec

@@ -262,7 +262,7 @@ default:
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.28, 1.29, 1.30, 1.31
-  k8s-versions-regular: 1.28, 1.29, 1.30
+  k8s-versions-regular: 1.28, 1.29, 1.30, 1.31
   k8s-versions-stable: 1.28, 1.29, 1.30
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
@@ -5748,6 +5748,8 @@ default:
       component:
         add-to-dashboard-form:
           action:
+            add: Add
+            add-and-go: Add and edit
             copy-and-go: Copy and edit
         parametrizer:
           add: Add parameter
@@ -5819,6 +5821,8 @@ default:
           no-data: No data policy
           notification-channels: Notifications
           time-shift: Evaluation delay
+      nav:
+        nav-metric-explorer: Metric Explorer
       prometheus:
         alert-manager:
           config-action:
@@ -5840,7 +5844,10 @@ default:
       querystring:
         action:
           add-query: Add query
+          create-alert-from-all-queries: Create alert from all queries
           execute-query: Execute query
+        hint:
+          search-hotkey: 'Search hotkey: Cmd/Ctrl + Enter'
       service:
         field:
           function: Aggregation function
@@ -5850,20 +5857,49 @@ default:
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
+      tooltip:
+        actions:
+          go-to-line: Go to line
+          go-to-window: Go to selected window
       wizard:
         axes:
           linear: Linear
+          primary-y: Left Y axis
+          secondary-y: Right Y axis
+        button:
+          top-by: Chart split
         general:
           chartsInRow: Number of graphs per row
           repeatByParam: Repeat by parameter
           repeatSettings: Repeat graphs
+        group-by:
+          chart-for: Chart for
+          charts-count: Number of graphs in a row
+          execute: Execute
+          limit: Limit
+          sort-by: Sort by
+        legend:
+          copy-as-csv: Copy as CSV
+        settings-select:
+          show-legend: Show legend
         tab:
           axes: Axes
           downsampling: Downsampling
           general: General
+          pivot-table: Pivot table
+          table: Raw data
+          visualization: Visualization
         vis:
+          chart-type: Chart type
+          color-scheme: Color scheme
           downsampling:
             none: No downsampling
+          interpolate-key-value: Interpolation
+          normalize: Normalize
+          scheme-hash: Line name
+        wizard:
+          mx:
+            save-as: Add to dashboard
     yacloud_org:
       actions:
         add: Add
@@ -10447,7 +10483,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.17
+        tag: v0.2.18
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -10498,7 +10534,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.4.32
+        tag: v0.5.0
     yc_gitlab-agent:
       helmChart:
         name: >-

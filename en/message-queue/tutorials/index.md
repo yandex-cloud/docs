@@ -9,3 +9,4 @@ description: Various {{ message-queue-full-name }} use cases in {{ yandex-cloud 
 * [{#T}](./autoscale-monitoring.md)
 * [{#T}](./serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](./websocket-app.md)
+* [{#T}](./static-key-in-lockbox/index.md)

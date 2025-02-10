@@ -1,42 +1,17 @@
-# Fine-tuning in {{ foundation-models-name }}
+---
+title: Creating a fine-tuned text generation model in {{ foundation-models-name }}
+description: Follow this guide to create a dataset and fine-tune a text generation model in {{ foundation-models-name }} using the API and {{ ml-sdk-name }}.
+---
 
-_Model tuning based on the {{ lora }} method is at the [Preview](../../../overview/concepts/launch-stages.md) stage and available upon request. You can fill out the form in the [management console]({{ link-console-main }}/link/foundation-models/)._
+# Creating a fine-tuned text generation model in {{ foundation-models-name }}
+
+{% include [lora-tuning-preview](../../../_includes/foundation-models/lora-tuning-preview.md) %}
 
 This example shows how to fine-tune a {{ gpt-lite }} model based on the {{ lora }} method in {{ foundation-models-name }}. 
 
 ## Getting started {#before-begin}
 
-To use the examples:
-
-{% list tabs group=programming_language %}
-
-- SDK {#sdk}
-
-  1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `ai.editor` [role](../../../foundation-models/security/index.md#languageModels-user) to it.
-  1. [Get](../../../iam/operations/api-key/create.md) the service account API key and save it.
-
-      {% include [sdk-auth-details-paragraph](../../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
-  1. Use the [pip](https://pip.pypa.io/en/stable/) package manager to install the beta version of the {{ ml-sdk-name }} library:
-
-    ```bash
-    pip install yandex-cloud-ml-sdk --upgrade --pre
-    ```
-
-- cURL {#curl}
-
-  1. {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
-  1. Install [gRPCurl](https://github.com/fullstorydev/grpcurl).
-  1. {% include [curl](../../../_includes/curl.md) %}
-  1. (Optional) Install the [jq](https://stedolan.github.io/jq/) JSON stream processor.
-  1. [Get an IAM token](../../../iam/operations/iam-token/create.md) used for authentication in the API.
-  
-     {% note info %}
-
-     The IAM token has a short [lifetime](../../../iam/concepts/authorization/iam-token.md#lifetime): no more than {{ iam-token-lifetime }}.
-
-     {% endnote %}
-   
-{% endlist %}
+{% include [tuning-before-beginning](../../../_includes/foundation-models/tuning-before-beginning.md) %}
 
 ## Upload the dataset {#create-dataset}
 
@@ -60,15 +35,23 @@ Create a tuning dataset:
      python3 dataset-create.py
      ```
 
+     Result:
+
+     ```text
+     new dataset=AsyncDataset(id='fdsfehj6grsu********', folder_id='b1gt6g8ht345********', name='YandexGPT tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 11, 38, 19), updated_at=datetime.datetime(2025, 1, 20, 11, 39, 4), labels=None, status=<DatasetStatus.READY: 3>, task_type='TextToTextGeneration', rows=0, size_bytes=3514)
+     ```
+
+     Save the new dataset's ID (the `id` field value): you will need it when fine-tuning the model.
+
 - cURL {#curl}
 
-  1. Create the dataset object:
+  1. Create a dataset:
   
      ```bash
      grpcurl \
-       -H "Authorization: Bearer $<IAM_token>" \
+       -H "Authorization: Bearer <IAM_token>" \
        -d @ \
-       llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/Create <<EOM
+       {{ api-host-llm }}:443 yandex.cloud.ai.dataset.v1.DatasetService/Create <<EOM
        {
          "folder_id": "<folder_ID>", 
          "name": "My awesome dataset", 
@@ -78,48 +61,38 @@ Create a tuning dataset:
      EOM
      ```
 
-  1. Get a link to upload data into the dataset. In the `size_bytes` field, specify the size of the file with fine-tuning data in bytes. The size of the dataset in the example is 10 KB: 
-  
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer $<IAM_token>" \
-       -d '{"dataset_id": "<dataset_ID>", "size_bytes": 10240}' \
-       llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/GetUploadDraftUrl | jq
-       ```
+     Where:
+     * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account you got [before you started](#before-begin).
+     * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) you are creating the dataset in.
 
-     The response will return a link to the dataset template you created.
+     Result:
 
-     {% note tip %}
-      
-     If you did not use jq, replace all `\u0026` occurrences with `&` in the link to use it to upload the dataset.
-
-     {% endnote %}
-
-  1. Upload your data:
-  
-      ```bash 
-      curl --request PUT --upload-file <path_to_file> "<link>"
-      ```
-
-  1. After the data upload is complete, run the dataset validation:
-  
-      ```bash
-      grpcurl \
-        -H "Authorization: Bearer $<IAM_token>" \
-        -d '{"dataset_id": "<dataset_ID>"}' \
-        llm.api.cloud.yandex.net:443 yandex.cloud.ai.dataset.v1.DatasetService/Validate
-      ```
-
-      The response will return an object containing the validation ID. 
-
-  1. Dataset validation may take some time. To find out validation status and get an error report (if any), send a request containing the ID from the previous step:
-  
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer $<IAM_token>" \
-       -d '{"operation_id": "ftnq****************"}' \
-       llm.api.cloud.yandex.net:443 yandex.cloud.operation.OperationService/Get
+     ```text
+     {
+       "datasetId": "fdso08c1u1cq********",
+       "dataset": {
+         "datasetId": "fdso08c1u1cq********",
+         "folderId": "b1gt6g8ht345********",
+         "name": "My awesome dataset",
+         "status": "DRAFT",
+         "taskType": "TextToTextGeneration",
+         "createdAt": "2025-01-20T10:36:50Z",
+         "updatedAt": "2025-01-20T10:36:50Z",
+         "createdById": "ajeg2b2et02f********",
+         "createdBy": "ajeg2b2et02f********"
+       }
+     }
      ```
+
+     Save the new dataset's ID (the `datasetId` field value): you will need it to upload data to the dataset.
+
+  1. {% include [tuning-dataset-api-step2](../../../_includes/foundation-models/tuning-dataset-api-step2.md) %}
+
+  1. {% include [tuning-dataset-api-step3](../../../_includes/foundation-models/tuning-dataset-api-step3.md) %}
+
+  1. {% include [tuning-dataset-api-step4](../../../_includes/foundation-models/tuning-dataset-api-step4.md) %}
+
+  1. {% include [tuning-dataset-api-step5](../../../_includes/foundation-models/tuning-dataset-api-step5.md) %}
 
 {% endlist %}
 
@@ -133,21 +106,41 @@ Create a tuning dataset:
 
      {% include [sdk-tuning](../../../_includes/foundation-models/examples/tuning-sdk.md) %}
 
+     Where:
+
+     * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) the [service account](../../../iam/concepts/users/service-accounts.md) was created in.
+     * `<API_key>`: Service account [API key](../../../iam/concepts/authorization/api-key.md) you got earlier required for [authentication in the API](../../../foundation-models/api-ref/authentication.md).
+
+         {% include [sdk-auth-details-paragraph](../../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
+     * `<dataset_ID>`: The new dataset's ID you saved in the previous step.
+
   1. Run the created file:
 
      ```bash
      python3 start-tuning.py
      ```
 
+     Result:
+
+     ```text
+     Resulting GPTModel(uri=gpt://b1gt6g8ht345********/yandexgpt-lite/latest@tamrhtqmscrsr********, config=GPTModelConfig(temperature=None, max_tokens=None))
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hello! How can I help you?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=8, total_tokens=20), model_version='23.10.2024')
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hello! How can I help you?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=8, total_tokens=20), model_version='23.10.2024')
+     ```
+
+     Model tuning may take up to one day depending on the dataset size and the system load.
+
+  Use the fine-tuned model's URI you got (the `uri` field value) when [accessing](../../concepts/yandexgpt/models.md#addressing-models) the model.
+
 - cURL {#curl}
-  
+
   1. Start tuning:
-  
+
      ```bash
      grpcurl \
-       -H "Authorization: Bearer $<IAM_token>" \
+       -H "Authorization: Bearer <IAM_token>" \
        -d @ \
-       llm.api.cloud.yandex.net:443 yandex.cloud.ai.tuning.v1.TuningService/Tune <<EOM
+       {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/Tune <<EOM
        {
          "base_model_uri": "gpt://<folder_ID>/yandexgpt-lite/latest",
          "train_datasets": [{"dataset_id": "<dataset_ID>", "weight": 1.0}],
@@ -157,49 +150,64 @@ Create a tuning dataset:
      EOM
      ```
 
-     In response, you will get the [Operation](../../../api-design-guide/concepts/operation.md) object:
+     Where:
+     * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account you got [before you started](#before-begin).
+     * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) you are fine-tuning the model in.
+     * `<dataset_ID>`: Dataset ID you saved in the previous step.
 
-     ```json
-     {"id":"f**********","description":"","createdAt":null,"createdBy":"","modifiedAt":null,"done":false,"metadata":null}
-     ```
+     Result:
 
-     Save the operation `id` you get in the response.
-
-  1. Model tuning may take up to 1 day depending on the size of the dataset and the system load. To check if the fine-tuning is complete, request the operation status:
-  
-     ```bash
-     grpcurl \
-       -H "Authorization: Bearer $<IAM_token>" \
-       -d '{"operation_id": "ftnq****************"}' \
-       llm.api.cloud.yandex.net:443 yandex.cloud.operation.OperationService/Get
-     ```
-
-     If fine-tuning process is over, the Operation object will contain the tuned model's ID in the `targetModelUri` field:
-
-     ```json
+     ```text
      {
-       "id": "ftnq****************",
-       "createdAt": "2024-12-04T10:56:08Z",
-       "modifiedAt": "2024-12-04T11:14:25Z",
-       "done": true,
+       "id": "ftnlljf53kil********",
+       "createdAt": "2025-01-20T11:17:33Z",
+       "modifiedAt": "2025-01-20T11:17:33Z",
        "metadata": {
-         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata",
-         "status": "COMPLETED",
-         "tuningTaskId": "ftn7****************"
-       },
-       "response": {
-         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningResponse",
-         "status": "COMPLETED",
-         "targetModelUri": "<fine-tuned_model_modelUri>",
-         "tuningTaskId": "ftn7****************"
+         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata"
        }
      }
      ```
 
+     You will get the [Operation](../../../api-design-guide/concepts/operation.md) object in response. Save the operation `id` you get in the response.
+
+  1. Model tuning may take up to one day depending on the dataset size and the system load. To check if the fine-tuning is complete, request the operation status:
+
+     ```bash
+     grpcurl \
+       -H "Authorization: Bearer <IAM_token>" \
+       -d '{"operation_id": "<operation_ID>"}' \
+       {{ api-host-llm }}:443 yandex.cloud.operation.OperationService/Get
+     ```
+
+     Where:
+     * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account you got [before you started](#before-begin).
+     * `<operation_ID>`: Model fine-tuning operation ID you got in the previous step.
+
+     If the fine-tuning process is over, the Operation object will contain the tuned model's URI in the `targetModelUri` field:
+
+     ```json
+     {
+       "id": "ftnlljf53kil********",
+       "createdAt": "2025-01-20T11:17:33Z",
+       "modifiedAt": "2025-01-20T11:25:40Z",
+       "done": true,
+       "metadata": {
+         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata",
+         "status": "COMPLETED",
+         "tuningTaskId": "ftnlljf53kil********"
+       },
+       "response": {
+         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningResponse",
+         "status": "COMPLETED",
+         "targetModelUri": "gpt://b1gt6g8ht345********/yandexgpt-lite/latest@tamr2nc6pev5e********",
+         "tuningTaskId": "ftnlljf53kil********"
+       }
+     }
+     ```
+
+  Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/yandexgpt/models.md#addressing-models) the model.
 
 {% endlist %}
-
-Use the fine-tuned model's ID as `modelURI` to send requests to the fine-tuned model.
 
 #### See also {#see-also}
 

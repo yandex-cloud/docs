@@ -1,5 +1,6 @@
 # Speech synthesis in OggOpus format using the API v1
 
+
 With the [API v1](../request.md), you can synthesize speech from text in [TTS markup](../markup/tts-markup.md) to an [OggOpus](../../formats.md) file.
 
 The example uses the following synthesis parameters:
@@ -155,7 +156,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
      Where:
 
-     * `FOLDER_ID`: [Folder](../../../resource-manager/operations/folder/get-id.md) ID.
+     * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
      * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
      * `--output`: Name of the file for the audio.
      * `--text`: Text for synthesis in [TTS markup](../markup/tts-markup.md).
@@ -169,8 +170,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
   ```php
   <?php
 
-  $token = '<IAM_token>'; # Specify the IAM token.
-  $folderId = "<folder_ID>"; # Specify the folder ID.
+  $token = '<IAM_token>'; # Specify an IAM token.
+  $folderId = "<folder_ID>"; #: Specify a folder ID.
 
   $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
   $headers = ['Authorization: Bearer ' . $token];
@@ -248,7 +249,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
   };
 
   axios
-    .post('https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize', formData, {
+    .post('https://{{ api-host-sk-tts }}/speech/v1/tts:synthesize', formData, {
       headers,
       responseType: 'arraybuffer'
     })

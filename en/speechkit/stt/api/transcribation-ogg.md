@@ -5,6 +5,7 @@ description: Follow this guide to use asynchronous OggOpus audio file recognitio
 
 # Asynchronous recognition of OggOpus audio files using the API v2
 
+
 Here are examples of [asynchronous recognition of speech](../transcribation.md) from an audio file using the {{ speechkit-name }} [API v2](transcribation-api.md). These examples use the following parameters:
 
 * [Language](../models.md#languages): Russian.
@@ -51,7 +52,7 @@ For two-channel OggOpus audio files, do not specify the number of channels using
 
       Where:
 
-      * `languageCode`: [Recognition language](../models.md#languages).
+      * `languageCode`: Recognition [language](../models.md#languages).
       * `uri`: Link to the audio file in {{ objstorage-name }}. Here is an example of such a link: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
 
          The link contains additional query parameters (after `?`) for buckets with restricted access. You do not need to provide these parameters in {{ speechkit-name }} as they are ignored.

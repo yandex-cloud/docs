@@ -85,13 +85,13 @@ items:
         items:
           - name: API v1
             items:
-              - name: Synchronous Recognition API
+              - name: Synchronous recognition API
                 href: stt/api/request-api.md
           - name: API v2
             items:
               - name: Streaming Recognition API
                 href: stt/api/streaming-api.md
-              - name: Asynchronous Recognition API
+              - name: Asynchronous recognition API
                 href: stt/api/transcribation-api.md
           - name: gRPC API v3
             items:
@@ -257,5 +257,5 @@ items:
         href: qa/stt.md
       - name: Speech synthesis
         href: qa/tts.md
-      - name: All questions on one page
+      - name: All questions on a single page
         href: qa/all.md

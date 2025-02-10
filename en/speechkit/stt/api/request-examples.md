@@ -1,5 +1,6 @@
 # Example of using the API v1 for synchronous recognition
 
+
 The example shows how the [API v1](request-api.md) helps synchronously recognize speech in the [OggOpus](../../formats.md#OggOpus) audio file format.
 
 The example uses the following parameters:
@@ -9,9 +10,9 @@ The example uses the following parameters:
 
 Use the [cURL](https://curl.haxx.se) utility to generate and send a request to the server for recognition.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. Learn more about [authentication in the {{ speechkit-name }} API](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If using a service account, you do not need to include the folder ID in the request. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
-## Sample request {#request_examples}
+## Request example {#request_examples}
 
 {% list tabs group=programming_language %}
 
@@ -30,7 +31,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
     Where:
 
     * `topic`: [Language model](../models.md).
-    * `lang`: [Recognition language](../index.md#langs).
+    * `lang`: Recognition [language](../index.md#langs).
     * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
     * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
 
@@ -63,8 +64,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
     import urllib.request
     import json
 
-    FOLDER_ID = "<folder_ID>" # Folder ID
-    IAM_TOKEN = "<IAM_token>" # IAM token
+    FOLDER_ID = "<folder_ID>" #: Folder ID.
+    IAM_TOKEN = "<IAM_token>>" #: IAM token.
 
     with open("speech.ogg", "rb") as f:
         data = f.read()
@@ -92,7 +93,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
     * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
     * `speech.ogg`: Name of the audio file for recognition.
     * `topic`: [Language model](../models.md).
-    * `lang`: [Recognition language](../index.md#langs).
+    * `lang`: Recognition [language](../index.md#langs).
 
 - PHP {#php}
 
@@ -101,8 +102,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
     ```php
     <?php
 
-    $token = '<IAM_token>'; # IAM token
-    $folderId = "<folder_ID>"; # Folder ID
+    $token = '<IAM_token>'; #: IAM token.
+    $folderId = "<folder_ID>"; #: Folder ID.
     $audioFileName = "speech.ogg";
 
     $file = fopen($audioFileName, 'rb');
@@ -135,7 +136,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
     * `token`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
     * `folderId`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
     * `audioFileName`: Name of the audio file for recognition.
-    * `lang`: [Recognition language](../index.md#langs).
+    * `lang`: Recognition [language](../index.md#langs).
     * `format`: [Format](../../formats.md) of the submitted audio file.
 
 {% endlist %}

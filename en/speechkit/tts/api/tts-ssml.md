@@ -1,5 +1,6 @@
 # Speech synthesis from SSML text using API v1
 
+
 With the [API v1](../request.md), you can synthesize speech from text marked up using [SSML](../markup/ssml.md) to an [OggOpus](../../formats.md) file.
 
 The example uses the following synthesis parameters:
@@ -10,13 +11,13 @@ The example uses the following synthesis parameters:
 
 The text file is read using the [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) utility.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. To learn more about {{ speechkit-name }} API authentication, see [{#T}](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If using a service account, you do not need to include the folder ID in the request. To learn more about {{ speechkit-name }} API authentication, see [{#T}](../../concepts/auth.md).
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
-  1. Create a file, e.g., `text.xml`, and add to it this text in SSML format:
+  1. Create a file, e.g., `text.xml`, and add into it this text in SSML format:
 
      {% include [ssml-example](../../../_includes/speechkit/ssml-example.md) %}
 

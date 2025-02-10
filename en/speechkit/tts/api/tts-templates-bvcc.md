@@ -92,7 +92,7 @@ Create and run a client app to send your data to the API:
 
         The `tts_pb2.py`, `tts_pb2_grpc.py`, `tts_service_pb2.py`, and `tts_service_pb2_grpc.py` client interface files, as well as dependency files, will be created in the `output` folder.
 
-    1. Create a file named `test.py` in the root of the `output` folder and add to it the code for API v3 pattern-based synthesis.
+    1. Create a file named `test.py` in the root of the `output` folder and add into it the code for API v3 pattern-based synthesis.
 
         Use one of the files below depending on whether you want to use one of the container formats or the raw format:
 
@@ -296,7 +296,7 @@ Create and run a client app to send your data to the API:
 
               # Establish a connection with the server.
               cred = grpc.ssl_channel_credentials()
-              channel = grpc.secure_channel('tts.api.cloud.yandex.net:443', cred)
+              channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
               stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
               # Send data for recognition.

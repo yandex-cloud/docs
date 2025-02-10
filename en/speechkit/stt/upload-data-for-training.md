@@ -1,5 +1,6 @@
 # Uploading fine-tuning data for a speech recognition model
 
+
 To upload [fine-tuning data for a speech recognition model](additional-training.md#advanced-training), collect them into an archive and send the archive to the {{ speechkit-name }} team.
 
 ## Getting started {#before-you-begin}

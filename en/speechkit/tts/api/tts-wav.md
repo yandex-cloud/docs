@@ -1,4 +1,5 @@
-# Speech synthesis in WAV format using the API v1
+#  Speech synthesis in WAV format using the API v1
+
 
 The example shows how you can use the [API v1](../request.md) to synthesize speech from text in [TTS markup](../markup/tts-markup.md) to a [WAV file](https://en.wikipedia.org/wiki/WAV).
 
@@ -9,7 +10,7 @@ The example uses the following synthesis parameters:
 
 Conversion and recording the result in WAV are performed using the [SoX](http://sox.sourceforge.net/) utility.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. To learn more about {{ speechkit-name }} API authentication, see [{#T}](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If using a service account, you do not need to include the folder ID in the request. To learn more about {{ speechkit-name }} API authentication, see [{#T}](../../concepts/auth.md).
 
 1. Synthesize a file in LPCM format:
 
@@ -178,8 +179,8 @@ The Yandex account or federated account are authenticated using an [IAM token](.
      ```php
      <?php
 
-     $token = '<IAM_token>'; # Specify the IAM token.
-     $folderId = "<folder_ID>"; # Specify the folder ID.
+     $token = '<IAM_token>'; # Specify an IAM token.
+     $folderId = "<folder_ID>"; #: Specify a folder ID.
 
      $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
      $headers = ['Authorization: Bearer ' . $token];
