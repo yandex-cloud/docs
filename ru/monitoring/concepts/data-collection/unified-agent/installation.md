@@ -90,7 +90,7 @@ description: Из статьи вы узнаете, как установить 
 
   Чтобы установить агент из [консоли управления]({{ link-console-main }}), в блоке **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.unified-agent }}**.
 
-  Чтобы установить агент через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
+  Чтобы установить агент через CLI, API или {{ TF }}, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
   
   ```text
@@ -99,23 +99,6 @@ description: Из статьи вы узнаете, как установить 
 
 
 
-  Чтобы установить агент с помощью {{ TF }}, добавьте в конфигурационный файл метаданные:
-
-  ```hcl
-  resource "yandex_compute_instance" "this" {
-  ...
-  resources {
-    ...
-  }
-
-  ...
-
-  metadata = {
-    ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>",
-    "install-unified-agent": "1"
-  }
-  }
-  ```
 
   Для установки агента и отправки метрик у виртуальной машины должен быть доступ в интернет.
 
@@ -128,7 +111,7 @@ description: Из статьи вы узнаете, как установить 
 
   После разворачивания ВМ {{ unified-agent-short-name }} запустится автоматически и начнет передавать базовые метрики ВМ в сервис {{ monitoring-full-name }}.
 
-  Обновление и поддержка агента выполняется самостоятельно.
+  Обновление агента выполняйте вручную через бинарный файл.
 
 {% endlist %}
 

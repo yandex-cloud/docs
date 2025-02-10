@@ -14,6 +14,8 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
 
+    {% include [requires-restart](../note-requires-restart.md) %}
+
 * **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
     Максимальный объем дискового пространства (в байтах), который могут занимать временные файлы активного запроса в каждом сегменте.
@@ -133,11 +135,7 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
 
-    {% note warning %}
-
-    Изменение этого параметра приведет к перезапуску кластера.
-
-    {% endnote %}
+    {% include [requires-restart](../note-requires-restart.md) %}
 
 * **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -195,8 +193,4 @@
 
     Подробнее см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
 
-    {% note warning %}
-
-    Изменение этого параметра приведет к перезапуску кластера.
-
-    {% endnote %}
+    {% include [requires-restart](../note-requires-restart.md) %}
