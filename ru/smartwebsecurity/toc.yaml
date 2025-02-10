@@ -74,6 +74,10 @@ items:
       - name: Создание L7-балансировщика с профилем безопасности
         href: tutorials/balancer-with-sws-profile.md
       - name: >-
+          Создание L7-балансировщика с профилем безопасности через
+          Ingress-контроллер {{ alb-name }}
+        href: tutorials/alb-ingress-with-sws-profile.md
+      - name: >-
           Создание L7-балансировщика с защитой от DDoS на уровне L3-L4 модели
           OSI
         items:

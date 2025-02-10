@@ -1,3 +1,8 @@
+---
+title: Model tuning in {{ foundation-models-full-name }}
+description: With {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} and {{ llama }} 8b-1 text generation models and {{ gpt-lite }}-based classifiers using the {{ lora }} method.
+---
+
 # Model tuning
 
 With {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} and {{ llama }} 8b^1^ text generation models and {{ gpt-lite }}-based [classifiers](../classifier/index.md) using the [{{ lora }}](https://arxiv.org/abs/2106.09685) (_Low-Rank Adaptation of Large Language Models_) method.

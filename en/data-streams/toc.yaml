@@ -63,6 +63,8 @@ items:
         href: concepts/topic-table-transactions.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Entering data into storage systems
         href: tutorials/data-ingestion.md
       - name: Smart log processing
@@ -96,7 +98,13 @@ items:
       - name: '{{ MY }} change data capture and delivery to {{ DS }}'
         href: tutorials/mmy-to-yds.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Overview
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
           analyzing them using {{ datalens-full-name }}

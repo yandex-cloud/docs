@@ -27,11 +27,11 @@ items:
         href: tts/index.md
       - name: Performance testing
         href: tts/testing.md
-  - name: '{{ sk-hybrid-name }} administration'
+  - name: Admin {{ sk-hybrid-name }}
     items:
       - name: Service settings
         href: settings.md
-      - name: '{{ sk-hybrid-name }} service monitoring'
+      - name: Monitoring {{ sk-hybrid-name }} services
         href: monitoring.md
       - name: Envoy monitoring
         href: monitoring-envoy.md

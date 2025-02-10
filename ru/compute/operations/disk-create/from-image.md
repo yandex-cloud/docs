@@ -72,10 +72,22 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       yc compute disk create <имя_диска> \
-        --source-image-name <имя_снимка> \
-        --description <текстовое_описание_диска>
+        --source-image-name <имя_образа> \
+        --description <текстовое_описание_диска> \
+        --kms-key-id <идентификатор_ключа>
       ```
-      Указать образ можно с помощью параметра `--source-image-name` или `--source-image-id`.
+
+      Где:
+
+      * `--source-image-name` — имя образа. Указать образ можно с помощью параметра `--source-image-name` или `--source-image-id`.
+      * `--description` — текстовое описания диска.
+      * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+        
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
       Подробнее о команде `yc compute disk create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 

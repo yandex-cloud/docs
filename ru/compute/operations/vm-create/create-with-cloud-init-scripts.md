@@ -48,13 +48,35 @@ description: Следуя данной инструкции, вы сможете
     --name my-sample-instance \
     --zone {{ region-id}}-a \
     --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
-    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
+    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,kms-key-id=<идентификатор_ключа> \
     --metadata-from-file user-data="<путь_к_файлу_конфигурации>"
   ```
 
   Где:
-  * `subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet), расположенной в [зоне доступности](../../../overview/concepts/geo-scope.md), указанной в параметре `--zone`.
-  * `security-group-ids` — идентификатор [группы безопасности](../../../vpc/concepts/security-groups.md).
+
+  * `--name` — имя ВМ. Требования к имени:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
+      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
+  * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
+  * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
+
+      * `subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet), расположенной в [зоне доступности](../../../overview/concepts/geo-scope.md), указанной в параметре `--zone`.
+      * `security-group-ids` — идентификатор [группы безопасности](../../../vpc/concepts/security-groups.md).
+
+  * `--create-boot-disk` — настройки загрузочного диска ВМ:
+
+      * `image-family` — [семейство образов](../../concepts/image.md#family), например, `ubuntu-2204-lts`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+      * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+        
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+
   * `--metadata-from-file` — ключ `user-data` и его значение — путь к файлу с конфигурацией `cloud-config` в формате YAML. Например: `--metadata-from-file user-data="/home/user/metadata.yaml"`.
 
       Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).

@@ -115,7 +115,7 @@
        --name <имя_ВМ> \
        --zone <зона_доступности> \
        --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
-       --create-boot-disk name=<имя_диска>,size=<размер_диска_ГБ>,image-id=<идентификатор_пользовательского_образа> \
+       --create-boot-disk name=<имя_диска>,size=<размер_диска_ГБ>,image-id=<идентификатор_пользовательского_образа>,kms-key-id=<идентификатор_ключа> \
        --ssh-key <путь_к_файлу_открытого_ключа>
      ```
 
@@ -140,6 +140,14 @@
 
          * `size` — размер диска в ГБ.
          * `image-id` — идентификатор пользовательского образа для ВМ. Укажите идентификатор [загруженного](../image-create/upload.md) образа.
+         * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+
+           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+           
+           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+           
      * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}

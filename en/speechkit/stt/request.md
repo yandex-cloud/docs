@@ -1,5 +1,7 @@
 # Synchronous audio recognition
 
+{% include [kz-preview](../../_includes/kz-preview.md) %}
+
 Synchronous audio recognition ensures fast response times and is suitable for pre-recorded small single-channel audio fragments.
 
 If you want to recognize speech over the same connection, use [streaming mode](streaming.md). In streaming mode, you can get intermediate recognition results.

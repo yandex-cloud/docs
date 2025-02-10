@@ -11,6 +11,7 @@ description: 'In this tutorial, you will learn about methods of extending a spee
 * [Model tuning](#advanced-training)
 * [Using audio to improve quality](#audio)
 
+
 ## Auto-tuning {#autotuning}
 
 By default, {{ speechkit-name }} does not save data provided by users. However, the most effective way to improve a speech recognition model is to train it on real user data.

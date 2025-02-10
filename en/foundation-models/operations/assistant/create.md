@@ -1,3 +1,8 @@
+---
+title: Creating a simple assistant
+description: Follow this guide to create a simple assistant using {{ assistant-api }}.
+---
+
 # Creating a simple assistant
 
 {% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}

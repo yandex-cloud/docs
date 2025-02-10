@@ -1,5 +1,6 @@
 # Speech recognition (STT)
 
+
 #### Incorrect stress and pronunciation {#stt-stress-pronunciation}
 
 Create a request and attach examples so that developers can make adjustments to the next releases of the speech synthesis model.

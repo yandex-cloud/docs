@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
           --description "my 8k blocksize disk via yc"
         ```
 
-       Данная команда создаст диск размером 40 ГБ и размером блока 8 КБ, с именем `big-disk` и описанием `my 8k blocksize disk via yc`.
+       Команда создаст диск размером 40 ГБ и размером блока 8 КБ, с именем `big-disk` и описанием `my 8k blocksize disk via yc`.
 
        Требования к имени диска:
 

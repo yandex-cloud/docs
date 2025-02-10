@@ -51,14 +51,27 @@ description: Следуя данной инструкции, вы сможете
       yc compute disk create \
         --name first-disk \
         --size 10 \
-        --description "my first disk via yc"
+        --description "my first disk via yc" \
+        --kms-key-id <идентификатор_ключа>
       ```
 
-      Данная команда создаст диск размером 10 ГБ с именем `first-disk` и описанием `my first disk via yc`.
+      Где:
 
-      Требования к имени диска:
+      * `--name` — имя диска. Требования к имени диска:
 
-      {% include [name-format](../../../_includes/name-format.md) %}
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+      * `--size` — размер диска.
+      * `--description` — описание диска.
+      * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+        
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+
+      Команда создаст диск размером 10 ГБ с именем `first-disk` и описанием `my first disk via yc`.
 
   1. Получите список дисков в каталоге по умолчанию:
 
@@ -81,6 +94,13 @@ description: Следуя данной инструкции, вы сможете
           zone_id: {{ region-id }}-a
           size: "10737418240"
           status: READY
+          disk_placement_policy: {}
+          hardware_generation:
+            legacy_features:
+              pci_topology: PCI_TOPOLOGY_V1
+          kms_key:
+            key_id: abjbaqdga6hs********
+            version_id: abj295dgqnlp********
       - id: fhmo6rdqg5fo********
           folder_id: b1gm3og7ei7a********
           created_at: "2018-10-29T07:33:04Z"
@@ -95,6 +115,13 @@ description: Следуя данной инструкции, вы сможете
           source_image_id: fdvk34al8k5n********
           instance_ids:
           - fhm5b617fjnj********
+          disk_placement_policy: {}
+          hardware_generation:
+            legacy_features:
+              pci_topology: PCI_TOPOLOGY_V1
+          kms_key:
+            key_id: abjbaqdga6hs********
+            version_id: abj295dgqnlp********
       ```
 
 - {{ TF }} {#tf}

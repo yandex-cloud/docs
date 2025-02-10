@@ -41,7 +41,7 @@ items:
             href: concepts/match-recognize.md
       - name: Unified analysis of streaming and analytical data
         href: concepts/unified-processing.md
-      - name: Backup
+      - name: Backups
         href: concepts/backup.md
   - name: Step-by-step guides
     items:
@@ -89,13 +89,15 @@ items:
         href: sources-and-sinks/monitoring.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Processing {{ cloud-logging-name }} logs
         href: tutorials/cloud-logging.md
       - name: Processing CDC Debezium streams
         href: tutorials/debezium.md
       - name: Visualizing {{ datalens-name }} data in {{ objstorage-name }}
         href: tutorials/datalens.md
-      - name: Processing {{ at-name }} audit logs
+      - name: Processing {{ at-name }} events
         href: tutorials/audit-trails.md
       - name: Processing files with billing details
         href: tutorials/billing.md
@@ -103,6 +105,16 @@ items:
         href: tutorials/jupyter.md
       - name: Automating tasks using {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
+      - name: Analyzing data with {{ yq-name }}
+        href: tutorials/yq.md
+      - name: Working with data in {{ objstorage-name }}
+        href: tutorials/yq-storage.md
+      - name: Working with data in {{ mch-name }}
+        href: tutorials/yq-clickhouse.md
+      - name: Working with data in {{ mpg-name }}
+        href: tutorials/yq-postgre.md
+      - name: Federated data queries
+        href: tutorials/yq-federative-queries.md
   - name: Working with YQL
     items:
       - name: Overview

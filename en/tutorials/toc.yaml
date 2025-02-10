@@ -816,6 +816,14 @@ items:
           Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }}
           using {{ data-transfer-full-name }}
         href: dataplatform/ydb-to-object-storage.md
+      - name: Entering data into storage systems
+        href: dataplatform/data-ingestion.md
+      - name: Smart log processing
+        href: dataplatform/log-ingestion.md
+      - name: Transferring data within microservice architectures
+        href: dataplatform/message-broker.md
+      - name: Migrating data to {{ objstorage-name }} using {{ data-transfer-name }}
+        href: dataplatform/yds-obj-migration.md
   - name: Microsoft products in {{ yandex-cloud }}
     items:
       - name: All tutorials
@@ -989,3 +997,55 @@ items:
         href: serverless/speechkit-integrarion-via-agi-gw.md
       - name: '{{ api-gw-name }} protection with {{ sws-name }}'
         href: serverless/api-gw-sws-integration.md
+  - name: Machine learning and artificial intelligence
+    items:
+      - name: All tutorials
+        href: ml-ai/index.md
+      - name: Development with {{ ml-platform-name }}
+        items:
+          - name: '{{ ml-platform-name }} integration with {{ dataproc-name }}'
+            href: ml-ai/data-processing-integration.md
+          - name: Classification of images in video frames
+            href: ml-ai/video-recognition.md
+          - name: Running computations on a schedule in {{ ml-platform-name }}
+            href: ml-ai/regular-launch.md
+          - name: Running computations in {{ ml-platform-name }} using the API.
+            href: ml-ai/batch-code-execution.md
+          - name: >-
+              Using data from {{ objstorage-name }} to train a model in {{
+              ml-platform-name }}
+            href: ml-ai/s3-to-datasphere.md
+          - name: Creating an MLFlow server for logging experiments and artifacts
+            href: ml-ai/mlflow-datasphere.md
+      - name: Usage {{ ml-platform-name }}
+        items:
+          - name: Deploying a service in {{ ml-platform-name }} from an ONNX model
+            href: ml-ai/node-from-model.md
+          - name: Deploying a service in {{ ml-platform-name }} from a Docker image
+            href: ml-ai/node-from-docker.md
+          - name: >-
+              Deploying a service in {{ ml-platform-name }} from a Docker image
+              with FastAPI
+            href: ml-ai/node-from-docker-fast-api.md
+          - name: Deploying a gRPC service based on a Docker image
+            href: ml-ai/grpc-node.md
+          - name: Image generation using the Stable Diffusion model
+            href: ml-ai/stable-diffusion.md
+      - name: Analytics with {{ ml-platform-name }}
+        items:
+          - name: Analyzing data with {{ yq-name }}
+            href: ml-ai/yq.md
+          - name: Working with data in {{ objstorage-name }}
+            href: ml-ai/yq-storage.md
+          - name: Working with data in {{ mch-name }}
+            href: ml-ai/yq-clickhouse.md
+          - name: Working with data in {{ mpg-name }}
+            href: ml-ai/yq-postgre.md
+          - name: Federated data queries
+            href: ml-ai/yq-federative-queries.md
+      - name: Image, text, and speech recognition
+        items:
+          - name: Recognizing text in image archives in {{ vision-name }}
+            href: ml-ai/archive-from-vision-to-object-storage.md
+          - name: Developing a Telegram bot for text and audio recognition
+            href: ml-ai/recognizer-bot.md

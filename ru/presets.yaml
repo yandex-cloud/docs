@@ -263,7 +263,7 @@ default:
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
   k8s-versions-rapid: 1.28, 1.29, 1.30, 1.31
-  k8s-versions-regular: 1.28, 1.29, 1.30
+  k8s-versions-regular: 1.28, 1.29, 1.30, 1.31
   k8s-versions-stable: 1.28, 1.29, 1.30
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
@@ -5755,6 +5755,8 @@ default:
       component:
         add-to-dashboard-form:
           action:
+            add: Добавить
+            add-and-go: Добавить и перейти к дашборду
             copy-and-go: Копировать и перейти к дашборду
         parametrizer:
           add: Добавить параметр
@@ -5826,6 +5828,8 @@ default:
           no-data: Обработка отсутствия данных
           notification-channels: Уведомления
           time-shift: Задержка вычисления
+      nav:
+        nav-metric-explorer: Обзор метрик
       prometheus:
         alert-manager:
           config-action:
@@ -5847,7 +5851,10 @@ default:
       querystring:
         action:
           add-query: Добавить запрос
+          create-alert-from-all-queries: Создать алерт по всем запросам
           execute-query: Выполнить запрос
+        hint:
+          search-hotkey: 'Хоткей поиска: Cmd/Ctrl + Enter'
       service:
         field:
           function: Функция агрегации
@@ -5857,20 +5864,49 @@ default:
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
+      tooltip:
+        actions:
+          go-to-line: Перейти к линии
+          go-to-window: Перейти к выбранному интервалу
       wizard:
         axes:
           linear: Линейный
+          primary-y: Левая ось Y
+          secondary-y: Правая ось Y
+        button:
+          top-by: Разбивка графика
         general:
           chartsInRow: Количество графиков в ряд
           repeatByParam: Повторение по параметру
           repeatSettings: Повторение графиков
+        group-by:
+          chart-for: График для
+          charts-count: Кол-во графиков в ряд
+          execute: Выполнить
+          limit: Лимит
+          sort-by: Сортировать по
+        legend:
+          copy-as-csv: Копировать CSV
+        settings-select:
+          show-legend: Показать легенду
         tab:
           axes: Оси
           downsampling: Прореживание
           general: Основные
+          pivot-table: Сводная таблица
+          table: Исходные данные
+          visualization: Визуализация
         vis:
+          chart-type: Тип графика
+          color-scheme: Цветовая схема
           downsampling:
             none: Без прореживания
+          interpolate-key-value: Интерполяция
+          normalize: Нормализация
+          scheme-hash: По имени линии
+        wizard:
+          mx:
+            save-as: Добавить на дашборд
     yacloud_org:
       actions:
         add: Добавить
@@ -10454,7 +10490,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.17
+        tag: v0.2.18
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -10505,7 +10541,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.4.32
+        tag: v0.5.0
     yc_gitlab-agent:
       helmChart:
         name: >-

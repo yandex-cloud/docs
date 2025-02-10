@@ -9,7 +9,8 @@ description: '{{ speechkit-name }} recognizes and synthesizes audio in LPCM, Ogg
 
 #### LPCM {#lpcm}
 
-[Linear pulse-code modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation) with no WAV header.
+
+[Linear pulse-code modulation](https://en.wikipedia.org/wiki/Pulse-code_modulation) without a WAV header.
 
 Audio features in this format:
 

@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Работа с метриками
         items:
+          - name: Обзор метрик
+            href: operations/metric/metric-explorer.md
           - name: Поставка системных метрик Linux
             href: operations/unified-agent/linux_metrics.md
           - name: Поставка метрик пользовательских приложений
@@ -91,6 +93,8 @@ items:
         items:
           - name: Обзор
             href: concepts/visualization/index.md
+          - name: Обзор метрик
+            href: concepts/visualization/metric-explorer.md
           - name: Строка запроса
             href: concepts/visualization/query-string.md
           - name: Виджеты

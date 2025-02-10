@@ -1,6 +1,11 @@
+---
+title: '{{ assistant-api }}'
+description: '{{ assistant-api }} is a tool for creating AI assistants.'
+---
+
 # {{ assistant-api }}
 
-_The {{ assistant-api }} feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage._
+{% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}
 
 {{ assistant-api }} is a tool for creating AI assistants. It can be used to create personalized assistants, implement a generative response scenario adapted based on external information (known as _retrieval augmented generation_, or RAG), and save the model's request context.
 

@@ -20,7 +20,7 @@ async def main():
     )
 
     # Creating a tuning dataset for the {{ gpt-lite }} base model
-    dataset_draft = sdk.datasets.from_path_deferred(
+    dataset_draft = sdk.datasets.draft_from_path(
         task_type="TextToTextGeneration",
         path="<path_to_file>",
         upload_format="jsonlines",
@@ -28,7 +28,7 @@ async def main():
     )
 
     # Waiting for the data to be uploaded and the dataset to be created
-    operation = await dataset_draft.upload()
+    operation = await dataset_draft.upload_deferred()
     dataset = await operation
     print(f"new {dataset=}")
 

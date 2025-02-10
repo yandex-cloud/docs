@@ -201,7 +201,7 @@ The cost of Telegram bot support includes:
 
 Register your bot in Telegram and get a token.
 
-1. Run the [BotFather](https://t.me/BotFather) and send it the following command:
+1. Run [BotFather](https://t.me/BotFather) and send to it the following command:
 
    ```text
    /newbot
@@ -351,7 +351,7 @@ Create a function to process user actions in the chat.
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
@@ -360,7 +360,7 @@ Create a function to process user actions in the chat.
 
      If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -387,7 +387,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `recognizer-bot-api-gw`.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
@@ -439,7 +439,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
      * `function_id`: `for-recognizer-bot` function ID.
      * `service_account_id`: `recognizer-bot-sa` service account ID.
 
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      yc serverless api-gateway create --name recognizer-bot-api-gw --spec=spec.yaml
@@ -502,7 +502,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
@@ -511,7 +511,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
 
      If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 

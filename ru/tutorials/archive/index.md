@@ -13,6 +13,7 @@ description: Различные сценарии хранения и восст�
 * [Резервное копирование в {{ objstorage-full-name }} с помощью MSP360 Backup (CloudBerry Desktop Backup)](object-storage-cloudberry.md)
 * [Резервное копирование в {{ objstorage-full-name }} через Duplicati](object-storage-duplicati.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Bacula](backup-with-bacula.md)
+* [Резервное копирование в {{ objstorage-full-name }} с помощью Veeam Backup](backup-with-veeam.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Veritas Backup Exec](object-storage-veritas.md)
 * [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-name }}](kubernetes-backup.md)
 * [Развертывание параллельной файловой системы GlusterFS в высокодоступном режиме](ha-regional-glusterfs.md)

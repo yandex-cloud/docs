@@ -20,7 +20,7 @@
   ```
   
 - Python {#python}
-  
+
   ```python
   # Импортируйте библиотеку для кодирования в Base64
   import base64

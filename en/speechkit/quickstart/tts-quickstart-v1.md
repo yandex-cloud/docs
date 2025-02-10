@@ -1,5 +1,6 @@
 # How to synthesize speech in the {{ speechkit-short-name }} API v1
 
+
 [Speech synthesis](../tts/index.md) converts text to speech and saves it to an audio file. In this section, you will learn how to synthesize speech from text using the {{ speechkit-short-name }} [API v1](../tts/request.md) (REST).
 
 In the example, the API is used via the [cURL](https://curl.se/) utility.

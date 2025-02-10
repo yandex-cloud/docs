@@ -1,17 +1,18 @@
 ---
-title: Asynchronous LPCM audio file recognition in {{ speechkit-full-name }}
+title: Asynchronous recognition of LPCM audio files in {{ speechkit-full-name }}
 description: Follow this guide to use asynchronous LPCM audio file recognition.
 ---
 
 # Asynchronous recognition of LPCM audio files using the API v2
 
-Below is an example of [asynchronous recognition of speech](../transcribation.md) from an audio file using the {{ speechkit-name }} [API v2](transcribation-api.md). This example uses the following parameters:
+
+Below is an example of [asynchronous recognition of speech](../transcribation.md) from an audio file using the {{ speechkit-name }} [API v2](transcribation-api.md) . This example uses the following parameters:
 
 * [Language](../models.md#languages): Russian.
 * [Language model](../models.md#tags): `general`.
 * Format of the submitted audio: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
 * [Number of audio channels](transcribation-api.md#sendfile-params): 1 (default).
-* Other parameters left by default.
+* Other parameters are left at their defaults.
 
 You can generate and send a speech recognition request using [cURL](https://curl.haxx.se).
 

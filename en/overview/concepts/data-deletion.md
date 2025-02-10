@@ -13,16 +13,13 @@ If a service receives a request to delete a resource via the API, the resource i
 
 ## Automatic cloud suspension {#block}
 
-
-Your cloud may be suspended if your account is in arrears, if your trial period is over, or if you violated any of the [{{ yandex-cloud }} Terms of Use](https://yandex.ru/legal/cloud_termsofuse/?lang=en). For more information about the payment process and possible suspension, see **Billing cycle** in the {{ billing-name }} documentation:
+Your cloud may be suspended due to arrears if your trial period is over or if you violate the [{{ yandex-cloud }}](https://yandex.ru/legal/cloud_termsofuse/?lang=en) Terms of Use. For more information about the payment process and possible suspension, see **Billing cycle** in the {{ billing-name }} documentation:
 * [Individuals](../../billing/payment/billing-cycle-individual.md)
 * [Businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md)
 
-
-
 In a suspended cloud:
 
-1. Virtual machines and other resources are stopped, but the data is not deleted. The cloud can be unblocked, and resources can be relaunched within 60 days (7 days for Terms of Use violations).
+1. Virtual machines and other resources are stopped, but the data is not deleted. Within 60 days (for violations of the Terms of Use — 7 days), the cloud can be unblocked, and resources can be relaunched.
 1. When this period ends, {{ yandex-cloud }} can mark the resources for deletion and permanently delete them along with the data they contain, within 72 hours.
 
 

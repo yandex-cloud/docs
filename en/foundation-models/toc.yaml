@@ -43,10 +43,12 @@ items:
             href: operations/assistant/create.md
           - name: Creating a search assistant
             href: operations/assistant/create-with-searchindex.md
-      - name: Model tuning
+      - name: Model tuning in {{ foundation-models-name }}
         items:
-          - name: Model tuning in {{ foundation-models-name }}
+          - name: Fine-tuning text generation models
             href: operations/tuning/create.md
+          - name: Fine-tuning classifier models
+            href: operations/tuning/tune-classifiers.md
   - name: Concepts
     items:
       - name: About {{ foundation-models-full-name }}

@@ -51,8 +51,21 @@ description: Следуя данной инструкции, вы сможете
      yc compute disk create \
        --name nr-disk \
        --type network-ssd-nonreplicated \
-       --size 93
+       --size 93 \
+       --kms-key-id <идентификатор_ключа>
      ```
+
+       Где:
+       * `--name` — имя диска.
+       * `--type` — тип диска.
+       * `--size` — размер диска.
+       * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+         
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      Результат:
 
@@ -64,6 +77,12 @@ description: Следуя данной инструкции, вы сможете
      block_size: "4096"
      status: READY
      disk_placement_policy: {}
+     hardware_generation:
+       legacy_features:
+         pci_topology: PCI_TOPOLOGY_V1
+     kms_key:
+       key_id: abjbaqdga6hs********
+       version_id: abj295dgqnlp********
      ```
 
 - {{ TF }} {#tf}
@@ -175,14 +194,22 @@ description: Следуя данной инструкции, вы сможете
          --name <имя_диска> \
          --type network-ssd-nonreplicated \
          --size <размер_диска> \
-         --disk-placement-group-name <имя_группы_размещения>
+         --disk-placement-group-name <имя_группы_размещения> \
+         --kms-key-id <идентификатор_ключа>
        ```
 
        Где:
-       * `--name` – имя диска.
-       * `--type` – тип диска.
-       * `--size` – размер диска.
-       * `--disk-placement-group-name` – имя группы размещения.
+       * `--name` — имя диска.
+       * `--type` — тип диска.
+       * `--size` — размер диска.
+       * `--disk-placement-group-name` — имя группы размещения.
+       * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+         
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
        Результат:
 
@@ -194,6 +221,12 @@ description: Следуя данной инструкции, вы сможете
        status: READY
        disk_placement_policy:
          placement_group_id: epdn946ilslh********
+       hardware_generation:
+         legacy_features:
+           pci_topology: PCI_TOPOLOGY_V1
+       kms_key:
+         key_id: abjbaqdga6hs********
+         version_id: abj295dgqnlp********
        ```
 
      * [Размещение разделами](../../concepts/disk-placement-group.md#partition) (partition):
@@ -208,11 +241,18 @@ description: Следуя данной инструкции, вы сможете
        ```
 
        Где:
-       * `--name` – имя диска.
-       * `--type` – тип диска.
-       * `--size` – размер диска.
-       * `--disk-placement-group-name` – имя группы размещения.
-       * `--disk-placement-group-partition` – номер раздела в группе размещения.
+       * `--name` — имя диска.
+       * `--type` — тип диска.
+       * `--size` — размер диска.
+       * `--disk-placement-group-name` — имя группы размещения.
+       * `--disk-placement-group-partition` — номер раздела в группе размещения.
+       * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+         
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
        Результат:
 
@@ -224,6 +264,9 @@ description: Следуя данной инструкции, вы сможете
        disk_placement_policy:
          placement_group_id: epdn946ilslh********
          placement_group_partition: 2
+       kms_key:
+         key_id: abjbaqdga6hs********
+         version_id: abj295dgqnlp********
        ```
 
 

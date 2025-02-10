@@ -67,7 +67,7 @@ items:
           Migrating data from {{ mos-full-name }} to {{ ydb-short-name }} using
           {{ data-transfer-full-name }}
         href: tutorials/opensearch-to-ydb.md
-      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
         href: tutorials/ci-cd-serverless.md
       - name: >-
           Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }} using
@@ -86,9 +86,17 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-ydb-stream.md
       - name: >-
+          Delivering data from an {{ yds-name }} queue to {{ mkf-name }} using
+          {{ data-transfer-name }}
+        href: tutorials/yds-to-kafka.md
+      - name: >-
           Delivering data from an {{ yds-name }} queue to {{ ydb-name }} using
           {{ data-transfer-name }}
         href: tutorials/yds-to-ydb.md
+      - name: '{{ MY }} change data capture and delivery to {{ DS }}'
+        href: tutorials/mmy-to-yds.md
+      - name: '{{ PG }} change data capture and delivery to {{ DS }}'
+        href: tutorials/mpg-to-yds.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: tutorials/serverless-live-debug.md
       - name: Locking {{ TF }} states using {{ ydb-name }}

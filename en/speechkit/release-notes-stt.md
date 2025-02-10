@@ -6,6 +6,8 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+
+
 ### Release as of 17/12/24 {#171224}
 
 Improved recognition quality for Uzbek and Kazakh in `general:rc`.
@@ -269,3 +271,4 @@ _Known problems_: in universal mode, recognition quality may deteriorate in the 
 1. The `general:rc` model now supports a punctuator in streaming and delayed recognition modes.
 
 1. In delayed recognition mode, you can now work with [MP3](https://en.wikipedia.org/wiki/MP3) format.
+

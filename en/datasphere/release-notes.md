@@ -9,6 +9,10 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 {% endnote %}
 
+## Release as of 24/01/2025 {#240125}
+
+Added a new [configuration](concepts/configurations.md), gt4i.1 (1 GPU NVIDIA T4).
+
 ## Release as of 9/12/24 {#091224}
 
 Discontinued supporting foundation model tuning in {{ ml-platform-name }}. Previously tuned models will no longer be supported along with their base models in accordance with their [life cycle](../foundation-models/concepts/yandexgpt/models.md#model-lifecycle).

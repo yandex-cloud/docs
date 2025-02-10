@@ -80,6 +80,10 @@ items:
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
       - name: >-
+          Создание L7-балансировщика с профилем безопасности {{ sws-name }}
+          через Ingress-контроллер {{ alb-name }}
+        href: tutorials/alb-ingress-with-sws-profile.md
+      - name: >-
           Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
           защиты от DDoS-атак с помощью {{ sws-name }}
         items:
