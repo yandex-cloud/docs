@@ -48,15 +48,30 @@ description: Следуя данной инструкции, вы сможете
         --name ssd-io-disk \
         --zone {{ region-id }}-a \
         --type network-ssd-io-m3 \
-        --size 93G
+        --size 93G \
+        --kms-key-id <идентификатор_ключа>
       ```
+
+      Где:
+
+      * `--name` — имя диска.
+      * `--zone` — зона доступности.
+      * `--type` — тип диска.
+      * `--size` — размер диска.
+      * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+        
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
       Результат:
 
       ```text
-      id: a7li08c1************
-      folder_id: aoerb349************
-      created_at: "2023-07-18T14:42:21Z"
+      id: a7li08c1fd8l********
+      folder_id: aoerb349fdhb********
+      created_at: "2024-11-25T21:22:20Z"
       name: ssd-io-disk
       type_id: network-ssd-io-m3
       zone_id: {{ region-id }}-a
@@ -64,6 +79,12 @@ description: Следуя данной инструкции, вы сможете
       block_size: "4096"
       status: READY
       disk_placement_policy: {}
+      hardware_generation:
+        legacy_features:
+          pci_topology: PCI_TOPOLOGY_V1
+      kms_key:
+        key_id: abjbaqdga6hs********
+        version_id: abj295dgqnlp********
       ```
 
 - API {#api}

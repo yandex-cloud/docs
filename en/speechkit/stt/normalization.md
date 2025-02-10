@@ -28,6 +28,7 @@ Rules for the presentation of normalized text may change. Please consider this d
 ## Managing normalization parameters {#control}
 
 
+
 ### API v1 {#api-v1}
 
 * [REST API v1 for synchronous recognition](api/request-api.md).

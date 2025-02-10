@@ -1,5 +1,6 @@
 # TTS markup
 
+
 TTS markup grants the ability to control speech synthesis using special characters and SIL tags. This helps make synthesized speech more natural.
 
 TTS markup is supported for Russian in the [API v3](../../tts-v3/api-ref/grpc/) and [API v1](../request.md) for data in `text` format.
@@ -12,10 +13,10 @@ Pausing is available for testing in all languages the speech synthesis is suppor
 
 | Description | Special characters and tags |
 |---|---|
-| [Apply stress](#a) | `+` |
-| [Explicitly define a pause between sentences](#pause) | `sil<[t]>`, where `t` is the pause duration in milliseconds. |
+| [Mark the stress](#a) | `+` |
+| [Set a pause between sentences explicitly](#pause) | `sil<[t]>`, where `t` is the pause duration in milliseconds. |
 | [Set a pause depending on the context](#context-pause) | `<[small]>`. Acceptable values: `tiny`, `small`, `medium`, `large`, and `huge`. |
-| [Place emphasis](#accent) | `<[accented]>` or `**accented word**` |
+| [Place emphasis](#accent) | `<[accented]>` or `**emphasized word**` |
 | [Use phonetic pronunciation](#phoneme) | `[[ <word_phonemes_separated_by_spaces> ]]` |
 
 {% include [note-templates-markup](../../../_includes/speechkit/note-templates-markup.md) %}
@@ -38,10 +39,10 @@ If you contr+act malaria, you will have to spend a long time in a hospital.
 
 ### Set a pause between sentences explicitly {#pause}
 
-To explicitly define a pause between sentences, you can add a special tag, `sil<[t]>`, where `t` is the pause duration in milliseconds:
+To set a pause between sentences explicitly, you can add a special tag, `sil<[t]>`, where `t` is the pause duration in milliseconds:
 
 ```text
-Stop. sil<[300]> Think about it!
+Stop! sil<[300]> Think about it!
 ```
 
 {% note info %}
@@ -64,13 +65,13 @@ Frost and sun; <[medium]> a wonderful day!
 
 Currently, this feature works only for Russian.
 
-To place emphasis on a word, you can prepend it with the `<[accented]>` tag. For example:
+To place emphasis on a word, you can prepend it with `<[accented]>`. Here is an example:
 
 ```text
-Convenient interfaces to troubleshoot <[accented]> issues.
+Convenient interfaces for your <[accented]> needs.
 ```
 
-You can also use asterisks to place emphasis on one or more words (`**word**`). For example:
+You can also use asterisks to place emphasis on one or more words (`**word**`). Here is an example:
 
 ```text
 We are **forever** responsible for what we have tamed.
@@ -81,7 +82,7 @@ We are **forever** responsible for what we have tamed.
 Tag text with `[[ ]]` to ensure proper pronunciation using phonemes. The following tagged text will be used for playback:
 
 ```text
-Hello, My name is [[v a sʲ ʌ]]
+Hi! My name is [[v a sʲ ʌ]]
 ```
 
 You can find the list of supported phonemes [here](tts-supported-phonemes.md).

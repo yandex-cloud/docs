@@ -1,6 +1,11 @@
+---
+title: Tuning models to improve machine translation quality
+description: You can improve the quality of machine translations in a specific domain by using your own data to train the model. This will not degrade the quality of translations of everyday language.
+---
+
 # Model tuning
 
-_The feature is at the [Preview](../../overview/concepts/launch-stages.md) stage._
+_This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage._
 
 You can improve the quality of machine translations in a specific domain by using your own data to train the model. This will not degrade the quality of translations of everyday language.
 
@@ -18,7 +23,7 @@ The texts you use for tuning should match the target knowledge domain as closely
 
 [Submit a request]({{ link-console-support }}) to technical support. {{ yandex-cloud }} specialists will send you a guide on model tuning in {{ ml-platform-full-name }}.
 
-To use a model, enter its ID in the `model` parameter when sending a request.
+To use a model, enter its ID in the `model` parameter when sending your request.
 
 ### Who will have access to the obtained model {#security}
 

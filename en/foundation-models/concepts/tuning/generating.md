@@ -1,3 +1,8 @@
+---
+title: Fine-tuning text generation models
+description: In {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} and {{ llama }} 8b-1 text generation models.
+---
+
 # Fine-tuning text generation models
 
 _Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage and is available upon request. You can fill out the form in the [management console]({{ link-console-main }}/link/foundation-models/)._

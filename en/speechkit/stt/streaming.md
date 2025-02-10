@@ -14,6 +14,7 @@ Streaming mode is designed for real-time audio recognition. To recognize a recor
 
 ## Streaming recognition restrictions {#session-restrictions}
 
+
 {{ speechkit-name }} streaming recognition has a number of restrictions that need to be taken into account when creating an application. For a full list of {{ speechkit-name }} restrictions, see [{#T}](../concepts/limits.md).
 
 |  | Streaming recognition |
@@ -32,7 +33,7 @@ To use the service, create an application that will send audio fragments and pro
 
 ### Client application interface code {#create-client-app}
 
-{{ speechkit-name }} has its streaming recognition API in two versions: [API v3](../stt-v3/api-ref/grpc/) and [API v2](api/streaming-api.md). We recommend using the API v3 for new projects.
+{{ speechkit-name }} has two streaming recognition API versions: [API v3](../stt-v3/api-ref/grpc/) and [API v2](api/streaming-api.md). We recommend using the API v3 for new projects.
 
 For the application to access the service, clone the [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi/) repository and generate the client interface code for the used programming language from the [API v2](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v2/stt_service.proto) or [API v3](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/ai/stt/v3/stt_service.proto) specification file.
 
@@ -64,15 +65,12 @@ The most straightforward way to authenticate an application is to use a service 
 
 ### Recognition request {#requests}
 
-
-To recognize speech, the application must first send a message with recognition settings:
+For speech recognition, the application must first send a recognition settings message:
 
 * For the API v3, the [RecognizeStreaming](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming) message of the `session_options` type.
 * For the API v2, the `StreamingRecognitionRequest` message of the [RecognitionConfig](api/streaming-api#specification-msg) type.
 
-
-
-When the session is set up, the server will wait for messages with audio fragments (chunks). Send the `RecognizeStreaming` message of the [session_options](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming) type or the `StreamingRecognitionRequest` message with the [audio_content](api/streaming-api#audio-msg) type to the API v2. Take the following recommendations into account when sending messages:
+When the session is set up, the server will wait for messages with audio fragments (chunks). Send the `RecognizeStreaming` message of the [session_options](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming) type or the `StreamingRecognitionRequest` message of the [audio_content](api/streaming-api#audio-msg) type to the API v2. Take the following recommendations into account when sending messages:
 
 * Do not send audio fragments too often or infrequently. The time between messages to the service should be approximately the same as the duration of the audio fragments you send, but no more than 5 seconds. For example, send 400 ms of audio for recognition every 400 ms.
 * Maximum duration of transmitted audio for the entire session: {{ stt-streaming-audioLength }}.
@@ -84,9 +82,9 @@ If messages aren't sent to the service within 5 seconds or the data duration or 
 
 ### Recognition result {#results}
 
-In each recognition result message ([StreamingResponse](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.StreamingResponse) or [StreamingRecognitionResponse](api/streaming-api.md#response)), the {{ speechkit-name }} server returns one or more speech chunks that it recognized during this period (`chunks`). A list of recognized text alternatives is specified for each chunk (`alternatives`).
+In each recognition result message ([StreamingResponse](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.StreamingResponse) or [StreamingRecognitionResponse](api/streaming-api.md#response)), the {{ speechkit-name }} server returns one or more speech chunks it was able to recognize during this period (`chunks`). A list of recognized text variants is specified for each chunk (`alternatives`).
 
-The {{ speechkit-name }} server returns recognition results together with their type:
+The {{ speechkit-name }} server returns recognition results stating their type:
 
 * `partial`: For intermediate results.
 * `final`: For final results.
@@ -94,14 +92,14 @@ The {{ speechkit-name }} server returns recognition results together with their 
 
    With normalization enabled, you will get the `final` and `final_refinement` results.
 
-In the API v2, if recognition is not yet complete, the results will include the `final` parameter set to `False`.
+In the API v2, if recognition is not yet complete, the results will contain the `final` parameter set to `False`.
 
 Speech recognition completes and delivers final results upon [EOU (End-of-Utterance)](eou.md). It is a marker of where an utterance ends. EOU occurs in the following cases:
 
-* The gRPC session has terminated.
-* Silence has been recognized in the last speech fragment. Use one of these [two parameters](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingRequest) to provide silence:
+* The gRPC session is terminated.
+* Silence has been recognized in the last speech fragment. Silence can be represented by one of these [two parameters](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming.md#speechkit.stt.v3.StreamingRequest):
 
-   * `chunk`: Sound segment recognized as silence.
+   * `chunk`: Sound recognized as silence.
    * `silence_chunk`: Silence duration in milliseconds. This parameter allows you to reduce the audio packet size by excluding silence that does not require recognition.
 
 #### See also {#see-also}

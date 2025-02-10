@@ -7,9 +7,10 @@ Each zone is isolated from hardware and software failures that may occur in othe
 
 The {{ yandex-cloud }} platform is based in three Yandex data centers. You can host resources in the following availability zones:
 
-* `{{ region-id }}-a`
-* `{{ region-id }}-b`
-* `{{ region-id }}-d`: Recommended zone for new projects
+* `{{ region-id }}-a`.
+* `{{ region-id }}-b`.
+* `{{ region-id }}-d`: Recommended zone for new projects.
+* `{{ region-id }}-m`: Separate [{{ baremetal-full-name }}](../../baremetal/index.yaml) area.
 
 
 

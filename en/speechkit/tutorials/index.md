@@ -1,9 +1,10 @@
 ---
-title: Tutorials for {{ speechkit-full-name }}
-description: This page presents a list of tutorials for {{ speechkit-name }}.
+title: '{{ speechkit-full-name }} tutorials'
+description: This page presents a list of {{ speechkit-name }} tutorials.
 ---
 
-# Tutorials for {{ speechkit-name }}
+# {{ speechkit-name }} tutorials
+
 
 * [{#T}](./recognizer-bot.md)
 * [{#T}](./speechkit-integrarion-via-agi-gw.md)
@@ -25,7 +26,7 @@ description: This page presents a list of tutorials for {{ speechkit-name }}.
 
 [{#T}](../stt/api/request-examples.md): This example uses the Russian language, other parameters [are at their defaults](../stt/api/request-api.md#query_params).
 
-### Asynchronous recognition {#async-stt}
+### Asynchronous recognition with {#async-stt}
 
 * [{#T}](../stt/api/transcribation-lpcm.md): This example uses the Russian language, the `general:rc` language model, 8,000 Hz LPCM audio, single audio channel.
 

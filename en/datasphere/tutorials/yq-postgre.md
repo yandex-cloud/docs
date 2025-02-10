@@ -1,6 +1,7 @@
 ---
 title: Tutorial for working with data in {{ mpg-full-name }} using {{ yq-full-name }}
-description: By following this tutorial, you will connect to the {{ mpg-full-name }} database and run queries against it from the {{ jlab }}Lab notebook using {{ yq-full-name }}.
+description: Follow this tutorial to connect to a {{ mpg-full-name }} database and query it from a {{ jlab }}Lab notebook with the help of {{ yq-full-name }}.
+canonical: '{{ link-docs }}/tutorials/ml-ai/yq-postgre'
 ---
 
 # Working with data in {{ mpg-full-name }}

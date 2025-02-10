@@ -5,6 +5,7 @@ description: Follow this guide to recognize long audio files in {{ speechkit-nam
 
 # How to recognize long audio files in {{ speechkit-name }}
 
+
 The service can recognize speech [in different ways](../stt/index.md#stt-ways). The provided example demonstrates [asynchronous recognition](../stt/transcribation.md) of an audio file. Asynchronous recognition is available via API v3 and API v2. Asynchronous recognition is subject to these restrictions:
 
 * Maximum audio duration: {{ stt-long-audioLength }}

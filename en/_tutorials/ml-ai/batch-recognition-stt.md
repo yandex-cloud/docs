@@ -72,13 +72,13 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
 1. Select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 1. Specify the trigger parameters:
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}**: `asr-batch-cron`
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}**: `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}**: `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}**: `{{ ui-key.yacloud.common.button_cron-1min }}`
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}**: `asr-batch-function`
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**: `$latest`
-   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}**: `asr-batch-sa`
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}**: `asr-batch-cron`.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}**: `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}**: `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}**: `{{ ui-key.yacloud.common.button_cron-1min }}`.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}**: `asr-batch-function`.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**: `$latest`.
+   * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}**: `asr-batch-sa`.
 1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 The trigger you created will fire once a minute and invoke the [cloud function](#create-function).
@@ -88,8 +88,8 @@ The trigger you created will fire once a minute and invoke the [cloud function](
 1. In the management console, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and open `asr-batch-bucket`.
 1. [Upload](../../storage/operations/objects/upload.md#simple) audio files of any [supported format](../../speechkit/formats.md) to the `input` folder.
 1. Wait a few minutes and make sure the bucket now contains the `log` and `out` folders.
-1. Check the recognition status in the `log` folder. The status of each audio file sent for recognition is saved to an auxiliary file named `<audio_file_name>.json`, e.g., `audio.mp3.json`. The `"done": "false"` parameter in the file indicates the recognition process is not completed.
-1. Check the recognition result in the `out` folder. The result is saved to a JSON file named `audio_file_name>.json`, e.g., `audio.mp3.json`. For more information about the recognition result format, see [Asynchronous recognition API](../../speechkit/stt/api/transcribation-api.md#get-result-response).
+1. Check the recognition status in the `log` folder. The status of each audio file sent for recognition is saved to an auxiliary file named `<audio_file_name>.json` (e.g., `audio.mp3.json`). The `"done": "false"` parameter in the file indicates the recognition process is not completed.
+1. Check the recognition result in the `out` folder. The result is saved to a JSON file named `<audio_file_name>.json` (e.g., `audio.mp3.json`). For more information about the recognition result format, see [Asynchronous recognition API](../../speechkit/stt/api/transcribation-api.md#get-result-response).
 
 {% note info %}
 

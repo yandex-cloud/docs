@@ -4,6 +4,12 @@
 
 For more information about voice models, see [About technology](tts/index.md#voices).
 
+### Release as of 24/01/25 {#240125}
+
+Added new [voices](tts/voices.md). For synthesis in Kazakh, the `zhanar` female voice is now available. For synthesis in Uzbek, added `lola` (female) and `yulduz` (male).
+
+
+
 ### Release as of 18/11/24 {#181124}
 
 Fixed the pronunciation of _tenge_ for synthesis in Russian. Now the model pronounces it with a soft (palatalized) _t_: `[tʲɪnˈɡʲe]`.`
@@ -177,4 +183,5 @@ The `general` branch now has these new voices: `amira` and `john`.
    * `jane:rc`
    * `omazh:rc`
    * `zahar:rc`
+
 

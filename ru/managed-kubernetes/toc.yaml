@@ -269,6 +269,10 @@ items:
               помощью Ingress-контроллера
             href: tutorials/alb-ingress-controller-log-options.md
           - name: >-
+              Создание L7-балансировщика с профилем безопасности {{ sws-name }}
+              через Ingress-контроллер {{ alb-name }}
+            href: tutorials/alb-ingress-with-sws-profile.md
+          - name: >-
               Проверка состояния приложений в кластере {{ managed-k8s-name }} с
               помощью L7-балансировщика {{ alb-name }}
             href: tutorials/custom-health-checks.md

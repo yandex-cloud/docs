@@ -75,20 +75,45 @@
         --name first-instance \
         --zone {{ region-id }}-a \
         --public-ip \
-        --create-boot-disk snapshot-name=first-snapshot \
-        --create-disk snapshot-name=second-snapshot \
+        --create-boot-disk snapshot-name=first-snapshot,kms-key-id=<идентификатор_ключа> \
+        --create-disk snapshot-name=second-snapshot,kms-key-id=<идентификатор_ключа> \
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
-      Данная команда создаст виртуальную машину именем `first-instance` в зоне `{{ region-id }}-a`, с публичным IP и дисками из снимков.
+      Где:
 
-      {% include [name-fqdn](name-fqdn.md) %}
-     
-      Чтобы создать виртуальную машину без публичного IP, исключите флаг `--public-ip`.
+      * `--name` — имя ВМ. Требования к имени:
+
+          {% include [name-format](../../_includes/name-format.md) %}
+
+          {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+
+      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md).
+      * `--public-ip` — подключение публичного IP-адреса. Чтобы создать виртуальную машину без публичного IP-адреса, исключите этот флаг.
+      * `--create-boot-disk` — настройки загрузочного диска ВМ:
+
+          * `snapshot-name` — имя снимка диска.
+          * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+
+            {% include [encryption-role](../../_includes/compute/encryption-role.md) %}
+
+            {% include [encryption-disable-warning](../../_includes/compute/encryption-disable-warning.md) %}
+
+            {% include [encryption-keys-note](../../_includes/compute/encryption-keys-note.md) %}
+
+      * `--create-disk` — настройки дополнительного диска:
+
+          * `snapshot-name` — имя снимка диска.
+          * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+      * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+
+          {% include [ssh-note](../../_includes/compute/ssh-note.md) %}
+
+      Команда создаст виртуальную машину именем `first-instance` в зоне `{{ region-id }}-a`, с публичным IP и дисками из снимков.
 
       {% include [add-several-net-interfaces-notice-cli](./add-several-net-interfaces-notice-cli.md) %}
 
- 
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/) или вызовом gRPC API [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md).

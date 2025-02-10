@@ -1,3 +1,8 @@
+---
+title: Tuning classification models
+description: In {{ foundation-models-full-name }}, you can tune classifiers based on {{ gpt-lite }}.
+---
+
 # Tuning classification models
 
 _Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage and is available upon request. You can fill out the form in the [management console]({{ link-console-main }}/link/foundation-models/)._
@@ -26,5 +31,5 @@ To send API requests in [{{ ml-platform-name }}]({{ link-datasphere-main }}) not
 
 ## Examples {#examples}
 
-[{#T}](../../operations/tuning/create.md)
+[{#T}](../../operations/tuning/tune-classifiers.md)
 

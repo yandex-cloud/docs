@@ -5,6 +5,7 @@ description: Follow this guide to recognize short audio files in {{ speechkit-na
 
 # How to recognize short audio files in {{ speechkit-short-name }}
 
+
 The service can recognize speech [in different ways](../stt/index.md#stt-ways). In the example below, the audio file is recognized using the [synchronous recognition](../stt/request.md) API. This API has the following limitations:
 
 * Maximum audio duration: {{ stt-short-audioLength }}
