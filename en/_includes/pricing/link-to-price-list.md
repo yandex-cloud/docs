@@ -1,0 +1,1 @@
+The prices for service's products are also available in the [Price list](/price-list).

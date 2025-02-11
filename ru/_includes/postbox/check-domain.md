@@ -10,7 +10,7 @@
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Выберите вашу доменную зону.
     1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
-    1. В поле **{{ ui-key.yacloud.common.name }}** укажите часть имени, сгенерированного при создании адреса, без домена в формате `<селектор>._domainkey.`. Например `postbox._domainkey.`.
+    1. В поле **{{ ui-key.yacloud.common.name }}** укажите часть имени, сгенерированного при создании адреса, без домена в формате `<селектор>._domainkey`. Например `postbox._domainkey`.
 
         {% note info %}
 

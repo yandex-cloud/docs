@@ -127,6 +127,12 @@ items:
         href: tutorials/datalens.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
+      - name: Creating an MLFlow server for logging experiments and artifacts
+        href: tutorials/mlflow-datasphere.md
+      - name: Working with data using {{ yq-name }}
+        href: tutorials/yq-postgre.md
+      - name: Federated data queries using {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
       - name: Replication and migration
         items:
           - name: Logical replication {{ PG }}
@@ -465,5 +471,5 @@ items:
         href: qa/backup.md
       - name: Monitoring and logs
         href: qa/monitoring.md
-      - name: All questions on one page
+      - name: All questions on a single page
         href: qa/all.md

@@ -425,8 +425,8 @@
           name            = "my-federation"
           organization_id = "<идентификатор_организации>"
           auto_create_account_on_login = "true"
-          issuer          = "http://<хост>:8080/auth/realms/master"
-          sso_url         = "http://<хост>:8080/auth/realms/master/protocol/saml"
+          issuer          = "http://<хост>:8080/realms/master"
+          sso_url         = "http://<хост>:8080/realms/master/protocol/saml"
           sso_binding     = "POST"
           security_settings {
               encrypted_assertions = "true"
@@ -442,8 +442,8 @@
           name            = "my-federation"
           organization_id = "<идентификатор_организации>"
           auto_create_account_on_login = "true"
-          issuer          = "http://<хост>:8080/realms/master"
-          sso_url         = "http://<хост>:8080/realms/master/protocol/saml"
+          issuer          = "http://<хост>:8080/auth/realms/master"
+          sso_url         = "http://<хост>:8080/auth/realms/master/protocol/saml"
           sso_binding     = "POST"
           security_settings {
               encrypted_assertions = "true"

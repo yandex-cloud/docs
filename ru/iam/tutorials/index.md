@@ -5,6 +5,7 @@ description: Различные сценарии использования {{ i
 
 # Практические руководства {{ iam-name }}
 
+* [{#T}](user-group-access-control.md)
 * [{#T}](static-key-in-lockbox/index.md)
 * [{#T}](sa-oslogin-ansible.md)
 * [{#T}](wlif-github-integration.md)

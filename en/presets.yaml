@@ -5574,6 +5574,7 @@ default:
             button_add: Add user
             button_remove-user: Remove user
         accounts:
+          button_bind: Bind
           column_cloud: Clouds
           label_title: List of accounts
           main-banner_button_create: Create a billing account
@@ -6027,6 +6028,12 @@ default:
           title_revoke-access-dialog: Revoke access
           value_role-source-filter_direct: Directly appointed
           value_role-source-filter_group: Assigned via group
+      iam:
+        cloud:
+          folders-create:
+            button_create: Create
+            field_description: Description
+            field_optionally: Advanced
       layout:
         organization: Organization
       page:
@@ -7329,12 +7336,14 @@ default:
           folders-create:
             button_create: Create
             field_default-net: Create a default network
+            field_name: Name
           folders:
             button_cancel-deletion: Cancel deletion
             popup-edit_button_save: Save
             section_folders: Folders
           incident-notifications:
             button_open-dialog: Add
+          label_create_cloud: Create cloud
           quotas:
             label_quota-name-compute:
               disks:
@@ -8197,6 +8206,11 @@ default:
             action_edit: Edit
             title_node-groups: Node groups
             title_virtual-node-group: Virtual node group
+      page:
+        welcome:
+          button_create: Create
+          field_cloud-name: Cloud name
+          field_organization: Organization
       postbox:
         button_create-configuration-set: Create configuration
         button_create-identity: Create address

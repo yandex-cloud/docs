@@ -1,6 +1,6 @@
 # Stopping and starting a {{ VLK }} cluster
 
-You can stop and restart a DB cluster as needed. There is no charge while your cluster is idle: you continue to pay only for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
+You can stop and restart a {{ VLK }} cluster as needed. There is no charge while your cluster is idle: you continue to pay only for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
 
 ## Stopping a cluster {#stop-cluster}
 

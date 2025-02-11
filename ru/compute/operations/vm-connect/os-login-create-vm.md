@@ -43,6 +43,20 @@ description: Следуя данной инструкции, вы сможете
      --metadata enable-oslogin=true
      ```
 
+- {{ TF }} {#tf}
+
+  1. Включите [доступ по {{ oslogin }}](../../../organization/operations/os-login-access.md) на уровне организации.
+
+  1. [Создайте ВМ](../images-with-pre-installed-software/create.md) из подготовленного образа с поддержкой доступа по {{ oslogin }}.
+  
+     При создании ВМ для ресурса `yandex_compute_instance` укажите в блоке параметров `metadata` параметр, включающий доступ через {{ oslogin }}:
+
+     ```hcl
+     metadata = {
+       enable-oslogin = true
+     }
+     ```
+
 - API {#api}
 
   1. Включите [доступ по {{ oslogin }}](../../../organization/operations/os-login-access.md) на уровне организации.
