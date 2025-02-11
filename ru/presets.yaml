@@ -5581,6 +5581,7 @@ default:
             button_add: Добавить пользователя
             button_remove-user: Удалить пользователя
         accounts:
+          button_bind: Привязать
           column_cloud: Облака
           label_title: Список аккаунтов
           main-banner_button_create: Создать платёжный аккаунт
@@ -6034,6 +6035,12 @@ default:
           title_revoke-access-dialog: Отозвать доступ
           value_role-source-filter_direct: Назначенные напрямую
           value_role-source-filter_group: Назначенные через группу
+      iam:
+        cloud:
+          folders-create:
+            button_create: Создать
+            field_description: Описание
+            field_optionally: Дополнительно
       layout:
         organization: Организация
       page:
@@ -7338,12 +7345,14 @@ default:
           folders-create:
             button_create: Создать
             field_default-net: Создать сеть по умолчанию
+            field_name: Имя
           folders:
             button_cancel-deletion: Отменить удаление
             popup-edit_button_save: Сохранить
             section_folders: Каталоги
           incident-notifications:
             button_open-dialog: Добавить
+          label_create_cloud: Создать облако
           quotas:
             label_quota-name-compute:
               disks:
@@ -8206,6 +8215,11 @@ default:
             action_edit: Изменить
             title_node-groups: Группы хостов
             title_virtual-node-group: Группа виртуальных хостов
+      page:
+        welcome:
+          button_create: Создать
+          field_cloud-name: Название облака
+          field_organization: Организация
       postbox:
         button_create-configuration-set: Создать конфигурацию
         button_create-identity: Создать адрес

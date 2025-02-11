@@ -1,11 +1,11 @@
 ---
 title: Дообучение моделей в {{ foundation-models-full-name }}
-description: '{{ foundation-models-full-name }} позволяет дообучать по методу {{ lora }} модели генерации текста {{ gpt-lite }} и {{ llama }} 8b-1, а также классификаторы на базе {{ gpt-lite }}.'
+description: '{{ foundation-models-full-name }} позволяет дообучать по методу {{ lora }} модели генерации текста {{ gpt-lite }} и {{ llama }} 8B, а также классификаторы на базе {{ gpt-lite }}.'
 ---
 
 # Дообучение моделей
 
-{{ foundation-models-full-name }} позволяет дообучать по методу [{{ lora }}](https://arxiv.org/abs/2106.09685) (_Low-Rank Adaptation of Large Language Models_) модели генерации текста {{ gpt-lite }} и {{ llama }} 8b^1^, а также [классификаторы](../classifier/index.md) на базе {{ gpt-lite }}.
+{{ foundation-models-full-name }} позволяет дообучать по методу [{{ lora }}](https://arxiv.org/abs/2106.09685) (_Low-Rank Adaptation of Large Language Models_) модели генерации текста {{ gpt-lite }} и {{ llama }} 8B^1^, а также [классификаторы](../classifier/index.md) на базе {{ gpt-lite }}.
 
 _Дообучение моделей в {{ foundation-models-full-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и предоставляется по запросу. Вы можете заполнить заявку в [консоли управления]({{ link-console-main }}/link/foundation-models/)._
 

@@ -7,6 +7,17 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.143.0 (11.02.25) {#version0.143.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ objstorage-name }}
+
+* В команду `yc storage bucket update` добавлен параметр для указания [сервисного подключения](../vpc/concepts/private-endpoint.md) {{ vpc-full-name }}, из которого будет разрешен доступ в бакет:
+  * `--private-endpoint`, пример: `--enable-private-endpoints true --private-endpoints cba,abc`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.142.0 (30.01.25) {#version0.142.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -38,8 +49,6 @@ description: На странице представлены релизы YC CLI,
 **{{ mrd-name }}**
 
 * В команды `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` добавлен параметр `--backup-retain-period-days`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.141.0 (16.12.24) {#version0.141.0}
 

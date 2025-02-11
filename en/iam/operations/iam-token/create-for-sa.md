@@ -20,9 +20,12 @@ There are multiple ways to get an [IAM token](../../concepts/authorization/iam-t
 
 Now you can get an IAM token for your service account:
 
+
 ```
 yc iam create-token
 ```
+
+
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 

@@ -1,4 +1,9 @@
-# Monitoring the state of a {{ OS }} cluster and hosts
+---
+title: Monitoring the state of an {{ OS }} cluster and hosts
+description: Follow this guide to get detailed information about a {{ mos-name }} cluster state.
+---
+
+# Monitoring the state of an {{ OS }} cluster and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -199,7 +204,7 @@ To view a cluster's state and status:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Get](../api-ref/Cluster/get.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -208,7 +213,7 @@ To view a cluster's state and status:
             --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure the request was successful.
 
@@ -221,7 +226,7 @@ To view a cluster's state and status:
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -237,7 +242,7 @@ To view a cluster's state and status:
             yandex.cloud.mdb.opensearch.v1.ClusterService.Get
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure the request was successful.
 

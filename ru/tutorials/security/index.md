@@ -5,6 +5,7 @@ description: Различные сценарии использования по
 
 # Руководства по безопасности
 
+* [{#T}](user-group-access-control.md)
 * [Создание L7-балансировщика с защитой от DDoS](alb-with-ddos-protection/index.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)

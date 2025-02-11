@@ -1,6 +1,11 @@
+---
+title: Connecting {{ maf-full-name }} to an {{ objstorage-full-name }} bucket with a bucket policy
+description: In {{ maf-full-name }}, you can work with an {{ objstorage-full-name }} bucket with bucket policies configured.
+---
+
 # Connecting to a {{ objstorage-full-name }} bucket with a bucket policy
 
-In {{ maf-full-name }}, you can work with an {{ objstorage-full-name }} bucket with [access policies](../../storage/security/policy.md) configured. You access the bucket from a separate DNS zone through an internal load balancer used to distribute traffic among NAT instances. The described connection is shown below. An {{ AF }} cluster will be used in place of the `test-s3-vm` VM.
+In {{ maf-full-name }}, you can work with an {{ objstorage-full-name }} bucket with [bucket policies](../../storage/security/policy.md) configured. You access the bucket from a separate DNS zone through an internal load balancer used to distribute traffic among NAT instances. The described connection is shown below. An {{ AF }} cluster will be used in place of the `test-s3-vm` VM.
 
 ![Storage VPC Access](../../_assets/managed-airflow/storage-vpc-access-maf.svg)
 

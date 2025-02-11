@@ -1,6 +1,6 @@
 ---
 title: '{{ mmg-name }} host classes'
-description: The host class determines the computing power allocated for each host in a MongoDB cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class.
+description: The host class determines the computing power allocated for each host in a {{ MG }} cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class.
 ---
 
 # {{ MG }} host classes

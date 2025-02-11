@@ -10,7 +10,7 @@ description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](ch-to-mch-migration.md)
 * [Sharding tables](sharding.md)
 * [Data resharding in a cluster](mch-mch-resharding.md)
-* [Using hybrid storage](hybrid-storage.md)
+* [Using a hybrid storage](hybrid-storage.md)
 * [Fetching data from {{ mkf-name }}](fetch-data-from-mkf.md)
 * [Fetching data from RabbitMQ](fetch-data-from-rabbitmq.md)
 * [Exchanging data with {{ dataproc-full-name }}](exchange-data-with-dp.md)
@@ -37,6 +37,8 @@ description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](data-from-ch-geocoder.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](data-ingestion.md)
+* [{#T}](yq-clickhouse.md)
+* [{#T}](yq-federative-queries.md)
 
 
 To learn how to migrate {{ mch-name }} cluster hosts to a different availability zone, see [this guide](../operations/host-migration.md).

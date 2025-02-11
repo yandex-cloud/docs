@@ -1,3 +1,8 @@
+---
+title: Working with Spark jobs
+description: In this section, we provide a simple example that demonstrates how to use the Spark interface for Scala and Java in {{ dataproc-name }}.
+---
+
 # Working with Spark jobs
 
 [Apache Spark](https://spark.apache.org/) is a distributed processing framework for unstructured and semi-structured data and a part of the Hadoop project ecosystem.

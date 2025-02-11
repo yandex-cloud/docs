@@ -7,7 +7,7 @@ description: This section contains {{ mos-name }} release notes.
 
 ## October 2024 {#oct-2024}
 
-* Added support of the `yandex-lemmer` plugin for accurate search in Russian.
+* Added support of the `yandex-lemmer` [plugin](concepts/plugins.md#yandex-lemmer) for accurate search in Russian.
 * A new version is out: {{ OS }} [2.17.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.17.0.md).
 * Added the session timeout option (**{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**) to [external authentication sources settings](operations/saml-authentication.md#configuration-sso). Specify if not set by the identity provider.
 

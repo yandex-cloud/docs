@@ -1,3 +1,8 @@
+---
+title: Updating a {{ dataproc-name }} cluster
+description: After creating a {{ dataproc-name }} cluster, you can change its basic and advanced settings.
+---
+
 # Updating a {{ dataproc-name }} cluster
 
 After creating a cluster, you can change its basic and advanced settings.
@@ -83,7 +88,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
     To change {{ dataproc-name }} cluster settings:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-dp }} cluster update --help
@@ -97,7 +102,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
            --log-group-id=<log_group_ID>
         ```
 
-        You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
+        You can request the log group ID with the [list of log groups in the folder](../../logging/operations/list.md).
 
 
     1. To protect a cluster from accidental deletion by a user of your cloud, add the `--deletion-protection` parameter:
@@ -122,7 +127,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         {% endnote %}
 
-    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
+    You can get the cluster ID and name with the [list of clusters in the folder](./cluster-list.md#list).
 
 - {{ TF }} {#tf}
 
