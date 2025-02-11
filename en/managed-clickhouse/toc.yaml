@@ -95,7 +95,7 @@ items:
         href: tutorials/sharding.md
       - name: Data resharding in a cluster
         href: tutorials/mch-mch-resharding.md
-      - name: Using hybrid storage
+      - name: Using a hybrid storage
         href: tutorials/hybrid-storage.md
       - name: Fetching data from {{ mkf-name }}
         href: tutorials/fetch-data-from-mkf.md
@@ -169,6 +169,10 @@ items:
           Geocoding with the Yandex Maps API for data visualization in {{
           datalens-short-name }}
         href: tutorials/data-from-ch-geocoder.md
+      - name: Working with data using {{ yq-name }}
+        href: tutorials/yq-clickhouse.md
+      - name: Federated data queries using {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
   - name: Concepts
     items:
       - name: Resource relationships

@@ -1,13 +1,13 @@
 ---
 title: Дообучение моделей генерации текста
-description: В {{ foundation-models-full-name }} вы можете дообучить модели генерации текста {{ gpt-lite }} и {{ llama }} 8b-1.
+description: В {{ foundation-models-full-name }} вы можете дообучить модели генерации текста {{ gpt-lite }} и {{ llama }} 8B.
 ---
 
 # Дообучение моделей генерации текста
 
 _Дообучение моделей в {{ foundation-models-full-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и предоставляется по запросу. Вы можете заполнить заявку в [консоли управления]({{ link-console-main }}/link/foundation-models/)._
 
-В {{ foundation-models-full-name }} вы можете дообучить модели генерации текста {{ gpt-lite }} и {{ llama }} 8b^1^.
+В {{ foundation-models-full-name }} вы можете дообучить модели генерации текста {{ gpt-lite }} и {{ llama }} 8B^1^.
 
 {% include [logging](../../../_includes/foundation-models/yandexgpt/logging-disclaimer.md) %}
 

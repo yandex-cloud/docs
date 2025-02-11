@@ -5,5 +5,6 @@ description: Различные сценарии использования {{ o
 
 # Практические руководства {{ org-name }}
 
+* [{#T}](user-group-access-control.md)
 * [Управление федерациями удостоверений](./federations/index.md)
 * [{#T}](sa-oslogin-ansible.md)

@@ -20,9 +20,12 @@ description: Следуя данной инструкции, вы сможете
 
 Теперь вы можете получить IAM-токен для сервисного аккаунта:
 
+
 ```
 yc iam create-token
 ```
+
+
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 

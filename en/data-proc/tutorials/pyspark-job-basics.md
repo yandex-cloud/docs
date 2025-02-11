@@ -1,3 +1,8 @@
+---
+title: Working with PySpark jobs
+description: In this section, we provide a simple example that demonstrates how to use PySpark, the Spark interface for Python, in {{ dataproc-name }}.
+---
+
 # Working with PySpark jobs
 
 [Apache Spark](https://spark.apache.org/) is a distributed processing framework for unstructured and semi-structured data and a part of the Hadoop project ecosystem.

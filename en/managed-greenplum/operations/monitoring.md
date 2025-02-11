@@ -1,3 +1,8 @@
+---
+title: Monitoring the state of a {{ GP }} cluster and hosts
+description: Follow this guide to get detailed information about a {{ mgp-name }} cluster state.
+---
+
 # Monitoring the state of a {{ GP }} cluster and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
@@ -117,8 +122,8 @@ To view detailed information about the {{ mgp-name }} cluster network state:
     This page displays the following charts:
 
     * **Interfaces**:
-        * **Сlient Interface Packets**: Number of received and sent packets on the client network interface.
-        * **Сlient Interface Packets**: Total size of received and sent data on the client network interface (in bytes).
+        * **Client Interface Packets**: Number of received and sent packets on the client network interface.
+        * **Client Interface Packets**: Total size of received and sent data on the client network interface (in bytes).
         * **Client Interface Drops and Errors**: Number of errors and drops on the client network interface when sending or transmitting packets.
         * **Service Interface Packets**: Number of received and sent packets on the service network interface.
         * **Service Interface Packets**: Total size of received and sent data on the service network interface (in bytes).

@@ -5,7 +5,7 @@ description: Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}.
 
 # {{ mpg-name }} tutorials
 
-* [Creating a {{ PG }} cluster for <q>1С:Enterprises</q>](./1c-postgresql.md)
+* [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](./1c-postgresql.md)
 * [{#T}](./1c-postgresql-linux.md)
 * [{#T}](./sqoop.md)
 * [{#T}](./performance-problems.md)
@@ -21,6 +21,9 @@ description: Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](./joomla-postgresql/index.md)
 * [{#T}](./datalens.md)
 * [{#T}](logging.md)
+* [{#T}](mlflow-datasphere.md)
+* [{#T}](yq-postgre.md)
+* [{#T}](yq-federative-queries.md)
 
 ## Replication and migration {#replication-and-migration}
 

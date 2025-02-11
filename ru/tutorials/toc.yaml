@@ -5,6 +5,8 @@ items:
     items:
       - name: Все руководства
         href: security/index.md
+      - name: Разграничение прав доступа для групп пользователей
+        href: security/user-group-access-control.md
       - name: Создание L7-балансировщика с защитой от DDoS
         items:
           - name: Обзор

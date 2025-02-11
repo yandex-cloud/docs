@@ -95,6 +95,8 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Разграничение прав доступа для групп пользователей
+        href: tutorials/user-group-access-control.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         items:
           - name: Обзор

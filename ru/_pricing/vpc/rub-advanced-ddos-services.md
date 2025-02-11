@@ -2,7 +2,7 @@
 | --- | --- | --- | --- | --- |
 | Защищенные IP-адреса (сверх одного IP-адреса, включенного в АП), ежемесячно | 8&nbsp;400,00&nbsp;₽ | 19&nbsp;200,00&nbsp;₽ | 30&nbsp;000,00&nbsp;₽ | Рассчитывается индивидуально |
 | Базовая балансировка очищенного трафика между IP-адресами (Не более двух апстримов по алгоритму Round-robin) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Балансировка очищенного трафика между IP-адресами Заказчика QLB (Qrator Load Balancing), ежемесячно | ![image](../../_assets/common/no.svg) | 42&nbsp;000,00&nbsp;₽ | 42&nbsp;000,00&nbsp;₽ | ![image](../../_assets/common/yes.svg) |
+| Балансировка очищенного трафика между IP-адресами Заказчика CLB (Curator Load Balancing), ежемесячно | ![image](../../_assets/common/no.svg) | 42&nbsp;000,00&nbsp;₽ | 42&nbsp;000,00&nbsp;₽ | ![image](../../_assets/common/yes.svg) |
 | Услуга защиты Websockets (проксирование TCP соединений), ежемесячно | 18&nbsp;000,00&nbsp;₽ | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Фильтрация трафика по геозонам, ежемесячно | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | 36&nbsp;000,00&nbsp;₽ | ![image](../../_assets/common/yes.svg) |
 | Отказоустойчивый DNS 10 зон, ежемесячно | 9&nbsp;600,00&nbsp;₽ | 9&nbsp;600,00&nbsp;₽ | 9&nbsp;600,00&nbsp;₽ | Рассчитывается индивидуально |

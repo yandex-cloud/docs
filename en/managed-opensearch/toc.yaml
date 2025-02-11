@@ -53,37 +53,29 @@ items:
     items:
       - name: Configuring an index policy in {{ mos-name }}
         href: tutorials/opensearch-index-policy.md
-      - name: Migrating data from {{ ES }}
-        href: tutorials/migration-to-opensearch.md
       - name: Uploading logs from {{ at-name }}
         hidden: true
         href: tutorials/trails-to-opensearch.md
-      - name: >-
-          Delivering data from {{ mkf-full-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/migration-from-mkf.md
-      - name: >-
-          Migrating data from a third-party {{ OS }} cluster using {{
-          data-transfer-full-name }}
-        href: tutorials/migration-from-standalone.md
-      - name: >-
-          Loading data from {{ mos-name }} to {{ objstorage-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/opensearch-to-object-storage.md
-      - name: >-
-          Migrating data from {{ mos-name }} to {{ ydb-full-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/opensearch-to-ydb.md
-      - name: >-
-          Copying data from {{ mos-name }} to {{ mch-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/opensearch-to-clickhouse.md
-      - name: >-
-          Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/postgresql-to-opensearch.md
       - name: Authentication in {{ OS }} Dashboards using {{ keycloak }}
         href: tutorials/saml-keycloak.md
+      - name: Using the yandex-lemmer plugin
+        href: tutorials/opensearch-yandex-lemmer.md
+      - name: Migrating and copying data
+        items:
+          - name: Migrating data from a third-party {{ OS }} cluster
+            href: tutorials/migration-from-standalone.md
+          - name: Migrating data from {{ ES }}
+            href: tutorials/migration-to-opensearch.md
+          - name: Migrating data from {{ mpg-full-name }}
+            href: tutorials/postgresql-to-opensearch.md
+          - name: Delivering data from {{ mkf-full-name }}
+            href: tutorials/migration-from-mkf.md
+          - name: Uploading data to {{ objstorage-name }}
+            href: tutorials/opensearch-to-object-storage.md
+          - name: Migrating data to {{ ydb-full-name }}
+            href: tutorials/opensearch-to-ydb.md
+          - name: Copying data to {{ mch-full-name }}
+            href: tutorials/opensearch-to-clickhouse.md
   - name: Concepts
     items:
       - name: Resource relationships

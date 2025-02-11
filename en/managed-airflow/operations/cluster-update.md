@@ -1,6 +1,6 @@
 ---
 title: Updating an {{ AF }} cluster
-description: After creating a cluster, you can change its basic and advanced settings.
+description: After creating an {{ AF }} cluster, you can change its basic and advanced settings.
 keywords:
   - Updating an {{ AF }} cluster
   - '{{ AF }} cluster'
@@ -66,7 +66,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster update --help
@@ -102,7 +102,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters.md) %}
 
-        You can request the cluster ID and name with a [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+        You can request the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -296,7 +296,7 @@ After creating a cluster, you can change its basic and advanced settings.
             --data '@body.json'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -376,7 +376,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
         Where:
 
-        * `cluster_id`: Cluster ID. You can retrieve it with a [list of clusters in a folder](cluster-list.md#list-clusters).
+        * `cluster_id`: Cluster ID. You can request it with the [list of clusters in a folder](cluster-list.md#list-clusters).
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
             {% cut "Format for listing settings" %}
