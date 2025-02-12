@@ -6,9 +6,9 @@ description: Follow this guide to create a disk snapshot schedule in {{ compute-
 # Creating a disk snapshot schedule
 
 
-## Configuring an automatic disk snapshot schedule {#set-schedule}
+## Setting up an automatic disk snapshot schedule {#set-schedule}
 
-To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation of [disk snapshots](../../concepts/snapshot.md):
+To set up an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](../../concepts/snapshot-schedule.md):
 
 {% list tabs group=instructions %}
 
@@ -19,24 +19,24 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
   1. In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab, click **{{ ui-key.yacloud.common.create }}**.
   1. Configure schedule parameters:
-     * Enter a name for the schedule in the following format:
+     * Enter a name for your schedule in the following format:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
-     * If required, provide a free-form text description for the schedule.
-     * Select disks for which you need to create scheduled snapshots. One schedule can include several disks and one disk can be added to several schedules within the [limits](../../concepts/limits.md#compute-limits-snapshot-schedule).
+     * Provide a description for the schedule, if required.
+     * Select the disks to create scheduled snapshots for. You can add multiple disks to a single schedule, and you can add a single disk to multiple schedules as long as you stay within the [limits](../../concepts/limits.md#compute-limits-snapshot-schedule).
 
        {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-     * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_schedule-policy }}** field, select how often the snapshots will be created: `{{ ui-key.yacloud.compute.snapshots-schedules.label_hourly }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_daily }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_weekly }}`, [or `{{ ui-key.yacloud.compute.snapshots-schedules.label_custom }}`](../../concepts/snapshot-schedule.md#cron). The snapshot creation time is specified in [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+     * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_schedule-policy }}** field, select the snapshot frequency: `{{ ui-key.yacloud.compute.snapshots-schedules.label_hourly }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_daily }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_weekly }}`, [or `{{ ui-key.yacloud.compute.snapshots-schedules.label_custom }}`](../../concepts/snapshot-schedule.md#cron). The snapshot creation time is specified in [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
      * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_start-at }}** field, set the start date for your schedule.
      * Select the snapshot retention policy:
-       * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}**: All the snapshots created according to this schedule will be retained.
-       * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}**: Set the number of the last snapshots to be retained or the number of days for which the snapshots are to be retained. Other snapshots created according to this schedule will be deleted automatically.
+       * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}**: Enable to retain all snapshots created by this schedule.
+       * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}**: Specify the number of the latest snapshots to retain or the number of days for which you want to retain the snapshots. Any other snapshots created by this schedule will be deleted automatically.
 
        {% note info %}
 
-       [Quotas](../../concepts/limits.md#compute-quotas) apply to the number and total amount of snapshots in the cloud.
+       There are [quotas](../../concepts/limits.md#compute-quotas) on the number and total size of snapshots in the cloud.
 
        {% endnote %}
 
@@ -48,7 +48,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) commands for managing schedules:
+  1. See the description of the [CLI](../../../cli/) commands for managing schedules:
 
      ```bash
      yc compute snapshot-schedule --help
@@ -68,16 +68,16 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
      {% endnote %}
 
-     If you need to configure a [snapshot retention](../../concepts/snapshot-schedule.md#retention) policy, add the `--snapshot-count` or `--retention-period` parameter, for example:
+     If you need to configure a [snapshot retention](../../concepts/snapshot-schedule.md#retention) policy, specify the `--snapshot-count` or `--retention-period` parameter, such as follows:
      * `--snapshot-count 5`: Retain 5 latest snapshots.
      * `--retention-period 72h`: Retain snapshots for the last 3 days.
 
-     To add the start date for a schedule, use the `--start-at` parameter, For example:
+     To add the start date for a schedule, specify the `--start-at` parameter, such as follows:
      * `--start-at "2022-12-31T16:39:00+05:00"`: Schedule starts at 16:39 UTC+5 on December 31, 2022.
      * `--start-at "2h"`: Schedule starts two hours before the current time point.
 
      For more information about the `yc compute snapshot-schedule create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
-  1. To add disks to the schedule, get [disk](../../concepts/disk.md) IDs:
+  1. To add disks to your schedule, get [disk](../../concepts/disk.md) IDs:
 
      ```bash
      yc compute disk list --format yaml
@@ -118,7 +118,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resource you want to create:
 
      ```hcl
      resource "yandex_compute_snapshot_schedule" "default" {
@@ -128,7 +128,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
          expression = "<cron_expression>"
        }
 
-       snapshot_count = <number_of_snapshots_for_each_disk>
+       snapshot_count = <number_of_snapshots_per_disk>
 
        snapshot_spec {
          description = "<snapshot_description>"
@@ -151,7 +151,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
      * `disk_ids`: IDs of disks to create snapshots for. This is a required parameter.
 
      For more information about the `yandex_compute_snapshot_schedule` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule).
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -163,7 +163,7 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
 - API {#api}
 
-  1. Get the list of disks using the [list](../../api-ref/Disk/list.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/List](../../api-ref/grpc/Disk/list.md) gRPC API call.
+  1. Get a list of disks using the [list](../../api-ref/Disk/list.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/List](../../api-ref/grpc/Disk/list.md) gRPC API call.
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
@@ -171,17 +171,17 @@ To configure automatic [scheduled](../../concepts/snapshot-schedule.md) creation
 
 {% endlist %}
 
-Snapshots are created and deleted automatically only while the schedule is on (has the `ACTIVE` [status](../../concepts/snapshot-schedule.md#statuses)).
+Snapshots will be created and deleted automatically only while the schedule has the `ACTIVE` [status](../../concepts/snapshot-schedule.md#statuses).
 
 ## Examples {#examples}
 
-### Snapshots are created every day {#daily}
+### Daily snapshots {#daily}
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  To set up daily creation of snapshots:
+  To set up daily snapshots:
   1. Create a schedule using a [cron expression](../../concepts/snapshot-schedule.md#cron):
 
      ```bash
@@ -193,7 +193,7 @@ Snapshots are created and deleted automatically only while the schedule is on (h
        --labels "machine=file-server"
      ```
 
-     As a result, the following schedule is created:
+     This will create a schedule with the following parameters:
      * Name: `sched-1`; description: `Daily`.
      * Snapshots taken daily at 19:10 Moscow time.
      * Start date: December 31 at 19:04 Moscow time.
@@ -273,4 +273,4 @@ Snapshots are created and deleted automatically only while the schedule is on (h
 * [{#T}](stop-and-start-schedule.md).
 * [{#T}](update-schedule.md).
 * [{#T}](delete-schedule.md).
-* [Creating disk snapshots manually](../disk-control/create-snapshot.md).
+* [Creating a disk snapshot manually](../disk-control/create-snapshot.md).

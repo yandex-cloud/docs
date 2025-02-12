@@ -87,25 +87,25 @@
    * `FTP_RSA_PRIVATE_KEY_FILE` — путь к закрытому ключу TLS-сертификата внутри Docker-контейнера. Значение по умолчанию — `/secrets/ftp.key`.
 1. Запустите Docker-контейнер:
 
-   {% list tabs %}
+   {% list tabs group=protocols %}
 
-   - SFTP
-
-     ```bash
-     docker run -d -it \
-       --cap-add SYS_ADMIN \
-       --device /dev/fuse \
-       --security-opt apparmor:unconfined \
-       --env-file env.list \
-       -v <полный_путь_к_папке_secrets>:/secrets \
-       -p 1022:22 \
-       --name ftp \
-       {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
-     ```
+   - SFTP {#sftp}
+    
+      ```bash
+      docker run -d -it \
+        --cap-add SYS_ADMIN \
+        --device /dev/fuse \
+        --security-opt apparmor:unconfined \
+        --env-file env.list \
+        -v <полный_путь_к_папке_secrets>:/secrets \
+        -p 1022:22 \
+        --name ftp \
+        {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
+      ```
 
      Сервер будет принимать соединения на порте 1022.
 
-   - FTP(S)
+   - FTP(S) {#ftp}
 
      ```bash
      docker run -d -it \
@@ -123,6 +123,28 @@
      ```
 
      Сервер будет принимать соединения на порте 1021. Также для пассивного режима (переменная `FTP_PASV_ENABLE`) открыт порт 21100 — если вы не используете этот режим, опции `--expose 21100` и `-p 21100:21100` можно не использовать.
+
+   {% endlist %}
+
+1. Подключитесь к серверу:
+
+   {% list tabs group=protocols %}
+
+   - SFTP {#sftp}
+    
+      ```bash
+      sudo sftp -i <путь_к_приватному_SSH-ключу> -P 1022 s3@localhost
+      ```
+
+      После успешного подключения вам будет доступна консоль для взаимодействия с SFTP-сервером.
+
+   - FTP {#ftp}
+
+     ```bash
+     ftp -P 1021 s3@localhost
+     ```
+
+     После успешного подключения вам будет доступна консоль для взаимодействия с FTP-сервером.
 
    {% endlist %}
 

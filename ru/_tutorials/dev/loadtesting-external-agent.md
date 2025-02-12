@@ -84,7 +84,7 @@ _Внешний агент_ — физический или виртуальны
     latest: Pulling from yc/ya-lt-agent
     df6635ed1257: Pull complete 
     7a51fa4387ba: Pull complete 
-    Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d2827f1e47b
+    Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d28********
     Status: Downloaded newer image for {{ registry }}/yc/ya-lt-agent:latest
     {{ registry }}/yc/ya-lt-agent:latest
     ```

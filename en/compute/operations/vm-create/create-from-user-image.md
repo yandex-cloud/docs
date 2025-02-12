@@ -1,13 +1,17 @@
+---
+title: How to create a VM from a custom image
+description: Follow this guide to create a VM from a custom image.
+---
 
 # Creating a VM from a custom image
 
 ## Getting started {#before-you-begin}
 
-[Prepare and upload](../image-create/upload.md) the [image](../../concepts/image.md) to {{ compute-name }} to create a [VM](../../concepts/vm.md) from.
+[Prepare and upload](../image-create/upload.md) an [image](../../concepts/image.md) to {{ compute-name }} to create a [VM](../../concepts/vm.md) from.
 
 Make sure the image you upload has the `READY` status.
 
-## Create a VM from the prepared image {#create-vm-from-image}
+## Creating a VM from a pre-built image {#create-vm-from-image}
 
 {% include [independent-resources](../../../_includes/compute/independent-resources.md) %}
 
@@ -16,7 +20,7 @@ Make sure the image you upload has the `READY` status.
 - Management console {#console}
 
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -25,7 +29,7 @@ Make sure the image you upload has the `READY` status.
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the image you need from the list below.
-      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
@@ -34,10 +38,10 @@ Make sure the image you upload has the `READY` status.
       * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
       * In the window that opens, select **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}** → `Create new`.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the image you need from the list below.
-      * Specify the disk name.
+      * Enter a name for the disk.
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required disk size and block size.
-      * (Optional) In the **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** if you need to automatically delete this disk when deleting the VM.
+      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}
@@ -45,7 +49,7 @@ Make sure the image you upload has the `READY` status.
   1. {% include [section-platform](../../../_includes/compute/create/section-platform.md) %}
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify a name for the VM:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -53,9 +57,9 @@ Make sure the image you upload has the `READY` status.
   1. {% include [section-additional](../../../_includes/compute/create/section-additional.md) %}
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  The VM appears in the list. Once created, the VM is assigned an [IP address](../../../vpc/concepts/address.md) and a [host name (FQDN)](../../../vpc/concepts/address.md#fqdn).
+  The VM will appear in the list. The system automatically assigns an [IP address](../../../vpc/concepts/address.md) and [host name](../../../vpc/concepts/address.md#fqdn) (FQDN) to a VM once it is created.
 
-  You can monitor the VM status in the serial console or the [serial port output](../vm-info/get-serial-port-output.md).
+  You can monitor the VM status in the serial console or [serial port output](../vm-info/get-serial-port-output.md).
 
 - CLI {#cli}
 
@@ -63,7 +67,7 @@ Make sure the image you upload has the `READY` status.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to create a VM:
+  1. See the description of the CLI command for creating a VM:
 
      ```bash
      yc compute instance create --help
@@ -123,10 +127,10 @@ Make sure the image you upload has the `READY` status.
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) corresponding to the selected subnet.
+     * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) matching the selected subnet.
      * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
          * `subnet-name`: Name of the selected subnet.
-         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, omit this parameter.
 
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
@@ -136,12 +140,12 @@ Make sure the image you upload has the `READY` status.
              {% include [name-format](../../../_includes/name-format.md) %}
 
          * `size`: Disk size in GB.
-         * `image-id`: ID of the custom image for the VM. Specify the ID of the [uploaded](../image-create/upload.md) image.
+         * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-         If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter.
+         If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in the `--metadata-from-file` parameter.
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -191,7 +195,7 @@ Make sure the image you upload has the `READY` status.
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create a VM from a custom image:
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -248,7 +252,7 @@ Make sure the image you upload has the `READY` status.
        * `type`: Disk type.
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
        * `size`: Disk size in GB.
-       * `image_id`: ID of the custom image for the VM. Specify the ID of the [uploaded](../image-create/upload.md) image.
+       * `image_id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
      * `yandex_compute_instance`: VM description.
        * `name`: VM name. The naming requirements are as follows:
 
@@ -259,25 +263,25 @@ Make sure the image you upload has the `READY` status.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
        * `zone`: Availability zone the VM will be in.
-       * `resources`: Number of vCPU cores and RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+       * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
        * `boot_disk`: Boot disk settings. Specify the disk ID.
-       * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+       * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
        * `metadata`: In metadata, provide the public key for SSH access to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
-     * `yandex_vpc_network`: Description of the cloud network.
-     * `yandex_vpc_subnet`: Description of the subnet your VM will be connected to.
+     * `yandex_vpc_network`: Cloud network description.
+     * `yandex_vpc_subnet`: Description of the subnet to connect your VM to.
 
      {% note info %}
 
-     If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+     If you already have suitable resources, such as a cloud network and subnet, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
 
      {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -289,7 +293,7 @@ Make sure the image you upload has the `READY` status.
 
 {% endlist %}
 
-## Disable metadata verification {#disable-metadata-check}
+## Disabling metadata verification {#disable-metadata-check}
 
 {% include [disable-metadata-check](../../../_includes/compute/disable-metadata-check.md) %}
 

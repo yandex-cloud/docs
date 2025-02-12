@@ -12,13 +12,13 @@ description: Follow this guide to delete the password reset agent from a Windows
 
    - PowerShell {#powershell}
 
-     1. Stop the `yc-guest-agent` process:
+     1. Stop the `yc-guest-agent` service:
 
         ```powershell
         Stop-Service -Name "yc-guest-agent"
         ```
 
-     1. Verify that the service has been stopped:
+     1. Check that the service has been stopped:
 
         ```powershell
         Get-Service "yc-guest-agent"

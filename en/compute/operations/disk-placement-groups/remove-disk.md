@@ -28,9 +28,9 @@ Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placemen
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To remove a non-replicated disk created with {{ TF }} from a placement group:
-  1. Open the {{ TF }} configuration file and delete the fragment describing the non-replicated disk.
+  1. Open the {{ TF }} configuration file and delete the section specifying the non-replicated disk.
 
-     {% cut "Sample non-replicated disk description in the {{ TF }} configuration" %}
+     {% cut "Example of specifying a non-replicated disk in {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -73,7 +73,7 @@ Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placemen
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
   1. Apply the configuration changes:
 
      ```bash
@@ -82,7 +82,7 @@ Remove a [non-replicated disk](../../concepts/disk.md#nr-disks) from a [placemen
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc compute disk-placement-group get <disk_placement_group_name>

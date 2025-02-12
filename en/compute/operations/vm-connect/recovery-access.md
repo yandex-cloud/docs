@@ -105,7 +105,7 @@ If you cannot access the serial console, follow these steps to recover the publi
 
    {% endnote %}
 
-1. [Connect](../vm-connect/ssh.md) to the new VM over SSH.
+1. [Connect](../vm-connect/ssh.md) to the new VM via SSH.
 1. [Delete the disk snapshot](../snapshot-control/delete.md) and [delete](../vm-control/vm-delete.md) the auxiliary and old VMs.
 
     If you do not delete them, they will remain billable, and {{ yandex-cloud }} will continue to charge for them.

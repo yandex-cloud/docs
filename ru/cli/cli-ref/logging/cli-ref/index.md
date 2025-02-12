@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/logging/cli-ref/index.md
 
 # yc logging
 
-[PREVIEW] Manage Yandex Cloud Logging
+Yandex Cloud Logging
 
 #### Command Usage
 

@@ -1,6 +1,6 @@
-# Detaching a public IP address from a virtual machine
+# Unassigning a public IP address from a VM
 
-If you previously attached a public IP address to a VM's [network interface](../../concepts/network.md), you can detach it.
+If you have previously assigned a public IP address to a VM [network interface](../../concepts/network.md), you can unassign it.
 
 {% include [detach-public-ip-note](../../../_includes/compute/detach-public-ip-note.md) %}
 
@@ -20,7 +20,7 @@ If you previously attached a public IP address to a VM's [network interface](../
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To detach a public IP address from a VM, run the following CLI command:
+  To unassign a public IP address from a VM, run the following CLI command:
 
   ```bash
   yc compute instance remove-one-to-one-nat
@@ -30,8 +30,8 @@ If you previously attached a public IP address to a VM's [network interface](../
 
   Where:
 
-  * `--id`: VM ID. You can get a list of available VM IDs in a folder using the `yc compute instance list` [CLI](../../../cli/cli-ref/compute/cli-ref/instance/list.md) command.
-  * `--network-interface-index`: VM network interface number. The default value is `0`. To get a list of VM network interfaces and their numbers, run the following command: `yc compute instance get <VM_ID>`.
+  * `--id`: VM ID. You can get a list of available VM IDs in the folder using the `yc compute instance list` [CLI command](../../../cli/cli-ref/compute/cli-ref/instance/list.md).
+  * `--network-interface-index`: VM network interface number. The default value is `0`. To get a list of VM network interfaces and their numbers, run `yc compute instance get <VM_ID>`.
 
   For more information about the `yc compute instance remove-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/remove-one-to-one-nat.md).
 

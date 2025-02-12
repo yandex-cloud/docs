@@ -5,7 +5,7 @@ description: Follow this guide to get a list of public images in {{ compute-full
 
 # Getting a list of public images
 
-When creating a VM, you need to select its [image](../../concepts/image.md) with the software that you want to use.
+When creating a virtual machine, you need to select an [image](../../concepts/image.md) with the software that you want to use.
 
 {% list tabs group=instructions %}
 
@@ -13,10 +13,10 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
 
   You can view a list of public images when creating a virtual machine:
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
+  1. In the [management console]({{ link-console-main }}), open the folder where you want to create your VM.
   1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
-  1. In the list that opens, select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. A list of all available public images will appear.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}** from the list that opens.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. You will see a list of all available public images.
 
   To [view information](./get-info.md) about a specific image, click ![image](../../../_assets/console-icons/circle-info.svg).
 
@@ -75,11 +75,11 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
 
 - API {#api}
 
-  1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
+  1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication in these examples:
      * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
      * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
      * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
-  1. Get the list of public images from {{ yandex-cloud }} using the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/Image/list.md) gRPC API call. In the request, specify the following parameters:
+  1. Get a list of public images from {{ yandex-cloud }} using the [list](../../api-ref/Image/list.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/List](../../api-ref/grpc/Image/list.md) gRPC API call. In your request, specify the following parameters:
      * Specify `standard-images` as the folder ID.
      * The folder contains many images, so specify `pageSize=1000` or use the obtained value of `nextPageToken` to get the next page.
 

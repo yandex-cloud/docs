@@ -5,10 +5,10 @@
 
    {% note info %}
 
-   In the window that opens, if you see a message that the password reset agent is not running on the VM, make sure it is installed and review its runtime logs. For more information, see [{#T}](../../compute/operations/vm-guest-agent/check.md).
+   If the window that opens shows a message saying that the password reset agent is not running on the VM, make sure it is installed and check its runtime logs. For more information, see [{#T}](../../compute/operations/vm-guest-agent/check.md).
 
    {% endnote %}
 
-1. Specify the **Username** to reset the password for. If there is no user with that name on the VM, this user will be created with administrator access.
+1. Specify the **Username** to reset the password for. If there is no user with that name on your VM, it will automatically be created with admin permissions.
 1. Click **Generate password**.
-1. Save the **New password**. It will become unavailable once you close the window.
+1. Save the **New password**, as it will not be shown again after you close the window.

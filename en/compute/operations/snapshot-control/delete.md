@@ -7,7 +7,7 @@ description: Follow this guide to delete a disk snapshot.
 
 {% note warning %}
 
-Deleting a [snapshot](../../concepts/snapshot.md) is an operation that you cannot cancel or reverse. You cannot restore a deleted snapshot. When you delete a snapshot, all the information in it is deleted. The data on the main disk will remain unchanged.
+Deleting a [snapshot](../../concepts/snapshot.md) is permanent and cannot be undone, so you cannot recover a deleted snapshot. When you delete a snapshot, all the information it stores is erased. The data on the primary disk will remain unchanged.
 
 {% endnote %}
 
@@ -17,56 +17,56 @@ To delete a snapshot:
 
 - Management console {#console}
 
-   1. In the management console, select the folder where the snapshot is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-   1. In the line with the appropriate snapshot, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the management console, select the folder containing your snapshot.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. In the line with the snapshot, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's delete snapshot commands:
+  1. See the description of the CLI commands for deleting a snapshot:
 
-      ```bash
-      yc compute snapshot delete --help
-      ```
+     ```bash
+     yc compute snapshot delete --help
+     ```
 
-   1. Get a list of snapshots in the default folder:
+  1. Get a list of snapshots in the default folder:
 
-      {% include [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md) %}
+     {% include [compute-snapshot-list](../../_includes_service/compute-snapshot-list.md) %}
 
-   1. Select the ID (`ID`) or the name (`NAME`) of the desired snapshot.
-   1. Delete the snapshot:
+  1. Select `ID` or `NAME` of the snapshot in question.
+  1. Delete the snapshot:
 
-      ```bash
-      yc compute snapshot delete \
-        --name first-snapshot
-      ```
+     ```bash
+     yc compute snapshot delete \
+       --name first-snapshot
+     ```
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   If you created a snapshot with {{ TF }}, you can delete it:
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
-   1. Delete the resources using this command:
+  To delete a snapshot created with {{ TF }}, follow these steps:
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. Delete the resources using this command:
 
-      ```bash
-      terraform destroy
-      ```
+     ```bash
+     terraform destroy
+     ```
 
-      {% note alert %}
+     {% note alert %}
 
-      {{ TF }} will delete all the resources you created in the current configuration, such as clusters, networks, subnets, and VMs.
+     {{ TF }} will delete all the resources you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
-      {% endnote %}
+     {% endnote %}
 
-   1. Type `yes` and press **Enter**.
+  1. Type `yes` and press **Enter**.
 
 - API {#api}
 
-   Use the [delete](../../api-ref/Snapshot/delete.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/Delete](../../api-ref/grpc/Snapshot/delete.md) gRPC API call.
+  Use the [delete](../../api-ref/Snapshot/delete.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/Delete](../../api-ref/grpc/Snapshot/delete.md) gRPC API call.
 
 {% endlist %}

@@ -4,7 +4,7 @@ When you create a VM, it is placed in the current folder.
 
 In {{ yandex-cloud }}, you can move a VM to a different folder within a single cloud. You do not have to stop the VM to move it.
 
-You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../../resource-manager/concepts/resources-hierarchy.md).
+Learn more about the {{ yandex-cloud }} resource hierarchy [here](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ## Limitations {#limits}
 
@@ -234,8 +234,8 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
 
       * `--subnet-id`: Subnet in the destination folder.
       * `--ipv4-address`: Internal IP address of the VM network interface in the subnet in the destination folder. Set to `auto` to enable automatic internal address assignment.
-      * `--network-interface-index`: VM's network interface number you previously saved.
-      * `--security-group-id`: Security group that will be assigned to the VM's network interface.
+      * `--network-interface-index`: VM network interface number you saved earlier.
+      * `--security-group-id`: ID of the security group to assign to the VM network interface.
 
       Result:
 

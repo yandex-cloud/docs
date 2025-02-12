@@ -6,9 +6,9 @@ description: Follow this guide to create a VM in a group of dedicated hosts.
 # Creating a VM in a group of dedicated hosts
 
 
-The VM you create will be linked to one of the [dedicated hosts](../../concepts/dedicated-host.md) in the group. When the VM is stopped, it will not be available on the group hosts, and when it is restarted, it may be linked to a different host of the group.
+The VM you create will be linked to a host from a group of [dedicated hosts](../../concepts/dedicated-host.md). Once stopped, the VM becomes unavailable on the group hosts and can be linked to a different host from the group when you restart it.
 
-If you do not have a group of dedicated hosts, [create](create-host-group.md) one.
+If you do not have a group of dedicated hosts yet, [create](create-host-group.md) one.
 
 To create a VM:
 
@@ -20,7 +20,7 @@ To create a VM:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Get the group ID for the dedicated host group where you need to create the VM:
+  1. Get the ID of the dedicated host group to create your VM in:
 
       ```bash
       yc compute host-group list
@@ -48,7 +48,7 @@ To create a VM:
       +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
 
-  1. Run the following command to create a VM:
+  1. Run this command to create a VM:
 
       ```bash
       yc compute instance create \
@@ -91,8 +91,8 @@ To create a VM:
 
 - API {#api}
 
-  1. Find out the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/List](../../api-ref/grpc/HostGroup/list.md) gRPC API call.
-  1. Create a VM instance using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/Instance/create.md) gRPC API call.
+  1. Get the ID of the dedicated host group using the [list](../../api-ref/HostGroup/list.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/List](../../api-ref/grpc/HostGroup/list.md) gRPC API call.
+  1. Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/Instance/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -103,16 +103,16 @@ To create a VM:
 
 Before creating a VM:
 
-1. [Create a dedicated host group](create-host-group.md) and get its ID using the `yc compute host-group list` [CLI command](../../../cli/cli-ref/compute/cli-ref/host-group/list.md).
-1. [Generate a key pair](../vm-connect/ssh.md#creating-ssh-keys) to connect to the VM via SSH.
+1. [Create a group of dedicated hosts](create-host-group.md) and get its ID using the `yc compute host-group list` [CLI command](../../../cli/cli-ref/compute/cli-ref/host-group/list.md).
+1. [Generate a key pair](../vm-connect/ssh.md#creating-ssh-keys) to connect to your VM via SSH.
 
-Create a VM with the following characteristics:
+Create a VM with the following parameters:
 * Location: Dedicated host group.
 * Platform: Intel Ice Lake.
 * Number of vCPUs: 64.
 * Amount of RAM: 704 GB.
 * Number of local disks: 2.
-* Size of a single local disk: 3,198,924,357,632 B (~2.91 TB).
+* Size of a local disk: 3,198,924,357,632 B (~ 2.91 TB).
 * Operating system: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
 
 To do this, follow these steps:
@@ -125,7 +125,7 @@ To do this, follow these steps:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Run the following command to create a VM:
+  Run this command to create a VM:
 
   ```bash
   yc compute instance create \

@@ -2,7 +2,7 @@
 
 {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
-After [enabling access](./index.md), you can connect to the serial console to interact with the [VM](../../concepts/vm.md). Before connecting to the serial console, carefully read the [security](#security) section.
+After [enabling access](./index.md), you can connect to the serial console to manage your [VM](../../concepts/vm.md). Before connecting to a serial console, carefully read the [security](#security) section.
 
 ## Security {#security}
 
@@ -36,7 +36,7 @@ Regularly check the specified files. Download them only via HTTPS after verifyin
 
 {% note info %}
 
-How a serial console works depends on how the operating system is set up. {{ compute-name }} provides a communication channel between the user and the VM COM port; however, it does not guarantee that the console works properly on your OS.
+How a serial console works depends on how the operating system is set up. {{ compute-name }} provides a communication channel between the user and VM's COM port; however, it does not guarantee that the console works properly on your OS.
 
 {% endnote %}
 
@@ -97,7 +97,7 @@ Some operating systems may prompt you for your user credentials to access the VM
 
   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
-  1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate by specifying your organization [ID](../../../organization/operations/organization-get-id.md):
+  1. [Export](../vm-connect/os-login-export-certificate.md) the {{ oslogin }} certificate, specifying your organization [ID](../../../organization/operations/organization-get-id.md):
 
       ```bash
       yc compute ssh certificate export \

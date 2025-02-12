@@ -84,7 +84,7 @@ To change the name and description of a VM, follow these steps:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select `ID` or `NAME` of the VM you need, e.g., `first-instance`.
   1. Update the VM name and description:
 
      ```bash
@@ -123,7 +123,7 @@ To change VM metadata, follow these steps:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select `ID` or `NAME` of the VM you need, e.g., `first-instance`.
   1. Get the VM info with its metadata. All custom metadata is specified in the `user-data` key.
 
      ```bash

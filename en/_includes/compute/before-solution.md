@@ -1,5 +1,5 @@
-1. If you don't have the {{ yandex-cloud }} command line interface yet, [install it](../../cli/quickstart.md#install).
+1. If you do not have the {{ yandex-cloud }} CLI yet, [install it](../../cli/quickstart.md#install).
 
-1. For the scripts from the tutorial to run correctly, download and install the [jq](https://stedolan.github.io/jq/download/) utility.
+1. To make sure the scripts from the step-by-step guide run correctly, download and install [jq](https://stedolan.github.io/jq/download/).
 
-1. To check auto scaling, install the [wrk](https://github.com/wg/wrk) benchmarking tool.
+1. To check autoscaling, install [wrk](https://github.com/wg/wrk).

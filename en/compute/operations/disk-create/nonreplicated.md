@@ -10,7 +10,7 @@ You can create a stand-alone [non-replicated](../../concepts/disk.md#nr-disks) d
 
 The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
-## Create a separate non-replicated disk {#nr-disk}
+## Creating a stand-alone non-replicated disk {#nr-disk}
 
 {% list tabs group=instructions %}
 
@@ -30,16 +30,16 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
   1. Select the required block size.
   1. Specify the required disk size.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to create [snapshots](../../concepts/snapshot.md) automatically or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk [snapshots](../../concepts/snapshot.md), if required. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
-     When creating a disk, you can select only one snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
+     When creating a disk, you can only select a single snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI {#cli}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../../cli/) create disk commands:
+  1. See the description of the [CLI](../../../cli/) command for creating disks:
 
      ```bash
      yc compute disk create --help
@@ -72,7 +72,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the non-replicated disk's parameters:
+  1. In the configuration file, define the non-replicated disk parameters:
 
      ```hcl
      resource "yandex_compute_disk" "nr" {
@@ -89,22 +89,22 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
-     * `size`: The non-replicated disk size must be a multiple of 93 GB.
-     * `block_size`: Block size in bytes (minimum data storage volume). The maximum disk size depends on the specified block size. By default, block size is 4 KB for all new disks; however, this is not enough for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
+     * `size`: Non-replicated disk size, which must be a multiple of 93 GB.
+     * `block_size`: Block size in bytes (minimum storage unit on the disk). The maximum disk size depends on the specified block size. By default, block size is 4 KB for all new disks; however, this is not enough for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
      * `type`: Disk type. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
 
-     For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
+     For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
@@ -125,7 +125,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
 {% endlist %}
 
-## Create a non-replicated disk in a placement group {#nr-disk-in-group}
+## Creating a non-replicated disk in a placement group {#nr-disk-in-group}
 
 You can only create a disk in an existing disk placement group.
 
@@ -144,13 +144,13 @@ You can only create a disk in an existing disk placement group.
   1. Add a description for the disk, if required.
   1. Select the availability zone the disk will be in.
 
-     The availability zone for a disk must be the same as that of the placement group where you want to create the disk.
+     The availability zone for your disk must match the zone of the placement group where you want to create it.
   1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}` as the disk type.
   1. Select a disk placement group.
 
-      If you select a group with the [partition placement](../../concepts/disk-placement-group.md#partition), specify the number of the partition you want to add the disk to.
+      If you select a [partition placement](../../concepts/disk-placement-group.md#partition) group, specify the number of the partition you want to add the disk to.
   1. Specify the required disk size.
-  1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk snapshots, if required. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      If you want to set another schedule, you can [add](../disk-control/configure-schedule.md#add-schedule) it after the disk is created.
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
@@ -161,13 +161,13 @@ You can only create a disk in an existing disk placement group.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI create disk command:
+  1. See the description of the CLI command for creating disks:
 
      ```bash
      yc compute disk create --help
      ```
 
-  1. In a placement group, create a non-replicated disk in the default folder using one of the strategies:
+  1. In a placement group, create a non-replicated disk in the default folder using one of these strategies:
      * [Spread placement](../../concepts/disk-placement-group.md#spread):
 
        ```bash

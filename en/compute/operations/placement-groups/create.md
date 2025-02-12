@@ -12,12 +12,12 @@ Create a [placement group](../../concepts/placement-groups.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
   1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
-  1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** and choose **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-instance-placement-group }}**.
+  1. In the top-right corner, click **{{ ui-key.yacloud.compute.placement-groups.button_create }}** and select **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-instance-placement-group }}**.
   1. Enter a name for the placement group. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. (Optional) Add a placement group description.
+  1. Optionally, specify a description for the placement group.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -36,7 +36,7 @@ Create a [placement group](../../concepts/placement-groups.md).
 
      {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
 
-  1. Check that the placement group was added:
+  1. Check that the placement group has been added:
 
      ```bash
      yc compute placement-group list
@@ -58,7 +58,7 @@ Create a [placement group](../../concepts/placement-groups.md).
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the placement group parameters:
+  1. In the configuration file, define the placement group parameters:
      * `name`: Placement group name. The name format is as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
@@ -119,5 +119,5 @@ Create a [placement group](../../concepts/placement-groups.md).
 
 ## See also {#see-also}
 
-* [How to add a VM instance to a placement group](add-vm.md)
-* [Creating a VM in a placement group](create-vm-in-pg.md)
+* [How to add a VM to a placement group](add-vm.md)
+* [How to create a VM in a placement group](create-vm-in-pg.md)

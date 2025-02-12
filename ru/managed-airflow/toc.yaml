@@ -45,6 +45,8 @@ items:
         href: concepts/index.md
       - name: Сеть в {{ maf-name }}
         href: concepts/network.md
+      - name: Доступные версии {{ AF }}
+        href: concepts/versions.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Имперсонация

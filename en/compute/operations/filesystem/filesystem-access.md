@@ -1,5 +1,5 @@
 ---
-title: Configuring permissions to access {{ compute-name }} file storage
+title: Configuring access permissions for a {{ compute-name }} file storage
 description: Follow this guide to configure file storage access permissions.
 ---
 
@@ -17,10 +17,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the [management console]({{ link-console-main }}), select the folder the file storage belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-  1. Select a file storage from the list.
+  1. Select the file storage from the list.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-  1. In the window that opens, select a group, user, or service account to be granted access to the file storage.
+  1. In the window that opens, select the group, user, or service account you want to grant access to the file storage.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -30,7 +30,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the CLI command description for assigning a role for a file storage:
+  1. See the description of the CLI command for assigning a role for a file storage:
 
      ```bash
      yc compute filesystem add-access-binding --help
@@ -40,13 +40,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
 
-  1. View the list of roles already assigned for the resource:
+  1. View a list of roles already assigned for the resource in question:
 
      ```bash
      yc compute filesystem list-access-bindings <file_storage_ID>
      ```
 
-  1. Assign the role using the command:
+  1. Assign the role using this command:
 
      * To a user:
 
@@ -71,8 +71,8 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
        Where:
 
-       * `--service-account-id` is the [service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: Role you want to assign.
+       * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
+       * `--role`: Role to assign.
 
 - {{ TF }} {#tf}
 
@@ -80,9 +80,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To assign a role to access file storage using {{ TF }}:
+  To assign a role to access a file storage using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_compute_filesystem_iam_binding" "sa-access" {
@@ -96,15 +96,15 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `filesystem_id`: File storage ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_filesystem_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_filesystem_iam_binding).
+      For more information about the `yandex_compute_filesystem_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_filesystem_iam_binding).
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc compute filesystem list-access-bindings <file_storage_ID>
@@ -112,7 +112,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  Use the [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) REST API method for the [Filesystem](../../api-ref/Filesystem/) resource or the [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  Use the [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) REST API method for the [Filesystem](../../api-ref/Filesystem/) resource or the [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
 
 {% endlist %}
 
@@ -125,10 +125,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the [management console]({{ link-console-main }}), select the folder the file storage belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-  1. Select a file storage from the list.
+  1. Select the file storage from the list.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-  1. In the window that opens, select a group, user, or service account to be granted access to the file storage.
+  1. In the window that opens, select the group, user, or service account you want to grant access to the file storage.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
   1. To add another role, click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -149,7 +149,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute filesystem list-access-bindings <file_storage_ID>
      ```
 
-  1. See the CLI command description for assigning roles for a file storage:
+  1. See the description of the CLI command for assigning roles for a file storage:
 
      ```bash
      yc compute filesystem set-access-bindings --help
@@ -169,7 +169,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `role`: ID of the role to assign.
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-     For example, assign roles to multiple users and a service account:
+     For example, this command will assign roles to multiple users and a single service account:
 
      ```bash
      yc compute filesystem set-access-bindings my-filesystem \
@@ -184,9 +184,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To assign multiple roles for file storage using {{ TF }}:
+  To assign multiple roles for a file storage using {{ TF }}:
 
-  1. In the {{ TF }} configuration file, describe the appropriate access permissions:
+  1. In the {{ TF }} configuration file, define the required access permissions:
 
       ```hcl
       resource "yandex_compute_filesystem_iam_binding" "role1" {
@@ -206,15 +206,15 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `filesystem_id`: File storage ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) the roles are assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_filesystem_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_filesystem_iam_binding).
+      For more information about the `yandex_compute_filesystem_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_filesystem_iam_binding).
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc compute filesystem list-access-bindings <file_storage_ID>
@@ -236,9 +236,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the [management console]({{ link-console-main }}), select the folder the file storage belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-  1. Select a file storage from the list.
+  1. Select the file storage from the list.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. In the line with the user you need, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+  1. In the line with the user in question, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Click ![cross](../../../_assets/console-icons/xmark.svg) next to a role to delete it.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -248,7 +248,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the CLI command description for revoking a role for a file storage:
+  1. See the description of the CLI command for revoking a role for a file storage:
 
      ```bash
      yc compute filesystem remove-access-binding --help
@@ -273,7 +273,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      * `--role`: ID of the role to revoke.
      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-     For example, this command revokes the `{{ roles-viewer }}` role for file storage from a user with the `ajel6l0jcb9s********` ID:
+     For example, this command revokes the `{{ roles-viewer }}` role for the file storage from a user with the `ajel6l0jcb9s********` ID:
 
      ```bash
      yc compute filesystem remove-access-binding my-filesystem \
@@ -287,9 +287,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To revoke a role assigned for file storage using {{ TF }}:
+  To revoke a role assigned for a file storage using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the role description:
+  1. Open the {{ TF }} configuration file and delete the section specifying the role:
 
       ```hcl
       resource "yandex_compute_filesystem_iam_binding" "role1" {
@@ -303,7 +303,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
       ```bash
       yc compute filesystem list-access-bindings <file_storage_ID>
@@ -311,6 +311,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke file storage roles, use the [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) REST API method for the [Filesystem](../../api-ref/Filesystem/) resource or the [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke roles for a file storage, use the [updateAccessBindings](../../api-ref/Filesystem/updateAccessBindings.md) REST API method for the [Filesystem](../../api-ref/Filesystem/) resource or the [FilesystemService/UpdateAccessBindings](../../api-ref/grpc/Filesystem/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
 
 {% endlist %}

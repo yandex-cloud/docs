@@ -15,6 +15,7 @@ Syntax:
 
 #### Command Tree
 
+- [yc iam create-id-token](create-id-token.md) — Create ID token and print to STDOUT
 - [yc iam create-token](create-token.md) — Create IAM token and print to STDOUT
 - [yc iam revoke-token](revoke-token.md) — Revoke IAM token
 - [yc iam access-key](access-key/index.md) — Manage service account access keys

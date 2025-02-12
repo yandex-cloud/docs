@@ -1,1 +1,1 @@
-If you want to add multiple [network interfaces](../../compute/concepts/network.md) to the VM, specify the `network_interface` section as many times as you need. You can add up to eight network interfaces to a single VM.
+If you want to add multiple [network interfaces](../../compute/concepts/network.md) to your VM, specify the `network_interface` section as many times as you need. You can add up to eight network interfaces to a single VM.

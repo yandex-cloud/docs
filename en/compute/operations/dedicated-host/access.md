@@ -1,9 +1,9 @@
 ---
-title: Configuring dedicated host group access permissions
+title: Configuring access permissions for a dedicated host group
 description: You can assign or revoke access permissions for a group of dedicated {{ compute-name }} hosts.
 ---
 
-# Configuring dedicated host group access permissions
+# Configuring access permissions for a dedicated host group
 
 
 To grant a user, group, or [service account](../../../iam/concepts/users/service-accounts.md) access to a [dedicated host group](../../concepts/dedicated-host.md), assign a [role](../../../iam/concepts/access-control/roles.md) for it.
@@ -16,11 +16,11 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the dedicated host group.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.switch_host-groups }}**.
+  1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.switch_host-groups }}**.
   1. Select the dedicated host group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-  1. In the window that opens, select the group, user, or service account to grant access to the dedicated host group.
+  1. In the window that opens, select the group, user, or service account you want to grant access to the dedicated host group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -30,7 +30,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the CLI command description for assigning a role for a dedicated host group:
+  1. See the description of the CLI command for assigning a role for a dedicated host group:
 
      ```bash
      yc compute host-group add-access-binding --help
@@ -42,13 +42,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute host-group list
      ```
 
-  1. View the list of roles already assigned for the resource:
+  1. View a list of roles already assigned for the resource in question:
 
      ```bash
      yc compute host-group list-access-bindings <dedicated_host_group_name_or_ID>
      ```
 
-  1. Assign the role using the command:
+  1. Assign the role using this command:
 
      * To a user:
 
@@ -78,7 +78,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  To assign a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
 
 {% endlist %}
 
@@ -90,11 +90,11 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the dedicated host group.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.switch_host-groups }}**.
+  1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.switch_host-groups }}**.
   1. Select the dedicated host group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-  1. In the window that opens, select the group, user, or service account to grant access to the dedicated host group.
+  1. In the window that opens, select the group, user, or service account you want to grant access to the dedicated host group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
   1. To add another role, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -115,7 +115,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute host-group list-access-bindings <dedicated_host_group_name_or_ID>
      ```
 
-  1. See the CLI command description for assigning roles for a dedicated host group:
+  1. See the description of the CLI command for assigning roles for a dedicated host group:
 
      ```bash
      yc compute host-group set-access-bindings --help
@@ -136,7 +136,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `role`: [Role](../../security/index.md#roles-list) to assign.
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-     For example, assign roles to multiple users and a service account:
+     For example, this command will assign roles to multiple users and a single service account:
 
      ```bash
      yc compute host-group set-access-bindings my-host-group \
@@ -147,11 +147,11 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign roles for a resource, use the [setAccessBindings](../../api-ref/HostGroup/setAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/SetAccessBindings](../../api-ref/grpc/HostGroup/setAccessBindings.md) gRPC API call.
+  To assign roles for a dedicated host group, use the [setAccessBindings](../../api-ref/HostGroup/setAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/SetAccessBindings](../../api-ref/grpc/HostGroup/setAccessBindings.md) gRPC API call.
 
   {% note alert %}
 
-  The `setAccessBindings` method and the `HostGroupService/SetAccessBindings` call completely overwrite access permissions for the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method and the `HostGroupService/SetAccessBindings` call completely overwrite access permissions for the resource. All current roles for the resource will be deleted.
 
   {% endnote %}
 
@@ -165,10 +165,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the dedicated host group.
   1. Select **{{ ui-key.yacloud.compute.label_service }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.switch_host-groups }}**.
+  1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.switch_host-groups }}**.
   1. Select the dedicated host group.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. In the line with the user you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+  1. In the line with the user in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Next to the role, click ![image](../../../_assets/cross.svg).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -178,7 +178,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the CLI command description for revoking a role for a dedicated host group:
+  1. See the description of the CLI command for revoking a role for for a dedicated host group:
 
      ```bash
      yc compute host-group remove-access-binding --help
@@ -203,7 +203,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      * `--role`: ID of the role to revoke.
      * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-     For example, to revoke the `{{ roles-viewer }}` role for a dedicated host group from a user with the `ajel6l0jcb9s********` ID:
+     For example, this command revokes the `{{ roles-viewer }}` role for the dedicated host group from a user with the `ajel6l0jcb9s********` ID:
 
      ```bash
      yc compute host-group remove-access-binding my-host-group \
@@ -213,6 +213,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke a role, use the [updateAccessBindings](../../api-ref/HostGroup/updateAccessBindings.md) REST API method for the [HostGroup](../../api-ref/HostGroup/index.md) resource or the [HostGroupService/UpdateAccessBindings](../../api-ref/grpc/HostGroup/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
 
 {% endlist %}

@@ -6,7 +6,7 @@ description: Follow this guide to create dedicated host groups.
 # Creating a group of dedicated hosts
 
 
-You can create a group of [dedicated hosts](../../concepts/dedicated-host.md) that is intended solely for hosting your VMs in {{ yandex-cloud }}.
+You can create a group of [dedicated hosts](../../concepts/dedicated-host.md) solely for your VMs in {{ yandex-cloud }}.
 
 {% include [dedicated](../../../_includes/compute/dedicated-quota.md) %}
 
@@ -20,7 +20,7 @@ To create a group of dedicated hosts:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the list of available dedicated host [types](../../concepts/dedicated-host.md#host-types):
+  1. View a list of available dedicated host [types](../../concepts/dedicated-host.md#host-types):
 
       ```bash
       yc compute host-type list
@@ -43,7 +43,7 @@ To create a group of dedicated hosts:
 
       * `--fixed-size`: Number of dedicated hosts in the group.
       * `--type`: Type of dedicated hosts.
-      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to place the group in.
+      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to place your group in.
 
       Result:
 

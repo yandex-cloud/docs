@@ -15,11 +15,11 @@ To create an image from a disk snapshot:
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
   1. In the line with the snapshot, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.snapshots.list.button_action-image }}**.
-  1. Enter the image name. The naming requirements are as follows:
+  1. Enter a name for the image. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. If required, provide a text description for the image.
+  1. Provide a text description for the image, if required.
   1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -29,7 +29,7 @@ To create an image from a disk snapshot:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to create an image:
+  1. See the description of the CLI command for creating an image:
   
       ```
       yc compute image create --help
@@ -65,7 +65,7 @@ To create an image from a disk snapshot:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Describe the parameters of the `yandex_compute_image` resource in the configuration file.
+  1. Define the parameters of the `yandex_compute_image` resource in the configuration file.
 
      Here is an example of the configuration file structure:
 
@@ -76,20 +76,20 @@ To create an image from a disk snapshot:
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. Run this command:
 
@@ -97,13 +97,13 @@ To create an image from a disk snapshot:
         terraform apply
         ```
 
-     1. Confirm that you want to create the resources.
+     1. Confirm creating the resources.
 
      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-  1. Get the list of snapshots using the [list](../../api-ref/Snapshot/list.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/List](../../api-ref/grpc/Snapshot/list.md) gRPC API call.
+  1. Get a list of snapshots using the [list](../../api-ref/Snapshot/list.md) REST API method for the [Snapshot](../../api-ref/Snapshot/index.md) resource or the [SnapshotService/List](../../api-ref/grpc/Snapshot/list.md) gRPC API call.
   1. Create an image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Snapshot/index.md) resource or the [ImageService/Create](../../api-ref/grpc/Image/create.md) gRPC API call. Specify the snapshot ID in your request.
 
 {% endlist %}

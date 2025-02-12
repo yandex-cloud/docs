@@ -351,7 +351,7 @@ To create a group of instances with fixed IP addresses:
             * `mode`: Disk access mode, `READ_ONLY` or `READ_WRITE`.
             * `image_id`: ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
           * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings:
-            * `subnet_ids`: List of IDs for the [subnets](../../../vpc/concepts/network.md#subnet) to host the VMs. You must specify one subnet in each availability zone where group instances will be created.
+            * `subnet_ids`: List of IDs for the [subnets](../../../vpc/concepts/network.md#subnet) to host the instances. You must specify one subnet in each availability zone where group instances will be created.
             * `nat`: Specifies if an instance will have an assigned public IP address. The possible values are `true` and `false`.
             * `ip_address`: Instance internal IP address. This is a template that will use the value from a variable specified for this VM instance in the `variables` section.
             * `nat_ip_address`: Instance public IP address. This is a template that will use the value from a variable specified for this VM instance in the `variables` field.
@@ -387,20 +387,20 @@ To create a group of instances with fixed IP addresses:
 
         {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-      * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VMs in the group, assign the [compute.editor](../../security/index.md#compute-editor) role to the service account.
+      * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `compute.editor` [role](../../security/index.md#compute-editor) to the service account.
       * `yandex_vpc_network`: [Cloud network](../../../vpc/concepts/network.md#network) description.
       * `yandex_vpc_subnet`: Description of the [subnets](../../../vpc/concepts/network.md#subnet) to connect the group instances to.
       * `yandex_vpc_address`: Description of the reserved static [public IP address](../../../vpc/concepts/address.md#public-addresses).
 
         {% note info %}
 
-        If you already have suitable resources, such as a service account, cloud network, subnets, and reserved static IP addresses, you do not need to redefine them. Use their names and IDs in the appropriate parameters.
+        If you already have suitable resources, such as a service account, cloud network, subnets, and reserved static IP addresses, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
 
         {% endnote %}
 
       For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

@@ -11,7 +11,7 @@ title: How to get information about a disk image in {{ compute-full-name }}
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your disk [image](../../concepts/image.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
-  1. Select the image you need.
+  1. Select the image.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the image details.
 
 - CLI {#cli}
@@ -20,13 +20,13 @@ title: How to get information about a disk image in {{ compute-full-name }}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to get information about a disk [image](../../concepts/image.md):
+  1. See the description of the CLI command for getting information about a disk [image](../../concepts/image.md):
 
       ```bash
       yc compute image get --help
       ```
 
-  1. Get information about your disk image by specifying its name or ID:
+  1. Get information about a disk image by specifying its name or ID:
 
       ```bash
       yc compute image get <image_name>
@@ -67,18 +67,18 @@ title: How to get information about a disk image in {{ compute-full-name }}
 
       Where:
 
-      * `data "yandex_compute_image"`: Disk image description as a data source:
+      * `data "yandex_compute_image"`: Description of the disk image as a data source:
         * `image_id`: Disk image ID.
       * `output "image"`: Output variable that contains information about the minimum disk size:
         * `value`: Returned value.
 
       You can replace `min_disk_size` with any other parameter to get the information you need. For more information about the `yandex_compute_image` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_image).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
       ```bash
       terraform output

@@ -18,7 +18,7 @@ For information on how to add a [VM](../../concepts/vm.md) to a GPU cluster, see
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) command for updating GPU cluster parameters:
+  1. See the description of the [CLI](../../../cli/) command for updating GPU cluster parameters:
 
      ```bash
      yc compute gpu-cluster update --help
@@ -30,8 +30,8 @@ For information on how to add a [VM](../../concepts/vm.md) to a GPU cluster, see
      yc compute gpu-cluster list
      ```
 
-  1. Select the `ID` or `NAME` of the GPU cluster you need, e.g., `first-gpu-cluster`.
-  1. Change the GPU cluster parameters, e.g., rename it:
+  1. Select `ID` or `NAME` of the GPU cluster in question, e.g., `first-gpu-cluster`.
+  1. Update the GPU cluster parameters, e.g., rename the cluster:
 
      ```bash
      yc compute instance update first-gpu-cluster \
@@ -42,9 +42,9 @@ For information on how to add a [VM](../../concepts/vm.md) to a GPU cluster, see
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the fragment with the GPU cluster description:
+  1. Open the {{ TF }} configuration file and edit the section specifying the GPU cluster:
 
-     {% cut "Sample GPU cluster description in the {{ TF }} configuration" %}
+     {% cut "Example of specifying a GPU cluster in {{ TF }} configuration" %}
 
      ```hcl
      ...

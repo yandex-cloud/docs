@@ -7,7 +7,7 @@ description: Follow this guide to attach a file storage to a VM.
 
 {% note warning %}
 
-You can only attach a [file storage](../../concepts/filesystem.md) to [VMs](../../concepts/vm.md) running a Linux-based [OS](../../concepts/filesystem.md#os) with kernel version 5.4 or higher.
+You can only attach a [file storage](../../concepts/filesystem.md) to [VMs](../../concepts/vm.md) running a Linux [OS](../../concepts/filesystem.md#os) with kernel version 5.4 or higher.
 
 To check the kernel version, run `sudo uname -r`.
 
@@ -23,7 +23,7 @@ To check the kernel version, run `sudo uname -r`.
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the file storage.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-     1. Select the required storage.
+     1. Select the storage.
      1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.nfs.button_attach-instance-to-the-filesystem }}**.
      1. In the window that opens:
@@ -37,7 +37,7 @@ To check the kernel version, run `sudo uname -r`.
 
      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-     1. View the description of the [CLI](../../../cli/) command to attach a file storage to a VM:
+     1. See the description of the [CLI](../../../cli/) command for attaching a file storage to a VM:
 
         ```bash
         yc compute instance attach-filesystem --help
@@ -64,7 +64,7 @@ To check the kernel version, run `sudo uname -r`.
         +----------------------+-------+---------------+---------+--------------+-------------+
         ```
 
-     1. Attach a file storage to a VM:
+     1. Attach the file storage to the VM:
 
         ```bash
         yc compute instance attach-filesystem \
@@ -76,11 +76,11 @@ To check the kernel version, run `sudo uname -r`.
         Where:
         * `--id`: VM ID.
 
-          Instead of an ID, you can specify the VM name in the `--name` parameter.
+          Instead of the ID, you can specify the VM name in the `--name` parameter.
 
         * `--filesystem-id`: File storage ID.
 
-          Instead of an ID, you can specify the file storage name in the `--filesystem-name` parameter.
+          Instead of the ID, you can specify the file storage name in the `--filesystem-name` parameter.
 
         * `--device-name`: Device name to represent the file storage in the VM. This is an optional parameter.
 
@@ -107,10 +107,10 @@ To check the kernel version, run `sudo uname -r`.
 
      Set the `allow_stopping_for_update` parameter to `true` on your VM, if you have not done it yet.
 
-     To attach a file storage to the VM, add the `filesystem` section with the `filesystem_id` parameter to the VM description (see the example below).
-     1. Open the {{ TF }} configuration file and add a fragment with the storage description to the VM description:
+     To attach a file storage to your VM, add the `filesystem` section with the `filesystem_id` parameter to the VM description (see the example below).
+     1. Open the {{ TF }} configuration file and add a section specifying the storage to the VM description:
 
-        {% cut "Sample storage description in the VM configuration in {{ TF }}" %}
+        {% cut "Example of specifying a storage in the VM configuration using {{ TF }}" %}
 
         ```hcl
         ...
@@ -162,8 +162,8 @@ To check the kernel version, run `sudo uname -r`.
       ...
       ```
 
-      Save the value of the `device_name` field under the `filesystems` section. This is the name of the device to mount the file storage on that you will need later.
-   1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
+      Save the value of the `device_name` field under `filesystems`. This is the name of the device to mount your file storage on; you will need it later.
+   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
    1. Run this command:
 
       ```bash
@@ -171,8 +171,8 @@ To check the kernel version, run `sudo uname -r`.
       ```
 
       Where:
-      * `<device_name>`: Value of the `device_name` field you saved before. In the example above, it is `storagename`. Your device name may differ.
-      * `<mount_path>`: Folder or disk to mount the file storage to. For example: `/mnt/vfs0`.
+      * `<device_name>`: Value of the `device_name` field you saved before. In the example above, it is `storagename`. Your device name may be different.
+      * `<mount_path>`: Folder or disk to mount the file storage to, e.g., `/mnt/vfs0`.
    1. Check that the file storage has been mounted:
 
       ```bash
@@ -193,7 +193,7 @@ To check the kernel version, run `sudo uname -r`.
       storagename       virtiofs      66774660       0  66774660   0% /mnt/vfs0
       ```
 
-   1. To mount the file storage every time the VM is started, add the following string to the `/etc/fstab` file:
+   1. To mount the file storage every time the VM starts, add the following line to the `/etc/fstab` file:
 
       ```text
       <device_name> <mount_path> virtiofs    rw    0   0

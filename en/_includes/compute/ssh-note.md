@@ -1,1 +1,1 @@
-When creating a VM from a [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}) public image, make sure to provide an SSH key to the VM. By default, SSH access with a username and password is disabled for such images.
+When creating a VM from a [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}) public image, make sure to provide an SSH key, as SSH access with a username and password is disabled by default for such images.

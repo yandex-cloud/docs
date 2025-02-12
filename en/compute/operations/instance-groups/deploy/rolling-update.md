@@ -1,17 +1,17 @@
 ---
-title: How to make incremental updates in {{ compute-full-name }}
-description: Follow this guide to start your terminal in the Windows serial console (SAC).
+title: How to run rolling updates in {{ compute-full-name }}
+description: Follow this guide to run rolling updates.
 ---
 
-# Incremental update
+# Rolling updates
 
-You might need to update your service incrementally, undeploying no more than *N* instances at a time:
+To perform a rolling update of your service, discontinuing no more than *N* virtual machine instances at a time:
 
-1. Describe the appropriate instance [template](../../../concepts/instance-groups/instance-template.md).
-1. Set the [deployment policy](../../../concepts/instance-groups/policies/deploy-policy.md) with a non-zero value of `max_unavailable`: the maximum number of instances to undeploy at the same time.
-1. Run a group's [update operation](../../../operations/instance-groups/update.md).
+1. Define the instance [template](../../../concepts/instance-groups/instance-template.md) you need.
+1. Set the [deployment policy](../../../concepts/instance-groups/policies/deploy-policy.md) with a non-zero value for `max_unavailable`, which stands for the maximum number of instances to discontinue at a time.
+1. Start group [updating](../../../operations/instance-groups/update.md).
 
-For example, to update an instance group sequentially by undeploying one instance at a time, set the following parameters in the `deploy-policy`:
+For example, to update an instance group sequentially, discontinuing one VM instance at a time, configure `deploy-policy` as follows:
 ```
 ...
 deploy-policy:

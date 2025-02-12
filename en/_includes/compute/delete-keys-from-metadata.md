@@ -14,7 +14,7 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  1. View a description of the CLI command to remove metadata:
+  1. See the description of the CLI command for removing metadata:
 
       ```bash
       yc compute instance remove-metadata --help

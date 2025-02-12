@@ -23,7 +23,7 @@ read -r -d '' TEXT << EOM
 EOM
 export FOLDER_ID=<идентификатор_каталога>
 export IAM_TOKEN=<IAM-токен>
-curl 
+curl \
   --request POST \
   --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "text=${TEXT}" \

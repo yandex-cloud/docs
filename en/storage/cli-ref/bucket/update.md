@@ -38,6 +38,8 @@ Syntax:
 |`--remove-website-settings`|Remove website settings of bucket|
 |`--policy`|<b>`string`</b><br/>Sets bucket policy|
 |`--policy-from-file`|<b>`string`</b><br/>Same as policy but loads policy from file|
+|`--enable-private-endpoints`|<b>`string`</b><br/>Sets bucket allowed private endpoints policy: true/false. Example: --enable-private-endpoints=true|
+|`--private-endpoints`|<b>`value[,value]`</b><br/>Sets bucket private endpoints|
 |`--generate-lifecycle-skeleton`|Prints example of lifecycle rules|
 |`--generate-website-settings-skeleton`|Prints example of website settings|
 |`--encryption`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Sets encryption kms-master-key-id<br/><br/>Possible property names:<br/><ul> <li><code>key-id</code>:     Encryption key id</li> </ul>|

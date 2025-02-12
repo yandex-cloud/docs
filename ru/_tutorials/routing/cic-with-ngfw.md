@@ -90,7 +90,7 @@
 
 ```yaml
 vpc: 
-  vpc_net_id: <id для {{ vpc-short-name }} interconnect> 
+  vpc_net_id: <идентификатор_для_{{ vpc-short-name }}_interconnect> 
     vpc_subnets:
       ru-central1-a: [A.A.A.0/24, C.C.0.0/17, C.C.128.0/17, D.D.0.0/17, D.D.128.0/17]
       ru-central1-b: [B.B.B.0/24, C.C.0.0/16, D.D.0.0/16]

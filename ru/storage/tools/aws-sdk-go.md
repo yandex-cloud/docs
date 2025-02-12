@@ -6,7 +6,7 @@ description: Из статьи вы узнаете, что такое AWS SDK д
 # AWS SDK для Go
 
 
-[AWS SDK для Go](https://aws.amazon.com/ru/sdk-for-go/) — это комплект средств разработки для работы с сервисами AWS на языке программирования Go.
+[AWS SDK для Go](https://docs.aws.amazon.com/sdk-for-go/) — это комплект средств разработки для работы с сервисами AWS на языке программирования Go.
 
 ## Подготовка к работе {#before-you-begin}
 
@@ -20,7 +20,11 @@ description: Из статьи вы узнаете, что такое AWS SDK д
 
 ## Настройка {#setup}
 
+### Настройка директории для аутентификационных данных
+
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
+
+{% include [storage-sdk-setup-storage-env-variables](../_includes_service/storage-sdk-setup-storage-env-variables.md) %}
 
 ## Примеры кода {#go-code-examples}
 

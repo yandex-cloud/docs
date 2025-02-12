@@ -1,17 +1,17 @@
-# Getting a list of instances in a group
+# Getting a list of VM instances in a group
 
 After creating an instance group, you can get a list of instances in the group.
 
-To get a list of instances:
+To get a list of VM instances:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the folder the instance group is in.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the instance group in question.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-  1. Select the group you need.
+  1. Select the group.
   1. Go to the **{{ ui-key.yacloud.compute.group.switch_instances }}** tab.
 
 - CLI {#cli}
@@ -20,7 +20,7 @@ To get a list of instances:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's get instance list command:
+  1. See the description of the CLI command for getting a list of VM instances:
 
       ```
       {{ yc-compute-ig }} list-instances --help
@@ -30,7 +30,7 @@ To get a list of instances:
 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` or `NAME` of the group you need, e.g., `first-instance-group`.
+  1. Select `ID` or `NAME` of the group in question, e.g., `first-instance-group`.
   1. Get information about the instance group:
 
       ```

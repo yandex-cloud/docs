@@ -12,8 +12,8 @@ description: Follow this guide to get information about a disk.
   1. In the [management console]({{ link-console-main }}), select the folder containing your [disk](../../concepts/disk.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. Select a disk from the list.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the disk.
+  1. Select the disk from the list.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the disk details.
 
 - CLI {#cli}
 
@@ -21,13 +21,13 @@ description: Follow this guide to get information about a disk.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to get information about a [disk](../../concepts/disk.md):
+  1. See the description of the CLI command for getting information about a [disk](../../concepts/disk.md):
 
       ```bash
       yc compute disk get --help
       ```
 
-  1. Get information about the disk by specifying its ID or name:
+  1. Get information about a disk by specifying its ID or name:
 
       ```bash
       yc compute disk get <disk_ID>
@@ -70,18 +70,18 @@ description: Follow this guide to get information about a disk.
 
       Where:
 
-      * `data "yandex_compute_disk"`: [Disk](../../concepts/disk.md) description as a data source:
+      * `data "yandex_compute_disk"`: Description of the [disk](../../concepts/disk.md) as a data source:
          * `disk_id`: Disk ID.
       * `output "my_disk_size"`: Output variable that contains information about the disk size:
          * `value`: Returned value.
 
      You can replace `size` with any other parameter to get the information you need. For more information about the `yandex_compute_disk` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_disk).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
       ```bash
       terraform output
