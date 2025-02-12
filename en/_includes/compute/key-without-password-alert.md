@@ -1,5 +1,5 @@
 {% note alert %}
 
-You can only connect to a VM's serial console via SSH using a non-password-protected key. Otherwise, the connection will be terminated after you enter a password.
+You can only connect to a VM serial console via SSH using a passwordless key. Attempting to use a password will terminate the connection.
 
 {% endnote %}

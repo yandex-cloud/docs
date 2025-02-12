@@ -18,7 +18,8 @@ description: Следуя данной инструкции, вы сможете
   1. Введите имя HTTP-роутера.
   1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Введите имя хоста.
-  1. (Опционально) В поле **Профиль безопасности** выберите [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/).
+  1. (Опционально) В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите значение заголовка `Host` для HTTP/1.1 или псевдо-заголовка `:authority` для HTTP/2, по которому будет выбираться виртуальный хост.
+  1. (Опционально) В поле **{{ ui-key.yacloud.alb.label_security-profile-id }}** выберите [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
@@ -42,16 +43,16 @@ description: Следуя данной инструкции, вы сможете
        * (Опционально) Выберите опцию **{{ ui-key.yacloud.alb.label_web-socket }}**, если вы хотите использовать протокол WebSocket.
      * `{{ ui-key.yacloud.alb.label_route-action-redirect }}`:
        * В поле **{{ ui-key.yacloud.alb.label_http-status-code }}** выберите код, по которому будет осуществляться перенаправление.
-       * (Опционально) В поле **{{ ui-key.yacloud.alb.label_replace }}** укажите, куда HTTP-роутер должен перенаправлять трафик. Если в поле **{{ ui-key.yacloud.alb.label_path }}** вы выбрали опцию `{{ ui-key.yacloud.alb.label_match-exact }}`, путь будет полностью заменен. Если была выбрана опция `{{ ui-key.yacloud.alb.label_match-prefix }}`, будет заменено только начало.
+       * (Опционально) В поле **{{ ui-key.yacloud.alb.label_replace }}** укажите, куда HTTP-роутер должен перенаправлять трафик. Если в поле **{{ ui-key.yacloud.alb.label_path }}** вы выбрали опцию `{{ ui-key.yacloud.alb.label_match-exact }}`, путь будет полностью заменен, даже если в поле **{{ ui-key.yacloud.alb.label_replace }}** выбрана опция `{{ ui-key.yacloud.alb.label_replace-prefix }}`.
        * (Опционально) Выберите опцию **{{ ui-key.yacloud.alb.label_strict-query }}**. 
-       * (Опционально) Выберите опцию **{{ ui-key.yacloud.alb.label_replace-scheme }}**.
+       * (Опционально) Выберите опцию **{{ ui-key.yacloud.alb.label_replace-scheme }}**. Если в оригинальном URI использована схема `http` (`https`) и указан порт `80` (`443`), при изменении схемы порт будет удален.
        * (Опционально) Выберите опцию **{{ ui-key.yacloud.alb.label_replace-host }}** и укажите новый хост.
        * (Опционально) Выберите опцию **{{ ui-key.yacloud.alb.label_replace-port }}** и укажите новый порт.
      * `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`:
        * В поле **{{ ui-key.yacloud.alb.label_http-status-code }}** выберите код, по которому будет осуществляться ответ.
        * В поле **{{ ui-key.yacloud.alb.label_body }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_select }}** и в открывшемся окне:
          * Выберите **{{ ui-key.yacloud.component.file-content-dialog.field_method }}** указания ответа: **{{ ui-key.yacloud.component.file-content-dialog.value_manual }}** или **{{ ui-key.yacloud.component.file-content-dialog.value_upload }}**.
-         * В зависимости от выбранного способа прикрепите файл или укажите текст ответа.
+         * В зависимости от выбранного способа прикрепите файл или укажите текст ответа балансировщика на запрос, поступивший по этому маршруту.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -99,11 +100,11 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `--http-router-name` — имя HTTP-роутера.
-     * `--authority` — домены для заголовков `Host` и `authority`, которые будут связаны с этим виртуальным хостом. Поддерживаются символы подстановки, например `*.foo.com` или `*-bar.foo.com`.
+     * `--authority` — домены для заголовков `Host` для HTTP/1.1 или `authority` для HTTP/2, которые будут связаны с этим виртуальным хостом. Поддерживаются символы подстановки, например `*.foo.com` или `*-bar.foo.com`. Необязательный параметр.
      * `--modify-request-header` — настройки модификации заголовка запроса:
        * `name` — имя модифицируемого заголовка.
        * `append` — строка, которая будет добавлена к значению заголовка.
-     * `--security-profile-id` — (опционально) идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/).
+     * `--security-profile-id` — (опционально) идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Результат:
@@ -200,6 +201,7 @@ description: Следуя данной инструкции, вы сможете
            }
          }
        }
+       authority               = "<домены>"
        route_options {
          security_profile_id   = "<идентификатор_профиля_безопасности>"
        }
@@ -224,8 +226,9 @@ description: Следуя данной инструкции, вы сможете
          * `http_route_action` — параметр для указания действия с HTTP-трафиком.
            * `backend_group_id` — идентификатор [группы бэкэндов](../concepts/backend-group.md).
            * `timeout` — максимальный тайм-аут ожидания запроса, в секундах.
+       * `authority` — домены для заголовков `Host`для HTTP/1.1 или `authority` для HTTP/2, которые будут связаны с этим виртуальным хостом. Поддерживаются символы подстановки, например `*.foo.com` или `*-bar.foo.com`. Необязательный параметр.
        * `route_options` — (опционально) дополнительные параметры виртуального хоста:
-           * `security_profile_id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/).
+           * `security_profile_id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
   
 
      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:

@@ -1,13 +1,13 @@
-1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-1. Select one of the [GPU-oriented images](/marketplace?search=gpu) and OS version under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+1. Select a [GPU-optimized image](/marketplace?search=gpu) and OS version under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
 
     {% include [gpu-os](../gpu-os.md) %}
 
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
-1. (Optional) Configure the boot [disk](../../../compute/concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) for your VM.
+1. Optionally, configure the boot [disk](../../../compute/concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
     * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
     * Specify the required disk size.
@@ -20,7 +20,7 @@
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
     * Go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}** tab.
-    * Choose a [platform](../../../compute/concepts/vm-platforms.md#gpu-platforms):
+    * Select one of these [platforms](../../../compute/concepts/vm-platforms.md#gpu-platforms):
 
         * {{ v100-broadwell }}
         * {{ v100-cascade-lake }}
@@ -28,7 +28,7 @@
         * {{ t4-ice-lake }}
         * {{ t4i-ice-lake }}
 
-    * Select one of the available configurations with the required GPUs, vCPUs, and amount of RAM.
+    * Select one of the available configurations with the required number of GPUs, vCPUs, and amount of RAM.
 
 1. {% include [network-settings](section-network.md) %}
 1. {% include [section-access](section-access.md) %}
@@ -42,4 +42,4 @@
 1. {% include [section-additional](section-additional.md) %}
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-You will see the new VM in the list.
+The VM will appear in the list.

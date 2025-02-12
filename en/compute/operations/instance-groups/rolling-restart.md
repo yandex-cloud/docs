@@ -1,12 +1,12 @@
-# Restarting instances in a group one by one
+# Sequentially restarting instances in a group
 
-You can [restart group instances one by one](../../concepts/instance-groups/rolling-actions.md) based on the parameters specified in the [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md).
+You can [sequentially restart group instances](../../concepts/instance-groups/rolling-actions.md) based on the parameters specified in the [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md).
 
-For example, if the deployment policy states that the maximum number of unavailable instances per group is `1`, then only one VM will be unavailable at any given time during successive restarts.
+For example, if the deployment policy specifies a maximum of `1` unavailable instance per group, then only one instance will be down at any given time when sequentially restarting instances.
 
 {% include [ig-opportunistic-warning](../../../_includes/compute/ig-opportunistic-warning.md) %}
 
-To restart group instances one by one:
+To sequentially restart instances in a group:
 
 {% list tabs group=instructions %}
 
@@ -16,7 +16,7 @@ To restart group instances one by one:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to restart an instance group:
+  1. See the description of the CLI command for restarting an instance group:
 
       ```bash
       {{ yc-compute-ig }} rolling-restart --help
@@ -56,19 +56,19 @@ To restart group instances one by one:
       +----------------------+-----------------------+--------+------+
       ```
 
-  1. Restart instances in the instance group:
+  1. Restart VM instances in the instance group:
 
       ```bash
       {{ yc-compute-ig }} rolling-restart --all \
-        --name <VM_group_name> \
+        --name <instance_group_name> \
         --folder-name <folder_name>
       ```
 
       Where:
-      * `--name`: VM group name.
-      * `--folder-name`: Name of the folder the VM group belongs to.
+      * `--name`: Instance group name.
+      * `--folder-name`: Name of the folder the instance group belongs to.
 
-      {{ ig-name }} will begin to restart all instances in the group one by one. The restarted instances will change their status to `Running`.
+      {{ ig-name }} will begin restarting all instances in the group one by one. The restarted instances will change their status to `Running`.
 
       Result:
 
@@ -80,17 +80,17 @@ To restart group instances one by one:
       application_load_balancer_state: {}
       ```
 
-      To restart individual instances in a group, [get](./get-list-instances.md) a list of instances in this group:
+      To restart individual instances in a group, [get](./get-list-instances.md) a list of instances in that group:
 
       ```bash
       {{ yc-compute-ig }} list-instances \
-        --name <VM_group_name> \
+        --name <instance_group_name> \
         --folder-name <folder_name>
       ```
 
       Where:
-      * `--name`: VM group name.
-      * `--folder-name`: Name of the folder the VM group belongs to.
+      * `--name`: Instance group name.
+      * `--folder-name`: Name of the folder the instance group belongs to.
 
       Result:
 
@@ -105,21 +105,21 @@ To restart group instances one by one:
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
       ```
 
-      Restart the instances you need:
+      Restart the VM instances in question:
 
       ```bash
       {{ yc-compute-ig }} rolling-restart \
-        --instance-ids <VM_IDs> \
-        --name <VM_group_name> \
+        --instance-ids <VM_instance_IDs> \
+        --name <instance_group_name> \
         --folder-name <folder_name>
       ```
 
       Where:
-      * `--instance-ids`: Comma-separated list of IDs of instances to restart. For example, to restart the first and third instances from the above list, specify `--instance-ids epdl7gdvb69f********,epd3anghn4vb********`.
-      * `--name`: VM group name.
-      * `--folder-name`: Name of the folder the VM group belongs to.
+      * `--instance-ids`: Comma-separated IDs of instances to restart. For example, to restart the first and third instances from those listed, specify `--instance-ids epdl7gdvb69f********,epd3anghn4vb********`.
+      * `--name`: Instance group name.
+      * `--folder-name`: Name of the folder the instance group belongs to.
       
-      {{ ig-name }} will begin to restart the specified instances in the group one by one. The restarted instances will change their status to `Running`.
+      {{ ig-name }} will begin restarting the specified instances in the group one by one. The restarted instances will change their status to `Running`.
 
   For more information about the `{{ yc-compute-ig }} rolling-restart` command parameters, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-restart.md).
 

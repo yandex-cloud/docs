@@ -1,5 +1,5 @@
 ---
-title: Creating a Linux VM from a public image
+title: How to create a Linux VM from a public image
 description: Use this tutorial to create a Linux VM.
 ---
 
@@ -18,14 +18,14 @@ description: Use this tutorial to create a Linux VM.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) command to create a [VM](../../concepts/vm.md):
+  1. See the description of the [CLI](../../../cli/) command for creating a [VM](../../concepts/vm.md):
 
      ```bash
      yc compute instance create --help
      ```
 
   1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
-  1. Select a Linux-based public [image](../images-with-pre-installed-software/get-list.md) from [{{ marketplace-full-name }}](../../../marketplace/), e.g., [CentOS 7](/marketplace/products/yc/centos-7).
+  1. Select a public Linux-based [image](../images-with-pre-installed-software/get-list.md) from [{{ marketplace-full-name }}](../../../marketplace/), e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -63,10 +63,10 @@ description: Use this tutorial to create a Linux VM.
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) corresponding to the selected subnet.
-     * `--network-interface`: VM [network interface](../../concepts/network.md) settings.
+     * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) matching the selected subnet.
+     * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
          * `subnet-name`: Name of the selected subnet.
-         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, omit this parameter.
 
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
@@ -76,7 +76,7 @@ description: Use this tutorial to create a Linux VM.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-         If you want to add several users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data using the `--metadata-from-file` parameter. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
+         If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in the `--metadata-from-file` parameter. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -84,7 +84,7 @@ description: Use this tutorial to create a Linux VM.
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -102,8 +102,8 @@ description: Use this tutorial to create a Linux VM.
        zone                      = "<availability_zone>"
 
        resources {
-         cores  = "<number_of_vCPU_cores>"
-         memory = "<RAM_GB>"
+         cores  = "<number_of_vCPUs_cores>"
+         memory = "<RAM_in_GB>"
        }
 
        boot_disk {
@@ -142,35 +142,35 @@ description: Use this tutorial to create a Linux VM.
 
          {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-     * `yandex_compute_instance`: VM description.
+     * `yandex_compute_instance`: VM description:
        * `name`: VM name.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
        * `zone`: Availability zone the VM will be in.
-       * `resources`: Number of vCPU cores and RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
+       * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
        * `boot_disk`: Boot disk settings. Specify the disk ID.
-       * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+       * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
        * `metadata`: In the metadata, provide the public SSH key for VM access. For more information, see [{#T}](../../concepts/vm-metadata.md).
 
            If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
-     * `yandex_vpc_network`: Description of the cloud network.
-     * `yandex_vpc_subnet`: Description of the subnet your VM will be connected to.
+     * `yandex_vpc_network`: Cloud network description.
+     * `yandex_vpc_subnet`: Description of the subnet to connect your VM to.
 
      {% note info %}
 
-     If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+     If you already have suitable resources, such as a cloud network and subnet, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
 
      {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
-  1. Create resources:
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -178,13 +178,13 @@ description: Use this tutorial to create a Linux VM.
 
   Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource:
   1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
-  1. Get an [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
+  1. Get a [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
      * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
-     * [How to get a token](../../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../../iam/concepts/users/service-accounts.md).
-     * [How to get a token](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+     * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../../iam/concepts/users/service-accounts.md).
+     * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
   1. [Get the ID](../../../resource-manager/operations/folder/get-id.md) of the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Get information about the [image](../../concepts/image.md) to create your VM from (image ID and minimum [disk](../../concepts/disk.md) size):
-     * If you know the [image family](../../concepts/image.md#family), get information about the latest image in this family:
+  1. Get info on the [image](../../concepts/image.md) to create your VM from, such as image ID and minimum [disk](../../concepts/disk.md) size:
+     * If you know the [image family](../../concepts/image.md#family), get info on the latest image in that family:
 
        ```bash
        export IAM_TOKEN=CggaATEVAgA...
@@ -194,8 +194,8 @@ description: Use this tutorial to create a Linux VM.
          "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
        ```
 
-     * To learn more about the image, see the [list of public images](../images-with-pre-installed-software/get-list.md).
-  1. Get the [subnet](../../../vpc/concepts/network.md#subnet) ID and [availability zone](../../../overview/concepts/geo-scope.md) ID. Specify the ID of the folder where the subnet was created in your request:
+     * You can get information on the image from the [list of public images](../images-with-pre-installed-software/get-list.md).
+  1. Get the [subnet](../../../vpc/concepts/network.md#subnet) and [availability zone](../../../overview/concepts/geo-scope.md) IDs. In your request, specify the ID of the folder where the subnet was created:
 
      ```bash
      export IAM_TOKEN=CggaATEVAgA...
@@ -263,7 +263,7 @@ description: Use this tutorial to create a Linux VM.
 
      Where:
      * `folderId`: Folder ID.
-     * `name`: Name to assign to the VM when you create it.
+     * `name`: Name the VM will get when created.
      * `zoneId`: Availability zone matching the selected subnet.
      * `platformId`: [Platform](../../concepts/vm-platforms.md).
      * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
@@ -272,10 +272,10 @@ description: Use this tutorial to create a Linux VM.
 
        {% include [id-info](../../../_includes/compute/id-info.md) %}
 
-       The disk size must not be less than the minimum value specified in the image details.
-     * `networkInterfaceSpecs`: VM's [network interface](../../concepts/network.md) settings.
+       The disk size must not be less than the minimum value specified in the image info.
+     * `networkInterfaceSpecs`: VM [network interface](../../concepts/network.md) settings.
        * `subnetId`: ID of the selected subnet.
-       * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP address](../../../vpc/concepts/address.md#public-addresses) to your VM, specify:
+       * `primaryV4AddressSpec`: IP address to assign to the VM. To add a [public IP address](../../../vpc/concepts/address.md#public-addresses) to your VM, specify the following:
 
          ```json
          "primaryV4AddressSpec": {
@@ -284,9 +284,9 @@ description: Use this tutorial to create a Linux VM.
            }
          }
          ```
-       To add multiple [network interfaces](../../concepts/network.md) to a VM, provide an array with the required number of objects containing network interface settings in the `networkInterfaceSpecs` parameter. You can add up to eight network interfaces to a single VM.
+       To add multiple [network interfaces](../../concepts/network.md) to your VM, provide an array with the required number of objects containing network interface settings in the `networkInterfaceSpecs` parameter. You can add up to eight network interfaces to a single VM.
 
-     Read more about the request body format in the [API reference](../../api-ref/Instance/create.md).
+     For more information about the request body format, see the [API reference](../../api-ref/Instance/create.md).
   1. Create a VM:
 
      ```bash

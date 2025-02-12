@@ -37,7 +37,7 @@ Syntax:
 - [yc load-balancer](load-balancer/cli-ref/index.md) — Manage Yandex Load Balancer resources
 - [yc loadtesting](loadtesting/cli-ref/index.md) — Manage Yandex Load Testing resources
 - [yc lockbox](lockbox/cli-ref/index.md) — [PREVIEW] Manage Yandex Lockbox resources
-- [yc logging](logging/cli-ref/index.md) — [PREVIEW] Manage Yandex Cloud Logging
+- [yc logging](logging/cli-ref/index.md) — Yandex Cloud Logging
 - [yc managed-airflow](managed-airflow/cli-ref/index.md) — Manage Airflow clusters.
 - [yc managed-clickhouse](managed-clickhouse/cli-ref/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.
 - [yc managed-elasticsearch](managed-elasticsearch/cli-ref/index.md) — Manage ElasticSearch clusters, hosts, indexes and backups.

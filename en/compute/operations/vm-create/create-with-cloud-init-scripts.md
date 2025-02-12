@@ -23,7 +23,7 @@ To create a VM with a custom configuration script:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -55,7 +55,7 @@ To create a VM with a custom configuration script:
   Where:
   * `subnet-name`: Name of the [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) specified in the `--zone` parameter.
   * `security-group-ids`: [Security group](../../../vpc/concepts/security-groups.md) ID.
-  * `--metadata-from-file`: `user-data` key and its value, i.e., path to the `cloud-config` configuration file in YAML format, e.g., `--metadata-from-file user-data="/home/user/metadata.yaml"`.
+  * `--metadata-from-file`: `user-data` key and its value, i.e., path to the `cloud-config` configuration file in YAML format, such as `--metadata-from-file user-data="/home/user/metadata.yaml"`.
 
       See configuration examples for `user-data` under [Examples](#examples).
 
@@ -107,7 +107,7 @@ To create a VM with a custom configuration script:
 
 For more information on how to create a VM, see [{#T}](./create-linux-vm.md).
 
-To make sure the configuration scripts run successfully, [get the serial port output](../vm-info/get-serial-port-output.md) of your VM.
+To make sure the configuration scripts ran successfully, [get the serial port output](../vm-info/get-serial-port-output.md) of your VM.
 
 ## Examples {#examples}
 

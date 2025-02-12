@@ -1,12 +1,12 @@
-# Recreating instances in a group one by one
+# Sequentially recreating instances in a group
 
-You can [recreate group instances one by one](../../concepts/instance-groups/rolling-actions.md) based on the parameters specified in the [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md).
+You can [sequentially recreate group instances](../../concepts/instance-groups/rolling-actions.md) based on the parameters specified in the [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md).
 
-For example, if the deployment policy states that the maximum number of unavailable instances per group is `1`, then only one VM will be unavailable at any given time during successive recreations.
+For example, if the deployment policy specifies a maximum of `1` unavailable instance per group, then only one instance will be down at any given time when sequentially recreating instances.
 
 {% include [ig-opportunistic-warning](../../../_includes/compute/ig-opportunistic-warning.md) %}
 
-To recreate group instances one by one:
+To sequentially recreate instances in a group:
 
 {% list tabs group=instructions %}
 
@@ -16,7 +16,7 @@ To recreate group instances one by one:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to recreate an instance group:
+  1. See the description of the CLI command for recreating an instance group:
 
       ```bash
       {{ yc-compute-ig }} rolling-recreate --help
@@ -56,19 +56,19 @@ To recreate group instances one by one:
       +----------------------+-----------------------+--------+------+
       ```
 
-  1. Recreate instances in the instance group:
+  1. Recreate VM instances in the instance group:
 
       ```bash
       {{ yc-compute-ig }} rolling-recreate --all \
-        --name <VM_group_name> \
+        --name <instance_group_name> \
         --folder-name <folder_name>
       ```
 
       Where:
-      * `--name`: VM group name.
-      * `--folder-name`: Name of the folder the VM group belongs to.
+      * `--name`: Instance group name.
+      * `--folder-name`: Name of the folder the instance group belongs to.
 
-      {{ ig-name }} will begin to recreate all instances in the group one by one. The recreated instances will change their status to `Running`.
+      {{ ig-name }} will start recreating all instances in the group one by one. The recreated instances will change their status to `Running`.
 
       Result:
 
@@ -80,17 +80,17 @@ To recreate group instances one by one:
       application_load_balancer_state: {}
       ```
 
-      To recreate individual instances in a group, [get](./get-list-instances.md) a list of instances in this group:
+      To recreate individual instances in a group, [get](./get-list-instances.md) a list of instances in that group:
      
       ```bash
       {{ yc-compute-ig }} list-instances \
-        --name <VM_group_name> \
+        --name <instance_group_name> \
         --folder-name <folder_name>
       ```
 
       Where:
-      * `--name`: VM group name.
-      * `--folder-name`: Name of the folder the VM group belongs to.
+      * `--name`: Instance group name.
+      * `--folder-name`: Name of the folder the instance group belongs to.
 
       Result:
 
@@ -105,21 +105,21 @@ To recreate group instances one by one:
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
       ```
 
-      Recreate the instances you need:
+      Recreate the VM instances in question:
 
       ```bash
       {{ yc-compute-ig }} rolling-recreate \
-        --instance-ids <VM_IDs> \
-        --name <VM_group_name> \
+        --instance-ids <VM_instance_IDs> \
+        --name <instance_group_name> \
         --folder-name <folder_name>
       ```
 
       Where:
-      * `--instance-ids`: Comma-separated list of IDs of VMs to recreate. For example, to recreate the first and third VMs from the above list, specify `--instance-ids epdl7gdvb69f********,epd3anghn4vb********`.
-      * `--name`: VM group name.
-      * `--folder-name`: Name of the folder the VM group belongs to.
+      * `--instance-ids`: Comma-separated IDs of instances to recreate. For example, to recreate the first and third instances from those listed, specify `--instance-ids epdl7gdvb69f********,epd3anghn4vb********`.
+      * `--name`: Instance group name.
+      * `--folder-name`: Name of the folder the instance group belongs to.
       
-      {{ ig-name }} will begin to recreate the specified instances in the group one by one. The recreated instances will change their status to `Running`.
+      {{ ig-name }} will start recreating the specified instances in the group one by one. The recreated instances will change their status to `Running`.
 
   For more information about the `{{ yc-compute-ig }} rolling-recreate` command parameters, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
 

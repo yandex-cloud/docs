@@ -27,14 +27,14 @@ To create a disk from an [image](../../concepts/image.md):
 
   1. Provide a description for the disk, if required.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
-  1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
-  1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and select the image you need in the list below. Use the filter to find the image.
+  1. Set the disk parameters, such as [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
+  1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the image you need from the list below. Use the filter to find the image.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. If required, select a [schedule](../../concepts/snapshot-schedule.md) for automatic snapshot creation, or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk snapshots, if required. For more information about setting up schedules, see [Creating a disk snapshot schedule](../snapshot-control/create-schedule.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-     When creating a disk, you can select only one snapshot schedule. Once the disk is created, you can add a few more schedules by following the [instructions](../disk-control/configure-schedule.md#add-schedule).
+     When creating a disk, you can only select a single snapshot schedule. After the disk is created, you can add a few more schedules by following [this guide](../disk-control/configure-schedule.md#add-schedule).
   1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
 
 - CLI {#cli}
@@ -43,7 +43,7 @@ To create a disk from an [image](../../concepts/image.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI commands for managing disks and images:
+  1. See the description of the CLI commands for managing disks and images:
 
       ```bash
       yc compute disk create --help
@@ -68,7 +68,7 @@ To create a disk from an [image](../../concepts/image.md):
 
   1. Select `ID` or `NAME` of the image you need.
 
-  1. Create a disk from the selected image.
+  1. Create a disk from the selected image:
 
       ```bash
       yc compute disk create <disk_name> \

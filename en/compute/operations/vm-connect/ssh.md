@@ -1,11 +1,7 @@
----
-title: How to connect to a Linux VM via SSH
-description: 'Using this guide, you can connect to a VM with an SSH key pair: the public key resides on the VM, and the private one is kept by the user.'
----
 
 # Connecting to a Linux VM via SSH
 
-To connect to a [VM](../../concepts/vm.md) over SSH, you need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than connecting with login and password.
+To connect to a [VM](../../concepts/vm.md) via SSH, you need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than connecting with a username and password.
 
 To enable another user to connect to your VM, add an SSH key for them by following [this guide](#vm-authorized-keys).
 
@@ -28,7 +24,7 @@ To connect to a Linux VM via SSH:
 
 {% note warning %}
 
-Save the private key in a secure location, as you will not be able to connect to the VM without it.
+Store your private key securely, as you will not be able to connect to the VM without it.
 
 {% endnote %}
 
@@ -40,7 +36,7 @@ The [previously created](#creating-ssh-keys) public key has the following format
 <key_type> <public_key_body> <optional_comment>
 ```
 
-Example:
+Here is an example:
 
 > ```text
 > ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz user@Desktop
@@ -48,7 +44,7 @@ Example:
 
 {% note tip %}
 
-The `<optional_comment>` section is not used when connecting via SSH, so you can skip copying it.
+The `<optional_comment>` section is not used when connecting via SSH, so you can omit it.
 
 {% endnote %}
 
@@ -62,13 +58,13 @@ You can also copy the key using the command line:
   
   In the terminal, use one of the following methods to copy the key:
 
-   * Manually. To do this, output the file contents to the screen:
+   * Manually. To do this, output the file content to the screen:
 
       ```bash
       cat <key_file_path>/<key_name>.pub
       ```
 
-      The public key will be shown on the screen. Copy it to the clipboard.
+      This will display the public key. Copy it to the clipboard.
 
    * Use the appropriate command:
 
@@ -83,13 +79,13 @@ You can also copy the key using the command line:
   1. Run `cmd.exe` or `powershell.exe`.
   1. Use one of the following methods to copy the key:
 
-     * Manually. To do this, output the file contents to the screen:
+     * Manually. To do this, output the file content to the screen:
 
         ```shell
         type <key_file_path>\<key_name>.pub
         ```
 
-        The public key will be shown on the screen. Copy it to the clipboard.
+        This will display the public key. Copy it to the clipboard.
 
      * Use the appropriate command:
 
@@ -101,17 +97,17 @@ You can also copy the key using the command line:
 
 {% endlist %}
 
-After that, paste the public key into the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field when creating a new VM in the [management console]({{ link-console-main }}).
+After that, paste the public key into the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field when creating a VM in the [management console]({{ link-console-main }}).
 
 ## Connecting to a VM {#vm-connect}
 
-You can connect to a VM with the `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after a few minutes.
+You can connect to a VM with the `RUNNING` status via SSH. It may take some time for all services to initialize after the VM [starts](../vm-control/vm-stop-and-start.md#start). If you get a connection error, try again in a few minutes.
 
-VM [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic to port 22.
+The VM [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic on port 22.
 
-To connect, specify the VM's [public IP address](../../../vpc/concepts/address.md#public-addresses). You can find out the public IP address in the management console: on the VM page, go to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section and find the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field. If you created a VM with an internal IP address only, [bind it to a public IP address](../vm-control/vm-attach-public-ip.md).
+To connect, specify the VM [public IP address](../../../vpc/concepts/address.md#public-addresses). You can find out the public IP address in the management console: on the VM page, go to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section and find the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field. If you created your VM with an internal IP address only, [assign it a public IP address](../vm-control/vm-attach-public-ip.md).
 
-You can also use the [internal IP addresses](../../../vpc/concepts/address.md#internal-addresses) and [FQDNs](../../../vpc/concepts/address.md#fqdn) to establish an SSH connection between the VMs on a single [cloud network](../../../vpc/concepts/network.md#network) in {{ yandex-cloud }}.
+You can also use [internal IP addresses](../../../vpc/concepts/address.md#internal-addresses) and [FQDNs](../../../vpc/concepts/address.md#fqdn) to establish an SSH connection between VMs with in a single [cloud network](../../../vpc/concepts/network.md#network) in {{ yandex-cloud }}.
 
 {% list tabs group=operating_system %}
 
@@ -123,7 +119,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
   ssh <username>@<VM_public_IP_address>
   ```
 
-  Where `<username>` is the VM account username. If you created the VM via the CLI, `yc-user` is the default user.
+  Where `<username>` is the VM account username. If you created your VM via the CLI, `yc-user` is the default user.
 
   If you have multiple private keys, specify the one you need:
 
@@ -131,7 +127,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
   ssh -i <key_path/key_file_name> <username>@<VM_public_IP_address>
   ```
 
-  If this is your first time connecting to the VM, you will see an unknown host warning:
+  If this is your first time connecting to the VM, you will get this unknown host warning:
 
   ```text
   The authenticity of host '51.250.83.243 (51.250.83.243)' can't be established.
@@ -146,13 +142,13 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
   Make sure the Windows account has read permissions for the folder containing the keys.
 
-  To connect to the VM, execute the following command in the command line:
+  To connect to the VM, run the following command in the command line:
 
   ```shell
   ssh <username>@<VM_public_IP_address>
   ```
 
-  Where `<username>` is the VM account username. If you created the VM via the CLI, `yc-user` is the default user.
+  Where `<username>` is the VM account username. If you created your VM via the CLI, `yc-user` is the default user.
 
   If you have multiple private keys, specify the one you need:
 
@@ -160,7 +156,7 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
   ssh -i <key_path\key_file_name> <username>@<VM_public_IP_address>
   ```
 
-  If this is your first time connecting to the VM, you will see an unknown host warning:
+  If this is your first time connecting to the VM, you will get this unknown host warning:
 
   ```text
   The authenticity of host '89.169.132.223 (89.169.132.223)' can't be established.
@@ -172,44 +168,44 @@ You can also use the [internal IP addresses](../../../vpc/concepts/address.md#in
 
 - Windows 7/8 {#windows7-8}
 
-  Establish a connection using the PuTTY app:
-  1. Run the Pageant application.
-     1. Right-click the pageant icon in the task bar.
+  Establish a connection using PuTTY:
+  1. Run Pageant.
+     1. Right-click the Pageant icon in the task bar.
      1. In the context menu, select **Add key**.
-     1. Select a PuTTY-generated private key in `.ppk` format. If a password is set for the key, enter it.
+     1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if any.
   1. Run PuTTY.
      1. In the **Host Name (or IP address)** field, enter the public IP address of the VM you want to connect to. Set the port to `22` and connection type to **SSH**.
 
         ![ssh_add_ip](../../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
      1. In the tree on the left, select **Connection** → **SSH** → **Auth**.
-     1. Set the **Allow agent forwarding** option.
+     1. Enable **Allow agent forwarding**.
 
         ![ssh_choose_private_key](../../../_assets/compute/ssh-putty/authentication_parameters.png)
 
      1. In the tree on the left, select **Connection** → **SSH** → **Auth** → **Credentials**.
 
-     1. In the **Private key file for authentication** field, select the file with the private key.
+     1. In the **Private key file for authentication** field, select the private key file.
 
         ![ssh_choose_private_key](../../../_assets/compute/ssh-putty/ssh_choose_private_key.png)
 
-     1. Go back to the **Sessions** menu. In the **Saved sessions** field, enter any session name and click **Save**. The session settings are saved under the specified name. You can use this session profile to connect using Pageant.
+     1. Go back to the **Sessions** menu. In the **Saved sessions** field, enter any name for the session and click **Save**. This will save the session settings under the specified name. You can use this session profile to connect with Pageant.
 
         ![ssh_save_session](../../../_assets/compute/ssh-putty/ssh_save_session.png)
 
-     1. Click **Open**. If this is the first time you connect to a VM, you might see a warning about an unknown host:
+     1. Click **Open**. If this is your first time connecting to the VM, you may get this unknown host warning:
 
         ![ssh_unknown_host_warning](../../../_assets/compute/ssh-putty/ssh_unknown_host_warning.png)
 
-        Click **Accept**. A terminal window will open prompting you to enter the username of the user on whose behalf the connection is being established. Type the username that you specified when creating the VM and press **Enter**. If you created the VM via the CLI, `yc-user` is the default user.
+        Click **Accept**. This will open a terminal window prompting you to enter the username to use for connection. Type the username you specified when creating the VM and press **Enter**. If you created your VM via the CLI, `yc-user` is the default user.
 
-        If all the settings are correct, the connection with the server will be established.
+        If everything is configured correctly, a connection to the server will be established.
 
         ![ssh_login](../../../_assets/compute/ssh-putty/ssh_login.png)
 
-  If you saved the session profile in PuTTY, you can use Pageant to establish a connection in the future:
-  1. Right-click the pageant icon in the task bar.
-  1. Select the **Saved sessions** menu item.
+  If you saved the session profile in PuTTY, you can use Pageant for future connections:
+  1. Right-click the Pageant icon in the task bar.
+  1. Select **Saved sessions**.
   1. In the saved sessions list, select the session you need.
 
 {% endlist %}
@@ -228,7 +224,7 @@ To configure users from within the VM, follow these steps:
 
    {% note info %}
 
-   To get information about a VM with user metadata, run the command:
+   To get info on a VM with custom metadata, run this command:
 
    ```bash
    yc compute instance get --full <VM_name>
@@ -236,7 +232,7 @@ To configure users from within the VM, follow these steps:
 
    {% endnote %}
 
-1. Create a new user named `testuser` and specify `bash` as the default wrapper for this user:
+1. Create a new user named `testuser` and specify `bash` as the default shell for this user:
 
    ```bash
    sudo useradd -m -d /home/testuser -s /bin/bash testuser
@@ -248,7 +244,7 @@ To configure users from within the VM, follow these steps:
    sudo su - testuser
    ```
 
-1. Create the `.ssh` folder in the new user's home directory:
+1. Create a folder named `.ssh` in the new user's home directory:
 
    ```bash
    mkdir .ssh
@@ -273,7 +269,7 @@ To configure users from within the VM, follow these steps:
    chmod 600 ~/.ssh/authorized_keys
    ```
 
-1. Disconnect from the VM using the `exit` command.
+1. Disconnect from the VM by running `exit`.
 1. [Restart the VM](../vm-control/vm-stop-and-start.md#restart).
 1. Check the connection for the new user:
 
@@ -283,7 +279,7 @@ To configure users from within the VM, follow these steps:
 
 #### What's next {#what-is-next}
 
-* [Learn how to work with {{ yandex-cloud }} from inside a VM](auth-inside-vm.md).
+* [Using {{ yandex-cloud }} from within a VM](auth-inside-vm.md)
 
 #### See also {#see-also}
 

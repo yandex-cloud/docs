@@ -6,13 +6,13 @@ description: Follow this guide to manage your maintenance policy.
 # Maintenance policy management
 
 
-To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md), complete the following steps:
+To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md), follow these steps:
 
 1. [Create a VM with a configured maintenance policy](#create).
-1. [Check the maintenance event processing](#check).
-1. [Connect to the VM over SSH](#ssh).
+1. [Check maintenance event handling](#check).
+1. [Connect to the VM via SSH](#ssh).
 1. [Create a script to track VM maintenance events](#script).
-1. [Simulate the occurrence of a VM maintenance event](#simulate).
+1. [Simulate a VM maintenance event](#simulate).
 1. [Optionally, change the VM maintenance policy type](#change-policy).
 
 ## Create a VM with a configured maintenance policy {#create}
@@ -21,7 +21,7 @@ To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md)
 
 - CLI {#cli}
 
-  Create a VM with the maintenance policies:
+  Create a VM with maintenance policies:
 
   ```
   FOLDER_ID=$(yc config get folder-id)
@@ -106,9 +106,9 @@ To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md)
 
 {% endlist %}
 
-## Check the maintenance event processing {#check}
+## Check maintenance event handling {#check}
 
-You can use the CLI to check the configuration of the VM maintenance policies after it has been created. Run this command:
+You can use the CLI to check the maintenance policy configuration for your VM after it is created. Run this command:
 
 ```
 yc compute instance get --name=mnt-vm1 --format=json | grep maintenance
@@ -156,15 +156,15 @@ chmod u+x mnt-pol.sh
 ./mnt-pol.sh
 ```
 
-## Simulate the occurrence of a VM maintenance event {#simulate}
+## Simulate a VM maintenance event {#simulate}
 
-Simulate the occurrence of a maintenance event using the CLI. Run this command:
+Simulate a maintenance event using the CLI. Run this command:
 
 ```
 yc compute instance simulate-maintenance-event --name=mnt-vm1
 ```
 
-Make sure the event is displayed in the terminal:
+Make sure the terminal output includes the event:
 
 ```
 yc-user@mnt-vm1:~$ ./mnt-pol.sh
@@ -188,7 +188,7 @@ You can change the VM maintenance policy type by specifying a new value for the 
 yc compute instance update --name=mnt-vm1 --maintenance-policy=migrate
 ```
 
-Simulate the occurrence of a maintenance event using the CLI:
+Simulate a maintenance event using the CLI:
 
 ```
 yc compute instance simulate-maintenance-event --name=mnt-vm1

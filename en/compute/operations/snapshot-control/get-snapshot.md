@@ -11,8 +11,8 @@ title: How to get information about a disk snapshot in {{ compute-full-name }}
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [disk snapshot](../../concepts/snapshot.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-  1. Select the disk snapshot you need.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the disk snapshot.
+  1. Select the disk snapshot.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the disk snapshot details.
 
 - CLI {#cli}
 
@@ -20,13 +20,13 @@ title: How to get information about a disk snapshot in {{ compute-full-name }}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) command to get information about a [disk snapshot](../../concepts/snapshot.md):
+  1. See the description of the [CLI](../../../cli/) command for getting information about a [disk snapshot](../../concepts/snapshot.md):
 
      ```bash
      yc compute snapshot get --help
      ```
 
-  1. Get information about your disk snapshot by specifying its name or ID:
+  1. Get information about a disk snapshot by specifying its name or ID:
 
      ```bash
      yc compute snapshot get <disk_snapshot_name>
@@ -70,11 +70,11 @@ title: How to get information about a disk snapshot in {{ compute-full-name }}
        * `value`: Returned value.
 
      You can replace `storage_size` with any other parameter to get the information you need. For more information about the `yandex_compute_snapshot` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_snapshot).
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
      ```bash
      terraform output

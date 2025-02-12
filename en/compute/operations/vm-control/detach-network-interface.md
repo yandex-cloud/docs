@@ -1,12 +1,12 @@
 ---
-title: Deleting a network interface from a virtual machine
+title: Deleting a network interface from a VM
 description: Follow this guide to delete a network interface from a virtual machine.
 ---
 
-# Deleting a network interface from a virtual machine
+# Deleting a network interface from a VM
 
 
-A virtual machine can have one to eight [network interfaces](../../concepts/network.md) attached. You can delete network interfaces you no longer need on both stopped and running VMs.
+A virtual machine supports up to eight [network interfaces](../../concepts/network.md). You can delete network interfaces you no longer need on both stopped and running VMs.
 
 {% note info %}
 
@@ -14,7 +14,7 @@ Still, you cannot delete a VM's network interface if it is the only one it has.
 
 {% endnote %}
 
-To delete a network interface from a virtual machine:
+To delete a network interface from a VM:
 
 {% list tabs group=instructions %}
 
@@ -24,7 +24,7 @@ To delete a network interface from a virtual machine:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for deleting a network interface from a virtual machine:
+  1. See the description of the CLI command for deleting a network interface from a VM:
 
       ```bash
       yc compute instance detach-network-interface --help
@@ -88,7 +88,7 @@ To delete a network interface from a virtual machine:
       ...
       ```
 
-      Save the number (`index` field value) of the network interface you want to delete.
+      Save the number (the `index` field value) of the network interface you want to delete.
 
   1. Delete the network interface:
 
@@ -99,7 +99,7 @@ To delete a network interface from a virtual machine:
       ```
 
       Where:
-      * `--id`: ID of the selected VM. Instead of an ID, you can use the `--name` parameter to specify the VM name.
+      * `--id`: ID of the selected VM. Instead of the ID, you can use the `--name` parameter to specify the VM name.
       * `--network-interface-index`: Previously saved number of the VM's network interface you need to delete.
 
       Result:

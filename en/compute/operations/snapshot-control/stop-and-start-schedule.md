@@ -1,6 +1,6 @@
 ---
-title: How to disable and enable a disk snapshot schedule in {{ compute-full-name }}
-description: Follow this guide to disable and enable a disk snapshot schedule in {{ compute-name }}.
+title: How to disable/enable a {{ compute-full-name }} disk snapshot schedule
+description: Follow this guide to disable/enable a disk snapshot schedule in {{ compute-name }}.
 ---
 
 # Disabling and enabling a disk snapshot schedule
@@ -13,27 +13,27 @@ To disable an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-   1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
-   1. Next to the schedule you want to disable, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
-   1. Confirm disabling the schedule.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the schedule.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+  1. Next to the schedule you want to disable, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
+  1. Confirm disabling the schedule.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI commands for managing schedules:
+  1. See the description of the CLI commands for managing schedules:
 
       ```bash
       yc compute snapshot-schedule --help
       yc compute snapshot-schedule disable --help
       ```
 
-   1. Get a list of schedules in the default folder:
+  1. Get a list of schedules in the default folder:
 
       ```bash
       yc compute snapshot-schedule list --format yaml
@@ -74,10 +74,10 @@ To disable an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](.
         snapshot_spec: {}
       ```
 
-   1. Disable the selected schedule:
+  1. Disable the selected schedule:
 
       ```bash
-      yc compute snapshot-schedule disable <name_or_ID_of_the_schedule>
+      yc compute snapshot-schedule disable <schedule_name_or_ID>
       ```
       Result:
       ```text
@@ -96,8 +96,8 @@ To disable an automatic [disk snapshot](../../concepts/snapshot.md) [schedule](.
 
 - API {#api}
 
-   1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md) gRPC API call.
-   1. Disable a snapshot schedule using the [disable](../../api-ref/SnapshotSchedule/disable.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Disable](../../api-ref/grpc/SnapshotSchedule/disable.md) gRPC API call.
+  1. Get a list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md) gRPC API call.
+  1. Disable the snapshot schedule using the [disable](../../api-ref/SnapshotSchedule/disable.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Disable](../../api-ref/grpc/SnapshotSchedule/disable.md) gRPC API call.
 
 {% endlist %}
 
@@ -113,26 +113,26 @@ To enable an automatic disk snapshot schedule:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where the schedule is located.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-   1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
-   1. Next to the schedule you want to enable, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.start }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the schedule.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+  1. Next to the schedule you want to enable, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI commands for managing schedules:
+  1. See the description of the CLI commands for managing schedules:
 
       ```bash
       yc compute snapshot-schedule --help
       yc compute snapshot-schedule enable --help
       ```
 
-   1. Get a list of schedules in the default folder:
+  1. Get a list of schedules in the default folder:
 
       ```bash
       yc compute snapshot-schedule list --format yaml
@@ -173,10 +173,10 @@ To enable an automatic disk snapshot schedule:
         snapshot_spec: {}
       ```
 
-   1. Enable the selected schedule:
+  1. Enable the selected schedule:
 
       ```bash
-      yc compute snapshot-schedule enable <name_or_ID_of_the_schedule>
+      yc compute snapshot-schedule enable <schedule_name_or_ID>
       ```
       Result:
       ```text
@@ -195,12 +195,12 @@ To enable an automatic disk snapshot schedule:
 
 - API {#api}
 
-   1. Get the list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md) gRPC API call.
-   1. Enable a snapshot schedule using the [enable](../../api-ref/SnapshotSchedule/enable.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Enable](../../api-ref/grpc/SnapshotSchedule/enable.md) gRPC API call.
+  1. Get a list of schedules using the [list](../../api-ref/SnapshotSchedule/list.md) REST API method for the [SnapshotSchedule](../../api-ref/SnapshotSchedule/index.md) resource or the [SnapshotScheduleService/List](../../api-ref/grpc/SnapshotSchedule/list.md) gRPC API call.
+  1. Enable the snapshot schedule using the [enable](../../api-ref/SnapshotSchedule/enable.md) REST API method for the `SnapshotSchedule` resource or the [SnapshotScheduleService/Enable](../../api-ref/grpc/SnapshotSchedule/enable.md) gRPC API call.
 
 {% endlist %}
 
-The schedule status will change to `ACTIVE`: new disk snapshots will be created, old ones deleted (if the corresponding parameter of [snapshot retention](../../concepts/snapshot-schedule.md#retention) is selected).
+The schedule status will change to `ACTIVE`: new disk snapshots will be created and old ones deleted (if the relevant [snapshot retention](../../concepts/snapshot-schedule.md#retention) option is selected).
 
 #### What's next {#what-is-next}
 

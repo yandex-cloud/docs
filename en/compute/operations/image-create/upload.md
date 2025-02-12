@@ -1,17 +1,17 @@
 ---
-title: Uploading a disk image to the cloud
-description: This tutorial describes how to upload a disk image file to an {{ objstorage-name }} Linux OS storage and use it to create an image and a virtual machine in {{ compute-name }}.
+title: Uploading a disk image to a cloud
+description: This guide describes how to upload a disk image file to a Linux {{ objstorage-name }} and use it to create an image and a virtual machine in {{ compute-name }}.
 keywords:
   - upload image
   - upload disk image
   - upload to cloud
   - disk image
-  - OS Linux image
+  - Linux image
 ---
 
-# Uploading a disk image to {{ yandex-cloud }}
+# Uploading a custom disk image to {{ yandex-cloud }}
 
-In this tutorial, you will learn how to upload a Linux OS image file to [{{ objstorage-full-name }}](../../../storage/) and use it to create an [image](../../concepts/image.md) and a [VM](../../concepts/vm.md) in {{ compute-name }}.
+This guide explains how to upload a Linux image file to [{{ objstorage-full-name }}](../../../storage/) and use it to create an [image](../../concepts/image.md) and a [VM](../../concepts/vm.md) in {{ compute-name }}.
 
 Major virtualization systems are supported.
 
@@ -21,25 +21,25 @@ In {{ compute-name }}, you can only create images using files uploaded to {{ obj
 
 {% endnote %}
 
-## Prepare an image file {#prepare-file}
+## Preparing an image file {#prepare-file}
 
 {% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}
 
 {% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 
-For setup instructions, see [{#T}](custom-image.md).
+For configuration steps, see [{#T}](custom-image.md).
 
-## Upload an image file to {{ objstorage-name }} {#upload-file}
+## Uploading an image file to {{ objstorage-name }} {#upload-file}
 
-Upload your image to {{ objstorage-name }} and get a link to the uploaded image:
+Upload your image file to {{ objstorage-name }} and get a link to it:
 
-1. If you do not have a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }}, [create](../../../storage/operations/buckets/create.md) one with restricted access.
-1. Upload the image [using the management console](../../../storage/operations/objects/upload.md), the [AWS CLI](../../../storage/tools/aws-cli.md), or [WinSCP](../../../storage/tools/winscp.md), for example. In {{ objstorage-name }} terms, the uploaded image is called an _object_.
-1. [Get](../../../storage/operations/objects/link-for-download.md) a signed [link](../../../storage/concepts/pre-signed-urls.md) to download the image from the bucket. Use this link when creating an image in {{ compute-name }}.
+1. If you do not have a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }} yet, [create](../../../storage/operations/buckets/create.md) one with restricted access.
+1. Upload the image to your bucket, for example, [using the management console](../../../storage/operations/objects/upload.md), [AWS CLI](../../../storage/tools/aws-cli.md), or [WinSCP](../../../storage/tools/winscp.md). Within the {{ objstorage-name }} context, the uploaded image is called an _object_.
+1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ compute-name }}.
 
-## Create an image in {{ compute-name }} {#create-image}
+## Creating an image in {{ compute-name }} {#create-image}
 
-Create a new image from the link obtained in {{ objstorage-name }}:
+Create a new image from the link you got in {{ objstorage-name }}:
 
 {% list tabs group=instructions %}
 
@@ -49,11 +49,11 @@ Create a new image from the link obtained in {{ objstorage-name }}:
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**.
-  1. Enter the image name. The naming requirements are as follows:
+  1. Name your image. The naming requirements are as follows:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. If necessary, add a description of the image.
+  1. Add a description for the image, if required.
   1. Paste the link to the image you got in {{ objstorage-name }}.
   1. To create an [optimized image](../../concepts/image.md#images-optimized-for-deployment), enable **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
   1. Click **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
@@ -80,7 +80,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
     --source-uri "https://{{ s3-storage-host }}/mybucket/cosmic-server-cloudimg-amd64.vmdk"
   ```
 
-  If you know the minimum requirements for the size of a [disk](../../concepts/disk.md) that will be created from this image, specify the size in GB:
+  If you know the minimum required size of a [disk](../../concepts/disk.md) to create from this image, specify it in GB:
 
   ```bash
   yc compute image create \
@@ -96,7 +96,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To create an image:
-  1. Describe the parameters of the `yandex_compute_image` resource in the configuration file.
+  1. Specify the parameters of the `yandex_compute_image` resource in the configuration file.
 
      Here is an example of the configuration file structure:
 
@@ -111,17 +111,17 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
      Where `source_url` is the image link in {{ objstorage-name }}.
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+       If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. Run this command:
 
         ```bash
@@ -140,13 +140,13 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 Once created, the image will get the `CREATING` status. Wait until its status changes to `READY` before using it.
 
-## Delete the image from {{ objstorage-name }} {#delete-image}
+## Deleting the image from {{ objstorage-name }} {#delete-image}
 
-If you have successfully created an image, you can [delete the image file](../../../storage/operations/objects/delete.md) from {{ objstorage-name }}. You can also [delete the bucket](../../../storage/operations/buckets/delete.md) if it does not contain any more objects.
+If you have successfully created an image, you can [delete the image file](../../../storage/operations/objects/delete.md) from {{ objstorage-name }}. You can also [delete the bucket](../../../storage/operations/buckets/delete.md) if it contains no objects.
 
-## Create a VM from the prepared image {#create-vm-from-user-image}
+## Creating a VM from a pre-built image {#create-vm-from-user-image}
 
-You can create a virtual machine with disks from a pre-configured image.
+You can create a VM with disks from a pre-built image.
 
 {% include notitle [How to create a VM from custom image](../../operations/vm-create/create-from-user-image.md#create-vm-from-image) %}
 

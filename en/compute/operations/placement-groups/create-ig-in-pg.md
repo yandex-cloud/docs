@@ -20,13 +20,13 @@ To be able to create, update, and delete VMs in the group, [assign](../../../iam
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to create a placement group:
+  1. See the description of the CLI command for creating a placement group:
 
       ```bash
       yc compute placement-group create --help
       ```
 
-  1. Create a placement group in the default folder with one of the placement strategies:
+  1. Create a placement group in the default folder with one of the following placement strategies:
   
      {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
   
@@ -42,7 +42,7 @@ To be able to create, update, and delete VMs in the group, [assign](../../../iam
       yc vpc network list
       ```
 
-     If there are none, [create a network](../../../vpc/operations/network-create.md).
+     If there are no networks, [create one](../../../vpc/operations/network-create.md).
 
   1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
@@ -62,7 +62,7 @@ To be able to create, update, and delete VMs in the group, [assign](../../../iam
 
         Where:
 
-        * `name`: Instance group name. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
+        * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
         * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
 
           To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
@@ -101,8 +101,8 @@ To be able to create, update, and delete VMs in the group, [assign](../../../iam
         Where:
 
         * `platform_id`: [Platform](../../concepts/vm-platforms.md) ID.
-        * `memory`: Amount of memory (RAM).
-        * `cores`: Number of processor cores (vCPUs).
+        * `memory`: Amount of RAM.
+        * `cores`: Number of vCPUs.
         * `mode`: [Disk](../../concepts/disk.md) access mode.
           * `READ_ONLY`: Read-only access.
           * `READ_WRITE`: Read/write access.

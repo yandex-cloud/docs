@@ -4,9 +4,9 @@ Create a user to authenticate on the VM through the serial console and set a loc
 sudo useradd <username> && sudo passwd <username>
 ```
 
-Where `<username>` is the name of the new user, e.g., `yc-user`.
+Where `<username>` is the new username, e.g., `yc-user`.
 
-When prompted by the system, enter your user password, then confirm it.
+When prompted by the system, enter your user password and confirm it.
 
 Result:
 

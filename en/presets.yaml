@@ -5435,6 +5435,8 @@ default:
         field_organization: Organization
         field_person-id: Payer
     yacloud_billing:
+      alb:
+        label_max-timeout: Maximum timeout, sec.
       backup:
         button_attach-instance-submit: Attach
         label_policies: Backup policies
@@ -6237,6 +6239,7 @@ default:
         label_discard-http-codes: HTTP codes
         label_discard-percent: Share of discarded logs
         label_enable-proxy-protocol: PROXY protocol
+        label_expected-statuses: HTTP codes
         label_fqmn: FQMN
         label_grpc-status-code: gRPC status code
         label_hc_host: Authority
@@ -6286,6 +6289,7 @@ default:
         label_replace: Rewrite path or start
         label_replace-host: Replace host
         label_replace-port: Replace port
+        label_replace-prefix: Start
         label_replace-scheme: Replace scheme
         label_route-action: Action
         label_route-action-redirect: Forward

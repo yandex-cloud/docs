@@ -3,7 +3,7 @@ title: How to create an ultra high-speed network storage with three replicas (SS
 description: Follow this guide to create an ultra high-speed network storage with three replicas (SSD).
 ---
 
-# Create an ultra high-speed network storage with three replicas (SSD)
+# Creating an ultra high-speed network storage with three replicas (SSD)
 
 
 You can create an [ultra high-speed network storage](../../concepts/disk.md#nr-disks) with three replicas (SSD), which is a high-performance SSD offering the same speed as a non-replicated SSD, plus redundancy.
@@ -35,7 +35,7 @@ The disk size must be a multiple of 93 GB.
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
   
-  1. See the description of the CLI create disk command:
+  1. See the description of the CLI command for creating disks:
   
       ```bash
       yc compute disk create --help

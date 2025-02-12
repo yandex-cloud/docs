@@ -14,8 +14,8 @@ description: Follow this guide to get information about a disk placement group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
   1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab.
-  1. Select the disk placement group you need.
-  1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** page will display detailed information about the group.
+  1. Select the disk placement group.
+  1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** page will show detailed information about the group.
 
 - CLI {#cli}
 
@@ -23,13 +23,13 @@ description: Follow this guide to get information about a disk placement group.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to get information about a [disk placement group](../../concepts/disk-placement-group.md):
+  1. See the description of the CLI command for getting information about a [disk placement group](../../concepts/disk-placement-group.md):
 
       ```bash
       yc compute disk-placement-group get --help
       ```
 
-  1. Get information about the disk placement group by specifying its ID or name:
+  1. Get information about a disk placement group by specifying its ID or name:
 
       ```bash
       yc compute disk-placement-group get <disk_placement_group_ID>
@@ -74,13 +74,13 @@ description: Follow this guide to get information about a disk placement group.
       * `output "placement_group"`: Output variable that contains information about the disk placement group:
         * `value`: Returned value.
 
-      You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
+      You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
       ```bash
       terraform output

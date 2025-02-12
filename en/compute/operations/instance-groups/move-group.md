@@ -6,7 +6,7 @@ description: In this article, you will learn how to move a {{ compute-name }} in
 # Moving an instance group to a different availability zone
 
 
-If your instance group is attached to a load balancer, follow these guides:
+If your instance group is connected to a load balancer, follow these guides as appropriate:
 * [{#T}](move-group-with-nlb.md)
 * [{#T}](move-group-with-alb.md)
 

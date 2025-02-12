@@ -6,7 +6,7 @@ description: Follow this guide to make a VM preemptible.
 # Making a VM preemptible
 
 
-You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of an existing one.
+You can [create a preemptible](#create-preemptible) [VM](../../concepts/vm.md) or [change the type](#preemptible-to-regular) of a VM that already exists.
 
 ## Creating a preemptible VM {#create-preemptible}
 
@@ -24,8 +24,8 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
       {% include [change-custom-disk-settings-image](../../../_includes/compute/create/change-custom-disk-settings-image.md) %}
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to host your preemptible VM.
-  1. (Optional) Configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../../overview/concepts/geo-scope.md) to host your preemptible VM.
+  1. Optionally, configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
       * Specify the required disk size.
@@ -37,14 +37,14 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       * Go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab.
-      * Choose a [platform](../../../compute/concepts/vm-platforms.md).
+      * Select a [platform](../../../compute/concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and required number of vCPUs, as well as RAM size.
-      * In the **{{ ui-key.yacloud.component.compute.resources.field_advanced }}** field, enable the **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}** option.
-      * (Optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
+      * In the **{{ ui-key.yacloud.component.compute.resources.field_advanced }}** field, enable **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
+      * Optionally, enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the preemptible VM name:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify a name for the preemptible VM:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -61,14 +61,14 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to create a preemptible VM:
+  1. See the description of the CLI command for creating a preemptible VM:
 
      ```bash
      yc compute instance create --help
      ```
 
   1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the preemptible VM.
-  1. Select a Linux-based public [image](../images-with-pre-installed-software/get-list.md) from [{{ marketplace-full-name }}](../../../marketplace/), e.g., [CentOS 7](/marketplace/products/yc/centos-7).
+  1. Select a public Linux-based [image](../images-with-pre-installed-software/get-list.md) from [{{ marketplace-full-name }}](../../../marketplace/), e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -96,7 +96,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
      * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) matching the selected [subnet](../../../vpc/concepts/network.md#subnet).
      * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
          * `subnet-name`: Name of the selected subnet.
-         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, disable this parameter.
+         * `nat-ip-version=ipv4`: [Public IP address](../../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, omit this parameter.
 
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
@@ -112,7 +112,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -178,25 +178,25 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
        * `zone`: Availability zone to host the preemptible VM.
-       * `resources`: Number of vCPU cores and the amount of RAM available to the preemptible VM. The values must match the selected platform.
+       * `resources`: Number of vCPUs and amount of RAM available to the preemptible VM. The values must match the selected platform.
        * `boot_disk`: Boot disk settings. Specify the disk ID.
-       * `network_interface`: VM's [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
+       * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
        * `metadata`: In metadata, provide the public key for SSH access to the preemptible VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
        * `scheduling_policy`: Scheduling policy. To create a preemptible VM, select `preemptible = true`.
-     * `yandex_vpc_network`: Description of the cloud network.
+     * `yandex_vpc_network`: Cloud network description.
      * `yandex_vpc_subnet`: Description of the subnet to connect your preemptible VM to.
 
      {% note info %}
 
-     If you already have suitable resources, such as a cloud network and subnet, you do not need to describe them again. Use their names and IDs in the appropriate parameters.
+     If you already have suitable resources, such as a cloud network and subnet, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
 
      {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
-  1. Create resources:
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -210,9 +210,9 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
 {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
-## Changing a VM's type {#preemptible-to-regular}
+## Changing the VM type {#preemptible-to-regular}
 
-To change the type of a VM, for example, make it preemptible:
+To change the type of a VM, such as making it non-preemptible:
 
 {% list tabs group=instructions %}
 
@@ -224,7 +224,7 @@ To change the type of a VM, for example, make it preemptible:
   1. In the line with the VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
   1. In the line with the VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, disable the **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}** option.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, disable **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
   1. At the top right, click ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.common.start }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
@@ -235,7 +235,7 @@ To change the type of a VM, for example, make it preemptible:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to stop a VM:
+  1. See the description of the CLI command for stopping a VM:
 
      ```bash
      yc compute instance stop --help
@@ -245,7 +245,7 @@ To change the type of a VM, for example, make it preemptible:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Stop the VM:
 
      ```bash
@@ -277,7 +277,7 @@ To change the type of a VM, for example, make it preemptible:
      placement_policy: {}
      ```
 
-  1. Start the VM again:
+  1. Restart the VM:
 
      ```bash
      yc compute instance start <VM_name_or_ID>
@@ -299,7 +299,7 @@ To change the type of a VM, for example, make it preemptible:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, find a description of the scheduling policy of the VM you want to make preemptible:
+  1. In the configuration file, find the section specifying the scheduling policy of the VM you want to make non-preemptible:
 
      ```hcl
      scheduling_policy {
@@ -309,17 +309,17 @@ To change the type of a VM, for example, make it preemptible:
 
   1. Delete the `scheduling_policy` field with the `preemptible = true` value.
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}/).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
@@ -336,7 +336,7 @@ To change the type of a VM, for example, make it preemptible:
 
 {% endlist %}
 
-This will affect your bill for the VM usage. More about [VM pricing](../../pricing.md#prices-instance-resources).
+This will affect the cost of running this VM. Learn more about VM pricing [here](../../pricing.md#prices-instance-resources).
 
 #### See also {#see-also}
 
