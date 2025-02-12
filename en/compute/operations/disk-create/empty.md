@@ -24,14 +24,14 @@ You can create an empty disk of the specified size.
   1. Select the required disk type: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
 
 
-  1. Select the required block size (minimum data storage volume). By default, block size is 4 KB for all new disks; however, this is not enough for disks larger than 8 TB.
+  1. Select the required block size (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB.
   1. Specify the required disk size. The maximum disk size depends on the specified block size.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. If required, select a [schedule](../../concepts/snapshot-schedule.md) to create [snapshots](../../concepts/snapshot.md) automatically or set up a new schedule. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk [snapshots](../../concepts/snapshot.md), if required. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-     When creating a disk, you can select only one snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
+     When creating a disk, you can only select a single snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
 
   1. Click **{{ ui-key.yacloud.compute.disks.create.button_create }}**.
 
@@ -39,7 +39,7 @@ You can create an empty disk of the specified size.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI create disk commands:
+  1. See the description of the CLI commands for creating disks:
 
       ```bash
       yc compute disk create --help
@@ -54,7 +54,7 @@ You can create an empty disk of the specified size.
         --description "my first disk via yc"
       ```
 
-      This command creates a 10 GB disk named `first-disk` and described as `my first disk via yc`.
+      This command will create a 10 GB disk named `first-disk` and described as `my first disk via yc`.
 
       The disk naming requirements are as follows:
 

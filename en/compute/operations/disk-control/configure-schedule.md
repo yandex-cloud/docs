@@ -6,10 +6,10 @@ description: Follow this guide to configure disk snapshot schedules.
 # Configuring disk snapshot schedules
 
 
-You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../concepts/snapshot-schedule.md) for your disk:
+You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../concepts/snapshot-schedule.md) for a disk:
 
-* [Adding a schedule to a disk](#add-schedule).
-* [Detaching a schedule from a disk](#remove-schedule).
+* [Add a schedule to a disk](#add-schedule).
+* [Remove a schedule from a disk](#remove-schedule).
 
 ## Adding a schedule to a disk {#add-schedule}
 
@@ -23,7 +23,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** tab and select the disk.
   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
-  1. Choose a schedule or create a new one. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Select a schedule or create a new one. For more information about setting up schedules, see [Creating a disk snapshot schedule](../snapshot-control/create-schedule.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -32,14 +32,14 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI commands for managing disks and schedules:
+  1. See the description of the CLI commands for managing disks and schedules:
 
       ```bash
       yc compute disk --help
       yc compute snapshot-schedule --help
       ```
 
-  1. Get IDs of disks that are in the default folder:
+  1. Get the IDs of disks in the default folder:
 
       ```bash
       yc compute disk list --format yaml
@@ -79,14 +79,14 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
       ```
       For more information about the `yc compute disk list` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/list.md).
 
-      To get a list of disks added to a given schedule, you can also use the command:
+      To get a list of disks added to a specific schedule, you can also use this command:
 
       ```bash
       yc compute snapshot-schedule list-disks <schedule_name_or_ID>
       ```
-      [See here](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md) for more information.
+      For details, see [here](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md).
 
-  1. Get the name or ID of the schedule:
+  1. Get the schedule name or ID:
 
       ```bash
       yc compute snapshot-schedule list --format yaml
@@ -129,7 +129,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 
       If you do not have a schedule, [create](../snapshot-control/create-schedule.md) one.
 
-  1. Add one or several disks to the schedule:
+  1. Add one or more disks to the schedule:
 
       ```bash
       yc compute snapshot-schedule add-disks <schedule_name_or_ID> \
@@ -147,7 +147,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 
 {% endlist %}
 
-## Detaching a schedule from a disk {#remove-schedule}
+## Removing a schedule from a disk {#remove-schedule}
 
 {% list tabs group=instructions %}
 
@@ -164,14 +164,14 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI commands for managing disks and schedules:
+  1. See the description of the CLI commands for managing disks and schedules:
 
       ```bash
       yc compute disk --help
       yc compute snapshot-schedule --help
       ```
 
-  1. Get the name or ID of the schedule:
+  1. Get the schedule name or ID:
 
       ```bash
       yc compute snapshot-schedule list --format yaml
@@ -212,7 +212,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
         snapshot_spec: {}
       ```
 
-  1. Get a list of disks used in the current schedule:
+  1. Get a list of disks in the current schedule:
 
       ```bash
       yc compute snapshot-schedule list-disks <schedule_name_or_ID> \
@@ -252,7 +252,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
         disk_placement_policy: {}
       ```
 
-  1. Delete one or more disks from the schedule:
+  1. Remove one or more disks from the schedule:
 
       ```bash
       yc compute snapshot-schedule remove-disks <schedule_name_or_ID> \
@@ -275,5 +275,5 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 #### See also {#see-also}
 
 * [{#T}](../snapshot-control/create-schedule.md)
-* [Changing a disk list in a snapshot schedule](../snapshot-control/update-schedule.md#update-disk-list)
+* [Updating a disk list in a snapshot schedule](../snapshot-control/update-schedule.md#update-disk-list)
 * [Creating a disk snapshot manually](../disk-control/create-snapshot.md)

@@ -6,14 +6,14 @@ description: Follow this guide to create an instance group connected to {{ objst
 # Creating an instance group connected to {{ objstorage-full-name }}
 
 
-One of the ways to handle [stateful workloads](../../concepts/instance-groups/stateful-workload.md) is to store the application state in an [{{ objstorage-name }}](../../../storage/concepts/bucket.md) bucket independent of the instance group.
+One of the ways to handle [stateful workloads](../../concepts/instance-groups/stateful-workload.md) is to store the application state in an [{{ objstorage-name }} bucket](../../../storage/concepts/bucket.md) independent of the instance group.
 
 To create an instance group that will automatically connect a common {{ objstorage-name }} bucket to each of its instances:
 
 1. {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 1. To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
 1. If you do not have an {{ objstorage-name }} bucket, [create one](../../../storage/operations/buckets/create.md).
-1. Bucket operations are performed under the service account created in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with the bucket. If there is no such service account, create one. To work with the bucket, assign the [storage.editor role](../../../storage/security/index.md#storage-editor) to the service account.
+1. Bucket operations are performed under the service account created within the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the bucket. If there is no such service account, create one. To work with the bucket, assign the `storage.editor` [role](../../../storage/security/index.md#storage-editor) to the service account.
 
     You can use either a single service account or two separate service accounts for working with the instance group and the bucket.
 
@@ -39,7 +39,7 @@ To create an instance group that will automatically connect a common {{ objstora
          yc vpc network list
          ```
 
-         If there are none, [create a network](../../../vpc/operations/network-create.md).
+         If there are no networks, [create one](../../../vpc/operations/network-create.md).
       1. Select one of the {{ marketplace-full-name }} public images, e.g., [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
 
          {% include [standard-images.md](../../../_includes/standard-images.md) %}
@@ -80,7 +80,7 @@ To create an instance group that will automatically connect a common {{ objstora
 
               Where:
               * `- apt-get install fuse`: Command for installing [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace). This command can run on Ubuntu and Debian. For operating systems based on Red Hat (such as CentOS and Fedora), use the `- yum install fuse` command, for OpenSUSE, `- zypper install fuse`, etc.
-              * `<instance_mount_point>`: Instance directory to mount the connected bucket to. Example: `/mnt/gfs0`.
+              * `<instance_mount_point>`: Instance directory to mount the connected bucket to, e.g., `/mnt/gfs0`.
               * `<bucket_name>`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to connect to the instance.
 
           Here is a YAML specification example:
@@ -267,7 +267,7 @@ To create an instance group that will automatically connect a common {{ objstora
 
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-          * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VMs in the group, assign the [compute.editor](../../security/index.md#compute-editor) role to the service account.
+          * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `compute.editor` [role](../../security/index.md#compute-editor) to the service account.
           * `yandex_compute_instance_group`: Instance group description:
             * General information about the instance group:
               * `name`: Instance group name.
@@ -285,7 +285,7 @@ To create an instance group that will automatically connect a common {{ objstora
               * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the following:
                 * Instance username and public key to enable this user to access the instance via SSH. 
                 * `- apt-get install fuse`: Command for installing [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace). This command can run on Ubuntu and Debian. For operating systems based on Red Hat (such as CentOS and Fedora), use the `- yum install fuse` command, for OpenSUSE, `- zypper install fuse`, etc.
-                * `<instance_mount_point>`: Instance directory to mount the connected bucket to. Example: `/mnt/gfs0`.
+                * `<instance_mount_point>`: Instance directory to mount the connected bucket to, e.g., `/mnt/gfs0`.
                 * `<bucket_name>`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to connect to the instance.
 
                 For more information, see [{#T}](../../concepts/vm-metadata.md).
@@ -298,13 +298,13 @@ To create an instance group that will automatically connect a common {{ objstora
 
             {% note info %}
 
-            If you already have suitable resources, such as service accounts, a cloud network, and a subnet, you do not need to redefine them. Use their names and IDs in the appropriate parameters.
+            If you already have suitable resources, such as service accounts, a cloud network, and a subnet, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
 
             {% endnote %}
 
           For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
 
-      1. Create resources:
+      1. Create the resources:
 
           {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

@@ -1,6 +1,6 @@
-# Removing an instance from a placement group
+# Removing a VM from a placement group
 
-Remove the [VM instance](../../concepts/vm.md) from the [placement group](../../concepts/placement-groups.md).
+Remove the [VM](../../concepts/vm.md) from the [placement group](../../concepts/placement-groups.md).
 
 You can [permanently delete](../vm-control/vm-delete.md) the removed VM or [add it back](add-vm.md) to the placement group.
 
@@ -14,7 +14,7 @@ You can [permanently delete](../vm-control/vm-delete.md) the removed VM or [add 
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
   1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
-  1. Select the placement group you want to remove the VM instance from.
+  1. Select the placement group you want to remove the VM from.
   1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
   1. In the line with the VM, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yacloud.compute.placement-group.instances.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.placement-group.instances.popup-confirm_button_delete }}**.
@@ -42,7 +42,7 @@ You can [permanently delete](../vm-control/vm-delete.md) the removed VM or [add 
      +----------------------+---------------------+-------------------+---------+-------------+-------------+
      ```
 
-  1. Stop the VM instance you want to remove:
+  1. Stop the VM you want to remove:
 
      ```bash
      yc compute instance stop instance-in-group-2
@@ -56,13 +56,13 @@ You can [permanently delete](../vm-control/vm-delete.md) the removed VM or [add 
      status: STOPPED
      ```
 
-  1. Remove the VM instance from the placement group. To do this, update the VM instance leaving `placement-group-name` blank:
+  1. Remove the VM from the placement group. To do this, update the VM leaving `placement-group-name` blank:
 
      ```bash
      yc compute instance update --name instance-in-group-2 --placement-group-name=""
      ```
 
-  1. Check that the VM instance was removed from the placement group:
+  1. Check that the VM has been removed from the placement group:
 
      ```bash
      yc compute placement-group list-instances --name my-group
@@ -87,7 +87,7 @@ You can [permanently delete](../vm-control/vm-delete.md) the removed VM or [add 
   To remove a VM created with {{ TF }} from a placement group:
   1. Open the VM configuration file and delete the `placement_group_id` parameter.
 
-     Here is a sample configuration file structure:
+     Here is an example of the VM configuration file structure:
 
      ```hcl
      ...
@@ -124,7 +124,7 @@ You can [permanently delete](../vm-control/vm-delete.md) the removed VM or [add 
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
   1. Apply the configuration changes:
 
      ```bash

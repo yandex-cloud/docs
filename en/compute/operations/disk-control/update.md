@@ -211,7 +211,7 @@ You can also increase the size of any VM disk without restarting the VM. The wor
 
 - ext4
 
-  1. [Connect](../../operations/vm-connect/ssh.md) to the VM over SSH:
+  1. [Connect](../../operations/vm-connect/ssh.md) to the VM via SSH:
 
      ```bash
      ssh <username>@<VM_public_IP_address>
@@ -320,7 +320,7 @@ You can also increase the size of any VM disk without restarting the VM. The wor
 
 - xfs
 
-  1. [Connect](../../operations/vm-connect/ssh.md) to the VM over SSH:
+  1. [Connect](../../operations/vm-connect/ssh.md) to the VM via SSH:
 
      ```bash
      ssh <username>@<VM_public_IP_address>
@@ -361,7 +361,7 @@ You can also increase the size of any VM disk without restarting the VM. The wor
      CHANGED: partition=1 start=2048 old: size=67106816 end=67108864 new: size=134215647,end=134217695
      ```
 
-  1. Change the file system size:
+  1. Resize the file system:
 
      ```bash
      sudo xfs_growfs /data -d

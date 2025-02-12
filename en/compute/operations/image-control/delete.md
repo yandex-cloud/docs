@@ -7,11 +7,11 @@ description: Follow this guide to delete a disk image.
 
 {% note warning %}
 
-Deleting a disk image is an operation that cannot be canceled or reversed. You cannot restore a deleted image.
+Deleting a disk image is permanent and cannot be undone, so you cannot recover a deleted image.
 
 {% endnote %}
 
-Deleting an image does not delete the VMs and disks created from this image. They need to be deleted separately.
+Deleting an image does not affect the VMs or disks created from that image. They must be deleted separately.
 
 To delete an image:
 
@@ -22,7 +22,7 @@ To delete an image:
   1. In the management console, select the folder the image belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**.
-  1. In the line of the appropriate image, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the line with the image, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.images.popup-confirm_button_delete }}**.
 
 - CLI {#cli}
@@ -31,7 +31,7 @@ To delete an image:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See a description of the CLI's delete image commands:
+  1. See the description of the CLI commands for deleting images:
 
      ```bash
      yc compute image delete --help
@@ -41,7 +41,7 @@ To delete an image:
 
      {% include [compute-image-list](../../../_includes/compute/image-list.md) %}
 
-  1. Select `ID` or `NAME` of the image you need.
+  1. Select `ID` or `NAME` of the image in question.
   1. Delete the image:
 
      ```bash
@@ -53,8 +53,8 @@ To delete an image:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Images created using {{ TF }} can be deleted:
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  To delete an image created with {{ TF }}, follow these steps:
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
   1. Delete the resources using this command:
 
      ```bash
@@ -63,7 +63,7 @@ To delete an image:
 
      {% note alert %}
 
-     {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and instances.
+     {{ TF }} will delete all the resources you created in the current configuration, such as clusters, networks, subnets, and VMs.
 
      {% endnote %}
 

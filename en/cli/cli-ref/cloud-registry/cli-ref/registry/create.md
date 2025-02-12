@@ -19,8 +19,8 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Name of the registry|
 |`--description`|<b>`string`</b><br/>Registry description|
-|`--registry-kind`|<b>`string`</b><br/>Registry kind Values: 'maven', 'npm', 'docker'|
-|`--registry-type`|<b>`string`</b><br/>Registry type Values: 'local'|
+|`--registry-kind`|<b>`string`</b><br/>Registry kind Values: 'maven', 'npm', 'docker', 'nuget'|
+|`--registry-type`|<b>`string`</b><br/>Registry type Values: 'local', 'remote', 'virtual'|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>List of label KEY=VALUE pairs to add.|
 |`--properties`|<b>`key=value[,key=value...]`</b><br/>List of property KEY=VALUE pairs to add.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|

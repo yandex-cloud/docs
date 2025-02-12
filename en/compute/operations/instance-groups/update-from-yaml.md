@@ -3,9 +3,9 @@ title: How to update an instance group in {{ compute-full-name }} based on a YAM
 description: Follow this guide to update an instance group based on a YAML specification.
 ---
 
-# Editing an instance group based on a YAML specification
+# Updating an instance group based on a YAML specification
 
-To update an [instance group](../../concepts/instance-groups/index.md) based on the [specification](../../concepts/instance-groups/specification.md) in YAML format:
+To update an [instance group](../../concepts/instance-groups/index.md) based on a YAML [specification](../../concepts/instance-groups/specification.md):
 
 {% list tabs group=instructions %}
 
@@ -27,6 +27,6 @@ To update an [instance group](../../concepts/instance-groups/index.md) based on 
 
   Use the [updateFromYaml](../../instancegroup/api-ref/InstanceGroup/updateFromYaml.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/UpdateFromYaml](../../instancegroup/api-ref/grpc/InstanceGroup/updateFromYaml.md) gRPC API call.
 
-  To request the list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
+  To request a list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
 
 {% endlist %}

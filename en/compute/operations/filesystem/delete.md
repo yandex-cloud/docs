@@ -15,7 +15,7 @@ description: Follow this guide to delete a file storage.
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage resides.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-     1. In the appropriate file storage row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+     1. In the line with the file storage, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
    - CLI {#cli}
@@ -24,7 +24,7 @@ description: Follow this guide to delete a file storage.
 
      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-     1. View the description of the [CLI](../../../cli/) command to delete a file storage:
+     1. See the description of the [CLI](../../../cli/) command for deleting a file storage:
 
         ```bash
         yc compute filesystem delete --help
@@ -34,7 +34,7 @@ description: Follow this guide to delete a file storage.
 
         {% include [compute-filesystem-list](../../_includes_service/compute-filesystem-list.md) %}
 
-     1. Run the command by specifying the name or ID of the file storage you want to delete:
+     1. Run this command, specifying the name or ID of the file storage you want to delete:
 
         ```bash
         yc compute filesystem delete <file_storage_name_or_ID>
@@ -50,9 +50,9 @@ description: Follow this guide to delete a file storage.
 
      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-     1. Open the {{ TF }} configuration file and delete the fragment with the storage description:
+     1. Open the {{ TF }} configuration file and delete the section specifying the storage:
 
-        {% cut "Sample storage description in the {{ TF }} configuration" %}
+        {% cut "Example of specifying a file storage in {{ TF }} configuration" %}
 
         ```hcl
         ...

@@ -42,7 +42,7 @@ To create a fixed-size instance group:
      yc vpc network list
      ```
 
-     If there are none, [create a network](../../../vpc/operations/network-create.md).
+     If there are no networks, [create one](../../../vpc/operations/network-create.md).
   1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
      {% include [standard-images.md](../../../_includes/standard-images.md) %}
@@ -58,7 +58,7 @@ To create a fixed-size instance group:
        ```
 
        Where:
-       * `name`: Instance group name. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
+       * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
        * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
 
           To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
@@ -275,7 +275,7 @@ To create a fixed-size instance group:
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VMs in the group, assign the [compute.editor](../../security/index.md#compute-editor) role to the service account.
+     * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `compute.editor` [role](../../security/index.md#compute-editor) to the service account.
      * `yandex_compute_instance_group`: Instance group description:
        * General information about the instance group:
          * `name`: Instance group name.
@@ -299,12 +299,12 @@ To create a fixed-size instance group:
 
        {% note info %}
 
-       If you already have suitable resources, such as a service account, cloud network, and subnet, you do not need to redefine them. Use their names and IDs in the appropriate parameters.
+       If you already have suitable resources, such as a service account, cloud network, and subnet, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
 
        {% endnote %}
 
      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

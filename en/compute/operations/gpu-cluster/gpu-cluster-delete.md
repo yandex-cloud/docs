@@ -16,7 +16,7 @@ Before deleting a [GPU cluster](../../concepts/gpus.md#gpu-clusters), make sure 
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the delete GPU cluster [CLI](../../../cli/) command:
+  1. See the description of the [CLI](../../../cli/) command for deleting a GPU cluster :
 
      ```bash
      yc compute gpu-cluster delete --help
@@ -28,7 +28,7 @@ Before deleting a [GPU cluster](../../concepts/gpus.md#gpu-clusters), make sure 
      yc compute gpu-cluster list
      ```
 
-  1. Select the `ID` or `NAME` of the GPU cluster, e.g., `first-gpu-cluster`.
+  1. Select `ID` or `NAME` of the GPU cluster in question, e.g., `first-gpu-cluster`.
   1. Delete the GPU cluster:
 
      ```bash
@@ -39,9 +39,9 @@ Before deleting a [GPU cluster](../../concepts/gpus.md#gpu-clusters), make sure 
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and remove the fragment with the GPU cluster description:
+  1. Open the {{ TF }} configuration file and delete the section specifying the GPU cluster:
 
-     {% cut "Sample GPU cluster description in the {{ TF }} configuration" %}
+     {% cut "Example of specifying a GPU cluster in {{ TF }} configuration" %}
 
      ```hcl
      ...

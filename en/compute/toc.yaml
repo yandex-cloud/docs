@@ -413,7 +413,7 @@ items:
         href: tutorials/hystax-backup.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
-      - name: Assigning a domain name to a web server VM
+      - name: Assigning a domain name to a VM with a web server
         items:
           - name: Overview
             href: tutorials/bind-domain-vm/index.md
@@ -434,7 +434,7 @@ items:
       - name: Creating a budget trigger that invokes a function to stop a VM
         href: tutorials/serverless-trigger-budget-vm.md
       - name: >-
-          Creating triggers that invoke a function to stop a VM and send a
+          Creating a trigger that invokes a function to stop a VM and send a
           Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: OpenCart online store
@@ -471,7 +471,7 @@ items:
         href: tutorials/ha-regional-glusterfs.md
       - name: Deploying GlusterFS in high performance mode
         href: tutorials/ha-regional-glusterfs-high-performance.md
-      - name: Backup to {{ objstorage-name }} via Bacula
+      - name: Backing up to {{ objstorage-name }} with Bacula
         href: tutorials/backup-with-bacula.md
       - name: Creating an L7 load balancer with DDoS protection
         items:

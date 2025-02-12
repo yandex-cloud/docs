@@ -1,6 +1,6 @@
-# Changing the VM internal IP address
+# Updating the VM internal IP address
 
-After you create a [VM](../../concepts/vm.md), you can change the [internal IP addresses](../../../vpc/concepts/address.md#internal-addresses) of its [network interfaces](../../concepts/network.md).
+After you create a [VM](../../concepts/vm.md), you can update [internal IP addresses](../../../vpc/concepts/address.md#internal-addresses) of its [network interfaces](../../concepts/network.md).
 
 {% list tabs group=instructions %}
 
@@ -10,7 +10,7 @@ After you create a [VM](../../concepts/vm.md), you can change the [internal IP a
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) command for updating the internal IP address of a VM's network interface:
+  1. See the description of the [CLI](../../../cli/) command for updating the internal IP address of a VM network interface:
 
      ```bash
      yc compute instance update-network-interface --help
@@ -20,11 +20,11 @@ After you create a [VM](../../concepts/vm.md), you can change the [internal IP a
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the VM `ID`.
+  1. Select `ID` of the VM in question.
 
   1. [Stop](vm-stop-and-start.md#stop) the selected VM.
 
-  1. Get a list of network interfaces for the selected VM by specifying its ID:
+  1. Get a list of network interfaces for the VM by specifying its ID:
 
      ```bash
      yc compute instance get <VM_ID>
@@ -56,9 +56,9 @@ After you create a [VM](../../concepts/vm.md), you can change the [internal IP a
      ...
      ```
 
-     Save the `index` field value: number of the network interface you want to update the internal IP address for.
+     Save the `index` field value, which is the number of the network interface you want to update the internal IP address for.
 
-  1. Update the internal IP address of the selected VM's network interface:
+  1. Update the internal IP address of the selected VM network interface:
 
      ```bash
      yc compute instance update-network-interface \
@@ -70,7 +70,7 @@ After you create a [VM](../../concepts/vm.md), you can change the [internal IP a
      Where:
      * `--id`: VM ID.
      * `--ipv4-address`: Internal IP address. Specify a new IP address or enter `auto` to assign it automatically.
-     * `--network-interface-index`: VM's network interface number you saved earlier.
+     * `--network-interface-index`: VM network interface number you saved earlier.
 
 - {{ TF }} {#tf}
 
@@ -78,7 +78,7 @@ After you create a [VM](../../concepts/vm.md), you can change the [internal IP a
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. To update the internal IP address of a VM's network interface, add the `ip_address` parameter to the `network_interface` section of the network interface you need in the `yandex_compute_instance` resource configuration:
+  1. To update the internal IP address of a VM network interface, add the `ip_address` parameter to the `network_interface` section of the network interface you need in the `yandex_compute_instance` resource configuration:
 
      ```hcl
      resource "yandex_compute_instance" "vm-1" {
@@ -90,8 +90,8 @@ After you create a [VM](../../concepts/vm.md), you can change the [internal IP a
      }
      ```
 
-     For more information about the `yandex_compute_instance` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
-  1. Create resources:
+     For more information about the `yandex_compute_instance` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -99,6 +99,6 @@ After you create a [VM](../../concepts/vm.md), you can change the [internal IP a
 
 - API {#api}
 
-  To change the internal IP address of a VM's network interface, use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/PrimaryAddress](../../api-ref/grpc/Instance/get.md#yandex.cloud.compute.v1.PrimaryAddress) gRPC API call.
+  To update the internal IP address of a VM network interface, use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/PrimaryAddress](../../api-ref/grpc/Instance/get.md#yandex.cloud.compute.v1.PrimaryAddress) gRPC API call.
 
 {% endlist %}

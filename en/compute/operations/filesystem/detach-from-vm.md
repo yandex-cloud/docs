@@ -6,21 +6,21 @@ description: Follow this guide to detach a file storage from a VM.
 # Detaching a file storage from a VM
 
 1. Unmount the [file storage](../../concepts/filesystem.md) from the [VM](../../concepts/vm.md):
-   1. [Connect](../vm-connect/ssh.md) to the VM over SSH.
-   1. If you had added a line to the `/etc/fstab` file to automatically mount a file storage to the VM at startup (e.g., when [attaching a storage to the VM](attach-to-vm.md)), delete this line.
+   1. [Connect](../vm-connect/ssh.md) to the VM via SSH.
+   1. If you previously added a line to the `/etc/fstab` file to automatically mount the file storage to the VM at startup (e.g., when [attaching the storage to the VM](attach-to-vm.md)), delete that line.
    1. Run this command:
 
       ```bash
       sudo umount <mount_path>
       ```
 
-   1. To check that your file storage has been unmounted, run this command:
+   1. To check that your file storage is unmounted, run this command:
 
       ```bash
       df -T
       ```
 
-      As a result, there should be no `virtiofs` type file system corresponding to the file storage:
+      The result must show no `virtiofs` type file system mapped to the file storage:
 
       ```text
       Filesystem        Type         1K-blocks    Used Available Use% Mounted on
@@ -43,10 +43,10 @@ description: Follow this guide to detach a file storage from a VM.
      1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where your file storage resides.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.compute.switch_file-storages }}**.
-     1. Select the required storage.
+     1. Select the storage.
      1. Go to the **{{ ui-key.yacloud.compute.nfs.label_attached-instances }}** tab.
-     1. In the line of the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
-     1. In the window that opens, confirm the detach operation.
+     1. In the line with the VM in question, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.nfs.button_detach-instance-from-the-filesystem }}**.
+     1. In the window that opens, confirm the detachment.
 
    - CLI {#cli}
 
@@ -54,7 +54,7 @@ description: Follow this guide to detach a file storage from a VM.
 
      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-     1. View the description of the [CLI](../../../cli/) command to attach a file storage to a VM:
+     1. See the description of the [CLI](../../../cli/) command for attaching a file storage to a VM:
 
         ```bash
         yc compute instance detach-filesystem --help
@@ -81,7 +81,7 @@ description: Follow this guide to detach a file storage from a VM.
         +----------------------+-------+---------------+---------+--------------+-------------+
           ```
 
-     1. Detach a file storage from a VM:
+     1. Detach the file storage from a VM:
 
         ```bash
         yc compute instance detach-filesystem \
@@ -92,22 +92,22 @@ description: Follow this guide to detach a file storage from a VM.
         Where:
         * `--id`: VM ID.
 
-          Instead of an ID, you can specify the VM name in the `--name` parameter.
+          Instead of the ID, you can specify the VM name in the `--name` parameter.
 
         * `--filesystem-id`: File storage ID.
 
-          Instead of an ID, you can specify the file storage name in the `--filesystem-name` parameter.
+          Instead of the ID, you can specify the file storage name in the `--filesystem-name` parameter.
 
-        As a result, the command will output the updated VM configuration. The detached file storage must not be featured in the `filesystems` section of the resulting configuration.
+        As a result, the command will output the updated VM configuration. The detached file storage must not be featured in the `filesystems` section of the configuration you get.
 
    - {{ TF }} {#tf}
 
      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
      Set the `allow_stopping_for_update` parameter to `true` on your VM, if you have not done it yet.
-     1. Open the {{ TF }} configuration file and delete the fragment with the storage description:
+     1. Open the {{ TF }} configuration file and delete the section specifying the storage:
 
-        {% cut "Sample storage description in the VM configuration in {{ TF }}" %}
+        {% cut "Example of specifying a storage in the VM configuration using {{ TF }}" %}
 
         ```hcl
         ...

@@ -5442,6 +5442,8 @@ default:
         field_organization: Организация
         field_person-id: Плательщик
     yacloud_billing:
+      alb:
+        label_max-timeout: Максимальный таймаут, с
       backup:
         button_attach-instance-submit: Привязать
         label_policies: Политики копирования
@@ -6244,6 +6246,7 @@ default:
         label_discard-http-codes: HTTP-коды
         label_discard-percent: Доля отбрасываемых логов
         label_enable-proxy-protocol: Протокол PROXY
+        label_expected-statuses: HTTP-коды
         label_fqmn: FQMN
         label_grpc-status-code: Код состояния gRPC
         label_hc_host: Authority
@@ -6293,6 +6296,7 @@ default:
         label_replace: Замена пути или начала
         label_replace-host: Изменить хост
         label_replace-port: Изменить порт
+        label_replace-prefix: Начало
         label_replace-scheme: Изменить схему
         label_route-action: Действие
         label_route-action-redirect: Перенаправление

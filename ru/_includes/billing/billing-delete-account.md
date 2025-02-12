@@ -1,11 +1,9 @@
-Чтобы перестать работать с платформой и удалить ваш платежный аккаунт:
+Чтобы перестать работать с платформой, расторгнуть договор и удалить ваш платежный аккаунт:
 
 
 
 {% include [delete-account](delete-account.md) %}
 
-
-{% include [payment-refund](../../_includes/billing/payment-refund.md) %}
 
 #### См. также {#see-also}
 

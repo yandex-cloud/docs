@@ -5,9 +5,9 @@ description: Follow this guide to move a VM to a different availability zone.
 
 # Moving a VM to a different availability zone
 
-When creating a VM, you can choose the {{ yandex-cloud }} [availability zone](../../../overview/concepts/geo-scope.md) where it will be located.
+When creating a VM, you can select a {{ yandex-cloud }} [availability zone](../../../overview/concepts/geo-scope.md) to place it in.
 
-You can move an existing VM to a different availability zone using a special command in the [management console]({{ link-console-main }}) or the [CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md) or by creating its copy in the target availability zone using [disk snapshots](../../concepts/snapshot.md).
+You can move an existing VM to a different availability zone using a special command in the [management console]({{ link-console-main }}) or the [CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md), or by creating its copy in the target availability zone using [disk snapshots](../../concepts/snapshot.md).
 
 
 {% include [relocate-note](../../../_includes/compute/relocate-note.md) %}
@@ -24,9 +24,9 @@ The `{{ region-id }}-d` zone does not support VMs based on the Intel Broadwell [
 
 ## Moving a VM using disk snapshots {#relocate-snapshots}
 
-To move a VM to a different availability zone using snapshots, create its copy in the target availability zone and delete the original one.
+To move a VM to a different availability zone using snapshots, create its copy in the target availability zone and delete the source VM.
 
-### Create a snapshot of each of the VM's disks {#create-snapshot}
+### Create a snapshot of each of the VM disks {#create-snapshot}
 
 #### Prepare the disks {#prepare-disks}
 
@@ -38,7 +38,7 @@ To [create](../disk-control/create-snapshot.md) a disk snapshot:
 
 {% include [create-snapshot](../../../_includes/compute/create-snapshot.md) %}
 
-Repeat the steps to create a snapshot of each disk.
+Repeat the steps above to create snapshots of all the disks.
 
 ### Create a VM in a different availability zone with the disks from the snapshots {#create-vm}
 
@@ -46,19 +46,19 @@ To [create](../vm-create/create-from-snapshots.md) a VM in a different availabil
 
 {% include [create-from-snapshot](../../../_includes/compute/create-from-snapshot.md) %}
 
-### Delete the original VM {#delete-vm}
+### Delete the source VM {#delete-vm}
 
-To [delete](vm-delete.md) the original VM:
+To [delete](vm-delete.md) a source VM:
 
 {% include [delete-vm](../../../_includes/compute/delete-vm.md) %}
 
 ## Moving a VM using a special command {#relocate-command}
 
-When a VM is moved to a different availability zone using the management console or the CLI, its metadata and ID will be preserved. The VM will be moved to the new availability zone together with all the disks attached to it.
+When you move a VM to a different availability zone using the management console or the CLI, its metadata and ID will remain unchanged. All disks attached to the VM will also be transferred to the new availability zone.
 
 {% note info %}
 
-The time it takes to move a VM to a different availability zone depends on the size of its disks. It takes about 10 minutes to move a 100 GB disk.
+The time it takes to move a VM to a different availability zone depends on the size of its disks. As an example, a 100 GB disk typically migrates within 10 minutes.
 
 In some cases, the migration may take longer if you are moving it to the `{{ region-id }}-d` availability zone.
 
@@ -185,7 +185,7 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
 
       For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
-      Here is an example:
+      Example:
 
       ```bash
       yc compute instance relocate a7lh48f5jvlk******** \
@@ -260,13 +260,13 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
 
       For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
-  Please note that connecting VM's [network interfaces](../../concepts/network.md) to new subnets changes their IP addressing. If you need to specify internal IP addresses for the VM's network interfaces, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for public IP addresses, use the `nat-address=<public_IP_address>` property. Other than that, setting up network interface parameters when moving a VM to a different availability zone is similar to setting up the same parameters when creating a VM.
+  Please note that connecting VM [network interfaces](../../concepts/network.md) to new subnets changes their IP addressing. If you need to specify internal IP addresses for the VM network interfaces, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for public IP addresses, use the `nat-address=<public_IP_address>` property. Other than that, setting up network interface parameters when moving a VM to a different availability zone is similar to setting up the same parameters when creating a VM.
 
 {% endlist %}
 
 {% note info %}
 
-If the VM disks are being written to, moving them may end in an error. In this case, stop writing to the disks or shut down the VM and restart the move.
+Active writes to the VM disks being moved may cause the migration to fail. In this case, stop writing to the disks or shut down the VM and restart the migration.
 
 {% endnote %}
 

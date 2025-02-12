@@ -1,8 +1,8 @@
 # Getting information about an instance group
 
-After creating an [instance group](../../concepts/instance-groups/index.md), you can get basic information about the group.
+After creating an [instance group](../../concepts/instance-groups/index.md), you can get basic information about it.
 
-You can only use the [CLI](../../../cli/) or API to retrieve user [metadata](../../concepts/vm-metadata.md) transmitted when creating or updating an instance group.
+You can only use the [CLI](../../../cli/) or API to retrieve custom [metadata](../../concepts/vm-metadata.md) provided when creating or updating the instance group.
 
 To get information about an instance group:
 
@@ -13,7 +13,7 @@ To get information about an instance group:
   1. In the [management console]({{ link-console-main }}), open the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the instance group is in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-  1. Click the name of the instance group.
+  1. Click the name of your instance group.
 
 - CLI {#cli}
 
@@ -21,7 +21,7 @@ To get information about an instance group:
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to get information about an instance group:
+  1. See the description of the CLI command for getting information about an instance group:
 
      ```bash
      {{ yc-compute-ig }} get --help
@@ -31,7 +31,7 @@ To get information about an instance group:
 
      {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
-  1. Select the `ID` or `NAME` of the group you need, e.g., `first-instance-group`.
+  1. Select `ID` or `NAME` of the instance group in question, e.g., `first-instance-group`.
   1. Get information about the instance group:
 
      ```bash
@@ -45,7 +45,7 @@ To get information about an instance group:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To get information about an instance group using {{ TF }}:
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
      ```hcl
      data "yandex_compute_instance_group" "my_group" {
@@ -60,15 +60,15 @@ To get information about an instance group:
      Where:
      * `data "yandex_compute_instance_group"`: Description of the data source to get information about the instance group from:
        * `instance_group_id`: Instance group ID.
-     * `output "instancegroupvm_external_ip"`: List of all [public IP addresses](../../../vpc/concepts/address.md#public-addresses) of the group's instances to be presented in the output:
+     * `output "instancegroupvm_external_ip"`: List of all [public IP addresses](../../../vpc/concepts/address.md#public-addresses) of the group instances to return in the output:
        * `value`: Returned value.
 
-     For more information about the `yandex_compute_instance_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/compute_instance_group).
-  1. Create resources:
+     For more information about the `yandex_compute_instance_group` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_instance_group).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
      ```bash
      terraform output instancegroupvm_external_ip
@@ -87,6 +87,6 @@ To get information about an instance group:
 
   Use the [get](../../instancegroup/api-ref/InstanceGroup/get.md) REST API method for the [InstanceGroup](../../instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/Get](../../instancegroup/api-ref/grpc/InstanceGroup/get.md) gRPC API call.
 
-  To request the list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
+  To request a list of available instance groups, use the [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) REST API method or the [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md) gRPC API call.
 
 {% endlist %}

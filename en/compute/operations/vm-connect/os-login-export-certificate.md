@@ -1,6 +1,6 @@
 ---
 title: How to export an SSH certificate
-description: Follow this guide to locally export an SSH certificate to use it for connection via {{ oslogin }} to VMs configured for {{ oslogin }} access.
+description: Follow this guide to locally export an SSH certificate to use it for {{ oslogin }} access to properly configured VMs.
 ---
 
 # Exporting an SSH certificate
@@ -9,7 +9,7 @@ You can use an SSH certificate of an [organization user](../../../organization/c
 
 {% include [oslogin-export-certificate](../../../_includes/compute/oslogin-export-certificate.md) %}
 
-You can use the exported SSH certificate to [connect](./os-login.md#connect-with-ssh-client) to a VM with {{ oslogin }} access [configured](../vm-control/vm-update.md#enable-oslogin-access).
+You can use the exported SSH certificate to [connect](./os-login.md#connect-with-ssh-client) to a VM with {{ oslogin }} access [enabled](../vm-control/vm-update.md#enable-oslogin-access).
 
 #### See also {#see-also}
 

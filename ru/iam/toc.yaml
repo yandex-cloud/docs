@@ -204,6 +204,8 @@ items:
             href: cli-ref/api-key/list-scopes.md
           - name: update
             href: cli-ref/api-key/update.md
+      - name: create-id-token
+        href: cli-ref/create-id-token.md
       - name: create-token
         href: cli-ref/create-token.md
       - name: key

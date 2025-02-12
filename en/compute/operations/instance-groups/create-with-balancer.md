@@ -6,13 +6,13 @@ description: Follow this guide to create a fixed-size instance group with a netw
 # Creating a fixed-size instance group with a network load balancer
 
 
-You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) integrated with [{{ network-load-balancer-full-name }}](../../../network-load-balancer/). A {{ network-load-balancer-name }} [target group](../../../network-load-balancer/concepts/target-resources.md) will be automatically created along with the [instance](../../concepts/vm.md) group. You can link it to your [network load balancer](../../../network-load-balancer/concepts/index.md) and distribute the load across the instances in the group at the network level. For more information, see [{#T}](../../concepts/instance-groups/balancers.md).
+You can create a fixed-size [instance group](../../concepts/instance-groups/index.md) integrated with [{{ network-load-balancer-full-name }}](../../../network-load-balancer/). Along with the [instance](../../concepts/vm.md) group, the system will also create a {{ network-load-balancer-name }} [target group](../../../network-load-balancer/concepts/target-resources.md). You can link it to your [network load balancer](../../../network-load-balancer/concepts/index.md) and distribute the load across the instances in the group at the network level. For more information, see [{#T}](../../concepts/instance-groups/balancers.md).
 
 {% include [warning.md](../../../_includes/instance-groups/warning.md) %}
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
 
-To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }}, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account.
+To create, update, and delete VM instances in your group, as well as integrate the group with {{ network-load-balancer-name }}, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account.
 
 {% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}
 
@@ -22,7 +22,7 @@ To create an instance group with a network load balancer:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your instance group in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your instance group.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
@@ -33,21 +33,21 @@ To create an instance group with a network load balancer:
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * Select the [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }}, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account. By default, all instance group operations are performed on behalf of the service account.
+     * Select the [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To create, update, and delete VM instances in your group, as well as integrate the group with {{ network-load-balancer-name }}, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor) roles to a service account. By default, all operations you perform with an instance group are run under a service account.
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * Enable **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}**, if required. You cannot delete a group with this option enabled.
+     * Enable **{{ ui-key.yacloud.compute.groups.create.field_deletion-protection }}**, if required. You cannot delete a group while it is enabled.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select the required zones in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field. Instances from a single group may reside in [different availability zones](../../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a description for the [template](../../concepts/instance-groups/instance-template.md).
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the instance boot [disk](../../concepts/disk.md).
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the system to deploy on the VM instance boot [disk](../../concepts/disk.md).
      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
        * Select the [disk type](../../../compute/concepts/disk.md#disks_types).
        * Specify the disk size.
        * To add more disks, click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-       * Select the [platform](../../../compute/concepts/vm-platforms.md).
+       * Select a [platform](../../../compute/concepts/vm-platforms.md).
        * Enter the required number of vCPUs, [guaranteed vCPU share](../../concepts/performance-levels.md), and the amount of RAM.
        * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
        * Optionally, enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
@@ -56,7 +56,7 @@ To create an instance group with a network load balancer:
        {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
 
      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for accessing the instance:
-       * Select the service account to link to the instance.
+       * Select the service account to link to the VM instance.
        * If you selected a Linux [image](../../concepts/image.md), fill out the **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}** fields. Provide the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file as the key value.
        * Enable `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`, if required.
      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
@@ -105,7 +105,7 @@ To create an instance group with a network load balancer:
      yc vpc network list
      ```
 
-     If there are none, [create a network](../../../vpc/operations/network-create.md).
+     If there are no networks, [create one](../../../vpc/operations/network-create.md).
   1. Select one of the {{ marketplace-full-name }} public images, e.g., [CentOS 7](/marketplace/products/yc/centos-7).
 
      {% include [standard-images.md](../../../_includes/standard-images.md) %}
@@ -121,7 +121,7 @@ To create an instance group with a network load balancer:
        ```
 
        Where:
-       * `name`: Instance group name. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
+       * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
        * `service_account_id`: Service account ID.
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
@@ -156,8 +156,8 @@ To create an instance group with a network load balancer:
 
        Where:
        * `platform_id`: [Platform](../../concepts/vm-platforms.md) ID.
-       * `memory`: Amount of memory (RAM).
-       * `cores`: Number of processor cores (vCPUs).
+       * `memory`: Amount of RAM.
+       * `cores`: Number of vCPUs.
        * `mode`: [Disk](../../concepts/disk.md) access mode.
          * `READ_ONLY`: Read-only access.
          * `READ_WRITE`: Read/write access.
@@ -207,7 +207,7 @@ To create an instance group with a network load balancer:
 
        Where:
        * `target_group_spec`: Specification of the {{ network-load-balancer-name }} target group linked with the instance group.
-       * `name`: Name for the {{ network-load-balancer-name }} target group. The name must be unique within the folder. It may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
+       * `name`: Name for the {{ network-load-balancer-name }} target group. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
 
        For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
 
@@ -278,7 +278,7 @@ To create an instance group with a network load balancer:
      ```hcl
      resource "yandex_iam_service_account" "ig-sa" {
        name        = "ig-sa"
-       description = "Service account for managing the instance group"
+       description = "Service account for managing the instance group."
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "compute-editor" {
@@ -381,11 +381,11 @@ To create an instance group with a network load balancer:
      ```
 
      Where:
-     * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description. All instance group operations are performed on behalf of the service account.
+     * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description. All operations you perform with an instance group are run under a service account.
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * `yandex_resourcemanager_folder_iam_member`: Description of the service account's access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
+     * `yandex_resourcemanager_folder_iam_member`: Service account access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
        * `role = "compute.editor"`: Service account gets the [compute.editor](../../security/index.md#compute-editor) role to create, update, and delete VMs in the group.
        * `role = "load-balancer.editor"`: Service account gets the [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor) role to integrate the VM group with a [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/index.md).
      * `yandex_compute_instance_group`: Instance group description:
@@ -412,20 +412,20 @@ To create an instance group with a network load balancer:
        For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-nlb).
      * `yandex_vpc_network`: Cloud network description.
      * `yandex_vpc_subnet`: Description of the subnet to connect the instance group to.
-     * `yandex_lb_network_load_balancer`: Description of the [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/index.md) network load balancer to connect the target group to.
+     * `yandex_lb_network_load_balancer`: Description of the [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/index.md) instance to which you connect the target group.
 
      {% note info %}
 
-     If you already have suitable resources, such as a service account, cloud network, subnet, and network load balancer, you do not need to redefine them. Use their names and IDs in the appropriate parameters.
+     If you already have suitable resources, such as a service account, cloud network, subnet, and network load balancer, you do not need to redefine them. Specify their names and IDs in the appropriate parameters.
 
      {% endnote %}
 
      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

@@ -106,7 +106,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
        ```bash
        yc compute gpu-cluster list-access-bindings <GPU_cluster_ID>
@@ -115,7 +115,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To assign a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID in the `subject` property.
+  To assign a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
 
 {% endlist %}
 
@@ -173,7 +173,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `role`: [Role](../../security/index.md#roles-list) to assign.
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) getting the role.
 
-     For example, assign roles to multiple users and a service account:
+     For example, this command will assign roles to multiple users and a single service account:
 
      ```bash
      yc compute gpu-cluster set-access-bindings my-gpu-cluster \
@@ -218,7 +218,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      {{ TF }} will create all the required resources. You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
        ```bash
        yc compute gpu-cluster list-access-bindings <GPU_cluster_ID>
@@ -248,7 +248,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the left-hand panel, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
   1. Select the GPU cluster you need.
   1. Go to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. In the line with the user you need, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+  1. In the line with the user in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
   1. Next to the role, click ![image](../../../_assets/cross.svg).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -281,7 +281,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      Where:
 
      * `--role`: ID of the role to revoke.
-     * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you want to revoke the role from.
+     * `--subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
      For example, this command revokes the `{{ roles-viewer }}` role for the GPU cluster from a user with the `ajel6l0jcb9s********` ID:
 
@@ -313,7 +313,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
        ```bash
        yc compute gpu-cluster list-access-bindings <GPU_cluster_ID>
@@ -321,6 +321,6 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
 - API {#api}
 
-  To revoke a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID in the `subject` property.
+  To revoke a role, use the [updateAccessBindings](../../api-ref/GpuCluster/updateAccessBindings.md) REST API method for the [GpuCluster](../../api-ref/GpuCluster/index.md) resource or the [GpuClusterService/UpdateAccessBindings](../../api-ref/grpc/GpuCluster/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `REMOVE` and specify the user type and ID under `subject`.
 
 {% endlist %}

@@ -21,7 +21,7 @@ Delete a [placement group](../../concepts/placement-groups.md).
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. View a list of [VM](../../concepts/vm.md) instances in the placement group:
+  1. View a list of [VMs](../../concepts/vm.md) in the placement group:
 
      ```bash
      yc compute placement-group list-instances --name my-group
@@ -38,7 +38,7 @@ Delete a [placement group](../../concepts/placement-groups.md).
      +----------------------+---------------------+-------------------+---------+-------------+-------------+
      ```
 
-  1. Delete the VM in the placement group:
+  1. Delete the VMs from the placement group:
 
      ```bash
      yc compute instance delete --name instance-in-group-1
@@ -51,7 +51,7 @@ Delete a [placement group](../../concepts/placement-groups.md).
      yc compute placement-group delete --name my-group
      ```
 
-  1. Check that the placement group was deleted:
+  1. Check that the placement group has been deleted:
 
      ```bash
      yc compute placement-group list
@@ -73,9 +73,9 @@ Delete a [placement group](../../concepts/placement-groups.md).
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   To delete a placement group created with {{ TF }}:
-  1. Open the {{ TF }} configuration file and delete the fragment with the placement group description.
+  1. Open the {{ TF }} configuration file and delete the segment specifying with the placement group.
 
-     Example placement group description in a {{ TF }} configuration:
+     Here is an example of specifying a placement group in {{ TF }} configuration:
 
      ```hcl
      ...
@@ -106,7 +106,7 @@ Delete a [placement group](../../concepts/placement-groups.md).
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
   1. Apply the configuration changes:
 
      ```bash
@@ -115,7 +115,7 @@ Delete a [placement group](../../concepts/placement-groups.md).
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc compute placement-group list

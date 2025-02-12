@@ -34,7 +34,7 @@ title: Как получить информацию о Routing Instance
   1. Получите информацию об RI, указав его идентификатор, полученный на предыдущем шаге:
 
       ```bash
-      # yc cloudrouter routing-instance get <идентификатор RI>
+      # yc cloudrouter routing-instance get <идентификатор_RI>
       yc cloudrouter routing-instance get cf3jqdc4gjpxig******
       ```
 

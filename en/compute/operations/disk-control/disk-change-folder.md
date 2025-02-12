@@ -1,21 +1,21 @@
-# Moving a disk to another folder
+# Moving a disk to a different folder
 
-When a disk is being created, it's placed in the current folder.
+When you create a disk, it is placed in the current folder.
 
-In {{ yandex-cloud }}, you can move a disk to another folder within one cloud.
+In {{ yandex-cloud }}, you can move a disk to a different folder within a single cloud.
 
-You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../../resource-manager/concepts/resources-hierarchy.md).
+Learn more about the {{ yandex-cloud }} resource hierarchy [here](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ## Limitations {#limits}
 
-Limitations when moving a disk:
+When moving a disk, keep in mind the following limitations:
 
-* In [{{ monitoring-full-name }}](../../../monitoring/), metrics are not movable. The metrics in the previous folder stay there and new metrics will already be created in the new folder.
-* You can move VMs only within a single cloud.
+* [{{ monitoring-full-name }}](../../../monitoring/) does not support metric relocation: existing metrics remain in the source folder, and new ones will be created in the destination folder.
+* You can only move disks within a single cloud.
 
 ## Moving a disk {#change-folder}
 
-To change a disk's folder:
+To change the disk folder:
 
 {% list tabs group=instructions %}
 
@@ -25,7 +25,7 @@ To change a disk's folder:
   
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Get a list of all the disks in the default folder:
+  1. Get a list of all disks in the default folder:
 
       ```bash
       yc compute disk list
@@ -59,13 +59,13 @@ To change a disk's folder:
       +----------------------+--------------------+------------------+--------+
       ```
 
-  1. View the description of the CLI disk move command:
+  1. See the description of the CLI command for moving a disk:
 
       ```bash
       yc compute disk move --help
       ```
 
-  1. Move the disk to another folder with the following parameters:
+  1. Move the disk to a different folder with the following parameters:
 
       ```bash
       yc compute disk move \

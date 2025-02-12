@@ -1,12 +1,12 @@
 ---
 title: How to create a VM with disks from snapshots
-description: Use this guide to create a VM with disks restored from snapshots that exist in a folder.
+description: Use this guide to create a VM with disks recovered from snapshots available in the folder.
 ---
 
-# Create a VM with disks restored from snapshots
+# Creating a VM with disks recovered from snapshots
 
 
-You can create a VM with disks restored from the snapshots that exist in the folder. Read about creating a disk snapshot in [{#T}](../disk-control/create-snapshot.md).
+You can create a VM with disks recovered from snapshots available in the folder. For more information on how to create a disk snapshot, see [{#T}](../disk-control/create-snapshot.md).
 
 {% include [independent-resources](../../../_includes/compute/independent-resources.md) %}
 

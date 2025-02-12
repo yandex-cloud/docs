@@ -10,13 +10,13 @@ After you create a VM, you can change its computing resources. For more informat
 
 ## Changing the vCPU and RAM configuration {#update-vcpu-ram}
 
-This section provides guidelines for changing the number and performance of vCPUs and the amount of RAM.
+This section explains you how to change the number and performance of vCPUs and the amount of RAM.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  To change vCPU and RAM of a VM:
+  To change the vCPU and RAM of a VM:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -24,12 +24,12 @@ This section provides guidelines for changing the number and performance of vCPU
   1. Click **{{ ui-key.yacloud.common.stop }}** in the top-right corner of the page.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
   1. Wait until the VM status changes to `Stopped`, then click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
-  1. Change the [configuration](../../concepts/performance-levels.md) of the VM in the **{{ ui-key.yacloud.compute.instances.create.section_platform }}** section. To do this:
+  1. Change the VM [configuration](../../concepts/performance-levels.md) under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**. To do this:
 
       * Go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab.
-      * Choose a [platform](../../concepts/vm-platforms.md).
+      * Select a [platform](../../concepts/vm-platforms.md).
       * Specify the [guaranteed share](../../concepts/performance-levels.md) and required number of vCPUs, as well as RAM size.
-      * If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
+      * Make your VM [preemptible](../../concepts/preemptible-vm.md), if required.
 
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
   1. Click **{{ ui-key.yacloud.common.start }}** in the top-right corner.
@@ -41,7 +41,7 @@ This section provides guidelines for changing the number and performance of vCPU
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for updating VM parameters:
+  1. See the description of the CLI command for updating VM parameters:
 
       ```bash
       yc compute instance update --help
@@ -51,7 +51,7 @@ This section provides guidelines for changing the number and performance of vCPU
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Stop the VM:
 
       ```bash
@@ -73,8 +73,8 @@ This section provides guidelines for changing the number and performance of vCPU
         --core-fraction 100
       ```
 
-      This command will change the configuration of the VM:
-      * **Guaranteed vCPU level** to 100%.
+      This command will change the VM configuration as follows:
+      * **Guaranteed vCPU allocation** to 100%.
       * **Number of vCPUs** to 4.
       * **RAM** to 32 GB.
 
@@ -86,13 +86,13 @@ This section provides guidelines for changing the number and performance of vCPU
 
 - API {#api}
 
-  To change vCPU and RAM of a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
+  To change the vCPU and RAM of a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 
 {% note warning %}
 
-When you edit VM resources, the PCI topology might change. Keep this in mind when working with operating systems that are sensitive to such changes. For example, if you make substantial changes in network settings in Windows Server, you may lose network connectivity and access to the VM.
+When you edit VM resources, the PCI topology might change. Keep this in mind when working with operating systems sensitive to such changes. For example, if you make substantial changes to network settings in Windows Server, you may lose network connectivity and access to the VM.
 
 {% endnote %}
 
@@ -104,7 +104,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
 - Management console {#console}
 
-  To change the number of GPUs on the VM:
+  To change the number of GPUs on a VM:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
@@ -115,7 +115,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       * Go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}** tab.
-      * Choose a [platform](../../concepts/vm-platforms.md#gpu-platforms):
+      * Select one of these [platforms](../../concepts/vm-platforms.md#gpu-platforms):
 
           * {{ v100-broadwell }}
           * {{ v100-cascade-lake }}
@@ -123,7 +123,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
           * {{ t4-ice-lake }}
           * {{ t4i-ice-lake }}
 
-      * Select one of the available configurations with the required GPUs, vCPUs, and amount of RAM.
+      * Select one of the available configurations with the required number of GPUs, vCPUs, and amount of RAM.
 
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
   1. Click **{{ ui-key.yacloud.common.start }}** in the top-right corner of the page.
@@ -135,7 +135,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for updating VM parameters:
+  1. See the description of the CLI command for updating VM parameters:
 
       ```bash
       yc compute instance update --help
@@ -145,7 +145,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Stop the VM:
 
       ```bash
@@ -168,12 +168,12 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
         --gpus=1
       ```
 
-      This command changes the following VM specs:
+      This command will change the VM configuration as follows:
 
       * **Platform** to {{ t4-ice-lake }}.
       * **Number of vCPUs** to 8.
       * **RAM** to 32 GB.
-      * **GPU** to 1.
+      * **Number of GPUs** to 1.
 
   1. Run the VM:
 
@@ -183,7 +183,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
 - API {#api}
 
-  To change a VM's platform and configuration, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
+  To change the platform and configuration of a VM, use the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
 
 {% endlist %}
 
@@ -204,7 +204,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
       * Go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}** tab.
-      * Choose a [platform](../../concepts/vm-platforms.md#gpu-platforms):
+      * Select one of these [platforms](../../concepts/vm-platforms.md#gpu-platforms):
 
           * {{ v100-broadwell }}
           * {{ v100-cascade-lake }}
@@ -212,7 +212,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
           * {{ t4-ice-lake }}
           * {{ t4i-ice-lake }}
 
-      * Select one of the available configurations with the required GPUs, vCPUs, and amount of RAM.
+      * Select one of the available configurations with the required number of GPUs, vCPUs, and amount of RAM.
 
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
   1. Click **{{ ui-key.yacloud.common.start }}** in the top-right corner of the page.
@@ -224,7 +224,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for updating VM parameters:
+  1. See the description of the CLI command for updating VM parameters:
 
       ```bash
       yc compute instance update --help
@@ -234,7 +234,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Stop the VM:
 
       ```bash
@@ -256,7 +256,7 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
         --memory=238
       ```
 
-      This command changes the number of GPUs to 2.
+      This command will change the number of GPUs to 2.
 
       The values of the `--cores` (number of vCPUs) and `--memory` (RAM size in GB) parameters depend on the platform and the number of GPUs. For more information, see the [list of available configurations](../../concepts/gpus.md#config).
 
@@ -292,7 +292,7 @@ This feature is only available upon agreement with your account manager.
   1. Click **{{ ui-key.yacloud.common.stop }}** in the top-right corner of the page.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
   1. Wait until the VM status changes to `Stopped`, then click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top-right corner of the page.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, open the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and enable the **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** option.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, open the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and enable **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}**.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
   1. Click **{{ ui-key.yacloud.common.start }}** in the top-right corner of the page.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.

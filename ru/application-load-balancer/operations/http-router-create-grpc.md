@@ -17,12 +17,12 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Введите **{{ ui-key.yacloud.common.name }}**.
   1. В поле **{{ ui-key.yacloud.alb.label_authority }}** введите: `*` или [IP-адрес](../../vpc/concepts/address.md) балансировщика.
-  1. (Опционально) В поле **Профиль безопасности** выберите [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/).
+  1. (Опционально) В поле **{{ ui-key.yacloud.alb.label_security-profile-id }}** выберите [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}** и выберите **{{ ui-key.yacloud.alb.label_route-type }}**: `{{ ui-key.yacloud.alb.label_proto-grpc }}`.
      1. Введите **{{ ui-key.yacloud.common.name }}**.
-     1. В блоке **{{ ui-key.yacloud.alb.label_fqmn }}** выберите одну из опций:
+     1. В поле **{{ ui-key.yacloud.alb.label_fqmn }}** выберите одну из опций:
         * `{{ ui-key.yacloud.alb.label_match-prefix }}` — для маршрутизации всех запросов, начинающихся с определенного FQMN. В поле ввода укажите `/<первое_слово_названия_сервиса>`, например: `/helloworld`.
         * `{{ ui-key.yacloud.alb.label_match-exact }}` — для маршрутизации всех запросов, совпадающих с указанным FQMN.
         * `{{ ui-key.yacloud.alb.label_match-regex }}` — для маршрутизации всех запросов, удовлетворяющих [регулярному выражению](https://ru.wikipedia.org/wiki/Регулярные_выражения) стандарта [RE2](https://github.com/google/re2/wiki/Syntax).
@@ -40,7 +40,7 @@ description: Следуя данной инструкции, вы сможете
             * `none` — замена не происходит.
             * `rewrite` — происходит замена на указанное значение.
             * `auto` — происходит автоматическая замена на адрес целевой [виртуальной машины](../../compute/concepts/vm.md).
-          * (Опционально) В поле **{{ ui-key.yacloud.alb.label_timeout }}** укажите максимальное время, на которое может быть установлено соединение.
+          * (Опционально) В поле **{{ ui-key.yacloud_billing.alb.label_max-timeout }}** укажите максимальное время, на которое может быть установлено соединение. Клиент может указать в запросе HTTP-заголовок `grpc-timeout` с меньшим тайм-аутом.
           * (Опционально) В поле **{{ ui-key.yacloud.alb.label_idle-timeout }}** укажите максимальное время, в течение которого соединение может простаивать без передачи данных.
         * `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`:
           * В поле **{{ ui-key.yacloud.alb.label_grpc-status-code }}** выберите код, по которому будет осуществляться ответ.
@@ -91,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
      Где:
      * `--http-router-name` — имя HTTP-роутера.
      * `--authority` — домены для заголовков `:authority`, которые будут связаны с этим виртуальным хостом. Поддерживаются символы подстановки, например `*.foo.com` или `*-bar.foo.com`.
-     * `--security-profile-id` — (опционально) идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/).
+     * `--security-profile-id` — (опционально) идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Результат:
@@ -129,7 +129,7 @@ description: Следуя данной инструкции, вы сможете
        * `--exact-fqmn-match` — для маршрутизации всех запросов, совпадающих с указанным FQMN. После параметра укажите `/<FQMN>/`.
        * `--regex-fqmn-match` — для маршрутизации всех запросов, удовлетворяющих [регулярному выражению](https://ru.wikipedia.org/wiki/Регулярные_выражения) стандарта [RE2](https://github.com/google/re2/wiki/Syntax). После параметра укажите `/<регулярное_выражение>`.
      * `--backend-group-name` — имя [группы бэкендов](../concepts/backend-group.md).
-     * `--request-max-timeout` — максимальный тайм-аут ожидания запроса, в секундах.
+     * `--request-max-timeout` — максимальный тайм-аут ожидания запроса, в секундах. Клиент может указать в запросе HTTP-заголовок `grpc-timeout` с меньшим тайм-аутом.
 
      Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
@@ -204,9 +204,9 @@ description: Следуя данной инструкции, вы сможете
          * `grpc_route` — описание маршрута для gRPC-трафика:
            * `grpc_route_action` — параметр для указания действия с gRPC-трафиком.
              * `backend_group_id` — идентификатор [группы бэкэндов](../concepts/backend-group.md).
-             * `max_timeout` — максимальный тайм-аут ожидания запроса, в секундах.
+             * `max_timeout` — максимальный тайм-аут ожидания запроса, в секундах. Клиент может указать в запросе HTTP-заголовок `grpc-timeout` с меньшим тайм-аутом.
        * `route_options` — (опционально) дополнительные параметры виртуального хоста:
-         * `security_profile_id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/).
+         * `security_profile_id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:

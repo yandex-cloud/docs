@@ -1,15 +1,15 @@
 ---
 title: How to stop, start, or restart a VM
-description: The Stop command shuts down the VM. After the VM is shut down, its status changes to STOPPED. You can enable the VM at any time to continue working with it. The Start command starts a previously stopped VM. After the VM is started, its status changes to RUNNING and the operating system starts loading.
+description: The `stop` command shuts down a VM. Once a VM is shut down, its status changes to `STOPPED`. You can restart a VM at any time to continue using it. The `start` command starts a previously stopped VM. Once the VM is started, its status changes to `RUNNING`, and the operating system starts loading.
 ---
 
 # Stopping, starting, or restarting a VM
 
-## Stop {#stop}
+## Stopping {#stop}
 
-This **{{ ui-key.yacloud.common.stop }}** command shuts down the VM. Once shut down, the VM status changes to `Stopped`. While the VM is stopped, no fee is charged for its use. You are [charged](../../pricing.md#disk) for using disks whether the VM is running or not.
+The **{{ ui-key.yacloud.common.stop }}** command shuts down a VM. Once a VM is shut down, its status changes to `Stopped`. While the VM is stopped, you will not be charged for it. Disk usage is [billed](../../pricing.md#disk) separately, regardless of the VM's state.
 
-You can restart a VM at any time to continue using it. All the data and changes you have made are saved.
+You can restart a VM at any time to continue using it. All your data and changes will be saved.
 
 Certain VM parameters can only be modified when the VM is stopped.
 
@@ -21,10 +21,10 @@ To stop a VM:
 
   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. To stop a single VM, select the VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and then click **{{ ui-key.yacloud.common.stop }}**.
+  1. To stop a single VM, select the VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
-  To perform this action with multiple VMs, select the relevant VMs in the list, click **{{ ui-key.yacloud.compute.instances.button_gr-action-stop }}** at the bottom of the screen, and then, in the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_gr-stop }}**.
+  To stop multiple VMs, select the VMs from the list, click **{{ ui-key.yacloud.compute.instances.button_gr-action-stop }}** at the bottom of the screen, and then, in the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_gr-stop }}**.
 
 - CLI {#cli}
 
@@ -32,7 +32,7 @@ To stop a VM:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to stop a VM:
+  1. See the description of the CLI command for stopping a VM:
 
      ```bash
      yc compute instance stop --help
@@ -42,7 +42,7 @@ To stop a VM:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Stop the VM:
 
      ```bash
@@ -55,9 +55,9 @@ To stop a VM:
 
 {% endlist %}
 
-When a VM stops, the hypervisor sends a shutdown signal to the VM operating system. The OS needs to terminate the current processes nice and easy within the next 30 seconds to avoid data loss. After this time elapses, the VM process is forced to stop.
+When a VM stops, the hypervisor sends a shutdown signal to the VM operating system. The OS has 30 seconds to gracefully terminate all running processes to avoid data loss. After this time elapses, the VM will be forcibly terminated.
 
-## Start {#start}
+## Starting {#start}
 
 The **{{ ui-key.yacloud.common.start }}** command starts a previously stopped VM. Once the VM is started, its status changes to `Running`, and the operating system starts loading. From this point on, you will be charged for using the VM.
 
@@ -69,10 +69,10 @@ To start a VM:
 
   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. To start a single VM, select the VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and then click **{{ ui-key.yacloud.common.start }}**.
+  1. To start a single VM, select the VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.start }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
-  To perform this action with multiple VMs, select the relevant VMs in the list, click **{{ ui-key.yacloud.common.start }}** at the bottom of the screen, and then, in the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+  To start multiple VMs, select the VMs from the list, click **{{ ui-key.yacloud.common.start }}** at the bottom of the screen, and then, in the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 
 - CLI {#cli}
 
@@ -80,7 +80,7 @@ To start a VM:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command that starts a VM:
+  1. See the description of the CLI command for starting a VM:
 
      ```bash
      yc compute instance start --help
@@ -90,7 +90,7 @@ To start a VM:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME`of the VM, e.g., `first-instance`.
+  1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Run the VM:
 
      ```bash
@@ -103,7 +103,7 @@ To start a VM:
 
 {% endlist %}
 
-## Restart {#restart}
+## Restarting {#restart}
 
 The **{{ ui-key.yacloud.compute.instances.button_action-restart }}** command restarts a VM.
 
@@ -115,10 +115,10 @@ To restart a VM:
 
   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. To restart a single VM, select the VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and then click **{{ ui-key.yacloud.compute.instances.button_action-restart }}**.
+  1. To restart a single VM, select the VM, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.compute.instances.button_action-restart }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_restart }}**.
 
-  To perform this action with multiple VMs, select the relevant VMs in the list, click **{{ ui-key.yacloud.compute.instances.button_action-restart }}** at the bottom of the screen, and then, in the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_restart }}**.
+  To restart multiple VMs, select the VMs from the list, click **{{ ui-key.yacloud.compute.instances.button_action-restart }}** at the bottom of the screen, and then, in the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_restart }}**.
 
 - CLI {#cli}
 
@@ -126,7 +126,7 @@ To restart a VM:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command that restarts a VM:
+  1. See the description of the CLI command for restarting a VM:
 
      ```bash
      yc compute instance restart --help
@@ -136,8 +136,8 @@ To restart a VM:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select the `ID` or `NAME`of the VM, e.g., `first-instance`.
-  1. Restart the VM.
+  1. Select `ID` or `NAME` of the VM, e.g., `first-instance`.
+  1. Restart the VM:
 
      ```bash
      yc compute instance restart first-instance

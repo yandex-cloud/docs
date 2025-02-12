@@ -30,7 +30,7 @@
 со следующими параметрами:
 
 client: ООО "Моё дело" 
-folder-id: b1g28j9359gic3******
+folder-id: b1g28j9359gi********
 партнёр: RETN
 точка присутствия: M9
 емкость подключения: 250mbps
@@ -55,8 +55,8 @@ folder-id: b1g28j9359gic3******
 Пример ответа поддержки на обращение с запросом о создании транкового подключения через партнера (для информации):
 
 ```s
-trunk_id: euus5dfgchu23b******
-service_key: euuq3f6g1zk8dbr******
+trunk_id: euus5dfgchu2********
+service_key: euuq3f6g1zk8********
 capacity: 500mbps
 ```
 

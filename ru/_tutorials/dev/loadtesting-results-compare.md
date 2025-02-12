@@ -110,7 +110,7 @@
 
 1. Сформируйте тестовые данные в формате [URI](../../load-testing/concepts/payloads/uri.md):
    ```text
-   [Host: <внутренний_IP_адрес_цели_тестирования>]
+   [Host: <внутренний_IP-адрес_цели_тестирования>]
    [Connection: Close]
    / index
    /test?param1=1&param2=2 get_test
@@ -192,7 +192,7 @@
                - id: HTTP
                   gun:
                   type: http # Протокол.
-                  target: <внутренний_IP_адрес_цели_тестирования>:443 
+                  target: <внутренний_IP-адрес_цели_тестирования>:443 
                   ssl: true
                   ammo:
                   type: uri

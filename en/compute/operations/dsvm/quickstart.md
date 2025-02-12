@@ -1,6 +1,6 @@
 # Creating a VM from a public DSVM image
 
-Create a DSVM [VM](../../concepts/vm.md) using {{ compute-name }} from the {{ yandex-cloud }} management console and connect to it over SSH.
+In the {{ yandex-cloud }} management console, create a [VM](../../concepts/vm.md) from a DSVM image using {{ compute-name }} and connect to it via SSH.
 
 ## Getting started {#before-you-begin}
 
@@ -10,13 +10,13 @@ Create a DSVM [VM](../../concepts/vm.md) using {{ compute-name }} from the {{ ya
 
 {% include [create-instance-via-console-dsvm](../../_includes_service/create-instance-via-console-dsvm.md) %}
 
-## Connecting to VMs over SSH {#first-login}
+## Connecting to a VMs via SSH {#first-login}
 
-You can connect to a VM over SSH once it is started (has the `RUNNING` status). To do this, use `ssh` in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
+You can connect to a VM via SSH once it gets the `RUNNING` status. To do this, use `ssh` in Linux or macOS, or [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows.
 
-Read more about SSH connections in the [Connecting to a VM](../../quickstart/quick-create-linux.md#connect-to-vm) section.
+For more information about SSH connections, see [Connecting to a VM](../../quickstart/quick-create-linux.md#connect-to-vm).
 
-When connected, in the welcome message, you will see the commands to activate the environment and run [Jupyter Notebook](http://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
+When connected, you will see a welcome message with the commands to activate the environment and run [Jupyter Notebook](http://jupyter.org/index.html) and [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/):
 
 ```text
 #####################################################################

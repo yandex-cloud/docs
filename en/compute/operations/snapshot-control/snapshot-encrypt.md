@@ -3,10 +3,10 @@ title: Encrypting a snapshot
 description: Follow this guide to encrypt a snapshot.
 ---
 
-# Encrypting a snapshot
+# Encrypting an image
 
 1. {% include [encryption-preparations](../../../_includes/compute/encryption-preparations.md) %}
-1. [Create](../image-create/create-from-snapshot.md) an image from the snapshot.
+1. [Create](../image-create/create-from-snapshot.md) an image from a snapshot.
 1. Create an encrypted disk from the image:
 
     {% include [encryption-disk-from-image](../../../_includes/compute/encryption-disk-from-image.md) %}

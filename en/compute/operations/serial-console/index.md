@@ -106,7 +106,7 @@ For the serial console to be accessible from the OS side, configure the OS accor
 
 To connect to a Linux serial console, make sure [SSH password authentication is disabled](#ssh-pass-off) and [set a password](#create-pass) for the OS user, if required.
 
-#### Disable SSH password authentication {#ssh-pass-off}
+#### Disabling SSH password authentication {#ssh-pass-off}
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
