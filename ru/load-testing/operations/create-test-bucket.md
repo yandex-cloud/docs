@@ -34,7 +34,8 @@ description: Следуя данной инструкции, вы сможете
 ## Создание теста {#create-test}
 
 
-@[youtube](a0Xh4vxdVW4)
+[Смотреть видеоинструкцию о создании теста в {{ load-testing-full-name }} на YouTube](https://www.youtube.com/watch?v=a0Xh4vxdVW4).
+
 
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог для тестирования.

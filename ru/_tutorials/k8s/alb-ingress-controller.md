@@ -399,6 +399,29 @@
 
      * `ingress.alb.yc.io/autoscale-max-size` — максимальное суммарное количество ресурсных единиц. По умолчанию количество не ограничено. Значение должно быть не меньше, чем количество зон доступности балансировщика, умноженное на минимальное количество ресурсных единиц в каждой зоне. [Подробнее о настройках автомасштабирования](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
 
+     * `ingress.alb.yc.io/modify-header-response-append` — добавляет строку к значению заголовка ответа. Заголовок и строка указываются в формате:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-response-append: <имя_изменяемого_заголовка>=<строка>
+       ```
+
+     * `ingress.alb.yc.io/modify-header-response-replace` — заменяет значение заголовка ответа. Заголовок и его новое значение указываются в формате:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-response-replace: <имя_изменяемого_заголовка>=<новое_значение_заголовка>
+       ```
+
+     * `ingress.alb.yc.io/modify-header-response-rename` — переименовывает заголовок ответа. Заголовок и его новое имя указываются в формате:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-response-rename: <имя_изменяемого_заголовка>=<новое_имя_заголовка>
+       ```
+
+     * `ingress.alb.yc.io/modify-header-response-remove` — удаляет заголовок ответа. Заголовок для удаления указывается в формате:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-response-remove: <имя_удаляемого_заголовка>=true
+
      * `ingress.alb.yc.io/modify-header-request-append` — добавляет строку к значению заголовка запроса. Заголовок и строка указываются в формате:
 
        ```yaml
@@ -670,7 +693,7 @@
        * `m` — минуты.
        * `h` — часы.
 
-     * `ingress.alb.yc.io/security-profile-id` — поддержка сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
+     * `ingress.alb.yc.io/security-profile-id` — поддержка сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), который позволяет защититься от {% if lang == "ru" %}[DDoS-атак](../../glossary/ddos.md){% else %}DDoS-атак{% endif %} и ботов, а также задействовать [WAF](../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
 
        Чтобы включить поддержку сервиса, в аннотации Ingress укажите заранее созданный [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }}:
 

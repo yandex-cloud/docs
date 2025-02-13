@@ -19,7 +19,7 @@
 
 - YouTube
 
-  @[youtube](https://youtu.be/TvLdfcPCOHw)
+  [Смотреть видеоинструкцию о дашбордах на YouTube](https://www.youtube.com/watch?v=TvLdfcPCOHw).
 
 {% endlist %}
 

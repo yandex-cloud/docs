@@ -131,7 +131,7 @@ items:
         href: tutorials/c-sharp.md
       - name: Работа с Yandex IoT Core на языке Java
         href: tutorials/java.md
-      - name: Запись данных с устройства в Managed Service for PostgreSQL
+      - name: Запись данных с устройства в базу данных
         href: tutorials/data-recording.md
       - name: Мониторинг состояния географически распределенных устройств
         href: tutorials/datalens.md

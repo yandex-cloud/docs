@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 
 - YouTube
 
-  @[youtube](https://youtu.be/KjDtR_zysPM)
+  [Смотреть видеоинструкцию о настройках и возможностях {{ managed-prometheus-full-name }} на YouTube](https://youtu.be/KjDtR_zysPM).
 
 {% endlist %}
 

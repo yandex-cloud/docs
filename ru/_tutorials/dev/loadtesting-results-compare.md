@@ -260,7 +260,8 @@
 ## Сравните результаты {#compare-results}
 
 
-@[youtube](eEKKZ1M7IWU)
+[Смотреть видеоинструкцию о сравнении тестов в {{ load-testing-full-name }} на YouTube](https://www.youtube.com/watch?v=eEKKZ1M7IWU).
+
 
 
 Чтобы сравнить результаты:

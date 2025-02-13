@@ -14,7 +14,7 @@ description: Из статьи вы узнаете про агент для по
 
 - YouTube
 
-  @[youtube](https://youtu.be/EY6c_6YYF10)
+  [Смотреть видеоинструкцию о сборе метрик через {{ unified-agent-short-name }} на YouTube](https://www.youtube.com/watch?v=EY6c_6YYF10).
 
 {% endlist %}
 

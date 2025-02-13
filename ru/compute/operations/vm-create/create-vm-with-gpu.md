@@ -17,7 +17,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   
-  @[youtube](https://www.youtube.com/watch?v=1gFAfVA4XRM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=2&pp=iAQB)
+  [Смотреть видеоинструкцию о создании виртуальной машины с GPU в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=1gFAfVA4XRM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=2&pp=iAQB).
+
 
 
   {% include [create-vm-with-gpu](../../../_includes/compute/create/create-vm-with-gpu-console.md) %}

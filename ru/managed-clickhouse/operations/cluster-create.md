@@ -41,7 +41,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   
-  @[youtube](https://www.youtube.com/watch?v=M_RXJfOoEFE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=4&pp=iAQB)
+  [Смотреть видеоинструкцию о создании кластера {{ CH }} в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=M_RXJfOoEFE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=4&pp=iAQB).
+
 
 
   Чтобы создать кластер {{ mch-name }}:

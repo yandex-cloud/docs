@@ -1,1 +1,5 @@
-{% include [ig-coi-with-containers](../../_includes/instance-groups/create-coi-vm-with-containers.md) %}
+---
+canonical: '{{ link-docs }}/tutorials/containers/ig-with-containers'
+---
+
+{% include [ig-with-containers](../../_tutorials/containers/ig-with-containers.md) %}

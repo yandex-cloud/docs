@@ -6,7 +6,7 @@
 
 Чтобы получить значение секрета {{ lockbox-name }} от имени аккаунта на GitHub:
 
-1. [Создайте репозиторий в GitHub](#create-github-repo)
+1. [Создайте репозиторий в GitHub](#create-github-repo).
 1. [Подготовьте облако к работе](#prepare-cloud).
 1. [Настройте сценарий GitHub Actions](#github-actions-workflow).
 

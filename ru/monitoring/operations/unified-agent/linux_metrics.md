@@ -17,7 +17,7 @@
 
 - YouTube
 
-  @[youtube](https://youtu.be/9Z9ugkMnRcI)
+  [Смотреть видеоинструкцию об агенте мониторинга и метриках виртуальной машины на YouTube](https://youtu.be/9Z9ugkMnRcI).
 
 {% endlist %}
 

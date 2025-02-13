@@ -6983,10 +6983,14 @@ default:
             button_add-public-ip: Добавить публичный IP-адрес
             button_edit-network-interface: Изменить
             button_remove-public-ip: Отвязать публичный IP-адрес
+            field_access: Доступ
             field_ua-enabled: Агент для поставки метрик
+            label_cert-connect-tab: По сертификату
+            label_cli-connect-card-title: Подключиться с помощью CLI Yandex Cloud
             label_host: Внутренний FQDN
             label_network-interface: Сетевой интерфейс
             label_public-ipv4: Публичный IPv4-адрес
+            label_ssh-connect-card-title: Подключиться с помощью SSH-клиента
             label_title: Обзор
             popup-confirm_button_remove-one-to-one-nat: Удалить
             section_monitoring: Мониторинг

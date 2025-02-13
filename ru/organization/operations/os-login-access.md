@@ -5,7 +5,13 @@ description: Следуя данной инструкции, вы сможете
 
 # Включить доступ по {{ oslogin }}
 
-Доступ по [{{ oslogin }}](../concepts/os-login.md) позволяет подключаться к ВМ и узлам [кластеров](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ k8s }} c SSH-ключом или SSH-сертификатом [через YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) или [через стандартный SSH-клиент](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client). При подключении с SSH-ключом публичный SSH-ключ необходимо предварительно [добавить](../../organization/operations/add-ssh.md) в профиль пользователя организации в {{ org-full-name }}.
+{% note info %}
+
+{% include [serial-port-settings-default](../../_includes/compute/serial-port-settings-default.md) %}
+
+{% endnote %}
+
+С помощью сервиса [{{ oslogin }}](../concepts/os-login.md) вы можете управлять SSH-доступом к [виртуальным машинам](../../compute/concepts/vm.md#project) и [отдельным узлам в группах узлов](../../managed-kubernetes/concepts/index.md#node-group) в составе [кластеров {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), полагаясь только на механизмы [сервиса {{ iam-full-name }}](../../iam/concepts/index.md), без необходимости загружать SSH-ключи на каждую новую ВМ или узел {{ k8s }} при их создании. {{ oslogin }} связывает учетную запись пользователя ВМ или узла {{ k8s }} с аккаунтом в {{ org-full-name }} — учетной записью [пользователя организации](../../organization/concepts/membership.md) или [сервисным аккаунтом](../../iam/concepts/users/service-accounts.md).
 
 {% note alert %}
 
@@ -13,17 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-Чтобы создавать виртуальные машины или узлы {{ k8s }} с доступом по {{ oslogin }}, разрешите такую возможность на уровне организации. После этого вы сможете [включить](../../compute/operations/vm-control/vm-update.md#enable-oslogin-access) доступ по {{ oslogin }} на ВМ, созданных из подготовленного образа с поддержкой {{ oslogin }}, или самостоятельно [настроить](../../compute/operations/vm-connect/enable-os-login.md) агента {{ oslogin }} на уже работающей ВМ. Подробнее про подключение по {{ oslogin }} см. в разделе [{#T}](../../compute/operations/vm-connect/os-login.md).
-
-{% include [serial-port-settings-default](../../_includes/compute/serial-port-settings-default.md) %}
-
-{% note info %}
-
-Образы с поддержкой {{ oslogin }} доступны в [{{ marketplace-full-name }}](/marketplace). Для ВМ, созданных из таких образов, в [консоли управления]({{ link-console-main }}) в форме создания и редактирования ВМ в блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** активна опция **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**. Если эта опция неактивна, значит выбранный образ не поддерживает доступ по {{ oslogin }}.
-
-{% endnote %}
-
-Чтобы включить доступ по {{ oslogin }} на уровне организации:
+Чтобы создавать виртуальные машины или узлы {{ k8s }} с доступом по {{ oslogin }}, разрешите такую возможность на уровне организации. Для этого:
 
 {% list tabs group=instructions %}
 
@@ -35,17 +31,18 @@ description: Следуя данной инструкции, вы сможете
 
   1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
 
-  1. Включите необходимые варианты доступа:
+  1. Включите необходимые режимы работы:
 
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}**.
-          Опция позволяет подключаться к ВМ или узлу кластера {{ k8s }} c SSH-сертификатом {{ oslogin }} [через YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) и [через стандартный SSH-клиент](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client).
+          Режим позволяет подключаться к ВМ или узлу кластера {{ k8s }} по SSH-сертификату [через {{ yandex-cloud }} CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) и [через стандартный SSH-клиент](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client).
 
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
-          Опция позволяет подключаться к ВМ или узлу кластера {{ k8s }} через YC CLI или через стандартный SSH-клиент с SSH-ключом, сохраненным в [профиле {{ oslogin }}](../concepts/os-login.md#os-login-profiles) пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+          Режим позволяет подключаться к ВМ или узлу кластера {{ k8s }} через {{ yandex-cloud }} CLI или через стандартный SSH-клиент по SSH-ключу, сохраненному в [профиле {{ oslogin }}](../concepts/os-login.md#os-login-profiles) пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
       * **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
-          Опция доступна, если включен доступ по {{ oslogin }} при помощи SSH-ключей.
-          Позволяет пользователям самостоятельно загружать в свой профиль публичные SSH-ключи для подключения к ВМ или узлам кластеров {{ k8s }}. Чтобы загрузить собственные SSH-ключи, воспользуйтесь инструкцией [Добавить SSH-ключ](./add-ssh.md).
+          Позволяет пользователям самостоятельно загружать в свои профили {{ oslogin }} публичные SSH-ключи для подключения к ВМ или узлам кластеров {{ k8s }}.
+
+          Добавить в профиль новый SSH-ключ можно в консоли управления при создании ВМ или с помощью инструкции [Добавить SSH-ключ](./add-ssh.md).
 
 - CLI {#cli}
 
@@ -89,15 +86,15 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `--organization-id` — полученный ранее идентификатор организации.
-      * `--ssh-certificates-enabled` — доступ по {{ oslogin }} при помощи SSH-сертификатов. Опция позволяет подключаться к ВМ c SSH-сертификатом {{ oslogin }} [через YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) и [через стандартный SSH-клиент](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client).
+      * `--ssh-certificates-enabled` — доступ по {{ oslogin }} при помощи SSH-сертификатов. Опция позволяет подключаться к ВМ и узлам кластеров {{ k8s }} по SSH-сертификату [через {{ yandex-cloud }} CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) и [через стандартный SSH-клиент](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client).
 
           Чтобы выключить опцию, передайте значение `false` в этом параметре: `--ssh-certificates-enabled=false`.
 
-      * `--ssh-user-keys-enabled` — доступ по {{ oslogin }} при помощи SSH-ключей. Опция позволяет подключаться к ВМ через YC CLI или через стандартный SSH-клиент с SSH-ключом, сохраненным в профиле {{ oslogin }} пользователя организации.
+      * `--ssh-user-keys-enabled` — доступ по {{ oslogin }} при помощи SSH-ключей. Опция позволяет подключаться к ВМ и узлам кластеров {{ k8s }} через {{ yandex-cloud }} CLI или через стандартный SSH-клиент по SSH-ключу, сохраненному в профиле {{ oslogin }} пользователя организации или сервисного аккаунта.
 
           Чтобы выключить опцию, передайте значение `false` в этом параметре: `--ssh-user-keys-enabled=false`.
 
-      * `--allow-manage-own-keys` — разрешить пользователям загружать собственные SSH-ключи. Позволяет пользователям самостоятельно загружать в свой профиль публичные SSH-ключи для подключения к ВМ. Чтобы загрузить собственные SSH-ключи, воспользуйтесь инструкцией [Добавить SSH-ключ](./add-ssh.md). Опция доступна, если включен доступ по {{ oslogin }} при помощи SSH-ключей.
+      * `--allow-manage-own-keys` — разрешить пользователям загружать собственные SSH-ключи. Позволяет пользователям самостоятельно загружать в свой профиль {{ oslogin }} публичные SSH-ключи для подключения к ВМ и узлам кластеров {{ k8s }}. Чтобы загрузить собственные SSH-ключи, воспользуйтесь инструкцией [Добавить SSH-ключ](./add-ssh.md).
 
           Чтобы выключить опцию, передайте значение `false` в этом параметре: `--allow-manage-own-keys=false`.
 
@@ -132,15 +129,15 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
 
-      * `organization_id` — идентификатор организации. Получить идентификатор организации вы можете с помощью команды [YC CLI](../../cli/quickstart.md) `yc organization-manager organization list` или в [консоли управления]({{ link-console-main }}).
+      * `organization_id` — идентификатор организации. Получить идентификатор организации вы можете с помощью команды [{{ yandex-cloud }} CLI](../../cli/quickstart.md) `yc organization-manager organization list` или в [интерфейсе {{ cloud-center }}]({{ cloud-center-link }}).
 
-      * `ssh_certificate_settings` — доступ по {{ oslogin }} при помощи SSH-сертификатов. Опция позволяет подключаться к ВМ c SSH-сертификатом {{ oslogin }} [через YC CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) и [через стандартный SSH-клиент](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client). Параметр `enabled` может принимать значения `true` (опция включена) и `false` (опция выключена).
+      * `ssh_certificate_settings` — доступ по {{ oslogin }} при помощи SSH-сертификатов. Опция позволяет подключаться к ВМ и узлам кластеров {{ k8s }} по SSH-сертификату [через {{ yandex-cloud }} CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) и [через стандартный SSH-клиент](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client). Параметр `enabled` может принимать значения `true` (опция включена) и `false` (опция выключена).
 
       * `user_ssh_key_settings` — блок параметров для управления доступом с помощью пользовательских SSH-ключей.
 
-          * `enabled` — доступ по {{ oslogin }} при помощи SSH-ключей. Опция позволяет подключаться к ВМ через YC CLI с SSH-ключом, сохраненным в профиле пользователя организации. Может принимать значения `true` (опция включена) и `false` (опция выключена).
+          * `enabled` — доступ по {{ oslogin }} при помощи SSH-ключей. Опция позволяет подключаться к ВМ и узлам кластеров {{ k8s }} через {{ yandex-cloud }} CLI по SSH-ключу, сохраненному в профиле пользователя организации. Может принимать значения `true` (опция включена) и `false` (опция выключена).
 
-          * `allow_manage_own_keys` — разрешить пользователям загружать собственные SSH-ключи. Позволяет пользователям самостоятельно загружать в свой профиль публичные SSH-ключи для подключения к ВМ. Чтобы загрузить собственные SSH-ключи, воспользуйтесь инструкцией [Добавить SSH-ключ](./add-ssh.md). Опция доступна, если включен доступ по {{ oslogin }} при помощи SSH-ключей. Может принимать значения `true` (опция включена) и `false` (опция выключена).
+          * `allow_manage_own_keys` — разрешить пользователям загружать собственные SSH-ключи. Позволяет пользователям самостоятельно загружать в свой профиль {{ oslogin }} публичные SSH-ключи для подключения к ВМ и узлам кластеров {{ k8s }}. Чтобы загрузить собственные SSH-ключи, воспользуйтесь инструкцией [Добавить SSH-ключ](./add-ssh.md). Может принимать значения `true` (опция включена) и `false` (опция выключена).
 
       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
 
@@ -165,7 +162,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Подтвердите создание ресурсов.
 
-      После этого настройки организации будут изменены. Чтобы убедиться в том, что доступ по {{ oslogin }} включен, выполните команду YC CLI, указав идентификатор организации:
+      После этого настройки организации будут изменены. Чтобы убедиться в том, что доступ по {{ oslogin }} включен, выполните команду {{ yandex-cloud }} CLI, указав идентификатор организации:
 
       ```bash
       yc organization-manager oslogin get-settings --organization-id <идентификатор_организации>

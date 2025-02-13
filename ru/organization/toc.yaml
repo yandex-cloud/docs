@@ -68,11 +68,11 @@ items:
             href: operations/federation-group-mapping.md
           - name: Обновить SAML-сертификат {{ yandex-cloud }}
             href: operations/renew-yc-certificate.md
-      - name: Работа с OS Login
+      - name: Работа с {{ oslogin }}
         items:
-          - name: Включить доступ по OS Login
+          - name: Включить доступ по {{ oslogin }}
             href: operations/os-login-access.md
-          - name: Создать профиль OS Login
+          - name: Создать профиль {{ oslogin }}
             href: operations/os-login-profile-create.md
           - name: Добавить SSH-ключ
             href: operations/add-ssh.md
@@ -132,7 +132,7 @@ items:
         href: concepts/add-federation.md
       - name: Группы пользователей
         href: concepts/groups.md
-      - name: OS Login
+      - name: '{{ oslogin }}'
         href: concepts/os-login.md
       - name: Управляемые организации
         href: concepts/controlled-org.md

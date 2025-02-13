@@ -61,6 +61,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить информацию о [профиле ARL](../concepts/arl.md), воспользуйтесь методом REST API [get](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/get.md) для ресурса [AdvancedRateLimiterProfile](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md) или вызовом gRPC API [AdvancedRateLimiterProfile/get](../advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/get.md).
+  Воспользуйтесь методом REST API [get](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/get.md) для ресурса [AdvancedRateLimiterProfile](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md) или вызовом gRPC API [AdvancedRateLimiterProfile/Get](../advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/get.md).
 
 {% endlist %}

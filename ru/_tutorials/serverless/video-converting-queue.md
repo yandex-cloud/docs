@@ -3,7 +3,8 @@
 Вы создадите видеоконвертер с использованием утилиты [FFmpeg](https://ffmpeg.org/) и сервиса {{ message-queue-full-name }}. Руководство предназначено для пользователей Linux и macOS.
 
 
-@[youtube](uyIMvEtr3cI)
+[Смотреть видеоинструкцию о конвертировании с {{ message-queue-full-name }} на YouTube](https://www.youtube.com/watch?v=uyIMvEtr3cI).
+
 
 
 Чтобы создать приложение:

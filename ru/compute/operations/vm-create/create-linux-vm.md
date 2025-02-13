@@ -10,7 +10,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   
-  @[youtube](https://www.youtube.com/watch?v=PN3b26KXb78)
+  [Смотреть видеоинструкцию о создании виртуальной машины из публичного образа Linux в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=PN3b26KXb78).
+
 
 
   {% include [create-instance-via-console-linux](../../_includes_service/create-instance-via-console-linux.md) %}
