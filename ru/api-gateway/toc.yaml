@@ -128,13 +128,13 @@ items:
       - name: Работа с API-шлюзом по протоколу WebSocket
         href: tutorials/api-gw-websocket.md
       - name: >-
-          Построение пайплайна CI/CD в {{ GL }} с использованием
-          serverless-продуктов
-        href: tutorials/ci-cd-serverless.md
-      - name: >-
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: tutorials/websocket-app.md
+      - name: >-
+          Построение пайплайна CI/CD в {{ GL }} с использованием
+          serverless-продуктов
+        href: tutorials/ci-cd-serverless.md
       - name: Интерактивная отладка функций {{ sf-name }}
         href: tutorials/serverless-live-debug.md
       - name: >-

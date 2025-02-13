@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/serverless/container-pg-connect'
 ---
 
 # Настройка подключения из контейнера {{ serverless-containers-name }}

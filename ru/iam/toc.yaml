@@ -115,6 +115,8 @@ items:
             href: tutorials/wlif-github-integration.md
           - name: '{{ GL }}'
             href: tutorials/wlif-gitlab-integration.md
+          - name: '{{ k8s }}'
+            href: tutorials/wlif-k8s-integration.md
   - name: Концепции
     items:
       - name: Обзор

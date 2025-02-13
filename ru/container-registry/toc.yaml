@@ -134,6 +134,10 @@ items:
           Развертывание сервиса в {{ ml-platform-name }} на основе Docker-образа
           с FastAPI
         href: tutorials/node-from-docker-fast-api.md
+      - name: >-
+          Настройка подключения к {{ mpg-name }} из контейнера {{
+          serverless-containers-name }}
+        href: tutorials/container-pg-connect.md
   - name: Концепции
     items:
       - name: Обзор

@@ -14,4 +14,7 @@
 
 Пример работы с федеративными запросами с помощью {{ yq-full-name }}:
 
-@[YouTube](https://youtu.be/1EN28LVncPM?si=kmytEx5zGRTnXrJ4)
+
+[Смотреть видеоинструкцию о федеративных запросах в {{ yq-full-name }} на YouTube](https://www.youtube.com/watch?v=1EN28LVncPM).
+
+

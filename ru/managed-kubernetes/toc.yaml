@@ -200,6 +200,8 @@ items:
             href: tutorials/container-registry.md
           - name: Подпись и проверка Docker-образов {{ container-registry-name }}
             href: tutorials/sign-cr-with-cosign.md
+          - name: Хранение Docker-образов из проектов {{ mgl-name }}
+            href: tutorials/image-storage.md
       - name: Использование {{ mkf-name }}
         items:
           - name: Развертывание веб-интерфейса {{ KF }}

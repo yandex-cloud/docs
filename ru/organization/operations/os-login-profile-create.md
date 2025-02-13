@@ -5,11 +5,11 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать профиль {{ oslogin }}
 
-[Профили {{ oslogin }}](../concepts/os-login.md#os-login-profiles) по умолчанию создаются для всех пользователей организации при [включении доступа по {{ oslogin }}](./os-login-access.md). При необходимости вы можете создать дополнительные профили или отредактировать существующие. Профили {{ oslogin }} можно использовать в качестве профилей пользователей при работе внутри [ВМ](../../compute/concepts/vm.md) или узлов [кластеров](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ k8s }}.
+[Профили {{ oslogin }}](../concepts/os-login.md#os-login-profiles) по умолчанию создаются для всех пользователей организации и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md) при [включении доступа по {{ oslogin }}](./os-login-access.md). У одного пользователя или сервисного аккаунта в организации {{ org-name }} может быть несколько профилей {{ oslogin }} — разные профили позволяют подключаться к [ВМ](../../compute/concepts/vm.md) или узлам [кластеров](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ k8s }} от имени разных локальных пользователей этих ВМ или узлов {{ k8s }}.
 
 {% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 
-Чтобы создать дополнительный профиль {{ oslogin }} для пользователя:
+Чтобы создать дополнительный профиль {{ oslogin }}:
 
 {% list tabs group=instructions %}
 
@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
   
   1. На странице пользователя перейдите на вкладку **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** и нажмите кнопку **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. В открывшемся окне:
 
-      1. Введите имя пользователя в ОС, которое будет присвоено ему при подключении к ВМ. Должно быть уникальным в пределах системы.
+      1. Введите имя пользователя в ОС, которое будет присвоено пользователю организации или сервисному аккаунту при подключении к ВМ. Должно быть уникальным в пределах системы.
 
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
@@ -109,8 +109,8 @@ description: Следуя данной инструкции, вы сможете
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
       * `--uid` — уникальный числовой идентификатор пользователя (UID) в диапазоне от `1000` до `65534`. Должен быть уникальным в пределах системы.
-      * (Опционально) `--home-directory` — путь к домашнему каталогу пользователя на ВМ. Значение по умолчанию — `/home/<имя_пользователя>`.
-      * (Опционально) `--shell` — путь к исполняемому файлу командной оболочки на ВМ. Значение по умолчанию — `/bin/bash`.
+      * `--home-directory` — путь к домашнему каталогу пользователя на ВМ. Необязательный параметр. Значение по умолчанию — `/home/<имя_пользователя>`.
+      * `--shell` — путь к исполняемому файлу командной оболочки на ВМ. Необязательный параметр. Значение по умолчанию — `/bin/bash`.
 
       Результат:
 
@@ -129,6 +129,8 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [createProfile](../../organization/api-ref/OsLogin/createProfile.md) для ресурса [OsLogin](../../organization/api-ref/OsLogin/index.md) или вызовом gRPC API [OsLoginService/CreateProfile](../../organization/api-ref/grpc/OsLogin/createProfile.md).
 
 {% endlist %}
+
+Создать профиль {{ oslogin }} сервисного аккаунта можно только с помощью {{ yandex-cloud }} CLI или API.
 
 {% note info %}
 

@@ -1,3 +1,7 @@
+---
+title: Как подключиться к виртуальной машине Linux по SSH
+description: 'Следуя данной инструкции, вы сможете подключиться к ВМ с помощью пары ключей SSH: открытый ключ размещается на ВМ, а закрытый ключ хранится у пользователя.'
+---
 
 # Подключиться к виртуальной машине Linux по SSH
 
@@ -24,15 +28,24 @@
 
 - Linux/macOS {#linux-macos}
 
-  @[youtube](https://www.youtube.com/watch?v=0Q4kivQo0g4&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=10&pp=iAQB)
+  
+  [Смотреть видеоинструкцию о подключении к ВМ Linux по SSH в Linux и MAC на YouTube](https://www.youtube.com/watch?v=0Q4kivQo0g4&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=10&pp=iAQB)
+
+
 
 - Windows 10/11 {#windows}
 
-  @[youtube](https://www.youtube.com/watch?v=M7m75y80VFM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=11&pp=iAQB)
+  
+  [Смотреть видеоинструкцию о подключении к ВМ Linux по SSH в Windows 10 на YouTube](https://www.youtube.com/watch?v=M7m75y80VFM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=11&pp=iAQB)
+
+
 
 - Windows 7/8 {#windows7-8}
 
-  @[youtube](https://www.youtube.com/watch?v=rNA-bEbSHZ8&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=12&pp=iAQB)
+  
+  [Смотреть видеоинструкцию о подключении к ВМ Linux по SSH в Windows с помощью PuTTY на YouTube](https://www.youtube.com/watch?v=rNA-bEbSHZ8&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=12&pp=iAQB).
+
+
 
 {% endlist %}
 

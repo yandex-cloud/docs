@@ -19,6 +19,10 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [add-arl-rule](../../_includes/smartwebsecurity/add-arl-rule.md) %}
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/update.md) для ресурса [AdvancedRateLimiterProfile](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md) или вызовом gRPC API [AdvancedRateLimiterProfile/Update](../advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/update.md).
+
 {% endlist %}
 
 ### См. также {#see-also}

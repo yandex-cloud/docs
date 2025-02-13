@@ -32,7 +32,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   
-  @[youtube](https://www.youtube.com/watch?v=UByUvah7lDU&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=6&pp=iAQB)
+  [Смотреть видеоинструкцию о создании кластера {{ PG }} в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=UByUvah7lDU&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=6&pp=iAQB).
+
 
 
   Чтобы создать кластер {{ mpg-name }}:

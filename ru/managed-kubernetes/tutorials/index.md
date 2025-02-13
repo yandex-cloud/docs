@@ -36,6 +36,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 
 * [{#T}](container-registry.md)
 * [{#T}](sign-cr-with-cosign.md)
+* [{#T}](image-storage.md)
 
 ## Использование {{ mkf-name }} {#kafka}
 

@@ -131,6 +131,8 @@ items:
         href: tutorials/yq-postgre.md
       - name: Федеративные запросы к данным с помощью {{ yq-name }}
         href: tutorials/yq-federative-queries.md
+      - name: Запись данных с устройства в базу данных
+        href: tutorials/data-recording.md
       - name: Репликация и миграция
         items:
           - name: Логическая репликация {{ PG }}

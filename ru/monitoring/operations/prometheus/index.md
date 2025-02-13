@@ -14,10 +14,9 @@ description: '{{ managed-prometheus-full-name }} — система монито
 
 - YouTube
 
-  @[youtube](https://youtu.be/EEI4LseR0tw)
+  [Смотреть обзор {{ managed-prometheus-full-name }} на YouTube](https://youtu.be/EEI4LseR0tw).
 
-{% endlist %}
-
+  {% endlist %}
 
 
 

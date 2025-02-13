@@ -7,15 +7,24 @@ description: На странице представлены публичные �
 
 ## Визуализация данных из {{ objstorage-full-name }} с помощью {{ yq-full-name }} {#shorts3}
 
-@[YouTube](https://youtu.be/17cAGgG2YFU?si=yXz9uMpiGqS72CfV)
+
+[Смотреть видеоинструкцию о визуализации данных из {{ objstorage-full-name }} с помощью {{ yq-full-name }} на YouTube](https://www.youtube.com/watch?v=17cAGgG2YFU).
+
+
 
 ## Федеративные запросы в {{ yq-full-name }} {#shorts2}
 
-@[YouTube](https://youtu.be/1EN28LVncPM?si=6cYlykLAv5i8C3nc)
+
+[Смотреть видеоинструкцию о федеративных запросах в {{ yq-full-name }} на YouTube](https://www.youtube.com/watch?v=1EN28LVncPM).
+
+
 
 ## Обработка данных в {{ objstorage-full-name }} с помощью {{ yq-full-name }} {#shorts1}
 
-@[YouTube](https://youtu.be/HMcXKy0Xz4Q?si=w_q14UJ_qa92eBkL)
+
+[Смотреть видеоинструкцию об обработке данных в {{ objstorage-full-name }} с помощью {{ yq-full-name }} на YouTube](https://www.youtube.com/watch?v=HMcXKy0Xz4Q).
+
+
 
 ## 26.01.2023. Вебинар «Бессерверная аналитика с помощью {{ yq-full-name }}» {#webinar20230126}
 

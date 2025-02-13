@@ -417,7 +417,7 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: tutorials/alice-shareable-todolist.md
-      - name: Запись данных с устройства в {{ mpg-short-name }}
+      - name: Запись данных с устройства в базу данных
         href: tutorials/data-recording.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md

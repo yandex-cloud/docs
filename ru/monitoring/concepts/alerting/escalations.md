@@ -3,7 +3,8 @@
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
 
 
-@[youtube](https://youtu.be/iAGfn-I0CtY)
+[Смотреть видеоинструкцию о звонках и эскалациях в {{ monitoring-full-name }} на YouTube](https://www.youtube.com/watch?v=iAGfn-I0CtY).
+
 
 
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}

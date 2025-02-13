@@ -12,4 +12,7 @@
 
 Обработка данных из {{ objstorage-full-name }} с помощью {{ yq-full-name }}:
 
-@[YouTube](https://youtu.be/HMcXKy0Xz4Q?si=N3XslIrMTtLWSUgi)
+
+[Смотреть видеоинструкцию об обработке данных в {{ objstorage-full-name }} с помощью {{ yq-full-name }} на YouTube](https://www.youtube.com/watch?v=HMcXKy0Xz4Q).
+
+
