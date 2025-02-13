@@ -44,7 +44,17 @@ description: Различные сценарии использования {{ c
 * [{#T}](site-to-site-openvpn.md)
 * [{#T}](mlflow-datasphere.md)
 
-## Продукты Microsoft в {{ yandex-cloud }}
+## {{ coi }} {#coi}
+
+* [{#T}](vm-create.md)
+* [{#T}](vm-create-with-second-disk.md)
+* [{#T}](docker-compose.md)
+* [{#T}](vm-update.md)
+* [Создание группы ВМ с {{ coi }}](ig-create.md)
+* [{#T}](ig-with-containers.md) 
+* [{#T}](coi-with-terraform.md)
+
+## Продукты Microsoft в {{ yandex-cloud }} {#microsoft}
 
 * [{#T}](secure-password-script.md)
 * [{#T}](active-directory.md)

@@ -20,7 +20,7 @@
     * `<логин_пользователя_или_сервисного_аккаунта>` — полученный ранее логин пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), заданный в профиле {{ oslogin }}.
     * `<публичный_IP-адрес_ВМ>` — сохраненный ранее публичный адрес виртуальной машины.
 
-    Команду для подключения к ВМ вы также можете посмотреть в [консоли управления]({{ link-console-main }}) на странице **{{ ui-key.yacloud.compute.instance.overview.label_title }}** нужной ВМ в блоке **Подключение к виртуальной машине**: раскройте секцию **Подключиться с помощью SSH-клиента** и выберите вкладку **По сертификату**.
+    Команду для подключения к ВМ вы также можете посмотреть в [консоли управления]({{ link-console-main }}) на странице **{{ ui-key.yacloud.compute.instance.overview.label_title }}** нужной ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.field_access }}**: раскройте секцию **{{ ui-key.yacloud.compute.instance.overview.label_ssh-connect-card-title }}** и выберите вкладку **{{ ui-key.yacloud.compute.instance.overview.label_cert-connect-tab }}**.
 
     При первом подключении к ВМ появится предупреждение о неизвестном хосте:
 
@@ -30,4 +30,4 @@
     Are you sure you want to continue connecting (yes/no)?
     ```
 
-    Введите в терминале слово `yes` и нажмите **Enter**.
+    В терминале введите слово `yes` и нажмите **Enter**.

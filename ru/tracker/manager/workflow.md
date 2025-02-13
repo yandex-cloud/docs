@@ -17,7 +17,10 @@
 
 Больше полезной информации про настройку рабочих процессов и автоматизаций в {{ tracker-name }} — в нашем вебинаре:
 
- @[youtube](https://www.youtube.com/watch?v=NMTUPaom4WA)
+
+[Смотреть вебинар о настройке процессов и автоматизаций в {{ tracker-full-name }} на YouTube](https://www.youtube.com/watch?v=NMTUPaom4WA).
+
+
 
 
 ## Где находятся рабочие процессы очереди? {#where-workflows}

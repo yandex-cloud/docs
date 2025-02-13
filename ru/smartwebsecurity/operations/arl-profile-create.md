@@ -18,6 +18,10 @@ description: Следуя данной инструкции, вы сможете
   1. [Добавьте](arl-rule-add.md) правила ARL.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/create.md) для ресурса [AdvancedRateLimiterProfile](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md) или вызовом gRPC API [AdvancedRateLimiterProfile/Create](../advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/create.md).
+
 {% endlist %}
 
 ### См. также {#see-also}

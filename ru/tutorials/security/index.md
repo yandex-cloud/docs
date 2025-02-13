@@ -19,6 +19,7 @@ description: Различные сценарии использования по
 * [{#T}](audit-trails-events-to-kuma/index.md)
 * [{#T}](wlif-github-integration.md)
 * [{#T}](wlif-gitlab-integration.md)
+* [{#T}](wlif-k8s-integration.md)
 * [{#T}](coi-fluent-bit-logging.md)
 * [{#T}](../container-infrastructure/k8s-fluent-bit-logging.md)
 * [{#T}](balancer-with-sws-profile.md)

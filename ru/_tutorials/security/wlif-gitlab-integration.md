@@ -6,7 +6,7 @@
 
 Чтобы получить значение секрета {{ lockbox-name }} от имени аккаунта на {{ GL }}:
 
-1. [Создайте проект {{ GL }}](#create-gitlab-project)
+1. [Создайте проект {{ GL }}](#create-gitlab-project).
 1. [Подготовьте облако к работе](#prepare-cloud).
 1. [Настройте сценарий {{ GL }} CI/CD](#gitlab-actions-workflow).
 

@@ -23,4 +23,8 @@ description: Следуя данной инструкции, вы сможете
   1. Вернитесь на страницу профиля ARL, который вы хотите удалить.
   1. Справа сверху нажмите ![recycle-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [delete](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/delete.md) для ресурса [AdvancedRateLimiterProfile](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md) или вызовом gRPC API [AdvancedRateLimiterProfile/Delete](../advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/delete.md).
+
 {% endlist %}

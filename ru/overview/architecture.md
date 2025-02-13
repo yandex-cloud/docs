@@ -13,23 +13,38 @@
 
 * Архитектура Compute.
 
-  @[youtube](https://www.youtube.com/watch?v=ynkFYOFHn_Q&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=4)
+  
+  [Смотреть видео Compute и Scheduler: Not Enough Resources не приговор на YouTube](https://www.youtube.com/watch?v=ynkFYOFHn_Q&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=4).
+
+
 
 * Архитектура гипервизора.
 
-  @[youtube](https://www.youtube.com/watch?v=z4rm5fQw_8Y&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=5)
+  
+  [Смотреть видео About:Hypervisor на YouTube](https://www.youtube.com/watch?v=z4rm5fQw_8Y&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=5).
+
+
 
 * Архитектура [{{ iam-full-name }}](../iam/index.yaml).
 
-  @[youtube](https://www.youtube.com/watch?v=JCu5WD1o9Is&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=5)
+  
+  [Смотреть видео о том, из чего состоит IAM на YouTube](https://www.youtube.com/watch?v=JCu5WD1o9Is&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=5).
+
+
 
 * Архитектура [{{ objstorage-full-name }}](../storage/index.yaml).
 
-  @[youtube](https://www.youtube.com/watch?v=NElTqVWM8WQ&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=2)
+  
+  [Смотреть видео о том, что внутри S3 на YouTube](https://www.youtube.com/watch?v=NElTqVWM8WQ&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=2).
+
+
 
 * Архитектура YDB Serverless.
 
-  @[youtube](https://www.youtube.com/watch?v=aL9NHR0i0Xs&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=7)
+  
+  [Смотреть видео Serverless {{ ydb-short-name }} Internals на YouTube](https://www.youtube.com/watch?v=aL9NHR0i0Xs&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=7).
+
+
 
 Больше видео на Youtube-канале {{ yandex-cloud }}:
 

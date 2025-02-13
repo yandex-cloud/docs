@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 
 - YouTube
 
-  @[youtube](https://youtu.be/UJ0MxX4BqeM)
+  [Смотреть видеоинструкцию об алертинге на YouTube](https://www.youtube.com/watch?v=UJ0MxX4BqeM).
 
 {% endlist %}
 

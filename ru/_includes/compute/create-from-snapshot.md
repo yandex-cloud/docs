@@ -3,7 +3,8 @@
 - Консоль управления {#console}
 
   
-  @[youtube](https://www.youtube.com/watch?v=Z7J5OwC8oJM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=3&pp=iAQB)
+  [Смотреть видеоинструкцию о создании виртуальной машины с дисками из снимков в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=Z7J5OwC8oJM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=3&pp=iAQB).
+
 
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.

@@ -188,4 +188,8 @@
 
 {% endlist %}
 
+{% note info %}
+
 {% include [metadata-keys](../../../_includes/compute/metadata-keys.md) %}
+
+{% endnote %}

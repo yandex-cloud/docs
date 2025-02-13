@@ -25,12 +25,12 @@
         sudo mkfs -t ext4 -L data /dev/vdb
         ```
 
-     1. Подготовьте и смонтируйте папку для хранения данных на диске:
+     1. Подготовьте и смонтируйте папку `my_folder` для хранения данных на диске:
 
         ```bash
-        sudo mkdir /<имя_папки>
-        echo "LABEL=data /<имя_папки> ext4 defaults 0 0" | sudo tee -a /etc/fstab
-        sudo mount /<имя_папки>
+        sudo mkdir /my_folder
+        echo "LABEL=data /my_folder ext4 defaults 0 0" | sudo tee -a /etc/fstab
+        sudo mount /my_folder
         ```
 
      1. Задайте конфигурацию NFS в файле `/etc/exports`. Вы можете отредактировать файл с помощью утилиты `nano`:
@@ -42,8 +42,8 @@
         Добавьте в файл следующие строки:
 
         ```bash
-        /<имя_папки> <IP-адрес>(rw,no_subtree_check,fsid=100)
-        /<имя_папки> 127.0.0.1(rw,no_subtree_check,fsid=100)
+        /my_folder <IP-адрес>(rw,no_subtree_check,fsid=100)
+        /my_folder 127.0.0.1(rw,no_subtree_check,fsid=100)
         ```
 
         Где `<IP-адрес>` – IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными.
@@ -89,8 +89,8 @@
            read only = yes
            guest ok = no
         [data]
-           comment = /<имя_папки>
-           path = /<имя_папки>
+           comment = /my_folder
+           path = /my_folder
            browseable = yes
            read only = no
            writable = yes

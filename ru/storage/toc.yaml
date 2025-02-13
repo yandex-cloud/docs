@@ -278,6 +278,10 @@ items:
         href: tutorials/airflow-auto-tasks.md
       - name: Обработка файлов детализации в сервисе {{ billing-name }}
         href: tutorials/billing.md
+      - name: >-
+          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
+          аутентификацией в Firebase
+        href: tutorials/jwt-authorizer-firebase.md
   - name: Концепции
     items:
       - name: Обзор

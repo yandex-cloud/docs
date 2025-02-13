@@ -31,7 +31,8 @@ keywords:
 - Консоль управления {#console}
 
   
-  @[youtube](https://www.youtube.com/watch?v=vWCmvbrhDsI)
+  [Смотреть видеоинструкцию о создании {{ AF }} кластера в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=vWCmvbrhDsI).
+
 
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.

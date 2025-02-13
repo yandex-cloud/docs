@@ -6976,10 +6976,14 @@ default:
             button_add-public-ip: Add public IP address
             button_edit-network-interface: Edit
             button_remove-public-ip: Disassociate public IP address
+            field_access: Access
             field_ua-enabled: Agent for delivering metrics
+            label_cert-connect-tab: Via certificate
+            label_cli-connect-card-title: Connect via the Yandex Cloud CLI
             label_host: Internal FQDN
             label_network-interface: Network interface
             label_public-ipv4: Public IPv4 address
+            label_ssh-connect-card-title: Connect via the client SSH
             label_title: Overview
             popup-confirm_button_remove-one-to-one-nat: Delete
             section_monitoring: Monitoring

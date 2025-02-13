@@ -1,7 +1,3 @@
----
-canonical: '{{ link-docs }}/managed-gitlab/tutorials/tracker-integration'
----
-
 # Интеграция {{ GL }} с {{ tracker-full-name }}
 
 

@@ -1,5 +1,6 @@
 
-@[youtube](YDcw9Bci8EM)
+[Смотреть видеоинструкцию о создании агента тестирования в {{ load-testing-full-name }}](https://www.youtube.com/watch?v=YDcw9Bci8EM).
+
 
 
 1. Если у вас еще нет пары [SSH-ключей](../../glossary/ssh-keygen.md), [создайте их](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).

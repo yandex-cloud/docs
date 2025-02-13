@@ -120,6 +120,8 @@ items:
             href: security/wlif-github-integration.md
           - name: '{{ GL }}'
             href: security/wlif-gitlab-integration.md
+          - name: '{{ k8s }}'
+            href: security/wlif-k8s-integration.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
@@ -306,6 +308,8 @@ items:
             href: infrastructure-management/terraform-state-lock.md
           - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
             href: infrastructure-management/terraform-modules.md
+          - name: Создать ВМ и группу ВМ с {{ coi }} с помощью {{ TF }}
+            href: infrastructure/coi-with-terraform.md
           - name: Запуск Docker-образа на виртуальной машине
             items:
               - name: Обзор
@@ -396,6 +400,30 @@ items:
         href: container-infrastructure/kubernetes-lockbox-secrets.md
       - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
         href: container-infrastructure/sign-cr-with-cosign.md
+      - name: >-
+          Настройка подключения к {{ mpg-name }} из контейнера {{
+          serverless-containers-name }}
+        href: container-infrastructure/container-pg-connect.md
+      - name: Хранение Docker-образов из проектов {{ mgl-name }}
+        href: container-infrastructure/image-storage.md
+      - name: >-
+          Сканирование уязвимостей при непрерывном развертывании приложений {{
+          managed-k8s-name }} с помощью {{ GL }}
+        href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
+      - name: Создать ВМ с {{ coi }}
+        href: container-infrastructure/vm-create.md
+      - name: Создать ВМ с {{ coi }} и дополнительным томом для Docker-контейнера
+        href: container-infrastructure/vm-create-with-second-disk.md
+      - name: Создать группу ВМ с {{ coi }} и несколькими Docker-контейнерами
+        href: container-infrastructure/ig-with-containers.md
+      - name: Создать группу ВМ с {{ coi }}
+        href: container-infrastructure/ig-create.md
+      - name: Создать ВМ с {{ coi }} и несколькими Docker-контейнерами
+        href: container-infrastructure/docker-compose.md
+      - name: Изменить ВМ с {{ coi }}
+        href: container-infrastructure/vm-update.md
+      - name: Настройка вывода информации из Docker-контейнера в серийный порт
+        href: container-infrastructure/serial-port.md
   - name: Прикладные решения
     items:
       - name: Все руководства
@@ -492,12 +520,34 @@ items:
             href: infrastructure-management/1c-postgresql-linux.md
       - name: Интернет вещей (IoT)
         items:
+          - name: Работа с помощью Mosquitto
+            items:
+              - name: Отправить сообщение
+                href: iot/mosquitto/mosquitto-publish.md
+              - name: Подписать устройство или реестр на получение сообщений
+                href: iot/mosquitto/mosquitto-subscribe.md
+          - name: Работа с {{ iot-name }} с устройства с Android на языке Java
+            href: iot/android-java.md
+          - name: Работа с {{ iot-name }} на языке C#
+            href: iot/c-sharp.md
+          - name: Работа с {{ iot-name }} на языке Java
+            href: iot/java.md
           - name: Мониторинг состояния географически распределенных устройств
             href: iot/datalens.md
           - name: Мониторинг показаний датчиков и уведомления о событиях
             href: iot/monitoring.md
+          - name: Тестирование доставки сообщения
+            href: iot/message-delivery-check.md
           - name: Эмуляция множества IoT-устройств
             href: testing/iot-emulation.md
+          - name: Запись данных с устройства в базу данных
+            href: iot/data-recording.md
+      - name: Алиса
+        items:
+          - name: Создание навыка Алисы
+            href: serverless/alice-skill.md
+          - name: Разработка навыка Алисы и сайта с авторизацией
+            href: serverless/alice-shareable-todolist.md
       - name: Прочее
         items:
           - name: Публикация обновлений для игр с помощью {{ cdn-name }}
@@ -1023,14 +1073,16 @@ items:
         href: serverless/api-gw-integration.md
       - name: Разработка CRUD API для сервиса фильмов
         href: serverless/movies-database.md
-      - name: Разработка навыка Алисы и сайта с авторизацией
-        href: serverless/alice-shareable-todolist.md
       - name: Построение пайплайна CI/CD в {{ GL }}
         href: serverless/ci-cd-serverless.md
+      - name: Работа с API-шлюзом по протоколу WebSocket
+        href: serverless/api-gw-websocket.md
       - name: >-
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: serverless/websocket-app.md
+      - name: Построение пайплайна CI/CD в {{ GL }}
+        href: serverless/ci-cd-serverless.md
       - name: >-
           Автоматическое копирование объектов из одного бакета {{
           objstorage-name }} в другой
@@ -1043,6 +1095,8 @@ items:
         href: serverless/canary-release.md
       - name: Интерактивная отладка функций {{ sf-name }}
         href: serverless/serverless-live-debug.md
+      - name: Создание функции Node.js с помощью TypeScript
+        href: serverless/nodejs-typescript.md
       - name: >-
           Запуск контейнерного приложения в {{ serverless-containers-full-name
           }}
@@ -1063,6 +1117,10 @@ items:
         href: serverless/connect-from-cf-nodejs.md
       - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
         href: serverless/api-gw-sws-integration.md
+      - name: >-
+          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-full-name
+          }} и аутентификацией в Firebase
+        href: serverless/jwt-authorizer-firebase.md
   - name: Машинное обучение и искусственный интеллект
     items:
       - name: Все руководства

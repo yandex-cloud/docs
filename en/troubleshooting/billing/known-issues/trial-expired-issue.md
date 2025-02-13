@@ -8,7 +8,7 @@
 
 ## Solution {#issue-resolution}
 
-`TRIAL_EXPIRED` status on billing account means that the [trial period](../../../getting-started/free-trial/concepts/trial-ending.md) is over, because you used up the entire grant or [its part](../../../free-trial/concepts/usage-grant.md). This will also happen when trial perion grant expires.
+`TRIAL_EXPIRED` status on billing account means that the [trial period](../../../getting-started/free-trial/concepts/trial-ending.md) is over, because you used up the entire grant or [its part](../../../getting-started/usage-grant.md). This will also happen when trial perion grant expires.
 
 The trial period terms of termination differ for individual and business accounts.
 
@@ -16,7 +16,7 @@ The trial period terms of termination differ for individual and business account
 
 - Individual account
 
-   The trial period ends automatically when you use up the grant or a [part](../../../free-trial/concepts/usage-grant.md) of the grant, or when it expires.
+   The trial period ends automatically when you use up the grant or a [part](../../../getting-started/usage-grant.md) of the grant, or when it expires.
 
 - Business account
 
@@ -25,11 +25,11 @@ The trial period terms of termination differ for individual and business account
    | Payment method | Terms of termination |
    ----- | -----  
    | Bank transfer | The grant was used up or expired. |
-   | Bank card | The grant or a [part](../../../free-trial/concepts/usage-grant.md) of the grant was used up or it expired. |
+   | Bank card | The grant or a [part](../../../getting-started/usage-grant.md) of the grant was used up or it expired. |
 
 {% endlist %}
 
-Upgrade to the paid version after the trial period termination should be done manually. You can [upgrade to the paid version](../../../free-trial/concepts/upgrade-to-paid.md) of {{ yandex-cloud }} at any time during the free trial or during 30 days after trial period termination, to avoid data loss.
+Upgrade to the paid version after the trial period termination should be done manually. You can [upgrade to the paid version](../../../getting-started/free-trial/concepts/upgrade-to-paid.md) of {{ yandex-cloud }} at any time during the free trial or during 30 days after trial period termination, to avoid data loss.
 
 If the free trial ends and you don't upgraded to the paid version, access to your resources will be suspended for 30 days with specified restrictions:
 

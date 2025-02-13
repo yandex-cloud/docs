@@ -27,9 +27,21 @@ description: На странице представлен список прак�
 
 ## Интернет вещей (IOT) {#iot}
 
+* [{#T}](../iot/mosquitto/mosquitto-publish.md)
+* [{#T}](../iot/mosquitto/mosquitto-subscribe.md)
+* [{#T}](../iot/android-java.md)
+* [{#T}](../iot/c-sharp.md)
+* [{#T}](../iot/java.md)
 * [Мониторинг состояния географически распределенных устройств](../iot/datalens.md)
 * [Мониторинг показаний датчиков и уведомления о событиях](../iot/monitoring.md)
+* [{#T}](../iot/message-delivery-check.md)
 * [Эмуляция множества IoT-устройств](../testing/iot-emulation.md)
+* [{#T}](../iot/data-recording.md)
+
+## Алиса {#alice}
+
+* [{#T}](../serverless/alice-skill.md)
+* [{#T}](../serverless/alice-shareable-todolist.md)
 
 ## Прочее {#other}
 

@@ -260,7 +260,8 @@
 
 ## Дополнительные материалы {#video}
 
-Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
 
-@[youtube](bzWmmPp6KFg)
+[Смотреть на YouTube вебинар {{ data-transfer-full-name }} в сценариях, о которых редко говорят](https://www.youtube.com/watch?v=bzWmmPp6KFg).
+
+
 

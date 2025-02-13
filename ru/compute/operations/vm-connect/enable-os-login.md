@@ -82,7 +82,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Отключить доступ по {{ oslogin }} {#disable-os-login}
 
-Для доступа без {{ oslogin }} на стороне ВМ должна храниться публичная часть SSH-ключа. Если ВМ была [создана](../../../compute/operations/vm-create/create-linux-vm.md) без SSH-ключа или ключ был утерян, [добавьте](../../../compute/operations/vm-connect/recovery-access.md#ssh-recovery) ключ и пользователя вручную перед отключением доступа по {{ oslogin }}.
+Для доступа к ВМ без {{ oslogin }} на стороне ВМ должна храниться публичная часть SSH-ключа. Если ВМ была [создана](../../../compute/operations/vm-create/create-linux-vm.md) без SSH-ключа или ключ был утерян, [добавьте](../../../compute/operations/vm-connect/recovery-access.md#ssh-recovery) SSH-ключ и локального пользователя на ВМ вручную, прежде чем отключать доступ по {{ oslogin }}.
 
 Чтобы вернуть возможность [подключаться](ssh.md) к ВМ по SSH без использования {{ oslogin }}:
 

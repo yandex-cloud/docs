@@ -63,4 +63,8 @@ description: Следуя данной инструкции, вы сможете
 
   Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../waf/api-ref/WafProfile/update.md) для ресурса [WafProfile](../waf/api-ref/WafProfile/) или вызовом gRPC API [WafProfile/Update](../waf/api-ref/grpc/WafProfile/update.md).
+
 {% endlist %}

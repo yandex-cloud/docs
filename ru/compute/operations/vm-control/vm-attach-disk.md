@@ -88,6 +88,61 @@
      yc compute instance start first-instance
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Если дополнительный диск уже создан, [получите](../disk-control/get-info.md) его идентификатор.
+  1. Откройте конфигурационный файл {{ TF }}, в котором описана ВМ, к которой вы хотите подключить дополнительный диск. См. [пример конфигурационного файла ВМ](../vm-create/create-linux-vm.md#tf_1).
+  1. В зависимости от того, создан ли уже дополнительный диск, выполните следующее:
+      * Диск создан — в блок с описанием ресурса `yandex_compute_instance` добавьте параметр `secondary_disk` и укажите идентификатор дополнительного диска в значении `disk_id`:
+
+        ```hcl
+        resource "yandex_compute_instance" "vm-1" {
+           ...
+           secondary_disk {
+              disk_id = "<идентификатор_диска>"
+           }
+           ...
+        }
+        ```
+
+      * Диск нужно создать — добавьте в конфигурационный файл новый блок с описанием ресурса `yandex_compute_disk`, в блок с описанием ресурса `yandex_compute_instance` добавьте параметр `secondary_disk` и укажите в значении `disk_id` ссылку на идентификатор создаваемого дополнительного диска:
+
+        ```hcl
+        resource "yandex_compute_disk" "secondary-disk-1" {
+            name     = "secondary-disk-1"
+            type     = "network-hdd"
+            zone     = "<зона_доступности>"
+            size     = "<размер_диска>"
+        }
+
+        resource "yandex_compute_instance" "vm-1" {
+           ...
+           secondary_disk {
+              disk_id = yandex_compute_disk.secondary-disk-1.id
+           }
+           ...
+        }
+        ```
+
+      {% note info %}
+
+      Дополнительный диск и виртуальная машина должны находиться в одной зоне доступности.
+
+      {% endnote %}
+
+      Более подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_disk).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
+
+
 - API {#api}
 
   Воспользуйтесь методом REST API [attachDisk](../../api-ref/Instance/attachDisk.md) для ресурса [Instance](../../api-ref/Instance/) или вызовом gRPC API [InstanceService/AttachDisk](../../api-ref/grpc/Instance/attachDisk.md).
