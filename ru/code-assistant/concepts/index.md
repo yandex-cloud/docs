@@ -26,6 +26,11 @@ LLM, которые применяются в {{ ca-name }}, дообучены 
 * Inline completion — автодополнения по ходу написания текста (кода, тестов, документации).
 * Full-function completion — автодополнения целых функций или методов.
 
+{% include [help-indicator-load](../../_includes/code-assistant/help-indicator-load.md) %}
+
+Подробнее об управлении индикатором подсказок см. [{#T}](../quickstart.md#help-indicator)
+
+
 #### См. также {#see-also}
 
 * [{#T}](../quickstart.md)

@@ -36,6 +36,21 @@ _Эндпоинт_ — это конфигурация для подключен
 | Бакет [{{ objstorage-full-name }}](../../storage/)                                                                                    |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | 
 
+### Статусы эндпоинтов {#statuses}
+
+В связи с [переходом](../release-notes/2501.md) сервиса {{ data-transfer-name }} на [асинхронные операции](../../api-design-guide/concepts/async.md) с эндпоинтами, введены статусы эндпоинтов:
+
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}** — присваивается, когда эндпоинт готов к использованию.
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-CREATING }}** — присваивается в момент начала операции по созданию эндпоинта. По окончании операции эндпоинту присваивается статус **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}**.
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-UPDATING }}** — присваивается в момент начала операции по изменению эндпоинта. По окончании операции эндпоинту присваивается статус **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}**.
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-DELETING }}** — присваивается в момент начала операции по удалению эндпоинта.
+
+{% note info %}
+
+Все новые эндпоинты создаются асинхронными. Старые эндпоинты остаются синхронными и могут иметь только статус **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}**.
+
+{% endnote %}
+
 ## Трансфер {#transfer}
 
 _Трансфер_ — это процесс переноса данных между сервисом-источником и сервисом-приемником. Он должен находиться в одном каталоге с используемыми эндпоинтами.

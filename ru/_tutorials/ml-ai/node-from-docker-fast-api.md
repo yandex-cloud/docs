@@ -201,7 +201,7 @@
 1. [В настройках проекта](../../datasphere/operations/projects/update.md) укажите:
    *  **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — `data-folder`.
    *  **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — `sa-for-datasphere`.
-1. [Создайте секрет](../../datasphere/operations/data/secrets.md) `key-for-sa`, хранящий полное содержимое файла с авторизованным ключом для сервисного аккаунта `sa-for-datasphere`.
+1. [Создайте секрет](../../datasphere/operations/data/secrets.md) `key-for-sa`, добавив в него содержимое файла с авторизованным ключом для сервисного аккаунта `sa-for-datasphere` полностью без каких-либо изменений. 
 1. Создайте ноду. Для этого на странице проекта в правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**. Укажите настройки ноды:
    1. В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** введите имя ноды — `fastapi`.
    1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**:
@@ -218,7 +218,7 @@
       * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}** — 9875.
    1. Включите опцию **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}** и укажите:
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}** — выберите **HTTP**.
-      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}** — `0.0.0.0`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}** — `/`.
       * **{{ ui-key.yc-ui-datasphere.common.port }}** — 9875.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}** — 1.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}** — 15.

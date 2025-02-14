@@ -1081,8 +1081,6 @@ items:
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: serverless/websocket-app.md
-      - name: Построение пайплайна CI/CD в {{ GL }}
-        href: serverless/ci-cd-serverless.md
       - name: >-
           Автоматическое копирование объектов из одного бакета {{
           objstorage-name }} в другой

@@ -11,7 +11,6 @@
 * [Построение пайплайна CI/CD в {{ GL }}](ci-cd-serverless.md)
 * [{#T}](api-gw-websocket.md)
 * [Создание интерактивного serverless-приложения с использованием WebSocket](websocket-app.md)
-* [Построение пайплайна CI/CD в {{ GL }}](ci-cd-serverless.md)
 * [Автоматическое копирование объектов из одного бакета {{ objstorage-full-name }} в другой](bucket-to-bucket-copying.md)
 * [Визуализация логов в {{ grafana-name }} с помощью плагина {{ cloud-logging-full-name }}](grafana-logs-plugin.md)
 * [Канареечный релиз функции {{ sf-full-name }}](canary-release.md)

@@ -18,6 +18,12 @@ links:
   - title: Начало работы
     description: Создайте свой первый репозиторий
     href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Обзор CI/CD
+    description: Узнайте про взаимосвязь элементов CI/CD
+    href: concepts/ci-cd
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
