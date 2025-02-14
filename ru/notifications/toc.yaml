@@ -11,6 +11,40 @@ items:
         href: quickstart-push.md
       - name: Начало работы с SMS
         href: quickstart-sms.md
+  - name: Пошаговые операции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Push-уведомления
+        items:
+          - name: Создать канал push-уведомлений
+            href: operations/push/channel-create.md
+          - name: Изменить канал push-уведомлений
+            href: operations/push/channel-update.md
+          - name: Удалить канал push-уведомлений
+            href: operations/push/channel-delete.md
+          - name: Создать эндпоинт
+            href: operations/push/endpoint-create.md
+          - name: Изменить эндпоинт
+            href: operations/push/endpoint-update.md
+          - name: Удалить эндпоинт
+            href: operations/push/endpoint-delete.md
+          - name: Отправить push-уведомление
+            href: operations/push/send.md
+      - name: SMS-уведомления
+        items:
+          - name: Создать канал SMS-уведомлений
+            href: operations/sms/channel-create.md
+          - name: Удалить канал SMS-уведомлений
+            href: operations/sms/channel-delete.md
+          - name: Добавить тестовый номер
+            href: operations/sms/test-number-create.md
+          - name: Удалить тестовый номер
+            href: operations/sms/test-number-delete.md
+          - name: Отправить тестовое SMS-уведомление
+            href: operations/sms/send.md
+          - name: Выйти из песочницы
+            href: operations/sms/exit-sandbox.md
   - name: Концепции
     expanded: true
     items:
@@ -25,12 +59,26 @@ items:
   - name: Инструменты
     expanded: true
     items:
+      - name: Все инструменты
+        href: tools/index.md
       - name: AWS CLI
         href: tools/aws-cli.md
-      - name: AWS SDK для Python (boto3)
-        href: tools/sdk-python.md
+      - name: AWS SDK для С++
+        href: tools/sdk-cpp.md
+      - name: AWS SDK для Go
+        href: tools/sdk-go.md
+      - name: AWS SDK для Java
+        href: tools/sdk-java.md
+      - name: AWS SDK для JavaScript
+        href: tools/sdk-javascript.md
+      - name: AWS SDK для Kotlin
+        href: tools/sdk-kotlin.md
+      - name: AWS SDK для .NET
+        href: tools/sdk-dot-net.md
       - name: AWS SDK для PHP
         href: tools/sdk-php.md
+      - name: AWS SDK для Python (boto3)
+        href: tools/sdk-python.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник API

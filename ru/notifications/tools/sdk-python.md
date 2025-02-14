@@ -1,5 +1,7 @@
 # Как начать работать с AWS SDK для Python (boto3) в {{ cns-full-name }}
 
+{% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
+
 [boto3](https://github.com/boto/boto3) — это комплект средств разработки (SDK) для языка программирования Python 3.x. SDK предназначен для работы с сервисами, совместимыми с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
 Чтобы начать работу с AWS SDK для Python (boto3):
@@ -49,45 +51,7 @@
 
 ## Создайте канал уведомлений {#create-channel}
 
-```python
-response = client.create_platform_application(
-    Name="<имя_канала>",
-    Platform="GCM",
-    Attributes= {
-         "PlatformCredential": "<API-ключ_FCM>"
-    }
-)
-print ("Platform application ARN:", response['PlatformApplicationArn'])
-```
-
-Где:
-* `Name` — имя канала уведомлений, задается пользователем. Должно быть уникальным в [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud). Может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Допустимая длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name).
-* `Platform` — тип мобильной платформы:
-  * `APNS` и `APNS_SANDBOX` — Apple Push Notification service (APNs). Для тестирования приложения используйте `APNS_SANDBOX`.
-  * `GCM` — Firebase Cloud Messaging (FCM).
-  * `HMS` — Huawei Mobile Services (HMS).
-* `Attributes` — параметры аутентификации на мобильной платформе в формате `ключ=значение`. Значения зависят от типа платформы:
-  * APNs:
-    * Аутентификация с токеном:
-      * `PlatformPrincipal` — путь к файлу с ключом подписи токена, полученный в Apple.
-      * `PlatformCredential` — идентификатор ключа подписи (Key ID).
-      * `ApplePlatformTeamID` — идентификатор разработчика (TeamID).
-      * `ApplePlatformBundleID` — идентификатор приложения (Bundle ID).
-    * Аутентификация с сертификатом:
-      * `PlatformPrincipal` — SSL-сертификат в формате `.pem`.
-      * `PlatformCredential` — закрытый ключ сертификата в формате `.pem`.
-          
-          {% include [convert-p12-to-pem](../../_includes/notifications/convert-p12-to-pem.md) %}
-
-    Аутентификация с токеном является предпочтительной, как более современная.
-  * FCM: `PlatformCredential` — ключ сервисного аккаунта Google Cloud в формате JSON для аутентификации с помощью HTTP v1 API или API-ключ (server key) для аутентификации с помощью Legacy API.
-
-    Версия HTTP v1 API является предпочтительной, так как с июня 2024 года Legacy API [не будет поддерживаться FCM](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
-  * HMS:
-    * `PlatformPrincipal` — идентификатор ключа.
-    * `PlatformCredential` — API-ключ.
-
-В результате вы получите идентификатор (ARN) канала уведомлений.
+{% include [push-channel-create-python](../../_includes/notifications/push-channel-create-python.md) %}
 
 ## Получите список каналов уведомлений {#list-channel}
 
@@ -101,19 +65,8 @@ for app in response["PlatformApplications"]:
 
 ## Создайте эндпоинт {#create-endpoint}
 
-```python
-response = client.create_platform_endpoint(
-    PlatformApplicationArn="<ARN_канала_уведомлений>",
-    Token="<Push-токен>",
-)
-print ("Endpoint ARN:", response["EndpointArn"])
-```
+{% include [endpoint-create-python](../../_includes/notifications/endpoint-create-python.md) %}
 
-Где:
-* `PlatformApplicationArn` — идентификатор (ARN) канала уведомлений.
-* `Token` — уникальный Push-токен приложения на устройстве пользователя.
-
-В результате вы получите идентификатор (ARN) мобильного эндпоинта.
 
 ## Отправьте уведомление {#publish}
 

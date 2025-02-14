@@ -8,9 +8,11 @@
 `DeleteNodeGroup` | Удаление группы узлов
 `DeleteStoppedCluster` | Удаление остановленного кластера
 `InstallHelmRelease` | Установка версии Helm
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UninstallHelmRelease` | Удаление версии Helm
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateHelmRelease` | Изменение версии Helm
 `UpdateNodeGroup` | Изменение группы узлов

@@ -6637,12 +6637,46 @@ default:
       cloud-tree-list:
         value_search-placeholder: Поиск
       cns:
+        action_copy-msg-id: Скопировать идентификатор
+        action_create-channel: Создать канал уведомлений
+        action_create-endpoint: Создать эндпоинт
+        action_send-msg: Отправить
+        action_sms-leave-sandbox: Выйти из песочницы
+        auth_certificate: Сертификат
+        auth_token: Токен
+        button_add-description: Добавить описание
+        env_development: Development
+        env_production: Production
         field_apns-bundle-id: Идентификатор приложения (Bundle ID)
         field_apns-certificate: Сертификат
+        field_apns-environment: Окружение
         field_apns-key: Ключ подписи
         field_apns-key-id: Идентификатор ключа
+        field_apns-method: Метод аутентификации
         field_apns-private-key: Закрытый ключ сертификата
         field_apns-team-id: Идентификатор разработчика
+        field_channel-name: Имя
+        field_endpoint-user-data: Данные пользователя
+        field_gcm-api-key: API-ключ
+        field_gcm-file: Ключ сервисного аккаунта Google Cloud в формате JSON
+        field_gcm-version: Версия FCM API
+        field_hms-client-id: Идентификатор ключа
+        field_hms-client-secret: API-ключ
+        field_token: Токен устройства
+        label_editor-json: JSON
+        label_editor-text: Текст
+        label_endpoints: Эндпоинты
+        label_phone-numbers: Тестовые номера
+        section_message-sending: Отправка сообщений
+        select_apns-title: Apple iOS
+        select_gcm-title: Google Android
+        select_hms-title: Huawei Android
+        sender_sms-common: Общий отправитель
+        sender_sms-individual: Индивидуальный отправитель
+        switch_gcm-api-legacy: Legacy
+        switch_gcm-api-v1: HTTP v1
+        type_mobile: Мобильные Push-уведомления
+        type_sms: SMS-сообщения
       common:
         add: Добавить
         all: Все
@@ -6656,6 +6690,7 @@ default:
         cancel: Отменить
         clear: Очистить
         clone: Клонировать
+        confirm: Подтвердить
         continue: Продолжить
         create: Создать
         create-new: Создать новый
@@ -7196,6 +7231,10 @@ default:
         label_connector-status-DONE: Завершен
         label_connector-status-RUNNING: Реплицируется
         label_connectors: Трансферы
+        label_endpoint-status-CREATING: Создаётся
+        label_endpoint-status-DELETING: Удаляется
+        label_endpoint-status-READY: Создан
+        label_endpoint-status-UPDATING: Обновляется
         label_endpoints: Эндпоинты
         label_monitoring: Мониторинг
       dataproc:
@@ -7401,6 +7440,7 @@ default:
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
             label_cloud-desktop: Cloud Desktop
+            label_cns: Cloud Notification Service
             label_compute: Compute Cloud
             label_connection-manager: Connection manager
             label_container-registry: Container Registry

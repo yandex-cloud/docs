@@ -3,6 +3,7 @@ title: Начало работы с {{ ca-full-name }}
 description: Установите плагин {{ ca-name }} для Visual Studio Code и IDE от JetBrains.
 ---
 
+
 # Как начать работать с {{ ca-full-name }}
 
 {% include [preview-stage](../_includes/code-assistant/preview-stage.md) %}
@@ -15,6 +16,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 1. [Протестируйте плагин](#work-with-plugin).
 1. [Управляйте плагином](#manage-plugin).
 
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% note info %}
@@ -24,6 +26,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 {% endnote %}
 
 {% include [before-you-begin](../_includes/code-assistant/before-you-begin.md) %}
+
 
 ## Установите и настройте плагин {#install-plugin}
 
@@ -108,6 +111,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 {% endlist %}
 
+
 ## Протестируйте плагин {#work-with-plugin}
 
 {% note info %}
@@ -172,6 +176,30 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 Видео с демонстрацией работы плагина см. на [странице {{ ca-name }}](https://cloud.yandex.ru/services/code-assistant).
 
+### Индикатор генерации или отсутствия подсказки {#help-indicator}
+
+{% include [help-indicator-load](../_includes/code-assistant/help-indicator-load.md) %}
+
+Чтобы выключить или включить индикатор:
+
+{% list tabs group=ide %}
+
+  - Visual Studio Code {#vscode}
+
+    1. На панели снизу справа нажмите на значок плагина ![image](../_assets/code-assistant/vsc-icon-small.svg).
+    1. В открывшемся меню выберите **Settings**.
+    1. В открывшихся настройках выключите или включите опции **Enable Empty Indicator** и **Enable Loading Indicator**.
+
+  - IDE от JetBrains {#jb}
+
+    1. В правом верхнем углу нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Settings...**.
+    1. В колонке слева выберите **Yandex Code Assistant**.
+    1. Включите или выключите опцию **Disable suggest indicator**.
+    1. Нажмите кнопку **Save** чтобы сохранить настройки.
+
+{% endlist %}
+
+
 ## Управляйте плагином {#manage-plugin}
 
 ### Включите или отключите автоматическую выдачу подсказок {#enable-disable-plugin}
@@ -187,10 +215,8 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 {% endlist %}
 
+
 ### Обновите плагин {#update-plugin}
-
-
-
 
 {% list tabs group=ide %}
 
@@ -211,6 +237,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
   1. Если для плагина доступно обновление, вы увидите кнопку **Update**. Нажмите ее.
 
 {% endlist %}
+
 
 ### Выйдите из профиля {{ yandex-cloud }} {#logout}
 
@@ -234,6 +261,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 Чтобы повторно аутентифицироваться в плагине, выполните шаги, описанные в п. 3 раздела [{#T}](#install-plugin).
 
+
 ### Удалите плагин {#remove-plugin}
 
 {% list tabs group=ide %}
@@ -251,6 +279,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
   1. Подтвердите удаление и нажмите **OK**.
 
 {% endlist %}
+
 
 #### См. также {#see-also}
 
