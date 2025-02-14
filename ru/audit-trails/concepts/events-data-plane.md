@@ -22,6 +22,7 @@ description: В данном разделе приведены описания 
 * [{{ kms-full-name }}](#kms)
 * [{{ lockbox-full-name }}](#lockbox)
 * [{{ mch-full-name }}](#mch)
+* [{{ managed-k8s-full-name }}](#managed-service-for-kubernetes)
 * [{{ mmg-full-name }}](#mmg)
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
@@ -75,6 +76,11 @@ description: В данном разделе приведены описания 
 
 {% include [mch-events-dp](../../_includes/audit-trails/events/mch-events-dp.md) %}
 
+## {{ managed-k8s-full-name }} {#managed-service-for-kubernetes}
+
+Имя сервиса — `k8s`.
+
+{% include [managed-k8s-events-dp](../../_includes/audit-trails/events/managed-k8s-events-dp.md) %}
 
 ## {{ mmg-full-name }} {#mmg}
 

@@ -1,5 +1,7 @@
 # Как начать работать с AWS SDK для PHP в {{ cns-full-name }}
 
+{% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
+
 Чтобы начать работу с AWS SDK для PHP:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Получите статический ключ доступа](#static-key).
@@ -49,9 +51,9 @@
 
     $client = new SnsClient(
         [
-            'endpoint' => 'https://notifications.yandexcloud.net/',
+            'endpoint' => 'https://{{ cns-host }}/',
             'version' => 'latest',
-            'region' => 'ru-central1',
+            'region' => '{{ region-id }}',
             'credentials' => [
                 'key' => '<идентификатор_статического_ключа>',
                 'secret' => '<секретный_ключ>',
@@ -69,48 +71,8 @@
 
 ## Создайте канал уведомлений {#create-channel}
 
-```php
-$response = $client->createPlatformApplication(
-    [
-        'Name' => '<имя_канала>',
-        'Platform' => 'GCM',
-        'Attributes' => [
-            'PlatformCredential' => '<API-ключ_FCM>',
-        ],
-    ]
-);
+{% include [push-channel-create-php](../../_includes/notifications/push-channel-create-php.md) %}
 
-print($response->get('PlatformApplicationArn'));
-```
-
-Где:
-* `Name` — имя канала уведомлений, задается пользователем. Должно быть уникальным в [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud). Может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Допустимая длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name).
-* `Platform` — тип мобильной платформы:
-  * `APNS` и `APNS_SANDBOX` — Apple Push Notification service (APNs). Для тестирования приложения используйте `APNS_SANDBOX`.
-  * `GCM` — Firebase Cloud Messaging (FCM).
-  * `HMS` — Huawei Mobile Services (HMS).
-* `Attributes` — параметры аутентификации на мобильной платформе в формате `ключ=значение`. Значения зависят от типа платформы:
-  * APNs:
-    * Аутентификация с токеном:
-      * `PlatformPrincipal` — путь к файлу с ключом подписи токена, полученный в Apple.
-      * `PlatformCredential` — идентификатор ключа подписи (Key ID).
-      * `ApplePlatformTeamID` — идентификатор разработчика (TeamID).
-      * `ApplePlatformBundleID` — идентификатор приложения (Bundle ID).
-    * Аутентификация с сертификатом:
-      * `PlatformPrincipal` — SSL-сертификат в формате `.pem`.
-      * `PlatformCredential` — закрытый ключ сертификата в формате `.pem`.
-          
-          {% include [convert-p12-to-pem](../../_includes/notifications/convert-p12-to-pem.md) %}
-
-    Аутентификация с токеном — более современный и безопасный метод.
-  * FCM: `PlatformCredential` — ключ сервисного аккаунта Google Cloud в формате JSON для аутентификации с помощью HTTP v1 API или API-ключ (server key) для аутентификации с помощью Legacy API.
-
-    Используйте HTTP v1 API, так как с июля 2024 года [FCM legacy API не поддерживается](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
-  * HMS:
-    * `PlatformPrincipal` — идентификатор ключа.
-    * `PlatformCredential` — API-ключ.
-
-В результате вы получите идентификатор (ARN) канала уведомлений.
 
 ## Получите список каналов уведомлений {#list-channel}
 
@@ -124,22 +86,8 @@ var_dump($response->get('PlatformApplications'));
 
 ## Создайте эндпоинт {#create-endpoint}
 
-```php
-$response = $client->createPlatformEndpoint(
-    [
-        'PlatformApplicationArn' => '<ARN_канала_уведомлений>',
-        'Token' => '<Push-токен>',
-    ]
-);
+{% include [endpoint-create-php](../../_includes/notifications/endpoint-create-php.md) %}
 
-print($response->get('EndpointArn'));
-```
-
-Где:
-* `PlatformApplicationArn` — идентификатор (ARN) канала уведомлений.
-* `Token` — уникальный Push-токен приложения на устройстве пользователя.
-
-В результате вы получите идентификатор (ARN) мобильного эндпоинта.
 
 ## Отправьте уведомление {#publish}
 

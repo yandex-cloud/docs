@@ -17,3 +17,6 @@ description: На этой странице приведен справочни�
 
 {% include [managed-k8s-events](../_includes/audit-trails/events/managed-k8s-events.md) %}
 
+## Справочник событий уровня сервисов {#data-plane-events}
+
+{% include [managed-k8s-events](../_includes/audit-trails/events/managed-k8s-events-dp.md) %}

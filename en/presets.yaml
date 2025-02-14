@@ -6630,12 +6630,46 @@ default:
       cloud-tree-list:
         value_search-placeholder: Search
       cns:
+        action_copy-msg-id: Copy ID
+        action_create-channel: Create notifications channel
+        action_create-endpoint: Create endpoint
+        action_send-msg: Send
+        action_sms-leave-sandbox: Leave sandbox
+        auth_certificate: Certificate
+        auth_token: Token
+        button_add-description: Add description
+        env_development: Development
+        env_production: Production
         field_apns-bundle-id: Bundle ID
         field_apns-certificate: Certificate
+        field_apns-environment: Environment
         field_apns-key: Signature key
         field_apns-key-id: Key ID
+        field_apns-method: Authentication method
         field_apns-private-key: Private certificate key
         field_apns-team-id: Developer ID
+        field_channel-name: Name
+        field_endpoint-user-data: User data
+        field_gcm-api-key: API key
+        field_gcm-file: Google Cloud service account key in JSON format
+        field_gcm-version: FCM API version
+        field_hms-client-id: Key ID
+        field_hms-client-secret: API key
+        field_token: Device token
+        label_editor-json: JSON
+        label_editor-text: Text
+        label_endpoints: Endpoints
+        label_phone-numbers: Test numbers
+        section_message-sending: Send messages
+        select_apns-title: Apple iOS
+        select_gcm-title: Google Android
+        select_hms-title: Huawei Android
+        sender_sms-common: Common sender
+        sender_sms-individual: Individual sender
+        switch_gcm-api-legacy: Legacy
+        switch_gcm-api-v1: HTTP v1
+        type_mobile: Mobile Push notifications
+        type_sms: SMS
       common:
         add: Add
         all: All
@@ -6649,6 +6683,7 @@ default:
         cancel: Cancel
         clear: Clear
         clone: Clone
+        confirm: Confirm
         continue: Continue
         create: Create
         create-new: Create new
@@ -7187,6 +7222,10 @@ default:
         label_connector-status-DONE: Completed
         label_connector-status-RUNNING: Replicating
         label_connectors: Transfers
+        label_endpoint-status-CREATING: Creating
+        label_endpoint-status-DELETING: Deleting
+        label_endpoint-status-READY: Ready
+        label_endpoint-status-UPDATING: Updating
         label_endpoints: Endpoints
         label_monitoring: Monitoring
       dataproc:
@@ -7392,6 +7431,7 @@ default:
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
             label_cloud-desktop: Cloud Desktop
+            label_cns: Cloud Notification Service
             label_compute: Compute Cloud
             label_connection-manager: Connection manager
             label_container-registry: Container Registry
