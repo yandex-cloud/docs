@@ -36,6 +36,14 @@ items:
         href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    items:
+      - name: '{{ sw-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/workflow/index.md
+      - name: '{{ er-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/eventrouter/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: '{{ sw-name }} API reference'

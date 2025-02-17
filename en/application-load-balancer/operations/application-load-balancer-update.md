@@ -21,6 +21,10 @@ To update the parameters of an L7 load balancer:
 
           {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
 
+          {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+
+      1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable or disable the incoming traffic for each availability zone separately using the **{{ ui-key.yacloud.alb.label_disable-traffic }}** option.
+
       1. Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
 
       1. Under **{{ ui-key.yacloud.alb.section_logs-settings }}**:

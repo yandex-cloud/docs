@@ -34,3 +34,4 @@ To create a chart copy, use one of these methods:
 #### See also {#see-also}
 
 * [{#T}](../../concepts/chart/index.md)
+* [{#T}](../../concepts/chart/settings.md)

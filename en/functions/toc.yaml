@@ -494,10 +494,16 @@ items:
     href: pricing.md
   - name: Access management
     href: security/index.md
-  - name: CLI Functions reference
-    href: ../cli/cli-ref/serverless/cli-ref/function/index.md
-  - name: CLI Triggers reference
-    href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+  - name: CLI reference
+    items:
+      - name: Functions
+        href: ../cli/cli-ref/serverless/cli-ref/function/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: MDB Proxy
+        href: ../cli/cli-ref/serverless/cli-ref/mdbproxy/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API Functions reference

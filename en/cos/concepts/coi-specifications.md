@@ -11,7 +11,7 @@ There are two ways to describe a Docker container's launch configuration:
 
 {% note warning %}
 
-You can only use one specification at a time, either COI or Docker Compose.
+You can only use one specification at a time: COI or Docker Compose.
 
 {% endnote %}
 
@@ -57,7 +57,7 @@ spec:
 ```
 
 Where:
-* `command`: Command to run when starting the Docker container.
+* `command`: Command executed when starting the Docker container.
 * `args`: Arguments sent to the command running in the Docker container.
 * `env`: Environment variables available in the Docker container.
 * `image`: Docker image used to create and run the Docker container.
@@ -70,7 +70,7 @@ Where:
 * `volumeMounts`: List of volumes to mount inside the Docker container.
 * `mountPath`: Path in the Docker container to mount the volume at.
 * `volumes`: Description of the volumes used in the specification.
-* `emptyDir`: Empty directory in the `tmpfs` temporary file system created in the VM RAM. The contents of this directory are deleted when the Docker container it's mounted to is stopped and when the VM is restarted. To use `tmpfs`, make sure to specify the `medium: Memory` parameter. Volume size cannot be greater than the amount of RAM allocated to the VM.
+* `emptyDir`: Empty directory in the `tmpfs` temporary file system created in the VM RAM. The contents of this directory are deleted when the Docker container it is mounted to is stopped or when the VM is restarted. To use `tmpfs`, make sure to specify the `medium: Memory` parameter. Volume size cannot be greater than the amount of RAM allocated to the VM.
 * `hostPath`: VM file system directory to mount in the Docker container.
 * `path`: Path to the `hostPath` directory.
 
@@ -121,7 +121,7 @@ Where:
 * `restart`: Docker container restart policy settings.
 * `volumes`: Description of the volumes used in the Docker container.
 * `x-yc-disks`: Section describing the [disks](../../compute/concepts/disk.md) to attach. It is an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
-* `device_name`: Device name.
+* `device_name`: Device name, different from the disk name. It is used on the VM to locate the disk in the `/dev/disk/by-id/virtio-<device_name>` tree. You can set the `device-name` parameter in flags and CLI commands for adding disks to a VM or in the management console when [attaching](../../compute/operations/vm-control/vm-attach-disk#attach) a disk to a VM.
 * `fs_type`: File system type. The supported file systems are ext4 and xfs.
 * `host_path`: Directory to mount the disk to.
 * `partition`: Disk partition being used.

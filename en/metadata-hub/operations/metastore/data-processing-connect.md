@@ -13,16 +13,16 @@ To use a {{ metastore-name }} cluster, your [{{ dataproc-full-name }} cluster](.
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+* Management console {#console}
 
-    1. [Create a {{ metastore-name }} cluster](cluster-create.md).
+    1. [Create](cluster-create.md) a {{ metastore-name }} cluster.
     1. When [creating](../../../data-proc/operations/cluster-create.md) or [updating](../../../data-proc/operations/cluster-update.md) a {{ dataproc-name }} cluster, specify the following [property](../../../data-proc/concepts/settings-list.md):
 
         ```text
         spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}
         ```
 
-        To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
+        To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster.
 
     1. If the {{ metastore-name }} cluster and {{ dataproc-name }} cluster are hosted in different cloud networks, set up routing between these cloud networks so that the {{ metastore-name }} subnet is accessible from the {{ dataproc-name }} subnet.
 

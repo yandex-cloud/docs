@@ -6,7 +6,7 @@ You can insert explanatory text, links, tables, images, or use formatting to hig
 In text widgets, you can use the following elements:
 
 * [Headers](#headings)
-* [Bold and italics](#emphasizing)
+* [Highlighting text](#emphasizing)
 * [Text color](#text-color)
 * [Lists](#lists)
   * [Simple unordered list](#unordered-list)
@@ -14,11 +14,15 @@ In text widgets, you can use the following elements:
   * [Simple ordered list](#ordered-list)
   * [Nested ordered list](#ordered-sublist)
 * [Tables](#tables)
+* [Cuts](#cuts)
+* [Tabs](#tabs)
 * [Links](#links)
 * [Code formatting](#code)
   * [Inline code snippet](#inline-code)
   * [Code block](#codeblock)
 * [Image](#image)
+* [Emoji](#emoji)
+* [Mermaid diagrams](#mermaid)
 
 ## Headers {#headings}
 
@@ -36,25 +40,65 @@ Syntax example:
 
 ## Highlighting text {#emphasizing}
 
-Use formatting to highlight key points in your text:
+Use formatting to highlight the key points in your text:
 
-* Use double `*` for **bold**:
+* Use `**` on both sides for **bold**:
 
   ```markdown
-  This text will be **bold**.
+  This text is **bold**.
   ```
 
-* Use `_` for _italic_:
+* Use `_` on both sides for _italics_:
 
   ```markdown
-  This text will be _italic_.
+  This text is _italic_.
   ```
 
-* To combine **_bold and italics_**, use double `*` and `_` at the same time:
+* For _**bold and italics**_ together, use `**_` or `_**` on both sides:
 
   ```markdown
-  This text will be **_bold and italic_**.
-  This text will be **_bold and italic_**.
+  This text is _**bold and italic**_.
+  This text is **_bold and italic_**.
+  ```
+
+* To <u>underline</u> text, add `++` on both sides:
+
+  ```markdown
+  This text is ++underlined++.
+  ```
+
+* To ~~strikethrough~~ text, add `~~` on both sides:
+
+  ```markdown
+  This text is ~~strikethrough~~.
+  ```
+
+* Subscript
+
+  For <sub>subscript</sub>, add `~` on both sides:
+
+  ```markdown
+  This text is in ~subscript~.
+  ```
+
+* Superscript
+
+  For ^superscript^, add `^` on both sides:
+
+  ```markdown
+  This text is in ^superscript^.
+  ```
+
+* For <samp>monospaced</samp> text, add `##` on both sides:
+
+  ```markdown
+  This text is ##monospaced##.
+  ```
+
+* For a <mark>highlight</mark>, add `==` on both sides:
+
+  ```markdown
+  This text is ==highlighted==.
   ```
 
 ## Text color {#text-color}
@@ -72,7 +116,7 @@ You can set the text color this way: `{color}(text)`. The following colors are s
 For example, the following markup:
 
 ```markdown
-This text is {green}(green).
+This text is {green}green.
 ```
 
 will be displayed as:
@@ -209,6 +253,115 @@ in two lines
 
 For more information, see the [YFM documentation](https://ydocs.tech/ru/syntax/tables/multiline).
 
+## Cuts {#cuts}
+
+Use `cuts` to hide content, e.g., additional information or long blocks of code.
+
+For example, the following markup:
+
+```markdown
+
+{% cut "`cut` title" %}
+
+Content displayed on click.
+
+{% endcut %}
+
+```
+
+will be displayed as:
+
+{% cut "`cut` title" %}
+
+Content displayed on click.
+
+{% endcut %}
+
+## Tabs {#tabs}
+
+Use tabs for mutually exclusive sections. For example, to separate instructions for different operating systems.
+
+For example, the following markup:
+
+```markdown
+
+{% list tabs %}
+
+- Tab 1 name
+
+  Tab 1 text
+
+  * You can use lists.
+  * And **other** markup.
+
+- Tab 2 name
+
+  Tab 2 text
+
+{% endlist %}
+
+```
+
+will be displayed as:
+
+{% list tabs %}
+
+- Tab 1 name
+
+  Tab 1 text
+
+  * You can use lists.
+  * And **other** markup.
+
+- Tab 2 name
+
+  Tab 2 text
+
+{% endlist %}
+
+If you want an element to be expanded by default, add the `{selected}` attribute to it.
+
+For example, the following markup:
+
+```markdown
+
+{% list tabs %}
+
+- Tab 1 name
+
+  Tab 1 text
+
+- Tab 2 name {selected}
+
+  The item will be expanded by default.
+
+- Tab 3 name
+
+  Tab 3 text
+
+{% endlist %}
+
+```
+
+will be displayed as:
+
+{% list tabs %}
+
+- Tab 1 name
+
+  Tab 1 text
+
+- Tab 2 name {selected}
+
+  The item will be expanded by default.
+
+- Tab 3 name
+
+  Tab 3 text
+
+{% endlist %}
+
+
 ## Links {#links}
 
 You can use links to enter information related to the dashboard or charts.
@@ -339,4 +492,52 @@ Public access to the file is granted to an unlimited number of anonymous users. 
 
 
 
+## Emoji {#emoji}
+
+To add an emoji, enter a keyword and add `:` on both sides. You can see the list of available keywords in the visual editor.
+
+For example, the following markup:
+
+```markdown
+Emoji :smiley:.
+```
+
+will be displayed as:
+
+Emoji 😀.
+
+## Mermaid diagrams {#mermaid}
+
+Mermaid is a library for creating diagrams and flowcharts in a browser using an easy-to-use markup language. It allows you to create diagrams using a syntax similar to Markdown.
+
+Mermaid has many built-in templates and functions for creating various types of diagrams, such as flowcharts, graphs, trees, Gantt charts, mind maps, and C4 diagrams.
+
+Using text definitions, you can set a description of the structure, which is then converted into a diagram. For example, the following markup:
+
+<pre><code>
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+</code></pre>
+
+will be displayed as:
+
+![mermaid-flowcharts-example](../../_assets/datalens/internal/editor/mermaid-flowcharts-example.svg)
+
+See the [Mermaid documentation](https://mermaid.js.org/intro/) for details.
+
+{% note info %}
+
+When using Mermaid, keep the following limitations in mind:
+
+* There is no HTML support.
+* You cannot use the `class` attribute to style diagrams.
+* You cannot use CSS variables for colors.
+* Markdown inside diagram sections is only supported in part (for instance, links do not work).
+
+{% endnote %}
 

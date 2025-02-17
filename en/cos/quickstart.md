@@ -18,7 +18,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
@@ -73,7 +73,10 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
      * `--zone`: Availability zone.
      * `--ssh-key`: Contents of the [public key](../compute/quickstart/quick-create-linux.md#create-ssh) file.
      * `--service-account-name`: Service account name.
-     * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
+     * `--create-boot-disk size`: Boot disk size.
+
+        {% include [min-disk-size](../_includes/cos/min-disk-size.md) %}
+
      * `--public-ip`: Public IP address allocated to the VM.
      * `--container-name`: Docker container name.
      * `--container-image`: Name of the Docker image used to run the Docker container.

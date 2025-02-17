@@ -2,6 +2,8 @@
 
 _Connections_ contain information about data source access parameters, such as the DB host IP address and port.
 
+In a single connection, only one data source can be described.
+
 You can create [_datasets_](../dataset/index.md) based on connections.
 
 The following connection types are available in {{ datalens-short-name }}:

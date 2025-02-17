@@ -215,10 +215,14 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: CLI Containers reference
-    href: ../cli/cli-ref/serverless/cli-ref/container/index.md
-  - name: CLI Triggers reference
-    href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+  - name: CLI reference
+    items:
+      - name: Containers
+        href: ../cli/cli-ref/serverless/cli-ref/container/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: Containers API reference

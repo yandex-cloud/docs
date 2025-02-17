@@ -45,7 +45,7 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
         * In the window that opens, enter a name and description for your subnet.
         * Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
-     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, choose a method for public IP address assignment:
+     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select a method for assigning a public IP address:
 
         * `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`: To assign a random IP address.
         * `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`: Not to assign a public IP address.

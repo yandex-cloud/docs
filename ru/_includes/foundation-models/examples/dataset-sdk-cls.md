@@ -29,9 +29,12 @@ async def main():
 
     # Дождемся окончания загрузки данных и создания датасета
     operation = await dataset_draft.upload_deferred()
-    dataset = await operation
-    print(f"new {dataset=}")
+    tuning_dataset = await operation
+    print(f"new {tuning_dataset=}")
 
+    # Так можно посмотреть список всех загруженных датасетов
+    for dataset in sdk.datasets.list():
+        print(f"List of existing datasets {dataset=}")
 
 if __name__ == "__main__":
     asyncio.run(main())

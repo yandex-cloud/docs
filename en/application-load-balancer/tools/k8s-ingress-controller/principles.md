@@ -21,8 +21,8 @@ Do not manually update {{ alb-name }} resources created by the controller's prim
 
 The primary pod manages the {{ alb-name }} resource architecture using the following principles:
 
-* Load balancers and HTTP routers to accept and distribute traffic to backend groups are created based on [Ingress](../../k8s-ref/ingress.md) resources.
-
+* Load balancers and HTTP routers to accept and distribute traffic to backend groups are created based on [Ingress](../../k8s-ref/ingress.md) resources. 
+  
   If several `Ingress` resources have the same `ingress.alb.yc.io/group-name` annotation values, they are combined into a single load balancer.
 
   * For a load balancer to accept HTTPS traffic, the `spec.tls` field in the `Ingress` description must specify the domain names and the certificate IDs from {{ certificate-manager-name }}:
@@ -43,6 +43,8 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
     
   * If there is no `spec.tls` field in the `Ingress` description, only listeners for incoming HTTP traffic on port `80` will be created for the load balancer.
 
+  * If the `Ingress` description gives no rules for distribution of incoming traffic among the backends, it will be redirected to the [default backend](../../k8s-ref/ingress.md#default-backend).
+
 * You can create backend groups to process incoming traffic:
 
   * Based on {{ k8s }} services referenced in `Ingress` [rules](../../../application-load-balancer/k8s-ref/ingress.md#rule) directly. This method is useful if you need to bind a simple backend group consisting of a single service to a route.
@@ -51,7 +53,7 @@ The primary pod manages the {{ alb-name }} resource architecture using the follo
 
   * Based on [HttpBackendGroup](../../k8s-ref/http-backend-group.md) resources that support explicit backend group descriptions. These are [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the `alb.yc.io` API group provided by an Ingress controller.
 
-    You should refer to `HttpBackendGroup` in the `Ingress` rules, same as to services (`spec.rules[*].http.paths[*].backend.resource`).
+    Same as to services, you should refer to `HttpBackendGroup` in the `Ingress` rules (`spec.rules[*].http.paths[*].backend.resource`). 
 
     {% include [k8s-ingress-controller-backend-group-features](../../../_includes/application-load-balancer/k8s-ingress-controller-backend-group-features.md) %}
 
@@ -82,7 +84,7 @@ IDs of resources of an {{ alb-name }} load balancer deployed in the `Ingress` co
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the required {{ managed-k8s-name }} cluster was created.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the {{ managed-k8s-name }} cluster whose `Ingress` configuration was used to create the load balancer.
   1. On the {{ managed-k8s-name }} cluster page, go to the ![shapes-3](../../../_assets/console-icons/shapes-3.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}** tab.
   1. Select `ingressgroupstatuses.alb.yc.io` and go to the **{{ ui-key.yacloud.k8s.custom-resources.label_tab-resources }}** tab.

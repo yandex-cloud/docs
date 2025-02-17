@@ -14,7 +14,7 @@ If you are unable to boot the main server OS, you can start the server from the 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the server belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the row with the server you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **KVM console**.
   1. In the KVM console window, in the top menu, select **Media** → **Virtual Media Wizard...** or click the CD icon. In the window that opens:
 
@@ -187,4 +187,8 @@ Use SystemRescue to restore or configure your server:
 
 #### See also {#see-also}
 
+* [{#T}](./reset-password.md)
+* [{#T}](./add-new-ssh-key.md)
+* [{#T}](./restore-grub.md)
+* [{#T}](./switch-raid-member.md)
 * [{#T}](../image-upload.md)

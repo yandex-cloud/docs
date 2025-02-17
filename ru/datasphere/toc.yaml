@@ -193,6 +193,8 @@ items:
             href: concepts/jobs/fork.md
           - name: Интеграция с {{ maf-name }}
             href: concepts/jobs/airflow.md
+          - name: Работа с коннекторами Spark
+            href: concepts/jobs/work-with-spark.md
       - name: Ресурсы
         items:
           - name: Обзор

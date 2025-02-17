@@ -2,6 +2,13 @@
 
 A _function_ allows you to put your code in {{ yandex-cloud }} and run it on request or trigger.
 
+Possible function statuses include:
+
+* `Creating`: Function was created; background initialization processes are running.
+* `Active`: Function was successfully created and is ready for use.
+* `Deleting`: Function and all associated resources are being deleted. The function still exists, but you can no longer use it.
+* `Error`: Error while creating the function. The function exists, but cannot be used.
+
 Once created, a function only contains its own metadata, including its name, description, and unique ID. To start using the function, you need to [create a function version](../operations/function/version-manage.md). You can execute functions using the HTTPS API or CLI.
 
 Before writing your functions, review the [programming model](#programming-model).
@@ -10,16 +17,23 @@ Before writing your functions, review the [programming model](#programming-model
 
 _Versions_ contain the function code, run parameters, and all required dependencies. You can work with different versions of the same function during different development stages, e.g., under development, alpha version, beta version, etc. Each time a change is made, the system automatically creates a new version and [tags](#tag) it as `$latest` by default. It does not matter whether you uploaded a completely new code or only made some minor changes.
 
+Possible function version statuses include:
+
+* `Creating`: Function version was created; background initialization processes are running.
+* `Active`: Function version was successfully created and is ready for use.
+* `Obsolete`: Function version is obsolete and about to be deleted as it had no tags for a long time. To make it `Active` again, [add a tag](../operations/function/tag-add.md).
+* `Deleting`: Function version is being deleted. It still exists, but you can no longer use it.
+
 ### Code upload format {#upload}
 
 To [create a version](../operations/function/version-manage.md), you can use the code editor or upload your code and its dependencies in one of the formats described in the table below. After you create a function, you no longer need the object with the code. You can delete it from storage.
 
 | Format | Management console | {{ yandex-cloud }} CLI |
 |----|----|----|
-| ZIP archive from your PC | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| ZIP archive from S3, specifying the bucket and object | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Directory | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
-| File | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+|ZIP archive from your PC| ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+|ZIP archive from S3, specifying the bucket and object| ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+|Directory| ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+|File| ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 
 {% include [upload-limits](../../_includes/functions/upload-limits.md) %}
 

@@ -75,36 +75,51 @@ The infrastructure support cost includes:
 
 ## Install the External Secrets Operator {#install-eso}
 
-1. Add a Helm repository named `external-secrets`:
+{% list tabs group=instructions %}
 
-   ```bash
-   helm repo add external-secrets https://charts.external-secrets.io
-   ```
 
-1. Install the External Secrets Operator in the {{ managed-k8s-name }} cluster:
+- {{ marketplace-full-name }} {#marketplace}
 
-   ```bash
-   helm install external-secrets \
-     external-secrets/external-secrets \
-     --namespace external-secrets \
-     --create-namespace
-   ```
+    Follow this [guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) to install the [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) from {{ marketplace-name }} with the following parameters:
 
-   This command creates a new [namespace](../../managed-kubernetes/concepts/index.md#namespace) named `external-secrets` required for the External Secrets Operator.
+    * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), `external-secrets`.
+    * **Service account key**: Paste the contents of the `authorized-key.json` file created [earlier](#before-you-begin).
 
-   Result:
 
-   ```text
-   NAME: external-secrets
-   LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-   NAMESPACE: external-secrets
-   STATUS: deployed
-   REVISION: 1
-   TEST SUITE: None
-   NOTES:
-   external-secrets has been deployed successfully!
-   ...
-   ```
+- Manually {#manual}
+
+    1. Add a Helm repository named `external-secrets`:
+
+        ```bash
+        helm repo add external-secrets https://charts.external-secrets.io
+        ```
+
+    1. Install the External Secrets Operator in the {{ managed-k8s-name }} cluster:
+
+        ```bash
+        helm install external-secrets \
+          external-secrets/external-secrets \
+          --namespace external-secrets \
+          --create-namespace
+        ```
+
+        This command creates a new [namespace](../../managed-kubernetes/concepts/index.md#namespace) named `external-secrets` required for the External Secrets Operator.
+
+        Result:
+
+        ```text
+        NAME: external-secrets
+        LAST DEPLOYED: Sun Sep 19 11:20:58 2021
+        NAMESPACE: external-secrets
+        STATUS: deployed
+        REVISION: 1
+        TEST SUITE: None
+        NOTES:
+        external-secrets has been deployed successfully!
+        ...
+        ```
+
+{% endlist %}
 
 ## Configure the {{ managed-k8s-name }} cluster {#configure-cluster}
 
@@ -237,6 +252,29 @@ The infrastructure support cost includes:
 
   Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
 
+  The SSL certificate will only be available in the `ns` namespace, where the secret with this certificate was created. To allow Ingress to use this certificate in any namespace, add the `--default-ssl-certificate` parameter to the controller configuration:
+
+  1. Run this command:
+
+     ```bash
+     kubectl edit deployment ingress-nginx-controller
+     ```
+
+  1. In the window that opens, add the `--default-ssl-certificate` parameter:
+
+     ```bash
+     spec:
+       template:
+         spec:
+           containers:
+           - args:
+             - /nginx-ingress-controller
+             ...
+             - --default-ssl-certificate=ns/k8s-secret
+     ```
+
+  If you modify the `--default-ssl-certificate` parameter, restart the NGINX Ingress controller.
+
 
 - Manually {#manual}
 
@@ -266,10 +304,17 @@ The infrastructure support cost includes:
      Update Complete. ⎈Happy Helming!⎈
      ```
 
-  1. Install the controller in the standard configuration. The controller will be installed with {{ network-load-balancer-name }}:
+  1. Install the controller. It will be installed along with {{ network-load-balancer-name }}:
 
      ```bash
      helm install ingress-nginx ingress-nginx/ingress-nginx
+     ```
+
+     The SSL certificate will only be available in the `ns` namespace, where the secret with this certificate was created. To allow Ingress to use this certificate in any namespace, install the controller with the `default-ssl-certificate` parameter:
+
+     ```bash
+     helm install ingress-nginx ingress-nginx/ingress-nginx \
+       --set controller.extraArgs.default-ssl-certificate="ns/k8s-secret"
      ```
 
      Result:
@@ -287,6 +332,8 @@ The infrastructure support cost includes:
      You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
      ...
      ```
+
+     If you modify the `default-ssl-certificate` parameter, restart the NGINX Ingress controller.
 
   To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
 

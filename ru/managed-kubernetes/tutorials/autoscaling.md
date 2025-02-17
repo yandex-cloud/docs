@@ -42,7 +42,7 @@ description: Следуя данному руководству, вы сможе
    * **{{ ui-key.yacloud.common.name }}** — `k8s-symetric-key`.
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** — `AES-128`.
    * **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** — `365 дней`.
-1. [Создайте кластер {{ managed-k8s-name }} ](../operations/kubernetes-cluster/kubernetes-cluster-create.md) со следующими настройками:
+1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) со следующими настройками:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** — `sa-k8s-master`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** — `sa-k8s-nodes`.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** — `k8s-symetric-key`.

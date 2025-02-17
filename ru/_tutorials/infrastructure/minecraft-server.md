@@ -160,10 +160,17 @@
 1. [Подключитесь по протоколу SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) к созданной ВМ.
 1. Установите необходимые пакеты Java из репозитория и утилиту `screen` для запуска терминальной сессии в фоновом режиме:
 
-   ```bash
-   sudo add-apt-repository -y ppa:openjdk-r/ppa && sudo apt update -y && sudo apt install -y openjdk-23-jre-headless screen
-   ```
+   {% note info %}
 
+   Команда ниже устанавливает версию `23` среды OpenJDK. Для запуска актуальной версии сервера Minecraft может потребоваться более новая версия OpenJDK, поэтому, прежде чем устанавливать этот пакет, уточните актуальную версию OpenJDK на [сайте проекта](https://openjdk.org/).
+
+   {% endnote %}
+
+   ```bash
+   sudo add-apt-repository -y ppa:openjdk-r/ppa \
+     && sudo apt update -y \
+     && sudo apt install -y openjdk-23-jre-headless screen
+   ```
 
 ## Скачайте и запустите сервер Minecraft {#get-and-launch-server}
 
@@ -173,10 +180,12 @@
    ```
 
 1. Перейдите по [ссылке](https://www.minecraft.net/en-us/download/server/) и скопируйте URL для скачивания дистрибутива актуальной версии сервера.
-1. Скачайте актуальный дистрибутив в текущую директорию с помощью `wget`, указав скопированную ранее ссылку, например:
+1. Скачайте актуальный дистрибутив в текущую директорию с помощью `wget`:
    ```bash
-   wget -O minecraft_server.jar https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar
+   wget -O minecraft_server.jar <ссылка_на_скачивание>
    ```
+
+   Где `<ссылка_на_скачивание>` — полученная на предыдущем шаге ссылка для скачивания дистрибутива. Например: `https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar`
 
 1. Создайте файл `eula.txt` для автоматического согласия с условиями лицензионного соглашения [EULA](https://aka.ms/MinecraftEULA):
 

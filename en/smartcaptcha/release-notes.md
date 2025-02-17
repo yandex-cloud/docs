@@ -5,15 +5,19 @@ description: This section contains {{ captcha-name }} release notes.
 
 # {{ captcha-full-name }} release notes
 
+## Q4 2024 {#q4-2024}
+
+{{ captcha-name }} has successfully passed an external audit for 152-FZ, GOST R 57589, and PCI DSS compliance.
+
 ## Q3 2024 {#q3-2024}
 
-* Added [various CAPTCHA options](./concepts/captcha-variants.md) you can show depending on the basic properties of incoming requests. To flexibly split requests, you can use different combinations of [traffic conditions](./concepts/captcha-variants.md#traffic-conditions).
+* Added [various CAPTCHAs](./concepts/captcha-variants.md) you can show depending on the basic properties of incoming requests. To flexibly split requests, you can use different combinations of [traffic conditions](./concepts/captcha-variants.md#traffic-conditions).
    
-* Implemented CAPTCHA accessibility criteria in accordance with [GOST R 52 872-2019](https://protect.gost.ru/document1.aspx?control=31&id=233736). In particular, now:
-  * CAPTCHA is compatible with screen access programs.
-  * You can control it with a keyboard or on-screen buttons (relevant for SmartTV).
-  * It contains more explanatory elements.
+* Implemented CAPTCHA accessibility criteria in accordance with [GOST R 52 872-2019](https://protect.gost.ru/document1.aspx?control=31&id=233736). In particular, CAPTCHA is now:
+  * Compatible with screen access programs.
+  * Controlled by keyboard or on-screen buttons (relevant for SmartTV).
+  * Contains more explanatory elements.
 
 ## Q2 2024 {#q2-2024}
 
-For {{ captcha-name }}, added the maximum [difficulty level](concepts/tasks.md#task-difficulty). This level requires completing an additional high difficulty challenge.
+For {{ captcha-name }}, the maximum [difficulty level](concepts/tasks.md#task-difficulty) was added. This level requires completing an additional high difficulty challenge.

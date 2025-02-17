@@ -58,7 +58,10 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      Where:
      * `--name`: VM name.
      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
-     * `--create-boot-disk`: VM [disk](../../compute/concepts/disk.md) parameters. The disk size must be at least 30 GB.
+     * `--create-boot-disk`: VM [disk](../../compute/concepts/disk.md) parameters.
+
+        {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
+
      * `--network-interface`: [Network](../../vpc/concepts/network.md#network) parameters:
        * `subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) to host the VM.
        * `nat-ip-version`: [Public IPv4 address](../../vpc/concepts/ips.md) assignment method.

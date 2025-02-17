@@ -1,4 +1,3 @@
-
 # Locking {{ TF }} states using {{ ydb-full-name }}
 
 
@@ -9,7 +8,7 @@ To allow multiple users to manage the infrastructure, you can [automatically upl
 When multiple users try to access the same state from {{ objstorage-name }} at the same time, conflicts may occur. To prevent such conflicts, you can deploy a database in [{{ ydb-full-name }}](../../ydb/) and use it to implement {{ TF }}'s native state locking mechanism. Every time you use {{ TF }} to update the infrastructure, the state will be automatically locked until the update is applied.
 
 To set up storing {{ TF }} states in {{ objstorage-name }} and locking them by {{ ydb-name }}:
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account and static access key](#create-service-account).
 1. [Create a bucket](#create-service-account).
 1. [Create a {{ ydb-name }} database](#db-create).
@@ -21,7 +20,7 @@ To set up storing {{ TF }} states in {{ objstorage-name }} and locking them by {
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -57,7 +56,7 @@ If you deploy resources of other {{ yandex-cloud }} services, the cost will chan
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the database is located.
-  1. In the list of services, select **{{ ydb-name }}**.
+  1. From the list of services, select **{{ ydb-name }}**.
   1. In the DB list, select `state-lock-db`.
   1. Go to the **Navigation** tab.
   1. In the top-right corner, click **Create** and choose **Table**.
@@ -156,7 +155,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
        skip_region_validation      = true
        skip_credentials_validation = true
        skip_requesting_account_id  = true # This option is required for {{ TF }} 1.6.1 or higher.
-       skip_s3_checksum            = true # This option is required to describe backend for {{ TF }} version 1.6.3 or higher.
+       skip_s3_checksum            = true # This option is required to describe a backend for {{ TF }} version 1.6.3 or higher.
      }
    }
 

@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [lora-tuning-preview](../../../_includes/foundation-models/lora-tuning-preview.md) %}
 
-Этот пример показывает, как дообучить модель {{ gpt-lite }} по методу {{ lora }} в {{ foundation-models-name }}. 
+Этот пример показывает, как [дообучить модель](../../concepts/tuning/index.md) {{ gpt-lite }} по методу {{ lora }} в {{ foundation-models-name }}. Ссылки на другие примеры доступны в разделе [См. также](#see-also).
 
 ## Перед началом работы {#before-begin}
 
@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Загрузите датасет {#create-dataset}
 
-Подготовьте [данные для дообучения](../../concepts/tuning/index.md#generation-data) модели в формате [JSON Lines](https://jsonlines.org/) в кодировке [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8). Если вы хотите разбить данные на два датасета для обучения и валидации, повторите следующие шаги для каждого датасета. Используйте полученные в результате загрузки идентификаторы при запуске дообучения.
+Подготовьте [данные для дообучения](../../concepts/tuning/generating.md) модели в формате [JSON Lines](https://jsonlines.org/) в кодировке [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8). Если вы хотите разбить данные на два датасета для обучения и валидации, повторите следующие шаги для каждого датасета. Используйте полученные в результате загрузки идентификаторы при запуске дообучения.
 
 В этом примере дообучение запускается с использованием только обучающего датасета. 
 
@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
      Результат:
 
      ```text
-     new dataset=AsyncDataset(id='fdsfehj6grsu********', folder_id='b1gt6g8ht345********', name='YandexGPT tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 11, 38, 19), updated_at=datetime.datetime(2025, 1, 20, 11, 39, 4), labels=None, status=<DatasetStatus.READY: 3>, task_type='TextToTextGeneration', rows=0, size_bytes=3514)
+     new dataset=AsyncDataset(id='fdsfehj6grsu********', folder_id='b1gt6g8ht345********', name='YandexGPT Lite tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 11, 38, 19), updated_at=datetime.datetime(2025, 1, 20, 11, 39, 4), labels=None, status=<DatasetStatus.READY: 3>, task_type='TextToTextGeneration', rows=0, size_bytes=3514)
      ```
 
      Сохраните идентификатор созданного датасета (значение поля `id`) — он понадобится при дообучении модели.
@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Сохраните идентификатор созданного датасета (значение поля `datasetId`) он понадобится при загрузке данных в датасет.
+     Сохраните идентификатор созданного датасета (значение поля `datasetId`) — он понадобится при загрузке данных в датасет.
 
   1. {% include [tuning-dataset-api-step2](../../../_includes/foundation-models/tuning-dataset-api-step2.md) %}
 
@@ -123,14 +123,21 @@ description: Следуя данной инструкции, вы сможете
      Результат:
 
      ```text
-     Resulting GPTModel(uri=gpt://b1gt6g8ht345********/yandexgpt-lite/latest@tamrhtqmscrsr********, config=GPTModelConfig(temperature=None, max_tokens=None))
-     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hello! How can I help you?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=8, total_tokens=20), model_version='23.10.2024')
-     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hello! How can I help you?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=8, total_tokens=20), model_version='23.10.2024')
+     Resulting GPTModelResult(alternatives=(Alternative(role='assistant', text='Меня зовут Женя. Полностью - Евгений Нейроныч.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=14, completion_tokens=11, total_tokens=25), model_version='23.10.2024') 
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Из Перми', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=13, completion_tokens=2, total_tokens=15), model_version='23.10.2024') 
      ```
 
-     Дообучение модели может занять до 1 суток в зависимости от объема датасета и степени загрузки системы.
+     Дообучение модели может занять до 1 суток в зависимости от объема датасета и загрузки системы.
 
   Используйте полученный URI дообученной модели (значение поля `uri`) при [обращении](../../concepts/yandexgpt/models.md#addressing-models) к ней.
+
+  1. Метрики дообучения доступны в формате TensoBoard. Загруженный файл можно открыть, например, в проекте [{{ ml-platform-full-name }}]({{ link-datasphere-main }}):
+  
+     ```python
+     metrics_url = new_model.get_metrics_url()
+     download_tensorboard(metrics_url)
+     ```
+
 
 - cURL {#curl}
 
@@ -207,8 +214,25 @@ description: Следуя данной инструкции, вы сможете
 
   Используйте полученный URI дообученной модели (значение поля `targetModelUri`) при [обращении](../../concepts/yandexgpt/models.md#addressing-models) к ней.
 
+  1. Метрики дообучения доступны в формате TensoBoard. Получите ссылку, чтобы загрузить файл: 
+  
+     ```bash
+     grpcurl \
+       -H "Authorization: Bearer <IAM-токен>" \
+       -d '{"task_id": "<идентификатор_задания>"}' \
+       {{ api-host-llm }}:443 yandex.cloud.operation.OperationService/GetMetricsUrlRequest
+     ```
+
+     Загруженный файл можно открыть, например, в проекте [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
+
 {% endlist %}
+
+### Обращение к дообученной модели {#model-call}
+
+После завершения операции дообучения сохраните URI дообученной модели вида `gpt://<URI_базовой_модели>/<версия>@<суффикс_дообучения>`. Используйте его, чтобы отправлять [синхронные](../yandexgpt/create-prompt.md) и [асинхронные](../yandexgpt/async-request.md) запросы или [создать AI-ассистента](../assistant/create.md) на основе дообученной модели. 
 
 #### См. также {#see-also}
 
-Больше примеров доступно в [репозитории на GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).
+* [{#T}](../../concepts/tuning/index.md)
+* [{#T}](./tune-classifiers.md)
+* Больше примеров SDK доступно в [репозитории на GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).
