@@ -309,6 +309,6 @@ description: Следуя данной инструкции, вы настрои
 
 - API {#api}
 
-  Чтобы отозвать роли на расписание снимков диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/SnapshotSchedule /updateAccessBindings.md) для ресурса [SnapshotSchedule ](../../api-ref/SnapshotSchedule/) или вызовом gRPC API [SnapshotScheduleService/UpdateAccessBindings](../../api-ref/grpc/SnapshotSchedule/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
+  Чтобы отозвать роли на расписание снимков диска, воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/SnapshotSchedule /updateAccessBindings.md) для ресурса [SnapshotSchedule](../../api-ref/SnapshotSchedule/) или вызовом gRPC API [SnapshotScheduleService/UpdateAccessBindings](../../api-ref/grpc/SnapshotSchedule/updateAccessBindings.md). В теле запроса в свойстве `action` укажите `REMOVE`, а в свойстве `subject` — тип и идентификатор пользователя.
 
 {% endlist %}

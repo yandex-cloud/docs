@@ -13,7 +13,7 @@ description: Step-by-step guide for editing a backend group.
 
   {% note info %}
 
-  To change the [group type](../concepts/backend-group.md#group-types), you need to use other tools, such as the [CLI](../../cli/), {{ TF }}, and API.
+  To change the [group type](../concepts/backend-group.md#group-types), you need to use other tools, such as the [CLI](../../cli/), {{ TF }}, API.
 
   {% endnote %}
 
@@ -55,7 +55,7 @@ description: Step-by-step guide for editing a backend group.
      ```bash
      yc alb backend-group update \
        --name <backend_group_name> \
-       --new-name <new_name_for_backend_group> \
+       --new-name <new_backend_group_name> \
        --description <backend_group_description> \
        --labels key=value[,<key>=<label_value>] \
        --connection-affinity source-ip=<IP_address_session_affinity_mode>
@@ -63,7 +63,7 @@ description: Step-by-step guide for editing a backend group.
 
      Where:
      * `--name`: Backend group name.
-     * `--new-name`: New name for the backend group. The naming requirements are as follows:
+     * `--new-name`: New name for the backend group. The name should match the following format:
 
        {% include [name-format-2](../../_includes/name-format-2.md) %}
 
@@ -272,7 +272,7 @@ description: Step-by-step guide for editing a backend group.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
-     For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
+     For more information about the `yandex_alb_backend_group` resource properties, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -324,12 +324,12 @@ description: Step-by-step guide for editing a backend group.
      ```bash
      yc alb backend-group update-http-backend \
        --backend-group-name <backend_group_name> \
-       --name <name_of_backend_to_add> \
+       --name <backend_name> \
        --weight <backend_weight> \
        --port <backend_port> \
        --target-group-id=<target_group_ID> \
        --panic-threshold 90 \
-       --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+       --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,expected-statuses=211,\
      timeout=10s,interval=2s,host=your-host.com,path=/ping
      ```
 
@@ -356,7 +356,7 @@ description: Step-by-step guide for editing a backend group.
      ```bash
      yc alb backend-group update-grpc-backend \
        --backend-group-name <backend_group_name> \
-       --name <name_of_backend_to_add> \
+       --name <name_of_backend_you_are_adding> \
        --weight <backend_weight> \
        --port <backend_port> \
        --target-group-id=<target_group_ID> \
@@ -389,12 +389,13 @@ description: Step-by-step guide for editing a backend group.
      ```bash
      yc alb backend-group update-stream-backend \
        --backend-group-name <backend_group_name> \
-       --name <name_of_backend_to_add> \
+       --name <name_of_backend_you_are_adding> \
        --weight <backend_weight> \
        --port <backend_port> \
        --target-group-id=<target_group_ID> \
        --panic-threshold 90 \
        --enable-proxy-protocol \
+       --keep-connections-on-host-health-failure \
        --stream-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
      timeout=10s,interval=2s,send-text=<data_to_endpoint>,receive-text=<data_from_endpoint>
      ```
@@ -435,7 +436,7 @@ description: Step-by-step guide for editing a backend group.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 
-     For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
+     For more information about the `yandex_alb_backend_group` resource properties, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -548,7 +549,7 @@ To remove a backend from a group:
      }
      ```
 
-     For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
+     For more information about the `yandex_alb_backend_group` resource properties, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

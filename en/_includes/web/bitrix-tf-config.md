@@ -1,4 +1,6 @@
 ```hcl
+# Declaring variables for confidential parameters
+
 variable "folder_id" {
   type = string
 }
@@ -20,6 +22,8 @@ variable "mysql_password" {
   sensitive = true
 }
 
+# Configuring a provider
+
 terraform {
   required_providers {
     yandex = {
@@ -32,6 +36,8 @@ terraform {
 provider "yandex" {
   zone = var.folder_id
 }
+
+# Creating a cloud network and subnets
 
 resource "yandex_vpc_network" "network-1" {
   name = "network1"
@@ -57,6 +63,8 @@ resource "yandex_vpc_subnet" "subnet-3" {
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.3.0/24"]
 }
+
+# Create security groups
 
 resource "yandex_vpc_security_group" "sg-vm" {
   name        = "bitrix-sg-vm"
@@ -114,9 +122,13 @@ resource "yandex_vpc_security_group" "sg-mysql" {
   }
 }
 
+# Adding a prebuilt VM image
+
 data "yandex_compute_image" "ubuntu-image" {
   family = "ubuntu-2204-lts"
 }
+
+# Creating a boot disk
 
 resource "yandex_compute_disk" "boot-disk" {
   name     = "bootdisk"
@@ -125,6 +137,8 @@ resource "yandex_compute_disk" "boot-disk" {
   size     = "24"
   image_id = data.yandex_compute_image.ubuntu-image.id
 }
+
+# Creating a VM instance
 
 resource "yandex_compute_instance" "vm-bitrix" {
   name        = "bitrixwebsite"
@@ -152,6 +166,8 @@ resource "yandex_compute_instance" "vm-bitrix" {
   }
 }
 
+# Creating a Managed Service for MySQL cluster
+
 resource "yandex_mdb_mysql_cluster" "bitrix-cluster" {
   name               = "BitrixMySQL"
   environment        = "PRESTABLE"
@@ -178,10 +194,14 @@ resource "yandex_mdb_mysql_cluster" "bitrix-cluster" {
   }
 }
 
+# Creating a MySQL database
+
 resource "yandex_mdb_mysql_database" "bitrix-db" {
   cluster_id = yandex_mdb_mysql_cluster.bitrix-cluster.id
   name       = "db1"
 }
+
+# Creating a database user
 
 resource "yandex_mdb_mysql_user" "bitrix-user" {
   cluster_id = yandex_mdb_mysql_cluster.bitrix-cluster.id

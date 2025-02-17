@@ -25,6 +25,7 @@ On this page, you will find events for the following services:
 * [{{ mmg-full-name }}](#mmg)
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
+* [{{ mrd-full-name }}](#mrd)
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ sd-full-name }}](#security-deck)
 * [{{ speechsense-full-name }}](#speechsense)
@@ -92,6 +93,12 @@ Service name: `mdb.mysql`.
 Service name: `mdb.postgresql`.
 
 {% include [mpg-events-dp](../../_includes/audit-trails/events/mpg-events-dp.md) %}
+
+## {{ mrd-full-name }} {#mrd}
+
+Service name: `mdb.redis`.
+
+{% include [mrd-events-dp](../../_includes/audit-trails/events/mrd-events-dp.md) %}
 
 ## {{ objstorage-full-name }} {#objstorage}
 

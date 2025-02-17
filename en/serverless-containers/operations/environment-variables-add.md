@@ -71,7 +71,7 @@ When you add environment variables, a new container revision is created. You can
 
      Where `environment` represents environment variables in `key="value"` format. You can specify more than one pair.
 
-	 For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+	 For more information about the `yandex_serverless_container` parameters in {{ TF }}, see the [relevant Terraform article]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Check the configuration using this command:
      ```
@@ -89,7 +89,7 @@ When you add environment variables, a new container revision is created. You can
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
      ```

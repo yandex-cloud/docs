@@ -5,6 +5,10 @@ description: This section contains {{ data-transfer-name }} release notes.
 
 # {{ data-transfer-name }} release notes
 
+- [January 2025](2501.md)
+
+{% cut "2024" %}{#2024}
+
 - [December 2024](2412.md)
 - [November 2024](2411.md)
 - [October 2024](2410.md)
@@ -18,11 +22,15 @@ description: This section contains {{ data-transfer-name }} release notes.
 - [February 2024](2402.md)
 - [January 2024](2401.md)
 
-## 2023 {#2023}
+{% endcut %}
+
+{% cut "2023" %}{#2023}
 
 - [December 2023](2312.md)
 - [November 2023](2311.md)
 - [October 2023](2310.md)
 - [September 2023](2309.md)
 - [August 2023](2308.md)
+
+{% endcut %}
 

@@ -25,20 +25,23 @@ def main():
     train_dataset = sdk.datasets.get("<идентификатор_датасета>")
     base_model = sdk.models.completions("yandexgpt-lite")
 
-    # Определяем минимальные параметры
-    # Используйте base_model.tune_deferred(), чтобы контролировать больше параметров
-    tuned_model = base_model.tune(train_dataset, name=str(uuid.uuid4()))
+    # Запускаем дообучение
+    # Дообучение может длиться до нескольких часов
+    tuned_model = base_model.tune_deferred(train_dataset, 
+        name=str(uuid.uuid4())
+        n_samples=10000
+    )
     print(f"Resulting {tuned_model}")
 
-    # Запускаем дообучение
-    completion_result = tuned_model.run("hey!")
+    # Можно обратиться к дообученной модели с помощью метода run()
+    completion_result = tuned_model.run("Привет! Как тебя зовут?")
     print(f"{completion_result=}")
 
-    # Сохраним URI дообученной модели
+    # А можно сохранить URI дообученной модели
+    # И вызывать дообученную модель по URI
     tuned_uri = tuned_model.uri
     model = sdk.models.completions(tuned_uri)
-
-    completion_result = model.run("hey!")
+    completion_result = model.run("Расскажи, откуда ты?")
     print(f"{completion_result=}")
 
 

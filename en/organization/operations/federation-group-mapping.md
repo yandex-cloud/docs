@@ -1,7 +1,5 @@
 # Configuring user group mapping for your federation
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 To configure user access to {{ yandex-cloud }} resources using [group mapping](../concepts/add-federation.md#group-mapping):
 
 1. [Create user groups](#create-group) in {{ org-name }}.

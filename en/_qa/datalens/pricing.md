@@ -8,8 +8,6 @@ No, new basic features will be available across all [service plans](../../datale
 
 On April 23, 2024, all {{ datalens-short-name }} instances will be migrated to the free Community plan. You can continue using this plan if your users authenticate with [Yandex ID](https://yandex.com/support/id/index.html) / [Yandex 360](https://yandex.com/support/business/index.html). No restrictions will apply.
 
-If you had set up authentication with an [identity federation](../../organization/concepts/add-federation.md) (corporate SSO, e.g., via LDAP), the free Community plan will remain effective for your {{ datalens-short-name }} instance until December 31, 2024. To continue using {{ datalens-short-name }}, you should plan an [upgrade](../../datalens/settings/service-plan.md#change-service-plan) to the Business plan or switch to Yandex ID authentication.
-
 ### What is the timeline for introducing the billing system? {#timeline}
 
 The billing system for {{ datalens-short-name }} will be introduced in stages:
@@ -21,7 +19,7 @@ The billing system for {{ datalens-short-name }} will be introduced in stages:
 
 ### Can I go back to the free Community service plan? {#free-rollback}
 
-Yes, you can. The move can only be effected from the beginning of the next month. However, you will lose access to the paid service plan features.
+Yes. The move can only be effected from the beginning of the next month. However, you will lose access to the paid service plan features.
 
 ### Is a partial upgrade to Business possible? For example, can I have 10 users on Business and the rest of them on the Community plan? {#part-business}
 
@@ -31,9 +29,13 @@ No, the upgrade takes effect for the whole [organization](../../datalens/concept
 
 If you need to retain federated users, schedule an upgrade to the Business service plan. Note that, under this plan, you will be charged for all your users, both SSO and Yandex ID.
 
+### Is it true that I only have to pay for users with edit permissions and not those who only have view permissions? {#view-pricing}
+
+In {{ datalens-short-name }}, there is no separate plan for users with the `viewer` role. You must pay for all [active users](../../datalens/pricing.md#active-users). You can submit a pricing proposal in our [idea portal](https://yandex.cloud/ru/features?serviceId=23).
+
 ### How will you count the users of public charts and dashboards? {#public-pricing}
 
-[Public URLs](../../datalens/concepts/datalens-public.md) to dashboards and charts work without authentication and do not contribute to the active user count. Public charts and dashboards will be free of charge across all service plans.
+[Public URLs](../../datalens/concepts/datalens-public.md) to dashboards and charts work without authentication and do not contribute to active user count. Public charts and dashboards will be free of charge across all service plans.
 
 ### How will you count chart views through secure embeddings? {#embed-pricing}
 

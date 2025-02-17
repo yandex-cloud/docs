@@ -78,7 +78,7 @@ Infrastructure support costs include fees for the following resources:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [container-registry-and-gitlab.tf](https://github.com/yandex-cloud-examples/yc-gitlab-cr-integration/blob/main/container-registry-and-gitlab.tf) configuration file to the same working directory.
+   1. Download the [container-registry-and-gitlab.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-gitlab/container-registry-and-gitlab.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -130,7 +130,7 @@ Create a test application that can be deployed in a {{ managed-k8s-name }} clust
       CMD echo "Hello"
       ```
 
-   1. Add a comment to the commit in the **Commit message** field: `Dockerfile for a test application`.
+   1. Add a comment in the **Commit message** field: `Dockerfile for a test application`.
    1. Click **Commit changes**.
 
 {% include [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
@@ -167,7 +167,7 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
    To add a variable:
 
    1. Click **Add variable**.
-   1. In the window that opens, enter the variable name in the **Key** field and the value in the **Value** field.
+   1. In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
    1. Disable the **Protect variable** option.
    1. Click **Add variable**.
 
@@ -186,13 +186,13 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
    ```yaml
    build:
       stage: build
-      # Using kaniko to create a container inside the container for enhanced security.
+      # Using `kaniko` to create a container inside another container for enhanced security.
       image:
          name: gcr.io/kaniko-project/executor:debug
          entrypoint: [""]
       script:
          - mkdir -p /kaniko/.docker
-         # Upload the container image to the registry. The image is marked with the commit hash.
+         # Upload the container image to the registry. The image is tagged with the commit hash.
          - echo "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
          - >-
             /kaniko/executor
@@ -208,7 +208,7 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
    * `CI_REGISTRY` and `CI_REGISTRY_KEY`: Added to GitLab in the [previous step](#add-variables).
    * `CI_PROJECT_DIR`, `CI_PROJECT_PATH`, and `CI_COMMIT_SHORT_SHA`: [Preset in GitLab](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html).
 
-1. Add a comment to the commit in the **Commit message** field: `Create a CI pipeline`.
+1. Add a comment in the **Commit message** field: `Create a CI pipeline`.
 1. Click **Commit changes**.
 
 ## Check the result {#check-result}
@@ -229,7 +229,7 @@ To avoid storing outdated Docker images and their tags, configure a [Docker imag
 
 To create a policy, [follow the guide](../../container-registry/operations/lifecycle-policy/lifecycle-policy-create.md).
 
-Specifics of working with the policy:
+When using the policy:
 
 * External {{ container-registry-name }} and Docker image lifecycle policies [affect CI script performance](https://docs.gitlab.com/ee/user/packages/container_registry/reduce_container_registry_storage.html#use-with-external-container-registries).
 
@@ -288,7 +288,7 @@ To enable scanning, expand your {{ GL }} project's CI script:
 
    {% endcut %}
 
-1. Add a comment to the commit in the **Commit message** field: `Turn on a vulnerability scanner`.
+1. Add a comment in the **Commit message** field: `Turn on a vulnerability scanner`.
 1. Click **Commit changes**. After that, the updated script will run.
 
 To make sure that the image scan was successful:

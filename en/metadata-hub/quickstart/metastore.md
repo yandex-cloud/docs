@@ -106,7 +106,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
         spark:spark.hive.metastore.uris : thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}
         ```
 
-        To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console, then ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** in the left-hand panel, and open the relevant cluster. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
+        To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console and then select the ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster.
 
     1. Add the following outgoing traffic rule to the security group:
 

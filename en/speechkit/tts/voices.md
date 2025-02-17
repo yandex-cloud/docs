@@ -46,7 +46,7 @@ The table lists the properties of the supported voices that use deep neural netw
 | `ru-RU` | Russian | `anton` | M | (default) neutral: `neutral` </br> cheerful: `good` | v3 |
 | `uz-UZ` | Uzbek | `nigora` | F | — | v1, v3 |
 | `uz-UZ` | Uzbek | `lola` | F | — | v3 |
-| `uz-UZ` | Uzbek | `yulduz` | M | — | v3 |
+| `uz-UZ` | Uzbek | `yulduz` | F | — | v3 |
 
 
 The `oksana` and `alena` voices are based on recordings of the same speaker. The `oksana` voice is no longer on the list of supported voices. Use the `alena` voice with the `good` role instead. The `oksana` voice is still available for legacy projects.

@@ -39,17 +39,28 @@ If you [searched for a way to resolve your issue](#finding-solution) in the supp
 You can create a support ticket either on the {{ support-center-name }} [home page]({{ link-console-support }}) by clicking **{{ ui-key.support-center.tickets.common.action_create-ticket }}** or from the left-hand panel on any management console page by clicking ![image](../_assets/console-icons/circle-question.svg) **Support center** -> **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
 
 In the **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}** form that opens, proceed as follows:
+
 1. Select the ticket format: **{{ ui-key.support-center.tickets.common.label_ticket-type-question }}**, **{{ ui-key.support-center.tickets.common.label_ticket-type-incident }}**, or **Quotas**.
+1. For the **Business** or **Premium** plan, select the **Issue** priority:
+
+   * **Medium** (default): This issue is not a blocker.
+   * **High**: This issue is not a blocker but needs close attention.
+   * **Critical**: This issue is a blocker and requires prompt action.
+
 1. Fill in the form fields:
+
    * **{{ ui-key.support-center.ticket.create.field_service }}**: Specify the services related to your ticket. You can specify a maximum of three services.
    * **{{ ui-key.support-center.ticket.create.field_subject }}**: Enter the subject of your ticket. The system will automatically search through the knowledge base as you type.
+
 1. If no relevant solutions are found for your ticket subject, click **Continue** and fill out the fields as follows:
+
    * Provide a detailed description of the situation. For best results, specify the resource ID and the event date and time.
    * If you need to attach screenshots or other relevant files, click **Attach files** or just drag and drop them into the ticket text field.
    * To attach a screenshot of your current browser tab (without the ticket creation window), use the **Add screenshot** option.
    * Select the ticket access level: **Available to everyone in the organization** or **Available only to me**.
    * **Cloud**: Select the cloud whose resources are relevant to the ticket.
    * **Resources**: Add the name, ID, or link to the resources related to your issue. You can select them with a link to the appropriate console section. If you enter the resources manually, they will be saved without a link.
+
 1. Click **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
 
 This will open a form with the ticket ID and a QR code for configuring push notifications in the {{ yandex-cloud }} mobile app.
@@ -66,7 +77,7 @@ To quickly find the ticket you need, use filters and sorting by:
 * Ticket status
 * Service specified in the ticket
 * Response status
-* Ticket type
+* Ticket type 
 
 To clear the ticket filters, click **{{ ui-key.support-center.tickets.filters.action_reset-filters }}**.
 

@@ -15,6 +15,7 @@ In this section, you will learn how to work with a dataset:
 * [Adding parameters](#add-parameters)
 * [Adding filters](#add-filters)
 * [Configuring access](#access)
+* [Deleting a dataset](#delete)
 
 ## Creating a dataset {#create}
 
@@ -331,6 +332,15 @@ Before assigning access permissions to a user, [add](../security/add-new-user.md
 
 For more information on object access, see [{#T}](../security/index.md).
 
+
+## Deleting a dataset {#delete}
+
+Before deleting a dataset, check which objects are using it. To do this, at the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/code-trunk.svg) **Linked objects**.
+
+To delete a dataset:
+
+1. At the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **Delete**.
+1. Click **Delete**.
 
 #### See also {#see-also}
 

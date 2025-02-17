@@ -1,7 +1,5 @@
 # Настроить сопоставление групп федеративных пользователей
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 Чтобы настроить права доступа пользователей к ресурсам {{ yandex-cloud }} с помощью [сопоставления групп](../concepts/add-federation.md#group-mapping):
 
 1. [Создайте группы пользователей](#create-group) в {{ org-name }}.

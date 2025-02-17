@@ -125,11 +125,13 @@ The following health check settings are supported:
 * Timeout: Response waiting time.
 * Interval: Time interval between health check requests.
 * Resource health indicators: Numerical thresholds of successful/failed results for the check to be considered passed or failed, respectively.
+* Allows keeping the connection alive even if the health check fails (for Stream checks only).
 * HTTP health check settings:
 
   * Domain name for the `Host` header (HTTP/1.1) or the `:authority` pseudo-header (HTTP/2).
   * Path in the URI of request to the endpoint.
   * HTTP/2 flag.
+  * HTTP status codes that will be considered correct when checking the backend. You can specify any values from `100` to `599`.
 
 * Settings of gRPC health checks:
 
@@ -140,7 +142,7 @@ The following health check settings are supported:
   * Request body.
   * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. Here is an example:
 
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 

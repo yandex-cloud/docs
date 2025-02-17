@@ -47,6 +47,8 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md
+      - name: Processing {{ at-name }} events
+        href: tutorials/audit-trails.md
       - name: Exporting audit logs to SIEM systems
         items:
           - name: Exporting audit logs to {{ mos-full-name }}

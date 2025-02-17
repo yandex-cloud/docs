@@ -89,7 +89,7 @@ In complex routing scenarios with multiple default routes in the VPC network (su
 
    ```bash
    ssh -J <NAT_instance_username>@<NAT_instance_public_IP_address> \
-     <instance_username>@<VM_internal_IP_address>
+     <VM_username>@<VM_internal_IP_address>
    ```
 
 1. {{ vpc-short-name }} route tables cannot use link-local IP address prefixes, such as `169.254.0.0/16` and more specific ones, as they are reserved for {{ vpc-name }} internal use.

@@ -36,4 +36,4 @@ For more information about Markdown markup, see [{#T}](./markdown.md).
 
 ## Title {#title}
 
-Heading widget. Allows separating similarly themed charts and grouping them within a single dashboard page. Only for text data.
+Heading widget. You can use it to separate similarly themed charts, group them within a single dashboard page, and create a table of contents for the dashboard. Only for text data.

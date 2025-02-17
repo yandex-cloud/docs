@@ -1,9 +1,9 @@
 ---
-title: How to search for data in usage details with {{ yq-full-name }} queries
-description: Follow this guide to search for data in usage details with {{yq-full-name }} queries.
+title: How to locate data in usage details with the help of {{ yq-full-name }} queries
+description: Follow this guide to locate data in usage details with the help of {{ yq-full-name }} queries.
 ---
 
-# Searching for data in usage details with {{ yq-full-name }} queries
+# Searching for data in usage details with the help of {{ yq-full-name }} queries
 
 
-{% include [query-billing-integration](../../query/_includes/billing.md) %}
+{% include [query-billing-integration](../../_tutorials/dataplatform/billing-detail-files-processing.md) %}
