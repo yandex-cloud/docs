@@ -16,6 +16,7 @@ In this section, you will learn how to work with a report:
 * [Configuring widgets](#report-widget-settings)
 * [Configuring a report](#report-settings)
 * [Configuring pages](#page-settings)
+* [Sharing a link to a report](#link-on-report)
 * [Configuring scaling](#scaling-settings)
 * [Enabling preview](#report-preview)
 * [Exporting a report](#report-export)
@@ -102,6 +103,8 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
      * (Optional) Under **Parameters**, list [chart parameters](../dashboard/dashboard_parameters.md#params-chart) and set their default values. If no default values are set, the report will display an error.
      * (Optional) Set a background.
 
+     To start editing the chart, click ![image](../../_assets/console-icons/ellipsis.svg) next to the widget and select ![icon](../../_assets/console-icons/pencil.svg) **Edit**.
+
    - Text {#text}
 
      * Enter the text of your link, clarifying caption, etc. The widget supports the [Markdown](../dashboard/markdown.md) markup language.
@@ -119,7 +122,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
    - Title {#header}
 
      * Enter title text.
-     * Select size.
+     * Select a size from the list or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify the size.
      * (Optional) Set a background.
 
    {% endlist %}
@@ -218,6 +221,12 @@ Page settings have a higher priority than the same report settings. If page sett
    * **Orientation**: `Album` or `Portrait`.
 
 1. In the top-right corner, click **Save**.
+
+## Sharing a link to a report {#link-on-report}
+
+To copy a link to a report, click ![icon](../../_assets/console-icons/ellipsis.svg) at the top right and select ![icon](../../_assets/console-icons/link.svg) **Copy link**. You can send this link to users with [access](../security/index.md) to the report.
+
+To share a link to a certain report page, go to the page you need and copy the URL from the browser address bar.
 
 ## Configuring scaling {#scaling-settings}
 

@@ -85,6 +85,13 @@ The default value is `0`.
 
 For the autoplay option to work correctly in all browsers, use the `autoplay=1` parameter together with `mute=1`.
 ||
+|| `t` |
+Time (in seconds) you want to start playback at.
+
+The values range from `0` to video duration inclusive, e.g., `t=30` (start playback at 30 seconds in).
+
+If you do not specify this parameter, your video will play from the beginning, and live stream, from the current moment.
+||
 || `hidden` |
 With this parameter, you can hide the player's interface elements. All of them are shown by default.
 

@@ -11,7 +11,7 @@ Use this guide to create your address and send a verification email.
 1. [Create](../iam/operations/sa/create.md) a service account named `postbox-user` and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `postbox.sender` [role](security/index.md#postbox-sender).
 1. Create a key for the service account:
    * To send an email using the AWS CLI, [create](../iam/operations/sa/create-access-key.md) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
-   * To send an email via SMTP, [create](../iam/operations/api-key/create.md) an API key. When creating the API key, set the scope to `yc.postbox.send`. Save the secret key you get in a secure location. You will not be able to view the secret key parameters again after you close the window.
+   * To send an email via SMTP, [create](../iam/operations/api-key/create.md) an API key. When creating the API key, set the scope to `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key parameters again after you close the window.
 1. Generate a key to create a DKIM signature:
 
     ```
@@ -24,7 +24,7 @@ Use this guide to create your address and send a verification email.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
+    1. In the [management console]({{ link-console-main }}), select the folder where you created the service account. If you create the service account and address in different folders, you will get an error when attempting to send an email.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
     1. Specify the **{{ ui-key.yacloud.postbox.label_address }}** from which you will be sending emails. The domain can be of any level.

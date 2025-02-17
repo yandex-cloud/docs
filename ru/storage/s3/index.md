@@ -60,7 +60,7 @@ Host: <имя_бакета>.{{ s3-storage-host }}
 
 Набор заголовков зависит от конкретного запроса и описан в документации на соответствующий запрос.
 
-Если вы используете [API](../../glossary/rest-api.md) напрямую (без SDK и приложений), то для подписи запросов вам придется самостоятельно генерировать заголовок `Authorization`. О том, как это сделать, читайте в разделе [Authenticating Requests (AWS Signature Version 4) ](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) документации Amazon S3.
+Если вы используете [API](../../glossary/rest-api.md) напрямую (без SDK и приложений), то для подписи запросов вам придется самостоятельно генерировать заголовок `Authorization`. О том, как это сделать, читайте в разделе [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) документации Amazon S3.
 
 {% include [s3api-debug-and-curl](../../_includes/storage/s3api-debug-and-curl.md) %}
 

@@ -108,7 +108,7 @@ items:
             href: operations/adjust-mtu-ddos-protection.md
       - name: Chart of network connections
         href: operations/connections-view.md
-      - name: Viewing service resource operations
+      - name: Viewing operations with resources
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -189,6 +189,8 @@ items:
           Configuring {{ interconnect-name }} access to cloud networks behind
           NGFWs
         href: tutorials/cic-with-ngfw.md
+      - name: Automating tasks using {{ maf-short-name }}
+        href: tutorials/airflow-auto-tasks.md
   - name: Concepts
     items:
       - name: Resource relationships

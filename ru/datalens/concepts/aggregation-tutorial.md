@@ -216,7 +216,7 @@ HAVING sum("Sales") >= 10
 
       ![image](../../_assets/datalens/concepts/tutorial/aggregation-3.png)
 
-  * В интерфейсе создания датасета добавить [вычисляемое поле](calculations/index.md) с помощью [агрегатных функций](../function-ref/aggregation-functions.md). Подробнее в разделе [{#T}](calculations/index.md#how-to-create-calculated-field). В формуле вычисляемого поля можно использовать [подстановку ](#substituting-fields) других показателей.
+  * В интерфейсе создания датасета добавить [вычисляемое поле](calculations/index.md) с помощью [агрегатных функций](../function-ref/aggregation-functions.md). Подробнее в разделе [{#T}](calculations/index.md#how-to-create-calculated-field). В формуле вычисляемого поля можно использовать [подстановку](#substituting-fields) других показателей.
 
       ![image](../../_assets/datalens/concepts/tutorial/aggregation-4.png)
 
@@ -230,7 +230,7 @@ HAVING sum("Sales") >= 10
 
       ![image](../../_assets/datalens/concepts/tutorial/aggregation-5.png)
   
-  * В визарде добавить [вычисляемое поле](calculations/index.md) с помощью [агрегатных функций](../function-ref/aggregation-functions.md). Подробнее в разделе [{#T}](calculations/index.md#how-to-create-calculated-field). В формуле вычисляемого поля можно использовать [подстановку ](#substituting-fields) других показателей.
+  * В визарде добавить [вычисляемое поле](calculations/index.md) с помощью [агрегатных функций](../function-ref/aggregation-functions.md). Подробнее в разделе [{#T}](calculations/index.md#how-to-create-calculated-field). В формуле вычисляемого поля можно использовать [подстановку](#substituting-fields) других показателей.
 
 Показатели могут состоять не только из одной агрегатной функции и иметь более сложные выражения. Например, в этом чарте для расчета средней суммы продаж за день используется показатель `Sales per day`, вычисляемый по формуле `SUM([Sales])/COUNTD([Date])`.
 

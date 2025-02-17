@@ -16,6 +16,9 @@ For the load balancer to work correctly:
   * Receiving external incoming traffic on the ports specified in the [listener](#listener), e.g., for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR: `0.0.0.0/0`).
   * Receiving incoming traffic to health check load balancer nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` with the `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` source.
   * Sending traffic to backend VMs, i.e., VMs whose IP addresses are included in [target groups](target-group.md). For example, any outgoing connections to internal VM addresses (any protocol, full port range, CIDR: `<VM_internal_IP_address>/32`).
+
+  {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+
 * Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md), e.g., any incoming connections from subnets [hosting the load balancer](#lb-location) or from at least one of its security groups.
 
 For information on how to configure security groups for the Ingress controller and Gateway API, see [{#T}](../tools/k8s-ingress-controller/security-groups.md).
@@ -28,12 +31,12 @@ When creating a load balancer, specify a [network](../../vpc/concepts/network.md
 
 See [below](#lcu-scaling-subnet-sizes) to learn what subnet sizes are recommended for load balancers.
 
-You can disable the load balancer in the selected availability zones. In this case, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer nodes in other availability zones will continue delivering traffic to backends in the availability zones where the load balancer was disabled, if this is allowed by the [locality aware routing](backend-group.md#locality) settings.
+You can disable the load balancer in the selected availability zones. In this case, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer nodes in other availability zones will continue supplying traffic to backends in the availability zones the load balancer was disabled in, if allowed by the [locality-aware routing](backend-group.md#locality) settings.
 
 
 ## Autoscaling and resource units {#lcu-scaling}
 
-An internal group of VM instances called _resource units_ is created in each availability zone of the load balancer.
+An internal group of VM instances called _resource units_ is created in each availability zone of the load balancer. 
 
 {% include [lcu-thresholds](../../_includes/application-load-balancer/lcu-thresholds.md) %}
 

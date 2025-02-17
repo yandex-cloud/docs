@@ -132,6 +132,10 @@ output-datasets:
     labels:                   # Произвольный список меток, которые будут присвоены датасету
       a: b
       c: d
+
+# Настройка подключеня к кластеру DataProc через Spark Connector
+spark:
+  connector: <идентификатор_коннектора> # Идентификатор Spark Connector
 ```
 
 Файл конфигурации задания `config.yaml` состоит из нескольких секций.
@@ -185,6 +189,8 @@ output-datasets:
    2024-09-13 16:22:28,894 - [INFO] - Created datasets:
    2024-09-13 16:22:28,894 - [INFO] -   * <dataset-id> (dataset name) size: <size> Gb
    ```
+
+1. Секция `spark` описывает конфигурацию для [работы](work-with-spark.md) с кластерами [{{ dataproc-full-name }}](../../../data-proc/), используя [Spark Connector](../spark-connector.md). При указании коннектора Spark убедитесь, что он [доступен](../../operations/data/spark-connectors.md#share) в проекте.
 
 #### См. также {#see-also}
 

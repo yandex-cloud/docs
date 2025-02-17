@@ -1,6 +1,6 @@
 # Использовать дообученные классификаторы на базе {{ yagpt-name }}
 
-Чтобы выполнить запрос к классификатору [дообученной](../../../datasphere/concepts/models/foundation-models.md#classifier-training) в {{ ml-platform-name }} модели, используйте метод [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API или [{{ ml-sdk-full-name }}](../../sdk/index.md).
+Чтобы выполнить запрос к [дообученному](../../concepts/tuning/index.md) классификатору, используйте метод [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API или [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 ## Перед началом работы {#before-begin}
 
@@ -39,7 +39,7 @@
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
-      * `model` — [идентификатор модели](../../../foundation-models/concepts/classifier/models.md), которая будет использоваться для классификации сообщения. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} и идентификатор [дообученной](../../../datasphere/concepts/models/foundation-models.md#classifier-training) в {{ ml-platform-name }} модели.
+      * `model` — [идентификатор модели](../../../foundation-models/concepts/classifier/models.md), которая будет использоваться для классификации сообщения. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} и суффикс дообучения.
 
       Имена классов, по которым модель будет распределять запросы, должны быть заданы в процессе дообучения модели, поэтому не передаются в запросе.
 
@@ -59,13 +59,13 @@
   
       ```json
       {
-        "modelUri": "cls://<идентификатор_каталога>/<идентификатор_классификатора>",
+        "modelUri": "cls://<URI_базовой_модели>/<версия>@<суффикс_дообучения>",
         "text": "<текст_запроса>"
       }
       ```
   
       Где:
-      * `modelUri` — [идентификатор модели](../../../foundation-models/concepts/classifier/models.md), которая будет использоваться для классификации сообщения. Параметр содержит [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }} и идентификатор [дообученной](../../../datasphere/concepts/models/foundation-models.md#classifier-training) в {{ ml-platform-name }} модели.
+      * `modelUri` — [идентификатор модели](../../../foundation-models/concepts/classifier/models.md), которая будет использоваться для классификации сообщения.
       * `text` — текстовое содержимое сообщения. Суммарное количество [токенов](../../concepts/yandexgpt/tokens.md) на один запрос не должно превышать 8000.
   
       Имена классов, по которым модель будет распределять запросы, должны быть заданы в процессе дообучения модели, поэтому не передаются в запросе.

@@ -18,10 +18,24 @@ items:
             href: operations/servers/server-stop-and-start.md
           - name: Cancel a server lease
             href: operations/servers/server-lease-cancel.md
-          - name: Connecting to a KVM console
+          - name: Reinstalling the server OS
+            items:
+              - name: Reinstalling OS from a Marketplace image
+                href: operations/servers/reinstall-os-from-marketplace.md
+          - name: Connecting to the KVM console
             href: operations/servers/server-kvm.md
-          - name: Using Rescue CD
-            href: operations/servers/rescue-boot.md
+          - name: Replacing a disk in a RAID array
+            href: operations/servers/switch-raid-member.md
+          - name: Rescue CD
+            items:
+              - name: Using Rescue CD
+                href: operations/servers/rescue-boot.md
+              - name: Resetting a password on the server
+                href: operations/servers/reset-password.md
+              - name: Adding a new user SSH key
+                href: operations/servers/add-new-ssh-key.md
+              - name: Restoring the OS bootloader
+                href: operations/servers/restore-grub.md
       - name: Creating a VRF
         href: operations/network-create.md
       - name: Creating a subnet

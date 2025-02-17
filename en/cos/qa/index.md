@@ -1,9 +1,9 @@
 ---
-title: Questions and answers about {{ cos-full-name }}
-description: This page provides answers to questions about {{ cos-name }}.
+title: FAQ about {{ cos-full-name }}
+description: This page presents the FAQ about {{ cos-name }}.
 ---
 
-# Questions and answers about {{ cos-name }}
+# FAQ about {{ cos-name }}
 
 #### How do I perform auto updates based on immutable tags? {#auto-update}
 
@@ -20,17 +20,17 @@ There is a number of disadvantages of using tags that persist from version to ve
 
 {% note warning %}
 
-The [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec) does not support `build` instructions, so make sure to build a Docker image in advance. In addition, the Docker Compose specification should not contain any links to other files: they are not delivered to the VM.
+The [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec) does not support the `build` instruction: Make sure to build your Docker image beforehand. In addition, the Docker Compose specification should not contain any links to other files: they are not delivered to the VM.
 
 {% endnote %}
 
 * Check that the Docker image name is correct.
 * Make sure the [service account](../../iam/concepts/users/service-accounts.md) linked to the VM has the `{{ roles-cr-puller }}` rights to the appropriate Docker image.
 * Check that the VM has internet access.
-* You can also view logs by running the `sudo journalctl -u yc-container-daemon` command on the VM.
+* You can also view [errors in logs](../error/index.md) by running the `sudo journalctl -eu yc-container-daemon` command on the VM.
 
 #### How can I close a port for public access and leave it accessible within the network? {#port}
 
 * If you use a standard {{ coi }} (one Docker container configured by parameters), all ports that are open in the container will also be open on the host.
-* If you need other [network](../../vpc/concepts/network.md#network) settings for Docker containers, you can configure them using a {{ coi }} with the Docker Compose specification.
+* If you need other [network](../../vpc/concepts/network.md#network) settings for Docker containers, you can configure them using a {{ coi }} with the Docker Compose specification. 
 * To make your Docker container's port open on the host but disable access to it from the internet, you can use [security groups](../../vpc/concepts/security-groups.md).

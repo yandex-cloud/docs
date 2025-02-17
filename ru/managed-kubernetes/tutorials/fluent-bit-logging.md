@@ -13,6 +13,6 @@ canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-fluent-bit-lo
 
 {% endnote %}
 
-Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи [подов](../concepts/index.md#pod) и [сервисов](../concepts/index.md#service) {{ managed-k8s-name }} в {{ cloud-logging-name }}. Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
+Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи [подов](../concepts/index.md#pod), [сервисов](../concepts/index.md#service) и системных логов [узлов](../../managed-kubernetes/concepts/index.md#node-group) {{ managed-k8s-name }} в {{ cloud-logging-name }}. Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 {% include notitle [Настройка Managed K8S Fluent Bit](../../_tutorials/containers/config-k8s-fluent-bit-logging.md) %}

@@ -119,8 +119,8 @@ Axis settings are only available for charts that have at least one X or Y axis:
 
 * Line chart.
 * Area chart (stacked and normalized).
-* Column chart (including a normalized column chart).
-* Bar chart (including a normalized bar chart).
+* Column chart (including normalized).
+* Bar chart (including normalized).
 * Scatter chart.
 
 You can configure settings for both the **X** and **Y** axes.
@@ -216,8 +216,8 @@ Labels are available for the following charts types:
 
 * Line chart.
 * Area chart (stacked and normalized).
-* Column chart (including a normalized column chart).
-* Bar chart (including a normalized bar chart).
+* Column chart (including normalized).
+* Bar chart (including normalized).
 * Pie chart.
 * Map.
 
@@ -229,8 +229,8 @@ Sorting is available for the following chart types:
 
 * Line chart.
 * Area chart (stacked and normalized).
-* Column chart (including a normalized column chart).
-* Bar chart (including a normalized bar chart).
+* Column chart (including normalized).
+* Bar chart (including normalized).
 * Pie chart.
 * Table (including a Pivot table).
 
@@ -296,3 +296,16 @@ You can set a color for geopoints and geopolygons, which will depend on the meas
 
 You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.
 
+
+## Undoing and redoing changes in charts {#undo-redo}
+
+When editing a chart in the wizard or a [QL chart](./ql-charts.md), you can now undo/redo any change introduced within the current version:
+
+* To undo changes, click ![image](../../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
+* To redo changes, click ![image](../../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+
+Unsaved changes in the current version are reset:
+
+* When refreshing the page.
+* When saving a chart.
+* When switching to another [version](./versioning.md).

@@ -995,6 +995,14 @@ items:
           Using {{ api-gw-full-name }} to set up speech synthesis in {{
           speechkit-full-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
+      - name: >-
+          Connecting to {{ ydb-short-name }} from a {{ sf-name }} function in
+          Python
+        href: serverless/connect-from-cf.md
+      - name: >-
+          Connecting to a {{ ydb-short-name }} database from a {{ sf-name }}
+          function in Node.js
+        href: serverless/connect-from-cf-nodejs.md
       - name: '{{ api-gw-name }} protection with {{ sws-name }}'
         href: serverless/api-gw-sws-integration.md
   - name: Machine learning and artificial intelligence

@@ -57,7 +57,10 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--name`: VM name.
      * `--zone`: Availability zone.
      * `--ssh-key`: Path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file and its name.
-     * `--create-boot-disk size`: Boot disk size. It must be at least 30 GB.
+     * `--create-boot-disk size`: Boot disk size.
+
+        {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
+
      * `--network-interface`: VM network settings.
      * `--service-account-name`: Service account name.
      * `--docker-compose-file`: YAML file with container specification.

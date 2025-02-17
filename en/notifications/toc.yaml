@@ -29,6 +29,8 @@ items:
         href: tools/aws-cli.md
       - name: AWS SDK for Python (boto3)
         href: tools/sdk-python.md
+      - name: AWS SDK for PHP
+        href: tools/sdk-php.md
   - name: Pricing policy
     href: pricing.md
   - name: API reference

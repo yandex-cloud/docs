@@ -9,16 +9,20 @@ You can change the primary version of the symmetric key at any time by specifyin
 ## Key parameters {#parameters}
 
 A {{ kms-short-name }} symmetric key may have the following parameters:
+
 * ID: Unique key identifier in {{ yandex-cloud }}. It is used for working with keys via the SDK, API, and CLI.
 * Name: Non-unique key name. It can be used to work with keys in the CLI if the folder only contains a single key with this name.
-* Encryption algorithm: The algorithm to be used for encryption in new versions of the key. [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) supports the following symmetric encryption algorithms: 
+* Encryption algorithm: The algorithm to be used for encryption in new versions of the key. [GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) supports the following symmetric encryption algorithms:
+
     * `AES-128`: AES algorithm with 128-bit keys.
     * `AES-192`: AES algorithm with 192-bit keys.
     * `AES-256`: AES algorithm with 256-bit keys.
     * `AES-256 HSM`: AES algorithm with 256-bit keys. Encryption keys are created and cryptographic operations handled in a [Hardware Security Module (HSM)](hsm.md).
 
 * Rotation period: Time span between automatic key rotations.
-* Status: Current state of the key. The following statuses are possible: 
+* Deletion protection: Pprevents accidental key deletion. When enabled, you cannot delete the key without disabling this option first.
+* Status: Current state of the key. The following statuses are possible:
+
     * `Creating`: Key is being created.
     * `Active`: Key can be used for encryption and decryption.
     * `Inactive`: Key cannot be used.
