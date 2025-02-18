@@ -69,7 +69,7 @@ There are several ways to optimize problematic queries:
     {% endnote %}
 
 
-* [Log the query execution plan automatically ](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) using the [`auto_explain` module](https://www.postgresql.org/docs/current/auto-explain.html).
+* [Log the query execution plan automatically](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) using the [`auto_explain` module](https://www.postgresql.org/docs/current/auto-explain.html).
 
 * Update statistics using the [`ANALYZE`](https://www.postgresql.org/docs/current/sql-analyze.html) command.
 

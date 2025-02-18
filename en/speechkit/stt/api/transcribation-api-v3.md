@@ -5,7 +5,7 @@ description: Follow this guide to use asynchronous WAV audio file recognition in
 
 # Asynchronous WAV audio file recognition using the API v3
 
-The example below illustrates how to use the {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md) to perform asynchronous speech recognition on a WAV audio file. This example uses the following parameters:
+The example below illustrates how to use the {{ speechkit-name }} [API v3](../../stt-v3/api-ref/grpc/index.md) for asynchronous speech recognition from a WAV audio file. This example uses the following parameters:
 
 * Audio stream format: WAV.
 * [Speech recognition model](../models.md#tags): `general`.
@@ -68,7 +68,7 @@ If you do not have a WAV audio file, you can use [this sample file](https://{{ s
       from yandex.cloud.ai.stt.v3 import stt_pb2, stt_service_pb2_grpc
 
       request = stt_pb2.RecognizeFileRequest(
-        uri='https://storage.yandexcloud.net/<bucket_name>/<path_to_WAV_file_in_bucket>',
+        uri='https://{{ s3-storage-host }}/<bucket_name>/<path_to_WAV_file_in_bucket>',
         recognition_model=stt_pb2.RecognitionModelOptions(
           model='general',
           audio_format=stt_pb2.AudioFormatOptions(
@@ -80,7 +80,7 @@ If you do not have a WAV audio file, you can use [this sample file](https://{{ s
       )
 
       cred = grpc.ssl_channel_credentials()
-      chan = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+      chan = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
       stub = stt_service_pb2_grpc.AsyncRecognizerStub(chan)
 
       # Choose one of the authentication methods:
@@ -127,7 +127,7 @@ If you do not have a WAV audio file, you can use [this sample file](https://{{ s
       )
 
       cred = grpc.ssl_channel_credentials()
-      chan = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+      chan = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
       stub = stt_service_pb2_grpc.AsyncRecognizerStub(chan)
 
       # Authentication with an IAM token

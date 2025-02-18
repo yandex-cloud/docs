@@ -19,7 +19,7 @@ You can also use API v1 for text search in combination with [{{ yagpt-name }}](.
 
 {% note info %}
 
-This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request.
 
 {% endnote %}
 
@@ -41,7 +41,7 @@ After registration, you can change your search type and trusted IP addresses at 
 
 ## API v2 {#api-v2}
 
-[API v2](../operations/web-search.md) is an interface natively integrated into the [{{ yandex-cloud }} ecosystem](../../overview/concepts/services.md). It allows you to [run](../operations/web-search.md) text queries using the `POST` method and get your results in [XML](./response.md) or [HTML](./html-response.md) format in deferred (asynchronous) mode.
+[API v2](../operations/web-search.md) is an interface natively integrated into the [{{ yandex-cloud }} ecosystem](../../overview/concepts/services.md). It allows you to run text queries using the `POST` method and get your results in [XML](./response.md) or [HTML](./html-response.md) format in [synchronous](../operations/web-search-sync.md) or [deferred](../operations/web-search.md) (asynchronous) mode.
 
 With API v2, you set the search type directly in the [body](./web-search.md#parameters) of each query. You do not need to [register](../operations/workaround.md#registration) in {{ search-api-full-name }} or specify trusted IP addresses when using API v2.
 

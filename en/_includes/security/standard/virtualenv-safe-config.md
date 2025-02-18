@@ -369,7 +369,7 @@ If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_r
 
 [{{ sts-full-name }}](../../../iam/concepts/authorization/sts.md): {{ iam-full-name }} component to get _temporary access keys_ compatible with [AWS S3 API](../../../storage/s3/index.md).
 
-Temporary access keys as an authentication method are only supported in [{{  objstorage-full-name }}](../../../storage/index.yaml).
+Temporary access keys as an authentication method are only supported in [{{ objstorage-full-name }}](../../../storage/index.yaml).
 
 With temporary keys, you can set up granular access to [buckets](../../../storage/concepts/bucket.md) for multiple users with a single [service account](../../../iam/concepts/users/service-accounts.md). The service account permissions must include all the permissions you want to grant using temporary keys.
 

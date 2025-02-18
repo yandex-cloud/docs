@@ -93,7 +93,6 @@ Set up the selected mode:
 
 {% list tabs %}
 
-
 - OAuth token
 
   Get an OAuth token by sending a [request]({{ link-cloud-oauth }}) and save it to a file. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your OAuth token in the `--yc-token-file` parameter.
@@ -129,7 +128,6 @@ Set up the selected mode:
   >```text
   >User SID: aje6o75au36h********@as
   >```
-
 
 - IAM token
 

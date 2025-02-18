@@ -111,6 +111,10 @@ items:
         href: tutorials/events-from-postbox-to-yds.md
       - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
+      - name: Processing {{ at-name }} events
+        href: tutorials/audit-trails.md
+      - name: Processing CDC Debezium streams
+        href: tutorials/debezium.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

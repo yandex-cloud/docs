@@ -249,7 +249,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
   };
 
   axios
-    .post('https://{{ api-host-sk-tts }}/speech/v1/tts:synthesize', formData, {
+    .post('https://tts.{{ api-host }}/speech/v1/tts:synthesize', formData, {
       headers,
       responseType: 'arraybuffer'
     })
@@ -259,7 +259,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
   Where:
 
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-  * `FOLDER_ID`: [Folder](../../../resource-manager/operations/folder/get-id.md) ID.
+  * `FOLDER_ID`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
   * `text`: Text for synthesis in [TTS markup](../markup/tts-markup.md).
   * `lang`: Text [language](../index.md#langs).
   * `voice`: [Voice](../voices.md) for speech synthesis.

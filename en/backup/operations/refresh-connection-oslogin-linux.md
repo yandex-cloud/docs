@@ -7,7 +7,7 @@ description: Follow this guide to update a connection of a Linux VM with OS Logi
 
 {% note info %}
 
-If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reconnect it to the service, use this guide:
+If you have [deleted](delete-vm.md) a VM from {{ backup-name }} and want to reconnect it, use these tutorials:
 
 * [Connecting a Linux VM](connect-vm-linux.md)
 * [Connecting a Linux VM with OS Login](connect-vm-oslogin-linux.md)
@@ -25,7 +25,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
    - {{ yandex-cloud }} CLI {#cli}
 
      1. {% include [cli-install](../../_includes/cli-install.md) %}
-     1. See the description of the CLI command to reinstall the {{ backup-name }} agent:
+     1. See the description of the CLI command to reinstall the [{{ backup-name }} agent](../concepts/agent.md):
 
         ```bash
         yc backup agent reinstall --help
@@ -40,7 +40,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
 
         Where `id` is the unique ID of the VM. This is a required parameter.
 
-        After running the command, you will get a warning about backup agent reinstallation: `This command will launch commands on specified instance to reinstall backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Confirm the reinstallation: in the terminal, type `yes` and press `Enter`. The agent reinstallation will start. It will take some time.
+        Once you execute the command, you will get the {{ backup-name }} agent reinstallation warning: `This command will launch commands on specified instance to reinstall backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Confirm the reinstallation: in the terminal, type `yes` and press `Enter`. The {{ backup-name }} agent reinstallation will start. It will take some time.
 
         Result:
 
@@ -67,7 +67,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where {{ backup-name }} is connected.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
      1. On ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** tab, check that the outdated VM is not listed with the ![irrelevant](../../_assets/console-icons/circle-info-fill.svg) label.
 
         If the VM is still there, click ![image](../../_assets/console-icons/ellipsis.svg), select **{{ ui-key.yacloud.common.delete }}** and confirm deletion.

@@ -42,9 +42,9 @@ To connect a Linux VM with OS Login to {{ backup-name }}:
         Where:
 
         * `id`: VM unique ID. This is a required parameter.
-        * `policy-ids`: IDs of the backup policies to attach to the VM after installing the agent. This is an optional parameter. Attaching a policy to a VM is an asynchronous operation which may take several minutes.
+        * `policy-ids`: IDs of the [backup policies](../concepts/policy.md) for attaching to the VM after installing the {{ backup-name }} agent. This is an optional parameter. Attaching a policy to a VM is an asynchronous operation which may take several minutes.
 
-        After running the command, you will see a warning about installing the backup agent: `This command will launch commands on specified instance to install backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Confirm the installation: in the terminal, type `yes` and press `Enter`. The agent installation will start. It will take some time.
+        Once you execute the command, you will get the {{ backup-name }} agent installation warning: `This command will launch commands on specified instance to install backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Confirm the installation: in the terminal, type `yes` and press `Enter`. The {{ backup-name }} agent installation will start. It will take some time to complete.
 
         Result:
 

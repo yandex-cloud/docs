@@ -102,7 +102,7 @@ To download an object group with a specified prefix (a [directory](../../concept
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
   * `<bucket_name>`: Name of the bucket you want to download the objects from.
   * `<object_key>`: [Key](../../concepts/object.md#key) of the object you want to download.
-  * `<local_path>`: Path to the directory to save the downloaded object to. For example, `~/downloads/`.
+  * `<local_path>`: Path to the directory to save the downloaded object to, e.g., `~/downloads/`.
 
   **Downloading a directory (all objects with a specified prefix)**
 
@@ -139,7 +139,7 @@ To download an object group with a specified prefix (a [directory](../../concept
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
   * `--recursive`: Parameter for downloading all objects from the bucket to a local folder.
   * `<bucket_name>`: Name of the bucket you want to download the objects from.
-  * `<local_path>`: Path to the directory to save the downloaded objects to. For example, `~/downloads/`.
+  * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
 
   `aws s3 cp` is a high-level command with limited functionality. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
@@ -160,7 +160,7 @@ To download an object group with a specified prefix (a [directory](../../concept
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--bucket`: Name of the bucket you want to download the objects from.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
-      * `<local_path>`: Path to the directory to save the downloaded objects to. For example, `~/downloads/`.
+      * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
 
       Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` bucket to the `~/downloads/` local folder:
 
@@ -188,7 +188,7 @@ To download an object group with a specified prefix (a [directory](../../concept
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--bucket`: Name of the bucket you want to download the objects from.
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
-      * `<local_path>`: Path to the directory to save the downloaded objects to. For example, `d:\downloads\`.
+      * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `d:\downloads\`.
 
       Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` bucket to the `d:\downloads\` local folder:
 
@@ -209,4 +209,7 @@ To download an object group with a specified prefix (a [directory](../../concept
 
 #### See also {#see-also}
 
+
 * [{#T}](link-for-download.md)
+* [{#T}](../../security/overview.md)
+

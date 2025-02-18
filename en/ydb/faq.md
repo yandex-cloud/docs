@@ -4,7 +4,7 @@ This page shows answers to the questions about {{ ydb-name }}. For frequently as
 
 ## {{ ydb-name }} databases in Serverless mode
 
-### How do secondary indexes impact the cost of a query?
+### How do secondary indexes impact the cost of a request?
 
 Operations with indexes are estimated according to the same rules as operations with tables. They are reflected in the request statistics and included in the total indicators that are used to calculate the cost in request units (RUs). For more information, see the [pricing policy for {{ ydb-short-name }} API serverless mode](pricing/ru-yql.md).
 

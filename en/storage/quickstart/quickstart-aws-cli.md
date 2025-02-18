@@ -9,21 +9,21 @@ The [AWS CLI](../tools/aws-cli.md) is one of the most popular {{ objstorage-name
 
 To get started with the AWS CLI:
 
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Set up a service account](#create-sa).
 1. [Install and configure the AWS CLI](#cli-setup).
 1. [Create a bucket](#the-first-bucket).
 1. [Upload an object to the bucket](#upload-files).
 1. [Get a download link for the file](#get-link).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
-  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
   1. [Assign](../../iam/operations/roles/grant.md) these _minimum_ roles to your {{ yandex-cloud }} account:
       * To create a [service account](../../iam/concepts/users/service-accounts.md) and get access keys for it: [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). If you want to use an existing service account, the `iam.serviceAccounts.admin` role for that service account will be enough.
       * To assign a role to a service account: [storage.admin](../../storage/security/index.md#storage-admin) for a bucket or folder.
@@ -65,7 +65,7 @@ To get started with the AWS CLI:
   1. Create a static access key {#create-keys}
 
       1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-      1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
       1. In the list that opens, select the service account you need.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -75,7 +75,7 @@ To get started with the AWS CLI:
 
           {% note alert %}
 
-          After you close the dialog box, the key value will not be shown again.
+          After you close this dialog, the key value will not be shown again.
 
           {% endnote %}
 
@@ -84,6 +84,8 @@ To get started with the AWS CLI:
 {% endlist %}
 
 ## Install and configure the AWS CLI {#cli-setup}
+
+{% include [note-aws-cli-versions](../../_includes/aws-tools/note-aws-cli-versions.md) %}
 
 1. Install the AWS CLI:
 
@@ -119,9 +121,9 @@ To get started with the AWS CLI:
 
     {% endlist %}
 
-    For more information about installing the AWS CLI, see the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+    {% include [install-aws-cli-versions](../../_includes/aws-tools/install-aws-cli-versions.md) %}
 
-1. Set up the AWS CLI:
+1. Configure the AWS CLI:
 
     {% list tabs group=instructions %}
 

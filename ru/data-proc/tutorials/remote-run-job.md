@@ -168,7 +168,7 @@
 
      ```text
      20/04/19 16:43:58 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/  10.13.13.18:8032
-     20/04/19 16:43:58 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{   dns-zone }}/10.13.13.18:10200
+     20/04/19 16:43:58 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
      20/04/19 16:43:58 INFO yarn.Client: Requesting a new application from cluster with 4 NodeManagers
      ...
      20/04/19 16:43:58 INFO yarn.Client: Preparing resources for our AM container

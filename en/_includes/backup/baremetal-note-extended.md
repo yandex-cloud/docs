@@ -1,1 +1,0 @@
-For information on using {{ baremetal-name }} servers, see [Connecting a {{ baremetal-name }} server to {{ backup-name }}](../../backup/tutorials/backup-baremetal.md). _[{{ baremetal-name }}](../../baremetal/) is at the [Preview stage](../../overview/concepts/launch-stages.md)._

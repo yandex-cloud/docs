@@ -1,9 +1,9 @@
 ---
-title: XML format of a {{ search-api-full-name }} response for a text query
-description: This article describes the XML format of a response returned by {{ search-api-name }} for a text search query.
+title: XML format of {{ search-api-full-name }}'s response to a text query
+description: This article describes the XML format of {{ search-api-name }}'s response to a text search query.
 ---
 
-# XML format of a text search response
+# XML format of response to a text search query
 
 In response to a text search query, {{ search-api-name }} can return a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded XML file with search results. The service returns an XML response for text queries processed both via API v1 and API v2.
 
@@ -105,7 +105,7 @@ The `request` group provides aggregate information about request parameters. It 
 #|
 || **Request group tags** | **Description** | **Attributes** ||
 || query | Search query text | None ||
-|| page | Number of the returned page with search results. Page numbering starts from zero (`0` stands for page 1). | None ||
+|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page 1). | None ||
 || sortby | 
 Result sorting parameters. The possible values are:
 
@@ -115,18 +115,18 @@ Result sorting parameters. The possible values are:
 * `order`: Sorting order. The default value is `descending` (forward sorting). When sorting by update time, the parameter may take the `ascending` value (reverse sorting).
 * `priority`: Service attribute. Takes the `no` value.
 ||
-|| maxpassages | Maximum number of passages per search result | None||
+|| maxpassages | Maximum number of passages per search result. | None||
 || groupings | 
-This is a grouping tag.
+Grouping tag
 
 It contains grouping parameters in the `groupby` tag.
 | None ||
-|| groupby | Parameters for grouping search results found. | 
+|| groupby | Parameters for grouping the search results. | 
 * `mode`: [Grouping method](post-request.md#groupby).
 * `attr`: Service attribute.
-* `groups-on-page`: Maximum number of groups to return per page with search results.
-* `docs-in-group`: Maximum number of documents to return per group. Any group may contain fewer documents than set by this parameter.
-* `curcateg`: Service attribute takes the `-1` value.
+* `groups-on-page`: Maximum number of groups that can be returned per page.
+* `docs-in-group`: Maximum number of documents per group. Any group may contain fewer documents than set by this parameter.
+* `curcateg`: Service attribute which takes the `-1` value.
 ||
 |#
 
@@ -153,20 +153,20 @@ https://yandex.com.tr/search/xml?l10n=en&user=xml-search-user&key=03.79031114:b6
 
 This group has the results of handling the search query, the information on which is provided in the [request](#request_params) child tags.
 
-It contains the `date` attribute with the query date and time (UTC) in `<year><month><day>Т<hour><minute><second>` format.
+It contains the `date` attribute with the query date and time (UTC) in `<year><month><day>T<hour><minute><second>` format.
 
 This group consists of the following sections:
 
-* [General information about search results](#basic-search-info)
+* [General search results info](#basic-search-info)
 * [`misspell / reask` section](#misspell-block)
 * [`results` section](#results-block)
 
-#### General information about search results {#basic-search-info}
+#### General search results info {#basic-search-info}
 
-The table below lists the tags used in the appropriate section.
+The table below lists the tags of the general search results info section.
 
 #|
-|| **Tags for general information about search results** | **Description** | **Attributes** ||
+|| **General search results info tags** | **Description** | **Attributes** ||
 || error |
 Error description 
 
@@ -175,7 +175,7 @@ Used only if a search query is handled incorrectly (e.g., if the query is empty 
 In some cases, it is mutually exclusive with other tags of the `response` grouping tag.
 | `code`: Error [code](../reference/error-codes.md). ||
 || reqid | Unique query ID | None ||
-|| found | Estimate of the number of documents found in response to the query.
+|| found | Estimated number of documents found for the query.
 | 
 `priority`: Service attribute. The possible values are:
 
@@ -183,12 +183,12 @@ In some cases, it is mutually exclusive with other tags of the `response` groupi
 * `strict`
 * `all`.
 ||
-|| found-human | String in the language matching the selected [search type](../operations/workaround.md). It shows the number of found documents and contains related information. | None ||
+|| found-human | String in the language according to the selected [search type](../operations/workaround.md). It shows the number of found documents and contains related information. | None ||
 |#
 
-#### misspell / reask section {#misspell-block}
+#### `misspell / reask` section {#misspell-block}
 
-This is an optional tag and is only used if a typo is detected (`misspell`) or fixed (`reask`) in the query.
+Optional. It is present if a typo is detected (`misspell`) or fixed (`reask`) in the query.
 
 The table below lists the tags for this section.
 
@@ -212,27 +212,27 @@ The possible values are:
 
 * `Misspell`: Typo.
 * `KeyboardLayout`: Incorrect keyboard layout.
-* `Volapyuk`: Query is made in Russian transliterated into English. It is used if ` (yandex.ru)` is selected for [search type](../operations/workaround.md).<q>{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}</q>
+* `Volapyuk`: Query is made in Russian but transliterated into English. It is used if "{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }} (yandex.ru)" is selected for [search type](../operations/workaround.md).
 | None
 ||
 || source-text | 
 Source query text.
 
-The `hlword` tag is added to a fragment of a search query that might contain an error.
+The search query fragment presumably containing an error is highlighted with the `hlword` tag.
 | None
 ||
 || text-to-show | 
-This tag is optional and used only for the `reask` grouping tag.
+Optional (only for the `reask` grouping tag).
 
-It contains the fixed search query text. In most cases, it matches the value provided in the [text](#text) tag.
+Contains the fixed search query text. In most cases, it matches the value provided in the [text](#text) tag.
 | None
 ||
-|| text | Fixed search query text  | None||
+|| text | Fixed search query text.  | None||
 |#
 
-#### results section {#results-block}
+#### `results` section {#results-block}
 
-This is an optional tag and only used if any results are found for a query.
+Optional. It is present if results are found for the query.
 
 The table below lists the tags for this section.
 
@@ -247,12 +247,12 @@ This is a grouping tag. Child tags contain information about search parameters a
 Attributes reflect the grouping rules for documents.
 
 * `mode`: [Grouping method](post-request.md#groupby).
-* `attr`: Service attribute that depends on the `mode` attribute value.
-* `groups-on-page`: Number of groups returned per page with search results.
+* `attr`: Service attribute. Depends on the `mode` attribute value.
+* `groups-on-page`: Number of groups returned per search results page.
 * `docs-in-group`: Number of documents returned per group.
-* `curcateg`: Service attribute takes the `-1` value.
+* `curcateg`: Service attribute. Takes the `-1` value.
 ||
-|| found | Estimate of the number of generated groups | 
+|| found | Estimated number of generated groups. | 
 `priority`: Service attribute. The possible values are:
 
 * `phrase`
@@ -261,9 +261,9 @@ Attributes reflect the grouping rules for documents.
 ||
 || found-docs | 
 
-Estimate of the number of documents found in response to the query.
+Estimated number of documents found for the query.
 
-It is a more accurate estimate as compared to the value provided in the `found` tag of the section with [general information about search results](#basic-search-info).
+It is a more accurate estimate compared to the value provided in the `found` tag of the [general search results info](#basic-search-info) section.
 
 | 
 `priority`: Service attribute. The possible values are:
@@ -280,24 +280,24 @@ The value being provided must be used when generating search results.
 
 | None
 ||
-|| page | Number of the returned page with search results. Page numbering starts from zero (`0` stands for page 1).
+|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page 1).
 | 
-* `first`: Number of the first group with search results displayed on the page.
-* `last`: Number of the last group with search results displayed on the page.
+* `first`: Sequence number of the first search results group displayed on the page.
+* `last`: Sequence number of the last search results group displayed on the page.
 ||
 || group | 
 This is a grouping tag.
 
-Each `group` tag contains information about the found document group.
+Each `group` tag contains information about a found document group.
 | None
 ||
-|| categ | Identification data of the group of found documents
+|| categ | Identification data of the group of found documents.
 | 
-* `attr`: Service attribute that must match the value [provided in the request](post-request.md#post-attr).
+* `attr`: Service attribute. Must match the value [provided in the request](post-request.md#post-attr).
 * `name`: Unique group ID.
 ||
 || doccount | 
-Estimate of the number of documents used to create the group.
+Estimated number of documents used to create the group.
 
 Documents that qualify for inclusion in the group are ranked based on the query criteria provided in the `sortby` parameter. Depending on the [docs-in-group](post-request.md#post-docs-in-group) parameter value, from one to three of the first documents are included into the group.
 | None
@@ -306,14 +306,14 @@ Documents that qualify for inclusion in the group are ranked based on the query 
 || doc | 
 This is a grouping tag.
 
-Each `doc` tag contains information about the found document.
+Each `doc` tag contains information about a found document.
 
 Depending on the [docs-in-group](post-request.md#post-docs-in-group) parameter value, each group can contain from one to three `doc` grouping tags.
 
 | `id`: Unique ID of the found document.
 ||
-|| url | Unique ID of the found document | None ||
-|| domain | Domain hosting the found document | None ||
+|| url | URL of the found document. | None ||
+|| domain | Domain hosting the found document. | None ||
 || title | 
 Title of the found document.
 
@@ -321,16 +321,16 @@ Words included in the search query are highlighted with the `hlword` tag.
 | None
 ||
 || headline | 
-This is an optional tag that stands for a document annotation.
+Optional. Document annotation.
 
 It is generated using the `meta` HTML tag with the `name` attribute set to `description`.
 | None
 ||
 || modtime | 
-Date and time of document update in the following format:
+Document update date and time in the following format:
 
 ```no-highlight
-<year><month><day>Т<hour><minute><second>
+<year><month><day>T<hour><minute><second>
 ```
 
 {% note warning %}
@@ -341,19 +341,19 @@ This tag is optional and may be missing in some cases.
 
 | None 
 ||
-|| size | Size of the found document, in bytes | None ||
-|| charset | Encoding of the found document | None ||
-|| passages | Grouping tag with a list of document passages | None ||
+|| size | Size of the found document, in bytes. | None ||
+|| charset | Encoding of the found document. | None ||
+|| passages | Grouping tag with a list of document's passages. | None ||
 || passage | 
-Passage with a document annotation.
+Passage with annotation to the document.
 
 Words included in the search query are highlighted with the `hlword` tag.
 
-The maximum number of passages provided in a single `passages` tag depends on the `maxpassages` parameter value of the search query.
+The maximum number of passages provided in a single `passages` tag depends on the search query's `maxpassages` value.
 | None
 ||
-|| mime-type | Document type according to [RFC2046](http://tools.ietf.org/html/rfc2046) | None ||
-|| properties | Grouping tag with document properties | None ||
+|| mime-type | Document type according to [RFC2046](http://tools.ietf.org/html/rfc2046). | None ||
+|| properties | Grouping tag with document properties. | None ||
 || _PassagesType | 
 Passage type. The possible values are:
 
@@ -363,18 +363,20 @@ Passage type. The possible values are:
 | None
 ||
 || lang | 
-This is an optional tag
+Optional.
 
 It determines the document language.
 
 | None
 ||
-|| saved-copy-url | URL of the saved document copy | None ||
+|| saved-copy-url | URL of the saved document copy. | None ||
 |#
 
 #### See also {#see-also}
 
 * [{#T}](./get-request.md)
 * [{#T}](./post-request.md)
+* [{#T}](../operations/web-search-sync.md)
+* [{#T}](../operations/web-search.md)
 * [{#T}](../operations/searching.md)
 * [{#T}](./web-search.md)

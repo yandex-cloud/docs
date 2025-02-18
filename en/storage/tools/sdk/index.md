@@ -7,7 +7,7 @@ description: In this tutorial, you will learn which SDKs you can use to access t
 
 {{ objstorage-name }} enables you to use the SDKs designed to access the S3 API:
 
-* [AWS SDK for Java v.1.x](../aws-sdk-java.md)
+* [AWS SDK for Java](../aws-sdk-java.md)
 * [AWS SDK for JavaScript](../aws-sdk-js.md)
 * [AWS SDK for Python (boto)](../boto.md)
 * [AWS SDK for .NET](../aws-sdk-net.md)

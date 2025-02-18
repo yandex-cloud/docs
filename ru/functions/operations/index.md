@@ -14,6 +14,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](function/version-list.md)
 * [{#T}](function/function-info.md)
 * [{#T}](function/version-info.md)
+* [Настроить параметры сервиса метаданных](function/metadata-options.md)
 
 ## Управление правами доступа к функции {#function-access-rights}
 

@@ -7,7 +7,7 @@ description: Follow this guide to create a {{ MY }} cluster and connect to it.
 
 To get started with the service:
 * [Create a database cluster](#cluster-create).
-* [Connect to the DB](#connect) .
+* [Connect to the DB](#connect).
 
 
 ## Getting started {#before-you-begin}

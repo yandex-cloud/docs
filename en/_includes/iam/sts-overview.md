@@ -14,6 +14,8 @@ To set up access permissions for the key, you need an [access policy](../../stor
 
 {% include [sts-sa-scope-note](sts-sa-scope-note.md) %}
 
+{% include [sts-sa-access-backets-list](sts-sa-access-backets-list.md) %}
+
 {% include [sts-object-acl-note](sts-object-acl-note.md) %}
 
 This means you can, for instance, provide different users with temporary permissions to read and write objects to different [prefixes (folders)](../../storage/concepts/object.md#folder) of the same bucket. To solve this task using static keys, you would need to create a dedicated service account for each user, while the number of service accounts in the cloud is [limited](../../iam/concepts/limits.md#iam-quotas).
@@ -36,6 +38,7 @@ You cannot revoke a temporary key. However, you can [delete](../../iam/operation
 This will revoke permissions for all temporary access keys created based on the deleted static key.
 
 {% endnote %}
+
 
 #### See also {#see-also}
 

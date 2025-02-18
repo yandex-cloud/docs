@@ -393,6 +393,36 @@ Create test applications and an Ingress resource:
 
      * `ingress.alb.yc.io/use-regex`: Support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path. If the `true` string is provided, the support is enabled. Only applies if the `pathType` parameter is set to `Exact`.
 
+     * `ingress.alb.yc.io/balancing-panic-threshold`: [Panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode) threshold. The mode will be activated if the percentage of healthy endpoints falls below this value. The default value is `0`, which never activates the panic mode.
+
+     * `ingress.alb.yc.io/balancing-locality-aware-routing`: Percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic is evenly distributed between other availability zones. The default value is `0`. [More on locality-aware routing](../../application-load-balancer/concepts/backend-group.md#locality).
+
+     * `ingress.alb.yc.io/autoscale-max-size`: Maximum total number of resource units. By default, this number is unlimited. Make sure the value is more or equal to the number of load balancer availability zones multiplied by the minimum number of resource units per zone. [Learn more about autoscaling settings](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+
+     * `ingress.alb.yc.io/modify-header-request-append`: Adds a string to the request header value. The header and string should be specified in the following format:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-request-append: <name_of_header_to_edit>=<string>
+       ```
+
+     * `ingress.alb.yc.io/modify-header-request-replace`: Replaces the request header value. The header and its new value should be specified in the following format:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-request-replace: <name_of_header_to_edit>=<new_header_value>
+       ```
+
+     * `ingress.alb.yc.io/modify-header-request-rename`: Renames the request header. The header and its new name should be specified in the following format:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-request-rename: <name_of_header_to_edit>=<new_header_name>
+       ```
+
+     * `ingress.alb.yc.io/modify-header-request-remove`: Removes the request header. The header to remove should be specified in the following format:
+
+       ```yaml
+       ingress.alb.yc.io/modify-header-request-remove: <name_of_header_to_delete>=true
+       ```
+
      {% endcut %}
 
      If you use several Ingress controllers, create an [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md) resource for each of them. In the `Ingress` configuration, specify the `IngressClass` you need in the `spec.ingressClassName` field.
@@ -624,7 +654,7 @@ Create test applications and an Ingress resource:
 
      * `ingress.alb.yc.io/internal-alb-subnet`: Subnet to host the load balancer. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
      * `ingress.alb.yc.io/protocol`: Connection protocol used between the load balancer and backends:
-       * `http`: HTTP/1.1, default
+       * `http`: HTTP/1.1. Default
        * `http2`: HTTP/2
        * `grpc`: gRPC
      * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.

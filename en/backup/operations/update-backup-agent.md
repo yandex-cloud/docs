@@ -5,7 +5,7 @@ description: Follow this guide to update the {{ backup-name }} agent on a VM.
 
 # Updating the {{ backup-full-name }} agent on a VM
 
-In some situations, you may need to update your {{ backup-name }} agent to ensure reliable automatic backups of {{ compute-full-name }} [VMs](../../compute/concepts/vm.md).
+In some situations, you may need to update your [{{ backup-name }} agent](../concepts/agent.md) to ensure reliable automatic backups of {{ compute-full-name }} [VMs](../../compute/concepts/vm.md).
 
 For example, a situation like that may arise during a technical update on the [backup provider's](../concepts/index.md#providers) side.
 

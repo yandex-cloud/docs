@@ -29,7 +29,9 @@ items:
             href: operations/mobile.md
       - name: API v2
         items:
-          - name: Performing search queries
+          - name: Performing search queries in synchronous mode
+            href: operations/web-search-sync.md
+          - name: Performing search queries in deferred mode
             href: operations/web-search.md
           - name: Mobile search results
             href: operations/v2-mobile.md

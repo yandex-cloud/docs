@@ -66,7 +66,7 @@ To customize your dashboard, add your first regression chart:
    - In the **{{ ui-key.yacloud.load-testing.field_chart-name }}** field, specify the regression chart name.
    - In the **{{ ui-key.yc-ui-datasphere.common.description }}** field, give a description of the regression (optional).
    - From the **{{ ui-key.yacloud.load-testing.field_test-data-type }}** drop-down list, select the **{{ ui-key.yacloud.load-testing.value_cumulative-quantiles-chart-type }}** option.
-1. In the **{{ ui-key.yacloud.load-testing.label_quantiles }}** list, mark the values to add to the chart and specify, for each of them, the condition imposed on the value (optional).
+1. In the **{{ ui-key.yacloud.load-testing.label_quantile }}** list, mark the values to add to the chart and specify, for each of them, the condition imposed on the value (optional).
 1. In the **{{ ui-key.yacloud.load-testing.label_test-rules-section }}** section, specify a name common to the tests you want to include in the selection (optional). The test name serves as a filter: if you do not specify it, all your tests will be included in the selection.
 1. You can also filter the tests using labels. To do this, click **{{ ui-key.yacloud.load-testing.button_add-tag }}** in the **{{ ui-key.yacloud.load-testing.label_test-tags }}** field and select a label and its value.
    You must specify labels for at least one of your tests.

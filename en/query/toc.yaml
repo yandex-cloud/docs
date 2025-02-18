@@ -99,9 +99,9 @@ items:
         href: tutorials/datalens.md
       - name: Processing {{ at-name }} events
         href: tutorials/audit-trails.md
-      - name: Processing files with billing details
+      - name: Processing files with usage details in {{ billing-name }}
         href: tutorials/billing.md
-      - name: Analyzing data with Jupyter
+      - name: Analyzing data with {{ jlab }}
         href: tutorials/jupyter.md
       - name: Automating tasks using {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md

@@ -12,7 +12,7 @@ Make sure that:
 
 - VM instance {#vm}
 
-  * The VM is created from a [supported image](../../backup/concepts/vm-connection.md#os) or (if the {{ backup-name }} agent is installed manually ) [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#self-install) the VM's operating system.
+  * The VM is created from a [supported image](../../backup/concepts/vm-connection.md#os) or (if the {{ backup-name }} agent is installed manually) [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#self-install) the VM's operating system.
   * Service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
   * [Security group](../../vpc/concepts/security-groups.md) is [correctly](../../backup/concepts/vm-connection.md#vm-network-access) configured for the VM.
 
@@ -95,6 +95,6 @@ Make sure that:
 * [Network access for your VM](../../backup/concepts/vm-connection.md#vm-network-access) is enabled.
 * The PowerShell execution policies allow scripts. If they do not, allow scripts and restart PowerShell. For more information, see the [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
-#### How to update a {{ backup-name }} backup agent on a VM? {#update-backup-agent}
+#### How do I update the {{ backup-name }} agent on a VM? {#update-backup-agent}
 
-See [How to update a {{ backup-name }} backup agent on a VM](../../backup/operations/update-backup-agent.md).
+See this guide: [Updating the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md).

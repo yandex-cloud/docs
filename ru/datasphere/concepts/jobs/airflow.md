@@ -6,7 +6,7 @@
 
 ## Регулярный запуск заданий {#airflow-dag}
 
-Чтобы реализовать регулярный запуск заданий, при [создании](../../../managed-airflow/operations/cluster-create.md) кластера {{ AF }} в разделе **{{ ui-key.yacloud.airflow.cluster.overview.section_dependencies }}** укажите **{{ ui-key.yacloud.airflow.title_pip-packages }}** — **DataSphere Jobs: datasphere**. Чтобы кластер {{ AF }} мог работать с заданиями {{ ml-platform-name }}, добавьте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) кластера в проект {{ ml-platform-name }} с [ролью](../../security/index.md) не ниже `Developer`.
+Чтобы реализовать регулярный запуск заданий, при [создании](../../../managed-airflow/operations/cluster-create.md) кластера {{ AF }} в разделе **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** укажите **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** — **DataSphere Jobs: datasphere**. Чтобы кластер {{ AF }} мог работать с заданиями {{ ml-platform-name }}, добавьте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) кластера в проект {{ ml-platform-name }} с [ролью](../../security/index.md) не ниже `Developer`.
 
 Чтобы управлять DAG-файлом через интерфейс веб-сервиса {{ AF }}, [сохраните](../../../managed-airflow/operations/upload-dags.md) его в бакет {{ objstorage-full-name }}.
 

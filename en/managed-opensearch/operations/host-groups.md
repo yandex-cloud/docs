@@ -552,7 +552,7 @@ To create a host group:
 
         For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
-    1. To update the configuration of аn `{{ OS }}` host group, edit the parameters of the required `node_groups` section in the `opensearch` section:
+    1. To update the configuration of the `{{ OS }}` host group, edit the parameters of the required `node_groups` section under `opensearch`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -580,7 +580,7 @@ To create a host group:
         * `assign_public_ip`: Public access to the host, `true` or `false`.
         * `roles`: `DATA` and `MANAGER` host roles.
 
-    1. To update the configuration of а `Dashboards` host group, edit the `dashboards` section parameters:
+    1. To update the configuration of the `Dashboards` host group, edit the `dashboards` section parameters:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {

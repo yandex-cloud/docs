@@ -31,6 +31,8 @@ items:
             href: operations/container-info.md
           - name: Получить информацию о ревизии контейнера
             href: operations/revision-info.md
+          - name: Настроить параметры сервиса метаданных
+            href: operations/metadata-options.md
       - name: Управление правами доступа к контейнеру
         items:
           - name: Сделать контейнер публичным

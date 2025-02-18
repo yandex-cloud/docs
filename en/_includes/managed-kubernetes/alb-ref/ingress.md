@@ -94,8 +94,16 @@ annotations:
   ingress.alb.yc.io/modify-header-response-replace: <string>
   ingress.alb.yc.io/modify-header-response-rename: <string>
   ingress.alb.yc.io/modify-header-response-remove: <string>
+  ingress.alb.yc.io/modify-header-request-append: <string>
+  ingress.alb.yc.io/modify-header-request-replace: <string>
+  ingress.alb.yc.io/modify-header-request-rename: <string>
+  ingress.alb.yc.io/modify-header-request-remove: <string>
   ingress.alb.yc.io/security-profile-id: <string>
   ingress.alb.yc.io/use-regex: <string>
+  ingress.alb.yc.io/balancing-panic-threshold: <string>
+  ingress.alb.yc.io/balancing-locality-aware-routing: <string>
+  ingress.alb.yc.io/autoscale-max-size: <string>
+  ingress.alb.yc.io/autoscale-min-zone-size: <string>
 ```
 
 #|
@@ -171,9 +179,9 @@ You can provide the following annotations for a `ObjectMeta` object:
 
   Connection protocol for the load balancer and backends described in `Ingress`:
 
-   * `http`: HTTP/1.1, default
-   * `http2`: HTTP/2
-   * `grpc`: gRPC
+  * `http`: HTTP/1.1, default
+  * `http2`: HTTP/2
+  * `grpc`: gRPC
 
 * **ingress.alb.yc.io/group-settings-name** {#annot-group-settings-name}
 
@@ -187,7 +195,7 @@ You can provide the following annotations for a `ObjectMeta` object:
 
   Annotation does not apply to routes specified by a single `Ingress` resource.
 
-  Specify an integer in the annotation value. Default value: `0`.
+  Specify an integer in the annotation value. The default value is `0`.
 
 * **ingress.alb.yc.io/transport-security** {#annot-transport-security}
 
@@ -314,6 +322,55 @@ You can provide the following annotations for a `ObjectMeta` object:
 
   Where `<key>` is the name of the header to remove.
 
+* **ingress.alb.yc.io/modify-header-request-append** {#annot-modify-header-request-append}
+
+  Adds a string to the request header value. The header and string should be specified in the following format:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-request-append: <key>=<value>
+  ```
+
+  Where:
+
+    * `<key>`: Name of the header to modify.
+    * `<value>`: String to be added to the header value.
+
+* **ingress.alb.yc.io/modify-header-request-replace** {#annot-modify-header-request-replace}
+
+  Replaces the request header value. The header and its new value should be specified in the following format:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-request-replace: <key>=<value>
+  ```
+
+  Where:
+
+    * `<key>`: Name of the header to modify.
+    * `<value>`: New header value.
+
+* **ingress.alb.yc.io/modify-header-request-rename** {#annot-modify-header-request-rename}
+
+  Renames the request header. The header and its new name should be specified in the following format:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-request-rename: <key>=<value>
+  ```
+
+  Where:
+
+    * `<key>`: Name of the header to modify.
+    * `<value>`: New header value.
+
+* **ingress.alb.yc.io/modify-header-request-remove** {#annot-modify-header-request-remove}
+
+  Removes the request header. The header to remove should be specified in the following format:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-request-remove: <key>=true
+  ```
+
+  Where `<key>` is the name of the header to remove.
+
 * **ingress.alb.yc.io/security-profile-id** {#annot-security-profile-id}
 
   Includes support for [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md) that allows you to get protected against DDoS attacks and bots, plus enable [WAF](../../../smartwebsecurity/concepts/waf.md) and [limit the load](../../../smartwebsecurity/concepts/arl.md) on the resource you are protecting.
@@ -326,6 +383,32 @@ You can provide the following annotations for a `ObjectMeta` object:
 
   Enables support for [RE2](https://github.com/google/re2/wiki/Syntax) regular expressions when matching the request path if the `true` string is provided. Only applies if the `pathType` parameter is set to `Exact`.
 
+* **ingress.alb.yc.io/balancing-panic-threshold** {#annot-panic-threshold}
+
+  Sets a [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode) threshold. The mode will be activated if the percentage of healthy endpoints falls below this value.
+
+  The default value is `0`, which never activates the panic mode.
+
+* **ingress.alb.yc.io/balancing-locality-aware-routing** {#annot-locality}
+
+   Sets the percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic is evenly distributed between other availability zones.
+
+   The default value is `0`.
+
+   [More on locality-aware routing](../../../application-load-balancer/concepts/backend-group.md#locality).
+
+* **ingress.alb.yc.io/autoscale-max-size** {#annot-autoscale-max-size}
+
+  Sets the maximum total number of resource units. By default, this number is unlimited. Make sure the value is more or equal to the number of load balancer availability zones multiplied by the minimum number of resource units per zone. 
+  
+  [Learn more about the autoscaling settings here](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+
+* **ingress.alb.yc.io/autoscale-min-zone-size** {#annot-autoscale-min-zone-size}
+
+  Sets the minimum number of resource units per availability zone. The minimum and default value is `2`. 
+  
+  [Learn more about the autoscaling settings here](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+
 ## IngressSpec {#spec}
 
 ```yaml
@@ -336,11 +419,14 @@ tls:
 rules:
   - <IngressRule>
   - ...
+defaultBackend:
+  - <IngressBackend>
+  - ...
 ```
 
 #|
 || **Field**           | **Value or type** | **Description** ||
-|| `ingressClassName` | `string`             | Name of the the [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource your `Ingress` resource refers to.
+|| `ingressClassName` | `string`             | Name of the [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource the `Ingress` resource belongs to.
 
 `IngressClass` is required to route traffic within a single application using multiple Ingress controllers. If you do not use the `ingressClassName` parameter but use multiple Ingress controllers, create an `IngressClass` resource to apply by default. ||
 || `tls`              | `[]IngressTLS`       | **Required**.
@@ -351,10 +437,11 @@ If the filed is specified, two types of [listeners](../../../application-load-ba
 If the field is not specified, only HTTP listeners will be created for the load balancer to handle traffic on port 80.
 ||
 
-|| `rules` | `[]IngressRule`  | **Required**.
-[List of rules](#rule) for distribution of incoming traffic among the backends depending on the domain name (`host` field) and requested resource (`http.paths` field).
+|| `rules` | `[]IngressRule`  | [List of rules](#rule) for distribution of incoming traffic among the backends based on domain name (`host` field) and requested resource (`http.paths` field).
 
 In {{ alb-name }}, the rules correspond to HTTP router [virtual hosts](../../../application-load-balancer/concepts/http-router.md#virtual-host).
+
+If no rules are defined, you must specify a [default backend](#default-backend) to redirect traffic to.
 ||
 |#
 
@@ -497,6 +584,59 @@ For the `spec.rules.http.paths` list element, you must specify either a backend 
 
 ||
 |#
+
+### DefaultBackend {#default-backend}
+
+Default backend to redirect traffic to when no [rules](#rule) are set for distribution of ingress traffic among the backends. If the `Ingress` description has no `spec.rules` field, the `spec.defaultBackend` field must be present.
+
+If the domain name and the requested resource mismatch those specified in the rules, traffic will also be redirected to the default backend.
+
+The `spec.defaultBackend` field indicates either a service backend (`service`) or a backend group (`resource`). Populate this field in the same way as [IngressBackend](#backend).
+
+{% cut "`spec.defaultBackend.service` example" %}
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: testapp-ingress-with-default-backend
+  namespace: testapp-ns
+  annotations:
+    ...
+spec:
+  defaultBackend:
+    service:
+      name: testapp-service
+      port:
+        name: http
+```
+
+{% endcut %}
+
+{% cut "`spec.defaultBackend.resource` example" %}
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-1
+  annotations:
+    ...
+spec:
+  defaultBackend:
+    resource:
+      apiGroup: alb.yc.io
+      kind: HttpBackendGroup
+      name: bg-with-bucket
+```
+
+{% endcut %}
+
+{% note warning %}
+
+You can specify only one default backend for a single `Ingress` resource group (with the same [ingress.alb.yc.io/group-name](#annot-group-name) annotation value).
+
+{% endnote %}
 
 ## IngressGroupSettings {#groupsettings}
 

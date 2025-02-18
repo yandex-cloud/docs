@@ -72,15 +72,15 @@ description: Следуя данной инструкции, вы сможете
           zip_filename = "<путь_к_ZIP-архиву>"
         }
 
+        image {
+          url = <путь_к_образу_контейнера>
+        }
+
         mounts {
           mount_point_path = <точка_монтирования>
           ephemeral_disk {
             size_gb = <размер_диска>
           }
-        }
-
-        image {
-          url = <путь_к_образу_контейнера>
         }
       }
       ```
@@ -100,7 +100,7 @@ description: Следуя данной инструкции, вы сможете
   Проверить изменение контейнера и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
   ```bash
-  yc serverless container version get <идентификатор_контейнера>
+  yc serverless container revision get <идентификатор_ревизии_контейнера>
   ```
 
 - API {#api}

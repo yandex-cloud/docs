@@ -18,3 +18,9 @@ See the [example](https://{{ s3-storage-host-doc-files }}/search-api-html-result
 You can get a maximum of 1,000 search results per search query. Depending on the [docs-in-group](post-request.md#post-docs-in-group) attribute value, each result may contain one to three documents. The maximum number of search results pages depends on the number of groups of documents per page, which is defined by the [groups-on-page](post-request.md#post-groups-on-page) attribute. For example, if the `groups-on-page` attribute is set to `10`, a maximum of 100 pages with search results can be generated.
 
 {% endnote %}
+
+#### See also {#see-also}
+
+* [{#T}](../operations/web-search-sync.md)
+* [{#T}](../operations/web-search.md)
+* [{#T}](./web-search.md)

@@ -5445,6 +5445,7 @@ default:
       alb:
         label_max-timeout: Максимальный таймаут, с
       backup:
+        button_attach-instance: Привязать ВМ
         button_attach-instance-submit: Привязать
         label_policies: Политики копирования
       billing:
@@ -6191,19 +6192,14 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Создать кластер
-        cluster:
-          overview:
-            section_dependencies: Зависимости
         field_lockbox: Использовать Lockbox Secret Backend
         section_accesses: Настройки доступа
         section_airflow-configuration: Конфигурация Airflow
-        section_dependencies: Зависимости
         section_scheduler: Конфигурация планировщика
         section_storage: Хранилище DAG-файлов
         section_triggerer: Конфигурация Triggerer
         section_webserver: Конфигурация веб-сервера
         section_workers: Конфигурация воркеров
-        title_pip-packages: Pip-пакеты
       alb:
         button_add-backend: Создать бэкенд
         button_add-discard-rule: Добавить правило отбрасывания логов
@@ -6373,7 +6369,6 @@ default:
         field_backup-scheme: Тип
         field_days-of-week: Дни недели
         field_delete-old-vm: Удалить неактуальную ВМ
-        field_recover-to-vm: Целевая ВМ
         field_repeat-period-type: Создавать копии
         field_time: Время
         field_type-full: Полный
@@ -7844,7 +7839,7 @@ default:
         label_choose-from-bucket: Выбрать из бакета
         label_import-tests-from-overload: Импортировать тесты из Overload
         label_monitoring-report: Мониторинг
-        label_quantiles: Квантили
+        label_quantile: Квантиль
         label_regressions-title: Регрессии
         label_report-export-title: Экспорт отчёта
         label_report-exports-history-title: История экспортов
@@ -8174,6 +8169,7 @@ default:
           section_base: Базовые параметры
           section_configuration: Настройки
           section_database: База данных
+          section_dependencies: Зависимости
           section_disk: Размер хранилища
           section_host: Хосты
           section_network: Сетевые настройки
@@ -8190,6 +8186,7 @@ default:
           section_zookeeper-disk: Размер хранилища ZooKeeper
           section_zookeeper-hosts: Хосты ZooKeeper
           section_zookeeper-resource: Класс хоста ZooKeeper
+          title_pip-packages: Pip-пакеты
           value_maintenance-type-anytime: произвольное
           value_maintenance-type-weekly: по расписанию
         hosts:
@@ -8340,11 +8337,13 @@ default:
         button_create-container: Создать контейнер
         button_deploy-revision: Создать ревизию
         label_args: Аргументы
+        label_aws_v1_http_endpoint: Доступ к метаданным с использованием формата AWS (IMDSv1)
         label_command: Команда
         label_containers: Контейнеры
         label_edit-active-revision: Сделать активной
         label_editor: Редактор
         label_environment: Переменные окружения
+        label_gce_http_endpoint: Доступ к метаданным с использованием формата Google Compute Engine
         label_image-url: URL образа
         label_public-container: Публичный контейнер
         label_runtime-http-server: HTTP-сервер
@@ -8399,9 +8398,11 @@ default:
             field_timeout: Таймаут, c
             label_add-folder: Добавить бакет
             label_async: Асинхронный вызов
+            label_aws_v1_http_endpoint: Доступ к метаданным с использованием формата AWS (IMDSv1)
             label_bucket: Бакет
             label_bucket-prefix: Папка
             label_failed-sa: Назначение для неуспешного результата
+            label_gce_http_endpoint: Доступ к метаданным с использованием формата Google Compute Engine
             label_lockbox-env-key: Переменная окружения
             label_lockbox-secret: Секреты Lockbox
             label_lockbox-secret-id: Идентификатор секрета
@@ -8413,6 +8414,7 @@ default:
             label_readonly: Только чтение
             label_success-sa: Назначение для успешного результата
             label_title: Редактор
+            label_title-additional-parameters: Дополнительные настройки
             label_title-params: Параметры
             label_title-source: Код функции
             label_tries-count: Количество повторных попыток

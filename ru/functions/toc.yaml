@@ -49,6 +49,8 @@ items:
             href: operations/function/function-info.md
           - name: Получить информацию о версии функции
             href: operations/function/version-info.md
+          - name: Настроить параметры сервиса метаданных
+            href: operations/function/metadata-options.md
       - name: Управление правами доступа к функции
         items:
           - name: Сделать функцию публичной

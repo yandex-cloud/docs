@@ -42,7 +42,7 @@ If you deploy a backup of one server to another, the original server's connectio
 
           ```bash
           wget https://storage.yandexcloud.net/backup-distributions/agent_reinit_bms.sh
-          sudo bash bms_agent_reinit.sh -t=<IAM_token>
+          sudo bash agent_reinit_bms.sh -t=<IAM_token>
           ```
 
           Where `-t` is the IAM token you got earlier.

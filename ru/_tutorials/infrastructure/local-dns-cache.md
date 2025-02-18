@@ -92,7 +92,7 @@
 
 - dnsmasq
 
-   [dnsmasq](https://thekelleys.org.uk/dnsmasq/doc.html ) — легковесный и нетребовательный к ресурсам кеширующий DNS-резолвер.
+   [dnsmasq](https://thekelleys.org.uk/dnsmasq/doc.html) — легковесный и нетребовательный к ресурсам кеширующий DNS-резолвер.
 
    1. Установите пакеты `dnsmasq` и `dnsutils`:
 

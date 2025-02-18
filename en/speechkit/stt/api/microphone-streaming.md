@@ -17,7 +17,7 @@ Authentication is performed under a service account using an [API key](../../../
 
 ## Prepare the required data {#preparations}
 
-1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-speechkit-stt }}` role.
+1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-stt }}` role to it.
 1. [Get](../../../iam/operations/api-key/create.md) an API key for the service account and save it.
 
 ## Create an application for streaming speech recognition {#create-an-application}
@@ -46,8 +46,8 @@ Authentication is performed under a service account using an [API key](../../../
 
    1. Use the pip package manager to install the following packages:
 
-      * `grpcio-tools`: For working with the {{speechkit-name}} API.
-      * `PyAudio`: For audio recording.
+      * `grpcio-tools` to work with the {{speechkit-name}} API.
+      * `PyAudio` to record audio.
 
       ```bash
       pip install grpcio-tools PyAudio
@@ -56,7 +56,7 @@ Authentication is performed under a service account using an [API key](../../../
    1. Go to the folder with the {{ yandex-cloud }} API repository, create a folder named `output` and generate the client interface code in it:
 
       ```bash
-      cd <path_to_cloudapi_directory> && \
+      cd <path_to_cloudapi_folder> && \
       mkdir output && \
       python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
          --python_out=output \
@@ -71,7 +71,7 @@ Authentication is performed under a service account using an [API key](../../../
            yandex/cloud/ai/stt/v3/stt.proto
       ```
 
-      As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, will be created in the `output` folder.
+      This will create the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, in the `output` folder.
 
    1. Create a file named `test.py` in the `output` folder and add the following code to it:
 
@@ -94,7 +94,7 @@ Authentication is performed under a service account using an [API key](../../../
       audio = pyaudio.PyAudio()
 
       def gen():
-         # Specify recognition settings.
+         # Specify the recognition settings.
          recognize_options = stt_pb2.StreamingOptions(
             recognition_model=stt_pb2.RecognitionModelOptions(
                audio_format=stt_pb2.AudioFormatOptions(
@@ -127,7 +127,7 @@ Authentication is performed under a service account using an [API key](../../../
          print("recording")
          frames = []
 
-         # Recognize speech in chunks.
+         # Recognize speech in fragments.
          for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
             data = stream.read(CHUNK)
             yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
@@ -150,12 +150,12 @@ Authentication is performed under a service account using an [API key](../../../
       def run(secret):
          # Establish a connection with the server.
          cred = grpc.ssl_channel_credentials()
-         channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+         channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
          stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
          # Send data for recognition.
          it = stub.RecognizeStreaming(gen(), metadata=(
-         # Parameters for authentication with an API key as a service account
+         # Parameters for authentication with an API key as a service account.
             ('authorization', f'Api-Key {secret}'),
          # To authenticate with an IAM token, use the string below:
          #   ('authorization', f'Bearer {secret}'),
@@ -185,7 +185,7 @@ Authentication is performed under a service account using an [API key](../../../
 
       Where:
 
-      * `FORMAT`: Format of the audio stream.
+      * `FORMAT`: Audio stream format.
       * `CHANNELS`: Number of audio channels.
       * `RATE`: Audio stream sampling rate in Hz.
       * `CHUNK`: Recording buffer size. The size is determined based on the number of frames the recorded speech is split into.

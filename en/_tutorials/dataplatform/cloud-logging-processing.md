@@ -55,7 +55,7 @@ done
 * `--json_payload`: Additional message data in JSON format.
 * `--folder-id`: ID of the folder the log group is created in.
 
-{% note info %}
+   {% note info %}
 
    You can leave out the `--group-name`, `--message`, and `--json-payload` flags and specify only the parameter values, e.g., `cloud-logging-group "test_message" '{"request_id": "1234", "host":"test_host"}'`.
 

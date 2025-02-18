@@ -2,11 +2,11 @@
 
 You can manage {{ ydb-name }} resources using the [{{ yandex-cloud }} API](../../api-design-guide/).
 
-The {{ yandex-cloud }} API lets you:
+The {{ yandex-cloud }} API allows you to:
 
 * Manage databases.
 * Manage DB backups.
-* Get information about availability zones, computing resources, and storage group disk types for a Dedicated DB.
+* Get information about availability zones, computing resources, and storage group disk types for a dedicated DB.
 * View the status of asynchronous API operations and cancel them.
 
 With the {{ yandex-cloud }} API and [{{ TF }}](https://www.terraform.io/), you can automate {{ ydb-name }} resource management.

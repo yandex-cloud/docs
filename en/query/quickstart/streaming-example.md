@@ -6,7 +6,7 @@ As a result, you will get the total cost of the first ten rides since the strea
 
 To run this example:
 
-1. [Get things ready](#before-you-begin).
+1. [Get started](#before-you-begin).
 1. [Create a data stream](#create-datastream).
 1. [Set up data generation](#configure-generation).
 1. [Run the query](#run-query).
@@ -20,8 +20,8 @@ To run this example:
 
 ## Get started {#before-you-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). [Create](../../iam/operations/sa/create.md#create-sa) a service account named `datastream-connection-account` with the `ydb.editor` role.
 1. Data streams use {{ ydb-full-name }}. You will need to [create](../../ydb/quickstart.md#serverless) a serverless database.
@@ -42,8 +42,8 @@ Data generation to the `yellow-taxi` stream will start. Use the **{{ ui-key.yql.
 1. Enter the query text in the text field:
 
    ```sql
-   $data =
-   SELECT
+   $data = 
+   SELECT 
        *
    FROM
        bindings.`tutorial-streaming` LIMIT 10;
@@ -52,9 +52,9 @@ Data generation to the `yellow-taxi` stream will start. Use the **{{ ui-key.yql.
        HOP_END() AS time,
        COUNT(*) AS ride_count,
        SUM(total_amount) AS total_amount
-   FROM
+   FROM 
        $data
-   GROUP BY
+   GROUP BY 
        HOP(CAST(tpep_pickup_datetime AS Timestamp), "PT1M", "PT1M", "PT1M");
    ```
 
@@ -70,7 +70,7 @@ Once the query is completed, you will see the result with the total cost (`total
 
 ## See also {#see-also}
 
-* [HOP. Window parameters in streamed data processing](../concepts/stream-processing-windows.md)
+* [HOP. Window parameters in streamed data processing](../concepts/stream-processing-windows.md)
 * [Aggregate functions. YQL syntax]({{ ydb.docs }}/yql/reference/builtins/aggregation)
 * [SQL expression format](../sources-and-sinks/data-streams-binding.md#model-dannyh)
 * [{#T}](../concepts/stream-processing.md)

@@ -38,7 +38,7 @@ keywords:
 
     1. В блоке **{{ ui-key.yacloud.airflow.section_triggerer }}** включите или выключите службу Triggerer. Если служба включена, укажите количество экземпляров и ресурсов.
 
-    1. В блоке **{{ ui-key.yacloud.airflow.section_dependencies }}** удалите или добавьте названия pip- и deb-пакетов.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** удалите или добавьте названия pip- и deb-пакетов.
 
     1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите существующий бакет для хранения DAG-файлов или создайте новый. Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
 

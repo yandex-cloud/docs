@@ -5,4 +5,4 @@ Minimum VM and {{ baremetal-name }} server specification to install and correctl
   * For Linux-based VMs: 2 GB.
   * For Windows-based VMs: 1.2 GB.
 
-* RAM: For backups, 1 GB of RAM is required per 1 TB of backup. The RAM requirement depends on the volume and type of data processed by the agent.
+* RAM: For backups, 1 GB of RAM is required per 1 TB of backup. The RAM requirement depends on the amount and type of data processed by the [{{ backup-name }} agent](../../backup/concepts/agent.md).

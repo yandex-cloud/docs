@@ -20,7 +20,9 @@ To work with {{ objstorage-name }} via the AWS CLI, you can use the following co
 
 ## Installation {#installation}
 
-{% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
+{% include [note-aws-cli-versions](../../_includes/aws-tools/note-aws-cli-versions.md) %}
+
+{% include [install-aws-cli-versions](../../_includes/aws-tools/install-aws-cli-versions.md) %}
 
 ## Setup {#setup}
 
@@ -81,6 +83,8 @@ The `aws configure` command saves the static key and the region.
 
 
 ## Features {#specifics}
+
+{% include [note-aws-cli-versions](../../_includes/aws-tools/note-aws-cli-versions.md) %}
 
 Take note of these AWS CLI features when used with {{ objstorage-name }}:
 

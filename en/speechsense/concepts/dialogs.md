@@ -88,7 +88,7 @@ For each filter, you can specify one or more filtering conditions. These can be 
 * Number: Specify a range of numbers. You can specify either both range boundaries or just one of them. To find a particular value, specify it for both the top and bottom boundaries. The boundary values are included into the filtering range.
 * Boolean: **Yes** or **No**.
 
-You can use multiple filters at the same time to find the dialogs satisfying all the conditions you specified.
+You can use multiple filters at the same time. They will be combined by the logical `AND` operation to find the dialogs satisfying all the conditions that were specified.
 
 ## Related dialogs {#related-dialogs}
 

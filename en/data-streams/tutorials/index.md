@@ -5,6 +5,8 @@ description: Various {{ yds-full-name }} use cases in {{ yandex-cloud }}.
 
 # {{ yds-name }} tutorials
 
+- [{#T}](audit-trails.md)
+- [{#T}](debezium.md)
 - [{#T}](data-ingestion.md)
 - [{#T}](log-ingestion.md)
 - [{#T}](message-broker.md)
