@@ -1,5 +1,5 @@
 ---
-title: Moving a VM to another cloud
+title: Moving a VM to a different cloud
 description: Follow this guide to move a VM to a different cloud.
 ---
 
@@ -47,7 +47,7 @@ While directly moving a VM to a different cloud is not supported, you can create
 
    {% endlist %}
 
-1. Get the ID of the cloud hosting the folder with your image:
+1. Get the ID of the target cloud you plan to move your VM to (next: `<target_cloud_ID>`):
 
    {% list tabs group=instructions %}
 

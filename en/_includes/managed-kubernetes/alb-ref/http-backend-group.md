@@ -1,7 +1,7 @@
-# HttpBackendGroup resource fields
+# `HttpBackendGroup` resource fields
 
 
-`HttpBackendGroup` enables you to combine backends that are {{ k8s }} services and that traffic is distributed to, into a group. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
+`HttpBackendGroup` enables you to combine backends that are {{ k8s }} services and that traffic is distributed to, into a group. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md)uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
 
 You need to add a reference to `HttpBackendGroup` to the [`Ingress` resource](../../../application-load-balancer/k8s-ref/ingress.md).
 
@@ -39,6 +39,10 @@ spec:
           unhealthyThreshold: <int32>
           timeout: <string>
           interval: <string>
+      loadBalancingConfig:
+        balancerMode: <string>
+        panicThreshold: <int64>
+        localityAwareRouting: <int64>
     - ...
 ```
 
@@ -68,7 +72,7 @@ Where:
     
     * `name` (`string`, required)
     
-      Backend name
+      Backend name.
     
     * `weight` (`int64`)
 
@@ -161,3 +165,26 @@ Where:
         The values range from `1s` to `60s`. The `interval` value must be larger than `timeout` by at least one second.
 
       {% include [alb-custom-hc-enabling](../../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}
+
+    * `loadBalancingConfig` (`LoadBalancingConfig`)
+
+      Load balancing settings.
+
+      * `balancerMode` (`string`)
+
+        Mode of traffic distribution between the backend endpoints. Possible values: `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, and `MAGLEV_HASH`. [Learn more about each mode](../../../application-load-balancer/concepts/backend-group.md#balancing-mode).
+
+      * `panicThreshold` (`int64`)
+
+        Percentage of healthy endpoints. If it falls below the specified value, the [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode) will be activated.
+
+        The default value is `0`, which never activates the panic mode.
+
+      * `localityAwareRouting` (`int64`)
+
+        Percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic is evenly distributed between other availability zones. [More on locality-aware routing](../../../application-load-balancer/concepts/backend-group.md#locality).
+
+        The default value is `0`.
+
+
+

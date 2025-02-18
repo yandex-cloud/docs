@@ -31,7 +31,6 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 * [Monitoring sensor readings and event notifications](../iot/monitoring.md)
 * [Emulating multiple IoT devices](../testing/iot-emulation.md)
 
-
 ## Other {#other}
 
 * [Publishing game updates using {{ cdn-full-name }}](../web/prefetch.md)

@@ -1,8 +1,8 @@
 {{ yq-full-name }} is an interactive service for serverless data analysis. It enables you to process information from different storages without the need to create a dedicated cluster. The service supports working with [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
 
-In this tutorial, you will connect to the {{ mch-name }} database and run queries against it from the {{ jlab }}Lab notebook using {{ yq-name }}.
+Follow this tutorial to connect to a {{ mch-name }} database and query it from a {{ jlab }}Lab notebook with the help of {{ yq-name }}.
 
-1. [Prepare your infrastructure](#infra).
+1. [Prepare the infrastructure](#infra).
 1. [Get started in {{ yq-name }}](#yq-begin).
 1. [Create a {{ mch-name }} cluster](#create-cluster).
 1. [Connect to the {{ mch-name }} data](#mch-connect).
@@ -47,11 +47,10 @@ For working with {{ mch-name }} data, the cost of infrastructure support include
 - Management console {#console}
 
   1. Go to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account, e.g., `yq-sa`.
+  1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `yq-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following roles to the service account:
-     * `datasphere.community-project.editor`: To run {{ ml-platform-name }} computations.
      * `yq.editor`: To run {{ yq-name }} queries.
      * `managed-clickhouse.viewer`: To view the contents of the {{ mch-name }} cluster.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -65,6 +64,7 @@ To enable the service account to run a {{ ml-platform-name }} project, add it to
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. In the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab, click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
 1. Select the `yq-sa` account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. Change your service account role to **Editor**.
 
 ### Create an authorized key for a service account {#create-key}
 
@@ -77,7 +77,7 @@ To allow the service account to send {{ yq-name }} queries, create an [authorize
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `yq-sa` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
@@ -133,7 +133,7 @@ Any running {{ mch-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
       * Select the `yq-sa` service account.
       * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** options.
 
-  1. For other settings, you can leave their default values.
+  1. You can leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
@@ -174,7 +174,7 @@ To create a {{ yq-name }} [connection](../../query/concepts/glossary.md#connecti
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Enter a name for the connection, e.g., `clickhouse`.

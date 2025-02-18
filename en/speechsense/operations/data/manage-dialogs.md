@@ -19,7 +19,7 @@ To search for dialogs, you can use [filters](#filters-dialogs) and the [search b
 1. Select the required filter and enter its value.
 1. Click **Apply**.
 
-If you add multiple filters, the dialogs that meet all the specified conditions will be found.
+You can add multiple filters. They will be combined by the logical `AND` operation to find the dialogs satisfying all the conditions that were specified.
 
 ## Finding dialogs by text fragment {#find-dialogs}
 

@@ -19,7 +19,7 @@ DR goes beyond high availability and does not depend on the data center or any o
 
 DR also dictates that all components should be independent to avoid situations where disaster recovery is impossible after a system or human error. Therefore, a cluster spread across multiple sites or any similar implementation are not disaster recovery solutions; they are more likely to fall within the scope of business continuity practices.
 
-vCloud Director and {{ yandex-cloud }} provide a high level of fault tolerance and are similar in their architecture, but {{ yandex-cloud }} does not require additional modules or configuration to use geo-redundancy, the way it is implemented in VMware.
+vCloud Director and {{ yandex-cloud }} provide a high level of fault tolerance and are similar in their architecture, but {{ yandex-cloud }} does not require additional modules or settings to use geo-redundancy, the way it is implemented in VMware.
 
 ## Comparing fault tolerance, disaster recovery, and backup models {#model-comparison}
 
@@ -96,7 +96,7 @@ VMware does not recommend using disk snapshots as the only backup feature; this 
 
 [{{ backup-full-name }}](https://yandex.cloud/ru/services/backup) uses an agent-based backup technology. Backup and recovery is available for [{{ compute-name }}](../../../compute/concepts/vm.md) VMs with [supported operating systems](../../../backup/concepts/vm-connection.md#os).
 
-You can install a backup agent on a VM guest OS when creating a VM or after deploying it manually.
+You can install a [{{ backup-name }} agent](../../../backup/concepts/agent.md) on the guest OS of a VM when creating the VM or after deploying it manually.
 
 The agent is managed using [backup policies](../../../backup/concepts/backup.md#types) that define the backup schedule and type, full or incremental.
 
@@ -168,9 +168,9 @@ Managing disk performance level allows you to avoid _noisy neighbors_ in cases w
    
    You can encrypt VM disks with user-managed encryption keys. By default, all data on HDDs and SSDs is encrypted at the storage database level using a system key. In addition, cloud users can encrypt disks with custom keys. This way you can control access to encrypted data: create custom keys for specific users or tasks or promptly deactivate or delete certain keys.
 
-1. [Local-SSDs](../../../compute/concepts/dedicated-host.md#resource-disks):
+1. [Local-SSD](../../../compute/concepts/dedicated-host.md#resource-disks):
 
-   Local disks on dedicated hosts are provided directly to the VMs residing on such a host. Such disks do not rely on the virtual network for performance. Local disks do not ensure hardware fault tolerance, which means it is the user that becomes responsible for preventing data loss; this can be arranged by using data mirroring (mdadm) or copying data at the application level.
+   Local disks on dedicated hosts are provided directly to VMs residing on such a host. Such disks do not rely on the virtual network for performance. Local disks do not ensure hardware fault tolerance, which means it is the user that becomes responsible for preventing data loss; this can be arranged by using data mirroring (mdadm) or copying data at the application level.
 
 1. [Disk snapshots](../../../compute/concepts/snapshot.md):
 

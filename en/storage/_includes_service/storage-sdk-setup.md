@@ -1,5 +1,18 @@
-1. Go to the `~/.aws/` directory (for macOS and Linux) or `C:\Users\<username>\.aws\` (for Windows).
-1. Create a file named `credentials` with the credentials for {{ objstorage-name }} and copy the following information to it:
+1. Create a directory to store the authentication data in and navigate to it: 
+
+    For macOS and Linux:
+
+    ```bash
+    mkdir ~/.aws/
+    ```
+
+    For Windows:
+
+    ```bash
+    mkdir C:\Users\<username>\.aws\
+    ```
+
+1. In the `.aws` directory, create a file named `credentials` with credentials for {{ objstorage-name }} and copy the following data into it:
 
     ```text
     [default]

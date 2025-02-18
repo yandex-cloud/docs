@@ -55,7 +55,7 @@ To create a token:
     1. Specify the hook parameters:
         * **URL**: `http://localhost:24080/default`.
         * In the **Trigger** section, disable all options except **Merge request events**, **Push events**, and **Repository update events**.
-    1. Click **Add system hook**.
+    1. Click **Add webhook**.
 1. Enable the {{ GL }} setting which allows sending messages to the local network:
     1. Open your {{ GL }} instance.
     1. In the left-hand menu, select **Search or go to** → **Admin Area**.
@@ -95,7 +95,6 @@ ApprovalRules:
         - <group_name>
         ...
       count: <required_number_of_approvals>
-
 BranchGroups:
   - <branch_group_name>:
       branches:
@@ -108,10 +107,11 @@ BranchGroups:
 
 Where:
 
-* `approvers`: Name of the {{ GL }} user who can approve the merge request.
-* `groups`: Name of the {{ GL }} group whose users can approve the merge request.
-* `branches`: Branch with updates that require approval.
-* `rules`: Rule applied to the specified branches.
+* `approvers`: Names of {{ GL }} users who can approve the merge request. The users must be added to the project either directly or via a group. When counting approvals, the merge request author is not counted in. A user on this list who had submitted commits to the merge request and is not the author can also be an approver.
+* `groups`: List of names of {{ GL }} groups whose members can approve the merge request (except for members of the group for which this group is a subgroup).
+* `count`: Integer from `0` to `100`. If set to `0`, the rule is optional.
+* `branches`: List of names of branches whose changes require a review.
+* `rules`: List of rules that apply to the specified branches.
 
 You may use the `*` wildcard symbol instead of usernames and in branch names.
 
@@ -123,7 +123,6 @@ You may use the `*` wildcard symbol instead of usernames and in branch names.
 >       approvers:
 >         - "*"
 >       count: 1
->
 > BranchGroups:
 >   - Master:
 >       branches:

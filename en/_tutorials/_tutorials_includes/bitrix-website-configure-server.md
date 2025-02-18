@@ -9,12 +9,18 @@ To configure a server for 1C-Bitrix:
 
 1. Install the required software:
 
+   {% note info %}
+
+   The below install commands are for Ubuntu. For other distributions, use the relevant commands of your packet manager.
+
+   {% endnote %}
+
    ```bash
    sudo apt-get update
    sudo apt-get install -y apache2 libapache2-mod-php php-gd php-mbstring php-mysql
    ```
 
-1. Go to the project's working directory and download the 1C-Bitrix: Site Management distribution:
+1. Go to the project's working folder and download the 1C-Bitrix: Site Management distribution:
 
    ```bash
    cd /var/www/html/
@@ -28,7 +34,7 @@ To configure a server for 1C-Bitrix:
    sudo rm -f index.html business_encode.tar.gz
    ```
 
-1. Make the `www-data` user the owner of the project's working directory:
+1. Make the `www-data` user the owner of the project's working folder:
 
    ```bash
    sudo chown -R www-data:www-data /var/www/html
@@ -59,15 +65,15 @@ To configure a server for 1C-Bitrix:
    sudo nano /etc/php/8.1/apache2/php.ini
    ```
 
-   | Previously | Now |
+   Previously | Now
    :--- | :---
-   | `short_open_tag = Off` | `short_open_tag = On` |
-   | `memory_limit = 128M` | `memory_limit = 256M` |
-   | `;date.timezone =` | `date.timezone = Europe/Moscow` |
-   | `;opcache.revalidate_freq =2` | `opcache.revalidate_freq =0` |
-   | `;session.save_path = "/var/lib/php/sessions"` | `session.save_path = "/var/lib/php/sessions"` |
+   `short_open_tag = Off` | `short_open_tag = On`
+   `memory_limit = 128M` | `memory_limit = 256M`
+   `;date.timezone =` | `date.timezone = Europe/Moscow`
+   `;opcache.revalidate_freq =2` | `opcache.revalidate_freq =0`
+   `;session.save_path = "/var/lib/php/sessions"` | `session.save_path = "/var/lib/php/sessions"`
 
-   The `php.ini` file path depends on the PHP version installed. The example shows the path for version `8.1`. For version `8.0`, enter `/etc/php/8.0/apache2/php.ini`, for version`8.2`, enter `/etc/php/8.2/apache2/php.ini`, and so on.
+   The `php.ini` file path depends on the PHP version installed. The example shows the path for version `8.1`. For `8.0`, enter `/etc/php/8.0/apache2/php.ini`; for `8.2`, `/etc/php/8.2/apache2/php.ini`, etc.
 
    {% note tip %}
 
@@ -82,7 +88,7 @@ To configure a server for 1C-Bitrix:
       sudo nano /etc/apache2/sites-enabled/000-default.conf
       ```
 
-   1. Add the following section after the `DocumentRoot /var/www/html` line and save the changes:
+   1. After the `DocumentRoot /var/www/html` line, add the following section and save the changes:
 
       ```html
       <Directory /var/www/html>

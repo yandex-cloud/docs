@@ -111,6 +111,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](postgresql-to-opensearch.md)
 * [{#T}](opensearch-saml-keycloak.md)
+* [{#T}](opensearch-yandex-lemmer.md)
 
 
 ## {{ PG }} {#postgresql}
@@ -167,6 +168,14 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](data-processing-to-data-processing.md)
 * [{#T}](metastore-import.md)
 
+
+## {{ yq-full-name }} {#query}
+
+* [{#T}](audit-log-processing.md)
+* [{#T}](cloud-logging-processing.md)
+* [{#T}](debezium-yq.md)
+* [{#T}](jupyter-yq.md)
+* [{#T}](billing-detail-files-processing.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
 

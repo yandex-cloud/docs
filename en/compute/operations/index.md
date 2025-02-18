@@ -58,6 +58,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-control/attach-network-interface.md)
 * [{#T}](vm-control/detach-network-interface.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
+* [{#T}](vm-control/vm-transferring-public-ip.md)
 * [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)

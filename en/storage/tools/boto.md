@@ -17,6 +17,14 @@ description: In this tutorial, you will learn about boto3 and boto, how to insta
 
 ## Installation {#installation}
 
+{% include [note-boto-versions](../../_includes/aws-tools/note-boto-versions.md) %}
+
+To install boto3 version 1.35.99, run the following command in the terminal:
+
+```bash
+pip3 install boto3==1.35.99
+```
+
 {% include [install-boto](../../_includes/aws-tools/install-boto.md)%}
 
 ## Setup {#setup}
@@ -59,7 +67,7 @@ description: In this tutorial, you will learn about boto3 and boto, how to insta
 
 - {{ sf-full-name }} {#functions}
 
-  For an example, see this [video conversion guide](../../functions/tutorials/video-converting-queue.md).
+  For an example, see this [video conversion guide](../tutorials/video-converting-queue.md).
 
 {% endlist %}
 

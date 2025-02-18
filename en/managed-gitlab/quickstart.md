@@ -34,6 +34,14 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
       {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
+  1. [Configure](operations/configure-security-group.md) the default security group for access to the {{ mgl-name }} instance.
+
+      {% note warning %}
+
+      The security group's setup determines the {{ mgl-name }} instance performance and availability.
+
+      {% endnote %}
+
 {% endlist %}
 
 ## Create an instance {#instance-create}
@@ -62,7 +70,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
    * View issues and merge requests by group.
    * View analytics on group's activities.
 
-   For more information, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/user/group/).
+   For more information, see the relevant [{{ GL }} documentation](https://docs.gitlab.com/ee/user/group/).
 
 1. [Create an empty project](https://docs.gitlab.com/ee/user/project/) to host the repository.
 1. [Create users and add](operations/create-user.md) them to a group or project with the `Maintainer` or `Owner` role.
@@ -162,7 +170,7 @@ To start working with a local copy of your repository using the account you crea
 
    {% endcut %}
 
-1. Go to the directory containing the repository:
+1. Go to the repository folder:
 
    ```bash
    cd <project_name>

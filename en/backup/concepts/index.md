@@ -4,7 +4,7 @@
 
 {% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 VM and {{ baremetal-name }} server backups are application-consistent: they save not only the data on disks but also the data already submitted but not yet fully written to the disk. This allows you to resume applications that were running at the time of the backup directly after recovering a VM or {{ baremetal-name }} server from the backup. This is important for VMs and servers forming a part of data storage systems, such as when a DBMS is running on the VM or {{ baremetal-name }} server.
 

@@ -35,7 +35,7 @@ Upload your image file to {{ objstorage-name }} and get a link to it:
 
 1. If you do not have a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-name }} yet, [create](../../../storage/operations/buckets/create.md) one with restricted access.
 1. Upload the image to your bucket, for example, [using the management console](../../../storage/operations/objects/upload.md), [AWS CLI](../../../storage/tools/aws-cli.md), or [WinSCP](../../../storage/tools/winscp.md). Within the {{ objstorage-name }} context, the uploaded image is called an _object_.
-1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ compute-name }}.
+1. [Get](../../../storage/operations/objects/link-for-download.md) a signed [link](../../../storage/concepts/pre-signed-urls.md) to download the image from the bucket. Use this link when creating an image in {{ compute-name }}.
 
 ## Creating an image in {{ compute-name }} {#create-image}
 
@@ -120,7 +120,7 @@ Create a new image from the link you got in {{ objstorage-name }}:
         terraform plan
         ```
 
-       If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+       If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. Run this command:
 
@@ -130,7 +130,7 @@ Create a new image from the link you got in {{ objstorage-name }}:
 
      1. Confirm creating the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

@@ -222,7 +222,7 @@ items:
         href: tutorials/data-from-yandex-query-visualization.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
-      - name: Backing up a VM with Hystax Acura Backup
+      - name: VM backups using Hystax Acura
         href: tutorials/hystax-backup.md
       - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
         href: tutorials/object-storage-cloudberry.md
@@ -260,6 +260,12 @@ items:
         href: tutorials/yq-federative-queries.md
       - name: Recognizing text in image archives in {{ vision-name }}
         href: tutorials/archive-from-vision-to-object-storage.md
+      - name: Converting a video to a GIF in Python
+        href: tutorials/video-converting-queue.md
+      - name: Automating tasks using {{ maf-short-name }}
+        href: tutorials/airflow-auto-tasks.md
+      - name: Processing files with usage details in {{ billing-name }}
+        href: tutorials/billing.md
   - name: Concepts
     items:
       - name: Overview
@@ -326,7 +332,7 @@ items:
         items:
           - name: All SDKs
             href: tools/sdk/index.md
-          - name: AWS SDK for Java v.1.x
+          - name: AWS SDK for Java
             href: tools/aws-sdk-java.md
           - name: AWS SDK for JavaScript
             href: tools/aws-sdk-js.md

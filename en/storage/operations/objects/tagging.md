@@ -13,7 +13,59 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command to change object labels in a bucket:
+
+      ```bash
+      yc storage s3api put-object-tagging --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE    | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | my-bucket        | b1g5dk66rc1u******** | 53687091200 | STANDARD              | 2024-12-17 07:17:04 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. In the terminal, run this command that overwrites any existing object labels:
+
+      ```bash
+      yc storage s3api put-object-tagging \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID> \
+        --tagging TagSet=[{Key=<label_key>,Value=<label_value>},{Key=<label_key>,Value=<label_value>}]
+      ```
+
+      Where:
+      * `--bucket`: Bucket name.
+      * `--key`: Bucket object [key](../../concepts/object.md#key).
+      * `--version-id`: Object [version](../../concepts/versioning.md). This is an optional parameter.
+      * `--tagging`: Array of object labels, where:
+        * `Key`: Label key, the `string` type.
+        * `Value`: Label value, the `string` type.
+
+      Result:
+
+      ```text
+      request_id: ac9066e5********
+      ```
+
+- AWS CLI {#aws-cli}
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -77,7 +129,60 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command to view object labels in a bucket:
+
+      ```bash
+      yc storage s3api get-object-tagging --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE    | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | my-bucket        | b1g5dk66rc1u******** | 53687091200 | STANDARD              | 2024-12-17 07:17:04 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Get information about object labels:
+
+      ```bash
+      yc storage s3api get-object-tagging \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID>
+      ```
+
+      Where:
+      * `--bucket`: Bucket name.
+      * `--key`: Bucket object [key](../../concepts/object.md#key).
+      * `--version-id`: Object [version](../../concepts/versioning.md). This is an optional parameter.
+
+      Result:
+
+      ```text
+      request_id: 2defc7b2********
+      tag_set:
+        - key: key-for-my-object-2
+          value: second-value
+        - key: key-for-my-object-1
+          value: first-value
+      ```
+
+- AWS CLI {#aws-cli}
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -122,7 +227,55 @@ An [object label](../../concepts/tags.md) is a key-value pair used for logical o
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View the description of the CLI command to delete object labels in a bucket:
+
+      ```bash
+      yc storage s3api delete-object-tagging --help
+      ```
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE    | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | my-bucket        | b1g5dk66rc1u******** | 53687091200 | STANDARD              | 2024-12-17 07:17:04 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+  1. Delete object labels in a bucket:
+
+      ```bash
+      yc storage s3api delete-object-tagging \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID>
+      ```
+
+      Where:
+      * `--bucket`: Bucket name.
+      * `--key`: Bucket object [key](../../concepts/object.md#key).
+      * `--version-id`: Object [version](../../concepts/versioning.md). This is an optional parameter.
+
+      Result:
+
+      ```text
+      request_id: 1131dfc4********
+      ```
+
+- AWS CLI {#aws-cli}
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 

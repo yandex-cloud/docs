@@ -38,7 +38,7 @@ After creating a cluster, you can change its basic and advanced settings.
 
     1. Under **{{ ui-key.yacloud.airflow.section_triggerer }}**, enable or disable the `Triggerer` service. If it is enabled, specify the number of instances and resources.
 
-    1. Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, delete or add names of pip and deb packages.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, delete or add names of pip and deb packages.
 
     1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select an existing bucket to store DAG files or create a new one. Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
 

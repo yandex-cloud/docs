@@ -12,7 +12,7 @@ Each file storage resides in an availability zone where it is replicated for dat
 
 A storage is attached to a VM through [Filesystem in Userspace](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) (FUSE) as a [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html) device without a direct link to the host file system.
 
-By default, file storages have a zero [quota](limits.md#compute-quotas). To get your [quotas]({{ link-console-quotas }}) increased, contact [support](../../support/overview.md).
+File storages are subject to [technical restrictions on reads and writes](storage-read-write.md), as well as {{ compute-name }} [quotas](limits.md#compute-quotas) and [limits](limits.md#compute-limits-disks). By default, file storages have a zero quota. To get your [quotas]({{ link-console-quotas }}) increased, contact [support](../../support/overview.md).
 
 ## File storage as a {{ yandex-cloud }} resource {#file-storage-as-resource}
 

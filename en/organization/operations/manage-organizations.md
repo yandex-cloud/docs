@@ -21,7 +21,7 @@ Only users with Yandex accounts can create organizations. [Federated users](../.
 
 - {{ cloud-center }} interface {#cloud-center}
 
-  1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) with the user account you are going to use to create a new organization.
+  1. Log in to [{{ cloud-center }}]({{ cloud-center-link }}) account you are going to use to create a new organization.
 
   1. In the top-left corner, next to the name of the current organization, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.form.organization.create.action.create }}**.
 
@@ -67,3 +67,7 @@ Once the organization is created, you become its owner and can manage it.
 {% endlist %}
 
 If there are multiple organizations registered in your account, you can [move](../../resource-manager/operations/cloud/change-organization.md) clouds between them. To move a cloud to a different organization, you need the `{{ roles-cloud-owner }}` [role](../security/index.md#organization-manager-organizations-owner) for the cloud you are transferring and the `{{ roles-organization-owner }}` [role](../../resource-manager/security/index.md#resource-manager-clouds-owner) for the destination organization.
+
+#### See also {#see-also}
+
+* [{#T}](../../billing/operations/change-organization.md)

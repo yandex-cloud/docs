@@ -7,6 +7,40 @@ description: This page presents a list of YC CLI releases and the updates of eac
 
 ## Current version {#latest-release}
 
+### Version 0.142.0 (30/01/25) {#version0.142.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ dataproc-name }} {#dataproc}
+
+* Added the `--environment` parameter to the `yc dataproc cluster create` command for specifying an environment, e.g., `--environment prestable`.
+
+##### {{ iam-name }} {#iam}
+
+* Added the `yc iam refresh-token list` command to get a list of refresh tokens.
+* Added the `yc iam refresh-token revoke` command to revoke refresh tokens.
+
+##### {{ objstorage-name }} {#storage}
+
+* Added commands for reading, editing, and deleting object labels:
+  * `yc storage s3api get-object-tagging`
+  * `yc storage s3api put-object-tagging`
+  * `yc storage s3api delete-object-tagging`
+ 
+##### Managed database services {#managed-db}
+
+**{{ mmg-name }}**
+
+* Added the `--websql-access` parameter to the `yc managed-mongodb cluster create`, `yc managed-mongodb cluster restore`, and `yc managed-mongodb cluster update` commands for setting up access to {{ MG }} via {{ websql-name }}.
+
+* Added the options for restoring a sharded {{ MG }} cluster to the `yc managed-mongodb cluster restore` command.
+
+**{{ mrd-name }}**
+
+* Added the `--backup-retain-period-days` parameter to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, and `yc managed-redis cluster update-config` commands.
+
+## Previous releases {#previous-release}
+
 ### Version 0.141.0 (16/12/24) {#version0.141.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -47,9 +81,6 @@ Added the `--cloud-storage` flag to the `yc managed-greenplum cluster create` co
 ```bash 
 yc managed-greenplum cluster create --cloud-storage enabled=true
 ```
-
-## Previous releases {#previous-releases}
-
 
 ### Version 0.140.0 (29/11/24) {#version0.140.0}
 
@@ -240,9 +271,9 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 ##### {{ backup-name }} {#backup}
 
 * Added the following commands:
-  * `yc backup agent install`: Installing a backup agent and connecting a VM with {{ oslogin }} installed to {{ backup-name }}.
-  * `yc backup agent reinstall`: Re-installing a backup agent for a VM with {{ oslogin }} installed.
-  * `yc backup agent debug-info`: Getting backup agent installation logs for a VM with {{ oslogin }} installed.
+  * `yc backup agent install`: Installing a [{{ backup-name }} agent](../backup/concepts/agent.md) and connecting a VM with {{ oslogin }} to {{ backup-name }}.
+  * `yc backup agent reinstall`: Re-installing a {{ backup-name }} agent for a VM with {{ oslogin }} installed.
+  * `yc backup agent debug-info`: Getting {{ backup-name }} agent installation logs for a VM with {{ oslogin }} installed.
   * `yc backup provider activate`: Activating the service and connecting to a backup provider.
 
 * When running commands, a {{ backup-name }} activation check is now performed on the folder.
@@ -789,7 +820,7 @@ Added the `yc serverless network` command group to manage networks used in serve
 
   * `yc serverless network get-used`: Get information about the network connected to the resources of serverless computing services.
   * `yc serverless network list-used`: Get a list of networks connected to the resources of serverless computing services.
-  * `yc serverless network list-connections`: Get a list of resources of serverless computing services connected to any network in the specified area (network, directory, or cloud).
+  * `yc serverless network list-connections`: Get a list of resources of serverless computing services connected to any network in the specified area (network, folder, cloud).
   * `yc serverless network trigger-used-cleanup`: Initiate an early cleanup of the network from system subnets if it is no longer used in serverless computing services.
 
 ##### {{ iam-name }} {#iam}

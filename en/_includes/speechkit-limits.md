@@ -1,5 +1,5 @@
-
 #### Quotas {#speechkit-quotas}
+
 
 Type of limit | Value
 ----- | -----
@@ -14,11 +14,12 @@ Billable hours of audio per day^1^ | 10,000
 [**Speech synthesis**](../{{ speechkit-slug }}/tts/request.md) |
 Requests per second | 40
 
+
+
 ^1^ The first recognition request triggers the start of the time count.
 
 
 #### Limits {#speechkit-limits}
-
 
 Type of limit | Value
 ----- | -----

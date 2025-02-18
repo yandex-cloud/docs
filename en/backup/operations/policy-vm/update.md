@@ -7,17 +7,17 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 {% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
 
-{% include [baremetal-note-extended](../../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
 
-## Changing basic settings {#update-basic-parameters}
+## Updating basic settings {#update-basic-parameters}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a [backup policy](../../../backup/concepts/policy.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to update and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the backup policy parameters:
 
@@ -192,12 +192,12 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% endcut %}
 
-     For more information about the `yandex_backup_policy` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/backup_policy).
+     For more information about the `yandex_backup_policy` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/backup_policy).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc backup policy get <backup_policy_ID>
@@ -209,25 +209,28 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 {% endlist %}
 
-## Updating a list of VMs and {{ baremetal-name }} servers {#update-vm-list}
+## Updating a list of VMs and {{ baremetal-full-name }} servers {#update-vm-list}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  {% note info %}
-
-  Currently, you can only update the list of VMs linked to a backup policy in the management console. To update the {{ baremetal-name }} server list, use the {{ yandex-cloud }} CLI or API.
-
-  {% endnote %}
-
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Go to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
-  1. Select the backup policy in which you want to edit the list of [VMs](../../../compute/concepts/vm.md).
-  1. Update the list of VMs:
-     * To add a new VM, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.value_vm-recourses }}** under **{{ ui-key.yacloud.backup.button_attach-instance }}**. In the window that opens, select the VM you want to link to the backup policy and click **{{ ui-key.yacloud.backup.button_attach-instance-submit }}**.
-     * To remove a VM, under **{{ ui-key.yacloud.backup.value_vm-recourses }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) next to the VM you want to unlink from the backup policy and select **{{ ui-key.yacloud.backup.action_detach-vm-instance }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+  1. Select the backup policy where you want to edit the list of [VMs](../../../compute/concepts/vm.md) or {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md).
+  1. Edit the list of linked resources:
+     * To link a new VM or {{ baremetal-name }} server, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_billing.backup.button_attach-instance }}** and in the window that opens:
+
+        * Depending on the resource you want to link to the backup policy, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab and select the VM or server from the list.
+
+           If the VM or {{ baremetal-name }} server you want to link to the backup policy is not listed, make sure it is connected to {{ backup-name }}.
+        * Click **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
+     * To unlink a VM or {{ baremetal-name }} server:
+
+        * Depending on the resource you want to unlink from the backup policy, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
+        * In the row with the VM or {{ baremetal-name }} server you want to unlink from the backup policy, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_detach-vm-instance }}** or **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**, respectively.
+        * In the window that opens, confirm this action.
 
 - CLI {#cli}
 
@@ -243,7 +246,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
 
-     To get the {{ baremetal-name }} server IDs, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** from the list of services of the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}). The IDs are specified in the server list in the **{{ ui-key.yacloud.common.id }}** field.
+     {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
 
   1. Update the list of VMs and {{ baremetal-name }} servers in the backup policy.
      * To link a VM or {{ baremetal-name }} server to a backup policy:
@@ -254,14 +257,14 @@ description: In this tutorial, you will learn how to update a backup policy in {
        yc backup policy apply --help
        ```
 
-       Link your VMs or {{ baremetal-name }} servers to the backup policy by specifying their IDs:
+       Link your VMs or {{ baremetal-name }} servers to the backup policy by specifying its ID:
 
        ```bash
        yc backup policy apply <backup_policy_ID> \
          --instance-ids <VM_or_{{ baremetal-name }}_server_IDs>
        ```
 
-       Where `--instance-ids` are the IDs of the VMs or {{ baremetal-name }} servers you need to link to the backup policy. Multiple IDs should be comma-separated.
+       Where `--instance-ids` are the IDs of the VMs or {{ baremetal-name }} servers connected to {{ backup-name }} you need to link to the backup policy. Multiple IDs should be comma-separated.
 
        For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
      * To unlink VMs or {{ baremetal-name }} servers from a backup policy:
@@ -272,7 +275,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
        yc backup policy revoke --help
        ```
 
-       Unlink your VMs or {{ baremetal-name }} servers from the backup policy by specifying their IDs:
+       Unlink your VMs or {{ baremetal-name }} servers from the backup policy by specifying its ID:
 
        ```bash
        yc backup policy revoke <backup_policy_ID> \

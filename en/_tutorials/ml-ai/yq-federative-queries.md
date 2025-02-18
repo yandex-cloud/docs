@@ -4,7 +4,7 @@ Data from these systems can be processed either individually or as part of one c
 
 In this tutorial, you will create three separate data storages: customers, purchased items, and purchase dates. Using a federated query from a notebook cell, you can get data from all the storages at the same time.
 
-1. [Prepare your infrastructure](#infra).
+1. [Prepare the infrastructure](#infra).
 1. [Get started in {{ yq-name }}](#yq-begin).
 1. [Connect to the {{ objstorage-name }} data](#storage-connect).
 1. [Connect to the {{ mch-name }} data](#ch-connect).
@@ -53,11 +53,10 @@ The cost of supporting the infrastructure for running federated queries in this 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account, e.g., `yq-sa`.
+  1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `yq-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following roles to the service account:
-     * `datasphere.community-project.editor`: To run {{ ml-platform-name }} computations.
      * `yq.editor`: To run {{ yq-name }} queries.
      * `storage.viewer`: To view the contents of the {{ objstorage-name }} bucket and objects.
      * `managed-clickhouse.viewer`: To view the contents of the {{ mch-name }} cluster.
@@ -73,6 +72,7 @@ To enable the service account to run a {{ ml-platform-name }} project, add it to
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. In the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab, click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
 1. Select the `yq-sa` account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. Change your service account role to **Editor**.
 
 ### Create an authorized key for a service account {#create-key}
 
@@ -85,7 +85,7 @@ To allow the service account to send {{ yq-name }} queries, create an [authorize
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `yq-sa` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
@@ -131,7 +131,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will contai
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -157,7 +157,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will contai
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Enter a name for the connection, e.g., `storage-connection`.
@@ -174,7 +174,7 @@ The {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) will contai
 
 ### Create a data binding {#create-binding}
 
-A data binding contains information about file formats and locations in the bucket, as well as a list of data fields and their types.
+A data binding contains information about file formats and locations in the bucket and about the list of data fields and their types.
 
 To create a data binding:
 
@@ -183,7 +183,7 @@ To create a data binding:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
   1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
   1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
@@ -245,7 +245,7 @@ Any running {{ mch-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
       * Select the `yq-sa` service account.
       * Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** options.
 
-  1. For other settings, you can leave their default values.
+  1. You can leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
@@ -285,7 +285,7 @@ The {{ mch-name }} table will contain the names of the items.
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Enter a name for the connection, e.g., `clickhouse`.
@@ -300,7 +300,7 @@ The {{ mch-name }} table will contain the names of the items.
 
 {% endlist %}
 
-To check the connection, run a query in the notebook cell, e.g.:
+To check the connection, run a query in the notebook cell. Here is an example:
 
 ```sql
 %yq SELECT * FROM clickhouse.items
@@ -326,7 +326,7 @@ Any running {{ mpg-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
      * Specify the **{{ ui-key.yacloud.mdb.forms.database_field_name }}**, e.g., `db1`.
      * Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** and **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
-  1. For other settings, you can leave their default values.
+  1. You can leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
@@ -364,7 +364,7 @@ The {{ mpg-name }} table will contain the names of the customers.
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Enter a name for the connection, e.g., `postgresql`.
@@ -372,15 +372,15 @@ The {{ mpg-name }} table will contain the names of the customers.
   1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
 
      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select the previously created `postgresql` cluster.
-     * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: `yq-sa`.
-     * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: `db1`.
+     * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: `yq-sa`
+     * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: `db1`
      * Enter **{{ ui-key.yql.yq-connection-form.login.input-label }}** and **{{ ui-key.yql.yq-connection-form.password.input-label }}** you specified when creating the cluster.
 
   1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 {% endlist %}
 
-To check the connection, run a query in the notebook cell, e.g.:
+To check the connection, run a query in the notebook cell. Here is an example:
 
 ```sql
 %yq SELECT * FROM postgresql.persons

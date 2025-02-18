@@ -8,7 +8,7 @@
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 [Download](https://cyberduck.io/download/) the CyberDuck distribution for your OS and run it.
 
@@ -18,17 +18,19 @@
 1. Click **Open Connection**.
 1. Select the **Amazon S3** connection type.
 1. Specify the connection parameters:
-   * **Server**: `{{ s3-storage-host }}`.
-   * **Port**: `443`.
-   * **Access key ID**: Previously obtained ID of the static key.
-   * **Secret access key**: Previously obtained secret key.
+    * **Server**: `{{ s3-storage-host }}`.
+
+      To connect to a particular bucket, specify `<bucket_name>.{{ s3-storage-host }}` in the **Server** field.
+    * **Port**: `443`.
+    * **Access key ID**: Previously obtained ID of the static key.
+    * **Secret access key**: Previously obtained secret key.
 1. Click **Connect**.
 
 Once the connection is established, the previously created bucket will open.
 
 {% note info %}
 
-CyberDuck treats {{ objstorage-name }} as a hierarchical file system. This means that keys for objects uploaded via CyberDuck look like file paths, e.g., `prefix/subprefix/picture.jpg`.
+CyberDuck treats {{ objstorage-name }} as a hierarchical file system. This means that the keys of objects uploaded via CyberDuck will look like file paths, e.g., `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
 
