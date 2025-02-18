@@ -1,0 +1,1 @@
+S3cmd has no support for object [versions](../../storage/concepts/versioning.md). To work with object versions, use the [AWS CLI](../../storage/tools/aws-cli.md).

@@ -337,6 +337,7 @@ default:
   link-sla-greenplum: https://yandex.com/legal/cloud_sla_greenplum/
   link-sla-kafka: https://yandex.com/legal/cloud_sla_kfk/
   link-speechsense-main: https://speechsense.yandex.cloud/
+  link-src-main: https://sourcecraft.dev
   link-support-mail: cloud@support.yandex.ru
   link-tracker: https://tracker.yandex.com/
   link-video-main: https://video.yandex.cloud/
@@ -741,6 +742,8 @@ default:
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPRK: Apache Spark™
+  src-full-name: SourceCraft
+  src-name: SourceCraft
   storage-aws-cli-alias: ycs3
   sts-full-name: Yandex Security Token Service
   sts-host: sts.yandexcloud.net
@@ -5438,6 +5441,7 @@ default:
       alb:
         label_max-timeout: Maximum timeout, sec.
       backup:
+        button_attach-instance: Attach VM
         button_attach-instance-submit: Attach
         label_policies: Backup policies
       billing:
@@ -6184,19 +6188,14 @@ default:
     yacloud:
       airflow:
         button_create-cluster: Create a cluster
-        cluster:
-          overview:
-            section_dependencies: Dependencies
         field_lockbox: Use Lockbox Secret Backend
         section_accesses: Access settings
         section_airflow-configuration: Airflow configuration
-        section_dependencies: Dependencies
         section_scheduler: Scheduler configuration
         section_storage: DAG file storage
         section_triggerer: Triggerer configuration
         section_webserver: Web server configuration
         section_workers: Worker configuration
-        title_pip-packages: Pip packages
       alb:
         button_add-backend: Create backend
         button_add-discard-rule: Add discard rule
@@ -6366,7 +6365,6 @@ default:
         field_backup-scheme: Type
         field_days-of-week: Days of the week
         field_delete-old-vm: Delete outdated VM
-        field_recover-to-vm: Target VM
         field_repeat-period-type: Create backups
         field_time: Time
         field_type-full: Full
@@ -7835,7 +7833,7 @@ default:
         label_choose-from-bucket: Select from bucket
         label_import-tests-from-overload: Import tests from Overload
         label_monitoring-report: Monitoring
-        label_quantiles: Quantiles
+        label_quantile: Quantile
         label_regressions-title: Regressions
         label_report-export-title: Report export
         label_report-exports-history-title: Exports history
@@ -8165,6 +8163,7 @@ default:
           section_base: Basic parameters
           section_configuration: Configuration
           section_database: Database
+          section_dependencies: Dependencies
           section_disk: Size of storage
           section_host: Hosts
           section_network: Network settings
@@ -8181,6 +8180,7 @@ default:
           section_zookeeper-disk: ZooKeeper storage size
           section_zookeeper-hosts: ZooKeeper hosts
           section_zookeeper-resource: ZooKeeper host class
+          title_pip-packages: Pip packages
           value_maintenance-type-anytime: arbitrary
           value_maintenance-type-weekly: by schedule
         hosts:
@@ -8331,11 +8331,13 @@ default:
         button_create-container: Create container
         button_deploy-revision: Create revision
         label_args: Arguments
+        label_aws_v1_http_endpoint: Access metadata using the AWS format (IMDSv1)
         label_command: Command
         label_containers: Containers
         label_edit-active-revision: Make active
         label_editor: Editor
         label_environment: Environment variables
+        label_gce_http_endpoint: Access metadata using the Google Compute Engine format
         label_image-url: Image URL
         label_public-container: Public container
         label_runtime-http-server: HTTP server
@@ -8390,9 +8392,11 @@ default:
             field_timeout: Timeout, sec
             label_add-folder: Add bucket
             label_async: Asynchronous call
+            label_aws_v1_http_endpoint: Access metadata using the AWS format (IMDSv1)
             label_bucket: Bucket
             label_bucket-prefix: Directory
             label_failed-sa: Destination for unsuccessful result
+            label_gce_http_endpoint: Access metadata using the Google Compute Engine format
             label_lockbox-env-key: Environment variable
             label_lockbox-secret: Lockbox secrets
             label_lockbox-secret-id: Secret ID
@@ -8404,6 +8408,7 @@ default:
             label_readonly: Read-only
             label_success-sa: Destination for successful result
             label_title: Editor
+            label_title-additional-parameters: Additional settings
             label_title-params: Parameters
             label_title-source: Function code
             label_tries-count: Number of retries

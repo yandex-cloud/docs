@@ -11,16 +11,19 @@ To delete backups, make sure the folder contains at least one VM or {{ baremetal
 
 {% endnote %}
 
-{% include [baremetal-note-extended](../../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
+
+To delete a backup:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Go to the ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** tab.
-  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the backup, and select **{{ ui-key.yacloud.common.delete }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
+  1. Depending on the resource you want to delete the backup for, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the backup you need to delete and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - CLI {#cli}
@@ -43,7 +46,7 @@ To delete backups, make sure the folder contains at least one VM or {{ baremetal
 
       {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
 
-      To get the {{ baremetal-name }} server ID, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** from the list of services of the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}). The ID is specified in the **{{ ui-key.yacloud.common.id }}** field in the line with the relevant server.
+      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
 
   1. Delete the backup:
 
@@ -62,7 +65,7 @@ To delete backups, make sure the folder contains at least one VM or {{ baremetal
 
 - API {#api}
 
-  To delete a backup, use the [delete](../../backup/api-ref/Backup/delete.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/Delete](../../backup/api-ref/grpc/Backup/delete.md) gRPC API call.
+  Use the [delete](../../backup/api-ref/Backup/delete.md) REST API method for the [Backup](../../backup/api-ref/Backup/index.md) resource or the [BackupService/Delete](../../backup/api-ref/grpc/Backup/delete.md) gRPC API call.
 
 {% endlist %}
 

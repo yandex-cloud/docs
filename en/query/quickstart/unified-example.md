@@ -27,7 +27,7 @@ To run this example:
 
 ## Get started {#before-you-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). [Create](../../iam/operations/sa/create.md#create-sa) a service account named `datastream-connection-account` with the `ydb.editor` role.
@@ -112,7 +112,7 @@ Once the analytical query is complete, you will see the result: distribution of 
 
 Data generation to the `yellow-taxi` stream will start. Use the **{{ ui-key.yql.yq-tutorial.stop-stream.button-label }}** and **{{ ui-key.yql.yq-tutorial.run-stream.button-label }}** buttons to control the data generator.
 
-### Run a query {#stream-run-query}
+### Run the query {#stream-run-query}
 
 1. In the query editor in the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-streaming-query.button-text }}**.
 1. Enter the query text in the text field:

@@ -8,7 +8,7 @@ The example uses the following synthesis parameters:
 * Role: `friendly`
 * Audio format: WAV (default)
 
-Authentication takes place under a Yandex account or a federated account using an [IAM token](../../../iam/concepts/authorization/iam-token.md). Authentication requires the ID of the folder in which the user has the `{{ roles-speechkit-tts }}` role [to work with {{ speechkit-name }}](../../security/index.md). If you use your service account, you do not need to include the folder ID in the request. To learn more about {{ speechkit-name }} API authentication, see [{#T}](../../concepts/auth.md).
+Authentication takes place under a Yandex account or a federated account using an [IAM token](../../../iam/concepts/authorization/iam-token.md). Authentication requires the ID of the folder in which the user has the `{{ roles-speechkit-tts }}` role [to work with {{ speechkit-name }}](../../security/index.md). If using a service account, you do not need to include the folder ID in the request. To learn more about {{ speechkit-name }} API authentication, see [{#T}](../../concepts/auth.md).
 
 {% list tabs group=programming_language %}
 
@@ -19,7 +19,7 @@ Authentication takes place under a Yandex account or a federated account using a
   1. Create the `request.json` file with the following request parameters:
 
     ```json
-    {"text": "Hello! I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!", "hints": [{"voice": "marina"}, {"role": "friendly"}]}
+    {"text": "Hi! I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!", "hints": [{"voice": "marina"}, {"role": "friendly"}]}
     ```
 
     Where:
@@ -37,7 +37,7 @@ Authentication takes place under a Yandex account or a federated account using a
     curl \
       --header "Authorization: Bearer $IAM_TOKEN" \
       --header "x-folder-id: $FOLDER_ID" \
-      --data @request.json https://tts.{{ api-host }}:443/tts/v3/utteranceSynthesis | \
+      --data @request.json https://{{ api-host-sk-tts }}:443/tts/v3/utteranceSynthesis | \
       jq -r  '.result.audioChunk.data' | \
       while read chunk; do base64 -d <<< "$chunk" >> audio.wav; done
     ```

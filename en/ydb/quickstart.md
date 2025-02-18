@@ -5,7 +5,6 @@ description: Follow this guide to create and set up a {{ ydb-name }} database.
 
 # Getting started with {{ ydb-name }}
 
-
 In this tutorial, you will create a [{{ ydb-short-name }}](https://ydb.tech/{{ lang }}) database in {{ yandex-cloud }} and run a simple query to it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command line tools.
 
 You can also work with a {{ ydb-full-name }} DB through:
@@ -38,7 +37,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
 
@@ -108,7 +107,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your DB in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Enter the **{{ ui-key.yacloud.ydb.forms.label_field_name }}** of the DB. The naming requirements are as follows:
 
@@ -160,9 +159,9 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       Where:
 
       * `--resource-preset STR`: Configuration of the node computing resources. You can find the possible values in the **Configuration name** column of the table in [{#T}](concepts/resources.md#resource-presets).
-      * `--storage STR`: Media type and number of [storage groups](concepts/resources.md#storage-groups), in `type=<media_type>,groups=<number_of_storage_groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
+      * `--storage STR`: Media type and number of [storage groups](concepts/resources.md#storage-groups) in `type=<media_type>,groups=<number_of_storage_groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
       * `--public-ip`: Public IP address assignment flag. Without it, you cannot connect to the database you created from the internet.
-      * `--network-name STR`: Name of the cloud network to create the database in. You can specify the network as `default`.
+      * `--network-name STR`: Name of the cloud network to create the database in. You can specify the `default` network.
       * `--async`: Asynchronous DB creation flag.
 
       For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
@@ -240,7 +239,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the desired bucket is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Select the previously created database.
   1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
   1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text.

@@ -15,6 +15,8 @@ You can use filtering to select the dialogs to include in your report. To do thi
 
     You can also use [neuroparameters](../../../speechsense/concepts/reports/neuro-parameters.md) in filters.
 
+    You can use multiple filters at the same time. They will be combined by the logical `AND` operation. As a result, the report will be built based on dialogs that satisfy all the conditions that were specified.
+
 * **Grouping**: Choose how to group data in your report. You can only group by metadata fields, for example:
 
    * By agent, to analyze the performance of each one.

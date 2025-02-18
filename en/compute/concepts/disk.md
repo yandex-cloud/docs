@@ -18,15 +18,17 @@ Disk enable data storage and operate connected to virtual machines. Detaching a 
 
 Each disk is located in one of the [availability zones](../../overview/concepts/geo-scope.md) and [replicated](#backup) within it (unless it is a non-replicated disk) for data protection. Disks are not replicated to other zones.
 
-After creating a disk, you can [change](../operations/disk-control/update.md#change-disk-name) its name and description and [increase](../operations/disk-control/update.md#change-disk-size) the disk size.
+After creating a disk, you can [change](../operations/disk-control/update.md#change-disk-name) its name and description and [increase](../operations/disk-control/update.md#change-disk-size) its size.
 
-## Disks as a {{ yandex-cloud }} resource {#disk-as-resource}
+Disks are subject to [technical restrictions on reads and writes](storage-read-write.md), as well as {{ compute-name }} [quotas](limits.md#compute-quotas) and [limits](limits.md#compute-limits-disks).
 
-Disks are created within folders and inherit their access rights.
+## Disk as a {{ yandex-cloud }} resource {#disk-as-resource}
 
-Disks take up storage space, which incurs additional fees. For more information, see [{#T}](../pricing.md). You specify the disk size when you create it, and this is the storage capacity you will be charged for.
+A disk is created inside a folder and inherits its access permissions.
 
-In case you create a disk from a snapshot or image, its information will contain the ID of its source. The license IDs (`product_ids`) used to calculate the disk usage cost are also inherited from the source.
+Disks take up storage space, which comes at an extra charge. For more information, see [{#T}](../pricing.md). You specify the disk size when you create a new disk. This is exactly the volume you get charged for.
+
+If the disk is created from a snapshot or image, its information will contain the ID of its source. The license IDs (`product_ids`) used to calculate the disk usage cost are also inherited from the source.
 
 ## Disk types {#disks-types}
 
@@ -73,7 +75,7 @@ A VM must have a boot disk attached. You can also attach extra disks to your VM.
 
 {% include [attach-empty-disk](../_includes_service/attach-empty-disk.md) %}
 
-When selecting a disk to attach to a VM, you can specify that the disk should be deleted once you delete the VM. This option is available when you create a VM, reconfigure it, or attach a new disk to it.
+When selecting a disk to attach to your VM, you can specify whether to delete that disk when deleting the VM. This option is available when you create a VM, reconfigure it, or attach a new disk to it.
 
 If a VM had any previously created disks attached, they will be detached when you delete the VM. The data on the disk will be still there, and you will be able to attach the disk to a different VM later.
 

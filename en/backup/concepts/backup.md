@@ -7,7 +7,7 @@ description: In this tutorial, you will learn about backups in {{ backup-name }}
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
-{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 ## Backup types {#types}
 

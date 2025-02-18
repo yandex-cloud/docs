@@ -61,7 +61,7 @@ There are several types of evaluation parameters:
 
    {{ speechsense-name }} has preconfigured tags. These can give you a clue as to whether there was an informal greeting or goodbye, whether the agent thanked the customer for waiting, whether it was the customer's repeat call to support, etc. You can learn more about tags [here](../../../speechsense/concepts/tags.md).
 
-* **{{ yagpt-name }} analysis**: Agent’s performance criteria and customer’s behavioral characteristics during the dialog, such as whether the agent was polite, whether the customer was on the rude side, etc.
+* **{{ yagpt-name }} analysis**: Agent’s performance criteria and customer’s behavioral characteristics during the dialog, such as whether the agent was polite, whether the customer acted in a rude manner, etc.
 * **Neuroparameters**: Reasons, topics, or outcomes of dialogs. You can learn more about neuroparameters [here](neuro-parameters.md).
 
 ### Evaluation parameter weight {#weight}
@@ -77,7 +77,7 @@ You can set different weights for multiple evaluation parameters with the same n
 You can use filtering to select the dialogs to include in your report. To do this, use the following settings:
 
 * **Period**: Time period of the report.
-* **Filters**: Use the same fields as for the parameters.
+* **Filters**: Use the same fields as for the parameters. You can use multiple filters at the same time. They will be combined by the logical `AND` operation As a result, the report will be built based on dialogs that satisfy all the conditions that were specified.
 * **Grouping**: Choose how to group data in your report. You can only group by metadata fields, for example:
 
    * By agent, to analyze the performance of each one.

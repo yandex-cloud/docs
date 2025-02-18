@@ -5,13 +5,9 @@ description: This section describes the specificities and format of text queries
 
 # Text search with API v2
 
-With {{ search-api-name }} v2, you can run queries to the Yandex search database and get a response in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the [parameters](#parameters) specified in your query.
+With {{ search-api-name }} v2, you can run queries to the Yandex search database and get a response in [synchronous](#sync-mode) or [deferred](#async-mode) mode. The search results you get depend on the [parameters](#parameters) specified in your query.
 
-[Queries can be submitted](../operations/web-search.md) by a user or [service account](../../iam/concepts/users/service-accounts.md) with the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user).
-
-In response to a deferred query, {{ search-api-name }} returns an [Operation object](#response-format) containing the operation info: status, ID, call time, etc. 
-
-With the Operation object ID, you can [track](../operations/web-search.md#verify-operation) the query execution status and [get the results](../operations/web-search.md#get-response) once the processing is complete.
+Queries can be submitted by a user or [service account](../../iam/concepts/users/service-accounts.md) with the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user).
 
 Depending on the specified query parameters, you will get the result in [XML](./response.md) or [HTML](./html-response.md) format.
 
@@ -39,7 +35,23 @@ The names of the query body fields are different in [REST API](../api-ref/) and 
 
 {% endlist %}
 
-## Response format {#response-format}
+## Synchronous search mode {#sync-mode}
+
+You can [run](../operations/web-search-sync.md) queries in synchronous mode only using the [gRPC API](../api-ref/grpc/).
+
+In response to a synchronous mode query, depending on the query [parameters](#parameters) you provide, {{ search-api-name }} will return the result in [XML](./response.md) or [HTML](./html-response.md) format. The result is returned in the `rawData` response field as a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) string.
+
+## Deferred (asynchronous) search mode {#async-mode}
+
+You can [run](../operations/web-search.md) queries in deferred mode using the [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). 
+
+In response to a deferred query, {{ search-api-name }} returns an [Operation object](#response-format) containing the operation info: status, ID, call time, etc. 
+
+With the Operation object ID, you can [track](../operations/web-search.md#verify-operation) the query execution status and [get the results](../operations/web-search.md#get-response) once the processing is complete.
+
+Depending on the specified query [parameters](#parameters), you will get the [result](#response-format) in the `response.rawData` response field in [XML](./response.md) or [HTML](./html-response.md) format.
+
+### Response format for asynchronous search {#response-format}
 
 In response to a deferred query, {{ search-api-name }} returns an [Operation object](../../api-design-guide/concepts/operation.md) in the following format:
 
@@ -89,6 +101,7 @@ For more information about the Operation object and its fields, see [{#T}](../..
 
 #### See also {#see-also}
 
+* [{#T}](../operations/web-search-sync.md)
 * [{#T}](../operations/web-search.md)
 * [{#T}](./response.md)
 * [{#T}](../api-ref/authentication.md)

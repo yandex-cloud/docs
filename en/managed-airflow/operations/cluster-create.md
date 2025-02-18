@@ -87,7 +87,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       * (Optional) Triggerer services
 
-  1. (Optional) Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
+  1. (Optional) Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
 
       To specify multiples packages, click **{{ ui-key.yacloud.common.add }}**.
 

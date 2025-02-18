@@ -8,7 +8,7 @@ Creating policies becomes available after you [activate](index.md#providers) {{ 
 
 By default, VMs and {{ baremetal-full-name }} servers in {{ backup-name }} are not linked to any backup policies. To start creating backups, link a [VM](../operations/policy-vm/attach-and-detach-vm.md) or [{{ baremetal-name }} server](../operations/backup-baremetal/backup-baremetal.md#agent-install) to one or more policies.
 
-{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 The backup policy specifies:
 

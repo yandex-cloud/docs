@@ -1,9 +1,9 @@
 ---
-title: How to search in {{ search-api-name }} using API v2
-description: Follow this guide to learn how to use the API v2 interface in {{ search-api-name }} to send search queries and get search results in XML format.
+title: How to search in {{ search-api-full-name }} in deferred mode using API v2
+description: Follow this guide to learn how to use the API v2 interface in {{ search-api-name }} to send search queries and get search results in XML or HTML format in deferred (asynchronous) mode.
 ---
 
-# Performing search queries using API v2
+# Performing search queries in deferred mode using API v2
 
 With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
@@ -13,7 +13,7 @@ With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perf
 
 To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq) utilities, plus [gRPCurl](https://github.com/fullstorydev/grpcurl) if you are going to use [gRPC API](../api-ref/grpc/).
 
-## Prepare your cloud {#initial-setup}
+## Get your cloud ready {#initial-setup}
 
 {% include [prepare-cloud-v2](../../_includes/search-api/prepare-cloud-v2.md) %}
 
@@ -35,7 +35,7 @@ To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://s
 
       {% endcut %}
 
-  1. Run an http query by specifying the IAM token you got earlier:
+  1. Run an http request by specifying the IAM token you got earlier:
 
       ```bash
       curl \
@@ -97,7 +97,7 @@ To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://s
 
 Save the obtained [Operation object](../../api-design-guide/concepts/operation.md) ID (`id` value) for later use.
 
-## Make sure the query was executed successfully {#verify-operation}
+## Make sure the request was executed successfully {#verify-operation}
 
 Wait until {{ search-api-name }} executes the query and generates a response. This may take from five minutes to a few hours.
 
@@ -107,13 +107,13 @@ Make sure the query was executed successfully:
 
 - REST API {#api}
 
-  Run an http query:
+  Run an http request:
 
   ```bash
   curl \
     --request GET \
     --header "Authorization: Bearer <IAM_token>" \
-    https://operation.{{ api-host }}/operations/<query_ID>
+    https://operation.{{ api-host }}/operations/<request_ID>
   ```
 
   Where:
@@ -145,14 +145,14 @@ Make sure the query was executed successfully:
   ```bash
   grpcurl \
     -rpc-header "Authorization: Bearer <IAM_token>" \
-    -d '{"operation_id": "<query_ID>"}' \
+    -d '{"operation_id": "<request_ID>"}' \
     operation.{{ api-host }}:443 yandex.cloud.operation.OperationService/Get
   ```
 
   Where:
 
   * `<IAM_token>`: Previously obtained IAM token.
-  * `<query_ID>`: The Operation object ID you saved at the previous step.
+  * `<request_ID>`: The Operation object ID you saved at the previous step.
 
   Result:
 
@@ -173,7 +173,7 @@ Make sure the query was executed successfully:
 
 {% endlist %}
 
-If the `done` field is set to `true` and the `response` object is present in the output, the query has been completed successfully, so you can move on to the next step. Otherwise, repeat the check later.
+If the `done` field is set to `true` and the `response` object is present in the output, the request has been completed successfully, so you can move on to the next step. Otherwise, repeat the check later.
 
 ## Get a response {#get-response}
 
@@ -189,7 +189,7 @@ After {{ search-api-name }} has successfully processed the query:
       curl \
         --request GET \
         --header "Authorization: Bearer <IAM_token>" \
-        https://operation.{{ api-host }}/operations/<query_ID> \
+        https://operation.{{ api-host }}/operations/<request_ID> \
         > result.json
       ```
 
@@ -198,7 +198,7 @@ After {{ search-api-name }} has successfully processed the query:
       ```bash
       grpcurl \
         -rpc-header "Authorization: Bearer <IAM_token>" \
-        -d '{"operation_id": "<query_ID>"}' \
+        -d '{"operation_id": "<request_ID>"}' \
         operation.{{ api-host }}:443 yandex.cloud.operation.OperationService/Get \
         > result.json
       ```
@@ -235,6 +235,7 @@ After {{ search-api-name }} has successfully processed the query:
 
 #### See also {#see-also}
 
+* [{#T}](./web-search-sync.md)
 * [{#T}](../concepts/web-search.md)
 * [{#T}](../api-ref/authentication.md)
 * [{#T}](../concepts/response.md)

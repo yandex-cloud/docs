@@ -14,7 +14,7 @@ items:
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
       - name: >-
-          Migrating services from a NLB to an L7 ALB for DDoS protection using
+          Migrating services from an NLB to an L7 ALB for DDoS protection using
           {{ sws-name }}
         items:
           - name: Overview
@@ -26,7 +26,7 @@ items:
               security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
           - name: NLB with target resources from a {{ managed-k8s-name }} cluster
             href: security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
-          - name: NLB as target resource for ALB
+          - name: NLB as a target resource for an ALB
             href: security/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
       - name: Terminating TLS connections
         items:
@@ -116,7 +116,7 @@ items:
     items:
       - name: All tutorials
         href: archive/index.md
-      - name: Migrating to {{ yandex-cloud }} using Hystax Acura
+      - name: Migrating data to {{ yandex-cloud }} using Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
@@ -130,7 +130,7 @@ items:
             href: archive/single-node-file-server/terraform.md
       - name: Configuring an SFTP server based on CentOS 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Backing up a VM with Hystax Acura Backup
+      - name: VM backups using Hystax Acura
         href: infrastructure-management/hystax-backup.md
       - name: >-
           Backup to {{ objstorage-name }} using MSP360 Backup (CloudBerry
@@ -138,7 +138,7 @@ items:
         href: archive/object-storage-cloudberry.md
       - name: Backup to {{ objstorage-name }} via Duplicati
         href: archive/object-storage-duplicati.md
-      - name: Backup to {{ objstorage-name }} via Bacula
+      - name: '{{ objstorage-name }} backup with Bacula'
         href: archive/backup-with-bacula.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
@@ -296,7 +296,7 @@ items:
                 href: routing/nat-instance/console.md
               - name: '{{ TF }}'
                 href: routing/nat-instance/terraform.md
-          - name: Installing a Cisco CSR 1000v virtual router
+          - name: Installing the Cisco CSR 1000v virtual router
             href: routing/cisco.md
           - name: Installing a Mikrotik CHR virtual router
             href: routing/mikrotik.md
@@ -730,6 +730,8 @@ items:
           Authenticating a {{ mos-full-name }} cluster in {{ OS }} Dashboards
           using {{ keycloak }}
         href: dataplatform/opensearch-saml-keycloak.md
+      - name: Using the yandex-lemmer plugin in {{ mos-full-name }}
+        href: dataplatform/opensearch-yandex-lemmer.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: '{{ mpg-name }} performance analysis and tuning'
@@ -816,6 +818,16 @@ items:
           Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }}
           using {{ data-transfer-full-name }}
         href: dataplatform/ydb-to-object-storage.md
+      - name: Processing {{ at-name }} events
+        href: dataplatform/audit-log-processing.md
+      - name: Processing {{ cloud-logging-name }} logs
+        href: dataplatform/cloud-logging-processing.md
+      - name: Processing CDC Debezium streams
+        href: dataplatform/debezium-yq.md
+      - name: Analyzing data with {{ jlab }}
+        href: dataplatform/jupyter-yq.md
+      - name: Processing files with usage details in {{ billing-name }}
+        href: dataplatform/billing-detail-files-processing.md
       - name: Entering data into storage systems
         href: dataplatform/data-ingestion.md
       - name: Smart log processing

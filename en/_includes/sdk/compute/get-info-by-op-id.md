@@ -1,0 +1,1 @@
+Use the [API](../../../api-design-guide/concepts/operation.md#monitoring) or [{{ yandex-cloud }} CLI](../../../cli/cli-ref/operation/cli-ref/get.md) for operation status monitoring.

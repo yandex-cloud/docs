@@ -1,8 +1,8 @@
-# Viewing the parameters of disks and partitions in a backup
+# Viewing the parameters of backup disks and partitions
 
 To avoid errors when recovering from a backup, start by comparing the parameters of the disks and partitions of the backup against those of the [VM](../../../compute/concepts/vm.md) or {{ baremetal-full-name }} [server](../../../baremetal/concepts/servers.md).
 
-{% include [baremetal-note-extended](../../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
 
 {% list tabs group=instructions %}
 

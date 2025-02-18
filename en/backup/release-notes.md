@@ -32,7 +32,7 @@ description: This section contains {{ backup-name }} release notes.
 
 ## Q2 2024 {#q2-2024}
 
-* Updated the {{ backup-name }} backup agent.
+* Updated the [{{ backup-name }} agent](concepts/agent.md).
 * Added support for new operating systems:
   * [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts)
   * [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin)

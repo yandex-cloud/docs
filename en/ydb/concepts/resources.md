@@ -8,16 +8,13 @@ sourcePath: overlay/public_talks.md
 
 ## Database {#database}
 
-You can create a [{{ ydb-short-name }} database]({{ ydb.docs }}/concepts/databases#database) in {{ ydb-name }} in a [serverless](../operations/manage-databases.md#create-db-serverless) configuration or with [dedicated servers](../operations/manage-databases.md#create-db-dedicated). For more information about differences between configurations, see [Serverless and dedicated modes](serverless-and-dedicated.md).
+You can create a [{{ ydb-short-name }}]({{ ydb.docs }}/concepts/databases#database) database in {{ ydb-name }} in a serverless configuration or with [dedicated servers](../operations/manage-databases.md#create-db-serverless). For more information about differences between configurations, see [Serverless and dedicated modes](serverless-and-dedicated.md).
 
 ### Serverless database {#serverless}
 
-Computing resources for serverless {{ ydb-short-name }} DBs in {{ ydb-name }} are provided automatically for running DB queries.
-
+Computing resources for serverless {{ ydb-short-name }} DBs in {{ ydb-name }} are provided automatically for running DB queries. 
 
 The payment amount depends on the CPU capacity actually used and the I/O operations required to run a database query. The amount of data stored in the database is paid additionally.
-
-
 
 ### Database on dedicated resources {#resource-presets}
 
@@ -31,7 +28,6 @@ For reliable and stable performance, a database needs multiple slots. A database
 
 In {{ ydb-name }}, the following VM configurations are available:
 
-
 | Platform | Configuration name | Number of vCPUs | Guaranteed vCPU share | RAM, GB |
 | ----- | ----- | ----- | ----- | ----- |
 | **Intel Cascade Lake** | medium | 8 | 100% | 32 |
@@ -40,12 +36,7 @@ In {{ ydb-name }}, the following VM configurations are available:
 | **Intel Cascade Lake** | large | 12 | 100% | 48 |
 | **Intel Cascade Lake** | xlarge | 16 | 100% | 64 |
 
-
-
-
 Databases run on allocated computing resources are paid on an hourly basis. The amount of data storage for the database is paid additionally (see [Storage groups](#storage-groups) below).
-
-
 
 ## Cluster {#cluster}
 

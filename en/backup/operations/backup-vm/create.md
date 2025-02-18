@@ -9,8 +9,6 @@ To create a backup of a VM or {{ baremetal-name }} server, [connect](../../conce
 
 {% include [baremetal-note](../../../_includes/backup/baremetal-note.md) %}
 
-To learn how to create a [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) backup, see [Starting creating a backup](../backup-baremetal/backup-baremetal.md#execute-policy).
-
 {{ backup-name }} automatically creates backups based on the schedule detailed in the policy.
 
 To create an out-of-schedule backup:
@@ -19,20 +17,13 @@ To create an out-of-schedule backup:
 
 - Management console {#console}
 
-  {% note info %}
+  1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Depending on the resource you want to create a backup for, select ![vm](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** or ![bms](../../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}** in the left-hand panel.
+  1. In the row with the required VM or {{ baremetal-name }} server, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
+  1. In the window that opens, select the backup policy for creating the backup and click **{{ ui-key.yacloud.common.create }}**.
 
-  Currently, the management console supports creating backups only for {{ compute-full-name }} VMs. To create an out-of-schedule {{ baremetal-name }} server backup, use the {{ yandex-cloud }} CLI.
-
-  {% endnote %}
-
-  1. In the [management console]({{ link-console-main }}), select a folder to create a backup in.
-  1. In the list of services, select **{{ compute-name }}**.
-  1. Select the VM with the `Running` [status](../../../compute/concepts/vm-statuses.md#list-of-statuses) that you want to back up.
-  1. Go to the **Backups** tab.
-  1. Click **Create backup**.
-  1. In the window that opens, select the backup policy to create the VM backup under and click **Create**.
-
-  The VM backup creation will start.
+  {{ backup-name }} will start creating a backup of your VM or {{ baremetal-name }} server. You can follow the progress in the VM or {{ baremetal-name }} server row in the **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}** field.
 
 - CLI {#cli}
 
@@ -54,7 +45,7 @@ To create an out-of-schedule backup:
 
       {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
 
-      To get the {{ baremetal-name }} server ID, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** from the list of services of the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}). The ID is specified in the **{{ ui-key.yacloud.common.id }}** field in the line with the relevant server.
+      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
 
   1. Create a backup:
 

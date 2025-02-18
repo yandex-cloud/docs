@@ -1,12 +1,14 @@
 ---
-title: AWS SDK for Java v.1.x
-description: In this tutorial, you will learn what the AWS SDK for Java v.1. is, how to install and configure it, and will also see some code snippets.
+title: AWS SDK for Java
+description: In this tutorial, you will learn what the AWS SDK for Java is, how to install and configure it, and will also see some code snippets.
 ---
 
-# AWS SDK for Java v.1.x
+# AWS SDK for Java
 
 
-The [AWS SDK for Java v.1.x](https://aws.amazon.com/ru/sdk-for-java/) is a software development kit for integration with AWS services.
+The [AWS SDK for Java](https://aws.amazon.com/ru/sdk-for-java/) is an {{ objstorage-full-name }}-compatible software development kit for integration with AWS services.
+
+You will use the AWS SDK for Java to create a bucket, load it with objects, clean up its contents, and delete it.
 
 ## Getting started {#before-you-begin}
 
@@ -16,35 +18,78 @@ The [AWS SDK for Java v.1.x](https://aws.amazon.com/ru/sdk-for-java/) is a softw
 
 ## Installation {#installation}
 
-{% include [install-java-sdk](../../_includes/aws-tools/install-java-sdk.md)%}
+{% note warning %}
+
+Starting December 31, 2025, support for the AWS SDK for Java version 1.x will be discontinued. We recommend that you upgrade to the AWS SDK for Java version 2.x to keep receiving new features and security updates.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- AWS SDK v2.x {#sdk-v2}
+
+    {% include [install-java-sdk-v2](../../_includes/aws-tools/install-java-sdk-v2.md) %}
+
+- AWS SDK v1.x {#sdk-v1}
+    
+    {% include [install-java-sdk-v1](../../_includes/aws-tools/install-java-sdk.md) %}
+
+{% endlist %}
 
 ## Setup {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
-## Code snippets {#java-sdk-examples}
+## Updating an endpoint {#adapt-code}
 
-The sample code is located in the `aws-java-sdk/samples/AmazonS3` folder in the SDK distribution archive.
+{% list tabs group=instructions %}
 
-To connect to {{ objstorage-name }}, replace the code in the sample:
+- AWS SDK v2.x {#sdk-v2}
 
-```java
-AmazonS3 s3 = AmazonS3ClientBuilder.standard()
-    .withCredentials(new AWSStaticCredentialsProvider(credentials))
-    .withRegion("us-west-2")
-    .build();
-```
+    1. In the `/src/main/java/org/example` directory, open the `DependencyFactory.java` file and modify the `DependencyFactory` class:
 
-to
+        ```java
+        public class DependencyFactory {
+            private DependencyFactory() {}
+            public static S3Client s3Client() {
+                return S3Client.builder()
+                .endpointOverride(URI.create("https://{{ s3-storage-host }}"))
+                .httpClientBuilder(ApacheHttpClient.builder())
+                .build();
+            }
+        }
+        ```
 
-```java
-AmazonS3 s3 = AmazonS3ClientBuilder.standard()
-    .withCredentials(new AWSStaticCredentialsProvider(credentials))
-    .withEndpointConfiguration(
-        new AmazonS3ClientBuilder.EndpointConfiguration(
-            "{{ s3-storage-host }}","{{ region-id }}"
+    1. [Run the code](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html#get-started-run) as described in the AWS guide.
+
+    See [this repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/s3/src/main/java/com/example/s3) for other examples of using the AWS SDK for Java.
+
+- AWS SDK v1.x {#sdk-v1}
+    
+    In the `aws-java-sdk/samples/AmazonS3` directory, the SDK distribution archive contains the code you need to modify.
+
+    To connect to {{ objstorage-name }}, replace the code in the example:
+
+    ```java
+    AmazonS3 s3 = AmazonS3ClientBuilder.standard()
+        .withCredentials(new AWSStaticCredentialsProvider(credentials))
+        .withRegion("us-west-2")
+        .build();
+    ```
+
+    to
+
+    ```java
+    AmazonS3 s3 = AmazonS3ClientBuilder.standard()
+        .withCredentials(new AWSStaticCredentialsProvider(credentials))
+        .withEndpointConfiguration(
+            new AmazonS3ClientBuilder.EndpointConfiguration(
+                "{{ s3-storage-host }}","{{ region-id }}"
+            )
         )
-    )
-    .build();
-```
+        .build();
+    ```
 
+    See [this repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/s3/src/main/java/aws/example/s3) for other examples of using the AWS SDK for Java.
+
+{% endlist %}

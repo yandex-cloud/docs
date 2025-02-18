@@ -6,7 +6,7 @@ You can use {{ maf-name }} for {{ ds-jobs }} to be [rerun](./fork.md) on a sched
 
 ## Running jobs regularly {#airflow-dag}
 
-To run jobs regularly, specify **{{ ui-key.yacloud.airflow.title_pip-packages }}** — **DataSphere Jobs: datasphere** in the **{{ ui-key.yacloud.airflow.cluster.overview.section_dependencies }}** section when [creating](../../../managed-airflow/operations/cluster-create.md) a {{ AF }} cluster. For your {{ AF }} cluster to work with {{ ml-platform-name }} jobs, add the cluster's [service account](../../../iam/concepts/users/service-accounts.md) to the {{ ml-platform-name }} project with the `Developer` [role](../../security/index.md) or higher.
+To run jobs regularly, specify **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** — **DataSphere Jobs: datasphere** in the **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** section when [creating](../../../managed-airflow/operations/cluster-create.md) a {{ AF }} cluster. For your {{ AF }} cluster to work with {{ ml-platform-name }} jobs, add the cluster's [service account](../../../iam/concepts/users/service-accounts.md) to the {{ ml-platform-name }} project with the `Developer` [role](../../security/index.md) or higher.
 
 To manage a DAG file through the {{ AF }} web service interface, [save](../../../managed-airflow/operations/upload-dags.md) it to the {{ objstorage-full-name }} bucket.
 

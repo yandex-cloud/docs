@@ -1,0 +1,1 @@
+To get the {{ baremetal-name }} server IDs, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** from the list of services of the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}). The IDs are specified in the server list in the **{{ ui-key.yacloud.common.id }}** field.

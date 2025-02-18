@@ -27,6 +27,8 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a Slack bot
         href: tutorials/slack-bot-serverless.md
+      - name: Developing a Telegram bot
+        href: tutorials/telegram-bot-serverless.md
       - name: >-
           Connecting to {{ ydb-short-name }} from a {{ sf-full-name }} function
           in Python
@@ -85,6 +87,8 @@ items:
           Delivering data from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/mkf-ydb-stream.md
+      - name: Saving a {{ yds-name }} data stream in {{ mch-name }}
+        href: tutorials/yds-to-clickhouse.md
       - name: >-
           Delivering data from an {{ yds-name }} queue to {{ mkf-name }} using
           {{ data-transfer-name }}

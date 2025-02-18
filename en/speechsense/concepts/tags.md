@@ -35,6 +35,12 @@ For more info on creating, updating, and deleting tags, see [these guides](../op
 
 To assign tags to a dialog, they need to be activated. Once you create a tag, it gets activated. After activation, {{ speechsense-name }} searches for key phrases in project dialogs and assigns the tag.
 
+{% note info %}
+
+To get analyzed for tagging, dialogs must be 60 days old or less, starting from the current day.
+
+{% endnote %}
+
 For a tag to work correctly, [assign a channel to it](../operations/project/tag/change.md#tag-channel). Depending on the channel, {{ speechsense-name }} looks for keywords in different parts of the dialog:
 
 * **{{ ui-key.yc-ui-talkanalytics.tags.channel.operator-and-client }}**: Whole dialog.
@@ -67,7 +73,7 @@ Every constraint in {{ speechsense-name }} is associated with a particular event
 
 By default, the maximum search area size is set to 1,000 utterances. To further refine the search area, specify the search direction from the event (forward, backward, or both) and the number of utterances to include in the search.
 
-You can add multiple constraints to a single tag. Constraints are combined using the logical AND operation.
+You can add multiple constraints to a single tag. The constraints sum up as per the logical `AND` operator.
 
 ## Dependent tags {#dependent-tags}
 

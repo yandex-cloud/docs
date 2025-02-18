@@ -8,13 +8,19 @@ description: In this tutorial, you will learn about S3cmd, how to install and co
 
 [S3cmd](https://s3tools.org/s3cmd) is a console client (Linux, Mac) for services that support the Amazon S3 HTTP API. The general procedure for running commands can be found in the [official s3cmd documentation](https://s3tools.org/usage).
 
+{% note info %}
+
+{% include [aws-tools-prepare](../../_includes/aws-tools/s3cmd-versioning-info.md) %}
+
+{% endnote %}
+
 ## Getting started {#before-you-begin}
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 To install S3cmd, check out the [installation section](https://github.com/s3tools/s3cmd/blob/master/INSTALL.md) in the S3cmd repository on GitHub.
 
@@ -53,9 +59,10 @@ For the static website hosting control commands to work correctly, manually add 
 website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 ```
 
-## Things to consider {#specifics}
+## Features {#specifics}
 
 - S3cmd treats {{ objstorage-name }} as a hierarchical file system and object keys look like file paths.
+- {% include [aws-tools-prepare](../../_includes/aws-tools/s3cmd-versioning-info.md) %}
 - By default, S3cmd uploads objects to standard storage. To specify the [storage class](../concepts/storage-class.md) when uploading an object, use the `--storage-class` key.
 - By default, when uploading an object, S3cmd can send the additional `X-Amz-Meta-S3cmd-Attrs` header with the attributes of your file (access permissions, file owners, timestamps). The header value is saved in the [metadata](../concepts/object.md#metadata) of the object. You can disable the sending of attributes using the `preserve_attrs = False` parameter in the `~/.s3cfg` configuration file or using the `--no-preserve` key.
 
@@ -106,3 +113,18 @@ s3cmd get s3://bucket/object local_file
 ```bash
 s3cmd del s3://bucket/object
 ```
+
+### Uploading an object with MIME-types specified {#mime-types}
+
+To specify [MIME-types](https://en.wikipedia.org/wiki/Media_type) when uploading an object, use the `put` command with the following flags:
+
+```bash
+s3cmd put \
+  --no-guess-mime-type \
+  --no-mime-magic \
+  --mime-type="application/javascript" \
+  <local_file_path> \
+  s3://<bucket_name>/
+```
+
+Where `--mime-type` is your object's MIME type.

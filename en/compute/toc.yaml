@@ -101,6 +101,8 @@ items:
             href: operations/vm-control/vm-detach-public-ip.md
           - name: Making a VM public IP address static
             href: operations/vm-control/vm-set-static-ip.md
+          - name: Reassigning a public IP address from one VM to another
+            href: operations/vm-control/vm-transferring-public-ip.md
           - name: Updating the VM internal IP address
             href: operations/vm-control/internal-ip-update.md
           - name: Updating a VM
@@ -405,15 +407,15 @@ items:
         href: tutorials/vm-fluent-bit-logging.md
       - name: Building a VM image with infrastructure tools using Packer
         href: tutorials/packer-custom-image.md
-      - name: Migrating to {{ yandex-cloud }} using Hystax Acura
+      - name: Migrating data to {{ yandex-cloud }} using Hystax Acura
         href: tutorials/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: tutorials/hystax-disaster-recovery.md
-      - name: Backing up a VM with Hystax Acura Backup
+      - name: VM backups using Hystax Acura
         href: tutorials/hystax-backup.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
-      - name: Assigning a domain name to a VM with a web server
+      - name: Assigning a domain name to a web server VM
         items:
           - name: Overview
             href: tutorials/bind-domain-vm/index.md
@@ -434,7 +436,7 @@ items:
       - name: Creating a budget trigger that invokes a function to stop a VM
         href: tutorials/serverless-trigger-budget-vm.md
       - name: >-
-          Creating a trigger that invokes a function to stop a VM and send a
+          Creating triggers that invoke a function to stop a VM and send a
           Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: OpenCart online store
@@ -471,7 +473,7 @@ items:
         href: tutorials/ha-regional-glusterfs.md
       - name: Deploying GlusterFS in high performance mode
         href: tutorials/ha-regional-glusterfs-high-performance.md
-      - name: Backing up to {{ objstorage-name }} with Bacula
+      - name: Backup to {{ objstorage-name }} via Bacula
         href: tutorials/backup-with-bacula.md
       - name: Creating an L7 load balancer with DDoS protection
         items:
@@ -1846,7 +1848,7 @@ items:
                     href: instancegroup/api-ref/Operation/cancel.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
-  - name: '{{ at-name }} audit logs'
+  - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
     href: release-notes.md

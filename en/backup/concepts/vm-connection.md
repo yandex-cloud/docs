@@ -2,7 +2,7 @@
 
 If you want to back up your [{{ compute-full-name }}](../../compute/) [instances](../../compute/concepts/vm.md) or [{{ baremetal-name }} servers](../../baremetal/concepts/servers.md) in {{ backup-name }}, you need them connected VM to the service and properly set up.
 
-{% include [baremetal-note-extended](../../_includes/backup/baremetal-note-extended.md) %}
+{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
 
 You can connect the following to {{ backup-name }}:
 * VMs created from [supported {{ marketplace-full-name }} images](#os). The {{ backup-name }} agent is installed automatically on such VMs.
@@ -17,7 +17,7 @@ After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
-You can also link a policy to a virtual machine while creating it. A policy is linked asynchronously after you create and initialize a VM, as well as install and configure a backup agent. This may take up to 10-15 minutes. For more information, see [{#T}](../tutorials/vm-with-backup-policy/index.md).
+A policy can also be linked to a virtual machine when creating it. A policy is linked asynchronously after you create and initialize a VM, as well as install and configure a {{ backup-name }} agent. This may take up to 10-15 minutes. For more information, see [{#T}](../tutorials/vm-with-backup-policy/index.md).
 
 ## VM and {{ baremetal-name }} server specification requirements {#requirements}
 
@@ -87,7 +87,7 @@ You can install the {{ backup-name }} agent yourself on a VM or {{ baremetal-nam
 
 {% endlist %}
 
-If you have issues installing the agent, [contact]({{ link-console-support }}) technical support.
+If you have issues installing the {{ backup-name }} agent, [contact]({{ link-console-support }}) support.
 
 ## Service account {#sa}
 
