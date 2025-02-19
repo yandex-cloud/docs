@@ -14,7 +14,6 @@ The amount of memory allocated to a host also depends on the `maxmemory` configu
 {% endnote %}
 
 
-
 The host class also determines which [disk types](.././storage.md) are available:
 
 * **hm1**: `network-ssd`, `local-ssd`
@@ -23,11 +22,9 @@ The host class also determines which [disk types](.././storage.md) are available
 * **b1**, **b2**, **b3**: `network-ssd`
 
 
-
 The storage space available to the host should be at least twice as large as the selected memory size. For more information on Managed Service for Redis technical and organizational limitations, see [Quotas and limits](../limits.md).
 
 ## Available host classes {#available-flavors}
-
 
 
 Configuration types:
@@ -97,6 +94,3 @@ Configuration types:
 | hm3-c24-m384      | 24             | 384     | 100%                   | 768 - 8184           |
 | hm3-c28-m448      | 28             | 448     | 100%                   | 896 - 8184           |
 | hm3-c32-m512      | 32             | 512     | 100%                   | 1024 - 8184          |
-
-
-

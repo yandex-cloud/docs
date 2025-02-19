@@ -31,7 +31,7 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run the following command:
+      Run this command:
 
       ```bash
       {{ yc-mdb-mg }} host add \
@@ -44,7 +44,7 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
       Command specifics:
 
-      * You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      * You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
       * Possible `type` values: `mongod`, `mongos`, `mongocfg`, or `mongoinfra`. The host type depends on the [sharding type](../concepts/sharding.md#shard-management).
       * In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 
@@ -77,12 +77,104 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * New host settings in the `hostSpecs` parameters.
+            {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Use the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+               --request POST \
+               --header "Authorization: Bearer $IAM_TOKEN" \
+               --header "Content-Type: application/json" \
+               --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/hosts:batchCreate' \
+               --data '{
+                        "hostSpecs": [
+                          {
+                            "zoneId": "<availability_zone>",
+                            "subnetId": "<subnet_ID>",
+                            "assignPublicIp": <public_host_address:_true_or_false>,
+                            "type": "<host_type>",
+                            "shardName": "<shard_name>",
+                            "hidden": <host_visibility:_true_or_false>,
+                            "secondaryDelaySecs": "<lag_in_seconds>",
+                            "priority": "<host_priority_for_assignment_as_master>",
+                            "tags": "<host_labels>"
+                          }
+                        ]
+                      }'
+            ```
+
+            Where `hostSpecs` is an array of new hosts. One array element contains settings for a single host:
+
+            * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+            * `assignPublicIp`: Internet access to the host via a public IP address.
+            * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
+            * `shardName`: Shard name in a sharded cluster.
+            * `hidden`: The host will either be visible or hidden.
+            * `secondaryDelaySecs`: Host's lag behind the master.
+            * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `tags`: Host labels.
+
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+            {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Use the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+               -format json \
+               -import-path ~/cloudapi/ \
+               -import-path ~/cloudapi/third_party/googleapis/ \
+               -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+               -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+               -d '{
+                     "cluster_id": "<cluster_ID>",
+                     "host_specs": [
+                       {
+                         "zone_id": "<availability_zone>",
+                         "subnet_id": "<subnet_ID>",
+                         "assign_public_ip": <public_host_address:_true_or_false>,
+                         "type": "<host_type>",
+                         "shard_name": "<shard_name>",
+                         "hidden": <host_visibility:_true_or_false>,
+                         "secondary_delay_secs": "<lag_in_seconds>",
+                         "priority": "<host_priority_for_assignment_as_master>",
+                         "tags": "<host_labels>"
+                       }
+                     ]
+                  }' \
+               {{ api-host-mdb }}:{{ port-https }} \
+               yandex.cloud.mdb.mongodb.v1.ClusterService.AddHosts
+            ```
+            
+            Where `host_specs` is an array of new hosts. One array element contains settings for a single host:
+
+            * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+            * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+            * `assign_public_ip`: Internet access to the host via a public IP address.
+            * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
+            * `shard_name`: Shard name in a sharded cluster.
+            * `hidden`: The host will either be visible or hidden.
+            * `secondary_delay_secs`: Host's lag behind the master.
+            * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `tags`: Host labels.
+
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    {% endlist %}
 
@@ -127,12 +219,64 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * FQDN or an array of names of the hosts you want to delete, in the `hostNames` parameter.
+            {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Use the [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+               --request POST \
+               --header "Authorization: Bearer $IAM_TOKEN" \
+               --header "Content-Type: application/json" \
+               --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/hosts:batchDelete' \
+               --data '{
+                         "hostNames": [
+                           "<host_name>"
+                         ]
+                       }'
+            ```
+
+            Where `hostNames` is an array with the names of hosts to delete. To find out the host name, [get a list of hosts in the cluster](hosts.md#list-hosts).
+
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+            {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Use the [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+               -format json \
+               -import-path ~/cloudapi/ \
+               -import-path ~/cloudapi/third_party/googleapis/ \
+               -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+               -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+               -d '{
+                     "cluster_id": "<cluster_ID>",
+                     "host_names": [
+                       "<host_name>"
+                     ]
+                   }' \
+               {{ api-host-mdb }}:{{ port-https }} \
+               yandex.cloud.mdb.mongodb.v1.ClusterService.DeleteHosts
+            ```
+
+            Where `host_names` is an array with the names of hosts to delete. To find out the host name, [get a list of hosts in the cluster](hosts.md#list-hosts).
+
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
    {% endlist %}
 

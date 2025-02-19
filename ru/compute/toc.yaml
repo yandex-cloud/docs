@@ -27,6 +27,8 @@ items:
             href: operations/vm-create/create-with-cloud-init-scripts.md
           - name: Создать ВМ с метаданными из переменных окружения
             href: operations/vm-create/create-with-env-variables.md
+          - name: Создать ВМ с доступом к секрету {{ lockbox-full-name }}
+            href: operations/vm-create/create-with-lockbox-secret.md
           - name: Создать ВМ с GPU
             href: operations/vm-create/create-vm-with-gpu.md
           - name: Сделать ВМ прерываемой
@@ -117,6 +119,22 @@ items:
             href: operations/vm-control/vm-access.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
+      - name: Работа с метаданными ВМ
+        items:
+          - name: Настроить параметры сервиса метаданных
+            href: operations/vm-metadata/setup-metadata-service.md
+          - name: Получить метаданные ВМ
+            href: operations/vm-metadata/get-vm-metadata.md
+          - name: Получить идентификационный документ ВМ
+            href: operations/vm-metadata/get-identity-document.md
+          - name: Изменить метаданные ВМ
+            href: operations/vm-metadata/update-vm-metadata.md
+          - name: Создать ВМ с пользовательским скриптом конфигурации
+            href: operations/vm-create/create-with-cloud-init-scripts.md
+          - name: Создать ВМ с метаданными из переменных окружения
+            href: operations/vm-create/create-with-env-variables.md
+          - name: Создать ВМ с доступом к секрету {{ lockbox-full-name }}
+            href: operations/vm-create/create-with-lockbox-secret.md
       - name: Работа на виртуальной машине
         items:
           - name: Подключиться к ВМ по SSH
@@ -573,12 +591,24 @@ items:
             href: concepts/placement-groups.md
           - name: Статусы
             href: concepts/vm-statuses.md
-          - name: Метаданные
-            href: concepts/vm-metadata.md
           - name: Политики обслуживания ВМ
             href: concepts/vm-policies.md
           - name: Сброс паролей на ВМ Windows
             href: concepts/guest-agent.md
+      - name: Метаданные виртуальных машин
+        items:
+          - name: Обзор
+            href: concepts/vm-metadata.md
+          - name: Каталоги метаданных
+            href: concepts/metadata/directories.md
+          - name: Ключи, обрабатываемые в публичных образах
+            href: concepts/metadata/public-image-keys.md
+          - name: Передача метаданных в ВМ
+            href: concepts/metadata/sending-metadata.md
+          - name: Доступ к метаданным
+            href: concepts/metadata/accessing-metadata.md
+          - name: Идентификационный документ
+            href: concepts/metadata/identity-document.md
       - name: Графические ускорители GPU
         href: concepts/gpus.md
       - name: Диски и файловые хранилища

@@ -1,15 +1,13 @@
 ---
-title: Updating a {{ dataproc-name }} cluster
-description: After creating a {{ dataproc-name }} cluster, you can change its basic and advanced settings.
+title: Updating an {{ dataproc-name }} cluster
+description: After creating a {{ dataproc-name }} cluster, you can edit its basic and advanced settings.
 ---
 
 # Updating a {{ dataproc-name }} cluster
 
-After creating a cluster, you can change its basic and advanced settings.
-
+After creating a cluster, you can edit its basic and advanced settings.
 
 You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more information, see [Working with logs](logging.md#disable-logs).
-
 
 You can also move a {{ dataproc-name }} cluster to a different availability zone. The process depends on the cluster type:
 
@@ -76,7 +74,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         This option manages cluster protection against accidental deletion by a user.
 
-        Enabled protection will not prevent a manual connection to the cluster and deletion of data.
+        Even if enabled, one can still connect to the cluster manually and delete the data.
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -94,7 +92,6 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
         {{ yc-dp }} cluster update --help
         ```
 
-    
     1. To edit the [log group](../../logging/concepts/log-group.md) the cluster logs go to, provide the log group ID in the `--log-group-id` parameter:
 
         ```bash
@@ -104,7 +101,6 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
 
         You can request the log group ID with the [list of log groups in the folder](../../logging/operations/list.md).
 
-
     1. To protect a cluster from accidental deletion by a user of your cloud, add the `--deletion-protection` parameter:
 
         ```bash
@@ -112,7 +108,7 @@ You can also move a {{ dataproc-name }} cluster to a different availability zone
            --deletion-protection
         ```
 
-        Enabled protection will not prevent a manual connection to the cluster and deletion of data.
+        Even if enabled, one can still connect to the cluster manually and delete the data.
 
     1. To update [component properties](../concepts/settings-list.md), provide the required properties in the `--property` parameter:
 

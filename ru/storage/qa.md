@@ -153,7 +153,7 @@ yc kms symmetric-key add-access-binding \
 * Если к бакету применена политика доступа без правил, то доступ будет запрещен всем пользователям. Чтобы отключить проверки запросов по политике доступа, [удалите](operations/buckets/policy.md#delete-policy) ее.
 
 
-* Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) или [{{ maf-full-name}}](../managed-airflow/concepts/index.md) и на бакет назначена политика доступа, кластер не сможет записывать данные в бакет или читать данные из бакета без сервисного аккаунта с соответствующей ролью. Подробнее см. в инструкциях для [{{ metastore-name }}](../metadata-hub/operations/metastore/s3-policy-connect.md) и [{{ maf-name }}](../managed-airflow/operations/s3-policy-connect.md).
+* Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) или [{{ maf-full-name}}](../managed-airflow/concepts/index.md) и для бакета настроена политика доступа, кластер не сможет записывать данные в бакет или читать данные из бакета без сервисного аккаунта с соответствующей ролью. Подробнее см. в инструкциях для [{{ metastore-name }}](../metadata-hub/operations/metastore/s3-policy-connect.md) и [{{ maf-name }}](../managed-airflow/operations/s3-policy-connect.md).
 
 
 #### Как получить доступ к {{ objstorage-name }} из облачной сети {{ vpc-name }}? {#qa-from-vpc}

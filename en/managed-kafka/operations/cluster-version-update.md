@@ -8,7 +8,7 @@ description: Follow this guide to upgrade your {{ mkf-name }} cluster.
 
 {% note info %}
 
-Starting February 1, 2025, support for {{ KF }} versions 3.2 and 3.3 will be discontinued, so you will not be able to create a cluster with these versions. We recommend that you upgrade your clusters to version 3.5 beforehand.
+Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 will be discontinued, so you will not be able to create a cluster with these versions. We recommend that you upgrade your clusters to version 3.5 beforehand.
 
 {% endnote %}
 

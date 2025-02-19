@@ -12,7 +12,6 @@ You can also run jobs in the {{ dataproc-name }} cluster from {{ ml-platform-ful
 
 Create and configure a host to run jobs remotely on the {{ dataproc-name }} cluster:
 
-
 {% list tabs %}
 
 - Image version 1.4
@@ -87,9 +86,9 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
   1. To provide network access to the {{ dataproc-name }} cluster hosting the created VM, [set up security groups](../operations/connect.md#configuring-security-groups) for the cluster.
   1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH:
 
-      ```bash
-      ssh -A <username>@<VM_FQDN>
-      ```
+     ```bash
+     ssh -A <username>@<VM_FQDN>
+     ```
 
   1. Copy the repository settings from any of the {{ dataproc-name }} cluster hosts. To do this, run a sequence of commands on the VM you created.
      1. Copy the repository address:
@@ -147,9 +146,7 @@ Create and configure a host to run jobs remotely on the {{ dataproc-name }} clus
      "
      ```
 
-
 {% endlist %}
-
 
 ## Running a job {#spark-submit}
 

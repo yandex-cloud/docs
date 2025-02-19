@@ -2,6 +2,7 @@
 editable: false
 ---
 
+
 # {{ mch-short-name }} pricing policy
 
 In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
@@ -25,6 +26,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
+
 ## What goes into the cost of using {{ mch-short-name }} {#rules}
 
 The {{ mch-name }} usage cost is based on:
@@ -41,6 +43,7 @@ The incoming traffic and the number of requests to the hybrid storage are free-o
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
+
 ### DB host usage {#rules-hosts-uptime}
 
 Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices for the Russia region](#prices).
@@ -54,6 +57,7 @@ In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and w
 {% endnote %}
 
 The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
+
 
 ### Disk space usage {#rules-storage}
 
@@ -88,6 +92,7 @@ You pay for the following:
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+
 ### Example of cluster cost calculation {#example}
 
 The cost of using a cluster with the following parameters for 30 days:
@@ -101,6 +106,7 @@ The cost of using a cluster with the following parameters for 30 days:
 
 
 {% include [usd-hour](../_pricing_examples/managed-clickhouse/usd-hour.md) %}
+
 
 
 
@@ -118,6 +124,7 @@ CVoS discount is only available for certain types of resources. A dash in the re
 
 
 
+
 ## Prices for the Russia region {#prices}
 
 
@@ -131,6 +138,7 @@ All prices below do not include VAT.
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
+
 ### {{ CH }} host computing resources {#prices-clickhouse}
 
 
@@ -140,6 +148,7 @@ All prices below do not include VAT.
 
 
 {% include [usd-host-ch.md](../_pricing/managed-clickhouse/usd-host-ch.md) %}
+
 
 
 ### {{ ZK }} host computing resources {#prices-zookeeper}
@@ -160,6 +169,7 @@ You cannot order {{ ZK }} host resources via CVoS.
 
 
 {% include [usd-host-zoo.md](../_pricing/managed-clickhouse/usd-host-zoo.md) %}
+
 
 
 ### Storage and backups {#prices-storage}

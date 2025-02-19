@@ -16,6 +16,6 @@
 
     * {% include [access-ssh-key](./access-ssh-key.md) %}
 
-Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../../compute/concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей в блоке **{{ ui-key.yacloud.common.metadata }}**. С помощью метаданных вы также можете [установить дополнительное ПО](../../../compute/operations/vm-create/create-with-cloud-init-scripts.md) на ВМ при ее создании.
+Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../../compute/concepts/metadata/sending-metadata.md) данные этих пользователей в блоке **{{ ui-key.yacloud.common.metadata }}**. С помощью метаданных вы также можете [установить дополнительное ПО](../../../compute/operations/vm-create/create-with-cloud-init-scripts.md) на ВМ при ее создании.
 
 {% include [vm-connect-linux](../../vm-connect-linux.md) %}

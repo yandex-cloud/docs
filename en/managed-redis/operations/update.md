@@ -43,7 +43,7 @@ Learn more about other cluster updates:
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -188,7 +188,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster you need.
+    1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable or disable **{{ ui-key.yacloud.redis.field_announce-hostnames }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -201,7 +201,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     To enable or disable the use of FQDNs instead of IP addresses:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
@@ -355,7 +355,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
      
@@ -375,7 +375,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the update cluster CLI command:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -390,7 +390,6 @@ We recommend changing the host class only when the cluster has no active workloa
 
      Result:
 
-     
      ```text
      +-------------+--------------------------------+----------+
      |     ID      |            ZONE IDS            |  MEMORY  |
@@ -405,8 +404,6 @@ We recommend changing the host class only when the cluster has no active workloa
      | ...                                                     |
      +-----------+----------------------------------+----------+
      ```
-
-
 
 
   1. Specify the class in the update cluster command:
@@ -536,7 +533,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 The {{ mrd-name }} cluster is unavailable for about five to seven minutes after changing the host class.
 
-## Increasing storage size {#change-disk-size}
+## Changing the disk type and increasing the storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -548,7 +545,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
 
   
@@ -728,7 +725,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. Configure the available parameters according to the [{{ VLK }} documentation](https://valkey.io/documentation).
@@ -880,7 +877,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster you need.
+  1. Select the cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. Change additional cluster settings:
 
@@ -896,13 +893,13 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help
         ```
 
-    1. Run the following command with a list of settings to update:
+    1. Run the following command with the list of settings to update:
 
         
         ```bash
@@ -1118,7 +1115,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.EnableSharding](../api-ref/Cluster/enableSharding.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.EnableSharding](../api-ref/Cluster/enableSharding.md) method send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -1141,7 +1138,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) call and send a request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1267,7 +1264,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster you need.
+    1. Select the cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 
@@ -1279,7 +1276,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the update cluster CLI command:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help

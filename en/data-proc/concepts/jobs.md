@@ -26,14 +26,13 @@ To successfully run a job:
 
 * Grant access to the required {{ objstorage-name }} buckets for the cluster service account.
 
-   We recommend using at least two buckets:
-   * One with read-only permissions for storing the source data and files required to run the job.
-   * Another one with read and write permissions for storing job run results. Specify it when creating a cluster.
+    We recommend using at least two buckets:
+    * One with read-only permissions for storing the source data and files required to run the job.
+    * Another one with read and write permissions for storing job run results. Specify it when creating a cluster.
 
 * When creating a job, provide all files required for it.
 
 If there are enough computing resources in the cluster, the jobs you created will be running concurrently; otherwise, a job queue will be formed.
-
 
 ## Job logs {#logs}
 

@@ -13,8 +13,8 @@ description: Вы научитесь взаимодействовать с {{ cl
 
 Чтобы начать работать c {{ marketplace-short-name }} {{ cloud-apps-name }} Workload API:
 
-1. [Получите](../../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) IAM-токен для [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), автоматически созданного во время установки приложения и привязанного к [виртуальной машине](../../../../compute/concepts/vm.md), на которой оно зупущено.
-1. [Получите](../../../../compute/concepts/vm-metadata.md#identity-document) идентификатор виртуальной машины, на которой запущено приложение.
+1. [Получите](../../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) IAM-токен для [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), автоматически созданного во время установки приложения и привязанного к [виртуальной машине](../../../../compute/concepts/vm.md), на которой оно запущено.
+1. [Получите](../../../../compute/concepts/metadata/identity-document.md) идентификатор виртуальной машины, на которой запущено приложение.
 
 Чтобы воспользоваться примерами, установите утилиты:
 * [cURL](https://curl.haxx.se) при использовании [REST API](../../../workload/api-ref/).

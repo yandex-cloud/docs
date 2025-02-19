@@ -19,8 +19,6 @@ Subclusters of a single cluster must reside in the same [cloud network](../../vp
 
 Hosts in each subcluster are created with the computing capacity that is consistent with the specified _host class_. For a list of available host classes and their specs, see [Host classes](instance-types.md).
 
-
-
 VMs for cluster hosts can be hosted on:
 
 * _Regular {{ yandex-cloud }} hosts_:
@@ -34,7 +32,6 @@ VMs for cluster hosts can be hosted on:
     This placement option ensures physical isolation of the VMs. A {{ dataproc-name }} cluster using dedicated hosts includes all features of a regular cluster.
 
     For more information about dedicated hosts, see the [{{ compute-full-name }} documentation](../../compute/concepts/dedicated-host.md).
-
 
 For information about network configuration and network access to clusters, see [{#T}](network.md).
 

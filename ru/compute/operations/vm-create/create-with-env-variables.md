@@ -5,63 +5,68 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать виртуальную машину с метаданными из переменных окружения
 
-С помощью [{{ yandex-cloud }} CLI](../../../cli/index.yaml) вы можете создать [виртуальную машину](../../concepts/vm.md), [метаданные](../../concepts/vm-metadata.md) которой содержат значения, заданные в [переменных окружения](https://ru.wikipedia.org/wiki/Переменная_среды). Заданная в ключе `user-data` конфигурация метаданных обрабатывается запущенным на ВМ агентом [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
+С помощью [{{ yandex-cloud }} CLI](../../../cli/index.yaml) вы можете создать [виртуальную машину](../../concepts/vm.md), [метаданные](../../concepts/vm-metadata.md) которой содержат значения, заданные в [переменных окружения](https://ru.wikipedia.org/wiki/Переменная_среды). Переданная в ключе `user-data` конфигурация метаданных обрабатывается запущенным на ВМ агентом [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
 
 В приведенном примере будет создана виртуальная машина под управлением ОС [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) с предустановленным веб-сервером [Nginx](https://nginx.org/). Значения имени локального пользователя и [SSH](../../../glossary/ssh-keygen.md)-ключа при выполнении команды CLI будут переданы в метаданные виртуальной машины подстановкой из переменных `USER_NAME` и `SSH_KEY`, заданных в окружении, в котором выполняется эта команда.
 
+Дополнительно в метаданные виртуальной машины будут переданы две переменные, заданные в секции `data` конфигурации: `var1` со значением `value1` и `var2` со значением `value2`. Эти переменные и их значения будут доступны в [каталоге](../../concepts/metadata/directories.md#dir-user) `user-data` сервиса метаданных изнутри ВМ после ее создания.
+
 Чтобы создать виртуальную машину с метаданными из переменных окружения:
 
-{% list tabs group=instructions %}
+1. Задайте переменные окружения, содержащие имя локального пользователя ВМ и его SSH-ключ, которые будут подставлены в метаданные ВМ при последующем выполнении команды {{ yandex-cloud }} CLI:
 
-- CLI {#cli}
+    ```bash
+    export USER_NAME="<имя_пользователя>"
+    export SSH_KEY="<SSH-ключ>"
+    ```
+1. Создайте файл `metadata.yaml` и поместите в него следующую конфигурацию метаданных создаваемой ВМ:
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+    **metadata.yaml**
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    ```yaml
+    #cloud-config
+    datasource:
+      Ec2:
+        strict_id: false
+      data:
+        var1: value1
+        var2: value2
+    ssh_pwauth: no
+    users:
+    - name: $USER_NAME
+      sudo: 'ALL=(ALL) NOPASSWD:ALL'
+      shell: /bin/bash
+      ssh_authorized_keys:
+      - $SSH_KEY
+    write_files:
+      - path: "/usr/local/etc/startup.sh"
+        permissions: "755"
+        content: |
+          #!/bin/bash
+    
+          apt-get update
+          apt-get install -y nginx
+          service nginx start
+          sed -i -- "s/ nginx/ Yandex Cloud - $$HOSTNAME/" /var/www/html/index.nginx-debian.html
+        defer: true
+    runcmd:
+      - ["/usr/local/etc/startup.sh"]
+    packages:
+      - yq
+    ```
+1. Создайте виртуальную машину:
 
-  1. Задайте переменные окружения, содержащие имя локального пользователя ВМ и его SSH-ключ, которые будут подставлены в метаданные ВМ при последующем выполнении команды {{ yandex-cloud }} CLI:
+    {% list tabs group=instructions %}
 
-      ```bash
-      export USER_NAME="<имя_пользователя>"
-      export SSH_KEY="<SSH-ключ>"
-      ```
+    - CLI {#cli}
 
-  1. Создайте файл `metadata.yaml` и поместите в него следующую конфигурацию метаданных создаваемой ВМ:
+      {% include [cli-install](../../../_includes/cli-install.md) %}
 
-      **metadata.yaml**
-
-      ```yaml
-      #cloud-config
-      datasource:
-        Ec2:
-          strict_id: false
-      ssh_pwauth: no
-      users:
-      - name: $USER_NAME
-        sudo: 'ALL=(ALL) NOPASSWD:ALL'
-        shell: /bin/bash
-        ssh_authorized_keys:
-        - $SSH_KEY
-      write_files:
-        - path: "/usr/local/etc/startup.sh"
-          permissions: "755"
-          content: |
-            #!/bin/bash
-      
-            apt-get update
-            apt-get install -y nginx
-            service nginx start
-            sed -i -- "s/ nginx/ Yandex Cloud - $$HOSTNAME/" /var/www/html/index.nginx-debian.html
-          defer: true
-      runcmd:
-        - ["/usr/local/etc/startup.sh"]
-      ```
-
-  1. Выполните команду:
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
       ```bash
       yc compute instance create \
-        --name <имя_ВМ> \
+        --name my-vm \
         --hostname <имя_хоста> \
         --zone <зона_доступности> \
         --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
@@ -70,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Где:
-      * `--name` — имя создаваемой ВМ.
+      * `--name` — имя создаваемой ВМ. Например: `my-vm`.
       * `--hostname` — имя хоста создаваемой ВМ. Необязательный параметр. Если параметр не задан, в качестве имени хоста будет использовано значение идентификатора ВМ.
       * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться создаваемая ВМ.
       * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) создаваемой ВМ:
@@ -83,18 +88,18 @@ description: Следуя данной инструкции, вы сможете
 
           Обратите внимание, что при выполнении команды CLI для переменной `HOSTNAME` значение не будет подставлено в метаданные. Вместо этого при выполнении команды CLI в конфигурацию `cloud-init` будет передано имя переменной `$HOSTNAME`, а значение имени хоста создаваемой ВМ будет подставлено вместо этой переменной позднее при создании ВМ.
 
-          Для этого в ключе `user-data` переменная `HOSTNAME` задана с двумя символами доллара: `$$HOSTNAME`. Подробнее см. в разделе [{#T}](../../concepts/vm-metadata.md#environment-variables).
+          Для этого в ключе `user-data` переменная `HOSTNAME` задана с двумя символами доллара: `$$HOSTNAME`. Подробнее см. в разделе [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
 
           {% endnote %}
 
-      Результат:
+      {% cut "Результат" %}
 
       ```text
       done (36s)
       id: epd8m0fqvkuu********
       folder_id: b1gt6g8ht345********
       created_at: "2025-01-01T14:24:37Z"
-      name: my-sample-vm
+      name: my-vm
       zone_id: {{ region-id }}-b
       platform_id: standard-v2
       resources:
@@ -136,13 +141,40 @@ description: Следуя данной инструкции, вы сможете
           pci_topology: PCI_TOPOLOGY_V1
       ```
 
-      Другие примеры конфигурации для `user-data` см. в разделе [Примеры](./create-with-cloud-init-scripts.md#examples).
+      {% endcut %}
 
       Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
-{% endlist %}
+    {% endlist %}
+
+1. Сохраните [публичный IP-адрес](../../concepts/network.md#public-ip) созданной виртуальной машины в переменную `EXT_IP`:
+
+    ```bash
+    EXT_IP=$(yc compute instance get my-vm --jq '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
+    ```
+1. Подключитесь к ВМ по SSH:
+
+    ```bash
+    ssh $USER_NAME@$EXT_IP
+    ```
+1. Получите значения переданных ранее в метаданные переменных изнутри ВМ. Для этого в терминале ВМ выполните запросы:
+
+    ```bash
+    export var1=$(curl -sf -H Metadata-Flavor:Google 169.254.169.254/latest/user-data | yq .datasource.data.var1)
+    export var2=$(curl -sf -H Metadata-Flavor:Google 169.254.169.254/latest/user-data | yq .datasource.data.var2)
+    echo $var1 $var2
+    ```
+
+    Результат:
+
+    ```text
+    value1 value2
+    ```
+
+Другие примеры конфигурации для `user-data` см. в разделе [Примеры](./create-with-cloud-init-scripts.md#examples).
 
 #### См. также {#see-also}
 
 * [{#T}](../../concepts/vm-metadata.md)
+* [{#T}](./create-with-lockbox-secret.md)
 * [{#T}](./create-with-cloud-init-scripts.md)

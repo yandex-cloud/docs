@@ -33,3 +33,10 @@
             "MessageId": "fa6bcfb7-6f121e1d-fb3b33aa***-*****"
 }
 ~~~
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/autoscale-monitoring.md).
+* [{#T}](../tutorials/video-converting-queue.md).
+* [{#T}](../tutorials/websocket-app.md).
+* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md).

@@ -23,21 +23,24 @@ Segment hosts have standalone DBMS's (_segments_) deployed on them. They store d
 
 The number of segments is the same for each host. When [expanding a cluster](../operations/hosts/cluster-expand.md), you can increase the number of segments. They will be added to all hosts — both new and existing ones. You cannot add segments to existing hosts without expanding the cluster.
 
-VMs for cluster hosts can be hosted on:
+
+
+{{ mgp-name }} cluster hosts are cloud VMs. Such VMs can reside on:
 
 * _Regular {{ yandex-cloud }} hosts_:
 
     These are physical servers for hosting cluster VMs. They are randomly selected from a pool of available hosts that meet the selected cluster configuration.
 
-
 * _Dedicated {{ yandex-cloud }} hosts_:
 
-    These are physical servers that only host your VMs. VMs on dedicated hosts have all features of regular VMs; additionally, they are physically isolated from other users' VMs.
+    These are physical servers that only host your VMs. VMs on dedicated hosts have all features of regular VMs; additionally, they are physically isolated from other users' VMs and have access to all local disks of the physical server.
 
-    Dedicated hosts are selected from _dedicated host groups_ specified when creating a cluster.
+    Dedicated hosts are selected from _dedicated host groups_ specified when creating a cluster. You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
     For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
 
+
+All {{ mgp-name }} cluster hosts are placed in the same availability zone, `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`.
 
 When creating a cluster, specify:
 

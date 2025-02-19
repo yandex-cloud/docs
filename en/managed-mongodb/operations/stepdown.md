@@ -27,13 +27,62 @@ For more information about selecting a different primary replica, see the [{{ MG
        --name=<cluster_name>
     ```
 
-    You can request the name of the shard primary replica with a [list of cluster hosts](hosts.md#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the name of the shard primary replica with the [list of cluster hosts](hosts.md#list) and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    To switch to a different primary replica, use the [stepdownHosts](../api-ref/Cluster/stepdownHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/StepdownHosts](../api-ref/grpc/Cluster/stepdownHosts.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * ID of the cluster where you want to switch the primary replica in the `clusterId` parameter. To find out the cluster ID, get [a list of clusters in the folder](cluster-list.md#list-clusters).
-    * Name of the current primary replica in the `hostNames` parameter. To find out the name, get a [list of hosts in the cluster](hosts.md#list).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.StepdownHosts](../api-ref/Cluster/stepdownHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>:stepdownHosts' \
+            --data '{
+                     "hostNames": [
+                        "<current_primary_replica_name>"
+                     ]
+                    }'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the shard primary replica, with the [list of cluster hosts](hosts.md#list).
+
+    1. View the [server response](../api-ref/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.StepdownHosts](../api-ref/grpc/Cluster/stepdownHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                 "cluster_id": "<cluster_ID>",
+                 "host_names": [
+                    "<current_primary_replica_name>"
+                 ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mongodb.v1.ClusterService.StepdownHosts
+        ```    
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the name of the shard primary replica, with the [list of cluster hosts](hosts.md#list).
+
+    1. View the [server response](../api-ref/grpc/Cluster/stepdownHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

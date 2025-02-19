@@ -1,0 +1,57 @@
+title: Yandex Cloud Quota Manager
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Концепции
+    href: concepts/index.md
+  - name: Пошаговые инструкции
+    expanded: true
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Посмотреть список сервисов и квот
+        href: operations/list-quotas.md
+      - name: Посмотреть значение квоты
+        href: operations/read-quotas.md
+      - name: Изменить квоты
+        href: operations/set-quotas.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник API
+    expanded: true
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: QuotaLimit
+            items:
+              - name: Overview
+                href: api-ref/grpc/QuotaLimit/index.md
+              - name: Get
+                href: api-ref/grpc/QuotaLimit/get.md
+              - name: List
+                href: api-ref/grpc/QuotaLimit/list.md
+              - name: ListServices
+                href: api-ref/grpc/QuotaLimit/listServices.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: QuotaLimit
+            items:
+              - name: Overview
+                href: api-ref/QuotaLimit/index.md
+              - name: Get
+                href: api-ref/QuotaLimit/get.md
+              - name: List
+                href: api-ref/QuotaLimit/list.md
+              - name: ListServices
+                href: api-ref/QuotaLimit/listServices.md
+  - name: История изменений
+    href: release-notes.md

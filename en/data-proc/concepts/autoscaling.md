@@ -5,13 +5,11 @@ description: In this article, you will learn about autoscaling of subclusters.
 
 # Autoscaling of subclusters
 
-
 {% note info %}
 
 Autoscaling of subclusters is supported for {{ dataproc-full-name }} clusters version 1.4 and higher.
 
 {% endnote %}
-
 
 
 {{ dataproc-full-name }} supports autoscaling of [data processing subclusters](../concepts/index.md) based on metrics received by [{{ monitoring-full-name }}](../../monitoring/concepts/index.md):

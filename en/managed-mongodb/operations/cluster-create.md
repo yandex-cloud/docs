@@ -10,10 +10,8 @@ A {{ MG }} cluster is one or more database hosts between which you can configure
 
 {% note info %}
 
-
 * The number of hosts you can create together with a {{ MG }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
-
 
 {% endnote %}
 
@@ -81,12 +79,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
      * Select an [availability zone](../../overview/concepts/geo-scope.md).
      * Select a [subnet](../../vpc/concepts/network.md#subnet) in the specified availability zone. If there is no subnet, create one.
-     * If the host must be available outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. You cannot change this setting after you create a host.
+     * If the host must be available outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-
-          
+     
      To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
-
 
      By default, hosts are created in different availability zones. Read more about [host management](hosts.md).
   
@@ -124,7 +120,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       {{ yc-mdb-mg }} cluster create --help
       ```
 
-  1. Specify the cluster parameters in the create command (the example below does not list all possible parameters):
+  1. Specify the cluster parameters in the create command (not all parameters are given in the example):
 
       
       ```bash
@@ -134,7 +130,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         --network-name <network_name> \
         --host zone-id=<availability_zone>,`
               `subnet-id=<subnet_ID>,`
-              `assign-public-ip=<public_access> \
+              `assign-public-ip=<public_access_to_host>,`
+              `hidden=<hide_host>,`
+              `secondary-delay-secs=<replica_lag_in_seconds>,`
+              `priority=<host_priority> \
         --mongod-resource-preset <host_class> \
         --user name=<username>,password=<user_password> \
         --database name=<DB_name> \
@@ -156,12 +155,15 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
+         * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
+         * `secondary-delay-secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
+         * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
 
       * `--mongod-disk-type`: Disk type.
 
 
       * `--performance-diagnostics`: Enables cluster performance diagnostics, `true` or `false`.
-      * `--deletion-protection`: Cluster deletion protection.
+      * `--deletion-protection`: Protection of the cluster, its databases, and users against accidental deletion. Even if enabled, one can still connect manually and delete the database content.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -192,7 +194,6 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      Here is an example of the configuration file structure:
 
      
-     
      ```hcl
      resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
        name                = "<cluster_name>"
@@ -215,6 +216,11 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          zone_id          = "<availability_zone>"
          subnet_id        = "<subnet_ID>"
          assign_public_ip = <public_access>
+         host_parameters {
+           hidden               = <hide_host>
+           secondary_delay_secs = <replica_lag_in_seconds>
+           priority             = <host_priority>
+         }
        }
      }
 
@@ -247,20 +253,18 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      ```
 
 
-
-
      Where:
 
      * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-
-     
      * `host`: Host parameters:
        * `zone_id`: Availability zone.
        * `subnet_id`: ID of a subnet in the selected availability zone.
        * `assign_public_ip`: Public access to the host, `true` or `false`.
-
-
-     * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+       * `host_parameters`: Additional host parameters:
+         * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
+         * `secondary_delay_secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
+         * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
+     * `deletion_protection`: Protection of the cluster, its databases, and users against accidental deletion, `true` or `false`. Even if enabled, one can still connect manually and delete the database content.
      * `version`: {{ MG }} version, {{ versions.tf.str }}.
 
      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
@@ -279,33 +283,376 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their configuration in the [management console]({{ link-console-main }}).
+      After this, all required resources will be created in the specified folder, and the [host FQDNs](../concepts/network.md#hostname) will be displayed in the terminal. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To create a {{ mmg-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * ID of the folder to host the cluster, in the `folderId` parameter.
-    * Cluster name in the `name` parameter.
-    * Cluster environment in the `environment` parameter.
-    * Network ID in the `networkId` parameter.
-    * Cluster configuration in the `configSpec` parameter.
-    * Configuration of the cluster hosts in one or more `hostSpecs` parameters.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    
-    * [Security group](../concepts/network.md#security-groups) IDs in the `securityGroupIds` parameter.
+    1. Create a file named `body.json` and add the following contents to it:
+
+        
+        ```json
+        {
+          "folderId": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "networkId": "<network_ID>",
+          "securityGroupIds": [
+            "<security_group_1_ID>",
+            "<security_group_2_ID>",
+            ...
+            "<security_group_N_ID>"
+          ],
+          "deletionProtection": <deletion_protection:_true_or_false>,
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          },
+          "configSpec": {
+            "version": "<{{ MG }}_version>",
+            "mongodb": {
+              "mongod": {
+                "resources": {
+                  "resourcePresetId": "<host_class>",
+                  "diskSize": "<storage_size_in_bytes>",
+                  "diskTypeId": "<disk_type>"
+                }
+              }
+            },
+            "backupWindowStart":  {
+              "hours": "<hours>",
+              "minutes": "<minutes>",
+              "seconds": "<seconds>",
+              "nanos": "<nanoseconds>"
+            },  
+            "backupRetainPeriodDays": "<backup_storage_time_in_days>",
+            "performanceDiagnostics": {
+              "profilingEnabled": <enable_profiler:_true_or_false>
+            }
+          },
+          "databaseSpecs": [
+            {
+              "name": "<DB_name>"
+            },
+            { <similar_configuration_for_DB_2> },
+            { ... },
+            { <similar_configuration_for_DB_N> }
+          ],
+          "userSpecs": [
+            {
+              "name": "<username>",
+              "password": "<user_password>",
+              "permissions": [
+                {
+                  "databaseName": "<DB_name>",
+                  "roles": [
+                    "<role_1>", "<role_2>", ..., "<role_N>"
+                  ]
+                }
+              ]
+            },
+            { <similar_configuration_for_user_2> },
+            { ... },
+            { <similar_configuration_for_user_N> }
+          ],
+          "hostSpecs": [
+            {
+              "zoneId": "<availability_zone>",
+              "subnetId": "<subnet_ID>",
+              "assignPublicIp": <public_access_to_host:_true_or_false>,
+              "type": "<host_type>",
+              "shardName": "<shard_name>",
+              "hidden": <hide_host:_true_or_false>,
+              "secondaryDelaySecs": "<replica_lag_in_seconds>",
+              "priority": "<host_priority>",
+              "tags": "<host_labels>"
+            },
+            { <similar_configuration_for_host_2> },
+            { ... },
+            { <similar_configuration_for_host_N> }
+          ],
+        }
+        ```
 
 
-    * Database configuration in one or more `databaseSpecs` parameters.
+        Where:
 
-      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+        * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `name`: Cluster name.
+        * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+        * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
 
-    * User settings in one or more `userSpecs` parameters.
-    * Cluster deletion protection settings in the `deletionProtection` parameter.
+        
+        * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+        * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
+
+          * `anytime`: Maintenance can take place at any time.
+          * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
+
+            * `day`: Day of week, in `DDD` format.
+            * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
+
+        * `configSpec`: Cluster settings:
+
+            * `version`: {{ MG }} version: 5.0, 6.0, or 7.0.
+            * `mongod`: Host type.
+
+              * `resources`: Cluster resources:
+
+                * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+                * `diskSize`: Disk size in bytes.
+                * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+            * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
+
+              In this parameter, specify the backup start time:
+
+              * `hours`: Between `0` and `23` hours.
+              * `minutes`: Between `0` and `59` minutes.
+              * `seconds`: Between `0` and `59` seconds.
+              * `nanos`: Between `0` and `999999999` nanoseconds.
+
+            * `backupRetainPeriodDays`: Backup storage time in days.
+
+            * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
+              * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler). 
+
+        * `databaseSpecs`: Database settings as an array of elements, one for each DB. Each element contains the `name` parameter with the DB name.
+
+            {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+        * `userSpecs`: User settings as an array of elements, one for each user. Each element has the following structure:
+
+          * `name`: Username.
+          * `password`: User password.
+          * `permissions`: User permissions settings:
+
+            * `databaseName`: Name of the database the user gets access to.
+            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+
+            For each database, add a separate element with permission settings to the `permissions` array.
+
+        * `hostSpecs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+
+          * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+          * `assignPublicIp`: Internet access to the host via a public IP address.
+          * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
+          * `shardName`: Shard name in a sharded cluster.
+          * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
+          * `secondaryDelaySecs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
+          * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
+          * `tags`: Host labels.
+
+  1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters' \
+          --data "@body.json"
+      ```
+
+  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Create a file named `body.json` and add the following contents to it:
+
+        
+        ```json
+        {
+          "folder_id": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "network_id": "<network_ID>",
+          "security_group_ids": [
+            "<security_group_1_ID>",
+            "<security_group_2_ID>",
+            ...
+            "<security_group_N_ID>"
+          ],
+          "deletion_protection": <deletion_protection:_true_or_false>,
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          },
+          "config_spec": {
+            "version": "<{{ MG }}_version>",
+            "mongodb": {
+              "mongod": {
+                "resources": {
+                  "resource_preset_id": "<host_class>",
+                  "disk_size": "<storage_size_in_bytes>",
+                  "disk_type_id": "<disk_type>"
+                }
+              }
+            },
+            "backup_window_start": {
+              "hours": "<hours>",
+              "minutes": "<minutes>",
+              "seconds": "<seconds>",
+              "nanos": "<nanoseconds>"
+            },
+            "backup_retain_period_days": "<backup_storage_time_in_days>",
+            "performance_diagnostics": {
+              "profiling_enabled": <enable_profiler:_true_or_false>
+            }
+          },
+          "database_specs": [
+            {
+              "name": "<DB_name>"
+            },
+            { <similar_configuration_for_DB_2> },
+            { ... },
+            { <similar_configuration_for_DB_N> }
+          ],
+          "user_specs": [
+            {
+              "name": "<username>",
+              "password": "<user_password>",
+              "permissions": [
+                {
+                  "database_name": "<DB_name>",
+                  "roles": [
+                    "<role_1>", "<role_2>", ..., "<role_N>"
+                  ]
+                }
+              ]
+            },
+            { <similar_configuration_for_user_2> },
+            { ... },
+            { <similar_configuration_for_user_N> }
+          ],
+          "host_specs": [
+            {
+              "zone_id": "<availability_zone>",
+              "subnet_id": "<subnet_ID>",
+              "assign_public_ip": <public_access_to_host:_true_or_false>,
+              "type": "<host_type>",
+              "shard_name": "<shard_name>",
+              "hidden": <hide_host:_true_or_false>,
+              "secondary_delay_secs": "<replica_lag_in_seconds>",
+              "priority": "<host_priority>",
+              "tags": "<host_labels>"
+            },
+            { <similar_configuration_for_host_2> },
+            { ... },
+            { <similar_configuration_for_host_N> }
+          ]
+        }
+        ```
+
+
+        Where:
+
+        * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `name`: Cluster name.
+        * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+        * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
+
+        
+        * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
+
+
+        * `deletion_protection`: Protection of the cluster, its databases, and users against accidental deletion. Even if enabled, one can still connect manually and delete the database content.
+
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
+
+          * `anytime`: Maintenance can take place at any time.
+          * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+            * `day`: Day of week, in `DDD` format.
+            * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
+
+        * `config_spec`: Cluster settings:
+
+          * `version`: {{ MG }} version: 5.0, 6.0, or 7.0.
+            * `mongod`: Host type.
+
+              * `resources`: Cluster resources:
+
+                * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+                * `disk_size`: Disk size in bytes.
+                * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+            * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
+
+              In this parameter, specify the backup start time:
+
+              * `hours`: Between `0` and `23` hours.
+              * `minutes`: Between `0` and `59` minutes.
+              * `seconds`: Between `0` and `59` seconds.
+              * `nanos`: Between `0` and `999999999` nanoseconds.
+
+            * `backup_retain_period_days`: Backup retention in days.
+
+            * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
+              * `profiling_enabled`: Enable [profiler](tools.md#explore-profiler).
+
+        * `database_specs`: Database settings as an array of elements, one for each DB. Each element contains the `name` parameter with the DB name.
+
+            {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+        * `user_specs`: User settings as an array of elements, one for each user. Each element has the following structure:
+
+          * `name`: Username.
+          * `password`: User password.
+          * `permissions`: User permission settings:
+
+            * `database_name`: Name of the database the user gets access to.
+            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+
+            For each database, add a separate element with permission settings to the `permissions` array.
+
+        * `host_specs`: Cluster host settings as an array of elements, one for each host. Each element has the following structure:
+
+          * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+          * `assign_public_ip`: Internet access to the host via a public IP address.
+          * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
+          * `shard_name`: Shard name in a sharded cluster.
+          * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
+          * `secondaryDelaySecs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
+          * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
+          * `tags`: Host labels.
+
+  1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.ClusterService.Create \
+          < body.json
+      ```
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -319,7 +666,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MG }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ MG }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MG }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ MG }} cluster copy:
 
@@ -417,7 +764,7 @@ To create a {{ MG }} cluster copy:
   * Protection against accidental cluster deletion.
 
 
-  Run this command:
+  Run the following command:
 
   
   ```bash
@@ -466,7 +813,6 @@ To create a {{ MG }} cluster copy:
 
   Configuration file for a single-host cluster:
 
-  
   
   ```hcl
   resource "yandex_mdb_mongodb_cluster" "mymg" {
@@ -532,8 +878,6 @@ To create a {{ MG }} cluster copy:
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
-
-
 
 
 {% endlist %}

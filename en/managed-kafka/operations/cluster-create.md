@@ -5,17 +5,15 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 
 {% note info %}
 
-
 * The number of broker hosts you can create together with a {{ mkf-name }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
-
 
 {% endnote %}
 
 
 {% note info %}
 
-Starting February 1, 2025, support for {{ KF }} versions 3.2 and 3.3 will be discontinued, so you will not be able to create a cluster with these versions.
+Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 will be discontinued, so you will not be able to create a cluster with these versions.
 
 {% endnote %}
 
@@ -24,7 +22,7 @@ Starting February 1, 2025, support for {{ KF }} versions 3.2 and 3.3 will be dis
 
 If you create a cluster with {{ KF }} 3.5 or lower that has more than one host, three dedicated {{ ZK }} hosts will be added to the cluster.
 
-Сlusters with {{ KF }} 3.6 or higher support [{{ kraft-name }}](../concepts/kraft.md) ({{ kraft-short-name }} for short). It is used instead of {{ ZK }} to store metadata.
+Clusters with {{ KF }} 3.6 or higher support [{{ kraft-name }}](../concepts/kraft.md) ({{ kraft-short-name }} for short). It is used instead of {{ ZK }} to store metadata.
 
 When creating a cluster with the {{ kraft-short-name }} protocol, the following configuration restrictions apply:
 
@@ -71,9 +69,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
        {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-       
        {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
-
 
        You cannot change the disk type for an {{ mkf-name }} cluster once you create it.
      * Select the storage size to use for data.
@@ -113,9 +109,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
         * Replication is possible if there are at least two hosts per {{ mkf-name }} cluster.
 
-        
         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
-
 
         * There are [conditions](../concepts/index.md#fault-tolerance) to be satisfied for a fault-tolerant {{ mkf-name }} cluster.
         * Adding more than one host to a cluster with {{ KF }} version 3.5 or lower will automatically add three {{ ZK }} hosts.
@@ -155,7 +149,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      {{ yc-mdb-kf }} cluster create --help
      ```
 
-  1. Specify the {{ mkf-name }} cluster parameters in the create command (the example below does not list all possible parameters):
+  1. Specify the {{ mkf-name }} cluster parameters in the create command (not all parameters are given in the example):
 
      
      ```bash
@@ -185,8 +179,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         For [clusters with {{ KF }} version 3.6 and higher](#zk-vs-kraft), only the following configurations are available:
 
         * `--zone-ids={{ region-id }}-a,{{ region-id }}-b,{{ region-id }}-d --brokers-count=1`
-        * `--zone-ids=<one_availability_zone> --brokers-count=1`;
-        * `--zone-ids=<one_availability_zone> --brokers-count=3`.
+        * `--zone-ids=<one_availability_zone> --brokers-count=1`
+        * `--zone-ids=<one_availability_zone> --brokers-count=3`
 
      * `--resource-preset`: [Host class](../concepts/instance-types.md).
      * `--disk-type`: [Disk type](../concepts/storage.md).
@@ -267,7 +261,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      Here is an example of the configuration file structure:
 
      
-     
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
        environment         = "<environment>"
@@ -307,8 +300,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      ```
 
 
-
-
      Where:
 
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
@@ -318,13 +309,12 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
        If you are creating a [cluster with {{ KF }} version 3.6 or higher](#zk-vs-kraft), specify one of the available configurations:
 
        * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`
-       * `zones = ["<one_availability_zone>"] brokers_count = 1`;
-       * `zones = ["<one_availability_zone>"] brokers_count = 3`.
+       * `zones = ["<one_availability_zone>"] brokers_count = 1`
+       * `zones = ["<one_availability_zone>"] brokers_count = 3`
 
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
      * `assign_public_ip`: Public access to the cluster, `true` or `false`.
      * `schema_registry`: Managing data schemas, `true` or `false`.
-
 
      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
@@ -871,7 +861,6 @@ To create a {{ KF }} cluster copy:
   The configuration file for this {{ mkf-name }} cluster is as follows:
 
   
-  
   ```hcl
   resource "yandex_mdb_kafka_cluster" "mykf" {
     environment         = "PRODUCTION"
@@ -923,8 +912,6 @@ To create a {{ KF }} cluster copy:
     }
   }
   ```
-
-
 
 
 {% endlist %}

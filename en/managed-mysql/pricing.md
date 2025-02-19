@@ -4,6 +4,7 @@ description: The cost of {{ mmy-name }} usage is calculated based on the disk ty
 editable: false
 ---
 
+
 # {{ mmy-name }} pricing policy
 
 In this section, you can find the {{ mmy-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
@@ -27,6 +28,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
+
 ## What goes into the cost of using {{ mmy-short-name }} {#rules}
 
 The {{ mmy-name }} usage cost is based on:
@@ -34,6 +36,7 @@ The {{ mmy-name }} usage cost is based on:
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
 
 ### DB host usage {#rules-hosts-uptime}
 
@@ -52,6 +55,7 @@ There are different ways to calculate the cost depending on the [host type](conc
 You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
 The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ MY }} host is unable to perform its main functions.
+
 
 ### Disk space usage {#rules-storage}
 
@@ -72,6 +76,7 @@ You pay for the following:
     * The number of hosts in a cluster does not affect the storage size and, consequently, the free volume of backups.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+
 
 ### Example of cluster cost calculation {#example}
 
@@ -97,6 +102,7 @@ Calculation for the storage cost and total cost:
 
 
 
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -108,6 +114,7 @@ Calculation for the storage cost and total cost:
 CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
+
 
 ## Prices for the Russia region {#prices}
 
@@ -126,10 +133,12 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
+
 ### Host computing resources {#prices-hosts}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
+
 
 
 #### Standard hosts {#standard-hosts}
@@ -140,6 +149,7 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 
 
+
 #### Dedicated hosts {#dedicated-hosts}
 
 The cost is made up of two components: [the cost of {{ compute-full-name }}](../compute/pricing.md#prices) computing resources and {{ mmy-name }} charges for these resources.
@@ -147,6 +157,7 @@ The cost is made up of two components: [the cost of {{ compute-full-name }}](../
 
 
 {% include [USD: dedicated hosts](../_pricing/managed-mysql/usd-hosts-dedicated.md) %}
+
 
 
 

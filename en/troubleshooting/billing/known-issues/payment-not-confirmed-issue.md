@@ -14,7 +14,8 @@ The `PAYMENT_NOT_CONFIRMED` status means that you need to confirm the billing ac
 Check the email address specified in your Yandex or Yandex 360 account.
 Within three business days, this mailbox should receive an email with a description of the sequence of further actions required to activate the billing account.
 
-To confirm your account, reply to this email, providing the following documents:
+To confirm your account, reply to this email [or email to cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru), providing the following documents:
+
 
 1. A copy of the certificate of incorporation or business registration.
 2. A copy of the resolution or minutes regarding the appointment of the general director (if you are the general director).

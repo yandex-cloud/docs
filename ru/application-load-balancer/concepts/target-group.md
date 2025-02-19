@@ -13,3 +13,13 @@
 * [Через {{ ig-name }}](../../compute/operations/instance-groups/create-with-load-balancer.md). При изменении конфигурации ВМ {{ ig-name }} будет автоматически поддерживать актуальность IP-адресов машин в целевой группе. Если целевая группа подключена к группе бэкендов, {{ ig-name }} будет следить и за результатами проверок состояния, которые отправляет L7-балансировщик.
 
 {% include [target-group-deletion-restriction](../../_includes/application-load-balancer/target-group-deletion-restriction.md) %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md)
+* [{#T}](../tutorials/tls-termination/console.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/application-load-balancer-website/index.md)

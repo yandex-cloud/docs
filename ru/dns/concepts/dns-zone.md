@@ -100,3 +100,11 @@
 Записи обратной службы DNS размещены в специальных зонах DNS, называемых зонами ARPA. Блоки адресов IPv4 и IPv6 размещены в отдельных зонах.
 
 Можно [делегировать управление обратной зоной](../qa/index.md#dns-reverse-zone).
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/local-dns-cache.md)
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/mdb-dns-peering.md)
+* [{#T}](../tutorials/bind-domain-vm/console.md)

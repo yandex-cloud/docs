@@ -174,7 +174,7 @@ Cluster backups are stored and available in all three data centers.
 
 #### Can I get superuser privileges in {{ PG }}? {#superuser}
 
-Yes, you can. To do this, [assign](../../managed-postgresql/operations/grant.md#grant-role) the `mdb_superuser` [role](../../managed-postgresql/concepts/roles.md#mdb-superuser) to the user.
+No, you cannot. Superuser privileges are not available to {{ mpg-name }} users. The highest privileges for working with clusters are granted to users with the [mdb_admin](../../managed-postgresql/concepts/roles.md#mdb-admin) and [mdb_superuser](../../managed-postgresql/concepts/roles.md#mdb-superuser) roles.
 
 #### Can I copy data from a {{ mpg-name }} table to a local file? Can I populate a table with data from a local file? {#copy-write-data}
 
@@ -184,7 +184,7 @@ Yes, you can both copy data from a table to a local file and populate a table wi
 
 {{ mpg-name }} clusters support all parameters of the [VACUUM command](https://www.postgresql.org/docs/current/sql-vacuum.html). However, you should consider the following specifics when using them:
 
-* To run `VACUUM FULL`, the user must have the [`mdb_admin` role](../../managed-postgresql/concepts/roles#mdb-admin). The VACUUM FULL command does not affect system views.
+* To run `VACUUM FULL`, the user must have the [`mdb_admin`](../../managed-postgresql/concepts/roles#mdb-admin) role. The VACUUM FULL command does not affect system views.
 * In {{ PG }} version 14, the `INDEX_CLEANUP` parameter functionality has been enhanced: it now has the `AUTO` value by default. This means the `VACUUM` command skips index cleaning if it considers it unnecessary. To ensure backward compatibility with the previous {{ PG }} versions, set `INDEX_CLEANUP` to `ON`.
 
 #### Why is the cluster slow even though the computing resources are not used fully? {#throttling}

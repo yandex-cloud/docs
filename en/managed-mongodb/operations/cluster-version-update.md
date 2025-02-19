@@ -98,19 +98,127 @@ Make sure this does not affect your applications:
 
    {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    To update the {{ MG }} version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-    * {{ MG }} version which you are upgrading to, in the `configSpec.version` parameter.
-    * List of settings to update (in this case, `configSpec.version`), in the `updateMask` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+   1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
-    After the upgrade, all MongoDB features that are not backward-compatible with the previous version will be disabled. To remove this restriction, use the [update](../api-ref/Cluster/update.md) API method and provide the new version number in the call using the `configSpec.featureCompatibilityVersion` property.
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-    Learn more about backward compatibility in the [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
+      ```bash
+      curl \
+         --request PATCH \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --header "Content-Type: application/json" \
+         --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
+         --data '{
+                  "updateMask": "configSpec.version",
+                  "configSpec": {
+                    "version": "<new_{{ MG }}_version>"
+                  }
+                }'
+      ```
+
+      Where:
+
+      * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+         In this case, one parameter is provided.
+
+      * `configSpec.version`: New {{ MG }} version.
+
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+   1. After the upgrade, all {{ MG }} features that are not backward-compatible with the previous version will be disabled. To remove this restriction, send one more request and provide the new {{ MG }} version number in the `configSpec.featureCompatibilityVersion` property.
+
+      ```bash
+      curl \
+         --request PATCH \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --header "Content-Type: application/json" \
+         --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>' \
+         --data '{
+                  "updateMask": "configSpec.featureCompatibilityVersion",
+                  "configSpec": {
+                    "featureCompatibilityVersion": "<new_{{ MG }}_version>"
+                  }
+                }'
+      ```
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [ 
+                      "config_spec.version"
+                    ]
+                  },  
+                  "config_spec": {
+                    "version": "<{{ MG }}_version>"
+                  }
+               }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mongodb.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+          In this case, one parameter is provided.
+
+        * `version`: New {{ MG }} version.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+    1. After the upgrade, all {{ MG }} features that are not backward-compatible with the previous version will be disabled. To remove this restriction, send one more request and provide the new {{ MG }} version number in the `config_spec.feature_compatibility_version` property.
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [ 
+                      "config_spec.feature_compatibility_version"
+                    ]
+                  },  
+                  "config_spec": {
+                    "feature_compatibility_version": "<new_{{ MG }}_version>"
+                  }
+               }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mongodb.v1.ClusterService.Update
+        ```    
 
 {% endlist %}
 

@@ -42,6 +42,13 @@ description: Из статьи вы узнаете, что такое польз
 
     Все ресурсы, использующие сертификат, получат его новую версию.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/tls-termination/index.md)
+
 #### См. также {#see-also}
 
 * [Интеграция с сервисами {{ yandex-cloud }}](services.md)

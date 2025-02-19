@@ -11,6 +11,7 @@
 
 Результаты в табличном виде доступны на странице **{{ ui-key.yacloud.load-testing.label_tables }}**.
 
-# Смотрите также
+## Примеры использования {#examples}
 
-[Практическое руководство по сравнению нагрузочных тестов](../tutorials/loadtesting-results-compare.md).
+* [{#T}](../tutorials/loadtesting-results-compare.md)
+* [{#T}](../tutorials/loadtesting-multiply.md)

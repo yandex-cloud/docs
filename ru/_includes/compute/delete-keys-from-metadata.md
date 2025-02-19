@@ -3,10 +3,11 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. Раскройте меню **{{ ui-key.yacloud.common.metadata }}** и удалите ключи, нажав ![image](../../_assets/cross.svg).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. В строке с нужной ВМ нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Раскройте секцию **{{ ui-key.yacloud.common.metadata }}** и удалите ключи, нажав ![image](../../_assets/console-icons/xmark.svg).
+  1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
 

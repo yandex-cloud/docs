@@ -22,7 +22,7 @@ To get started with the service:
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 1. You can connect to DB [clusters](concepts/index.md) from both inside and outside {{ yandex-cloud }}:
-   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a [VM](../compute/concepts/vm.md) in the same [cloud network](../vpc/concepts/network.md#network) as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
+   * To connect from inside {{ yandex-cloud }}, create a [VM](../compute/concepts/vm.md) in the same [cloud network](../vpc/concepts/network.md#network) as the DB cluster (on [Linux](../compute/quickstart/quick-create-linux.md)).
    * To connect to the {{ mmy-name }} cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
@@ -31,7 +31,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Install the required dependencies and the {{ MY }} client:
 
    ```bash

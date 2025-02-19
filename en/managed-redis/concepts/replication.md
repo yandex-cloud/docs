@@ -17,10 +17,7 @@ keywords:
 
 Since the replication is asynchronous, the data on replicas may be out of date: while a replica is processing updates from the master, it continues sending the existing data in response to requests, as the [replica-serve-stale-data](https://github.com/valkey-io/valkey/blob/unstable/valkey.conf) flag is set to `yes`.
 
-
 Due to limited resources, **b1**, **b2**, and **b3** class hosts are not replicated.
-
-
 
 For more information about how replication works in {{ VLK }}, read the [relevant documentation](https://valkey.io/topics/replication/).
 
