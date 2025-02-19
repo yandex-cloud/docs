@@ -23,7 +23,6 @@ description: Сервис {{ monitoring-full-name }} позволяет соби
 
 {{ monitoring-name }} отображает метрики на графиках. Множество связанных между собой графиков можно собрать на дашбордах. Подробнее в разделе [{#T}](visualization/index.md).
 
-
 ## Поставка метрик кластера {{ managed-k8s-full-name }} {#metrics-provider}
 
 Сервис {{ monitoring-name }} позволяет выгружать метрики объектов [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Провайдер преобразует запрос на получение внешних метрик от объекта в кластере {{ managed-k8s-name }} в нужный {{ monitoring-name }} формат, а также выполняет обратное преобразование — от {{ monitoring-name }} до объекта кластера.
@@ -31,4 +30,3 @@ description: Сервис {{ monitoring-full-name }} позволяет соби
 {% include [metrics-k8s-tools](../../_includes/managed-kubernetes/metrics-k8s-tools.md) %}
 
 Описание метрик приводится в [Справочнике](../metrics-ref/index.md#managed-kubernetes).
-

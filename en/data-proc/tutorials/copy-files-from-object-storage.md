@@ -180,13 +180,10 @@ Do not change the default value for `spark.hadoop.mapreduce.fileoutputcommitter.
 
 ### Apache Hadoop settings {#s3-write-optimize-hadoop}
 
-
 The method of writing data to an {{ objstorage-name }} bucket is decided by the `core:fs.s3a.fast.upload` setting. Its value depends on the image version used:
 
 * Image versions `1.0` through `1.4` use `false` as the default value to save RAM. Set it to `true` in the cluster component properties or job settings. This will improve bucket write performance for large files and prevent node storage from filling up.
 * In image `2.0`, `fs.s3a.fast.upload` is enabled by default.
-
-
 
 If required, configure [other settings](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html) responsible for write mode in {{ objstorage-name }}:
 

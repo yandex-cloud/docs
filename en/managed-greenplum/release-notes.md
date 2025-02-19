@@ -38,7 +38,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 * Added support for [incremental backups](concepts/backup.md).
 * Added the option of [committing](../billing/concepts/cvos.md) a specific volume of services. All users of the platform can get a discount up to 22% starting from August 1, 2023. The cost of services will not change during the whole period of the offer.
 * Added [PXF metrics](metrics.md#managed-greenplum-pxf-metrics) to {{ monitoring-full-name }}.
-* Added logs for PXF and the Odyssey connection manager.
+* Added logs for PXF and the Odyssey connection pooler.
 * Added [audit logs](at-ref.md) in {{ at-full-name }}.
 
 ## Q2 2023 {#q2-2023}
@@ -52,8 +52,8 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 * You can now [expand a cluster](operations/hosts/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments.
 * You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI releases](../cli/release-notes.md#version0.100.0).
-* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
-* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gp_toolkit.html#topic34).
+* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the relevant [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
+* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Improved the algorithm for creating clusters via the wizard:
     * Cluster size cannot exceed `<maximum_number_of_hosts> × <maximum_disk_size_per_host>`.
     * You can select groups of dedicated hosts to deploy the cluster.

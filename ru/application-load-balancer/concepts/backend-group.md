@@ -148,6 +148,17 @@ description: Из статьи вы узнаете про типы групп б
 
 * для Stream-проверок будет установлено TLS-соединение, и результаты проверок будут возвращаться через это соединение.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)
+* [{#T}](../tutorials/tls-termination/index.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md)
+* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/logging.md)
+
 ### См. также {#see-also}
 
 * [{#T}](best-practices.md)

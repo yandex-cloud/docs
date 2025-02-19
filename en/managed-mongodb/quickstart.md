@@ -24,7 +24,7 @@ To get started with the service:
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
 
-   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
+   * To connect from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (on [Linux](../compute/quickstart/quick-create-linux.md)).
 
    * To connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
@@ -34,7 +34,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
 1. Install {{ MG }} Shell:
 
@@ -56,7 +56,7 @@ To get started with the service:
 ## Connect to the DB {#connect}
 
 
-1. If you are using security groups for a cloud network, [configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
+1. If you are using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
 
 1. Get an SSL certificate:

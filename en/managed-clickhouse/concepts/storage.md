@@ -110,7 +110,6 @@ You can specify hybrid storage settings when [creating](../operations/cluster-cr
 
 For more information about setting up hybrid storage, see the [{{ CH }} documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
 
-
 ## Selecting disk type during cluster creation {#storage-type-selection}
 
 The number of hosts you can create together with a {{ CH }} cluster depends on the selected disk type:
@@ -131,5 +130,4 @@ The number of hosts you can create together with a {{ CH }} cluster depends on t
     * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
-
 

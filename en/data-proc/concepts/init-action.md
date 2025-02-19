@@ -33,11 +33,7 @@ fi
 
 If the script fails and the cluster switches to `DEAD`:
 
-
 1. View logs in [{{ cloud-logging-full-name }}](../../logging/operations/read-logs.md) or on cluster hosts in the `/var/log/yandex/dataproc-init-actions.log` file.
-
-
-
 1. Correct the error.
 1. [Delete](../operations/cluster-delete.md) this cluster and [create](../operations/cluster-create.md) a new one.
 
@@ -57,7 +53,7 @@ If the initialization script returns an error on an existing cluster (such as wh
 To check a script for syntax errors, download the script file manually and run it:
 
 1. Connect to the cluster host.
-1. Download the script file from the storage via the link used when creating the cluster. For example:
+1. Download the script file from the storage via the link used when creating the cluster. Here is an example:
 
    ```bash
    wget <HTTP_link_to_script_file>

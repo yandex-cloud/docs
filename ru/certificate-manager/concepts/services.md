@@ -45,6 +45,12 @@ description: Из статьи вы узнаете, в каких сервиса
 
 Вы можете хранить приватный ключ пользовательского сертификата {{ certificate-manager-name }} в {{ lockbox-name }} [с помощью {{ TF }}](../operations/import/cert-create.md#create-lockbox).
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/tls-termination/index.md)
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
+
 #### См. также {#see-also}
 
 * [Статический сайт в {{ objstorage-name }}](../../tutorials/web/static/index.md)

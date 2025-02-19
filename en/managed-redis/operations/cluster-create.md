@@ -106,7 +106,7 @@ There are no restrictions for non-sharded clusters.
           * **{{ ui-key.yacloud.mdb.forms.host_column_zone }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
           * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
           * **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**: Enables access to the host from the internet if the cluster is created with **{{ ui-key.yacloud.redis.field_tls-support }}** enabled.
-          * **{{ ui-key.yacloud.mdb.forms.host_column_replica-priority }}**: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+          * **{{ ui-key.yacloud.mdb.forms.host_column_replica-priority }}**: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * **{{ ui-key.yacloud.mdb.forms.host_column_shard-name }}**: Enables you to change the shard name for the host. The field is available only if the cluster is created with **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}** enabled.
 
       * To add hosts to the cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
@@ -189,7 +189,7 @@ There are no restrictions for non-sharded clusters.
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
          * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
-         * `replica-priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+         * `replica-priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
       * `--disk-type-id`: Disk type.
 
       * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
@@ -236,7 +236,6 @@ There are no restrictions for non-sharded clusters.
        Sample configuration file structure for creating a non-sharded cluster with SSL support:
 
        
-       
        ```hcl
        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
          name                = "<cluster_name>"
@@ -277,8 +276,6 @@ There are no restrictions for non-sharded clusters.
        ```
 
 
-
-
        Where:
        * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
@@ -291,7 +288,7 @@ There are no restrictions for non-sharded clusters.
          * `zone_id`: Availability zone.
          * `subnet_id`: ID of a subnet in the selected availability zone.
          * `assign_public_ip`: Public access to the host, `true` or `false`.
-         * `replica_priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+         * `replica_priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
 
        {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
@@ -397,7 +394,7 @@ There are no restrictions for non-sharded clusters.
             * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
             * `shardName`: Shard name for the host. Only used if the `sharded` parameter is set to `true`.
-            * `replicaPriority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `replicaPriority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if the `tlsEnabled` parameter is set to `true`.
 
         * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -426,7 +423,7 @@ There are no restrictions for non-sharded clusters.
 
         * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
-            With deletion protection enabled, you will still be able to manually connect to the cluster and delete it.
+            If enabled, one can still connect to the cluster manually and delete it.
 
         * `announceHostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
@@ -529,7 +526,7 @@ There are no restrictions for non-sharded clusters.
             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
             * `shard_name`: Shard name for the host. Only used if the `sharded` parameter is set to `true`.
-            * `replica_priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+            * `replica_priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if the `tls_enabled` parameter is set to `true`.
 
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -558,7 +555,7 @@ There are no restrictions for non-sharded clusters.
 
         * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-            With deletion protection enabled, you will still be able to manually connect to the cluster and delete it.
+            If enabled, one can still connect to the cluster manually and delete it.
 
         * `announce_hostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
@@ -690,7 +687,7 @@ To create a {{ VLK }} cluster copy:
   * Password: `user1user1`.
   * Protection against accidental cluster deletion.
 
-  Run this command:
+  Run the following command:
 
   
   ```bash
@@ -729,7 +726,6 @@ To create a {{ VLK }} cluster copy:
 
   The configuration file for this cluster is as follows:
 
-  
   
   ```hcl
   resource "yandex_mdb_redis_cluster" "myredis" {
@@ -782,8 +778,6 @@ To create a {{ VLK }} cluster copy:
   ```
 
 
-
-
 {% endlist %}
 
 ### Creating a sharded cluster with a single shard {#creating-a-single-shard-sharded-cluster}
@@ -807,7 +801,7 @@ To create a {{ VLK }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
   * Password: `user1user1`.
 
-  Run this command:
+  Run the following command:
 
   
   ```bash
@@ -847,7 +841,6 @@ To create a {{ VLK }} cluster copy:
 
   The configuration file for this cluster is as follows:
 
-  
   
   ```hcl
   resource "yandex_mdb_redis_cluster" "myredis" {
@@ -902,7 +895,6 @@ To create a {{ VLK }} cluster copy:
   ```
 
 
-
 {% endlist %}
 
 ### Creating a sharded cluster with three shards {#creating-a-sharded-cluster}
@@ -932,7 +924,6 @@ To create a {{ VLK }} cluster copy:
 
     The configuration file for this cluster is as follows:
 
-    
     
     ```hcl
     resource "yandex_mdb_redis_cluster" "myredis" {
@@ -1023,8 +1014,6 @@ To create a {{ VLK }} cluster copy:
       }
     }
     ```
-
-
 
 
 {% endlist %}

@@ -55,3 +55,10 @@
 
 При использовании собственных IPv4-адресов (стыковая подсеть 2-го типа) функции NAT должны выполняться с использованием этих IP-адресов.
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/trunk-pub-add.md)
+* [{#T}](../tutorials/partner-trunk-pub-add.md)
+* [{#T}](../tutorials/pub-add.md)
+* [{#T}](../tutorials/pub-del.md)

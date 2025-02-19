@@ -65,9 +65,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
-        
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
-
 
 
       * Select the size of disk to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
@@ -290,7 +288,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
         * Subnets: [Subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
-       Example structure of a configuration file that describes a cloud network with a single subnet:
+       Example structure of a configuration file describing a single-subnet cloud network:
 
        ```hcl
        resource "yandex_vpc_network" "<network_name_in_{{ TF }}>" { name = "<network_name>" }
@@ -444,7 +442,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               ],
               "configSpec": {
                 "version": "<{{ CH }}>_version",
-                "embeddedKeeper": <{{ CK }}_usage>,
+                "embeddedKeeper": <using_ClickHouse®_Keeper>,
                 "clickhouse": {
                   "resources": {
                     "resourcePresetId": "<{{ CH }}>_host_class",
@@ -821,7 +819,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ CH }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ CH }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ CH }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ CH }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ CH }} cluster copy:
 

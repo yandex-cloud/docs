@@ -1,6 +1,6 @@
-# Decommissioning subclusters and hosts in {{ dataproc-name }}
+# Decommissioning {{ dataproc-name }} subclusters and hosts
 
-Decommissioning is the process of reducing the cluster capacity (the number of hosts and their class) without stopping the cluster and interrupting its workload.  Decommissioning is supported for {{ dataproc-name }} clusters version 1.2 and higher. 
+Decommissioning is the process of reducing the cluster capacity (the number of hosts and their class) without stopping the cluster and interrupting its workload. Decommissioning is supported for {{ dataproc-name }} clusters version 1.2 and higher.
 
 {{ dataproc-name }} implements decommissioning based on [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) and [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Decommissioning will not interrupt running user tasks or cause data to be lost.
 

@@ -10,6 +10,28 @@ items:
         href: quickstart/workflows.md
       - name: '{{ er-name }}'
         href: quickstart/eventrouter.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: '{{ er-name }}'
+        items:
+          - name: Управление шиной
+            items:
+              - name: Создать шину
+                href: operations/eventrouter/bus/create.md
+              - name: Изменить шину
+                href: operations/eventrouter/bus/update.md
+              - name: Управлять метками
+                items:
+                  - name: Добавить метку
+                    href: operations/eventrouter/bus/label-add.md
+                  - name: Изменить метку
+                    href: operations/eventrouter/bus/label-update.md
+                  - name: Удалить метку
+                    href: operations/eventrouter/bus/label-delete.md
+              - name: Удалить шину
+                href: operations/eventrouter/bus/delete.md
   - name: Концепции
     items:
       - name: Обзор

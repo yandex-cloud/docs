@@ -1,5 +1,5 @@
 ---
-title: How to connect to a {{ MY }} cluster from {{ datalens-name }}
+title: A guide for connecting to a {{ MY }} cluster from {{ datalens-name }}
 description: In this tutorial, you will learn how to connect to a {{ MY }} cluster from {{ datalens-name }}.
 ---
 

@@ -24,3 +24,14 @@ _Агент_ — это [виртуальная машина](../../glossary/vm.
 
 Если для ваших задач не хватает агента типа **large**, обратитесь [в поддержку](../../support/overview.md).
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/loadtesting-grpc.md)
+* [{#T}](../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)
+* [{#T}](../tutorials/loadtesting-jmeter.md)
+* [{#T}](../tutorials/loadtesting-multiply.md)
+* [{#T}](../tutorials/loadtesting-external-agent.md)
+* [{#T}](../tutorials/loadtesting-results-compare.md)

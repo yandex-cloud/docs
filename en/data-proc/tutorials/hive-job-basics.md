@@ -2,7 +2,7 @@
 
 [Apache Hive](https://hive.apache.org/) is a system for managing large distributed datasets that is built on Hadoop and uses the SQL query language.
 
-In this article, a simple example demonstrates how Hive is used in {{ dataproc-name }} for data analysis. In the example below, we use Hive to analyze the population of the largest cities in  Russia.  
+In this article, a simple example demonstrates how Hive is used in {{ dataproc-name }} for data analysis. In the example below, we use Hive to analyze the population of the largest cities in Russia.
 
 ## Getting started {#before-you-begin}
 
@@ -23,7 +23,6 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 
 1. In the input data bucket, [create a folder](../../storage/operations/objects/upload.md) named `cities` and upload the `cities.csv` file to this folder for processing:
 
-    
     {% cut "cities.csv" %}
 
     ```text
@@ -47,8 +46,6 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
     {% endcut %}
 
     The file shows the population of Russia's largest cities with over a million inhabitants based on 2021 estimates (rounded).
-
-
 
 1. Create a file with SQL queries named `cities.sql` and upload it to the input data bucket:
 
@@ -78,7 +75,6 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
 
 1. Wait for the [job status](../operations/jobs-spark.md#get-info) to change to `Done`.
 
-
 1. [Open the job logs](../operations/jobs-hive#get-logs) and view the processing results:
 
     {% cut "Logs" %}
@@ -95,7 +91,6 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
     ```
 
     {% endcut %}
-
 
 {% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 

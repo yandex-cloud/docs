@@ -184,7 +184,79 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/dataproc/cli-ref/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-labels
+            href: cli-ref/cluster/add-labels.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-hosts
+            href: cli-ref/cluster/list-hosts.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: list-ui-links
+            href: cli-ref/cluster/list-ui-links.md
+          - name: remove-labels
+            href: cli-ref/cluster/remove-labels.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+      - name: job
+        items:
+          - name: Overview
+            href: cli-ref/job/index.md
+          - name: cancel
+            href: cli-ref/job/cancel.md
+          - name: create-hive
+            href: cli-ref/job/create-hive.md
+          - name: create-mapreduce
+            href: cli-ref/job/create-mapreduce.md
+          - name: create-pyspark
+            href: cli-ref/job/create-pyspark.md
+          - name: create-spark
+            href: cli-ref/job/create-spark.md
+          - name: get
+            href: cli-ref/job/get.md
+          - name: list
+            href: cli-ref/job/list.md
+          - name: log
+            href: cli-ref/job/log.md
+      - name: resource-preset
+        items:
+          - name: Overview
+            href: cli-ref/resource-preset/index.md
+          - name: get
+            href: cli-ref/resource-preset/get.md
+          - name: list
+            href: cli-ref/resource-preset/list.md
+      - name: subcluster
+        items:
+          - name: Overview
+            href: cli-ref/subcluster/index.md
+          - name: create
+            href: cli-ref/subcluster/create.md
+          - name: delete
+            href: cli-ref/subcluster/delete.md
+          - name: get
+            href: cli-ref/subcluster/get.md
+          - name: list
+            href: cli-ref/subcluster/list.md
+          - name: update
+            href: cli-ref/subcluster/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

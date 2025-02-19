@@ -4,6 +4,7 @@ description: The cost of {{ mpg-name }} usage is calculated based on the disk ty
 editable: false
 ---
 
+
 # {{ mpg-name }} pricing policy
 
 In this section, you can find the {{ mpg-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
@@ -27,6 +28,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
+
 ## What goes into the cost of using {{ mpg-short-name }} {#rules}
 
 The {{ mpg-name }} usage cost is based on:
@@ -35,11 +37,13 @@ The {{ mpg-name }} usage cost is based on:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
+
 ### DB host usage {#rules-hosts-uptime}
 
 Host operation cost is charged per hour based on host class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
 
 The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ PG }} host is unable to perform its main functions.
+
 
 ### Disk space usage {#rules-storage}
 
@@ -73,6 +77,7 @@ You pay for the following:
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+
 ### Example of cluster cost calculation {#example}
 
 The cost of using a cluster with the following parameters for 30 days:
@@ -97,6 +102,7 @@ Calculation for the storage cost and total cost:
 
 
 
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -108,6 +114,7 @@ Calculation for the storage cost and total cost:
 CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
+
 
 ## Prices for the Russia region {#prices}
 
@@ -122,6 +129,7 @@ All prices below do not include VAT.
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
+
 ### Host computing resources {#prices-hosts}
 
 
@@ -131,6 +139,7 @@ All prices below do not include VAT.
 
 
 {% include [usd-host-resources.md](../_pricing/managed-postgresql/usd-host-resources.md) %}
+
 
 
 ### Storage and backups {#prices-storage}

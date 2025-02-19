@@ -18,3 +18,7 @@
 [Смотреть видеоинструкцию о федеративных запросах в {{ yq-full-name }} на YouTube](https://www.youtube.com/watch?v=1EN28LVncPM).
 
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/yq-federative-queries.md).

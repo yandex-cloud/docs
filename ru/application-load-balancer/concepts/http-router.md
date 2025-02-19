@@ -70,3 +70,14 @@ HTTP-роутеры поддерживают два типа маршрутов 
 * **{{ ui-key.yacloud.alb.label_idle-timeout }}** — максимальное время, в течение которого соединение может поддерживаться без передачи данных. Значения по умолчанию нет. Если тайм-аут не указан, он не учитывается. Тайм-аут простоя можно использовать в сценариях потоковой передачи (например, для длительных опросов, событий, отправляемых сервером). В некоторых случаях, когда основной тайм-аут не указан, тайм-аут простоя может проставиться автоматически.
 
 Если соединение для групп бэкендов типа HTTP завершится по тайм-ауту, балансировщик вернет код `504 Gateway Timeout`.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/tls-termination/console.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
+* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/balancer-with-sws-profile.md)

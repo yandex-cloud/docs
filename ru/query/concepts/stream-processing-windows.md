@@ -67,3 +67,8 @@ GROUP BY
 ![](../../_assets/query/hop_window.png)
 
 Желтым цветом на рисунке помечен параметр `interval`, зеленым цветом параметр `hop`, а синим цветом параметр `delay`.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/cloud-logging.md).
+* [{#T}](../tutorials/debezium.md).

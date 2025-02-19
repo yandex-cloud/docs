@@ -26,11 +26,51 @@ You can add and remove databases, as well as view information about them.
 
   You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  To get a list of cluster databases, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/Database/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Database.List](../api-ref/Database/list.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/databases'
+     ```
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mongodb.v1.ListDatabasesResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [DatabaseService.List](../api-ref/grpc/Database/list.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.mongodb.v1.DatabaseService.List
+     ```
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.mongodb.v1.ListDatabasesResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -100,14 +140,68 @@ You can add and remove databases, as well as view information about them.
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_database).
 
-- API {#api}
+- REST API {#api}
 
-  To create a new database in a cluster, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/Database/create.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * ID of the cluster where you want to create a database, in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Database settings in the `databaseSpec` parameter.
-  
-  To allow access to the created database, use the [update](../api-ref/User/update.md) REST API method for the [User](../api-ref/User/index.md) resource or the [UserService/Update](../api-ref/grpc/User/update.md) gRPC API call.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Database.Create](../api-ref/Database/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/databases' \
+       --data '{
+                 "databaseSpec": {
+                   "name": "<DB_name>"
+                 }
+               }'
+     ```
+
+     Where `databaseSpec` is the object containing the new DB name.
+
+     {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [DatabaseService.Create](../api-ref/grpc/Database/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "database_spec": {
+               "name": "<DB_name>"
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.mongodb.v1.DatabaseService.Create
+     ```           
+
+     Where `database_spec` is the object containing the new DB name.
+
+     {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -154,12 +248,52 @@ You can add and remove databases, as well as view information about them.
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mongodb_database).
 
-- API {#api}
+- REST API {#api}
 
-  To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-    * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-    * Database name in the `databaseName` parameter.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Use the [Database.Delete](../api-ref/Database/delete.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request DELETE \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/databases/<DB_name>'
+     ```
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+
+  1. View the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/database_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<cluster_ID>",
+             "database_name": "<DB_name>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.mongodb.v1.DatabaseService.Delete
+     ```
+
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](#list-db).
+
+  1. View the [server response](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 

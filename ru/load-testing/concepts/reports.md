@@ -24,3 +24,8 @@ description: Отчет в {{ load-testing-name }} — это совокупно
      * Таблицы — содержит показатели агрегированных результатов тестирования.
 
 {% endlist %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/loadtesting-results-compare.md)

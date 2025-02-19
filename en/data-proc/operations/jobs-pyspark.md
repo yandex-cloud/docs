@@ -9,7 +9,7 @@ description: In this tutorial, you will learn how to manage PySpark jobs in {{ d
 
 {% note info %}
 
-If the {{ dataproc-name }} cluster is [connected to the {{ metastore-name }} cluster](../../metadata-hub/operations/metastore/data-processing-connect.md), add the `spark:spark.sql.hive.metastore.sharedPrefixes` property with the `com.amazonaws,ru.yandex.cloud` value to the {{ dataproc-name }} cluster. Then your PySpark jobs will be successfully completed. You can set the property when [creating](cluster-create.md) or [modifying](cluster-update.md) the {{ dataproc-name }} cluster.
+If the {{ dataproc-name }} cluster is [connected to a {{ metastore-name }} cluster](../../metadata-hub/operations/metastore/data-processing-connect.md), add the property with the `spark:spark.sql.hive.metastore.sharedPrefixes` value to the `com.amazonaws,ru.yandex.cloud` cluster. Then your PySpark jobs will be successfully completed. You can set the property when [creating](cluster-create.md) or [modifying](cluster-update.md) the {{ dataproc-name }} cluster.
 
 {% endnote %}
 
@@ -84,7 +84,7 @@ To create a PySpark job:
 
         {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
-    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
+    You can get the cluster ID and name with the [list of clusters in the folder](./cluster-list.md#list).
 
 - API {#api}
 
@@ -94,7 +94,7 @@ To create a PySpark job:
     * Job name in the `name` parameter.
     * Job properties in the `pysparkJob` parameter.
 
-    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list).
+    You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list).
 
 {% endlist %}
 
@@ -110,8 +110,6 @@ To create a PySpark job:
 
 {% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 
-
 ## Get job execution logs {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-processing/jobs-get-logs.md) %}
-

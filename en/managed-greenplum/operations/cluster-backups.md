@@ -28,7 +28,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
     {{ yc-mdb-gp }} cluster list-backups <cluster_name_or_ID>
     ```
 
-    You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     Result:
 
@@ -58,7 +58,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
                 --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
@@ -106,7 +106,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
                 yandex.cloud.mdb.greenplum.v1.ClusterService.ListBackups
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
@@ -165,7 +165,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
             --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/backups/<backup_ID>'
         ```
 
-        You can get the backup ID together with a [list of backups](#list-backups).
+        You can request the backup ID with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup) to make sure the request was successful.
 
@@ -193,7 +193,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
             yandex.cloud.mdb.greenplum.v1.BackupService.Get
         ```
 
-        You can get the backup ID together with a [list of backups](#list-backups).
+        You can request the backup ID with the [list of backups](#list-backups).
 
     1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.greenplum.v1.Backup) to make sure the request was successful.
 
@@ -226,7 +226,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
             --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>:backup'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -254,7 +254,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
             yandex.cloud.mdb.greenplum.v1.ClusterService.Backup
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -303,6 +303,14 @@ If you set the current time as the recovery time, the new cluster will match the
 
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
+    
+    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on the dedicated hosts. You can assign groups to one or both of the two types of {{ GP }} hosts.
+
+        You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
+
+        {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
+
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
     To restore a previously deleted cluster from a backup:
@@ -320,6 +328,14 @@ If you set the current time as the recovery time, the new cluster will match the
     1. In the **{{ ui-key.yacloud.greenplum.field_segments-in-host }}** setting, specify the number of [segments](../concepts/index.md) per host.
 
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+
+    
+    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on the dedicated hosts. You can assign groups to one or both of the two types of {{ GP }} hosts.
+
+        You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
+
+        {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -360,7 +376,9 @@ If you set the current time as the recovery time, the new cluster will match the
            --restore-only=<list_of_DBs_and_tables_to_restore> \
            --zone-id=<availability_zone> \
            --subnet-id=<subnet_ID> \
-           --assign-public-ip=<public_access_to_cluster>
+           --assign-public-ip=<public_access_to_cluster> \
+           --master-host-group-ids=<IDs_of_dedicated_host_groups_for_master_hosts> \
+           --segment-host-group-ids=<IDs_of_dedicated_host_groups_for_segment_hosts>
         ```
 
 
@@ -386,10 +404,16 @@ If you set the current time as the recovery time, the new cluster will match the
         * `--segment-disk-type`: Segment host [disk type](../concepts/storage.md).
         * `--segment-host-count`: Number of segment hosts.
         * `--segment-in-host`: Number of [segments](../concepts/index.md) per host.
-        * `--restore-only` (optional): Comma-separated list of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+        * `--restore-only`: (Optional) Comma-separated list of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
         * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
         
+        * `--master-host-group-ids` and `--segment-host-group-ids`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+
+            You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
         * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
         * `--assign-public-ip`: Flag you set if the cluster needs access from the internet.
 
@@ -402,6 +426,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
     1. Create a file named `body.json` and add the following contents to it:
 
+        
         ```json
         {
           "backupId": "<backup_ID>",
@@ -413,7 +438,7 @@ If you set the current time as the recovery time, the new cluster will match the
           "config": {
             "zoneId": "<availability_zone>",
             "subnetId": "<subnet_ID>",
-            "assignPublicIp": <public_access_to_cluster_hosts>
+            "assignPublicIp": "<public_access_to_cluster_hosts>"
           },
           "masterResources": {
             "resourcePresetId": "<host_class>",
@@ -432,15 +457,22 @@ If you set the current time as the recovery time, the new cluster will match the
             "<DB_and_table_2>",
             ...
             "<DB_and_table_N>"
+          ],
+          "masterHostGroupIds": [
+            "string"
+          ],
+          "segmentHostGroupIds": [
+            "string"
           ]
         }
         ```
 
+
         Where:
 
-        * `backupId`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
+        * `backupId`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
         * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format. By default, the cluster will be restored from a backup.
-        * `folderId`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder where the backup is stored.
+        * `folderId`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder the backup is in.
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
@@ -454,18 +486,26 @@ If you set the current time as the recovery time, the new cluster will match the
             * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
             * `assignPublicIp`: Public access to cluster hosts, `true` or `false`.
 
-            * `masterResources`, `segmentResources`: Master and segment host configuration in the cluster:
+        * `masterResources`, `segmentResources`: Master and segment host configuration in the cluster:
 
-                * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-                * `diskSize`: Disk size in bytes.
-                * `diskTypeId`: [Disk type](../concepts/storage.md).
+            * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+            * `diskSize`: Disk size in bytes.
+            * `diskTypeId`: [Disk type](../concepts/storage.md).
 
-            * `segmentHostCount`: Number of segment hosts, from `2` to `32`.
-            * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+        * `segmentHostCount`: Number of segment hosts, from `2` to `32`.
+        * `segmentInHost`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
 
-                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-            * `restoreOnly` (optional): List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+        * `restoreOnly`: (Optional) List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+
+        
+        * `masterHostGroupIds` and `segmentHostGroupIds`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+
+            You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
 
     1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -490,6 +530,7 @@ If you set the current time as the recovery time, the new cluster will match the
 
     1. Create a file named `body.json` and add the following contents to it:
 
+        
         ```json
         {
           "backup_id": "<backup_ID>",
@@ -520,15 +561,22 @@ If you set the current time as the recovery time, the new cluster will match the
             "<DB_and_table_2>",
             ...
             "<DB_and_table_N>"
+          ],
+          "master_host_group_ids": [
+            "string"
+          ],
+          "segment_host_group_ids": [
+            "string"
           ]
         }
         ```
 
+
         Where:
 
-        * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
+        * `backup_id`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
         * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format. By default, the cluster will be restored from a backup.
-        * `folder_id`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder where the backup is stored.
+        * `folder_id`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder the backup is in.
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
@@ -542,18 +590,26 @@ If you set the current time as the recovery time, the new cluster will match the
             * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
             * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
 
-            * `master_resources`, `segment_resources`: Master and segment host configuration in the cluster:
+        * `master_resources`, `segment_resources`: Master and segment host configuration in the cluster:
 
-                * `resource_preset_id`: [Host class](../concepts/instance-types.md).
-                * `disk_size`: Disk size in bytes.
-                * `disk_type_id`: [Disk type](../concepts/storage.md).
+            * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+            * `disk_size`: Disk size in bytes.
+            * `disk_type_id`: [Disk type](../concepts/storage.md).
 
-            * `segment_host_count`: Number of segment hosts, from `2` to `32`.
-            * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
+        * `segment_host_count`: Number of segment hosts, from `2` to `32`.
+        * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
 
-                {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
+            {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
-            * `restore_only` (optional): List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+        * `restore_only`: (Optional) List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
+
+        
+        * `master_host_group_ids` and `segment_host_group_ids`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+
+            You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
 
     1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 

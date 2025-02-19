@@ -69,7 +69,7 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
 
         {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
-    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
+    You can get the cluster ID and name with the [list of clusters in the folder](./cluster-list.md#list).
 
 - API {#api}
 
@@ -79,7 +79,7 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
     * Job name in the `name` parameter.
     * Job properties in the `mapreduceJob` parameter.
 
-    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list).
+    You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list).
 
 {% endlist %}
 
@@ -95,11 +95,9 @@ description: In this tutorial, you will learn how to manage MapReduce jobs in {{
 
 {% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 
-
 ## Get job execution logs {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-processing/jobs-get-logs.md) %}
-
 
 {% note info %}
 

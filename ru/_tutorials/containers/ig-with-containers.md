@@ -172,7 +172,7 @@
 
    {% note info %}
 
-   Передать [SSH-ключ](../../glossary/ssh-keygen.md) в [метаданных ВМ](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) можно с помощью параметра `ssh-keys` или в строке с пользовательскими метаданными `user-data`. В этом практическом руководстве используется первый вариант.
+   Передать [SSH-ключ](../../glossary/ssh-keygen.md) в [метаданных ВМ](../../compute/concepts/vm-metadata.md) можно с помощью параметра `ssh-keys` или в ключе с пользовательскими метаданными `user-data`. В этом практическом руководстве используется первый вариант.
 
    {% endnote %}
 

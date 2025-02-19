@@ -556,6 +556,8 @@ default:
   promql-name: PromQL
   python-cli-ver: python312
   python-full-ver: Python 3.12
+  quota-manager-full-name: Yandex Cloud Quota Manager
+  quota-manager-name: Cloud Quota Manager
   RD: Redis
   region-id: ru-central1
   registry: cr.yandex
@@ -7396,6 +7398,9 @@ default:
             button_open-dialog: Добавить
           label_create_cloud: Создать облако
           quotas:
+            button_action-request: Повысить
+            column_usage: Использование
+            label_quota-empty: Квота не выделена
             label_quota-name-compute:
               disks:
                 count: Количество дисков
@@ -7412,6 +7417,8 @@ default:
                 size: Объём HDD-хранилищ
               ssd:
                 size: Объём SSD-хранилищ
+            value_status-error: Почти израсходованы
+            value_status-warning: Активно используются
           switch_overview: Обзор
           switch_quotas: Квоты
         connected-federation:
@@ -7475,6 +7482,7 @@ default:
             label_search-api: Yandex Search API
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
+            label_serverless-integrations: Serverless Integrations
             label_smartcaptcha: SmartCaptcha
             label_smartcaptcha_ru: Yandex SmartCaptcha
             label_smartwebsecurity: Smart Web Security
@@ -8358,6 +8366,9 @@ default:
         section_parameters: Настройки
         section_resources: Ресурсы
         section-revisions: Ревизии
+      serverless-event-router:
+        button_create-bus: Создать шину
+        label_service: EventRouter
       serverless-functions:
         gateways:
           domains:

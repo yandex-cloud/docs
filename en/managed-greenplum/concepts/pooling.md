@@ -6,9 +6,7 @@ To address the insufficient resources issue, a [PgBouncer connection pooler]({{ 
 
 This deployment method complicates the administration because the servers hosting the connection pooler are added to the DBMS infrastructure.
 
-
 The {{ mgp-name }} architecture has a built-in connection pooler: [Odyssey](https://yandex.ru/dev/odyssey/) by Yandex.
-
 
 Odyssey supports two modes of connection management:
 

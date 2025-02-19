@@ -49,4 +49,17 @@ Configuration types:
 | i3-c40-m320       |              40 | 100%                    |     320 | 10 - 8192            |
 
 
+
+## Using dedicated hosts {#dedicated-hosts}
+
+You can use [dedicated hosts](../../compute/concepts/dedicated-host.md) for your master hosts, segment hosts, or all your cluster's hosts at the same time. In which case the cluster's hosts will reside only on dedicated hosts from the selected group.
+
+A cluster on dedicated hosts will have the following available to it:
+
+* Configurations of the [platform](../../compute/concepts/vm-platforms.md) the group's dedicated hosts were created on.
+* The whole [local disk](../../compute/concepts/dedicated-host.md#host-types-list) (`local-ssd`) volume of the dedicated host. The maximum storage size per host is greater than if standard VMs are used. 
+
+Network drives are also available on dedicated hosts.
+
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

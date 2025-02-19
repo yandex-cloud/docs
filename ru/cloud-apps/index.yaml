@@ -1,8 +1,8 @@
 title: Yandex Cloud Apps
 description:
-  - |-
+  - >-
     <em>Сервис Yandex Cloud Apps находится на <a
-        href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
   - >-
     Yandex Cloud Apps — сервис, который позволяет в один клик развернуть
     приложение на базе Yandex Cloud.

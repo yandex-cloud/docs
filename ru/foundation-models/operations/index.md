@@ -11,6 +11,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](./yandexgpt/create-prompt.md)
 * [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/async-request.md)
+* [{#T}](./yandexgpt/function-call.md)
 
 ## Пошаговые инструкции для {{ yandexart-name }} {#yandexart}
 

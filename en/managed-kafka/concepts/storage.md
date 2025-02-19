@@ -10,7 +10,6 @@ description: In this article, you will learn what a storage is in {{ mkf-name }}
 
 {% include [storage-type-nrd](../../_includes/mdb/mkf/storage-type.md) %}
 
-
 ## Selecting the disk type during cluster creation {#storage-type-selection}
 
 
@@ -29,7 +28,6 @@ The number of broker hosts you can create together with an {{ KF }} cluster depe
     * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of broker hosts per cluster, see [Quotas and limits](./limits.md).
-
 
 
 ## Minimum storage size {#minimal-storage-size}

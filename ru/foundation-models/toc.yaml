@@ -23,6 +23,8 @@ items:
             href: operations/yandexgpt/create-chat.md
           - name: Отправить асинхронный запрос
             href: operations/yandexgpt/async-request.md
+          - name: Вызвать функцию из модели
+            href: operations/yandexgpt/function-call.md
       - name: Генерация изображений
         items:
           - name: Сгенерировать изображение
@@ -61,6 +63,8 @@ items:
             href: concepts/yandexgpt/models.md
           - name: Токены
             href: concepts/yandexgpt/tokens.md
+          - name: Вызов функций
+            href: concepts/yandexgpt/function-call.md
           - name: Режим рассуждений
             href: concepts/yandexgpt/chain-of-thought.md
       - name: Генерация изображений

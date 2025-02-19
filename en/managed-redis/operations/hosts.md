@@ -27,7 +27,6 @@ You can add and remove cluster hosts and manage their settings. For information 
   Result:
 
   
-  
   ```text
   +---------------------------------+----------------------+------------+---------+--------+-------------------+
   |              NAME               |      CLUSTER ID      | SHARD NAME |  ROLE   | HEALTH |      ZONE ID      |
@@ -36,8 +35,6 @@ You can add and remove cluster hosts and manage their settings. For information 
   | rc1b-...bgc.{{ dns-zone }} | c9qb2q230gg1******** | shard1     | REPLICA | ALIVE  | {{ region-id }}-b     |
   +---------------------------------+----------------------+------------+---------+--------+-------------------+
   ```
-
-
 
 
   You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -116,7 +113,7 @@ Public access to hosts can only be configured for clusters created with enabled 
      * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
 
 
-     * [Priority for assigning the host as a master](../concepts/replication.md#master-failover).
+     * [Host priority for assignment as a master](../concepts/replication.md#master-failover).
      * If necessary, configure public access to the host.
      * If you are adding a host to a sharded cluster, select a shard.
 
@@ -135,7 +132,6 @@ Public access to hosts can only be configured for clusters created with enabled 
 
 	 Result:
 
-     
      ```text
      +----------------------+-----------+-----------------------+---------------+------------------+
      |          ID          |   NAME    |       NETWORK ID      |     ZONE      |      RANGE       |
@@ -146,8 +142,6 @@ Public access to hosts can only be configured for clusters created with enabled 
      | e9b9v22r88io******** | default-a | enp6rq72rndgr******** | {{ region-id }}-a | [172.16.16.0/20] |
      +----------------------+-----------+-----------------------+---------------+------------------+
      ```
-
-
 
      
      If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
@@ -172,12 +166,12 @@ Public access to hosts can only be configured for clusters created with enabled 
      ```
 
      Where:
-     * `--cluster-name`: {{ mrd-name }} cluster name. You can get  it with the [list of clusters in a folder](cluster-list.md#list-clusters).
+     * `--cluster-name`: {{ mrd-name }} cluster name. You can get it with the [list of clusters in a folder](cluster-list.md#list-clusters).
      * `--host`: Host parameters:
        * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
        * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
-       * `replica-priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover). It is only available for non-sharded clusters.
+       * `replica-priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover). It is only available for non-sharded clusters.
        * `shard-name`: Name of the shard to create the host in if the cluster is sharded.
 
 - {{ TF }} {#tf}
@@ -248,7 +242,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
   1. Set new settings for the host:
 
       1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
-      1. Specify the [priority for assigning the host as a master](../concepts/replication.md#master-failover).
+      1. Specify [host priority for assignment as a master](../concepts/replication.md#master-failover).
 
   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -335,7 +329,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
         Where `updateHostSpecs` represents the host parameters:
 
         * `hostName`: Name of the host you need to update. To find out the name, [get a list of hosts in the cluster](#list).
-        * `replicaPriority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+        * `replicaPriority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
@@ -382,7 +376,7 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
         Where `update_host_specs` represents the host parameters:
 
         * `host_name`: Name of the host you need to update. To find out the name, [get a list of hosts in the cluster](#list).
-        * `replica_priority`: Priority for assigning the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+        * `replica_priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 

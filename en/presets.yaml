@@ -7390,6 +7390,9 @@ default:
             button_open-dialog: Add
           label_create_cloud: Create cloud
           quotas:
+            button_action-request: Increase
+            column_usage: Usage
+            label_quota-empty: Quota not allocated
             label_quota-name-compute:
               disks:
                 count: Number of disks
@@ -7406,6 +7409,8 @@ default:
                 size: HDD storage capacity
               ssd:
                 size: SSD storage capacity
+            value_status-error: Almost exhausted
+            value_status-warning: Actively used
           switch_overview: Overview
           switch_quotas: Quotas
         connected-federation:
@@ -7469,6 +7474,7 @@ default:
             label_search-api: Yandex Search API
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
+            label_serverless-integrations: Serverless Integrations
             label_smartcaptcha: SmartCaptcha
             label_smartcaptcha_ru: Yandex SmartCaptcha
             label_smartwebsecurity: Smart Web Security
@@ -8352,6 +8358,9 @@ default:
         section_parameters: Settings
         section_resources: Resources
         section-revisions: Revisions
+      serverless-event-router:
+        button_create-bus: Create bus
+        label_service: EventRouter
       serverless-functions:
         gateways:
           domains:

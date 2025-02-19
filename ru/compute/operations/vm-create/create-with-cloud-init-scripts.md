@@ -256,6 +256,34 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [cli-install](../../../_includes/compute/create/legend-for-creating-user-data-scripts.md) %}
 
+- {{ unified-agent-full-name }}
+
+  {% note info %}
+
+  При создании виртуальной машины с [{{ unified-agent-full-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) не забудьте привязать к ней [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на текущий [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+  {% endnote %}
+
+  Чтобы установить {{ unified-agent-short-name }} на создаваемой ВМ, укажите для ключа `user-data` следующее значение:
+
+  ```yaml
+  #cloud-config
+  datasource:
+    Ec2:
+      strict_id: false
+  ssh_pwauth: no
+  users:
+  - name: <имя_пользователя>
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    shell: /bin/bash
+    ssh_authorized_keys:
+    - <публичный_SSH-ключ>
+  runcmd:
+    - wget -O - https://{{ api-host-monitoring-1 }}/monitoring/v2/unifiedAgent/config/install.sh | bash
+  ```
+
+  {% include [cli-install](../../../_includes/compute/create/legend-for-creating-user-data-scripts.md) %}
+
 - {{ TF }}
 
   Чтобы установить [{{ TF }}](https://www.terraform.io/) на создаваемой ВМ, укажите для ключа `user-data` следующее значение:

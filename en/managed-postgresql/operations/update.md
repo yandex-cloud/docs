@@ -62,7 +62,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -161,7 +161,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
      * `configSpec.resources.resourcePresetId`: New [host class](../concepts/instance-types.md).
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -208,7 +208,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
      * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md).
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
@@ -249,7 +249,7 @@ You can change the DBMS settings of the hosts in your cluster.
      {{ yc-mdb-pg }} cluster get <cluster_name_or_ID> --full
      ```
 
-  1. View a description of the update cluster configuration CLI command:
+  1. View the description of the CLI command to update the cluster configuration:
 
       ```bash
       {{ yc-mdb-pg }} cluster update-config --help
@@ -340,7 +340,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
        See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterRequest) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -395,7 +395,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
        See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigSpec) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
@@ -427,15 +427,14 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
   To change additional cluster settings:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help
         ```
 
-    1. Run the following command with a list of settings to update:
+    1. Run the following command with the list of settings to update:
 
-        
         ```bash
         {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
             --backup-window-start <backup_start_time> \
@@ -453,8 +452,6 @@ Changing additional settings will cause the cluster to restart. The exceptions a
                                      `sessions-sampling-interval=<session_sampling_interval>,`
                                      `statements-sampling-interval=<statement_sampling_interval>
         ```
-
-
 
     You can change the following settings:
 
@@ -496,7 +493,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
         * `statements-sampling-interval`: Statement sampling interval, seconds. The values range from `60` to `86400`.
 
 
-    You can [get the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
+    You can [get the cluster name with the list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -699,7 +696,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -832,7 +829,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -942,7 +939,7 @@ To switch the master:
 
      Where `hostName` is the [FQDN of the replica](connect.md#fqdn) which becomes the master host.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -972,7 +969,7 @@ To switch the master:
 
      Where `host_name` is the [FQDN of the replica](connect.md#fqdn) which becomes the master host.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 
@@ -1011,7 +1008,7 @@ To switch the master:
            --destination-folder-name=<destination_folder_name>
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -1034,7 +1031,7 @@ To switch the master:
 
      Where `destinationFolderId` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1064,7 +1061,7 @@ To switch the master:
 
      Where `destination_folder_id` is the ID of the folder you want to move your cluster to. You can fetch this ID together with the [list of folders](../../resource-manager/operations/folder/get-id.md) in the cloud.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1093,7 +1090,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -1168,7 +1165,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      * `securityGroupIds`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1216,7 +1213,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      * `security_group_ids`: New list of [security groups](../concepts/network.md#security-groups) presented in the form of array elements.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure the request was successful.
 

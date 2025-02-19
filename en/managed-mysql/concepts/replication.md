@@ -17,12 +17,9 @@ Once you create a {{ MY }} cluster with multiple hosts, it contains one master h
 
 Here is an example of an auto replicated cluster configuration:
 
-
 ![MMY replicas auto control](../../_assets/mdb/mmy-replicas-auto.svg)
 
-
-
-In this example, a master and two replicas are located in different availability zones. In this case:
+In this example, a master and two replicas are located in different availability zones. In which case:
 
 * Each transaction is saved to a minimum of two hosts.
 * The cluster is fault-tolerant to a host disconnecting in one availability zone and to two successive disconnections.
@@ -44,10 +41,7 @@ A cluster of two hosts, including one cascading replica, is not fault tolerant.
 
 Here is an example of cluster configuration with cascading replication and hosts in two availability zones:
 
-
 ![MMY replicas auto control](../../_assets/mdb/mmy-cascade-replicas.svg)
-
-
 
 Assigning a replication source for the cluster hosts allows you to:
 

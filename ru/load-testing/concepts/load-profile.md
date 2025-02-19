@@ -99,3 +99,9 @@
     ```
 
 {% endlist %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../tutorials/loadtesting-https-phantom.md)

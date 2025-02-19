@@ -34,7 +34,7 @@ To get started with the service:
 
 1. You can connect to a {{ dataproc-name }} cluster from both inside and outside {{ yandex-cloud }}:
 
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) virtual machine in the same network as the cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) VM in the same network as the cluster.
 
    * To be able to connect to the cluster from the internet, request public access to subclusters when creating the cluster.
 
@@ -44,7 +44,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
 
 ## Create a cluster {#cluster-create}
@@ -77,7 +77,7 @@ For more information about connecting to a {{ dataproc-name }} cluster, see [Con
 
 To connect to the {{ dataproc-name }} component interfaces using the web interface:
 
-1. [Enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** setting](operations/connect-interfaces.md#ui-proxy-enable) in the cluster.
+1. [Enable the **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**](operations/connect-interfaces.md#ui-proxy-enable) setting in the cluster.
 1. Get a list of interface URLs.
 
 To connect to the {{ dataproc-name }} component interfaces via SSH with port forwarding:
