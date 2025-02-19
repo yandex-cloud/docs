@@ -68,3 +68,13 @@ autostop:
 ```
 
 Такой автостоп остановит тест, если в течение 15 секунд количество ответов URI с тегом `case1` с http-кодом `4xx` превысит 20%, или в течение 5 секунд количество ответов URI с тегом `case2` с http-кодом `4xx` превысит 5%.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../tutorials/loadtesting-gitlab-ci.md#add-loadtesting-ci)
+* [{#T}](../tutorials/loadtesting-multiply.md)
+* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)
+* [{#T}](../tutorials/loadtesting-grpc-autoscaling.md)
+* [{#T}](../tutorials/loadtesting-grpc.md)

@@ -32,7 +32,7 @@ Prepare the infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent`, `dataproc.provisioner`, and `storage.uploader` roles.
+    1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent`, `dataproc.provisioner`, `managed-metastore.integrationProvider`, and `storage.uploader` roles.
     1. In {{ objstorage-full-name }}, [create a bucket](../../../storage/operations/buckets/create.md) named `dataproc-bucket`. Grant the `READ and WRITE` permission for this bucket to the service account.
     1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`.
     1. In this network, [create a subnet](../../../vpc/operations/subnet-create.md) named `dataproc-subnet`.
@@ -244,7 +244,7 @@ To transfer data from one {{ dataproc-name }} cluster to another, back up the da
 
 1. [Add](../../../data-proc/operations/cluster-update.md) to the `dataproc-target` cluster settings the `spark:spark.hive.metastore.uris` property with the following value: `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}`.
 
-    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** in the management console and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. You will see the cluster IP address under **{{ ui-key.yacloud.common.section-base }}**.
+    To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the management console and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster.
 
 ## Import data {#import-data}
 

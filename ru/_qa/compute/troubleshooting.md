@@ -6,7 +6,7 @@
 
 При создании ВМ Linux с несколькими [сетевыми интерфейсами](../../compute/concepts/network.md) может возникнуть проблема с работоспособностью дополнительных сетевых интерфейсов внутри ОС. В некоторых случаях эта проблема может вызвать нарушение сетевой связности и привести к невозможности [подключиться](../../compute/operations/vm-connect/ssh.md) к ВМ по SSH.
 
-Чтобы устранить проблему, удалите ВМ и [создайте](../../compute/operations/vm-create/create-linux-vm.md) новую, передав в [метаданных](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) создаваемой ВМ дополнительные параметры [cloud-init](https://cloud-init.io):
+Чтобы устранить проблему, удалите ВМ и [создайте](../../compute/operations/vm-create/create-linux-vm.md) новую, передав в [метаданных](../../compute/concepts/metadata/public-image-keys.md) создаваемой ВМ дополнительные параметры [cloud-init](https://cloud-init.io):
 
 {% list tabs group=instructions %}
 

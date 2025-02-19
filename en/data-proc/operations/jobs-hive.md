@@ -58,13 +58,13 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
         {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
-    You can get the cluster ID and name with a [list of clusters in the folder](./cluster-list.md#list).
+    You can get the cluster ID and name with the [list of clusters in the folder](./cluster-list.md#list).
 
 - API {#api}
 
     Use the [create](../api-ref/Job/create) API method and include the following information in the request:
 
-    * Cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](./cluster-list.md#list).
+    * Cluster ID in the `clusterId` parameter. You can get it with the [list of clusters in the folder](./cluster-list.md#list).
     * Job name in the `name` parameter.
     * Job properties in the `hiveJob` parameter.
 
@@ -82,8 +82,6 @@ In a {{ dataproc-name }} cluster, you can manage [jobs](../concepts/jobs.md) and
 
 {% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 
-
 ## Get job execution logs {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-processing/jobs-get-logs.md) %}
-

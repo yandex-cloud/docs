@@ -91,6 +91,13 @@ Let's Encrypt предоставляет Domain Validation TLS-сертифик�
 1. [Пройдите процедуру проверки прав на домены](../operations/managed/cert-validate.md).
 1. Используйте новый сертификат в ваших ресурсах.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/tls-termination/index.md)
+
 #### См. также {#see-also}
 
 - [Проверка прав на домен](challenges.md)

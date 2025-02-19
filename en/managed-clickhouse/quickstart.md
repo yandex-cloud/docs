@@ -34,7 +34,7 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
    ```bash
@@ -69,7 +69,7 @@ To get started with the service:
 1. If you are using [security groups](../vpc/concepts/security-groups.md) for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
 
 
-1. To connect to the DB server, get your SSL certificates:
+1. To connect to the DB server, get SSL certificates:
 
    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 

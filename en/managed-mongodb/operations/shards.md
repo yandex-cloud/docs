@@ -227,13 +227,134 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
-- API {#api}
+- REST API {#api}
 
-  To enable cluster sharding, use the [enableSharding](../api-ref/Cluster/enableSharding.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.EnableSharding](../api-ref/Cluster/enableSharding.md) method send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>:enableSharding' \
+            --data '{
+                      "<{{ MG }}_host_type>": {
+                        "resources": {
+                          "resourcePresetId": "<host_class>",
+                          "diskSize": "<storage_size_in_bytes>",
+                          "diskTypeId": "<disk_type>"
+                        }
+                      },
+                      "hostSpecs": [
+                        {
+                          "zoneId": "<availability_zone>",
+                          "subnetId": "<subnet_ID>",
+                          "assignPublicIp": <public_host_address:_true_or_false>,
+                          "type": "<host_type>",
+                          "shardName": "<shard_name>",
+                          "hidden": <host_visibility:_true_or_false>,
+                          "secondaryDelaySecs": "<lag_in_seconds>",
+                          "priority": "<host_priority_for_assignment_as_master>",
+                          "tags": "<host_labels>"
+                        },
+                        { <similar_configuration_for_host_2> },
+                        { ... },
+                        { <similar_configuration_for_host_N> }
+                      ]
+                    }'
+        ```
+
+        Where:
+
+        * {{ MG }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongocfg`, `mongos`, and `mongoinfra`.
+        
+        * `hostSpecs` is an array of new hosts. One array element contains settings for a single host. The number of hosts depends on the [sharding type](../concepts/sharding.md#shard-management). 
+
+          * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+          * `assignPublicIp`: Internet access to the host via a public IP address.
+          * `type`: Host type: `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
+          * `shardName`: Shard name.
+          * `hidden`: The host will either be visible or hidden.
+          * `secondaryDelaySecs`: Host's lag behind the master.
+          * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
+          * `tags`: Host labels.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Use the [ClusterService.EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) call and send a request, e.g., via {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "<{{ MG }}_host_type>": {
+                  "resources": {
+                    "resource_preset_id": "<host_class>",
+                    "disk_size": "<storage_size_in_bytes>",
+                    "disk_type_id": "<disk_type>"
+                  }
+                },
+                "host_specs": [
+                  {
+                    "zone_id": "<availability_zone>",
+                    "subnet_id": "<subnet_ID>",
+                    "assign_public_ip": <public_host_address:_true_or_false>,
+                    "type": "<host_type>",
+                    "shard_name": "<shard_name>",
+                    "hidden": <host_visibility:_true_or_false>,
+                    "secondary_delay_secs": "<lag_in_seconds>",
+                    "priority": "<host_priority_for_assignment_as_master>",
+                    "tags": "<host_labels>"
+                  },
+                  { <similar_configuration_for_host_2> },
+                  { ... },
+                  { <similar_configuration_for_host_N> }
+                ]
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mongodb.v1.ClusterService.EnableSharding
+      ```
+
+      Where:
+      
+      * {{ MG }} host type depends on the [sharding type](../concepts/sharding.md). Possible values: `mongocfg`, `mongos`, and `mongoinfra`.
+        
+      * `host_specs` is an array of new hosts. One array element contains settings for a single host. The number of hosts depends on the [sharding type](../concepts/sharding.md#shard-management). 
+
+        * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+        * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+        * `assign_public_ip`: Internet access to the host via a public IP address.
+        * `type`: Host type: `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
+        * `shard_name`: Shard name.
+        * `hidden`: The host will either be visible or hidden.
+        * `secondary_delay_secs`: Host's lag behind the master.
+        * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
+        * `tags`: Host labels.
+
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+  1. View the [server response](../api-ref/grpc/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -271,11 +392,52 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
   You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  To get a list of cluster shards, use the [listShards](../api-ref/Cluster/listShards.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListShards](../api-ref/grpc/Cluster/listShards.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.ListShards](../api-ref/Cluster/listShards.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/shards'
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mongodb.v1.ClusterService.ListShards
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.mongodb.v1.ListClusterShardsResponse) to make sure the request was successful.
 
 {% endlist %}
 
@@ -346,15 +508,120 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
-- API {#api}
+- REST API {#api}
 
-  To create a shard, use the [addShard](../api-ref/Cluster/addShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddShard](../api-ref/grpc/Cluster/addShard.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * Cluster ID in the `clusterId` parameter.
-  * Shard name in the `shardName` parameter.
-  * Shard host configuration in the array of `hostSpecs` parameters.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  You can get the shard name with a [list of cluster shards](#list-shards) and the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    1. Use the [Cluster.AddShard](../api-ref/Cluster/addShard.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/shards' \
+            --data '{
+                      "shardName": "<shard_name>",
+                      "hostSpecs": [
+                        {
+                          "zoneId": "<availability_zone>",
+                          "subnetId": "<subnet_ID>",
+                          "assignPublicIp": <public_host_address:_true_or_false>,
+                          "type": "<host_type>",
+                          "shardName": "<shard_name>",
+                          "hidden": <host_visibility:_true_or_false>,
+                          "secondaryDelaySecs": "<time_in_seconds>",
+                          "priority": "<host_priority_for_assignment_as_master>",
+                          "tags": "<labels>"
+                        },
+                        { <similar_configuration_for_host_2> },
+                        { ... },
+                        { <similar_configuration_for_host_N> }
+                      ]
+                    }'
+
+        ```
+
+        Where:
+
+        * `shardName`: Name of the shard you are creating.
+        * `hostSpecs`: Host parameters:
+
+          * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+          * `assignPublicIp`: Internet access to the host via a public IP address.
+          * `type`: Host type. Specify `MONGOD`.
+          * `shardName`: Shard name.
+          * `hidden`: The host will either be visible or hidden.
+          * `secondaryDelaySecs`: Host's lag behind the master.
+          * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
+          * `tags`: Host labels.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.AddShard](../api-ref/grpc/Cluster/addShard.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "shard_name": "<shard_name>",
+                  "host_specs": [
+                    {
+                      "zone_id": "<availability_zone>",
+                      "subnet_id": "<subnet_ID>",
+                      "assign_public_ip": <public_host_address:_true_or_false>,
+                      "type": "<host_type>",
+                      "shard_name": "<shard_name>",
+                      "hidden": <host_visibility:_true_or_false>,
+                      "secondary_delay_secs": "<time_in_seconds>",
+                      "priority": "<host_priority_for_assignment_as_master>",
+                      "tags": "<labels>"
+                    },
+                    { <similar_configuration_for_host_2> },
+                    { ... },
+                    { <similar_configuration_for_host_N> }
+                  ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.AddShard    
+        ```
+
+        Where:
+
+        * `shard_name`: Name of the shard you are creating.
+        * `host_specs`: Host parameters:
+
+          * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
+          * `assign_public_ip`: Internet access to the host via a public IP address.
+          * `type`: Host type. Specify `MONGOD`.
+          * `shard_name`: Shard name.
+          * `hidden`: The host will either be visible or hidden.
+          * `secondary_delay_secs`: Host's lag behind the master.
+          * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
+          * `tags`: Host labels.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/addShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
 
@@ -390,7 +657,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
     --cluster-name=<cluster_name>
   ```
 
-  You can request the shard name with a [list of cluster shards](#list-shards) and the cluster name with a [list of clusters in a folder](cluster-list.md#list-clusters).
+  You can request the shard name with the [list of shards in the cluster](#list-shards) and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -409,11 +676,52 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mmg }}).
 
-- API {#api}
+- REST API {#api}
 
-  To delete a shard, use the [deleteShard](../api-ref/Cluster/deleteShard.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
 
-  * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-  * Name of the shard you are deleting in the `shardName` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.DeleteShard](../api-ref/Cluster/deleteShard.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/shards/<shard_name>'
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name, with the [list of shards in the cluster](#list-shards).
+
+    1. View the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/mongodb/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "shard_name": "<shard_name>" 
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.mongodb.v1.ClusterService.DeleteShard
+        ```
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the shard name, with the [list of shards in the cluster](#list-shards).
+
+    1. View the [server response](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}

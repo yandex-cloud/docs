@@ -73,7 +73,7 @@ The examples for Windows were tested in the following environment:
 
 {% endlist %}
 
-To learn how to get a host FQDN, see [this guide](fqdn.md).
+To learn how to get host FQDN, see [this guide](fqdn.md).
 
 After running the command, enter the user password to complete the connection process.
 
@@ -106,7 +106,7 @@ After connecting to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
-To learn how to get a host FQDN, see [this guide](fqdn.md).
+To learn how to get host FQDN, see [this guide](fqdn.md).
 
 #### Windows (PowerShell) {#curl-powershell}
 
@@ -134,7 +134,7 @@ To learn how to get a host FQDN, see [this guide](fqdn.md).
 
 {% endlist %}
 
-To learn how to get a host FQDN, see [this guide](fqdn.md).
+To learn how to get host FQDN, see [this guide](fqdn.md).
 
 ## Connecting from graphical IDEs {#ide}
 
@@ -203,7 +203,7 @@ To connect to a cluster host from the built-in SQL editor, specify the following
 https://<FQDN_of_any_{{ CH }}_host>:8443/play
 ```
 
-You can only connect to public cluster hosts. To learn how to get a host FQDN, see [this guide](fqdn.md).
+You can only connect to public cluster hosts. To learn how to get host FQDN, see [this guide](fqdn.md).
 
 To connect to a cluster by [selecting an available host automatically](fqdn.md#auto), use the following URL:
 
@@ -256,7 +256,6 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
 
 - Connecting via SSL {#with-ssl}
 
-  
    ```bash
    # Connecting the DEB repository
    RUN apt-get update && \
@@ -282,7 +281,6 @@ To connect to a {{ mch-name }} cluster from a Docker container, add the followin
             {{ crt-local-dir }}{{ crt-local-file-int }} && \
        update-ca-certificates
    ```
-
 
 {% endlist %}
 

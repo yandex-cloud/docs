@@ -108,7 +108,6 @@ description: Из статьи вы узнаете, как удалить лог
 
   Чтобы удалить пользовательскую лог-группу, воспользуйтесь методом REST API [delete](../api-ref/LogGroup/delete.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Delete](../api-ref/grpc/LogGroup/delete.md).
 
-  
   **Пример запроса**
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
@@ -139,6 +138,5 @@ description: Из статьи вы узнаете, как удалить лог
     }
   }
   ```
-
 
 {% endlist %}

@@ -71,6 +71,19 @@ description: Из статьи вы узнаете, что такое трейл
             * `Исключить` — для получения всех событий, кроме выбранных.
         * Список [событий](events-data-plane.md#dns), если выбран тип фильтра `Выбранные` или `Исключить`.
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/query.md)
+* [{#T}](../tutorials/alerts-monitoring.md)
+* [{#T}](../tutorials/logging-functions.md)
+* [{#T}](../tutorials/audit-trails.md)
+* [{#T}](../tutorials/maxpatrol.md)
+* [{#T}](../tutorials/export-logs-to-splunk.md)
+* [{#T}](../tutorials/export-logs-to-arcsight.md)
+* [{#T}](../tutorials/audit-trails-events-to-kuma/console.md)
+
+
 ## Что дальше {#whats-next}
 
 * Узнайте о [формате аудитных логов](./format.md).

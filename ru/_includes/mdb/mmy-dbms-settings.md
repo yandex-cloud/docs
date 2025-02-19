@@ -8,6 +8,21 @@
 
   {% include [requires-restart](note-requires-restart.md) %}
 
+- **Audit log policy**{#setting-audit-log-policy} {{ tag-con }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
+
+  Параметр определяет, какие события будут записываться в лог аудита:
+
+  * `ALL` — регистрируются все события.
+  * `LOGINS` (по умолчанию) — регистрируются только события входа в систему.
+  * `QUERIES` — регистрируются только события запросов.
+  * `NONE` — никакие события не регистрируются.
+
+  Параметр **Audit log policy** актуален, только если включен параметр **Audit log**.
+
+  Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy).
+
 - **Auto increment**{#setting-auto-increment-increment} {{ tag-all }}
 
   Задает интервал между значениями столбцов с атрибутом `AUTO_INCREMENT`.

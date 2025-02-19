@@ -30,7 +30,7 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
        --ui-proxy=true
     ```
 
-    You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list).
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list).
 
 - API {#api}
 
@@ -66,13 +66,13 @@ You can connect to {{ dataproc-name }} component interfaces either using [UI Pro
     {{ yc-dp }} cluster list-ui-links <cluster_name_or_ID>
     ```
 
-    You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list).
+    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list).
 
 - API {#api}
 
     Use the [listUILinks](../api-ref/Cluster/listUILinks.md) API method and include the cluster ID in the `clusterId` request parameter.
 
-    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list).
+    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list).
 
 {% endlist %}
 
@@ -90,14 +90,11 @@ For step-by-step instructions on how to configure security groups for port forwa
 
 To connect to the {{ dataproc-name }} host port you need, run the following command:
 
-
 ```bash
 ssh -A \
     -J <VM_user_name>@<VM_public_IP_address> \
     -L <port_number>:<Yandex_Data_Processing_host_FQDN>:<port_number> <username>@<Yandex_Data_Processing_host_FQDN>
 ```
-
-
 
 Where:
 
@@ -105,9 +102,7 @@ Where:
 * `-J`: Connection to the target host via a jump host VM. Establishes a connection over SSH to the jump host VM that will redirect packages to the target host in the {{ dataproc-name }} cluster.
 * `-L`: Local port redirection to the {{ dataproc-name }} cluster host.
 
-    
     To connect to cluster hosts with [image version](../concepts/environment.md) 1.x, use `root` for username; for version 2.x, use `ubuntu`.
-
 
 You can find the FQDN of the {{ dataproc-name }} host on the {{ dataproc-name }} cluster page, in the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab, in the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 

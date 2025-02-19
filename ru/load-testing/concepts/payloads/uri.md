@@ -128,3 +128,10 @@ uri2 tag
 
 
 {% endlist %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../../tutorials/loadtesting-results-compare.md)

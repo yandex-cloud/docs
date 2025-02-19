@@ -31,9 +31,12 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
     1. Select the {{ GP }} version.
 
     
-    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster.
+    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on the dedicated hosts. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+
+        You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**:
 
@@ -50,7 +53,6 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone you need.
 
         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to enable connecting to the cluster from the internet.
-
 
     1. (Optional) Enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
@@ -221,13 +223,18 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         ```
 
     
-    1. To create a cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, specify their IDs as a comma-separated list in the `--host-group-ids` parameter:
+    1. Optionally, to create a cluster based on [dedicated host](../../compute/concepts/dedicated-host.md) groups, specify their IDs as a comma-separated list in the `--master-host-group-ids` and `--segment-host-group-ids` parameters:
 
         ```bash
         {{ yc-mdb-gp }} cluster create <cluster_name> \
            ...
-           --host-group-ids=<dedicated_host_group_IDs>
+           --master-host-group-ids=<IDs_of_dedicated_host_groups_for_master_hosts> \
+           --segment-host-group-ids=<IDs_of_dedicated_host_groups_for_segment_hosts>
         ```
+
+        You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+
+        You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
@@ -282,7 +289,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       Cluster hosts are located on subnets of the selected cloud network. If you already have suitable subnets, you do not need to describe them again.
 
-      Example structure of a configuration file that describes a cloud network with a single subnet:
+      Example structure of a configuration file describing a single-subnet cloud network:
 
       ```hcl
       resource "yandex_vpc_network" "<network_name_in_{{ TF }}>" { name = "<network_name>" }
@@ -348,7 +355,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-          Enabled cluster deletion protection will not prevent a manual connection with the purpose to delete database contents.
+          Even if enabled, one can still connect manually and delete the database content.
 
       * `version`: {{ GP }} version.
       * `master_host_count`: Number of master hosts, 2.
@@ -365,6 +372,25 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
       For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mgp }}).
+
+  
+  1. Optionally, specify [dedicated host](../../compute/concepts/dedicated-host.md) groups to place master or segment hosts on dedicated hosts:
+
+      ```hcl
+      resource "yandex_mdb_greenplum_cluster" "<cluster_name_in_{{ TF }}>" {
+        ...
+        master_host_group_ids = [<IDs_of_dedicated_host_groups_for_master_hosts>]
+        segment_host_group_ids = [<IDs_of_dedicated_host_groups_for_segment_hosts>]
+        ...
+      }
+      ```
+
+      You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+
+      You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
+
+      {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
 
   1. Check that the {{ TF }} configuration files are correct:
 
@@ -436,7 +462,13 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           },
           "cloudStorage": {
             "enable": <hybrid_storage_use>
-          }
+          },
+          "masterHostGroupIds": [
+            "string"
+          ],
+          "segmentHostGroupIds": [
+            "string"
+          ]
         }
         ```
 
@@ -464,11 +496,11 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
             * `assignPublicIp`: Public access to cluster hosts, `true` or `false`.
 
-            * `masterConfig.resources`, `segmentConfig.resources`: Master and segment host configuration in the cluster:
+        * `masterConfig.resources`, `segmentConfig.resources`: Master and segment host configuration in the cluster:
 
-                * `resourcePresetId`: [Host class](../concepts/instance-types.md).
-                * `diskSize`: Disk size in bytes.
-                * `diskTypeId`: [Disk type](../concepts/storage.md).
+            * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+            * `diskSize`: Disk size in bytes.
+            * `diskTypeId`: [Disk type](../concepts/storage.md).
 
         * `masterHostCount`: Number of master hosts, `1` or `2`.
         * `segmentHostCount`: Number of segment hosts, from `2` to `32`.
@@ -500,6 +532,14 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
+
+
+        
+        * `masterHostGroupIds` and `segmentHostGroupIds`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+
+            You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
 
     1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
@@ -577,7 +617,13 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           },
           "cloud_storage": {
             "enable": <hybrid_storage_use>
-          }
+          },
+          "master_host_group_ids": [
+            "string"
+          ],
+          "segment_host_group_ids": [
+            "string"
+          ]
         }
         ```
 
@@ -605,11 +651,11 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
             * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
 
-            * `master_config.resources`, `segment_config.resources`: Master and segment host configuration in the cluster:
+        * `master_config.resources`, `segment_config.resources`: Master and segment host configuration in the cluster:
 
-                * `resource_preset_id`: [Host class](../concepts/instance-types.md).
-                * `disk_size`: Disk size in bytes.
-                * `disk_type_id`: [Disk type](../concepts/storage.md).
+            * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+            * `disk_size`: Disk size in bytes.
+            * `disk_type_id`: [Disk type](../concepts/storage.md).
 
         * `master_host_count`: Number of master hosts, `1` or `2`.
         * `segment_host_count`: Number of segment hosts, from `2` to `32`.
@@ -643,6 +689,14 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
+        
+        * `master_host_group_ids` and `segment_host_group_ids`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+
+            You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
+
+            {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
+
     1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
@@ -664,7 +718,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ GP }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ GP }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ GP }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ GP }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ GP }} cluster copy:
 
@@ -763,7 +817,7 @@ To create a {{ GP }} cluster copy:
     * With protection against accidental cluster deletion.
 
 
-    Run this command:
+    Run the following command:
 
     
     ```bash

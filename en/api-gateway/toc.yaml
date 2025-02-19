@@ -236,9 +236,13 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/serverless/cli-ref/api-gateway/index.md
-  - name: CLI Triggers reference
-    href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+    items:
+      - name: '{{ api-gw-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/api-gateway/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

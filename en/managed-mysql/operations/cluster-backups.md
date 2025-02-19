@@ -63,7 +63,7 @@ You can create backups and restore clusters from existing backups, including poi
               --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/backups'
           ```
 
-          You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+          You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
@@ -110,7 +110,7 @@ You can create backups and restore clusters from existing backups, including poi
               yandex.cloud.mdb.mysql.v1.ClusterService.ListBackups
           ```
 
-          You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+          You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) to make sure the request was successful.
 
@@ -166,7 +166,7 @@ You can create backups and restore clusters from existing backups, including poi
   {{ yc-mdb-my }} backup get <backup_ID>
   ```
 
-  You can retrieve the backup ID with a [list of backups](#list-backups).
+  You can retrieve the backup ID with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -183,7 +183,7 @@ You can create backups and restore clusters from existing backups, including poi
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/backups/<backup_ID>'
       ```
 
-      You can get the backup ID together with a [list of backups](#list-backups).
+      You can request the backup ID with the [list of backups](#list-backups).
 
   1. View the [server response](../api-ref/Backup/get.md#yandex.cloud.mdb.mysql.v1.Backup) to make sure the request was successful.
 
@@ -210,7 +210,7 @@ You can create backups and restore clusters from existing backups, including poi
           yandex.cloud.mdb.mysql.v1.BackupService.Get
       ```
 
-      You can get the backup ID together with a [list of backups](#list-backups).
+      You can request the backup ID with the [list of backups](#list-backups).
 
   1. View the [server response](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.mysql.v1.Backup) to make sure the request was successful.
 
@@ -248,7 +248,7 @@ You can create backups and restore clusters from existing backups, including poi
       {{ yc-mdb-my }} cluster backup <cluster_name_or_ID>
       ```
 
-      You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
+      You can get the cluster ID and name with the [list of clusters](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -266,7 +266,7 @@ You can create backups and restore clusters from existing backups, including poi
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>:backup'
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -293,7 +293,7 @@ You can create backups and restore clusters from existing backups, including poi
           yandex.cloud.mdb.mysql.v1.ClusterService.Backup
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -414,7 +414,7 @@ For a new cluster, you should set all the parameters that are required at creati
           
           * `network-hdd`
           * `network-ssd`
-                    * `local-ssd`
+          * `local-ssd`
           * `network-ssd-nonreplicated`          * `network-ssd-io-m3`
 
 
@@ -528,7 +528,7 @@ For a new cluster, you should set all the parameters that are required at creati
           "environment": "<environment>",
           "networkId": "<network_ID>",
           "configSpec": {
-              "version": "<{{ PG }}_version>",
+              "version": "<{{ MY }}_version>",
               "resources": {
                   "resourcePresetId": "<host_class>",
                   "diskSize": "<storage_size_in_bytes>",
@@ -547,9 +547,9 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Where:
 
-      * `backupId`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
+      * `backupId`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
       * `time`: Time point to restore the {{ MY }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
-      * `folderId`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folderId`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Environment:
 
@@ -622,9 +622,9 @@ For a new cluster, you should set all the parameters that are required at creati
 
       Where:
 
-      * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it together with a [list of backups](#list-backups).
+      * `backup_id`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
       * `time`: Time point to restore the {{ MY }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` time format.
-      * `folder_id`: ID of the folder you want to restore the cluster to. You can get the ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `folder_id`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
       * `name`: Cluster name.
       * `environment`: Environment:
 
@@ -689,7 +689,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   Where `backup-window-start` is the backup start UTC time in `HH:MM:SS` format.
 
-  You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -770,7 +770,7 @@ For a new cluster, you should set all the parameters that are required at creati
           * `seconds`: Between `0` and `59` seconds.
           * `nanos`: Between `0` and `999999999` nanoseconds.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -827,7 +827,7 @@ For a new cluster, you should set all the parameters that are required at creati
           * `seconds`: Between `0` and `59` seconds.
           * `nanos`: Between `0` and `999999999` nanoseconds.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.mysql.v1.Cluster) to make sure the request was successful.
 
@@ -856,7 +856,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
   The possible values range from `7` to `60`. The default value is `7`.
 
-  You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -921,7 +921,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
           The values range from `7` to `60`. The default value is `7`.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -970,7 +970,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
           The values range from `7` to `60`. The default value is `7`.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.mysql.v1.Cluster) to make sure the request was successful.
 
@@ -1002,7 +1002,7 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
 
   Where `backup-priority` is the host's backup priority, between `0` and `100`.
 
-  You can request the host name with a [list of cluster hosts](hosts.md#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host name with the [list of cluster hosts](hosts.md#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -1032,10 +1032,10 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
       Where `update_host_specs` is the array of hosts you are prioritizing. One array element contains settings for a single host and has the following structure:
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
-      * `hostName`: [FQDN of the host being changed](connect.md#fqdn).
+      * `hostName`: [FQDN of the host you are editing](connect.md#fqdn).
       * `backupPriority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1076,10 +1076,10 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
       Where `update_host_specs` is the array of hosts you are prioritizing. One array element contains settings for a single host and has the following structure:
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
-      * `host_name`: [FQDN of the host being changed](connect.md#fqdn).
+      * `host_name`: [FQDN of the host you are editing](connect.md#fqdn).
       * `backup_priority`: [Host's backup priority](../concepts/backup.md#size), between `0` and `100`.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

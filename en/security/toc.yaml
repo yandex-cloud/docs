@@ -25,7 +25,9 @@ items:
           Reference architecture for cloud infrastructure in isolated mode
           without internet access
         href: domains/architecture-isolated.md
-  - name: '{{ security-standard-current-version }} infrastructure security standard'
+  - name: >-
+      Cloud infrastructure security standard {{
+      security-standard-current-version }}
     items:
       - name: All sections on one page
         href: standard/all.md

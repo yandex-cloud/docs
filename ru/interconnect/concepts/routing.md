@@ -217,3 +217,7 @@ egress {
     }
 ```
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/cic-with-ngfw.md)

@@ -7,10 +7,9 @@ description: In this article, you will learn what storage is in {{ mpg-name }}, 
 
 
 
-{{ mpg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure.Local disks are physically located on the database host servers.
+{{ mpg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
 
 {% include [storage-type-nrd](../../_includes/mdb/mpg/storage-type.md) %}
-
 
 ## Selecting the disk type during cluster creation {#storage-type-selection}
 
@@ -31,7 +30,6 @@ The number of hosts you can create together with a {{ PG }} cluster depends on t
     * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
-
 
 
 ## Disk space management {#manage-storage-space}
@@ -60,10 +58,10 @@ Use one of these methods:
 
 ### Automatic increase of storage size {#auto-rescale}
 
-Automatic storage size increase prevents situations where the disk runs out of free space and hosts switch to read-only mode. The storage size increases upon reaching the specified trigger threshold: a percentage of the total capacity. There are two thresholds:
+Automatic storage size increase prevents situations where the disk runs out of free space and hosts switch to read-only mode. The storage size increases upon reaching the specified threshold percentage of the total capacity. There are two thresholds:
 
-* Scheduled increase threshold. When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
-* Immediate increase threshold. When reached, the storage size increases immediately.
+* Scheduled increase threshold: When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
+* Immediate increase threshold: When reached, the storage size increases immediately.
 
 You can use either one or both thresholds. If you set both, make sure the immediate increase threshold is higher than the scheduled one.
 

@@ -74,12 +74,10 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * Availability zone.
      * Host [subnet](../../vpc/concepts/network.md#subnet): By default, each host is created in a separate subnet.
      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
-     * [Priority for assigning the host as a master](../concepts/replication.md#master-failover).
+     * [Host priority for assignment as a master](../concepts/replication.md#master-failover).
      * [Host priority as a {{ MY }} replica](../concepts/backup.md#size) for creating backups.
 
-     
      If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the {{ mmy-name }} cluster. After creating a {{ mmy-name }} cluster, you can add extra hosts to it if there are enough [folder resources](../concepts/limits.md) available.
-
 
   1. Configure additional {{ mmy-name }} cluster settings, if required:
 
@@ -118,7 +116,6 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Specify the {{ mmy-name }} cluster parameters in the create command:
 
      
-     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name=<cluster_name> \
@@ -139,8 +136,6 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      ```
 
      You need to specify the `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
-
-
 
 
      Where:
@@ -214,7 +209,6 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      Here is an example of the configuration file structure:
 
      
-     
      ```hcl
      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
        name                = "<cluster_name>"
@@ -263,8 +257,6 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        v4_cidr_blocks = ["<range>"]
      }
      ```
-
-
 
 
      Where:
@@ -796,7 +788,6 @@ To create a {{ MY }} cluster copy:
   The configuration file for this {{ mmy-name }} cluster is as follows:
 
   
-  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
     name                = "my-mysql"
@@ -856,8 +847,6 @@ To create a {{ MY }} cluster copy:
     v4_cidr_blocks = ["10.5.0.0/24"]
   }
   ```
-
-
 
 
 {% endlist %}
@@ -962,7 +951,6 @@ To create a {{ MY }} cluster copy:
   The configuration file for this {{ mmy-name }} cluster is as follows:
 
   
-  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql-3" {
     name                = "my-mysql-3"
@@ -1049,8 +1037,6 @@ To create a {{ MY }} cluster copy:
     v4_cidr_blocks   = ["10.7.0.0/24"]
   }
   ```
-
-
 
 
 {% endlist %}

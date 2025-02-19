@@ -98,9 +98,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, select the parameters for the DB hosts created with the cluster. By default, each host is created in a separate [subnet](../../vpc/concepts/network.md#subnet). To select a specific subnet for a host, click ![image](../../_assets/console-icons/pencil.svg).
 
-     
      When configuring the hosts, note that if you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, you need to add at least three hosts to the cluster.
-
 
      
      To connect to the host from the internet, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** setting.
@@ -165,8 +163,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        --deletion-protection
      ```
 
-
-
+     
      Where:
 
      * `environment`: Environment, `prestable` or `production`.
@@ -198,11 +195,9 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      You can also set the additional `replication-source` option in the `--host` parameter to [manually manage replication threads](../concepts/replication.md#replication-manual).
 
      
-     
      To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information about setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md) documentation.
 
      To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide the `--yandexquery-access=true` parameter. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and is available upon request.
-
 
 
      {% note info %}
@@ -231,7 +226,6 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      Here is an example of the configuration file structure:
 
-     
      
      ```hcl
      resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -287,8 +281,6 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        v4_cidr_blocks = ["<range>"]
      }
      ```
-
-
 
 
      Where:
@@ -743,7 +735,7 @@ To create a {{ PG }} cluster copy:
   * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
 
 
-  Run this command:
+  Run the following command:
 
   
   ```bash
@@ -785,7 +777,6 @@ To create a {{ PG }} cluster copy:
 
   The configuration file for this cluster is as follows:
 
-  
   
   ```hcl
   resource "yandex_mdb_postgresql_cluster" "mypg" {
@@ -846,8 +837,6 @@ To create a {{ PG }} cluster copy:
     }
   }
   ```
-
-
 
 
 {% endlist %}

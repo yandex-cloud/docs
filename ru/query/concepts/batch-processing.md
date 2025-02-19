@@ -9,3 +9,13 @@
 {{ yq-full-name }} позволяет обращаться к хранимым в {{ objstorage-full-name }} данным, как к СУБД, выполняя запросы на диалекте SQL — [YQL]({{ ydb.docs }}/yql/reference/syntax/).
 
 Обычно под управлением {{ objstorage-full-name }} хранятся большие объемы данных. {{ yq-full-name }} анализирует объем данных, которые необходимо обработать, и запускает десятки-сотни параллельных задач обработки данных внутри вычислительного кластера. Это позволяет с высокой скоростью обрабатывать даже значительные объемы данных.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/jupyter.md).
+* [{#T}](../tutorials/yq.md).
+* [{#T}](../tutorials/datalens.md).
+* [{#T}](../tutorials/billing.md).
+* [{#T}](../tutorials/yq-clickhouse.md).
+* [{#T}](../tutorials/yq-postgre.md).
+* [{#T}](../tutorials/yq-storage.md).

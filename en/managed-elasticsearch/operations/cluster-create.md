@@ -11,7 +11,7 @@ keywords:
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
-A [{{ mes-name }} cluster](../concepts/index.md) is a group of multiple linked {{ ES }} hosts. cluster provides high search performance by distributing search and indexing tasks across all hosts with the _Data node_ [role](../concepts/hosts-roles.md). To learn more about roles in the {{ mes-name }} cluster, see [{#T}](../concepts/hosts-roles.md).
+A [{{ mes-name }} cluster](../concepts/index.md) is a group of multiple linked {{ ES }} hosts. A {{ mes-name }} cluster provides high search performance by distributing search and indexing tasks across all its hosts with the _Data node_ [role](../concepts/hosts-roles.md). For more information about roles in a {{ mes-name }} cluster, see [{#T}](../concepts/hosts-roles.md).
 
 {% note info %}
 
@@ -51,11 +51,11 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
      
-     1. Select a service account with the `storage.editor` role from the drop-down list or create a new one if you plan to use data from an {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access). For more information about setting up service accounts, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+     1. Select a service account with the `storage.editor` role from the drop-down list or create a new one if you plan to use data from an {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access). For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 
   
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the [cloud network](../../vpc/concepts/network.md#network) to host the {{ mes-name }} cluster and the [security group](../../vpc/concepts/security-groups.md) for cluster network traffic. You may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the {{ mes-name }} cluster.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the [cloud network](../../vpc/concepts/network.md#network) to host the {{ mes-name }} cluster and the [security group](../../vpc/concepts/security-groups.md) for cluster network traffic. You may need to additionally [set up security groups](cluster-connect.md#configuring-security-groups) to be able connect to the {{ mes-name }} cluster.
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_user }}**, specify the `admin` user password.
@@ -135,7 +135,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      {{ yc-mdb-es }} cluster create --help
      ```
 
-  1. Specify the {{ mes-name }} cluster parameters in the create command (the example below does not list all possible parameters):
+  1. Specify the {{ mes-name }} cluster parameters in the create command (not all parameters are given in the example):
 
      
      ```bash
@@ -196,7 +196,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 
   To create a {{ mes-name }} cluster:
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
      * Database cluster: Description of the {{ mes-name }} cluster and its hosts.
 
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
@@ -205,7 +205,6 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
      Here is an example of the configuration file structure:
 
-     
      
      ```hcl
      resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
@@ -260,8 +259,6 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
        v4_cidr_blocks = ["<range>"]
      }
      ```
-
-
 
 
      Where:
@@ -344,9 +341,9 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
   * Security group ID: `enpp2s8l3irh********`.
 
 
-  * With a single publicly available `{{ host-class }}` host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
+  * With a single publicly available `{{ host-class }}` class host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-  * `esadminpwd` password for the `admin` user.
+  * User: `admin`; password: `esadminpwd`.
   * Protection against accidental {{ mes-name }} cluster deletion: Enabled.
 
   Run the following command:
@@ -373,7 +370,6 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
 
   Create a {{ mes-name }} cluster. The configuration file for the {{ mes-name }} cluster is as follows:
 
-  
   
   ```hcl
   resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
@@ -440,8 +436,6 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
     }
   }
   ```
-
-
 
 
   Where the following test configuration is used:

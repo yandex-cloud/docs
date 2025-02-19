@@ -48,7 +48,6 @@ You pay for the following:
 
 * Storage allocated for DB clusters.
 
-    
     * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
@@ -56,7 +55,6 @@ You pay for the following:
         * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
 
     For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
-
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 

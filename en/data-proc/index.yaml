@@ -2,11 +2,10 @@ title: Yandex Data Processing
 description:
   - >-
     The service helps you deploy Apache Hadoop <sup>®</sup> and Apache Spark™
-    clusters in the Yandex Cloud infrastructure.
-     You yourself decide the cluster size, node capacity, and the set of Apache<sup>®</sup> services (Spark™, HDFS, YARN,
-
-    Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>,
-    Zeppelin™).
+    clusters in the Yandex Cloud infrastructure. You yourself decide the cluster
+    size, node capacity, and your set of Apache<sup>®</sup> services (Spark™,
+    HDFS, YARN, Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™,
+    Tez<sup>®</sup>, Zeppelin™).
   - >-
     The Yandex Cloud infrastructure is fully <a href="/docs/security/conform">
     secure</a> in compliance with the following standards: <ul> <li>Russian
@@ -14,14 +13,14 @@ description:
     27001</li> <li>ISO 27017</li> <li>ISO 27018</li> <li>GOST 57580.1-2017</li>
     </ul>
   - >-
-    <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup>, and Apache Spark™ are
-    registered trademarks or trademarks of the Apache Software Foundation in the
+    <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> and Apache Spark™ are
+    registered trademarks or trademarks of Apache Software Foundation in the
     United States and/or other countries.</em>
 meta:
   title: Yandex Data Processing
   description: >-
     The service assists in deploying Apache Hadoop® and Apache Spark™ clusters
-    in a Yandex Cloud infrastructure.
+    in the Yandex Cloud infrastructure.
 links:
   - title: Step-by-step guides
     description: How to perform routine operations
@@ -33,7 +32,7 @@ links:
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
     description: Configuring access permissions for using MetaData Hub
