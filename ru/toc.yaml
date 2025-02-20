@@ -120,6 +120,8 @@ items:
     href: network-load-balancer/index.yaml
   - name: Cloud Organization
     href: organization/index.yaml
+  - name: Cloud Postbox
+    href: postbox/index.yaml
   - name: Обзор платформы {{ yandex-cloud }}
     href: overview/index.yaml
   - name: Партнерская программа {{ yandex-cloud }}

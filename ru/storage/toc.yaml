@@ -334,6 +334,8 @@ items:
         href: tools/index.md
       - name: Консольные клиенты
         items:
+          - name: '{{ yandex-cloud }} CLI'
+            href: tools/yc-cli.md
           - name: AWS CLI
             href: tools/aws-cli.md
           - name: S3cmd

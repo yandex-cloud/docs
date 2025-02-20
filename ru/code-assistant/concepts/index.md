@@ -28,6 +28,8 @@ LLM, которые применяются в {{ ca-name }}, дообучены 
 
 {% include [help-indicator-load](../../_includes/code-assistant/help-indicator-load.md) %}
 
+По умолчанию индикатор подсказки включен.
+
 Подробнее об управлении индикатором подсказок см. [{#T}](../quickstart.md#help-indicator)
 
 

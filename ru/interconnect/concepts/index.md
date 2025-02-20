@@ -4,9 +4,7 @@
 
 Пример организации связности:
 
-
 ![interconnect](../../_assets/interconnect/interconnect.svg)
-
 
 В этом примере у клиента есть следующие ресурсы:
 

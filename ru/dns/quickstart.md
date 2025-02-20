@@ -11,11 +11,7 @@ description: Следуя данной инструкции, вы сможете
 ## Перед началом работы {#before-begin}
 
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-
-
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-
-
 1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать [виртуальную сеть](../vpc/concepts/network.md#network) по умолчанию с [подсетями](../vpc/concepts/network.md#subnet) во всех [зонах доступности](../overview/concepts/geo-scope.md).
 1. [Создайте сеть](../vpc/quickstart.md) и подсети для подключения тестовых ВМ.
 1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) ВМ `test-vm-1` и `test-vm-2` в зоне доступности `{{ region-id }}-a`. У ВМ `test-vm-1` должен быть [публичный IP-адрес](../vpc/concepts/address.md#public-addresses). Подключите их к подсетям одной сети.

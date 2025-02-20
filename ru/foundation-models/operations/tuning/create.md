@@ -220,7 +220,7 @@ description: Следуя данной инструкции, вы сможете
      grpcurl \
        -H "Authorization: Bearer <IAM-токен>" \
        -d '{"task_id": "<идентификатор_задания>"}' \
-       {{ api-host-llm }}:443 yandex.cloud.operation.OperationService/GetMetricsUrlRequest
+       {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/GetMetricsUrl
      ```
 
      Загруженный файл можно открыть, например, в проекте [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).

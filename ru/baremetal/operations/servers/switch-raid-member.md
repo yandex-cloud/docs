@@ -11,6 +11,8 @@ description: Следуя данной инструкции, вы сможете
 
 Данная инструкция неприменима к случаям выхода из строя дисков в массивах уровня `RAID 0`. Такие массивы не обладают отказоустойчивостью, поэтому при отказе одного из дисков все хранящиеся в таком массиве данные будут утеряны, а массив придется полностью пересоздавать.
 
+Инструкция сделана на примере стандартной разметки RAID10 на 4xHDD для Ubuntu 24.04. Если ваша конфигурация отличается или в разметку внесены изменения — вносите изменения в шаги в соответствии с вашей конфигурацией.
+
 {% endnote %}
 
 ## Удалите из RAID-массива неисправный диск {#remove-from-raid}
@@ -31,21 +33,21 @@ description: Следуя данной инструкции, вы сможете
     Результат:
 
     ```text
-    Personalities : [raid1] [linear] [multipath] [raid0] [raid6] [raid5] [raid4] [raid10]
-    md2 : active raid1 sdb3[1] sda3[0]
-          6287360 blocks super 1.2 [2/2] [UU]
+    Personalities : [raid10] [raid0] [raid1] [raid6] [raid5] [raid4]
+    md3 : active raid10 sdb4[1] sdc4[2] sdd4[3] sda4[0]
+          3893569536 blocks super 1.2 256K chunks 2 near-copies [4/4] [UUUU]
+          bitmap: 0/30 pages [0KB], 65536KB chunk
 
-    md3 : active raid1 sdb4[1] sda4[0]
-          849215488 blocks super 1.2 [2/2] [UU]
-          bitmap: 4/7 pages [16KB], 65536KB chunk
+    md2 : active raid10 sdc3[2] sdb3[1] sdd3[3] sda3[0]
+          2095104 blocks super 1.2 256K chunks 2 near-copies [4/4] [UUUU]
 
-    md1 : active raid1 sdb2[1] sda2[0]
-          10477568 blocks super 1.2 [2/2] [UU]
+    md1 : active raid10 sdc2[2] sdb2[1](F) sda2[0] sdd2[3]
+          8380416 blocks super 1.2 256K chunks 2 near-copies [4/3] [U_UU]
     ```
 
-    В приведенном примере RAID-массив состоит из трех разделов: `md1` (разделы дисков `sdb2` и `sda2`), `md2` (разделы дисков `sdb3` и `sda3`) и `md3` (разделы дисков `sdb4` и `sda4`).
+    В приведенном примере RAID-массив состоит из трех разделов: `md1` (разделы дисков `sdb2` и `sda2`), `md2` (разделы дисков `sdb3` и `sda3`) и `md3` (разделы дисков `sdb4` и `sda4`). В выводе команды есть диск `sdb`, который отмечен как сбойный — рядом с его именем указано `(F)`.
 
-1. Получите информацию о ролях разделов RAID-массива:
+    Дополнительно вы можете получить информацию о ролях разделов RAID-массива:
 
     ```bash
     lsblk
@@ -54,29 +56,46 @@ description: Следуя данной инструкции, вы сможете
     Результат:
 
     ```text
-    NAME    MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
-    sda       8:0    0 838.4G  0 disk
-    ├─sda1    8:1    0   299M  0 part
-    ├─sda2    8:2    0    10G  0 part
-    │ └─md1   9:1    0    10G  0 raid1 /boot
-    ├─sda3    8:3    0     6G  0 part
-    │ └─md2   9:2    0     6G  0 raid1 [SWAP]
-    └─sda4    8:4    0   810G  0 part
-      └─md3   9:3    0 809.9G  0 raid1 /
-    sdb       8:16   0 838.4G  0 disk
-    ├─sdb1    8:17   0   299M  0 part
-    ├─sdb2    8:18   0    10G  0 part
-    │ └─md1   9:1    0    10G  0 raid1 /boot
-    ├─sdb3    8:19   0     6G  0 part
-    │ └─md2   9:2    0     6G  0 raid1 [SWAP]
-    └─sdb4    8:20   0   810G  0 part
-      └─md3   9:3    0 809.9G  0 raid1 /
+    NAME    MAJ:MIN RM  SIZE RO TYPE   MOUNTPOINTS
+    sda       8:0    0  1.8T  0 disk
+    ├─sda1    8:1    0  299M  0 part
+    ├─sda2    8:2    0    4G  0 part
+    │ └─md1   9:1    0    8G  0 raid10 /boot
+    ├─sda3    8:3    0    1G  0 part
+    │ └─md2   9:2    0    2G  0 raid10 [SWAP]
+    └─sda4    8:4    0  1.8T  0 part
+      └─md3   9:3    0  3.6T  0 raid10 /
+    sdb       8:16   0  1.8T  0 disk
+    ├─sdb1    8:17   0  299M  0 part
+    ├─sdb2    8:18   0    4G  0 part
+    │ └─md1   9:1    0    8G  0 raid10 /boot
+    ├─sdb3    8:19   0    1G  0 part
+    │ └─md2   9:2    0    2G  0 raid10 [SWAP]`
+    └─sdb4    8:20   0  1.8T  0 part
+      └─md3   9:3    0  3.6T  0 raid10 /
+    sdc       8:32   0  1.8T  0 disk
+    ├─sdc1    8:33   0  299M  0 part
+    ├─sdc2    8:34   0    4G  0 part
+    │ └─md1   9:1    0    8G  0 raid10 /boot
+    ├─sdc3    8:35   0    1G  0 part
+    │ └─md2   9:2    0    2G  0 raid10 [SWAP]
+    └─sdc4    8:36   0  1.8T  0 part
+      └─md3   9:3    0  3.6T  0 raid10 /
+    sdd       8:48   0  1.8T  0 disk
+    ├─sdd1    8:49   0  299M  0 part
+    ├─sdd2    8:50   0    4G  0 part
+    │ └─md1   9:1    0    8G  0 raid10 /boot
+    ├─sdd3    8:51   0    1G  0 part
+    │ └─md2   9:2    0    2G  0 raid10 [SWAP]
+    └─sdd4    8:52   0  1.8T  0 part
+      └─md3   9:3    0  3.6T  0 raid10 /
     ```
 
     В приведенном примере:
     * `md1` — раздел `/boot`;
     * `md2` — раздел `SWAP`;
     * `md3` — раздел `/` с корневой файловой системой.
+    
 1. Предположим, что из строя вышел диск `/dev/sdb`. Удалите разделы диска `/dev/sdb` из разделов RAID-массива:
 
     ```bash

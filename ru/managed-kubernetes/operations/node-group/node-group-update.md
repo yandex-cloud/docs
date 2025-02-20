@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 * Описание.
 * Масштабирование: для фиксированного типа — количество узлов {{ managed-k8s-name }}, для [автоматического](../../concepts/node-group/cluster-autoscaler.md) — минимальное, максимальное и начальное количество узлов {{ managed-k8s-name }}. Тип масштабирования нельзя изменить.
 * [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md).
-* Способ назначения [IP-адреса](../../../vpc/concepts/address.md): только внутреннего или также внешнего.
+* Способ назначения [IP-адресов](../../../vpc/concepts/address.md) узлам группы: только внутренние адреса или также публичные.
 * Список [групп безопасности](../connect/security-groups.md).
 
   {% note alert %}
@@ -176,10 +176,13 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите на имя нужной ВМ.
-  1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
-  1. Укажите нужные настройки и нажмите кнопку **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Выберите нужную группу узлов.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}** в поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`. Узлам будут назначены случайные публичные IP-адреса из пула адресов {{ yandex-cloud }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.   
 
 - CLI {#cli}
 

@@ -7,6 +7,11 @@ description: Из статьи вы узнаете, как работать с {
 
 ## {{ er-name }} {#event-router}
 
+### Получение информации о шине {#get-info}
+
+* [{#T}](eventrouter/bus/get-list.md)
+* [{#T}](eventrouter/bus/get-info.md)
+
 ### Управление шиной {#bus-control}
 
 * [{#T}](eventrouter/bus/create.md)

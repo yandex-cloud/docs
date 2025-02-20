@@ -16,6 +16,12 @@ items:
         href: operations/index.md
       - name: '{{ er-name }}'
         items:
+          - name: Получение информации о шине
+            items:
+              - name: Получить список шин
+                href: operations/eventrouter/bus/get-list.md
+              - name: Получить информацию о шине
+                href: operations/eventrouter/bus/get-info.md
           - name: Управление шиной
             items:
               - name: Создать шину
