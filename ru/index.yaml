@@ -16,6 +16,9 @@ links:
   - title: Audit Trails
     description: Сервис сбора и выгрузки аудитных логов
     href: audit-trails/
+  - title: Yandex BareMetal
+    description: Полная аренда физических серверов
+    href: baremetal/
   - title: Yandex Cloud Billing
     description: Управление платежным аккаунтом
     href: billing/
@@ -38,7 +41,7 @@ links:
     description: Подключение к ресурсам Yandex Cloud по выделенному каналу
     href: interconnect/
   - title: Cloud Router
-    description: Создание сетевых топологий
+    description: Управления сетевыми топологиями
     href: cloud-router/
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
@@ -46,9 +49,6 @@ links:
   - title: Cloud Notification Service
     description: Сервис для рассылки уведомлений
     href: notifications/
-  - title: Cloud Router
-    description: Сервис для управления сетевыми топологиями
-    href: cloud-router/
   - title: Cloud Video
     description: Видеохостинг и проведение онлайн-трансляций
     href: video/
@@ -73,6 +73,9 @@ links:
   - title: DataLens
     description: Визуализация и анализ данных
     href: datalens/
+  - title: Data Streams
+    description: Управление потоками данных в режиме реального времени
+    href: data-streams/
   - title: Data Transfer
     description: Инструмент для миграции баз данных
     href: data-transfer/
@@ -85,6 +88,11 @@ links:
   - title: Cloud DNS
     description: Управление доменными именами
     href: dns/
+  - title: Начало работы
+    description: >-
+      Пошаговые инструкции для комфортного старта и исследования возможностей
+      Yandex Cloud
+    href: getting-started/
   - title: Пробный период
     description: Описание пробного периода использования Yandex Cloud
     href: getting-started/free-trial/concepts/quickstart
@@ -148,9 +156,6 @@ links:
   - title: Yandex Cloud Marketplace
     description: Инструменты и решения от ведущих вендоров
     href: marketplace/
-  - title: MDB
-    description: Группа сервисов для управления базами данных
-    href: mdb/
   - title: Message Queue
     description: Очереди для обмена сообщениями между приложениями
     href: message-queue/
@@ -198,6 +203,12 @@ links:
   - title: SmartCaptcha
     description: Инструмент для верификации запросов
     href: smartcaptcha/
+  - title: Безопасность в Yandex Cloud
+    description: Рекомендации по построению безопасной инфраструктуры в Yandex Cloud
+    href: security/
+  - title: Security Deck
+    description: Инструменты для обеспечения безопасности данных
+    href: security-deck/
   - title: Smart Web Security
     description: Сервис для продвинутой защиты от DDoS-атак
     href: smartwebsecurity/
@@ -228,7 +239,7 @@ links:
   - title: Virtual Private Cloud
     description: Управление сетями в облаке
     href: vpc/
-  - name: '{{ ydb-name }}'
+  - title: '{{ ydb-name }}'
     description: Распределенная отказоустойчивая Distributed SQL СУБД
     href: ydb/
   - title: WebSQL
@@ -237,6 +248,14 @@ links:
   - title: Query
     description: Аналитические и потоковые запросы в реальном времени
     href: query/
+  - title: Консоль управления
+    description: Интерфейс для работы в Yandex Cloud
+    href: console/
   - title: Облачная терминология
     description: Словарь разработчика
     href: glossary/
+  - title: Готовые решения для известных сценариев
+    description: >-
+      Известные решения и советы для оптимального использования сервисов Yandex
+      Cloud
+    href: troubleshooting/

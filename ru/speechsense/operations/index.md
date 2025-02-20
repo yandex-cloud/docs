@@ -7,6 +7,9 @@ description: Страница содержит все инструкции дл�
 
 ## Работа с данными {#data}
 
+* Загрузка данных:
+
+* [{#T}](data/upload-audio-console.md)
 * [{#T}](data/upload-data.md)
 * [{#T}](data/upload-chat-text.md)
 
@@ -42,8 +45,12 @@ description: Страница содержит все инструкции дл�
 
 ## Теги {#tag}
 
-* [{#T}](project/tag/create.md)
-* [{#T}](project/tag/change.md)
+* [{#T}](project/tag/create-dictionary-tag.md)
+* [{#T}](project/tag/create-sense-tag.md)
+* [{#T}](project/tag/create-dependent-tag.md)
+* [{#T}](project/tag/change-dictionary-tag.md)
+* [{#T}](project/tag/change-sense-tag.md)
+* [{#T}](project/tag/test.md)
 * [{#T}](project/tag/delete.md)
 
 ## Словари {#dictionary}

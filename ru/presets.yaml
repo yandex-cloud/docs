@@ -8368,6 +8368,7 @@ default:
         section-revisions: Ревизии
       serverless-event-router:
         button_create-bus: Создать шину
+        label_buses: Шины
         label_service: EventRouter
       serverless-functions:
         gateways:
@@ -10361,7 +10362,11 @@ default:
         search-area-key-value: Направление поиска
         search-area:
           after-key-value: Вперед
+        tags-type:
+          dictionary-key-value: Словарный
         words-between-key-value: Дистанция между словами
+      upload-audio:
+        upload-audio-key-value: Добавление диалогов
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:

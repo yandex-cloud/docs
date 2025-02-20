@@ -287,6 +287,8 @@
    yandex-webhook-cert-manager-webhook-yandex-5578cfb98-tw4mq   1/1     Running   1          43h
    ```
 
+Если у вас возникла ошибка и вам нужна помощь, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
 ## Удалите созданные ресурсы {#clear-out}
 
 Если созданные ресурсы вам больше не нужны, [удалите кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.

@@ -139,6 +139,6 @@ description: Из статьи вы узнаете, как подключить�
 
         ![screen10](../../_assets/managed-postgresql/operations/datalens-connect/screen10.png)
 
-   1. Если кластер и {{ datalens-name }} находятся в разных каталогах, используйте настройки из [инструкции](../../datalens/operations/connection/create-postgresql.md) в документации {{ datalens-name }}.
+   1. Если кластер и {{ datalens-name }} находятся в разных организациях, используйте настройки из [инструкции](../../datalens/operations/connection/create-postgresql.md) в документации {{ datalens-name }}.
 
 {% endlist %}

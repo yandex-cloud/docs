@@ -22,10 +22,7 @@
 
 Подробнее:
 * [{#T}](../../storage/operations/hosting/setup.md).
-
-
 * [{#T}](../../tutorials/web/blue-green-canary-deployment.md).
-
 
 #### Используйте Site-to-Site VPN {#site-to-site}
 
@@ -35,7 +32,6 @@
 * [{#T}](../../tutorials/routing/ipsec/index.md).
 * [Настройка VPN с облаком Azure](https://github.com/yandex-cloud/yc-solution-library-for-azure/tree/main/Yandex-Azure%20VPN).
 * [Настройка VPN с облаком AWS](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
-
 
 
 #### Используйте {{ interconnect-full-name }} {#cic}
