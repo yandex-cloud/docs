@@ -3,7 +3,6 @@ title: Начало работы с {{ ca-full-name }}
 description: Установите плагин {{ ca-name }} для Visual Studio Code и IDE от JetBrains.
 ---
 
-
 # Как начать работать с {{ ca-full-name }}
 
 {% include [preview-stage](../_includes/code-assistant/preview-stage.md) %}
@@ -162,9 +161,8 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
     - Visual Studio Code {#vscode}
 
-      * Чтобы принять предложение, нажмите клавишу **Tab**.
-      * Чтобы принять часть предложения по одному слову, используйте сочетание клавиш **Ctrl** + **→** в Windows/Linux или **Command** + **→** в macOS.
-      * Чтобы отменить предложение, нажмите клавишу **Esc**.
+      {% include [actions-with-suggestions](../_includes/code-assistant/actions-with-suggestions.md) %}
+
       * Если предложений несколько, вы можете переключаться между ними с помощью сочетаний клавиш **Alt** + **[** и **Alt** + **]** в Windows/Linux или **Option** + **[** и **Option** + **]** в macOS.
 
     - IDE от JetBrains {#jb}
@@ -179,6 +177,8 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 ### Индикатор генерации или отсутствия подсказки {#help-indicator}
 
 {% include [help-indicator-load](../_includes/code-assistant/help-indicator-load.md) %}
+
+По умолчанию индикатор подсказки включен.
 
 Чтобы выключить или включить индикатор:
 

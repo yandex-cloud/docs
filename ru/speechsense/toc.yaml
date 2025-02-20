@@ -9,10 +9,14 @@ items:
         href: operations/index.md
       - name: Работа с данными
         items:
-          - name: Загрузка аудиоданных
-            href: operations/data/upload-data.md
-          - name: Загрузка переписки из чата
-            href: operations/data/upload-chat-text.md
+          - name: Загрузка данных
+            items:
+              - name: Загрузка аудиоданных через консоль управления
+                href: operations/data/upload-audio-console.md
+              - name: Загрузка аудиоданных через gRPC API
+                href: operations/data/upload-data.md
+              - name: Загрузка переписки из чата
+                href: operations/data/upload-chat-text.md
           - name: Поиск данных
             items:
               - name: Поиск данных через gRPC API
@@ -59,10 +63,18 @@ items:
             href: operations/project/delete-user-from-project.md
       - name: Теги
         items:
-          - name: Создать тег
-            href: operations/project/tag/create.md
-          - name: Изменить тег
-            href: operations/project/tag/change.md
+          - name: Создать словарный тег
+            href: operations/project/tag/create-dictionary-tag.md
+          - name: Создать смысловой тег
+            href: operations/project/tag/create-sense-tag.md
+          - name: Создать зависимый тег
+            href: operations/project/tag/create-dependent-tag.md
+          - name: Изменить словарный тег
+            href: operations/project/tag/change-dictionary-tag.md
+          - name: Изменить смысловой тег
+            href: operations/project/tag/change-sense-tag.md
+          - name: Протестировать тег
+            href: operations/project/tag/test.md
           - name: Удалить тег
             href: operations/project/tag/delete.md
       - name: Словари
@@ -95,8 +107,8 @@ items:
             href: concepts/reports/comparison.md
           - name: Детализация
             href: concepts/reports/details.md
-          - name: Нейропараметры
-            href: concepts/reports/neuro-parameters.md
+          - name: Смысловые атрибуты
+            href: concepts/reports/sense-attributes.md
       - name: Поддерживаемые форматы аудио
         href: concepts/formats.md
       - name: Квоты и лимиты

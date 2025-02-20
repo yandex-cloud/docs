@@ -8360,6 +8360,7 @@ default:
         section-revisions: Revisions
       serverless-event-router:
         button_create-bus: Create bus
+        label_buses: Buses
         label_service: EventRouter
       serverless-functions:
         gateways:
@@ -10355,7 +10356,11 @@ default:
         search-area-key-value: Search direction
         search-area:
           after-key-value: Forward
+        tags-type:
+          dictionary-key-value: Dictionary
         words-between-key-value: Distance between words
+      upload-audio:
+        upload-audio-key-value: Adding dialogs
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:
