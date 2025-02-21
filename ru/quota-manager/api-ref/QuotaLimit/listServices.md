@@ -40,7 +40,7 @@ Token to retrieve the next page of results. Omitted on the first request. ||
       "name": "string"
     }
   ],
-  "pageToken": "string"
+  "nextPageToken": "string"
 }
 ```
 
@@ -49,7 +49,7 @@ Token to retrieve the next page of results. Omitted on the first request. ||
 || services[] | **[Service](#yandex.cloud.quotamanager.v1.Service)**
 
 List of services available for quota management. ||
-|| pageToken | **string**
+|| nextPageToken | **string**
 
 Token to retrieve the next page of results. ||
 |#

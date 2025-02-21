@@ -356,7 +356,8 @@ The time until which this maintenance operation should be delayed. The value sho
           "turn_before_switchover": "google.protobuf.BoolValue",
           "allow_data_loss": "google.protobuf.BoolValue",
           "use_luajit": "google.protobuf.BoolValue",
-          "io_threads_allowed": "google.protobuf.BoolValue"
+          "io_threads_allowed": "google.protobuf.BoolValue",
+          "zset_max_listpack_entries": "google.protobuf.Int64Value"
         },
         "user_config": {
           "maxmemory_policy": "MaxmemoryPolicy",
@@ -387,7 +388,8 @@ The time until which this maintenance operation should be delayed. The value sho
           "turn_before_switchover": "google.protobuf.BoolValue",
           "allow_data_loss": "google.protobuf.BoolValue",
           "use_luajit": "google.protobuf.BoolValue",
-          "io_threads_allowed": "google.protobuf.BoolValue"
+          "io_threads_allowed": "google.protobuf.BoolValue",
+          "zset_max_listpack_entries": "google.protobuf.Int64Value"
         },
         "default_config": {
           "maxmemory_policy": "MaxmemoryPolicy",
@@ -418,7 +420,8 @@ The time until which this maintenance operation should be delayed. The value sho
           "turn_before_switchover": "google.protobuf.BoolValue",
           "allow_data_loss": "google.protobuf.BoolValue",
           "use_luajit": "google.protobuf.BoolValue",
-          "io_threads_allowed": "google.protobuf.BoolValue"
+          "io_threads_allowed": "google.protobuf.BoolValue",
+          "zset_max_listpack_entries": "google.protobuf.Int64Value"
         }
       },
       "disk_size_autoscaling": {
@@ -451,7 +454,8 @@ The time until which this maintenance operation should be delayed. The value sho
     "tls_enabled": "bool",
     "deletion_protection": "bool",
     "persistence_mode": "PersistenceMode",
-    "announce_hostnames": "bool"
+    "announce_hostnames": "bool",
+    "auth_sentinel": "bool"
   }
   // end of the list of possible fields
 }
@@ -615,6 +619,9 @@ Persistence mode
 || announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
+|| auth_sentinel | **bool**
+
+Allows to use ACL users to auth in sentinel ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
@@ -1163,6 +1170,9 @@ Use JIT for lua scripts and functions ||
 || io_threads_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allow redis to use io-threads ||
+|| zset_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}

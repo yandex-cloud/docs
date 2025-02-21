@@ -12,8 +12,6 @@ editable: false
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
-{% include [baremetal-limits.md](../../_includes/baremetal-limits.md) %}
-
 #### См. также {#see-also}
 
 * [{#T}](./traffic-restrictions.md)

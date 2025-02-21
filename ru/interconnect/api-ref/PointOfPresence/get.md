@@ -12,7 +12,7 @@ To get the list of available PointOfPresence resources, make a [List](/docs/cic/
 ## HTTP request
 
 ```
-GET https://cic-api.{{ api-host }}/cic/v1/pointOfPresences/{pointOfPresenceId}
+GET https://cic.{{ api-host }}/cic/v1/pointOfPresences/{pointOfPresenceId}
 ```
 
 ## Path parameters

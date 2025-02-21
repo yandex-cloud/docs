@@ -5,6 +5,8 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/delete.md
 
 # Data Transfer API, REST: Transfer.Delete
 
+Deletes the specified transfer.
+
 ## HTTP request
 
 ```
@@ -17,7 +19,7 @@ DELETE https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
 ||Field | Description ||
 || transferId | **string**
 
-Required field.  ||
+Required field. Identifier of the transfer to be deleted. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

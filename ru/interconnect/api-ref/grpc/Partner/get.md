@@ -45,7 +45,7 @@ A Partner resource.
 ||Field | Description ||
 || id | **string**
 
-ID of the routingInstance. ||
+ID of the partner. ||
 || region_id | **string**
 
 ID of the region that the partner belongs to. ||

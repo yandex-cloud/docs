@@ -7,18 +7,18 @@ description: Follow this guide to delete a bucket in {{ objstorage-name }}.
 
 {% note warning %}
 
-You can delete only an empty bucket. In the management console, the information about the number of objects in the bucket is updated with a few minutes delay.
+You can only delete an empty bucket. In the management console, the information about the number of objects in the bucket is updated with a few minutes' delay.
 
 {% endnote %}
 
-To delete the bucket that [stores the logs](../../concepts/server-logs.md) of another bucket, go to the source bucket settings to [disable logging](enable-logging.md#stop-logging) or select another target bucket for storing logs.
+To delete a bucket that [stores the logs](../../concepts/server-logs.md) of another bucket, go to the source bucket settings to [disable logging](enable-logging.md#stop-logging) or select a different target bucket for storing logs.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
-  1. Select the bucket you need and click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. Select the bucket in question, click ![image](../../../_assets/console-icons/ellipsis.svg), and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
 
   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
@@ -29,7 +29,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to delete a bucket:
+  1. See the description of the CLI command for deleting a bucket:
 
       ```bash
       yc storage bucket delete --help
@@ -51,7 +51,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-  1. Use the `NAME` column to save the name of the bucket you are going to delete.
+  1. Save the name (from the `NAME` column) of the bucket you are going to delete.
   1. Delete the bucket:
 
       ```bash
@@ -78,7 +78,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
   * `--bucket`: Name of the bucket to delete.
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
-  You can also use the `aws s3 rb` command:
+  Alternatively, you can use the `aws s3 rb` command:
 
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }} \
@@ -100,7 +100,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
     Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
 
-    Example of the command for deleting all buckets whose names start with `samplebucket`:
+    Here is an example of a command that deletes all buckets whose names start with `samplebucket`:
 
     ```bash
     aws s3api list-buckets \
@@ -123,7 +123,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
     Where `--query` is the query in [JMESPath](https://jmespath.org/) format.
 
-    Example of the command for deleting all buckets whose names start with `samplebucket`:
+    Here is an example of a command that deletes all buckets whose names start with `samplebucket`:
 
     ```powershell
     Foreach($x in (aws s3api list-buckets `
@@ -146,9 +146,9 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
 
   To delete a bucket created with {{ TF }}:
-  1. Open the {{ TF }} configuration file and delete the fragment describing the bucket.
+  1. Open the {{ TF }} configuration file and delete the section with the bucket description.
 
-     {% cut "Example bucket description in a {{ TF }} configuration" %}
+     {% cut "Example of a bucket description in {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -181,7 +181,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
   1. Apply the configuration changes:
 
      ```bash
@@ -190,7 +190,7 @@ To delete the bucket that [stores the logs](../../concepts/server-logs.md) of an
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the changes in the [management console]({{ link-console-main }}).
+     You can check the update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

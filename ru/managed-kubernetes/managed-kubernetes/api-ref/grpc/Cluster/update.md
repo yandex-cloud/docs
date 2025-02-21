@@ -482,8 +482,14 @@ IPv6 range for allocating Kubernetes service IP addresses ||
     // Includes only one of the fields `cilium`
     "cilium": {
       "routing_mode": "RoutingMode"
-    }
+    },
     // end of the list of possible fields
+    "scheduled_maintenance": {
+      "delayed_until": "google.protobuf.Timestamp",
+      "available_from": "google.protobuf.Timestamp",
+      "no_later_than": "google.protobuf.Timestamp",
+      "description": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -638,6 +644,7 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 || cilium | **[Cilium](#yandex.cloud.k8s.v1.Cilium)**
 
 Includes only one of the fields `cilium`. ||
+|| scheduled_maintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -959,4 +966,22 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 
 - `ROUTING_MODE_UNSPECIFIED`
 - `TUNNEL` ||
+|#
+
+## ScheduledMaintenance {#yandex.cloud.k8s.v1.ScheduledMaintenance}
+
+#|
+||Field | Description ||
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Time until which the update should be postponed. ||
+|| available_from | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Time when the update became available. ||
+|| no_later_than | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The latest possible date by which a mandatory update must be applied. ||
+|| description | **string**
+
+Description of the planned operation, for example, "Infrastructure planned update". ||
 |#

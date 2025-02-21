@@ -205,7 +205,7 @@ Core rule set settings. See [Basic rule set](/docs/smartwebsecurity/concepts/waf
 Includes only one of the fields `core_rule_set`. ||
 || analyze_request_body | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody)**
 
-Parameters for request body analyzer. ||
+The parameter is deprecated. Parameters for request body analyzer. ||
 |#
 
 ## WafProfileRule {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule}

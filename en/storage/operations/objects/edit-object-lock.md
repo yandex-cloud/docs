@@ -1,31 +1,31 @@
 ---
-title: Configuring object version locks in a bucket in {{ objstorage-full-name }}
+title: Configuring object locks in a bucket in {{ objstorage-full-name }}
 description: Follow this guide to configure an object version lock in a bucket in {{ objstorage-name }}.
 ---
 
 # Configuring an object lock
 
-If [versioning](../buckets/versioning.md) and [object version locks](../buckets/configure-object-lock.md) are enabled in the bucket, you can configure locking for a version already uploaded to the bucket.
+With [versioning](../buckets/versioning.md) and [object lock](../buckets/configure-object-lock.md) enabled in your bucket, you can configure an object lock for a version already uploaded to the bucket.
 
-## Put or configure a retention (governance- or compliance-mode) {#edit-retention}
+## Setting or configuring retention (governance- or compliance-mode) {#edit-retention}
 
-Minimum required roles:
+The minimum required roles are as follows:
 
-* `storage.uploader`: To set lock.
+* `storage.uploader`: To set an object lock.
 * `storage.admin`: To change an existing lock.
 
-You can only extend a compliance-mode retention. You cannot shrink it or replace with a governance-mode retention.
+In compliance mode, you can only extend the retention period. You cannot shorten the retention period or change the retention mode to governance.
 
-To put or configure a retention:
+To set or configure an object lock:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket for whose objects you want to configure a lock.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket containing the objects you want to configure a lock for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. To see all versions of objects in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
-  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
+  1. To show all object versions in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
+  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
   1. In the window that opens, enable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
   1. Select **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
      * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass a lock, change its expiration date, or remove it.
@@ -39,7 +39,7 @@ To put or configure a retention:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to set up a temporary lock for an object version:
+  1. See the description of the CLI command for configuring retention for an object version:
 
       ```bash
       yc storage s3api put-object-retention --help
@@ -61,7 +61,7 @@ To put or configure a retention:
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-  1. Set up a temporary lock for an object version:
+  1. Set up retention for an object version:
 
       ```bash
       yc storage s3api put-object-retention \
@@ -116,11 +116,11 @@ To put or configure a retention:
 
 {% endlist %}
 
-## Removing a governance-mode retention {#remove-governance-retention}
+## Removing governance-mode retention {#remove-governance-retention}
 
 The minimum required role is `storage.admin`.
 
-To remove a retention:
+To remove retention:
 
 {% list tabs group=instructions %}
 
@@ -128,8 +128,8 @@ To remove a retention:
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. To see all versions of objects in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
-  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
+  1. To show all object versions in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
+  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
   1. In the window that opens, disable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -139,7 +139,7 @@ To remove a retention:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to set up a temporary lock for an object version:
+  1. See the description of the CLI command for configuring retention for an object version:
 
       ```bash
       yc storage s3api put-object-retention --help
@@ -161,7 +161,7 @@ To remove a retention:
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-  1. Set up a temporary lock for an object version:
+  1. Set up retention for an object version:
 
       ```bash
       yc storage s3api put-object-retention \
@@ -207,16 +207,16 @@ To remove a retention:
 
 - API {#api}
 
-  Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and an empty `Retention` element.
+  Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and empty `Retention` element.
 
 {% endlist %}
 
 
-## Putting or removing legal holds {#edit-legal-hold}
+## Setting or removing legal hold {#edit-legal-hold}
 
 The minimum required role is `storage.uploader`.
 
-To put or configure a legal hold:
+To set or remove legal hold:
 
 {% list tabs group=instructions %}
 
@@ -224,8 +224,8 @@ To put or configure a legal hold:
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. To see all versions of objects in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
-  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
+  1. To show all object versions in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
+  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
   1. In the window that opens, enable or disable **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -235,7 +235,7 @@ To put or configure a legal hold:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to set up an indefinite lock for an object version:
+  1. See the description of the CLI command for setting up legal hold for an object version:
 
       ```bash
       yc storage s3api put-object-legal-hold --help
@@ -257,7 +257,7 @@ To put or configure a legal hold:
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-  1. Set up an indefinite lock for an object version:
+  1. Set up legal hold for an object version:
 
       ```bash
       yc storage s3api put-object-legal-hold \
@@ -275,7 +275,7 @@ To put or configure a legal hold:
       request_id: cb262625********
       ```
 
-  1. Make sure the object version lock settings were applied:
+  1. Make sure the object lock settings were applied:
 
       ```bash
       yc storage s3api get-object-legal-hold \
@@ -323,7 +323,7 @@ To put or configure a legal hold:
 
 ## Examples {#examples}
 
-### Setting up a governance-mode retention with the Moscow time offset (UTC+3) {#example-lock}
+### Setting governance-mode retention with Moscow time offset (UTC+3) {#example-lock}
 
 {% list tabs group=instructions %}
 

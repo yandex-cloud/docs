@@ -12,7 +12,7 @@ To get the list of available Partner resources, make a [List](/docs/cic/workload
 ## HTTP request
 
 ```
-GET https://cic-api.{{ api-host }}/cic/v1/partners/{partnerId}
+GET https://cic.{{ api-host }}/cic/v1/partners/{partnerId}
 ```
 
 ## Path parameters
@@ -43,7 +43,7 @@ A Partner resource.
 ||Field | Description ||
 || id | **string**
 
-ID of the routingInstance. ||
+ID of the partner. ||
 || regionId | **string**
 
 ID of the region that the partner belongs to. ||

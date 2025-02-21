@@ -20,7 +20,8 @@ Returns url to the player.
     "mute": "bool",
     "autoplay": "bool",
     "hidden": "bool"
-  }
+  },
+  "signed_url_expiration_duration": "google.protobuf.Duration"
 }
 ```
 
@@ -30,6 +31,9 @@ Returns url to the player.
 
 Required field. ID of the episode. ||
 || params | **[EpisodePlayerParams](#yandex.cloud.video.v1.EpisodePlayerParams)** ||
+|| signed_url_expiration_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Optional field, used to set custom url expiration duration for episodes with sign_url_access ||
 |#
 
 ## EpisodePlayerParams {#yandex.cloud.video.v1.EpisodePlayerParams}

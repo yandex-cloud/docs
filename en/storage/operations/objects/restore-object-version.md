@@ -1,11 +1,11 @@
 ---
-title: Restoring an object version in a {{ objstorage-full-name }} versioned bucket
-description: Follow this guide to restore an object version in an {{ objstorage-name }} versioned bucket.
+title: Restoring an object version in a versioned bucket in {{ objstorage-full-name }}
+description: Follow this guide to restore an object version in a versioned bucket in {{ objstorage-name }}.
 ---
 
-# Restoring an object's version in a bucket with versioning
+# Restoring an object version in a versioned bucket
 
-You can only restore object versions if a bucket supports [versioning](../../concepts/versioning.md). You can only restore the versions that were uploaded with versioning enabled. To enable versioning, follow [this guide](../buckets/versioning.md).
+To restore object versions, the bucket must be [versioned](../../concepts/versioning.md). You can only restore the versions that were uploaded with versioning enabled. To enable versioning, follow [this guide](../buckets/versioning.md).
 
 {% list tabs group=instructions %}
 
@@ -13,22 +13,22 @@ You can only restore object versions if a bucket supports [versioning](../../con
 
   {% note warning %}
 
-  The timeout for restoring an object's version through the management console is 25 seconds. It may expire before large versions are restored. If restoring fails, use other tools, such as the AWS CLI or API.
+  The timeout for restoring an object version using the management console is 25 seconds. Large versions might not successfully restore within this time. If restoring fails, use other tools, such as the AWS CLI or API.
 
   {% endnote %}
 
-  To restore an object's version:
+  To restore an object version:
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket in question.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
-  1. Select the object whose version you want to restore and click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_version-history }}**.
-  1. In the list of versions, click ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.storage.file.action_file-restore }}** in the row with the version you need. This restores the selected version and displays it as the current one.
+  1. Select the object whose version you want to restore, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.file.button_version-history }}**.
+  1. In the list of versions, click ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud.storage.file.action_file-restore }}** in the row with the version you need. This will restore the selected version and make it the current one.
 
 - AWS CLI {#cli}
 
-  To restore an object's version using the [AWS CLI](../../tools/aws-cli.md):
+  To restore an object version using the [AWS CLI](../../tools/aws-cli.md):
 
-  1. Get the ID of the desired object version:
+  1. Get the ID of the object version you need:
 
      ```bash
      aws s3api list-object-versions \
@@ -37,7 +37,7 @@ You can only restore object versions if a bucket supports [versioning](../../con
        --prefix <object_key_prefix>
      ```
 
-     As a result, a list of versions of all objects whose keys start with the specified prefix is displayed. Version IDs are available in the `VersionId` parameters.
+     The result will be a list of versions for all objects whose keys start with the specified prefix. Version IDs are available in the `VersionId` parameters.
 
      {% cut "Example of getting a list of versions" %}
 
@@ -87,10 +87,10 @@ You can only restore object versions if a bucket supports [versioning](../../con
 
      {% endcut %}
 
-     To only select a single object:
+     To select a single object:
 
      1. Install and initialize [jq](https://stedolan.github.io/jq/download/).
-     1. Filter the results:
+     1. Filter the result:
 
         ```bash
         aws s3api list-object-versions \
@@ -100,7 +100,7 @@ You can only restore object versions if a bucket supports [versioning](../../con
         | jq '.Versions | map(select(.Key == "<object_key>"))'
         ```
 
-     For more information about the command, see its description in the [Amazon documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-object-versions.html).
+     For more information about the command, see its description in [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-object-versions.html) of the AWS CLI command reference.
 
   1. Copy the object version to the same bucket with the same key to make it the current object version:
 
@@ -115,8 +115,8 @@ You can only restore object versions if a bucket supports [versioning](../../con
      Where:
 
      * `--bucket`: Bucket name.
-     * `--copy-source`: Source object for copying stating the version ID.
-     * `--key`: Target object key. To restore the object version, make sure the keys of the target and source objects are the same.
+     * `--copy-source`: Source object to copy, specifying the version ID.
+     * `--key`: Target object key. To restore the object version, make sure the keys of the target and source objects match.
 
      Result:
 
@@ -130,13 +130,13 @@ You can only restore object versions if a bucket supports [versioning](../../con
      }
      ```
 
-     For more information about the command, see its description in the [Amazon documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html).
+     For more information about the command, see its description in [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html) of the AWS CLI command reference.
 
 - API {#api}
 
-  To restore an object's version:
+  To restore an object version:
 
-  1. Get the ID of the required object version using the [listObjectVersions](../../s3/api-ref/bucket/listObjectVersions.md) S3 API method.
+  1. Get the ID of the object version you need using the [listObjectVersions](../../s3/api-ref/bucket/listObjectVersions.md) S3 API method.
   1. Copy the object version to the same bucket with the same key using the [copy](../../s3/api-ref/object/copy.md) S3 API method.
 
 {% endlist %}

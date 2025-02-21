@@ -207,6 +207,8 @@ FALSE
 
 Вы можете привести исходный тип данных в тип `Целое число` с помощью функции [INT](../function-ref/INT.md).
 
+Максимальный размер типа `Целое число` в {{ datalens-short-name }} ограничен максимальным целым для типа [Number JavaScript](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number#целочисленный_диапазон_для_объекта_number) — 2^53^ == 9 007 199 254 740 991.
+
 #### Пример записи {#integer-example}
 
 ```sql

@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
 
 # Data Transfer API, gRPC: TransferService.Create
 
+Creates a transfer in the specified folder.
+
 ## gRPC request
 
 **rpc Create ([CreateTransferRequest](#yandex.cloud.datatransfer.v1.CreateTransferRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -168,16 +170,32 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
         // end of the list of possible fields
       }
     ]
+  },
+  "data_objects": {
+    "include_objects": [
+      "string"
+    ]
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| source_id | **string** ||
-|| target_id | **string** ||
-|| description | **string** ||
-|| folder_id | **string** ||
+|| source_id | **string**
+
+Identifier of the source endpoint. ||
+|| target_id | **string**
+
+Identifier of the target endpoint. ||
+|| description | **string**
+
+Description of the transfer. ||
+|| folder_id | **string**
+
+ID of the folder to create the transfer in.
+
+To get the folder ID, make a
+[yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
 || runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
 || type | enum **TransferType**
 
@@ -185,9 +203,17 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
 - `SNAPSHOT_AND_INCREMENT`: Snapshot and increment
 - `SNAPSHOT_ONLY`: Snapshot
 - `INCREMENT_ONLY`: Increment ||
-|| name | **string** ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| name | **string**
+
+The transfer name. Must be unique within the folder. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Transfer labels as `key:value` pairs.
+
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
+|| data_objects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
 |#
 
 ## Runtime {#yandex.cloud.datatransfer.v1.Runtime}
@@ -490,6 +516,13 @@ comparison to NULL, and
 checking whether a substring is part of a string.
 Details in docs:
 https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. ||
+|#
+
+## DataObjects {#yandex.cloud.datatransfer.v1.DataObjects}
+
+#|
+||Field | Description ||
+|| include_objects[] | **string** ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

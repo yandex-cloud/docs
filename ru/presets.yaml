@@ -887,6 +887,7 @@ default:
   yds-full-name: Yandex Data Streams
   yds-name: Data Streams
   yds-short-name: Data Streams
+  ymq-endpoint: https://message-queue.api.cloud.yandex.net/
   yq-full-name: Yandex Query
   yq-name: Query
   yq-short-name: YQ
@@ -6420,6 +6421,7 @@ default:
         field_server-pool: Пул
         field_server-zone: Зона доступности
         field_ssh-public-key: Открытый SSH-ключ
+        field_subnet-id: Приватная подсеть
         label_create-network: Создать VRF
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
@@ -8368,8 +8370,17 @@ default:
         section-revisions: Ревизии
       serverless-event-router:
         button_create-bus: Создать шину
+        button_create-connector: Создать коннектор
+        button_create-rule: Создать правило
         label_buses: Шины
+        label_connector-source: Источник
+        label_connectors: Коннекторы
+        label_filter: Фильтр
+        label_rules: Правила
         label_service: EventRouter
+        label_target-transformer: Шаблон
+        label_target-type: Тип
+        label_targets: Приёмники
       serverless-functions:
         gateways:
           domains:
@@ -8548,6 +8559,14 @@ default:
       serverless-mdb-proxy:
         list:
           button_create: Создать подключение
+      serverless-workflows:
+        button_create-workflow: Создать рабочий процесс
+        label_additional-parameters: Дополнительные параметры
+        label_input_data: Данные на входе
+        label_service: Workflows
+        label_service-account: Сервисный аккаунт
+        label_workflow-executions: Запуски
+        spec-editor-type_label_text-editor: YaML-спецификация
       smart-web-security:
         action_empty: Создать профиль
         arl:

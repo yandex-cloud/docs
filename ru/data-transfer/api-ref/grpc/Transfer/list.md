@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/list.md
 
 # Data Transfer API, gRPC: TransferService.List
 
+Lists transfers in the specified folder.
+
 ## gRPC request
 
 **rpc List ([ListTransfersRequest](#yandex.cloud.datatransfer.v1.ListTransfersRequest)) returns ([ListTransfersResponse](#yandex.cloud.datatransfer.v1.ListTransfersResponse))**
@@ -23,7 +25,10 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/list.md
 ||Field | Description ||
 || folder_id | **string**
 
-Identifier of the folder containing the transfers to be listed. ||
+Identifier of the folder containing the transfers to be listed.
+
+To get the folder ID, make a
+[yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
 || page_size | **int64**
 
 The maximum number of transfers to be sent in the response message. If the
@@ -63,7 +68,7 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
           // Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`
           "mysql_source": {
             "connection": {
-              // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+              // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
               "mdb_cluster_id": "string",
               "on_premise": {
                 "port": "int64",
@@ -79,6 +84,10 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connection_manager_connection": {
+                "connection_id": "string",
+                "subnet_id": "string"
               }
               // end of the list of possible fields
             },
@@ -109,7 +118,7 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
           },
           "postgres_source": {
             "connection": {
-              // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+              // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
               "mdb_cluster_id": "string",
               "on_premise": {
                 "port": "int64",
@@ -125,6 +134,10 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connection_manager_connection": {
+                "connection_id": "string",
+                "subnet_id": "string"
               }
               // end of the list of possible fields
             },
@@ -444,7 +457,7 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
           },
           "mysql_target": {
             "connection": {
-              // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+              // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
               "mdb_cluster_id": "string",
               "on_premise": {
                 "port": "int64",
@@ -460,6 +473,10 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connection_manager_connection": {
+                "connection_id": "string",
+                "subnet_id": "string"
               }
               // end of the list of possible fields
             },
@@ -481,7 +498,7 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
           },
           "postgres_target": {
             "connection": {
-              // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+              // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
               "mdb_cluster_id": "string",
               "on_premise": {
                 "port": "int64",
@@ -497,6 +514,10 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connection_manager_connection": {
+                "connection_id": "string",
+                "subnet_id": "string"
               }
               // end of the list of possible fields
             },
@@ -755,7 +776,7 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
           // Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`
           "mysql_source": {
             "connection": {
-              // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+              // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
               "mdb_cluster_id": "string",
               "on_premise": {
                 "port": "int64",
@@ -771,6 +792,10 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connection_manager_connection": {
+                "connection_id": "string",
+                "subnet_id": "string"
               }
               // end of the list of possible fields
             },
@@ -801,7 +826,7 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
           },
           "postgres_source": {
             "connection": {
-              // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+              // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
               "mdb_cluster_id": "string",
               "on_premise": {
                 "port": "int64",
@@ -817,6 +842,10 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connection_manager_connection": {
+                "connection_id": "string",
+                "subnet_id": "string"
               }
               // end of the list of possible fields
             },
@@ -1136,7 +1165,7 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
           },
           "mysql_target": {
             "connection": {
-              // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+              // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
               "mdb_cluster_id": "string",
               "on_premise": {
                 "port": "int64",
@@ -1152,6 +1181,10 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connection_manager_connection": {
+                "connection_id": "string",
+                "subnet_id": "string"
               }
               // end of the list of possible fields
             },
@@ -1173,7 +1206,7 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
           },
           "postgres_target": {
             "connection": {
-              // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+              // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
               "mdb_cluster_id": "string",
               "on_premise": {
                 "port": "int64",
@@ -1189,6 +1222,10 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connection_manager_connection": {
+                "connection_id": "string",
+                "subnet_id": "string"
               }
               // end of the list of possible fields
             },
@@ -1589,6 +1626,11 @@ with the `next_page_token` from the previous `ListTransfersResponse`. ||
           }
         ]
       },
+      "data_objects": {
+        "include_objects": [
+          "string"
+        ]
+      },
       "prestable": "bool"
     }
   ],
@@ -1644,6 +1686,7 @@ Transfer core entity
 - `INCREMENT_ONLY`: Increment ||
 || warning | **string** ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
+|| data_objects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
 || prestable | **bool** ||
 |#
 
@@ -1761,12 +1804,15 @@ __tm_gtid_keeper). ||
 
 Managed Service for MySQL cluster ID
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 || on_premise | **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
 
 Connection options for on-premise MySQL
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
+|| connection_manager_connection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 |#
 
 ## OnPremiseMysql {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql}
@@ -1808,6 +1854,16 @@ CA certificate
 X.509 certificate of the certificate authority which issued the server's
 certificate, in PEM format. When CA certificate is specified TLS is used to
 connect to the server. ||
+|#
+
+## ConnectionManagerConnection {#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection}
+
+#|
+||Field | Description ||
+|| connection_id | **string** ||
+|| subnet_id | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
 |#
 
 ## Secret {#yandex.cloud.datatransfer.v1.endpoint.Secret}
@@ -1915,12 +1971,15 @@ Security groups ||
 
 Managed Service for PostgreSQL cluster ID
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 || on_premise | **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
 
 Connection options for on-premise PostgreSQL
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
+|| connection_manager_connection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 |#
 
 ## OnPremisePostgres {#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres}
@@ -2114,6 +2173,10 @@ CREATE MATERIALIZED VIEW ...
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
 || sequence_set | enum **ObjectTransferStage**
+
+Sequence sets
+
+CREATE SEQUENCE ...
 
 - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
 - `BEFORE_DATA`: Before data transfer
@@ -3255,4 +3318,11 @@ comparison to NULL, and
 checking whether a substring is part of a string.
 Details in docs:
 https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. ||
+|#
+
+## DataObjects {#yandex.cloud.datatransfer.v1.DataObjects}
+
+#|
+||Field | Description ||
+|| include_objects[] | **string** ||
 |#

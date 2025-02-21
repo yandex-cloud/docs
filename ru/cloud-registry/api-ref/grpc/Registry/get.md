@@ -68,13 +68,16 @@ Kind of the registry.
 - `KIND_UNSPECIFIED`
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
-- `DOCKER`: Registry kind is docker. ||
+- `DOCKER`: Registry kind is docker.
+- `NUGET`: Registry kind is nuget. ||
 || type | enum **Type**
 
 Type of the registry.
 
 - `TYPE_UNSPECIFIED`
-- `LOCAL`: Registry type is local. ||
+- `LOCAL`: Registry type is local.
+- `REMOTE`
+- `VIRTUAL` ||
 || status | enum **Status**
 
 Output only. Status of the registry.

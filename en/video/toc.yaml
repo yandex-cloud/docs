@@ -185,6 +185,12 @@ items:
                 href: api-ref/grpc/Channel/delete.md
               - name: BatchDelete
                 href: api-ref/grpc/Channel/batchDelete.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Channel/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Channel/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Channel/updateAccessBindings.md
           - name: Episode
             items:
               - name: Overview
@@ -201,6 +207,8 @@ items:
                 href: api-ref/grpc/Episode/update.md
               - name: Delete
                 href: api-ref/grpc/Episode/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Episode/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/Episode/performAction.md
               - name: GetPlayerURL
@@ -353,6 +361,12 @@ items:
                 href: api-ref/Channel/delete.md
               - name: BatchDelete
                 href: api-ref/Channel/batchDelete.md
+              - name: ListAccessBindings
+                href: api-ref/Channel/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Channel/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Channel/updateAccessBindings.md
           - name: Episode
             items:
               - name: Overview

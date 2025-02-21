@@ -5,6 +5,10 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/get.md
 
 # Data Transfer API, REST: Transfer.Get
 
+Returns the specified transfer.
+
+To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/Transfer/list#List) request.
+
 ## HTTP request
 
 ```
@@ -17,7 +21,9 @@ GET https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
 ||Field | Description ||
 || transferId | **string**
 
-Required field.  ||
+Required field. Identifier of the transfer to be returned.
+
+To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/Endpoint/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.datatransfer.v1.Transfer}
@@ -41,7 +47,7 @@ Required field.  ||
       // Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`
       "mysqlSource": {
         "connection": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "port": "string",
@@ -56,6 +62,10 @@ Required field.  ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "subnetId": "string"
           }
           // end of the list of possible fields
         },
@@ -86,7 +96,7 @@ Required field.  ||
       },
       "postgresSource": {
         "connection": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "port": "string",
@@ -101,6 +111,10 @@ Required field.  ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "subnetId": "string"
           }
           // end of the list of possible fields
         },
@@ -417,7 +431,7 @@ Required field.  ||
       },
       "mysqlTarget": {
         "connection": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "port": "string",
@@ -432,6 +446,10 @@ Required field.  ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "subnetId": "string"
           }
           // end of the list of possible fields
         },
@@ -453,7 +471,7 @@ Required field.  ||
       },
       "postgresTarget": {
         "connection": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "port": "string",
@@ -468,6 +486,10 @@ Required field.  ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "subnetId": "string"
           }
           // end of the list of possible fields
         },
@@ -721,7 +743,7 @@ Required field.  ||
       // Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`
       "mysqlSource": {
         "connection": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "port": "string",
@@ -736,6 +758,10 @@ Required field.  ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "subnetId": "string"
           }
           // end of the list of possible fields
         },
@@ -766,7 +792,7 @@ Required field.  ||
       },
       "postgresSource": {
         "connection": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "port": "string",
@@ -781,6 +807,10 @@ Required field.  ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "subnetId": "string"
           }
           // end of the list of possible fields
         },
@@ -1097,7 +1127,7 @@ Required field.  ||
       },
       "mysqlTarget": {
         "connection": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "port": "string",
@@ -1112,6 +1142,10 @@ Required field.  ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "subnetId": "string"
           }
           // end of the list of possible fields
         },
@@ -1133,7 +1167,7 @@ Required field.  ||
       },
       "postgresTarget": {
         "connection": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "port": "string",
@@ -1148,6 +1182,10 @@ Required field.  ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "subnetId": "string"
           }
           // end of the list of possible fields
         },
@@ -1543,6 +1581,11 @@ Required field.  ||
       }
     ]
   },
+  "dataObjects": {
+    "includeObjects": [
+      "string"
+    ]
+  },
   "prestable": "boolean"
 }
 ```
@@ -1578,6 +1621,7 @@ Transfer core entity
 - `INCREMENT_ONLY`: Increment ||
 || warning | **string** ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
+|| dataObjects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
 || prestable | **boolean** ||
 |#
 
@@ -1695,12 +1739,15 @@ __tm_gtid_keeper). ||
 
 Managed Service for MySQL cluster ID
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || onPremise | **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
 
 Connection options for on-premise MySQL
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
+|| connectionManagerConnection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 |#
 
 ## OnPremiseMysql {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql}
@@ -1739,6 +1786,16 @@ CA certificate
 X.509 certificate of the certificate authority which issued the server's
 certificate, in PEM format. When CA certificate is specified TLS is used to
 connect to the server. ||
+|#
+
+## ConnectionManagerConnection {#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
+|| subnetId | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
 |#
 
 ## Secret {#yandex.cloud.datatransfer.v1.endpoint.Secret}
@@ -1846,12 +1903,15 @@ Security groups ||
 
 Managed Service for PostgreSQL cluster ID
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || onPremise | **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
 
 Connection options for on-premise PostgreSQL
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
+|| connectionManagerConnection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 |#
 
 ## OnPremisePostgres {#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres}
@@ -2045,6 +2105,10 @@ CREATE MATERIALIZED VIEW ...
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
 || sequenceSet | **enum** (ObjectTransferStage)
+
+Sequence sets
+
+CREATE SEQUENCE ...
 
 - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
 - `BEFORE_DATA`: Before data transfer
@@ -3143,4 +3207,11 @@ comparison to NULL, and
 checking whether a substring is part of a string.
 Details in docs:
 https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. ||
+|#
+
+## DataObjects {#yandex.cloud.datatransfer.v1.DataObjects}
+
+#|
+||Field | Description ||
+|| includeObjects[] | **string** ||
 |#

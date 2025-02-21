@@ -27,6 +27,9 @@ Required field. ID of the video. ||
 #|
 ||Field | Description ||
 || params | **[VideoPlayerParams](#yandex.cloud.video.v1.VideoPlayerParams)** ||
+|| signedUrlExpirationDuration | **string** (duration)
+
+Optional field, used to set custom url expiration duration for videos with sign_url_access ||
 |#
 
 ## VideoPlayerParams {#yandex.cloud.video.v1.VideoPlayerParams}

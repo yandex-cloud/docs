@@ -5,15 +5,15 @@ description: Follow this guide to set the maximum size of a bucket in {{ objstor
 
 # Limiting the maximum size of a bucket
 
-{{ objstorage-name }} allows you to limit the maximum size of a bucket.
+{{ objstorage-name }} enables limiting the maximum bucket size.
 
-For example, if you provide the users of your service with the ability to upload objects to {{ objstorage-name }}, then, by limiting the maximum volume, you can better control user actions and avoid unnecessary costs.
+For example, if your service enables users to upload objects to {{ objstorage-name }}, then, by limiting the maximum size, you can better manage user actions and avoid unnecessary costs.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket whose statistics you want to view.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket whose maximum size you want to limit.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Set the value of the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field.
@@ -28,7 +28,7 @@ For example, if you provide the users of your service with the ability to upload
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to update a bucket:
+  1. See the description of the CLI command for updating a bucket:
 
       ```bash
       yc storage bucket update --help
@@ -50,7 +50,7 @@ For example, if you provide the users of your service with the ability to upload
       +------------------+----------------------+----------+-----------------------+---------------------+
       ```
 
-  1. Using the `NAME` column, save the name of the bucket to limit the size for.
+  1. Save the name (from the `NAME` column) of the bucket whose size you want to limit.
   1. Limit the maximum size of the bucket:
 
       ```bash
@@ -60,7 +60,7 @@ For example, if you provide the users of your service with the ability to upload
       ```
 
       Where:
-      * `--name`: Name of the bucket to limit the size for.
+      * `--name`: Name of the bucket whose size you want to limit.
       * `--max-size`: Maximum bucket size, in bytes (`0` for unlimited).
 
       Result:
@@ -105,7 +105,7 @@ For example, if you provide the users of your service with the ability to upload
      * `secret_key`: Secret access key value.
      * `max_size`: Maximum bucket size, in bytes.
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
 
   1. Check the configuration using this command:
 
@@ -125,7 +125,7 @@ For example, if you provide the users of your service with the ability to upload
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -135,7 +135,7 @@ For example, if you provide the users of your service with the ability to upload
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the bucket update in the [management console]({{ link-console-main }}).
+     You can check the bucket update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

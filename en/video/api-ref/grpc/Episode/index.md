@@ -17,6 +17,7 @@ Episode management service.
 || [Create](create.md) | Create episode. ||
 || [Update](update.md) | Update episode. ||
 || [Delete](delete.md) | Delete episode. ||
+|| [BatchDelete](batchDelete.md) | Batch delete episode. ||
 || [PerformAction](performAction.md) | Perform an action on the episode. ||
 || [GetPlayerURL](getPlayerURL.md) | Returns url to the player. ||
 || [GetManifests](getManifests.md) | Returns manifest urls. ||

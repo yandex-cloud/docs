@@ -339,6 +339,16 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/grpc/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/grpc/BackupRetentionPolicy/list.md
+              - name: Create
+                href: api-ref/grpc/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/grpc/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview
@@ -453,6 +463,16 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/BackupRetentionPolicy/list.md
+              - name: Create
+                href: api-ref/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview

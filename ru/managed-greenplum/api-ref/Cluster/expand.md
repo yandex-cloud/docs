@@ -445,7 +445,18 @@ Perform redistribution process by small chunks as background activity ||
     ],
     "segmentHostGroupIds": [
       "string"
-    ]
+    ],
+    "serviceAccountId": "string",
+    "logging": {
+      "enabled": "boolean",
+      // Includes only one of the fields `folderId`, `logGroupId`
+      "folderId": "string",
+      "logGroupId": "string",
+      // end of the list of possible fields
+      "commandCenterEnabled": "boolean",
+      "greenplumEnabled": "boolean",
+      "poolerEnabled": "boolean"
+    }
   }
   // end of the list of possible fields
 }
@@ -661,6 +672,12 @@ Host groups hosting VMs of the master subcluster. ||
 || segmentHostGroupIds[] | **string**
 
 Host groups hosting VMs of the segment subcluster. ||
+|| serviceAccountId | **string**
+
+Service account that will be used to access a Yandex Cloud resources ||
+|| logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
+
+Cloud logging configuration ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -1460,4 +1477,26 @@ Cloud Storage Settings
 || enable | **boolean**
 
 enable Cloud Storage for cluster ||
+|#
+
+## LoggingConfig {#yandex.cloud.mdb.greenplum.v1.LoggingConfig}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| folderId | **string**
+
+Includes only one of the fields `folderId`, `logGroupId`. ||
+|| logGroupId | **string**
+
+Includes only one of the fields `folderId`, `logGroupId`. ||
+|| commandCenterEnabled | **boolean**
+
+send Yandex Command Center logs ||
+|| greenplumEnabled | **boolean**
+
+send Greenplum logs ||
+|| poolerEnabled | **boolean**
+
+send Pooler logs ||
 |#

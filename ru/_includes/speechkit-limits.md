@@ -38,6 +38,6 @@
 Срок хранения результатов распознавания на сервере | {{ stt-long-resultsStorageTime }}
 [**Синтез речи**](../{{ speechkit-slug }}/tts/index.md) |
 Минимальная длительность шаблона для синтеза | 1 секунда
-Максимальный размер запроса REST | 5 000 символов
-Максимальный размер запроса gRPC | {{ tts-v3-count }} и {{ tts-v3-time }}
-Максимальный размер запроса gRPC в режиме [unsafe](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.UtteranceSynthesisRequest) | 5 000 символов
+Максимальный размер запроса через API v1 | 5 000 символов
+Максимальный размер запроса через API v3 | {{ tts-v3-count }} и {{ tts-v3-time }}
+Максимальный размер запроса через API v3 в режиме unsafe | 5 000 символов

@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/update.md
 
 # Data Transfer API, gRPC: TransferService.Update
 
+Updates the specified transfer.
+
 ## gRPC request
 
 **rpc Update ([UpdateTransferRequest](#yandex.cloud.datatransfer.v1.UpdateTransferRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -166,6 +168,11 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/update.md
         // end of the list of possible fields
       }
     ]
+  },
+  "data_objects": {
+    "include_objects": [
+      "string"
+    ]
   }
 }
 ```
@@ -189,8 +196,14 @@ described here:
 <https://pkg.go.dev/google.golang.org/protobuf/types/known/fieldmaskpb#FieldMask>
 The only exception: if the repeated field is specified in the mask, then
 the new value replaces the old one instead of being appended to the old one. ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| labels | **object** (map<**string**, **string**>)
+
+Transfer labels as `key:value` pairs.
+
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
+|| data_objects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
 |#
 
 ## Runtime {#yandex.cloud.datatransfer.v1.Runtime}
@@ -493,6 +506,13 @@ comparison to NULL, and
 checking whether a substring is part of a string.
 Details in docs:
 https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. ||
+|#
+
+## DataObjects {#yandex.cloud.datatransfer.v1.DataObjects}
+
+#|
+||Field | Description ||
+|| include_objects[] | **string** ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

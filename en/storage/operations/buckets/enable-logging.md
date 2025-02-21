@@ -3,22 +3,22 @@ title: Managing bucket action logging in {{ objstorage-full-name }}
 description: Follow this guide to manage bucket action logging in {{ objstorage-full-name }}.
 ---
 
-# Managing bucket action logging
+# Managing bucket logging
 
 
-To track operations with the [bucket](../../concepts/bucket.md), enable [logging](../../concepts/server-logs.md).
+To monitor [bucket](../../concepts/bucket.md) operations, enable [logging](../../concepts/server-logs.md).
 
 Detailed information about requests to the _source_ bucket will be saved in an [object](../../concepts/object.md) in the _target_ bucket. The source and target buckets must be different.
 
 {{ objstorage-name }} [does not guarantee](../../concepts/server-logs.md) complete and timely logging.
 
-By default, logging is disabled. After you enable it, {{ objstorage-name }} will save information about actions with the bucket once an hour.
+By default, logging is disabled. After you enable it, {{ objstorage-name }} will log info about bucket operations once an hour.
 
-## Enable logging {#enable}
+## Enabling logging {#enable}
 
-To log requests to the bucket:
+To log bucket access:
 
-1. Use an existing target bucket or create a new one. This is the bucket your logs will be written to.
+1. Use an existing target bucket or create a new one. This bucket will store logs.
 
    {% cut "How to create a bucket" %}
 
@@ -28,7 +28,7 @@ To log requests to the bucket:
 
    {% include [target-bucket-note](../../../_includes/storage/target-bucket-note.md) %}
 
-1. Enable logging in the source bucket that you want to track.
+1. Enable logging for the source bucket you want to monitor.
 
    {% list tabs group=instructions %}
 
@@ -39,14 +39,14 @@ To log requests to the bucket:
       1. Select the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
       1. Enable **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
       1. Select **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}**.
-      1. In the **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** field, specify the prefix with which the logs will be saved.
+      1. In the **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** field, specify the prefix for log storage.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
    - AWS CLI {#cli}
 
      To enable logging via the [AWS CLI](../../tools/aws-cli.md):
 
-     1. Create a file with logging settings in JSON format. See the examples below.
+     1. Create a file with logging settings in JSON format. Here is an example:
 
          ```json
          {
@@ -73,7 +73,7 @@ To log requests to the bucket:
 
          Where:
 
-         * `--bucket`: Name of the source bucket to enable action logging for.
+         * `--bucket`: Name of the source bucket to enable logging for.
          * `--bucket-logging-status`: Path to the logging settings file.
 
    - {{ TF }} {#tf}
@@ -86,15 +86,15 @@ To log requests to the bucket:
      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
-     To enable logging for a bucket you want to track:
+     To enable logging for the bucket you want to monitor:
 
-     1. Open the {{ TF }} configuration file and add the `logging` section to the bucket description fragment.
+     1. Open the {{ TF }} configuration file and add the `logging` section to the bucket description.
 
         ```hcl
         resource "yandex_storage_bucket" "log_bucket" {
           access_key = "<static_key_ID>"
           secret_key = "<secret_key>"
-          bucket     = "<name_of_bucket_to_store_logs>"
+          bucket     = "<name_of_bucket_for_storing_logs>"
         }
 
         resource "yandex_storage_bucket" "bucket" {
@@ -116,17 +116,17 @@ To log requests to the bucket:
         * `target_bucket`: Reference to the log storage bucket.
         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
 
-        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
    - API {#api}
 
-     To enable logging for your bucket, use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method.
+     To enable logging for a bucket, use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method.
 
-     Example of the HTTP request body:
+     Here is an example of an HTTP request body:
 
      ```xml
      <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01">
@@ -144,11 +144,11 @@ To log requests to the bucket:
 
    {% endlist %}
 
-If you want to delete the target bucket, first [disable logging](#stop-logging) or select another target bucket for storing logs. You can [delete](delete.md) only an empty bucket.
+If you want to delete the target bucket, first [disable logging](#stop-logging) or select another target bucket for storing logs. You can only [delete](delete.md) an empty bucket.
 
-## Get the logging settings {#get-settings}
+## Getting logging settings {#get-settings}
 
-To get the name of the target bucket and the prefix of the key for the log object, follow these steps:
+To get the target bucket name and the log object key prefix, follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -158,11 +158,11 @@ To get the name of the target bucket and the prefix of the key for the log objec
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
    1. Select the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
    1. The **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}** list contains the name of the target bucket.
-   1. The **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** field contains the prefix with which the logs are saved.
+   1. The **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** field contains the prefix used for log storage.
 
 - AWS CLI {#cli}
 
-   To retrieve the logging settings via the [AWS CLI](../../tools/aws-cli.md):
+   To get the logging settings via the [AWS CLI](../../tools/aws-cli.md):
 
    Run this command:
 
@@ -186,15 +186,15 @@ To get the name of the target bucket and the prefix of the key for the log objec
 
 - {{ TF }} {#tf}
 
-  To get the logging settings in the bucket you want to track:
+  To get the logging settings for the bucket you want to monitor:
 
-     1. Open the {{ TF }} configuration file and find the `logging` section in the fragment describing the bucket.
+     1. Open the {{ TF }} configuration file and find the `logging` section in the bucket description.
 
         ```hcl
         resource "yandex_storage_bucket" "log_bucket" {
           access_key = "<static_key_ID>"
           secret_key = "<secret_key>"
-          bucket     = "<name_of_bucket_to_store_logs>"
+          bucket     = "<name_of_bucket_for_storing_logs>"
         }
 
         resource "yandex_storage_bucket" "bucket" {
@@ -216,13 +216,13 @@ To get the name of the target bucket and the prefix of the key for the log objec
         * `target_bucket`: Reference to the log storage bucket.
         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
 
-        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
 - API {#api}
 
   Use the [getBucketLogging](../../s3/api-ref/bucket/getBucketLogging.md) S3 API method.
 
-  Example of the HTTP response body:
+  Here is an example of an HTTP response body:
 
   ```xml
   HTTP/1.1 200
@@ -237,7 +237,7 @@ To get the name of the target bucket and the prefix of the key for the log objec
 
 {% endlist %}
 
-## Get the logs {#get-logs}
+## Getting logs {#get-logs}
 
 To get logs, download the object prefixed with `logs/` from the target bucket:
 
@@ -246,27 +246,27 @@ To get logs, download the object prefixed with `logs/` from the target bucket:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
-  1. Select the target bucket with the logs.
-  1. Go to `logs/`.
-  1. Next to the object with the logs you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}**.
+  1. Select the target bucket with logs.
+  1. Go to the `logs/` directory.
+  1. Next to the log object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}**.
 
   {% note info %}
 
-  You can also use [CyberDuck](../../tools/cyberduck.md) or [WinSCP](../../tools/winscp.md) tools to download objects using the GUI.
+  You can also use [CyberDuck](../../tools/cyberduck.md) or [WinSCP](../../tools/winscp.md) to download objects using the GUI.
 
   {% endnote %}
 
 - AWS CLI {#cli}
 
-  To get logs using the [AWS CLI](../../tools/aws-cli.md), download the objects with the `logs/` prefix by following [this guide](../objects/download.md#cli).
+  To get logs using the [AWS CLI](../../tools/aws-cli.md), download the objects prefixed with `logs/` by following [this guide](../objects/download.md#cli).
 
 - API {#api}
 
-  Use the [get](../../s3/api-ref/object/get.md) S3 API method of the Object service.
+  Use the Object [get](../../s3/api-ref/object/get.md) S3 API method.
 
 {% endlist %}
 
-## Disable logging {#stop-logging}
+## Disabling logging {#stop-logging}
 
 To disable logging, follow these steps:
 
@@ -277,12 +277,12 @@ To disable logging, follow these steps:
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to disable logging for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
-  1. Enable **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
+  1. Disable **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
 
-  To disable logging using the [AWS CLI](../../tools/aws-cli.md), use the following command:
+  To disable logging using the [AWS CLI](../../tools/aws-cli.md), use this command:
 
      ```bash
      aws s3api put-bucket-logging \
@@ -291,22 +291,22 @@ To disable logging, follow these steps:
          --bucket-logging-status {}
      ```
 
-     Where `--bucket` is the name of the source bucket to disable action logging for.
+     Where `--bucket` is the name of the source bucket to disable logging for.
 
 - {{ TF }} {#tf}
 
   To disable logging:
 
-  1. In the {{ TF }} configuration file, delete the `logging` section in the fragment describing the bucket.
+  1. In the {{ TF }} configuration file, delete the `logging` section from the bucket description.
 
-      {% cut "Example bucket description in a {{ TF }} configuration" %}
+      {% cut "Example of a bucket description in {{ TF }} configuration" %}
 
       ```hcl
       ...
       resource "yandex_storage_bucket" "log_bucket" {
         access_key = "<static_key_ID>"
         secret_key = "<secret_key>"
-        bucket     = "<name_of_bucket_to_store_logs>"
+        bucket     = "<name_of_bucket_for_storing_logs>"
       }
 
       resource "yandex_storage_bucket" "bucket" {
@@ -329,13 +329,13 @@ To disable logging, follow these steps:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the changes in the [management console]({{ link-console-main }}).
+  You can check the update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-  Use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method. In the request body, send the `<BucketLoggingStatus>` parameter with an empty value.
+  Use the [putBucketLogging](../../s3/api-ref/bucket/putBucketLogging.md) S3 API method. In the request body, provide the `<BucketLoggingStatus>` parameter with an empty value.
 
-  Example of the HTTP request body:
+  Here is an example of an HTTP request body:
 
   ```xml
   <BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01" />

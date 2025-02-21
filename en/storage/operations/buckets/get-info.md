@@ -13,7 +13,7 @@ To view full information about a [bucket](../../concepts/bucket.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket in question.
   1. In the left-hand panel, select the appropriate section with bucket information.
      * ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**: List of objects stored in the bucket.
      * ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**: Main bucket settings, information about website hosting in the bucket, versioning, logging, and lifecycles of bucket objects.
@@ -25,7 +25,7 @@ To view full information about a [bucket](../../concepts/bucket.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See a description of the CLI command to get bucket information:
+  1. See the description of the CLI command for getting bucket information:
 
      ```bash
      yc storage bucket get --help
@@ -47,9 +47,9 @@ To view full information about a [bucket](../../concepts/bucket.md):
        +------------------+----------------------+----------+-----------------------+---------------------+
       ```
 
-  1. Save the name of the bucket (`NAME` column) you want to get information on.
+  1. Save the name (from the `NAME` column) of the bucket you want to get information about.
 
-  1. Get the bucket information:
+  1. Get bucket info:
 
      ```bash
      yc storage bucket get <bucket_name> --full
@@ -83,13 +83,13 @@ To view full information about a [bucket](../../concepts/bucket.md):
 
 ## Getting bucket statistics {#get-statistics}
 
-To view the statistics for a bucket:
+To view bucket statistics:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket in question.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
   1. On the page that opens, you can view bucket statistics for a certain period:
      
@@ -102,7 +102,7 @@ To view the statistics for a bucket:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See a description of the CLI command to get bucket statistics:
+  1. See the description of the CLI command for getting bucket statistics:
 
      ```bash
      yc storage bucket stats --help
@@ -124,9 +124,9 @@ To view the statistics for a bucket:
        +------------------+----------------------+----------+-----------------------+---------------------+
       ```
 
-  1. Save the name of the bucket (`NAME` column) you want to get statistics on.
+  1. Save the name (from the `NAME` column) of the bucket you want to get statistics on.
 
-  1. Get the bucket statistics:
+  1. Get bucket statistics:
 
      ```bash
      yc storage bucket stats <bucket_name>

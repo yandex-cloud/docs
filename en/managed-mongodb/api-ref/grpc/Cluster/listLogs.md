@@ -45,7 +45,7 @@ Type of the service to request logs about.
 - `MONGOD`: Logs of MongoDB activity.
 - `MONGOS`
 - `MONGOCFG`
-- `AUDIT`: MongoDB Enterprise audit logs ||
+- `AUDIT` ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
