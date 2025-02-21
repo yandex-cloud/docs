@@ -1,9 +1,9 @@
 ---
-title: '{{ objstorage-full-name }} bucket policy management'
+title: Managing a {{ objstorage-full-name }} bucket policy
 description: Follow this guide to learn how to manage an {{ objstorage-name }} bucket policy.
 ---
 
-# Bucket policy management
+# Managing a bucket policy
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 
@@ -17,17 +17,17 @@ description: Follow this guide to learn how to manage an {{ objstorage-name }} b
 {% endnote %}
 
 
-## Applying or editing a policy {#apply-policy}
+## Applying or updating a policy {#apply-policy}
 
-The minimum role required to apply or modify an access policy is `storage.configurer`. For more information, see the [role description](../../../storage/security/index.md#storage-configurer).
+The minimum role required to apply or update a bucket policy is `storage.configurer`. For more information, see the [role description](../../../storage/security/index.md#storage-configurer).
 
 {% note info %}
 
-If the bucket has already had a bucket policy, it will be completely overwritten once you apply the changes.
+Applying the changes will completely overwrite any existing bucket policy.
 
 {% endnote %}
 
-To apply or edit a bucket access policy:
+To apply or update a bucket policy:
 
 {% list tabs group=instructions %}
 
@@ -40,11 +40,11 @@ To apply or edit a bucket access policy:
   1. Set up a rule:
      1. Enter a rule ID.
      1. Configure rule settings:
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}**: Allow or forbid.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}**: Allow or deny.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}**: Include or exclude users.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users or specific users. To specify a list of specific users or service accounts, select their names in the drop-down list.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** for which the rule is being created. You can also select the **All actions** option.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: Selected bucket specified by default. To add other resources to the rule, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}**: All users or specific users. To specify a list of specific users or service accounts, select their names from the drop-down list.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}** for which you are creating the rule. You can also enable **All actions**.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}**: Defaults to the selected bucket. To add other resources to the rule, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
 
             {% note info %}
 
@@ -53,10 +53,10 @@ To apply or edit a bucket access policy:
             {% endnote %}
 
      1. If required, add a [condition](../../s3/api-ref/policy/conditions.md) for the rule:
-        * Choose **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** from the list.
-        * Choose **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** from the list. For the operator to apply to the existing fields, select **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. This way, if a field does not exist, the conditions will be considered satisfied.
-        * Enter **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
-        * Click **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}** to add another value to a condition.
+        * Select **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** from the list.
+        * Select **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** from the list. If you want the operator to apply solely to the existing fields, select **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. This way, if the field is missing, the condition will be considered met.
+        * Enter a value in **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
+        * Click **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}** to add another value to the condition.
 
         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
@@ -71,13 +71,13 @@ To apply or edit a bucket access policy:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to edit a bucket ACL:
+  1. See the description of the CLI command for editing a bucket ACL:
 
      ```bash
      yc storage bucket update --help
      ```
 
-  1. Describe your access policy configuration as a [data schema](../../s3/api-ref/policy/scheme.md) in JSON format:
+  1. Describe your bucket policy configuration as a JSON [data schema](../../s3/api-ref/policy/scheme.md):
 
      ```json
      {
@@ -101,10 +101,10 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID.  You can request permissions for a [user](../../../iam/operations/users/get.md) or [service account](../../../iam/operations/sa/get-id.md). Possible values: `*`, `<subject_ID>`. This is an optional parameter.
+       * `Principal`: ID of the subject requesting the permission. This can be either a [user](../../../iam/operations/users/get.md) or a [service account](../../../iam/operations/sa/get-id.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
          
-         You can get the IDs in any of the following ways:
+         You can get the IDs in the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
 
@@ -151,13 +151,13 @@ To apply or edit a bucket access policy:
 
   {% note info %}
 
-  To manage a policy using the AWS CLI, a service account must have the `storage.admin` [role](../../security/index.md#storage-admin) assigned.
+  To manage a policy using the AWS CLI, a service account needs the `storage.admin` [role](../../security/index.md#storage-admin).
 
   {% endnote %}
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-  1. Describe your access policy configuration as a [data schema](../../s3/api-ref/policy/scheme.md) in JSON format:
+  1. Describe your bucket policy configuration as a JSON [data schema](../../s3/api-ref/policy/scheme.md):
 
      ```json
      {
@@ -181,10 +181,10 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID.  You can request permissions for a [user](../../../iam/operations/users/get.md), or [service account](../../../iam/operations/sa/get-id.md). Possible values: `*`, `<subject_ID>`. This is an optional parameter.
+       * `Principal`: ID of the subject requesting the permission. This can be a [user](../../../iam/operations/users/get.md) or [service account](../../../iam/operations/sa/get-id.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
          
-         You can get the IDs in any of the following ways:
+         You can get the IDs in the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
 
@@ -197,7 +197,7 @@ To apply or edit a bucket access policy:
 
          {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
-     Once complete, save the configuration to a file named `policy.json`.
+     Once the configuration is complete, save it to a file named `policy.json`.
   1. Run this command:
 
      ```bash
@@ -213,7 +213,7 @@ To apply or edit a bucket access policy:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-name }}.
+  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-name }} authentication.
   1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
@@ -279,10 +279,10 @@ To apply or edit a bucket access policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID.  You can request permissions for a [user](../../../iam/operations/users/get.md), or [service account](../../../iam/operations/sa/get-id.md). Possible values: `*`, `<subject_ID>`. This is an optional parameter.
+       * `Principal`: ID of the subject requesting the permission. This can be a [user](../../../iam/operations/users/get.md) or [service account](../../../iam/operations/sa/get-id.md). The possible values are `*` and `<subject_ID>`. This is an optional parameter.
 
          
-         You can get the IDs in any of the following ways:
+         You can get the IDs in the following ways:
          * [User](../../../iam/operations/users/get.md).
          * [Service account](../../../iam/operations/sa/get-id.md).
 
@@ -295,17 +295,17 @@ To apply or edit a bucket access policy:
 
          {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
@@ -314,11 +314,11 @@ To apply or edit a bucket access policy:
 
      1. Confirm creating the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-  To manage your bucket policy, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [PutBucketPolicy](../../s3/api-ref/policy/put.md) S3 API method. If a bucket policy has already been set for the bucket, it will be completely overwritten once you apply the new policy.
+  To manage a bucket policy, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [PutBucketPolicy](../../s3/api-ref/policy/put.md) S3 API method. Applying a new bucket policy will completely overwrite any existing one.
 
 {% endlist %}
 
@@ -326,21 +326,21 @@ To apply or edit a bucket access policy:
 
 ## Viewing a policy {#view-policy}
 
-The minimum role required to view an access policy is `storage.configViewer`. For more information, see the [role description](../../../storage/security/#storage-config-viewer).
+The minimum role required to view a bucket policy is `storage.configViewer`. For more information, see the [role description](../../../storage/security/#storage-config-viewer).
 
-To view the access policy applied to a bucket:
+To view the bucket policy applied to a bucket:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
-  1. Select a bucket from the list.
+  1. Select the bucket from the list.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
 
 - AWS CLI {#aws-cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} s3api get-bucket-policy \
@@ -375,14 +375,14 @@ To delete a bucket policy:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
-  1. Select a bucket from the list.
+  1. Select the bucket from the list.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
 
 - AWS CLI {#aws-cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \
@@ -393,7 +393,7 @@ To delete a bucket policy:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  If you applied a bucket policy using {{ TF }}, you can delete it:
+  If you applied a bucket policy using {{ TF }}, you can delete it by following these steps:
   1. Find the parameters of the previously created bucket policy to delete in the configuration file:
 
      ```hcl
@@ -429,14 +429,14 @@ To delete a bucket policy:
 
   1. Delete the `policy` field describing the bucket policy settings from the configuration file.
   1. Make sure the configuration files are correct.
-     1. In the command line, change to the folder where you edited the configuration file.
+     1. In the command line, navigate to the directory where you edited the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described properly, the terminal will display a list of the resources being created and their parameters without the bucket policy being deleted. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of the resources to create and their parameters, without the description of the bucket policy you are deleting. If the configuration contains any errors, {{ TF }} will point them out.
   1. Delete the bucket policy.
      1. If the configuration does not contain any errors, run this command:
 
@@ -446,7 +446,7 @@ To delete a bucket policy:
 
      1. Type `yes` and press **Enter**.
 
-     This will delete the bucket policy from the specified folder. You can check the bucket policy's deletion using the [management console]({{ link-console-main }}).
+     This will delete the bucket policy from the specified folder. You can check the bucket policy deletion using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

@@ -121,7 +121,8 @@ Creates a PostgreSQL cluster in the specified folder.
         "string"
       ],
       "deletion_protection": "google.protobuf.BoolValue",
-      "user_password_encryption": "UserPasswordEncryption"
+      "user_password_encryption": "UserPasswordEncryption",
+      "generate_password": "google.protobuf.BoolValue"
     }
   ],
   "host_specs": [
@@ -170,7 +171,19 @@ Creates a PostgreSQL cluster in the specified folder.
       "hour": "int64"
     }
     // end of the list of possible fields
-  }
+  },
+  "retention_policies": [
+    {
+      "policy_name": "string",
+      "cron": {
+        "day_of_month": "string",
+        "month": "string",
+        "day_of_week": "string"
+      },
+      "retain_for_days": "int64",
+      "description": "string"
+    }
+  ]
 }
 ```
 
@@ -225,6 +238,9 @@ Host groups hosting VMs of the cluster. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
+|| retention_policies[] | **[BackupRetentionPolicySpec](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec)**
+
+Backup long-term retention policies setting. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.postgresql.v1.ConfigSpec}
@@ -565,6 +581,9 @@ The default is `` password_encryption `` setting for cluster.
 - `USER_PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `USER_PASSWORD_ENCRYPTION_MD5`
 - `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Generate password using Connection Manager. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -916,6 +935,37 @@ Day of the week (in `DDD` format).
 || hour | **int64**
 
 Hour of the day in UTC (in `HH` format). ||
+|#
+
+## BackupRetentionPolicySpec {#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec}
+
+Message to describe a new retention policy for cluster backups.
+
+#|
+||Field | Description ||
+|| policy_name | **string**
+
+Required field. Required. Policy name. ||
+|| cron | **[CronTab](#yandex.cloud.mdb.postgresql.v1.CronTab)**
+
+CronTab schedule. ||
+|| retain_for_days | **int64**
+
+Retention duration. ||
+|| description | **string**
+
+Human-readable description. ||
+|#
+
+## CronTab {#yandex.cloud.mdb.postgresql.v1.CronTab}
+
+Message to describe a crontab schedule.
+
+#|
+||Field | Description ||
+|| day_of_month | **string** ||
+|| month | **string** ||
+|| day_of_week | **string** ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

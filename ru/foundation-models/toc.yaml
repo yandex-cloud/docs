@@ -590,6 +590,8 @@ items:
                     href: dataset/api-ref/grpc/Dataset/listUploadSchemas.md
                   - name: GetUploadDraftUrl
                     href: dataset/api-ref/grpc/Dataset/getUploadDraftUrl.md
+                  - name: GetDownloadUrls
+                    href: dataset/api-ref/grpc/Dataset/getDownloadUrls.md
                   - name: StartMultipartUploadDraft
                     href: dataset/api-ref/grpc/Dataset/startMultipartUploadDraft.md
                   - name: FinishMultipartUploadDraft
@@ -598,6 +600,8 @@ items:
                     href: dataset/api-ref/grpc/Dataset/listTypes.md
                   - name: GetPreview
                     href: dataset/api-ref/grpc/Dataset/getPreview.md
+                  - name: ListOperationsIds
+                    href: dataset/api-ref/grpc/Dataset/listOperationsIds.md
               - name: Operation
                 items:
                   - name: Overview

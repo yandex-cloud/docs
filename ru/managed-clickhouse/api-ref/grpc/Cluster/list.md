@@ -358,6 +358,10 @@ The expression must specify:
                 "max_entries": "google.protobuf.Int64Value",
                 "max_entry_size_in_bytes": "google.protobuf.Int64Value",
                 "max_entry_size_in_rows": "google.protobuf.Int64Value"
+              },
+              "jdbc_bridge": {
+                "host": "string",
+                "port": "google.protobuf.Int64Value"
               }
             },
             "user_config": {
@@ -647,6 +651,10 @@ The expression must specify:
                 "max_entries": "google.protobuf.Int64Value",
                 "max_entry_size_in_bytes": "google.protobuf.Int64Value",
                 "max_entry_size_in_rows": "google.protobuf.Int64Value"
+              },
+              "jdbc_bridge": {
+                "host": "string",
+                "port": "google.protobuf.Int64Value"
               }
             },
             "default_config": {
@@ -936,6 +944,10 @@ The expression must specify:
                 "max_entries": "google.protobuf.Int64Value",
                 "max_entry_size_in_bytes": "google.protobuf.Int64Value",
                 "max_entry_size_in_rows": "google.protobuf.Int64Value"
+              },
+              "jdbc_bridge": {
+                "host": "string",
+                "port": "google.protobuf.Int64Value"
               }
             }
           },
@@ -1429,6 +1441,10 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 [Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration.
 Min version: 23.5
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) ||
+|| jdbc_bridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)**
+
+JDBC bridge for queries to external databases.
+https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse ||
 |#
 
 ## MergeTree {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.MergeTree}
@@ -2105,6 +2121,20 @@ Dafault: 1048576 (1 MiB) ||
 
 The maximum number of rows SELECT query results may have to be saved in the cache.
 Default: 30000000 (30 mil) ||
+|#
+
+## JdbcBridge {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge}
+
+JDBC bridge for queries to external databases.
+
+#|
+||Field | Description ||
+|| host | **string**
+
+Required field. Host of jdbc bridge. ||
+|| port | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Port of jdbc bridge. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}

@@ -180,7 +180,8 @@ Creates a ClickHouse user in the specified cluster.
         "read_rows": "google.protobuf.Int64Value",
         "execution_time": "google.protobuf.Int64Value"
       }
-    ]
+    ],
+    "generate_password": "google.protobuf.BoolValue"
   }
 }
 ```
@@ -213,6 +214,9 @@ Set of permissions to grant to the user. If not set, it's granted permissions to
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
 
 Set of quotas assigned to the user. ||
+|| generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Generate password using Connection Manager. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -1408,7 +1412,10 @@ The total query execution time, in milliseconds (wall time).
         "read_rows": "google.protobuf.Int64Value",
         "execution_time": "google.protobuf.Int64Value"
       }
-    ]
+    ],
+    "connection_manager": {
+      "connection_id": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -1501,6 +1508,9 @@ Set of permissions granted to the user. ||
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota2)**
 
 Set of quotas assigned to the user. ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)**
+
+Connection Manager connection configuration. Read only field. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission2}
@@ -2514,4 +2524,15 @@ The total number of source rows read from tables for running the query, on all r
 
 The total query execution time, in milliseconds (wall time).
 0 - unlimited. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.clickhouse.v1.ConnectionManager}
+
+Connection Manager connection configuration.
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+ID of Connection Manager connection. ||
 |#

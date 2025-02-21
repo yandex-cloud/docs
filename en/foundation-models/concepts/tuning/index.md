@@ -7,7 +7,7 @@ description: With {{ foundation-models-full-name }}, you can tune {{ gpt-lite }}
 
 With {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} and {{ llama }} 8b^1^ text generation models and {{ gpt-lite }}-based [classifiers](../classifier/index.md) using the [{{ lora }}](https://arxiv.org/abs/2106.09685) (_Low-Rank Adaptation of Large Language Models_) method.
 
-_Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage and is available upon request. You can fill out the form in the [management console]({{ link-console-main }}/link/foundation-models/)._
+_Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage._
 
 ## Fine-tuning text generation models {#tuning-abilities}
 

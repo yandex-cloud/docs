@@ -12,7 +12,7 @@ To get the list of available PrivateConnection resources, make a [List](/docs/ci
 ## HTTP request
 
 ```
-GET https://cic-api.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
+GET https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
 ```
 
 ## Path parameters
@@ -48,13 +48,12 @@ To get the privateConnection ID use a [PrivateConnectionService.List](/docs/cic/
   },
   "ipv4StaticRoutes": [
     {
-      "prefix": "string",
-      "nextHop": [
-        "string"
-      ]
+      "prefix": "string"
     }
   ],
-  "labels": "object"
+  "labels": "object",
+  "status": "string",
+  "createdAt": "string"
 }
 ```
 
@@ -101,6 +100,25 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
+|| status | **enum** (Status)
+
+Status of the privateConnection.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`
+- `UPDATING`
+- `DELETING`
+- `ACTIVE` ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#
 
 ## Peering {#yandex.cloud.cic.v1.Peering}
@@ -140,9 +158,4 @@ Optional. ||
 
 Prefix.
 It's an ip with format ipPrefix/length where address part of ipPrefix is 0. ||
-|| nextHop[] | **string**
-
-PeerIp.
-It's an ip with just an ipAddress format without mask.
-Will be removed in some next release ||
 |#

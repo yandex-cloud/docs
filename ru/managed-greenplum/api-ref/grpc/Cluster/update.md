@@ -184,6 +184,17 @@ Updates the specified Greenplum® cluster.
   },
   "cloud_storage": {
     "enable": "bool"
+  },
+  "service_account_id": "string",
+  "logging": {
+    "enabled": "bool",
+    // Includes only one of the fields `folder_id`, `log_group_id`
+    "folder_id": "string",
+    "log_group_id": "string",
+    // end of the list of possible fields
+    "command_center_enabled": "bool",
+    "greenplum_enabled": "bool",
+    "pooler_enabled": "bool"
   }
 }
 ```
@@ -240,6 +251,12 @@ Settings of the Greenplum® cluster. ||
 || cloud_storage | **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage)**
 
 Cloud storage settings ||
+|| service_account_id | **string**
+
+ID of the service account used for access YC resources. ||
+|| logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
+
+Cloud logging configuration ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -880,6 +897,28 @@ Cloud Storage Settings
 enable Cloud Storage for cluster ||
 |#
 
+## LoggingConfig {#yandex.cloud.mdb.greenplum.v1.LoggingConfig}
+
+#|
+||Field | Description ||
+|| enabled | **bool** ||
+|| folder_id | **string**
+
+Includes only one of the fields `folder_id`, `log_group_id`. ||
+|| log_group_id | **string**
+
+Includes only one of the fields `folder_id`, `log_group_id`. ||
+|| command_center_enabled | **bool**
+
+send Yandex Command Center logs ||
+|| greenplum_enabled | **bool**
+
+send Greenplum logs ||
+|| pooler_enabled | **bool**
+
+send Pooler logs ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -1254,7 +1293,18 @@ enable Cloud Storage for cluster ||
     ],
     "segment_host_group_ids": [
       "string"
-    ]
+    ],
+    "service_account_id": "string",
+    "logging": {
+      "enabled": "bool",
+      // Includes only one of the fields `folder_id`, `log_group_id`
+      "folder_id": "string",
+      "log_group_id": "string",
+      // end of the list of possible fields
+      "command_center_enabled": "bool",
+      "greenplum_enabled": "bool",
+      "pooler_enabled": "bool"
+    }
   }
   // end of the list of possible fields
 }
@@ -1432,6 +1482,12 @@ Host groups hosting VMs of the master subcluster. ||
 || segment_host_group_ids[] | **string**
 
 Host groups hosting VMs of the segment subcluster. ||
+|| service_account_id | **string**
+
+Service account that will be used to access a Yandex Cloud resources ||
+|| logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig2)**
+
+Cloud logging configuration ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig2}
@@ -2209,4 +2265,26 @@ Cloud Storage Settings
 || enable | **bool**
 
 enable Cloud Storage for cluster ||
+|#
+
+## LoggingConfig {#yandex.cloud.mdb.greenplum.v1.LoggingConfig2}
+
+#|
+||Field | Description ||
+|| enabled | **bool** ||
+|| folder_id | **string**
+
+Includes only one of the fields `folder_id`, `log_group_id`. ||
+|| log_group_id | **string**
+
+Includes only one of the fields `folder_id`, `log_group_id`. ||
+|| command_center_enabled | **bool**
+
+send Yandex Command Center logs ||
+|| greenplum_enabled | **bool**
+
+send Greenplum logs ||
+|| pooler_enabled | **bool**
+
+send Pooler logs ||
 |#

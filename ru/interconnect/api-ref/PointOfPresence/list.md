@@ -10,7 +10,7 @@ Retrieves the list of PointOfPresence resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://cic-api.{{ api-host }}/cic/v1/pointOfPresences
+GET https://cic.{{ api-host }}/cic/v1/pointOfPresences
 ```
 
 ## Query parameters {#yandex.cloud.cic.v1.ListPointOfPresencesRequest}

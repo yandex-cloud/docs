@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/delete.md
 
 # Data Transfer API, gRPC: TransferService.Delete
 
+Deletes the specified transfer.
+
 ## gRPC request
 
 **rpc Delete ([DeleteTransferRequest](#yandex.cloud.datatransfer.v1.DeleteTransferRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -19,7 +21,9 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/delete.md
 
 #|
 ||Field | Description ||
-|| transfer_id | **string** ||
+|| transfer_id | **string**
+
+Identifier of the transfer to be deleted. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -27,6 +27,9 @@ Required field. ID of the episode. ||
 #|
 ||Field | Description ||
 || params | **[EpisodePlayerParams](#yandex.cloud.video.v1.EpisodePlayerParams)** ||
+|| signedUrlExpirationDuration | **string** (duration)
+
+Optional field, used to set custom url expiration duration for episodes with sign_url_access ||
 |#
 
 ## EpisodePlayerParams {#yandex.cloud.video.v1.EpisodePlayerParams}

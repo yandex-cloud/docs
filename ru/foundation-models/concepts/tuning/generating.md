@@ -5,7 +5,7 @@ description: В {{ foundation-models-full-name }} вы можете дообуч
 
 # Дообучение моделей генерации текста
 
-_Дообучение моделей в {{ foundation-models-full-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и предоставляется по запросу. Вы можете заполнить заявку в [консоли управления]({{ link-console-main }}/link/foundation-models/)._
+_Дообучение моделей в {{ foundation-models-full-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md)._
 
 В {{ foundation-models-full-name }} вы можете дообучить модели генерации текста {{ gpt-lite }} и {{ llama }} 8B^1^.
 

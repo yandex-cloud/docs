@@ -73,6 +73,8 @@
 
 1. Добавьте файл `hello.py` в ZIP-архив `hello-py.zip`.
 
+    {% include [macos-zip-error](../../../_includes/functions/macos-zip-error.md) %}
+
 ### Создайте версию функции {#create-version}
 
 {% list tabs group=instructions %}

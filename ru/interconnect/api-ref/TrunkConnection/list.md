@@ -10,7 +10,7 @@ Retrieves the list of TrunkConnection resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://cic-api.{{ api-host }}/cic/v1/trunkConnections
+GET https://cic.{{ api-host }}/cic/v1/trunkConnections
 ```
 
 ## Query parameters {#yandex.cloud.cic.v1.ListTrunkConnectionsRequest}
@@ -19,7 +19,7 @@ GET https://cic-api.{{ api-host }}/cic/v1/trunkConnections
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list trunkConnections in.
+Required field. ID of the folder to list TrunkConnection resources.
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
 || pageSize | **string** (int64)
 
@@ -53,6 +53,7 @@ The expression must specify:
       "description": "string",
       "folderId": "string",
       "regionId": "string",
+      "createdAt": "string",
       // Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`
       "singlePortDirectJoint": {
         "transceiverType": "string",
@@ -78,7 +79,9 @@ The expression must specify:
       // end of the list of possible fields
       "pointOfPresenceId": "string",
       "capacity": "string",
-      "labels": "object"
+      "labels": "object",
+      "status": "string",
+      "deletionProtection": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -123,6 +126,16 @@ ID of the folder that the trunkConnection belongs to. ||
 || regionId | **string**
 
 ID of the region that the trunkConnection belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || singlePortDirectJoint | **[SinglePortDirectJoint](#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint)**
 
 Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
@@ -173,6 +186,19 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
+|| status | **enum** (Status)
+
+Status of the trunkConnection.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`
+- `UPDATING`
+- `DELETING`
+- `ACTIVE` ||
+|| deletionProtection | **boolean**
+
+Optional deletion protection flag.
+If set prohibits deletion of the trunkConnection. ||
 |#
 
 ## SinglePortDirectJoint {#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint}

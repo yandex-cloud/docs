@@ -5,6 +5,10 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/activate.md
 
 # Data Transfer API, REST: Transfer.Activate
 
+Activates the specified transfer.
+
+To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/Transfer/list#List) request.
+
 ## HTTP request
 
 ```
@@ -17,7 +21,9 @@ POST https://{{ api-host-data-transfer }}/v1/transfer/{transferId}:activate
 ||Field | Description ||
 || transferId | **string**
 
-Required field.  ||
+Required field. Identifier of the transfer to be activated.
+
+To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/Endpoint/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

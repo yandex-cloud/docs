@@ -5,6 +5,8 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/update.md
 
 # Data Transfer API, REST: Endpoint.Update
 
+Updates the specified endpoint.
+
 ## HTTP request
 
 ```
@@ -31,7 +33,7 @@ Required field. Identifier of the endpoint to be updated. ||
     // Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`
     "mysqlSource": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -46,6 +48,10 @@ Required field. Identifier of the endpoint to be updated. ||
             }
             // end of the list of possible fields
           }
+        },
+        "connectionManagerConnection": {
+          "connectionId": "string",
+          "subnetId": "string"
         }
         // end of the list of possible fields
       },
@@ -76,7 +82,7 @@ Required field. Identifier of the endpoint to be updated. ||
     },
     "postgresSource": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -91,6 +97,10 @@ Required field. Identifier of the endpoint to be updated. ||
             }
             // end of the list of possible fields
           }
+        },
+        "connectionManagerConnection": {
+          "connectionId": "string",
+          "subnetId": "string"
         }
         // end of the list of possible fields
       },
@@ -407,7 +417,7 @@ Required field. Identifier of the endpoint to be updated. ||
     },
     "mysqlTarget": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -422,6 +432,10 @@ Required field. Identifier of the endpoint to be updated. ||
             }
             // end of the list of possible fields
           }
+        },
+        "connectionManagerConnection": {
+          "connectionId": "string",
+          "subnetId": "string"
         }
         // end of the list of possible fields
       },
@@ -443,7 +457,7 @@ Required field. Identifier of the endpoint to be updated. ||
     },
     "postgresTarget": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -458,6 +472,10 @@ Required field. Identifier of the endpoint to be updated. ||
             }
             // end of the list of possible fields
           }
+        },
+        "connectionManagerConnection": {
+          "connectionId": "string",
+          "subnetId": "string"
         }
         // end of the list of possible fields
       },
@@ -712,10 +730,15 @@ The new endpoint name. Must be unique within the folder. ||
 || description | **string**
 
 The new description for the endpoint. ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| labels | **object** (map<**string**, **string**>)
+
+Endpoint labels as `key:value` pairs.
+
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)**
 
-The new endpoint name. Must be unique within the folder. ||
+The new endpoint settings. ||
 || updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
@@ -830,12 +853,15 @@ __tm_gtid_keeper). ||
 
 Managed Service for MySQL cluster ID
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || onPremise | **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
 
 Connection options for on-premise MySQL
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
+|| connectionManagerConnection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 |#
 
 ## OnPremiseMysql {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql}
@@ -874,6 +900,16 @@ CA certificate
 X.509 certificate of the certificate authority which issued the server's
 certificate, in PEM format. When CA certificate is specified TLS is used to
 connect to the server. ||
+|#
+
+## ConnectionManagerConnection {#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
+|| subnetId | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
 |#
 
 ## Secret {#yandex.cloud.datatransfer.v1.endpoint.Secret}
@@ -981,12 +1017,15 @@ Security groups ||
 
 Managed Service for PostgreSQL cluster ID
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || onPremise | **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
 
 Connection options for on-premise PostgreSQL
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
+|| connectionManagerConnection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 |#
 
 ## OnPremisePostgres {#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres}
@@ -1180,6 +1219,10 @@ CREATE MATERIALIZED VIEW ...
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
 || sequenceSet | **enum** (ObjectTransferStage)
+
+Sequence sets
+
+CREATE SEQUENCE ...
 
 - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
 - `BEFORE_DATA`: Before data transfer

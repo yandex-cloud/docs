@@ -5,13 +5,13 @@ description: Follow this guide to copy an object from a bucket in {{ objstorage-
 
 # Copying objects
 
-{{ objstorage-name }} supports _server-side object copy_.
+{{ objstorage-name }} supports server-side copy.
 
-If [encryption](../../concepts/encryption.md) in a [bucket](../../concepts/bucket.md) is disabled, [objects](../../concepts/object.md) will be copied to server-side buckets. The host on which the copy operation is run and {{ objstorage-name }} exchange nothing but object [keys](../../concepts/object.md#key). No fee is charged for the copying traffic in this case because the traffic is internal for the object storage. However, you are [charged](../../pricing.md#prices-operations) for copy requests.
+If [bucket](../../concepts/bucket.md) [encryption](../../concepts/encryption.md) is disabled, [objects](../../concepts/object.md) will be copied to server-side buckets. The host running the copy command and {{ objstorage-name }} only exchange object [keys](../../concepts/object.md#key). Since the transfer is internal to the object storage, no fee is charged for copying traffic in this case. However, you will be [billed](../../pricing.md#prices-operations) for copy requests.
 
-If bucket objects are encrypted, first they will be copied to the host that executes the command and then uploaded to the target bucket.
+If bucket objects are encrypted, they will first be copied to the host running the command and then uploaded to the target bucket.
 
-Large objects uploaded using [multipart uploads](../../concepts/multipart.md) are stored in the bucket in parts. They are copied by invoking [copyPart](../../s3/api-ref/multipart/copypart.md) for each part. Therefore, multipart objects cost more to copy than regular ones.
+Large objects uploaded using [multipart uploads](../../concepts/multipart.md) are stored in parts within the bucket. To copy these objects, you need to use the [copyPart](../../s3/api-ref/multipart/copypart.md) call for each part. Therefore, multipart objects cost more to copy than regular ones.
 
 You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or an [individual bucket object](#copy-single-object).
 
@@ -29,7 +29,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to upload an object to a bucket:
+  1. See the description of the CLI command for uploading an object to a bucket:
 
       ```bash
       yc storage s3api copy-object --help
@@ -89,7 +89,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `s3 cp`: Copy object command.
+      * `s3 cp`: Command to copy objects.
 
       Result:
 
@@ -97,11 +97,11 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       copy: s3://<source_bucket>/<object_key> to s3://<target_bucket>/<object_key>
       ```
 
-      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
+      For more information about the `aws s3 cp` command, see [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html) in the AWS CLI command reference.
 
 {% endlist %}
 
-## Copying all bucket objects to another bucket {#copy-from-bucket-to-bucket}
+## Copying all bucket objects to a different bucket {#copy-from-bucket-to-bucket}
 
 {% list tabs group=instructions %}
 
@@ -118,16 +118,16 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
-      * `s3 cp`: Copy object command.
+      * `s3 cp`: Command to copy objects.
       * `--recursive`: Parameter for copying all objects from the source bucket.
 
-      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
+      For more information about the `aws s3 cp` command, see [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html) in the AWS CLI command reference.
 
-  All objects from the source bucket will be copied to the target bucket.
+  All objects from the source bucket will now appear in the target bucket.
 
   {% note info %}
 
-  You can copy objects between buckets either within a single cloud or between different clouds. To do this, make sure your [service account](../../../iam/concepts/users/service-accounts.md) has write permissions for both buckets.
+  You can copy objects between buckets, both within the same cloud and across different clouds. To do this, make sure your [service account](../../../iam/concepts/users/service-accounts.md) has write permissions for both buckets.
 
   {% endnote %}
 

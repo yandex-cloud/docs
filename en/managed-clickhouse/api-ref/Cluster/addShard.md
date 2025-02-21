@@ -317,6 +317,10 @@ To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clic
           "maxEntries": "string",
           "maxEntrySizeInBytes": "string",
           "maxEntrySizeInRows": "string"
+        },
+        "jdbcBridge": {
+          "host": "string",
+          "port": "string"
         }
       },
       "resources": {
@@ -636,6 +640,10 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 [Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration.
 Min version: 23.5
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) ||
+|| jdbcBridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)**
+
+JDBC bridge for queries to external databases.
+https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse ||
 |#
 
 ## MergeTree {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.MergeTree}
@@ -1314,6 +1322,20 @@ The maximum number of rows SELECT query results may have to be saved in the cach
 Default: 30000000 (30 mil) ||
 |#
 
+## JdbcBridge {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge}
+
+JDBC bridge for queries to external databases.
+
+#|
+||Field | Description ||
+|| host | **string**
+
+Required field. Host of jdbc bridge. ||
+|| port | **string** (int64)
+
+Port of jdbc bridge. ||
+|#
+
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
 
 #|
@@ -1686,6 +1708,10 @@ Name of the shard that the host is assigned to. ||
               "maxEntries": "string",
               "maxEntrySizeInBytes": "string",
               "maxEntrySizeInRows": "string"
+            },
+            "jdbcBridge": {
+              "host": "string",
+              "port": "string"
             }
           },
           "userConfig": {
@@ -1975,6 +2001,10 @@ Name of the shard that the host is assigned to. ||
               "maxEntries": "string",
               "maxEntrySizeInBytes": "string",
               "maxEntrySizeInRows": "string"
+            },
+            "jdbcBridge": {
+              "host": "string",
+              "port": "string"
             }
           },
           "defaultConfig": {
@@ -2264,6 +2294,10 @@ Name of the shard that the host is assigned to. ||
               "maxEntries": "string",
               "maxEntrySizeInBytes": "string",
               "maxEntrySizeInRows": "string"
+            },
+            "jdbcBridge": {
+              "host": "string",
+              "port": "string"
             }
           }
         },
@@ -2689,6 +2723,10 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 [Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration.
 Min version: 23.5
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) ||
+|| jdbcBridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge2)**
+
+JDBC bridge for queries to external databases.
+https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse ||
 |#
 
 ## MergeTree {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.MergeTree2}
@@ -3365,6 +3403,20 @@ Dafault: 1048576 (1 MiB) ||
 
 The maximum number of rows SELECT query results may have to be saved in the cache.
 Default: 30000000 (30 mil) ||
+|#
+
+## JdbcBridge {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge2}
+
+JDBC bridge for queries to external databases.
+
+#|
+||Field | Description ||
+|| host | **string**
+
+Required field. Host of jdbc bridge. ||
+|| port | **string** (int64)
+
+Port of jdbc bridge. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources2}

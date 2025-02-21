@@ -5,6 +5,8 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/delete.md
 
 # Data Transfer API, REST: Endpoint.Delete
 
+Deletes the specified endpoint.
+
 ## HTTP request
 
 ```
@@ -17,7 +19,9 @@ DELETE https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
 ||Field | Description ||
 || endpointId | **string**
 
-Required field.  ||
+Required field. Identifier of the endpoint to delete.
+
+To get the list of all available endpoints, make a [List](/docs/datatransfer/api-ref/Endpoint/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

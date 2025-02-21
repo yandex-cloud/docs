@@ -134,6 +134,14 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
           - name: Partner
             items:
               - name: Overview
@@ -158,6 +166,18 @@ items:
                 href: api-ref/grpc/PrivateConnection/get.md
               - name: List
                 href: api-ref/grpc/PrivateConnection/list.md
+              - name: Create
+                href: api-ref/grpc/PrivateConnection/create.md
+              - name: Update
+                href: api-ref/grpc/PrivateConnection/update.md
+              - name: Delete
+                href: api-ref/grpc/PrivateConnection/delete.md
+              - name: UpsertStaticRoute
+                href: api-ref/grpc/PrivateConnection/upsertStaticRoute.md
+              - name: RemoveStaticRoute
+                href: api-ref/grpc/PrivateConnection/removeStaticRoute.md
+              - name: ListOperations
+                href: api-ref/grpc/PrivateConnection/listOperations.md
           - name: PublicConnection
             items:
               - name: Overview
@@ -174,10 +194,26 @@ items:
                 href: api-ref/grpc/TrunkConnection/get.md
               - name: List
                 href: api-ref/grpc/TrunkConnection/list.md
+              - name: Create
+                href: api-ref/grpc/TrunkConnection/create.md
+              - name: Update
+                href: api-ref/grpc/TrunkConnection/update.md
+              - name: Delete
+                href: api-ref/grpc/TrunkConnection/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/TrunkConnection/listOperations.md
       - name: REST (англ.)
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
           - name: Partner
             items:
               - name: Overview
@@ -202,6 +238,18 @@ items:
                 href: api-ref/PrivateConnection/get.md
               - name: List
                 href: api-ref/PrivateConnection/list.md
+              - name: Create
+                href: api-ref/PrivateConnection/create.md
+              - name: Update
+                href: api-ref/PrivateConnection/update.md
+              - name: Delete
+                href: api-ref/PrivateConnection/delete.md
+              - name: UpsertStaticRoute
+                href: api-ref/PrivateConnection/upsertStaticRoute.md
+              - name: RemoveStaticRoute
+                href: api-ref/PrivateConnection/removeStaticRoute.md
+              - name: ListOperations
+                href: api-ref/PrivateConnection/listOperations.md
           - name: PublicConnection
             items:
               - name: Overview
@@ -218,6 +266,14 @@ items:
                 href: api-ref/TrunkConnection/get.md
               - name: List
                 href: api-ref/TrunkConnection/list.md
+              - name: Create
+                href: api-ref/TrunkConnection/create.md
+              - name: Update
+                href: api-ref/TrunkConnection/update.md
+              - name: Delete
+                href: api-ref/TrunkConnection/delete.md
+              - name: ListOperations
+                href: api-ref/TrunkConnection/listOperations.md
   - name: Правила тарификации
     href: pricing.md
   - name: История изменений

@@ -18,6 +18,7 @@ A set of methods for managing Kubernetes cluster.
 || [Delete](delete.md) | Deletes the specified Kubernetes cluster. ||
 || [Stop](stop.md) | Stops the specified Kubernetes cluster. ||
 || [Start](start.md) | Starts the specified Kubernetes cluster. ||
+|| [RescheduleMaintenance](rescheduleMaintenance.md) | Reschedules mandatory maintenance for the specified cluster. ||
 || [ListNodeGroups](listNodeGroups.md) | Lists nodegroup for the specified Kubernetes cluster. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified Kubernetes cluster. ||
 || [ListNodes](listNodes.md) | Lists cluster's nodes. ||

@@ -5,7 +5,7 @@ description: In {{ foundation-models-full-name }}, you can tune classifiers base
 
 # Tuning classification models
 
-_Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage and is available upon request. You can fill out the form in the [management console]({{ link-console-main }}/link/foundation-models/)._
+_Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../overview/concepts/launch-stages.md) stage._
 
 In {{ foundation-models-full-name }}, you can tune classifiers based on {{ gpt-lite }}.
 

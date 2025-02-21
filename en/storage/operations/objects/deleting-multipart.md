@@ -17,20 +17,20 @@ To manually delete a partially uploaded object:
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket that contains a partially uploaded object.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. Go go the right of the search object in a bucket field and enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to see all versions of objects.
+  1. To see all versions of objects in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
   1. Hover over the yellow field next to the object count.
-  1. Click the **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}** button that appears.
-  1. Mark incomplete uploads you want to delete.
+  1. Click **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}** as soon as it appears.
+  1. Select incomplete uploads you want to delete.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
-  In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+  In the management console, the information about the number of objects and storage space used in the bucket is updated with a few minutes' delay.
 
 - AWS CLI {#cli}
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-  Run the following command:
+  Run this command:
 
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }} s3api abort-multipart-upload \

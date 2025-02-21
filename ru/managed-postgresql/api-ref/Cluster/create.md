@@ -2688,7 +2688,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
         "string"
       ],
       "deletionProtection": "boolean",
-      "userPasswordEncryption": "string"
+      "userPasswordEncryption": "string",
+      "generatePassword": "boolean"
     }
   ],
   "hostSpecs": [
@@ -3873,7 +3874,19 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters
       "hour": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "retentionPolicies": [
+    {
+      "policyName": "string",
+      "cron": {
+        "dayOfMonth": "string",
+        "month": "string",
+        "dayOfWeek": "string"
+      },
+      "retainForDays": "string",
+      "description": "string"
+    }
+  ]
 }
 ```
 
@@ -3928,6 +3941,9 @@ Host groups hosting VMs of the cluster. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
+|| retentionPolicies[] | **[BackupRetentionPolicySpec](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec)**
+
+Backup long-term retention policies setting. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.postgresql.v1.ConfigSpec}
@@ -10596,6 +10612,9 @@ The default is `` password_encryption `` setting for cluster.
 - `USER_PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `USER_PASSWORD_ENCRYPTION_MD5`
 - `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -14085,6 +14104,37 @@ Day of the week (in `DDD` format).
 || hour | **string** (int64)
 
 Hour of the day in UTC (in `HH` format). ||
+|#
+
+## BackupRetentionPolicySpec {#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec}
+
+Message to describe a new retention policy for cluster backups.
+
+#|
+||Field | Description ||
+|| policyName | **string**
+
+Required field. Required. Policy name. ||
+|| cron | **[CronTab](#yandex.cloud.mdb.postgresql.v1.CronTab)**
+
+CronTab schedule. ||
+|| retainForDays | **string** (int64)
+
+Retention duration. ||
+|| description | **string**
+
+Human-readable description. ||
+|#
+
+## CronTab {#yandex.cloud.mdb.postgresql.v1.CronTab}
+
+Message to describe a crontab schedule.
+
+#|
+||Field | Description ||
+|| dayOfMonth | **string** ||
+|| month | **string** ||
+|| dayOfWeek | **string** ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

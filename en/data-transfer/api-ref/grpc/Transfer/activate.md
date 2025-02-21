@@ -5,6 +5,10 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/activate.md
 
 # Data Transfer API, gRPC: TransferService.Activate
 
+Activates the specified transfer.
+
+To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/grpc/Transfer/list#List) request.
+
 ## gRPC request
 
 **rpc Activate ([ActivateTransferRequest](#yandex.cloud.datatransfer.v1.ActivateTransferRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -19,7 +23,11 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/activate.md
 
 #|
 ||Field | Description ||
-|| transfer_id | **string** ||
+|| transfer_id | **string**
+
+Identifier of the transfer to be activated.
+
+To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

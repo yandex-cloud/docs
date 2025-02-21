@@ -29,8 +29,6 @@ common:
     to: /datasphere/operations/data-processing-template
   - from: ^/datasphere/tutorials/data-proc-integration
     to: /datasphere/tutorials/data-processing-integration
-  - from: ^/free-trial/(.*)
-    to: /getting-started/$1
   - from: ^/free-trial/concepts/limits
     to: /getting-started/free-trial/concepts/limits
   - from: ^/free-trial/concepts/quickstart
@@ -43,6 +41,8 @@ common:
     to: /getting-started/usage-grant
   - from: ^/free-trial/concepts/usage-monitor
     to: /billing/operations/check-charges
+  - from: ^/free-trial/(.*)
+    to: /getting-started/$1
   - from: ^/managed-airflow/tutorials/data-proc-automation
     to: /managed-airflow/tutorials/data-processing-automation
   - from: ^/managed-kafka/tutorials/data-proc

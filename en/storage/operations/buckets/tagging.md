@@ -3,7 +3,7 @@ title: Managing bucket labels in {{ objstorage-full-name }}
 description: Follow this guide to manage bucket labels in {{ objstorage-name }}.
 ---
 
-# Bucket label management
+# Managing bucket labels
 
 A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bucket labeling.
 
@@ -15,12 +15,12 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need to add or edit labels in.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket where you need to add or edit labels.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-  1. Enter a label in `key: value` format. To edit an existing label, enter its key and a new value.
-  1. Click **Enter**.
+  1. Enter a label in `key: value` format. To update an existing label, enter its key and a new value.
+  1. Press **Enter**.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -31,7 +31,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to update the bucket settings:
+  1. See the description of the CLI command for updating bucket settings:
 
        ```bash
        yc storage bucket update --help
@@ -53,7 +53,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
       +------------------+----------------------+----------+-----------------------+---------------------+
       ```
 
-  1. Add labels by specifying the name of the required bucket:
+  1. Add labels, specifying the name of the bucket in question:
 
       ```bash
       yc storage bucket update <bucket_name> \
@@ -108,7 +108,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and add the `tags` section to the bucket description fragment:
+  1. Open the {{ TF }} configuration file and add the `tags` section to the bucket description:
 
       ```hcl
       resource "yandex_storage_bucket" "test-bucket" {
@@ -122,15 +122,15 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
       }
       ```
 
-      Where `tags` is an array of bucket labels formatted as `<key> = "<value>"`.
+      Where `tags` is the array of bucket labels in `<key> = "<value>"` format.
 
-      For more information about the `yandex_storage_bucket` resource in Terraform, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource in Terraform, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  That will add the labels to the bucket. You can check the new labels and the bucket's settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  This will add the specified labels to your bucket. You can check the new labels and the bucket settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   yc storage bucket get <bucket_name> --full
@@ -142,7 +142,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   To add or update bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [putBucketTagging](../../s3/api-ref/bucket/putbuckettagging.md) S3 API method.
 
-  **Example of gRPC API call**
+  **Example of a gRPC API call**
 
   ```bash
   export IAM_TOKEN="<IAM_token>"
@@ -194,7 +194,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See a description of the CLI command to get bucket information:
+  1. See the description of the CLI command for getting bucket information:
 
       ```bash
       yc storage bucket get --help
@@ -216,7 +216,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
        +------------------+----------------------+----------+-----------------------+---------------------+
       ```
 
-  1. Get information about the labels by specifying the name of the required bucket:
+  1. Get information about the labels, specifying the name of the bucket in question:
 
       ```bash
       yc storage bucket get <bucket_name> --full
@@ -272,7 +272,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   To view bucket labels, use the [get](../../api-ref/Bucket/get.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Get](../../api-ref/grpc/Bucket/get.md) gRPC API call, or the [getBucketTagging](../../s3/api-ref/bucket/getbuckettagging.md) S3 API method.
 
-  **Example of gRPC API call**
+  **Example of a gRPC API call**
 
   ```bash
   export IAM_TOKEN="<IAM_token>"
@@ -340,7 +340,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to update the bucket settings:
+  1. See the description of the CLI command for updating bucket settings:
 
       ```bash
       yc storage bucket update --help
@@ -362,7 +362,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
       +------------------+----------------------+----------+-----------------------+---------------------+
       ```
 
-  1. Delete labels by specifying the name of the required bucket:
+  1. Delete labels, specifying the name of the bucket in question:
 
       ```bash
       yc storage bucket update <bucket_name> \
@@ -402,9 +402,9 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and delete the `tags` section from the bucket description fragment.
+  1. Open the {{ TF }} configuration file and delete the `tags` section from the bucket description.
 
-     {% cut "Example of a bucket tag description in the {{ TF }} configuration" %}
+     {% cut "Example of a bucket label description in {{ TF }} configuration" %}
 
       ```hcl
       resource "yandex_storage_bucket" "test-bucket" {
@@ -424,7 +424,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  That will delete the bucket's labels. You can check the deletion of labels and the bucket's settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  This will delete the bucket labels. You can check the label deletion and the bucket settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   yc storage bucket get <bucket_name> --full
@@ -434,7 +434,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   To delete bucket labels, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [deleteBucketTagging](../../s3/api-ref/bucket/deletebuckettagging.md) S3 API method.
 
-  **Example of gRPC API call**
+  **Example of a gRPC API call**
 
   ```bash
   export IAM_TOKEN="<IAM_token>"

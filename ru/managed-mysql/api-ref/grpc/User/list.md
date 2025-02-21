@@ -65,7 +65,10 @@ To get the next page of results, set `page_token` to the [ListUsersResponse.next
         "max_connections_per_hour": "google.protobuf.Int64Value",
         "max_user_connections": "google.protobuf.Int64Value"
       },
-      "authentication_plugin": "AuthPlugin"
+      "authentication_plugin": "AuthPlugin",
+      "connection_manager": {
+        "connection_id": "string"
+      }
     }
   ],
   "next_page_token": "string"
@@ -132,7 +135,12 @@ User authentication plugin.
 - `AUTH_PLUGIN_UNSPECIFIED`
 - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
 - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html). ||
+- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
+- `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
+- `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/). ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.mdb.mysql.v1.ConnectionManager)**
+
+Connection Manager Connection and settings associated with user. Read only field. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}
@@ -190,4 +198,13 @@ The maximum permitted number of simultaneous client connections per hour. ||
 || max_user_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mysql.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+ID of Connection Manager Connection ||
 |#

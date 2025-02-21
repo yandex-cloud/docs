@@ -5,25 +5,25 @@ description: Follow this guide to learn how to manage an {{ objstorage-name }} b
 
 # Managing bucket versioning
 
-Bucket [versioning](../../concepts/versioning.md) enables storing object history through versions.
+Bucket [versioning](../../concepts/versioning.md) enables keeping a history of an object through its versions.
 
 {% note info %}
 
-You cannot disable versioning once you enable it; however, you can pause new version creation. After you pause versioning, new objects will be saved as `null` versions.
+You cannot disable versioning once you enable it; however, you can pause the creation of new versions. After you pause versioning, new objects will be saved as `null` versions.
 
 {% endnote %}
 
-Enable bucket versioning:
+To enable bucket versioning:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
-  1. Click the bucket name.
+  1. Click the name of the bucket in question.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_versioning }}** tab.
-  1. To enable or disable versioning, use **{{ ui-key.yacloud.storage.bucket.versioning.field_status }}**.
+  1. To enable or pause versioning, use **{{ ui-key.yacloud.storage.bucket.versioning.field_status }}**.
   1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -32,13 +32,13 @@ Enable bucket versioning:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to edit a bucket ACL:
+  1. See the description of the CLI command for editing a bucket ACL:
 
      ```bash
      yc storage bucket update --help
      ```
 
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      yc storage bucket update --name <bucket_name> --versioning versioning-enabled
@@ -60,7 +60,7 @@ Enable bucket versioning:
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-  Run the following command:
+  Run this command:
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} \
@@ -75,9 +75,9 @@ Enable bucket versioning:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
+  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-short-name }} authentication.
 
-  In the configuration file, describe the parameters of the resources you want to create:
+  In the configuration file, define the parameters of the resources you want to create:
 
   ```hcl
   resource "yandex_iam_service_account" "sa" {
@@ -115,7 +115,7 @@ Enable bucket versioning:
   * `access_key`: Static access key ID.
   * `secret_key`: Secret access key value.
   * `acl`: ACL policy to apply. The default value is `private`. This is an optional parameter.
-  * `versioning`: Managing bucket versioning.
+  * `versioning`: Managing bucket versioning:
     * `enabled`: Enables bucket versioning. This is an optional parameter.
 
 - API {#api}

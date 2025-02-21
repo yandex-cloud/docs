@@ -68,7 +68,7 @@ Required field. The type of the resource, e.g. resource-manager.cloud, billing.a
       "usage": "google.protobuf.DoubleValue"
     }
   ],
-  "page_token": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -80,7 +80,7 @@ The associated resource for these quota limits. ||
 || quota_limits[] | **[QuotaLimit](#yandex.cloud.quotamanager.v1.QuotaLimit)**
 
 List of quota limits for the specified resource and service. ||
-|| page_token | **string**
+|| next_page_token | **string**
 
 Token to retrieve the next page of results. ||
 |#

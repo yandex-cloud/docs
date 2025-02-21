@@ -434,6 +434,9 @@ items:
                 href: managed-kubernetes/api-ref/grpc/Cluster/stop.md
               - name: Start
                 href: managed-kubernetes/api-ref/grpc/Cluster/start.md
+              - name: RescheduleMaintenance
+                href: >-
+                  managed-kubernetes/api-ref/grpc/Cluster/rescheduleMaintenance.md
               - name: ListNodeGroups
                 href: managed-kubernetes/api-ref/grpc/Cluster/listNodeGroups.md
               - name: ListOperations
@@ -494,6 +497,8 @@ items:
                 href: managed-kubernetes/api-ref/Cluster/stop.md
               - name: Start
                 href: managed-kubernetes/api-ref/Cluster/start.md
+              - name: RescheduleMaintenance
+                href: managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md
               - name: ListNodeGroups
                 href: managed-kubernetes/api-ref/Cluster/listNodeGroups.md
               - name: ListOperations

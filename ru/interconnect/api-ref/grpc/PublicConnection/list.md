@@ -74,7 +74,9 @@ The expression must specify:
       "ipv4_peer_announced_prefixes": [
         "string"
       ],
-      "labels": "map<string, string>"
+      "labels": "map<string, string>",
+      "status": "Status",
+      "created_at": "google.protobuf.Timestamp"
     }
   ],
   "next_page_token": "string"
@@ -158,6 +160,18 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
+|| status | enum **Status**
+
+Status of the publicConnection.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`
+- `UPDATING`
+- `DELETING`
+- `ACTIVE` ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 |#
 
 ## Peering {#yandex.cloud.cic.v1.Peering}

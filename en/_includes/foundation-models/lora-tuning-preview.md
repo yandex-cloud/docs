@@ -1,1 +1,1 @@
-_Model tuning based on the {{ lora }} method is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request. You can fill out the form in the [management console]({{ link-console-main }}/link/foundation-models/)._
+_Model tuning based on the {{ lora }} method is at the [Preview](../../overview/concepts/launch-stages.md) stage._

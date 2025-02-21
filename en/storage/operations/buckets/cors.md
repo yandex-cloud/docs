@@ -1,11 +1,11 @@
 ---
-title: Configuring cross-domain requests (CORS) to objects in the {{ objstorage-full-name }} bucket
-description: Follow this guide to configure cross-domain requests (CORS) to objects in the {{ objstorage-name }} bucket.
+title: Configuring cross-origin resource sharing (CORS) for objects in a {{ objstorage-full-name }} bucket
+description: Follow this guide to configure cross-origin resource sharing (CORS) for objects in an {{ objstorage-name }} bucket.
 ---
 
 # Configuring CORS
 
-{{ objstorage-name }} allows you to manage [CORS configurations](../../concepts/cors.md) in the bucket.
+{{ objstorage-name }} enables managing [CORS configurations](../../concepts/cors.md) in buckets.
 
 {% list tabs group=instructions %}
 
@@ -27,7 +27,7 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to update a bucket:
+  1. See the description of the CLI command for updating a bucket:
 
       ```bash
       yc storage bucket update --help
@@ -49,27 +49,27 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-  1. Using the `NAME` column, save the name of the bucket to set up the CORS configuration in.
+  1. Save the name (from the `NAME` column) of the bucket to configure CORS for.
   1. Run this command:
 
       ```bash
       yc storage bucket update \
         --name <bucket_name> \
-        --cors <CORS_parameter>='[<set_of_values>]',<CORS_parameter>='[<set_of_values>]',...
+        --cors <CORS_parameter>='[<array_of_values>]',<CORS_parameter>='[<array_of_values>]',...
       ```
 
       Where:
-      * `--name`: Name of the bucket to set up the CORS configuration in.
+      * `--name`: Name of the bucket to configure CORS for.
       * `--cors`: CORS parameters:
-        * `allowed-methods`: List of methods. Possible values: `method-get`, `method-put`, `method-post`, `method-delete`, and `method-head`. This is a required parameter.
-        * `allowed-origins`: List of websites that allow sending cross-domain requests to a bucket. This is a required parameter.
+        * `allowed-methods`: List of methods. The possible values are `method-get`, `method-put`, `method-post`, `method-delete`, and `method-head`. This is a required parameter.
+        * `allowed-origins`: List of websites allowed to send CORS requests to the bucket. This is a required parameter.
         * `allowed-headers`: List of allowed headers. This is an optional parameter.
-        * `expose-headers`: List of headers that can be displayed in a JavaScript app in the browser. This is an optional parameter.
-        * `max-age-seconds`: Time in seconds during which the browser caches the results of requests to an object. This is an optional parameter.
+        * `expose-headers`: List of headers that can be exposed to browser JavaScript apps. This is an optional parameter.
+        * `max-age-seconds`: Time for which the browser caches object request results, in seconds. This is an optional parameter.
 
-        Parameter values are specified in quotes and square brackets. List items in values are separated by commas with no spaces. For example, `--cors allowed-methods='[method-get,method-head]',allowed-origins='[example.com]'`.
+        Parameter values are specified in quotes and square brackets. List items in values are separated by commas with no spaces, e.g., `--cors allowed-methods='[method-get,method-head]',allowed-origins='[example.com]'`.
 
-        Permissions specified in the command override the current CORS settings of the bucket. You can retrieve the current permissions using the `yc storage bucket get <bucket_name> --full` command.
+        Permissions you specify in the command will override the current CORS settings of the bucket. To get the current permissions, use the `yc storage bucket get <bucket_name> --full` command.
 
         Result:
 
@@ -83,7 +83,7 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
         created_at: "2022-11-25T11:48:42.024638Z"
         ```
 
-  To remove the CORS configuration, run this command:
+  To delete the CORS configuration, run this command:
 
   ```bash
   yc storage bucket update \
@@ -93,9 +93,9 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
 
 - AWS CLI {#aws-cli}
 
-  To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
+  To upload a configuration using the [AWS CLI](../../tools/aws-cli.md):
 
-  1. Describe the CORS object configurations in JSON format. Here is an example:
+  1. Define the CORS object configuration in JSON format. Here is an example:
 
      ```json
      {
@@ -110,9 +110,9 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
      }
      ```
 
-     When ready, you can save your configuration into a file, e.g., `cors.json`.
+     Once the configuration is complete, save it to a file, e.g., `cors.json`.
 
-  1. Upload the configuration to the bucket, e.g., `shared-bucket`:
+  1. Upload the configuration to a bucket, e.g., `shared-bucket`:
 
      ```bash
      aws s3api put-bucket-cors \
@@ -127,7 +127,7 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
+  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-short-name }} authentication.
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
@@ -178,17 +178,17 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
      * `bucket`: Bucket name. This is a required parameter.
-     * `acl`: Applied ACL policy. This is an optional parameter.
+     * `acl`: ACL policy to apply. This is an optional parameter.
 
      `CORS` parameters:
      * `allowed_headers`: Allowed headers. This is an optional parameter.
      * `allowed_methods`: Allowed methods. The possible values are `GET`, `PUT`, `POST`, `DELETE` or `HEAD`. This is a required parameter.
-     * `allowed_origins`: Website that allows sending cross-domain requests to a bucket. This is a required parameter.
-     * `expose_headers`: Header that can be displayed in a JavaScript app in the browser. This is an optional parameter. 
-     * `max_age_seconds`: Time in seconds during which the browser caches the results of requests to an object. This is an optional parameter.
-     * `server_side_encryption_configuration`: Bucket encryption settings on the server side. This is an optional parameter.
+     * `allowed_origins`: Website allowed to send CORS requests to the bucket. This is a required parameter.
+     * `expose_headers`: Header that can be exposed to browser JavaScript apps. This is an optional parameter. 
+     * `max_age_seconds`: Time for which the browser caches object request results, in seconds. This is an optional parameter.
+     * `server_side_encryption_configuration`: Bucket's server-side encryption configuration. This is an optional parameter.
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
      1. In the command line, go to the directory where you created the configuration file.
@@ -198,7 +198,7 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
@@ -209,7 +209,7 @@ description: Follow this guide to configure cross-domain requests (CORS) to obje
 
      1. Confirm creating the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

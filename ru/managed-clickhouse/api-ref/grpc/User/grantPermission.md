@@ -227,7 +227,10 @@ Name of the database that the permission grants access to. ||
         "read_rows": "google.protobuf.Int64Value",
         "execution_time": "google.protobuf.Int64Value"
       }
-    ]
+    ],
+    "connection_manager": {
+      "connection_id": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -320,6 +323,9 @@ Set of permissions granted to the user. ||
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
 
 Set of quotas assigned to the user. ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)**
+
+Connection Manager connection configuration. Read only field. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission2}
@@ -1333,4 +1339,15 @@ The total number of source rows read from tables for running the query, on all r
 
 The total query execution time, in milliseconds (wall time).
 0 - unlimited. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.clickhouse.v1.ConnectionManager}
+
+Connection Manager connection configuration.
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+ID of Connection Manager connection. ||
 |#

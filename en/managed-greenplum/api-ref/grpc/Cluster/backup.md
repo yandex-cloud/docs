@@ -402,7 +402,18 @@ To get the Greenplum cluster ID, use a [ClusterService.List](/docs/managed-green
     ],
     "segment_host_group_ids": [
       "string"
-    ]
+    ],
+    "service_account_id": "string",
+    "logging": {
+      "enabled": "bool",
+      // Includes only one of the fields `folder_id`, `log_group_id`
+      "folder_id": "string",
+      "log_group_id": "string",
+      // end of the list of possible fields
+      "command_center_enabled": "bool",
+      "greenplum_enabled": "bool",
+      "pooler_enabled": "bool"
+    }
   }
   // end of the list of possible fields
 }
@@ -581,6 +592,12 @@ Host groups hosting VMs of the master subcluster. ||
 || segment_host_group_ids[] | **string**
 
 Host groups hosting VMs of the segment subcluster. ||
+|| service_account_id | **string**
+
+Service account that will be used to access a Yandex Cloud resources ||
+|| logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
+
+Cloud logging configuration ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -1358,4 +1375,26 @@ Cloud Storage Settings
 || enable | **bool**
 
 enable Cloud Storage for cluster ||
+|#
+
+## LoggingConfig {#yandex.cloud.mdb.greenplum.v1.LoggingConfig}
+
+#|
+||Field | Description ||
+|| enabled | **bool** ||
+|| folder_id | **string**
+
+Includes only one of the fields `folder_id`, `log_group_id`. ||
+|| log_group_id | **string**
+
+Includes only one of the fields `folder_id`, `log_group_id`. ||
+|| command_center_enabled | **bool**
+
+send Yandex Command Center logs ||
+|| greenplum_enabled | **bool**
+
+send Greenplum logs ||
+|| pooler_enabled | **bool**
+
+send Pooler logs ||
 |#

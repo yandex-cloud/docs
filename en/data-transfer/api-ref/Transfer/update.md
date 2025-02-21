@@ -5,6 +5,8 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/update.md
 
 # Data Transfer API, REST: Transfer.Update
 
+Updates the specified transfer.
+
 ## HTTP request
 
 ```
@@ -176,6 +178,11 @@ Required field. Identifier of the transfer to be updated. ||
         // end of the list of possible fields
       }
     ]
+  },
+  "dataObjects": {
+    "includeObjects": [
+      "string"
+    ]
   }
 }
 ```
@@ -199,8 +206,14 @@ the field's value will be reset to the default. The default value for most field
 If `` updateMask `` is not sent in the request, all fields' values will be updated.
 Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| labels | **object** (map<**string**, **string**>)
+
+Transfer labels as `key:value` pairs.
+
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
+|| dataObjects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
 |#
 
 ## Runtime {#yandex.cloud.datatransfer.v1.Runtime}
@@ -503,6 +516,13 @@ comparison to NULL, and
 checking whether a substring is part of a string.
 Details in docs:
 https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. ||
+|#
+
+## DataObjects {#yandex.cloud.datatransfer.v1.DataObjects}
+
+#|
+||Field | Description ||
+|| includeObjects[] | **string** ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

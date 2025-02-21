@@ -6414,6 +6414,7 @@ default:
         field_server-pool: Pool
         field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
+        field_subnet-id: Private subnet
         label_create-network: Create VRF
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
@@ -8360,8 +8361,17 @@ default:
         section-revisions: Revisions
       serverless-event-router:
         button_create-bus: Create bus
+        button_create-connector: Create connector
+        button_create-rule: Create rule
         label_buses: Buses
+        label_connector-source: Source
+        label_connectors: Connectors
+        label_filter: Filter
+        label_rules: Rules
         label_service: EventRouter
+        label_target-transformer: Transformer
+        label_target-type: Type
+        label_targets: Targets
       serverless-functions:
         gateways:
           domains:
@@ -8540,6 +8550,14 @@ default:
       serverless-mdb-proxy:
         list:
           button_create: Create connection
+      serverless-workflows:
+        button_create-workflow: Create workflow
+        label_additional-parameters: Additional parameters
+        label_input_data: Input data
+        label_service: Workflows
+        label_service-account: Service account
+        label_workflow-executions: Executions
+        spec-editor-type_label_text-editor: YaML specification
       smart-web-security:
         action_empty: Create profile
         arl:

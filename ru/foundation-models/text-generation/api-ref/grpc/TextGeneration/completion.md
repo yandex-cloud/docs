@@ -68,7 +68,13 @@ A method for generating text completions in [synchronous mode](/docs/foundation-
       }
       // end of the list of possible fields
     }
-  ]
+  ],
+  // Includes only one of the fields `json_object`, `json_schema`
+  "json_object": "bool",
+  "json_schema": {
+    "schema": "google.protobuf.Struct"
+  }
+  // end of the list of possible fields
 }
 ```
 
@@ -89,6 +95,22 @@ A list of messages representing the context for the completion model. ||
 
 List of tools that are available for the model to invoke during the completion generation.
 Note: This parameter is not yet supported and will be ignored if provided. ||
+|| json_object | **bool**
+
+When set to true, the model will respond with a valid JSON object.
+Be sure to explicitly ask the model for JSON.
+Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+
+Includes only one of the fields `json_object`, `json_schema`.
+
+Specifies the format of the model's response. ||
+|| json_schema | **[JsonSchema](#yandex.cloud.ai.foundation_models.v1.JsonSchema)**
+
+Enforces a specific JSON structure for the model's response based on a provided schema.
+
+Includes only one of the fields `json_object`, `json_schema`.
+
+Specifies the format of the model's response. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.foundation_models.v1.CompletionOptions}
@@ -273,6 +295,17 @@ A description of the function's purpose or behavior. ||
 
 A JSON Schema that defines the expected parameters for the function.
 The schema should describe the required fields, their types, and any constraints or default values. ||
+|#
+
+## JsonSchema {#yandex.cloud.ai.foundation_models.v1.JsonSchema}
+
+Represents the expected structure of the model's response using a JSON Schema.
+
+#|
+||Field | Description ||
+|| schema | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+
+The JSON Schema that the model's output must conform to. ||
 |#
 
 ## CompletionResponse {#yandex.cloud.ai.foundation_models.v1.CompletionResponse}
