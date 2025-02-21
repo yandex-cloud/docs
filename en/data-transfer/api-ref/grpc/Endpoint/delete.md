@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/delete.md
 
 # Data Transfer API, gRPC: EndpointService.Delete
 
+Deletes the specified endpoint.
+
 ## gRPC request
 
 **rpc Delete ([DeleteEndpointRequest](#yandex.cloud.datatransfer.v1.DeleteEndpointRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -19,7 +21,11 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/delete.md
 
 #|
 ||Field | Description ||
-|| endpoint_id | **string** ||
+|| endpoint_id | **string**
+
+Identifier of the endpoint to delete.
+
+To get the list of all available endpoints, make a [List](/docs/datatransfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

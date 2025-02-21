@@ -11,7 +11,7 @@ description: Follow this guide to download an object from a bucket in {{ objstor
 
 {% note info %}
 
-To download an object group with a specified prefix (a [directory](../../concepts/object.md#folder) with objects) or all objects from a bucket, use the AWS CLI or file browsers compatible with the Amazon S3 API, e.g., [CyberDuck](../../tools/cyberduck.md) and [WinSCP](../../tools/winscp.md).
+To download an object group with a specified prefix (a [folder](../../concepts/object.md#folder) with objects) or all objects from a bucket, use the AWS CLI or file browsers compatible with the Amazon S3 API, such as [CyberDuck](../../tools/cyberduck.md) and [WinSCP](../../tools/winscp.md).
 
 {% endnote %}
 
@@ -21,11 +21,11 @@ To download an object group with a specified prefix (a [directory](../../concept
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to download an object from.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
-  1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}** or open the object and click ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.file.button_download }}** in the top panel.
+  1. Next to the object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}** or open the object and click ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.file.button_download }}** in the top panel.
 
   {% note info %}
 
-  You can also use [CyberDuck](../../tools/cyberduck.md) or [WinSCP](../../tools/winscp.md) tools to download or upload objects using the GUI.
+  You can also use [CyberDuck](../../tools/cyberduck.md) or [WinSCP](../../tools/winscp.md) to download or upload objects using the GUI.
 
   {% endnote %}
 
@@ -100,13 +100,13 @@ To download an object group with a specified prefix (a [directory](../../concept
   Where:
 
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-  * `<bucket_name>`: Name of the bucket you want to download the objects from.
+  * `<bucket_name>`: Name of the bucket you want to download the object from.
   * `<object_key>`: [Key](../../concepts/object.md#key) of the object you want to download.
   * `<local_path>`: Path to the directory to save the downloaded object to, e.g., `~/downloads/`.
 
-  **Downloading a directory (all objects with a specified prefix)**
+  **Downloading a folder (all objects with a specified prefix)**
 
-  For more information about folders in {{ objstorage-name }}, see [{#T}](../../concepts/object.md#folder).
+  You can learn more about folders in {{ objstorage-name }} [here](../../concepts/object.md#folder).
 
   ```bash
   aws s3 cp \
@@ -137,11 +137,11 @@ To download an object group with a specified prefix (a [directory](../../concept
   Where:
 
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-  * `--recursive`: Parameter for downloading all objects from the bucket to a local folder.
+  * `--recursive`: Parameter for downloading all objects from the bucket to a local directory.
   * `<bucket_name>`: Name of the bucket you want to download the objects from.
   * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
 
-  `aws s3 cp` is a high-level command with limited functionality. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+  `aws s3 cp` is a high-level command providing limited features. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
   You can download bucket objects selectively using the `aws s3api` command and a JMESPath query template. To download objects using a query template, run this command:
 
@@ -162,7 +162,7 @@ To download an object group with a specified prefix (a [directory](../../concept
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
       * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `~/downloads/`.
 
-      Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` bucket to the `~/downloads/` local folder:
+      Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the bucket named `sample-bucket` to the `~/downloads/` local directory:
 
       ```bash
       aws s3api list-objects \
@@ -190,7 +190,7 @@ To download an object group with a specified prefix (a [directory](../../concept
       * `--query`: Query in [JMESPath](https://jmespath.org/) format.
       * `<local_path>`: Path to the directory to save the downloaded objects to, e.g., `d:\downloads\`.
 
-      Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the `sample-bucket` bucket to the `d:\downloads\` local folder:
+      Here is an example of a command that downloads all objects whose filenames start with `date-20231002` from the bucket named `sample-bucket` to the `d:\downloads\` local directory:
 
       ```powershell
       Foreach($x in (aws s3api list-objects `

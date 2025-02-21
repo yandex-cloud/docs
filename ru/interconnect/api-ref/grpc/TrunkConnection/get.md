@@ -38,6 +38,7 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/cic/work
   "description": "string",
   "folder_id": "string",
   "region_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   // Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, `partner_joint_info`
   "single_port_direct_joint": {
     "transceiver_type": "TransceiverType",
@@ -63,7 +64,9 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/cic/work
   // end of the list of possible fields
   "point_of_presence_id": "google.protobuf.StringValue",
   "capacity": "Capacity",
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "status": "Status",
+  "deletion_protection": "bool"
 }
 ```
 
@@ -88,6 +91,9 @@ ID of the folder that the trunkConnection belongs to. ||
 || region_id | **string**
 
 ID of the region that the trunkConnection belongs to. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || single_port_direct_joint | **[SinglePortDirectJoint](#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint)**
 
 Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, `partner_joint_info`.
@@ -138,6 +144,19 @@ The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
 Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
+|| status | enum **Status**
+
+Status of the trunkConnection.
+
+- `STATUS_UNSPECIFIED`
+- `CREATING`
+- `UPDATING`
+- `DELETING`
+- `ACTIVE` ||
+|| deletion_protection | **bool**
+
+Optional deletion protection flag.
+If set prohibits deletion of the trunkConnection. ||
 |#
 
 ## SinglePortDirectJoint {#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint}

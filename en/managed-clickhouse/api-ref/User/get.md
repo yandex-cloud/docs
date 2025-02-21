@@ -198,7 +198,10 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
       "readRows": "string",
       "executionTime": "string"
     }
-  ]
+  ],
+  "connectionManager": {
+    "connectionId": "string"
+  }
 }
 ```
 
@@ -220,6 +223,9 @@ Set of permissions granted to the user. ||
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
 
 Set of quotas assigned to the user. ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)**
+
+Connection Manager connection configuration. Read only field. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -1233,4 +1239,15 @@ The total number of source rows read from tables for running the query, on all r
 
 The total query execution time, in milliseconds (wall time).
 0 - unlimited. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.clickhouse.v1.ConnectionManager}
+
+Connection Manager connection configuration.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of Connection Manager connection. ||
 |#

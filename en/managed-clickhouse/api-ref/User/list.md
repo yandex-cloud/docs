@@ -209,7 +209,10 @@ returned by the previous list request. ||
           "readRows": "string",
           "executionTime": "string"
         }
-      ]
+      ],
+      "connectionManager": {
+        "connectionId": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -249,6 +252,9 @@ Set of permissions granted to the user. ||
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
 
 Set of quotas assigned to the user. ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)**
+
+Connection Manager connection configuration. Read only field. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission}
@@ -1262,4 +1268,15 @@ The total number of source rows read from tables for running the query, on all r
 
 The total query execution time, in milliseconds (wall time).
 0 - unlimited. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.clickhouse.v1.ConnectionManager}
+
+Connection Manager connection configuration.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of Connection Manager connection. ||
 |#

@@ -157,7 +157,15 @@ Compute Cloud instance ID. Either Folder ID or Compute Cloud instance ID should 
         },
         "cbt": "ChangedBlockTracking",
         "fast_backup_enabled": "bool",
-        "quiesce_snapshotting_enabled": "bool"
+        "quiesce_snapshotting_enabled": "bool",
+        "file_filters": {
+          "exclusion_masks": [
+            "string"
+          ],
+          "inclusion_masks": [
+            "string"
+          ]
+        }
       },
       "folder_id": "string"
     }
@@ -265,6 +273,9 @@ If true, determines whether a file has changed by the file size and timestamp. O
 || quiesce_snapshotting_enabled | **bool**
 
 If true, a quiesced snapshot of the virtual machine will be taken. ||
+|| file_filters | **[FileFilters](#yandex.cloud.backup.v1.PolicySettings.FileFilters)**
+
+File filters to specify masks of files to backup or to exclude of backuping ||
 |#
 
 ## RetriesConfiguration {#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration}
@@ -521,4 +532,16 @@ Minutes. ||
 || delay | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
 
 Required field. The interval between backups. ||
+|#
+
+## FileFilters {#yandex.cloud.backup.v1.PolicySettings.FileFilters}
+
+#|
+||Field | Description ||
+|| exclusion_masks[] | **string**
+
+Do not backup files that match the following criteria ||
+|| inclusion_masks[] | **string**
+
+Backup only files that match the following criteria ||
 |#

@@ -999,6 +999,8 @@ items:
           Добавление публичного соединения в прямое или партнерское транковое
           подключение
         href: routing/pub-add.md
+      - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
+        href: routing/bms-vrf-routing.md
   - name: Визуализация и анализ данных
     items:
       - name: Все руководства

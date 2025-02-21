@@ -141,7 +141,8 @@ Creates a Redis cluster in the specified folder.
       "turn_before_switchover": "google.protobuf.BoolValue",
       "allow_data_loss": "google.protobuf.BoolValue",
       "use_luajit": "google.protobuf.BoolValue",
-      "io_threads_allowed": "google.protobuf.BoolValue"
+      "io_threads_allowed": "google.protobuf.BoolValue",
+      "zset_max_listpack_entries": "google.protobuf.Int64Value"
     },
     "disk_size_autoscaling": {
       "planned_usage_threshold": "google.protobuf.Int64Value",
@@ -176,7 +177,24 @@ Creates a Redis cluster in the specified folder.
       "hour": "int64"
     }
     // end of the list of possible fields
-  }
+  },
+  "user_specs": [
+    {
+      "name": "string",
+      "passwords": [
+        "string"
+      ],
+      "permissions": {
+        "patterns": "google.protobuf.StringValue",
+        "pub_sub_channels": "google.protobuf.StringValue",
+        "categories": "google.protobuf.StringValue",
+        "commands": "google.protobuf.StringValue",
+        "sanitize_payload": "google.protobuf.StringValue"
+      },
+      "enabled": "google.protobuf.BoolValue"
+    }
+  ],
+  "auth_sentinel": "bool"
 }
 ```
 
@@ -237,6 +255,12 @@ Enable FQDN instead of ip ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
+|| user_specs[] | **[UserSpec](#yandex.cloud.mdb.redis.v1.UserSpec)**
+
+Descriptions of users to be created in the Redis cluster. ||
+|| auth_sentinel | **bool**
+
+Allows to use ACL users to auth in sentinel ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.redis.v1.ConfigSpec}
@@ -682,6 +706,9 @@ Use JIT for lua scripts and functions ||
 || io_threads_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allow redis to use io-threads ||
+|| zset_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -795,6 +822,45 @@ Day of the week (in `DDD` format).
 || hour | **int64**
 
 Hour of the day in UTC (in `HH` format). ||
+|#
+
+## UserSpec {#yandex.cloud.mdb.redis.v1.UserSpec}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the Redis user. ||
+|| passwords[] | **string**
+
+Password of the Redis user. ||
+|| permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
+
+Set of permissions to grant to the user. ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Is Redis user enabled ||
+|#
+
+## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
+
+#|
+||Field | Description ||
+|| patterns | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Keys patterns user has permission to. ||
+|| pub_sub_channels | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Channel patterns user has permissions to. ||
+|| categories | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Command categories user has permissions to. ||
+|| commands | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Commands user can execute. ||
+|| sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+SanitizePayload parameter. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -1113,7 +1179,8 @@ Hour of the day in UTC (in `HH` format). ||
           "turn_before_switchover": "google.protobuf.BoolValue",
           "allow_data_loss": "google.protobuf.BoolValue",
           "use_luajit": "google.protobuf.BoolValue",
-          "io_threads_allowed": "google.protobuf.BoolValue"
+          "io_threads_allowed": "google.protobuf.BoolValue",
+          "zset_max_listpack_entries": "google.protobuf.Int64Value"
         },
         "user_config": {
           "maxmemory_policy": "MaxmemoryPolicy",
@@ -1144,7 +1211,8 @@ Hour of the day in UTC (in `HH` format). ||
           "turn_before_switchover": "google.protobuf.BoolValue",
           "allow_data_loss": "google.protobuf.BoolValue",
           "use_luajit": "google.protobuf.BoolValue",
-          "io_threads_allowed": "google.protobuf.BoolValue"
+          "io_threads_allowed": "google.protobuf.BoolValue",
+          "zset_max_listpack_entries": "google.protobuf.Int64Value"
         },
         "default_config": {
           "maxmemory_policy": "MaxmemoryPolicy",
@@ -1175,7 +1243,8 @@ Hour of the day in UTC (in `HH` format). ||
           "turn_before_switchover": "google.protobuf.BoolValue",
           "allow_data_loss": "google.protobuf.BoolValue",
           "use_luajit": "google.protobuf.BoolValue",
-          "io_threads_allowed": "google.protobuf.BoolValue"
+          "io_threads_allowed": "google.protobuf.BoolValue",
+          "zset_max_listpack_entries": "google.protobuf.Int64Value"
         }
       },
       "disk_size_autoscaling": {
@@ -1208,7 +1277,8 @@ Hour of the day in UTC (in `HH` format). ||
     "tls_enabled": "bool",
     "deletion_protection": "bool",
     "persistence_mode": "PersistenceMode",
-    "announce_hostnames": "bool"
+    "announce_hostnames": "bool",
+    "auth_sentinel": "bool"
   }
   // end of the list of possible fields
 }
@@ -1369,6 +1439,9 @@ Persistence mode
 || announce_hostnames | **bool**
 
 Enable FQDN instead of ip ||
+|| auth_sentinel | **bool**
+
+Allows to use ACL users to auth in sentinel ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
@@ -1917,6 +1990,9 @@ Use JIT for lua scripts and functions ||
 || io_threads_allowed | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Allow redis to use io-threads ||
+|| zset_max_listpack_entries | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2}

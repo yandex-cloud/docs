@@ -165,8 +165,14 @@ The expression must specify:
       // Includes only one of the fields `cilium`
       "cilium": {
         "routingMode": "string"
-      }
+      },
       // end of the list of possible fields
+      "scheduledMaintenance": {
+        "delayedUntil": "string",
+        "availableFrom": "string",
+        "noLaterThan": "string",
+        "description": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -280,6 +286,7 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 || cilium | **[Cilium](#yandex.cloud.k8s.v1.Cilium)**
 
 Includes only one of the fields `cilium`. ||
+|| scheduledMaintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -618,4 +625,43 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 
 - `ROUTING_MODE_UNSPECIFIED`
 - `TUNNEL` ||
+|#
+
+## ScheduledMaintenance {#yandex.cloud.k8s.v1.ScheduledMaintenance}
+
+#|
+||Field | Description ||
+|| delayedUntil | **string** (date-time)
+
+Time until which the update should be postponed.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| availableFrom | **string** (date-time)
+
+Time when the update became available.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| noLaterThan | **string** (date-time)
+
+The latest possible date by which a mandatory update must be applied.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| description | **string**
+
+Description of the planned operation, for example, "Infrastructure planned update". ||
 |#

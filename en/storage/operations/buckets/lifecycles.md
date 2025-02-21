@@ -5,9 +5,9 @@ description: Follow this guide to manage object lifecycles in an {{ objstorage-n
 
 # Managing bucket object lifecycles
 
-{{ objstorage-name }} allows managing [object lifecycles](../../concepts/lifecycles.md) in a bucket.
+{{ objstorage-name }} enables managing bucket [object lifecycles](../../concepts/lifecycles.md).
 
-Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This operation takes a few hours to complete.
+Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hours to complete.
 
 {% list tabs group=instructions %}
 
@@ -29,7 +29,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Define the object lifecycle configuration in JSON format. For example:
+  1. Define the object lifecycle configuration in JSON format. Here is an example:
 
       ```json
       {
@@ -55,22 +55,22 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       ```
 
       The possible configuration parameters include:
-      * `id`: Unique rule ID, which must consist of 255 characters or less. This is an optional parameter.
+      * `id`: Unique rule ID which must consist of 255 characters or less. This is an optional parameter.
       * `enabled`: Rule state. This is a required parameter.
       * `filter`: Object filter. This is an optional parameter. It may only contain one element of each type:
 
-          * `prefix`: Object [key](../../concepts/object.md#key) prefix that identifies one or more objects to which the rule applies. The rule applies to objects with the specified key prefix. This is an optional parameter.
-          * `objectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
-          * `objectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
-          * `tag`: Object [label](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It is delivered as a record that contains two pairs of values, for example:
+          * `prefix`: Object [key](../../concepts/object.md#key) prefix that identifies one or more objects falling under the rule. The rule applies to objects with the specified key prefix. This is an optional parameter.
+          * `objectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects with a size greater than or equal to the specified value. This is an optional parameter.
+          * `objectSizeLessThan`: Maximum object size in bytes. The rule applies to objects with a size less than or equal to the specified value. This is an optional parameter.
+          * `tag`: Object [label](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects with the specified label assigned. It is provided as a record that contains two key-value pairs, such as the following:
 
               ```json
               "tag": [{"key": "some_key", "value": "some_value"}]
               ```
 
-          * `andOperator`: `AND` logical operator for filters. This is an optional parameter. Use this filter to combine filtering by prefix, size, or object tag in a single rule. With `andOperator`, you can configure filtering by multiple labels at the same time. To do this, specify the labels in the `tag` key as an array of objects, each containing two pairs of values.
+          * `andOperator`: `AND` logical operator for filters. This is an optional parameter. Use this filter to combine prefix, size, and label filtering in a single rule. With `andOperator`, you can configure filtering by multiple labels at the same time. To do this, specify the labels in the `tag` key as an array of objects, each containing two key-value pairs.
           
-              Here is an example of a filter with the `AND` logical operator:
+              Here is an example of a filter using `AND`:
 
               ```json
               "filter": {
@@ -92,37 +92,37 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
               }
               ```
 
-          If no object filter is set, the rule applies to all objects in the bucket.
+          Without a specified object filter, the rule applies to all objects in the bucket.
 
-      * `transitions`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
-          * `date`: Date after which you want the rule to take effect, in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DDT00:00:00Z`. Time: Always 00:00 UTC. You cannot use the `date` key along with `days`. This is an optional parameter.
-          * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use the `days` key along with `date`. This is an optional parameter.
+      * `transitions`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
+          * `date`: Date after which you want the rule to take effect, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DDT00:00:00Z`. The time is always 00:00 UTC. You cannot use `date` together with `days`. This is an optional parameter.
+          * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional parameter.
           * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
 
-          It is transferred as an array, e.g.:
+          It is provided as an array, such as follows:
 
           ```json
           "transitions": [{ "days": "<number_of_days>", "storage_class": "<storage_class>" }]
           ```
 
-      * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
-          * `date`: Date after which you want the rule to take effect, in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DDT00:00:00Z`. Time: Always 00:00 UTC. You cannot use the `date` key along with `days`. This is an optional parameter.
-          * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use the `days` key along with `date`. This is an optional parameter.
-          * `expired_object_delete_marker`: Deletes the delete marker for which expired object versions no longer exist. It can either be `true` or `false`. This is an optional parameter.
-      * `noncurrent_transitions`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
+      * `expiration`: Parameter of a rule used to delete any objects. This is an optional parameter. It may contain:
+          * `date`: Date after which you want the rule to take effect, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DDT00:00:00Z`. The time is always 00:00 UTC. You cannot use `date` together with `days`. This is an optional parameter.
+          * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional parameter.
+          * `expired_object_delete_marker`: Removes the delete marker for which expired object versions no longer exist. It can either be `true` or `false`. This is an optional parameter.
+      * `noncurrent_transitions`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
           * `noncurrent_days`: Number of days before transition. The minimum value is `1`. This is a required parameter.
           * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
       * `noncurrent_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter. It may contain:
           * `noncurrent_days`: Number of days before expiration. The minimum value is `1`. This is a required parameter.
-      * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
+      * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional parameter.
       * `noncurrent_delete_markers`: Parameter of a rule for deleting non-current delete markers. This is an optional parameter. It may contain:
-          * `noncurrent_days`: Rule starts to apply after the number of days from the classification of the delete marker version as non-current, which is specified in this parameter, expires. The minimum value is `0`. This is a required parameter.
+          * `noncurrent_days`: Number of days that must elapse after the delete marker version is classified as non-current before the rule takes effect. The minimum value is `0`. This is a required parameter.
 
       Make sure to specify at least one of the following parameters: `transitions`, `expiration`, `noncurrent_transitions`, `noncurrent_expiration`, or `abort_incomplete_multipart_upload_days`.
 
-      Once complete, save the configuration to a file, e.g., `lifecycles.json`.
+      Once the configuration is complete, save it to a file, e.g., `lifecycles.json`.
 
-  1. See the description of the CLI command to update a bucket:
+  1. See the description of the CLI command for updating a bucket:
 
       ```bash
       yc storage bucket update --help
@@ -144,8 +144,8 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
    
-  1. Save the `NAME` value for the bucket to configure lifecycles in.
-  1. Run the following command:
+  1. Save the `NAME` value for the bucket to configure object lifecycles in.
+  1. Run this command:
 
       ```bash
       yc storage bucket update \
@@ -170,9 +170,9 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
 - AWS CLI {#aws-cli}
 
-  To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
+  To upload a configuration using the [AWS CLI](../../tools/aws-cli.md):
 
-  1. Define the object lifecycle configuration in JSON format. For example:
+  1. Define the object lifecycle configuration in JSON format. Here is an example:
 
       ```json
       {
@@ -198,21 +198,21 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
       ```
 
       The possible configuration parameters include:
-      * `ID`: Unique rule ID, which must consist of 255 characters or less. This is an optional parameter.
+      * `ID`: Unique rule ID which must consist of 255 characters or less. This is an optional parameter.
       * `Filter`: Object filter. This is an optional parameter. It may only contain one element of each type:
 
           * `Prefix`: Object [key](../../concepts/object.md#key) prefix. The rule applies to objects with the specified key prefix. This is an optional parameter.
-          * `ObjectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
-          * `ObjectSizeLessThan`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
-          * `Tag`: Object [label](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It is delivered as a record that contains two pairs of values, for example:
+          * `ObjectSizeGreaterThan`: Minimum object size in bytes. The rule applies to objects with a size greater than or equal to the specified value. This is an optional parameter.
+          * `ObjectSizeLessThan`: Maximum object size in bytes. The rule applies to objects with a size less than or equal to the specified value. This is an optional parameter.
+          * `Tag`: Object [label](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects with the specified label assigned. It is provided as a record that contains two key-value pairs, such as the following:
 
               ```json
               "Tag": [{"Key": "some_key", "Value": "some_value"}]
               ```
 
-          * `And`: `AND` logical operator for filters. This is an optional parameter. Use this filter to combine filtering by prefix, size, or object tag in a single rule. With `And`, you can configure filtering by multiple labels at the same time. To do this, specify the labels in the `Tags` key as an array of objects, each containing two pairs of values.
+          * `And`: `AND` logical operator for filters. This is an optional parameter. Use this filter to combine prefix, size, and label filtering in a single rule. With `And`, you can configure filtering by multiple labels at the same time. To do this, specify the labels in the `Tags` key as an array of objects, each containing two key-value pairs.
           
-              Here is an example of a filter with the `AND` logical operator:
+              Here is an example of a filter using `AND`:
 
               ```json
               "Filter": {
@@ -234,42 +234,42 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
               }
               ```
 
-          If no object filter is set, the rule applies to all objects in the bucket.
+          Without a specified object filter, the rule applies to all objects in the bucket.
 
-      * `Status`: Rule status. This is a required parameter. Values:
+      * `Status`: Rule status. This is a required parameter. It can take one of the following values:
           * `Enabled`: Rule enabled.
           * `Disabled`: Rule disabled.
-      * `Transitions`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
-          * `Date`: Date after which the storage class will change, in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DD`. Time: Always 00:00 UTC. You cannot use the `Date` key along with `Days`. This is an optional parameter.
-          * `Days`: Number of days from the object creation date after which the storage class will be changed. The minimum value is `1`. You cannot use the `Days` key along with `Date`. This is an optional parameter.
+      * `Transitions`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
+          * `Date`: Date after which the storage class will change, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DD`. The time is always 00:00 UTC. You cannot use `Date` together with `Days`. This is an optional parameter.
+          * `Days`: Number of days from the object creation date after which the storage class will change. The minimum value is `1`. You cannot use `Days` together with `Date`. This is an optional parameter.
           * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
 
-          It is transferred as an array:
+          It is provided as an array, such as follows:
 
           ```json
           "Transitions": [{ "Days": "<number_of_days>", "StorageClass": "<storage_class>" }]
           ```
 
-          To set the `Transitions` parameter, you must specify the `Prefix` parameter in the configuration file. The `Prefix` value may even be empty (`""`).
+          To set the `Transitions` parameter, you must specify the `Prefix` parameter in the configuration file. The `Prefix` value may be empty (`""`).
       * `Expiration`: Parameter of a rule for deleting any objects. This is an optional parameter. It may contain:
-          * `Date`: Date after which the object will be deleted, in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DD`. Time: Always 00:00 UTC. You cannot use the `Date` key along with `Days`. This is an optional parameter.
-          * `Days`: Number of days from the object creation date after which the object will be deleted. The minimum value is `1`. You cannot use the `Days` key along with `Date`. This is an optional parameter.
-          * `ExpiredObjectDeleteMarker`: Deletes the delete marker for which expired object versions no longer exist. It can either be `true` or `false`. This is an optional parameter.
-      * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
-          * `NoncurrentDays`: Number of days before changing the storage class of a non-current object version. The minimum value is `1`. This is a required parameter.
+          * `Date`: Date after which the object will be deleted, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format, such as `YYYY-MM-DD`. The time is always 00:00 UTC. You cannot use `Date` together with `Days`. This is an optional parameter.
+          * `Days`: Number of days from the object creation date after which the object will be deleted. The minimum value is `1`. You cannot use `Days` together with `Date`. This is an optional parameter.
+          * `ExpiredObjectDeleteMarker`: Removes the delete marker for which expired object versions no longer exist. It can either be `true` or `false`. This is an optional parameter.
+      * `NoncurrentVersionTransitions`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter. It may contain:
+          * `NoncurrentDays`: Number of days before the storage class of a non-current object version is changed. The minimum value is `1`. This is a required parameter.
           * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
 
-          To set the `NoncurrentVersionTransitions` parameter, you must specify the `Prefix` parameter in the configuration file. The `Prefix` value may even be empty (`""`).
+          To set the `NoncurrentVersionTransitions` parameter, you must specify the `Prefix` parameter in the configuration file. The `Prefix` value may be empty (`""`).
       * `NoncurrentVersionExpiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter. 
 
-          The rule has the required `NoncurrentDays` parameter that indicates the number of days before non-current object versions are deleted. The minimum value is `1`.
-      * `AbortIncompleteMultipartUpload`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
+          The rule has the required `NoncurrentDays` parameter for the number of days before non-current object version is deleted. The minimum value is `1`.
+      * `AbortIncompleteMultipartUpload`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional parameter.
 
-          The rule has the required `DaysAfterInitiation` parameter that indicates the number of days since the upload started. The minimum value is `1`.
+          The rule has the required `DaysAfterInitiation` parameter for the number of days since the upload started. The minimum value is `1`.
 
       Specify at least one of the following parameters: `Transitions`, `Expiration`, `NoncurrentVersionTransition`, `NoncurrentVersionExpiration`, or `AbortIncompleteMultipartUpload`.
 
-      Once complete, save the configuration to a file, e.g., `lifecycles.json`.
+      Once the configuration is complete, save it to a file, e.g., `lifecycles.json`.
 
   1. Upload the configuration to the bucket, e.g., `backup-bucket`:
 
@@ -286,9 +286,9 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
+  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-short-name }} authentication.
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -398,12 +398,12 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
      * `secret_key`: Secret access key value.
 
      `lifecycle_rule` parameters:
-     * `id`: Unique rule ID, which must consist of 255 characters or less. This is an optional parameter.
+     * `id`: Unique rule ID which must consist of 255 characters or less. This is an optional parameter.
      * `filter`: Object filter. This is an optional parameter. It may only contain one element of each type:
-         * `prefix`: Object [key](../../concepts/object.md#key) prefix that identifies one or more objects to which the rule applies. This is an optional parameter.
-         * `object_size_greater_than`: Minimum object size in bytes. The rule applies to objects whose size is greater than or equal to the set one. This is an optional parameter.
-         * `object_size_less_than`: Maximum object size in bytes. The rule applies to objects whose size is less than or equal to the set one. This is an optional parameter.
-         * `tag`: Object [label](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects to which the specified tag is assigned. It is delivered as a record that contains two pairs of values, for example:
+         * `prefix`: Object [key](../../concepts/object.md#key) prefix that identifies one or more objects falling under the rule. This is an optional parameter.
+         * `object_size_greater_than`: Minimum object size in bytes. The rule applies to objects with a size greater than or equal to the specified value. This is an optional parameter.
+         * `object_size_less_than`: Maximum object size in bytes. The rule applies to objects with a size less than or equal to the specified value. This is an optional parameter.
+         * `tag`: Object [label](../../concepts/tags.md#object-tags). This is an optional parameter. The rule applies to objects with the specified label assigned. It is provided as a record that contains two key-value pairs, such as the following:
 
              ```hcl
              tag {
@@ -412,7 +412,7 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
              }
              ```
 
-         * `And`: `AND` logical operator for filters. This is an optional parameter. Use this filter to combine filtering by prefix, size, or object tag in a single rule. With `And`, you can configure filtering by multiple labels at the same time. To do this, specify the labels as `key = value` pairs in the `tags` section.
+         * `And`: `AND` logical operator for filters. This is an optional parameter. Use this filter to combine prefix, size, and label filtering in a single rule. With `And`, you can configure filtering by multiple labels at the same time. To do this, specify the labels as `key = value` pairs in the `tags` section.
 
              ```hcl
              filter {
@@ -428,61 +428,61 @@ Once a day, lifecycles are updated with the latest changes as of 00:00 UTC. This
              }
              ```
 
-         If no object filter is set, the rule applies to all objects in the bucket.
+         Without a specified object filter, the rule applies to all objects in the bucket.
 
      * `enabled`: Rule state. This is a required parameter.
-     * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not completed within the specified number of days. This is an optional parameter.
-     * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter.
-     * `transition`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter.
+     * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional parameter.
+     * `expiration`: Parameter of a rule used to delete any objects. This is an optional parameter.
+     * `transition`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter.
      * `noncurrent_version_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter.
-     * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD` or `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter.
+     * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter.
 
      Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
 
      `expiration` parameters:
-     * `date`: Date after which you want the rule to take effect, You cannot use the `date` parameter along with `days`. This is an optional parameter.
-     * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use the `days` parameter along with `date`. This is an optional parameter.
-     * `expired_object_delete_marker`: Deletes the delete marker for which expired object versions no longer exist. It can either be `true` or `false`. This is an optional parameter.
+     * `date`: Date after which you want the rule to take effect, You cannot use `date` together with `days`. This is an optional parameter.
+     * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional parameter.
+     * `expired_object_delete_marker`: Removes the delete marker for which expired object versions no longer exist. It can either be `true` or `false`. This is an optional parameter.
 
      `transition` parameters:
-     * `date`: Date after which you want the rule to take effect, You cannot use the `date` parameter along with `days`. This is an optional parameter.
-     * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is 1. You cannot use the `days` parameter along with `date`. This is an optional parameter.
+     * `date`: Date after which you want the rule to take effect, You cannot use `date` together with `days`. This is an optional parameter.
+     * `days`: Number of days following the object creation date after which the rule will take effect. The minimum value is `1`. You cannot use `days` together with `date`. This is an optional parameter.
      * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
 
      `noncurrent_version_expiration` parameters:
-     * `days`: Number of days before expiration. The minimum value is 1. This is a required parameter.
+     * `days`: Number of days before expiration. The minimum value is `1`. This is a required parameter.
 
      `noncurrent_version_transition` parameters:
-     * `days`: Number of days before transition. The minimum value is 1. This is a required parameter.
+     * `days`: Number of days before transition. The minimum value is `1`. This is a required parameter.
      * `storage_class`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm that you want to create the resources.
+     1. Confirm creating the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
   To manage bucket object lifecycles, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/lifecycles/upload.md) S3 API method.
 
-  If you are using the S3 API, specify a lifecycle configuration in the [XML format](../../s3/api-ref/lifecycles/xml-config.md).
+  If you are using the S3 API, specify the lifecycle configuration in [XML format](../../s3/api-ref/lifecycles/xml-config.md).
 
 {% endlist %}

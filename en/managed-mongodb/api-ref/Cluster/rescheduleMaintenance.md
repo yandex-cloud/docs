@@ -3161,6 +3161,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "wiredTiger": {
                   "engineConfig": {
                     "cacheSizeGb": "number"
+                  },
+                  "indexConfig": {
+                    "prefixCompression": "boolean"
                   }
                 }
               },
@@ -3169,7 +3172,19 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string"
+                "maxIncomingConnections": "string",
+                "compression": {
+                  "compressors": [
+                    "string"
+                  ]
+                }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             },
             "userConfig": {
@@ -3177,6 +3192,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "wiredTiger": {
                   "engineConfig": {
                     "cacheSizeGb": "number"
+                  },
+                  "indexConfig": {
+                    "prefixCompression": "boolean"
                   }
                 }
               },
@@ -3185,7 +3203,19 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string"
+                "maxIncomingConnections": "string",
+                "compression": {
+                  "compressors": [
+                    "string"
+                  ]
+                }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             },
             "defaultConfig": {
@@ -3193,6 +3223,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "wiredTiger": {
                   "engineConfig": {
                     "cacheSizeGb": "number"
+                  },
+                  "indexConfig": {
+                    "prefixCompression": "boolean"
                   }
                 }
               },
@@ -3201,7 +3234,19 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string"
+                "maxIncomingConnections": "string",
+                "compression": {
+                  "compressors": [
+                    "string"
+                  ]
+                }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             }
           },
@@ -3226,6 +3271,12 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                     "string"
                   ]
                 }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             },
             "userConfig": {
@@ -3236,6 +3287,12 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                     "string"
                   ]
                 }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             },
             "defaultConfig": {
@@ -3246,6 +3303,12 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                     "string"
                   ]
                 }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             }
           },
@@ -3270,6 +3333,12 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                     "string"
                   ]
                 }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             },
             "userConfig": {
@@ -3280,6 +3349,12 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                     "string"
                   ]
                 }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             },
             "defaultConfig": {
@@ -3290,6 +3365,12 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                     "string"
                   ]
                 }
+              },
+              "setParameter": {
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             }
           },
@@ -3299,6 +3380,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "wiredTiger": {
                   "engineConfig": {
                     "cacheSizeGb": "number"
+                  },
+                  "indexConfig": {
+                    "prefixCompression": "boolean"
                   }
                 }
               },
@@ -3307,7 +3391,19 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string"
+                "maxIncomingConnections": "string",
+                "compression": {
+                  "compressors": [
+                    "string"
+                  ]
+                }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             },
             "userConfig": {
@@ -3315,6 +3411,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "wiredTiger": {
                   "engineConfig": {
                     "cacheSizeGb": "number"
+                  },
+                  "indexConfig": {
+                    "prefixCompression": "boolean"
                   }
                 }
               },
@@ -3323,7 +3422,19 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string"
+                "maxIncomingConnections": "string",
+                "compression": {
+                  "compressors": [
+                    "string"
+                  ]
+                }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             },
             "defaultConfig": {
@@ -3331,6 +3442,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "wiredTiger": {
                   "engineConfig": {
                     "cacheSizeGb": "number"
+                  },
+                  "indexConfig": {
+                    "prefixCompression": "boolean"
                   }
                 }
               },
@@ -3339,7 +3453,19 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 "slowOpThreshold": "string"
               },
               "net": {
-                "maxIncomingConnections": "string"
+                "maxIncomingConnections": "string",
+                "compression": {
+                  "compressors": [
+                    "string"
+                  ]
+                }
+              },
+              "setParameter": {
+                "enableFlowControl": "boolean",
+                "auditAuthorizationSuccess": "boolean"
+              },
+              "auditLog": {
+                "filter": "string"
               }
             }
           },
@@ -7560,10 +7686,10 @@ MongoDB supports the following compressors:
 ||Field | Description ||
 || enableEncryption | **boolean**
 
-If encryption at rest should be enabled or not ||
+If encryption at rest should be enabled or not, MongoDB Enterprise only ||
 || kmip | **[KMIP](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP)**
 
-`kmip` section of mongod security config ||
+`kmip` section of mongod security config, MongoDB Enterprise only ||
 |#
 
 ## KMIP {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Security.KMIP}
@@ -7593,10 +7719,11 @@ KMIP Key identifier (if any) ||
 ||Field | Description ||
 || filter | **string**
 
-Audit filter ||
+Audit filter, should be valid JSON object string ||
 || runtimeConfiguration | **boolean**
 
-Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
+Allows runtime configuration of audit filter and auditAuthorizationSuccess
+!! Available for MongoDB Enterprise only !! ||
 |#
 
 ## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter}
@@ -7605,7 +7732,8 @@ Allows runtime configuration of audit filter and auditAuthorizationSuccess ||
 ||Field | Description ||
 || auditAuthorizationSuccess | **boolean**
 
-Enables the auditing of authorization successes ||
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
 || enableFlowControl | **boolean**
 
 Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
@@ -7660,6 +7788,12 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network)**
 
 `net` section of mongocfg configuration. ||
+|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter)**
+
+`setParameter` section of mongocfg configuration. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog)**
+
+`AuditLog` section of mongocfg configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage}
@@ -7680,6 +7814,9 @@ Configuration of WiredTiger storage engine.
 || engineConfig | **[EngineConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig)**
 
 Engine configuration for WiredTiger. ||
+|| indexConfig | **[IndexConfig](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig)**
+
+Index configuration for WiredTiger. ||
 |#
 
 ## EngineConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.EngineConfig}
@@ -7689,6 +7826,15 @@ Engine configuration for WiredTiger. ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|#
+
+## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig}
+
+#|
+||Field | Description ||
+|| prefixCompression | **boolean**
+
+Enables or disables [prefix compression](https://www.mongodb.com/docs/manual/reference/glossary/#std-term-prefix-compression) ||
 |#
 
 ## OperationProfiling {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.OperationProfiling}
@@ -7717,6 +7863,52 @@ running in the SLOW_OP mode. For details see [MongoDB documentation](https://www
 || maxIncomingConnections | **string** (int64)
 
 The maximum number of simultaneous connections that mongocfg will accept. ||
+|| compression | **[Compression](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression)**
+
+Compression settings ||
+|#
+
+## Compression {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Network.Compression}
+
+#|
+||Field | Description ||
+|| compressors[] | **enum** (Compressor)
+
+Specifies the default compressor(s) to use for communication between this mongod or mongos instance and:
+- other members of the deployment if the instance is part of a replica set or a sharded cluster
+- mongosh
+- drivers that support the OP_COMPRESSED message format.
+MongoDB supports the following compressors:
+
+- `COMPRESSOR_UNSPECIFIED`
+- `SNAPPY`: The [Snappy](https://docs.mongodb.com/v4.2/reference/glossary/#term-snappy) compression.
+- `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
+- `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
+- `DISABLED`: No compression ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.SetParameter}
+
+#|
+||Field | Description ||
+|| enableFlowControl | **boolean**
+
+Enables or disables the mechanism that controls the rate at which the primary applies its writes with the
+goal of keeping the secondary members [majority committed](https://www.mongodb.com/docs/v4.2/reference/command/replSetGetStatus/#replSetGetStatus.optimes.lastCommittedOpTime)
+lag under a configurable maximum value. ||
+|| auditAuthorizationSuccess | **boolean**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
 |#
 
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos}
@@ -7757,6 +7949,12 @@ Default mongos configuration for a MongoDB cluster. ||
 || net | **[Network](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network)**
 
 Network settings for mongos. ||
+|| setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter)**
+
+`setParameter` section of mongos configuration. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)**
+
+`AuditLog` section of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -7788,6 +7986,25 @@ MongoDB supports the following compressors:
 - `ZLIB`: The [zlib](https://docs.mongodb.com/v4.2/reference/glossary/#term-zlib) compression.
 - `ZSTD`: The [zstd](https://docs.mongodb.com/v4.2/reference/glossary/#term-zstd) compression.
 - `DISABLED`: No compression ||
+|#
+
+## SetParameter {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.SetParameter}
+
+#|
+||Field | Description ||
+|| auditAuthorizationSuccess | **boolean**
+
+Enables the auditing of authorization successes
+https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}
+
+#|
+||Field | Description ||
+|| filter | **string**
+
+Audit filter, should be valid JSON object string ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoInfra}

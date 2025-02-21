@@ -5,7 +5,7 @@ items:
   - name: Начало работы
     href: quickstart.md
   - name: Пошаговые инструкции
-    extended: true
+    expanded: true
     items:
       - name: Все инструкции
         href: operations/index.md
@@ -46,16 +46,26 @@ items:
   - name: Концепции
     expanded: true
     items:
-      - name: Обзор
+      - name: Обзор сервиса
         href: concepts/index.md
       - name: Серверы
-        href: concepts/servers.md
-      - name: Конфигурации серверов
-        href: concepts/server-configurations.md
+        expanded: true
+        items:
+          - name: Обзор
+            href: concepts/servers.md
+          - name: Конфигурации серверов
+            href: concepts/server-configurations.md
       - name: Сеть
-        href: concepts/network.md
-      - name: Заблокированные сетевые порты
-        href: concepts/traffic-restrictions.md
+        expanded: true
+        items:
+          - name: Обзор
+            href: concepts/network.md
+          - name: DHCP
+            href: concepts/dhcp.md
+          - name: Заблокированные сетевые порты
+            href: concepts/traffic-restrictions.md
+          - name: Ограничения в сетях {{ baremetal-name }}
+            href: concepts/network-restrictions.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Практические руководства
@@ -63,7 +73,11 @@ items:
     items:
       - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
         href: operations/backup-baremetal.md
+      - name: Настроить VRRP для кластера серверов {{ baremetal-name }}
+        href: tutorials/bms-vrf-routing.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Вопросы и ответы
+    href: qa/all.md

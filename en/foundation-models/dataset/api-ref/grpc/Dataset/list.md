@@ -16,9 +16,13 @@ Lists datasets in specified folder.
 ```json
 {
   "folder_id": "string",
-  "status": "Status",
+  "status": [
+    "Status"
+  ],
   "dataset_name_pattern": "string",
-  "task_type_filter": "string",
+  "task_type_filter": [
+    "string"
+  ],
   "page_size": "int64",
   "page_token": "string"
 }
@@ -29,9 +33,9 @@ Lists datasets in specified folder.
 || folder_id | **string**
 
 Required field. Folder ID of the datasets to list. ||
-|| status | enum **Status**
+|| status[] | enum **Status**
 
-Status of the datasets to list. Optional.
+Statuses of the datasets to list. Optional.
 
 - `STATUS_UNSPECIFIED`
 - `DRAFT`
@@ -42,9 +46,9 @@ Status of the datasets to list. Optional.
 || dataset_name_pattern | **string**
 
 Name substring of the datasets to list. Optional. ||
-|| task_type_filter | **string**
+|| task_type_filter[] | **string**
 
-Task type of the datasets to list. Optional. ||
+Task types of the datasets to list. Optional. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available

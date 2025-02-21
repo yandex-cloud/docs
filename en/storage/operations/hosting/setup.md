@@ -3,7 +3,7 @@ title: Setting up hosting in {{ objstorage-full-name }}
 description: Follow this guide to set up static website hosting in {{ objstorage-name }}.
 ---
 
-# Hosting setup
+# Setting up hosting
 
 
 You can host your static website in {{ objstorage-name }}. A static website is based on such client-side technologies as HTML, CSS, or JavaScript. It may not contain any scripts that run on the web server side.
@@ -20,10 +20,10 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure the hosting for.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure hosting for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
-  1. [Allow](../buckets/bucket-availability.md) public access to operations with the bucket.
+  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
+  1. [Enable](../buckets/bucket-availability.md) public access to bucket operations.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
@@ -31,7 +31,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
         {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
 
-      * (Optional) In the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file in the bucket to be displayed in the event of 4xx errors, e.g., `pages/error404.html`. By default, {{ objstorage-name }} returns its own page.
+      * Optionally, in the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file in the bucket to show for 4xx errors, e.g., `pages/error404.html`. By default, {{ objstorage-name }} returns its own page.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
   Use the link in **{{ ui-key.yacloud.storage.bucket.website.field_link }}** to check the hosting.
@@ -42,13 +42,13 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to set up static website hosting in a bucket:
+  1. See the description of the CLI command for setting up static website hosting in a bucket:
 
      ```bash
      yc storage bucket update --help
      ```
      
-  1. Create a hosting settings file in JSON format. Here is an example:
+  1. Create a hosting configuration file in JSON format. Here is an example:
      
      ```json
      {
@@ -74,7 +74,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      
      Where:
      * `--name`: Bucket name.
-     * `--website-settings-from-file`: Path to the hosting settings file.
+     * `--website-settings-from-file`: Path to the hosting configuration file.
 
      Result:
 
@@ -109,7 +109,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
+  Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-short-name }} authentication.
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
@@ -174,7 +174,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -186,26 +186,26 @@ You can host your static website in {{ objstorage-name }}. A static website is b
    
      1. Confirm creating the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-  To set up hosting for a static website, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up static website hosting, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
-## Redirect all requests {#redirects}
+## Redirects for all requests {#redirects}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure the request redirects for.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure request redirects for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
       * **{{ ui-key.yacloud.storage.bucket.website.field_hostname }}** of the host to act as the redirect target for all requests to the bucket.
-      * (Optional) **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** if the specified host accepts requests only over a specific protocol.
+      * Optionally, **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** if the specified host accepts requests only over a specific protocol.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -214,13 +214,13 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to set up a redirect for all requests:
+  1. See the description of the CLI command for setting up redirects for all requests:
 
      ```bash
      yc storage bucket update --help
      ```
      
-  1. Create a file with redirect settings in JSON format. For example:
+  1. Create a redirect configuration file in JSON format. Here is an example:
      
      ```json
      {
@@ -232,7 +232,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      ```
 
      Where:
-     * `protocol`: Data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request's protocol is used.
+     * `protocol`: Data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request protocol is used.
      * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
   
   1. Run this command:
@@ -279,7 +279,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
        acl        = "public-read"
      
        website {
-         index_document = "<absolute_path_to_website_homepage_file>"
+         index_document = "<absolute_path_to_website_home_page_file>"
          error_document = "<absolute_path_to_error_file>"
 		 redirect_all_requests_to = "<host_name>"
        }
@@ -295,9 +295,9 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      * `website`: Website parameters:
        * `index_document`: Absolute path to the website home page file. This is a required parameter.
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
-       * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can specify a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
+       * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can specify a protocol prefix (`http://` or `https://`). By default, the original request protocol is used.
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Check the configuration using this command:
 
@@ -331,30 +331,30 @@ You can host your static website in {{ objstorage-name }}. A static website is b
 
 - API {#api}
 
-  To set up a redirect for all bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up redirects for all requests to a bucket, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
 {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
-## Conditional request redirection {#redirects-on-conditions}
+## Conditional request redirects {#redirects-on-conditions}
 
-Using routing rules, you can redirect requests based on the object name prefixes or HTTP response codes. You can redirect an object request to other web pages (if the object was deleted) or redirect the requests that return errors.
+With routing rules, you can redirect requests based on the object name prefixes or HTTP response codes. This enables you to redirect object requests to different web pages (if the object was removed) or redirect the requests that return errors.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure the conditional request redirects for.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure conditional request redirects for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}**, click **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}**, specify at least one condition for redirects:
-      * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} should have responded with to a request without a redirect.
-      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key start in the request. 
-  1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}**, set redirect parameters:
-      * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** that will be used to send redirected requests.
-      * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** of the host the requests that have satisfied the condition should be redirected to.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}**: HTTP code that {{ objstorage-name }} would have returned for the request without a redirect.
+      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}**: Object key prefix in the request. You can learn more about keys and how static websites work [here](#static-site-information).
+  1. Under **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}**, set the following redirect parameters:
+      * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** to use for sending redirected requests.
+      * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** of the host to which all requests meeting the specified condition will be redirected.
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** to determine the redirect type.
       * **{{ ui-key.yacloud.storage.bucket.website.field_redirect_change }}**: **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}**, or **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, specified in the condition.
   1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
@@ -365,13 +365,13 @@ Using routing rules, you can redirect requests based on the object name prefixes
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to set up a conditional redirect of requests:
+  1. See the description of the CLI command for setting up conditional request redirects:
 
      ```bash
      yc storage bucket update --help
      ```
      
-  1. Create a file with conditional redirect settings in JSON format. Here is an example:
+  1. Create a conditional redirect configuration file in JSON format. Here is an example:
      
      ```json
      {
@@ -403,7 +403,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
      
        * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
        * `httpRedirectCode`: New HTTP response code.
-       * `protocol`: New data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request's protocol is used. 
+       * `protocol`: New data transfer protocol, `PROTOCOL_HTTP` or `PROTOCOL_HTTPS`. By default, the original request protocol is used. 
        * `replaceKeyPrefixWith`: New object key prefix.
        * `replaceKeyWith`: New object key.
   
@@ -438,7 +438,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
-  To set up a conditional redirect of requests:
+  To set up conditional request redirects:
 
   1. Open the {{ TF }} configuration file and add the `routing_rules` parameter to the bucket description:
 
@@ -451,7 +451,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
        acl        = "public-read"
      
        website {
-         index_document = "<absolute_path_to_website_homepage_file>"
+         index_document = "<absolute_path_to_website_home_page_file>"
          error_document = "<absolute_path_to_error_file>"
          routing_rules  = <<EOF
          [
@@ -484,9 +484,9 @@ Using routing rules, you can redirect requests based on the object name prefixes
      * `website`: Website parameters:
        * `index_document`: Absolute path to the website home page file. This is a required parameter.
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional parameter.
-       * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
+       * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the relevant API method (the **For conditionally redirecting requests** tab).
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Check the configuration using this command:
 
@@ -520,7 +520,7 @@ Using routing rules, you can redirect requests based on the object name prefixes
         
 - API {#api}
 
-  To set up a conditional redirect of bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up conditional redirects for bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 

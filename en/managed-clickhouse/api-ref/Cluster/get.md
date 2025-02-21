@@ -336,6 +336,10 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-
             "maxEntries": "string",
             "maxEntrySizeInBytes": "string",
             "maxEntrySizeInRows": "string"
+          },
+          "jdbcBridge": {
+            "host": "string",
+            "port": "string"
           }
         },
         "userConfig": {
@@ -625,6 +629,10 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-
             "maxEntries": "string",
             "maxEntrySizeInBytes": "string",
             "maxEntrySizeInRows": "string"
+          },
+          "jdbcBridge": {
+            "host": "string",
+            "port": "string"
           }
         },
         "defaultConfig": {
@@ -914,6 +922,10 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-
             "maxEntries": "string",
             "maxEntrySizeInBytes": "string",
             "maxEntrySizeInRows": "string"
+          },
+          "jdbcBridge": {
+            "host": "string",
+            "port": "string"
           }
         }
       },
@@ -1401,6 +1413,10 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 [Query cache](https://clickhouse.com/docs/en/operations/query-cache) configuration.
 Min version: 23.5
 See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#query_cache) ||
+|| jdbcBridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)**
+
+JDBC bridge for queries to external databases.
+https://clickhouse.com/docs/en/integrations/jdbc/jdbc-with-clickhouse ||
 |#
 
 ## MergeTree {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.MergeTree}
@@ -2077,6 +2093,20 @@ Dafault: 1048576 (1 MiB) ||
 
 The maximum number of rows SELECT query results may have to be saved in the cache.
 Default: 30000000 (30 mil) ||
+|#
+
+## JdbcBridge {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge}
+
+JDBC bridge for queries to external databases.
+
+#|
+||Field | Description ||
+|| host | **string**
+
+Required field. Host of jdbc bridge. ||
+|| port | **string** (int64)
+
+Port of jdbc bridge. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}

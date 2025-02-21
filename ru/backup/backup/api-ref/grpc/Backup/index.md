@@ -18,4 +18,5 @@ A set of methods for managing [backups](/docs/backup/concepts/backup).
 || [StartRecovery](startRecovery.md) | Start recovery process of specified backup to specific Compute Cloud instance. ||
 || [StartFilesRecovery](startFilesRecovery.md) | StartFilesRecovery runs recovery process of selected files to specific Compute Cloud instance. ||
 || [Delete](delete.md) | Delete specific backup. ||
+|| [DeleteArchive](deleteArchive.md) | Delete specific archive. ||
 |#

@@ -13,6 +13,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 #|
 ||Service | Description ||
+|| [BackupRetentionPolicy](BackupRetentionPolicy/index.md) | A set of methods for managing PostgreSQL Cluster backup retention policies. ||
 || [Backup](Backup/index.md) | A set of methods for managing PostgreSQL Backup resources. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing PostgreSQL Cluster resources. ||
 || [Database](Database/index.md) | A set of methods for managing PostgreSQL Database resources. ||

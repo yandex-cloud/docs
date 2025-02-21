@@ -1,17 +1,17 @@
 ---
-title: Editing an object's ACL in a {{ objstorage-full-name }} bucket
-description: Follow this guide to edit an object's ACL in an {{ objstorage-name }} bucket.
+title: Editing an object ACL in a {{ objstorage-full-name }} bucket
+description: Follow this guide to edit an object ACL in an {{ objstorage-name }} bucket.
 ---
 
-# Editing an object's ACL
+# Editing an object ACL
 
 {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
 
-To control access to an object in an {{ objstorage-name }} bucket, you can use an [ACL](../../concepts/acl.md).
+To manage access to an object in an {{ objstorage-name }} bucket, you can use an [ACL](../../concepts/acl.md).
 
 {% note info %}
 
-If an [ACL](../../concepts/acl.md) has been set for an object, it will be completely overwritten once you apply the changes.
+If your object already has a configured [ACL](../../concepts/acl.md), it will be completely overwritten once you apply the changes.
 
 {% endnote %}
 
@@ -23,9 +23,9 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
     1. To edit an ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the object name and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
-        You can also click the object name, click ![image](../../../_assets/console-icons/ellipsis.svg) on the page that opens, and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
+        Alternatively, you can click the object name, then, on the page that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
 
-    1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens, grant or revoke the appropriate permissions.
+    1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that opens, grant or revoke the relevant permissions.
 
         {% note info %}
   
@@ -59,7 +59,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
   * `--bucket`: Bucket name.
   * `--key`: Object key.
 
-  You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to an object or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md), and [public groups](../../concepts/acl.md#public-groups) (e.g., a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). These settings are not compatible: an object should have either a predefined ACL or a set of individual permissions.
+  You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to an object or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md), and [public groups](../../concepts/acl.md#public-groups), such as a group of all internet users or a group of all authenticated {{ yandex-cloud }} users. These settings cannot be used together: an object can have either a predefined ACL or individual permissions.
 
   **Predefined ACL**
 
@@ -78,7 +78,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
   * `--endpoint`: {{ objstorage-name }} endpoint.
   * `--bucket`: Bucket name.
   * `--key`: Object key.
-  * `--acl`: Predefined ACL. For the list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
+  * `--acl`: Predefined ACL. To view a list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
 
   **Setting up individual permissions**
 
@@ -86,7 +86,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
       
       * [User](../../../iam/operations/users/get.md).
-      * [Service account](../../../iam/operations/sa/get-id.md)
+      * [Service account](../../../iam/operations/sa/get-id.md).
       * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
@@ -104,14 +104,14 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
         * `--endpoint`: {{ objstorage-name }} endpoint.
         * `--bucket`: Bucket name.
         * `--key`: Object key.
-        * Possible types of ACL permissions:
+        * The possible types of ACL permissions are as follows:
           * `--grant-read`: Read access to the object.
           * `--grant-full-control`: Full access to the object.
-          * `--grant-read-acp`: Read access to the object's ACL.
-          * `--grant-write-acp`: Edit access to the object's ACL.
+          * `--grant-read-acp`: Read access to the object ACL.
+          * `--grant-write-acp`: Edit access to the object ACL.
 
-          You can set multiple permissions within the same command.
-        * The possible permission grantees are:
+          You can specify multiple permissions in a single command.
+        * The possible permission grantees are as follows:
           * `id=<grantee_ID>`: ID of the user, service account, or user group you need to grant a permission to.
           * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [Public group](../../concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
           * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: Public group that includes all internet users.
@@ -127,7 +127,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
-  To edit an object's ACL:
+  To edit an object ACL:
 
   1. Open the {{ TF }} configuration file and add the `acl` parameter to the object description:
 
@@ -147,9 +147,9 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
      Where:
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
-     * `acl`: [Predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of an object. The default value is `private`: {{ yandex-cloud }} users get permissions based on their roles in {{ iam-short-name }}.
+     * `acl`: Object's [predefined ACL](../../../storage/concepts/acl.md#predefined-acls). The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 
-     For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_object).
+     For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_object).
 
   1. Check the configuration using this command:
 
@@ -169,7 +169,7 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -179,11 +179,11 @@ If an [ACL](../../concepts/acl.md) has been set for an object, it will be comple
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the security group update in the [management console]({{ link-console-main }}).
+     You can check the security group update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-  To edit an object's ACL, use the [objectPutAcl](../../s3/api-ref/acl/objectput.md) S3 API method.
+  To edit an object ACL, use the [objectPutAcl](../../s3/api-ref/acl/objectput.md) S3 API method.
 
   To upload an object an install an ACL, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `X-Amz-Acl`, `X-Amz-Grant-Read`, `X-Amz-Grant-Read-Acp`, `X-Amz-Grant-Write-Acp`, and `X-Amz-Grant-Full-Control` headers.
 

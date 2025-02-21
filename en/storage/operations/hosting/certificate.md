@@ -5,7 +5,7 @@ description: Follow this guide to configure HTTPS for hosting in {{ objstorage-n
 
 # Configuring HTTPS
 
-If you are using a bucket to [host a static website](../../concepts/hosting.md), then to access the website via HTTPS, you will need to upload your own security certificate and a corresponding secret key.
+If you are using your bucket to [host a static website](../../concepts/hosting.md), you need to upload your own security certificate and the respective secret key to access the website over HTTPS.
 
 
 {% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
@@ -15,19 +15,19 @@ If you are using a bucket to [host a static website](../../concepts/hosting.md),
 
 {% note info %}
 
-Access to the bucket via HTTPS becomes available within thirty minutes of uploading a certificate.
+The bucket becomes accessible over HTTPS within 30 minutes of uploading the certificate.
 
 {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
 {% endnote %}
 
-## Select a certificate from {{ certificate-manager-name }} {#cert-manager}
+## Selecting a certificate from {{ certificate-manager-name }} {#cert-manager}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
     1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
     1. Click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
@@ -36,7 +36,7 @@ Access to the bucket via HTTPS becomes available within thirty minutes of upload
     
         {% note info %}
         
-        If you do not have a certificate in {{ certificate-manager-full-name }}, click **Go to {{ certificate-manager-name }}** and follow the [guide](../../../certificate-manager/quickstart/index.md) on how to create your first certificate.  
+        If you do not have a certificate in {{ certificate-manager-full-name }} yet, click **Go to {{ certificate-manager-name }}** and follow [this guide](../../../certificate-manager/quickstart/index.md) to create your first certificate.
         
         {% endnote %}
 
@@ -48,7 +48,7 @@ Access to the bucket via HTTPS becomes available within thirty minutes of upload
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to edit a bucket ACL:
+  1. See the description of the CLI command for editing a bucket ACL:
 
      ```bash
      yc storage bucket update --help
@@ -98,9 +98,9 @@ Access to the bucket via HTTPS becomes available within thirty minutes of upload
      ```
 
      Where:
-     * `certificate_id`: Сertificate ID in {{ certificate-manager-name }} that will be used for the bucket.
+     * `certificate_id`: Certificate ID in {{ certificate-manager-name }} that will be used for the bucket.
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
+     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
   1. Check the configuration using this command:
 
@@ -130,7 +130,7 @@ Access to the bucket via HTTPS becomes available within thirty minutes of upload
      
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can use the [management console]({{ link-console-main }}) to check the selected certificate.
+     You can check the selected certificate using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -138,11 +138,11 @@ Access to the bucket via HTTPS becomes available within thirty minutes of upload
 
 {% endlist %}
 
-## Upload your own security certificate {#own}
+## Uploading a custom security certificate {#own}
 
 To [upload](../../../certificate-manager/operations/import/cert-create.md) a custom certificate, use {{ certificate-manager-name }}.
 
-When you are uploading a chain of certificates, it should start with the domain certificate and end with the root certificate. You can create a chain file using the following command:
+When uploading a certificate chain, make sure it starts with the domain certificate and ends with the root one. To create a chain file, use the following command:
 
 ```bash
 cat domain.pem intermediate.pem rootca.pem > bundle.pem
@@ -156,7 +156,7 @@ To upload a certificate:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you need.
+   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket in question.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
    1. Select the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.
    1. Click **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
@@ -166,7 +166,7 @@ To upload a certificate:
 
 - API {#api}
 
-  To upload your own security certificate, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md) gRPC API call.
+  To upload a custom security certificate, use the [setHTTPSConfig](../../api-ref/Bucket/setHTTPSConfig.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/SetHTTPSConfig](../../api-ref/grpc/Bucket/setHTTPSConfig.md) gRPC API call.
 
 {% endlist %}
 

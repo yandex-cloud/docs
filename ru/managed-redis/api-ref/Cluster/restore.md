@@ -148,7 +148,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
       "turnBeforeSwitchover": "boolean",
       "allowDataLoss": "boolean",
       "useLuajit": "boolean",
-      "ioThreadsAllowed": "boolean"
+      "ioThreadsAllowed": "boolean",
+      "zsetMaxListpackEntries": "string"
     },
     "diskSizeAutoscaling": {
       "plannedUsageThreshold": "string",
@@ -183,7 +184,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
       "hour": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "authSentinel": "boolean"
 }
 ```
 
@@ -246,6 +248,9 @@ Enable FQDN instead of ip ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
+|| authSentinel | **boolean**
+
+Allows to use ACL users to auth in sentinel ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.redis.v1.ConfigSpec}
@@ -715,6 +720,9 @@ Use JIT for lua scripts and functions ||
 || ioThreadsAllowed | **boolean**
 
 Allow redis to use io-threads ||
+|| zsetMaxListpackEntries | **string** (int64)
+
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1153,7 +1161,8 @@ Hour of the day in UTC (in `HH` format). ||
           "turnBeforeSwitchover": "boolean",
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
-          "ioThreadsAllowed": "boolean"
+          "ioThreadsAllowed": "boolean",
+          "zsetMaxListpackEntries": "string"
         },
         "userConfig": {
           "maxmemoryPolicy": "string",
@@ -1184,7 +1193,8 @@ Hour of the day in UTC (in `HH` format). ||
           "turnBeforeSwitchover": "boolean",
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
-          "ioThreadsAllowed": "boolean"
+          "ioThreadsAllowed": "boolean",
+          "zsetMaxListpackEntries": "string"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "string",
@@ -1215,7 +1225,8 @@ Hour of the day in UTC (in `HH` format). ||
           "turnBeforeSwitchover": "boolean",
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
-          "ioThreadsAllowed": "boolean"
+          "ioThreadsAllowed": "boolean",
+          "zsetMaxListpackEntries": "string"
         }
       },
       "diskSizeAutoscaling": {
@@ -1248,7 +1259,8 @@ Hour of the day in UTC (in `HH` format). ||
     "tlsEnabled": "boolean",
     "deletionProtection": "boolean",
     "persistenceMode": "string",
-    "announceHostnames": "boolean"
+    "announceHostnames": "boolean",
+    "authSentinel": "boolean"
   }
   // end of the list of possible fields
 }
@@ -1450,6 +1462,9 @@ Persistence mode
 || announceHostnames | **boolean**
 
 Enable FQDN instead of ip ||
+|| authSentinel | **boolean**
+
+Allows to use ACL users to auth in sentinel ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
@@ -2022,6 +2037,9 @@ Use JIT for lua scripts and functions ||
 || ioThreadsAllowed | **boolean**
 
 Allow redis to use io-threads ||
+|| zsetMaxListpackEntries | **string** (int64)
+
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2}

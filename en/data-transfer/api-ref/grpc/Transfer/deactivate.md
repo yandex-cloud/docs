@@ -5,6 +5,10 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/deactivate.md
 
 # Data Transfer API, gRPC: TransferService.Deactivate
 
+Deactivates the specified transfer.
+
+To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/grpc/Transfer/list#List) request.
+
 ## gRPC request
 
 **rpc Deactivate ([DeactivateTransferRequest](#yandex.cloud.datatransfer.v1.DeactivateTransferRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
@@ -19,7 +23,11 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/deactivate.md
 
 #|
 ||Field | Description ||
-|| transfer_id | **string** ||
+|| transfer_id | **string**
+
+Identifier of the transfer to be deactivated.
+
+To get the list of all available transfers, make a [List](/docs/datatransfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

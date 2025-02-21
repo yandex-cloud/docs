@@ -5,7 +5,7 @@ description: В {{ foundation-models-full-name }} вы можете дообуч
 
 # Дообучение моделей классификации
 
-_Дообучение моделей в {{ foundation-models-full-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и предоставляется по запросу. Вы можете заполнить заявку в [консоли управления]({{ link-console-main }}/link/foundation-models/)._
+_Дообучение моделей в {{ foundation-models-full-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md)._
 
 В {{ foundation-models-full-name }} вы можете дообучить классификаторы на базе {{ gpt-lite }}.
 

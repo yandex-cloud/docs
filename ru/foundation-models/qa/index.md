@@ -7,8 +7,10 @@ description: Как получить логи моей работы в серв�
 
 {% include [logs](../../_qa/logs.md) %}
 
-{% include [demo-yagpt](../../_qa/demo-yagpt.md) %}
+Получить историю запросов к моделям из логов нельзя. Данные запросов [хранятся](../operations/disable-logging.md) в обезличенном формате и без привязки к вашему аккаунту.
 
 {% include [chat-history](../../_qa/chat-history.md) %}
+
+{% include [demo-yagpt](../../_qa/demo-yagpt.md) %}
 
 {% include [requests-ai-from-frontend](../../_qa/requests-ai-from-frontend.md) %}

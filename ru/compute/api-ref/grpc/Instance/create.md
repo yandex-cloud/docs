@@ -180,7 +180,8 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
   "maintenance_grace_period": "google.protobuf.Duration",
   "serial_port_settings": {
     "ssh_authorization": "SSHAuthorization"
-  }
+  },
+  "reserved_instance_pool_id": "string"
 }
 ```
 
@@ -285,6 +286,11 @@ Time between notification via metadata service and maintenance ||
 || serial_port_settings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)**
 
 Serial port settings ||
+|| reserved_instance_pool_id | **string**
+
+ID of the reserved instance pool that the instance should belong to.
+Instance will be created using resources from the reserved instance pool.
+Reserved instance pool resource configuration must match the resource configuration of the instance. ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec}
@@ -772,7 +778,8 @@ Authentication and authorization in serial console when using SSH protocol
       },
       "generation2_features": "Generation2HardwareFeatures"
       // end of the list of possible fields
-    }
+    },
+    "reserved_instance_pool_id": "string"
   }
   // end of the list of possible fields
 }
@@ -955,6 +962,9 @@ Time between notification via metadata service and maintenance ||
 || hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 This feature set is inherited from the image/disk used as a boot one at the creation of the instance. ||
+|| reserved_instance_pool_id | **string**
+
+ID of the reserved instance pool that the instance belongs to. ||
 |#
 
 ## Resources {#yandex.cloud.compute.v1.Resources}

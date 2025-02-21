@@ -142,7 +142,15 @@ Required field. Policy ID. ||
     },
     "cbt": "string",
     "fastBackupEnabled": "boolean",
-    "quiesceSnapshottingEnabled": "boolean"
+    "quiesceSnapshottingEnabled": "boolean",
+    "fileFilters": {
+      "exclusionMasks": [
+        "string"
+      ],
+      "inclusionMasks": [
+        "string"
+      ]
+    }
   }
 }
 ```
@@ -226,6 +234,9 @@ If true, determines whether a file has changed by the file size and timestamp. O
 || quiesceSnapshottingEnabled | **boolean**
 
 If true, a quiesced snapshot of the virtual machine will be taken. ||
+|| fileFilters | **[FileFilters](#yandex.cloud.backup.v1.PolicySettings.FileFilters)**
+
+File filters to specify masks of files to backup or to exclude of backuping ||
 |#
 
 ## RetriesConfiguration {#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration}
@@ -484,6 +495,18 @@ Minutes. ||
 Required field. The interval between backups. ||
 |#
 
+## FileFilters {#yandex.cloud.backup.v1.PolicySettings.FileFilters}
+
+#|
+||Field | Description ||
+|| exclusionMasks[] | **string**
+
+Do not backup files that match the following criteria ||
+|| inclusionMasks[] | **string**
+
+Backup only files that match the following criteria ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -629,7 +652,15 @@ Required field. The interval between backups. ||
       },
       "cbt": "string",
       "fastBackupEnabled": "boolean",
-      "quiesceSnapshottingEnabled": "boolean"
+      "quiesceSnapshottingEnabled": "boolean",
+      "fileFilters": {
+        "exclusionMasks": [
+          "string"
+        ],
+        "inclusionMasks": [
+          "string"
+        ]
+      }
     },
     "folderId": "string"
   }
@@ -841,6 +872,9 @@ If true, determines whether a file has changed by the file size and timestamp. O
 || quiesceSnapshottingEnabled | **boolean**
 
 If true, a quiesced snapshot of the virtual machine will be taken. ||
+|| fileFilters | **[FileFilters](#yandex.cloud.backup.v1.PolicySettings.FileFilters2)**
+
+File filters to specify masks of files to backup or to exclude of backuping ||
 |#
 
 ## RetriesConfiguration {#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration2}
@@ -1097,4 +1131,16 @@ Minutes. ||
 || delay | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval2)**
 
 Required field. The interval between backups. ||
+|#
+
+## FileFilters {#yandex.cloud.backup.v1.PolicySettings.FileFilters2}
+
+#|
+||Field | Description ||
+|| exclusionMasks[] | **string**
+
+Do not backup files that match the following criteria ||
+|| inclusionMasks[] | **string**
+
+Backup only files that match the following criteria ||
 |#

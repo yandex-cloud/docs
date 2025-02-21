@@ -9,10 +9,11 @@ This API reference is organized about resources to be used by Cloud Interconnect
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/cic/v1).
 
-**Service URL**: `https://cic-api.{{ api-host }}`
+**Service URL**: `https://cic.{{ api-host }}`
 
 #|
 ||Service | Description ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [Partner](Partner/index.md) | A set of methods for managing Partner resources. ||
 || [PointOfPresence](PointOfPresence/index.md) | A set of methods for managing PointOfPresence resources. ||
 || [PrivateConnection](PrivateConnection/index.md) | A set of methods for managing PrivateConnection resources. ||

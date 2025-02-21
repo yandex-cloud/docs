@@ -39,7 +39,8 @@ Required field. ID of the dataset to validate. ||
   "metadata": {
     "dataset_id": "string",
     "valid_rows": "int64",
-    "processed_rows": "int64"
+    "processed_rows": "int64",
+    "total_rows": "int64"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -128,6 +129,9 @@ Count of valid rows among currently processed rows in the dataset. ||
 || processed_rows | **int64**
 
 Count of currently processed rows in the dataset. ||
+|| total_rows | **int64**
+
+Total count of rows in the dataset ||
 |#
 
 ## ValidateDatasetResponse {#yandex.cloud.ai.dataset.v1.ValidateDatasetResponse}

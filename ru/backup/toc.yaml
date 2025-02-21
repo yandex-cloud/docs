@@ -208,6 +208,8 @@ items:
                 href: backup/api-ref/grpc/Backup/startFilesRecovery.md
               - name: Delete
                 href: backup/api-ref/grpc/Backup/delete.md
+              - name: DeleteArchive
+                href: backup/api-ref/grpc/Backup/deleteArchive.md
           - name: Operation
             items:
               - name: Overview

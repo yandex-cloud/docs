@@ -194,7 +194,8 @@ Required field. The index of the network interface. ||
       },
       "generation2_features": "Generation2HardwareFeatures"
       // end of the list of possible fields
-    }
+    },
+    "reserved_instance_pool_id": "string"
   }
   // end of the list of possible fields
 }
@@ -380,6 +381,9 @@ Time between notification via metadata service and maintenance ||
 || hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 This feature set is inherited from the image/disk used as a boot one at the creation of the instance. ||
+|| reserved_instance_pool_id | **string**
+
+ID of the reserved instance pool that the instance belongs to. ||
 |#
 
 ## Resources {#yandex.cloud.compute.v1.Resources}

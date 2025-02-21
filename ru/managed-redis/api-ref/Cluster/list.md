@@ -353,7 +353,8 @@ The expression must specify:
             "turnBeforeSwitchover": "boolean",
             "allowDataLoss": "boolean",
             "useLuajit": "boolean",
-            "ioThreadsAllowed": "boolean"
+            "ioThreadsAllowed": "boolean",
+            "zsetMaxListpackEntries": "string"
           },
           "userConfig": {
             "maxmemoryPolicy": "string",
@@ -384,7 +385,8 @@ The expression must specify:
             "turnBeforeSwitchover": "boolean",
             "allowDataLoss": "boolean",
             "useLuajit": "boolean",
-            "ioThreadsAllowed": "boolean"
+            "ioThreadsAllowed": "boolean",
+            "zsetMaxListpackEntries": "string"
           },
           "defaultConfig": {
             "maxmemoryPolicy": "string",
@@ -415,7 +417,8 @@ The expression must specify:
             "turnBeforeSwitchover": "boolean",
             "allowDataLoss": "boolean",
             "useLuajit": "boolean",
-            "ioThreadsAllowed": "boolean"
+            "ioThreadsAllowed": "boolean",
+            "zsetMaxListpackEntries": "string"
           }
         },
         "diskSizeAutoscaling": {
@@ -448,7 +451,8 @@ The expression must specify:
       "tlsEnabled": "boolean",
       "deletionProtection": "boolean",
       "persistenceMode": "string",
-      "announceHostnames": "boolean"
+      "announceHostnames": "boolean",
+      "authSentinel": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -566,6 +570,9 @@ Persistence mode
 || announceHostnames | **boolean**
 
 Enable FQDN instead of ip ||
+|| authSentinel | **boolean**
+
+Allows to use ACL users to auth in sentinel ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
@@ -1138,6 +1145,9 @@ Use JIT for lua scripts and functions ||
 || ioThreadsAllowed | **boolean**
 
 Allow redis to use io-threads ||
+|| zsetMaxListpackEntries | **string** (int64)
+
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}

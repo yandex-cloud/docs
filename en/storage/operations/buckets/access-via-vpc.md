@@ -11,7 +11,7 @@ description: Follow this guide to set up access to a bucket using a service conn
 
 To enable access to a bucket using a service connection from {{ vpc-short-name }}:
 1. [Create a {{ vpc-short-name }} service connection](#create-endpoint).
-1. [Configure the access policy for the bucket](#setup-policy).
+1. [Configure a bucket policy](#setup-policy).
 
 ## Create a {{ vpc-short-name }} service connection {#create-endpoint}
 
@@ -29,9 +29,9 @@ Save the service connection ID.
 
 {{ objstorage-name }} buckets are now accessible via the {{ vpc-short-name }} internal IP address without any internet access.
 
-## Configure the access policy for the bucket {#setup-policy}
+## Configure a bucket policy {#setup-policy}
 
-To restrict access to a bucket to _{{ vpc-short-name }} internal IP addresses only_, assign a bucket policy for the service connection.
+To restrict access to a bucket to _{{ vpc-short-name }} internal IP addresses only_, configure a bucket policy for service connectivity.
 
 {% include [private-endpoint-policy-tabs](../../../_includes/storage/private-endpoint-policy-tabs.md) %}
 

@@ -1,1 +1,1 @@
-_Дообучение моделей по методу {{ lora }} находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу. Вы можете заполнить заявку в [консоли управления]({{ link-console-main }}/link/foundation-models/)._
+_Дообучение моделей по методу {{ lora }} находится на стадии [Preview](../../overview/concepts/launch-stages.md)._

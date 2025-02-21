@@ -76,7 +76,10 @@ returned by the previous list request. ||
         "string"
       ],
       "deletion_protection": "google.protobuf.BoolValue",
-      "user_password_encryption": "UserPasswordEncryption"
+      "user_password_encryption": "UserPasswordEncryption",
+      "connection_manager": {
+        "connection_id": "string"
+      }
     }
   ],
   "next_page_token": "string"
@@ -146,6 +149,9 @@ The default is `` password_encryption `` setting for cluster.
 - `USER_PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `USER_PASSWORD_ENCRYPTION_MD5`
 - `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| connection_manager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
+
+Connection Manager Connection and settings associated with user. Read only field. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -315,4 +321,13 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
 - `PG_AUDIT_SETTINGS_LOG_DDL`
 - `PG_AUDIT_SETTINGS_LOG_MISC`
 - `PG_AUDIT_SETTINGS_LOG_MISC_SET` ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.postgresql.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+ID of Connection Manager Connection ||
 |#

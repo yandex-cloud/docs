@@ -117,8 +117,8 @@ To set up default object locks:
   1. Enable **{{ ui-key.yacloud.storage.bucket.object-lock.field_rule-enabled }}**.
   1. Select **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
      * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass a lock, change its expiration date, or remove it.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the lock period. You cannot bypass, shorten, or remove such a lock until it expires.
-  1. Specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** in days or years. It starts from the moment you upload the object version to the bucket.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. Such locks cannot be bypassed, shortened, or removed until they expire.
+  1. Specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** in days or years. It starts from the moment the object version is uploaded to the bucket.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}

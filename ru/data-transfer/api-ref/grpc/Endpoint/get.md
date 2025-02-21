@@ -5,6 +5,10 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
 
 # Data Transfer API, gRPC: EndpointService.Get
 
+Returns the specified endpoint.
+
+To get the list of all available endpoints, make a [List](/docs/datatransfer/api-ref/grpc/Endpoint/list#List) request.
+
 ## gRPC request
 
 **rpc Get ([GetEndpointRequest](#yandex.cloud.datatransfer.v1.GetEndpointRequest)) returns ([Endpoint](#yandex.cloud.datatransfer.v1.Endpoint))**
@@ -19,7 +23,11 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
 
 #|
 ||Field | Description ||
-|| endpoint_id | **string** ||
+|| endpoint_id | **string**
+
+Identifier of the endpoint to return.
+
+To get the endpoint ID, make an [EndpointService.List](/docs/datatransfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 
 ## Endpoint {#yandex.cloud.datatransfer.v1.Endpoint}
@@ -35,7 +43,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
     // Includes only one of the fields `mysql_source`, `postgres_source`, `ydb_source`, `yds_source`, `kafka_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target`, `ydb_target`, `kafka_target`, `mongo_target`, `metrika_source`, `yds_target`
     "mysql_source": {
       "connection": {
-        // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+        // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
         "mdb_cluster_id": "string",
         "on_premise": {
           "port": "int64",
@@ -51,6 +59,10 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
             }
             // end of the list of possible fields
           }
+        },
+        "connection_manager_connection": {
+          "connection_id": "string",
+          "subnet_id": "string"
         }
         // end of the list of possible fields
       },
@@ -81,7 +93,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
     },
     "postgres_source": {
       "connection": {
-        // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+        // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
         "mdb_cluster_id": "string",
         "on_premise": {
           "port": "int64",
@@ -97,6 +109,10 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
             }
             // end of the list of possible fields
           }
+        },
+        "connection_manager_connection": {
+          "connection_id": "string",
+          "subnet_id": "string"
         }
         // end of the list of possible fields
       },
@@ -416,7 +432,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
     },
     "mysql_target": {
       "connection": {
-        // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+        // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
         "mdb_cluster_id": "string",
         "on_premise": {
           "port": "int64",
@@ -432,6 +448,10 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
             }
             // end of the list of possible fields
           }
+        },
+        "connection_manager_connection": {
+          "connection_id": "string",
+          "subnet_id": "string"
         }
         // end of the list of possible fields
       },
@@ -453,7 +473,7 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
     },
     "postgres_target": {
       "connection": {
-        // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+        // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
         "mdb_cluster_id": "string",
         "on_premise": {
           "port": "int64",
@@ -469,6 +489,10 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Endpoint/get.md
             }
             // end of the list of possible fields
           }
+        },
+        "connection_manager_connection": {
+          "connection_id": "string",
+          "subnet_id": "string"
         }
         // end of the list of possible fields
       },
@@ -831,12 +855,15 @@ __tm_gtid_keeper). ||
 
 Managed Service for MySQL cluster ID
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 || on_premise | **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
 
 Connection options for on-premise MySQL
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
+|| connection_manager_connection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 |#
 
 ## OnPremiseMysql {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql}
@@ -878,6 +905,16 @@ CA certificate
 X.509 certificate of the certificate authority which issued the server's
 certificate, in PEM format. When CA certificate is specified TLS is used to
 connect to the server. ||
+|#
+
+## ConnectionManagerConnection {#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection}
+
+#|
+||Field | Description ||
+|| connection_id | **string** ||
+|| subnet_id | **string**
+
+Network interface for endpoint. If none will assume public ipv4 ||
 |#
 
 ## Secret {#yandex.cloud.datatransfer.v1.endpoint.Secret}
@@ -985,12 +1022,15 @@ Security groups ||
 
 Managed Service for PostgreSQL cluster ID
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 || on_premise | **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
 
 Connection options for on-premise PostgreSQL
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
+|| connection_manager_connection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 |#
 
 ## OnPremisePostgres {#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres}
@@ -1184,6 +1224,10 @@ CREATE MATERIALIZED VIEW ...
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
 || sequence_set | enum **ObjectTransferStage**
+
+Sequence sets
+
+CREATE SEQUENCE ...
 
 - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
 - `BEFORE_DATA`: Before data transfer

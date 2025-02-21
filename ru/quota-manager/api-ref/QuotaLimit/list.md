@@ -60,7 +60,7 @@ Required field. The type of the resource, e.g. resource-manager.cloud, billing.a
       "usage": "number"
     }
   ],
-  "pageToken": "string"
+  "nextPageToken": "string"
 }
 ```
 
@@ -72,7 +72,7 @@ The associated resource for these quota limits. ||
 || quotaLimits[] | **[QuotaLimit](#yandex.cloud.quotamanager.v1.QuotaLimit)**
 
 List of quota limits for the specified resource and service. ||
-|| pageToken | **string**
+|| nextPageToken | **string**
 
 Token to retrieve the next page of results. ||
 |#

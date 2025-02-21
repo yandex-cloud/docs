@@ -5,7 +5,7 @@ description: Follow this guide to manage object custom metadata in an {{ objstor
 
 # Managing object custom metadata
 
-When uploading an object to {{ objstorage-name }}, you can provide a set of [custom metadata](../../concepts/object.md#user-meta) in the form of `key-value` pairs.
+When uploading an object to {{ objstorage-name }}, you can provide [custom metadata](../../concepts/object.md#user-meta) in the form of `key-value` pairs.
 
 ## Uploading an object with metadata {#load-object-with-meta}
 
@@ -30,7 +30,7 @@ When uploading an object to {{ objstorage-name }}, you can provide a set of [cus
   * `--bucket`: Name of the bucket you want to upload the object to.
   * `--key`: Bucket object [key](../../concepts/object.md#key).
   * `--body`: Path to the local file you want to upload to the bucket.
-  * `--metadata`: Custom metadata provided as comma-separated `key-value` pairs. Keys must only consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII). The value may not exceed 2 KB.
+  * `--metadata`: Custom metadata provided as comma-separated `key-value` pairs. Keys must only consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII). The value cannot exceed 2 KB.
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
 - API {#api}
@@ -68,7 +68,7 @@ When uploading an object to {{ objstorage-name }}, you can provide a set of [cus
   * `BUCKET_NAME`: Name of the bucket you want to upload the object to.
   * `OBJECT_PATH`: Bucket object [key](../../concepts/object.md#key).
   * `META_KEY_1` and `META_KEY_1`: Custom metadata keys. Keys must only consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII).
-  * `META_VALUE_1` and `META_VALUE_2`: Custom metadata values. The value may not exceed 2 KB.
+  * `META_VALUE_1` and `META_VALUE_2`: Custom metadata values. The value cannot exceed 2 KB.
 
 {% endlist %}
 
@@ -82,7 +82,7 @@ When uploading an object to {{ objstorage-name }}, you can provide a set of [cus
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to get the object metadata:
+  1. See the description of the CLI command for getting object metadata:
 
       ```bash
       yc storage s3api head-object --help
@@ -174,11 +174,11 @@ When uploading an object to {{ objstorage-name }}, you can provide a set of [cus
 
 {% endlist %}
 
-## Editing object metadata {#update-object-meta}
+## Updating object metadata {#update-object-meta}
 
 {% note warning %}
 
-The existing set of custom metadata will be completely overwritten by the new one.
+The existing custom metadata will be completely overwritten by the new metadata.
 
 {% endnote %}
 
@@ -201,11 +201,11 @@ The existing set of custom metadata will be completely overwritten by the new on
   ```
 
   Where:
-  * `--bucket`: Name of the bucket you want to edit the object metadata in.
+  * `--bucket`: Name of the bucket where you want to update the object metadata.
   * `--key`: Bucket object [key](../../concepts/object.md#key).
   * `--copy-source`: Path to the object in `<bucket_name>/<object_key>` format.
-  * `--metadata`: New custom metadata provided as comma-separated `key-value` pairs. Keys must only consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII). The value may not exceed 2 KB.
-  * `--metadata-directive`: Parameter indicating that the object metadata must be replaced with new metadata.
+  * `--metadata`: New custom metadata provided as comma-separated `key-value` pairs. Keys must only consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII). The value cannot exceed 2 KB.
+  * `--metadata-directive`: Parameter specifying the need to overwrite the object metadata with new metadata.
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
 
 - API {#api}
@@ -239,9 +239,9 @@ The existing set of custom metadata will be completely overwritten by the new on
   Where:
   * `AWS_KEY_ID`: Static access key [ID](../../../iam/concepts/authorization/access-key.md#key-id).
   * `AWS_SECRET_KEY`: [Secret key](../../../iam/concepts/authorization/access-key.md#private-key).
-  * `BUCKET_NAME`: Name of the bucket you want to edit the object metadata in.
+  * `BUCKET_NAME`: Name of the bucket where you want to update the object metadata.
   * `OBJECT_PATH`: Bucket object [key](../../concepts/object.md#key).
   * `META_KEY_1` and `META_KEY_1`: New custom metadata keys. Keys must only consist of [ASCII characters](https://{{ lang }}.wikipedia.org/wiki/ASCII).
-  * `META_VALUE_1` and `META_VALUE_2`: New custom metadata values. The value may not exceed 2 KB.
+  * `META_VALUE_1` and `META_VALUE_2`: New custom metadata values. The value cannot exceed 2 KB.
 
 {% endlist %}

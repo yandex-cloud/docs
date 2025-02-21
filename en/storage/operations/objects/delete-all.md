@@ -1,13 +1,13 @@
 ---
-title: Deleting all objects in an {{ objstorage-full-name }} bucket
-description: Follow this guide to delete all objects in an {{ objstorage-name }} bucket.
+title: Deleting all objects from a bucket in {{ objstorage-full-name }}
+description: Follow this guide to delete all objects from a bucket in {{ objstorage-name }}.
 ---
 
-# Deleting all objects in a bucket
+# Deleting all objects from a bucket
 
 {% include [auto-delete-all-multipart](../../../_includes/storage/auto-delete-all-multipart.md) %}
 
-To clear a bucket and not [pay](../../pricing.md) for storage:
+To clear a bucket and avoid storage[charges](../../pricing.md):
 
 {% list tabs group=instructions %}
 
@@ -39,7 +39,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-  1. Prepare a JSON file with a list of objects to delete. Example of contents:
+  1. Prepare a JSON file listing the objects to delete. Here is an example of its contents:
 
       ```json
       {
@@ -71,7 +71,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
       Where:
 
       * `--bucket`: Name of your bucket.
-      * `--delete`: Path to the JSON file with a list of objects to delete.
+      * `--delete`: Path to the JSON file listing the objects to delete.
 
       Result:
 
@@ -94,7 +94,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
      BUCKET_NAME=<bucket_name>
      ```
      
-  1. Delete all versions of objects from the bucket:
+  1. Delete all object versions from the bucket:
     
      ```bash
      aws s3api delete-objects \
@@ -128,9 +128,9 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
      }
      ```
          
-     Using this command, you can delete up to 1,000 versions of objects: this is related to restrictions for the `aws s3api delete-objects` operation. If there are more versions in the bucket, run the command several times.
+     Using this command, you can delete a maximum of 1,000 object versions at a time due to the `aws s3api delete-objects` limitations. If your bucket contains more versions, run the command multiple times.
   
-  1. If the bucket has [versioning](../../concepts/versioning.md) enabled, delete all the delete markers:
+  1. For buckets with enabled [versioning](../../concepts/versioning.md), remove all delete markers:
        
      ```bash
      aws s3api delete-objects \
@@ -166,7 +166,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
      }
      ```
      
-     Using this command, you can delete up to 1,000 delete markers: this is related to restrictions for the `aws s3api delete-objects` operation. If there are more versions in the bucket, run the command several times.
+     Using this command, you can delete a maximum of 1,000 delete markers at a time due to the `aws s3api delete-objects` limitations. If your bucket contains more delete markers, run the command multiple times.
    
   1. Delete partially uploaded objects:
     
@@ -200,7 +200,7 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
      done
      ```
        
-     The list may contain parts of objects that began uploading before and finished uploading after the previous step executed. If the list is not empty, repeat steps 4 and 5.
+     The list may include parts of objects whose upload started before and completed after the preceding step. If the list is not empty, repeat steps 4 and 5.
      
 - Python (boto3) {#boto3}
 
@@ -233,4 +233,4 @@ To clear a bucket and not [pay](../../pricing.md) for storage:
 
 {% endlist %}
 
-In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
+In the management console, the information about the number of objects and storage space used in the bucket is updated with a few minutes' delay.

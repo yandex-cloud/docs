@@ -148,7 +148,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters
       "turnBeforeSwitchover": "boolean",
       "allowDataLoss": "boolean",
       "useLuajit": "boolean",
-      "ioThreadsAllowed": "boolean"
+      "ioThreadsAllowed": "boolean",
+      "zsetMaxListpackEntries": "string"
     },
     "diskSizeAutoscaling": {
       "plannedUsageThreshold": "string",
@@ -183,7 +184,24 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters
       "hour": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "userSpecs": [
+    {
+      "name": "string",
+      "passwords": [
+        "string"
+      ],
+      "permissions": {
+        "patterns": "string",
+        "pubSubChannels": "string",
+        "categories": "string",
+        "commands": "string",
+        "sanitizePayload": "string"
+      },
+      "enabled": "boolean"
+    }
+  ],
+  "authSentinel": "boolean"
 }
 ```
 
@@ -244,6 +262,12 @@ Enable FQDN instead of ip ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
+|| userSpecs[] | **[UserSpec](#yandex.cloud.mdb.redis.v1.UserSpec)**
+
+Descriptions of users to be created in the Redis cluster. ||
+|| authSentinel | **boolean**
+
+Allows to use ACL users to auth in sentinel ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.redis.v1.ConfigSpec}
@@ -713,6 +737,9 @@ Use JIT for lua scripts and functions ||
 || ioThreadsAllowed | **boolean**
 
 Allow redis to use io-threads ||
+|| zsetMaxListpackEntries | **string** (int64)
+
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -819,6 +846,45 @@ Day of the week (in `DDD` format).
 || hour | **string** (int64)
 
 Hour of the day in UTC (in `HH` format). ||
+|#
+
+## UserSpec {#yandex.cloud.mdb.redis.v1.UserSpec}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the Redis user. ||
+|| passwords[] | **string**
+
+Password of the Redis user. ||
+|| permissions | **[Permissions](#yandex.cloud.mdb.redis.v1.Permissions)**
+
+Set of permissions to grant to the user. ||
+|| enabled | **boolean**
+
+Is Redis user enabled ||
+|#
+
+## Permissions {#yandex.cloud.mdb.redis.v1.Permissions}
+
+#|
+||Field | Description ||
+|| patterns | **string**
+
+Keys patterns user has permission to. ||
+|| pubSubChannels | **string**
+
+Channel patterns user has permissions to. ||
+|| categories | **string**
+
+Command categories user has permissions to. ||
+|| commands | **string**
+
+Commands user can execute. ||
+|| sanitizePayload | **string**
+
+SanitizePayload parameter. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -1150,7 +1216,8 @@ Hour of the day in UTC (in `HH` format). ||
           "turnBeforeSwitchover": "boolean",
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
-          "ioThreadsAllowed": "boolean"
+          "ioThreadsAllowed": "boolean",
+          "zsetMaxListpackEntries": "string"
         },
         "userConfig": {
           "maxmemoryPolicy": "string",
@@ -1181,7 +1248,8 @@ Hour of the day in UTC (in `HH` format). ||
           "turnBeforeSwitchover": "boolean",
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
-          "ioThreadsAllowed": "boolean"
+          "ioThreadsAllowed": "boolean",
+          "zsetMaxListpackEntries": "string"
         },
         "defaultConfig": {
           "maxmemoryPolicy": "string",
@@ -1212,7 +1280,8 @@ Hour of the day in UTC (in `HH` format). ||
           "turnBeforeSwitchover": "boolean",
           "allowDataLoss": "boolean",
           "useLuajit": "boolean",
-          "ioThreadsAllowed": "boolean"
+          "ioThreadsAllowed": "boolean",
+          "zsetMaxListpackEntries": "string"
         }
       },
       "diskSizeAutoscaling": {
@@ -1245,7 +1314,8 @@ Hour of the day in UTC (in `HH` format). ||
     "tlsEnabled": "boolean",
     "deletionProtection": "boolean",
     "persistenceMode": "string",
-    "announceHostnames": "boolean"
+    "announceHostnames": "boolean",
+    "authSentinel": "boolean"
   }
   // end of the list of possible fields
 }
@@ -1444,6 +1514,9 @@ Persistence mode
 || announceHostnames | **boolean**
 
 Enable FQDN instead of ip ||
+|| authSentinel | **boolean**
+
+Allows to use ACL users to auth in sentinel ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}
@@ -2016,6 +2089,9 @@ Use JIT for lua scripts and functions ||
 || ioThreadsAllowed | **boolean**
 
 Allow redis to use io-threads ||
+|| zsetMaxListpackEntries | **string** (int64)
+
+Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit2}

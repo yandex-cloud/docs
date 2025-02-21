@@ -67,7 +67,10 @@ To get the next page of results, set `pageToken` to the [ListUsersResponse.nextP
         "maxConnectionsPerHour": "string",
         "maxUserConnections": "string"
       },
-      "authenticationPlugin": "string"
+      "authenticationPlugin": "string",
+      "connectionManager": {
+        "connectionId": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -134,7 +137,12 @@ User authentication plugin.
 - `AUTH_PLUGIN_UNSPECIFIED`
 - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
 - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html). ||
+- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
+- `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
+- `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/). ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mysql.v1.ConnectionManager)**
+
+Connection Manager Connection and settings associated with user. Read only field. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}
@@ -192,4 +200,13 @@ The maximum permitted number of simultaneous client connections per hour. ||
 || maxUserConnections | **string** (int64)
 
 The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mysql.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of Connection Manager Connection ||
 |#
