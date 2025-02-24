@@ -195,6 +195,9 @@ items:
         href: tutorials/cic-with-ngfw.md
       - name: Автоматизация задач с помощью {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
+      - name: ViPNet Coordinator в {{ yandex-cloud }}
+        href: tutorials/vipnet-to-yc.md
+        hidden: true
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

@@ -10,7 +10,7 @@ Synthesizing text into speech.
 ## HTTP request
 
 ```
-POST https://tts.{{ api-host }}/tts/v3/utteranceSynthesis
+POST https://{{ api-host-sk-tts }}/tts/v3/utteranceSynthesis
 ```
 
 ## Body parameters {#speechkit.tts.v3.UtteranceSynthesisRequest}

@@ -1,6 +1,5 @@
 # Поля и аннотации ресурса Service для Gateway API
 
-
 Ресурс `Service` соответствует [сервису {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service). Для [Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) сервисы представляют собой бэкенды, между которыми распределяется входящий трафик в кластере {{ managed-k8s-name }}. Сервисы, выступающие в роли бэкендов {{ alb-name }}, указываются в ресурсе [HTTPRoute](../../../managed-kubernetes/alb-ref/http-route.md).
 
 `Service` — стандартный ресурс {{ k8s }}. Ниже описаны поля и аннотации ресурса, с которыми работают инструменты {{ alb-name }} для {{ managed-k8s-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).

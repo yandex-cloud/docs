@@ -1,6 +1,5 @@
 # `HttpBackendGroup` resource fields
 
-
 `HttpBackendGroup` enables you to combine backends that are {{ k8s }} services and that traffic is distributed to, into a group. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md)uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
 
 You need to add a reference to `HttpBackendGroup` to the [`Ingress` resource](../../../application-load-balancer/k8s-ref/ingress.md).

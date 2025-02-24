@@ -1,6 +1,5 @@
 # TLSRoute resource fields
 
-
 The `TLSRoute` resource sets the rules for routing traffic between {{ k8s }} service type backends ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources). `TLSRoute` receives incoming traffic from the [Gateway](../../../application-load-balancer/k8s-ref/gateway.md) resources whose requirements it satisfies.
 
 `TLSRoute` is designed for application developers. Cluster operators should use `Gateway`.

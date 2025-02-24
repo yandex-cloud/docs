@@ -71,3 +71,28 @@ editable: false
 {% endlist %}
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+
+## Пример расчета стоимости {#price-example}
+
+Пример расчета стоимости {{ cloud-desktop-name }} за один месяц для группы из десяти рабочих столов следующей конфигурации:
+
+* Вычислительные ресурсы: 2 × 50% vCPU и 2 ГБ RAM.
+* Загрузочный диск: 50 ГБ SSD.
+* Рабочий диск: 30 ГБ HDD.
+* Общее время работы всех рабочих столов в течение месяца: 1 000 часов.
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-cloud-desktop](../_pricing_examples/cloud-desktop/rub.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-cloud-desktop](../_pricing_examples/cloud-desktop/kzt.md) %}
+
+{% endlist %}
+
+
+
