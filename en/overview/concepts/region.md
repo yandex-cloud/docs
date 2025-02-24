@@ -11,7 +11,7 @@ Region | Russia | Kazakhstan
 Availability zones | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-d` | `kz1-a`
 Management console | [https://console.yandex.cloud](https://console.yandex.cloud) | [https://kz.console.yandex.cloud](https://kz.console.yandex.cloud)
 Paying for resources | [Plans for the Russia region](https://yandex.cloud/ru/prices) | [Plans for the Kazakhstan region](https://yandex.cloud/ru-kz/prices)
-Service {{ billing-name }} | [https://billing.yandex.cloud](https://billing.yandex.cloud) | [https://kz.billing.yandex.cloud](https://kz.billing.yandex.cloud)
+Service {{ billing-name }} | [https://center.yandex.cloud/billing](https://center.yandex.cloud/billing) | [https://kz.center.yandex.cloud/billing](https://kz.center.yandex.cloud/billing)
 {{ objstorage-full-name }} endpoint | https://storage.yandexcloud.net | https://storage.yandexcloud.kz
 
 The following items are region-specific:

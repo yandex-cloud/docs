@@ -24,6 +24,19 @@ description: Различные сценарии использования по
 * [{#T}](../container-infrastructure/k8s-fluent-bit-logging.md)
 * [{#T}](balancer-with-sws-profile.md)
 
+## Управление федерациями удостоверений {#federations}
+
+* [{#T}](integration-adfs.md)
+* [{#T}](integration-gworkspace.md)
+* [{#T}](integration-azure.md)
+* [{#T}](integration-keycloak.md)
+
+### Сопоставление групп пользователей {#matching-user-groups}
+
+* [{#T}](adfs.md)
+* [{#T}](entra-id.md)
+* [{#T}](keycloak.md)
+
 ## Сценарии использования {{ captcha-full-name }} {#smartcaptcha}
 
 * [{#T}](mobile-app/website.md)
