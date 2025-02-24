@@ -8,7 +8,7 @@ sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/AsyncRecognizer/deleteRecogniti
 ## HTTP request
 
 ```
-DELETE https://stt.{{ api-host }}/stt/v3/deleteRecognition
+DELETE https://{{ api-host-sk-stt }}/stt/v3/deleteRecognition
 ```
 
 ## Query parameters {#speechkit.stt.v3.DeleteRecognitionRequest}

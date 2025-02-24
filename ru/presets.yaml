@@ -8281,6 +8281,7 @@ default:
         button_validate: Проверить адрес
         label_address: Домен
         label_configuration-sets: Конфигурации
+        label_dns-record-name: Имя
         label_dns-record-value: Значение
         label_event-destinations: Подписки
         label_identities: Адреса
@@ -8563,8 +8564,10 @@ default:
         button_create-workflow: Создать рабочий процесс
         label_additional-parameters: Дополнительные параметры
         label_input_data: Данные на входе
+        label_run-workflow: Запустить
         label_service: Workflows
         label_service-account: Сервисный аккаунт
+        label_timeline: Шкала времени
         label_workflow-executions: Запуски
         spec-editor-type_label_text-editor: YaML-спецификация
       smart-web-security:

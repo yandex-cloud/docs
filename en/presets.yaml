@@ -8272,6 +8272,7 @@ default:
         button_validate: Verify address
         label_address: Domain
         label_configuration-sets: Configurations
+        label_dns-record-name: Name
         label_dns-record-value: Value
         label_event-destinations: Subscriptions
         label_identities: Addresses
@@ -8554,8 +8555,10 @@ default:
         button_create-workflow: Create workflow
         label_additional-parameters: Additional parameters
         label_input_data: Input data
+        label_run-workflow: Execute
         label_service: Workflows
         label_service-account: Service account
+        label_timeline: Timeline
         label_workflow-executions: Executions
         spec-editor-type_label_text-editor: YaML specification
       smart-web-security:

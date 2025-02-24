@@ -27,7 +27,7 @@ The {{ cloud-desktop-name }} usage cost is based on:
 
 The monthly prices are based on 720 hours per month.
 
-### Computing resources usage {#use-resources}
+### Using computing resources {#use-resources}
 
 The cost of a desktop depends on the allocated computing resources and usage time. Attached disks and network usage are charged separately.
 
@@ -35,7 +35,7 @@ The cost is calculated for the time of using the desktop, when the status switch
 
 The desktop starts automatically once it is created.
 
-### Storage usage {#use-storage}
+### Using disks {#use-storage}
 
 Disks are charged for whether desktops are running or not.
 
@@ -60,3 +60,18 @@ Disks are charged for whether desktops are running or not.
 {% endlist %}
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+
+## Cost calculation example {#price-example}
+
+Here is an example of calculating the cost of using {{ cloud-desktop-name }} for one month, for a group of 10 desktops with the following configuration:
+
+* Computing resources: 2 x 50% vCPUs and 2 GB of RAM.
+* Boot disk: 50 GB SSD.
+* Working disk: 30 GB HDD.
+* Total operating time of all desktops over the month: 1,000 hours.
+
+
+
+{% include [usd-cloud-desktop](../_pricing_examples/cloud-desktop/usd.md) %}
+
+

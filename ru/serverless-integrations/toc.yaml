@@ -38,6 +38,12 @@ items:
                     href: operations/eventrouter/bus/label-delete.md
               - name: Удалить шину
                 href: operations/eventrouter/bus/delete.md
+  - name: Практические руководства
+    items:
+      - name: >-
+          Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
+          yagpt-full-name }} и {{ postbox-full-name }}
+        href: tutorials/tracker-yandexgpt-postbox-integrations.md
   - name: Концепции
     items:
       - name: Обзор

@@ -8,7 +8,7 @@ sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/AsyncRecognizer/recognizeFile.m
 ## HTTP request
 
 ```
-POST https://stt.{{ api-host }}/stt/v3/recognizeFileAsync
+POST https://{{ api-host-sk-stt }}/stt/v3/recognizeFileAsync
 ```
 
 ## Body parameters {#speechkit.stt.v3.RecognizeFileRequest}

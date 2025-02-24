@@ -86,6 +86,9 @@ items:
         href: security/mobile-app/website.md
       - name: Создание L7-балансировщика с профилем безопасности
         href: security/balancer-with-sws-profile.md
+      - name: ViPNet Coordinator в {{ yandex-cloud }}
+        href: security/vipnet-to-yc.md
+        hidden: true
       - name: Управление федерациями удостоверений
         items:
           - name: Аутентификация с помощью Active Directory
@@ -1143,6 +1146,10 @@ items:
           Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-full-name
           }} и аутентификацией в Firebase
         href: serverless/jwt-authorizer-firebase.md
+      - name: >-
+          Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
+          yagpt-full-name }} и {{ postbox-full-name }}
+        href: serverless/tracker-yandexgpt-postbox-integrations.md
   - name: Машинное обучение и искусственный интеллект
     items:
       - name: Все руководства

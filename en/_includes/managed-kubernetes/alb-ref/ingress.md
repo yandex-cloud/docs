@@ -1,6 +1,5 @@
 # Ingress resource fields and annotations
 
-
 The `Ingress` resource defines the rules for distribution of incoming traffic between {{ k8s }} services. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) with the requisite listeners and [HTTP routers](../../../application-load-balancer/concepts/http-router.md). The [services](../../../application-load-balancer/k8s-ref/service-for-ingress.md) acting as {{ alb-name }} backends may be specified in `Ingress` directly or as part of [`HttpBackendGroup` backend groups](../../../application-load-balancer/k8s-ref/http-backend-group.md).
 
 `Ingress` is a standard {{ k8s }} resource. Below, you can find the descriptions of the resource fields and annotations the {{ alb-name }} Ingress controller interfaces with. For a full description of the resource configuration, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).

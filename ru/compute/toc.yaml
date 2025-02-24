@@ -531,6 +531,9 @@ items:
           Создание туннеля между двумя подсетями при помощи OpenVPN Access
           Server
         href: tutorials/site-to-site-openvpn.md
+      - name: ViPNet Coordinator в {{ yandex-cloud }}
+        href: tutorials/vipnet-to-yc.md
+        hidden: true
       - name: '{{ coi }}'
         items:
           - name: Создать ВМ с {{ coi }}

@@ -179,6 +179,6 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
       Список поддерживаемых сервисов:
 
-      {% include [cp-events-service-list](../../../_includes/audit-trails/cp-events-service-list.md) %}
+      {% include [dp-events-service-list](../../../_includes/audit-trails/dp-events-service-list.md) %}
 
 {% endlist %}

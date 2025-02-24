@@ -1,12 +1,12 @@
 - **Audit log**{#setting-audit-log} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Управляет записью лога аудита {{ MY }}.
 
   По умолчанию запись лога аудита выключена.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Audit log policy**{#setting-audit-log-policy} {{ tag-con }}
 
@@ -105,14 +105,14 @@
 
 - **Default authentication plugin**{#setting-authentication-plugin} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Плагин аутентификации, используемый в кластере {{ mmy-name }}:
   - `mysql_native_password` — метод аутентификации, который использовался в {{ MY }} до внедрения плагинов аутентификации;
   - `sha256_password` — аутентификация с использованием алгоритма хэширования SHA-256 для паролей;
   - `caching_sha2_password` (по умолчанию) — аналогичен `sha256_password`, использует кеширование на стороне сервера для лучшей производительности и предоставляет некоторые дополнительные возможности.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Default time zone**{#setting-time-zone} {{ tag-all }}
 
@@ -156,6 +156,12 @@
 
 - **Innodb buffer pool size**{#setting-buffer-pool-size} {{ tag-all }}
 
+  {% note warning %}
+
+  Если кластер использует {{ MY }} версии 5.7, изменение этой настройки приведет к поочередному перезапуску хостов кластера. Для кластера {{ MY }} версии 8.0 перезапуск произойдет только при уменьшении параметра.
+
+  {% endnote %}
+
   Размер буфера InnoDB (в байтах), который используется для кеширования данных таблиц и индексов. Буфер большого размера приводит к снижению количества операций ввода-вывода при многократном обращении к одним и тем же данным в таблице.
 
   Минимальное значение — `134217728` (128 МБ). Максимальное значение и значение по умолчанию [зависят от выбранного класса хостов](#settings-instance-dependent) и задаются в соответствии с таблицей:
@@ -167,12 +173,6 @@
   | ≥ 8                        | `0,5 × RAM`           | `0,8 × RAM`           |
 
   Подробнее см. в [рекомендациях по настройке параметра](../../managed-mysql/qa/configuring.md#innodb-buffer-pool-size) и в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
-
-  {% note warning %}
-
-  Изменение этого параметра приведет к перезапуску кластера, если кластер использует {{ MY }} версии 5.7. Для кластера {{ MY }} версии 8.0 перезапуск произойдет только при уменьшении параметра.
-
-  {% endnote %}
 
 - **Innodb compression level**{#setting-innodb-compression-level} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -192,23 +192,23 @@
 
 - **Innodb ft max token size**{#setting-ft-max-token-size} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Максимальная длина слов, хранящихся в индексе InnoDB `FULLTEXT`.
 
   Минимальное значение — `10`, максимальное значение — `84`, по умолчанию — `84`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
 
-  {% include [requires-restart](note-requires-restart.md) %}
-
 - **Innodb ft min token size**{#setting-ft-min-token-size} {{ tag-all }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
   Минимальная длина слов, хранящихся в индексе InnoDB `FULLTEXT`.
 
   Минимальное значение — `0`, максимальное значение — `16`, по умолчанию — `3`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Innodb io capacity**{#setting-innodb-io-capacity} {{ tag-all }}
 
@@ -246,13 +246,13 @@
 
 - **Innodb log file size**{#setting-log-file-size} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Размер одного файла redo-логов InnoDB (в байтах). Чем больше значение, тем реже требуется сбрасывать [контрольные точки]({{ my.docs }}/refman/8.0/en/glossary.html#glos_checkpoint) (checkpoints) на диск, что позволяет экономить ресурсы ввода-вывода. Однако большой размер лог-файлов приводит к более медленному восстановлению после сбоев.
 
   Минимальное значение — `268435456` (256 МБ), максимальное значение — `4294967296` (4 ГБ), по умолчанию — `268435456` (256 МБ).
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Innodb lru scan depth**{#setting-innodb-lru-scan-depth} {{ tag-con }} {{ tag-api }}
 
@@ -274,13 +274,13 @@
 
 - **Innodb numa interleave**{#setting-innodb-numa-interleave} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Управляет политикой [NUMA Interleave](https://www.kernel.org/doc/html/latest/admin-guide/mm/numa_memory_policy.html#components-of-memory-policies) при выделении памяти для буфера InnoDB.
 
   По умолчанию эта политика выключена.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_numa_interleave).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Innodb online alter log max size**{#setting-online-alter-log-max-size} {{ tag-all }}
 
@@ -308,23 +308,23 @@
 
 - **Innodb purge threads**{#setting-innodb-purge-threads} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Количество потоков ввода-вывода InnoDB, используемых для [операций очистки]({{ my.docs }}/refman/8.0/en/glossary.html#glos_purge) (purge). Увеличение количества этих потоков полезно в системах, где операции манипуляции с данными (`INSERT`, `UPDATE`, `DELETE`) выполняются над несколькими таблицами.
 
   Минимальное значение — `1`, максимальное значение — `16`, по умолчанию — `4`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_purge_threads).
 
-  {% include [requires-restart](note-requires-restart.md) %}
-
 - **Innodb read io threads**{#setting-innodb-read-io-threads} {{ tag-all }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
   Количество потоков ввода-вывода InnoDB, используемых для операций чтения.
 
   Минимальное значение — `1`, максимальное значение — `16`, по умолчанию — `4`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_read_io_threads).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Innodb status output**{#setting-innodb-status-output} {{ tag-con }}
 
@@ -344,13 +344,13 @@
 
 - **Innodb temp data file max size**{#setting-temp-data-max-size} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Максимальный размер [временного табличного пространства]({{ my.docs }}/refman/8.0/en/innodb-temporary-tablespace.html#innodb-global-temporary-tablespace) InnoDB (в байтах).
 
   Минимальное значение — `0` (не использовать временное табличное пространство), максимальное значение — `107374182400` (100 ГБ), по умолчанию — `0`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Innodb thread concurrency**{#setting-innodb-thread-concurrency} {{ tag-all }}
 
@@ -362,13 +362,13 @@
 
 - **Innodb write io threads**{#setting-innodb-write-io-threads} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Количество потоков ввода-вывода InnoDB, используемых для операций записи.
 
   Минимальное значение — `1`, максимальное значение — `16`, по умолчанию — `4`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Interactive timeout**{#setting-interactive-timeout} {{ tag-all }}
 
@@ -498,13 +498,13 @@
 
 - **Max digest length**{#setting-max-digest-length} {{ tag-con }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Размер памяти (в байтах), зарезервированной для вычисления [дайджестов нормализованных выражений]({{ my.docs }}/refman/8.0/en/performance-schema-statement-digests.html).
 
   Минимальное значение — `1024` (1 КБ), максимальное значение — `8192` (8 КБ), по умолчанию — `1024` (1 КБ).
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Max execution time**{#setting-max-execution-time} {{ tag-all }}
 
@@ -780,13 +780,13 @@
 
 - **Table open cache instances**{#setting-table-open-cache-instances} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Для повышения масштабируемости [кеш открытых таблиц](#setting-table-open-cache) может быть разбит на более мелкие сегменты. Эта настройка задает количество таких сегментов.
 
   Минимальное значение — `1`, максимальное значение — `32`, по умолчанию — `16`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache_instances).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Thread cache size**{#setting-thread-cache-size} {{ tag-all }}
 
@@ -804,13 +804,13 @@
 
 - **Thread stack**{#setting-thread-stack} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Размер стека (в байтах) для каждого потока. Значение по умолчанию достаточно велико, чтобы обеспечить нормальную работу {{ MY }}. Слишком маленькое значение настройки ограничивает сложность SQL-выражений, глубину рекурсии для хранимых процедур и другие параметры, связанные с потреблением памяти.
 
   Минимальное значение — `131072` (128 КБ), максимальное значение — `16777216` (16 МБ), по умолчанию — `196608` (192 КБ).
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_thread_stack).
-
-  {% include [requires-restart](note-requires-restart.md) %}
 
 - **Tmp table size**{#setting-tmp-table-size} {{ tag-all }}
 

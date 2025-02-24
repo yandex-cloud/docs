@@ -1,7 +1,5 @@
 # HTTPRoute resource fields
 
-
-
 The `HTTPRoute` resource defines the rules for routing traffic to backends that are {{ k8s }} services ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) or for redirecting traffic. `HTTPRoute` receives incoming traffic from the [`Gateway` resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it meets.
 
 `HTTPRoute` is designed for application developers. Cluster operators should use `Gateway`.

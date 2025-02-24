@@ -1,6 +1,5 @@
 # Gateway resource fields
 
-
 The `Gateway` resource defines the rules for accepting and routing ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources) incoming traffic. [{{ alb-name }} Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) uses these rules to create:
 
 * [Load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) with the required listeners.

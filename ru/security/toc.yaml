@@ -51,6 +51,8 @@ items:
         href: standard/versions.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: ViPNet Coordinator в {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
         hidden: true
