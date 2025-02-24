@@ -86,6 +86,28 @@ items:
         href: security/mobile-app/website.md
       - name: Создание L7-балансировщика с профилем безопасности
         href: security/balancer-with-sws-profile.md
+      - name: Управление федерациями удостоверений
+        items:
+          - name: Аутентификация с помощью Active Directory
+            href: security/integration-adfs.md
+          - name: Аутентификация с помощью Google Workspace
+            href: security/integration-gworkspace.md
+          - name: Аутентификация с помощью {{ microsoft-idp.entra-id-full }}
+            href: security/integration-azure.md
+          - name: Аутентификация с помощью Keycloak
+            href: security/integration-keycloak.md
+          - name: Сопоставление групп пользователей
+            items:
+              - name: >-
+                  Сопоставление групп пользователей в {{
+                  microsoft-idp.adfs-short }}
+                href: security/adfs.md
+              - name: >-
+                  Сопоставление групп пользователей в {{
+                  microsoft-idp.entra-id-full }}
+                href: security/entra-id.md
+              - name: Сопоставление групп пользователей в Keycloak
+                href: security/keycloak.md
       - name: Сценарии использования {{ captcha-name }}
         items:
           - name: Капча в приложении Android
