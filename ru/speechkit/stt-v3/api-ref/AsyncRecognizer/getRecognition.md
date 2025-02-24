@@ -8,7 +8,7 @@ sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/AsyncRecognizer/getRecognition.
 ## HTTP request
 
 ```
-GET https://stt.{{ api-host }}/stt/v3/getRecognition
+GET https://{{ api-host-sk-stt }}/stt/v3/getRecognition
 ```
 
 ## Query parameters {#speechkit.stt.v3.GetRecognitionRequest}

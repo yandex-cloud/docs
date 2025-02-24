@@ -110,12 +110,10 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ si-name }}**.
-    1. Перейдите на вкладку **{{ sw-name }}**.
-    1. В правом верхнем углу нажмите кнопку **Создать рабочий процесс**.
-    1. Введите имя рабочего процесса.
-    1. В поле **Сервисный аккаунт** укажите сервисный аккаунт `sa-for-function`.
-    1. В поле **YAML-спецификация** добавьте спецификацию, которая приведена ниже. Укажите в поле `functionId`:
+    1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
+    1. В поле **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** добавьте спецификацию, которая приведена ниже. Укажите в поле `functionId`:
         * в шаге `process_user_transform_info` идентификатор функции `filter-function`;
         * в шаге `upload_users` идентификатор функции `return-function`.
 
@@ -164,7 +162,10 @@ keywords:
               functionId: "<идентификатор_функции>"
               input: '\({loaded_users, resource_type})'
         ```
-    1. Нажмите кнопку **Создать**.
+    1. Разверните блок **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**.
+    1. В поле **{{ ui-key.yacloud.common.name }}** введите имя рабочего процесса.
+    1. В поле **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** выберите сервисный аккаунт `sa-for-function`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

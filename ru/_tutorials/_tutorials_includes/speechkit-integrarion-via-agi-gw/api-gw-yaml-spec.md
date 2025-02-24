@@ -39,6 +39,6 @@ paths:
       x-yc-apigateway-integration:
         http_method: post
         type: http
-        url: https://tts.api.cloud.yandex.net/tts/v3/utteranceSynthesis
+        url: https://{{ api-host-sk-tts }}/tts/v3/utteranceSynthesis
         service_account_id: "<идентификатор_сервисного_аккаунта>"
 ```

@@ -5,7 +5,6 @@ description: Learn about the {{ alb-name }} Ingress controller and the relations
 
 # How the {{ alb-name }} Ingress controller works
 
-
 An [{{ alb-name }} Ingress controller for {{ managed-k8s-name }}](index.md) has two [pods](../../../managed-kubernetes/concepts/index.md#pod):
 
 * The primary `yc-alb-ingress-controller-*` pod responsible for creating and updating {{ alb-name }} resources. You can use its logs to follow the operations with the resources.

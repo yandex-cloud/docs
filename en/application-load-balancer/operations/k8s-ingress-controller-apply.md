@@ -5,7 +5,6 @@ description: Follow this guide to create or update {{ alb-name }} resources base
 
 # Creating or updating {{ alb-name }} resources based on {{ managed-k8s-name }} configuration
 
-
 To manage {{ alb-name }} resources using an [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md) for {{ managed-k8s-full-name }}, create a configuration consisting of YAML files with descriptions of {{ k8s }} resources: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute`, etc.
 
 ## Getting started {#prerequisites}

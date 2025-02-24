@@ -5,7 +5,6 @@ description: '{{ alb-name }} provides the Ingress controller, a tool for creatin
 
 # Ingress controller for {{ managed-k8s-name }}
 
-
 {{ alb-name }} provides the {{ alb-name }} Ingress controller — a tool you can use to create and manage load balancers in [{{ managed-k8s-full-name }} clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 The Ingress controller installed in the cluster will automatically deploy [L7 load balancers](../../concepts/application-load-balancer.md) with all the required {{ alb-name }} resources based on the configuration of the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resources you created.

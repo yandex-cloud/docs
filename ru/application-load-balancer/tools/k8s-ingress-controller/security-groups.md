@@ -5,7 +5,6 @@ description: Для корректной работы Ingress-контролле
 
 # Настройка групп безопасности для инструментов {{ alb-name }} для {{ managed-k8s-name }} 
 
-
 Для корректной работы [Ingress-контроллера](index.md) или [Gateway API](../k8s-gateway-api/index.md) нужно настроить [группы безопасности](../../../vpc/concepts/security-groups.md) [кластера](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [групп узлов {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#node-group) и [балансировщика нагрузки](../../concepts/application-load-balancer.md) {{ alb-name }}.
 
 Для кластера, групп узлов и балансировщика можно использовать разные группы безопасности (рекомендуется) или одну и ту же группу.

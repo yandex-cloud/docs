@@ -14,12 +14,4 @@
 
 Регистрация событий уровня сервисов доступна для следующих сервисов:
 
-* [{{ dns-full-name }}](../../dns/)
-* [{{ kms-full-name }}](../../kms/)
-* [{{ lockbox-full-name }}](../../lockbox/)
-* [{{ mmg-full-name }}](../../managed-mongodb/)
-* [{{ mmy-full-name }}](../../managed-mysql/)
-* [{{ mpg-full-name }}](../../managed-postgresql/)
-* [{{ mrd-full-name }}](../../managed-redis/)
-* [{{ objstorage-full-name }}](../../storage/)
-* [{{ websql-full-name }}](../../websql/)
+{% include [dp-events-service-list](../../_includes/audit-trails/dp-events-service-list.md) %}

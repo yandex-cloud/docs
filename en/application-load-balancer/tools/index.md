@@ -5,7 +5,6 @@ description: In this tutorial, you will learn about the {{ alb-name }} tools for
 
 # Tools for {{ managed-k8s-name }}
 
-
 {{ alb-name }} provides the following tools to create load balancers and manage them in {{ managed-k8s-name }} clusters:
 
 * {{ alb-name }} [Ingress controller](k8s-ingress-controller/index.md): For `Ingress` resources.

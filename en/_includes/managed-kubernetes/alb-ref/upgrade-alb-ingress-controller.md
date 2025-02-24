@@ -1,6 +1,5 @@
 # Updating an {{ alb-name }} Ingress controller for {{ managed-k8s-name }}
 
-
 [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions 0.2.0 and later are not compatible with versions 0.1.x. This causes limitations associated with [backend groups](../../../application-load-balancer/tools/k8s-ingress-controller/principles.md).
 
 One of the ways to create a backend group is to specify [rules](../../../application-load-balancer/k8s-ref/ingress.md#rule) in the `Ingress` resource. In ALB Ingress Controller versions prior to 0.2.0, each backend group corresponds to a bundle of `host`, `http.paths.path`, and `http.paths.pathType` parameters. In versions 0.2.0 and later, the backend group corresponds to the `backend.service` parameter in the `Ingress` resource. This parameter specifies [{{ k8s }}](../../../managed-kubernetes/concepts/service.md). For more information about parameter values and the `Ingress` resource configuration, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/).

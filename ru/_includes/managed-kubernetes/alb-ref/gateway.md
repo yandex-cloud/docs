@@ -1,6 +1,5 @@
 # Поля ресурса Gateway
 
-
 В ресурсе `Gateway` определяются правила приема входящего трафика и выбора маршрутов (ресурсов [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) и [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md)) для этого трафика. По этим правилам [Gateway API {{ alb-name }}](../../../application-load-balancer/tools/k8s-gateway-api/index.md) создает:
 
 * [балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) с нужными обработчиками;

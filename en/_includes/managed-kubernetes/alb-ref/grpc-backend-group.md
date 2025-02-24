@@ -1,6 +1,5 @@
 # GrpcBackendGroup resource fields
 
-
 `GrpcBackendGroup` enables you to combine backends that are {{ k8s }} services and that gRPC traffic is distributed to, into a group. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
 
 You need to add a reference to `GrpcBackendGroup` to the [`Ingress`](../../../application-load-balancer/k8s-ref/ingress.md) resource. This `Ingress` must have the `ingress.alb.yc.io/protocol: grpc` annotation.
