@@ -289,6 +289,23 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 
 
+### {{ metadata-hub-full-name }} {#metadata-hub}
+
+#### Квоты {{ connection-manager-name }} {#connection-manager-quota}
+
+{% include [connection-manager-quotas](../../_includes/metadata-hub/connection-manager-quotas.md) %}
+
+#### Квоты {{ metastore-name }} {#metastore-quota}
+
+{% include [metastore-quotas](../../_includes/metadata-hub/metastore-quotas.md) %}
+
+#### Квоты {{ schema-registry-name }} {#schema-registry-quota}
+
+{% include [schema-registry-quotas](../../_includes/metadata-hub/schema-registry-quotas.md) %}
+
+Лимиты для {{ metadata-hub-full-name }} не установлены.
+
+
 ### {{ monitoring-full-name }} {#monitoring}
 
 {% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}

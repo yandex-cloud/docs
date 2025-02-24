@@ -303,7 +303,7 @@ default:
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
   link-console-access-management: https://console.yandex.cloud/iam
-  link-console-billing: https://billing.yandex.cloud/accounts
+  link-console-billing: https://center.yandex.cloud/billing/accounts
   link-console-cloud: https://console.yandex.cloud/cloud
   link-console-iam-users: https://console.yandex.cloud/iam?section=users
   link-console-main: https://console.yandex.cloud

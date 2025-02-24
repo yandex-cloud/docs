@@ -395,6 +395,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка при репликации из внешнего источника](#external-replication)
 * [Ошибка трансфера при переносе таблиц без первичных ключей](#primary-keys)
 * [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
+* [Ошибка при переносе таблиц с генерируемыми столбцами](#generated-columns)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
@@ -433,3 +434,5 @@ description: Из статьи вы узнаете, как задать наст
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [generated-columns](../../../../_includes/data-transfer/troubles/generated-columns.md) %}

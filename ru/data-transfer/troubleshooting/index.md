@@ -4,6 +4,7 @@
 
 * [Проблемы, возникающие при работе с сервисом {{ data-transfer-name }}](#overview)
 * [Общие](#common)
+* [Ошибки, отображаемые на временной шкале](#timeline)
 * [Трансформация данных](#data-transform)
 * [Ошибки в API](#api)
 * [Сеть](#network)
@@ -66,6 +67,16 @@
 
 {% include [required-role](../../_includes/data-transfer/troubles/required-roles.md) %}
 
+
+## Ошибки, отображаемые на временной шкале трансфера {#timeline}
+
+{% include [no-items-in-memory](../../_includes/data-transfer/troubles/timeline/no-items-in-memory.md) %}
+
+{% include [transfer-time-sound](../../_includes/data-transfer/troubles/timeline/transfer-time-sound.md) %}
+
+{% include [row-max-lag-constant](../../_includes/data-transfer/troubles/timeline/row-max-lag-constant.md) %}
+
+{% include [replication-restarts](../../_includes/data-transfer/troubles/timeline/replication-restarts.md) %}
 
 ## Трансформация данных {#data-transform}
 
@@ -209,6 +220,8 @@
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 {% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [generated-columns](../../_includes/data-transfer/troubles/generated-columns.md) %}
 
 
 ## {{ ydb-full-name }} {#ydb}
