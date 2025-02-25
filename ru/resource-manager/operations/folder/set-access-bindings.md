@@ -500,7 +500,6 @@
 
 {% endlist %}
 
-
 ## Доступ к каталогу для федеративного пользователя {#access-to-federated-user}
 
 {% list tabs group=instructions %}
@@ -538,7 +537,6 @@
       ```
 
 {% endlist %}
-
 
 
 ## Что дальше {#what-is-next}

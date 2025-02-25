@@ -48,35 +48,25 @@
 
 {% include [22.02.2023 — CVE-2022-3602, CVE-2022-3786 — OpenSSL Security release v.3.0.7](../../_includes/security/security-bulletins/cve-2022-3786-openssl.md) %}
 
-
 {% include [07.02.2023 — CVE-2022-3411-4138-3759 — CVE-2023-0518 - GitLab-1581-1576-1567](../../_includes/security/security-bulletins/cve-2022-3411-4138-3759-cve-2023-0518-GitLab-1581-1576-1567.md) %}
-
-
 
 {% include [02.02.2022 — CVE-2022-41903-23521 - GitLab-1575-1566-1559](../../_includes/security/security-bulletins/cve-2022-41903-23521-GitLab-1575-1566-1559.md) %}
 
-
 {% include [26.12.2022 — CVE-2022-47940 - KSMBD FS/KSMBD/SMB2PDU.C SMB2_WRITE](../../_includes/security/security-bulletins/cve-2022-47940-KSMBD-FS-KSMBD-SMB2PDU-C-SMB2_WRITE.md) %}
-
 
 {% include [06.12.2022 — CVE-2022-28228 — YDB](../../_includes/security/security-bulletins/cve-2022-28228-ydb.md) %}
 
-
 {% include [03.11.2022 — CVE-2022-42889 — Text4Shell](../../_includes/security/security-bulletins/cve-2022-42889.md) %}
-
 
 {% include [01.09.2022 — CVE-2022-2992 — GitLab-1532-1524-1516](../../_includes/security/security-bulletins/cve-2022-2992-GitLab-1532-1524-1516.md) %}
 
-
 {% include [31.08.2022 — CVE-2020-8561 — redirect-kube-apiserver](../../_includes/security/security-bulletins/cve-2020-8561-redirect-kube-apiserver.md) %}
-
 
 {% include [25.08.2022 — CVE-2022-2884 — github-import-in-gitlab](../../_includes/security/security-bulletins/cve-2022-2884-github-import-in-gitlab.md) %}
 
 {% include [04.07.2022 — CVE-2022-27228 — Уязвимость модуля «vote» CMS 1С-Битрикс](../../_includes/security/security-bulletins/cve-2022-27228-bitrix.md) %}
 
 {% include [21.06.2022 — CVE-2022-1680 — Захват аккаунта GitLab](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
-
 
 {% include [15.06.2022 – Ingress-nginx path sanitization](../../_includes/security/security-bulletins/cve-2021-25748-ingress-nginx-path.md) %}
 
@@ -86,7 +76,6 @@
 
 {% include [18.03.2022 — cr8escape](../../_includes/security/security-bulletins/cve-2022-0811-cr8escape.md) %}
 
-
 {% include [09.03.2022 — Dirty Pipe](../../_includes/security/security-bulletins/cve-2022-0847-dirty-pipe.md) %}
 
 {% include [28.02.2022 — multiple-GitLab-vulnerabilities](../../_includes/security/security-bulletins/cve-2022-0735-0549-0751-0741-4191-0738-0489.md) %}
@@ -94,7 +83,6 @@
 {% include [28.01.2022 — CVE-2022-0185 — heap overflow bug in legacy_parse_param](../../_includes/security/security-bulletins/cve-2022-0185.md) %}
 
 {% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/security/security-bulletins/cve-2021-4034-polkit.md) %}
-
 
 ## 29.12.2021 — CVE-2021-45105, CVE-2021-44832 — Отказ в обслуживании и удаленное выполнение кода (Log4j) {#CVE-2021-45105-CVE-2021-44832}
 
@@ -231,9 +219,9 @@ CVSSv3.1 рейтинг: 10.0 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:P/RL:O/RC:C
 
 1. Библиотека Log4j включена в почти все enterprise-решения Apache Software Foundation, такие как: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Flink, Apache Kafka, Apache Dubbo и т.д. 
 
-2. Уязвимость влияет на такие open-source продукты, как ElasticSearch, Elastic Logstash, the NSA’s Ghidra и т.д.
+1. Уязвимость влияет на такие open-source продукты, как ElasticSearch, Elastic Logstash, the NSA’s Ghidra и т.д.
 
-3. Продукты Hystax подвержены уязвимости, так как используют уязвимую версию Elasticsearch Logstash.
+1. Продукты Hystax подвержены уязвимости, так как используют уязвимую версию Elasticsearch Logstash.
 Hystax работает над выпуском новых версий продуктов, в которых будет устранена уязвимость.
 
 #### Влияние на сервисы {{ yandex-cloud }}

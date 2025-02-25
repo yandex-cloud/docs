@@ -29,7 +29,7 @@ items:
     href: logging/index.yaml
   - name: Cloud Video
     href: video/index.yaml
-  - name: Code Assistant
+  - name: '{{ ca-name }}'
     href: code-assistant/index.yaml
   - name: Compute Cloud
     href: compute/index.yaml

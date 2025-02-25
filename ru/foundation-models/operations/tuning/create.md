@@ -129,9 +129,9 @@ description: Следуя данной инструкции, вы сможете
 
      Дообучение модели может занять до 1 суток в зависимости от объема датасета и загрузки системы.
 
-  Используйте полученный URI дообученной модели (значение поля `uri`) при [обращении](../../concepts/yandexgpt/models.md#addressing-models) к ней.
+     Используйте полученный URI дообученной модели (значение поля `uri`) при [обращении](../../concepts/yandexgpt/models.md#addressing-models) к ней.
 
-  1. Метрики дообучения доступны в формате TensoBoard. Загруженный файл можно открыть, например, в проекте [{{ ml-platform-full-name }}]({{ link-datasphere-main }}):
+  1. Метрики дообучения доступны в формате TensorBoard. Загруженный файл можно открыть, например, в проекте [{{ ml-platform-full-name }}]({{ link-datasphere-main }}):
   
      ```python
      metrics_url = new_model.get_metrics_url()
@@ -212,9 +212,9 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-  Используйте полученный URI дообученной модели (значение поля `targetModelUri`) при [обращении](../../concepts/yandexgpt/models.md#addressing-models) к ней.
+     Используйте полученный URI дообученной модели (значение поля `targetModelUri`) при [обращении](../../concepts/yandexgpt/models.md#addressing-models) к ней.
 
-  1. Метрики дообучения доступны в формате TensoBoard. Получите ссылку, чтобы загрузить файл: 
+  1. Метрики дообучения доступны в формате TensorBoard. Получите ссылку, чтобы загрузить файл: 
   
      ```bash
      grpcurl \

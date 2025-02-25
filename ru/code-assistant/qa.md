@@ -7,6 +7,16 @@ description: На странице представлены вопросы и о
 
 ## Общие вопросы {#common-questions}
 
+### Как сейчас называется сервис? {#rebranding}
+
+Сервис стал частью платформы [{{ src-full-name }}]({{ link-src-main }}). В связи с этим полное наименование сервиса **Yandex Code Assistant** изменено на **{{ ca-full-name }}**. При этом текущая функциональность сервиса осталась прежней.
+
+Также {{ ca-name }} теперь доступен во встроенном редакторе кода {{ src-name }}.
+
+### Есть ли ограничения при использовании сервиса? {#limits}
+
+Подробнее об ограничениях см. на странице [{#T}](./concepts/limits.md).
+
 ### Какие IDE поддерживаются? {#ide-versions}
 
 {% include [supported-versions](../_includes/code-assistant/supported-versions.md) %}

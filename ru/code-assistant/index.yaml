@@ -1,37 +1,33 @@
-title: Yandex Code Assistant
+title: '{{ ca-full-name }}'
 description:
   - >-
-    <i>Yandex Code Assistant находится на <a
+    <i>Сервис находится на <a
     href="/docs/overview/concepts/launch-stages">стадии Preview</a>.</i>
   - >-
-    Code Assistant — это AI-помощник разработчика, с помощью которого вы можете
-    улучшить процесс написания кода и повысить производительность. В режиме
-    Smart autocompletion AI-помощник анализирует контекст кода и предлагает
-    наиболее вероятные и релевантные подсказки: функции, циклы, условия и другие
-    элементы.
+    {{ ca-full-name }} — это AI-помощник разработчика, с помощью которого вы
+    можете улучшить процесс написания кода и повысить производительность. В
+    режиме Smart autocompletion AI-помощник анализирует контекст кода и
+    предлагает наиболее вероятные и релевантные подсказки: функции, циклы,
+    условия и другие элементы.
   - >-
-    Плагин Code Assistant доступен для <a
+    Плагин {{ ca-name }} доступен для <a
     href="https://code.visualstudio.com/">Visual Studio Code</a> и <a
     href="https://www.jetbrains.com/ides/">IDE от JetBrains</a>, подробнее см.
     <a href="/docs/code-assistant/concepts/#supported-versions">Поддерживаемые
     версии IDE</a>.
   - >-
-    Запросите доступ к Code Assistant на <a
-    href="/services/code-assistant">странице сервиса</a> или обратитесь к вашему
-    аккаунт-менеджеру.
-  - >-
     <a href="https://yandex.ru/legal/cloud_terms_code_assistant/">Условия
-    использования сервиса Yandex Code Assistant</a>
+    использования сервиса {{ ca-full-name }}</a>
 meta:
-  title: Yandex Code Assistant
+  title: '{{ ca-full-name }}'
 links:
   - title: Начало работы
-    description: Установите плагин Code Assistant для вашей IDE
+    description: Установите плагин {{ ca-name }} для вашей IDE
     href: quickstart
   - title: Концепции
     description: Узнайте о функциональности сервиса
     href: concepts/
-  - title: Квоты и лимиты
+  - title: Квоты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
   - title: Управление доступом

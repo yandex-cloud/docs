@@ -1,4 +1,4 @@
-title: Yandex Code Assistant
+title: '{{ ca-full-name }}'
 href: index.yaml
 stage: preview
 items:

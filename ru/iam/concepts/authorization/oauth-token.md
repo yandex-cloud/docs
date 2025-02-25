@@ -41,8 +41,6 @@ OAuth-токен недоступен для федеративных польз
 * [Packer](../../../tutorials/infrastructure-management/packer-quickstart.md)
 * [{{ GL }} CI](../../../tutorials/testing/ci-for-snapshots.md)
 
-
 #### См. также {#see-also}
 
 * [Подробнее о сервисе Яндекс OAuth](https://yandex.ru/dev/oauth/).
-

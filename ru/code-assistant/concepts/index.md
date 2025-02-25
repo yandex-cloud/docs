@@ -2,8 +2,6 @@
 
 {% include [preview-stage](../../_includes/code-assistant/preview-stage.md) %}
 
-{% include [ask-for-turning-on](../../_includes/code-assistant/ask-for-turning-on.md) %}
-
 {% include [about-service](../../_includes/code-assistant/about-service.md) %}
 
 {% include [supported-versions](../../_includes/code-assistant/supported-versions.md) %}
