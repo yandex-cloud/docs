@@ -139,7 +139,15 @@ description: Следуя данной инструкции, вы сможете
 
      Дообучение модели может занять до 1 суток в зависимости от объема датасета и степени загрузки системы.
 
-  Используйте полученный URI дообученной модели (значение поля `uri`) при [обращении](../../concepts/classifier/models#addressing-models) к ней.
+     Используйте полученный URI дообученной модели (значение поля `uri`) при [обращении](../../concepts/classifier/models#addressing-models) к ней.
+
+  1. Метрики дообучения доступны в формате TensorBoard. Загруженный файл можно открыть, например, в проекте [{{ ml-platform-full-name }}]({{ link-datasphere-main }}):
+  
+     ```python
+     metrics_url = new_model.get_metrics_url()
+     download_tensorboard(metrics_url)
+     ```
+
 
 - cURL {#curl}
 
@@ -218,7 +226,18 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-  Используйте полученный URI дообученной модели (значение поля `targetModelUri`) при [обращении](../../concepts/classifier/models#addressing-models) к ней.
+     Используйте полученный URI дообученной модели (значение поля `targetModelUri`) при [обращении](../../concepts/classifier/models#addressing-models) к ней.
+
+  1. Метрики дообучения доступны в формате TensorBoard. Получите ссылку, чтобы загрузить файл: 
+  
+     ```bash
+     grpcurl \
+       -H "Authorization: Bearer <IAM-токен>" \
+       -d '{"task_id": "<идентификатор_задания>"}' \
+       {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/GetMetricsUrl
+     ```
+
+     Загруженный файл можно открыть, например, в проекте [{{ ml-platform-full-name }}]({{ link-datasphere-main }}).
 
 {% endlist %}
 

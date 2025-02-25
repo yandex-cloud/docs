@@ -18,12 +18,6 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% note info %}
-
-Если у вашей [организации](../overview/roles-and-resources.md) в {{ yandex-cloud }} уже есть доступ к {{ ca-name }}, перейдите к шагу [Установите и настройте плагин](#install-plugin).
-
-{% endnote %}
-
 {% include [before-you-begin](../_includes/code-assistant/before-you-begin.md) %}
 
 
@@ -59,7 +53,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
   1. Чтобы начать работать с плагином, аутентифицируйтесь в {{ yandex-cloud }}:
       1. Во всплывающем окне **No active session found. Log in please** нажмите кнопку **Go to browser**.
 
-          Чтобы аутентифицироваться в плагине повторно или как другой пользователь {{ yandex-cloud }}, в строке поиска в верхней части экрана введите `>Yandex Code Assistant`. В открывшемся списке выберите **Yandex Code Assistant: Login**.
+          Чтобы аутентифицироваться в плагине повторно или как другой пользователь {{ yandex-cloud }}, в строке поиска в верхней части экрана введите `>{{ ca-full-name }}`. В открывшемся списке выберите **{{ ca-full-name }}: Login**.
       1. Разрешите Visual Studio Code открыть в браузере страницу аутентификации.
       1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и во всплывающем окне нажмите **Открыть приложение**.
       1. Вернитесь обратно в Visual Studio Code.
@@ -92,15 +86,15 @@ description: Установите плагин {{ ca-name }} для Visual Studi
       1. Нажмите кнопку **OK**.
 
   1. Чтобы начать работать с плагином, аутентифицируйтесь в {{ yandex-cloud }}:
-      1. Во всплывающем окне **Yandex Code Assistant OAuth** нажмите **Yandex Code Assist: Login**.
+      1. Во всплывающем окне **{{ ca-full-name }} OAuth** нажмите **{{ ca-full-name }}: Login**.
 
-          Чтобы аутентифицироваться в плагине повторно или как другой пользователь {{ yandex-cloud }}, в правом верхнем углу редактора нажмите значок ![magnifier](../_assets/console-icons/magnifier.svg), в открывшемся окне введите `Yandex Code Assistant` и выберите **Yandex Code Assistant: Login**.
+          Чтобы аутентифицироваться в плагине повторно или как другой пользователь {{ yandex-cloud }}, в правом верхнем углу редактора нажмите значок ![magnifier](../_assets/console-icons/magnifier.svg), в открывшемся окне введите `{{ ca-full-name }}` и выберите **{{ ca-full-name }}: Login**.
       1. В браузере войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
       1. Вернитесь обратно в IDE.
 
-  Если плагин включен и готов к работе, то на нижней панели редактора отобразится кнопка **Yandex CA**.
+  Если плагин включен и готов к работе, то на нижней панели редактора отобразится значок ![image](../_assets/code-assistant/jb-icon-small.svg).
 
-  Нажмите эту кнопку, чтобы посмотреть имя пользователя {{ yandex-cloud }}, аутентифицированного в плагине. Имя пользователя отобразится в сообщении в строке **Logged in as: <имя_пользователя>**. Если пользователь не аутентифицирован, в сообщении будет указано **No Auth data**.
+  Нажмите на этот значок, чтобы посмотреть имя пользователя {{ yandex-cloud }}, аутентифицированного в плагине. Имя пользователя отобразится в сообщении в строке **Logged in as: <имя_пользователя>**. Если пользователь не аутентифицирован, в сообщении будет указано **No Auth data**.
 
   {% note tip %}
 
@@ -193,7 +187,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
   - IDE от JetBrains {#jb}
 
     1. В правом верхнем углу нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Settings...**.
-    1. В колонке слева выберите **Yandex Code Assistant**.
+    1. В колонке слева выберите **{{ ca-full-name }}**.
     1. Включите или выключите опцию **Disable suggest indicator**.
     1. Нажмите кнопку **Save** чтобы сохранить настройки.
 
@@ -233,7 +227,7 @@ description: Установите плагин {{ ca-name }} для Visual Studi
   Если вы не [настроили автоматическое обновление плагинов](#jb-auto-update), чтобы обновить плагин вручную:
 
   1. В правом верхнем углу нажмите ![image](../_assets/console-icons/gear.svg) и выберите **Plugins...**.
-  1. Выберите **Yandex Code Assistant**.
+  1. Выберите **{{ ca-full-name }}**.
   1. Если для плагина доступно обновление, вы увидите кнопку **Update**. Нажмите ее.
 
 {% endlist %}
@@ -251,11 +245,11 @@ description: Установите плагин {{ ca-name }} для Visual Studi
 
   * На нижней панели редактора нажмите кнопку ![image](../_assets/code-assistant/vsc-icon-small.svg) и в открывшемся списке выберите **Logout**.
 
-  * В строке поиска в верхней части экрана введите `>Yandex Code Assistant` и в открывшемся списке выберите **Yandex Code Assistant: Logout**.
+  * В строке поиска в верхней части экрана введите `>{{ ca-full-name }}` и в открывшемся списке выберите **{{ ca-full-name }}: Logout**.
 
 - IDE от JetBrains {#jb}
 
-  В правом верхнем углу редактора нажмите значок ![magnifier](../_assets/console-icons/magnifier.svg), в открывшемся окне введите `Yandex Code Assistant` и выберите **Yandex Code Assistant: Logout**.
+  В правом верхнем углу редактора нажмите значок ![magnifier](../_assets/console-icons/magnifier.svg), в открывшемся окне введите `{{ ca-full-name }}` и выберите **{{ ca-full-name }}: Logout**.
 
 {% endlist %}
 

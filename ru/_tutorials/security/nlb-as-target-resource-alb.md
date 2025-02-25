@@ -142,7 +142,7 @@
 
         * **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud.alb.label_target-group }}`.
         * **{{ ui-key.yacloud.alb.label_target-groups }}** — созданная ранее целевая группа.
-        * **{{ ui-key.yacloud.alb.label_port }}** — TCP-порт, который настроен на обработчике внешнего сетевого балансировщика. Обычно это порт `80` для HTTP и `443` для HTTPS.
+        * **{{ ui-key.yacloud.alb.label_port }}** — TCP-порт, который настроен на обработчике внутреннего сетевого балансировщика. Обычно это порт `80` для HTTP и `443` для HTTPS.
         * В блоке **{{ ui-key.yacloud.alb.label_protocol-settings }}** в зависимости от вашего сервиса выберите протокол `{{ ui-key.yacloud.alb.label_proto-http-plain }}` или `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
         * В блоке **HTTP проверка состояния** удалите проверку состояния. Не добавляйте ее, так как в качестве целевого ресурса используется сетевой балансировщик, который является отказоустойчивым сервисом.
 
@@ -191,7 +191,7 @@
 
         * В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** укажите:
 
-            * **{{ ui-key.yacloud.alb.label_port }}** — TCP-порт, который настроен на обработчике внешнего сетевого балансировщика. Обычно это порт `80` для HTTP и `443` для HTTPS.
+            * **{{ ui-key.yacloud.alb.label_port }}** — TCP-порт, который настроен на обработчике внутреннего сетевого балансировщика. Обычно это порт `80` для HTTP и `443` для HTTPS.
             * **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud.alb.label_address-list }}`. Выберите из списка публичный IP-адрес с защитой от DDoS на уровне L3-L4. Подробнее см. [рекомендации по миграции сервисов](#recommendations).
         * В блоке **{{ ui-key.yacloud.alb.section_common-address-specs }}** укажите:
 
