@@ -9930,6 +9930,11 @@ default:
                         title: Единица измерения
                       time_column:
                         title: Разбивать по столбцу
+                    YdbShardedSnapshotSettings:
+                      copy_folder:
+                        title: Имя папки для копий
+                      is_snapshot_sharded:
+                        title: Использовать шардированный снапшот
                     YdbSource:
                       connection:
                         title: Настройки подключения
