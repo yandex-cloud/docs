@@ -1,4 +1,4 @@
-title: Yandex Code Assistant
+title: '{{ ca-full-name }}'
 href: index.yaml
 stage: preview
 items:
@@ -6,7 +6,7 @@ items:
     href: quickstart.md
   - name: Концепции
     href: concepts/index.md
-  - name: Квоты и лимиты
+  - name: Квоты
     href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md

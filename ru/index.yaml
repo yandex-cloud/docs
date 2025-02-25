@@ -52,7 +52,7 @@ links:
   - title: Cloud Video
     description: Видеохостинг и проведение онлайн-трансляций
     href: video/
-  - title: Code Assistant
+  - title: '{{ ca-name }}'
     description: AI-ассистент разработчика c функцией автодополнения кода
     href: code-assistant/
   - title: Compute Cloud

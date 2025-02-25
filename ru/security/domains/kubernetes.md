@@ -211,7 +211,6 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Сканер безопасности в [{{ container-registry-name }}](../../container-registry/concepts/vulnerability-scanner.md).
 
-
 Чтобы защитить уровень хостов [контейнеризации](../../glossary/containerization.md#containers-apps), можно использовать различные платные и бесплатные решения классов «Runtime security» и «Antivirus engine». Примеры бесплатных решений:
 
 * [{{ k8s }} ClamAV](https://cloud.google.com/community/tutorials/gcp-cos-clamav)
