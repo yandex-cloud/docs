@@ -38,6 +38,12 @@ items:
                     href: operations/eventrouter/bus/label-delete.md
               - name: Удалить шину
                 href: operations/eventrouter/bus/delete.md
+          - name: Получение информации о коннекторе
+            items:
+              - name: Получить список коннекторов
+                href: operations/eventrouter/connector/get-list.md
+              - name: Получить информацию о коннекторе
+                href: operations/eventrouter/connector/get-info.md
   - name: Практические руководства
     items:
       - name: >-

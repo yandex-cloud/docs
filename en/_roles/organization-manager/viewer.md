@@ -5,6 +5,7 @@ Users with this role can:
 * View the list of the organization [users](../../overview/roles-and-resources.md#users).
 * View the list of the [groups](../../organization/concepts/groups.md) the users are members of.
 * View info on the [OS Login](../../organization/concepts/os-login.md) settings and the list of the organization users' OS Login profiles.
+* View the lists of the organization federated users’ refresh tokens.
 * View the list of the organization users' SSH keys and the info on such keys.
 * View the info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
 

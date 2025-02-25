@@ -47,6 +47,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить подробную информацию о [шине](../../../concepts/eventrouter/bus.md), воспользуйтесь методом REST API [get](../../../../serverless-integrations/eventrouter/api-ref/Bus/get.md) для ресурса [Bus](../../../../serverless-integrations/eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/List](../../../../serverless-integrations/eventrouter/api-ref/grpc/Bus/get.md).
+  Чтобы получить подробную информацию о [шине](../../../concepts/eventrouter/bus.md), воспользуйтесь методом REST API [get](../../../../serverless-integrations/eventrouter/api-ref/Bus/get.md) для ресурса [Bus](../../../../serverless-integrations/eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/Get](../../../../serverless-integrations/eventrouter/api-ref/grpc/Bus/get.md).
 
 {% endlist %}

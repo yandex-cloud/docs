@@ -128,7 +128,7 @@ paths:
   /pets/{petId}:
     x-yc-apigateway-cors:
       origin: true
-      methods: GET,POST,DELETE
+      methods: [GET,POST,DELETE]
       allowedHeaders: x-custom-header
       exposedHeaders: x-custom-header
       maxAge: 3600
