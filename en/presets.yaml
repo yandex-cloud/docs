@@ -9921,6 +9921,11 @@ default:
                         title: Size unit
                       time_column:
                         title: Partition by column
+                    YdbShardedSnapshotSettings:
+                      copy_folder:
+                        title: Copy folder
+                      is_snapshot_sharded:
+                        title: Use sharded snapshot
                     YdbSource:
                       connection:
                         title: Connection settings

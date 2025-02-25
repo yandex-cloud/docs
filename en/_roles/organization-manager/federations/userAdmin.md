@@ -1,1 +1,3 @@
-The `organization-manager.federations.userAdmin` role allows adding and removing [federated users](../../../organization/concepts/add-federation.md#saml-authentication) to/from an organization, viewing the list of its [users](../../../organization/concepts/membership.md), and viewing federated users' [attributes](../../../organization/operations/setup-federation.md#claims-mapping).
+The `organization-manager.federations.userAdmin` role enables adding and removing [federated users](../../../organization/concepts/add-federation.md#saml-authentication) to/from an organization, revoking federated users’ refresh tokens, viewing the list of the organization [users](../../../organization/concepts/membership.md), and viewing federated users' [attributes](../../../organization/operations/setup-federation.md#claims-mapping).
+
+This role also includes the `iam.userAccounts.refreshTokenRevoker` permissions.

@@ -27,8 +27,6 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [get-buses-list](../../../../_includes/serverless-integrations/get-buses-list.md) %}
 
-  Подробнее о команде `yc serverless eventrouter bus list` читайте в [справочнике CLI](../../../../cli/cli-ref/serverless/cli-ref/eventrouter/bus/list.md).
-
 - API {#api}
 
   Чтобы посмотреть список [шин](../../../concepts/eventrouter/bus.md), воспользуйтесь методом REST API [list](../../../../serverless-integrations/eventrouter/api-ref/Bus/list.md) для ресурса [Bus](../../../../serverless-integrations/eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/List](../../../../serverless-integrations/eventrouter/api-ref/grpc/Bus/list.md).

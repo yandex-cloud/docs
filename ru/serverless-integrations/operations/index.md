@@ -20,3 +20,8 @@ description: Из статьи вы узнаете, как работать с {
 * [Изменить метку](eventrouter/bus/label-update.md)
 * [Удалить метку](eventrouter/bus/label-delete.md)
 * [{#T}](eventrouter/bus/delete.md)
+
+### Получение информации о коннекторе {#connector-get-info}
+
+* [{#T}](eventrouter/connector/get-list.md)
+* [{#T}](eventrouter/connector/get-info.md)
