@@ -392,7 +392,15 @@
                            hubble-ui          quay.io/cilium/hubble-ui-backend:v0.13.0@sha256:******: 1
                            hubble-ui          quay.io/cilium/hubble-ui:v0.13.0@sha256:******: 1
     ```
+    Выведите список узлов cilium
+    ```bash
+    kubectl get cn
+    ```
 
+    Проверьте поды с label k8s-app=cilium
+    ```bash
+    for p in $(kubectl get po -o name -n kube-system -l k8s-app=cilium); do echo "\n"$p; kubectl exec $p -n kube-system -c cilium-agent -- cilium status | tail -5; done
+    ```
     {% endcut %}
 
 1. Получите доступ к веб-интерфейсу Hubble UI, выполнив команду:
