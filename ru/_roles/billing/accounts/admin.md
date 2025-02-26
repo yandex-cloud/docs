@@ -17,7 +17,7 @@
 * создавать [бюджеты](../../../billing/concepts/budget.md);
 * [резервировать потребление ресурсов](../../../billing/concepts/cvos.md);
 * пополнять [лицевой счет](../../../billing/concepts/personal-account.md) с помощью расчетного счета;
-* привязывать [облака](../../../organization/concepts/manage-services.md#cloud) к платежному аккаунту;
+* привязывать [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
 * переименовывать платежные аккаунты;
 * активировать промокоды.
 
@@ -30,7 +30,7 @@
 * активировать сабаккаунты;
 * приостанавливать работу сабаккаунтов;
 * возобновлять работу сабаккаунтов;
-* привязывать [облака](../../../organization/concepts/manage-services.md#cloud) к сабаккаунтам;
+* привязывать [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) к сабаккаунтам;
 * [управлять](../../../partner/operations/access/partners-account.md) назначенными правами доступа к сабаккаунтам;
 * [просматривать](../../../partner/operations/get-client-stat.md) потребление сервисов клиентами;
 * просматривать историю начисления [рибейта](../../../partner/terms.md#rebate);

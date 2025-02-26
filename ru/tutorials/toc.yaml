@@ -529,6 +529,8 @@ items:
             href: web/flask.md
           - name: Хостинг статического сайта на фреймворке Gatsby
             href: web/gatsby-static-website.md
+          - name: Миграция в {{ cdn-full-name }} из стороннего CDN-провайдера
+            href: web/migrate-to-yc-cdn.md
       - name: 1С
         items:
           - name: Интернет-магазин на «1С-Битрикс»

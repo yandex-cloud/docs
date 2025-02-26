@@ -206,5 +206,5 @@ keywords:
 
 ## Что дальше {#what-is-next}
 
-* [Посмотрите еще один пример спецификации рабочего процесса](../concepts/workflows/yawl.md#spec-example)
+* [Посмотрите еще один пример спецификации рабочего процесса](../concepts/workflows/yawl/index.md#spec-example)
 * [Ознакомьтесь с концепциями {{ sw-name }}](../concepts/workflows/workflow.md)

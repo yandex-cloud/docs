@@ -10,3 +10,4 @@ description: Различные сценарии использования {{ c
 * [{#T}](cdn-storage-integration.md)
 * [{#T}](blue-green-canary-deployment.md)
 * [{#T}](protected-access-to-content/index.md)
+* [{#T}](migrate-to-yc-cdn.md)

@@ -9,5 +9,5 @@ description: В разделе представлена история изме�
 
 ### Обновления {#updates}
 
-* Добавлена поддержка шага [YDBDocument](concepts/workflows/yawl.md#YDBDocument) в {{ sw-name }}.
+* Добавлена поддержка шага [YDBDocument](concepts/workflows/yawl/integration/ydbdocument.md) в {{ sw-name }}.
 * Добавлена поддержка {{ er-name }} в {{ TF }}.

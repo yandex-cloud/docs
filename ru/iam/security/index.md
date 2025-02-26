@@ -88,6 +88,7 @@ description: Управление доступом в сервисе идент�
 
 {% include [iam.workloadIdentityFederations.admin](../../_roles/iam/workloadIdentityFederations/admin.md) %}
 
+
 #### iam.auditor {#iam-auditor}
 
 {% include [iam.auditor](../../_roles/iam/auditor.md) %}

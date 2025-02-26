@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
 
      Результат:
 
-     ```bash
+     ```text
      id: f66ngs9760f1********
      folder_id: b1go3el0d8fs********
      cloud_id: b1gia87mbaom********
@@ -44,6 +44,49 @@ description: Следуя данной инструкции, вы сможете
      name: my-bus
      status: ACTIVE
      ```
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../../_includes/terraform-install.md) %}
+
+  1. Добавьте в конфигурационный файл Terraform блоки `data` и `output`:
+
+      ```hcl
+      data "yandex_serverless_eventrouter_bus" "my-bus" {
+        bus_id = "<идентификатор_шины>"
+      }
+
+      output "bus-folder" {
+        value = data.yandex_serverless_eventrouter_bus.my-bus.folder_id
+      }
+      ```
+
+      Где:
+
+      * `data "yandex_serverless_eventrouter_bus"` — описание шины в качестве источника данных:
+         * `resource_id` — идентификатор шины.
+      * `output "bus-folder"` — выходная переменная, которая содержит информацию о каталоге, в котором находится шина (`folder_id`):
+         * `value` — возвращаемое значение.
+
+     Вместо `folder_id` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_serverless_eventrouter_bus` см. в [документации провайдера]({{ tf-provider-datasources-link }}/serverless_eventrouter_bus).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст все требуемые ресурсы и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
+
+      ```bash
+      terraform output
+      ```
+
+      Результат:
+
+      ```text
+      bus-folder = "b1geoelk7fld********"
+      ```
 
 - API {#api}
 
