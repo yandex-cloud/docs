@@ -1,1 +1,1 @@
-Отслеживать статус операции вы можете с помощью [API](../../../api-design-guide/concepts/operation.md#monitoring) или [{{ yandex-cloud }} CLI](../../../cli/cli-ref/operation/cli-ref/get.md).
+Отслеживать статус операции вы можете в консоли управления, а также с помощью {{ yandex-cloud }} CLI и API. Подробнее см. на странице [Посмотреть операции с ресурсами сервиса {{ compute-name }}](../../../compute/operations/operation-logs.md).

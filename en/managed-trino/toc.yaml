@@ -3,5 +3,7 @@ href: index.yaml
 stage: preview
 noIndex: true
 items:
+  - name: Quotas and limits
+    href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md

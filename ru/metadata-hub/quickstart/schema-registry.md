@@ -32,26 +32,36 @@
   1. [В настройках созданного пространства имен](../operations/update-name-space.md) скопируйте его идентификатор.
   1. Воспользуйтесь методом API POST, чтобы загрузить и зарегистрировать схему для субъекта. Передайте в запросе: 
      
-      * `subject` — имя субъекта для загрузки схем;
-      * `subject` — имя схемы для загрузки в указанный субъект;
-      * `schemaType` — тип схемы: [Avro](https://avro.apache.org/), [JSON Schema](https://json-schema.org/) или [Protobuf](https://protobuf.dev/).
+      * `schemaType` — формат данных: [PROTOBUF](https://protobuf.dev/), [AVRO](https://avro.apache.org/) или [JSON](https://json-schema.org/). Если параметр `schemaType` не указан, по умолчанию используется `AVRO`.
+      * `schema.type` — тип данных. Например, `record`.
+      * `schema.name` — имя схемы, которая будет загружена в субъект.
+      * `schema.fields` — поля схемы. Пример: `[{\"name\": \"age\", \"type\": \"int\"}]`.
+      * Идентификатор пространства имен.
+      * Имя субъекта, в который будет загружена схема.
+
+      Формат запроса:
 
             
       ```bash
       curl \
-        --request POST "https://<идентификатор_пространства_имен>.schema-registry.yandexcloud.net/v1/namespace"\
+        --request POST \
         --header "accept: application/json" \
         --header "Authorization: <токен>" \
         --header "Content-Type: application/json" \
-        --data "{
-         \ "schema": "{
-             \"type": <тип>, 
-             \"name": "<имя_схемы>, 
-             \"fields":[поля_схемы]}
+        --data '{
+           "schemaType": "<формат данных>",
+           "schema": '{
+             \"type\": \"<тип данных>\", 
+             \"name\": \"<имя_схемы>\", 
+             \"fields\":[поля_схемы]}
             }' \
-        $<идентификатор_пространства_имен>/subjects/<имя_субъекта>/versions
-        {"id":1}
-      ```     
+        https://<идентификатор_пространства_имен>.schema-registry.yandexcloud.net/subjects/<имя_субъекта>/versions
+      ```
+
+      В ответ на успешный запрос придет уникальный идентификатор схемы. Пример: `{"id":1}`.
+
+      Примеры запросов см. в [документации Confluent](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions).
+
 {% endlist %}
 
 ## Что дальше {what-is-next}

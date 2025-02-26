@@ -83,7 +83,7 @@ items:
             href: operations/network-add.md
           - name: Передать секреты {{ lockbox-full-name }}
             href: operations/lockbox-secret-transmit.md
-          - name: Смонтировать файловые системы
+          - name: Смонтировать внешние ресурсы на файловую систему контейнера
             items:
               - name: Смонтировать бакеты
                 href: operations/mount-bucket.md
@@ -161,7 +161,7 @@ items:
         href: concepts/runtime.md
       - name: Сетевое взаимодействие
         href: concepts/networking.md
-      - name: Монтирование файловых систем
+      - name: Монтирование внешних ресурсов на файловую систему контейнера
         href: concepts/mounting.md
       - name: Долгоживущие контейнеры
         href: concepts/long-lived-containers.md

@@ -91,6 +91,8 @@ ru-ru:
     to: /audit-trails/operations/create-trail
   - from: ^/audit-trails/operations/export-cloud-bucket
     to: /audit-trails/operations/create-trail
+  - from: ^/organization/concepts/manage-services
+    to: /resource-manager/concepts/resources-hierarchy  
 
 ru-kz:
   - from: ^/audit-trails/operations/export-organization-logging
@@ -111,3 +113,5 @@ ru-kz:
     to: /audit-trails/operations/create-trail
   - from: ^/audit-trails/operations/export-cloud-bucket
     to: /audit-trails/operations/create-trail
+  - from: ^/organization/concepts/manage-services
+    to: /resource-manager/concepts/resources-hierarchy  

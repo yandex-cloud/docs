@@ -6570,6 +6570,7 @@ default:
           certificate_content_select_leaf_only: End-entity certificate
           certificate_content_select_no_private_key: Certificate without private key
           certificate_content_select_private_key_only: Private key only
+          challenge_label_dns-name: Name
           challenge_label_dns-record-set: Cloud DNS
           challenge_label_http-content: Contents
           challenge_label_http-url: Link for hosting file
@@ -6579,6 +6580,7 @@ default:
           button_request: Create
           challenge-type_label_dns: DNS
           challenge-type_label_http: HTTP
+          field_challenge-type: Check type
           field_domains: Domains
       clickhouse:
         button_create-cluster: Create ClickHouse cluster
@@ -10590,7 +10592,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.18
+        tag: v0.2.19
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -10607,7 +10609,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.18.0
+        tag: v1.18.1
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -10620,7 +10622,7 @@ default:
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
-        tag: 0.5.1-a
+        tag: 0.5.1-b
     yc_falco:
       helmChart:
         name: cr.yandex/yc-marketplace/falco

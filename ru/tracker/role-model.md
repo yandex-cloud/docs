@@ -1,6 +1,6 @@
 # Роли и права доступа в {{ tracker-name }}
 
-{{ tracker-full-name }} — один из [сервисов](../organization/concepts/manage-services.md), которые можно подключить к организации {{ yandex-cloud }}. Администратор организации, который подключил {{ tracker-name }}, также становится [администратором {{ tracker-name }}](#admin).
+{{ tracker-full-name }} — один из сервисов, которые можно подключить к организации {{ yandex-cloud }}. Администратор организации, который подключил {{ tracker-name }}, также становится [администратором {{ tracker-name }}](#admin).
 
 {% note info %}
 

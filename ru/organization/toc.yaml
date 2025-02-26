@@ -68,14 +68,16 @@ items:
             href: operations/federation-group-mapping.md
           - name: Обновить SAML-сертификат {{ yandex-cloud }}
             href: operations/renew-yc-certificate.md
-      - name: Работа с {{ oslogin }}
+      - name: Аутентификация
         items:
-          - name: Включить доступ по {{ oslogin }}
-            href: operations/os-login-access.md
-          - name: Создать профиль {{ oslogin }}
-            href: operations/os-login-profile-create.md
           - name: Добавить SSH-ключ
             href: operations/add-ssh.md
+          - name: Работа с {{ oslogin }}
+            items:
+              - name: Включить доступ по {{ oslogin }}
+                href: operations/os-login-access.md
+              - name: Создать профиль {{ oslogin }}
+                href: operations/os-login-profile-create.md
       - name: Управление доступом
         items:
           - name: Обзор
@@ -124,14 +126,14 @@ items:
         href: tutorials/sa-oslogin-ansible.md
   - name: Концепции
     items:
-      - name: Облака и сервисы
-        href: concepts/manage-services.md
+      - name: Организация
+        href: concepts/organization.md
       - name: Членство в организации
         href: concepts/membership.md
-      - name: Федерации удостоверений
-        href: concepts/add-federation.md
       - name: Группы пользователей
         href: concepts/groups.md
+      - name: Федерации удостоверений
+        href: concepts/add-federation.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
       - name: Управляемые организации

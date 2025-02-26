@@ -1,6 +1,6 @@
 ```json
 {
-    "folder_id": "<идентификатор каталога>",
+    "folder_id": "<идентификатор_каталога>",
     "username": "user",
     "resources": {
         "image": {
@@ -21,7 +21,7 @@
         },
         "zone_id": "ru-central1-d",
         "platform_id": "standard-v3",
-        "subnet_id": "<идентификатор подсети>"
+        "subnet_id": "<идентификатор_подсети>"
     },
     "metadata": {
         "ssh-keys": "USERNAME:SSH_PUBLIC_KEY",

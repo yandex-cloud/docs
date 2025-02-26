@@ -223,6 +223,14 @@ Returns the average of elements in the `array`.
 
 
 
+## [ARR_INTERSECT](ARR_INTERSECT.md)
+
+**Syntax:**`ARR_INTERSECT( array_1, array_2, array_3 [ , ... ] )`
+
+Returns an array of elements that occur in every array provided as an argument. The function does not put such elements in any particular order. Duplicate elements are only added once.
+
+
+
 ## [ARR_MAX](ARR_MAX.md)
 
 **Syntax:**`ARR_MAX( array )`
