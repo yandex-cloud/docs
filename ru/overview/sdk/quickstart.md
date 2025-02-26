@@ -40,14 +40,18 @@ sourcePath: ru/sdk/sdk/quickstart.md
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
 1. [Назначьте](../../organization/operations/add-role.md) сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md) в зависимости от сервисов, которыми вы хотите управлять с помощью {{ yandex-cloud }} SDK.
 
-    В данном руководстве для создания ВМ вам понадобится роль [compute.admin](../../compute/security/index.md#compute-admin).
+    В данном руководстве для создания ВМ вам понадобится роль [compute.admin](../../compute/security/index.md#compute-admin). 
+    
+    Если вы будете использовать **SDK для .NET**, также назначьте сервисному аккаунту роль [iam.serviceAccounts.admin](../../iam/security/index.md#iam-serviceAccounts-admin). Эта роль понадобится для получения [авторизованного ключа](../../iam/concepts/authorization/key.md).
 
 ### Подготовьте {{ yandex-cloud }} CLI {#prepare-cli}
 
-1. [Установите](../../cli/operations/install-cli.md) {{ yandex-cloud }} CLI
+1. [Установите](../../cli/operations/install-cli.md) {{ yandex-cloud }} CLI.
 1. [Аутентифицируйтесь](../../cli/operations/authentication/service-account) в {{ yandex-cloud }} CLI от имени сервисного аккаунта.
 
-    С помощью {{ yandex-cloud }} CLI будет получен [IAM-токен](../../iam/concepts/authorization/iam-token.md) для аутентификации сервисного аккаунта в {{ yandex-cloud }}. Такой способ более безопасный по сравнению с хранением аутентификационных данных в коде или отдельном файле.
+    С помощью {{ yandex-cloud }} CLI будут получены данные для аутентификации в {{ yandex-cloud }}:
+    * для Node.js, Go, Python, Java — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
+    * для .NET — [авторизованный ключ](../../iam/concepts/authorization/key.md).
 
 ### Получите исходные данные {#get-source-data}
 
@@ -150,6 +154,26 @@ sourcePath: ru/sdk/sdk/quickstart.md
         cd yc-sdk-quickstart-java
         ```
 
+- .NET {#dotnet}
+
+    1. В терминале проверьте версию .NET с помощью команды: 
+
+        ```bash
+        dotnet -version
+        ```
+
+        Если .NET не установлен, выберите подходящий вариант установки на [сайте Microsoft](https://dotnet.microsoft.com/en-us/download). Рекомендуем установить версию 9.0 так как она используется в данной инструкции. Если вы установите другую версию .NET, укажите ее в файле `YC-test`.
+    1. Склонируйте [репозиторий с примерами {{ yandex-cloud }} SDK для .NET](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-dotnet.git):
+
+        ```bash
+        git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-dotnet.git
+        ```
+
+    1. В склонированном репозитории перейдите в директорию `yc-sdk-quickstart-dotnet`:
+
+        ```bash
+        cd yc-sdk-quickstart-dotnet
+        ```
 
 {% endlist %}
 
@@ -181,6 +205,11 @@ sourcePath: ru/sdk/sdk/quickstart.md
 
     {% include [instance-json-config](../../_includes/sdk/compute/basic-instance-config-json.md) %}
 
+- .NET {#dotnet}
+
+    {% include [open-and-set-config](../../_includes/sdk/compute/create-instance/open-and-set-config.md) %}
+
+    {% include [instance-json-config](../../_includes/sdk/compute/basic-instance-config-json.md) %}
 
 {% endlist %}
 
@@ -226,6 +255,8 @@ sourcePath: ru/sdk/sdk/quickstart.md
 
     {% include [running-process-description](../../_includes/sdk/compute/create-instance/env-vars-descr.md) %}
 
+    {% include [env-reload-warning](../../_includes/sdk/compute/create-instance/env-reload-warning.md) %}
+
     Работа скрипта разделена на несколько этапов:
 
     * **Запуск скрипта для создания ВМ**. Если скрипт не нашел ошибок в формате переданных данных, вы увидите следующее сообщение:
@@ -242,10 +273,6 @@ sourcePath: ru/sdk/sdk/quickstart.md
       INFO:root:Running Yandex.Cloud operation. ID: fv45g3nfq0bn********. Description: Create instance. Created at: 2024-12-19 15:52:59. Created by: ajeutahec4**********. Meta: instance_id: "fv4bi87d50**********".
       INFO:yandexcloud._channels:Using endpoints from configuration, IAM iam.api.cloud.yandex.net:443, operation operation.api.cloud.yandex.net:443
       ```
-
-      {% include [what-is-op-id](../../_includes/sdk/compute/operation-id.md) %}
-      
-      {% include [info-by-op-id](../../_includes/sdk/compute/get-info-by-op-id.md) %}
     
     * **Результат операции**. После создания ВМ вы получите информацию о ней:
 
@@ -325,6 +352,36 @@ sourcePath: ru/sdk/sdk/quickstart.md
 
         {% include [running-process-description](../../_includes/sdk/compute/create-instance/run-code-part.md) %}
 
+- .NET {#dotnet}
+
+    В корневой директории проекта запустите программу командой:
+
+    ```bash
+    yc iam key create \
+      --output key.json \
+      --service-account-name <имя_сервисного_аккаунта> && \
+    AUTH_KEY=$(<key.json) && \
+    rm key.json && \
+    SSH_PUBLIC_KEY_PATH=~/key.pub \
+    dotnet run
+    ```
+
+    Данная команда состоит из следующих частей:
+    * `yc iam key create` — команда получения [авторизованного ключа](../../iam/concepts/authorization/key.md) в которой:
+        * `--output` — путь к файлу для записи авторизованного ключа в формате JSON.
+        * `--service-account-name` — имя сервисного аккаунта, для которого создается ключ.
+    * `AUTH_KEY=$(<key.json)` — чтение файла с авторизованным ключом и размещение содержимого ключа в переменной `AUTH_KEY`.
+    * `rm key.json` — удаление файла с авторизованным ключом. Вы можете пропустить эту часть команды, если планируете повторно использовать авторизованный ключ.
+    * `SSH_PUBLIC_KEY_PATH=~/key.pub` — установка пути к файлу с публичным SSH-ключом в переменную окружения `SSH_PUBLIC_KEY_PATH`.
+    * `dotnet run` — запуск скрипта.
+
+    {% include [env-reload-warning](../../_includes/sdk/compute/create-instance/env-reload-warning.md) %}
+    
+    {% include [first-output](../../_includes/sdk/compute/create-instance/first-output.md) %}
+
+    {% include [what-is-op-id](../../_includes/sdk/compute/operation-id.md) %}
+    
+    {% include [info-by-op-id](../../_includes/sdk/compute/get-info-by-op-id.md) %}
 
 {% endlist %}
 

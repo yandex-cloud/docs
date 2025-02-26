@@ -83,6 +83,8 @@ items:
             href: tutorials/protected-access-to-content/console.md
           - name: '{{ TF }}'
             href: tutorials/protected-access-to-content/terraform.md
+      - name: Миграция в {{ cdn-full-name }} из стороннего CDN-провайдера
+        href: tutorials/migrate-to-yc-cdn.md
   - name: Концепции
     items:
       - name: Обзор сервиса

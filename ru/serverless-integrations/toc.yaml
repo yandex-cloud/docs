@@ -44,6 +44,14 @@ items:
                 href: operations/eventrouter/connector/get-list.md
               - name: Получить информацию о коннекторе
                 href: operations/eventrouter/connector/get-info.md
+          - name: Получение информации о правиле
+            items:
+              - name: Получить список правил
+                href: operations/eventrouter/rule/get-list.md
+              - name: Получить информацию о правиле
+                href: operations/eventrouter/rule/get-info.md
+          - name: Просмотр операций с ресурсами сервиса
+            href: operations/eventrouter/operation-logs.md
   - name: Практические руководства
     items:
       - name: >-
@@ -61,7 +69,50 @@ items:
           - name: Запуск рабочего процесса
             href: concepts/workflows/execution.md
           - name: Спецификация YaWL
-            href: concepts/workflows/yawl.md
+            items:
+              - name: Обзор
+                href: concepts/workflows/yawl/index.md
+              - name: Интеграционные шаги
+                items:
+                  - name: HTTPCall
+                    href: concepts/workflows/yawl/integration/httpcall.md
+                  - name: GRPCCall
+                    href: concepts/workflows/yawl/integration/grpccall.md
+                  - name: YMQ
+                    href: concepts/workflows/yawl/integration/ymq.md
+                  - name: YDS
+                    href: concepts/workflows/yawl/integration/yds.md
+                  - name: YDBDocument
+                    href: concepts/workflows/yawl/integration/ydbdocument.md
+                  - name: FunctionCall
+                    href: concepts/workflows/yawl/integration/functioncall.md
+                  - name: ContainerCall
+                    href: concepts/workflows/yawl/integration/containercall.md
+                  - name: FoundationModelsCall
+                    href: >-
+                      concepts/workflows/yawl/integration/foundationmodelscall.md
+                  - name: ObjectStorage
+                    href: concepts/workflows/yawl/integration/objectstorage.md
+                  - name: Tracker
+                    href: concepts/workflows/yawl/integration/tracker.md
+                  - name: Postbox
+                    href: concepts/workflows/yawl/integration/postbox.md
+              - name: Управляющие шаги
+                items:
+                  - name: Switch
+                    href: concepts/workflows/yawl/management/switch.md
+                  - name: Foreach
+                    href: concepts/workflows/yawl/management/foreach.md
+                  - name: Parallel
+                    href: concepts/workflows/yawl/management/parallel.md
+                  - name: Success
+                    href: concepts/workflows/yawl/management/success.md
+                  - name: Fail
+                    href: concepts/workflows/yawl/management/fail.md
+                  - name: NoOp
+                    href: concepts/workflows/yawl/management/noop.md
+                  - name: Wait
+                    href: concepts/workflows/yawl/management/wait.md
           - name: Шаблонизация
             href: concepts/workflows/templating.md
       - name: '{{ er-name }}'

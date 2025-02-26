@@ -25,3 +25,12 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](eventrouter/connector/get-list.md)
 * [{#T}](eventrouter/connector/get-info.md)
+
+### Получение информации о правиле {#rules-get-info}
+
+* [{#T}](eventrouter/rule/get-list.md)
+* [{#T}](eventrouter/rule/get-info.md)
+
+### Получение дополнительной информации
+
+* [Просмотр операций с ресурсами сервиса](eventrouter/operation-logs.md)

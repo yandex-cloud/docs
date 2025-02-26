@@ -3,5 +3,7 @@ href: index.yaml
 stage: preview
 noIndex: true
 items:
+  - name: Квоты и лимиты
+    href: concepts/limits.md
   - name: Правила тарификации
     href: pricing.md

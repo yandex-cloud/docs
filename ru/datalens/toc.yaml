@@ -500,6 +500,8 @@ items:
                 href: function-ref/ARRAY.md
               - name: ARR_AVG
                 href: function-ref/ARR_AVG.md
+              - name: ARR_INTERSECT
+                href: function-ref/ARR_INTERSECT.md
               - name: ARR_MAX
                 href: function-ref/ARR_MAX.md
               - name: ARR_MIN

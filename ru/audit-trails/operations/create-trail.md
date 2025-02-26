@@ -313,96 +313,109 @@
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  {% include [terraform-install](../../_includes/terraform-install.md) %}
+    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле параметры трейла, который будет собирать аудитные логи:
+    1. Опишите в конфигурационном файле параметры трейла, который будет собирать аудитные логи:
 
-      ```hcl
-      resource "yandex_audit_trails_trail" "basic_trail" {
-        name = "<имя_трейла>"
-        folder_id   = "<идентификатор_каталога>"
-        description = "<описание_трейла>"
-        
-        labels = {
-          key = "value"
-        }
-        
-        service_account_id = "<идентификатор_сервисного_аккаунта>"
-        
-        logging_destination {
-          log_group_id = "<идентификатор_лог-группы>"
-        }
-        
-        filter {
-          path_filter {
-            some_filter {
-              resource_id   = "<идентификатор_организации>"
-              resource_type = "<тип_родительского_ресурса>"
-              any_filters {
-                  resource_id   = "<идентификатор_облака_1>"
-                  resource_type = "<тип_дочернего_ресурса>"
+        ```hcl
+        resource "yandex_audit_trails_trail" "basic_trail" {
+          name        = "<имя_трейла>"
+          folder_id   = "<идентификатор_каталога>"
+          description = "<описание_трейла>"
+          labels = {
+            key = "value"
+          }
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+
+
+          # Должно быть указано только одно место назначения:
+          # storage_destination , logging_destination, data_stream_destination
+          # Настройки для всех мест назначения приведены для иллюстрации
+
+          logging_destination {
+            log_group_id = "<идентификатор_лог-группы>"
+          }
+          storage_destination {
+            bucket_name   = "<идентификатор_бакета>"
+            object_prefix = "<префикс>"
+          }
+          data_stream_destination {
+            database_id = "<идентификатор_базы_данных_YDS>"
+            stream_name = "<имя_потока_данных_YDS>"
+          }
+
+          # Настройки политики фильтрации
+
+          filtering_policy {
+            management_events_filter {
+              resource_scope {
+                resource_id   = "<идентификатор_организации>"
+                resource_type = "resource-manager.organization"
               }
-              any_filters {
-                  resource_id   = "<идентификатор_облака_2>"
-                  resource_type = "<тип_дочернего_ресурса>"
+            }  
+            data_events_filter {
+              service = "<сервис>"
+              included_events = ["<тип_событий_сервиса>","<тип_событий_сервиса_2>"]
+              resource_scope {
+                resource_id   = "<идентификатор_облака>"
+                resource_type = "resource-manager.cloud"
+              }
+              resource_scope {
+                resource_id   = "<идентификатор_каталога>"
+                resource_type = "resource-manager.folder"
+              }
+            }
+            data_events_filter {
+              service = "<сервис_2>"
+              resource_scope {
+                resource_id   = "<идентификатор_облака_2>"
+                resource_type = "resource-manager.cloud"
+              }
+              resource_scope {
+                resource_id   = "<идентификатор_облака_3>"
+                resource_type = "resource-manager.cloud"
+              }
+            }
+            data_events_filter {
+              service = "<сервис_3>"
+              resource_scope {
+                resource_id   = "<идентификатор_каталога_2>"
+                resource_type = "resource-manager.folder"
+              }
+              resource_scope {
+                resource_id   = "<идентификатор_каталога_3>"
+                resource_type = "resource-manager.folder"
               }
             }
           }
-          event_filters {
-            service = "<идентификатор_сервиса_1>"
-            categories {
-              plane = "DATA_PLANE"
-              type  = "<тип_действия>"
-            }
-            path_filter {
-              any_filter {
-                resource_id = "<идентификатор_организации>"
-                resource_type = "<тип_ресурса>"
-              }
-            }
-          }
-          event_filters {
-            service = "<идентификатор_сервиса_2>"
-            categories {
-              plane = "DATA_PLANE"
-              type  = "<тип_действия>"
-            }
-            path_filter {
-              any_filter {
-                resource_id = "<идентификатор_организации>"
-                resource_type = "<тип_ресурса>"
-              }
-            }
-          }
         }
-      }
-      ```
+        ```
 
-      Где:
+        Где:
 
-      {% include [trail-create-tf-descs_part1](../../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
+        {% include [trail-create-tf-descs_part1](../../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
 
-      {% include [trail-create-tf-descs_logging](../../_includes/audit-trails/trail-create-tf-descs-logging.md) %}
+        {% include [trail-create-tf-descs_logging](../../_includes/audit-trails/trail-create-tf-descs-logging.md) %}
 
-      {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
+        {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
+        Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
 
-  1. Создайте ресурсы:
+    1. Создайте ресурсы:
 
-      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+        {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
-      ```bash
-      yc audit-trails trail get <имя_трейла>
-      ```
+       ```bash
+       yc audit-trails trail get <имя_трейла>
+       ```
 
 - API {#api}
 
-  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
+    Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
 
 {% endlist %}
 
@@ -449,63 +462,252 @@
 
 - CLI {#cli}
 
-    1. Создайте YAML-файл `sample-trail-all-planes.yaml` с конфигурацией трейла.
+  1. Создайте YAML-файл `sample-trail-all-planes.yaml` с конфигурацией трейла.
 
-        {% cut "sample-trail-all-planes.yaml" %}
+      {% cut "sample-trail-all-planes.yaml" %}
 
-        ```yaml
-        name: sample-trail-all-planes
-        folder_id: folder0***
-        destination:
-          object_storage:
-            bucket_id: sample-logs-bucket
-        service_account_id: service0***
-        filtering_policy:
-          management_events_filter:
+      ```yaml
+      name: sample-trail-all-planes
+      folder_id: folder0***
+      destination:
+        object_storage:
+          bucket_id: sample-logs-bucket
+      service_account_id: service0***
+      filtering_policy:
+        management_events_filter:
+          resource_scopes:
+            - id: org1***
+              type: organization-manager.organization
+        data_events_filters:
+          - service: mdb.postgresql
             resource_scopes:
-              - id: org1***
-                type: organization-manager.organization
-          data_events_filters:
-            - service: mdb.postgresql
-              resource_scopes:
-                - id: cloud1***
-                  type: resource-manager.cloud
-                - id: folder1***
-                  type: resource-manager.folder
-              excluded_events:
-                event_types:
-                - yandex.cloud.audit.mdb.postgresql.CreateDatabase
-                - yandex.cloud.audit.mdb.postgresql.UpdateDatabase
-            - service: storage
-              resource_scopes:
-                - id: cloud2***
-                  type: resource-manager.cloud
-                - id: cloud3***
-                  type: resource-manager.cloud
-              included_events:
-                event_types:
-                  - yandex.cloud.audit.storage.ObjectCreate
-                  - yandex.cloud.audit.storage.ObjectUpdate
-                  - yandex.cloud.audit.storage.ObjectDelete
-            - service: compute
-              resource_scopes:
-                - id: folder2***
-                  type: resource-manager.folder
-                - id: folder3***
-                  type: resource-manager.folder
-        ```
+              - id: cloud1***
+                type: resource-manager.cloud
+              - id: folder1***
+                type: resource-manager.folder
+            excluded_events:
+              event_types:
+              - yandex.cloud.audit.mdb.postgresql.CreateDatabase
+              - yandex.cloud.audit.mdb.postgresql.UpdateDatabase
+          - service: storage
+            resource_scopes:
+              - id: cloud2***
+                type: resource-manager.cloud
+              - id: cloud3***
+                type: resource-manager.cloud
+            included_events:
+              event_types:
+                - yandex.cloud.audit.storage.ObjectCreate
+                - yandex.cloud.audit.storage.ObjectUpdate
+                - yandex.cloud.audit.storage.ObjectDelete
+          - service: compute
+            resource_scopes:
+              - id: folder2***
+                type: resource-manager.folder
+              - id: folder3***
+                type: resource-manager.folder
+      ```
 
-        {% endcut %}
+      {% endcut %}
 
-    1. Выполните команду:
+  1. Выполните команду:
 
-        ```bash
-        yc audit-trails trail create --file sample-trail-all-planes.yaml
-        ```
+      ```bash
+      yc audit-trails trail create --file sample-trail-all-planes.yaml
+      ```
 
-    Будет создан трейл с указанными параметрами.
+  Будет создан трейл с указанными параметрами.
+
+- {{ TF }} {#tf}
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры создаваемого трейла:
+
+      ```hcl
+      resource "yandex_audit_trails_trail" "basic_trail" {
+        name               = "sample-trail-all-planes"
+        folder_id          = "folder0***"
+        service_account_id = "service0***"
+
+        storage_destination {
+          bucket_name  = "sample-logs-bucket"
+        }
+
+        filtering_policy {
+          management_events_filter {
+            resource_scope {
+              resource_id   = "org1***"
+              resource_type = "resource-manager.organization"
+            }
+          }  
+          data_events_filter {
+            service = "mdb.postgresql"
+            excluded_events = ["yandex.cloud.audit.mdb.postgresql.CreateDatabase","yandex.cloud.audit.mdb.postgresql.UpdateDatabase"]
+            resource_scope {
+              resource_id   = "cloud1***"
+              resource_type = "resource-manager.cloud"
+            }
+            resource_scope {
+              resource_id   = "folder1***"
+              resource_type = "resource-manager.folder"
+            }
+          }
+          data_events_filter {
+            service = "storage"
+            resource_scope {
+              resource_id   = "cloud2***"
+              resource_type = "resource-manager.cloud"
+            }
+            resource_scope {
+              resource_id   = "cloud3***"
+              resource_type = "resource-manager.cloud"
+            }
+          }
+          data_events_filter {
+            service = "compute"
+            resource_scope {
+              resource_id   = "folder2***"
+              resource_type = "resource-manager.folder"
+            }
+            resource_scope {
+              resource_id   = "folder3***"
+              resource_type = "resource-manager.folder"
+            }
+          }
+        }
+      }
+     ```
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      Будет создан трейл с указанными параметрами. Проверить появление трейла можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+      ```bash
+      yc audit-trails trail get sample-trail-all-planes
+      ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md).
+
+  {% include [curl](../../_includes/curl.md) %}
+
+  {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
+
+  1. [Получите](../../iam/operations/index.md#iam-tokens) IAM-токен, чтобы [аутентифицироваться](../api-ref/authentication.md) в API.
+
+  1. Сохраните полученный IAM-токен в переменную, выполните в терминале:
+
+      ```bash
+      export IAM_TOKEN=<IAM-токен>
+      ```
+
+  1. Подготовьте файл `body.json` с телом запроса и описанием создаваемого трейла:
+
+      ```json
+      {
+        "folderId": "folder0**",
+        "name": "sample-trail-all-planes",
+        "description": "sample-trail",
+        "destination": {
+          "objectStorage": {
+            "bucketId": "sample-logs-bucket"
+          }
+        },
+        "serviceAccountId": "service0***",
+        "filteringPolicy": {
+          "managementEventsFilter": {
+            "resourceScopes": [
+              {
+                "id": "org1***",
+                "type": "resource-manager.organization"
+              }
+            ]
+          },
+          "dataEventsFilters": [
+            {
+              "service": "mdb.postgresql",
+              "excludedEvents": {
+                "eventTypes": [
+                  "yandex.cloud.audit.mdb.postgresql.CreateDatabase"
+                  ,"yandex.cloud.audit.mdb.postgresql.UpdateDatabase"
+                ]
+              },
+              "resourceScopes": [
+                {
+                  "id": "cloud1***",
+                  "type": "resource-manager.cloud"
+                },
+                {
+                  "id": "folder1***",
+                  "type": "resource-manager.folder"
+                }
+              ]
+            },
+            {
+              "service": "storage",
+              "resourceScopes": [
+                {
+                  "id": "cloud2**",
+                  "type": "resource-manager.cloud"
+                },
+                {
+                  "id": "cloud3**",
+                  "type": "resource-manager.cloud"
+                }
+              ]
+            },
+            {
+              "service": "compute",
+              "resourceScopes": [
+                {
+                  "id": "folder2**",
+                  "type": "resource-manager.folder"
+                },
+                {
+                  "id": "folder3**",
+                  "type": "resource-manager.folder"
+                }
+              ]
+            }
+          ]
+        }
+      }
+      ```
+
+  1. Выполните в терминале запрос:
+
+      ```bash
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data "@<файл_с_телом_запроса>" \
+        https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails
+      ```
+
+      Где:
+      * `<файл_с_телом_запроса>` — путь к созданному ранее файлу с телом запроса `body.json`.
+
+      Результат:
+
+      ```json
+      {
+      "done": false,
+      "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.audittrails.v1.CreateTrailMetadata",
+        "trailId": "cnpvprd5pa66********"
+      },
+      "id": "cnp9qb9g8ldb********",
+      "description": "operation_create",
+      "createdAt": "2025-02-20T07:06:18.547321903Z",
+      "createdBy": "ajevfb0tjfts********",
+      "modifiedAt": "2025-02-20T07:06:18.547321903Z"
+      }
+      ```
 
 {% endlist %}
+
 
 ## Что дальше {#whats-next}
 

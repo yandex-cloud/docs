@@ -101,7 +101,7 @@ items:
             href: operations/function/lockbox-secret-transmit.md
           - name: Выделить память для директории /tmp
             href: operations/function/allocate-memory-tmp.md
-          - name: Смонтировать файловые системы
+          - name: Смонтировать внешние ресурсы на файловую систему функции
             items:
               - name: Смонтировать бакеты
                 href: operations/function/mount-bucket.md
@@ -207,7 +207,7 @@ items:
             href: concepts/runtime/execution-context.md
           - name: Предзагружаемая среда выполнения
             href: concepts/runtime/preload-runtime.md
-      - name: Монтирование файловых систем
+      - name: Монтирование внешних ресурсов на файловую систему функции
         href: concepts/mounting.md
       - name: Сборщик
         href: concepts/builder.md

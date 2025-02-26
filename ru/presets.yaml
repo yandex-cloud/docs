@@ -6577,6 +6577,7 @@ default:
           certificate_content_select_leaf_only: Конечный сертификат без цепочки сертификатов
           certificate_content_select_no_private_key: Сертификат без приватного ключа
           certificate_content_select_private_key_only: Только приватный ключ
+          challenge_label_dns-name: Имя
           challenge_label_dns-record-set: Cloud DNS
           challenge_label_http-content: Содержимое
           challenge_label_http-url: Ссылка для размещения файла
@@ -6586,6 +6587,7 @@ default:
           button_request: Создать
           challenge-type_label_dns: DNS
           challenge-type_label_http: HTTP
+          field_challenge-type: Тип проверки
           field_domains: Домены
       clickhouse:
         button_create-cluster: Создать кластер ClickHouse
@@ -10597,7 +10599,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.18
+        tag: v0.2.19
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -10614,7 +10616,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.18.0
+        tag: v1.18.1
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
@@ -10627,7 +10629,7 @@ default:
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
-        tag: 0.5.1-a
+        tag: 0.5.1-b
     yc_falco:
       helmChart:
         name: cr.yandex/yc-marketplace/falco

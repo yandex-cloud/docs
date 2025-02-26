@@ -38,4 +38,3 @@ description: Из статьи вы узнаете, как изменить ор
 ## См. также {#see-also}
 
 * [{#T}](../../../organization/operations/leave-organization.md)
-* [{#T}](../../../organization/concepts/manage-services.md)
