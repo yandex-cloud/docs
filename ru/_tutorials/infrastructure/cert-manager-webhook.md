@@ -33,7 +33,7 @@
 1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
 
    * `sa-kubernetes` с [ролями](../../managed-kubernetes/security/index.md#yc-api):
-     
+
      * `{{ roles.k8s.clusters.agent }}` и `{{ roles-vpc-public-admin }}` на каталог, в котором создается кластер {{ managed-k8s-name }}.
      * `{{ roles-cr-puller }}` на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов.
 
@@ -162,7 +162,7 @@
    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
    ```
 
-1. Убедитесь, что в [пространстве имен](../../managed-kubernetes/concepts/index.md#имен-namespace) `cert-manager` создано три [пода](../../managed-kubernetes/concepts/index.md#pod) с готовностью `1/1` и статусом `Running`:
+1. Убедитесь, что в [пространстве имен](../../managed-kubernetes/concepts/index.md#namespace) `cert-manager` создано три [пода](../../managed-kubernetes/concepts/index.md#pod) с готовностью `1/1` и статусом `Running`:
 
    ```bash
    kubectl get pods -n cert-manager --watch

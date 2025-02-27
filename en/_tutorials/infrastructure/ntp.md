@@ -1,9 +1,9 @@
 
-# Configuring clock synchronization using NTP
+# Configuring time synchronization using NTP
 
-You can set up time synchronization on {{ compute-full-name }} [VMs](../../compute/concepts/vm.md) with public servers via [NTPv4](https://tools.ietf.org/html/rfc5905).
+You can set up time synchronization on {{ compute-full-name }} [VMs](../../compute/concepts/vm.md) with public servers over [NTPv4](https://tools.ietf.org/html/rfc5905).
 
-The VM time is synced to correctly work with other servers and applications, process data in real time, store exact time data in system logs, etc.
+VM time synchronization is required to correctly work with other servers and applications, process data in real time, store exact time data in system logs, etc.
 
 NTP servers recommended for syncing:
 * `0.ru.pool.ntp.org`
@@ -15,12 +15,12 @@ NTP servers recommended for syncing:
 
 {% note info %}
 
-The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 hours before you need to make changes to a VM configuration.
+The list of recommended servers may change. {{ yandex-cloud }} will notify you 72 hours before you need to change your VM configuration.
 
 {% endnote %}
 
 To set up time synchronization:
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Prepare your infrastructure](#prepare-infrastructure).
 1. [Set up synchronization](#setup-ntp).
 1. [Check synchronization](#check-ntp).
@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of clock synchronization using NTP includes fees for computing resources and VM disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+The cost of NTP clock synchronization includes fees for computing resources and VM disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 ## Prepare the infrastructure {#prepare-infrastructure}
 
@@ -46,25 +46,25 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 - Linux (systemd) {#linux-systemd}
 
-  On Linux-based VMs, make sure to enable a DHCP client with the `42` (`Network Time Protocol Servers`) option. The DHCP client automatically applies the list of time synchronization servers sent by the DHCP server. In {{ compute-name }} images, operating systems are preset properly.
+  On Linux-based VMs, make sure to enable a DHCP client with the `42` (`Network Time Protocol Servers`) option. The DHCP client automatically applies the list of time synchronization servers it gets from the DHCP server. {{ compute-name }} images incorporate proper OS presets.
 
   In the system settings, specify the backup time synchronization servers to use if the DHCP server is unavailable.
 
   {% note info %}
 
-  `systemd-timesyncd` may conflict with `ntpd` if they are running simultaneously. To see which services are running, use the `ps -eF` command. You can either delete `ntpd` or use it to set up time synchronization (see the **Linux (ntpd)** tab). 
+  `systemd-timesyncd` may conflict with `ntpd` when running simultaneously. To see which services are running, use the `ps -eF` command. You can either delete `ntpd` or use it to set up time synchronization. For that, see the **Linux (ntpd)** tab. 
 
   {% endnote %}
 
   To set up time synchronization:
   1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
-  1. Open the `/etc/systemd/timesyncd.conf` file by running the following command in the terminal:
+  1. Open the `/etc/systemd/timesyncd.conf` file by running this command in the terminal:
 
       ```bash
       sudo nano /etc/systemd/timesyncd.conf
       ```
 
-  1. Specify the addresses of the recommended servers in the `FallbackNTP=` parameter of the `[Time]` section, such as the following:
+  1. Specify the addresses of the recommended servers in the `FallbackNTP=` parameter of the `[Time]` section, e.g.:
      
       
       ```text
@@ -73,10 +73,10 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 
 
-  1. In the `systemd.network` configuration file, specify the `UseNTP=true` parameter. The configuration file is usually located in the `/etc/systemd/network/` or `/var/lib/systemd/network/` directory.
+  1. In the `systemd.network` configuration file, specify the `UseNTP=true` parameter. You can normally find the configuration file in the `/etc/systemd/network/` or `/var/lib/systemd/network/` directory.
 
       You can also use the `networkd.conf` file in the `/etc/systemd/` directory.
-  1. Restart the time synchronization service:
+  1. Restart time synchronization:
 
       ```bash
       sudo systemctl restart systemd-timesyncd
@@ -84,19 +84,19 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 - Linux (ntpd) {#linux-ntpd}
 
-  On Linux-based VMs, make sure to enable a DHCP client with the `42` (`Network Time Protocol Servers`) option. The DHCP client automatically applies the list of time synchronization servers sent by the DHCP server. In {{ compute-name }} images, operating systems are preset properly.
+  On Linux-based VMs, make sure to enable a DHCP client with setting `42` (`Network Time Protocol Servers`). The DHCP client automatically applies the list of time synchronization servers it gets from the DHCP server. {{ compute-name }} images incorporate proper OS presets.
 
   In the system settings, specify the backup time synchronization servers to use if the DHCP server is unavailable.
 
   {% note info %}
 
-  `ntpd` may conflict with `systemd-timesyncd` if they are running simultaneously. To see which services are running, use the `ps -eF` command. You can either delete `systemd-timesyncd` or use it to set up time synchronization (see the **Linux (systemd)** tab). 
+  `ntpd` may conflict with `systemd-timesyncd` when running simultaneously. To see which services are running, use the `ps -eF` command. You can either delete `systemd-timesyncd` or use it to set up time synchronization. For that, see the **Linux (systemd)** tab. 
 
   {% endnote %}
 
   To set up time synchronization:
   1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
-  1. Install `ntpd` by running the following command in the terminal:
+  1. Install `ntpd` by running this command in the terminal:
 
       ```bash
       sudo apt-get install ntp
@@ -108,7 +108,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
       sudo nano /etc/ntp.conf
       ```
 
-  1. Specify the recommended server addresses. Comment out default server addresses with `#` at the beginning of the relevant line. Here is an example:
+  1. Specify the recommended server addresses. Comment out the default server addresses with `#` at the beginning of the lines. Here is an example:
      
       
       ```text
@@ -129,7 +129,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 
 
-  1. Restart the time synchronization service:
+  1. Restart time synchronization:
 
       ```bash
       sudo service ntp restart
@@ -138,9 +138,9 @@ The cost of clock synchronization using NTP includes fees for computing resource
 - Windows Server {#windows}
 
   To set up time synchronization:
-  1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM via RDP.
-  1. Run cmd or PowerShell as an administrator.
-  1. Stop the Windows Time service by running the following command:
+  1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM over RDP.
+  1. Run `cmd` or PowerShell as an administrator.
+  1. Stop the Windows Time service by running this command:
 
       ```powershell
       net stop w32time
@@ -169,7 +169,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
       The command completed successfully.
       ```
 
-  1. Specify that the VM is a reliable time source:
+  1. Specify the VM is a reliable time source:
 
       ```powershell
       w32tm /config /reliable:yes
@@ -196,7 +196,7 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 {% endlist %}
 
-## Check the synchronization {#check-ntp}
+## Check synchronization {#check-ntp}
 
 {% list tabs group=operating_system %}
 
@@ -270,4 +270,4 @@ The cost of clock synchronization using NTP includes fees for computing resource
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) your VM.

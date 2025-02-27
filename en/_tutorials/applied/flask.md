@@ -1,34 +1,34 @@
 # Creating a Python web application with Flask
 
 
-With this tutorial, you will develop a simple web application from scratch: a mini blog where users can create, view, edit, and delete posts. To do this, you will create a {{ compute-full-name }} VM in {{ yandex-cloud }} and run a web server on it.
+Using this tutorial, you will develop a simple web application from scratch: a mini blog where users can create, view, edit, and delete posts. To do this, you will create a {{ compute-full-name }} VM in {{ yandex-cloud }} and run a web server on it.
 
-The web app is written in [Python](https://www.python.org/) and uses [SQLite](https://sqlite.org/) to work with data. To develop the frontend, we will use [Bootstrap](https://getbootstrap.com/). 
+The web app is written in [Python](https://www.python.org/) and uses [SQLite](https://sqlite.org/) to handle data. To develop the frontend, we will use [Bootstrap](https://getbootstrap.com/). 
 
 We opted for [Flask](https://flask.palletsprojects.com/en/3.0.x/) as the base framework for our application, since it is one of the most intuitive and straightforward Python web frameworks. 
 
-The Flask framework allows you to create web applications from a single source code file; it does not require following any specific directory structure or writing complex template code before you start using it. Flask also has out-of-the-box support for the [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/) toolkit and the [Jinja templating engine](http://jinja.palletsprojects.com/) to create dynamic HTML pages.
+Flask allows you to create web applications from a single source code file; it does not require following any specific directory structure or writing complex template code prior to using it. Flask also provides out-of-the-box support for the [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/) toolkit and the [Jinja templating engine](http://jinja.palletsprojects.com/) to create dynamic HTML pages.
 
-The source code for the application is available in the [flask_blog.zip](https://github.com/yandex-cloud-examples/yc-web-app-python-flask/blob/main/flask_blog.zip) file.
+You can find the source code for the application in the [flask_blog.zip](https://github.com/yandex-cloud-examples/yc-web-app-python-flask/blob/main/flask_blog.zip) file.
 
-Application workflow:
+How your application is assumed to work:
 
 ![layout](../../_assets/tutorials/flask-layout.svg)
 
-1. HTTP requests are sent from the user's browser to a Linux Ubuntu VM which has a Flask web server installed and running.
+1. A Linux Ubuntu VM with a Flask web server installed and running gets HTTP requests from the user’s browser.
 1. The web server forwards a request to the web application, whose router invokes the appropriate handler function based on the request URL.
-1. The handler function executes a query to the SQLite database to retrieve or write the required data.
+1. The handler function makes a query to the SQLite database to retrieve or write the required data.
 1. The function sends the data retrieved from the database to the appropriate Jinja HTML template, which returns the final HTML code of the page.
-1. This HTML code is forwarded to the web server, which in turn serves this code to the user's browser.
+1. This HTML code is forwarded to the web server, which, in turn, transfers this code to the user's browser.
 
 To create a web application with Flask:
 
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create and set up a virtual machine](#create-setup-vm).
 1. [Create and run the application](#create-app).
 1. [Create and configure the HTML templates](#html-templates).
 1. [Configure the database](#configure-data-base).
-1. [Display blog posts](#display-posts).
+1. [Configure the display of blog posts](#display-posts).
 1. [Add actions with posts](#add-post-actions).
 1. [Summarize the results](#results).
 
@@ -36,9 +36,9 @@ If you no longer need the web application, [delete the resources it uses](#clear
 
 ## Getting started {#before-you-begin}
 
-In {{ yandex-cloud }}, you only pay for the resources you consume and the time of their actual use. A billing account is required to identify the user who pays for such resources.
+In {{ yandex-cloud }}, you only pay for the resources you consume and the time of their actual use. To get identified as a payer, you need a billing account.
 
-The cost of support for a web application includes:
+The cost of support for your web application includes:
 
 * Fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for VM computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
@@ -47,7 +47,7 @@ The cost of support for a web application includes:
 
 ### Create a cloud network and subnet {#create-network}
 
-In {{ yandex-cloud }}, resources are connected to each other and the internet using [cloud networks](../../vpc/concepts/network.md#network), in which resources receive [public](../../vpc/concepts/address.md#public-addresses) IP addresses and private IP address ranges, or [subnets](../../vpc/concepts/network.md#subnet).
+In {{ yandex-cloud }}, resources are linked one to another and to the internet with [cloud networks](../../vpc/concepts/network.md#network), where resources receive [public](../../vpc/concepts/address.md#public-addresses) IP addresses as well as private IP address ranges or [subnets](../../vpc/concepts/network.md#subnet).
 
 To create a virtual network and subnet for your web server:
 
@@ -65,7 +65,7 @@ To create a virtual network and subnet for your web server:
   1. At the top right, click **{{ ui-key.yacloud.common.create }}**.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `webserver-subnet-{{ region-id }}-b`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** field, select the `{{ region-id }}-b` availability zone.
-  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select the `webserver-network` cloud network.
+  1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** field, select `webserver-network`.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, specify `192.168.1.0/24`.
   1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
@@ -121,11 +121,11 @@ To create a virtual network and subnet for your web server:
 
 {% endlist %}
 
-### Create a security group for your file server {#create-sg}
+### Create a security group {#create-sg}
 
-[Security groups](../../vpc/concepts/security-groups.md) are the main tool for managing network access in {{ yandex-cloud }} and help restrict unauthorized traffic to cloud resources at the cloud network level.
+[Security groups](../../vpc/concepts/security-groups.md) are the central tool for managing network access in {{ yandex-cloud }} and help restrict unauthorized traffic to cloud resources at the cloud network level.
 
-Create a security group that allows inbound TCP traffic on ports `5000` and `22` as well as any outbound traffic. Port `22` is used to connect to the VM via SSH, while `5000` is the default port to run a Flask web server.
+Create a security group that allows inbound TCP traffic on ports `5000` and `22` as well as any outbound traffic. Port `22` is used to connect to the VM over SSH, while `5000` is the default port to run a Flask web server.
 
 {% list tabs group=instructions %}
 
@@ -135,8 +135,8 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter the name: `webserver-sg`.
-  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the `webserver-network` network you created earlier.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter this name: `webserver-sg`.
+  1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `webserver-network`, which you created earlier.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
@@ -149,7 +149,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
 
 - CLI {#cli}
   
-  Run the following command:
+  Run this command:
 
   ```bash
   yc vpc security-group create \
@@ -202,7 +202,7 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
           - 0.0.0.0/0
   ```
 
-  Save the security group ID (`id`) as you will need need it to create a VM.
+  Save the `id` as you will need need it to create a VM.
 
   For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
@@ -214,13 +214,13 @@ Create a security group that allows inbound TCP traffic on ports `5000` and `22`
 
 ## Create and set up a virtual machine {#create-setup-vm}
 
-A [virtual machine](../../compute/concepts/vm.md) is similar to a server in the cloud infrastructure. In {{ yandex-cloud }}, you can create VMs with different hardware characteristics in terms of [performance](../../compute/concepts/performance-levels.md), RAM, and [disk space](../../compute/concepts/disk.md#maximum-disk-size), as well as running different [operating systems](../../compute/concepts/image.md#public).
+A [virtual machine](../../compute/concepts/vm.md) is similar to a server in cloud infrastructures. In {{ yandex-cloud }}, you can create VMs with varying hardware specifications in terms of [performance](../../compute/concepts/performance-levels.md), RAM, and [disk space](../../compute/concepts/disk.md#maximum-disk-size); they can also run on various [operating systems](../../compute/concepts/image.md#public).
 
-This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) Linux VM.
+This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) VM.
 
 1. Create a virtual machine:
 
-    Before you start, [prepare](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) to access your VM over SSH.
+    Before you start, [prepare](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (a public key and a private key) to access your VM over SSH.
 
     {% list tabs group=instructions %}
 
@@ -236,9 +236,9 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
           * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `webserver-sg` security group you created in the previous step.
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `webserver-sg`, which you created earlier.
 
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
           * Enter the username in the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field: `yc-user`.
           * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -248,7 +248,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
     - CLI {#cli}
 
-      Run the command specifying the security group ID you saved at the previous step:
+      Run the command while specifying the security group ID you saved at the previous step:
 
       ```bash
       yc compute instance create \
@@ -259,7 +259,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
         --ssh-key <public_SSH_key_file>
       ```
 
-      Where `--ssh-key` is the path to the file with the public SSH key, e.g., `~/.ssh/id_ed25519.pub`.
+      Where `--ssh-key` is the path to the public SSH key file. It can look like this: `~/.ssh/id_ed25519.pub`.
 
       Result:
 
@@ -315,17 +315,17 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
     {% endlist %}
 
-    This will create the `mywebserver` VM in your folder. To [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH, use the `yc-user` username and the VM’s [public IP address](../../vpc/concepts/address.md#public-addresses). If you plan to use the created web server over a long period of time, [make](../../vpc/operations/set-static-ip.md) this VM's public IP address static.
+    As a result, you will have the `mywebserver` VM in your folder. To [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH, use the `yc-user` username and the [public IP address](../../vpc/concepts/address.md#public-addresses) of the VM. If you intend to use the web server you created over a long period of time, [makeconvert](../../vpc/operations/set-static-ip.md) ’its public IP address to static.
 
 1. Create and activate the virtual environment.
 
-    A virtual environment provides an isolated space for Python projects on the server. All required dependencies, e.g., executables, libraries, and other files, are copied to a selected folder, and the application uses them instead of those installed on the system. This ensures the stability of the development environment and keeps the base system clean.
+    A virtual environment provides an isolated space for Python projects on the server. All required dependencies, e.g., executables, libraries, and other files, are copied to the selected folder, and the application uses them rather than those installed on the system. This both ensures the development environment is stable and keeps the base system clean.
 
     To create a virtual environment, use the Python 3 `venv` library module:
 
-    1. [Connect](../../compute/operations/vm-connect/ssh.md) to the `mywebserver` VM.
+    1. [Connect](../../compute/operations/vm-connect/ssh.md) to `mywebserver`.
 
-    1. In the current user's directory, create a project subdirectory named `flask_blog` where the application will reside and navigate into it:
+    1. In the current user's directory, create a project subdirectory named `flask_blog` where the application will be stored and navigate to it:
 
         ```bash
         mkdir flask_blog && cd flask_blog
@@ -349,7 +349,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
         source env/bin/activate
         ```
 
-        After you activate the virtual environment, a prefix with the name of the environment will appear in the command line:
+        After you activate the virtual environment, a prefix with the environment name will appear in the command line:
 
         ```text
         (env) yc-user@ubuntu:~/flask_blog$
@@ -357,7 +357,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
         {% note info %}
 
-        To effectively track and manage the project development process, you can use a version control system. In this case, add the `env` directory to the `.gitignore` file to only track files related to the project.
+        To effectively track and manage project development, you can use a version control system. In this case, add the `env` directory to the `.gitignore` file to only track files associated with the project.
 
         {% endnote %}
 
@@ -381,7 +381,7 @@ This web application will be deployed on an [Ubuntu 22.04 LTS](/marketplace/prod
 
 ## Create and run the application {#create-app}
 
-Create a simple web application inside a Python file and run it to start the server.
+Create a simple web application inside a Python file and run it to launch the server.
 
 1. In the `flask_blog` project directory, create and open the `app.py` file:
 
@@ -389,7 +389,7 @@ Create a simple web application inside a Python file and run it to start the ser
     nano app.py
     ```
 
-    This file allows you to understand how the application will handle HTTP requests.
+    This file enables you to understand how the application will handle HTTP requests.
 
 1. Add the following code to the file:
 
@@ -406,10 +406,10 @@ Create a simple web application inside a Python file and run it to start the ser
 
     In this code:
 
-    * A [`Flask` object](https://flask.palletsprojects.com/en/latest/api/#flask.Flask) is imported from the `flask` package.
-    * An instance of the Flask application named `app` is created. The special `__name__` variable contains the name of the current Python module and indicates its location to the instance. This is necessary because Flask creates several routes within the application.
-    * The `@app.route('/')` [decorator](https://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators) transforms the Python function into a Flask view function. The view function converts the return value into an HTTP response that can be processed by an HTTP client, such as a web browser. The `'/'` value in `@app.route()​​` indicates that this function will respond to web requests for the `/` URL, which is the primary URL of the web application.
-    * The `hello()` function is created that returns the `Hello, World!` string as a response.
+    * You import the [`Flask`](https://flask.palletsprojects.com/en/latest/api/#flask.Flask) object from the `flask` package.
+    * You create an instance of the Flask application named `app`. The special `__name__` variable contains the name of the current Python module and points its location to the instance. The reason this is required is that Flask creates several routes within the application.
+    * The `@app.route('/')` [decorator](https://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators) transforms the Python function into a Flask view function. The view function converts the return value into an HTTP response that can be processed by an HTTP client, such as a web browser. The `'/'` value in `@app.route()​​` means that this function will respond to web requests for the `/` URL, which is the primary URL of the web application.
+    * You create a `hello()` function that returns the `Hello, World!` string as a response.
 
     Save and close the `app.py` file.
 
@@ -421,8 +421,8 @@ Create a simple web application inside a Python file and run it to start the ser
 
     Where:
 
-    * `FLASK_APP=app` indicates the location of the app, i.e., the `app.py` file.
-    * `FLASK_DEBUG=true` indicates the application should run in the development mode.
+    * `FLASK_APP=app` points to the app location, i.e., the `app.py` file.
+    * `FLASK_DEBUG=true` means the application should run in development mode.
 
 1. Run the application:
 
@@ -431,7 +431,7 @@ Create a simple web application inside a Python file and run it to start the ser
       --host=0.0.0.0
     ```
 
-    Where the `--host=0.0.0.0` parameter starts the application server on all IP addresses of the VM. If you do not specify this parameter, you will not be able to access the application using the VM's public IP address.
+    Where the `--host=0.0.0.0` parameter starts the application server on all IP addresses of the VM. Failure to specify this parameter will prevent you from accessing the application using the VM public IP address.
 
     Result:
 
@@ -451,27 +451,27 @@ Create a simple web application inside a Python file and run it to start the ser
     You will need the following information:
 
     * Name of the running application: `app`.
-    * `Debug mode: on`: Indicates that the Flask debugger is active. This feature is useful in development because it provides detailed error messages when problems occur, making it easier to resolve them.
+    * `Debug mode: on`: Means that the Flask debugger is active. This feature is useful in development as it provides detailed error messages whenever issues occur, making it easier to resolve them.
     * The application is running on all addresses.
 
     You can change the web server port to any other value by setting this optional parameter: `--port=<port_number>`. For example, the `flask run --host=0.0.0.0 --port=5001` command will start the Flask web server on port `5001`.
 
-1. In you browser address bar, enter `http://<public_IP_address_of_VM>:5000/`​.
+1. In you browser address bar, enter `http://<public_IP_address_of_VM>:5000/`.
 
     The browser will display the `Hello, World!` string. This means that your application is running properly and can be accessed from the internet.
 
 {% note warning %}
 
-Flask uses a simple web server to serve the application in the development environment. It is reserved for testing and debugging and should not be used in the production environment. For more information, see the [Flask documentation](https://flask.palletsprojects.com/en/latest/deploying/).
+Flask uses a simple web server to maintain the application in the development environment. It is reserved for testing and debugging and should not be used in the production environment. For more information, see [this Flask article](https://flask.palletsprojects.com/en/latest/deploying/).
 
 {% endnote %}
 
-Keep the web server running in the current window and open a new terminal window. You will use this new window to finish setting up your application. This way, you can test your changes without having to stop and restart the web server.
+Keep the web server running in the current window and open a new terminal window. You will use this new window to finish setting up your application. This way, you can test your changes without having to continuously stop and restart the web server.
 
 When you open a new terminal window:
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM.
-1. Go to the `flask_blog` project directory, activate the virtual environment, and set environment variables:
+1. Go to the `flask_blog` project directory, activate the virtual environment, and set the environment variables:
 
     ```bash
     cd flask_blog && source env/bin/activate && export FLASK_APP=app && export FLASK_DEBUG=true
@@ -479,9 +479,9 @@ When you open a new terminal window:
 
 ## Create and configure the HTML templates {#html-templates}
 
-At this point, the application can only display a plain text message in the browser. To display the data and controls that the user needs, you need to add HTML templates to your application.
+At this point, the application can only display a plain text message in the browser. To display the data and controls the user needs, add HTML templates to your application.
 
-To use templates in the app, you can use [the `render_template()` helper function](https://flask.palletsprojects.com/en/latest/api/#flask.render_template) enabled by the [Jinja template engine](https://jinja.palletsprojects.com/en/latest/templates/). You will use HTML templates to create the application pages: the main page listing blog posts and the pages for creating, viewing, and editing a post.
+To use templates in the app, you can use the [`render_template()`](https://flask.palletsprojects.com/en/latest/api/#flask.render_template) helper function enabled by the [Jinja template engine](https://jinja.palletsprojects.com/en/latest/templates/). You will use HTML templates to create application pages: the main page that lists blog posts and the pages for creating, viewing, and editing a post.
 
 ### Create the main page HTML template {#create-html-template}
 
@@ -505,12 +505,12 @@ To use templates in the app, you can use [the `render_template()` helper functio
 
     In this code:
 
-    * The `render_template()` helper function is imported to render HTML templates.
-    * The `hello()` function is replaced with the `index()` function that returns the result of invoking the `render_template()` helper function with the `index.html​`​ argument. The function argument points to a template file in the template directory to use for rendering.
+    * You import the `render_template()` helper function to render HTML templates.
+    * The `hello()` function is replaced with the `index()` function that returns the result of invoking the `render_template()` helper function with the `index.html​`​ argument. The function argument references a template file in the template directory that will be used for rendering.
 
     {% note info %}
 
-    You will create the template directory and the `index.html` file later. Running the application at this stage will return an error.
+    You will create the template directory and the `index.html` file later. Running the application at this stage will produce an error.
 
     {% endnote %}
 
@@ -547,7 +547,7 @@ To use templates in the app, you can use [the `render_template()` helper functio
 
     Save and close the `index.html` file.
 
-1. Refresh the main page of your application, `http://<public_IP_address_of_VM>:5000/`.
+1. Refresh the main page of your application, `http://<VM_public_IP_address>:5000/`.
 
     Result:
 
@@ -555,7 +555,7 @@ To use templates in the app, you can use [the `render_template()` helper functio
     Welcome to FlaskBlog.
     ```
 
-1. In addition to the `templates` directory, Flask web applications typically have the `static` directory that stores static files, such as CSS styles, JavaScript scripts, or images used by the application.
+1. In addition to the `templates` directory, Flask web applications typically have a `static` directory that stores static files, such as CSS styles, JavaScript scripts, or images used by the application.
 
     In the `flask_blog` project directory, create a subdirectory named `static`:
 
@@ -581,7 +581,7 @@ To use templates in the app, you can use [the `render_template()` helper functio
     nano static/css/style.css
     ```
 
-1. Add the following code to the `style.css` file:
+1. Add this code to the `style.css` file:
 
     ```css
     h1 {
@@ -593,10 +593,10 @@ To use templates in the app, you can use [the `render_template()` helper functio
     ```
 
     This CSS code changes the formatting of the text wrapped by the `<h1>` HTML tags:
-    * `border` adds a border.
-    * `color` changes the text color.
-    * `text-align` sets text alignment.
-    * `padding` adds a padding between the element's border and text.
+    * `border`: Adds a border.
+    * `color`: Changes the text color.
+    * `text-align`: Aligns the text.
+    * `padding`: Adds a padding between the element's border and text.
 
     Save and close the `style.css` file.
 
@@ -618,7 +618,7 @@ To use templates in the app, you can use [the `render_template()` helper functio
     ...
     ```
 
-    The link uses the [`url_for()` helper function](https://flask.palletsprojects.com/en/latest/api/#flask.url_for)​​​ to generate the URL for the file location. The first argument indicates that the link references a static file; the second argument specifies the path to the file in the static file subdirectory.
+    The link uses the [`url_for()`](https://flask.palletsprojects.com/en/latest/api/#flask.url_for) helper function​​​ to generate the URL for the file location. The first argument means the link references a static file; the second argument specifies the path to the file in the static file subdirectory.
 
     Save and close the `index.html` file.
 
@@ -626,11 +626,11 @@ To use templates in the app, you can use [the `render_template()` helper functio
 
     You will see that the `Welcome to FlaskBlog`​​​ text changed its color to red and is now centered inside the frame.
 
-The [CSS language](https://en.wikipedia.org/wiki/CSS) allows you to create a consistent and unique design for your web application. If you are not familiar with CSS, use the [Bootstrap toolkit](https://getbootstrap.com/) that provides simple and easy-to-use UI components. In this tutorial, you will use Bootstrap.
+The [CSS language](https://en.wikipedia.org/wiki/CSS) enables you to create a consistent and unique design for your web application. If you are not familiar with CSS, use the [Bootstrap toolkit](https://getbootstrap.com/) that provides simple and easy-to-use UI components. In this tutorial, you will use Bootstrap.
 
 ### Configure other HTML templates {#configure-html-templates}
 
-In other HTML templates, you will need to reuse most of the HTML code from the `index.html` template. To avoid unnecessary duplicate code, use a _base template_ file as a parent for all other HTML templates in the project. See more in the [Jinja documentation](https://jinja.palletsprojects.com/en/latest/templates/#template-inheritance).
+In other HTML templates, you will need to reuse most of the HTML code from the `index.html` template. To avoid unnecessary duplicate code, use the _base template_ file as a parent for all other HTML templates in the project. For more information, see [this Jinja article](https://jinja.palletsprojects.com/en/latest/templates/#template-inheritance).
 
 1. Create and open the `base.html` base template in the `templates` directory:
 
@@ -679,13 +679,13 @@ In other HTML templates, you will need to reuse most of the HTML code from the `
     </html>
     ```
 
-    This file contains HTML code as well as additional code required by Bootstrap. The `<meta>` tags contain browser information, the `<link>` tag binds Bootstrap CSS files, and the `<script>` tag refererces a JavaScript script that enables additional Bootstrap features. For more information, see the [Bootstrap documentation](https://getbootstrap.com/docs/).
+    This file contains HTML code as well as additional code required by Bootstrap. The `<meta>` tags contain browser information, the `<link>` tag binds Bootstrap CSS files, and the `<script>` tag references a JavaScript-based script that enables additional Bootstrap features. For more information, see the [Bootstrap documentation](https://getbootstrap.com/docs/).
 
     The following code elements are specific to the Jinja template engine:
 
-    * `{% block title %} {% endblock %}`: Placeholder [block](https://jinja.palletsprojects.com/en/latest/templates/#blocks) for a header. You will use it in other templates to give a custom header for each page in your application without rewriting the `<head>` section.
-    * `{{ url_for('index')}}`: Calls a function that returns the URL for the `index()` view function. This call is different from `url_for()` used previously to bind the CSS file. In this case, you need to provide only one argument, the name of the view function linked to its associated route and not a file.
-    * `{% block content %} {% endblock %}`: Block that will contain content specific to each child template.
+    * `{% block title %} {% endblock %}`: Placeholder [section](https://jinja.palletsprojects.com/en/latest/templates/#blocks) for a header. You will use it in other templates to give a custom header for each page in your application without rewriting the `<head>` section.
+    * `{{ url_for('index')}}`: Calls a function that returns the URL for the `index()` view function. This call is different from `url_for()` that we used previously to link the CSS file. In this case, you need to provide only one argument: the name of the view function linked to its associated route rather than a file.
+    * `{% block content %} {% endblock %}`: Section that will contain content specific to each child template.
 
     Save and close the `base.html` file.
 
@@ -709,11 +709,11 @@ In other HTML templates, you will need to reuse most of the HTML code from the `
 
     In this code:
 
-    * `{% extends 'base.html' %}`: Indicates inheritance from the `base.html` template.
-    * `{% block title %} ... {% endblock %}`: Specifies a header that will replace the variable in the corresponding block of the `base.html` parent template.
-    * `{% block content %} ... {% endblock %}`: Specifies the content that will replace the variable in the corresponding block of the `base.html` parent template.
+    * `{% extends 'base.html' %}`: Refers to inheritance from the `base.html` template.
+    * `{% block title %} ... {% endblock %}`: Specifies a header that will replace the variable in the appropriate block of the `base.html` parent template.
+    * `{% block content %} ... {% endblock %}`: Specifies the content that will replace the variable in the appropriate block of the `base.html` parent template.
 
-    Since `Welcome to FlaskBlog` is used as both the page name and the header that appears below the navigation bar, you can make this code even more concise and avoid repeating the same text twice:
+    Since `Welcome to FlaskBlog` is used as both the page name and the header that appears below the navigation bar, you can make this code even more concise and avoid duplication:
 
     ```html
     {% extends 'base.html' %}
@@ -727,13 +727,13 @@ In other HTML templates, you will need to reuse most of the HTML code from the `
 
 1. Refresh the main page of your application, `http://<public_IP_address_of_VM>:5000/`.
 
-    Your page will have a navigation bar and a styled header.
+    Your page will now have a navigation bar and a styled header.
 
 ## Configure the database {#configure-data-base}
 
 Create a database to store blog posts and populate it with sample entries.
 
-You will use [SQLite](https://sqlite.org/) to work with the web application data because the [sqlite3](https://docs.python.org/3/library/sqlite3.html) module, which you will need to work with the database, comes bundled with Python.
+You will use [SQLite](https://sqlite.org/) to work with the web application data, since the [sqlite3](https://docs.python.org/3/library/sqlite3.html) module, which you will need to work with the database, comes bundled with Python.
 
 Prepare the `schema.sql` file containing SQL commands to create a database consisting of a table named `posts` with multiple columns.
 
@@ -758,18 +758,18 @@ Prepare the `schema.sql` file containing SQL commands to create a database consi
 
     In this code:
 
-    * The `DROP TABLE IF EXISTS posts;` command deletes the `posts` table if it already exists. We recommend performing this step each time you create a new table to prevent possible errors.
+    * The `DROP TABLE IF EXISTS posts;` command deletes the `posts` table if it already exists. To prevent possible errors, we recommend performing this step each time you create a new table.
     * The `CREATE TABLE posts` command creates the `posts` table with the following columns:
         * `id`: Integer that is the `PRIMARY KEY` of the table. `AUTOINCREMENT` means that its value will be a unique number generated automatically when inserting a new record (blog post) into the table.
-        * `created`: New record timestamp. `NOT NULL` indicates that the value in the column cannot be empty. `DEFAULT CURRENT_TIMESTAMP`​​​ sets the default value as the time when a new record is added to the table. This means that you do not need to manually specify the time when a post is created, it will be added automatically.
+        * `created`: New record timestamp. `NOT NULL` means that the value in the column cannot be empty. `DEFAULT CURRENT_TIMESTAMP`​​​ sets the default value as the time when a new record is added to the table. This means that you do not need to manually specify the time when a post is created; it will be added automatically.
         * `title`: Post title.
-        * `content`: Main text of the post.
+        * `content`: Body text.
 
     Save and close the `schema.sql` file.
 
     {% note info %}
 
-    When using these SQL commands, any previous contents of the `posts` table in the `database.db` file will be deleted. Do not save anything important to the database via the web application until you have completed this tutorial.
+    When using these SQL commands, any previous contents of the `posts` table in the `database.db` file will be deleted. Do not save anything important into the database through the web application until you have completed this tutorial.
 
     {% endnote %}
 
@@ -808,13 +808,13 @@ Prepare the `schema.sql` file containing SQL commands to create a database consi
 
     In this code:
 
-    * The `sqlite3` module is imported.
-    * The connection to the `database.db` file is opened; this file is created once you run the Python file.
+    * You import the `sqlite3` module.
+    * You open the connection to the `database.db` file, created once you run the Python file.
     * The `open()` function opens the previously created `schema.sql` SQL schema.
     * The `executescript()` method formalizes the contents of the schema by running multiple SQL statements at once and creating the `posts` table.
     * The `cursor()` method opens the cursor for sending queries to the database.
     * The `execute()` method executes two `INSERT` SQL statements, adding two sample posts to the `posts` table.
-    * The changes are committed and the connection is closed.
+    * These changes are committed and the connection is closed.
 
     Save and close the `init_db.py` file.
 
@@ -846,11 +846,11 @@ Prepare the `schema.sql` file containing SQL commands to create a database consi
 
 ## Display blog posts {#display-posts}
 
-On the main page of your application, customize the display of the list of all blog posts and create a page to view individual posts by their ID.
+On the main page of your application, configure the display of the blog posts list and create a page to view individual posts by their ID.
 
-### Display the list of all blog posts {#display-all-posts}
+### Display the blog posts list {#display-all-posts}
 
-Update the `index()` view function and the `index.html` template to display a list of all posts stored in the database.
+Update the `index()` view function and the `index.html` template to display the list of all posts stored in the database.
 
 1. Open the `app.py` file:
 
@@ -879,22 +879,22 @@ Update the `index()` view function and the `index.html` template to display a li
         return render_template('index.html', posts=posts)
     ```
 
-    This code does the following as well:
+    Additionally, this code does the following:
 
     * Imports the `sqlite3` module.
-    * Creates the `get_db_connection()` function which:
-        * Creates the `conn` object for connecting to the `database.db` database.
+    * Creates the `get_db_connection()` function, which, in turn:
+        * Creates the `conn` object for connecting to `database.db`.
         * Assigns database data to the `row_factory` attribute of the `conn` object.
-        * Returns the `conn` object which will be used to access the database.
+        * Returns the `conn` object, which will be used to access the database.
     * The updated `index()` function:
         * Assigns the database connection object returned by `get_db_connection()` to `conn`.
-        * Uses the `fetchall()` method to assign the `posts` object the result of the SQL query for selecting all the records from the `posts` table.
+        * Uses the `fetchall()` method to assign the `posts` object the result of the SQL query for selecting all records from the `posts` table.
         * Uses the `close()` method to close the connection to the database.
-        * Returns the HTML code of the application main page, formed from the `index.html` template, to which the `posts` object containing all records of the table with posts is provided as an argument.
+        * Returns the HTML code of the application main page, formed from the `index.html` template, which gets the `posts` object containing all records of the table with posts as an argument.
 
     Save and close the `app.py` file.
 
-1. Open the `index.html` template of the main page:
+1. Open the `index.html` main page template:
 
     ```bash
     nano templates/index.html
@@ -919,9 +919,9 @@ Update the `index()` view function and the `index.html` template to display a li
 
     This code adds:
 
-    * ```{% for post in posts %} ... {% endfor %}```: [Jinja loop](https://jinja.palletsprojects.com/en/latest/templates/#for) which displays, in order, each element contained in the `posts` object provided by the `index()` function in `app.py`. Inside this loop, for each post, the post title with a link is displayed in the `<h2>​​` HTML header. Later on, these links will be used to open a view page for each post.
-    * `{{ post['title'] }}`: Post title from the `post` variable, i.e. the element of the `posts` object processed in the current iteration of the `for` loop.
-    * Similarly, the `post['created']` post creation date is displayed with the `badge` CSS class applied to it.
+    * ```{% for post in posts %} ... {% endfor %}```: [Jinja loop](https://jinja.palletsprojects.com/en/latest/templates/#for), which displays, one by one, each element contained in the `posts` object provided by the `index()` function in `app.py`. Inside this loop, the post title with a link is displayed in the `<h2>​​` HTML header for each post. Later on, these links will be used to open a view page for each post.
+    * `{{ post['title'] }}`: Post title from the `post` variable, i.e., the element of the `posts` object processed in the current iteration of the `for` loop.
+    * Similarly, the `post['created']` date is displayed with the `badge` CSS class applied to it.
 
     Save and close the `index.html` file.
 
@@ -931,7 +931,7 @@ Update the `index()` view function and the `index.html` template to display a li
 
 ### Display individual blog posts {#display-individual-posts}
 
-Create a new Flask route with a view function that will process a new HTML template to display an individual blog post by its ID. The application will use the new route to display the post at `http://<public_IP_address_of_VM>:5000/ID` with the appropriate `ID`, if such an ID exists in the database.
+Create a new Flask route with a view function that will process a new HTML template to display an individual blog post by its ID. The application will use the new route to display the post at `http://<public_IP_address_of_VM>:5000/ID` with the appropriate `ID`, provided such an ID exists in the database.
 
 1. Open the `app.py` file:
 
@@ -975,19 +975,19 @@ Create a new Flask route with a view function that will process a new HTML templ
         return render_template('post.html', post=post)
     ```
 
-    This code does the following as well:
+    Additionally, this code does the following:
 
     * Imports the [abort()](https://werkzeug.palletsprojects.com/en/latest/exceptions/#werkzeug.exceptions.abort) function from the [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/) library. It allows you to generate a Flask response with the `404 Not Found​​`​ message if the blog post with the ID specified in the URL does not exist.
-    * Creates the `get_post()` function that takes the `post_id` argument with the blog post ID to retrieve. This function:
+    * Creates the `get_post()` function that takes the `post_id` argument. This function:
         * Assigns the database connection object returned by `get_db_connection()` to `conn`.
-        * Uses the `fetchone()` method to assign the `post` object the result of the SQL query which retrieves the string with the blog post and its ID mapping to the `post_id` value from the database.
+        * Uses the `fetchone()` method to assign the `post` object the result of the SQL query which retrieves the blog post string and its ID matching the `post_id` value from the database.
         * Uses the `close()` method to close the connection to the database.
-        * Uses the `abort()` function to respond with the 404 error code if the post with the ID provided to `post_id` is not found, and then terminates.
-        * If the post with the ID provided to `post_id` is found, the function returns the `post` object containing the database table row for this post.
+        * Uses the `abort()` function to respond with the 404 error code if the post with the ID provided to `post_id` is not found; following that, the function terminates.
+        * Returns the `post` object containing the database table row for this post if the post with the ID provided to `post_id` is found.
     * Creates the `post(post_id)` view function. This function:
-        * Uses the decorator to add the `<int:post_id>` [variable rule](https://flask.palletsprojects.com/en/latest/quickstart/#variable-rules) specifying that the URL after `/` is a positive integer (marked by the `int` converter) used by the view function.
-        * With the `get_post(post_id)` function, assigns the `post` object the contents of the database table row mapped to the blog post with the specified ID.
-        * Returns the HTML code of the post view page formed from the `post.html` template, to which the `post` object containing the post contents is provided as an argument.
+        * Uses the decorator to add the `<int:post_id>` [variable rule](https://flask.palletsprojects.com/en/latest/quickstart/#variable-rules) specifying that the URL after `/` is a positive integer (marked with the `int` converter) used by the view function.
+        * Assigns the `post` object the contents of the database table row matching the blog post with the specified ID using the `get_post(post_id)` function.
+        * Returns the HTML code of the post view page formed from the `post.html` template, which gets the `post` object containing the post contents as an argument.
 
     Save and close the `app.py` file.
 
@@ -1017,7 +1017,7 @@ Create a new Flask route with a view function that will process a new HTML templ
 
     If you try to open `http://<public_IP_address_of_VM>:5000/3`, you will see an error page stating that the requested blog post is not found.
 
-1. Add links from the post titles that open the post view pages to the main page of your application. 
+1. Add links from the post titles that open the post view pages to the application main page. 
 
     Open the `index.html` template:
 
@@ -1039,7 +1039,7 @@ Create a new Flask route with a view function that will process a new HTML templ
     ...
     ```
 
-    The `url_for()` function takes the following arguments:
+    The `url_for()` function takes these arguments:
 
     * `'post'`: `post()` view function.
     * `post_id`: Variable with the `post['id']` value used by the view function. 
@@ -1048,9 +1048,9 @@ Create a new Flask route with a view function that will process a new HTML templ
 
     Save and close the `index.html` file.
 
-1. Go to the main page of your application, `http://<public_IP_address_of_VM>:5000/`, and make sure that the post titles work as links that open the posts.
+1. Go to the application main page, `http://<public_IP_address_of_VM>:5000/`, and make sure the post titles are valid links to the posts.
 
-## Add actions with posts {#add-post-actions}
+## Add post actions {#add-post-actions}
 
 Enable users to create, edit, and delete posts in your application.
 
@@ -1105,19 +1105,19 @@ Create a page where the user can add a new post with a title.
         return render_template('create.html')
     ```
 
-    This code does the following as well:
+    Additionally, this code does the following:
 
-    * Imports:
-        * [`request` global object](https://flask.palletsprojects.com/en/latest/api/#flask.request) to access the data provided through the HTML form.
-        * [`url_for()` function](https://flask.palletsprojects.com/en/latest/api/#flask.url_for) to generate URLs.
-        * [`flash()` function](https://flask.palletsprojects.com/en/latest/api/#flask.flash) to display a message when processing a request.
-        * [`redirect()` function](https://flask.palletsprojects.com/en/latest/api/#flask.redirect) to redirect the client to a different page.
-    * Through the `app.config` object, adds the `SECRET_KEY` configuration required for the `flash()` function to store pop-up messages in the client's browser session. The secret key is a long string of random characters. It is used to create secure sessions and allows Flask to remember information between requests, for example, go from the post creation page to the main application page. A user can access the information stored in a session, but cannot edit it without the secret key. This is why you should never give anyone access to your secret key. For more information, see the [Flask documentation](https://flask.palletsprojects.com/en/latest/api/#sessions).
-    * Uses the `create()` view function to return the HTML code of the post creation page generated from the `create.html` template. The decorator creates the `/create` route that accepts GET and POST requests. By default, only GET requests are accepted. To ensure that the route also accepts POST requests, which are used by the browser when sending form data, you need to provide a tuple of valid request types in the `methods` argument.
+    * Imports these items:
+        * [`request`](https://flask.palletsprojects.com/en/latest/api/#flask.request) global object to access the data provided through the HTML form.
+        * [`url_for()`](https://flask.palletsprojects.com/en/latest/api/#flask.url_for) function to generate URLs.
+        * [`flash()`](https://flask.palletsprojects.com/en/latest/api/#flask.flash) function to display a message when processing a request.
+        * [`redirect()`](https://flask.palletsprojects.com/en/latest/api/#flask.redirect) function to redirect the client to a different page.
+    * Using the `app.config` object, adds the `SECRET_KEY` configuration required for the `flash()` function to store pop-up messages in the client's browser session. The secret key is a long string of random characters. It is used to create secure sessions and allows Flask to remember information between requests. For example, it can go from the post creation page to the main application page. A user can access the information stored in a session but cannot edit it without the secret key. This is why you should never give anyone access to your secret key. For more information, see [this Flask article](https://flask.palletsprojects.com/en/latest/api/#sessions).
+    * Uses the `create()` view function to return the HTML code of the post creation page generated from the `create.html` template. The decorator creates the `/create` route that accepts both `GET` and `POST` requests. By default, only `GET` requests are accepted. To ensure the route also accepts `POST` requests, which are used by the browser when sending form data, you need to provide a tuple of valid request types in the `methods` argument.
 
     Save and close the `app.py` file.
 
-1. Create and open the `create.html`  template file in the `templates` directory:
+1. Create and open the `create.html` template file in the `templates` directory:
 
     ```bash
     nano templates/create.html
@@ -1151,15 +1151,15 @@ Create a page where the user can add a new post with a title.
     {% endblock %}
     ```
 
-    Basically, this is plain HTML code that will display fields for the title and body of the future post, as well as a button for submitting the form.
+    Basically, this is plain HTML code that will display fields for the post title and body as well as a button for submitting the form.
 
-    The post title value is stored in the `{{ request.form['title'] }}` object, and the content value is stored in the `{{ request.form['content'] }}` object. This way the data you enter will not get lost if something goes wrong. For example, if you add the body text of a post but forget a title, you will see a message saying that the title is a required field. However, you will not lose the body text, as it will be saved in the `request` global object that you have access to in your templates.
+    The post title value is stored in the `{{ request.form['title'] }}` object, and the content value, in the `{{ request.form['content'] }}` object. This way, the data you enter will not get lost should something go wrong. For example, if you add the body text of a post but forget to add a title, you will see a message saying the title is a required field. However, you will not lose the body text, as it will be saved in the `request` global object you have access to in your templates.
 
     Save and close the `create.html` file.
 
-1. Open the `http://<public_IP_address_of_VM>:5000/create` URL and check that you can see the **Create a New Post** page with input fields for the post title and contents, and the submit form button.
+1. Go to `http://<public_IP_address_of_VM>:5000/create` and make sure you can see the **Create a New Post** page with input fields for the post title and contents as well as the submit form button.
 
-    The form on this page sends a POST request to the `create()` view function. However, the function currently lacks the code to handle the POST request, so the input data will not be saved to the database after the form is submitted. You can fix this by updating the `create()` view function.
+    The form on this page sends a `POST` request to the `create()` view function. However, the function currently lacks the code to handle the `POST` request, so the input data will not be saved into the database after the form is submitted. You can fix this by updating the `create()` view function.
 
 1. Open the `app.py` file:
 
@@ -1192,19 +1192,19 @@ Create a page where the user can add a new post with a title.
 
     This function code:
 
-    * Employs the `if request.method == 'POST'` condition to make sure the code is executed only for POST requests.
+    * Employs the `if request.method == 'POST'` condition to make sure the code is only executed for `POST` requests.
     * Retrieves the new post title and contents submitted in the form fields from the `request.form` global object which contains the form data.
-    * If no post title is specified in the form, the `if not title` condition will be executed and the user will see a message informing them to fill in the title field.
+    * If no post title is specified in the form, the `if not title` condition will be met and the user will see a message instructing them to fill in the title field.
     * If the title is specified:
-        * The `get_db_connection()` function opens a connection to the database and a new post record is added to the `posts` table, containing the title and post text received through the form.
+        * The `get_db_connection()` function opens a connection to the database and a new post record is added to the `posts` table, containing the post title and text received through the form.
         * The changes are committed and the connection is closed.
-        * The `redirect()` function redirects the user to your application's main page.
+        * The `redirect()` function redirects the user to the application main page.
 
     Save and close the `app.py` file.
 
-1. Open the `http://<public_IP_address_of_VM>:5000/create` URL, enter the title and contents of the post, and submit the form. After submitting the form, you will be redirected to your application's main page where you will see a list of all posts, including the new one.
+1. Open the `http://<public_IP_address_of_VM>:5000/create` URL, enter the post title and contents, and submit the form. After submitting the form, you will be redirected to the application main page, where you will see a list of all posts, including the new one.
 
-1. In the `base.html` template, add a pop-up message display and a link to the new post form to the navigation bar. Open the `base.html` template:
+1. In the `base.html` template, enable the display of a pop-up message and add a link to the new post form to the navigation bar. Open the `base.html` template:
 
     ```bash
     nano templates/base.html
@@ -1235,7 +1235,7 @@ Create a page where the user can add a new post with a title.
     ...
     ```
 
-1. Under `<div class="container">`, just before the `content` section, add the `for` loop to display pop-up messages under the navigation bar:
+1. Under `<div class="container">` , add the `for` loop before the `content` section to display pop-up messages under the navigation bar:
 
     ```html
     ...
@@ -1254,7 +1254,7 @@ Create a page where the user can add a new post with a title.
 
     The **New Post** control linked to the `/create` route will appear on the navigation bar.
 
-1. Go to the application's main page, `http://<public_IP_address_of_VM>:5000`, and make sure you can create a new post using the **New Post** link on the navigation bar.
+1. Go to the application main page, `http://<public_IP_address_of_VM>:5000`, and make sure you can create a new post using the **New Post** link on the navigation bar.
 
 ### Editing an existing post {#edit-post}
 
@@ -1266,7 +1266,7 @@ Create a page where you can edit an existing post.
     nano app.py
     ```
 
-1. Add the `edit()` view function to the end of the file:
+1. Add the `edit()` view function at the end of the file:
 
     ```python
     ...
@@ -1292,11 +1292,11 @@ Create a page where you can edit an existing post.
         return render_template('edit.html', post=post)
     ```
 
-    Editing an existing post is similar to creating one, so this view function is almost identical to the `create()` view function. The post to edit is specified in the URL, and the post ID is provided to the `edit()` function in the `id` argument. The same value is also provided to the `get_post()` function to retrieve the current contents of the post from the database. The application receives the updated data in a POST request, which is processed in the `if request.method == 'POST'` condition.
+    Editing an existing post is much like creating a new one, so this view function is almost identical to the `create()` function. The post to edit is specified in the URL, with the post ID provided to the `edit()` function in the `id` argument. The `get_post()` function also gets the same value so it can retrieve the current contents of the post from the database. The application receives the updated data in a POST request, which is processed in the `if request.method == 'POST'` condition.
 
-    As with creating a new post, the function extracts the data from the `request.form` object into separate variables, and then checks that the user has filled in the post title. If the title is missing, the function displays a pop-up message saying that this is a required field. In other cases, the function opens a connection to the database and updates the fields in the row with the required post in the `posts` table. The ID of the post in the database matches the ID specified in the URL.
+    As with creating a new post, the function extracts the data from the `request.form` object into separate variables and then checks whether the user filled in the post title. If the title is missing, the function displays a pop-up message saying this is a required field. Otherwise, the function opens a connection to the database and updates the fields in the row with the required post in the `posts` table. The post ID in the database matches the ID specified in the URL.
 
-    In the case of a GET request, the function returns HTML code generated from the `edit.html` template with the post title and text values from the `post` object.
+    When handling a `GET` request, the function returns the HTML code generated from the `edit.html` template with the post title and text values from the `post` object.
 
     Save and close the `app.py` file.
 
@@ -1339,7 +1339,7 @@ Create a page where you can edit an existing post.
 
     Save and close the `edit.html` file.
 
-1. Open `http://<public_IP_address_of_VM>:5000/1/edit` to edit the first post. You will see the **Edit First Post** page with the post details. Edit the post, submit the form, and check that the post is updated.
+1. Open `http://<public_IP_address_of_VM>:5000/1/edit` to edit the first post. You will see the **Edit First Post** page with the post details. Edit the post, submit the form, and make sure the post is updated.
 
 1. On the main application page, add a link to the edit page for each post in the list. Open the `index.html` template:
 
@@ -1347,7 +1347,7 @@ Create a page where you can edit an existing post.
     nano templates/index.html
     ```
 
-1. Add a link to edit the post after its creation date:
+1. Add a link to the edit post page after its creation date:
 
     ```html
     ...
@@ -1364,11 +1364,11 @@ Create a page where you can edit an existing post.
     ...
     ```
 
-    This adds the **Edit** link to the post titles on the main page. This link points to the `edit()` view function and provides the post ID value from `post['id']` to it.
+    This adds the **Edit** link to the post titles on the main page. This link points to the `edit()` view function and provides it with the ID from `post['id']`.
 
     Save and close the `index.html` file.
 
-1. Go to the application's main page, `http://<public_IP_address_of_VM>:5000`, and check that it has **Edit** links to edit posts.
+1. Go to the application main page, `http://<public_IP_address_of_VM>:5000`, and make sure it now has **Edit** links.
 
 ### Deleting a post {#delete-post}
 
@@ -1378,7 +1378,7 @@ Create a page where you can edit an existing post.
     nano app.py
     ```
 
-1. Add the `delete()` view function to the end of the file:
+1. Add the `delete()` view function at the end of the file:
 
     ```python
     ...
@@ -1393,9 +1393,9 @@ Create a page where you can edit an existing post.
         return redirect(url_for('index'))
     ```
 
-    This function only accepts POST requests. This means that opening `http://<public_IP_address_of_VM>:5000/ID/delete` in a browser will return an error, as web browsers use GET requests by default. You can only send a POST request via this route by using a form that provides the ID of the post you want to delete.
+    This function only accepts POST requests. This means that going to `http://<public_IP_address_of_VM>:5000/ID/delete` in a browser will return an error, as web browsers use `GET` requests by default. You can only send a POST request through this route by using a form that provides the ID of the post you want to delete.
 
-    After receiving a POST request, the function opens a connection to the database and executes the `DELETE FROM` SQL command, and then the changes are committed, and the connection is closed. The application redirects the user to the main page and displays a message that the post was successfully deleted.
+    After receiving a POST request, the function opens a connection to the database and runs the `DELETE FROM` SQL command. Following that, the changes are committed and the connection is closed. The application redirects the user to the main page and displays a message that the system deleted the post.
 
     The **Delete** button will be added to the post edit page, so you do not need a separate template for this feature.
 
@@ -1420,22 +1420,22 @@ Create a page where you can edit an existing post.
     {% endblock %}
     ```
 
-    This code uses the [`confirm()` method](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm) to ask the user to confirm their action before sending a request.
+    This code uses the [`confirm()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm) method to ask the user to confirm their action before sending a request.
 
     Save and close the `edit.html` file.
 
-1. Go to the application's main page, `http://<public_IP_address_of_VM>:5000`, and check that the post edit page now has the **Delete Post** button.
+1. Go to the application main page, `http://<public_IP_address_of_VM>:5000`, and make sure the post edit page now has the **Delete Post** button.
 
 Your application is now ready. If you did everything correctly, the final source code of your project should match the [code on this page](https://github.com/).
 
 ## Summarize the results {#results}
 
-In this tutorial, you created a simple web application using the [Flask](http://flask.pocoo.org/) framework, [SQLite](https://sqlite.org/) DBMS, [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/) toolkit, [Jinja template](http://jinja.palletsprojects.com/) engine, and [Bootstrap](https://getbootstrap.com/). The result is a fully functional blog that allows you to create, read, edit, and delete posts using URL parameters and HTML forms.
+In this tutorial, you created a simple web application using [Flask](http://flask.pocoo.org/), [SQLite](https://sqlite.org/) [Werkzeug](https://werkzeug.palletsprojects.com/en/latest/), [Jinja](http://jinja.palletsprojects.com/), and [Bootstrap](https://getbootstrap.com/). The result is a fully functional blog that allows you to create, read, edit, and delete posts using URL parameters and HTML forms.
 
 You can take this project further with a wide range of community-created [Flask extensions](http://flask.palletsprojects.com/en/latest/extensions/), e.g.:
 
 * [Flask-Login](https://flask-login.readthedocs.io/en/latest/): Allows you to manage user sessions, i.e., handles login/logout tasks and user session management.
-* [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/latest/): Streamlines the use of Flask by supporting [SQLAlchemy](https://www.sqlalchemy.org/). It is a Python SQL toolkit and Object Relational Mapper for working with databases.
+* [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/latest/): Streamlines the use of Flask by supporting [SQLAlchemy](https://www.sqlalchemy.org/). It is a Python SQL toolkit and Object Relational Mapper designed for working with databases.
 * [Flask-Mail](https://pythonhosted.org/Flask-Mail/): Helps you send emails from Flask applications.
 
 ## Delete the resources you created {#clear-out}

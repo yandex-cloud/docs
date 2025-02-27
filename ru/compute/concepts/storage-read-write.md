@@ -37,12 +37,6 @@
 
 ### Тестирование производительности дисков {#test-performance}
 
-{% note info %}
-
-Не рекомендуется выполнять тест записи для диска `/dev/vda`. Если вам нужно протестировать загрузочный диск на запись, запустите утилиту `fio` с параметрами `--filename=./testfile` и `--filesize=1G`.
-
-{% endnote %}
-
 Для тестирования производительности сетевых дисков можно воспользоваться утилитой [fio](https://fio.readthedocs.io/en/latest/fio_doc.html):
 
 1. [Подключите](../operations/vm-control/vm-attach-disk.md) диск к ВМ.
@@ -58,7 +52,9 @@
 
     ```bash
     sudo fio \
-    --filename=/dev/vdb \
+    --name=<имя_задачи>
+    --filename=<путь_к_точке_монтирования>/testfile.bin \
+    --filesize=1G \
     --direct=1 \
     --rw=write \
     --bs=4k \
@@ -73,7 +69,15 @@
 
     Где:
 
-    * `--filename=/dev/vdb` — имя тестируемого диска. Чтобы посмотреть подключенные диски, выполните команду `lsblk`.
+    * `--name` — произвольное имя задания.
+    * `--filename` — путь к точке монтирования того диска, производительность которого вы хотите протестировать.
+
+        {% note alert %}
+
+        При тестировании операций записи не используйте идентификатор диска (например, `/dev/vdb`) в качестве значения для параметра `--filename`. Все данные на диске могут быть потеряны.
+
+        {% endnote %}
+
     * `--direct` — использование буферизации, где `0` — использовать, `1` — не использовать.
     * `--rw` — шаблон нагрузки. Возможные значения: 
       * `read` — последовательное чтение;
@@ -94,7 +98,8 @@
 ```bash
 sudo fio \
 --name=readio \
---filename=/dev/vdd \
+--filename=<путь_к_точке_монтирования>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=write \
 --bs=4k \
@@ -123,7 +128,8 @@ sudo fio \
 ```bash
 sudo fio \
 --name=randwrite \
---filename=/dev/vdd \
+--filename=<путь_к_точке_монтирования>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=randwrite \
 --bs=4k \
@@ -152,7 +158,8 @@ write: IOPS=9596, BW=37.5MiB/s (39.3MB/s)(4499MiB/120011msec); 0 zone resets
 ```bash
 sudo fio \
 --name=writebw \
---filename=/dev/vdd \
+--filename=<путь_к_точке_монтирования>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=write \
 --bs=4M \
@@ -181,7 +188,8 @@ sudo fio \
 ```bash
 sudo fio \
 --name=readio \
---filename=/dev/vdd \
+--filename=<путь_к_точке_монтирования>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=read \
 --bs=4k \
@@ -210,7 +218,8 @@ sudo fio \
 ```bash
 sudo fio \
 --name=readbw \
---filename=/dev/vdd \
+--filename=<путь_к_точке_монтирования>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=read \
 --bs=4M \
@@ -239,7 +248,8 @@ sudo fio \
 ```bash
 sudo fio \
 --name=randread \
---filename=/dev/vdd \
+--filename=<путь_к_точке_монтирования>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=randread \
 --bs=4k \

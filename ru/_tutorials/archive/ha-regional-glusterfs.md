@@ -31,7 +31,7 @@
 
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md) его и авторизуйтесь от имени пользователя.
 1. Создайте сервисный аккаунт:
-   
+
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
@@ -135,7 +135,7 @@
          ```
          yc config set service-account-key key.json
          yc config set cloud-id <идентификатор_облака>
-         yc config set folder-id <идентификатор_каталога>  
+         yc config set folder-id <идентификатор_каталога>
          ```
 
          Где:
@@ -181,12 +181,12 @@
    1. Если при создании пары ключей SSH вы указали имя, отличное от имени по умолчанию, в секции `local_pubkey_path` значение `default` измените на `<путь_к_публичному_ключу_SSH>`.
 
 ## Разверните ресурсы {#deploy-resources}
-   
-   1. Выполните инициализацию {{TF}}:
+
+   1. Выполните инициализацию {{ TF }}:
       ```bash
       terraform init
       ```
-   1. Проверьте конфигурацию {{TF}} файлов:
+   1. Проверьте конфигурацию {{ TF }} файлов:
       ```bash
       terraform validate
       ```
@@ -231,7 +231,7 @@
       default: cluster
       confdir: /etc/clustershell/groups.conf.d $CFGDIR/groups.conf.d
       autodir: /etc/clustershell/groups.d $CFGDIR/groups.d
-      EOF      
+      EOF
 
       cat > /etc/clustershell/groups.d/cluster.yaml <<EOF
       cluster:
@@ -263,7 +263,7 @@
    1. Создайте папки `vol0` в ВМ для хранения данных и настройте доступность и отказоустойчивость за счет подключения к папке общего доступа `regional-volume`:
       ```bash
       clush -w @gluster mkdir -p /bricks/brick1/vol0
-      clush -w gluster01 gluster volume create regional-volume disperse 3 redundancy 1 gluster01:/bricks/brick1/vol0 gluster02:/bricks/brick1/vol0 gluster03:/bricks/brick1/vol0  
+      clush -w gluster01 gluster volume create regional-volume disperse 3 redundancy 1 gluster01:/bricks/brick1/vol0 gluster02:/bricks/brick1/vol0 gluster03:/bricks/brick1/vol0
       ```
 
    1. Выполните дополнительные настройки производительности:
@@ -277,7 +277,7 @@
       clush -w gluster01 gluster volume set regional-volume performance.parallel-readdir on 
       clush -w gluster01 gluster volume set regional-volume performance.io-thread-count 32
       clush -w gluster01 gluster volume set regional-volume performance.cache-size 1GB
-      clush -w gluster01 gluster volume set regional-volume server.allow-insecure on   
+      clush -w gluster01 gluster volume set regional-volume server.allow-insecure on
       ```
    1. Смонтируйте папку общего доступа `regional-volume` на клиентских ВМ:
       ```bash

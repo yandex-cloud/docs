@@ -65,7 +65,7 @@ description: Из статьи вы узнаете, как задать наст
 
 - Консоль управления {#console}
 
-    {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-source.md) %}
+    {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql.md) %}
 
 - CLI {#cli}
 
@@ -119,7 +119,7 @@ description: Из статьи вы узнаете, как задать наст
 
 - Консоль управления {#console}
 
-    {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-source.md) %}
+    {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql.md) %}
 
 - CLI {#cli}
 

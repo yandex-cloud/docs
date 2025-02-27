@@ -71,3 +71,7 @@ _Электронная подпись_ — это результат крипт
 1. Выполните проверку:
 
     {% include [signature-verification-rsa](../../_includes/kms/signature-verification-rsa.md) %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/sign-cr-with-cosign.md)

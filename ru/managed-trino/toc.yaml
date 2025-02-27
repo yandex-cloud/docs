@@ -3,6 +3,8 @@ href: index.yaml
 stage: preview
 noIndex: true
 items:
+  - name: Начало работы
+    href: quickstart.md
   - name: Квоты и лимиты
     href: concepts/limits.md
   - name: Правила тарификации

@@ -1,21 +1,28 @@
+
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_type.title }}** — выберите вариант подключения к базе данных:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}** — позволяет задать настройки подключения вручную:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_plain.title }}** — позволяет задать настройки подключения вручную.
+
+        Выберите тип инсталляции **Пользовательская инсталляция** и задайте настройки:
 
         * {% include [host](../../fields/postgresql/ui/host.md) %}
         * {% include [port](../../fields/postgresql/ui/port.md) %}
-        * {% include [database](../../fields/postgresql/ui/database.md) %}
+        * {% include [database-on-premise](../../fields/postgresql/ui/database-on-premise.md) %}
         * {% include [user](../../fields/postgresql/ui/user.md) %}
         * {% include [password](../../fields/postgresql/ui/password.md) %}
         * {% include [ca-certificate](../../fields/postgresql/ui/ca-certificate.md) %}
+        * {% include [subnet-id](../../fields/postgresql/ui/subnet-id.md) %}
 
-    * {% include [connection-manager](../../fields/postgresql/ui/connection-manager.md) %}
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_connman.title }}** — позволяет использовать управляемое подключение к базе данных через [{{ connection-manager-full-name }}](../../../../metadata-hub/quickstart/connection-manager.md):
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.OnPremisePostgres.subnet_id.title }}** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md). Трансфер будет использовать эту подсеть для доступа к кластеру.
+        * Выберите каталог, в котором создано управляемое подключение {{ connection-manager-name }}.
+        * Выберите тип инсталляции **Пользовательская инсталляция** и задайте настройки:
 
-    Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
+            * {% include [connection](../../fields/postgresql/ui/connection.md) %}
+            * {% include [database-on-premise](../../fields/postgresql/ui/database-on-premise.md) %}
+            * {% include [subnet-id](../../fields/postgresql/ui/subnet-id.md) %}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnection.security_groups.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
+        {% include [connection-manager-access](../../notes/connection-manager-access.md) %}
 
-    Это позволит применить к ВМ и кластерам в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и кластеров. Подробнее см. в разделе [{#T}](../../../../data-transfer/concepts/network.md).
+* {% include [security-groups](../../fields/postgresql/ui/security-groups.md) %}
 
