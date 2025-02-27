@@ -60,3 +60,9 @@ description: У шифрования методом encrypt есть огран�
 * Генерировать новые DEK при повторном шифровании данных.
 
 Чтобы избежать ошибок, для шифрования на стороне клиента рекомендуется использовать [AWS Encryption SDK](../tutorials/encrypt/aws-encryption-sdk.md) или [Google Tink](../tutorials/encrypt/google-tink.md).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/encrypt/aws-encryption-sdk.md)
+* [{#T}](../tutorials/encrypt/google-tink.md)
+* [{#T}](../tutorials/kms-k8s.md)

@@ -1,30 +1,30 @@
 # Creating triggers that invoke {{ sf-name }} functions to stop a VM and send Telegram notifications
 
 
-In this tutorial, you will create a serverless infrastructure that will stop running virtual machines when [budget](../../billing/concepts/budget.md) thresholds are exceeded and send Telegram notifications to the user.
+In this tutorial, you will create a serverless infrastructure that will stop the virtual machines and send Telegram notifications when the VM resource use exceeds [budget](../../billing/concepts/budget.md) thresholds.
 
-The [budget trigger](../../functions/concepts/trigger/budget-trigger.md) will invoke the {{ sf-name }} [function](../../functions/concepts/function.md), and this function will stop the {{ compute-name }} [virtual machines](../../compute/concepts/vm.md#project) and send a message to the {{ message-queue-full-name }} [queue](../../message-queue/concepts/queue.md). 
+The [budget trigger](../../functions/concepts/trigger/budget-trigger.md) will invoke the {{ sf-name }} [function](../../functions/concepts/function.md) that will stop the {{ compute-name }} [virtual machines](../../compute/concepts/vm.md#project) and send a message to the {{ message-queue-full-name }} [queue](../../message-queue/concepts/queue.md). 
 
-The [{{ message-queue-name }} trigger](../../functions/concepts/trigger/ymq-trigger.md) will provide the queued messages to the second {{ sf-name }} function, which will send Telegram notifications via a dedicated bot.
+The [{{ message-queue-name }} trigger](../../functions/concepts/trigger/ymq-trigger.md) will deliver the queued messages to the second {{ sf-name }} function that will send Telegram notifications via a dedicated bot.
 
 To deploy a project:
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a budget](#create-budget).
 1. [Create a {{ message-queue-name }} queue](#create-queue).
-1. [Create a {{ sf-name }} function to be invoked by the budget trigger](#create-budget-function).
-1. [Create a trigger for budgets](#create-budget-trigger).
-1. [Register the Telegram bot](#register-bot).
-1. [Create a {{ sf-name }} function to be invoked by the {{ message-queue-name }} budget trigger](#create-queue-function).
+1. [Create a {{ sf-name }} function that the budget trigger will invoke](#create-budget-function).
+1. [Create a budget trigger](#create-budget-trigger).
+1. [Register your Telegram bot](#register-bot).
+1. [Create a {{ sf-name }} function the {{ message-queue-name }} trigger will invoke](#create-queue-function).
 1. [Create a trigger for {{ message-queue-name }}](#create-queue-trigger).
 1. [Create {{ compute-name }} VM instances](#create-vms).
-1. [Make sure the trigger stops VMs and sends Telegram notifications](#test).
+1. [Make sure the trigger stops the VMs and sends Telegram notifications](#test).
 
-Create all the specified {{ yandex-cloud }} resources in the same [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+Create all specified {{ yandex-cloud }} resources in the same [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -33,15 +33,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of resources includes:
 * Fee for VM computing resources (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 * Fee for VM [disks](../../compute/concepts/disk.md) (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of requests to queues and outgoing traffic (see [{{ message-queue-name }} pricing](../../message-queue/pricing.md)).
-* Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) if using [{{ cloud-logging-name }}](../../logging/).
+* Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) if you use [{{ cloud-logging-name }}](../../logging/).
 
 
 ### Download a project {#download}
 
-Clone the repository with the project:
+Clone the repository containing the project:
 
 ```bash
 git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-for-budget
@@ -101,7 +101,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           Where:
 
           * `<folder_name>`: Name of your folder in {{ yandex-cloud }}.
-          * `<service_account_ID>`: Previously saved service account [ID](../../iam/operations/sa/get-id.md).
+          * `<service_account_ID>`: Service account [ID](../../iam/operations/sa/get-id.md) you saved in the previous step.
 
           Result:
 
@@ -142,7 +142,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           {% note alert %}
 
-          After you close the dialog, the key value will become unavailable.
+          After you close this dialog, the key value will not be shown again.
 
           {% endnote %}
 
@@ -166,7 +166,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       secret: YCPQhHFMx6rnWXQC9ID425gk3V9YnUc********
       ```
 
-      Save the ID (`key_id`) and secret key (`secret`). You will not be able to get this key value again.
+      Save the ID (`key_id`) and secret key (`secret`). This is the only time you can copy this key as it will not be shown again.
 
       For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
@@ -199,7 +199,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 - CLI {#cli}
 
-  1. Create the `my-sample-network` network:
+  1. Create a network named `my-sample-network`:
 
       ```bash
       yc vpc network create my-sample-network
@@ -265,21 +265,21 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
   1. Under **{{ ui-key.yacloud.ymq.queue.form.section_base }}**, specify:
-      * **{{ ui-key.yacloud.common.name }}**: `budget-queue`.  
-      * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}**: `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`.
+      * **{{ ui-key.yacloud.common.name }}**: `budget-queue`  
+      * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}**: `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`
 
       Leave the other parameters unchanged.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Click the name of the new `budget-queue` and copy the field values in the window that opens:
+  1. Click the name of the your new queue: `budget-queue`. From the window that opens, copy the field values:
       * **{{ ui-key.yacloud.ymq.queue.overview.label_url }}**: Queue URL
       * **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}**: Queue ID
 
-      Save these values: you will need them in the next steps.
+      Save these values; you will need them in the next steps.
 
 - AWS CLI {#cli}
 
-  1. [Install and configure](../../message-queue/operations/configuring-aws-cli.md) the AWS CLI. When configuring, use the previously created static access key.
+  1. [Install and configure](../../message-queue/operations/configuring-aws-cli.md) the AWS CLI. When configuring, use the static access key you created in the previous step.
 
   1. Create a queue:
 
@@ -297,7 +297,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       }
       ```
 
-      Save the `QueueUrl` value, you will need it in the next steps.
+      Save the `QueueUrl` value; you will need it in the next steps.
 
   1. Get the queue ID by specifying the previously saved URL in the `--queue-url` parameter:
 
@@ -318,16 +318,16 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       }
       ```
 
-      Save the `QueueArn` queue ID, you will need it in the next steps.
+      Save the `QueueArn` queue ID; you will need it in the next steps.
 
 {% endlist %}
 
 
-## Create a {{ sf-name }} function to be invoked by the budget trigger {#create-budget-function}
+## Create a {{ sf-name }} function the budget trigger will invoke {#create-budget-function}
 
 1. Prepare a ZIP archive with the function code.
 
-    Go to the `yc-telegram-bot-with-trigger-for-budget/steps/4-create-budget-trigger-handler` directory and add files to the `src_bgt.zip` archive:
+    Navigate to the `yc-telegram-bot-with-trigger-for-budget/steps/4-create-budget-trigger-handler` directory and add files to the `src_bgt.zip` archive:
 
     ```bash
     zip src_bgt.zip budget_trigger_handler.go go.mod
@@ -343,29 +343,29 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
       1. Create a function:
           1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-          1. Enter the function name: `budget-trigger-handler`.
+          1. Specify the function name: `budget-trigger-handler`.
           1. Click **{{ ui-key.yacloud.common.create }}**.
 
       1. Create a function version:
           1. Select `golang119` as the runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-          1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and attach the `src_bgt.zip` archive created in the previous step.
+          1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and attach the `src_bgt.zip` archive you created in the previous step.
           1. Specify the entry point: `budget_trigger_handler.Handler`.
           1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
               * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
               * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`
               * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
               * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-                  * `FOLDER_ID` : ID of the folder to stop the VMs in.
+                  * `FOLDER_ID` : ID of the folder where you want the VMs stopped.
                   * `TAG`: `target-for-stop`.
-                  * `AWS_ACCESS_KEY_ID`: Static access key ID value saved previously.
-                  * `AWS_ACCESS_KEY_ID`: Private key value of the static access key saved previously.
-                  * `BUDGET_QUEUE_URL`: Previously saved value of the `budget-queue` URL .
+                  * `AWS_ACCESS_KEY_ID`: Static access key ID you saved in the previous step.
+                  * `AWS_ACCESS_KEY_ID`: Secret key value of the static access key you saved in the previous step.
+                  * `BUDGET_QUEUE_URL`: `budget-queue` URL you saved in the previous step.
 
           1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
     - CLI {#cli}
 
-      1. Create the `budget-trigger-handler` function:
+      1. Create a function named `budget-trigger-handler`:
 
           ```bash
           yc serverless function create \
@@ -405,12 +405,12 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           Where:
 
-          * `--service-account-id`: Previously saved [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account. The service account will be used to invoke the function.
+          * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account you saved in the previous step. This is the service account to invoke the function.
           * `--environment`: Environment variables:
-              * `FOLDER_ID`: [ID](../../iam/operations/sa/get-id.md) of the folder to stop the VMs in.
-              * `AWS_ACCESS_KEY_ID`: Static access key ID value saved previously.
-              * `AWS_ACCESS_KEY_ID`: Private key value of the static access key saved previously.
-              * `BUDGET_QUEUE_URL`: Previously saved value of the `budget-queue` URL .
+              * `FOLDER_ID`: [ID](../../iam/operations/sa/get-id.md) of the folder where you want the VMs stopped.
+              * `AWS_ACCESS_KEY_ID`: Static access key ID you saved in the previous step.
+              * `AWS_ACCESS_KEY_ID`: Secret key value of the static access key you saved in the previous step.
+              * `BUDGET_QUEUE_URL`: `budget-queue` URL you saved in the previous step.
 
           * `--source-path`: Path to the `src_bgt.zip` archive.
 
@@ -452,7 +452,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     {% endlist %}
 
 
-## Create a trigger for budgets {#create-budget-trigger}
+## Create a budget trigger {#create-budget-trigger}
 
 {% list tabs group=instructions %}
 
@@ -468,7 +468,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}**, select your billing account and the `vm-budget` budget you created earlier.
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `budget-trigger-handler` function and specify the `service-account-for-budget` service account. It will be used to invoke the function.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `budget-trigger-handler` function and specify the `service-account-for-budget` service account. This is the service account to invoke the function.
 
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -487,9 +487,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
   Where:
 
-  * `--invoke-function-service-account-id`: Previously saved [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account. The service account will be used to invoke the function.
+  * `--invoke-function-service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account you saved in the previous step. This is the service account to invoke the function.
   * `--billing-account-id`: [Billing account](../../billing/concepts/billing-account.md) ID saved earlier when creating a budget.
-  * `--budget-id`: Previously saved budget [ID](../../iam/operations/sa/get-id.md).
+  * `--budget-id`: Budget [ID](../../iam/operations/sa/get-id.md) you saved in the previous step.
 
   Result:
 
@@ -518,11 +518,11 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 {% endlist %}
 
 
-## Register the Telegram bot {#register-bot}
+## Register your Telegram bot {#register-bot}
 
 1. Register a bot in Telegram and get a token:
 
-    1. To register a new bot, run [BotFather](https://t.me/BotFather) in Telegram and run the following command:
+    1. To register a new bot, launch the [BotFather](https://t.me/BotFather) bot and send the following command:
 
         ```
         /newbot
@@ -534,7 +534,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         Alright, a new bot. How are we going to call it? Please choose a name for your bot.
         ```
 
-    1. In the next message, enter a name for the bot you are creating, e.g., `YC VM budget informer`. This is the name users will see when communicating with the bot.
+    1. In the next message, specify the name of your bot, e.g., `YC VM budget informer`. This is the name users chatting with the bot will see.
 
         Result:
 
@@ -542,7 +542,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         Good. Now let's choose a username for your bot. It must end in `bot`. Like this, for example: TetrisBot or tetris_bot.
         ```
 
-    1. Specify a username for the bot you are creating, e.g., `YCVMBudgetInformerBot`. You can use the username to search for the bot in Telegram. The name must end with `...Bot` or `..._bot`. As a result, you will get a token for the HTTP API.
+    1. Specify the username of your bot, e.g., `YCVMBudgetInformerBot`. You can use it to find the bot in Telegram. The username must end with `...Bot` or `..._bot`. In response, you will receive an access token for the HTTP API.
 
         Result:
 
@@ -556,15 +556,15 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         For a description of the Bot API, see this page: https://core.telegram.org/bots/api
         ```
 
-1. Get `ChatID` of the user the bot will be sending notifications to:
+1. Get `ChatID` of the user who will be receiving notifications from the bot:
 
-    1. Save the API token you got in the previous step to the `TELEGRAM_BOT_API_TOKEN` environment variable:
+    1. Save the API token you got in the previous step into the `TELEGRAM_BOT_API_TOKEN` environment variable:
 
         ```bash
         export TELEGRAM_BOT_API_TOKEN=<Telegram_API_token>
         ```
 
-    1. Go to the `yc-telegram-bot-with-trigger-for-budget/steps/6-register-telegram-bot` directory and run the following command:
+    1. Navigate to the `yc-telegram-bot-with-trigger-for-budget/steps/6-register-telegram-bot` directory and run the following command:
 
         ```bash
         go run .
@@ -572,9 +572,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         
         If required, pre-install the `Go` and `telegram_bot` packages.
         
-        The command will run a Telegram bot that will return `ChatID` of the current user in response to any message.
+        The command will launch a Telegram bot that will return the `ChatID` of the current user in response to any message.
 
-    1. In Telegram, find the bot you created by username, e.g., `YCVMBudgetInformerBot`, and send any message to it.
+    1. In Telegram, find your bot by its username, e.g., `YCVMBudgetInformerBot`, and send any message to it.
 
         Result:
 
@@ -582,15 +582,15 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         59529*****
         ```
     
-        Save the obtained `ChatID`. You will need it later.
+        Save the `ChatID` you have received in response. You will need it later.
 
-    1. Return to the terminal and terminate the bot using the **Ctrl** + **C** keyboard shortcut.
+    1. Return to the terminal and terminate the bot by pressing **Ctrl** + **C**.
 
-## Create a {{ sf-name }} function to be invoked by the {{ message-queue-name }} budget trigger {#create-queue-function}
+## Create a {{ sf-name }} function the {{ message-queue-name }} budget trigger will invoke {#create-queue-function}
 
 1. Prepare a ZIP archive with the function code.
 
-    Go to the `yc-telegram-bot-with-trigger-for-budget/steps/7-create-budget-queue-handler` directory and add files to the `src_queue.zip` archive:
+    Navigate to the `yc-telegram-bot-with-trigger-for-budget/steps/7-create-budget-queue-handler` directory and add files to the `src_queue.zip` archive:
 
     ```bash
     zip src_queue.zip budget_queue_handler.go utils.go go.mod
@@ -606,26 +606,26 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
       1. Create a function:
           1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-          1. Enter the function name: `budget-queue-handler`.
+          1. Specify the function name: `budget-queue-handler`.
           1. Click **{{ ui-key.yacloud.common.create }}**.
 
       1. Create a function version:
           1. Select `golang119` as the runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-          1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and attach the `src_queue.zip` archive created in the previous step.
+          1. Specify the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** upload method and attach the `src_queue.zip` archive you created in the previous step.
           1. Specify the entry point: `budget_queue_handler.HandleBudgetQueueMessage`.
           1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
               * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
               * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`
               * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
               * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-                  * `TELEGRAM_BOT_API_TOKEN`: Previously saved API token of the Telegram bot.
-                  * `TELEGRAM_BOT_CHAT_ID`: Previously saved `ChatID` of the Telegram user.
+                  * `TELEGRAM_BOT_API_TOKEN`: API token of the Telegram bot you saved in the previous step.
+                  * `TELEGRAM_BOT_CHAT_ID`: `ChatID` of the Telegram user you saved in the previous step.
 
           1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
     - CLI {#cli}
 
-      1. Create the `budget-queue-handler` function:
+      1. Create a function named `budget-queue-handler`:
 
           ```bash
           yc serverless function create \
@@ -660,11 +660,11 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           Where:
 
-          * `--service-account-id`: Previously saved [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account. The service account will be used to invoke the function.
+          * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account you saved in the previous step. This is the service account to invoke the function.
           * `--environment`: Environment variables:
 
-              * `TELEGRAM_BOT_API_TOKEN`: Previously saved API token of the Telegram bot.
-              * `TELEGRAM_BOT_CHAT_ID`: Previously saved `ChatID` of the Telegram user.
+              * `TELEGRAM_BOT_API_TOKEN`: API token of the Telegram bot you saved in the previous step.
+              * `TELEGRAM_BOT_CHAT_ID`: `ChatID` of the Telegram user you saved in the previous step.
 
           * `--source-path`: Path to the `src_queue.zip` archive.
 
@@ -716,11 +716,11 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select the previously created resources:
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_queue }}** field, `budget-queue`.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}** field, `service-account-for-budget`.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select the resources you created in the previous steps:
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_queue }}** field, select `budget-queue`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}** field, select `service-account-for-budget`.
 
-  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `budget-queue-handler` function and specify the `service-account-for-budget` service account. It will be used to invoke the function.
+  1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `budget-queue-handler` function and specify the `service-account-for-budget` service account. This is the service account to invoke the function.
 
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -741,9 +741,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
   Where:
 
-  * `--queue`: `budget-queue` ID saved when creating the queue.
-  * `--queue-service-account-id`: Previously saved [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account. The service account will be used to read messages from the queue.
-  * `--invoke-function-service-account-id`: Previously saved [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account. The service account will be used to invoke the function.
+  * `--queue`: `budget-queue` ID you saved when creating the queue.
+  * `--queue-service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account you saved in the previous step. The system will use the service account to read messages from the queue.
+  * `--invoke-function-service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the `service-account-for-budget` service account you saved in the previous step. This is the service account to invoke the function.
 
   Result:
 
@@ -781,7 +781,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -794,7 +794,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify a username, e.g., `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
@@ -818,7 +818,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     --ssh-key ~/.ssh/<key_name>.pub
   ```
 
-  Where `--ssh-key` is the path to the public SSH key The `yc-user` user will be automatically created on the VM for this key.
+  Where `--ssh-key` is the path to the public SSH key The VM will automatically create the user called `yc-user` for this key.
 
   Result:
 
@@ -874,12 +874,12 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 {% endlist %}
 
-Similarly, create two more VMs: `target-instance-2` and `target-instance-3`. For the last VM, set the `target-for-stop` label to `false`.
+Similarly, create two more VMs: `target-instance-2` and `target-instance-3`. For the latter, set the `target-for-stop` label to `false`.
 
 
-## Make sure the trigger stops VMs and sends Telegram notifications {#test}
+## Make sure the trigger stops the VMs and sends Telegram notifications {#test}
 
-Wait until the threshold values that you specified in the budget are reached. Make sure that when the budget thresholds are reached, the `target-instance-1` and `target-instance-2` virtual machines stop, and the Telegram bot sends you a budget trigger notification:
+Wait until the resource use of your VMs reaches the threshold values specified in your budget. Make sure that, when it happens, the `target-instance-1` and `target-instance-2` virtual machines stop, and the Telegram bot sends you a budget trigger notification:
 
 ```text
 Budget trigger was triggered!

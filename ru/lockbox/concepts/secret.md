@@ -57,5 +57,14 @@ description: Из статьи вы узнаете, что такое секре
 ## Смотрите также
 
 * [{#T}](../security/index.md)
-* [{#T}](../tutorials/index.md)
 * [{#T}](../pricing.md)
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/gitlab-lockbox-integration.md)
+* [{#T}](../tutorials/static-key-in-lockbox/console.md)
+* [{#T}](../tutorials/lockbox-and-airflow.md)
+* [{#T}](../tutorials/websocket-app.md)
+* [{#T}](../tutorials/bucket-to-bucket-copying.md)
+* [{#T}](../tutorials/nodejs-cron-restart-vm.md)
+* [{#T}](../tutorials/secure-password-script.md)

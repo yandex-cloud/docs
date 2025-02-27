@@ -1,7 +1,7 @@
-# Creating a trigger for budgets that invokes a {{ sf-name }} function to stop VM instances
+# Creating a budget trigger that invokes a {{ sf-name }} function to stop VM instances
 
 
-Create a trigger for [budgets](../../billing/concepts/budget.md) that invokes a {{ sf-name }} [function](../../functions/concepts/function.md). The function will stop {{ compute-name }} [VM instances](../../compute/concepts/vm.md#project) when the threshold values specified in the budget are exceeded.
+Create a [budget](../../billing/concepts/budget.md) trigger that invokes a {{ sf-name }} [function](../../functions/concepts/function.md). The function will stop {{ compute-name }} [VM instances](../../compute/concepts/vm.md#project) when their resource use exceeds the budget thresholds.
 
 To deploy a project:
 1. [Download a project](#download).
@@ -9,9 +9,9 @@ To deploy a project:
 1. [Prepare a ZIP archive with the function code](#prepare-zip).
 1. [Create a {{ sf-name }} function](#create-function).
 1. [Create a budget](#create-budget).
-1. [Create a trigger for budgets](#create-trigger).
+1. [Create a budget trigger](#create-trigger).
 1. [Create {{ compute-name }} VM instances](#create-vm).
-1. [Check that the trigger stops the VM instances](#test).
+1. [Make sure the trigger stops the VM instances](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -42,7 +42,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-    1. Enter a name for the service account: `service-account-for-budget`.
+    1. Specify a name for the service account: `service-account-for-budget`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `compute.admin`, `iam.serviceAccounts.user`, and `{{ roles-functions-invoker }}` roles to the service account.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -80,7 +80,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
         +----------------------+----------------------+--------+--------+
         ```
 
-        Save the ID of the folder to create the service account in.
+        Save the ID of the folder where you want to create the service account.
 
     1. Get a list of service accounts in the folder:
         ```bash
@@ -129,7 +129,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
 ## Prepare a ZIP archive with the function code {#prepare-zip}
 
-Go to the `yc-serverless-trigger-budget/steps/2-create-function/` directory and add files to the `src.zip` archive:
+Navigate to the `yc-serverless-trigger-budget/steps/2-create-function/` directory and add files to the `src.zip` archive:
 ```bash
 zip src.zip index.go go.mod
 ```
@@ -144,7 +144,7 @@ zip src.zip index.go go.mod
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Create a function:
         1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-        1. Enter the function name: `function-for-budget`.
+        1. Specify the function name: `function-for-budget`.
         1. Click **{{ ui-key.yacloud.common.create }}**.
     1. Create a function version:
         1. Select `golang119` as the runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -155,8 +155,8 @@ zip src.zip index.go go.mod
             * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `512 {{ ui-key.yacloud.common.units.label_megabyte }}`
             * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `service-account-for-budget`
             * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-                * `FOLDER_ID` : ID of the folder to stop the VMs in.
-                * `TAG`: `target-for-stop`
+                * `FOLDER_ID` : ID of the folder where you want the VMs stopped.
+                * `TAG`: `target-for-stop`.
         1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -193,13 +193,13 @@ zip src.zip index.go go.mod
         ```
 
         Where:
-        * `--function-name`: Name of the function a version of which you are creating.
+        * `--function-name`: Name of the function.
         * `--memory`: Amount of RAM.
-        * `--execution-timeout`: Maximum function execution time before the timeout is reached.
+        * `--execution-timeout`: Maximum function execution time.
         * `--runtime`: Runtime environment.
         * `--entrypoint`: Entry point.
         * `--service-account-id`: `service-account-for-budget` service account ID.
-        * `--environment`: Environment variables. `FOLDER_ID`: ID of the folder you want to stop the VMs in.
+        * `--environment`: Environment variables; `FOLDER_ID`: ID of the folder where you want the VMs stopped.
         * `--source-path`: Path to the `src.zip` archive.
 
         Result:
@@ -238,7 +238,7 @@ zip src.zip index.go go.mod
 
 {% include [create-budget-for-triggering](../_tutorials_includes/create-budget-for-triggering.md) %}
 
-## Create a trigger for budgets {#create-trigger}
+## Create a budget trigger {#create-trigger}
 
 {% list tabs group=instructions %}
 
@@ -254,16 +254,16 @@ zip src.zip index.go go.mod
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-        * Enter a name for the trigger: `vm-stop-trigger`.
+        * Specify the trigger name: `vm-stop-trigger`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}**, select your billing account and the `vm-budget` you created in the previous step.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select `function-for-budget` and specify the following:
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select the `function-for-budget` function and specify the following:
 
         * [Function version tag](../../functions/concepts/function.md#tag). The default tag is `$latest`.
-        * `service-account-for-budget` service account. It will be used to invoke the function.
+        * `service-account-for-budget` service account. This is the service account to invoke the function.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -308,7 +308,7 @@ zip src.zip index.go go.mod
 
 - API {#api}
 
-    To create a trigger for budgets, use the [create](../../functions/triggers/api-ref/Trigger/create.md) method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource.
+    To create a budget trigger, use the [create](../../functions/triggers/api-ref/Trigger/create.md) method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource.
 
 {% endlist %}
 
@@ -323,7 +323,7 @@ zip src.zip index.go go.mod
         yc vpc subnet list
         ```
 
-    1. Create a virtual machine:
+    1. Create a VM:
         ```bash
         yc compute instance create \
            --name target-instance-1 \
@@ -337,11 +337,11 @@ zip src.zip index.go go.mod
         Where:
 
         * `--name`: VM name.
-        * `--labels`: Label. The trigger for budgets will stop the VM when the threshold values are reached if the `target-for-stop` label value is `true`.
+        * `--labels`: Label. If the `target-for-stop` label value is `true`, the budget trigger will stop the VM when it exceeds the resources allocated in the budget.
         * `--zone`: Availability zone matching the selected subnet.
         * `subnet-name`: Name of the selected subnet.
         * `nat-ip-version`: Public IP.
-        * `image-family`: [Image family](../../compute/concepts/image#family). This option allows you to install the latest version of the operating system from the specified family.
+        * `image-family`: [Image family](../../compute/concepts/image#family). This option allows you to install the latest version of the operating system from the specified image family.
         * `--ssh-key`: Public SSH key path. The VM will automatically create a user named `yc-user` for this key. [How to create an SSH key pair](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
         Result:
@@ -394,15 +394,15 @@ zip src.zip index.go go.mod
 
 Similarly, create two more VMs: `target-instance-2` and `target-instance-3`. For the latter, set the `target-for-stop` label to `false`.
 
-## Check that the trigger stops the VM instances {#test}
+## Make sure the trigger stops the VM instances {#test}
 
-Wait until the threshold values that you specified in the budget are reached. Make sure the trigger for budgets has invoked the function and `target-instance-1` and `target-instance-2` have stopped.
+Wait until the resource use of your VMs reaches the threshold values specified in your budget. Make sure the budget trigger has invoked the function you created, and `target-instance-1` and `target-instance-2` have stopped.
 
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 
-1. [Delete](../../functions/operations/trigger/trigger-delete.md) the trigger for budgets.
+1. [Delete](../../functions/operations/trigger/trigger-delete.md) the budget trigger.
 1. [Delete](../../functions/operations/function/function-delete.md) the function.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM instances.
 1. [Delete](../../iam/operations/sa/delete.md) the service account.

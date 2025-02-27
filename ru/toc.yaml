@@ -7,6 +7,9 @@ items:
     href: api-gateway/index.yaml
   - name: Application Load Balancer
     href: application-load-balancer/index.yaml
+  - name: Архитектурные решения
+    href: architecture/index.yaml
+    hidden: true
   - name: Audit Trails
     href: audit-trails/index.yaml
   - name: BareMetal

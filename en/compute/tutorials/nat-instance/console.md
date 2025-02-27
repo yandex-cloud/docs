@@ -1,13 +1,13 @@
 ---
-title: Routing through a NAT instance using the management console
-description: Follow this tutorial to set up routing through a NAT instance using the management console.
+title: Configuring NAT routing from the management console
+description: In this tutorial, we will set up NAT routing from the management console.
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/console'
 ---
 
-# Routing through a NAT instance using the management console
+# Configuring NAT routing from the management console
 
 
-To configure [routing through a NAT instance](index.md) using the {{ yandex-cloud }} management console:
+To configure [NAT routing](index.md) from the {{ yandex-cloud }} management console:
 
 {% include [nat-instance-console](../../../_tutorials/routing/nat-instance-console.md) %}
 

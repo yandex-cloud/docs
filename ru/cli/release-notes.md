@@ -7,6 +7,63 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.144.0 (27.02.25) {#version0.144.0}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+#### {{ mrd-name }}
+
+* Добавлены команды для вывода, чтения, создания, редактирования и удаления пользователей:
+  * `yc managed-redis user list`;
+  * `yc managed-redis user get`;
+  * `yc managed-redis user create`;
+  * `yc managed-redis user update`;
+  * `yc managed-redis user delete`.
+
+* Параметр `--auth-sentinel`, который позволяет авторизоваться в {{ RD }} Sentinel, добавлен в команды:
+
+  * `yc managed-redis cluster create`;
+  * `yc managed-redis cluster restore`;
+  * `yc managed-redis cluster update`.
+
+* Параметр `--user`, который позволяет добавить пользователей в {{ RD }}, добавлен в команду `yc managed-redis cluster create`.
+
+* Параметр `--zset-max-listpack-values` добавлен в команды:
+  * `yc managed-redis cluster create`;
+  * `yc managed-redis cluster restore`;
+  * `yc managed-redis cluster update-config`.
+
+#### {{ resmgr-name }} {#resmgr}
+
+* В команду `yc resource-manager cloud create` добавлен опциональный параметр `--organization-id`.
+
+#### {{ backup-name }} {#backup}
+
+* Добавлена команда `backup backup batch-delete` для удаления всех бэкапов в архиве и удаления самого архива. Архив можно указать параметром `--archive-id` или параметрами `--instance-id` и `--policy-id`.
+
+#### {{ yc-mdb-gp }}
+
+* Для команды `yc managed-greenplum cluster update-config` изменен список поддерживаемых версий Greenplum®:
+
+  * удалена поддержка версий 6.17 и 6.19;
+  * добавлена поддержка версии 6.25+.
+
+* Для команд `yc managed-greenplum cluster create/update/restore` добавлен параметр `--service-account`. Параметр позволяет указать сервисный аккаунт для доступа к ресурсам {{ yandex-cloud }} в пользовательском облаке. Например, к {{ cloud-logging-name }}.
+
+* Для команд `yc managed-greenplum cluster create/update` добавлены параметры:
+
+  * `--log-enabled` — включить поставку логов в {{ cloud-logging-name }};
+  * `--log-folder-id <folder_id>` и `--log-group-id <log_group_id>` — указать каталог и группу для поставки логов в {{ cloud-logging-name }};
+  * `--log-command-center-enabled` — включить поставку логов из Command Center;
+  * `--log-greenplum-enabled` — включить поставку логов из Greenplum®;
+  * `--log-pooler-enabled` — включить поставку логов из пулера Odyssey®.
+
+#### {{ network-load-balancer-name }}
+
+* Для команд `yc network-load-balancer create/update` добавлен параметр `--allow-zonal-shift`, который позволяет балансировщику работать в режиме отказа одной зоны доступности (AZ).
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.143.0 (11.02.25) {#version0.143.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -15,8 +72,6 @@ description: На странице представлены релизы YC CLI,
 
 * В команду `yc storage bucket update` добавлен параметр для указания [сервисного подключения](../vpc/concepts/private-endpoint.md) {{ vpc-full-name }}, из которого будет разрешен доступ в бакет:
   * `--private-endpoint`, пример: `--enable-private-endpoints true --private-endpoints cba,abc`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.142.0 (30.01.25) {#version0.142.0}
 

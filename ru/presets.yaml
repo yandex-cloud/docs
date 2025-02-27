@@ -482,9 +482,9 @@ default:
     docs: https://docs.microsoft.com/ru-ru
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
-  MY: MySQL®
   my:
     docs: https://dev.mysql.com/doc
+  MY: MySQL®
   network-load-balancer-full-name: Yandex Network Load Balancer
   network-load-balancer-name: Network Load Balancer
   network-load-balancer-short-name: Network Load Balancer
@@ -7476,6 +7476,7 @@ default:
             label_managed-opensearch: Managed Service for&nbsp;OpenSearch
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
             label_managed-redis: Yandex Managed Service for&nbsp;Valkey™
+            label_managed-trino: Managed Service for&nbsp;Trino
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
@@ -7913,6 +7914,7 @@ default:
         label_destination: Назначение
         label_export: Выгрузить логи
         label_filter-query: Запрос
+        label_group: Группа
         label_groups: Группы
         label_loggroup: Лог-группа
         label_minlevel: Минимальный уровень логирования
@@ -8834,6 +8836,16 @@ default:
           label_target-bucket: Бакет для хранения логов
         switch_buckets: Бакеты
         title_object-lock: Блокировка версии объекта
+      trino:
+        catalogs:
+          field_catalog-name: Имя каталога
+          field_catalog-type: Тип коннектора
+          label_password: Пароль
+          label_url: URL
+          label_userName: Имя пользователя
+        overview:
+          field_coordinator-url: Координатор
+        title_catalogs: Каталоги
       vdi:
         button_acl: Настроить ACL
         button_add-image: Добавить образ

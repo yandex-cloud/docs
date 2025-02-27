@@ -26,6 +26,37 @@ description: Из статьи вы узнаете, как сбросить па
   1. Нажмите ![image](../../../_assets/console-icons/lock-open.svg) и подтвердите сброс пароля.
   1. Сохраните новый пароль из всплывающего окна и закройте его.
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды [CLI](../../../cli/index.yaml) для сброса пароля [рабочего стола](../../../cloud-desktop/concepts/desktops-and-groups.md):
+
+      ```bash
+      yc desktops desktop reset-password --help
+      ```
+
+  1. Получите список рабочих столов в каталоге по умолчанию:
+
+      ```bash
+      yc desktops desktop list
+      ```
+
+      Результат:
+
+      ```bash
+      +----------------------+------------------+--------+----------------------+---------------------+
+      |          ID          |       NAME       | STATUS |   DESKTOP GROUP ID   |   CREATED (UTC-0)   |
+      +----------------------+------------------+--------+----------------------+---------------------+
+      | e3vmvhgbgac4******** | my-cloud-desktop | ACTIVE | e3v1rbln45tl******** | 2024-10-09 22:42:28 |
+      | e3vio1bc5ppz******** | reserved-desktop | ACTIVE | e3v1rbln45tl******** | 2024-10-09 21:35:17 |
+      +----------------------+------------------+--------+----------------------+---------------------+
+      ```
+
+  1. Выберите идентификатор (`ID`) нужного рабочего стола.
+  1. {% include [cli-reset-password](../../../_includes/cloud-desktop/cli-reset-password.md) %}
 
 - API {#api}
 

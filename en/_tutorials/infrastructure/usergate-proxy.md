@@ -1,21 +1,21 @@
-# Creating and configuring a UserGate gateway in proxy server mode
+# Setting up a UserGate proxy server
 
 
-[UserGate](https://www.usergate.com/products/enterprise-firewall) is a next-generation firewall from UserGate, a Russia-based cyber and network security company.
+[UserGate](https://www.usergate.com/products/enterprise-firewall) is a next-generation firewall from a Russia-based company UserGate.
 
-You will create a UserGate virtual machine in {{ yandex-cloud }} and set up the gateway in the proxy server mode. As a result, your employees will have secure internet access from anywhere (office, home, cafe, other public areas). To learn about advanced UserGate features, take the free course [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
+In this tutorial, we will create a {{ yandex-cloud }} UserGate VM configured as a proxy server. This configuration will give your employees secure internet access from the office or anywhere else, like home or public places. To learn more about UserGate, sign up to our free course [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
 
-A typical diagram of running UserGate in the proxy server mode in {{ yandex-cloud }} is shown in the picture below.
+The diagram below shows a {{ yandex-cloud }} network configuration with UserGate acting as a proxy server.
 
 ![image](../../_assets/tutorials/usergate-proxy-mode.svg)
 
-To deploy a UserGate gateway:
+To set up a UserGate gateway:
 
-1. [Prepare your cloud environment](#before-you-begin).
-1. [Create a cloud network and subnet](#create-network).
+1. [Get your cloud ready](#before-you-begin).
+1. [Create a cloud network with a subnet](#create-network).
 1. [Reserve a static public IP address](#get-static-ip).
 1. [Create a UserGate VM](#create-vm).
-1. [Set up the UserGate NGFW via the admin console](#admin-console).
+1. [Set up the UserGate NGFW](#admin-console).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -26,23 +26,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The price for the UserGate gateway includes:
+The cost of the UserGate gateway infrastructure includes:
 
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using [UserGate NGFW](/marketplace/products/usergate/ngfw).
-* Fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
-## Create a cloud network and subnet {#create-network}
+## Create a cloud network with a subnet {#create-network}
 
-Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md) that will host your VM.
+Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) in the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner and select **{{ ui-key.yacloud.iam.folder.dashboard.value_vpc }}**.
-  1. Enter the network name: `usergate-network`.
+  1. On the folder dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** in the top-right corner and select **{{ ui-key.yacloud.iam.folder.dashboard.value_vpc }}**.
+  1. Specify the network name: `usergate-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
@@ -70,7 +70,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
      
-  1. Create a subnet named `usergate-subnet-{{ region-id }}-d` in the `{{ region-id }}-d` availability zone:
+  1. Create the `usergate-subnet-{{ region-id }}-d` subnet in the `{{ region-id }}-d` availability zone:
   
      ```bash
      yc vpc subnet create usergate-subnet-{{ region-id }}-d \
@@ -96,7 +96,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the network parameters for `usergate-network` and its `usergate-subnet-{{ region-id }}-d` subnet:
+  1. Describe `usergate-network` and the `usergate-subnet-{{ region-id }}-d` subnet in the terraform configuration file:
 
      ```hcl
      resource "yandex_vpc_network" "usergate-network" {
@@ -111,49 +111,49 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      }
      ```
 
-     For more information, see the descriptions of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
+     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resource descriptions in the {{ TF }} provider documentation.
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the terminal, navigate to your configuration file directory.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors. 
 
-  1. Deploy cloud resources.
+  1. Deploy your cloud resources.
   
-     1. If the configuration does not contain any errors, run this command:
+     1. Once your configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. When asked to confirm changes, type `yes` and press **Enter**.
 
 - API {#api}
 
-  1. Create a network named `usergate-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method for the Network resource.
-  1. Create a subnet named `usergate-subnet-{{ region-id }}-d` using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the Subnet resource.
+  1. To create `usergate-network`, use the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method for the Network resource.
+  1. To create the `usergate-subnet-{{ region-id }}-d` subnet, use the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the Subnet resource.
 
 {% endlist %}
 
-## Create a security group for your file server {#create-security-group}
+## Create a security group {#create-security-group}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to create a group.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create a group.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. Enter a name for the security group: `usergate-sg`.
+  1. Specify the security group name: `usergate-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `usergate-network`.
-  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using steps below:
    
      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
      | --- | --- | --- | --- | --- | --- |
@@ -164,13 +164,13 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      | Inbound | `usergate 8001` | `8001` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
      | Inbound | `usergate 8090` | `8090` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       
-     1. Go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab for outbound or inbound rule, respectively.
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**. In the window that opens:
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field, specify a single port or a range of ports the traffic will come to or from.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or specify **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic over any protocol.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}**: Rule will apply to the VMs from the current group or the selected security group.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field, specify a single port or a range of ports open for inbound or outbound traffic.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic over any protocol.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the scope of the rule:
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR blocks of traffic’s source or destination subnets. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}**: Rule will apply to the current or the selected security group VMs..
          
         1. Click **{{ ui-key.yacloud.common.save }}**.
    
@@ -261,7 +261,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 - {{ TF }} {#tf}
 
-  1. Add the `usergate-sg` security group parameters to the configuration file:
+  1. Add the `usergate-sg` security group description to the terraform configuration file:
   
      ```hcl
      resource "yandex_vpc_security_group" "usergate-sg" {
@@ -310,24 +310,24 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the terminal, navigate to your configuration file directory.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors.
 
-  1. Deploy cloud resources.
+  1. Deploy your cloud resources.
   
-     1. If the configuration does not contain any errors, run this command:
+     1. Once your configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. When asked to confirm changes, type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -337,22 +337,22 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 ## Reserve a static public IP address {#get-static-ip}
 
-The gateway will need a static [public IP address](../../vpc/concepts/address.md#public-addresses).
+Your gateway will need a static [public IP address](../../vpc/concepts/address.md#public-addresses).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), go to the page of the folder where you want to reserve an IP address.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to reserve an IP address.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-  1. In the window that opens, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field.
+  1. In the window that opens, select [`{{ region-id }}-d`](../../overview/concepts/geo-scope.md) in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field.
   1. Click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 - CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc vpc address create --external-ipv4 zone={{ region-id }}-d
@@ -382,30 +382,30 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 - Management console {#console}
 
   1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `UserGate NGFW` and select a public [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `UserGate NGFW` and select a public [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
       {% note info %}
 
-      These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the UserGate [official recommendations](https://www.usergate.com/products/usergate-vm).
+      These settings will suffice for the gateway functional testing. For the production environment, use the UserGate [official recommendations](https://www.usergate.com/products/usergate-vm).
 
       {% endnote %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `usergate-network` and `usergate-subnet-{{ region-id }}-d`.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and then select the previously reserved IP from the list that opens.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and then select the previously reserved IP address from the list that opens.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `usergate-sg` group from the list.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the data for access to the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform actions requiring root privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, specify a username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `usergate-proxy`.
@@ -422,7 +422,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
      For more information about the `yc vpc security-group get` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/get.md).
 
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      yc compute instance create \
@@ -474,8 +474,8 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - {{ TF }} {#tf}
 
-  1. [Get](../../compute/operations/images-with-pre-installed-software/get-list.md) an ID of the latest version of the UserGate NGFW gateway from the list of public images.
-  1. In the configuration file, describe the parameters of the `usergate-proxy` VM:
+  1. In the list of public images, find the latest version of the UserGate NGFW and [get](../../compute/operations/images-with-pre-installed-software/get-list.md) its ID.
+  1. Describe the `usergate-proxy` VM settings in the terraform configuration file:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -513,157 +513,157 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the terminal, navigate to your configuration file directory.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors. 
 
-  1. Deploy cloud resources.
+  1. Deploy your cloud resources.
   
-     1. If the configuration does not contain any errors, run this command:
+     1. Once your configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. When asked to confirm changes, type `yes` and press **Enter**.
 
 - API {#api}
 
-  Create the `usergate-proxy` VM using the [create](../../compute/api-ref/Instance/create.md) REST API method for the Instance resource.
+  To create the `usergate-proxy` VM, use the [create](../../compute/api-ref/Instance/create.md) REST API method for the Instance resource.
 
 {% endlist %}
 
-## Set up the UserGate NGFW via the admin console {#admin-console}
+## Set up the UserGate NGFW {#admin-console}
 
-To set up the gateway, go to the UserGate NGFW admin console at `https://<VM_public_IP>:8001` and log in with the default credentials: `Admin` for username and `utm` for password.
+Open the UserGate NGFW admin web UI at `https://<VM_public_IP>:8001` and log in with the default credentials: `Admin` / `utm`.
 
-When you are logged in, the system prompts you to change the default password and update the OS.
+Once you log in, the system will prompt you to change the default password and update the OS.
 
-### Set up the gateway to run in the proxy server mode {#proxy-setup}
+### Configure your gateway as a proxy server {#proxy-setup}
 
-Set up the UserGate NGFW for running in the proxy server mode:
+Set up the UserGate NGFW as a proxy server:
 
 1. In the top menu, select **Settings**.
-1. In the menu on the left, go to **Network** ⟶ **Zones**.
-1. Click the `Trusted` zone name.
-1. Click **Access control**, then enable **Administration console**. Click **Save**.
-1. In the menu on the left, go to **Network** ⟶ **Interfaces**.
-1. Click the `port0` network interface name.
-1. On the **General** tab, select the `Trusted` zone from the list in the **Zone** field. Click **Save**.
-1. In the menu on the left, click **Network policies** ⟶ **Firewall**.
-1. Click the name of the `Allow trusted to untrusted` preset rule.
-1. Go to the **Destination** tab and disable the `Untrusted` zone. Click **Save**.
-1. Enable the `Allow trusted to untrusted` rule. To do this, select the line with the rule and click **Enable** at the top of the screen.
-1. In the menu on the left, click **Network policies** ⟶ **NAT and routing**.
-1. Click the name of the `NAT from Trusted to Untrusted` preset rule.
-1. Go to the **Destination** tab and change the destination zone from `Untrusted` to `Trusted`. Click **Save**.
-1. Enable the `NAT from Trusted to Untrusted` rule. To do this, select the line with the rule and click **Enable** at the top of the screen.
+1. In the left menu, navigate to **Network** ⟶ **Zones**.
+1. Click the `Trusted` zone.
+1. Click **Access control**, enable **Administration console**, and click **Save**.
+1. In the left menu, navigate to **Network** ⟶ **Interfaces**.
+1. Click the `port0` network interface.
+1. On the **General** tab, select `Trusted` in the **Zone** field and click **Save**.
+1. In the left menu, click **Network policies** ⟶ **Firewall**.
+1. Click the `Allow trusted to untrusted` preset rule.
+1. Navigate to the **Destination** tab and disable the `Untrusted` zone. click **Save**.
+1. Enable the `Allow trusted to untrusted` rule by selecting it and clicking **Enable** at the top of the screen.
+1. In the left menu, click **Network policies** ⟶ **NAT and routing**.
+1. Click the `NAT from Trusted to Untrusted` preset rule.
+1. Navigate to the **Destination** tab and change the destination zone from `Untrusted` to `Trusted`. Click **Save**.
+1. Enable the `NAT from Trusted to Untrusted` rule by selecting it and clicking **Enable** at the top of the screen.
  
-Now the gateway has been set up. You can now use UserGate as a proxy server by specifying a public IP address and the `8090` port in the browser settings.
+Now once you configured the UserGate gateway, you can use it as a proxy server by specifying its public IP address and the `8090` port in the browser settings.
 
-### Set up the traffic filtering rules {#traffic-rules}
+### Set up traffic filtering rules {#traffic-rules}
 
-We recommend using the following default policies: `Block to botnets`, `Block from botnets`, and `Example block RU RKN by IP list`. First change several parameters in them:
+We recommend using the `Block to botnets`, `Block from botnets`, and `Example block RU RKN by IP list` default policies with customized settings:
 
 1. Click **Network policies** ⟶ **Firewall**.
-1. Click the name of the preset rule.
-1. Go to the **Source** tab and change the source zone from `Untrusted` to `Trusted`. 
-1. Go to the **Destination** tab and disable the `Untrusted` zone.
+1. Click the name of the preset default policy from the list above.
+1. Navigate to the **Source** tab and change the source zone from `Untrusted` to `Trusted`. 
+1. Navigate to the **Destination** tab and disable the `Untrusted` zone.
 1. Click **Save**.
-1. Enable the selected rule. To do this, select the line with the rule and click **Enable** at the top of the screen.
+1. Enable the selected rule by selecting it and clicking **Enable** at the top of the screen.
 
-For higher security, set up more traffic filtering rules:
+Add more rules to enhance security:
 
 1. Click **Network policies** ⟶ **Firewall**.
 1. Add the first blocking rule:
    
    1. At the top of the screen, click **Add**.
-   1. Specify the rule parameters:
+   1. Specify the rule settings:
       
-      * **Name**: `Block QUIC protocol`.
-      * **Action**: Deny.
+      * **Name**: `Block QUIC protocol`
+      * **Action**: Deny
 
-   1. Go to the **Source** tab and select `Trusted`.
+   1. Navigate to the **Source** tab and select `Trusted`.
    1. Click **Service**.
    1. Click **Add**.
-   1. Select `Quick UDP Internet Connections` and click **Add**. After that, click **Close**.
+   1. Select `Quick UDP Internet Connections`, click **Add**, and then **Close**.
    1. Click **Save**.
 
 1. Add the second blocking rule:
    
    1. At the top of the screen, click **Add**.
-   1. Specify the rule parameters:
+   1. Specify the rule settings:
 
-      * **Name**: `Block Windows updates`.
-      * **Action**: Deny.
+      * **Name**: `Block Windows updates`
+      * **Action**: Deny
    
-   1. Go to the **Source** tab and select `Trusted`.
+   1. Navigate to the **Source** tab and select `Trusted`.
    1. Click **Applications**.
    1. Click **Add** ⟶ **Add applications**.
    1. Select the `Microsoft Update` app and click **Add**.
-   1. Select the `WinUpdate` app and click **Add**. After that, click **Close**.
+   1. Select the `WinUpdate` app, click **Add**, and then **Close**.
    1. Click **Save**.
 
-You can also add other traffic filtering rules. We don't recommend combining services and applications in the same rule. The rule might not trigger in this case.
+You can add more traffic filtering rules. When doing that, avoid combining services and applications in the same rule; otherwise, it might not trigger.
 
-### Set up the content filtering rules {#content-rules}
+### Set up content filtering rules {#content-rules}
 
-We recommend enabling the following default policies: `Example black list`, `Example threats sites`, and `Example AV check`:
+We recommend you to use the `Example black list`, `Example threats sites`, and `Example AV check` default policies:
 
-1. Go to the **Security policies** ⟶ **Content filtering** section.
-1. Click the line with the selected rule, then click **Enable** at the top of the screen.
+1. Navigate to the **Security policies** ⟶ **Content filtering** section.
+1. Enable the rules listed above by selecting them and clicking **Enable** at the top of the screen.
 
-For higher security, set up more content filtering rules:
+You can add more rules to enhance security:
 
-1. Go to the **Security policies** ⟶ **Content filtering** section.
-1. Add the filtering rule:
+1. Navigate to the **Security policies** ⟶ **Content filtering** section.
+1. Add the content filtering rule:
 
    1. At the top of the screen, click **Add**.
-   1. Specify the rule parameters:
+   1. Specify the rule settings:
       
-      * **Name**: `Block social media`.
-      * **Actions**: Deny.
+      * **Name**: `Block social media`
+      * **Actions**: Deny
 
-   1. Go to the **Source** tab and select `Trusted`.
+   1. Navigate to the **Source** tab and select `Trusted`.
    1. Click **Categories**.
    1. Click **Add**.
-   1. Type `Social media` in the search bar, then click **Add**. After that, click **Close**.
+   1. Type `Social media` in the search bar, click **Add**, and then **Close**.
    1. Click **Save**.
 
-You can also add other content filtering rules. We don't recommend adding multiple parameters to the same rule. The rule might not trigger in this case.
+You can add more content filtering rules. When doing that, avoid adding multiple settings to the same rule; otherwise, it might not trigger.
 
 ### Set up SSL inspection {#ssl}
 
-By default, UserGate uses its own `CA (Default)` certificate to decrypt traffic. You can also add your own certificate.
+By default to decrypt traffic, UserGate uses the `CA (Default)` certificate but you can also add your own certificate.
 
 To add a certificate:
 
 1. Click **UserGate** ⟶ **Certificates**.
 1. At the top of the screen, click **Import**.
-1. Fill out the certificate parameters:
+1. Fill out the certificate information:
 
-   * **Name**: Type any name.
-   * **Certificate file**: Select the certificate file in the DER, PEM, or PKCS12 format.
-   * (Optional) **Private key**: Select a private key for the certificate.
-   * (Optional) **Password**: Password for your private key or PKCS12 container.
-   * (Optional) **Certificate chain**: Select a file if you need to return a complete certificate chain to your clients.
+   * **Name**: Certificate name of your choice.
+   * **Certificate file**: Certificate file in DER, PEM, or PKCS12 format.
+   * **Private key**: Optional, certificate private key.
+   * **Password**: Optional, private key or PKCS12 container password.
+   * **Certificate chain**: Optional, certificate chain file.
 
 1. Click **Save**.
-1. Click the name of the certificate you added.
+1. Click the name of the new certificate.
 1. In the **Used** field, select **SSL inspection**.
 1. Click **Save**.
-1. Add a rule for SSL inspection:
+1. Add an SSL inspection rule:
 
-   1. Go to the **Security policies** ⟶ **SSL inspection** section.
+   1. Navigate to the **Security policies** ⟶ **SSL inspection** section.
    1. At the top of the screen, click **Add**.
-   1. Fill out the rule parameters and click **Save**.
+   1. Specify the rule settings and click **Save**.
 
-      You can also use the `Decrypt all for unknown users` default rule to enable SSL inspection.
+      Alternatively, you can use the `Decrypt all for unknown users` default SSL inspection rule.
 
 ## How to delete the resources you created {#clear-out}
 

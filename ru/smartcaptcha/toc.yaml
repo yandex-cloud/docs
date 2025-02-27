@@ -17,7 +17,13 @@ items:
         href: operations/advanced-method.md
       - name: Проверить капчу
         href: operations/validate-captcha.md
-      - name: Посмотреть операции с капчей
+      - name: Получение информации о капче
+        items:
+          - name: Получить список капч
+            href: operations/get-list.md
+          - name: Получить информацию о капче
+            href: operations/get-info.md
+      - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
   - name: Практические руководства
     items:

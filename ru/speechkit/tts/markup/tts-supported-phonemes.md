@@ -7,9 +7,9 @@ description: Использование фонем в TTS поддерживае
 
 {% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}
 
-Использование фонем в TTS ([блок `[[ ]]`](tts-markup.md#phoneme)) поддерживается только для русского (`ru-RU`) и узбекского (`uz-UZ`) языков.
+Использование фонем в TTS ([блок `[[ ]]`](tts-markup.md#phoneme)) поддерживается только для русского (`ru-RU`), узбекского (`uz-UZ`) и казахского (`kz-KZ`) языков.
 
-Подробнее о [русской](https://en.wikipedia.org/wiki/Russian_phonology) и [узбекской](https://en.wikipedia.org/wiki/Uzbek_language#Phonology) фонологии.
+Подробнее о [русской](https://ru.wikipedia.org/wiki/Русская_фонетика), [узбекской](https://ru.wikipedia.org/wiki/Узбекский_язык#Фонетика_и_фонология) и [казахской](https://ru.wikipedia.org/wiki/Казахский_язык#Фонетика_и_фонология) фонологии.
 
 ## Список поддерживаемых фонем русского языка {#phonemes-ru}
 
@@ -18,3 +18,7 @@ description: Использование фонем в TTS поддерживае
 ## Список поддерживаемых фонем узбекского языка {#phonemes-uz}
 
 {% include [phonemes-uz-uz_untranslatable](../../../_includes/speechkit/phonemes-ipa-uz-uz_untranslatable.md) %}
+
+## Список поддерживаемых фонем казахского языка {#phonemes-kz}
+
+{% include [phonemes-kz-kz_untranslatable](../../../_includes/speechkit/phonemes-ipa-kz-kz_untranslatable.md) %}

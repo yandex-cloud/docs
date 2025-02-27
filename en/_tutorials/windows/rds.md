@@ -5,29 +5,29 @@
 
 
 
-This scenario describes how to deploy Microsoft Windows Server Datacenter with pre-installed Remote Desktop Services in {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server with Remote Desktop Services and Active Directory installed. Images are available with preset quotas for 5, 10, 25, 50, and 100 users. Select the version with the necessary quota. All examples are given for a server with a quota for five users.
+In this tutorial, we will deploy a {{ yandex-cloud }} Microsoft Windows Server Datacenter consisting of a single server with pre-installed Active Directory and Remote Desktop Services. You can select one of the images with preset quotas for 5, 10, 25, 50, and 100 users. In our example, we will select a 5-user quota.
 
 {% note warning %}
 
-To increase the quota, re-create the VM.
+To increase the quota, you will need to re-create the VM.
 
 {% endnote %}
 
 To deploy the Remote Desktop Services infrastructure:
 
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
-1. [Create a script to manage a local administrator account](#admin-script).
-1. [Create a VM for Remote Desktop Services](#add-vm).
-1. [Install and configure Active Directory domain controllers](#install-ad).
-1. [Set up the firewall rules](#firewall).
-1. [Set up the license server in the domain](#license-server).
+1. [Create an administrator account management script](#admin-script).
+1. [Create a Remote Desktop Services VM](#add-vm).
+1. [Install and configure Active Directory](#install-ad).
+1. [Set up firewall rules](#firewall).
+1. [Set up a domain license server](#license-server).
 1. [Set up the Remote Desktop Session Host role](#rdsh).
 1. [Create users](#create-users).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud environment {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -36,11 +36,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of installing Microsoft Windows Server with Remote Desktop Services includes:
+The cost of Microsoft Windows Server with Remote Desktop Services infrastructure includes:
 
-* Fee for continuously running virtual machines (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
-* Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }}](../../vpc/pricing.md) pricing).
-* Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
+* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
 ## Create a cloud network and subnets {#create-network}
@@ -56,7 +56,7 @@ Create a cloud network named `my-network` with subnets in all availability zones
      To create a [cloud network](../../vpc/concepts/network.md):
      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
      1. Click **Create network**.
-     1. Enter the network name: `my-network`.
+     1. Specify the network name: `my-network`.
      1. Click **Create network**.
 
    - CLI {#cli}
@@ -84,16 +84,16 @@ Create a cloud network named `my-network` with subnets in all availability zones
      - Management console {#console}
 
        To create a subnet:
-       1. Open the **{{ vpc-name }}** section in the folder where you need to create a subnet.
-       1. Click the name of the cloud network.
+       1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
+       1. Click your network name.
        1. Click **Add subnet**.
-       1. Fill out the form: enter `my-subnet-d` as the subnet name and select the `{{ region-id }}-d` availability zone from the drop-down list.
-       1. Enter the subnet CIDR: IP address and subnet mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+       1. Specify the `my-subnet-d`as the name and select the `{{ region-id }}-d` availability zone from the drop-down list.
+       1. Specify your subnet CIDR IP address range: `10.1.0.0/16`. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
        1. Click **Create subnet**.
 
      - CLI {#cli}
 
-       To create a subnet, run the following command:
+       To create a subnet, run this command:
 
        ```
        yc vpc subnet create \
@@ -110,9 +110,9 @@ Create a cloud network named `my-network` with subnets in all availability zones
    {% endlist %}
 
 
-## Create a script to manage a local administrator account {#admin-script}
+## Create an administrator account management script {#admin-script}
 
-Create a file named `setpass` with a script that will set a password for the local administrator account when you create VMs via the CLI:
+If you are going to create your VM via the CLI, create the `setpass` file with a script that will set the administrator password:
 
 {% list tabs group=programming_language %}
 
@@ -126,20 +126,20 @@ Create a file named `setpass` with a script that will set a password for the loc
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
 
-You can read more about the best practices for securing Active Directory on the [MS official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+To learn about the best practices for securing Active Directory, see [this MS guide]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
-## Create a VM for Windows Server with Remote Desktop Services {#add-vm}
+## Create a Windows Server Remote Desktop Services VM {#add-vm}
 
-Create a virtual machine for Windows Server with Remote Desktop Services. This VM will have internet access.
+Create an internet-facing VM with pre-installed Windows Server and Remote Desktop Services.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `RDS` and select the appropriate [RDS](/marketplace?tab=software&search=windows+rds) image: 
+  1. On the folder dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, type `RDS` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the appropriate [RDS](/marketplace?tab=software&search=windows+rds) image: 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
@@ -177,7 +177,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 {% endlist %}
 
-## Install and configure Active Directory domain controllers {#install-ad}
+## Install and configure Active Directory {#install-ad}
 
 1. Restart `my-rds-vm`:
 
@@ -185,7 +185,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    
    - Management console {#console}
    
-     1. On the folder page in the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
+     1. On the folder dashboard in the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
      1. Select the `my-rds-vm` VM.
      1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **Restart**.
    
@@ -201,7 +201,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    
    {% endlist %}
 
-1. Connect to `my-rds-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
+1. Connect to `my-rds-vm` via [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as both the username and password.
 1. Assign Active Directory roles:
 
     {% list tabs group=programming_language %}
@@ -227,11 +227,11 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       
     {% endlist %}
 
-   Windows will restart automatically. Reconnect to `my-rds-vm`. Use `yantoso\Administrator` as your username and your password. Relaunch PowerShell.
+   Windows will restart automatically. Reconnect to `my-rds-vm` using `yantoso\Administrator` as both the username and password. Restart PowerShell.
 
-## Set up the firewall rules {#firewall}
+## Set up firewall rules {#firewall}
 
-1. Add firewall rules that protect Active Directory from external network requests:
+1. Add firewall rules protecting Active Directory from external network requests:
     
     {% list tabs group=programming_language %}
     
@@ -253,9 +253,9 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       
     {% endlist %}
 
-## Set up the license server in the domain {#license-server}
+## Set up a domain license server {#license-server}
 
-1. Add the Network Service system user to the Terminal Server License Servers group in the Active Directory security group:
+1. Add the `Network Service` user to the `Terminal Server License Servers` Active Directory group:
     
     {% list tabs group=programming_language %}
     
@@ -305,7 +305,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       
     {% endlist %}
 
-1. (Optional) Limit the number of permitted concurrent server sessions:
+1. Optionally, limit the number of concurrent server sessions:
 
     {% list tabs group=programming_language %}
     
@@ -323,7 +323,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
 ## Set up the Remote Desktop Session Host role {#rdsh}
 
-Install the Remote Desktop Session Host role on the server:
+Install the `Remote Desktop Session Host` role on the server:
 
 {% list tabs group=programming_language %}
 
@@ -337,19 +337,19 @@ Install the Remote Desktop Session Host role on the server:
 {% endlist %}
 
 
-## Add the server to the AD security group and register it as SCP {#ad-sg-scp}
+## Add your license server to the Active Directory security group and register it as SCP {#ad-sg-scp}
 
-Add the server to the Terminal Server License Servers group in the Active Directory security group and register it as the license service connection point (SCP) for users:
+Add your license server to the `Terminal Server License Servers group` Active Directory group and register it as the license service connection point (SCP):
 
 {% list tabs group=operating_system %}
 
 - Windows Server {#windows}
 
   1. Click **Start**.
-  1. In the search field, enter `Remote Desktop Licensing Manager`.
-  1. Right-click the server in the list and select **Review Configuration...**.
-  1. Next to the first warning on the `Terminal Server License Servers` group, click **Add to Group** and then click **Continue**.
-  1. Next to the second warning, the one on the service connection point, click **Register as SCP**.
+  1. In the search field, type `Remote Desktop Licensing Manager` and press `Enter` to open the manager.
+  1. Right-click your license server in the list and select **Review Configuration...**.
+  1. You will see the warning that your license server is not a member of the `Terminal Server License Servers` group and is not registered as a service connection point (SCP). Click **Add to Group** and then click **Continue**.
+  1. Click **Register as SCP**.
   1. Click **OK**.
   1. Restart the VM.
 
@@ -394,7 +394,7 @@ Add the server to the Terminal Server License Servers group in the Active Direct
       
     {% endlist %}
 
-1. Issue the `Remote Desktop Users` permissions to users:
+1. Grant `Remote Desktop Users` permissions to the new users:
 
     {% list tabs group=programming_language %}
     
@@ -431,4 +431,4 @@ Add the server to the Terminal Server License Servers group in the Active Direct
 
 ## How to delete the resources you created {#clear-out}
 
-If you no longer need the created resources, delete the [VM instances](../../compute/operations/vm-control/vm-delete.md) and [networks](../../vpc/operations/network-delete.md).
+If you no longer need the resources you created, i.e., [VMs](../../compute/operations/vm-control/vm-delete.md) and [networks](../../vpc/operations/network-delete.md), delete them.

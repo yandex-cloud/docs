@@ -2,9 +2,9 @@
 
 When creating a VM from an image with the Windows OS, you can use an initialization script. For example, you can set up username-password pairs for the administrator and other system users. To protect sensitive data, use [{{ lockbox-full-name }}](../../lockbox/) tools and {{ kms-full-name }} keys instead of explicitly specifying settings in the script.
 
-In this tutorial, you will create a VM with the Windows OS using an initialization script which will get username-password pairs of system users from {{ lockbox-name }}.
+In this tutorial, you will create a Windows VM with its initialization script receiving usernames and passwords from {{ lockbox-name }}.
 
-To create a VM and protect confidential information in the initialization script:
+To create a VM while protecting sensitive information in its initialization script:
 
 1. [Create a service account](#create-account).
 1. [Create a {{ kms-short-name }} key](#create-key).
@@ -22,8 +22,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 
-* Fee for VMs (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
-* Fee for image use (depends on the image).
+* Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using an image (depends on the image).
 * Fee for using a {{ kms-short-name }} key (see [{{ kms-short-name }} pricing](../../kms/pricing.md)).
 * Fee for using a secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
@@ -36,14 +36,14 @@ The infrastructure support cost includes:
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `win-secret-sa`.
+   1. Specify the service account name, e.g., `win-secret-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Run the command below to create a service account, specifying `win-secret-sa` as its name:
+   To create a service account, run the command below, specifying `win-secret-sa` as the service account name:
 
    ```bash
    yc iam service-account create --name win-secret-sa
@@ -77,13 +77,13 @@ The infrastructure support cost includes:
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a key.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-     1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify the key attributes:
+     1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify its attributes:
          * **{{ ui-key.yacloud.common.name }}**: `win-secret-key`.
          * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
-         * Leave the other parameters at their default settings.
+         * Leave other attributes as default.
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-     The key is created together with its first version: click the key in the list to open the page with its attributes.
+     This will create an encryption key and its first version; click the key in the list to open its attribute page.
 
    - CLI {#cli}
 
@@ -120,11 +120,11 @@ The infrastructure support cost includes:
 
    - Management console {#console}
 
-      1. Go to the **Access rights** tab on the key page.
-      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Navigate to the **Access rights** tab on the key page.
+      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **Add role** in the dialog box that opens and select the `kms.keys.encrypterDercrypter` role.
+      1. In the dialog box that opens, click **Add role** and select `kms.keys.encrypterDercrypter`.
 
    - CLI {#cli}
 
@@ -138,26 +138,26 @@ The infrastructure support cost includes:
 
    - API {#api}
 
-      To assign a service account a role for a folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
 ## Create a secret {#create-secret}
 
-Create a secret in {{ lockbox-name }} and use it to save username-password pairs of users for whom accounts will be created in the Windows OS.
+Create a {{ lockbox-name }} secret to save usernames and passwords of Windows user accounts.
 
 {% note warning %}
 
-When choosing a password, make sure to comply with the password security requirements; otherwise, the account will not be created for the user.
-The password must:
+When selecting passwords, make sure to comply with mandatory password requirements.
+These password requirements are:
 
-* Contain eight or more characters.
-* Not contain the account name.
-* Contain characters from at least three of the following four groups:
+* At least 8 characters long.
+* Does not incude the account name.
+* Must include three of the following:
    - Latin uppercase letters (A-Z)
    - Latin lowercase letters (a-z)
-   - Digits (0-9)
-   - Non-alphanumeric characters (!, ?, %, $, #, etc.)
+   - Numbers (0-9)
+   - Non-alphanumeric characters (`!`, `?`, `%`, `$`, `#`, etc.)
 
 {% endnote %}
 
@@ -165,15 +165,15 @@ The password must:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
-   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `win-secret`.
+   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `win-secret`.
    1. In the **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}** field, specify the `win-secret-key` key.
    1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter the username for `Administrator`.
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}**, enter the administrator password.
-   1. Add more users if needed by clicking **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and entering the username and password for the next user.
+      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify the `Administrator` username.
+      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}**, specify the administrator password.
+   1. You can add more users by clicking **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and specifying their usernames and passwords.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -191,18 +191,18 @@ The password must:
 
       Where:
 
-      * `--name`: Secret name. This is a required parameter.
-      * `--kms-key-id`: ID of the {{ kms-short-name }} key.
-      * `--description`: Secret description. This is an optional parameter.
-      * `--payload`: Contents of the secret as a YAML or JSON array.
+      * `--name`: Secret name (required).
+      * `--kms-key-id`: {{ kms-short-name }} key ID.
+      * `--description`: Secret description (optional).
+      * `--payload`: Secret content in YAML or JSON format.
       * `--cloud-id`: [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) where you want to create your secret.
-      * `--folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to create a secret.
+      * `--folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to create your secret.
 
 - {{ TF }} {#tf}
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, define the parameters of the resources you want to create:
+   1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_lockbox_secret" "win_secret" {
@@ -225,20 +225,20 @@ The password must:
 
       Where:
 
-      * `name`: Secret name. This is a required parameter.
-      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret. This is an optional parameter.
-      * `kms_key_id`: ID of the [{{ kms-name }}](../../kms/concepts/key.md) encryption key. The specified {{ kms-name }} key is used to encrypt your secret.
-      * `entries`: Contents of the secret.
+      * `name`: Secret name (required).
+      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret (optional).
+      * `kms_key_id`: ID of the [{{ kms-name }}](../../kms/concepts/key.md) encryption key used to encrypt your secret.
+      * `entries`: Secret content.
 
       {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
       {% note warning %}
 
-      To improve security, you should set the password in the configuration file using the environment variable.
+      For better security, instead of setting the password directly in your configuration file, use a reference to an environment variable.
 
       {% endnote %}
 
-   1. Create resources:
+   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -254,11 +254,11 @@ The password must:
 
    - Management console {#console}
 
-      1. Go to the **Access rights** tab on the secret page.
-      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Navigate to the **Access rights** tab on the secret page.
+      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `win-secret-sa` account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click **Add role** in the dialog box that opens and select the `lockbox.payloadViewer` role.
+      1. In the dialog that opens, click **Add role** and select the `lockbox.payloadViewer` role.
 
    - CLI {#cli}
 
@@ -272,15 +272,15 @@ The password must:
 
    - API {#api}
 
-      To assign a service account a role for a folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
 ## Create a VM {#create-vm}
 
-Create a VM with the Windows OS having the administrator and user accounts.
+Create a Windows VM and add the administrator and user accounts to it.
 
-1. Create a file named `init.ps1` and save the following code in it:
+1. Create the `init.ps1` file with the following code:
 
    ```text
    #ps1
@@ -341,7 +341,7 @@ Create a VM with the Windows OS having the administrator and user accounts.
    "Bootstrap script ended" | Write-Host
    ```
 
-1. In the `init.ps1` file, replace `<secret_id>` with the real ID of the secret where you saved the user accounts.
+1. Replace `<secret_id>` with the ID of the secret with user account data you created in the previous step.
 
 1. Create a VM:
 
@@ -349,15 +349,15 @@ Create a VM with the Windows OS having the administrator and user accounts.
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), open the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
       1. At the top right, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [image](../../compute/concepts/image.md) with the Windows OS.
-      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for your VM.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the Windows [image](../../compute/concepts/image.md).
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name, e.g., `win-test`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}**, specify the data for accessing the instance:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}**, specify the VM access credentials:
 
           * Select the `win-secret-sa` [service account](../../iam/concepts/index.md#sa).
-          * Grant access to the [serial console](../../compute/operations/serial-console/index.md).
+          * Grant it access to the [serial console](../../compute/operations/serial-console/index.md).
       1. Under **{{ ui-key.yacloud.common.metadata }}**:
 
           * In the **{{ ui-key.yacloud.component.key-values-input.label_key }}** field, specify `user-data`.
@@ -374,9 +374,8 @@ Create a VM with the Windows OS having the administrator and user accounts.
 
       Where:
 
-      * imade_id: ID of the image with the Windows OS.
-      * subnet_name: Subnet name in the folder where you want to place the VM.
-
+      * `imade_id`: Windows image ID.
+      * `subnet_name`: Name of the subnet where your VM will get connected.
       {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
    {% endlist %}
@@ -384,19 +383,19 @@ Create a VM with the Windows OS having the administrator and user accounts.
 
 ## Log in to Windows {#login-windows}
 
-To check that the data from the secret was successfully used to create users, log in to the VM's OS:
+To make sure the setup created user accounts from your secret, log in to Windows on your VM:
 
-1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+1. In the [management console]({{ link-console-main }}), select your VM folder.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Select the `win-test` VM.
-1. Go to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
-1. Under **{{ ui-key.yacloud.compute.instance.switch_console }}**, select `COM2` and click **{{ ui-key.yacloud.compute.instance.console.connect }}**. The command line will prompt you to enter commands:
+1. Navigate to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+1. Under **{{ ui-key.yacloud.compute.instance.switch_console }}**, select `COM2` and click **{{ ui-key.yacloud.compute.instance.console.connect }}**. You will see the command line prompt:
 
     ```bash
     SAC>
     ```
 
-1. View the list of open channels:
+1. Show the list of open channels:
 
     ```bash
     SAC>ch
@@ -409,7 +408,7 @@ To check that the data from the secret was successfully used to create users, lo
     1 (AV)    Cmd0001
     ```
 
-1. To switch to a channel, press **ESC** + **TAB** or run the command:
+1. To switch to a channel, press **Esc** + **Tab** or run the following command:
 
     ```bash
     SAC>ch -sn Cmd0001
@@ -424,10 +423,10 @@ To check that the data from the secret was successfully used to create users, lo
     Use any other key to view this channel.
     ```
 
-1. Press **Enter** and specify the following in the given order:
+1. Press **Enter** and specify the following:
 
     - Username.
-    - Domain if the domain account is used for logging in. Otherwise, enter the hostname or leave empty.
+    - Domain, if you logged in under a domain account; otherwise, enter your host name or nothing.
     - Password.
 
     ```bash
@@ -437,17 +436,17 @@ To check that the data from the secret was successfully used to create users, lo
     Password: ***************
     ```
 
-1. If you log in successfully, an instance of the command line interpreter will start:
+1. If you logged in successfully, you will see the Windows command prompt:
 
     ```bash
     C:\Windows\system32>
     ```
 
-    If you log in successfully, it means that the data from the secret was used to create the VM.
+    A successful login means that the setup created user accounts from your secret.
 
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 * [Delete](../../lockbox/operations/secret-delete.md) the secret.
-* [Destroy keys](../../kms/operations/key.md#delete).
+* [Delete](../../kms/operations/key.md#delete) the key.

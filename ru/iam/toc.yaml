@@ -43,6 +43,8 @@ items:
             href: operations/sa/set-access-bindings.md
           - name: Получение информации о сервисном аккаунте
             href: operations/sa/get-id.md
+          - name: Получение ID-токена сервисного аккаунта
+            href: operations/sa/get-id-token.md
           - name: Удаление сервисного аккаунта
             href: operations/sa/delete.md
       - name: Роли
@@ -147,6 +149,8 @@ items:
             href: concepts/authorization/cookie.md
           - name: IAM-токен
             href: concepts/authorization/iam-token.md
+          - name: ID-токен
+            href: concepts/authorization/id-token.md
           - name: OAuth-токен
             href: concepts/authorization/oauth-token.md
           - name: API-ключ

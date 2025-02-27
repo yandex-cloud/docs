@@ -82,7 +82,11 @@ items:
       - name: Эмбеддинги
         href: concepts/embeddings.md
       - name: '{{ assistant-api }}'
-        href: concepts/assistant/index.md
+        items:
+          - name: Обзор
+            href: concepts/assistant/index.md
+          - name: Поисковые индексы
+            href: concepts/assistant/search-index.md
       - name: Дообучение
         items:
           - name: Обзор

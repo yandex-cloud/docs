@@ -1,12 +1,12 @@
 # Deploying a fault-tolerant architecture with preemptible VMs
 
 
-In this tutorial, you will create a [{{ sf-full-name }}](../../functions/) [function](../../functions/concepts/function.md) in [Node.js](../../functions/lang/nodejs/index.md) that will be invoked on a schedule and restart a stopped [preemptible {{ compute-full-name }} VM](../../compute/concepts/preemptible-vm.md).
+In this tutorial, you will create a scheduled [{{ sf-full-name }}](../../functions/) [function](../../functions/concepts/function.md) in [Node.js](../../functions/lang/nodejs/index.md) that will start a [preemptible {{ compute-full-name }} VM](../../compute/concepts/preemptible-vm.md) if it was stopped.
 
-The architecture described here is suitable for [VMs](../../compute/concepts/vm.md) with non-critical loads. It allows you to use cost advantages of preemptible VMs and, in the event of a VM shutdown, ensures idle time of under one minute.
+The architecture we use here is suitable for [VMs](../../compute/concepts/vm.md) with non-critical loads. It allows you to reduce expenses by using preemptible VMs and, in case a VM goes down, ensures that idle time is no more than 60 seconds.
 
 To deploy a fault-tolerant architecture with a preemptible VM:
-1. [Prepare the environment](#prepare).
+1. [Set up your environment](#prepare).
 1. [Prepare a ZIP archive with the function code](#zip-archive).
 1. [Create a function](#func-create).
 1. [Create a trigger](#trigger-create).
@@ -25,21 +25,21 @@ The infrastructure support costs include:
 * Fee for VM [disks](../../compute/concepts/disk.md) (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * [Secret](../../lockbox/concepts/secret.md) storage and request fees (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-* Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) if using [{{ cloud-logging-name }}](../../logging/).
+* Fee for the number of function calls, computing resources allocated to the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
 
 ## Prepare the environment {#prepare}
 
-1. [Create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) that will be used to invoke the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-functions-invoker }}` and `{{ roles-lockbox-payloadviewer }}` [roles](../../iam/concepts/access-control/roles.md).
+1. [Create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) for calling the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-functions-invoker }}` and `{{ roles-lockbox-payloadviewer }}` [roles](../../iam/concepts/access-control/roles.md) to it.
 1. [Create](../../compute/operations/vm-create/create-preemptible-vm.md#create-preemptible) a preemptible VM.
 
 ## Create a secret {#create-secret}
 
-Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store an [OAuth token](../../iam/concepts/authorization/oauth-token.md).
+Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) where you will keep an [OAuth token](../../iam/concepts/authorization/oauth-token.md).
 
 {% note info %}
 
-Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you cannot request an [IAM token](../../iam/concepts/authorization/iam-token.md) automatically. The IAM token is updated more frequently and is therefore more secure.
+Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you cannot request an [IAM token](../../iam/concepts/authorization/iam-token.md) automatically. An IAM token gets updates more frequently and is therefore more secure.
 
 {% endnote %}
 
@@ -47,14 +47,14 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a secret in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, e.g., `oauth-token`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `key_token`.
-     * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the value of the [OAuth token]({{ link-cloud-oauth }}) required for function authorization.
+     * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the [OAuth token]({{ link-cloud-oauth }}) value required for authorizing the function.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -70,7 +70,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
     --payload "[{'key': 'key_token', 'text_value': '<OAuth_token>'}]"
   ```
 
-  Where `text_value` is the value of the [OAuth token]({{ link-cloud-oauth }}) required for function authorization.
+  Where `text_value` is the [OAuth token]({{ link-cloud-oauth }}) value required to authorize the function.
 
   Result:
 
@@ -106,32 +106,32 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      * `name`: Secret name.
      * `key`: Secret key.
-     * `text_value`: Value of the [OAuth token]({{ link-cloud-oauth }}) required for function authorization.
+     * `text_value`: [OAuth token]({{ link-cloud-oauth }}) value required to authorize the function.
 
      {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
-     For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+     For more information about {{ TF }} resource parameters, see the overview documents by Terraform:
 
-     * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret).
-     * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
+     * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
+     * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version)
 
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm the secret creation: type `yes` in the terminal and press **Enter**.
+     1. Confirm secret creation by typing `yes` in the terminal and pressing **Enter**.
 
 - API {#api}
 
@@ -141,7 +141,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
 ## Prepare a ZIP archive with the function code {#zip-archive}
 
-1. Save the following code to a file named `index.js`:
+1. Save this code to a file named `index.js`:
 
    ```javascript
    import { serviceClients, Session, cloudApi } from '@yandex-cloud/nodejs-sdk';
@@ -190,7 +190,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
    };
    ```
 
-1. Save the following code to a file named `package.json`:
+1. Save this code to a file named `package.json`:
 
    ```json
    {
@@ -212,7 +212,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. In the window that opens, enter `function-restart-vms` as the function name.
@@ -225,14 +225,14 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the previously created service account with rights to invoke the function.
+        * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the previously created service account with permissions to call the function.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-          * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you want to start the stopped VM instances in.
-          * `INSTANCE_ID`: [ID of the VM instance](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
+          * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to start the stopped VMs.
+          * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
           * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** field, specify `OAUTHTOKEN`.
-          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}** field, select the previously created `oauth-token` secret.
-          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** field, select a version for the secret.
+          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}** field, select the `oauth-token` secret you created earlier.
+          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** field, select the secret version.
           * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}** field, select `key_token` as the key name.
         * If you want to avoid logging and paying for {{ cloud-logging-name }}, disable logging by selecting `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` in the **{{ ui-key.yacloud.logging.label_title }}** field under **{{ ui-key.yacloud.logging.label_destination }}**.
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -273,22 +273,22 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      ```
 
      Where:
-     * `--function-name`: Name of the function a version of which you are creating.
+     * `--function-name`: Name of the function whose version you are creating.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum function running time before the timeout is reached.
+     * `--execution-timeout`: Maximum running time of the function until timeout.
      * `--runtime`: Runtime environment.
      * `--entrypoint`: Entry point.
-     * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with the permissions to invoke the function.
+     * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to call the function.
      * `--environment`: Environment variables:
-       * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you want to start the stopped VM instances in.
-       * `INSTANCE_ID`: [ID of the VM instance](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
+       * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to start the stopped VMs.
+       * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
      * `--secret`: {{ lockbox-name }} secret data:
-       * `name`: Secret name
+       * `name`: Secret name.
        * `version-id`: [Secret version](../../lockbox/concepts/secret.md#version) ID.
        * `key`: Secret key.
-       * `environment-variable`: Environment variable the secret will be kept in.
+       * `environment-variable`: Environment variable where you will keep the secret.
      * `--source-path`: Path to the `function-js.zip` archive you created earlier.
-     * (Optional) `--no-logging`: Set this flag to avoid logging and paying for {{ cloud-logging-name }}.
+     * Optionally, set the `--no-logging` flag to avoid logging and paying for {{ cloud-logging-name }}.
 
      Result:
 
@@ -304,8 +304,8 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
 - {{ TF }} {#tf}
 
-  If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  1. In the configuration file, describe the `function-restart-vms` function parameters and its [versions](../../functions/concepts/function.md#version):
+  If you do not have {{ TF }} yet, [install it and configure {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. In the configuration file, describe the `function-restart-vms` parameters and [versions](../../functions/concepts/function.md#version):
 
      ```hcl
      resource "yandex_function" "function-restart-vms" {
@@ -335,43 +335,43 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      Where:
      * `name`: Function name.
-     * `user_hash`: Any string to identify the function version.
+     * `user_hash`: Random string to identify the function version.
      * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
      * `entrypoint`: Entry point.
      * `memory`: Amount of memory allocated for the function, in MB.
      * `execution_timeout`: Function execution timeout.
-     * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account with the permissions to invoke the function.
-     * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the function in.
+     * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to call the function.
+     * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the function.
      * `environment`: Environment variables:
-       * `FOLDER_ID`: ID of the folder you want to start the stopped VM instances in.
-       * `INSTANCE_ID`: [ID of the VM instance](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
+       * `FOLDER_ID`: ID of the folder where you want to start the stopped VMs.
+       * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
      * `secrets`: {{ lockbox-name }} secret data:
        * `id`: Secret ID.
        * `version_id`: [Secret version](../../lockbox/concepts/secret.md#version) ID.
        * `key`: Secret key.
-       * `environment_variable`: Environment variable the secret will be kept in.
+       * `environment_variable`: Environment variable where you will keep the secret.
      * `zip_filename`: Path to the `function-js.zip` archive you created earlier.
 
-     For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+     For more information about the `yandex_function` resource parameters, see [this Terraform article]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If the configuration description is correct, the terminal will display a list of the resources you created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the function: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the function by typing `yes` in the terminal and pressing **Enter**.
 
-        This will create a function named `function-restart-vms` in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+        This will create a function named `function-restart-vms` in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
         ```bash
         yc serverless function get function-restart-vms
@@ -406,7 +406,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [trigger](../../functions/concepts/trigger/index.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -416,12 +416,12 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, enter `* * ? * * *` or select `{{ ui-key.yacloud.common.button_cron-1min }}`.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select `function-restart-vms` and specify the following:
      * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**](../../functions/concepts/function.md#tag): `$latest`.
-     * Previously created service account with rights to invoke the function.
+     * Service account you created earlier with permissions to call the function.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-  To create a [trigger](../../functions/concepts/trigger/index.md) that invokes a function, run this command:
+  To create a [trigger](../../functions/concepts/trigger/index.md) that calls a function, run this command:
 
   ```bash
   yc serverless trigger create timer \
@@ -433,9 +433,9 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
   Where:
   * `--name`: Trigger name.
-  * `--cron-expression`: Function invocation schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
-  * `--invoke-function-name`: Name of the function being invoked.
-  * `--invoke-function-service-account-id`: ID of the service account with the permissions to invoke the function.
+  * `--cron-expression`: Function call schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
+  * `--invoke-function-name`: Name of the function to call.
+  * `--invoke-function-service-account-id`: ID of the service account with permissions to call the function.
 
   Result:
 
@@ -469,30 +469,30 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      Where:
      * `name`: Trigger name.
-     * `cron_expression`: Function invocation schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
-     * `id`: ID of the function for the trigger to invoke.
-     * `service_account_id`: ID of the service account with the permissions to invoke the function.
+     * `cron_expression`: Function call schedule specified as a [cron expression](../../functions/concepts/trigger/timer.md#cron-expression).
+     * `id`: ID of the function for the trigger to call.
+     * `service_account_id`: ID of the service account with permissions to call the function.
 
-     For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about resource parameters in {{ TF }}, see [thisTerraform article]({{ tf-provider-resources-link }}/function_trigger).
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If the configuration description is correct, the terminal will display a list of the resources you created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
 
-        This will create a trigger named `timer` in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+        This will create a trigger named `timer` in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
         ```bash
         yc serverless trigger get timer
@@ -522,12 +522,12 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder your preemptible VM was created in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where you created your preemptible VM.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM name and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
-  1. Check the VM status in about one minute or later. The VM status should change to `Running`.
+  1. Check the VM status in about one minute or later. The VM status should now be `Running`.
 
 {% endlist %}
 
@@ -538,4 +538,4 @@ To stop paying for the resources you created:
 1. [Delete the function](../../functions/operations/function/function-delete.md).
 1. [Delete the secret](../../lockbox/operations/secret-delete.md).
 1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
-1. If you logged data to a log group, [delete the group](../../logging/operations/delete-group.md).
+1. If you logged data to a log group, [delete it](../../logging/operations/delete-group.md).

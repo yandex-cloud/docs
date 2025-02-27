@@ -1,22 +1,22 @@
-# Deploying the GlusterFS parallel file system in high availability mode
+# Deploying GlusterFS in high availability mode
 
 
-[GlusterFS](https://en.wikipedia.org/wiki/GlusterFS) is a parallel distributed file system with linear scalability. With horizontal scaling, the system provides the cloud with an aggregate bandwidth of tens of GB/s and hundreds of thousands of [IOPS](https://en.wikipedia.org/wiki/IOPS).
+[GlusterFS](https://en.wikipedia.org/wiki/GlusterFS) is a parallel, distributed, and scalable file system. With horizontal scaling, the system provides the cloud with an aggregate bandwidth in the tens of GB/s and hundreds of thousands of [IOPS](https://en.wikipedia.org/wiki/IOPS).
 
-Use this tutorial to create an infrastructure made up of three segments sharing a common GlusterFS file system. Placing storage [disks](../../compute/concepts/disk.md) in three different [availability zones](../../overview/concepts/geo-scope.md) will ensure high availability and fault tolerance of your file system.
+Use this tutorial to create an infrastructure made up of three segments sharing a common GlusterFS file system. Placing storage [disks](../../compute/concepts/disk.md) in three different [availability zones](../../overview/concepts/geo-scope.md) will ensure the high availability and fault tolerance of your file system.
 
-To configure a file system with high availability:
+To configure a high availability file system:
 
-1. [Prepare your cloud](#prepare-cloud).
+1. [Get your cloud ready](#prepare-cloud).
 1. [Configure the CLI profile](#setup-profile).
 1. [Prepare an environment for deploying the resources](#setup-environment).
 1. [Deploy your resources](#deploy-resources).
 1. [Install and configure GlusterFS](#install-glusterfs).
-1. [Test the solution for availability and fault tolerance](#test-glusterfs).
+1. [Test the solution’s availability and fault tolerance](#test-glusterfs).
 
 If you no longer need the resources you created, [delete them](#clear-out).
  
-## Prepare your cloud {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -26,22 +26,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 
 * Fee for continuously running VMs and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Configure the CLI profile {#setup-profile}
 
-1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in as a user.
+1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in.
 1. Create a service account:
    
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, e.g., `sa-glusterfs`.
+      1. Enter the service account name, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -103,17 +103,17 @@ The infrastructure support costs include:
 
    - CLI {#cli}
 
-      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it to the file:
+      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it into the file:
          ```
          yc iam key create \
          --service-account-id <service_account_ID> \
-         --folder-id <ID_of_folder_with_service_account> \
+         --folder-id <service_account_folder_ID> \
          --output key.json
          ```
          Where:
          * `service-account-id`: Service account ID.
-         * `folder-id`: ID of the folder in which the service account was created.
-         * `output`: Name of the file with the authorized key.
+         * `folder-id`: ID of the folder where you created the service account.
+         * `output`: Name of the authorized key file.
 
          Result:
          ```
@@ -133,7 +133,7 @@ The infrastructure support costs include:
          Profile 'sa-glusterfs' created and activated
          ```
 
-      1. Set the profile configuration:
+      1. Configure the profile:
          ```
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
@@ -155,32 +155,32 @@ The infrastructure support costs include:
     {% endlist %}
 
 
-## Prepare an environment for deploying the resources {#setup-environment}
+## Set up an environment for deploying the resources {#setup-environment}
 
 1. Create an SSH key pair:
    ```bash
    ssh-keygen -t ed25519
    ```
-   We recommend leaving the key file name unchanged.
+   We recommend sticking with the default key file name.
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. Clone the `yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs` GitHub repository and go to the `yc-distributed-ha-storage-with-glusterfs` folder:
     ```
     git clone https://github.com/yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs.git
     cd ./yc-distributed-ha-storage-with-glusterfs
     ```
-1. Edit the `variables.tf` file, specifying the parameters of the resources you are deploying:
+1. Edit the `variables.tf` file, specifying the properties for the resources you are deploying:
 
    {% note warning %}
 
-   The values set in the file result in deploying a resource-intensive infrastructure.
-   To deploy the resources within your available quotas, use the values below or change the values according to your specific needs.
+   The values set in the file are for deploying a resource-intensive infrastructure.
+   To deploy the resources within your available quotas, use the values below or adjust the values to your specific needs.
 
    {% endnote %}
 
    1. In `disk_size`, change `default` to `30`.
    1. In `client_cpu_count`, change `default` to `2`.
    1. In `storage_cpu_count`, change `default` to `2`.
-   1. If you specified a non-default name when creating the SSH key pair, under `local_pubkey_path`, change `default` to `<path_to_public_SSH_key>`.
+   1. If you used a non-default name when creating the SSH key pair, change `default` to `<public_SSH_key_path>` under `local_pubkey_path`.
 
 ## Deploy your resources {#deploy-resources}
    
@@ -196,11 +196,11 @@ The infrastructure support costs include:
       ```bash
       terraform plan
       ```
-   1. Create resources:
+   1. Create the resources:
       ```bash
       terraform apply -auto-approve
       ```
-   1. Wait until a process completion message appears:
+   1. Wait until you are notified it has been completed:
       ```bash
       Outputs:
 
@@ -216,7 +216,7 @@ The infrastructure support costs include:
       ```bash
       ssh storage@158.160.108.137
       ```
-   1. Switch to the `root` superuser mode:
+   1. Switch to the `root` mode:
       ```bash
       sudo -i
       ```
@@ -257,7 +257,7 @@ The infrastructure support costs include:
       clush -w @gluster systemctl enable glusterd
       clush -w @gluster systemctl restart glusterd
       ```
-   1. Check the `gluster02` and `gluster03` VM availability:
+   1. Check whether `gluster02` and `gluster03` are available:
       ```bash
       clush -w gluster01 gluster peer probe gluster02
       clush -w gluster01 gluster peer probe gluster03
@@ -268,7 +268,7 @@ The infrastructure support costs include:
       clush -w gluster01 gluster volume create regional-volume disperse 3 redundancy 1 gluster01:/bricks/brick1/vol0 gluster02:/bricks/brick1/vol0 gluster03:/bricks/brick1/vol0  
       ```
 
-   1. Configure additional performance settings:
+   1. Make use of additional performance settings:
       ```bash
       clush -w gluster01 gluster volume set regional-volume client.event-threads 8
       clush -w gluster01 gluster volume set regional-volume server.event-threads 8
@@ -287,7 +287,7 @@ The infrastructure support costs include:
       clush -w @clients mount -t glusterfs gluster01:/regional-volume /mnt/
       ```
 
-## Test the solution for availability and fault tolerance {#test-glusterfs}
+## Test the availability and fault tolerance of the solution {#test-glusterfs}
 
    1. Check the status of the `regional-volume` shared folder:
       ```bash
@@ -335,14 +335,14 @@ The infrastructure support costs include:
 
       - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+        1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-        1. Select the `gluster02` VM from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
+        1. From the list, select the `gluster02` VM, click ![image](../../_assets/options.svg), and opt for **{{ ui-key.yacloud.common.stop }}**.
         1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
       - CLI {#cli}
 
-        1. See the description of the CLI command to stop a VM:
+        1. To stop a VM, see the CLI command description:
 
            ```bash
            yc compute instance stop --help
@@ -359,7 +359,7 @@ The infrastructure support costs include:
 
       {% endlist %}
 
-   1. Make sure that the VM is shut down:
+   1. Make sure the VM is shut down:
       ```bash
       clush -w gluster01  gluster volume status
       ```
@@ -380,7 +380,7 @@ The infrastructure support costs include:
       gluster01:
       ```
 
-   1. Make sure that the file is still available on all three client VMs:
+   1. Make sure the file is still available on all three client VMs:
       ```bash
       clush -w @clients sha256sum /mnt/test.txt
       ```
@@ -393,7 +393,7 @@ The infrastructure support costs include:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources created, delete them:
+To stop paying for the resources you created, delete them:
    ```bash
    terraform destroy -auto-approve
    ```

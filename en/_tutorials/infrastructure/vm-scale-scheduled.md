@@ -1,7 +1,7 @@
 
-# Scheduled scaling of instance groups
+# Scheduled instance group scaling
 
 
-Follow this tutorial to create a [VM group](../../compute/concepts/instance-groups/index.md) using [{{ compute-full-name }}](../../compute/) and set up scheduled [scaling](../../compute/concepts/instance-groups/scale.md) for it. A [{{ sf-full-name }}](../../functions/) [function](../../functions/concepts/function.md) triggered by a [timer](../../functions/concepts/trigger/timer.md) will manage the instance group size.
+In this tutorial, you will create a [{{ compute-full-name }}](../../compute/) [instance group](../../compute/concepts/instance-groups/index.md) with a scheduled [scaling](../../compute/concepts/instance-groups/scale.md). A [{{ sf-full-name }}](../../functions/) [function](../../functions/concepts/function.md) triggered by a [timer](../../functions/concepts/trigger/timer.md) will manage the instance group size.
 
-You can use one of the following tools to configure VM group scaling:
+You can use one of the following tools to configure instance group scaling:
