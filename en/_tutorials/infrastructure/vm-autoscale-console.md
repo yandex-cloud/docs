@@ -1,12 +1,12 @@
-1. [Prepare your cloud environment](#before-begin).
-1. [Prepare the environment](#prepare).
+1. [Get your cloud ready](#before-begin).
+1. [Set up your environment](#prepare).
 1. [Create an instance group with autoscaling and a network load balancer](#create-vm-group).
 1. [Add a network load balancer with a target group](#connect-balancer).
 1. [Test your instance group and network load balancer](#check-service).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud environment {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**. In the window that opens:
         * In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-autoscale`.
         * To assign the service account a role for the current folder, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `compute.editor` and `load-balancer.editor` roles.
@@ -78,11 +78,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your network.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter `yc-auto-network` as the network name.
-     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
      1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
    - CLI {#cli}
@@ -165,36 +165,36 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Open the **Security groups** tab.
      1. Create a security group for the load balancer:
         1. Click **Create group**.
-        1. Enter a **Name** for the group: `sg-autoscale`.
+        1. Enter the group **Name**: `sg-autoscale`.
         1. Select `yc-auto-network` for **Network**.
-        1. Under **Rules**, create rules using the instructions below the table:
+        1. Under **Rules**, create rules by following the steps below the table:
 
            Traffic<br>direction | Description | Port<br>range | Protocol | Source /<br>target type | Source /<br>target
            --- | --- | --- | --- | --- | ---
-           Outgoing | any | All | Any | CIDR | 0.0.0.0/0
-           Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
-           Incoming | healthchecks | 80 | TCP | Load balancer health checks | —
+           Outbound | any | All | Any | CIDR | 0.0.0.0/0
+           Inbound | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
+           Inbound | healthchecks | 80 | TCP | Load balancer health checks | —
 
-           1. Select the **Outgoing traffic** or **Incoming traffic** tab.
+           1. Select the **Outbound traffic** or **Inbound traffic** tab.
            1. Click **Add rule**.
-           1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+           1. In the **Port range** field of the window that opens, specify a single port or a port range for traffic to come to or from.
            1. In the **Protocol** field, specify the appropriate protocol or leave **Any** to allow traffic transmission over any protocol.
-           1. In the **Purpose** or **Source** field, select the purpose of the rule:
-              * **CIDR**: Rule will apply to the range of [IP addresses](../../vpc/concepts/address.md). In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
+           1. In the **Purpose** or **Source** field, select the rule purpose:
+              * **CIDR**: Rule will apply to the range of [IP addresses](../../vpc/concepts/address.md). In the **CIDR blocks** field, specify the CIDR and the masks of the subnets for traffic to come to or from. To add multiple CIDRs, click **Add CIDR**.
               * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-              * **Load balancer health checks**: Rule allowing a load balancer to health check VMs.
-           1. Click **Save**. Repeat the steps to create all the rules from the table.
+              * **Load balancer health checks**: Rule allowing a load balancer to health-check VMs.
+           1. Click **Save**. Repeat these steps to create all rules from the table.
         1. Click **Save**.
 
    {% endlist %}
 
 ## Create an instance group with autoscaling and a network load balancer {#create-vm-group}
 
-1. All instance groups are created from [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
+1. You will be creating all instance groups from a [{{ coi }}](../../cos/concepts/index.md). Each VM instance will have a Docker container running a web server that emulates the service load.
 
    {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
-1. Save the specification of the instance group with network load balancer to the `specification.yaml` file:
+1. Save the specification of the instance group with the network load balancer to the `specification.yaml` file:
 
    ```yaml
    name: auto-group
@@ -239,20 +239,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
        disk_spec:
          type_id: network-hdd
          size: 30G
-         image_id: fd8iv792kira******** # ID of the public . {{ coi }}
+         image_id: fd8iv792kira******** # ID of the public {{ coi }}
      network_interface_specs:
        - network_id: <cloud_network_ID>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
    ```
 
-1. In `specification.yaml`, replace the values in angle brackets for the real values you got in the previous steps.
-1. Create an instance group named `auto-group` using the `specification.yaml` specification:
+1. In `specification.yaml`, replace the values in angle brackets with the real values you got at the previous steps.
+1. Create an instance group named `auto-group` using the `specification.yaml` spec:
 
    {% list tabs group=instructions %}
 
    - CLI {#cli}
 
-     Run the following command:
+     Run this command:
 
      ```bash
      yc compute instance-group create --file=specification.yaml
@@ -274,11 +274,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - API {#api}
 
-     Use the [CreateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) method for the `InstanceGroup` resource.
+     For the `InstanceGroup` resource, use the [CreateFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) method.
 
    {% endlist %}
 
-1. Make sure that the instance group was created:
+1. Make sure the instance group was created:
 
    {% list tabs group=instructions %}
 
@@ -287,7 +287,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. In the left-hand panel, click ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
-     1. Select the `auto-group` instance group.
+     1. Select `auto-group`.
 
    - CLI {#cli}
 
@@ -308,7 +308,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - API {#api}
 
-     To view the list of created instance groups, use the [list](../../compute/instancegroup/api-ref/InstanceGroup/list.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/List](../../compute/instancegroup/api-ref/grpc/InstanceGroup/list.md) gRPC API call.
+     To view the list of the instance groups you created, use the [list](../../compute/instancegroup/api-ref/InstanceGroup/list.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/List](../../compute/instancegroup/api-ref/grpc/InstanceGroup/list.md) gRPC API call.
 
    {% endlist %}
 
@@ -320,18 +320,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder you want to create a load balancer in.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a load balancer.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-     1. Enter `group-balancer` for name.
+     1. Enter `group-balancer` as the name.
      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, specify `{{ ui-key.yacloud.common.label_auto }}`.
      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**. In the window that opens, specify:
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**: `http`.
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (port the load balancer will receive incoming traffic at): `80`.
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (port the load balancer will route traffic to): `80`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (port where the load balancer will receive inbound traffic): `80`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (port to which the load balancer will route traffic): `80`.
         * Click **{{ ui-key.yacloud.common.add }}**.
      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
-     1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select the `auto-group-tg` instance group and click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify:
+     1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select `auto-group-tg` and click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify:
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**: `tcp`
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `80`
@@ -368,13 +368,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endlist %}
 
-1. Check that the network load balancer named `group-balancer` has been created and linked to the instance group:
+1. Make sure you created the network load balancer named `group-balancer` and linked it to the instance group:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder you created the load balancer in.
+     1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Select `group-balancer`.
 

@@ -51,7 +51,7 @@ keywords:
     1. Выберите тип `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`. Не изменяйте другие настройки.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Откройте созданную очередь.
-    1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** скопируйте URL и ARN очереди, они понадобятся позднее.
+    1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** скопируйте URL очереди, он понадобится позднее.
 
 {% endlist %}
 
@@ -107,7 +107,7 @@ keywords:
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-event-router.label_connectors }}**.
     1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
     1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ message-queue-full-name }}`.
-    1. В поле **Очередь сообщений** укажите ARN очереди.
+    1. В поле **Очередь сообщений** укажите очередь `sample-queue`.
     1. В поле **Сервисный аккаунт** укажите `sa-for-eventrouter`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, как работать с {
 
 ## {{ er-name }} {#event-router}
 
-### Получение информации о шине {#get-info}
+### Получение информации о шине {#bus-get-info}
 
 * [{#T}](eventrouter/bus/get-list.md)
 * [{#T}](eventrouter/bus/get-info.md)
@@ -31,6 +31,6 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](eventrouter/rule/get-list.md)
 * [{#T}](eventrouter/rule/get-info.md)
 
-### Получение дополнительной информации
+### Получение дополнительной информации {#get-additional-info}
 
 * [Просмотр операций с ресурсами сервиса](eventrouter/operation-logs.md)

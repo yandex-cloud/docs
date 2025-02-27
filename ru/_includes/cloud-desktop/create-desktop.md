@@ -18,6 +18,34 @@
   1. Укажите пользователя, для которого создается рабочий стол.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../cli-install.md) %}
+
+  1. Посмотрите описание команды [CLI](../../cli/index.yaml) для создания [рабочего стола](../../cloud-desktop/concepts/desktops-and-groups.md):
+
+      ```bash
+      yc desktops desktop create --help
+      ```
+
+  1. Выберите [группу рабочих столов](../../cloud-desktop/concepts/desktops-and-groups.md):
+
+      {% include [desktops-group-list](desktops-group-list.md) %}
+
+  1. Создайте рабочий стол:
+
+      ```bash
+      yc desktops desktop create \
+        --desktop-group-id <идентификатор_группы_рабочих_столов> \
+        --user-account-id <идентификатор_пользователя>
+      ```
+
+      Где:
+
+      * `--desktop-group-id` — идентификатор группы рабочих столов.
+      * `--user-account-id` — идентификатор пользователя, для которого создается рабочий стол.
+
+      {% include [create-desktop-cli-result](create-desktop-cli-result.md) %}
 
 - API {#api}
 

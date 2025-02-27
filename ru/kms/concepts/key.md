@@ -36,3 +36,15 @@
 ## Удаление ключа {#delete}
 
 Удаление ключа или родительского ресурса (каталога или облака), в котором содержался ключ, приводит к уничтожению содержащегося в нем криптографического материала. После этого вы не сможете расшифровать данные, зашифрованные ключом.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/encrypt/cli-api.md)
+* [{#T}](../tutorials/encrypt/sdk.md)
+* [{#T}](../tutorials/encrypt/aws-encryption-sdk.md)
+* [{#T}](../tutorials/encrypt/google-tink.md)
+* [{#T}](../tutorials/kms-k8s.md)
+* [{#T}](../tutorials/terraform-key.md)
+* [{#T}](../tutorials/terraform-secret.md)
+* [{#T}](../tutorials/vault-secret.md)
+* [{#T}](../tutorials/secure-password-script.md)

@@ -1,17 +1,17 @@
 # Configuring a secure GRE tunnel over IPsec
 
 
-To enable secure communication between remote resources and data transmission via public communication channels, e.g., the internet, one uses technologies for setting up secure connections, such as the [IPsec](https://www.ietf.org/rfc/rfc2401.txt) protocol. However, IPsec has a number of significant limitations: it is only designed for IP packet transmission, does not support [multicast delivery](https://en.wikipedia.org/wiki/IP_multicast), and cannot be combined with other protocols within a single request.
+For secure communication between remote resources and data transmission over public communication channels, e.g., the internet, you can use secure connection technologies, such as the [IPsec](https://www.ietf.org/rfc/rfc2401.txt) protocol. However, IPsec has significant limitations: it is only designed for IP packet transmission, does not support [multicast delivery](https://en.wikipedia.org/wiki/IP_multicast), and cannot be combined with other protocols within a single request.
 
-To extend the IPsec capabilities, you can configure the [GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation) protocol over IPsec. GRE encapsulates network packets in IP packets, which enables you to transmit any traffic over IPsec.
+To extend the capabilities of IPsec, you can configure [GRE](https://en.wikipedia.org/wiki/Generic_Routing_Encapsulation) over it. GRE encapsulates network packets in IP packets, enabling you to transmit any traffic over IPsec.
 
-In this example, you will create a secure GRE over IPsec tunnel between two [Cisco CSR 1000v](https://yandex.cloud/en/marketplace/products/yc/cisco-csr) virtual routers hosted in different [virtual networks](../../vpc/concepts/network.md) and [availability zones](../../overview/concepts/geo-scope.md) in {{ yandex-cloud }}.
+In this example, you will create a secure GRE-over-IPsec tunnel between two [Cisco CSR 1000v](https://yandex.cloud/en/marketplace/products/yc/cisco-csr) virtual routers hosted in different [virtual networks](../../vpc/concepts/network.md) and [availability zones](../../overview/concepts/geo-scope.md) in {{ yandex-cloud }}.
 
-IPsec settings are provided for NAT-T ([NAT Traversal](https://ru.wikipedia.org/wiki/NAT_traversal)) mode, since {{ yandex-cloud }} uses [NAT](https://ru.wikipedia.org/wiki/NAT), while GRE does not support using ports. This mode enables router IP address translation with NAT when using a GRE over IPsec tunnel. This makes the tunnel configuration described in our example suitable for both the cloud infrastructure in {{ yandex-cloud }} and remote resources placed behind the device providing the NAT functionality.
+You will configure IPsec in NAT-T ([NAT Traversal](https://ru.wikipedia.org/wiki/NAT)) mode, since {{ yandex-cloud }} employs [NAT](https://ru.wikipedia.org/wiki/NAT_traversal), while GRE does not support using ports. This mode enables the translation of router IP addresses over NAT when using a GRE-over-IPsec tunnel. This makes the tunnel configuration in our example suitable for both the {{ yandex-cloud }} infrastructure and remote resources placed behind the device that provides NAT. 
 
-To configure a secure tunnel between two virtual routers:
+To set up a secure tunnel between two virtual routers:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create an SSH key pair](#create-ssh-keys).
 1. [Create folders](#create-folders).
 1. [Create two VMs with a Cisco Cloud Services Router](#create-routers).
@@ -30,11 +30,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note alert %}
 
-If using a Cisco CSR 1000v image without a license, the router throughput is limited to 100 kbps. To remove this limit, [install a license](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_01000.html).
+When using a Cisco CSR 1000v image without a license, the router throughput is limited to 100 Kbps. To remove this limitation, [install a license](https://www.cisco.com/c/en/us/td/docs/routers/csr1000/software/configuration/b_CSR1000v_Configuration_Guide/b_CSR1000v_Configuration_Guide_chapter_01000.html).
 
 {% endnote %}
 
-The infrastructure support cost includes:
+The infrastructure support costs include:
 
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using an external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
@@ -59,7 +59,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
 
    1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}** at the top right.
    1. Enter the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) name: `site-d`.
-   1. Add a folder description, if required.
+   1. Add a folder description if required.
    1. Select **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. 
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
@@ -82,7 +82,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
 
    {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   1. In the configuration file, describe the parameters of the resources you want to create:
+   1. In the configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_resourcemanager_folder" "folder1" {
@@ -92,7 +92,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
       }
       ```
 
-      For more information about the `yandex_resourcemanager_folder` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      For more information about the `yandex_resourcemanager_folder` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. Make sure the configuration files are correct.
 
@@ -116,9 +116,9 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+         If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-   1. Deploy cloud resources.
+   1. Deploy the cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
 
@@ -126,9 +126,9 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
          terraform apply
          ```
 
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+      1. Confirm the creation of the resources: in the terminal, type `yes` and press **Enter**.
 
-      The folder will be created in the specified cloud. You can check the new folder and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+      This will create the folder in the specified cloud. You can check the new folder and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
       ```
       yc resource-manager cloud list
@@ -136,7 +136,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
 
 {% endlist %}
 
-Repeat the steps to create a second folder named `site-b`.
+Repeat these steps to create a second folder named `site-b`.
 
 ## Create two VMs with Cisco Cloud Services Router {#create-routers}
 
@@ -150,7 +150,7 @@ Repeat the steps to create a second folder named `site-b`.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cisco CSR` and select a [Cisco CSR](/marketplace/products/yc/cisco-csr) public image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, go to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
@@ -160,15 +160,15 @@ Repeat the steps to create a second folder named `site-b`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to.
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool. Alternatively, select a static address from the list if you reserved one.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the data for access to the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the access credentials for the VM:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or any other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router-d`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}` option.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   It may take a few minutes to create the VM. When the VM status changes to `RUNNING`, you can use the serial console.
@@ -185,14 +185,14 @@ Repeat the steps to create a second folder named `site-b`.
    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the VM list, select `cisco-router-d`.
    1. Go to the ![image](../../_assets/compute/serial-console.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
-   1. Wait for the operating system to start up completely.
-   1. To switch to privileged mode, run the following command in the serial console:
+   1. Wait for the operating system to fully start up.
+   1. To switch to privileged mode, run this command in the serial console:
 
       ```bash
       enable
       ```
 
-   1. Enter the configuration mode and set the host name for the router:
+   1. Enter configuration mode and set the host name for the router:
 
       ```bash
       conf t
@@ -203,9 +203,9 @@ Repeat the steps to create a second folder named `site-b`.
 
 {% endlist %}
 
-### Create a user with the administrative rights {#create-user}
+### Create a user with administrator permissions {#create-user}
 
-Create a user with the administrative rights and password authentication disabled:
+Create a user with administrator permissions and password authentication disabled:
 
 {% list tabs group=instructions %}
 
@@ -219,7 +219,7 @@ Create a user with the administrative rights and password authentication disable
 
 {% endlist %}
 
-### Prepare a key {#split-ssh}
+### Prepare the key {#split-ssh}
 
 If your public SSH key is longer than 72 characters, split it into chunks of 72 characters each:
 
@@ -229,7 +229,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
    fold -bw 72 <public_key_file_path>
    ```
 
-   This will output your public SSH key split into chunks, 72 characters in each.
+   This will output your public SSH key split into chunks of 72 characters each.
 
 1. Save the key hash:
 
@@ -245,7 +245,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
 - Management console {#console}
 
-   1. In the serial console, enable access to the VM over SSH:
+   1. In the serial console, enable VM access over SSH:
 
       ```bash
       conf t
@@ -254,7 +254,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
          ip ssh pubkey-chain
       ```
 
-   1. Create a user named `test-user` and provide your public SSH key in chunks you split it into in the previous step:
+   1. Create a user named `test-user` and provide your public SSH key in the chunks into which you split it at the previous step:
 
       ```bash
          username test-user
@@ -268,7 +268,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
       exit
       ```
 
-   1. Make sure that the key is added:
+   1. Make sure the key has been added:
 
       ```bash
       show run | beg ip ssh
@@ -286,7 +286,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
       Compare the SSH key hash on the router with the key hash on your computer.
 
-   1. In the serial console, enter the password that enables the privileged mode:
+   1. In the serial console, enter the password that enables privileged mode:
 
       ```bash
       cisco-router#configure terminal
@@ -298,30 +298,30 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
 ### Check the SSH connection to the router {#test-ssh}
 
-1. Log in to the router via SSH by running this command in your computer terminal:
+1. Log in to the router over SSH by running this command in your computer terminal:
 
    ```bash
    ssh -i <private_key_file_path> test-user@<router_public_IP_address>
    ```
 
-   If everything is configured correctly, you will log in to the router as `test-user`. If the connection is not established, make sure that the router is configured correctly in the serial console: the `aaa new-model` command was executed, the key hashes are the same on your computer and the router, and password authorization for the test user is disabled. If still unable to locate the issue, repeat the previous steps.
-1. Switch to privileged mode. To do this, enter the `enable` command and password. If everything is configured correctly, you can configure the router.
+   If the configuration is correct, you will log in to the router as `test-user`. If these actions produce no connection, make sure the router configuration is correct in the serial console, i.e., check whether you ran the `aaa new-model` command correctly, the key hashes are identical on your computer and the router, and password authorization is disabled for the test user. If still unable to locate the issue, repeat the previous steps.
+1. Switch to privileged mode. To do this, enter the `enable` command and your password. If the configuration is correct, you can proceed to configuring the router.
 
-### Create and set up a second VM with a Cisco Cloud Services Router {#create-second-vm}
+### Set up and configure a second VM with a Cisco Cloud Services Router {#create-second-vm}
 
 1. In the `site-b` folder, create a VM named `cisco-router-b` by following the above steps. Select **{{ region-id }}-b** as its availability zone.
 1. Set up the VM in the same way as the `cisco-router-d` VM.
 
-## Configure IPSec protocols {#ipsec-setup}
+## Configure the IPSec protocols {#ipsec-setup}
 
 {% note warning %}
 
-* The settings are the same on both VMs, except the specifically mentioned parameters.
-* The setup is performed in the terminal connected to the VM over SSH in privileged mode. 
+* The settings are the same on both VMs, except as specifically mentioned.
+* You will configure the protocols in the terminal connected to the VM over SSH, in privileged mode. 
 
 {% endnote %}
 
-1. Configure global parameters for [IKEv2](https://ru.wikipedia.org/wiki/IKE):
+1. Configure the global parameters for [IKEv2](https://ru.wikipedia.org/wiki/IKE):
 
    ```bash
    conf t
@@ -413,7 +413,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
    {% note info %}
 
-   For testing purposes, you can use the `0.0.0.0` template instead of IP addresses to provide access to any IP.
+   For testing purposes, you can use the `0.0.0.0` template rather than IP addresses to provide access to any IP.
    You can also set up separate profiles for different peers.
 
    {% endnote %}
@@ -435,8 +435,8 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
 {% note warning %}
 
-* The settings are the same on both VMs, except the specifically mentioned parameters.
-* The setup is performed in the terminal connected to the VM over SSH in privileged mode. 
+* The settings are the same on both VMs, except as specifically mentioned.
+* You will configure the protocols in the terminal connected to the VM over SSH, in privileged mode. 
 
 {% endnote %}
 
@@ -517,12 +517,12 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
 {% note warning %}
 
-* The settings are the same on both VMs, except the specifically mentioned parameters.
-* The setup is performed in the terminal connected to the VM over SSH in privileged mode. 
+* The settings are the same on both VMs, except as specifically mentioned.
+* You will configure the protocols in the terminal connected to the VM over SSH, in privileged mode. 
 
 {% endnote %}
 
-1. To make sure the requests are responded to, configure a [Loopback](https://ru.wikipedia.org/wiki/Loopback) interface:
+1. To make sure the requests get responses, configure a [Loopback](https://ru.wikipedia.org/wiki/Loopback) interface:
 
    {% list tabs %}
 
@@ -582,7 +582,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
 
 ## Test the GRE tunnel {#check-tunnel}
 
-Make sure the packets are sent and returned. To do this on the `cisco-router-d` VM, run the following command:
+Make sure this resulted in sending and returning the packets. To do this, run this command on the `cisco-router-d` VM:
 
    ```bash
    ping 10.1.1.2 source lo10
@@ -598,7 +598,7 @@ Make sure the packets are sent and returned. To do this on the `cisco-router-d` 
    Success rate is 100 percent (5/5), round-trip min/avg/max = 10/10/11 ms
    ```
 
-For the GRE tunnel performance diagnostics, you can also run the following commands:
+For GRE tunnel performance diagnostics, you can also run these commands:
 
    ```bash
    show ip int brief

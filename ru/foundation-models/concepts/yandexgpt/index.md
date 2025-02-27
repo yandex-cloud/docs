@@ -84,6 +84,47 @@
 
    {% list tabs group=programming_language %}
 
+   - SDK {#sdk}
+
+     ```python
+     #!/usr/bin/env python3
+
+     from __future__ import annotations
+
+     import json
+
+     import pydantic
+
+     from yandex_cloud_ml_sdk import YCloudML
+
+     text = """
+     Назови любые три группы товаров в продовольственном магазине. 
+     Для каждой группы приведи три любые подгруппы, входящие в группу. 
+     Представь результат в формате JSON.
+     """
+
+
+     def main() -> None:
+         sdk = YCloudML(
+             folder_id="<идентификатор_каталога>",
+             auth="<API-ключ>",
+         )
+
+         model = sdk.models.completions("yandexgpt", model_version="rc")
+
+         model = model.configure(response_format="json")
+         result = model.run(
+             [
+                 {"role": "user", "text": text},
+             ]
+         )
+         print("JSON result:", result[0].text)
+
+
+     if __name__ == "__main__":
+         main()
+     ```
+
    - API {#api}
 
      ```json
@@ -98,7 +139,7 @@
            "text": "Назови любые три группы товаров в продовольственном магазине. Для каждой группы приведи три любые подгруппы, входящие в группу. Представь результат в формате JSON."
          }
        ],
-       "json_object" : true
+       "json_object": true
      }
      ```
 
@@ -114,40 +155,112 @@
 
    {% list tabs group=programming_language %}
 
+   - SDK {#sdk}
+
+     ```python
+     #!/usr/bin/env python3
+
+     from __future__ import annotations
+
+     import json
+
+     import pydantic
+
+     from yandex_cloud_ml_sdk import YCloudML
+
+     text = "Назови дату первого полета Гагарина."
+
+
+     def main() -> None:
+         sdk = YCloudML(
+             folder_id="<идентификатор_каталога>",
+             auth="<API-ключ>",
+         )
+
+         model = sdk.models.completions("yandexgpt", model_version="rc")
+
+         model = model.configure(
+             response_format={
+                 "json_schema": {
+                     "properties": {
+                         "day": {
+                             "title": "Day",
+                             "description": "День месяца",
+                             "type": "integer",
+                         },
+                         "month": {
+                             "title": "Month",
+                             "description": "Месяц, словом",
+                             "type": "string",
+                         },
+                         "year": {
+                             "title": "Year",
+                             "description": "Год",
+                             "type": "integer",
+                         },
+                     },
+                     "required": ["day", "month", "year"],
+                     "type": "object",
+                 }
+             }
+         )
+         result = model.run(
+             [
+                 {"role": "user", "text": text},
+             ]
+         )
+         print("JSON result:", result[0].text)
+
+
+     if __name__ == "__main__":
+         main()
+     ```
+
    - API {#api}
 
      ```json
      {
        "modelUri": "gpt://<идентификатор_каталога>/yandexgpt/rc",
        "completionOptions": {
-           "stream": false
+         "stream": false
        },
        "messages": [
-           {
-             "role": "user",
-             "text": "Оформи каталог мобильных телефонов. Представь минимум три модели в каталоге"
-           }
+         {
+           "role": "user",
+           "text": "Назови дату первого полета Гагарина."
+         }
        ],
        "json_schema": {
          "schema": {
-           "type": "object",
            "properties": {
-             "id": {
-               "description": "Уникальный идентификатор продукта",
+             "day": {
+               "title": "Day",
+               "description": "День месяца",
                "type": "integer"
              },
-             "name": {
-               "description": "Название продукта",
+             "month": {
+               "title": "Month",
+               "description": "Месяц, словом",
                "type": "string"
+             },
+             "year": {
+               "title": "Year",
+               "description": "Год",
+               "type": "integer"
              }
            },
-           "required": ["id", "name"]
+           "required": [
+             "day",
+             "month",
+             "year"
+           ],
+           "type": "object"
          }
        }
      }
      ```
-   {% endlist %}
 
+   {% endlist %}
 
 Строгая структура ответа необходима при работе с внешними инструментами с помощью [вызова функций](./function-call.md). Структурирование ответа поддержано в модели {{ gpt-pro }} 5 поколения (ветка RC).
 

@@ -1,16 +1,16 @@
-# Backup to {{ objstorage-full-name }} via Bacula
+# {{ objstorage-full-name }} backup with Bacula
 
-You can use {{ objstorage-full-name }} for VM backup and recovery via the [Bacula](https://www.bacula.org/) utility.
+You can use [Bacula](https://www.bacula.org/) to backup and recover your VM in {{ objstorage-full-name }}.
 
-Bacula consists of several components:
-* **Bacula Director**: Controls the backup and recovery process.
+Bacula consists of multiple components:
+* **Bacula Director**: Manages the backup and recovery process.
 * **File Daemon**: Provides access to backup files. 
 * **Storage Daemon**: Reads and writes files to the hard disk.
-* **Catalog**: Maintains the file catalog used for backup. The catalog is stored in a [MariaDB](https://mariadb.com/kb/en/documentation/) database.
-* **Bacula Console**: A management console for interacting with Bacula Director. 
+* **Catalog**: Maintains the backup file catalog stored in the [MariaDB](https://mariadb.com/kb/en/documentation/) database.
+* **Bacula Console**: Management console for working with Bacula Director. 
 
-To set up backup and recovery via Bacula:
-1. [Prepare your cloud](#before-you-begin).
+To set up backup and recovery with Bacula:
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a VM](#create-vm).
 1. [Set up the AWS CLI](#configure-aws).
 1. [Install Bacula and additional components](#install-bacula).
@@ -29,25 +29,25 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost for backup and recovery includes:
+The cost of backup and recovery support includes:
 
 * Fee for VM computing resources and disks (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
-* Fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }}](../../vpc/pricing.md) pricing).
+* Fee for bucket data storage and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ### Create a bucket {#create-bucket}
 
-To create a bucket for backups in {{ objstorage-name }}:
+To create a backup bucket in {{ objstorage-name }}:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder where you will perform the operations.
+  1. Navigate to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the folder to work with.
   1. On the folder page, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
-  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
-  1. Set the [public access](../../storage/security/public-access.md) parameters to read [objects](../../storage/concepts/object.md) in the bucket, get a list of objects, and read bucket settings, i.e., `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify the bucket name.
+  1. Set [public access](../../storage/security/public-access.md) to read [objects](../../storage/concepts/object.md) in the bucket, get an object list, and read bucket settings, i.e., `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -55,13 +55,13 @@ To create a bucket for backups in {{ objstorage-name }}:
 
 ### Create a service account {#create-service-account}
 
-[Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role.
+[Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` role to it.
 
 ### Create static access keys {#create-access-key}
 
 [Create](../../iam/operations/sa/create-access-key.md) static access keys.
 
-Save `key_id` and the `secret` key right away. You will not be able to get the key value again.
+Save `key_id` and the `secret` key. You will not be able to get the secret key again.
 
 ## Create a VM {#create-vm}
 
@@ -71,39 +71,39 @@ To create a VM:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}** select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the parameters as follows:
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these parameters:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the subnet ID in the VM availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
-          * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-          * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+          * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If your network has no subnets, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * If there are no networks in the list, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-              * In the window that opens, enter the network name and select the folder to host the network.
-              * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option to automatically create subnets in all availability zones.
+              * In the window that opens, specify the network name and select the folder where you want to create it.
+              * Optionally, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** to automatically create subnets in all availability zones.
               * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or, if you reserved a static IP address, select it from the list.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the VM user name, e.g., `yc-user`.
 
         {% note alert %}
 
-        Do not use `root` or other usernames reserved by the operating system. To perform operations requiring superuser permissions, use the `sudo` command.
+        Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
 
         {% endnote %}
 
@@ -117,12 +117,12 @@ To create a VM:
 
 ## Set up the AWS CLI {#configure-aws}
 
-To set up the AWS CLI utility on your `bacula-vm` instance:
+To set up the AWS CLI on `bacula-vm`:
 
-1. In the [management console]({{ link-console-main }}), go to the VM page and find out its public IP address.
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. In the [management console]({{ link-console-main }}), navigate to the VM page and get the VM public IP address.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
-    The recommended authentication method when connecting over SSH is using a key pair. Set up the generated key pair: the private key must match the public key sent to the VM.
+    We recommend using a key pair when authenticating over SSH. Set up the generated key pair: the private key must match the public key sent to the VM.
 1. Update the packages installed in the system. For this, in the terminal, run:
 
     ```bash
@@ -135,24 +135,24 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     yum install awscli -y
     ```
 
-1. Set up the AWS CLI:
+1. Configure the AWS CLI:
 
     ```bash
     sudo aws configure
     ```
 
-    Specify the parameter values:
-    * `AWS Access Key ID`: `key_id` that you got when [creating the static key](#create-access-key).
-    * `AWS Secret Access Key`: `secret` key that you got when [generating the static key](#create-access-key).
+    Specify these parameters:
+    * `AWS Access Key ID`: static key ID (`key_id`) you got when you [created the static key](#create-access-key).
+    * `AWS Secret Access Key`: secret key (`secret`) you got when you [created the static key](#create-access-key).
     * `Default region name`: `{{ region-id }}`.
     * `Default output format`: `json`.
-1. Check that the `/root/.aws/credentials` file contains the correct `key_id` and `secret` values:
+1. Make sure the `key_id` and `secret` values in the `/root/.aws/credentials` file are correct:
 
     ```bash
     sudo cat /root/.aws/credentials
     ```
 
-1. Check that the `/root/.aws/config` file contains the correct `Default region name` and `Default output format` values:
+1. Make sure the `Default region name` and `Default output format` values in the `/root/.aws/config` file are correct:
 
     ```bash
     sudo cat /root/.aws/config
@@ -172,7 +172,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     sudo yum install -y mariadb-server
     ```
 
-1. Install the `s3fs` utility to mount the {{ objstorage-name }} bucket to the file system:
+1. Install the `s3fs` tool to mount the {{ objstorage-name }} bucket to the file system:
 
     ```bash
     sudo yum install -y epel-release
@@ -199,13 +199,13 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     sudo systemctl status mariadb | grep Active
     ```
 
-1. Enable MariaDB to run at system startup:
+1. Configure MariaDB to run at system startup:
 
     ```bash
     sudo systemctl enable mariadb
     ```
 
-1. Create database tables and configure access rights:
+1. Create database tables and configure access permissions:
 
     ```bash
     /usr/libexec/bacula/grant_mysql_privileges
@@ -213,21 +213,21 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     /usr/libexec/bacula/make_mysql_tables -u bacula
     ```
 
-1. Secure your database:
+1. Configure database security:
 
     ```bash
     sudo mysql_secure_installation
     ```
 
     For the following queries:
-    * `Enter current password for root (enter for none)`: Press **Enter** to skip the field.
-    * `Set root password? [Y/n]`: Enter `Y`, set the root password, and confirm it. You will need the password in the next step.
-    * `Remove anonymous users? [Y/n]`: To accept the default value, press **Enter**.
-    * `Disallow root login remotely? [Y/n]`: To accept the default value, press **Enter**.
-    * `Remove test database and access to it? [Y/n]`: To accept the default value, press **Enter**.
-    * `Reload privilege tables now? [Y/n]`: To accept the default value, press **Enter**.
+    * `Enter current password for root (enter for none)`: Press **Enter** to skip this field.
+    * `Set root password? [Y/n]`: Enter `Y`, specify the root password, and confirm it. You will need the password in the next step.
+    * `Remove anonymous users? [Y/n]`: Press **Enter** to accept the default value.
+    * `Disallow root login remotely? [Y/n]`: Press **Enter** to accept the default value.
+    * `Remove test database and access to it? [Y/n]`: Press **Enter** to accept the default value.
+    * `Reload privilege tables now? [Y/n]`: Press **Enter** to accept the default value.
 
-1. Log in to the DB command line and enter the `root` password created in the previous step:
+1. Log in to the database and enter the `root` password created in the previous step:
 
     ```bash
     mysql -u root -p
@@ -241,7 +241,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     exit
     ``` 
 
-1. Enable the MySQL library for Bacula:
+1. Configure MySQL library for Bacula:
 
     ```bash
     sudo alternatives --config libbaccats.so
@@ -259,7 +259,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     Enter to keep the current selection[+], or type selection number: 1
     ```
 
-## Set up the storage {#configure-storage}
+## Set up a storage {#configure-storage}
 
 ### Prepare a backup folder {#prepare-folder}
 
@@ -269,7 +269,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     sudo mkdir /tmp/bacula
     ``` 
 
-1. Set up access permissions for the `/tmp/bacula` folder:
+1. Configure access permissions for the `/tmp/bacula` folder:
 
     ```bash
     sudo chown -R bacula:bacula /tmp/bacula
@@ -279,7 +279,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
 
 ### Mount the bucket to the file system {#mount-bucket}
 
-1. Use `s3fs` to mount the bucket to upload backups to {{ objstorage-name }}. To do this, run the command below and specify the bucket name:
+1. To upload backups to {{ objstorage-name }}, mount the bucket with `s3fs`; to do this, run the command below and specify the bucket name:
 
     ```bash
     sudo s3fs <bucket_name> /tmp/bacula \
@@ -291,8 +291,8 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     ```
 
     Where:
-    * `uid=133`: ID of the `bacula` user from the `/etc/passwd` file
-    * `gid=133`: ID of the `bacula` group from the `/etc/passwd` file
+    * `uid=133`: `bacula` user ID from the `/etc/passwd` file.
+    * `gid=133`: `bacula` group ID from the `/etc/passwd` file.
 
 1. Check the access permissions for the `/tmp/bacula` folder:
 
@@ -307,8 +307,8 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     drwxrwxrwt. 10 root   root         265 Sep 18 08:59 ..
     ```
 
-1. Make sure that the `bacula` user can create files in the `/tmp/bacula` folder:
-    1. Temporarily enable the `bash` shell for the `bacula` user:
+1. Make sure the `bacula` user can create files in the `/tmp/bacula` folder:
+    1. Enable the `bash` shell for the `bacula` user:
 
         ```bash
         sudo sed -i "/^bacula/ s@/sbin/nologin@/bin/bash@" /etc/passwd 
@@ -320,20 +320,20 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
         sudo runuser -l  bacula -c 'touch /tmp/bacula/test.test' 
         ```
 
-    1. Make sure that the file `test.test` was created in the `/tmp/bacula` folder:
+    1. Check that the `test.test` file was created in the `/tmp/bacula` folder:
 
         ```bash
         sudo ls -la /tmp/bacula | grep test.test 
         ```
 
-    1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and make sure the `test.test` file is in the bucket.
+    1. In the [management console]({{ link-console-main }}), on the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and check whether the `test.test` file is in the bucket.
     1. Delete the test file:
 
         ```bash
         sudo runuser -l  bacula -c 'rm -f /tmp/bacula/test.test' 
         ```
 
-    1. Temporarily disable the `bash` shell for the `bacula` user:
+    1. Disable the `bash` shell for the `bacula` user:
 
         ```bash
         sudo sed -i "/^bacula/ s@/bin/bash@/sbin/nologin@" /etc/passwd 
@@ -349,7 +349,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     sudo nano /etc/bacula/bacula-dir.conf
     ```
 
-1. To set up a connection to Bacula Director, go to the `Director` configuration section and add the `DirAddress = 127.0.0.1` line:
+1. To set up a connection to Bacula Director, add the `DirAddress = 127.0.0.1` line in the `Director` configuration section:
 
     ```text
     ...
@@ -381,7 +381,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     ...
     ```
 
-1. To specify `/tmp/bacula-restores` as the folder for your recovered files, add the line `Where = /tmp/bacula-restores` to the `RestoreFiles` job configuration:
+1. To assign `/tmp/bacula-restores` as the folder for your recovered files, add the `Where = /tmp/bacula-restores` line to the `RestoreFiles` job configuration section:
 
     ```text
     ...
@@ -398,8 +398,8 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     ...
     ```
 
-1. In the `FileSet` coniguration section named `Full Set`, under `Include`:
-    * Add the `compression = GZIP` line to the `Options` section to enable compression during backup.
+1. In the `FileSet` configuration section named `Full Set`, under `Include`:
+    * Add the `compression = GZIP` line to the `Options` section to enable backup compression.
     * Specify `File = /` to back up the entire file system.
 
     ```text
@@ -425,8 +425,8 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     ...
     ```
 
-1. In the [management console]({{ link-console-main }}), go to the VM page and look up its internal IP address.
-1. To set up an outbound connection to the Storage Daemon, in the `Storage` configuration section, enter the VM's internal IP address in the `Address` field:
+1. In the [management console]({{ link-console-main }}), navigate to the VM page and get the VM internal IP address.
+1. To set up an outbound connection to the Storage Daemon, specify the VM internal IP address in the `Address` field of the `Storage` configuration section:
 
     ```text
     ...
@@ -457,7 +457,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     ```
 
 1. Save the file.
-1. Make sure that the `bacula-dir.conf` file has no syntax errors:
+1. Make sure the `bacula-dir.conf` file has no syntax errors:
 
     ```bash
     sudo bacula-dir -tc /etc/bacula/bacula-dir.conf
@@ -473,7 +473,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
     sudo nano /etc/bacula/bacula-sd.conf
     ``` 
 
-1. To set up an outbound connection to the Storage Daemon, in the `Storage` configuration section, specify the VM's internal IP address in the `SDAddress` field:
+1. To set up an outbound connection to the Storage Daemon, specify the VM internal IP address in the `SDAddress` field of the `Storage` configuration section:
 
     ```text
     ...
@@ -519,7 +519,7 @@ To set up the AWS CLI utility on your `bacula-vm` instance:
 
 ### Create passwords for Bacula components {#create-bacula-passwords}
 
-Bacula Director, Storage Daemon, and File Daemon use passwords for inter-component authentication.
+Bacula Director, Storage Daemon, and File Daemon use passwords for cross-component authentication.
 
 To set passwords for Bacula components:
 1. Generate passwords for Bacula Director, Storage Daemon, and File Daemon:
@@ -530,7 +530,7 @@ To set passwords for Bacula components:
     FD_PASSWORD=`date +%s | sha256sum | base64 | head -c 33`
     ```
 
-1. Put the passwords in the configuration files:
+1. Store the passwords in the configuration files:
 
     ```bash
     sudo sed -i "s/@@DIR_PASSWORD@@/${DIR_PASSWORD}/" /etc/bacula/bacula-dir.conf
@@ -543,7 +543,7 @@ To set passwords for Bacula components:
 
 ### Run the Bacula components {#run-bacula-components}
 
-1. Run the Bacula components:
+1. Start the Bacula components:
 
     ```bash
     sudo systemctl start bacula-dir
@@ -559,7 +559,7 @@ To set passwords for Bacula components:
     sudo systemctl status bacula-fd
     ```
 
-1. Set up the Bacula components to launch at system startup:
+1. Configure Bacula components to run at system startup:
 
     ```bash
     sudo systemctl enable bacula-dir
@@ -603,7 +603,7 @@ To set passwords for Bacula components:
     run    
     ```
 
-    To run the `BackupFiles` job, select `1`:
+    To run the `BackupFiles` job, enter `1`:
 
     ```bash
     A job name must be specified.
@@ -626,7 +626,7 @@ To set passwords for Bacula components:
     status director
     ```
 
-    Result if the backup is running:
+    Result if the backup is in progress:
 
     ```text
     Running Jobs:
@@ -658,7 +658,7 @@ To set passwords for Bacula components:
 
 ### Check the backup {#check-backup}
 
-To make sure that the backup is complete:
+To make sure the backup has been completed:
 
 {% list tabs group=instructions %}
 
@@ -672,13 +672,13 @@ To make sure that the backup is complete:
 
 ## Recover the files {#run-restore}
 
-1. To test recovery, first, delete a file, e.g., the `ping` utility:
+1. To test the recovery process, first, delete a file, e.g., the `ping` tool:
 
     ```bash
     sudo rm -f /bin/ping
     ```
 
-1. Make sure that `ping` is deleted:
+1. Make sure the `ping` tool is deleted:
 
     ```bash
     ping
@@ -746,7 +746,7 @@ To make sure that the backup is complete:
     status director
     ```
 
-    Here's the result if the recovery is in progress:
+    Result if the recovery is in progress:
 
     ```text
     Running Jobs:
@@ -756,7 +756,7 @@ To make sure that the backup is complete:
          3         RestoreFiles.2019-09-12_07.27.42_05 is running
     ```
 
-    Here's the result if the recovery is complete:
+    Result if the recovery is complete:
 
     ```text
     Terminated Jobs:
@@ -774,7 +774,7 @@ To make sure that the backup is complete:
 
 ### Check the recovered files {#check-restore}
 
-1. Make sure the `/tmp/bacula-restores` folder now contains the recovered files:
+1. Check whether the `/tmp/bacula-restores` folder contains the recovered files:
 
     ```bash
     sudo ls -la /tmp/bacula-restores
@@ -817,7 +817,7 @@ To make sure that the backup is complete:
     -rwxr-xr-x 1 root root 66176 Aug  4  2017 /tmp/bacula-restores/bin/ping
     ```
 
-1. Copy the `ping` utility to the main file system:
+1. Copy the `ping` tool to the main file system:
 
     ```bash
     sudo cp /tmp/bacula-restores/bin/ping /bin/ping
@@ -851,6 +851,6 @@ To make sure that the backup is complete:
 To stop paying for the resources you created:
 
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
-1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the {{ objstorage-name }} bucket:
+1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the {{ objstorage-name }} bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.

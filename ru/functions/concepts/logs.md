@@ -10,6 +10,7 @@
 
 {% include [structured-logs](../../_includes/functions/structured-logs.md) %}
 
-## См. также
+## См. также {#see-also}
 
 * [Запись в журнал выполнения. Примеры функций.](../operations/function/logs-write.md)
+* [Сборщик. Журналирование.](./builder.md)

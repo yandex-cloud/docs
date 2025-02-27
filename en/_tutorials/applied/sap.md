@@ -1,15 +1,15 @@
 
 
-You will learn to configure a server with an installed SAP environment and write your first program. It will export existing system users in tabular format.
+You will learn to configure an SAP server and write your first program exporting a list of system users in tabular format.
 
 To create an SAP program in {{ yandex-cloud }}:
-1. [Prepare your cloud](#before-begin).
-1. [Create a VM for SAP](#vm-sap).
-1. [Set up the VM file system](#fs-settings).
-1. [Set up an install configuration](#install-config).
+1. [Get your cloud ready](#before-begin).
+1. [Create an SAP VM](#vm-sap).
+1. [Set up your VM file system](#fs-settings).
+1. [Configure SAP installation](#install-config).
 1. [Install SAP](#sap-install).
 1. [Configure SAP](#sap-settings).
-1. [Check that the program runs as expected](#sap-app).
+1. [Make sure the program runs correctly](#sap-app).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -22,62 +22,62 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of an SAP installation includes:
 * Fee for a continuously running [VM](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
-## Create a VM for SAP {#vm-sap}
+## Create an SAP VM {#vm-sap}
 
-Create a VM with a public IP address:
+Create a VM and give it a public IP address:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder dashboard](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [SLES for SAP 15 SP2](/marketplace/products/yc/sles-for-sap-15-sp2) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
-      * Select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` boot disk [type](../../compute/concepts/disk.md#disks_types) and specify the size: `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * Select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` boot disk [type](../../compute/concepts/disk.md#disks_types) and specify the disk size: `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
       * Create a secondary disk:
           * Click **{{ ui-key.yacloud.common.add }}**.
           * Select the [disk type](../../compute/concepts/disk.md#disks_types): `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
-          * Specify the size: `24 {{ ui-key.yacloud.common.units.label_gigabyte }}`. 
+          * Specify the disk size: `24 {{ ui-key.yacloud.common.units.label_gigabyte }}`. 
           * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required platform, number of vCPUs, and the amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet where your VM will get connected. If the selected network has no [subnets](../../vpc/concepts/network.md#subnet) or there are no [networks](../../vpc/concepts/network.md#network) in the list, [create them](../../vpc/operations/subnet-create.md) as required.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or, if you reserved a static IP address, select it from the list.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the access credentials for the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify your VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, specify a username. Do not use `root` or other reserved usernames. To run commands requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vhcalnplci`. This host name is used in the install script.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vhcalnplci` that will be used in the SAP installation script.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 
-## Set up the VM file system {#fs-settings}
+## Set up your VM file system {#fs-settings}
 
-Set up the created VM's file structure for the SAP install.
-1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the created VM via [PuTTY](https://www.putty.org/).
-1. Switch to root to get superuser privileges:
+Create a file system structure for SAP installation.
+1. Connect to your VM over [SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) via [PuTTY](https://www.putty.org/).
+1. Switch to the `root` account:
 
    ```bash
    sudo su
    ```
 
-1. Review a list of all the disks:
+1. List all available disks:
 
    ```bash
    lsblk
@@ -95,26 +95,26 @@ Set up the created VM's file structure for the SAP install.
    Where:
    * `vda`: Boot disk
    * `vdb`: Data disk
-1. Create two partitions on the data disk (`vdb`): 20 GB for the distribution and 70 GB for SAP.
-   1. To manage hard drive partitions, run the `fdisk` utility:
+1. Create two partitions on the data disk: 20 GB for the installation files and 70 GB for the SAP application server.
+   1. Run `fdisk` to manage partitions:
 
       ```bash
       fdisk /dev/vdb
       ```
 
-      If you get the `command not found` error when launching `fdisk`, add `fdisk` to `Path`:
+      If you get `command not found`, add `fdisk` to `Path`:
 
       ```bash
       PATH=/sbin:$PATH
       ```
 
-   1. To add your first partition, type the `n` command and press **Enter**.
-   1. To select `primary` for default type, press **Enter**.
-   1. To select `1` for default number, press **Enter**.
-   1. To select `2048` for first default sector, press **Enter**.
-   1. Set the size to `+20G` and press **Enter**.
-   1. Repeat these steps to add another partition. Do not specify partition size in the last step. It will use the remaining 70 GB of disk space by default.
-   1. To save the partitions you created, type the `w` command and press **Enter**.
+   1. To create a new partition, type `n` and press **Enter**.
+   1. Press **Enter** to select the `primary` partition type.
+   1. Press **Enter** to accept the default partition number: `1`.
+   1. Press **Enter** to accept the default first sector: `2048`.
+   1. Type `+20G` to set the partition size and press **Enter**.
+   1. Repeat these steps to add another partition. On the last step, do not type anything and press **Enter**. The partition will use the remaining available space: 70 GB.
+   1. Type `w` and press **Enter** to save the changes.
 
       Result:
 
@@ -158,7 +158,7 @@ Set up the created VM's file structure for the SAP install.
       Syncing disks.
       ```
 
-   1. Check the disk structure:
+   1. List all available disks:
 
       ```bash
       lsblk
@@ -176,7 +176,7 @@ Set up the created VM's file structure for the SAP install.
       └─vdb2 254:18   0  70G  0 part
       ```
 
-1. Configure the `ext4` file system on partitions `vdb1` and `vdb2`:
+1. Create an `ext4` file system on `vdb1` and `vdb2` partitions:
 
    ```bash
    mkfs.ext4 /dev/vdb1
@@ -213,7 +213,7 @@ Set up the created VM's file structure for the SAP install.
    Writing superblocks and filesystem accounting information: done
    ```
 
-1. Create directories for the distribution and the SAP application server. Mount these to partitions `vdb1` and `vdb2`:
+1. Create directories for installation files and the SAP application server and mount them to `vdb1` and `vdb2` partitions, respectively:
 
    ```bash
    mkdir /usr/sap
@@ -236,43 +236,43 @@ Set up the created VM's file structure for the SAP install.
    /dev/vdb2 /usr/sap ext4 defaults 1 1
    ```
 
-## Configure install {#install-config}
+## Configure SAP installation {#install-config}
 
-Add the SAP installation files to your VM and configure the upcoming installation.
+Copy the installation files to your VM and configure SAP installation.
 
-1. Download the 11 archives with the [SAP NetWeaver AS ABAP Developer Edition 7.52 SP04](https://developers.sap.com/trials-downloads.html) installation files and unpack their contents to a local folder.
-1. Save the current VM connection session in PuTTY. You can use any name.
+1. Download 11 [SAP NetWeaver AS ABAP Developer Edition 7.52 SP04](https://developers.sap.com/trials-downloads.html) archives on your computer and unpack them.
+1. Save your current VM `PuTTY` session under any name you want.
 1. Install and run [WinSCP](https://winscp.net/eng/download.php).
-1. Import the saved PuTTY session settings into WinSCP.
+1. Import the saved PuTTY session into `WinSCP`.
    1. In the `Login` window, click **Tools**.
    1. Select **Import Sites**.
-   1. In the `Import from` field, select **PuTTY** and select the previously saved session.
-1. Connect to the VM via WinSCP.
-   1. Select the session imported from PuTTY.
+   1. In the `Import from` field, select **PuTTY** and then select the previously saved session.
+1. Connect to your VM via `WinSCP`.
+   1. Select the session imported from `PuTTY`.
    1. Click **Login**.
-   1. Enter the VM username.
-1. Import the SAP installation files you unpacked from the previously downloaded archives into the `/distr` folder on the VM.
-   1. In the left-hand window, open the folder with the unpacked SAP files.
-   1. Highlight the files and click **Upload**.
-   1. Set `/distr/*.*` as the import location on the VM.
+   1. Enter your VM username.
+1. Import SAP installation files to your VM `/distr` folder.
+   1. In the left-hand window, open the folder where you unpacked SAP files.
+   1. Select all files and click **Upload**.
+   1. Set `/distr/*.*` as the import destination.
 
-   To be able to import the files, you must be the owner of the `/distr` folder. The other option is to connect via WinSCP as a user with root access or [configure the use of sudo when logging onto the system](https://winscp.net/eng/docs/faq_su).
-1. On the VM, install and run UUIDD. This is the [UUIDD](https://datatracker.ietf.org/doc/html/rfc4122) (universally unique identifiers) daemon. It is required for SAP to run:
+   To import files, you should be the `/distr` folder owner. Alternatively, you should connect with root privileges or [configure the use of sudo upon logging in](https://winscp.net/eng/docs/faq_su).
+1. Install and run the UUIDD: [UUID](https://datatracker.ietf.org/doc/html/rfc4122) (universally unique identifiers) daemon required for SAP to work:
 
    ```bash
    zypper install uuidd
    service uuidd start
    ```
 
-1. Check for the `libaio` and `libaio1` libraries:
+1. Check for the `libaio` and `libaio1` packages:
 
    ```bash
    rpm -qa | grep libaio
    rpm -qa | grep libaio1
    ```
 
-   The response will display the library versions built into the distribution.
-1. Find out the VM's [private IP](../../vpc/concepts/address.md#internal-addresses):
+   The command output will display the distribution package versions.
+1. Get your VM [internal IP address](../../vpc/concepts/address.md#internal-addresses):
 
    ```bash
    ip addr show
@@ -295,20 +295,20 @@ Add the SAP installation files to your VM and configure the upcoming installatio
      valid_lft forever preferred_lft forever
    ```
 
-1. Add private IP address to `/etc/hosts`.
+1. Add your VM internal IP address to `/etc/hosts`.
    1. Open the file:
 
       ```bash
       vi /etc/hosts
       ```
 
-   1. Add a line to it as below:
+   1. Add the following line:
 
       ```text
       <inet> vhcalnplci vhcalnplci.{{ region-id }}.internal.
       ```
 
-      Use an `inet` value from the `eth0` block.
+      Where `inet` is an IP address following the `inet` parameter in the `eth0` section of the previous command output.
 
       Result:
 
@@ -331,81 +331,81 @@ Add the SAP installation files to your VM and configure the upcoming installatio
 
 ## Install SAP {#sap-install}
 
-1. Modify the permissions to the folder containing the SAP install files.
+1. Change the permissions for the SAP installation folder.
 
    ```bash
    chmod -R 777 /distr
    ```
 
-1. Go to `/distr`:
+1. Navigate to `/distr`:
 
    ```bash
    cd /distr
    ```
 
-1. Run the SAP install script:
+1. Run the SAP installation script:
 
    ```bash
    ./install.sh
    ```
 
-1. Accept the terms of the license agreement.
-1. Set a master password for the users to be created during the SAP install.
+1. Accept the license agreement terms.
+1. Set a master password for standard SAP users.
 
    Password requirements:
-   * At least 7 English characters.
-   * Contains capital letters and numbers.
+   * At least 7 Latin characters.
+   * Contains uppercase and lowercase letters and numbers.
    * No special characters.
 1. Wait for the installation to complete.
 
-   The install may produce the following error message:
+   The installation may fail with the following error message:
 
    ```bash
-   Abort execution because of Step returns modlib.jslib.caughtException
+   Abort execution because of Step returns modlib.jslib.caughtException 
    Error: sapinst has finished with an error code, please find logs in /tmp/sapinst_instdir
    Error code: 20
    ```
 
-   The error is related to an expired license. To resolve:
-   1. Download the `SAP ABAP AS Part License` file for SAP NetWeaver AS ABAP Developer Edition 7.52 SP04 from the [official website](https://developers.sap.com/trials-downloads.html).
-   1. Unpack and copy it to the `server/TAR/x86_64/` directory on the VM. You can do this using WinSCP.
-   1. Run `./install.sh` again to install SAP.
+   This error is caused by an expired license. To resolve this problem:
+   1. Download `SAP ABAP AS Part License` for SAP NetWeaver AS ABAP Developer Edition 7.52 SP04 from the [official website](https://developers.sap.com/trials-downloads.html).
+   1. Unpack and copy the license file to your VM’s `server/TAR/x86_64/` directory via WinSCP.
+   1. Run `./install.sh` again.
 
-## Run and configure SAP {#sap-settings}
+## Start and configure SAP {#sap-settings}
 
-1. Install the [SAP Logon](https://help.sap.com/doc/2e5792a2569b403da415080f35f8bbf6/760.04/en-US/sap_frontend_inst_guide.pdf) front-end client on your computer.
-1. Run SAP Logon and configure a connection to the VM:
-   * **Application Server**: Public IPv4 address
+1. Install the [SAP logon client](https://help.sap.com/doc/2e5792a2569b403da415080f35f8bbf6/760.04/en-US/sap_frontend_inst_guide.pdf) on your computer.
+1. Run SAP logon and configure a connection to your VM:
+   * **Application Server**: Your VM public IP address
    * **Instance number**: `00`
    * **System ID**: `NPL`
 
-   Once you log on to SAP, you will see the [SAP Easy Access](https://help.sap.com/viewer/b1c834a22d05483b8a75710743b5ff26/7.40.20/en-US/cb11a43814a54af19c4bcf0221c24eb7.html) user menu on the left-hand side of your screen. This is a user-specific entry point. The user menu only contains those elements that you require for daily tasks.
+   Once you log on to SAP, you will see the [SAP Easy Access](https://help.sap.com/viewer/b1c834a22d05483b8a75710743b5ff26/7.40.20/en-US/cb11a43814a54af19c4bcf0221c24eb7.html) menu on the left. This is a custom user menu containing the items you will need for daily tasks.
 
-   You perform SAP configuration via [transaction codes](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e1a442dc030e31e10000000a1550b0/frameset.htm). These are related to SAP system functionality. Transaction codes must be input through the [SAP command line](https://help.sap.com/viewer/b1c834a22d05483b8a75710743b5ff26/7.40.20/en-US/f735dd776e724195b5562592a5e88b45.html). For quick access, you can add these to your [bookmarks](https://help.sap.com/viewer/b1c834a22d05483b8a75710743b5ff26/7.40.20/en-US/1e10a82969594103a99e1f7962b205b0.html).
-1. Change the default passwords for security:
-   1. Use the SAP Easy Access interface to run transaction `SU01`.
-   1. Go to `Logon Data`.
-   1. Select the user you would like to edit.
-   1. Enter a new password.
+   To configure SAP, you can use [transaction codes](https://help.sap.com/saphelp_snc700_ehp01/helpdata/en/f9/e1a442dc030e31e10000000a1550b0/frameset.htm) linked to the SAP system functions. Enter these codes in the [SAP command line](https://help.sap.com/viewer/b1c834a22d05483b8a75710743b5ff26/7.40.20/en-US/f735dd776e724195b5562592a5e88b45.html) or add them to [bookmarks](https://help.sap.com/viewer/b1c834a22d05483b8a75710743b5ff26/7.40.20/en-US/1e10a82969594103a99e1f7962b205b0.html) for quick access.
+1. Change the default passwords to ensure optimal security:
+   1. From SAP Easy Access, run `SU01`.
+   1. Navigate to `Logon Data`.
+   1. Select the user you want to modify.
+   1. Specify a new password.
 
-### Update license {#sap-license}
+### Update your license {#sap-license}
 
 To continue using SAP, you need to update your license:
-1. Use the SAP Easy Access interface to run transaction `SLICENSE`.
-1. Copy the `Active Hardware Key` field value.
+1. From SAP Easy Access, run `SLICENSE`.
+1. Copy the `Active Hardware Key`.
 1. Open the [SAP license key page](https://go.support.sap.com/minisap/#/minisap).
 1. Select `NPL — SAP NetWeaver 7.x (Sybase ASE)`.
-1. Specify the form of address. Enter the name, last name, email, and the `Active Hardware Key` value you copied earlier.
-1. Accept the terms of the license agreement and download the license file called `NPL.tx`.
-1. Move the downloaded license file to the VM and add it to the `SLICENSE` transaction.
+1. Specify the salutation, your first and last names, email address, and the `Active Hardware Key` you copied earlier.
+1. Accept the license agreement terms and download the `NPL.tx` license file.
+1. Copy the license file to your VM and upload it to `SLICENSE`.
 
 ## Create your first program {#sap-app}
 
-To verify system functionality, create a simple program to export the user list.
+To test whether your system works properly, create a simple program exporting a user list.
 1. Log in as `DEVELOPER`.
-1. Run the `SE38` transaction. It is the `ABAP Editor` program.
-1. Name the program: `ZTEST`.
-1. Add a code:
+1. Run `SE38` (`ABAP Editor`).
+1. Name your program as `ZTEST`.
+1. Add program code:
 
    ```text
    TYPE-POOLS: slis.
@@ -465,4 +465,4 @@ To verify system functionality, create a simple program to export the user list.
 
 To stop paying for the resources you created:
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
-* [Delete the static public IP](../../vpc/operations/address-delete.md) if you reserved one specifically for this project.
+* If you reserved a [static public IP address](../../vpc/operations/address-delete.md) for this project, delete it.

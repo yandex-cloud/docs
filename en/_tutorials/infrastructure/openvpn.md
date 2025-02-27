@@ -3,36 +3,36 @@
 
 With TCP or UDP port tunnels and asymmetric encryption, you can create virtual networks. For example, you can use VPN to do the following:
 
-* Connect geographically remote networks.
-* Connect freelancers to the office network.
-* Set up an encrypted connection over an open Wi-Fi network.
+* Connect networks residing in different locations.
+* Provide contractors with an access to an in-house network.
+* Set up an encrypted connection over Wi-Fi.
 
-[OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) is compatible with the [open-source version](https://github.com/OpenVPN) of OpenVPN and built on its basis. It provides clients for Windows, Mac, Android, and iOS and is used to manage connections using a web interface.
+[OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) is compatible with the OpenVPN [open-source version](https://github.com/OpenVPN) and built on it. It provides clients for Windows, Mac, Android, and iOS. You can also use its web UI to manage connections.
 
-An example of auto-connect and login-and-password configurations is shown below. To create a virtual network:
+Learn how to configure auto-connection and a connection using a username and password below. To create a virtual network:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create subnets and a test VM](#create-environment).
-1. [Start the VPN server](#create-vpn-server).
-1. [Configure network traffic permissions](#network-settings).
+1. [Run a VPN server](#create-vpn-server).
+1. [Configure network traffic rules](#network-settings).
 1. [Get the administrator password](#get-admin-password).
-1. [Activate license](#get-license).
+1. [Activate your license](#get-license).
 1. [Create an OpenVPN user](#configure-openvpn).
 1. [Connect to the VPN](#test-vpn).
 
 If you no longer need the VPN server, [delete the VM](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
 ### Required paid resources {#paid-resources}
 
-The cost of infrastructure support for OpenVPN includes:
+The cost of the OpenVPN infrastructure support includes:
 
 * Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for the OpenVPN Access Server license (when using more than two connections).
 
 
@@ -42,9 +42,9 @@ To connect cloud resources to the internet, make sure you have [networks](../../
 
 Create a test [VM](../../compute/operations/vm-create/create-linux-vm.md) without a public IP address and connect it to the subnet.
 
-## Start the VPN server {#create-vpn-server}
+## Run a VPN server {#create-vpn-server}
 
-Create a VM to be the gateway for VPN connections:
+Create a VM to run the VPN server:
 
 {% list tabs group=instructions %}
 
@@ -52,36 +52,36 @@ Create a VM to be the gateway for VPN connections:
 
   1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, enter `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select a public [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**. Select the [availability zone](../../overview/concepts/geo-scope.md) where the test VM is already located.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md#disks_types) size.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**. select the [availability zone](../../overview/concepts/geo-scope.md) where the test VM is already located.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md#disks_types) size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
-          Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [convert](../../vpc/operations/set-static-ip) the VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
+          Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip) or [convert](../../vpc/operations/set-static-ip) your VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
-      * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select a [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
+      * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select a [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the system will assign the [default security group](../../vpc/concepts/security-groups.md#default-security-group) to the network.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the data for access to the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the data for access to the VM:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn-server`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-  1. A window will open informing you of the pricing type, which is BYOL (Bring Your Own License). Click **{{ ui-key.yacloud.common.create }}**.
+  1. This will open a window with the licensing model: BYOL (Bring Your Own License). Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
-## Configure network traffic permissions {#network-settings}
+## Configure network traffic rules {#network-settings}
 
 {% include [openvpn-network-settings](../_tutorials_includes/openvpn-network-settings.md) %}
 
@@ -89,7 +89,7 @@ Create a VM to be the gateway for VPN connections:
 
 {% include [openvpn-get-admin-password](../_tutorials_includes/openvpn-get-admin-password.md) %}
 
-## Activate license {#get-license}
+## Activate your license {#get-license}
 
 {% include [openvpn-activate-license](../_tutorials_includes/openvpn-activate-license.md) %}
 
@@ -99,7 +99,7 @@ Create a VM to be the gateway for VPN connections:
 
 ## Connect to the VPN {#test-vpn}
 
-In the admin panel, you can download [OpenVPN Connect](https://openvpn.net/vpn-client/) for Windows, Linux, MacOS, Android, iOS. You can also use [OpenSource clients](https://openvpn.net/source-code/) for connection.
+In the user panel, you can download [OpenVPN Connect](https://openvpn.net/vpn-client/) for Windows, Linux, MacOS, Android, and iOS. You can also use [OpenSource clients](https://openvpn.net/source-code/) for connection.
  
 To make sure the connection is established and working properly, connect to the VPN and run the `ping` command for the internal address of the test VM:
 
@@ -113,7 +113,7 @@ To make sure the connection is established and working properly, connect to the 
       sudo apt update && sudo apt install openvpn
       ```
 
-   1. Allow automatic connection for the `test-user` user:
+   1. Allow automatic connection for `test-user`:
 
       * Log in to the admin panel at `https://<VM_public_IP_address>/admin/`.
       * Open the **User management** → **User permissions** tab.
@@ -123,13 +123,13 @@ To make sure the connection is established and working properly, connect to the 
 
       * Log in to the admin panel at `https://<VM_public_IP_address>/admin/`.
       * Open the **Configuration** → **VPN Settings** tab.
-      * Under **Routing**, disable the **Should client Internet traffic be routed through the VPN?** option.
+      * Under **Routing**, disable **Should client Internet traffic be routed through the VPN?**.
 
    1. Download a configuration profile:
 
       * In your browser, open the user panel at `https://<VM_public_IP_address>/`.
       * Sign in using the `test-user` username and password.
-      * In the **Available Connection Profiles** section, click **Yourself (autologin profile)** and download the `profile-1.ovpn` file.
+      * Under **Available Connection Profiles**, click **Yourself (autologin profile)** and download the `profile-1.ovpn` file.
       * You can also download a configuration file in the admin panel at `https://<<VM_public_IP_address>/admin/`.
 
    1. Upload the configuration file to a Linux machine:
@@ -157,7 +157,7 @@ To make sure the connection is established and working properly, connect to the 
       sudo chmod 600 /etc/openvpn/profile-1.conf
       ```
 
-   1. The VPN connection will turn on automatically after restarting. To start the connection manually, run the command:
+   1. The VPN connection will turn on automatically after restarting. To establish the connection manually, run the command:
 
       ```bash
       sudo openvpn --config /etc/openvpn/profile-1.conf
@@ -203,7 +203,7 @@ To make sure the connection is established and working properly, connect to the 
 
    1. A VPN connection will turn on automatically if auto-login is enabled in the user profile.
 
-   1. You can import a new configuration profile into the application. To do this, specify `https://<VM_public_IP_address>/` or select a profile file.
+   1. You can import a new configuration profile into the application by specifying `https://<VM_public_IP_address>/` or selecting a profile file.
 
    1. Open the terminal and run this command: `ping <internal_IP_address_of_test_VM>`. If the command is running, the VM can be accessed via VPN.
 
@@ -219,7 +219,7 @@ To make sure the connection is established and working properly, connect to the 
 
    1. A VPN connection will turn on automatically if auto-login is enabled in the user profile.
 
-   1. You can import a new configuration profile into the application. To do this, specify `https://<<VM_public_IP_address>/` or select a profile file.
+   1. You can import a new configuration profile into the application by specifying `https://<<VM_public_IP_address>/` or selecting a profile file.
 
    1. Open the terminal and run this command: `ping <internal_IP_address_of_test_VM>`. If the command is running, the VM can be accessed via VPN.
 
@@ -229,7 +229,7 @@ To make sure the connection is established and working properly, connect to the 
 
 Delete the resources you no longer need to avoid paying for them:
 
-* [Delete](../../compute/operations/vm-control/vm-delete.md) the VM called `vpn-server` and test VMs.
+* [Delete](../../compute/operations/vm-control/vm-delete.md) the `vpn-server` and test VMs.
 * If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
 
 #### See also {#see-also}

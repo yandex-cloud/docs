@@ -13,7 +13,7 @@ To back up and recover a VM using Hystax Acura Backup:
 1. [Create a bucket](#create-bucket).
 1. [Create a VM with Hystax Acura Backup](#create-acura-vm).
 1. [Make the VM IP address static](#static-ip).
-1. [Configure Hystax Acura Backup](#setup-hystax-acura).
+1. [Set up Hystax Acura Backup](#setup-hystax-acura).
 1. [Prepare and install an agent on the VM](#prepare-agent).
 1. [Create a VM backup](#start-protection).
 1. [Create a disaster recovery plan](#create-recovery-plan).
@@ -31,13 +31,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Note that both the Hystax Acura Backup infrastructure and all recovered VMs will be charged and counted against the [quotas]({{ link-console-quotas }}).
 * A Hystax Acura Backup VM uses 8 vCPUs, 16 GB of RAM, and a 200-GB disk.
-* The auxiliary Hystax Cloud Agent VMs use 2 vCPUs, 4 GB of RAM, and a 10-GB disk. A single Hystax Cloud Agent VM can serve up to six replicated disks at a time. If there are more than six disks, additional Hystax Cloud Agent VMs will be created automatically.
+* The auxiliary Hystax Cloud Agent VMs use 2 vCPU cores, 4 GB or RAM, and a 10-GB disk. A single Hystax Acura Cloud Agent VM can serve up to 6 replicated disks at the same time. Should the number of disks exceed 6, this will automatically create additional Hystax Acura Cloud Agent VMs.
 
-For detailed system requirements, see the [Hystax deployment reference](https://xn--q1ach.xn--p1ai/cdn/TechDocs/Deployment-requirements.pdf).
+For detailed system requirements, see the [Hystax deployment requirements](https://xn--q1ach.xn--p1ai/cdn/TechDocs/Deployment-requirements.pdf).
 
 {% endnote %}
 
-The cost of resources for Hystax Acura Backup includes:
+The cost of the resources required to use Hystax Acura Backup includes:
 * Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 * Fee for VM disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
@@ -202,7 +202,7 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
 
 ## Convert the VM IP address to static {#static-ip}
 
-VMs get a public dynamic address when created. Since a VM with Hystax Acura Backup may reboot, you need to make its IP address static:
+VMs get a public dynamic address when created. Since a VM with Hystax Acura Backup can reboot, you need to convert its IP to static:
 
 {% list tabs group=instructions %}
 
@@ -274,10 +274,10 @@ VMs get a public dynamic address when created. Since a VM with Hystax Acura Back
 
 {% endlist %}
 
-## Configure Hystax Acura Backup {#setup-hystax-acura}
+## Set up Hystax Acura Backup {#setup-hystax-acura}
 
-1. In the [management console]({{ link-console-main }}), open the page of the Hystax Acura Backup VM and find its public IP address.
-1. Enter the VM public IP address in your browser. This will open the initial setup screen.
+1. In the [management console]({{ link-console-main }}), open the Hystax Acura Backup VM page and find its public IP address.
+1. Enter the Hystax Acura Backup VM public IP address in your browser. This will open the initial setup screen.
 
    {% note info %}
 
@@ -305,15 +305,15 @@ VMs get a public dynamic address when created. Since a VM with Hystax Acura Back
       {% endnote %}
 
     * **Default folder ID**: [ID](../../resource-manager/operations/folder/get-id.md) of your folder.
-    * **Availability zone**: Availability zone hosting the Hystax Acura Backup VM (the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm)).
-    * **Hystax Service Subnet**: ID of the subnet the Hystax Acura Backup VM is connected to (the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm)).
+    * **Availability zone**: Availability zone hosting the Hystax Acura Backup VM, the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm).
+    * **Hystax Service Subnet**: ID of the subnet that the Hystax Acura Backup VM is connected to, the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm).
     * **S3 Host**: `{{ s3-storage-host }}`.
     * **S3 Port**: `443`.
     * **Enable HTTPS**: Enable HTTPS connections.
     * **S3 Access Key ID**: ID you got when [creating a service account](#create-sa).
     * **S3 Secret Access Key**: Secret key you got when [creating a service account](#create-sa).
     * **S3 Bucket**: Name of the bucket that stores the VM backups, the one you got when [creating a bucket](#create-bucket).
-    * **Hystax Acura Control Panel Public IP**: Replace the value with the public IP address of the the Hystax Acura Backup VM (the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm)).
+    * **Hystax Acura Control Panel Public IP**: Replace the value with the Hystax Acura Backup VM public IP, assigned when [creating a VM with Hystax Acura Backup](#create-acura-vm).
     * **Additional parameters**: Advanced settings. Do not edit this field.
 1. Click **Next**.
 
@@ -356,7 +356,7 @@ To install an agent on the VMs you need to back up:
 
    - Linux {#linux}
 
-     1. From the drop-down list, select a group of VMs to set up agents for, e.g., `Default`.
+     1. From the drop-down list, select a group of VMs to set up agents for, such as `Default`.
      1. Select the Linux distribution type:
         * **CentOS/RHEL (.rpm package)**: CentOS or Red Hat-based.
         * **Debian/Ubuntu (.deb package)**.
@@ -379,7 +379,7 @@ To enable VM protection:
 1. Under **Machines Groups**, deploy an instance group, e.g., `Default`.
 1. In the VM list on the right, click ![image](../../_assets/console-icons/ellipsis.svg).
 1. In the** Edit replication settings** menu, set up a replication schedule for the instance group by hour, day, or week, or select continuous protection. Under **Volume type**, specify the drive type for VM recovery: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`. 
-1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax tutorials](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
+1. In the **Edit retention settings** menu, set the backup retention period. For more information, see this [Hystax article](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
 1. Select **Start Protection**.
 
 This will start VM replication. A VM replica will include all the data of the original VM. Therefore, replication can take a while (depending on the original VM disk size). The replication status will be displayed in the **Status** column under **Machines Groups**. After the replication is complete, the VMs will change their status to `Protected`.
@@ -398,7 +398,7 @@ The DR plan includes a VM description and the network settings. The plan defines
   1. In the **Subnets** section on the right, set the parameters of the subnet where the the recovered VMs will start:  
       * In the **Subnet ID** field, enter the subnet ID.
       * In the **CIDR** field, specify the subnet [CIDR](../../vpc/concepts/network.md#subnet).
-  1. Expand the VM description and edit the **Flavor name** field containing the parameters of the VM being restored as follows: `<platform>-<cpu>-<ram>-<core_fraction>`, e.g., `3-8-16-100`.
+  1. Expand the VM description and edit the **Flavor name** field containing the parameters of the VM to restore as follows: `<platform>-<cpu>-<ram>-<core_fraction>`, e.g., `3-8-16-100`.
       
       Where: 
       * `platform`: VM [platform](../../compute/concepts/vm-platforms.md#standard-platforms), such as `1`, `2`, or `3`. 
@@ -437,7 +437,7 @@ Make sure you specified a valid IP address for each VM.
 
 ## Run the recovery process {#run-recover}
 
-To recover a VM from a backup, Hystax Acura Backup will create a new VM with a Hystax Acura Cloud Agent in your cloud. This VM will perform all operations in the cloud.
+To recover a VM from a backup, Hystax Acura Backup will create a new VM with Hystax Acura Cloud Agent in your cloud. This VM will perform all operations in the cloud.
 
 To recover a VM from a backup:
 1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
@@ -446,7 +446,7 @@ To recover a VM from a backup:
 1. In the **Cloud Site Name** field, enter a name, such as `Cloud-Site-from-Plan-1`.
 1. Make sure all the required resources are there in the **Final DR plan** list and click **Run Recover**.
 
-    You will see the **Cloud Sites** section in the Hystax Acura Backup control panel. The VM recovery may take a while. The recovery status will be displayed in the **Status** column under **Machines**. Wait until it changes to `Running`.
+    The Hystax Acura Backup control panel will display a section named **Cloud Sites**. The VM recovery may take a while. The recovery status will be displayed in the **Status** column under **Machines**. Wait until it changes to `Running`.
 
 1. Open the [management console]({{ link-console-main }}) and make sure this restored all required resources.
 
@@ -457,5 +457,5 @@ To stop paying for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the auxiliary Hystax Cloud Agent VMs.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the recovered VMs.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
-1. [Delete](../../iam/operations/sa/delete.md) the service account for Hystax Acura Backup.
+1. [Delete](../../iam/operations/sa/delete.md) the service account used for Hystax Acura Backup.
 1. [Delete](../../vpc/operations/address-delete.md) the public static IP address you reserved. 

@@ -1,21 +1,21 @@
 # Configuring {{ dns-full-name }} to access a {{ mch-name }} cluster from other cloud networks
 
 
-In this tutorial, we will use a {{ mch-name }} cluster as an example. The process of configuring availability for other managed database services is similar.
+In this tutorial, we will use a {{ mch-name }} cluster as an example. You can configure availability for other managed database services the same way.
 
 Resource records for {{ mch-name }} clusters are created in [DNS service zones](../../../dns/concepts/dns-zone.md#service-zones) operating within a single [cloud network](../../../vpc/concepts/network.md#network). This prevents clients, such as virtual machines residing in a different cloud network, from connecting to cluster hosts using their [FQDNs](../../../managed-clickhouse/concepts/network.md#hostname), even with configured network connectivity between the cloud networks.
 
 To enable clients from different cloud networks to connect to the cluster using its FQDN, configure a shared DNS zone in {{ dns-full-name }}:
 
 1. [Create a zone in {{ dns-full-name }}](#create-peering-zone).
-1. [Check if the the cluster is available from a different cloud network](#check-cluster-availability).
+1. [Check if the cluster is available from a different cloud network](#check-cluster-availability).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
 1. [Prepare an SSH key pair](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to connect to VMs.
-1. Prepare the infrastructure:
+1. Set up the infrastructure:
 
     {% list tabs %}
 
@@ -74,7 +74,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     {% endlist %}
 
 1. Optionally, [use SSH to connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the `mch-net-vm` VM and [configure cluster connection](../../../managed-clickhouse/operations/connect/clients.md) via `clickhouse-client` to make sure security groups are configured correctly and you can connect to the cluster using its FQDN from the same cloud network.
-1. Configure network connectivity between the `mch-net` and `another-net` networks, e.g., using an [IPSec gateway](../../../tutorials/routing/ipsec/index.md). For other ways to configure network connectivity, see [{#T}](../../../tutorials/routing/index.md).
+1. Configure network connectivity between the `mch-net` and `another-net` cloud networks, e.g., using an [IPSec gateway](../../../tutorials/routing/ipsec/index.md). For other ways to configure network connectivity, see [{#T}](../../../tutorials/routing/index.md).
 
 ## Create a zone in {{ dns-name }} {#create-peering-zone}
 
@@ -111,7 +111,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     1. Select the zone from the list.
     1. Check that the record list contains a record in the following format: `c-<cluster_ID>.rw.{{ dns-zone }}.`.
 
-## Check whether the cluster is available from a different cloud network {#check-cluster-availability}
+## Check if the cluster is available from a different cloud network {#check-cluster-availability}
 
 1. [Use SSH to connect](../../../compute/operations/vm-connect/ssh.md#vm-connect) to the `another-net-vm` VM.
 1. [Configure cluster connection](../../../managed-clickhouse/operations/connect/clients.md) via `clickhouse-client` and make sure you can connect to the cluster from a different cloud network using the cluster's FQDN.

@@ -29,6 +29,7 @@ description: Пошаговые инструкции по управлению �
 - [{#T}](sa/set-access-bindings.md)
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
+- [{#T}](sa/get-id-token.md)
 
 ## Федерации удостоверений {#federations}
 

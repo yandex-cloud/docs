@@ -1,11 +1,11 @@
-1. [Prepare your cloud environment](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Create an instance group](#create-ig).
-1. [Create {{ sf-name }}](#create-sf-resources) resources.
+1. [Create the {{ sf-name }}](#create-sf-resources) resources.
 1. [Test instance group scaling](#test-scale).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -15,23 +15,23 @@ We will use a [folder](../../resource-manager/concepts/resources-hierarchy.md#fo
 
 {% include [paid-resources](../_tutorials_includes/vm-scale-scheduled/paid-resources.md) %}
 
-## Create auxiliary resources {#create-aux-resources}
+## Create the auxiliary resources {#create-aux-resources}
 
 ### Create a service account {#create-sa}
 
-The [service account](../../iam/concepts/users/service-accounts.md) will be linked to the {{ compute-name }} instance group and {{ sf-name }} function.
+The [service account](../../iam/concepts/users/service-accounts.md) will be linked to the {{ compute-name }} instance group and the {{ sf-name }} function.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. At the top of the screen, navigate to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
   1. At the top right, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `vm-scale-scheduled-sa`.
-  1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following [roles](../../iam/concepts/access-control/roles.md):
+  1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these [roles](../../iam/concepts/access-control/roles.md):
      * `compute.editor`: To manage the instance group.
-     * `iam.serviceAccounts.user`: To link the service account to instances in the group.
+     * `iam.serviceAccounts.user`: To link the service account to the group’s VM instances.
      * `{{ roles-functions-invoker }}`: To call the {{ sf-name }} function.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -54,7 +54,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
      ```
 
      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
-  1. Assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
+  1. Assign these [roles](../../iam/concepts/access-control/roles.md) to the service account:
      * `compute.editor`: To manage the instance group:
 
        ```bash
@@ -64,7 +64,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
          --folder-name example-folder
        ```
 
-     * `iam.serviceAccounts.user`: To link the service account to instances in the group:
+     * `iam.serviceAccounts.user`: To link the service account to the group’s instances:
 
        ```bash
        yc resource-manager folder add-access-binding example-folder \
@@ -87,9 +87,9 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 - API {#api}
 
   1. Create a service account named `vm-scale-scheduled-sa`. To do this, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
-  1. Assign the service account the following [roles](../../iam/concepts/access-control/roles.md) for the current folder:
+  1. Assign the service account these [roles](../../iam/concepts/access-control/roles.md) for the current folder:
      * `compute.admin`: To manage the instance group.
-     * `iam.serviceAccounts.user`: To link the service account to instances in the group.
+     * `iam.serviceAccounts.user`: To link the service account to the group’s VM instances.
      * `{{ roles-functions-invoker }}`: To call the {{ sf-name }} function.
 
      To do this, use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
@@ -98,14 +98,14 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 
 ### Create a cloud network {#create-network}
 
-The instance group will be hosted in the [{{ vpc-full-name }}](../../vpc/)](../../vpc/concepts/network.md#network) [cloud network and its [subnets](../../vpc/concepts/network.md#subnet).
+The instance group will reside in the [{{ vpc-full-name }}](../../vpc/) [network](../../vpc/concepts/network.md#network) and its [subnets](../../vpc/concepts/network.md#subnet).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `vm-scale-scheduled-network`.
   1. Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -178,20 +178,20 @@ The instance group will be hosted in the [{{ vpc-full-name }}](../../vpc/)](../.
 - API {#api}
 
   1. Create a network named `vm-scale-scheduled-network` using the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call.
-  1. Create a subnet named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` availability zone and `vm-scale-scheduled-subnet-b` in the `{{ region-id }}-b` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
+  1. Create subnets named `vm-scale-scheduled-subnet-a` in the `{{ region-id }}-a` availability zone and `vm-scale-scheduled-subnet-b` in the `{{ region-id }}-b` availability zone using the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
 
 {% endlist %}
 
 ## Create an instance group {#create-ig}
 
-An instance group will be created with manual scaling so that a {{ sf-name }} function can manage the group size.
+We will create an instance group with manual scaling so that the {{ sf-name }} function can manage the group size.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
   1. At the top right, click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -199,8 +199,8 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
      * Select **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `vm-scale-scheduled-sa`.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select `{{ region-id }}-a` and `{{ region-id }}-b` in the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** and do the following in the window that opens:
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.section_image }}** tab and select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify the following configuration:
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.section_image }}** tab and select [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify this configuration:
        * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
        * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
        * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
@@ -210,10 +210,10 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
        * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
        * In the **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** field, select `vm-scale-scheduled-sa`.
-       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to be created on the VM. You can come up with any username you like.
-       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public SSH key. You can create a key pair by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the name of the user to create on the VM. You can enter any username of your choice.
+       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the public SSH key contents. You can create a key pair by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
-  1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**, specify the following configuration:
+  1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**, specify this configuration:
      * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}**: `2` 
      * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}**: `2`
      * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}**: `2`
@@ -240,7 +240,7 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
        ```
 
        For more information about the `yc iam service-account get` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/get.md).
-     * `vm-scale-scheduled-network` network ID:
+     * `vm-scale-scheduled-network` ID:
 
        ```bash
        yc vpc network get vm-scale-scheduled-network \
@@ -254,7 +254,7 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
        ```
 
        For more information about the `yc vpc network get` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/get.md).
-     * `vm-scale-scheduled-subnet-a` subnet ID:
+     * `vm-scale-scheduled-subnet-a` ID:
 
        ```bash
        yc vpc subnet get vm-scale-scheduled-subnet-a \
@@ -268,7 +268,7 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
        ```
 
        For more information about the `yc vpc subnet get` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/get.md).
-     * `vm-scale-scheduled-subnet-b` subnet ID:
+     * `vm-scale-scheduled-subnet-b` ID:
 
        ```bash
        yc vpc subnet get vm-scale-scheduled-subnet-b \
@@ -296,7 +296,7 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
      ```
 
      For more information about the `yc compute image get-latest-from-family` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/image/get-latest-from-family.md).
-  1. Insert the obtained IDs in the `specification.yaml` file with the VM group specification:
+  1. Insert these IDs in the `specification.yaml` file with the VM group spec:
 
      {% include [vm-scale-scheduled-yaml-spec-init](../../_includes/instance-groups/vm-scale-scheduled-yaml-spec-init.md) %}
 
@@ -322,10 +322,10 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
 
   1. Get the IDs of the resources you created at the previous steps:
      * `vm-scale-scheduled-sa` service account ID: Using the [get](../../iam/api-ref/ServiceAccount/get.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Get](../../iam/api-ref/grpc/ServiceAccount/get.md) gRPC API call.
-     * `vm-scale-scheduled-network` network ID: Using the [get](../../vpc/api-ref/Network/get.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Get](../../vpc/api-ref/grpc/Network/get.md) gRPC API call.
-     * `vm-scale-scheduled-subnet-a` and `vm-scale-scheduled-subnet-b` subnet IDs: Using the [get](../../vpc/api-ref/Subnet/get.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Get](../../vpc/api-ref/grpc/Subnet/get.md) gRPC API call.
+     * `vm-scale-scheduled-network` ID: Using the [get](../../vpc/api-ref/Network/get.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Get](../../vpc/api-ref/grpc/Network/get.md) gRPC API call.
+     * `vm-scale-scheduled-subnet-a` and `vm-scale-scheduled-subnet-b` IDs: Using the [get](../../vpc/api-ref/Subnet/get.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Get](../../vpc/api-ref/grpc/Subnet/get.md) gRPC API call.
   1. Get the ID of the latest version of the public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image in the `standard-images` family using the [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) REST API method for the [Image](../../compute/api-ref/Image/index.md) resource or the [ImageService/GetLatestByFamily](../../compute/api-ref/grpc/Image/getLatestByFamily.md) gRPC API call.
-  1. Insert the obtained IDs in the `specification.yaml` file with the VM group specification:
+  1. Insert these IDs in the `specification.yaml` file with the VM group spec:
 
      {% include [vm-scale-scheduled-yaml-spec-init](../../_includes/instance-groups/vm-scale-scheduled-yaml-spec-init.md) %}
 
@@ -333,7 +333,7 @@ An instance group will be created with manual scaling so that a {{ sf-name }} fu
 
 {% endlist %}
 
-## Create {{ sf-name }} resources {#create-sf-resources}
+## Create the {{ sf-name }} resources {#create-sf-resources}
 
 ### Create a function {#create-function}
 
@@ -352,22 +352,22 @@ The function will contain the code with the {{ yandex-cloud }} CLI commands that
   1. Enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `handler.sh` file.
-  1. Replace the file contents with the code below:
+  1. Replace its contents with the code below:
 
      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**:
      * Set the **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** field value to `60`.
      * In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, select `vm-scale-scheduled-sa`.
-     * Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, add the following variables:
+     * Under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**, add these variables:
        * `IG_NAME` = `vm-scale-scheduled-ig`.
        * `IG_BASE_SIZE` = `2`.
-       * `FOLDER_ID` = Folder ID. You can get the ID by following [this guide](../../resource-manager/operations/folder/get-id.md).
+       * `FOLDER_ID` = `<your_folder_ID>`. You can get the ID by following [this guide](../../resource-manager/operations/folder/get-id.md).
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
-  1. Create a file named `config.pkr.hcl` with the following code:
+  1. Create a file named `config.pkr.hcl` with this code:
 
      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
@@ -403,8 +403,8 @@ The function will contain the code with the {{ yandex-cloud }} CLI commands that
      ```
 
      Where:
-     * `--service-account-id`: `vm-scale-schedule-sa` service account ID. To get the ID, follow the [Create a VM group](#create-ig) step on the **CLI** tab.
-     * `FOLDER_ID` in `--environment`: Folder ID. You can get the ID by following [this guide](../../resource-manager/operations/folder/get-id.md).
+     * `--service-account-id`: `vm-scale-schedule-sa` ID. To get the ID, follow the [Create a VM group](#create-ig) step on the **CLI** tab.
+     * `FOLDER_ID` in `--environment`. You can get the ID by following [this guide](../../resource-manager/operations/folder/get-id.md).
 
      Result:
 
@@ -420,8 +420,8 @@ The function will contain the code with the {{ yandex-cloud }} CLI commands that
 
 - API {#api}
 
-  1. Create a function named `vm-scale-scheduled-function` using the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call. You can find the ID of the created function in the output.
-  1. Create a function version using the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call. The function version should have the following code:
+  1. Create a function named `vm-scale-scheduled-function` using the [create](../../functions/functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md) gRPC API call. From the output, get the ID of the function you created.
+  1. Create a function version using the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call. The function version should have this code:
 
      {% include [vm-scale-scheduled-function-code.md](../../_includes/instance-groups/vm-scale-scheduled-function-code.md) %}
 
@@ -478,7 +478,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 
 - API {#api}
 
-  Use the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md) gRPC API call to create a trigger of the `timer` type with the `*/2 * * * ? *` cron expression. This trigger will be linked with the `vm-scale-scheduled-function` function of the `$latest` version and the `vm-scale-scheduled-sa` service account.
+  Сreate a `timer` trigger with the `*/2 * * * ? *` cron expression by using the [create](../../functions/triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../functions/triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md) gRPC API call. This trigger will be linked to `vm-scale-scheduled-function` of the `$latest` version and the `vm-scale-scheduled-sa` service account.
 
 {% endlist %}
 

@@ -1,10 +1,10 @@
-1. [Prepare your cloud](#before-begin).
-1. [Create an infrastructure](#deploy).
-1. [Test instance group scaling](#test-scale).
+1. [Get your cloud ready](#before-begin).
+1. [Create your infrastructure](#deploy).
+1. [Test your instance group scaling](#test-scale).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -16,10 +16,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-Create an infrastructure using {{ TF }}:
+Create an infrastructure with {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Prepare files with the infrastructure description:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and specify the {{ yandex-cloud }} provider installation source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
@@ -31,17 +31,17 @@ Create an infrastructure using {{ TF }}:
         git clone https://github.com/yandex-cloud-examples/yc-vm-group-scheduled-scaling
         ```
 
-     1. Go to the directory with the repository. Make sure it contains the following files:
+     1. Navigate to the repository directory. Make sure it contains the following files:
         * `vm-scale-scheduled.tf`: New infrastructure configuration.
         * `vm-scale-scheduled.auto.tfvars`: User data file.
-        * `vm-scale-scheduled-function.zip`: Archive with the {{ sf-name }} function code.
+        * `vm-scale-scheduled-function.zip`: {{ sf-name }} function code archive.
 
 
    - Manually {#manual}
 
-     1. Create a folder for files.
-     1. In the folder, create:
-        * `vm-scale-scheduled.tf` configuration file:
+     1. Create a folder.
+     1. In this folder, create:
+        * `vm-scale-scheduled.tf`: New infrastructure configuration file:
 
           {% cut "vm-scale-scheduled.tf" %}
 
@@ -49,13 +49,13 @@ Create an infrastructure using {{ TF }}:
 
           {% endcut %}
 
-        * `vm-scale-scheduled.auto.tfvars` user data file:
+        * `vm-scale-scheduled.auto.tfvars`: User data file:
 
           {% cut "vm-scale-scheduled.auto.tfvars" %}
 
           ```hcl
           folder_id    = "<folder_ID>"
-          username     = "<VM_user_name>"
+          username     = "<VM_username>"
           ssh_key_path = "<path_to_public_SSH_key>"
           ```
 
@@ -71,11 +71,11 @@ Create an infrastructure using {{ TF }}:
 
           {% endcut %}
 
-     1. In the folder, create the `vm-scale-scheduled-function.zip` archive that contains the `handler.sh` file.
+     1. In the same folder, create the `vm-scale-scheduled-function.zip` archive with `handler.sh`.
 
    {% endlist %}
 
-   For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+   For more information about the properties of {{ TF }} resources, see the relevant {{ TF }} guides:
 
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
@@ -87,15 +87,15 @@ Create an infrastructure using {{ TF }}:
 
 1. In the `vm-scale-scheduled.auto.tfvars` file, set the following user-defined properties:
 
-   * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to create the resources in.
-   * `username`: Name of the user to create in the VM.
-   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. You can create a key pair by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `folder_id`: Resource [folder ID](../../resource-manager/operations/folder/get-id.md).
+   * `username`: VM user name.
+   * `ssh_key_path`: Path to the public SSH key required to authenticate the user on the VM. You can create a key pair by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-1. Create resources:
+1. Create the resources:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-After creating the infrastructure, [test instance group scaling](#test-scale).
+Once you created the infrastructure, [test your instance group scaling](#test-scale).
 
 ## Test instance group scaling {#test-scale}
 
@@ -105,7 +105,7 @@ After creating the infrastructure, [test instance group scaling](#test-scale).
 
 To stop paying for the resources you created:
 
-1. Open the `vm-scale-scheduled.tf` configuration file and delete the description of the new infrastructure from it.
+1. Open the `vm-scale-scheduled.tf` configuration file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
