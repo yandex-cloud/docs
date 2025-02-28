@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды [CLI](../../../../cli/) для обновления параметров [шины](../../../concepts/eventrouter/bus.md):
+  1. Посмотрите описание команды CLI для обновления параметров [шины](../../../concepts/eventrouter/bus.md):
 
       ```bash
       yc serverless eventrouter bus update --help

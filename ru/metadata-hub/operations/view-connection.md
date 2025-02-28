@@ -24,6 +24,12 @@ description: Пошаговые инструкции по работе с {{ con
 
 Вы можете открыть выбранное подключение в сервисе [{{ websql-full-name }}](../../websql/concepts/index.md) для выполнения запросов к базам данных. Перейдите по ссылке **{{ ui-key.yacloud.connection-manager.label_open-websql }}**, расположенной в правом верхнем углу.
 
+{% note info %}
+
+В списке подключений показываются только те подключения, к которым у пользователя есть доступ (выдана [роль `connection-manager.auditor`](../security/connection-manager-roles.md#connection-manager-auditor) или [роль `connection-manager.viewer`](../security/connection-manager-roles.md#connection-manager-viewer)). Пользователь с доступом к каталогу будет видеть все подключения в этом каталоге.
+
+{% endnote %}
+
 ## Просмотр зависимостей подключения {#dependencies}
 
 {% list tabs group=instructions %}

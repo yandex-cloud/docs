@@ -23,3 +23,7 @@ description: Пошаговые инструкции по работе с push-�
 * [{#T}](sms/test-number-delete.md)
 * [{#T}](sms/send.md)
 * [{#T}](sms/exit-sandbox.md)
+
+## Прочее {#other}
+
+* [{#T}](configure-logging.md)
