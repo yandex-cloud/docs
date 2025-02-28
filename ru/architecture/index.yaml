@@ -10,4 +10,4 @@ meta:
     сценариев в Yandex Cloud.
 links:
   - title: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
-    href: fault-tolerance.md
+    href: fault-tolerance

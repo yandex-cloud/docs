@@ -45,6 +45,8 @@ items:
             href: operations/sms/send.md
           - name: Выйти из песочницы
             href: operations/sms/exit-sandbox.md
+      - name: Настроить логирование
+        href: operations/configure-logging.md
   - name: Концепции
     expanded: true
     items:
@@ -56,6 +58,8 @@ items:
         href: concepts/sms.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Логирование
+        href: concepts/logging.md
   - name: Инструменты
     expanded: true
     items:

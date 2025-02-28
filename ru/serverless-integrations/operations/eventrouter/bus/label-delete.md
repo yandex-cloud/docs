@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  Чтобы удалить метку [шины](../../../concepts/eventrouter/bus.md) обновите набор ее меток, удалив ненужные. Выполните команду:
+  Чтобы удалить метку [шины](../../../concepts/eventrouter/bus.md), обновите набор ее меток, удалив ненужные. Выполните команду:
 
   {% include [labels-rewrite-warning](../../../../_includes/labels-rewrite-warning.md) %}
 

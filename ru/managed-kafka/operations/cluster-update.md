@@ -872,7 +872,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    * `--schema-registry` – включите эту опцию, чтобы управлять схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+    * `--schema-registry` — управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`.
 
         {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 

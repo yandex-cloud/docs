@@ -44,6 +44,30 @@ items:
                 href: operations/eventrouter/connector/get-list.md
               - name: Получить информацию о коннекторе
                 href: operations/eventrouter/connector/get-info.md
+          - name: Управление коннектором
+            items:
+              - name: Создать коннектор
+                items:
+                  - name: '{{ yds-name }}'
+                    href: operations/eventrouter/connector/create-yds.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/eventrouter/connector/create-message-queue.md
+              - name: Изменить коннектор
+                href: operations/eventrouter/connector/update.md
+              - name: Управлять метками
+                items:
+                  - name: Добавить метку
+                    href: operations/eventrouter/connector/label-add.md
+                  - name: Изменить метку
+                    href: operations/eventrouter/connector/label-update.md
+                  - name: Удалить метку
+                    href: operations/eventrouter/connector/label-delete.md
+              - name: Запустить коннектор
+                href: operations/eventrouter/connector/start.md
+              - name: Остановить коннектор
+                href: operations/eventrouter/connector/stop.md
+              - name: Удалить коннектор
+                href: operations/eventrouter/connector/delete.md
           - name: Получение информации о правиле
             items:
               - name: Получить список правил
