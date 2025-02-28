@@ -14,7 +14,7 @@
 
 ## Схема решения {#solution-overview}
 
-![bms-vrf-routing-scheme](../../_assets/baremetal/bms-vrf-routing-scheme.png)
+![bms-vrf-routing-scheme](../../_assets/baremetal/bms-vrf-routing-scheme.svg)
 
 В зоне доступности `{{ region-id }}-m` вы настроите окружение из двух [приватных подсетей](../../baremetal/concepts/network.md#private-subnet) `subnet-m3` и `subnet-m4`, созданных соответственно в [пулах серверов](../../baremetal/concepts/servers.md#server-pools) `{{ region-id }}-m3` и `{{ region-id }}-m4`. Эти подсети вы объедините в [виртуальный фрагмент сети](../../baremetal/concepts/network.md#vrf-segment) (VRF) `vrrp-vrf`.
 

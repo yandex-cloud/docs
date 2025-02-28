@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды [CLI](../../../../cli/) для просмотра списка [шин](../../../concepts/eventrouter/bus.md):
+  1. Посмотрите описание команды CLI для просмотра списка [шин](../../../concepts/eventrouter/bus.md):
 
       ```bash
       yc serverless eventrouter bus list --help

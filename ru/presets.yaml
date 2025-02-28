@@ -6663,11 +6663,14 @@ default:
         field_gcm-version: Версия FCM API
         field_hms-client-id: Идентификатор ключа
         field_hms-client-secret: API-ключ
+        field_log-group: Лог-группа
+        field_logging-folder: Каталог
         field_token: Токен устройства
         label_editor-json: JSON
         label_editor-text: Текст
         label_endpoints: Эндпоинты
         label_phone-numbers: Тестовые номера
+        section_logging: Логирование
         section_message-sending: Отправка сообщений
         select_apns-title: Apple iOS
         select_gcm-title: Google Android
@@ -8377,6 +8380,7 @@ default:
         button_create-bus: Создать шину
         button_create-connector: Создать коннектор
         button_create-rule: Создать правило
+        label_additional-parameters: Дополнительные параметры
         label_buses: Шины
         label_connector-source: Источник
         label_connectors: Коннекторы

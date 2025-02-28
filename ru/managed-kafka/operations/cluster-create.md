@@ -157,6 +157,7 @@
         --name <имя_кластера> \
         --environment <окружение> \
         --version <версия> \
+        --schema-registry \
         --network-name <имя_сети> \
         --subnet-ids <идентификаторы_подсетей> \
         --zone-ids <зоны_доступности> \
@@ -174,6 +175,10 @@
 
      * `--environment` — окружение кластера: `prestable` или `production`.
      * `--version` — версия {{ KF }}: {{ versions.cli.str }}.
+     * `--schema-registry` — управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+
+         {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
+
      * `--zone-ids` и `--brokers-count` — зоны доступности и число хостов-брокеров в каждой зоне.
 
         Для [кластеров с версией {{ KF }} 3.6 и выше](#zk-vs-kraft) доступны только следующие конфигурации:
@@ -313,10 +318,13 @@
        * `zones = ["<одна_зона_доступности>"] brokers_count = 3`.
 
      * `deletion_protection` — защита от удаления кластера: `true` или `false`.
-     * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
-     * `schema_registry` — управление схемами данных: `true` или `false`.
 
-     {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+     * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
+     * `schema_registry` — управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`.
+
+       {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 

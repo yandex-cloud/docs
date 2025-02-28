@@ -6656,11 +6656,14 @@ default:
         field_gcm-version: FCM API version
         field_hms-client-id: Key ID
         field_hms-client-secret: API key
+        field_log-group: Log group
+        field_logging-folder: Folder
         field_token: Device token
         label_editor-json: JSON
         label_editor-text: Text
         label_endpoints: Endpoints
         label_phone-numbers: Test numbers
+        section_logging: Logging
         section_message-sending: Send messages
         select_apns-title: Apple iOS
         select_gcm-title: Google Android
@@ -8368,6 +8371,7 @@ default:
         button_create-bus: Create bus
         button_create-connector: Create connector
         button_create-rule: Create rule
+        label_additional-parameters: Additional parameters
         label_buses: Buses
         label_connector-source: Source
         label_connectors: Connectors
