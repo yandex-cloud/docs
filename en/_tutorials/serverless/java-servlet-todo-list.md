@@ -18,7 +18,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of resources to support a web application includes:
@@ -47,7 +46,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
@@ -73,7 +72,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` ther
      1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-     1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The name should match the following format:
+     1. Enter the database **{{ ui-key.yacloud.ydb.forms.label_field_name }}**. The naming requirements are as follows:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
@@ -195,7 +194,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
      * `--runtime`: Runtime environment.
      * `entrypoint`: Entry point in `<function_file_name>`.`<handler_name>` format.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum function running time before the timeout is reached.
+     * `--execution-timeout`: Maximum running time of the function until timeout.
      * `--source-path`: Path to the previously created `servlet.zip` archive with the function code and required dependencies.
      * `--environment`: Environment variables in `key=value` format.
 
@@ -230,11 +229,9 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 
   Use the [create](../../functions/functions/api-ref/Function/create), [createVersion](../../functions/functions/api-ref/Function/createVersion), and [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings) API methods for the [Function](../../functions/functions/api-ref/Function) resource.
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
   You can create a function and its version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}
 
@@ -367,11 +364,9 @@ To ensure interaction between services, create an API gateway:
      log_group_id: ckg2hdmevnvc********
      ```
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
   You can create an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}
 

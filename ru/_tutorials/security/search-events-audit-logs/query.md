@@ -1,18 +1,13 @@
----
-title: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
-description: Следуя данному руководству, вы сможете выполнять поиск событий {{ yandex-cloud }} в {{ yq-name }}.
----
-
-# Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+# Настройка работы с {{ yq-full-name }}
 
 
-В [{{ yq-full-name }}](../../query/) интегрирована поддержка {{ at-name }}. Вы можете анализировать события ресурсов {{ yandex-cloud }}, выполняя [аналитические](../../query/concepts/batch-processing.md) и [потоковые](../../query/concepts/stream-processing.md) запросы на языке {{ yql-short-name }}.
+В [{{ yq-full-name }}](../../../query/) интегрирована поддержка {{ at-name }}. Вы можете анализировать события ресурсов {{ yandex-cloud }}, выполняя [аналитические](../../../query/concepts/batch-processing.md) и [потоковые](../../../query/concepts/stream-processing.md) запросы на языке {{ yql-short-name }}.
 
 Аналитические запросы можно выполнять для логов, которые хранятся в бакете, а потоковые — для логов в потоке данных {{ yds-full-name }}.
 
-![](../../_assets/audit-trails/tutorials/audit-trails-query.png)
+![](../../../_assets/audit-trails/tutorials/audit-trails-query.png)
 
-Чтобы подключить бакет с [аудитными логами](../concepts/events.md) к {{ yq-full-name }} и выполнить запросы на языке [{{ yql-short-name }}](../../query/yql-tutorials/index.md):
+Чтобы подключить бакет с [аудитными логами](../../../audit-trails/concepts/events.md) к {{ yq-full-name }} и выполнить запросы на языке [{{ yql-short-name }}](../../../query/yql-tutorials/index.md):
 
 1. [Подготовьте окружение](#prepare-environment).
 1. [Создайте соединение между трейлом и {{ yq-short-name }}](#trail-yq).
@@ -23,14 +18,14 @@ description: Следуя данному руководству, вы сможе
 
 ## Перед началом работы {#before-begin}
 
-{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-{% include [cli-install](../../_includes/cli-install.md) %}
+{% include [cli-install](../../../_includes/cli-install.md) %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за использование бакета (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за использование бакета (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 
 
 ## Подготовьте окружение {#prepare-environment}
@@ -42,11 +37,11 @@ description: Следуя данному руководству, вы сможе
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md), например `example-folder`.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [бакет](../../../storage/concepts/bucket.md), например `example-folder`.
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
     1. На странице создания бакета:
-        * укажите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming);
+        * укажите имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming);
         * в полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`;
         * для остальных параметров оставьте значения по умолчанию.
     1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
@@ -98,7 +93,7 @@ description: Следуя данному руководству, вы сможе
         done (1s)
         ```
 
-        Подробнее о команде `yc organization-manager organization add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
+        Подробнее о команде `yc organization-manager organization add-access-binding` см. в [справочнике CLI](../../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
 
     1. Роль `storage.uploader` на каталог `example-folder`:
 
@@ -116,7 +111,7 @@ description: Следуя данному руководству, вы сможе
         done (1s)
         ```
 
-        Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+        Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 
@@ -140,7 +135,7 @@ description: Следуя данному руководству, вы сможе
     done (1s)
     ```
 
-    Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+    Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 
@@ -274,4 +269,4 @@ description: Следуя данному руководству, вы сможе
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Если для выполнения руководства вы создали отдельный бакет, вы можете [удалить его](../../storage/operations/buckets/delete.md), чтобы перестать платить за [использование бакета](../../storage/pricing.md).
+Если для выполнения руководства вы создали отдельный бакет, вы можете [удалить его](../../../storage/operations/buckets/delete.md), чтобы перестать платить за [использование бакета](../../../storage/pricing.md).

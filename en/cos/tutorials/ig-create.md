@@ -1,3 +1,5 @@
-# Creating an instance group with a {{ coi }}
+---
+canonical: '{{ link-docs }}/tutorials/containers/ig-create'
+---
 
-{% include [ig-coi](../../_includes/instance-groups/create-coi-vm.md) %}
+{% include [ig-coi](../../_tutorials/containers/ig-create.md) %}

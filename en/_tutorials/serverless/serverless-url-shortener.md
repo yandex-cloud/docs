@@ -1,12 +1,12 @@
 # URL shortener
 
 
-With this script, you will create a URL shortening service using serverless technologies available in {{ yandex-cloud }}.
+With this script, you will create a URL shortening service using {{ yandex-cloud }} serverless technologies.
 
 The service accepts user requests via a public [API gateway](../../api-gateway/concepts/index.md). The [hosting](../../storage/concepts/hosting.md) service sends the user an HTML page with a field for entering the URL. The [function](../../functions/concepts/function.md) sends the entered URL for storage in a [serverless database](../../ydb/concepts/serverless-and-dedicated.md#serverless), shortens it, and returns it to the user. When the user enters the shortened URL, the function finds the full URL in the database and redirects the user's request to it.
 
 To configure and test the service:
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Set up hosting for the URL shortener page](#object-storage).
 1. [Create a service account](#service-account).
 1. [Create a database in {{ ydb-full-name }}](#ydb).
@@ -16,10 +16,9 @@ To configure and test the service:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -127,7 +126,7 @@ To create a service account for the service components to interact:
   1. Go to your working folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `serverless-shortener`.
+  1. Specify a name for the service account: `serverless-shortener`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. Click on the name of the created service account.
@@ -329,7 +328,7 @@ To create and set up a URL shortening function:
      * `endpoint`: Enter the first part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (preceding `/?database=`), e.g., `{{ ydb.ep-serverless }}`.
      * `database`: Enter the second part of the previously saved **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value (following `/?database=`), e.g., `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-  1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}**, enable the **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** option.
+  1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}**, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
 
   Save the function ID, you will need it at the next steps.
 

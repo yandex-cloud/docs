@@ -23,7 +23,7 @@ Now y+ou can, too!
 EOM
 export FOLDER_ID=<folder_ID>
 export IAM_TOKEN=<IAM_token>
-curl 
+curl \
   --request POST \
   --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "text=${TEXT}" \

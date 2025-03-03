@@ -23,3 +23,6 @@ description: Различные сценарии использования {{ y
 - [{#T}](static-key-in-lockbox/index.md)
 - [{#T}](events-from-postbox-to-yds.md)
 - [{#T}](websocket-app.md)
+- [{#T}](audit-trails.md)
+- [{#T}](search-events-audit-logs/index.md)
+- [{#T}](debezium.md)

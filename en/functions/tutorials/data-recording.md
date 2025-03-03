@@ -1,8 +1,9 @@
 ---
-title: Guide for writing data from a device to {{ mpg-name }}
-description: In this tutorial, you will set up storing information received from a device in the {{ mpg-name }} cluster database.
+canonical: '{{ link-docs }}/tutorials/iot/data-recording'
 ---
 
-# Writing data from a device to {{ mpg-name }}
+# Writing data from a device into a database
 
-{% include [data-recording](../../_includes/iot-core/data-recording.md) %}
+In this tutorial, you will write data from a device into a database. The example uses a [{{ mpg-full-name }} cluster](../../managed-postgresql/concepts/index.md). To connect your device to [{{ iot-full-name }}](../../iot-core/index.yaml), you will need an MQTT broker. You will perform all the steps in the [management console]({{ link-console-main }}).
+
+{% include [data-recording](../../_tutorials/applied/data-recording.md) %}

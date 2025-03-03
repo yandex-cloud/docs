@@ -100,7 +100,7 @@
 
 1. [Настройте сбор аудитных логов с уровня организации](../../audit-trails/quickstart.md) в {{ at-full-name }}.
 
-1. Отслеживайте как минимум следующие события (в [Object Storage](../../audit-trails/tutorials/search-bucket.md), [лог-группе](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) и [в вашем SIEM](../../audit-trails/concepts/export-siem.md)):
+1. [Отслеживайте](../../audit-trails/tutorials/search-events-audit-logs/index.md) как минимум следующие события (в Object Storage, лог-группе, [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) и [в вашем SIEM](../../audit-trails/concepts/export-siem.md)):
 
     * Создание ключей для сервисного аккаунта (события: `{{ at-event-prefix }}.audit.iam.CreateAccessKey`, `{{ at-event-prefix }}.audit.iam.CreateKey`, `{{ at-event-prefix }}.audit.iam.CreateApiKey` и `authentication.subject_id = <идентификатор_сервисного_аккаунта>`).
     * Назначение прав доступа на сервисный аккаунт (событие: `UpdateServiceAccountAccessBindings` и `details.service_account_id = <идентификатор_сервисного_аккаунта>`).

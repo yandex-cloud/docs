@@ -5,7 +5,7 @@ A function with an associated [service account](../../iam/concepts/users/service
 The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../../functions/lang/python/dependencies.md) when creating a function version. The DB connection parameters are passed to the application via environment variables.
 
 To create a function and connect to the database:
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Create a service account](#create-sa).
 1. [Create a {{ ydb-short-name }} database](#create-database).
 1. [Create a function](#create-function).
@@ -13,10 +13,9 @@ To create a function and connect to the database:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -24,14 +23,13 @@ The infrastructure support cost for this scenario includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for running queries to the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
-
 ## Create a service account {#create-sa}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account, e.g., `sa-function`. The naming requirements are as follows:
@@ -59,7 +57,7 @@ The infrastructure support cost for this scenario includes:
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-     Wait for the DB to start. When being created, a database has the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+     Wait for the DB to start. While being created, the database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
   1. Click the name of the database you created.
   1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it at the next step.
 
@@ -71,7 +69,7 @@ The infrastructure support cost for this scenario includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create the function in.
+  1. In the [Management console]({{ link-console-main }}), select the folder you want to create a function in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter a name and description for the function. The naming requirements are as follows:
@@ -139,7 +137,7 @@ The infrastructure support cost for this scenario includes:
 
 - Management console {#console}
 
-  1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and check out the testing results.
 
      If a DB connection is established and a query is executed, the function status will change to `Done` and its output will contain the following text:

@@ -117,6 +117,16 @@ items:
         href: tutorials/blue-green-canary-deployment.md
       - name: Анализ логов с использованием DataLens
         href: tutorials/storage-logs-analysis.md
+      - name: Поиск событий в аудитных логах
+        items:
+          - name: Обзор
+            href: tutorials/search-events-audit-logs/index.md
+          - name: Инструменты для работы с аудитными логами
+            href: tutorials/search-events-audit-logs/tools.md
+          - name: Примеры запросов для поиска событий
+            href: tutorials/search-events-audit-logs/examples.md
+          - name: Настройка работы с {{ yq-full-name }}
+            href: tutorials/search-events-audit-logs/query.md
       - name: >-
           Монтирование бакетов к файловой системе хостов {{ dataproc-full-name
           }}

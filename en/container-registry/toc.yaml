@@ -128,6 +128,10 @@ items:
           Deploying a service in {{ ml-platform-name }} from a Docker image with
           FastAPI
         href: tutorials/node-from-docker-fast-api.md
+      - name: >-
+          Setting up a {{ mpg-name }} connection from a {{
+          serverless-containers-name }} container
+        href: tutorials/container-pg-connect.md
   - name: Concepts
     items:
       - name: Overview

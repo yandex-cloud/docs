@@ -14,11 +14,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The {{ dataproc-name }} cluster support cost covers the computing resources of the cluster and the storage size (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
-
 
 ## Prepare the infrastructure {#infra}
 
@@ -61,11 +59,11 @@ Create a folder where your {{ dataproc-name }} cluster will run.
       1. Select `data-network`.
       1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
          * In the window that opens, select **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** in the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field.
-         * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
+         * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will apply automatically.
          * Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
    1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
-  Next, link the route table to a subnet to route traffic from it via the NAT gateway:
+  Next, associate the route table with a subnet to route traffic from it through the NAT gateway:
 
    1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. In the row with the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
@@ -84,7 +82,7 @@ Create a folder where your {{ dataproc-name }} cluster will run.
    1. Go to `data-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `sa-for-data-proc`.
+   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-data-proc`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `dataproc.agent` to create and use {{ dataproc-name }} clusters.
       * `dataproc.provisioner` to enable [subcluster autoscaling](../../data-proc/concepts/autoscaling.md).
@@ -121,7 +119,7 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 
 ### Edit the project settings {#change-settings}
 
-1. Go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
+1. Navigate to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Specify the parameters:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.

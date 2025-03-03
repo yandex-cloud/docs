@@ -11,8 +11,8 @@ The {{ api-gw-full-name }} API gateway will receive requests from the bot and fo
 
 To create a bot:
 
-1. [Prepare your cloud environment](#before-you-begin).
-1. [Create resources](#prepare).
+1. [Get your cloud ready](#before-you-begin).
+1. [Prepare the resources](#prepare).
 1. [Register your Telegram bot](#bot-register).
 1. [Create a function](#create-function).
 1. [Create an API gateway](#create-api-gateway).
@@ -25,7 +25,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of Telegram bot support includes:
@@ -35,8 +34,7 @@ The cost of Telegram bot support includes:
 * Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
-
-## Create resources {#prepare}
+## Prepare the resources {#prepare}
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `recognizer-bot-sa` and assign it the `ai.editor` and `{{ roles-functions-editor }}` [roles](../../iam/operations/sa/assign-role-for-sa.md) for your folder.
 1. Prepare a ZIP archive with the function code:
@@ -280,9 +278,9 @@ Create a function to process user actions in the chat.
 
      Where:
 
-     * `--function-name`: Name of the function a version of which you are creating.
+     * `--function-name`: Name of the function whose version you are creating.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum function running time before the timeout is reached.
+     * `--execution-timeout`: Maximum running time of the function until timeout.
      * `--runtime`: Runtime environment.
      * `--entrypoint`: Entry point.
      * `--service-account-id`: `recognizer-bot-sa` service account ID.
@@ -338,7 +336,7 @@ Create a function to process user actions in the chat.
      Where:
 
      * `name`: Function name.
-     * `user_hash`: Any string to identify the function version.
+     * `user_hash`: Random string to identify the function version.
      * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
      * `entrypoint`: Entry point.
      * `memory`: Amount of memory allocated for the function, in MB.
@@ -358,7 +356,7 @@ Create a function to process user actions in the chat.
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -509,7 +507,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -519,7 +517,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
 
 - API {#api}
 

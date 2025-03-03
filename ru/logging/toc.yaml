@@ -75,6 +75,16 @@ items:
         href: tutorials/alb-ingress-controller-log-options.md
       - name: Обработка логов {{ cloud-logging-name }}
         href: tutorials/cloud-logging.md
+      - name: Поиск событий в аудитных логах
+        items:
+          - name: Обзор
+            href: tutorials/search-events-audit-logs/index.md
+          - name: Инструменты для работы с аудитными логами
+            href: tutorials/search-events-audit-logs/tools.md
+          - name: Примеры запросов для поиска событий
+            href: tutorials/search-events-audit-logs/examples.md
+          - name: Настройка работы с {{ yq-full-name }}
+            href: tutorials/search-events-audit-logs/query.md
   - name: Концепции
     items:
       - name: Лог-группа

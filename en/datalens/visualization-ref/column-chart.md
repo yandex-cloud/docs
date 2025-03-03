@@ -149,7 +149,25 @@ To color columns in a chart based on the value of a measure:
    * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
    * **Set threshold values**: Set numeric thresholds for each color. Works if the **Y** section contains a single value.
 
-### Configuring display of null values {#null-settings}
+### Adding column sorting by aggregated value {#column-aggregate-sorting}
+
+In the **Sorting** section, you cannot use a value with [aggregation](../dataset/data-model.md#aggregation). To sort columns by an aggregated value (e.g., sum, count, or average), first create a [calculated field](../concepts/calculations/index.md) in the dataset or chart using the [aggregation formula](../function-ref/aggregation-functions.md). Then use it to build a chart and do the sorting.
+
+For example, to sort your sales by total amount:
+
+1. Open a column chart or create a new one.
+1. On the left side of the screen above the list of dimensions and measures, click ![image](../../_assets/console-icons/plus.svg) and select **Field**.
+1. In the **Field settings** window, enter:
+
+   * Field name: `sum_Price`
+   * Formula: `SUM([Price])`
+
+1. Click **Create**.
+1. Drag the new field to the **Y** and **Sorting** sections. The columns will be sorted by sales total. To change the sorting direction, in the **Sorting** section, click ![image](../../_assets/console-icons/bars-descending-align-left.svg) or ![image](../../_assets/console-icons/bars-ascending-align-left.svg) to the right of the field name.
+
+![image](../../_assets/datalens/operations/chart/column-sorting.png)
+
+### Configuring display of `null` values {#null-settings}
 
 {% include [datalens-chart-null-settings](../../_includes/datalens/datalens-chart-null-settings.md) %}
 

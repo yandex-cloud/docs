@@ -1,10 +1,13 @@
 ```json
 {
-  "modelUri": "gpt://<folder_ID>/yandexgpt-lite",
+  "modelUri": "gpt://<folder_ID>/yandexgpt",
   "completionOptions": {
     "stream": false,
     "temperature": 0.6,
-    "maxTokens": "2000"
+    "maxTokens": "2000",
+    "reasoningOptions": {
+      "mode": "DISABLED"
+    }
   },
   "messages": [
     {

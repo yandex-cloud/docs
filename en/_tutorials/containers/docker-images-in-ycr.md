@@ -41,16 +41,14 @@ By default, {{ GL }} {{ container-registry-name }} is disabled when creating an 
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 Infrastructure support costs include fees for the following resources:
 
 * Disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Usage of a dynamic public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Storing the Docker images you created and a vulnerability scanner, if [activated](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Usage of a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-
+* Using a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
 ### Prepare the infrastructure {#deploy-infrastructure}
 
@@ -60,7 +58,7 @@ Infrastructure support costs include fees for the following resources:
 
    1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
    1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
-   1. [Create a service account](../../iam/operations/sa/create.md) named `account-for-container-registry` with [roles](../../iam/concepts/access-control/roles.md) for the folder:
+   1. [Create a service account](../../iam/operations/sa/create.md) named `account-for-container-registry` with the following [roles](../../iam/concepts/access-control/roles.md) for the folder:
 
       * `{{ roles-editor }}`
       * `{{ roles-cr-pusher }}`
@@ -78,13 +76,13 @@ Infrastructure support costs include fees for the following resources:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [container-registry-and-gitlab.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-gitlab/container-registry-and-gitlab.tf) configuration file to the same working directory.
+   1. Download the [container-registry-and-gitlab.tf](https://github.com/yandex-cloud-examples/yc-gitlab-cr-integration/blob/main/container-registry-and-gitlab.tf) configuration file to the same working directory.
 
       This file describes:
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../vpc/concepts/security-groups.md) and rules required for running the {{ mgl-name }} instance and [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+      * [Security group](../../vpc/concepts/security-groups.md) and rules required for the {{ mgl-name }} instance and [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
       * {{ managed-k8s-name }} cluster with a zonal master.
       * [Node group for the cluster](../../managed-kubernetes/concepts/index.md#node-group).
       * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group.

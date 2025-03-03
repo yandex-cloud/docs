@@ -42,11 +42,14 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
   
      ```json
      {
-       "modelUri": "gpt://<folder_ID>/yandexgpt-lite",
+       "modelUri": "gpt://<folder_ID>/yandexgpt",
        "completionOptions": {
          "stream": false,
          "temperature": 0.1,
-         "maxTokens": "1000"
+         "maxTokens": "1000",
+         "reasoningOptions": {
+           "mode": "DISABLED"
+         }
        },
        "messages": [
          {
@@ -93,7 +96,7 @@ To generate text in [prompt mode](../../concepts/index.md#working-mode), send a 
            {
              "message": {
                "role": "assistant",
-               "text": "To be, or not to be: that is the question."
+               "text": "To be, or not to be, that is the question."
              },
              "status": "ALTERNATIVE_STATUS_FINAL"
            }
