@@ -22,10 +22,10 @@
 - Python {#python}
 
   ```python
-  # Import a library for encoding files in Base64
+  # Import a library for encoding files in Base64.
   import base64
-
-  # Create a function that will encode a file and return results.
+  
+  # Create a function to encode a file and return the results.
   def encode_file(file_path):
     with open(file_path, "rb") as fid:
         file_content = fid.read()

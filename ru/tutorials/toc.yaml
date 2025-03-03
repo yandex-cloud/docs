@@ -82,6 +82,16 @@ items:
             href: security/audit-trails-events-to-kuma/terraform.md
       - name: Передача логов с {{ coi }} в {{ cloud-logging-name }}
         href: security/coi-fluent-bit-logging.md
+      - name: Поиск событий в аудитных логах
+        items:
+          - name: Обзор
+            href: security/search-events-audit-logs/index.md
+          - name: Инструменты для работы с аудитными логами
+            href: security/search-events-audit-logs/tools.md
+          - name: Примеры запросов для поиска событий
+            href: security/search-events-audit-logs/examples.md
+          - name: Настройка работы с {{ yq-full-name }}
+            href: security/search-events-audit-logs/query.md
       - name: Добавление HTML-страницы для работы {{ captcha-name }}
         href: security/mobile-app/website.md
       - name: Создание L7-балансировщика с профилем безопасности

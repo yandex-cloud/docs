@@ -3,6 +3,7 @@
 You will create a video converter using [FFmpeg](https://ffmpeg.org/) and {{ message-queue-full-name }}. This guide is intended for Linux and macOS users.
 
 
+
 To create an application:
 
 1. [Get your cloud ready](#before-begin).
@@ -17,7 +18,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -99,7 +99,7 @@ The function implements an API which you can use to perform the following action
 
 A converter function is run by a trigger. It performs video processing and registers the execution result in the `tasks` table.
 
-Video conversion is done using the FFmpeg utility. The FFmpeg executable file is larger than 70 MB. To upload it along with the function code, create a ZIP archive and upload it via {{ objstorage-name }}. Learn more about [code upload formats](../../functions/concepts/function.md).
+Video conversion is performed using the FFmpeg utility. The FFmpeg executable file is larger than 70 MB. To upload it along with the function code, create a ZIP archive and upload it via {{ objstorage-name }}. Learn more about [code upload formats](../../functions/concepts/function.md).
 
 {% list tabs group=instructions %}
 
@@ -151,7 +151,7 @@ The message queue is processed using a [trigger for {{ message-queue-name }}](..
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Go to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
      * Enter a name for the trigger: `ffmpeg-trigger`.
@@ -176,7 +176,7 @@ The message queue is processed using a [trigger for {{ message-queue-name }}](..
   1. In the [management console]({{ link-console-main }}), select the folder containing the `ffmpeg-api` function.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the `ffmpeg-api` function.
-  1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, enter:
 
      ```json
@@ -234,7 +234,7 @@ The trigger should invoke the converter function for each message in the queue. 
   1. In the [management console]({{ link-console-main }}), select the folder containing the `ffmpeg-api` function.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the `ffmpeg-api` function.
-  1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, enter the following request:
 
      ```json

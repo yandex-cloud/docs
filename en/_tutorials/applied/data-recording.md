@@ -1,10 +1,8 @@
-In this tutorial, you will configure storing information supplied from a device in a {{ mpg-name }} cluster database. To connect your device to {{ iot-full-name }}, you will need an MQTT broker. You will perform all the steps in the [management console]({{ link-console-main }}).
-
 To start writing information from your device to the database:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#create-sa).
-1. [Create the required {{ iot-full-name }} resources](#resources).
+1. [Create the required {{ iot-full-name }}](#resources) resources.
     1. [Create a registry](#registry).
     1. [Create a device](#device).
 1. [Connect your device to the MQTT broker](#connect).
@@ -17,7 +15,7 @@ To start writing information from your device to the database:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -36,7 +34,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Enter a name for the service account: `my-db-function-service-account`.
     1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-invoker }}` and `{{ roles-editor }}` [roles](../../iam/concepts/access-control/roles.md).
@@ -85,7 +83,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
     Once a registry is created, you will see its settings.
 
-    1. Go to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
     1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `my-device`.
     1. Enter the password.
@@ -105,7 +103,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
 
 ## Connect your device to the MQTT broker {#connect}
 
-{% include [connect-mqtt-broker](./connect-mqtt-broker.md) %}
+{% include [connect-mqtt-broker](../../_includes/iot-core/connect-mqtt-broker.md) %}
 
 ## Prepare the database {#db}
 
@@ -152,7 +150,7 @@ This tutorial assumes [username and password-based authorization](../../iot-core
         For the database created with the cluster, the character set and collate settings are specified as `LC_CTYPE=C` and `LC_COLLATE=C`. You cannot change these settings after the database is created, but you can [create a new database](../../managed-postgresql/operations/databases.md#add-db) with the right settings.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option.
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}** option.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 {% endlist %}
@@ -172,7 +170,7 @@ Wait for the cluster status to change to `Alive`.
 - Management console {#console}
 
     1. Select the `my-pg-database` cluster.
-    1. Go to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab.
     1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_username }}** field, specify the name of the user who owns the DB created in the previous step.
     1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password specified when creating the cluster.
     1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
@@ -188,7 +186,7 @@ As a sample data source, the scenario uses an air sensor that measures the follo
 * Pressure
 * Temperature
 
-The sensor outputs the result in JSON format, e.g.:
+The sensor outputs the result in JSON format. Here is an example:
 
 ```json
 {
@@ -215,7 +213,7 @@ Once you [connect to the cluster](#connect-to-cluster), create a table. To do th
 
         {% note warning %}
 
-        The query below is given as an example. If your device sends different information, change the columns in the table you're creating.
+        The query below is given as an example. If your device sends different information, change the columns in your new table.
 
         {% endnote %}
 
@@ -287,7 +285,7 @@ After creating the function, you will be automatically redirected to the **{{ ui
 
         * `VERBOSE_LOG`: Parameter displaying detailed information about the function. Type in `True`.
         * `DB_HOSTNAME`: Name of the {{ PG }} database host to connect to.
-        * `DB_PORT`: Port to connect to.
+        * `DB_PORT`: Port for connection.
         * `DB_NAME`: Name of the database to connect to.
         * `DB_USER`: Username for the connection.
         * `DB_PASSWORD`: Password you entered when [creating your cluster](#cluster).
@@ -355,5 +353,5 @@ To shut down the infrastructure and stop paying for the resources you created:
 1. [Delete](../../iot-core/operations/device/device-delete.md) the device.
 1. [Delete](../../iot-core/operations/registry/registry-delete.md) the registry.
 1. [Delete](../../managed-postgresql/operations/cluster-delete.md) the {{ PG }} cluster.
-1. [Delete](../../functions/operations/trigger/trigger-delete.md) the trigger.
+1. [Delete the trigger](../../functions/operations/trigger/trigger-delete.md).
 1. [Delete](../../functions/operations/function/function-delete.md) the function.

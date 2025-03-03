@@ -41,7 +41,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune
 
 * The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 * The use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} policy.
-* The use of a fine-tuned {{ llama }} 8b^1^ model is charged according to the {{ llama }} 8b policy.
+* The use of a fine-tuned {{ llama }} 8B^1^ model is charged according to the {{ llama }} 8B policy.
 
 ### Text classification {#rules-text-classifier}
 

@@ -417,7 +417,7 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
-      - name: Writing data from a device to {{ mpg-short-name }}
+      - name: Writing data from a device into a database
         href: tutorials/data-recording.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md

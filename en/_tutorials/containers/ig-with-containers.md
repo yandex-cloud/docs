@@ -1,16 +1,16 @@
 # Creating an instance group from a {{ coi }} with multiple Docker containers
 
-You can create an [instance group](../../compute/concepts/instance-groups/index.md) based on a [{{ coi }}](../../cos/concepts/index.md) [image](../../compute/concepts/image.md) with multiple Docker containers inside.
+You can create an [instance group](../../compute/concepts/instance-groups/index.md) based on a [image](../../compute/concepts/image.md) [{{ coi }}](../../cos/concepts/index.md) with multiple Docker containers inside.
 
 Docker containers are created based on the [Docker Compose](../../cos/concepts/coi-specifications.md#compose-spec) specification.
 
-{% include [warning.md](warning.md) %}
+{% include [warning.md](../../_includes/instance-groups/warning.md) %}
 
 ## Getting started {#before-you-begin}
 
-{% include [cli-install.md](../cli-install.md) %}
+{% include [cli-install.md](../../_includes/cli-install.md) %}
 
-{% include [default-catalogue.md](../default-catalogue.md) %}
+{% include [default-catalogue.md](../../_includes/default-catalogue.md) %}
 
 ## Prepare the environment {#prepare}
 
@@ -64,7 +64,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder you want to create a network in.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Enter the network name: `yc-auto-network`.
@@ -115,7 +115,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 ## Create an instance group from a {{ coi }} with multiple Docker containers {#create}
 
-1. {% include [get-latest-coi](../container-registry/get-latest-coi.md) %}
+1. {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
 1. Save the specification of the instance group with {{ coi }} and multiple Docker containers to the `specification.yaml` file:
 
@@ -143,7 +143,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
             ip_version: IPV4 # IPv4 specification for public access to the VM.
           }
         }
-     metadata: # Values to send to the VM metadata.
+     metadata: # Values to write to the VM metadata.
       docker-compose: |- # Key in the VM metadata that is used with the Docker Compose specification.
         version: '3.7'
         services:
@@ -159,13 +159,13 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
             restart: always
       ssh-keys: | # Parameter for providing an SSH key to the VM.
         yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Username for connecting to the VM.
-   deploy_policy: # Deployment policy for VM instances in the group.
+   deploy_policy: # VM deployment policy for the group.
      max_unavailable: 1
      max_expansion: 0
-   scale_policy: # Scaling policy for VM instances in the group.
+   scale_policy: # Instance scaling policy for the group.
      fixed_scale:
        size: 2
-   allocation_policy: # Allocation policy of VM instances across availability zones.
+   allocation_policy: # Instance allocation policy between availability zones.
      zones:
        - zone_id: {{ region-id }}-a
    ```
@@ -242,7 +242,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 ## Test the instance group based on the {{ coi }} with multiple Docker containers {#check}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to one of the instances via SSH:
+1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to one of the instances via SSH.
 
    {% list tabs group=instructions %}
 

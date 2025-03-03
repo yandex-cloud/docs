@@ -14,9 +14,14 @@ Running a query does not create a separate [dataset](../../dataset/index.md) obj
 Unlike [dataset-based charts](dataset-based-charts.md), the logic of a visualization area in QL charts favors queries against the source, i.e., the visualization area only displays the data from the query.
 
 
+
 {% note alert %}
 
 If users are granted [permission to view](../../security/manage-access#permission-read) your QL chart, they will be able to make any queries to any source data of this QL chart.
+
+When using QL charts, configure access restrictions on the data source side.
+
+If you need to [restrict access at the data row level (RLS)](../../security/row-level-security.md), use [dataset-based charts](./dataset-based-charts.md).
 
 {% endnote %}
 

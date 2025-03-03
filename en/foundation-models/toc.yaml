@@ -61,6 +61,8 @@ items:
             href: concepts/yandexgpt/models.md
           - name: Tokens
             href: concepts/yandexgpt/tokens.md
+          - name: Reasoning mode
+            href: concepts/yandexgpt/chain-of-thought.md
       - name: Image generation
         items:
           - name: '{{ yandexart-name }} overview'

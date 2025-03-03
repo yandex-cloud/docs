@@ -127,10 +127,10 @@ items:
         href: tutorials/movies-database.md
       - name: Working with an API gateway via WebSocket
         href: tutorials/api-gw-websocket.md
-      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
-        href: tutorials/ci-cd-serverless.md
       - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
+      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+        href: tutorials/ci-cd-serverless.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: tutorials/serverless-live-debug.md
       - name: >-
@@ -161,7 +161,7 @@ items:
         items:
           - name: Overview
             href: concepts/extensions/index.md
-          - name: Integrations
+          - name: Integration options
             items:
               - name: Static response
                 href: concepts/extensions/dummy.md

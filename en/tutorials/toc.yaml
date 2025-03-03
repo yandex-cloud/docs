@@ -270,6 +270,10 @@ items:
             href: infrastructure-management/terraform-state-lock.md
           - name: Using {{ yandex-cloud }} modules in {{ TF }}
             href: infrastructure-management/terraform-modules.md
+          - name: >-
+              Creating a VM and an instance group with a {{ coi }} using {{ TF
+              }}
+            href: infrastructure/coi-with-terraform.md
           - name: Running a Docker image on a VM
             items:
               - name: Overview
@@ -360,6 +364,34 @@ items:
         href: container-infrastructure/kubernetes-lockbox-secrets.md
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}
         href: container-infrastructure/sign-cr-with-cosign.md
+      - name: >-
+          Setting up a {{ mpg-name }} connection from a {{
+          serverless-containers-name }} container
+        href: container-infrastructure/container-pg-connect.md
+      - name: Storing Docker images created in {{ mgl-name }} projects
+        href: container-infrastructure/image-storage.md
+      - name: >-
+          Scanning vulnerabilities during continuous deployment of {{
+          managed-k8s-name }} applications using {{ GL }}
+        href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
+      - name: Creating a VM with {{ coi }} support
+        href: container-infrastructure/vm-create.md
+      - name: >-
+          Creating a VM from a {{ coi }} with additional volume for a Docker
+          container
+        href: container-infrastructure/vm-create-with-second-disk.md
+      - name: >-
+          Creating an instance group from a {{ coi }} with multiple Docker
+          containers
+        href: container-infrastructure/ig-with-containers.md
+      - name: Creating an instance group from a {{ coi }}
+        href: container-infrastructure/ig-create.md
+      - name: Creating a VM from a {{ coi }} with multiple Docker containers
+        href: container-infrastructure/docker-compose.md
+      - name: Updating a VM with a {{ coi }}
+        href: container-infrastructure/vm-update.md
+      - name: Configuring data output from a Docker container to a serial port
+        href: container-infrastructure/serial-port.md
   - name: Application solutions
     items:
       - name: All tutorials
@@ -456,12 +488,34 @@ items:
             href: infrastructure-management/1c-postgresql-linux.md
       - name: Internet of Things (IoT)
         items:
+          - name: Working with Mosquitto
+            items:
+              - name: Sending messages
+                href: iot/mosquitto/mosquitto-publish.md
+              - name: Subscribing a device or registry to receive messages
+                href: iot/mosquitto/mosquitto-subscribe.md
+          - name: Working with {{ iot-name }} from an Android device in Java
+            href: iot/android-java.md
+          - name: Working with {{ iot-name }} in C#
+            href: iot/c-sharp.md
+          - name: Working with {{ iot-name }} in Java
+            href: iot/java.md
           - name: Status monitoring of geographically distributed devices
             href: iot/datalens.md
           - name: Monitoring sensor readings and event notifications
             href: iot/monitoring.md
+          - name: Testing message delivery
+            href: iot/message-delivery-check.md
           - name: Emulating multiple IoT devices
             href: testing/iot-emulation.md
+          - name: Writing data from a device into a database
+            href: iot/data-recording.md
+      - name: Alice
+        items:
+          - name: Creating skills for Alice
+            href: serverless/alice-skill.md
+          - name: Developing a skill for Alice and a website with authorization
+            href: serverless/alice-shareable-todolist.md
       - name: Other
         items:
           - name: Publishing game updates using {{ cdn-name }}
@@ -472,6 +526,8 @@ items:
             href: infrastructure/minecraft-server.md
           - name: Deploying a multiplayer server for GTA V in {{ yandex-cloud }}
             href: infrastructure/gta-v-server.md
+          - name: Converting a video to a GIF in Python
+            href: serverless/video-converting-queue.md
   - name: Building a data platform
     items:
       - name: All tutorials
@@ -979,10 +1035,10 @@ items:
         href: serverless/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: serverless/movies-database.md
-      - name: Developing a skill for Alice and a website with authorization
-        href: serverless/alice-shareable-todolist.md
       - name: Building a CI/CD pipeline in {{ GL }}
         href: serverless/ci-cd-serverless.md
+      - name: Working with an API gateway via WebSocket
+        href: serverless/api-gw-websocket.md
       - name: Creating an interactive serverless application using WebSocket
         href: serverless/websocket-app.md
       - name: >-
@@ -997,6 +1053,8 @@ items:
         href: serverless/canary-release.md
       - name: Interactive debugging of {{ sf-name }} functions
         href: serverless/serverless-live-debug.md
+      - name: Creating a Node.js function using TypeScript
+        href: serverless/nodejs-typescript.md
       - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: serverless/deploy-app-container.md
       - name: >-
@@ -1017,6 +1075,10 @@ items:
         href: serverless/connect-from-cf-nodejs.md
       - name: '{{ api-gw-name }} protection with {{ sws-name }}'
         href: serverless/api-gw-sws-integration.md
+      - name: >-
+          Deploying a web app with JWT authorization in {{ api-gw-full-name }}
+          and authentication in Firebase
+        href: serverless/jwt-authorizer-firebase.md
   - name: Machine learning and artificial intelligence
     items:
       - name: All tutorials

@@ -219,6 +219,8 @@
 
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [duplicate-key](../../_includes/data-transfer/troubles/duplicate-key.md) %}
+
 {% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 {% include [generated-columns](../../_includes/data-transfer/troubles/generated-columns.md) %}

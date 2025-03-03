@@ -13,7 +13,7 @@ To set up secret syncing:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-You can also deploy an infrastructure for syncing {{ lockbox-name }} secrets with {{ managed-k8s-name }} cluster secrets via {{ TF }} using a [ready-made configuration file](#tf).
+You can also deploy an infrastructure for syncing {{ lockbox-name }} secrets with {{ managed-k8s-name }} cluster secrets via {{ TF }} using a [ready-made configuration file](#terraform).
 
 ## Getting started {#before-you-begin}
 
@@ -47,11 +47,11 @@ The cost of resources for syncing secrets includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for the resources and nodes as well as the security group.
+  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes and the security group.
 
   1. [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following properties:
      * **{{ ui-key.yacloud.common.name }}**: `lockbox-secret`.
-     * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Enter the `password` non-secret ID.
+     * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Enter `password` as the non-secret ID.
      * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Enter the confidential data for storing `p@$$w0rd`.
 
      Save the ID of the secret. You will need it later.

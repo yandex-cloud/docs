@@ -5,6 +5,20 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 11/02/25 {#110225}
+
+1. Updated the [{{ llama }} 70B](../concepts/yandexgpt/models.md) model version. Now {{ llama }} 3.3. {{ meta-disclaimer }} is available in all branches.
+1. A new version is out: {{ ml-sdk-name }} 0.3.1. It features the following updates:
+	* Python 3.8 is no longer supported.
+	* Added the multipart mode for uploading large datasets.
+	* Added the `allow_data_logging` option that allows you to use dataset data to improve the tuning service when loading datasets.
+	* Added the `validation_errors` field that stores dataset validation errors.
+	* Replaced the `grpc_credentials` field with `verify` in the SDK builder.
+
+## Release as of 7/02/25 {#070225}
+
+Added support for the [reasoning mode](../concepts/yandexgpt/chain-of-thought.md) in the {{ gpt-pro }} model.
+
 ## Release as of 9/12/24 {#091224}
 
 Upon request, {{ lora }}-based model and classifier [tuning](../concepts/tuning/index.md) has been added in Preview.
@@ -13,11 +27,11 @@ Upon request, {{ lora }}-based model and classifier [tuning](../concepts/tuning/
 
 ## Release as of 4/12/24 {#041224}
 
-[{{ llama }} 3.1 models](../concepts/yandexgpt/models.md) are now available in {{ foundation-models-name }}. For model usage costs, see [{#T}](../pricing.md). {{ meta-disclaimer }}
+[{{ llama }} 3.1 models](../concepts/yandexgpt/models.md) are now available in {{ foundation-models-name }}. For model usage costs, see [{#T}](../pricing.md). 
 
 ## Release as of 2/12/24 {#021224}
 
-The {{ yagpt-name }} 4th generation model became available in the main branch (`Latest`). Version 3 will remain available in the `Deprecated` branch, according to the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
+The {{ yagpt-name }} 4th generation model is now available in the main branch (`Latest`). Version 3 will remain available in the `Deprecated` branch as per the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
 
 ## Release as of 21/11/24 {#211124}
 
@@ -28,7 +42,7 @@ The [{{ assistant-api }}](../concepts/assistant/index.md) functionality is now a
 1. Image generation with {{ yandexart-name }} is now [publicly available](../../overview/concepts/launch-stages.md). Starting November 1, 2024, {{ yandexart-name }} is billed according to the rules described on the [{{ foundation-models-name }} pricing policy](../pricing.md#rules-image-generation) page.
 1. Increased the {{ yandexart-name }} quotas for the number of generation requests per minute and full day (24 hours).
 1. Increased the {{ yagpt-name }} quota for the number of concurrent generations. For information on the restrictions in place, refer to [{#T}](../concepts/limits.md).
-1. Starting December 2, 2024, the test version (`RC` branch) of the {{ yagpt-name }} model will be the main version (`Latest` branch), while the current version will remain available in the `Deprecated` branch, according to the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
+1. Starting December 2, 2024, the {{ yagpt-name }} model's test version (`RC` branch) will become the main version (`Latest` branch). The current version will remain available in the `Deprecated` branch as per the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
 
 ## Release as of 24/10/24 {#241024}
 

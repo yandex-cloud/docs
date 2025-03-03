@@ -4,15 +4,16 @@
 In this scenario, you will develop a skill for Alice and deploy a web app for creating, reading and editing to-do lists with Alice's help, as well as for sharing the lists with other users on the website.
 
 
+
 To deploy a project:
-1. [Prepare your environment](#prepare).
+1. [Prepare the environment](#prepare).
 1. [Create resources](#create-resources).
 1. [Set the project variables](#set-variables).
 1. [Deploy the project](#deploy).
 1. [Register Alice's skill](#register-skill).
 1. [Test the skill](#test-skill).
 
-## Prepare your environment {#prepare}
+## Prepare the environment {#prepare}
 
 1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you do not have any. For convenience, you can use a separate folder named `alice-skill`.
@@ -72,7 +73,7 @@ In the `variables.json` file, set the project parameters:
 
 ### Create a secure-config.json file {#set-variables-secure-config}
 
-The `secure-config.json` file contains secrets. You can create it from the `secure-config-template.json` template. To do this, run the following command:
+The `secure-config.json` file contains secrets. You can create it from the `secure-config-template.json` template. To do this, run this command:
 
 ```bash
 cp secure-config-template.json secure-config.json

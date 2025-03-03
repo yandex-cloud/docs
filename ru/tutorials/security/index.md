@@ -17,6 +17,7 @@ description: Различные сценарии использования по
 * [{#T}](sa-oslogin-ansible.md)
 * [{#T}](protected-access-to-content/index.md)
 * [{#T}](audit-trails-events-to-kuma/index.md)
+* [{#T}](search-events-audit-logs/index.md)
 * [{#T}](wlif-github-integration.md)
 * [{#T}](wlif-gitlab-integration.md)
 * [{#T}](wlif-k8s-integration.md)

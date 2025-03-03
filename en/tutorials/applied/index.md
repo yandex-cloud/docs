@@ -27,12 +27,25 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 
 ## Internet of Things (IoT) {#iot}
 
+* [{#T}](../iot/mosquitto/mosquitto-publish.md)
+* [{#T}](../iot/mosquitto/mosquitto-subscribe.md)
+* [{#T}](../iot/android-java.md)
+* [{#T}](../iot/c-sharp.md)
+* [{#T}](../iot/java.md)
 * [Status monitoring of geographically distributed devices](../iot/datalens.md)
 * [Monitoring sensor readings and event notifications](../iot/monitoring.md)
+* [{#T}](../iot/message-delivery-check.md)
 * [Emulating multiple IoT devices](../testing/iot-emulation.md)
+* [{#T}](../iot/data-recording.md)
+
+## Alice {#alice}
+
+* [{#T}](../serverless/alice-skill.md)
+* [{#T}](../serverless/alice-shareable-todolist.md)
 
 ## Other {#other}
 
 * [Publishing game updates using {{ cdn-full-name }}](../web/prefetch.md)
 * [{#T}](../infrastructure-management/sap.md)
 * [{#T}](../infrastructure/minecraft-server.md)
+* [{#T}](../serverless/video-converting-queue.md)

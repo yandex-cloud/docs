@@ -131,7 +131,7 @@ items:
         href: tutorials/c-sharp.md
       - name: Working with Yandex IoT Core in Java
         href: tutorials/java.md
-      - name: Writing data from a device to Managed Service for PostgreSQL
+      - name: Writing data from a device into a database
         href: tutorials/data-recording.md
       - name: Status monitoring of geographically distributed devices
         href: tutorials/datalens.md

@@ -3,7 +3,7 @@
 
 In this tutorial, you will learn how to use serverless technologies to create a Slack bot that will run commands in a chat and respond to user messages.
 
-@[youtube](VmqFGYAPN_4)
+
 
 To create a bot:
 
@@ -19,7 +19,6 @@ To create a bot:
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of bot support includes:
@@ -27,11 +26,10 @@ The cost of bot support includes:
 * Fee for using the API gateway (see [{{ api-gw-full-name }}](../../api-gateway/pricing.md) pricing).
 * Fee for using functions (see [{{ sf-full-name }}](../../functions/pricing.md) pricing).
 
-
 ## Prepare the environment {#prepare}
 
-1. [Download](https://{{ s3-storage-host }}/doc-files/slackbot.zip) the archive with the files required to create a bot.
-1. If you do not have a folder yet, [create](../../resource-manager/operations/folder/create.md) one.
+1. Download](https://{{ s3-storage-host }}/doc-files/slackbot.zip) the file archive required to create a bot.
+1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 1. [Create](../../iam/operations/sa/create.md#create-sa) a service account named `sa-slack` and [assign](../../iam/operations/roles/grant.md#cloud-or-folder) it the `{{ roles-editor }}` role for your folder.
 
 ## Create an app and connect it to {{ yandex-cloud }} {#app}
@@ -46,7 +44,7 @@ The cost of bot support includes:
    1. In the **App Name** field, enter the name for the app: `ServerlessBotApp`.
    1. Select the available workspace and click **Create App**.
 
-1. Grant permissions to the `ServerlessBotApp app`:
+1. Grant permissions to `ServerlessBotApp`:
 
    1. In the app control menu, select **Features** → **OAuth & Permissions**.
    1. Under **Scopes** → **Bot Token Scopes**, click **Add an OAuth Scope** and add the following permissions: `chat:write`, `commands`, and `im:history`.
@@ -63,14 +61,14 @@ The cost of bot support includes:
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-slack` service account you created [earlier](#prepare).
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account you created [earlier](#prepare) (`sa-slack`).
 
-   1. Create a file named `index.py` and paste the contents of the `0_for-slack-bot-challenge.py` file from the [archive](#prepare) into it.
+   1. Create a file named `index.py` and paste into it the contents of the `0_for-slack-bot-challenge.py` file from the [archive](#prepare).
 
 1. [Create](../../api-gateway/operations/api-gw-create.md) an API gateway:
 
-   1. Specify the name: `for-slack-bot`.
-   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_spec }}**, add the `POST` method configuration to the `paths` parameter:
+   1. Enter `for-slack-bot` as the name.
+   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_spec }}** field, add the `POST` method configuration to the `paths` parameter:
 
       ```yaml
       paths:
@@ -89,21 +87,21 @@ The cost of bot support includes:
               function_id: <function_ID>
               service_account_id: <service_account_ID>
               operationId: slack-challenge
-      ```
+         ```
 
-      Where:
+         Where:
 
-      * `function_id`: ID of the `for-slack-bot-challenge` function.
-      * `service_account_id`: ID of the `sa-slack` service account.
+         * `function_id`: `for-slack-bot-challenge` ID.
+         * `service_account_id`: `sa-slack` service account ID
 
 ### Test the link between Slack and {{ yandex-cloud }} {#connect-test}
 
-1. Copy the service domain of the `for-slack-bot` API gateway.
+1. Copy the `for-slack-bot` API gateway's service domain.
 1. Select the `ServerlessBotApp` [app](https://api.slack.com/apps).
 1. In the app control menu, select **Features** → **Event Subscriptions**.
 1. Enable the **Enable Events** option.
-1. In the **Request URL** field, insert the API gateway's address and wait for the `Verified` entry to appear.
-1. In the **Subscribe to bot events** section, click **Add Bot User Event** and select the `message.im` event.
+1. In the **Request URL** field, paste the API gateway address and wait for the `Verified` entry to appear.
+1. Under **Subscribe to bot events**, click **Add Bot User Event** and select the `message.im` event.
 1. Click **Save Changes**.
 
 ## Get a token and a secret for the app {#env}
@@ -111,7 +109,7 @@ The cost of bot support includes:
 Select the `ServerlessBotApp` [app](https://api.slack.com/apps):
 
 1. In the app control menu, select **Settings** → **Basic Information**.
-1. Copy the **Signing Secret** value from the **App Credentials** section: it will be used for the `SLACK_SIGNING_SECRET` environment variable.
+1. Copy the **Signing Secret** value from the **App Credentials** section: this value will be used for the `SLACK_SIGNING_SECRET` environment variable.
 1. In the app control menu, select **Features** → **OAuth & Permissions**.
 1. In the **OAuth Tokens for Your Workspace** section, copy the **Bot User OAuth Token** value: it will be used for the `SLACK_BOT_TOKEN` environment variable.
 
@@ -133,9 +131,9 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-slack` service account you created [earlier](#prepare).
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account you created [earlier](#prepare) (`sa-slack`).
 
-   1. Create a file named `requirements.txt` and specify the following libraries in it:
+   1. Create a file named `requirements.txt` and specify these libraries in it:
 
       ```text
       slack_sdk
@@ -143,9 +141,9 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       boto3
       ```
 
-   1. Create a file named `index.py` and paste the contents of the `1_for-slack-bot-small-talk.py` file from the [archive](#prepare) into it.
+   1. Create a file named `index.py` and paste into it the contents of the `1_for-slack-bot-small-talk.py` file from the [archive](#prepare).
 
-   1. Add [environment variables](#env):
+   1. Add these [environment variables](#env):
       * `SLACK_BOT_TOKEN`
       * `SLACK_SIGNING_SECRET`
 
@@ -160,9 +158,9 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-slack` service account you created [earlier](#prepare).
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account you created [earlier](#prepare) (`sa-slack`).
 
-   1. Create a file named `requirements.txt` and specify the following libraries in it:
+   1. Create a file named `requirements.txt` and specify these libraries in it:
 
       ```text
       slack_sdk
@@ -170,14 +168,14 @@ Using functions, you can configure the bot's reactions to user actions in the ch
       boto3
       ```
 
-   1. Create a file named `index.py` and paste the contents of the `2_for-slack-bot-hello-from-serverless.py` file from the [archive](#prepare) into it.
-   1. Add [environment variables](#env):
+   1. Create a file named `index.py` and paste into it the contents of the `2_for-slack-bot-hello-from-serverless.py` file from the [archive](#prepare).
+   1. Add these [environment variables](#env):
       * `SLACK_BOT_TOKEN`
       * `SLACK_SIGNING_SECRET`
 
 ## Edit the API gateway {#edit-api-gw}
 
-To make sure the bot starts responding to user messages, link the created functions to the app. To do this, [edit](../../api-gateway/operations/api-gw-update.md) the specification of the `for-slack-bot` API gateway and add the `POST` method configurations to the `paths` parameter:
+To make sure the bot starts responding to user messages, link the created functions to the app. To do this, [edit](../../api-gateway/operations/api-gw-update.md) the `for-slack-bot` API gateway specification and add the `POST` method configurations to the `paths` parameter:
 
 ```yaml
   /:
@@ -198,13 +196,13 @@ To make sure the bot starts responding to user messages, link the created functi
 
 Where:
 
-* `service_account_id`: ID of the `sa-slack` service account.
-* `<ID_of_function_1>`: ID of the `for-slack-bot-small-talk` function.
-* `<ID_of_function_2>`: ID of the `for-slack-bot-hello-from-serverless` function.
+* `service_account_id`: `sa-slack` service account ID
+* `<function_1_ID>`: `for-slack-bot-small-talk` function ID
+* `<function_2_ID>`: `for-slack-bot-hello-from-serverless` function ID
 
 ## Add a command to Slack {#commands}
 
-Using [commands](https://api.slack.com/interactivity/slash-commands), you can set up the bot's actions in the chat. Commands start with a `/` character and their list is always visible to the user.
+Using [commands](https://api.slack.com/interactivity/slash-commands), you can set up the bot's actions in the chat. Commands start with `/` and their list is always visible to the user.
 
 {% note info %}
 
@@ -217,7 +215,7 @@ A command will not work if the relevant method is not configured for it in the [
 1. Add a command for the `for-slack-bot-hello-from-serverless` function:
 
    * In the **Command** field, enter `/hello-from-serverless`.
-   * In the **Request URL** field, paste the `url` from the `for-slack-bot` API gateway specification, adding the `/hello-from-serverless` command's URL to it.
+   * In the **Request URL** field, paste the `url` from the `for-slack-bot` API gateway specification, adding the `/hello-from-serverless` command URL to it.
    * In the **Short descriptions** field, enter any short description of the command.
    * Click **Save**.
 
@@ -226,12 +224,12 @@ A command will not work if the relevant method is not configured for it in the [
 
 ## Test the Slack bot {#test}
 
-Open the Slack client and choose a chat with the `ServerlessBotApp` bot under **Apps**.
+Open the Slack client and select a chat with the `ServerlessBotApp` bot under **Apps**.
 
 1. To test the `for-slack-bot-small-talk` function:
-   * Send a message saying `:wave:` in the chat. The bot should respond with `Hi there, @<username>!`.
-   * Send a message saying `knock knock` in the chat. The bot should respond with `Who's there?`.
-1. To test the `for-slack-bot-hello-from-serverless` function, send the `/hello-from-serverless` command in the chat. The bot should respond with `Thanks!`.
+   * Send the `:wave:` message to the chat. The bot should respond with: `Hi there, @<username>!`.
+   * Send the `knock knock` message to the chat. The bot should respond with: `Who's there?`.
+1. To test the `for-slack-bot-hello-from-serverless` function, send the `/hello-from-serverless` command in the chat. The bot should respond with: `Thanks!`.
 
 ## How to delete the resources you created {#clear-out}
 
