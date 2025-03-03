@@ -394,6 +394,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Чрезмерное увеличение журнала WAL](#excessive-wal)
 * [Ошибка при репликации из внешнего источника](#external-replication)
 * [Ошибка трансфера при переносе таблиц без первичных ключей](#primary-keys)
+* [Повторяющееся значение ключа нарушает уникальное ограничение](#duplicate-key)
 * [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
 * [Ошибка при переносе таблиц с генерируемыми столбцами](#generated-columns)
 
@@ -432,6 +433,8 @@ description: Из статьи вы узнаете, как задать наст
 {% include [external-replication](../../../../_includes/data-transfer/troubles/postgresql/external-replication.md) %}
 
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [duplicate-key](../../../../_includes/data-transfer/troubles/duplicate-key.md) %}
 
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 

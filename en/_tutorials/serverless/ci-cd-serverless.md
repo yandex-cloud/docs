@@ -11,7 +11,7 @@ The project uses two environments:
 
 For each environment, there is an individual {{ yandex-cloud }} [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) and separate static resources, e.g., the DB and [service accounts](../../iam/concepts/users/service-accounts.md). This isolates the environments from each other at the [{{ iam-full-name }}](../../iam/) settings level.
 
-There is also a common `infra` folder with a [registry](../../container-registry/) in [{{ container-registry-full-name }}](../../container-registry/concepts/registry.md) containing all app’s [Docker images](../../container-registry/concepts/docker-image.md). The system publishes the images under the `builder` service account. The `prod` and `testing` environment service accounts have restricted permissions in the `infra` folder limited to [pulling Docker images](../../container-registry/operations/docker-image/docker-image-pull.md).
+There is also a common `infra` folder with a in [{{ container-registry-full-name }}](../../container-registry/) [registry](../../container-registry/concepts/registry.md) containing all app’s [Docker images](../../container-registry/concepts/docker-image.md). The system publishes the images under the `builder` service account. The `prod` and `testing` environment service accounts have restricted permissions in the `infra` folder limited to [pulling Docker images](../../container-registry/operations/docker-image/docker-image-pull.md).
 
 To build a CI/CD pipeline with serverless products:
 1. [Create a {{ GL }} instance](#create-gitlab).
@@ -78,11 +78,9 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
 
 {% list tabs group=gl_installation %}
 
-
 - {{ mgl-name }} instance {#instance-mgl}
 
   Create a {{ mgl-name }} instance by following [this guide](../../managed-gitlab/quickstart.md#instance-create).
-
 
 - VM with a {{ GL }} image {#gl-image-vm}
 

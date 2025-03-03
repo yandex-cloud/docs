@@ -5,7 +5,7 @@ In this tutorial, you will set up a system to interactively debug {{ sf-full-nam
 
 To set up the interactive function debugging system:
 
-1. [Prepare your cloud environment](#prepare-cloud).
+1. [Get your cloud ready](#prepare-cloud).
 1. [Install the required utilities](#install-utilities).
 1. [Create a service account with the admin privileges for the cloud](#create-account).
 1. [Deploy your resources](#create-resources).
@@ -13,10 +13,9 @@ To set up the interactive function debugging system:
 
 If you no longer need the resources you created, [delete them](#clear-out).
  
-## Prepare your cloud environment {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -26,7 +25,6 @@ The infrastructure support costs include:
 * Fee for the number of requests to the API gateway (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 * Fee for logging operations and log storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
-
 
 ## Install the required utilities {#install-utilities}
 
@@ -44,7 +42,7 @@ The infrastructure support costs include:
     npm i -D @yandex-cloud/serverless-live-debug
     ```
 
-## Create a service account with the admin privileges for the cloud {#create-account}
+## Create a service account with admin permissions for the cloud {#create-account}
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md):
    
@@ -53,11 +51,11 @@ The infrastructure support costs include:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-live-debug`.
 
-          The name format requirements are as follows:
+          The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -112,7 +110,7 @@ The infrastructure support costs include:
     
       1. Make sure the configuration files are correct.
 
-          1. In the command line, go to the folder where you created the configuration file.
+          1. In the command line, go to the directory where you created the configuration file.
           1. Run a check using this command:
 
               ```bash
@@ -121,7 +119,7 @@ The infrastructure support costs include:
 
           If the configuration is specified correctly, the terminal will display information about the service account. If there are errors in the configuration, Terraform will point them out. 
 
-      1. Deploy cloud resources.
+      1. Deploy the cloud resources.
 
           1. If the configuration does not contain any errors, run this command:
 
@@ -142,7 +140,7 @@ The infrastructure support costs include:
     - Management console {#console}
 
       1. On the management console [home page]({{ link-console-main }}), select the cloud.
-      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-live-debug` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select the `{{ roles-admin }}` role.
@@ -150,7 +148,7 @@ The infrastructure support costs include:
 
     - CLI {#cli}
 
-      Run the following command:
+      Run this command:
 
       ```
       yc resource-manager cloud add-access-binding <cloud_ID> \
@@ -178,23 +176,23 @@ The infrastructure support costs include:
           Where:
 
           * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required parameter.
-          * `role`: Role you want to assign. This is a required parameter.
+          * `role`: Role to assign. This is a required parameter.
           * `member`: User or service account getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
 
           For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
       1. Make sure the configuration files are correct.
 
-          1. In the command line, go to the folder where you created the configuration file.
+          1. In the command line, go to the directory where you created the configuration file.
           1. Run a check using this command:
 
               ```
                terraform plan
               ```
 
-              If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+              If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-      1. Deploy cloud resources.
+      1. Deploy the cloud resources.
 
           1. If the configuration does not contain any errors, run this command:
 
@@ -210,7 +208,7 @@ The infrastructure support costs include:
 
 ## Deploy your resources {#create-resources}
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Set up the CLI profile to perform operations under the service account:
 
     {% list tabs group=instructions %}
 
@@ -227,7 +225,7 @@ The infrastructure support costs include:
 
           Where:
           * `--service-account-id`: `sa-live-debug` service account ID.
-          * `--folder-id`: ID of the folder in which the service account was created.
+          * `--folder-id`: ID of the service account folder.
           * `--output`: Name of the file with the authorized key.
 
           Result:
@@ -239,7 +237,7 @@ The infrastructure support costs include:
           key_algorithm: RSA_2048
           ```
 
-      1. Create a CLI profile to run operations on behalf of the service account:
+      1. Create a CLI profile to perform operations under the service account:
 
           ```
           yc config profile create sa-live-debug

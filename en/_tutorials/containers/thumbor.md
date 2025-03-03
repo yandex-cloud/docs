@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    1. [Create service accounts](../../iam/operations/sa/create.md):
 
-      * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
+      * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles for the folder](../../managed-kubernetes/security/index.md#yc-api) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
       * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry on behalf of this account.
 
@@ -63,7 +63,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * {{ managed-k8s-name }} cluster.
       * Node group.
-
+      
       * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -147,7 +147,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
       1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
       1. Refresh the page.
 
-      In the management console, the information about the number of objects in the bucket and used up space is updated with a few minutes delay.
+      In the management console, the information about the number of objects and storage space used in the bucket is updated with a few minutes' delay.
 
    - {{ TF }} {#tf}
 

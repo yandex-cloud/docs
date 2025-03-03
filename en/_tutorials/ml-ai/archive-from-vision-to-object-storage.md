@@ -4,7 +4,7 @@ With [{{ vision-name }}](../../vision/) and [{{ objstorage-full-name }}](../../s
 
 To set up an infrastructure for text recognition using {{ vision-name }} and export the results automatically to {{ objstorage-name }}:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a bucket](#create-bucket).
 1. [Create a VM](#create-vm).
 1. [Set up the VM](#configure-vm).
@@ -18,7 +18,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure costs for image recognition and data storage include:
@@ -26,7 +25,6 @@ The infrastructure costs for image recognition and data storage include:
 * Fee for data storage in a [bucket](../../storage/operations/index.md) and [operations](../../storage/concepts/bucket.md) with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using {{ vision-name }} (see [{{ vision-name }} pricing](../../vision/pricing.md)).
-
 
 ## Create a bucket {#create-bucket}
 
@@ -52,25 +50,25 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 - Management console {#console}
 
-  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `CentOS 7` and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` [disk](../../compute/concepts/disk.md#disks_types) type and specify the size: `19 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `20%`
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the access credentials for the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name. The naming requirements are as follows:
@@ -86,7 +84,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
 ### Set up the {{ yandex-cloud }} CLI {#configure-yc-cli}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. [Install](../../cli/quickstart.md#install) the {{ yandex-cloud }} CLI and [create](../../cli/quickstart.md#initialize) a profile.
 1. Make sure that the {{ yandex-cloud }} CLI runs correctly:
 
@@ -151,7 +149,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
       ```
 
       Where:
-      * `--role`: Role you want to assign.
+      * `--role`: Role to assign.
       * `--subject serviceAccount`: Service account ID.
   1. Create a [static access key](../../iam/concepts/authorization/access-key.md) for your service account:
 
@@ -243,13 +241,13 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    sudo yum install awscli -y
    ```
 
-1. Set up the AWS CLI:
+1. Configure the AWS CLI:
 
    ```bash
    aws configure
    ```
 
-   Specify the parameter values:
+   Specify these parameters:
    * `AWS Access Key ID`: Static access key ID (`key_id`) you got when [configuring the service account](#configure-sa).
    * `AWS Secret Access Key`: Secret key (`secret`) you got when [configuring the service account](#configure-sa).
    * `Default region name`: `{{ region-id }}`.

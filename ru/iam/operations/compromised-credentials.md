@@ -81,7 +81,7 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 Проанализируйте доступ к вашим ресурсам {{ yandex-cloud }}:
 
 1. [Изучите записи](../../logging/operations/read-logs.md) {{ cloud-logging-name }}.
-1. Выполните [поиск событий в бакете](../../audit-trails/tutorials/search-bucket.md) и [поиск событий в лог-группе](../../audit-trails/tutorials/search-cloud-logging.md) {{ at-name }}.
+1. Выполните [поиск событий](../../audit-trails/tutorials/search-events-audit-logs/index.md) в бакете или лог-группе {{ at-name }}.
 1. Убедитесь, что все события, в том числе связанные с утечкой секретов, соответствуют ожиданиям.
 
 {% note tip %}

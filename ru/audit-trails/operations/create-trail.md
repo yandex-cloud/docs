@@ -713,4 +713,4 @@
 
 * Узнайте о [формате аудитных логов](../concepts/format.md).
 * Узнайте о порядке [загрузки аудитных логов в SIEM](../concepts/export-siem.md).
-* Узнайте о [поиске по аудитным логам в бакете](../tutorials/search-bucket.md).
+* Узнайте о [поиске событий в аудитных логах](../tutorials/search-events-audit-logs/index.md).

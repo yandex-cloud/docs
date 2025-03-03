@@ -71,11 +71,11 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
    1. Go to `data-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `sa-for-datasphere`.
+   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-datasphere`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
-      * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image to create a node.
-      * `vpc.user` to use the {{ ml-platform-name }} network.
-      * `datasphere.user` to send requests to the node.
+      * `container-registry.images.puller`: To allow {{ ml-platform-name }} to pull your Docker image to create a node.
+      * `vpc.user`: To use the {{ ml-platform-name }} network.
+      * `datasphere.user`: To send requests to the node.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -199,15 +199,15 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. Select a community with a billing account linked.
 1. [Create a project](../../datasphere/operations/projects/create.md) named `Node from Docker`.
 1. [In the project settings](../../datasphere/operations/projects/update.md), specify:
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-datasphere`.
-1. [Create a secret](../../datasphere/operations/data/secrets.md) named `key-for-sa` to store the full contents of the authorized key file for the `sa-for-datasphere` service account.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-datasphere`
+1. [Create a secret](../../datasphere/operations/data/secrets.md) named `key-for-sa` by adding the contents of the authorized key file for the `sa-for-datasphere` service account without any changes whatsoever. 
 1. Create a node. To do this, click **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}** in the top-right corner of the project page. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.node }}**. Specify the node settings:
    1. Enter `fastapi` as the node name in the **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** field.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.common.docker }}**.
       * **{{ ui-key.yc-ui-datasphere.new-node.source }}**: Select **{{ ui-key.yc-ui-datasphere.new-node.ycr }}**.
-      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}**: Specify the path to the {{ container-registry-name }} image in the `{{ registry }}/<registry_ID>/<image_name>:<tag>` format. You can get it in the management console by copying the full value on the repository page. You can also fill out this field manually. You can get the registry ID in the CLI by running the `yc container registry list` command.
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}**: Specify the path to the {{ container-registry-name }} image in the `{{ registry }}/<registry_ID>/<image_name>:<tag>` format. You can get it in the management console by copying the full value on the repository page. You can also fill out this field manually. You can get the registry ID in the CLI by running the `yc container registry list` command.      
       * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: Select `key-for-sa`.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select **HTTP**.
@@ -218,7 +218,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
       * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}**: 9875.
    1. Enable **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}** and specify:
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}**: Select **HTTP**.
-      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}**: `0.0.0.0`.
+      * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}**: `/`.
       * **{{ ui-key.yc-ui-datasphere.common.port }}**: 9875.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}**: 1.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}**: 15.
@@ -233,7 +233,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. In the list of services, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
 1. Click the `Node from Docker` node you created.
-1. Go to the **{{ ui-key.yc-ui-datasphere.node-page.tab.request }}** tab.
+1. Navigate to the **{{ ui-key.yc-ui-datasphere.node-page.tab.request }}** tab.
 1. In the **{{ ui-key.yc-ui-datasphere.node-page.request.create-test-request }}** form, select the `GET` method.
 1. In the **Path** field, enter `/urls`.
 1. Click **{{ ui-key.yc-ui-datasphere.common.execute }}** to get a complete list of URIs to test performance and metrics.

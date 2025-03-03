@@ -22,14 +22,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin-datasphere.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The model operation cost includes:
 
 * Fee for bucket usage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for computing resource usage (see [{{ ml-platform-full-name }} pricing](../../datasphere/pricing.md)).
-
 
 ## Prepare the infrastructure {#deploy-infrastructure}
 
@@ -60,7 +58,7 @@ Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [n
    1. Go to `data-folder`:
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `sa-for-project`.
+   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-project`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `storage.viewer`: To read data from the {{ objstorage-name }} bucket.
       * `vpc.gateways.user`: To use a subnet.
@@ -109,11 +107,11 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
       1. Select the `data-folder` network.
       1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
          * In the window that opens, select **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** in the **{{ ui-key.yacloud.vpc.route-table-form.label_next-hop-address }}** field.
-         * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
+         * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will apply automatically.
          * Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
    1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
-   Link the route table to a subnet to route traffic from it via the NAT gateway:
+   Link the route table to one of the subnets to route traffic from it through the NAT gateway:
 
    1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
    1. In the row with the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
@@ -156,12 +154,12 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 ### Edit the project settings {#change-settings}
 
 1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
-1. Go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
+1. Navigate to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Specify the parameters:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-project`.
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: Subnet of the `{{ region-id }}-a` availability zone in `data-folder`.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: Subnet of the `{{region-id}}-a` availability zone in `data-folder`.
 
    {% include [subnet-create](../../_includes/subnet-create.md) %}
 
@@ -175,8 +173,8 @@ Create [secrets](../../datasphere/concepts/secrets.md) to store the ID and secre
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** on the project page, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret. Name the secret with the static key ID as `token`, and the secret with the secret part as `key_value`.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter a value to be stored in encrypted form.
-1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. This will display the created secret's info page.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter a value to store in encrypted form.
+1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. You will see a page with detailed info on the secret you created.
 
 ## Prepare notebooks {#set-notebooks}
 

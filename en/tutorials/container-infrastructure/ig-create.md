@@ -1,0 +1,1 @@
+{% include [ig-coi](../../_tutorials/containers/ig-create.md) %}

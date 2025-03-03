@@ -10,7 +10,7 @@ For information about {{ yagpt-full-name }} pricing, see [{#T}](../pricing.md).
 
 To get started in {{ yandex-cloud }}:
 
-1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md).
 
@@ -78,16 +78,19 @@ To get started in {{ yandex-cloud }}:
 
      ```json
      {
-       "modelUri": "gpt://<folder_ID>/yandexgpt-lite",
+       "modelUri": "gpt://<folder_ID>/yandexgpt",
        "completionOptions": {
          "stream": false,
          "temperature": 0.6,
-         "maxTokens": "2000"
+         "maxTokens": "2000",
+         "reasoningOptions": {
+           "mode": "DISABLED"
+         }
        },
        "messages": [
          {
            "role": "system",
-           "text": "Find and correct errors in the text."
+           "text": "Find errors in the text and correct them."
          },
          {
            "role": "user",
@@ -149,3 +152,4 @@ To get started in {{ yandex-cloud }}:
 
 * [Learn more about {{ yagpt-full-name }}](../concepts/index.md)
 * [Learn about API authentication methods](../api-ref/authentication.md)
+* 
