@@ -68,13 +68,17 @@ description: Follow this guide to create a WAF exclusion rule.
             * `exclude_all`: Exclusion will be valid for all rules. The possible values are `false` or `true`.
             * `rule_ids`: List of IDs for rules from the basic set for which the exclusion will be valid. To specify individual rules, set `exclude_all` to `false`.
 
-      For more information about the `sws_waf_profile` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about the `sws_waf_profile` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/sws_waf_profile).
 
-  1. Create resources:
+  1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the updates of your resources in the [management console]({{ link-console-main }}).
+  You can check the resources’ updates in the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+  Use the [update](../waf/api-ref/WafProfile/update.md) REST API method for the [WafProfile](../waf/api-ref/WafProfile/) resource or the [WafProfile/Update](../waf/api-ref/grpc/WafProfile/update.md) gRPC API call.
 
 {% endlist %}
 

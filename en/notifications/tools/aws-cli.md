@@ -7,19 +7,8 @@ description: The {{ cns-name }} HTTP API is compatible with the Amazon SNS API.
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
 
-{% include [ask-for-turning-on](../../_includes/notifications/ask-for-turning-on.md) %}
-
-{% include [about-service](../../_includes/notifications/about-service.md) %}
-
-{% include [channels-push-preview](../../_includes/notifications/channels-push-preview.md) %}
-
-With {{ cns-name }}, you can send notifications to apps registered in the following services:
-* [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
-* [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
-* [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
-
 To get started with the AWS CLI:
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Get a static access key](#static-key).
 1. [Set up the AWS CLI](#aws-cli).
 1. [Create a notification channel](#create-channel).
@@ -27,7 +16,7 @@ To get started with the AWS CLI:
 1. [Create an endpoint](#create-endpoint).
 1. [Send a notification](#publish).
 
-## Prepare your cloud environment {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -91,45 +80,8 @@ For more information about setting up the AWS CLI, see the [AWS documentation](h
 
 To create a [notification channel](../concepts/index.md#channels), run this command:
 
-```bash
-aws sns create-platform-application \
-  --name <channel_name> \
-  --platform GCM \
-  --attributes PlatformCredential=<FCM_API_key>
-```
+{% include [push-channel-create-aws](../../_includes/notifications/push-channel-create-aws.md) %}
 
-Where:
-* `--name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
-* `--platform`: Mobile platform type:
-  * `APNS` and `APNS_SANDBOX`: Apple Push Notification service (APNs). Use `APNS_SANDBOX` to test the application.
-  * `GCM`: Firebase Cloud Messaging (FCM).
-  * `HMS`: Huawei Mobile Services (HMS).
-* `--attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on platform:
-  * APNs:
-    * Token-based authentication:
-      * `PlatformPrincipal`: Path to the signature key file from Apple.
-      * `PlatformCredential`: Key ID.
-      * `ApplePlatformTeamID`: Team ID.
-      * `ApplePlatformBundleID`: Bundle ID.
-    * Certificate-based authentication:
-      * `PlatformPrincipal`: SSL certificate in `.pem` format.
-      * `PlatformCredential`: Certificate private key in `.pem` format.
-
-        {% include [convert-p12-to-pem](../../_includes/notifications/convert-p12-to-pem.md) %}
-
-    Token-based authentication is preferred as a more modern option.
-  * FCM: `PlatformCredential` is the Google Cloud service account key in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the legacy API.
-
-    We recommend escaping the file contents using the `jq @json <<< cat private_key.json` command, as the AWS CLI accepts this parameter in string format.
-
-    The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the legacy API starting from June 2024.
-  * HMS:
-    * `PlatformPrincipal`: Key ID
-    * `PlatformCredential`: API key
-
-As a result, you will get a notification channel ID (ARN). Save it for future use.
-
-For more information about the `aws sns create-platform-application` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).
 
 ## Get a list of notification channels {#list-channel}
 
@@ -145,19 +97,8 @@ For more information about the `aws sns list-platform-applications` command, see
 
 To create a [mobile endpoint](../concepts/index.md#mobile-endpoints), run the following command:
 
-```bash
-aws sns create-platform-endpoint \
-  --platform-application-arn <notification_channel_ARN> \
-  --token <push_token>
-```
+{% include [endpoint-create-aws](../../_includes/notifications/endpoint-create-aws.md) %}
 
-Where:
-* `--platform-application-arn`: Notification channel ID (ARN).
-* `--token`: Unique push token for the application on the user’s device.
-
-As a result, you will get a mobile endpoint ID (ARN). Save it for future use.
-
-For more information about the `aws sns create-platform-endpoint` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).
 
 ## Send a notification {#publish}
 

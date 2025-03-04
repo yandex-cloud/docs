@@ -11,7 +11,7 @@ NTP servers recommended for syncing:
 * `ntp0.NL.net`
 * `ntp2.vniiftri.ru`
 * `ntp.ix.ru`
-* `ntps1-1.cs.tu-berlin.de`
+* `ntps1-1.cs.tu-berlin.de`.
 
 {% note info %}
 
@@ -65,13 +65,10 @@ The cost of NTP clock synchronization includes fees for computing resources and 
       ```
 
   1. Specify the addresses of the recommended servers in the `FallbackNTP=` parameter of the `[Time]` section, e.g.:
-     
-      
+
       ```text
       FallbackNTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de
       ```
-
-
 
   1. In the `systemd.network` configuration file, specify the `UseNTP=true` parameter. You can normally find the configuration file in the `/etc/systemd/network/` or `/var/lib/systemd/network/` directory.
 
@@ -109,8 +106,7 @@ The cost of NTP clock synchronization includes fees for computing resources and 
       ```
 
   1. Specify the recommended server addresses. Comment out the default server addresses with `#` at the beginning of the lines. Here is an example:
-     
-      
+
       ```text
       # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
       # on 2011-02-08 (LP: #104525). See http://www.pool.ntp.org/join.html for
@@ -126,8 +122,6 @@ The cost of NTP clock synchronization includes fees for computing resources and 
       server ntp.ix.ru
       server ntps1-1.cs.tu-berlin.de
       ```
-
-
 
   1. Restart time synchronization:
 
@@ -155,13 +149,9 @@ The cost of NTP clock synchronization includes fees for computing resources and 
 
   1. Specify the recommended server addresses, e.g.:
 
-      
-
       ```powershell
       w32tm /config /syncfromflags:manual /manualpeerlist:"0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de"
       ```
-
-
 
       Result:
 
@@ -227,7 +217,6 @@ The cost of NTP clock synchronization includes fees for computing resources and 
 
   Result:
 
-  
   ```bash
       remote           refid      st t when poll reach   delay   offset  jitter
   ==============================================================================
@@ -243,8 +232,6 @@ The cost of NTP clock synchronization includes fees for computing resources and 
   185.125.190.58  145.238.203.14   2 u    -   64    1   57.460   -0.464   0.000
   ```
 
-
-
 - Windows Server {#windows}
 
   Run the command below and specify the VM name:
@@ -255,7 +242,6 @@ The cost of NTP clock synchronization includes fees for computing resources and 
 
   Result:
 
-  
   ```powershell
   ...
   [TimeProviders]
@@ -263,8 +249,6 @@ The cost of NTP clock synchronization includes fees for computing resources and 
   NtpServer: 0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de (Local)
   ...
   ```
-
-
 
 {% endlist %}
 

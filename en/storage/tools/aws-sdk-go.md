@@ -6,7 +6,7 @@ description: In this tutorial, you will learn what the AWS SDK for Go is, how to
 # AWS SDK for Go
 
 
-The [AWS SDK for Go](https://aws.amazon.com/ru/sdk-for-go/) is a software development kit for integration with AWS services in Go.
+The [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go/) is a software development kit for integration with AWS services in Go.
 
 ## Getting started {#before-you-begin}
 
@@ -20,11 +20,15 @@ The [AWS SDK for Go](https://aws.amazon.com/ru/sdk-for-go/) is a software develo
 
 ## Setup {#setup}
 
+### Configuring a directory for authentication data
+
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
+
+{% include [storage-sdk-setup-storage-env-variables](../_includes_service/storage-sdk-setup-storage-env-variables.md) %}
 
 ## Code snippets {#go-code-examples}
 
-Development of [AWS SDK v.1](https://github.com/aws/aws-sdk-go) for Go ended in July 2024. We recommend using the current [AWS SDK v.2](https://github.com/aws/aws-sdk-go-v2) development kit.
+[AWS SDK v.1](https://github.com/aws/aws-sdk-go) for Go stopped receiving updates in July 2024. We recommend upgrading to [AWS SDK v.2](https://github.com/aws/aws-sdk-go-v2).
 
 #### Getting a list of bucket names {#list-buckets}
 
@@ -84,7 +88,7 @@ Development of [AWS SDK v.1](https://github.com/aws/aws-sdk-go) for Go ended in 
 
   func main() {
 
-      // Creating a custom endpoint listener that will return the correct URL for the S3 service and the {{ region-id }} region
+      // Creating a custom endpoint resolver to return the correct URL for S3 and {{ region-id }}
       customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
           if service == s3.ServiceID && region == "{{ region-id }}" {
               return aws.Endpoint{
@@ -121,7 +125,7 @@ Development of [AWS SDK v.1](https://github.com/aws/aws-sdk-go) for Go ended in 
 
 #### Getting a list of bucket objects {#list-buckets}
 
-To get a list of objects in the bucket, provide its name in the `-b` command line parameter.
+To get a list of objects in a bucket, provide its name in the `-b` command line parameter.
 
 {% list tabs group=interface_relevance %}
 
@@ -160,7 +164,7 @@ To get a list of objects in the bucket, provide its name in the `-b` command lin
       // Creating a client to access S3 storage
       client := s3.NewFromConfig(cfg)
 
-      // Requesting a list of all files in the bucket
+      // Requesting a list of all bucket files
       result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
           Bucket: aws.String(*bucketName),
       })
@@ -200,7 +204,7 @@ To get a list of objects in the bucket, provide its name in the `-b` command lin
           return
       }
 
-      // Creating a custom endpoint listener that will return the correct URL for the S3 service and the {{ region-id }} region
+      // Creating a custom endpoint resolver to return the correct URL for S3 and {{ region-id }}
       customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
           if service == s3.ServiceID && region == "{{ region-id }}" {
               return aws.Endpoint{
@@ -221,7 +225,7 @@ To get a list of objects in the bucket, provide its name in the `-b` command lin
       // Creating a client to access S3 storage
       client := s3.NewFromConfig(cfg)
 
-      // Requesting a list of all files in the bucket
+      // Requesting a list of all bucket files
       result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
           Bucket: aws.String(*bucketName),
       })

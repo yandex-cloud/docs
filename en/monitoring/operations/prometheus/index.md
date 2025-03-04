@@ -41,7 +41,7 @@ Reading metrics | Data and metadata reads via the [HTTP API](https://prometheus.
 Visualization | [Expression browser](https://prometheus.io/docs/visualization/browser/), [Grafana](https://prometheus.io/docs/visualization/grafana/) | [{{ prometheus-name }} data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) is supported.
 Aggregation | Aggregation via [recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) is supported. | Existing [recording rules](recording-rules.md) (`recording rules`) in YAML format are supported. To upload and manage the files, use the {{ monitoring-name }} UI and API.
 Alerting | Aggregation via [alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) is supported. | Existing [alerting rules](alerting-rules.md) (`alerting rules`) in YAML format are supported. To upload and manage the files, use the {{ monitoring-name }} UI and API.
-Integrations | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/). | Existing libraries and exporters can be used.
+Integration options | Client [libraries](https://prometheus.io/docs/instrumenting/clientlibs/) and [exporters](https://prometheus.io/docs/instrumenting/exporters/). | Existing libraries and exporters can be used.
 
 {% include [alerting-rules-preview](../../../_includes/monitoring/alerting-rules-preview.md) %}
 

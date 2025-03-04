@@ -88,6 +88,61 @@ You can only attach a local disk to a VM on a [dedicated host](../../concepts/de
      yc compute instance start first-instance
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. If you have already created a secondary disk, [get](../disk-control/get-info.md) its ID.
+  1. Open the {{ TF }} configuration file with the description of the VM you want to attach the secondary disk to. See [an example of the VM configuration file](../vm-create/create-linux-vm.md#tf_1).
+  1. Depending on whether the secondary disk is already created, follow these steps:
+      * If the disk is already created, add the `secondary_disk` parameter to the `yandex_compute_instance` resource description section and specify the secondary disk ID in the `disk_id` value:
+
+        ```hcl
+        resource "yandex_compute_instance" "vm-1" {
+           ...
+           secondary_disk {
+              disk_id = "<disk_ID>"
+           }
+           ...
+        }
+        ```
+
+      * If the disk is not created, add a new section with the `yandex_compute_disk` resource description to the configuration file, add the `secondary_disk` parameter to the `yandex_compute_instance` resource description section, and specify the link to the ID of the created secondary disk in the `disk_id` value:
+
+        ```hcl
+        resource "yandex_compute_disk" "secondary-disk-1" {
+            name     = "secondary-disk-1"
+            type     = "network-hdd"
+            zone     = "<availability_zone>"
+            size     = "<disk_size>"
+        }
+
+        resource "yandex_compute_instance" "vm-1" {
+           ...
+           secondary_disk {
+              disk_id = yandex_compute_disk.secondary-disk-1.id
+           }
+           ...
+        }
+        ```
+
+      {% note info %}
+
+      The secondary disk and VM must be in the same availability zone.
+
+      {% endnote %}
+
+      For more information about the `yandex_compute_disk` resource parameters, see [this Terraform article]({{ tf-provider-datasources-link }}/compute_disk).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+
+
 - API {#api}
 
   Use the [attachDisk](../../api-ref/Instance/attachDisk.md) REST API method for the [Instance](../../api-ref/Instance/) resource or the [InstanceService/AttachDisk](../../api-ref/grpc/Instance/attachDisk.md) gRPC API call.

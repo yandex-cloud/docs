@@ -15,8 +15,9 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 - Management console {#console}
 
 
+
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** from the list of services.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../concepts/image.md).
@@ -117,7 +118,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
        zone                      = "<availability_zone>"
 
        resources {
-         cores  = <number_of_vCPU_cores>
+         cores  = <number_of_vCPUs>
          memory = <RAM_in_GB>
        }
 
@@ -154,7 +155,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
        * `type`: Disk [type](../../concepts/disk.md#disks_types).
-       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
        * `size`: Disk size in GB.
        * `image_id`: ID of the [image](../../concepts/image.md) to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
@@ -164,7 +165,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
        * `name`: VM name.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-       * `zone`: Availability zone the VM will be in.
+       * `zone`: Availability zone the VM will reside in.
        * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected platform.
        * `boot_disk`: Boot disk settings. Specify the disk ID.
        * `secondary_disk`: Secondary disk to connect to the VM. Specify the ID of the secondary disk. If there is no disk, [create](../disk-create/empty.md) one.
@@ -187,7 +188,7 @@ You can create a [VM](../../concepts/vm.md) from existing [disks](../../concepts
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

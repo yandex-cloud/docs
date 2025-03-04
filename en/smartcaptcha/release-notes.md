@@ -5,6 +5,10 @@ description: This section contains {{ captcha-name }} release notes.
 
 # {{ captcha-full-name }} release notes
 
+## January 2025 {#jan-2025}
+
+{{ captcha-name }} got certificates of compliance with [152-FZ, GOST R 57589, and PCI DSS](https://yandex.cloud/ru/security/standards).
+
 ## Q4 2024 {#q4-2024}
 
 {{ captcha-name }} has successfully passed an external audit for 152-FZ, GOST R 57589, and PCI DSS compliance.

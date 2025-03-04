@@ -4,7 +4,7 @@ To enable multiplayer mode in [Grand Theft Auto V](https://en.wikipedia.org/wiki
 
 To deploy a GTA V multiplayer server in {{ yandex-cloud }}:
 
-1. [Prepare your cloud environment](#prepare-cloud).
+1. [Get your cloud ready](#prepare-cloud).
 1. [Create a security group](#create-sg).
 1. [Create a VM for the GTA V server](#vm-gta-v).
 1. [Install the required utilities and packages](#install-tools).
@@ -13,18 +13,16 @@ To deploy a GTA V multiplayer server in {{ yandex-cloud }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud environment {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
-* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }}](../../vpc/pricing.md) pricing).
-
+* Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }}](../../vpc/pricing.md) pricing).
 
 ## Create a security group {#create-sg}
 
@@ -38,7 +36,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the security group name, e.g., `gta-v-sg`.
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `gta-v-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `default`.
    1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
@@ -57,7 +55,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
    ```bash
    ssh-keygen -t ed25519
    ```
-   We recommend leaving the key file name unchanged.
+   We recommend sticking with the default key file name.
 
 1. Create a VM with a public IP address:
 
@@ -65,14 +63,14 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
-      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for your VM.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}` [disk type](../../compute/concepts/disk.md#disks_types) and set the `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` size.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
           * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
           * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -87,7 +85,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser privileges, use the `sudo` command.
+          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
           * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `gta-v-server`.
@@ -97,7 +95,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
 
 ## Install the required utilities and packages {#install-tools}
 
-1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the created VM.
+1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM you created.
 1. Install the required `toolchain` packages from the Ubuntu-Toolchain repository, `libstdc++6`, `libatomic1`, and the `screen` utility to run the terminal session in background mode:
 
    ```bash
@@ -211,4 +209,4 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
 
 To stop paying for the resources you created:
 1. In {{ compute-name }}, [delete](../../compute/operations/vm-control/vm-delete.md) the VM you created.
-1. In {{ vpc-name }}, [delete](../../vpc/operations/security-group-delete.md) the created security group.
+1. In {{ vpc-name }}, [delete](../../vpc/operations/security-group-delete.md) the security group you created.

@@ -1,16 +1,12 @@
-# Testing applications with {{ GL }}
+# App testing with {{ GL }}
 
 [{{ GL }}](https://about.gitlab.com/) is a web-based Git repository management site and system. {{ GL }} also lets developers run a continuous process for writing, testing, and deploying code.
 
 In this scenario, you will set up {{ GL }} on a [virtual machine](../../compute/concepts/vm.md), create a single project in the C++ programming language, configure a project test script, and test its execution.
 
 To create and test a project in the {{ GL }} environment:
-1. [Prepare your cloud](#before-you-begin).
-
-
+1. [Get your cloud ready](#before-you-begin).
 1. [Required paid resources](#paid-resources).
-
-
 1. [Create a VM with {{ GL }}](#create-vm).
 1. [Configure {{ GL }}](#confgure-gitlab).
 1. [Set privacy settings](#disable-signup).
@@ -21,10 +17,9 @@ To create and test a project in the {{ GL }} environment:
 1. [Create an error in the project](#create).
 1. [How to delete the resources you created](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -32,28 +27,27 @@ The cost for maintaining a {{ GL }} server includes:
 * Fee for a [disk](../../compute/concepts/disk.md) and a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
+## Create a {{ GL }} VM {#create-vm}
 
-## Create a VM with {{ GL }} {#create-vm}
-
-1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Gitlab` and select a public [{{ GL }}](/marketplace/products/yc/gitlab) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` [disk type](../../compute/concepts/disk.md#disks_types) and set the `20 {{ ui-key.yacloud.common.units.label_gigabyte }}` size.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
     * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-    * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+    * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the access credentials for the VM:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
     * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `gitlab`.
@@ -64,22 +58,22 @@ Wait about five minutes for the VM to be created and for all its services to sta
 ## Configure {{ GL }} {#confgure-gitlab}
 
 1. On the {{ compute-name }} page, select the created VM named `gitlab` and copy its public IP address.
-1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM via SSH.
-1. Get the {{ GL }} administrator password using the following VM command:
+1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
+1. Get the {{ GL }} administrator password with the following VM command:
 
    ```bash
    sudo cat /etc/gitlab/initial_root_password
    ```
 
-1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-1. Open `http://<VM_public_IP_address>` in your browser. This will take you to the {{ GL }} web interface.
-1. Log in using the administrator account:
+1. Copy the password without spaces from the `Password` line to the clipboard or a separate file.
+1. In your browser, open `http://<VM_public_IP_address>`. This will take you to the {{ GL }} web interface.
+1. Log in as the administrator:
    * **Username or email**: `root`.
-   * **Password**: Password you copied earlier.
+   * **Password**: Password you copied in the previous step.
 
-   If you are unable to log in, [reset the administrator account password](https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password).
-1. [Change the administrator account password](https://docs.gitlab.com/ee/user/profile/#change-your-password).
-1. Log in to the system again using the administrator account and the new password.
+   If you are unable to log in, [reset the administrator password](https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password).
+1. [Change the administrator password](https://docs.gitlab.com/ee/user/profile/#change-your-password).
+1. Log in as the administrator with the new password.
 
 ### Set privacy settings {#disable-signup}
 
@@ -136,7 +130,7 @@ A Runner is a program that tests and builds projects in the {{ GL }} environment
 
 ### Configure and register a Runner {#configure-runner}
 
-1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM and change to administrator mode in the console:
+1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM and switch to administrator mode in the console:
 
    ```bash
    sudo -i
@@ -278,7 +272,7 @@ Now, make the project run with an error that the Runner should help you find dur
    ```
 
 1. Name your commit: `Wrong assert in test.cpp`.
-1. Click **Commit Changes**.
+1. Click **Commit changes**.
 
 Open **Build** → **Pipelines**. In the **Stages** column, you can see that, as a result of the test, the first stage, `build`, was passed successfully and the second stage, `test`, returned an error. The third stage, `pack`, was skipped and the build artifacts were not generated.
 
@@ -292,5 +286,5 @@ To stop paying for your deployed server, it is enough to delete the `gitlab` VM 
 
 If you reserved a static public IP address specifically for this VM:
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.
-1. Go to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
+1. Navigate to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
 1. Find the required address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.delete }}**.

@@ -6,24 +6,22 @@ In this tutorial, you will configure log transfer from a test Python application
 
 To set up log transfer:
 
-1. [Prepare your cloud environment](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Install and configure {{ unified-agent-full-name }}](#configure-ua).
 1. [Create and run a log-generating application](#generate-logs).
 1. [View the logs](#read-logs).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
 1. Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 1. Fee for logging operations and log storage in a log group (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
-
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -196,7 +194,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     1. In the [management console]({{ link-console-main }}), go to the folder you specified in the {{ unified-agent-full-name }} settings.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Select the `default` log group.
-    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
     1. The page that opens will show the log group records.
 
 - CLI {#cli}

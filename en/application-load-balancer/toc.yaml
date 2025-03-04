@@ -63,7 +63,7 @@ items:
             href: operations/application-load-balancer-relocate.md
           - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
-      - name: Viewing service resource operations
+      - name: Viewing operations with resources
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -80,20 +80,24 @@ items:
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
       - name: >-
-          Migrating services from a NLB to an L7 ALB for DDoS protection using
+          Creating an L7 load balancer with a {{ sws-name }} security profile
+          through an {{ alb-name }} Ingress controller
+        href: tutorials/alb-ingress-with-sws-profile.md
+      - name: >-
+          Migrating services from an NLB to an L7 ALB for DDoS protection using
           {{ sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md
           - name: NLB with target resources from VMs
             href: tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
-          - name: NLB with target resources from an instance group
+          - name: NLB load balancer with target resources from an instance group
             href: >-
               tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
           - name: NLB with target resources from a {{ managed-k8s-name }} cluster
             href: >-
               tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
-          - name: NLB as a target resource for an ALB
+          - name: NLB load balancer as a target resource for an ALB load balancer
             href: tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
       - name: Integrating an L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
@@ -123,8 +127,14 @@ items:
           Configuring logging for an {{ alb-name }} L7 load balancer using an
           Ingress controller
         href: tutorials/alb-ingress-controller-log-options.md
-      - name: Fault-tolerant website with load balancing using {{ alb-name }}
-        href: tutorials/application-load-balancer-website.md
+      - name: Fault-tolerant website with load balancing via {{ alb-name }}
+        items:
+          - name: Overview
+            href: tutorials/application-load-balancer-website/index.md
+          - name: Management console
+            href: tutorials/application-load-balancer-website/console.md
+          - name: '{{ TF }}'
+            href: tutorials/application-load-balancer-website/terraform.md
       - name: >-
           Health checking your apps in a {{ managed-k8s-name }} cluster using an
           {{ alb-name }} L7 load balancer
@@ -134,8 +144,8 @@ items:
           dedicated DMZ based on the next-generation firewall
         href: tutorials/high-accessible-dmz.md
       - name: >-
-          Creating an {{ alb-name }} L7 load balancer with a {{ sws-name }}
-          security profile
+          Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name }}
+          profile
         href: tutorials/balancer-with-sws-profile.md
   - name: Concepts
     items:

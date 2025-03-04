@@ -12,7 +12,7 @@ You can configure [{{ sf-name }}](../../functions/) to automatically respond to 
 
 In general, you will require the following components to configure responses via {{ sf-name }}:
 
-1. A trail uploads [audit logs to a log group](../operations/export-cloud-logging.md).
+1. A trail uploads [audit logs to a log group](../operations/create-trail.md).
 1. A [log group](../../logging/concepts/log-group.md) acts as an interface between a trail and a {{ sf-name }} trigger.
 1. A [{{ cloud-logging-full-name }} trigger](../../functions/concepts/trigger/cloud-logging-trigger.md) calls the function when adding an entry to a log group.
 1. A [{{ sf-name }} function](../../functions/concepts/function.md) to execute the response logic.

@@ -10,12 +10,13 @@ description: Install the {{ ca-name }} plugin for Visual Studio Code and JetBrai
 {% include [about-service](../_includes/code-assistant/about-service.md) %}
 
 To get started with the service:
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Install and configure the plugin](#install-plugin).
 1. [Test the plugin](#work-with-plugin).
 1. [Manage the plugin](#manage-plugin).
 
-## Prepare your cloud environment {#before-you-begin}
+
+## Get your cloud ready {#before-you-begin}
 
 {% note info %}
 
@@ -24,6 +25,7 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 {% endnote %}
 
 {% include [before-you-begin](../_includes/code-assistant/before-you-begin.md) %}
+
 
 ## Install and configure the plugin{#install-plugin}
 
@@ -108,6 +110,7 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
 {% endlist %}
 
+
 ## Test the plugin {#work-with-plugin}
 
 {% note info %}
@@ -172,6 +175,30 @@ How to work with {{ ca-name }}:
 
 You can also watch our {{ ca-name }} video tutorial [here](https://cloud.yandex.ru/services/code-assistant).
 
+### Suggestion indicator {#help-indicator}
+
+{% include [help-indicator-load](../_includes/code-assistant/help-indicator-load.md) %}
+
+To enable or disable the indicator:
+
+{% list tabs group=ide %}
+
+  - Visual Studio Code {#vscode}
+
+    1. Click the ![image](../_assets/code-assistant/vsc-icon-small.svg) plugin icon in the bottom-right panel.
+    1. In the menu that opens, select **Settings**.
+    1. In the settings window, enable or disable **Enable Empty Indicator** and **Enable Loading Indicator**.
+
+  - JetBrains IDE {#jb}
+
+    1. In the top-right corner, click ![image](../_assets/console-icons/gear.svg) and select **Settings...**.
+    1. In the left-hand column, select **Yandex Code Assistant**.
+    1. Enable or disable **Disable suggest indicator**.
+    1. Click **Save** to save the settings.
+
+{% endlist %}
+
+
 ## Manage the plugin {#manage-plugin}
 
 ### Enable or disable auto suggestions {#enable-disable-plugin}
@@ -186,6 +213,7 @@ You can enable or disable auto suggestions only in Visual Studio Code.
   1. In the list that opens, select ![image](../_assets/console-icons/triangle-right.svg) **Enable autotrigger** or ![image](../_assets/console-icons/stop.svg) **Disable autotrigger**.
 
 {% endlist %}
+
 
 ### Update the plugin {#update-plugin}
 
@@ -209,6 +237,7 @@ You can enable or disable auto suggestions only in Visual Studio Code.
 
 {% endlist %}
 
+
 ### Log out of the {{ yandex-cloud }} profile {#logout}
 
 To log out of your {{ yandex-cloud }} profile in the {{ ca-name }} plugin:
@@ -231,6 +260,7 @@ To log out of your {{ yandex-cloud }} profile in the {{ ca-name }} plugin:
 
 To re-authenticate in the plugin, follow the instructions described in step 3 of [{#T}](#install-plugin).
 
+
 ### Remove the plugin {#remove-plugin}
 
 {% list tabs group=ide %}
@@ -248,6 +278,7 @@ To re-authenticate in the plugin, follow the instructions described in step 3 of
   1. Confirm deletion and click **OK**.
 
 {% endlist %}
+
 
 #### See also {#see-also}
 

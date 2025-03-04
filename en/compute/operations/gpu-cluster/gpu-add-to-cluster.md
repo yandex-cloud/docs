@@ -11,7 +11,7 @@ In [GPU clusters](../../concepts/gpus.md#gpu-clusters), you can only create [VMs
 
 {% note info %}
 
-Currently, GPU clusters are only available in the`{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md). You can only add a VM to a GPU cluster from the same availability zone.
+Currently, GPU clusters are only available in the `{{ region-id }}-a` and `{{ region-id }}-d` [availability zones](../../../overview/concepts/geo-scope.md). You can only add a VM to a GPU cluster from the same availability zone.
 
 {% endnote %}
 
@@ -26,7 +26,7 @@ Currently, GPU clusters are only available in the`{{ region-id }}-a` [availabili
   export SUBNET_NAME="my-subnet-name"
   export SUBNET_ID=$(yc vpc subnet get --name=$SUBNET_NAME --format=json | jq -r .id)
   yc compute instance create --name node-gpu-test \
-    --create-boot-disk size=64G,image-id=<ID_of_image_with_drivers>,type=network-ssd \
+    --create-boot-disk size=64G,image-id=<image_ID_with_drivers>,type=network-ssd \
     --ssh-key=$HOME/.ssh/id_rsa.pub \
     --gpus 8 --cores 224 --memory=952G \
     --zone $YC_ZONE \
@@ -51,7 +51,7 @@ Currently, GPU clusters are only available in the`{{ region-id }}-a` [availabili
        type     = "<disk_type>"
        zone     = "{{ region-id }}-a"
        size     = "<disk_size>"
-       image_id = "<ID_of_image_with_drivers>"
+       image_id = "<image_ID_with_drivers>"
      }
 
      resource "yandex_compute_instance" "default" {

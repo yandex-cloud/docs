@@ -29,6 +29,9 @@ To add timecodes to a video:
 
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
   1. Start playback on the video preview page.
+
+     ![add-timecodes](../../../_assets/video/add-timecodes.png)
+     
   1. Fast-forward your video to check timecodes and chapter headers.
 
 {% endlist %}

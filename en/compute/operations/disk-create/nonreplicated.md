@@ -25,7 +25,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Add a description for the disk, if required.
-  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
   1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}` as the disk type.
   1. Select the required block size.
   1. Specify the required disk size.
@@ -51,8 +51,21 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
      yc compute disk create \
        --name nr-disk \
        --type network-ssd-nonreplicated \
-       --size 93
+       --size 93 \
+       --kms-key-id <key_ID>
      ```
+
+       Where:
+       * `--name`: Disk name.
+       * `--type`: Disk type.
+       * `--size`: Disk size.
+       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+         
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      Result:
 
@@ -64,6 +77,12 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
      block_size: "4096"
      status: READY
      disk_placement_policy: {}
+     hardware_generation:
+       legacy_features:
+         pci_topology: PCI_TOPOLOGY_V1
+     kms_key:
+       key_id: abjbaqdga6hs********
+       version_id: abj295dgqnlp********
      ```
 
 - {{ TF }} {#tf}
@@ -90,7 +109,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
        {% include [name-format](../../../_includes/name-format.md) %}
 
      * `size`: Non-replicated disk size, which must be a multiple of 93 GB.
-     * `block_size`: Block size in bytes (minimum storage unit on the disk). The maximum disk size depends on the specified block size. By default, block size is 4 KB for all new disks; however, this is not enough for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
+     * `block_size`: Block size in bytes (minimum storage unit on the disk). The maximum disk size depends on the specified block size. By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
      * `type`: Disk type. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
 
@@ -103,7 +122,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -111,9 +130,9 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
 
-        All the resources you need will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+        This will create all the resources you need in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
         ```bash
         yc compute disk list
@@ -175,7 +194,8 @@ You can only create a disk in an existing disk placement group.
          --name <disk_name> \
          --type network-ssd-nonreplicated \
          --size <disk_size> \
-         --disk-placement-group-name <placement_group_name>
+         --disk-placement-group-name <placement_group_name> \
+         --kms-key-id <key_ID>
        ```
 
        Where:
@@ -183,6 +203,13 @@ You can only create a disk in an existing disk placement group.
        * `--type`: Disk type.
        * `--size`: Disk size.
        * `--disk-placement-group-name`: Placement group name.
+       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+         
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
        Result:
 
@@ -194,6 +221,12 @@ You can only create a disk in an existing disk placement group.
        status: READY
        disk_placement_policy:
          placement_group_id: epdn946ilslh********
+       hardware_generation:
+         legacy_features:
+           pci_topology: PCI_TOPOLOGY_V1
+       kms_key:
+         key_id: abjbaqdga6hs********
+         version_id: abj295dgqnlp********
        ```
 
      * [Partition placement](../../concepts/disk-placement-group.md#partition):
@@ -213,6 +246,13 @@ You can only create a disk in an existing disk placement group.
        * `--size`: Disk size.
        * `--disk-placement-group-name`: Placement group name.
        * `--disk-placement-group-partition`: Partition number in the placement group.
+       * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+         
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
        Result:
 
@@ -224,6 +264,9 @@ You can only create a disk in an existing disk placement group.
        disk_placement_policy:
          placement_group_id: epdn946ilslh********
          placement_group_partition: 2
+       kms_key:
+         key_id: abjbaqdga6hs********
+         version_id: abj295dgqnlp********
        ```
 
 
@@ -235,4 +278,4 @@ You can only create a disk in an existing disk placement group.
 
 #### See also {#see-also}
 
-* [{#T}](../snapshot-control/create-schedule.md).
+* [{#T}](../snapshot-control/create-schedule.md)

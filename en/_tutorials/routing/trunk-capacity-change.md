@@ -13,7 +13,6 @@ Create a [new support request]({{ link-console-support }}) to change the capacit
 
 Follow this request format:
 
-
 ```s
 Subject: [CIC] Changing trunk capacity.
 

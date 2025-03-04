@@ -10,4 +10,6 @@ editable: false
 
 {% include [quotes-limits-def](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [maf-limits](../../_includes/mdb/maf/limits.md) %}

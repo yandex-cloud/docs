@@ -7,6 +7,7 @@ description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
 
 * [{#T}](virtual-hosting.md)
 * [{#T}](alb-with-ddos-protection/index.md)
+* [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
 * [{#T}](cdn-storage-integration.md)
 * [{#T}](blue-green-canary-deployment.md)
@@ -17,6 +18,6 @@ description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)
 * [{#T}](high-accessible-dmz.md)
-* [{#T}](application-load-balancer-website.md)
+* [{#T}](application-load-balancer-website/index.md)
 * [{#T}](custom-health-checks.md)
 * [{#T}](balancer-with-sws-profile.md)

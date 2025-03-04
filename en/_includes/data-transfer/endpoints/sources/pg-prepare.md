@@ -48,7 +48,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
     
     1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
     
-       Then specify the number of jobs and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
+       Then specify the number of workers and threads in the [transfer parameters](../../../../data-transfer/operations/transfer.md#create) under **Runtime environment**.
     
     1. Configure WAL monitoring. {#wal-setup-recommendation}
 

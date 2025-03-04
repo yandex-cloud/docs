@@ -3,9 +3,18 @@ title: '{{ iam-full-name }} release notes'
 description: This section contains {{ iam-name }} release notes.
 ---
 
+
 # {{ iam-full-name }} release notes
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
+
+
+## Q4 2024 {#q4-2024}
+
+* [Added](../iam/at-ref.md#data-plane-events) sending the `CreateIamToken` data event when creating an IAM token.
+* Expanded the scope of [limited lifetime API keys](./concepts/authorization/api-key.md#supported-services) to work with [{{ ydb-full-name }}](../ydb/) in compatibility mode with {{ PG }}, [{{ postbox-full-name }}](../postbox/), and [{{ serverless-containers-full-name }}](../serverless-containers/). {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
+* You can now see the service account's last authentication date and time. You can get the information in the `last_authenticated_at` field using the `yc iam user-account get` [{{ yandex-cloud}} CLI](../cli/cli-ref/iam/cli-ref/user-account/get) command. {{ tag-cli }}
+
 
 ## Q3 2024 {#q3-2024}
 
@@ -16,9 +25,11 @@ description: This section contains {{ iam-name }} release notes.
 * Added `All users in organization X` and `All users in federation N` [system groups](./concepts/access-control/system-group.md).
 * Added the {{ TF }} data source used to get the [service agent](./concepts/service-control.md#service-agent) ID. {{ tag-tf }}
 
+
 ## Q2 2024 {#q2-2024}
 
 * Added the last used date info for service account access keys. You can find this info on the service account page in the [management console]({{ link-console-main }}) or in the `last_used_at` field when using the API to invoke access key management methods. {{ tag-con }} {{ tag-api }}
+
 
 ## Q1 2024 {#q1-2024}
 

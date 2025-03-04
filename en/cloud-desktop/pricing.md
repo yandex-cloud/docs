@@ -10,17 +10,18 @@ editable: false
 
 {% note warning %}
 
-These prices apply starting February 25, 2025.
+The prices will take effect on February 25, 2025.
 
 {% endnote %}
 
-## What goes into the cost of using {{ sws-name }} {#rules}
+## What goes into the cost of using {{ cloud-desktop-name }} {#rules}
 
 The {{ cloud-desktop-name }} usage cost is based on:
-* Desktop computing resources:
-  * Number of cores (vCPUs).
+
+* Computing resources:
+  * Number of vCPUs.
   * Amount of RAM.
-* Type and size of storage.
+* Disk type and size.
 * Amount of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
@@ -29,15 +30,13 @@ The monthly prices are based on 720 hours per month.
 
 ### Using computing resources {#use-resources}
 
-The cost of a desktop depends on the allocated computing resources and usage time. Attached disks and network usage are charged separately.
+The cost of allocated computing resources is calculated based on how long the desktops were used: from when they get the `CREATING` (if creating) or `STARTING` (if starting) status until they are completely stopped. You are not charged for the time during which the desktops were stopped.
 
-The cost is calculated for the time of using the desktop, when the status switches to `CREATING` (during creation) or `STARTING` (during startup) until it is completely stopped. The time when the desktop is stopped is not charged.
-
-The desktop starts automatically once it is created.
+A desktop starts automatically once it is created.
 
 ### Using disks {#use-storage}
 
-Disks are charged for whether desktops are running or not.
+You are charged for disks whether the desktops are running or not.
 
 ## Prices for the Russia region {#prices}
 
@@ -45,17 +44,29 @@ Disks are charged for whether desktops are running or not.
 
 ### Computing resources {#prices-desktop-resources}
 
+{% list tabs group=pricing %}
 
+- Prices in RUB {#prices-rub}
 
-{% include [usd-nfs.md](../_pricing/cloud-desktop/usd-desktop-resources.md) %}
+  {% include [rub-desktop-resources.md](../_pricing/cloud-desktop/rub-desktop-resources.md) %}
 
+- Prices in KZT {#prices-kzt}
 
-### Disks and images {#prices-storage}
+  {% include [kzt-desktop-resources.md](../_pricing/cloud-desktop/kzt-desktop-resources.md) %}
 
+{% endlist %}
 
+### Disks {#prices-storage}
 
-{% include [usd-nfs.md](../_pricing/cloud-desktop/usd-storage.md) %}
+{% list tabs group=pricing %}
 
+- Prices in RUB {#prices-rub}
+
+  {% include [rub-storage.md](../_pricing/cloud-desktop/rub-storage.md) %}
+
+- Prices in KZT {#prices-kzt}
+
+  {% include [kzt-storage.md](../_pricing/cloud-desktop/kzt-storage.md) %}
 
 {% endlist %}
 

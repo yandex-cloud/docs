@@ -20,9 +20,9 @@ To connect to a VM via {{ oslogin }} with an SSH certificate using a standard SS
     * `<user_or_service_account_login>`: Previously obtained user or [service account](../../iam/concepts/users/service-accounts.md) login, as set in the {{ oslogin }} profile.
     * `<VM_public_IP_address>`: VM public IP address you saved earlier.
 
-    You can also see the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM, under **Connect to VM**, expand the **Connect via SSH client** section and select the **Certificate** tab.
+    You can also view the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM, under **{{ ui-key.yacloud.compute.instance.overview.field_access }}**, expand **{{ ui-key.yacloud.compute.instance.overview.label_ssh-connect-card-title }}** and select the **{{ ui-key.yacloud.compute.instance.overview.label_cert-connect-tab }}** tab.
 
-    If this is your first time connecting to the VM, you will see an unknown host warning:
+    If this is your first time connecting to the VM, you will get this unknown host warning:
 
     ```text
     The authenticity of host '158.160.**.** (158.160.**.**)' can't be established.
@@ -30,4 +30,4 @@ To connect to a VM via {{ oslogin }} with an SSH certificate using a standard SS
     Are you sure you want to continue connecting (yes/no)?
     ```
 
-    Type `yes` in the terminal and press **Enter**.
+    In the terminal, type `yes` and press **Enter**.

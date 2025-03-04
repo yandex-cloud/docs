@@ -127,6 +127,8 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Мониторинг показаний датчиков и уведомления о событиях
         href: tutorials/monitoring.md
+      - name: Настройка алертов в {{ monitoring-name }}
+        href: tutorials/alerts-monitoring.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Обзор

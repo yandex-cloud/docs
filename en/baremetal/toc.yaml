@@ -5,6 +5,7 @@ items:
   - name: Getting started
     href: quickstart.md
   - name: Step-by-step guides
+    extended: true
     items:
       - name: All guides
         href: operations/index.md
@@ -16,6 +17,8 @@ items:
             href: operations/servers/server-update.md
           - name: Stopping and starting a server
             href: operations/servers/server-stop-and-start.md
+          - name: Resetting a password on the server
+            href: operations/servers/reset-password.md
           - name: Cancel a server lease
             href: operations/servers/server-lease-cancel.md
           - name: Reinstalling the server OS
@@ -26,25 +29,22 @@ items:
             href: operations/servers/server-kvm.md
           - name: Replacing a disk in a RAID array
             href: operations/servers/switch-raid-member.md
-          - name: Rescue CD
-            items:
-              - name: Using Rescue CD
-                href: operations/servers/rescue-boot.md
-              - name: Resetting a password on the server
-                href: operations/servers/reset-password.md
-              - name: Adding a new user SSH key
-                href: operations/servers/add-new-ssh-key.md
-              - name: Restoring the OS bootloader
-                href: operations/servers/restore-grub.md
-      - name: Creating a VRF
-        href: operations/network-create.md
-      - name: Creating a subnet
-        href: operations/subnet-create.md
-      - name: Upload image
-        href: operations/image-upload.md
-      - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
-        href: operations/backup-baremetal.md
+          - name: Using Rescue CD
+            href: operations/servers/rescue-boot.md
+          - name: Adding a new user SSH key
+            href: operations/servers/add-new-ssh-key.md
+          - name: Restoring the OS bootloader
+            href: operations/servers/restore-grub.md
+          - name: Upload image
+            href: operations/image-upload.md
+      - name: Network
+        items:
+          - name: Creating a VRF
+            href: operations/network-create.md
+          - name: Creating a subnet
+            href: operations/subnet-create.md
   - name: Concepts
+    expanded: true
     items:
       - name: Overview
         href: concepts/index.md
@@ -58,6 +58,11 @@ items:
         href: concepts/traffic-restrictions.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Tutorials
+    expanded: true
+    items:
+      - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
+        href: operations/backup-baremetal.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

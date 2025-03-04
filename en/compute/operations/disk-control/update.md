@@ -211,7 +211,7 @@ You can also increase the size of any VM disk without restarting the VM. The wor
 
 - ext4
 
-  1. [Connect](../../operations/vm-connect/ssh.md) to the VM via SSH:
+  1. [Connect](../../operations/vm-connect/ssh.md) to the VM over SSH:
 
      ```bash
      ssh <username>@<VM_public_IP_address>
@@ -236,8 +236,14 @@ You can also increase the size of any VM disk without restarting the VM. The wor
 
      Disk partitions are listed under `NAME`. If the `MOUNTPOINTS` column contains a value for the partition you need, it means the partition is mounted.
 
-  1. Unmount the partition if you want to check and recover its file system before resizing the partition. Otherwise, proceed to the next step.
-  
+  1. (Optional) Check and recover the file system.
+
+     {% note info %}
+
+     Skip this step if you want to increase the root partition.
+
+     {% endnote %}
+
      1. Unmount the disk:
 
         ```bash
@@ -320,7 +326,7 @@ You can also increase the size of any VM disk without restarting the VM. The wor
 
 - xfs
 
-  1. [Connect](../../operations/vm-connect/ssh.md) to the VM via SSH:
+  1. [Connect](../../operations/vm-connect/ssh.md) to the VM over SSH:
 
      ```bash
      ssh <username>@<VM_public_IP_address>
@@ -361,7 +367,7 @@ You can also increase the size of any VM disk without restarting the VM. The wor
      CHANGED: partition=1 start=2048 old: size=67106816 end=67108864 new: size=134215647,end=134217695
      ```
 
-  1. Resize the file system:
+  1. Change the file system size:
 
      ```bash
      sudo xfs_growfs /data -d

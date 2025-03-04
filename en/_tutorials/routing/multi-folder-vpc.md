@@ -33,7 +33,7 @@ Depending on the selected management interface, steps to create `Multi-folder VP
 
 To create a test infrastructure and enable networking between resources:
 
-1. [Prepare your cloud environment](#prepare-cloud).
+1. [Get your cloud ready](#prepare-cloud).
 1. [Create folders without a {{ vpc-short-name }} network](#create-folders).
 1. [Create a {{ vpc-short-name }} cloud network with subnets](#create-vpc).
 1. [Move the subnets](#move-subnets).
@@ -42,18 +42,16 @@ To create a test infrastructure and enable networking between resources:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud environment {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
+The infrastructure support costs include:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+* Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ### Configure access permissions {#roles}
 
@@ -196,7 +194,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
    - CLI {#cli}
 
-     1. See the description of the CLI command for creating a cloud network:
+     1. View the description of the CLI command for creating a cloud network:
 
         ```bash
         yc vpc network create --help
@@ -394,11 +392,11 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-a`.
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the data for access to the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify a username: `ycuser`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username: `ycuser`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `net-vm`.
@@ -695,4 +693,4 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) `net-vm`, `dev-vm`, and `prod-vm`.
+To stop paying for the resources you created, [delete these VMs](../../compute/operations/vm-control/vm-delete.md): `net-vm`, `dev-vm`, and `prod-vm`.

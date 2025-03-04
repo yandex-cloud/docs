@@ -20,8 +20,6 @@ To connect to a VM via {{ oslogin }} with an SSH key using a standard SSH client
     * `<user_or_service_account_login>`: Previously obtained user or service account login, as set in the {{ oslogin }} profile.
     * `<VM_public_IP_address>`: VM public IP address you saved earlier.
 
-    You can also view the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM, under **Connect to VM**, expand **Connect via SSH client** and select the **SSH key** tab.
-
     If this is your first time connecting to the VM, you will get this unknown host warning:
 
     ```text
@@ -30,4 +28,4 @@ To connect to a VM via {{ oslogin }} with an SSH key using a standard SSH client
     Are you sure you want to continue connecting (yes/no)?
     ```
 
-    Type `yes` into the terminal and press **Enter**.
+    In the terminal, type `yes` and press **Enter**.

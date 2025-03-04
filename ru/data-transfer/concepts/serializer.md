@@ -187,6 +187,15 @@ Text string
     * пустая строка (значение по умолчанию) — не добавлять описание схемы;
     * строковое значение URL, определяющее путь к сервису реестра схем. 
 
+* **key.converter.dt.json.generate.closed.content.schema** и **value.converter.dt.json.generate.closed.content.schema** — определяют, будет ли схема производителя данных для ключа и значения генерироваться в закрытой контентной модели. Это нужно для проверки совместимости через конвертацию открытой модели потребителя в закрытую и поиск аналогичной схемы среди зарегистрированных для производителя схем. 
+
+    Значение по умолчанию — `true`, если включены соответствующие настройки **key.converter.schema.registry.url** и **value.converter.schema.registry.url**.
+
+    Если выбрать в пространстве имен {{ schema-registry-name }} политику проверки совместимости `Optional-friendly` и включить настройку:
+
+    * **key.converter.dt.json.generate.closed.content.schema**, то добавление и удаление опциональных полей в схему ключа не будет нарушать полную транзитивную совместимость схем.
+    * **value.converter.dt.json.generate.closed.content.schema**, то добавление и удаление опциональных полей в схему значения не будет нарушать полную транзитивную совместимость схем.
+
 * **key.converter.basic.auth.user.info** и **value.converter.basic.auth.user.info** — имя пользователя и пароль для авторизации в Confluent Schema Registry для ключей и значений при использовании конвертера `io.confluent.connect.json.JsonSchemaConverter`.
 
     Формат значения: `<имя_пользователя>:<пароль>`.

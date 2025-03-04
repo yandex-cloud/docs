@@ -1,4 +1,4 @@
-To connect to a VM instance via {{ oslogin }} with an SSH key using the YC CLI:
+To connect to a VM via {{ oslogin }} with an SSH key using the {{ yandex-cloud }} CLI:
 
 1. {% include [oslogin-connect-key-enable-in-org](../../_includes/compute/oslogin-connect-key-enable-in-org.md) %}
 1. {% include [oslogin-connect-instr-create-ssh-key](../../_includes/compute/oslogin-connect-instr-create-ssh-key.md) %}
@@ -23,7 +23,5 @@ To connect to a VM instance via {{ oslogin }} with an SSH key using the YC CLI:
     Where:
     * `--name`: Previously obtained VM name. You can specify the VM ID instead of its name by using the `--id` parameter.
     * `--identity-file`: Path to a private SSH key file, e.g., `/home/user1/.ssh/id_ed25519`.
-    * `--login`: Previously obtained user or service account login, as set in the {{ oslogin }} profile. This is an optional parameter. If this parameter is not specified, the connection will use the login specified in the default [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles) for the user or service account currently authorized in the YC CLI profile.
-    * (Optional) `--internal-address`: To connect using an internal IP address.
-
-    You can also see the command for VM connection in the [management console]({{ link-console-main }}). On the **{{ ui-key.yacloud.compute.instance.overview.label_title }}** page of the VM, under **Connect to VM**, expand the **Connect via the {{ yandex-cloud }} CLI interface** section and select the **SSH key** tab.
+    * `--login`: Previously obtained user or service account login, as set in the {{ oslogin }} profile. This is an optional parameter. If this parameter is not specified, the connection will use the login specified in the default [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles) for the user or service account currently authorized in the {{ yandex-cloud }} CLI profile.
+    * `--internal-address`: To connect using an internal IP address. This is an optional parameter.

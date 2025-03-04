@@ -30,16 +30,15 @@ Cloud site:
 To create the web service infrastructure:
 
 1. [Get your cloud ready](#before-begin).
-1. [Set up your remote site](#remote-setup).
-1. [Set up your cloud site](#cloud-setup).
-1. [Test the solution](#test).
+1. [Set up a remote site](#remote-setup).
+1. [Set up a cloud site](#cloud-setup).
+1. [Test the infrastructure](#test).
 
 If you no longer need the resources you created, [delete](#clear-out) them.
 
 ## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -80,7 +79,7 @@ Create a VM you will use to test whether your web service is accessible from the
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -251,7 +250,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 
             {% note alert %}
 
-            Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+            Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
 
             {% endnote %}
 
@@ -266,7 +265,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 
             The system will add the SSH key to your organization user profile.
 
-            If, due to restrictions, you cannot add SSH keys to your organization user profile, the system will save it to the new VM user profile.
+            If adding SSH keys by users to their profiles is disabled in the organization, the public SSH key will be saved only to the new VM's user profile.
        
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `web-node-a`.
     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -291,12 +290,12 @@ Create an IPSec VPN gateway to provide secure access to your cloud resources.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
         * Select `subnet-a`.
-        * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and then select the previously reserved IP address from the list that opens.
+        * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`. In the list that opens, select the IP address that you reserved.
         * Select the `vpn-sg` security group.
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}**, and specify the VM access credentials:
 
-        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, specify a username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
         * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn`.
@@ -356,7 +355,7 @@ To make static routes available in your cloud `network`, link the route table to
 
 ### Create a network load balancer {#create-load-balancer}
 
-The network load balancer will distribute incoming traffic across your web service VMs. 
+The network load balancer will distribute the internet service's incoming traffic across the VMs in the target group. 
 
 To create a network load balancer:
 

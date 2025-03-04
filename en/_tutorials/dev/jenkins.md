@@ -22,7 +22,6 @@ If you no longer need the VM or the cluster you created, [delete them](#clear-ou
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
@@ -78,7 +77,7 @@ To create a VM:
 
     {% endnote %}
 
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `15 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the parameters as follows:
 
@@ -106,7 +105,7 @@ To create a VM:
 
         {% note alert %}
 
-        Do not use `root` or other reserved usernames . To perform operations requiring root privileges, use the `sudo` command.
+        Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
 
         {% endnote %}
 
@@ -260,7 +259,7 @@ Jenkins launches an image build automatically after you run `push` in the `maste
    git clone https://github.com/<GitHub_login>/examples.git
    ```
 
-1. Modify the Packer templates in the `jenkins-packer/packer/` directory. You can find articles and guides regarding Packer templates on the [Packer website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the [image families](../../compute/concepts/image#family) for Jenkins to build.
+1. Modify the Packer templates in the `jenkins-packer/packer/` directory. You can find articles and guides regarding Packer templatess on the [Packer website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the [image families](../../compute/concepts/image#family) for Jenkins to build.
 1. Modify the Pipeline for `Jenkinsfile` located in the repository root directory. For the Pipeline user handbook, see the [Packer website](https://jenkins.io/doc/book/pipeline/syntax/).
 1. Upload the changes to GitHub:
 
@@ -313,7 +312,7 @@ This will create:
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 * [Delete the VMs you created](../../compute/operations/vm-control/vm-delete.md).
-* [Delete theimages you created](../../compute/operations/image-control/delete.md).
+* [Delete the images you created](../../compute/operations/image-control/delete.md).
 * [Delete the service account](../../iam/operations/sa/delete.md) and the `<username.json>` file.
 * [Delete the network and the subnets](../../vpc/operations/network-delete.md).
 

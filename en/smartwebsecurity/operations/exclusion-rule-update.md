@@ -61,13 +61,17 @@ description: Follow this guide to update a WAF exclusion rule.
       }
       ```
 
-      For more information about the `sws_waf_profile` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about the `sws_waf_profile` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the updates of your resources in the [management console]({{ link-console-main }}).
+  You can check the resources’ updates in the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+  Use the [update](../waf/api-ref/WafProfile/update.md) REST API method for the [WafProfile](../waf/api-ref/WafProfile/) resource or the [WafProfile/Update](../waf/api-ref/grpc/WafProfile/update.md) gRPC API call.
 
 {% endlist %}
 

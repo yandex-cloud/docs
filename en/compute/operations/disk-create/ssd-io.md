@@ -23,7 +23,7 @@ The disk size must be a multiple of 93 GB.
       {% include [name-format](../../../_includes/name-format.md) %}
   
   1. Add a description for the disk, if required.
-  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
   1. Select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}` as the disk type.
   1. Select the required block size.
   1. Specify the required disk size.
@@ -48,15 +48,30 @@ The disk size must be a multiple of 93 GB.
         --name ssd-io-disk \
         --zone {{ region-id }}-a \
         --type network-ssd-io-m3 \
-        --size 93G
+        --size 93G \
+        --kms-key-id <key_ID>
       ```
+
+      Where:
+
+      * `--name`: Disk name.
+      * `--zone`: Availability zone.
+      * `--type`: Disk type.
+      * `--size`: Disk size.
+      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+        
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
       Result:
 
       ```text
-      id: a7li08c1************
-      folder_id: aoerb349************
-      created_at: "2023-07-18T14:42:21Z"
+      id: a7li08c1fd8l********
+      folder_id: aoerb349fdhb********
+      created_at: "2024-11-25T21:22:20Z"
       name: ssd-io-disk
       type_id: network-ssd-io-m3
       zone_id: {{ region-id }}-a
@@ -64,6 +79,12 @@ The disk size must be a multiple of 93 GB.
       block_size: "4096"
       status: READY
       disk_placement_policy: {}
+      hardware_generation:
+        legacy_features:
+          pci_topology: PCI_TOPOLOGY_V1
+      kms_key:
+        key_id: abjbaqdga6hs********
+        version_id: abj295dgqnlp********
       ```
 
 - API {#api}

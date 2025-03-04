@@ -17,16 +17,16 @@ description: Из статьи вы узнаете, как задать наст
 ## Сценарии передачи данных в {{ KF }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-   
+
     Отдельной задачей миграции является зеркалирование данных между очередями:
-    * [Зеркалирование {{ KF }}](../../../tutorials/mkf-to-mkf.md)    
+    * [Зеркалирование {{ KF }}](../../../tutorials/mkf-to-mkf.md)
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
   
     * [Захват изменений из {{ MY }} и поставка в {{ KF }}](../../../tutorials/cdc-mmy.md);
     * [Захват изменений {{ ydb-short-name }} и поставка в {{ KF }}](../../../tutorials/cdc-ydb.md);
     * [Захват изменений из {{ PG }} и поставка в {{ KF }}](../../../tutorials/cdc-mpg.md).
-    
+
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Поставка данных из очереди {{ DS }} в {{ KF }}](../../../tutorials/yds-to-kafka.md)
 
@@ -164,9 +164,9 @@ description: Из статьи вы узнаете, как задать наст
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-    
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
-    
+
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}** — укажите имя топика, в который будут отправляться сообщения. Выберите **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.save_tx_order.title }}**, чтобы не разбивать поток событий на независимые очереди по таблицам.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}** — укажите префикс топика, аналог настройки `Debezium database.server.name`. Сообщения будут отправляться в топик с именем `<префикс_топика>.<схема>.<имя_таблицы>`.
@@ -201,7 +201,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
 
-### {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
+### Настройки сериализации {#serializer}
 
 {% list tabs group=instructions %}
 

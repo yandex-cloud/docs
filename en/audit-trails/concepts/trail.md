@@ -11,13 +11,13 @@ A trail is an {{ at-name }} resource for collecting and delivering audit logs of
 ## Audit log collection scope {#collecting-area}
 
 In the trail settings, you can choose where to collect audit logs from:
-* Organization: Audit logs of service resources in selected clouds of the organization hosting the trail.
-* Cloud: Audit logs of service resources that are located in selected folders of the cloud hosting the trail.
-* Folder: Audit logs from the folder hosting the trail.
+* Organization: Audit logs of resources of the services in selected clouds of the organization.
+* Cloud: Audit logs of resources of the services residing in selected folders of the cloud.
+* Folder: Audit logs of the folder.
 
-The trail will collect audit logs of all the [resources](./events.md) within the specified scope, including resources added to this scope after the trail was created, and upload them to a bucket, a log group, or a data stream.
+The trail will collect the audit logs of all the [resources](./events.md) within the specified scope, including those added to the scope after the trail was created, and upload them to a bucket, log group, or data stream. 
 
-If resources are added to the audit log collection scope after the trail was created, the trail will automatically start collecting audit logs for them.
+If resources are added to the audit log collection scope after the trail was created, the trail will automatically start collecting audit logs for them. 
 
 ## Destination object {#target}
 

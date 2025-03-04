@@ -60,8 +60,8 @@ description: Follow this guide to get information about {{ interconnect-name }} 
       * `id`: Private connection ID.
       * `name`: Private connection name.
       * `folder_id`: ID of the cloud folder the private connection was created in.
-      * `region_id`: Region of the cloud the private connection was created in.
-      * `trunk_connection_id`: Trunk connection ID the private connection belongs to.
+      * `region_id`: Cloud region the private connection was created in.
+      * `trunk_connection_id`: ID of the trunk the private connection belongs to.
       * `vlan_id`: VLAN ID for the private connection
       * IP and BGP connectivity parameters for the private connection’s point-to-point subnet:
          * `peering_subnet`: [Point-to-point subnet](../../interconnect/concepts/priv-con.md#priv-address) for BGP peering.

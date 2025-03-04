@@ -19,7 +19,7 @@ After the solution is deployed in {{ yandex-cloud }}, the following resources wi
 | `test-registry` | Registry in {{ container-registry-name }}. |
 | `container-registry-<registry_ID>` | Bucket name in {{ objstorage-name }} for storing Docker images, where `<registry_ID>` is the registry ID. {{ container-registry-name }} automatically creates a bucket for the registry in {{ objstorage-name }}. |
 | `cr-subnet-a`, `cr-subnet-b` | Cloud subnets to host NAT instances in the `{{ region-id }}-a` and `{{ region-id }}-b` zones. |
-| `test-cr-vm` | Test VM to verify access to {{ container-registry-name }}. |
+| `test-cr-vm` | Test VM to check access to {{ container-registry-name }}. |
 | `test-cr-subnet-a` | Cloud subnet to host the test VM. |
 
 `*` *When deploying, you can also specify an existing cloud network.*
@@ -36,11 +36,11 @@ By placing the NAT instances in multiple [availability zones](../../overview/con
 
 Only the cloud resources that use this solution can access the registry. The [registry access policy](../../container-registry/operations/registry/registry-access.md) allows registry actions only from public IP addresses of NAT instances. You cannot access the registry from other IP addresses. You can disable this limitation by specifying a parameter in {{ TF }}, if required.
 
-For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-cr-private-endpoint). 
+For more information, see the project repository [here](https://github.com/yandex-cloud-examples/yc-cr-private-endpoint). 
 
 To deploy a cloud infrastructure to provide access to {{ container-registry-short-name }} for resources located in the {{ vpc-short-name }} cloud network:
 
-1. [Prepare your cloud](#prepare-cloud).
+1. [Get your cloud ready](#prepare-cloud).
 1. [Configure the CLI profile](#setup-profile).
 1. [Prepare the environment](#prepare-environment).
 1. [Deploy your resources](#create-resources).
@@ -49,10 +49,9 @@ To deploy a cloud infrastructure to provide access to {{ container-registry-shor
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -66,7 +65,7 @@ The infrastructure support cost includes:
 
 ### Required quotas {#required-quotes}
 
-Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) not being used by resources for other jobs.
+Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) that are not currently used by resources for other tasks.
 
 {% cut "Number of occupied resources created in the scenario" %}
 
@@ -102,9 +101,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, e.g., `sa-terraform`.
+      1. Specify the service account name, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -140,7 +139,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service account is located.
-      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) -> ![image](../../_assets/console-icons/pencil.svg)**{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click ![image](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog that opens and select the `admin` role.
 
@@ -155,7 +154,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    - API {#api}
 
-      To assign the service account a role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a service account a role for a folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -169,13 +168,13 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          ```
          yc iam key create \
          --service-account-id <service_account_ID> \
-         --folder-id <ID_of_folder_with_service_account> \
+         --folder-id <service_account_folder_ID> \
          --output key.json
          ```
          Where:
          * `service-account-id`: Service account ID.
-         * `folder-id`: ID of the folder in which the service account was created.
-         * `output`: Name of the file with the authorized key.
+         * `folder-id`: ID of the service account folder.
+         * `output`: Name of the authorized key file.
 
          Result:
          ```
@@ -185,7 +184,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to run operations on behalf of the service account:
+      1. Create a CLI profile to perform operations under the service account:
          ```
          yc config profile create sa-terraform
          ```
@@ -218,7 +217,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ### Install the required utilities {#install-utilities}
 
-1. Install [Git](https://en.wikipedia.org/wiki/Git) using the following command:
+1. Install [Git](https://en.wikipedia.org/wiki/Git) using this command:
 
    ```bash
    sudo apt install git
@@ -259,7 +258,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | `subnet_prefix_list` | - | List of prefixes of cloud subnets to host the NAT instances (one subnet in each availability zone from the `yc_availability_zones` list in the same order). | `list(string)` | `["10.10.1.0/24", "10.10.2.0/24"]` |
    | `nat_instances_count` | - | Number of NAT instances to deploy. We recommend setting an even number to evenly distribute the instances across the availability zones. | `number` | `2` |
    | `registry_private_access` | - | Only allow registry access from public IP addresses of NAT instances. `true` means the access is limited. To remove the limit, set `false`. | `bool` | `true` |
-   | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets that {{ container-registry-short-name }} access is allowed for. It is used in the rule for incoming traffic of security groups for the NAT instances.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
+   | `trusted_cloud_nets` | Yes | List of aggregated prefixes of cloud subnets for which {{ container-registry-short-name }} access is allowed. It is used in the rule for incoming traffic of security groups for the NAT instances.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
    | `vm_username` | - | NAT instance and test VM user names. | `string` | `admin` |
    | `cr_ip` | - | {{ container-registry-short-name }} public IP address | `string` | `84.201.171.239` |
    | `cr_fqdn` | - | {{ container-registry-short-name }} domain name | `string` | `{{registry}}` | 
@@ -288,7 +287,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
       terraform plan
       ```
 
-   1. Create resources:
+   1. Create the resources:
 
       ```bash
       terraform apply
@@ -395,7 +394,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. Make sure the `hello-world` repository with the Docker image appears in the registry.
 
-## Tips for deployment in the production environment {#deployment-requirements}
+## Tips for solution deployment in the production environment {#deployment-requirements}
 
 * When deploying NAT instances in multiple availability zones, set an even number of VMs to evenly distribute them across the availability zones.
 * When selecting the number of NAT instances, consider the [locality of traffic handling by the internal load balancer](../../network-load-balancer/concepts/specifics.md#nlb-int-locality).

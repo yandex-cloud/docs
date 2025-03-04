@@ -23,7 +23,7 @@ The following can be the data source or target:
 | AWS CloudTrail message stream                                                                                                        |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
 | Your own BigQuery database                                                                                                      |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
 | {{ CH }} database: Your own or as part of [{{ mch-short-name }}](../../managed-clickhouse/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| Your own {{ ES }} database                                                                                                                                                                                |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| Your own {{ ES }} database                                                                                                      |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | {{ GP }} database: Your own or as part of [{{ mgp-short-name }}](../../managed-greenplum/)                             |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | {{ MG }} database: Your own or as part of [{{ mmg-short-name }}](../../managed-mongodb/)                               |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | {{ MY }} database: Your own or as part of [{{ mmy-short-name }}](../../managed-mysql/)                                 |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
@@ -32,9 +32,24 @@ The following can be the data source or target:
 | {{ OS }} database: Your own or as part of [{{ mos-short-name }}](../../managed-opensearch/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | S3-compatible bucket |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
 | [{{ yds-full-name }}](../../data-streams/) data stream                                                                               |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ ydb-name }} database: As part of [{{ ydb-name }}](../../ydb/)                                                           |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ ydb-name }} database: as part of [{{ ydb-name }}](../../ydb/).                                                           |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | [{{ objstorage-full-name }}](../../storage/) bucket                                                                                    |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | 
+
+### Endpoint statuses {#statuses}
+
+As part of the {{ data-transfer-name }} [transition](../release-notes/2501.md) to [asynchronous operations](../../api-design-guide/concepts/async.md) with endpoints, we introduce endpoint statuses as follows:
+
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}**: Endpoint is ready to use.
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-CREATING }}**: Endpoint create operation has started. When the operation is complete, the endpoint status changes to **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}**.
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-UPDATING }}**: Endpoint update operation has started. When the operation is complete, the endpoint status changes to **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}**.
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-DELETING }}**: Endpoint delete operation has started.
+
+{% note info %}
+
+All new endpoints you create will be asynchronous. Older endpoints will remain synchronous and can only have the **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}** status.
+
+{% endnote %}
 
 ## Transfer {#transfer}
 

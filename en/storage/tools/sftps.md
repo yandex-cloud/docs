@@ -87,25 +87,25 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
    * `FTP_RSA_PRIVATE_KEY_FILE`: Path to the private key of the TLS certificate inside the Docker container. The default value is `/secrets/ftp.key`.
 1. Run the Docker container:
 
-   {% list tabs %}
+   {% list tabs group=protocols %}
 
-   - SFTP
-
-     ```bash
-     docker run -d -it \
-       --cap-add SYS_ADMIN \
-       --device /dev/fuse \
-       --security-opt apparmor:unconfined \
-       --env-file env.list \
-       -v <full_path_to_secrets_folder>:/secrets \
-       -p 1022:22 \
-       --name ftp \
-       {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
-     ```
+   - SFTP {#sftp}
+    
+      ```bash
+      docker run -d -it \
+        --cap-add SYS_ADMIN \
+        --device /dev/fuse \
+        --security-opt apparmor:unconfined \
+        --env-file env.list \
+        -v <full_path_to_secrets_folder>:/secrets \
+        -p 1022:22 \
+        --name ftp \
+        {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}
+      ```
 
      The server will accept connections on port 1022.
 
-   - FTP(S)
+   - FTP(S) {#ftp}
 
      ```bash
      docker run -d -it \
@@ -123,6 +123,28 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
      ```
 
      The server will accept connections on port 1021. Also, port 21100 is open for passive mode (the `FTP_PASV_ENABLE` variable); if you are not using this mode, the `--expose 21100` and `-p 21100:21100` options are not required.
+
+   {% endlist %}
+
+1. Connect to the server:
+
+   {% list tabs group=protocols %}
+
+   - SFTP {#sftp}
+    
+      ```bash
+      sudo sftp -i <path_to_private_SSH_key> -P 1022 s3@localhost
+      ```
+
+      After a successful connection, you will have access to a console for interfacing with the SFTP server.
+
+   - FTP {#ftp}
+
+     ```bash
+     ftp -P 1021 s3@localhost
+     ```
+
+     After a successful connection, you will have access to a console for interfacing with the FTP server.
 
    {% endlist %}
 

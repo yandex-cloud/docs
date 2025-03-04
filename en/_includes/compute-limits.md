@@ -1,42 +1,102 @@
-#### Quotas {#compute-quotas}
+## Quotas {#compute-quotas}
 
+
+### Quotas for instances and instance groups {#vm-quotas}
+
+#|
+|| Type of limit | Value ||
+|| Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) | 12 ||
+|| Total virtual memory across all VMs per cloud | 128 GB ||
+|| Number of [instance groups](../compute/concepts/instance-groups/index.md) per cloud | 10 ||
+|| Maximum number of [VM placement groups](../compute/concepts/placement-groups.md) per cloud | 2 ||
+|| Maximum number of VMs per partition in a VM placement group with the [partition placement](../compute/concepts/placement-groups.md#partition) strategy | 100 ||
+|| Maximum number of [security groups](../vpc/concepts/security-groups.md) per [network interface](../compute/concepts/network.md)
+
+{% note warning %}
+
+You can increase this quota only upon agreement with your account manager.
+
+{% endnote %}
+
+| 5 ||
+|#
+
+### vCPU quotas {#vcpu-quotas}
 
 Type of limit | Value
 --- | ---
-Number of [virtual machines](../compute/concepts/vm.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) | 12
 Total number of [vCPUs](../compute/concepts/performance-levels.md) across all VMs per cloud | 32
 Total number of {{ highfreq-ice-lake }} vCPUs across all VMs per cloud | 0
-Total virtual memory across all VMs per cloud | 128 GB
+
+### GPU quotas {#gpu-quotas}
+
+Type of limit | Value
+--- | ---
+Total number of NVIDIA® Tesla® V100 [GPUs](../compute/concepts/gpus.md) across all VMs per cloud | 0
+Total number of {{ a100-epyc }} GPUs across all VMs per cloud | 0
+Total number of {{ t4-ice-lake }} GPUs across all VMs per cloud | 0
+Total number of {{ t4i-ice-lake }} GPUs across all VMs per cloud | 0
+
+### Disk quotas {#disk-quotas}
+
+Type of limit | Value
+--- | ---
 Total number of [disks](../compute/concepts/disk.md) per cloud | 32
 Total [HDD storage](../compute/concepts/disk.md#disks-types) capacity per cloud | 500 GB
 Total SSD storage capacity per cloud | 200 GB
 Total non-replicated SSD storage capacity per cloud | 558 GB
 Total capacity of ultra high-speed network SSD storages with three replicas per cloud | 186 GB
 Number of [non-replicated disk placement groups](../compute/concepts/disk-placement-group.md) per cloud| 5
-Total number of [disk snapshots](../compute/concepts/snapshot.md) per cloud | 32
-Total storage capacity of all disk snapshots per cloud | 400 GB
-Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud | 32
+
+### File storage quotas {#fs-quotas}
+
+Type of limit | Value
+--- | ---
 Total number of [file storages](../compute/concepts/filesystem.md) per cloud^1^ | 100
 Total [HDD](../compute/concepts/filesystem.md#types) file storage size per cloud^1^ | 0 B
 Total SSD file storage size per cloud^1^ | 0 B
+
+### Image quotas {#image-quotas}
+
+Type of limit | Value
+--- | ---
 Number of [images](../compute/concepts/image.md) per cloud | 8
+Total volume of images per cloud | 1,024 GB
 Number of [images optimized for deployment](../compute/concepts/image.md#images-optimized-for-deployment) per cloud^1^ | 0
-Number of [instance groups](../compute/concepts/instance-groups/index.md) per cloud | 10
-Total number of NVIDIA® Tesla® V100 [GPUs](../compute/concepts/gpus.md) across all VMs per cloud | 0
-Total number of {{ a100-epyc }} GPUs across all VMs per cloud | 0
-Total number of {{ t4-ice-lake }} GPUs across all VMs per cloud | 0
-Total number of {{ t4i-ice-lake }} GPUs across all VMs per cloud | 0
-Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15
-Maximum number of [VM placement groups](../compute/concepts/placement-groups.md) per cloud | 2
-Maximum number of VMs per partition in a VM placement group with the [partition placement](../compute/concepts/placement-groups.md#partition) strategy | 100
+
+{% note info %}
+
+When deploying optimized images, the quotas for the number of images per cloud and the total volume of images per cloud also apply. If you need to, send a request to [support]({{ link-console-support }}) to increase these quotas.
+
+{% endnote %}
+
+### Snapshot quotas {#snapshot-quotas}
+
+Type of limit | Value
+--- | ---
+Total number of [disk snapshots](../compute/concepts/snapshot.md) per cloud | 32
+Total storage capacity of all disk snapshots per cloud | 400 GB
+Number of [disk snapshot schedules](../compute/concepts/snapshot-schedule.md) per cloud | 32
+
+### Dedicated host quotas {#dedicated-host-quotas}
+
+Type of limit | Value
+--- | ---
 Number of [dedicated hosts](../compute/concepts/dedicated-host.md) per dedicated host group^1^ | 0
 Number of dedicated host groups per cloud | 6
-Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8
+
+### Other quotas {#compute-other-quotas}
+
+Type of limit | Value
+--- | ---
+Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15
 
 
-^1^ To increase [quotas]({{ link-console-quotas }}) for file storages, deployment-optimized images or dedicated hosts, contact [support]({{ link-console-support }}).
+^1^ To increase [quotas]({{ link-console-quotas }}) for file storages, deployment-optimized images, or dedicated hosts, contact [support]({{ link-console-support }}).
 
-#### VM limits {#compute-limits-vm}
+## Limits {#compute-limits}
+
+### VM limits {#compute-limits-vm}
 
 Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
@@ -51,7 +111,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   Maximum virtual memory per VM | Without GPU: 256 GB<br>With GPU: 384 GB
   Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 18 vCPUs: 8<br>From 18 vCPUs: 16^3^
   Maximum number of GPUs connected to a single VM | 4
-  Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5
+  Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
   Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
 
 - Intel Cascade Lake {#cascade}
@@ -62,7 +122,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   Maximum virtual memory per VM | Without GPU: 1,280 GB<br>With GPU: 384 GB
   Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 20 vCPUs: 8<br>From 20 vCPUs: 16^3^
   Maximum number of GPUs connected to a single VM | 8
-  Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5
+  Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
   Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
 
 
@@ -73,7 +133,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   Maximum number of vCPUs per VM | 96
   Maximum virtual memory per VM | 640 GB
   Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 32 vCPUs: 8<br>More than 32 vCPUs: 16^3^
-  Maximum number of [security groups](../vpc/concepts/security-groups.md) per interface | 5
+  Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
   Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
 
 
@@ -84,7 +144,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   Maximum number of vCPUs per VM | 56
   Maximum virtual memory per VM | 448 GB
   Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 32 vCPUs: 8<br>More than 32 vCPUs: 16^3^
-  Maximum number of security groups per interface | 5
+  Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
   Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
 
 
@@ -94,7 +154,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 ^3^ At startup, you can connect no more than 14 devices to a VM, including the boot disk and network card. You should connect other devices when your VM is already running. Please note that if you restart a VM with more than 14 devices connected, it will not be able to boot.
 
-#### VM limits on disk operations {#compute-limits-vm-disks}
+### VM limits on disk operations {#compute-limits-vm-disks}
 
 {% list tabs group=disks %}
 
@@ -134,7 +194,7 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 {% endlist %}
 
-#### Disk and file storage limits {#compute-limits-disks}
+### Disk and file storage limits {#compute-limits-disks}
 
 {% list tabs group=disks %}
 
@@ -230,17 +290,17 @@ Read and write operations utilize the same disk resource. The more read operatio
 
 ^5^ For maximum bandwidth, we recommend 4 MB reads and writes.
 
-#### Limits of disk snapshot schedules {#compute-limits-snapshot-schedule}
+### Limits of disk snapshot schedules {#compute-limits-snapshot-schedule}
 
 Type of limit | Value
 --- | ---
 Number of disks added to a schedule | 1,000
 Number of schedules a disk is added to | 1,000
 
-#### Other limits {#compute-other-limits}
+### Other limits {#compute-other-limits}
 
 Type of limit | Value
 --- | ---
 Time to complete processes when stopping a VM^6^ | 30 seconds
 
-^6^ When a VM stops, the hypervisor sends a shutdown signal to the VM operating system. The OS needs to terminate the current processes nice and easy within the next 30 seconds to avoid data loss. After this time elapses, the VM process is forced to stop.
+^6^ When a VM stops, the hypervisor sends a shutdown signal to the VM operating system. The OS has 30 seconds to gracefully terminate all running processes to avoid data loss. After this time elapses, the VM will be forcibly terminated.

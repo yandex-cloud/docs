@@ -16,13 +16,14 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
 - Management console {#console}
 
   To create a route table and add [static routes](../concepts/routing.md):
+
   1. In the [management console]({{ link-console-main }}), go to the folder you need to create a static route in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Enter a name for the route table. The naming requirements are as follows:
 
-     {% include [name-format](../../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
 
   1. (Optional) Add a description of a route table.
   1. Select the network to create the route table in.
@@ -43,94 +44,101 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
 - CLI {#cli}
 
   To create a route table and add [static routes](../concepts/routing.md):
+
   1. View the description of the CLI command for creating route tables:
 
-     ```
-     yc vpc route-table create --help
-     ```
+      ```bash
+      yc vpc route-table create --help
+      ```
 
   1. Get the IDs of cloud networks in your cloud:
 
-     ```
-     yc vpc network list
-     ```
+      ```bash
+      yc vpc network list
+      ```
 
-     Result:
-     ```
-     +----------------------+-----------------+
-     |          ID          |      NAME       |
-     +----------------------+-----------------+
-     | enp34hbpj8dq******** | yc-auto-subnet  |
-     | enp846vf5fus******** | routes-test     |
-     +----------------------+-----------------+
-     ```
+      Result:
+
+      ```text
+      +----------------------+-----------------+
+      |          ID          |      NAME       |
+      +----------------------+-----------------+
+      | enp34hbpj8dq******** | yc-auto-subnet  |
+      | enp846vf5fus******** | routes-test     |
+      +----------------------+-----------------+
+      ```
 
   1. Create a route table in one of the networks:
 
-     ```bash
-     yc vpc route-table create \
-       --name=test-route-table \
-       --network-id=enp846vf5fus******** \
-       --route destination=0.0.0.0/0,next-hop=192.168.1.5
-     ```
+      ```bash
+      yc vpc route-table create \
+        --name=<table_name> \
+        --network-id=<network_ID> \
+        --route destination=<destination_prefix>,next-hop=<internal_IP_address>
+      ```
 
-     Where:
+      Where:
 
-     * `--name`: Name of the route table.
-     * `--network-id`: ID of the network the table will be created in.
-     * `--route`: Route settings, which include these two parameters:
-        * `destination`: Destination subnet prefix in CIDR notation.
-        * `next-hop`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be sent through.
+      * `--name`: Name of the route table.
+      * `--network-id`: ID of the network the table will be created in.
+      * `--route`: Route settings, which include these two parameters:
 
-     Result:
-     ```
-     ...done
-     id: enpsi6b08q2v********
-     folder_id: b1gqs1teo2q2********
-     created_at: "2019-06-24T09:57:54Z"
-     name: test-route-table
-     network_id: enp846vf5fus********
-     static_routes:
-     - destination_prefix: 0.0.0.0/0
-       next_hop_address: 192.168.1.5
-     ```
+          * `destination`: Destination subnet prefix in CIDR notation, e.g., `0.0.0.0/0`.
+          * `next-hop`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be sent through, e.g., `192.168.1.5`.
+
+      Result:
+
+      ```text
+      ...done
+      id: enpsi6b08q2v********
+      folder_id: b1gqs1teo2q2********
+      created_at: "2019-06-24T09:57:54Z"
+      name: test-route-table
+      network_id: enp846vf5fus********
+      static_routes:
+      - destination_prefix: 0.0.0.0/0
+        next_hop_address: 192.168.1.5
+      ```
 
   To use static routes, link the route table to a subnet:
 
   1. Get a list of subnets in your cloud:
 
-     ```
-     yc vpc subnet list
-     ```
+      ```bash
+      yc vpc subnet list
+      ```
 
-     Result:
-     ```
-     +----------------------+------------------+----------------------+----------------+---------------+------------------+
-     |          ID          |       NAME       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
-     +----------------------+------------------+----------------------+----------------+---------------+------------------+
-     | b0cf2b0u7nhl******** | subnet-1         | enp846vf5fus******** |                | {{ region-id }}-a | [192.168.0.0/24] |
-     +----------------------+------------------+----------------------+----------------+---------------+------------------+
-     ```
+      Result:
+
+      ```text
+      +----------------------+------------------+----------------------+----------------+---------------+------------------+
+      |          ID          |       NAME       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
+      +----------------------+------------------+----------------------+----------------+---------------+------------------+
+      | b0cf2b0u7nhl******** | subnet-1         | enp846vf5fus******** |                | {{ region-id }}-a | [192.168.0.0/24] |
+      +----------------------+------------------+----------------------+----------------+---------------+------------------+
+      ```
 
   1. Link the route table to one of the subnets:
 
-     ```
-     yc vpc subnet update b0cf2b0u7nhl******** --route-table-id enp1sdveovdp********
-     ```
+      ```bash
+      yc vpc subnet update <subnet_ID> \
+        --route-table-id <route_table_ID>
+      ```
 
-     Result:
-     ```
-     ..done
-     id: b0cf2b0u7nhl********
-     folder_id: b1gqs1teo2q2********
-     created_at: "2019-03-12T13:27:22Z"
-     name: subnet-1
-     network_id: enp846vf5fus********
-     zone_id: {{ region-id }}-a
-     v4_cidr_blocks:
-     - 192.168.0.0/24
-     route_table_id: enp1sdveovdp********
-     ```
+      Result:
+
+      ```text
+      ..done
+      id: b0cf2b0u7nhl********
+      folder_id: b1gqs1teo2q2********
+      created_at: "2019-03-12T13:27:22Z"
+      name: subnet-1
+      network_id: enp846vf5fus********
+      zone_id: {{ region-id }}-a
+      v4_cidr_blocks:
+      - 192.168.0.0/24
+      route_table_id: enp1sdveovdp********
+      ```
 
 - {{ TF }} {#tf}
 
@@ -140,59 +148,70 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
 
   To create a route table and add [static routes](../concepts/routing.md):
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
-     * `name`: Name of the route table. The name format is as follows:
+     * `name`: Name of the route table. The name should match the following format:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
      * `network_id`: ID of the network the table will be created in.
      * `static_route`: Static route description:
+
         * `destination_prefix`: Destination subnet prefix in CIDR notation.
         * `next_hop_address`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be routed through.
 
      Here is an example of the configuration file structure:
 
      ```hcl
-     resource "yandex_vpc_route_table" "lab-rt-a" {
-       name       = "<route_table_name>"
+     resource "yandex_vpc_route_table" "test-route-table" {
+     name       = "<route_table_name>"
        network_id = "<network_ID>"
        static_route {
-         destination_prefix = "10.2.0.0/16"
-         next_hop_address   = "172.16.10.10"
+         destination_prefix = "<destination_prefix>"
+         next_hop_address   = "<internal_IP_address>"
        }
      }
      ```
 
-     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `netword id` field, e.g. `network_id = "${yandex_vpc_network.lab-net.id}"`.
+     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `network_id` field, e.g., `network_id = yandex_vpc_network.test_route_table.id`.
 
-     For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
+     For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
-        ```
+        ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
-        ```
+        ```bash
         terraform apply
         ```
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
-        ```
+        ```bash
         yc vpc route-table list
+        ```
+
+        Result:
+
+        ```text
+        +----------------------+-----------------------+-------------+----------------------+
+        |          ID          |         NAME          | DESCRIPTION |      NETWORK-ID      |
+        +----------------------+-----------------------+-------------+----------------------+
+        | enpahlhr1vnl******** | terraform-route-table |             | enp0asmd9pr9******** |
+        +----------------------+-----------------------+-------------+----------------------+
         ```
 
 - API {#api}
@@ -200,24 +219,121 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
   To create a route table and add [static routes](../concepts/routing.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request:
 
   * ID of the folder the route table will reside in, in the `folderId` parameter.
-  * Route table name in the `name` parameter. The name format is as follows:
+  * Route table name in the `name` parameter. The name should match the following format:
 
-     {% include [name-format](../../_includes/name-format.md) %}
+      {% include [name-format](../../_includes/name-format.md) %}
+
   * ID of the network the route table will reside in, in the `networkId` parameter.
   * Destination subnet prefix in CIDR notation in the `staticRoutes[].destinationPrefix` parameter.
   * Internal IP address of the VM the traffic will be routed through in the `staticRoutes[].nextHopAddress` parameter. The IP address must be within the [allowed range](../concepts/network.md#subnet).
 
   To use static routes, link the route table to a subnet. Use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call and provide the following in the request:
 
-  * Network ID in the `subnetId` parameter.
+  * Subnet ID in the `subnetId` parameter.
 
-    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
+      {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 
-    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
+      {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
   * Route table ID in the `routeTableId` parameter.
-  * The name of the `routeTableId` parameter in the `updateMask` parameter.
+  * Name of the `routeTableId` parameter in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Example {#example}
+
+Create a route table and associate it with your subnet. The example uses the following properties:
+
+* Folder ID: `b1g681qpemb4********`
+* Network ID: `enp846vf5fus********`
+* Subnet ID: `b0cf2b0u7nhl********`
+* Route table name: `test-route-table`
+* Destination subnet prefix: `0.0.0.0/0`
+* Internal IP address: `192.168.1.5`
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  1. Create a route table:
+
+      ```bash
+      yc vpc route-table create \
+        --name=test-route-table \
+        --network-id=enp846vf5fus******** \
+        --route destination=0.0.0.0/0,next-hop=192.168.1.5
+      ```
+
+  1. Associate the route table with you subnet:
+
+      ```bash
+      yc vpc subnet update b0cf2b0u7nhl******** \
+        --route-table-id enp1sdveovdp********
+      ```
+
+- {{ TF }} {#tf}
+
+  1. In the configuration file, list the route table properties and specify `route_table_id` for your subnet:
+
+      ```hcl
+      resource "yandex_vpc_route_table" "test_route_table" {
+        name       = "test-route-table"
+        network_id = "enp846vf5fus********"
+        static_route {
+          destination_prefix = "0.0.0.0/0"
+          next_hop_address   = "192.168.1.5"
+        }
+      }
+
+      resource "yandex_vpc_subnet" "example_subnet" {
+        name           = "example-subnet"
+        network_id     = "enp846vf5fus********"
+        zone           = {{ region-id }}-a
+        v4_cidr_blocks = ["10.2.0.0/16"]
+        # Associating the route table with the subnet 
+        route_table_id = yandex_vpc_route_table.test_route_table.id
+      }
+      ```
+
+      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
+
+  1. Make sure the settings are correct.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Apply the changes.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- API {#api}
+
+  1. To create a route table, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request body:
+
+      ```api
+      {
+        "folderId": "b1g681qpemb4********",
+        "name": "test-route-table",
+        "networkId": "enp846vf5fus********",
+        "staticRoutes": [
+          {
+            "destinationPrefix": "0.0.0.0/0",
+            "nextHopAddress": "192.168.1.5"
+          }
+        ]
+      }
+      ```
+
+  1. To associate a route table with a subnet, use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call, and provide the following in the request body:
+
+      ```api
+      {
+        "updateMask": "routeTableId",
+        "subnet": {
+          "routeTableId": "enpfs106jh40********"
+        }
+      }
+      ```
 
 {% endlist %}

@@ -10,8 +10,8 @@ This section describes how to connect a bucket in Windows. When connecting in ot
 
 To mount your bucket as a disk:
 
-1. [Prepare your cloud environment](#before-begin).
-1. [Set up a work environment](#environment-prepare).
+1. [Get your cloud ready](#before-begin).
+1. [Set up your working environment](#environment-prepare).
 1. [Create a service account](#create-sa).
 1. [Create a static access key](#create-static-key).
 1. [Create a bucket](#bucket-create).
@@ -26,7 +26,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Required paid resources {#paid-resources}
 
 The cost for bucket support includes:
@@ -35,8 +34,7 @@ The cost for bucket support includes:
 * Fee for operations with data (see [{{ objstorage-name }}](../../storage/pricing.md#prices-operations) pricing).
 
 
-
-## Set up a working environment {#environment-prepare}
+## Set up your working environment {#environment-prepare}
 
 1. Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the developer website.
 1. Download the [archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/) from the developer's website and unpack it to your local working folder.
@@ -53,7 +51,7 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
@@ -71,7 +69,7 @@ The cost for bucket support includes:
   yc iam service-account create --name sa-win-disk-connect
   ```
 
-  The name format requirements are as follows:
+  The naming requirements are as follows:
 
   {% include [name-format](../../_includes/name-format.md) %}
 
@@ -181,16 +179,16 @@ The cost for bucket support includes:
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
   
      1. If the configuration does not contain any errors, run this command:
 
@@ -198,7 +196,7 @@ The cost for bucket support includes:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
 
 - API {#api}
 

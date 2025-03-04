@@ -78,7 +78,7 @@ To create an API key:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
@@ -146,7 +146,7 @@ To create an API key:
 
 - CLI {#cli}
 
-  To view available scopes of an API key, run this command:
+  To view available [scopes](../../concepts/authorization/api-key.md#scoped-api-keys) of an API key, run this command:
 
   ```bash
   yc iam api-key list-scopes
@@ -154,14 +154,24 @@ To create an API key:
 
   Result:
 
-  
+
   ```text
+  - yc.ai.foundationModels.execute
+  - yc.ai.imageGeneration.execute
+  - yc.ai.languageModels.execute
+  - yc.ai.speechkitStt.execute
+  - yc.ai.speechkitTts.execute
+  - yc.ai.translate.execute
+  - yc.ai.vision.execute
+  - yc.monitoring.manage
+  - yc.monitoring.read
   - yc.postbox.send
+  - yc.search-api.execute
+  - yc.serverless.containers.invoke
+  - yc.serverless.functions.invoke
   - yc.ydb.tables.manage
   - yc.ydb.topics.manage
   ```
-
-
 
 - API {#api}
 

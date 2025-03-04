@@ -25,14 +25,12 @@ If you no longer need the infrastructure, [delete all the resources it uses](#cl
 
 {% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The Active Directory installation cost includes:
-* Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using dynamic or static [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -70,11 +68,11 @@ Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-networ
    - Management console {#console}
 
        To create a subnet:
-       1. Open the **{{ vpc-name }}** section in the folder where you need to create a subnet.
-       1. Click the name of the cloud network.
+       1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
+       1. Click the cloud network name.
        1. Click **Add subnet**.
        1. Fill out the form: enter `ad-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
-       1. Enter the subnet CIDR: IP address and `10.1.0.0/16` as subnet mask.
+       1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`.
        1. Click **Create subnet**.
 
        Repeat these steps for two more subnets:
@@ -83,7 +81,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) named `ad-networ
 
    - CLI {#cli}
 
-       To create subnets, run the following commands:
+       To create subnets, run these commands:
 
        ```bash
        yc vpc subnet create \
@@ -137,7 +135,7 @@ Create two VMs for Active Directory domain controllers. These VMs will not have 
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
+      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
@@ -203,7 +201,7 @@ A file server with internet access is used to configure VMs with Active Director
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the **Windows Server 2022 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
-      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
+      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
   
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` availability zone.

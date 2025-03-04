@@ -5,7 +5,8 @@ description: Follow this guide to connect to a VM via {{ oslogin }}.
 
 # Connecting to a VM via {{ oslogin }}
 
-[{{ oslogin }}](../../../organization/concepts/os-login.md) is used to provide users and [service accounts](../../../iam/concepts/users/service-accounts.md) with SSH access to VMs using {{ iam-short-name }}.
+[{{ oslogin }}](../../../organization/concepts/os-login.md) provides users and [service accounts](../../../iam/concepts/users/service-accounts.md) access to [VMs](../../../compute/concepts/vm.md#project) relying solely on the [{{ iam-full-name }}](../../../iam/concepts/index.md) mechanisms, without requiring you to upload SSH keys to each new VM when creating it.
+
 
 ## Getting started {#before-you-begin}
 
@@ -17,15 +18,13 @@ description: Follow this guide to connect to a VM via {{ oslogin }}.
 
 {% note info %}
 
-Roles required to connect to a VM via {{ oslogin }}:
-
 {% include [os-login-roles-needed-for-vm-access](../../../_includes/organization/os-login-roles-needed-for-vm-access.md) %}
 
 {% endnote %}
 
 ## Connecting using a standard SSH client {#connect-with-ssh-client}
 
-To connect to a VM with enabled {{ oslogin }} access, you can use a standard SSH client and provide either the SSH key [saved](../../../organization/operations/add-ssh.md) in the user or service account organization profile or a short-lived SSH certificate you export for a user or service account.
+You can connect to a VM with {{ oslogin }} access enabled using a standard SSH client with either an SSH key [saved](../../../organization/operations/add-ssh.md) in the {{ oslogin }} profile of an organization user or service account, or a short-lived SSH certificate exported for that user or service account.
 
 {% list tabs group=os_login_type %}
 
@@ -43,9 +42,9 @@ To connect to a VM with enabled {{ oslogin }} access, you can use a standard SSH
 
 You will then be connected to the specified VM. If this is your first time connecting to this VM, a new user profile will be created in the VM operating system.
 
-## Connecting via the YC CLI {#connect-with-yc-cli}
+## Connecting via the {{ yandex-cloud }} CLI {#connect-with-yc-cli}
 
-To connect to a VM with enabled {{ oslogin }} access, you can use the [YC CLI](../../../cli/quickstart.md) and provide either the SSH key [saved](../../../organization/operations/add-ssh.md) in the user or service account organization profile or an SSH certificate of a user or service account.
+You can connect to a VM with {{ oslogin }} access enabled using the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md) with either an SSH key [saved](../../../organization/operations/add-ssh.md) in the profile of an organization user or service account, or an SSH certificate of that user or service account.
 
 {% list tabs group=os_login_type %}
 

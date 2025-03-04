@@ -18,20 +18,21 @@ You can upload payloads from a [{{ objstorage-full-name }}](../../storage/) [buc
     1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the bucket and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
-    1. In the window that opens, enter the service account name, select the `READ` permissions to the bucket, and click **{{ ui-key.yacloud.common.add }}**.
+    1. In the window that opens, enter the service account name, select `READ` for bucket permissions, and click **{{ ui-key.yacloud.common.add }}**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
     This grants the service account permission to read data from this bucket only.
 
     {% note info %}
 
-    As an alternative to editing the bucket ACL, you can [assign](../../iam/operations/roles/grant.md) the service account the `storage.editor` [role](../../storage/security/#storage-editor). 
+    As an alternative to editing the bucket ACL, you can [assign](../../iam/operations/roles/grant.md) the `storage.editor` [role](../../storage/security/#storage-editor) to the service account. 
 
     This method is less secure, since it allows the service account to perform any operations with all buckets in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder): creating, deleting, and updating a bucket, or granting public access to them.
 
     {% endnote %}
 
 ## Creating a test {#create-test}
+
 
 
 1. In the [management console]({{ link-console-main }}), select the folder for testing.

@@ -14,4 +14,4 @@ Read more about working with different data sources in these sections:
 
 Example of how to use federated queries in {{ yq-full-name }}:
 
-@[YouTube](https://youtu.be/1EN28LVncPM?si=kmytEx5zGRTnXrJ4)
+

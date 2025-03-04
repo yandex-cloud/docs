@@ -15,4 +15,6 @@ description: Различные сценарии использования {{ c
 * [{#T}](logging.md)
 * [{#T}](alb-ingress-controller-log-options.md)
 * [{#T}](cloud-logging.md)
+* [{#T}](logging-functions.md)
+* [{#T}](search-events-logging.md)
 * [{#T}](search-events-audit-logs/index.md)

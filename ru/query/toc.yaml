@@ -115,6 +115,8 @@ items:
         href: tutorials/yq-postgre.md
       - name: Федеративные запросы к данным
         href: tutorials/yq-federative-queries.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ yq-name }}
+        href: tutorials/search-events-query.md
   - name: Работа с YQL
     items:
       - name: Обзор

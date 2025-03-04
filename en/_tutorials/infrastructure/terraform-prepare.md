@@ -8,11 +8,11 @@
 
 Use a [service account](../../iam/concepts/users/service-accounts.md) to manage the {{ yandex-cloud }} infrastructure using {{ TF }}. It will help you flexibly configure access permissions to resources.
 
-You can also access {{ TF }} from your [Yandex account](../../iam/concepts/users/accounts.md#passport),, or a [federated account](../../iam/concepts/users/accounts.md#saml-federation), but this method is less secure. For more information, see the end of this section.
+You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/accounts.md#passport) or a [federated account](../../iam/concepts/users/accounts.md#saml-federation), but this method is less secure. For more information, see the end of this section.
 
-1. If you do not have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+1. If you do not have the {{ yandex-cloud }} CLI yet, [install it](../../cli/quickstart.md#install).
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Set up the CLI profile to perform operations under the service account:
 
     {% list tabs group=instructions %}
 
@@ -72,19 +72,16 @@ You can also access {{ TF }} from your [Yandex account](../../iam/concepts/users
 
     {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
 
-
 {% cut "Managing resources on behalf of a Yandex account or a federated account" %}
 
 {% include [terraform-credentials-user](../_tutorials_includes/terraform-credentials-user.md) %}
 
 {% endcut %}
 
-
-
 ### Create a {{ TF }} configuration file {#configure-terraform}
 
 {% include [configure-terraform](../_tutorials_includes/configure-terraform.md) %}
 
-### Configure a provider {#configure-provider}
+### Configure your provider {#configure-provider}
 
 {% include [terraform-configure-provider](../_tutorials_includes//terraform-configure-provider.md) %}

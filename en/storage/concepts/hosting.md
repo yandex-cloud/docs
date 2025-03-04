@@ -5,7 +5,7 @@ description: Static website hosting enables you to host your static website base
 
 # Hosting static websites
 
-You can host your static website in {{ objstorage-name }}. A static website is one that is based on such client-side technologies as HTML, CSS, or JavaScript. It may not contain any scripts that run on the web server side.
+{% include [static-site-information](../../_includes/storage/static-site-information.md) %}
 
 {% note info %}
 
@@ -49,7 +49,7 @@ To enable hosting, you need [public access](../operations/buckets/bucket-availab
 
 * For conditionally redirecting requests.
 
-  Using routing rules, you can redirect requests based on the object name prefixes or HTTP response codes. You can redirect an object request to other web pages (if the object was deleted) or redirect the requests that return errors.
+  Using routing rules, you can redirect requests based on the object name prefixes or HTTP response codes. This enables you to redirect object requests to different web pages (if the object was removed) or redirect the requests that return errors.
 
   {% cut "Example of a rule that redirects a request to a deleted folder to another page" %}
 

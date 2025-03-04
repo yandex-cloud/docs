@@ -48,7 +48,6 @@ In this tutorial, we will configure Check Point CloudGuard IaaS with basic acces
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
@@ -60,7 +59,6 @@ The infrastructure support cost includes:
 * Fee for using functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for using [CheckPoint NGFW](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
 
-
 ### Required quotas {#required-quotes}
 
 {% note warning %}
@@ -69,9 +67,9 @@ In this tutorial, you will have to deploy a resource-intensive infrastructure.
 
 {% endnote %}
 
-Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) that are not used by other projects.
+Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) that are not currently used by resources for other tasks.
 
-{% cut "Resources used by this tutorial" %}
+{% cut "Amount of resources the tutorial requires" %}
 
    | Resource | Amount |
    | ----------- | ----------- |
@@ -94,9 +92,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | Cloud functions | 1 |
    | Cloud function triggers | 1 |
    | Total RAM for all running functions | 128 MB |
-   | Network load balancers (NLBs) | 2 |
+   | NLB network load balancers | 2 |
    | NLB target groups | 2 |
-   | Application load balancers (ALBs) | 1 |
+   | ALB application load balancers | 1 |
    | ALB backend groups | 1 |
    | ALB target groups | 1 |
 
@@ -104,10 +102,10 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Prepare the environment {#prepare-environment}
 
-In this tutorial, we will use Windows software and [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
-To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/).
+This tutorial uses Windows software and [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
+The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
 
-### Configure WSL {#setup-wsl}
+### Set up WSL {#setup-wsl}
 
 1. Check whether WSL is installed on your PC. To do this, run this command in the CLI terminal:
 
@@ -115,7 +113,7 @@ To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/).
    wsl -l
    ```
 
-   If WSL is installed, the terminal will display a list of available distributions, for example:
+   With WSL installed, the terminal will display a list of available distribution kits, e.g.:
 
    ```bash
    Windows Subsystem for Linux Distributions:
@@ -124,7 +122,7 @@ To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/).
    Ubuntu
    ```
 
-1. If WSL is not installed, [install](https://learn.microsoft.com/en-us/windows/wsl/install) it and repeat the previous step.
+1. Otherwise, [install](https://learn.microsoft.com/en-us/windows/wsl/install) it and repeat the previous step.
 1. Additionally, you can install your preferred Linux distribution, e.g., [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview), on top of WSL.
 1. To set the installed distribution as default, run this command:
 
@@ -221,7 +219,7 @@ Perform all steps below in the Linux terminal.
 
 ### Install the required tools {#install-utilities}
 
-1. Install [Git](https://en.wikipedia.org/wiki/Git) using the following command:
+1. Install [Git](https://en.wikipedia.org/wiki/Git) using this command:
 
    ```bash
    sudo apt install git
@@ -229,13 +227,13 @@ Perform all steps below in the Linux terminal.
 
 1. Install {{ TF }}:
 
-   1. Navigate to the root directory:
+   1. Go to the root directory:
 
       ```bash
       cd ~
       ```
 
-   1. Create the `terraform` directory and open it:
+   1. Create a directory named `terraform` and open it:
 
       ```bash
       mkdir terraform
@@ -258,7 +256,7 @@ Perform all steps below in the Linux terminal.
       unzip terraform_1.3.9_linux_amd64.zip
       ```
 
-   1. Add the executable directory to your `PATH`:
+   1. Add the path to the directory with the executable to the `PATH` variable:
 
       ```bash
       export PATH=$PATH:~/terraform
@@ -279,7 +277,7 @@ Perform all steps below in the Linux terminal.
       nano .terraformrc
       ```
 
-   1. Add the following section to the file:
+   1. Add this section to the file:
 
       ```text
       provider_installation {
@@ -293,7 +291,7 @@ Perform all steps below in the Linux terminal.
       }
       ```
 
-      For more information about mirror settings, see the [{{ TF }} documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+      For more information about setting up mirrors, see [this {{ TF }} overview article](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Deploy your resources {#create-resources}
 
@@ -319,7 +317,7 @@ Perform all steps below in the Linux terminal.
          ```bash
          yc iam key create \
            --service-account-id <service_account_ID> \
-           --folder-id <ID_of_folder_with_service_account> \
+           --folder-id <service_account_folder_ID> \
            --output key.json
          ```
 
@@ -327,7 +325,7 @@ Perform all steps below in the Linux terminal.
 
          * `service-account-id`: Service account ID.
          * `folder-id`: ID of the service account folder.
-         * `output`: Authorized key file name.
+         * `output`: Name of the authorized key file.
 
          Result:
 
@@ -338,7 +336,7 @@ Perform all steps below in the Linux terminal.
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to run operations on behalf of the service account:
+      1. Create a CLI profile to perform operations under the service account:
 
          ```bash
          yc config profile create sa-terraform
@@ -420,7 +418,7 @@ Perform all steps below in the Linux terminal.
        terraform plan
        ```
 
-   1. Create resources:
+   1. Create the resources:
 
        ```bash
        terraform apply
@@ -444,7 +442,7 @@ To set up the VPN tunnel:
 
 1. [Install](https://download.wireguard.com/windows-client/wireguard-installer.exe) WireGuard on your PC.
 1. Open WireGuard and click **Add Tunnel**.
-1. In the dialog that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-ngfw` directory.
+1. In the dialog box that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-ngfw` directory.
 
    To find a Linux, e.g., Ubuntu, directory, type the file path in the dialog address bar:
 
@@ -474,7 +472,7 @@ To set up and manage [Check Point](https://en.wikipedia.org/wiki/Check_Point), i
 
 1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser.
 1. Sign in using `admin` as both username and password.
-1. You will enter Gaia Portal where you can download the SmartConsole GUI client by clicking **Manage Software Blades using SmartConsole. Download Now!**.
+1. You will enter Gaia Portal where you can download the SmartConsole GUI client To do this, click **Manage Software Blades using SmartConsole. Download Now!**.
 1. Install SmartConsole on your PC.
 1. Get a password to access SmartConsole by running this command in the terminal:
 

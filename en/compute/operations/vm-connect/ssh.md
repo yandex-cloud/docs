@@ -5,7 +5,7 @@ description: 'Follow this guide to connect to a VM using an SSH key pair: the pu
 
 # Connecting to a Linux VM via SSH
 
-To connect to a [VM](../../concepts/vm.md) via SSH, you need a key pair: the public key resides on the VM, and the private one is kept by the user. This method is more secure than connecting with a username and password.
+To connect to a [VM](../../concepts/vm.md) via SSH, you need a key pair with the public key located on the VM and the private key kept by the user. This method is more secure than connecting with a username and password.
 
 To enable another user to connect to your VM, add an SSH key for them by following [this guide](#vm-authorized-keys).
 
@@ -40,7 +40,7 @@ The [previously created](#creating-ssh-keys) public key has the following format
 <key_type> <public_key_body> <optional_comment>
 ```
 
-Here is an example:
+Example:
 
 > ```text
 > ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz user@Desktop
@@ -111,7 +111,7 @@ The VM [security groups](../../../vpc/concepts/security-groups.md) must allow in
 
 To connect, specify the VM [public IP address](../../../vpc/concepts/address.md#public-addresses). You can find out the public IP address in the management console: on the VM page, go to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section and find the **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** field. If you created your VM with an internal IP address only, [assign it a public IP address](../vm-control/vm-attach-public-ip.md).
 
-You can also use [internal IP addresses](../../../vpc/concepts/address.md#internal-addresses) and [FQDNs](../../../vpc/concepts/address.md#fqdn) to establish an SSH connection between VMs with in a single [cloud network](../../../vpc/concepts/network.md#network) in {{ yandex-cloud }}.
+You can also use [internal IP addresses](../../../vpc/concepts/address.md#internal-addresses) and [FQDNs](../../../vpc/concepts/address.md#fqdn) to establish an SSH connection between VMs within a single [cloud network](../../../vpc/concepts/network.md#network) in {{ yandex-cloud }}.
 
 {% list tabs group=operating_system %}
 
@@ -140,7 +140,7 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
   Are you sure you want to continue connecting (yes/no/[fingerprint])?
   ```
 
-  Type `yes` in the terminal and press **Enter**.
+  Type `yes` into the terminal and press **Enter**.
 
 - Windows 10/11 {#windows}
 

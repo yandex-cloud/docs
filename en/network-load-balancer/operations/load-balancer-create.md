@@ -56,10 +56,10 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`. For health checks to use HTTP, specify the URL to check in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. The values range from `1` to `32767`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds. The possible values are from `1` to `60`. The interval must be at least 1 second longer than the waiting time.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds. The possible values are from `1` to `60`. The interval must be at least 1 second longer than the response timeout.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds. The values range from `1` to `60`.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a VM instance ready to receive traffic.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks after which no traffic will be routed to a VM instance.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks to stop routing traffic to a VM.
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -170,7 +170,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
 ## Examples {#examples}
 
-### Creating a network load balancer without a listener {without-listener}
+### Creating a network load balancer without a listener {#without-listener}
 
 Create a network load balancer named `test-load-balancer-1` without a listener or target group.
 
@@ -178,7 +178,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener o
 
 - CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc load-balancer network-load-balancer create test-load-balancer-1
@@ -219,7 +219,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener o
 
 {% endlist %}
 
-### Creating a network load balancer with a listener and attached target group {with-listener-and-target-group}
+### Creating a network load balancer with a listener and attached target group {#with-listener-and-target-group}
 
 Create a network load balancer with a listener and attached target group with the following test specifications:
 
@@ -244,7 +244,7 @@ Create a network load balancer with a listener and attached target group with th
 
 - CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc load-balancer network-load-balancer create test-load-balancer-2 \

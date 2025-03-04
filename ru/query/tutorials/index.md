@@ -17,3 +17,4 @@ description: В этом разделе собраны практические 
 * [{#T}](yq-clickhouse.md)
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
+* [{#T}](search-events-query.md)

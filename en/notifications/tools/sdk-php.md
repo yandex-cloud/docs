@@ -1,5 +1,7 @@
 # How to get started with the AWS SDK for PHP in {{ cns-full-name }}
 
+{% include [preview-stage](../../_includes/notifications/preview-stage.md) %}
+
 To get started with the AWS SDK for PHP:
 1. [Get your cloud ready](#before-you-begin).
 1. [Get a static access key](#static-key).
@@ -49,9 +51,9 @@ To get started with the AWS SDK for PHP:
 
     $client = new SnsClient(
         [
-            'endpoint' => 'https://notifications.yandexcloud.net/',
+            'endpoint' => 'https://{{ cns-host }}/',
             'version' => 'latest',
-            'region' => 'ru-central1',
+            'region' => '{{ region-id }}',
             'credentials' => [
                 'key' => '<static_key_ID>',
                 'secret' => '<secret_key>',
@@ -69,48 +71,8 @@ To get started with the AWS SDK for PHP:
 
 ## Create a notification channel {#create-channel}
 
-```php
-$response = $client->createPlatformApplication(
-    [
-        'Name' => '<channel_name>',
-        'Platform' => 'GCM',
-        'Attributes' => [
-            'PlatformCredential' => '<FCM_API_key>',
-        ],
-    ]
-);
+{% include [push-channel-create-php](../../_includes/notifications/push-channel-create-php.md) %}
 
-print($response->get('PlatformApplicationArn'));
-```
-
-Where:
-* `Name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
-* `Platform`: Mobile platform type:
-  * `APNS` and `APNS_SANDBOX`: Apple Push Notification service (APNs). Use `APNS_SANDBOX` to test the application.
-  * `GCM`: Firebase Cloud Messaging (FCM).
-  * `HMS`: Huawei Mobile Services (HMS).
-* `Attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on platform:
-  * APNs:
-    * Token-based authentication:
-      * `PlatformPrincipal`: Path to the token signature key file from Apple.
-      * `PlatformCredential`: Key ID.
-      * `ApplePlatformTeamID`: Team ID.
-      * `ApplePlatformBundleID`: Bundle ID.
-    * Certificate-based authentication:
-      * `PlatformPrincipal`: SSL certificate in `.pem` format.
-      * `PlatformCredential`: Certificate private key in `.pem` format.
-          
-          {% include [convert-p12-to-pem](../../_includes/notifications/convert-p12-to-pem.md) %}
-
-    Token-based authentication: The more modern and secure method.
-  * FCM: `PlatformCredential` is the Google Cloud service account key in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the legacy API.
-
-    Use the HTTP v1 API because the [FCM legacy API is no longer supported](https://firebase.google.com/docs/cloud-messaging/migrate-v1) starting July 2024.
-  * HMS:
-    * `PlatformPrincipal`: Key ID
-    * `PlatformCredential`: API key
-
-As a result, you will get a notification channel ID (ARN).
 
 ## Get a list of notification channels {#list-channel}
 
@@ -124,22 +86,8 @@ You will get the list of notification channels located in the same folder as the
 
 ## Create an endpoint {#create-endpoint}
 
-```php
-$response = $client->createPlatformEndpoint(
-    [
-        'PlatformApplicationArn' => '<notification_channel_ARN>',
-        'Token' => '<push_token>',
-    ]
-);
+{% include [endpoint-create-php](../../_includes/notifications/endpoint-create-php.md) %}
 
-print($response->get('EndpointArn'));
-```
-
-Where:
-* `PlatformApplicationArn`: Notification channel ID (ARN).
-* `Token`: Unique push token for the app on the user’s device.
-
-As a result, you will get a mobile endpoint ID (ARN).
 
 ## Send a notification {#publish}
 
