@@ -1,6 +1,6 @@
 # Processing {{ at-full-name }} events
 
-{{ at-full-name }} is a service for collecting and exporting the audit logs of {{ yandex-cloud }} resources to various target systems, including {{ objstorage-full-name }} and {{ yds-full-name }}. {{ at-name }} and {{ yq-full-name }} are integrated with each other to enable searching through audit logs.
+{{ at-full-name }} is a service for collecting and exporting the audit logs of {{ yandex-cloud }} resources to various target systems, including {{ objstorage-full-name }} and {{ yds-full-name }}. {{ at-name }} and {{ yq-full-name }} are integrated between themselves to enable searching through audit logs.
 
 ![image](../../_assets/query/audit-trails-query.png)
 
@@ -13,7 +13,7 @@ After audit logs are processed using {{ yq-name }}, you can get such information
 
 You can find the preset queries for these use cases in [this GitHub repository](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/_use_cases_and_searches). You can also write custom [YQL queries](../../query/yql-tutorials/index.md).
 
-In this use case, you will create [trails](../../audit-trails/concepts/trail.md) that will upload audit logs of all [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) resources to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) and send them to a [stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-name }}. Next, you will run analytical and streaming queries to the log data using {{ yq-name }}.
+In this use case, you will create [trails](../../audit-trails/concepts/trail.md) that will upload audit logs of all [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) resources to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) and send them to a {{ yds-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts). Next, you will run analytical and streaming queries to the log data using {{ yq-name }}.
 
 ## Getting started {#before-you-begin}
 
@@ -21,17 +21,17 @@ In this use case, you will create [trails](../../audit-trails/concepts/trail.md)
 
 ## Configure {{ at-name }} {#at-setup}
 
-Create trails:
+[Create two trails](../../audit-trails/operations/create-trail.md):
 
-* [To upload folder audit logs to an {{ objstorage-name }} bucket](../../audit-trails/operations/export-folder-bucket.md).
-* [To send folder audit logs to a stream in {{ yds-name }}](../../audit-trails/operations/export-folder-data-streams.md).
+* To upload folder audit logs to an {{ objstorage-name }} bucket.
+* To send folder audit logs to a {{ yds-name }} stream.
 
 ## Set up integration between {{ at-name }} and {{ yq-name }} {#integration}
 
 To set up integration:
 
 1. Open the list of trails in the {{ yandex-cloud }} console.
-1. Select the trail you previously created for uploading cloud audit logs to a bucket and click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
+1. Select the trail that you previously created for uploading cloud audit logs to a bucket and click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
 1. When switching from {{ at-name }} to {{ yq-name }} for the first time, set up integration:
    1. In the {{ yq-name }} interface, select the service account you want to use to read data from {{ objstorage-name }} in the connection creation dialog and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
    1. In the {{ yq-name }} interface, check the preset parameters by clicking **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}** in the binding creation dialog. Next, click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}** to complete the integration.
@@ -68,6 +68,6 @@ You can do the following with streaming query results:
 
 ## See also
 
-* [{{ objstorage-full-name }}](../../storage/)
-* [{{ yds-full-name }}](../../data-streams/)
-* [{{ datalens-full-name }}](../../datalens/)
+* [{{ objstorage-full-name }}](../../storage/).
+* [{{ yds-full-name }}](../../data-streams/).
+* [{{ datalens-full-name }}](../../datalens/).

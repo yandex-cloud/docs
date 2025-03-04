@@ -23,7 +23,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of supporting the availability group includes:
@@ -33,7 +32,6 @@ The cost of supporting the availability group includes:
 * Fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 You can use [license mobility](../../compute/qa/licensing.md) and bring your own SQL Server license to {{ yandex-cloud }}.
-
 
 ## Create a network infrastructure {#prepare-network}
 
@@ -289,16 +287,14 @@ Prepare the network infrastructure to host the availability group.
 ## Prepare VMs for the availability group {#create-vms}
 
 
-
 ### Prepare Windows Server images {#prepare-images}
 
 Before creating VMs, prepare a Windows Server image to use in {{ yandex-cloud }} with your own license.
 
 
-
 ### Create a file with administrator credentials {#prepare-admin-credentials}
 
-Create a file named `setpass` with a script to set the password for the local administrator account. Creating VMs using the CLI will run this script.
+Create a file named `setpass` with a script to set the password for the local administrator account. This script will be executed when you create VMs via the CLI.
 
 {% note alert %}
 
@@ -351,21 +347,15 @@ You can read more about the best practices for securing Active Directory on the 
 
 ### Create VMs {#create-group-vms}
 
-
-
 Make sure to create your VMs on [dedicated hosts](../../compute/concepts/dedicated-host.md). You can get the dedicated host ID in the {{ yandex-cloud }} CLI by running the `yc compute host-group list-hosts` command. To learn more about this command, see [this reference](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md).
-
-
 
 #### Create a VM for a bastion host {#create-jump-server}
 
-Create a bastion host with Windows Server 2022 Datacenter with a public IP address to access other VMs:
+Create a bastion host with Windows Server 2022 Datacenter and a public IP address to access other VMs:
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
-
-
 
   ```
   yc compute instance create \
@@ -385,10 +375,7 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
 
   {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
-
 - PowerShell {#powershell}
-
-
 
   ```
   yc compute instance create `
@@ -409,7 +396,6 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
 
   {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
-  
 {% endlist %}
 
 #### Create a VM for Active Directory {#create-ad-controller}
@@ -417,8 +403,6 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
-
-
 
   ```
   yc compute instance create \
@@ -436,10 +420,7 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
      --async
   ```
 
-
 - PowerShell {#powershell}
-
-
 
   ```
   yc compute instance create `
@@ -458,7 +439,6 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
 
   ```
 
-
 {% endlist %}
 
 #### Create VM instances for SQL Server {#create-ad-server}
@@ -468,8 +448,6 @@ Create three VMs with Windows Server 2022 Datacenter for SQL Server:
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
-
-
 
   ```
   yc compute instance create \
@@ -489,9 +467,6 @@ Create three VMs with Windows Server 2022 Datacenter for SQL Server:
      --async
   ```
 
-
-
-
   ```
   yc compute instance create \
      --name ya-mssql2 \
@@ -509,9 +484,6 @@ Create three VMs with Windows Server 2022 Datacenter for SQL Server:
      --host-id <dedicated_host_ID> \
      --async
   ```
-
-
-
 
   ```
   yc compute instance create \
@@ -531,10 +503,7 @@ Create three VMs with Windows Server 2022 Datacenter for SQL Server:
      --async
   ```
 
-
 - PowerShell {#powershell}
-
-
 
   ```
   yc compute instance create `
@@ -554,9 +523,6 @@ Create three VMs with Windows Server 2022 Datacenter for SQL Server:
      --async
   ```
 
-
-
-
   ```
   yc compute instance create `
      --name ya-mssql2 `
@@ -574,9 +540,6 @@ Create three VMs with Windows Server 2022 Datacenter for SQL Server:
      --host-id <dedicated_host_ID> `
      --async
   ```
-
-
-
 
   ```
   yc compute instance create `
@@ -596,15 +559,11 @@ Create three VMs with Windows Server 2022 Datacenter for SQL Server:
      --async
   ```
 
-
 {% endlist %}
-
-
 
 ### Bring your own Windows Server licenses {#byol}
 
 Connect to each VM you created and [activate your own Windows Server license on these VMs](../../microsoft/byol.md).
-
 
 
 ### Install and configure Active Directory {#install-ad}
@@ -643,7 +602,7 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
 1. Reconnect to `ya-ad`.
 
-1. Rename the website and add the subnets you created, to it:
+1. Rename the website and add to it the subnets you created:
 
     {% list tabs group=programming_language %}
 
@@ -1152,7 +1111,7 @@ Install SQL Server on your database servers:
     
     {% endlist %}
 
-1. Grant the `mssql-svc` user server management permissions :
+1. Grant server management permissions to the `mssql-svc` user:
 
     {% list tabs group=programming_language %}
 

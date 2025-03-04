@@ -7,6 +7,17 @@ description: This page presents a list of YC CLI releases and the updates of eac
 
 ## Current version {#latest-release}
 
+### Version 0.143.0 (11/02/25) {#version0.143.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ objstorage-name }}
+
+* Added a parameter to the `yc storage bucket update` command to specify a {{ vpc-full-name }} [service connection](../vpc/concepts/private-endpoint.md) to access the bucket from:
+  * `--private-endpoint`, example: `--enable-private-endpoints true --private-endpoints cba,abc`.
+
+## Previous releases {#previous-release}
+
 ### Version 0.142.0 (30/01/25) {#version0.142.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -38,8 +49,6 @@ description: This page presents a list of YC CLI releases and the updates of eac
 **{{ mrd-name }}**
 
 * Added the `--backup-retain-period-days` parameter to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, and `yc managed-redis cluster update-config` commands.
-
-## Previous releases {#previous-release}
 
 ### Version 0.141.0 (16/12/24) {#version0.141.0}
 
@@ -260,7 +269,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Added the `yc cic point-of-presence get` and `yc cic point-of-presence list` commands to read points of presence.
 * Added the `yc cic partner get` and `yc cic partner list` commands to read {{ interconnect-name }} partners.
-* Added the `yc cic trunk-connection get` and `yc cic trunk-connection list` commands to read trunk connections.
+* Added the `yc cic trunk-connection get` and `yc cic trunk-connection list` commands to read trunk links.
 * Added the `yc cic private-connection get` and `yc cic private-connection list` commands to read private connections.
 * Added the `yc cic public-connection get` and `yc cic public-connection list` commands to read public connections.
 
@@ -337,7 +346,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `yc managed-mysql cluster update`
   * `yc managed-kafka cluster update`
   * `yc managed-elasticsearch cluster update`
-  * `yc managed-opensearch cluster update`.
+  * `yc managed-opensearch cluster update`
 
 **{{ mch-name }}**
 

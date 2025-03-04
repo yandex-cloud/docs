@@ -130,7 +130,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example-old }}
@@ -144,7 +144,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example }}/protocol/saml
@@ -156,7 +156,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example-old }}/protocol/saml
@@ -255,7 +255,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/auth/realms/master
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
             ```
             {{ link-keycloak-example-old }}
@@ -269,7 +269,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example }}/protocol/saml
@@ -281,7 +281,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
               ```
               {{ link-keycloak-example-old }}/protocol/saml
@@ -368,7 +368,7 @@ To follow the steps in this section, you will need:​
 
             If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-            For example:
+            Here is an example:
 
             ```
             {{ link-keycloak-example-old }}
@@ -382,7 +382,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
             ```
             {{ link-keycloak-example }}/protocol/saml
@@ -394,7 +394,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/auth/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
 
             ```
             {{ link-keycloak-example-old }}/protocol/saml
@@ -425,8 +425,8 @@ To follow the steps in this section, you will need:​
           name            = "my-federation"
           organization_id = "<organization_ID>"
           auto_create_account_on_login = "true"
-          issuer          = "http://<host>:8080/auth/realms/master"
-          sso_url         = "http://<host>:8080/auth/realms/master/protocol/saml"
+          issuer          = "http://<host>:8080/realms/master"
+          sso_url         = "http://<host>:8080/realms/master/protocol/saml"
           sso_binding     = "POST"
           security_settings {
               encrypted_assertions = "true"
@@ -442,8 +442,8 @@ To follow the steps in this section, you will need:​
           name            = "my-federation"
           organization_id = "<organization_ID>"
           auto_create_account_on_login = "true"
-          issuer          = "http://<host>:8080/realms/master"
-          sso_url         = "http://<host>:8080/realms/master/protocol/saml"
+          issuer          = "http://<host>:8080/auth/realms/master"
+          sso_url         = "http://<host>:8080/auth/realms/master/protocol/saml"
           sso_binding     = "POST"
           security_settings {
               encrypted_assertions = "true"
@@ -466,7 +466,7 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/realms/master
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. Here is an example:
 
           ```
           {{ link-keycloak-example }}
@@ -478,7 +478,7 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/auth/realms/master
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. Here is an example:
 
           ```
           {{ link-keycloak-example-old }}
@@ -495,7 +495,7 @@ To follow the steps in this section, you will need:​
 
           If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-          For example:
+          Here is an example:
 
           ```
           {{ link-keycloak-example }}/protocol/saml
@@ -509,7 +509,7 @@ To follow the steps in this section, you will need:​
 
           If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-          For example:
+          Here is an example:
 
           ```
           {{ link-keycloak-example-old }}/protocol/saml
@@ -534,7 +534,7 @@ To follow the steps in this section, you will need:​
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the folder where you created the configuration file.
+      1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
@@ -922,7 +922,7 @@ You can set up a mapping between the SAML message attributes and the personal da
 
 User data | Comment | SAML Attribute Name
 ------------------- | ----------- | -------------------
-Last name | Used for search in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `lastName`
+Surname | Used for search in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `lastName`
 Name | Used for search in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `firstName`
 Full name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-display-name }}. | `name`
 Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `ivanov@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `email`

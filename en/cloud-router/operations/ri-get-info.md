@@ -105,6 +105,6 @@ title: How to get information about a routing instance
         * `ACTIVE`: RI is active.
         * `CREATING`: RI is being created.
         * `UPDATING`: RI is being updated.
-        * `UPDATING`: RI is being deleted.
+        * `DELETING`: RI is being deleted.
 
 {% endlist %}

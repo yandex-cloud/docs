@@ -10,6 +10,7 @@ description: Use this tutorial to create a Linux VM.
 - Management console {#console}
 
 
+
   {% include [create-instance-via-console-linux](../../_includes_service/create-instance-via-console-linux.md) %}
 
 - CLI {#cli}
@@ -52,7 +53,7 @@ description: Use this tutorial to create a Linux VM.
        --name first-instance \
        --zone {{ region-id }}-a \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
+       --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<key_ID> \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
@@ -72,6 +73,14 @@ description: Use this tutorial to create a Linux VM.
 
      * `--create-boot-disk`: VM boot disk settings:
          * `image-family`: [Image family](../../concepts/image.md#family), e.g., `centos-7`. This option allows you to install the latest version of the OS from the specified family.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+
+           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+
+           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+
      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
@@ -102,7 +111,7 @@ description: Use this tutorial to create a Linux VM.
        zone                      = "<availability_zone>"
 
        resources {
-         cores  = "<number_of_vCPUs_cores>"
+         cores  = "<number_of_vCPUs>"
          memory = "<RAM_in_GB>"
        }
 
@@ -136,7 +145,7 @@ description: Use this tutorial to create a Linux VM.
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
        * `type`: Disk type.
-       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
        * `size`: Disk size in GB.
        * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
@@ -146,9 +155,9 @@ description: Use this tutorial to create a Linux VM.
        * `name`: VM name.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-       * `zone`: Availability zone the VM will be in.
+       * `zone`: Availability zone the VM will reside in.
        * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
-       * `boot_disk`: Boot disk settings. Specify the disk ID.
+       * `boot_disk`: Boot disk settings. Specify the disk ID. 
        * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
@@ -170,7 +179,7 @@ description: Use this tutorial to create a Linux VM.
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 

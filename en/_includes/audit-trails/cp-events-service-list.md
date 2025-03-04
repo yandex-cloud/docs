@@ -4,6 +4,7 @@
 * [{{ certificate-manager-full-name }}](../../audit-trails/concepts/events.md#certificate-manager)
 * [{{ cloud-apps-full-name }}](../../audit-trails/concepts/events.md#cloud-apps)
 * [{{ backup-full-name }}](../../audit-trails/concepts/events.md#backup)
+* [{{ billing-name }}](../../audit-trails/concepts/events.md#billing)
 * [{{ cdn-full-name }}](../../audit-trails/concepts/events.md#cdn)
 * [{{ dns-full-name }}](../../audit-trails/concepts/events.md#dns)
 * [{{ sf-full-name }}](../../audit-trails/concepts/events.md#functions)

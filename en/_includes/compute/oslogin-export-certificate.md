@@ -26,7 +26,7 @@ To export the SSH certificate of a {{ org-name }} organization user or [service 
       ```
 
       Where:
-      * `--login`: Previously obtained user or service account login, as set in the {{ oslogin }} profile. This is an optional parameter. If you do not set this parameter, you will export the SSH certificate of the user or service account currently authorized in the YC CLI profile.
+      * `--login`: Previously obtained user or service account login, as set in the {{ oslogin }} profile. This is an optional parameter. If you do not set this parameter, you will export the SSH certificate of the user or service account currently authorized in the {{ yandex-cloud }} CLI profile.
       * `--organization-id`: Previously obtained [ID](../../organization/operations/organization-get-id.md) of the organization to export the SSH certificate from. This is an optional parameter. If the parameter is not set, the certificate will be exported from the organization the default folder belongs to.
       * `--directory`: Path to the local directory to save the exported SSH certificate to. This is an optional parameter. If not specified, the certificate will be saved by default to the `.ssh` home directory of the current PC user (`~/.ssh/`).
 

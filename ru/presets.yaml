@@ -5271,7 +5271,7 @@ default:
         clone-issue-action-title: Клонировать задачу
         convert-to-project: Конвертировать в проект
         create-calendar-event: Создать событие в календаре
-        create-subissue: Добавить подзадачу
+        create-subissue: Создать подзадачу
         move-issue: Изменить очередь
         title: Действия
         to-subissue: Сделать подзадачей
@@ -5351,9 +5351,7 @@ default:
       ui_Queues_pages_PageQueue_header:
         export: Выгрузить
         settings: Настройки очереди
-        subscribe: Подписаться
-        subscribe-all: Подписаться на все уведомления
-        subscribe-new-tickets: Подписаться на создание задач
+        subscribe: Подписаться на очередь
       ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm:
         field-can-assignee-update-time: Разрешить редактирование своих записей
         field-show-time-field-on-close: Рассчитывать затраченное время автоматически
@@ -5448,7 +5446,6 @@ default:
       alb:
         label_max-timeout: Максимальный таймаут, с
       backup:
-        button_attach-instance: Привязать ВМ
         button_attach-instance-submit: Привязать
         label_policies: Политики копирования
       billing:
@@ -5742,7 +5739,7 @@ default:
           escalations:
             title: Политики эскалаций
           explorer:
-            title: Обзор метрик
+            title: Метрики
           notification-feed:
             title: Лента уведомлений
           prometheus:
@@ -5797,7 +5794,7 @@ default:
         action:
           settings: Настройки
         title:
-          mx-mode: Обзор метрик
+          mx-mode: Метрики
       homepage:
         button_alerts-action: Создать алерт
         button_dashboards-action: Создать дашборд
@@ -5835,8 +5832,6 @@ default:
           no-data: Обработка отсутствия данных
           notification-channels: Уведомления
           time-shift: Задержка вычисления
-      nav:
-        nav-metric-explorer: Обзор метрик
       prometheus:
         alert-manager:
           config-action:
@@ -6452,8 +6447,8 @@ default:
         field_access: Доступ конечных пользователей к контенту
         field_address-acl: Доступ по IP-адресам
         field_address-acl_excepted-values: Список IP-адресов
-        field_address-acl_policy-type_allow: Запретить для всех, кроме
-        field_address-acl_policy-type_deny: Разрешить для всех, кроме
+        field_address-acl_policy-type_allow: Разрешить для всех, кроме
+        field_address-acl_policy-type_deny: Запретить для всех, кроме
         field_group-name: Название группы
         field_origin: Доменное имя источника
         field_origin-state: Приоритет
@@ -7921,7 +7916,6 @@ default:
         label_groups: Группы
         label_loggroup: Лог-группа
         label_minlevel: Минимальный уровень логирования
-        label_retention-period: Срок хранения логов
         label_sinks: Приёмники логов
         label_stream: Поток данных
         label_title: Логирование
@@ -8023,7 +8017,7 @@ default:
             label_severity: Уровень логирования
           overview:
             button_action-delete: Удалить
-            button_action-edit: Редактировать
+            button_action-edit: Изменить
             label_access-datalens: Доступ из DataLens
             label_access-websql-service: Доступ из WebSQL
             label_advanced-settings: Настройки СУБД
@@ -8864,7 +8858,7 @@ default:
         label_desktop-images: Образы
         label_desktops: Рабочие столы
         label_image-source: Источник образа
-        section_access: Доступ
+        section_access: Пользователь рабочего стола
         section_disks: Диски
       vpc:
         add-static-route:
@@ -9256,8 +9250,22 @@ default:
                         title: Таблица
                     Serializer:
                       Debezium:
+                        confluent_sr:
+                          password:
+                            title: Пароль
+                          url:
+                            title: URL
+                          username:
+                            title: Имя пользователя
+                        converter_settings:
+                          json:
+                            title: JSON (посредством Schema Registry)
+                        key_converter_settings:
+                          title: Схема ключа сообщения
                         parameters:
                           title: Настройки сериализации Debezium
+                        value_converter_settings:
+                          title: Схема значения сообщения
                       serializer_auto:
                         title: Auto
                       serializer_debezium:
@@ -9402,6 +9410,8 @@ default:
                       topic_name:
                         title: Полное имя топика
                     KafkaTarget:
+                      advanced_settings:
+                        title: Дополнительные настройки
                       connection:
                         title: Настройки подключения
                       title: Параметры эндпоинта
@@ -9451,6 +9461,11 @@ default:
                         title: Без аутентификации
                       sasl:
                         title: SASL
+                    TopicConfigEntry:
+                      config_name:
+                        title: Имя конфигурации
+                      config_value:
+                        title: Значение конфигурации
             logbroker:
               console:
                 form:

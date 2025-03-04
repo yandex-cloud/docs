@@ -1,4 +1,4 @@
-# Получение значения секрета Lockbox на стороне {{ GL }}
+# Получение значения секрета {{ lockbox-full-name }} на стороне {{ GL }}
 
 {% include [move-groups-api](../../_includes/iam/wlif-instructions-intro.md) %}
 

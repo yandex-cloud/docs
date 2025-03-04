@@ -13,6 +13,7 @@ description: Various use cases for data storage and recovery in {{ yandex-cloud 
 * [Backup to {{ objstorage-full-name }} using MSP360 Backup (CloudBerry Desktop Backup)](object-storage-cloudberry.md)
 * [Backup to {{ objstorage-full-name }} via Duplicati](object-storage-duplicati.md)
 * [Backup to {{ objstorage-full-name }} via Bacula](backup-with-bacula.md)
+* [{{ objstorage-full-name }} backup with Veeam Backup](backup-with-veeam.md)
 * [Backup to {{ objstorage-full-name }} via Veritas Backup Exec](object-storage-veritas.md)
 * [{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}](kubernetes-backup.md)
 * [Deploying the GlusterFS parallel file system in high availability mode](ha-regional-glusterfs.md)

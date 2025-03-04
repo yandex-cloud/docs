@@ -5,6 +5,8 @@ items:
     items:
       - name: All tutorials
         href: security/index.md
+      - name: Differentiation of access permissions for user groups
+        href: security/user-group-access-control.md
       - name: Creating an L7 load balancer with DDoS protection
         items:
           - name: Overview
@@ -13,6 +15,10 @@ items:
             href: security/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
+      - name: >-
+          Creating an L7 load balancer with a {{ sws-name }} security profile
+          through an {{ alb-name }} Ingress controller
+        href: security/alb-ingress-with-sws-profile.md
       - name: >-
           Migrating services from an NLB to an L7 ALB for DDoS protection using
           {{ sws-name }}
@@ -112,6 +118,8 @@ items:
             href: security/wlif-github-integration.md
           - name: '{{ GL }}'
             href: security/wlif-gitlab-integration.md
+          - name: '{{ k8s }}'
+            href: security/wlif-k8s-integration.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -140,6 +148,8 @@ items:
         href: archive/object-storage-duplicati.md
       - name: '{{ objstorage-name }} backup with Bacula'
         href: archive/backup-with-bacula.md
+      - name: '{{ objstorage-full-name }} backup with Veeam Backup'
+        href: archive/backup-with-veeam.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
       - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
@@ -218,8 +228,14 @@ items:
                 href: web/load-balancer-website/console.md
               - name: '{{ TF }}'
                 href: web/load-balancer-website/terraform.md
-          - name: Fault-tolerant website with load balancing using {{ alb-name }}
-            href: web/application-load-balancer-website.md
+          - name: Fault-tolerant website with load balancing via {{ alb-name }}
+            items:
+              - name: Overview
+                href: web/application-load-balancer-website/index.md
+              - name: Management console
+                href: web/application-load-balancer-website/console.md
+              - name: '{{ TF }}'
+                href: web/application-load-balancer-website/terraform.md
           - name: >-
               Integrating an L7 load balancer with {{ cdn-name }} and {{
               objstorage-name }}
@@ -300,7 +316,7 @@ items:
                 href: routing/nat-instance/console.md
               - name: '{{ TF }}'
                 href: routing/nat-instance/terraform.md
-          - name: Installing the Cisco CSR 1000v virtual router
+          - name: Installing a Cisco CSR 1000v virtual router
             href: routing/cisco.md
           - name: Installing a Mikrotik CHR virtual router
             href: routing/mikrotik.md

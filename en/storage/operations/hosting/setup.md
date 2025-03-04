@@ -6,7 +6,7 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 # Setting up hosting
 
 
-You can host your static website in {{ objstorage-name }}. A static website is based on such client-side technologies as HTML, CSS, or JavaScript. It may not contain any scripts that run on the web server side.
+{% include [static-site-information](../../../_includes/storage/static-site-information.md) %}
 
 {{ objstorage-name }} buckets support:
 
@@ -220,7 +220,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      yc storage bucket update --help
      ```
      
-  1. Create a redirect configuration file in JSON format. Here is an example:
+  1. Create a redirect configuration file in JSON format. For example:
      
      ```json
      {
@@ -325,7 +325,7 @@ You can host your static website in {{ objstorage-name }}. A static website is b
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` in the terminal and press **Enter**.
 
      You can use the [management console]({{ link-console-main }}) to check the request redirect settings.
 

@@ -18,6 +18,10 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
   1. [Add](arl-rule-add.md) ARL rules.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Use the [create](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/create.md) REST API method for the [AdvancedRateLimiterProfile](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md) resource or the [AdvancedRateLimiterProfile/Create](../advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/create.md) gRPC API call.
+
 {% endlist %}
 
 ### See also {#see-also}

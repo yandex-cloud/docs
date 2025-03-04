@@ -12,7 +12,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 
 {% endnote %}
 
-This section explains how to create a GPU cluster. Currently, GPU clusters can only be created in the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md).
+This section explains how to create a GPU cluster. Currently, GPU clusters can only be created in the `{{ region-id }}-a` and `{{ region-id }}-d` [availability zones](../../../overview/concepts/geo-scope.md).
 
 After creating a cluster, you can [add](gpu-add-to-cluster.md) [VMs](../../concepts/vm.md) from the same availability zone to it.
 

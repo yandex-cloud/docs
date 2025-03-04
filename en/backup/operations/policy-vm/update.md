@@ -16,7 +16,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a [backup policy](../../../backup/concepts/policy.md).
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to update and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the backup policy parameters:
@@ -192,7 +192,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% endcut %}
 
-     For more information about the `yandex_backup_policy` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/backup_policy).
+     For more information about the `yandex_backup_policy` resource parameters, see [this Terraform article]({{ tf-provider-resources-link }}/backup_policy).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -216,11 +216,11 @@ description: In this tutorial, you will learn how to update a backup policy in {
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Select the backup policy where you want to edit the list of [VMs](../../../compute/concepts/vm.md) or {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md).
   1. Edit the list of linked resources:
-     * To link a new VM or {{ baremetal-name }} server, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_billing.backup.button_attach-instance }}** and in the window that opens:
+     * To link a new VM or {{ baremetal-name }} server, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** and in the window that opens:
 
         * Depending on the resource you want to link to the backup policy, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab and select the VM or server from the list.
 

@@ -66,3 +66,4 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [{#T}](video-converting-queue.md)
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](billing.md)
+* [{#T}](jwt-authorizer-firebase.md)

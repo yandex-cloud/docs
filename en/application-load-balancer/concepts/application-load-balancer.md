@@ -23,7 +23,7 @@ For the load balancer to work correctly:
 
 For information on how to configure security groups for the Ingress controller and Gateway API, see [{#T}](../tools/k8s-ingress-controller/security-groups.md).
 
-## Host load balancer {#lb-location}
+## Load balancer location and its internal IP addresses {#lb-location}
 
 When creating a load balancer, specify a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md). Those are the subnets where the load balancer's nodes will be hosted. Application backends will receive traffic from the load balancer nodes in these subnets.
 
@@ -33,6 +33,21 @@ See [below](#lcu-scaling-subnet-sizes) to learn what subnet sizes are recommende
 
 You can disable the load balancer in the selected availability zones. In this case, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer nodes in other availability zones will continue supplying traffic to backends in the availability zones the load balancer was disabled in, if allowed by the [locality-aware routing](backend-group.md#locality) settings.
 
+### Internal IP addresses {#internal-ips}
+
+The load balancer reserves internal IP addresses in the specified networks and assigns addresses to its nodes. These addresses are used for communication between the load balancer nodes and backends. Node IP addresses are shown in the list of internal IP addresses.
+
+To correctly distribute the load across backends, add a permission for incoming traffic from subnets where the load balancer nodes are located:
+
+1. Get the CIDR of each network the load balancer nodes are using.
+1. To enable nodes to freely communicate with backends, add these CIDRs to the list of allowed sources.
+
+> For example, the load balancer uses subnets with CIDRs `10.0.1.0/24` and `10.0.2.0/24`, and backends receive traffic on port `8080`. In which case you will need two [rules](../../vpc/concepts/security-groups.md#security-groups-rules) to allow traffic from the load balancer nodes:
+> 
+> | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+> | --- | --- | --- | --- | --- |
+> | Inbound | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.1.0/24` |
+> | Inbound | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.2.0/24` |
 
 ## Autoscaling and resource units {#lcu-scaling}
 

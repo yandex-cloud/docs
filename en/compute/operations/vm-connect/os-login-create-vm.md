@@ -5,17 +5,21 @@ description: Follow this guide to create a VM that can be accessed via {{ oslogi
 
 # Creating a VM with {{ oslogin }}
 
-[{{ oslogin }}](../../../organization/concepts/os-login.md) is used to provide users and service accounts with SSH access to VMs using {{ iam-short-name }}. To grant access to a VM that supports {{ oslogin }} at the OS level, [assign](../../../iam/operations/roles/grant.md) the following roles to a user:
+[{{ oslogin }}](../../../organization/concepts/os-login.md) provides users and [service accounts](../../../iam/concepts/users/service-accounts.md) access to [VMs](../../../compute/concepts/vm.md#project) relying solely on the [{{ iam-full-name }}](../../../iam/concepts/index.md) mechanisms, without requiring you to upload SSH keys to each new VM when creating it.
+
+{% include [os-login-enablement-notice](../../../_includes/compute/os-login-enablement-notice.md) %}
 
 {% include [os-login-roles-needed-for-vm-access](../../../_includes/organization/os-login-roles-needed-for-vm-access.md) %}
 
-You can use either the [YC CLI](os-login.md#connect-with-yc-cli) or a [standard SSH client](os-login.md#connect-with-ssh-client) to connect to VMs with enabled {{ oslogin }} access. To connect, you can use an SSH certificate or SSH key, which you first need to [add](../../../organization/operations/add-ssh.md) to the {{ oslogin }} profile of a {{ org-full-name }} user or service account.
+You can use either the [YC CLI](os-login.md#connect-with-yc-cli) or a [standard SSH client](os-login.md#connect-with-ssh-client) to connect to VMs with {{ oslogin }} access enabled. To connect, you can use an SSH certificate or SSH key, which you first need to [add](../../../organization/operations/add-ssh.md) to the {{ oslogin }} profile of a {{ org-full-name }} user or service account.
 
-We recommend creating a local user on the new VM and providing a separate SSH key for that user: thus you will still be able to [connect to the VM via SSH](./ssh.md#vm-connect) if you disable {{ oslogin }} access for it. You can create a local user and provide an SSH key for them using [metadata](../../concepts/vm-metadata.md#how-to-send-metadata):
+{% note info %}
 
-{% include [metadata-keys](../../../_includes/compute/os-login-enablement-notice.md) %}
+We recommend creating a local user on the new VM and providing a separate SSH key for that user: this way you will still be able to [connect to the VM via SSH](./ssh.md#vm-connect) even if you disable the {{ oslogin }} access for it. You can create a local user and provide an SSH key for them using [metadata](../../concepts/vm-metadata.md#how-to-send-metadata):
 
 {% include [metadata-keys](../../../_includes/compute/metadata-keys.md) %}
+
+{% endnote %}
 
 To create a VM with {{ oslogin }}:
 
@@ -29,7 +33,7 @@ To create a VM with {{ oslogin }}:
   
      When creating a VM, select **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}** under **{{ ui-key.yacloud.compute.instances.create.section_access }}**. If this option is not available, the selected image does not support {{ oslogin }} access.
   
-     To be able to [connect](./ssh.md#vm-connect) to the VM via SSH without {{ oslogin }}, [update](../vm-control/vm-update.md) the VM settings by disabling this option.
+     To be able to [connect](./ssh.md#vm-connect) to the VM via SSH without {{ oslogin }}, [update](../vm-control/vm-update.md) the VM settings and select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** under **{{ ui-key.yacloud.compute.instances.create.section_access }}**.
 
 - CLI {#cli}
 
@@ -37,10 +41,24 @@ To create a VM with {{ oslogin }}:
 
   1. [Create a VM](../images-with-pre-installed-software/create.md) from a pre-built image with {{ oslogin }} access support.
   
-     When creating a VM, add a flag to enable access via {{ oslogin }}:
+     When creating a VM, specify this parameter for access via {{ oslogin }}:
 
      ```bash
      --metadata enable-oslogin=true
+     ```
+
+- {{ TF }} {#tf}
+
+  1. Enable [access via {{ oslogin }}](../../../organization/operations/os-login-access.md) at the organization level.
+
+  1. [Create a VM](../images-with-pre-installed-software/create.md) from a pre-built image with {{ oslogin }} access support.
+  
+     When creating a VM for the `yandex_compute_instance` resource, specify the following parameter in the `metadata` parameter section to enable access via {{ oslogin }}:
+
+     ```hcl
+     metadata = {
+       enable-oslogin = true
+     }
      ```
 
 - API {#api}

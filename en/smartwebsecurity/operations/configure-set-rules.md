@@ -22,8 +22,8 @@ description: Follow this guide to configure a basic rule set for a WAF profile.
 
   1. Install **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**.
 
-      [Paranoia level](../concepts/waf.md#paranoia) classifies rules according to their aggression. The higher the paranoia level, the better your protection, but also the higher the probability of WAF false positives.
-  1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly values and paranoia levels.
+      [Paranoia level](../concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the higher the probability of WAF false positives. 
+  1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly values and paranoia levels. 
 
       You can turn any rule from the set into a blocking rule. A request that satisfies such a rule will be blocked regardless of the anomaly threshold you specified. To turn a rule into a blocking rule, click ![image](../../_assets/console-icons/ban.svg) to the right of it. If **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode is enabled in the security profile, requests will not get blocked.
   1. Click **{{ ui-key.yacloud.smart-web-security.waf.label_save-settings }}**.
@@ -100,18 +100,22 @@ description: Follow this guide to configure a basic rule set for a WAF profile.
       ```
 
       Where:
-      * `dynamic "rule"`: Dynamic activation of rules from the basic set if their paranoia level is not higher than specified in the `waf_paranoia_level` variable. You can manually edit the parameters of dynamically configured rules. For example, you can turn a rule into a blocking one or activate a rule with paranoia level higher than specified in the variable.
+      * `dynamic "rule"`: Dynamic activation of rules from the basic set if their paranoia level is not higher than specified in the `waf_paranoia_level` variable. You can manually edit the parameters of dynamically configured rules. For example, you can turn a rule into a blocking one or activate a rule with the paranoia level higher than specified in the variable.
          * `rule_id`: Rule ID.
          * `is_enabled`: Flag to enable or disable a rule.
          * `is_blocking`: [Blocking](../concepts/waf.md#anomaly) rule flag.
 
-      For more information about the `sws_waf_profile` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about the `sws_waf_profile` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/sws_waf_profile).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the updates of your resources in the [management console]({{ link-console-main }}).
+  You can check the resources’ updates in the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+  Use the [update](../waf/api-ref/WafProfile/update.md) REST API method for the [WafProfile](../waf/api-ref/WafProfile/) resource or the [WafProfile/Update](../waf/api-ref/grpc/WafProfile/update.md) gRPC API call.
 
 {% endlist %}
 

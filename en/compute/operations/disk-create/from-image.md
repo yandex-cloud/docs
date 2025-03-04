@@ -26,7 +26,7 @@ To create a disk from an [image](../../concepts/image.md):
       {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Provide a description for the disk, if required.
-  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
   1. Set the disk parameters, such as [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
   1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the image you need from the list below. Use the filter to find the image.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
@@ -72,10 +72,22 @@ To create a disk from an [image](../../concepts/image.md):
 
       ```bash
       yc compute disk create <disk_name> \
-        --source-image-name <snapshot_name> \
-        --description <text_description_of_disk>
+        --source-image-name <image_name> \
+        --description <text_description_of_disk> \
+        --kms-key-id <key_ID>
       ```
-      You can use either `--source-image-name` or `--source-image-id` to specify the image.
+
+      Where:
+
+      * `--source-image-name`: Image name. You can use either `--source-image-name` or `--source-image-id` to specify the image.
+      * `description`: Text description of the disk.
+      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+        
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
       For more information about the `yc compute disk create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 

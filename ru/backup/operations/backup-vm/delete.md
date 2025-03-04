@@ -69,3 +69,6 @@ description: Из статьи вы узнаете, как удалить рез
 
 {% endlist %}
 
+#### См. также {#see-also}
+
+* [{#T}](./batch-delete.md)

@@ -73,4 +73,4 @@ Managing roles of other users for a trail | `audit-trails.admin`
 ## What's next {#whats-next}
 
 * Review the [audit log](../concepts/format.md) structure.
-* See an example of [uploading audit logs to {{ cloud-logging-name }}](../operations/export-cloud-logging.md).
+* Learn how to create a trail that [loads logs to the required destination](../operations/create-trail.md).

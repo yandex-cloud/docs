@@ -116,7 +116,21 @@ annotations:
 
 ### Annotations (metadata.annotations) {#annotations}
 
-Annotations are collections of `key:value` pairs used for assigning metadata to objects. Annotation values are always of the `string` data type. For more on annotations, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Annotations are collections of `key:value` pairs used for assigning metadata to objects. Annotation values are always of the `string` data type. 
+
+You can specify several `<key>=<value>` pairs separated by commas as the annotation value.
+
+  ```yaml
+  annotation: <key>=<value>,<key>=<value>,<key>=<value>
+  ```
+
+One key can be mapped to multiple values. For example, to add the `X-Robots` response header set to `noarchive,nofollow,noindex`, write the annotation as follows:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-response-replace: X-Robots-Tag=noarchive,X-Robots-Tag=nofollow,X-Robots-Tag=noindex
+  ```
+
+For more on annotations, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 You can provide the following annotations for a `ObjectMeta` object:
 
@@ -124,7 +138,7 @@ You can provide the following annotations for a `ObjectMeta` object:
 
   `Ingress` resource group name. A separate load balancer is created for each group. You can combine multiple `Ingress` resources into one group to avoid creating a load balancer for each individual `Ingress` resource. For more information about the format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-  The field is mandatory even if the `Ingress` resource is the only one in the group.
+  This is a required field even if the `Ingress` resource is the only one in the group.
 
 * **ingress.alb.yc.io/subnets** {#annot-subnets}
 
@@ -386,7 +400,7 @@ You can provide the following annotations for a `ObjectMeta` object:
 
   Sets a [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode) threshold. The mode will be activated if the percentage of healthy endpoints falls below this value.
 
-  The default value is `0`, which never activates the panic mode.
+  The default value is `0` and it never activates panic mode.
 
 * **ingress.alb.yc.io/balancing-locality-aware-routing** {#annot-locality}
 
@@ -433,7 +447,7 @@ defaultBackend:
 
 If the filed is specified, two types of [listeners](../../../application-load-balancer/concepts/application-load-balancer.md#listener) will be created for the load balancer: some will be receiving HTTPS traffic on port 443, others will redirect HTTP requests (port 80) to HTTPS. The traffic distribution rules for the same domain names explicitly specified in other `Ingress` resources, without the `tls` field, will be prioritized over HTTP-to-HTTPS redirects.
 
-If the field is not specified, only HTTP listeners will be created for the load balancer to handle traffic on port 80.
+If the field is not set, only HTTP listeners will be created for the load balancer to handle traffic on port 80.
 ||
 
 || `rules` | `[]IngressRule`  | [List of rules](#rule) for distribution of incoming traffic among the backends based on domain name (`host` field) and requested resource (`http.paths` field).

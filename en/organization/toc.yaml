@@ -28,7 +28,7 @@ items:
           - name: Connecting a controlled organization
             href: operations/add-region.md
             hidden: true
-      - name: Managing users
+      - name: User management
         items:
           - name: Overview
             href: operations/manage-users.md
@@ -68,11 +68,11 @@ items:
             href: operations/federation-group-mapping.md
           - name: Renewing a {{ yandex-cloud }} SAML certificate
             href: operations/renew-yc-certificate.md
-      - name: Working with OS Login
+      - name: Working with {{ oslogin }}
         items:
-          - name: Enabling access via OS Login
+          - name: Enabling access via {{ oslogin }}
             href: operations/os-login-access.md
-          - name: Creating an OS Login profile
+          - name: Creating an {{ oslogin }} profile
             href: operations/os-login-profile-create.md
           - name: Adding an SSH key
             href: operations/add-ssh.md
@@ -92,6 +92,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Differentiation of access permissions for user groups
+        href: tutorials/user-group-access-control.md
       - name: Managing identity federations
         items:
           - name: Overview
@@ -124,7 +126,7 @@ items:
         href: concepts/add-federation.md
       - name: User groups
         href: concepts/groups.md
-      - name: OS Login
+      - name: '{{ oslogin }}'
         href: concepts/os-login.md
       - name: Controlled organizations
         href: concepts/controlled-org.md

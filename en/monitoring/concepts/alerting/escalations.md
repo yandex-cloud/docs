@@ -3,6 +3,7 @@
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
 
 
+
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}
 
 An escalation policy can be used as a [notification method](notification-channel.md#channel-parameters) for an alert. You can add one escalation policy to any number of alerts.

@@ -20,8 +20,9 @@ Make sure the image you upload has the `READY` status.
 - Management console {#console}
 
 
+
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** from the list of services.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -32,7 +33,7 @@ Make sure the image you upload has the `READY` status.
       * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need this disk automatically deleted when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) to place your VM in.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) the VM will reside in.
   1. Add a [disk](../../concepts/disk.md):
 
       * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, click **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
@@ -49,7 +50,7 @@ Make sure the image you upload has the `READY` status.
   1. {% include [section-platform](../../../_includes/compute/create/section-platform.md) %}
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify a name for the VM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a name for the VM:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -116,7 +117,7 @@ Make sure the image you upload has the `READY` status.
        --name <VM_name> \
        --zone <availability_zone> \
        --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
-       --create-boot-disk name=<disk_name>,size=<disk_size_in_GB>,image-id=<custom_image_ID> \
+       --create-boot-disk name=<disk_name>,size=<disk_size_in_GB>,image-id=<custom_image_ID>,kms-key-id=<key_ID> \
        --ssh-key <path_to_public_key_file>
      ```
 
@@ -141,6 +142,14 @@ Make sure the image you upload has the `READY` status.
 
          * `size`: Disk size in GB.
          * `image-id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+
+           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+           
+           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+           
      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
@@ -213,7 +222,7 @@ Make sure the image you upload has the `READY` status.
        zone                      = "<availability_zone>"
 
        resources {
-         cores  = <number_of_vCPU_cores>
+         cores  = <number_of_vCPUs>
          memory = <RAM_in_GB>
        }
 
@@ -250,7 +259,7 @@ Make sure the image you upload has the `READY` status.
           {% include [name-format](../../../_includes/name-format.md) %}
 
        * `type`: Disk type.
-       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
        * `size`: Disk size in GB.
        * `image_id`: ID of the custom image to create the VM from. Specify the ID of the [uploaded](../image-create/upload.md) image.
      * `yandex_compute_instance`: VM description.
@@ -262,7 +271,7 @@ Make sure the image you upload has the `READY` status.
 
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-       * `zone`: Availability zone the VM will be in.
+       * `zone`: Availability zone the VM will reside in.
        * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
        * `boot_disk`: Boot disk settings. Specify the disk ID.
        * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
@@ -285,7 +294,7 @@ Make sure the image you upload has the `READY` status.
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

@@ -21,7 +21,7 @@ common:
     to: /datasphere/concepts/data-processing-operations
   - from: ^/datasphere/concepts/data-proc-template
     to: /datasphere/concepts/data-processing-template
-  - from: ^/datasphere/concepts/data-proc
+  - from: ^/datasphere/concepts/data-proc$
     to: /datasphere/concepts/data-processing
   - from: ^/datasphere/concepts/temporary-data-proc-clusters
     to: /datasphere/concepts/temporary-data-processing-clusters
@@ -45,7 +45,7 @@ common:
     to: /getting-started/$1
   - from: ^/managed-airflow/tutorials/data-proc-automation
     to: /managed-airflow/tutorials/data-processing-automation
-  - from: ^/managed-kafka/tutorials/data-proc
+  - from: ^/managed-kafka/tutorials/data-proc$
     to: /managed-kafka/tutorials/data-processing
   - from: ^/marketplace-products/neoflex-datagram-dataproc
     to: /marketplace-products/neoflex-datagram-data-processing

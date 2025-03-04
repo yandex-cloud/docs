@@ -1,23 +1,23 @@
-# Setting the MTU when DDoS protection is active
+# Setting up the MTU when enabling DDoS protection
 
 We recommend always setting the MTU to `1450` bytes when [{{ ddos-protection-full-name }}](./enable-ddos-protection.md) protection is active.
 
 {% note alert %}
 
-If you enable {{ ddos-protection-name }} and leave the MTU at the default value, you may lose network traffic.
+If you enable {{ ddos-protection-name }} and leave the default MTU, you may lose network traffic.
 
 {% endnote %}
 
-To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../concepts/mtu-mss.md).
+To learn more about the MTU and MSS in {{ yandex-cloud }}, see [{#T}](../concepts/mtu-mss.md).
 
-## Setting the MTU {#set-mtu}
+## Setting up the MTU {#set-mtu}
 
-### For a VM with Ubuntu Linux 20.04 or 22.04 {#ubuntu}
+### For an Ubuntu 20.04 or 22.04 VM {#ubuntu}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH:
 
    ```
-   ssh <username>@<VM's_IP>
+   ssh <username>@<VM_IP_address>
    ```
 
 1. Set the MTU to `1450` using the `netplan` command. Run this command:
@@ -46,7 +46,7 @@ To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../
      namespace: kube-system
      labels:
        k8s-app: mtu-fix
-       version: 1v
+       version: 2v
    spec:
      selector:
        matchLabels:
@@ -57,41 +57,34 @@ To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../
            k8s-app: mtu-fix
        spec:
          hostPID: true
+         hostIPC: true
          hostNetwork: true
          containers:
          - name: mtu-fix
-           image: {{ registry }}/crpjfmfou6gflobbfvfv/ipfixik:0.1.0
+           image: {{ registry }}/yc/mk8s-openssl:stable
            command:
              - bash
              - -c
              - |
-               ip link set dev eth0 mtu 1450
-               sleep infinity
-           imagePullPolicy: Always
+               chroot /host /bin/bash -c "ip link set dev eth0 mtu 1450 &&  sleep infinity"
+           imagePullPolicy: IfNotPresent
            securityContext:
              privileged: true
            resources:
              limits:
-               memory: 200Mi
+               memory: 100Mi
              requests:
                cpu: 100m
-               memory: 200Mi
+               memory: 100Mi
            volumeMounts:
-           - mountPath: /sys/
-             name: sys
-           - mountPath: /proc/
-             name: proc
+             - mountPath: /host
+               name: host-namespace
          volumes:
-         - name: sys
-           hostPath:
-             path: /sys/
-             type: Directory
-         - name: proc
-           hostPath:
-             path: /proc/
-             type: Directory
+           - name: host-namespace
+             hostPath:
+               path: /
    ```
-
+    
    Save it to a file with any name, e.g., `ds-mtu-fix.yml`.
 
 1. Apply the manifest you created to the {{ managed-k8s-name }} cluster:
@@ -100,17 +93,17 @@ To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../
    kubectl -f ds-mtu-fix.yml
    ```
 
-1. [Connect](../../managed-kubernetes/operations/node-connect-ssh.md) to any production node within the cluster over SSH and check the MTU and MSS values.
+1. [Connect](../../managed-kubernetes/operations/node-connect-ssh.md) to any worker node within the cluster over SSH and check the MTU and MSS values.
 
    ```
-   ssh <username>@<production_node_IP>
+   ssh <username>@<worker_node_IP_address>
    ip link show eth0 | grep mtu
    ss -i | grep mss
    ```
 
-### For a VM with Windows Server {#windows-server}
+### For a Windows Server VM {#windows-server}
 
-1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM with Windows Server over RDP and launch Windows PowerShell.
+1. [Connect](../../compute/operations/vm-connect/rdp.md) to the Windows Server VM over RDP and launch Windows PowerShell.
 
 1. Specify the name of the interface for which you want to change the MTU:
 
@@ -118,13 +111,13 @@ To learn more about MTU and MSS parameters in {{ yandex-cloud }}, see [{#T}](../
    netsh interface ipv4 show subinterfaces
    ```
 
-1. Set the MTU of the network interface to `1450`. In our example, it is `Ethernet 2`:
+1. Set the MTU to `1450` for the network interface in question. In our example, it is `Ethernet 2`:
 
    ```
    netsh interface ipv4 set subinterface "Ethernet 2" mtu=1450 store=persistent
    ```
 
-1. Make sure the MTU value has changed.
+1. Make sure the MTU value has changed:
 
    ```
    netsh interface ipv4 show subinterfaces

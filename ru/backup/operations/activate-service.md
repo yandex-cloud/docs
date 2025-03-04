@@ -2,6 +2,8 @@
 
 Минимальная роль в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), необходимая для активации сервиса, — `backup.editor` (см. [описание роли](../security/index.md#backup-editor)).
 
+{% include [agent-send-data](../../_includes/backup/agent-send-data.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

@@ -67,10 +67,16 @@ items:
         href: operations/operation-logs.md
       - name: Configuring monitoring
         href: operations/monitoring.md
+      - name: Setting up alerts
+        href: operations/alerting.md
   - name: Tutorials
     items:
       - name: Creating an L7 load balancer with a security profile
         href: tutorials/balancer-with-sws-profile.md
+      - name: >-
+          Creating an L7 load balancer with a security profile through an {{
+          alb-name }} Ingress controller
+        href: tutorials/alb-ingress-with-sws-profile.md
       - name: Creating an L7 load balancer with DDoS protection at OSI L3-L4
         items:
           - name: Overview
@@ -82,20 +88,20 @@ items:
       - name: '{{ api-gw-name }} protection with {{ sws-name }}'
         href: tutorials/api-gw-sws-integration.md
       - name: >-
-          Migrating services from a NLB to an L7 ALB for DDoS protection using
-          {{ sws-name }}
+          Migrating services from a NLB load balancer to an L7 ALB load balancer
+          for DDoS protection using {{ sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md
           - name: NLB with target resources from VMs
             href: tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
-          - name: NLB with target resources from an instance group
+          - name: NLB load balancer with target resources from an instance group
             href: >-
               tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
           - name: NLB with target resources from a {{ managed-k8s-name }} cluster
             href: >-
               tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
-          - name: NLB as a target resource for an ALB
+          - name: NLB load balancer as a target resource for an ALB load balancer
             href: tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
   - name: Concepts
     expanded: true

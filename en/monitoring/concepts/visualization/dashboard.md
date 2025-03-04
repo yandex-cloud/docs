@@ -56,11 +56,11 @@ Let's assume a dashboard has a specified *{{ ui-key.yacloud_monitoring.component
 
 Filtering settings and result:
 
-* The `cluster=*prod*` filter will limit parameter values to the list of `prod` and `preprod-1` values.
-* The `cluster=preprod-|preprod-2` filter will limit the values to the list of `preprod-1` and `preprod-2` values.
+* The `cluster=*prod*` filter will limit the parameter values to `prod` and `preprod-1`.
+* The `cluster=preprod-1|preprod-2` filter will limit the values to `preprod-1` and `preprod-2`.
 * The `cluster=testing` filter will limit the values to a single value, `testing`.
 
-Below is a more complex example. Let's say the system has the following metrics:
+Below is a more complex example. Let's say the system has the following metrics: 
 
 * `usage{cluster="prod", account="prodaccount"}`
 * `usage{cluster="preprod", account="preprodaccount"}`
@@ -77,3 +77,13 @@ Result:
 
 * The only possible values of the `cluster` parameter will be `prod` and `preprod`. The `testing` value will be excluded as not matching the `cluster=*prod*` rule.
 * The only possible values of the `account` parameter will be `prodaccount`, `preprodaccount`, and `multiaccount`. The `testingaccount` value will be excluded as there is no metric with a combination of `account="testingaccount"` and `cluster` labels matching the `cluster=*prod*` rule (for `multiaccount`, there is such a combination).
+
+### Chart repetition by parameter {#repeated-graphs}
+
+Chart repetition based on a specific parameter allows you to build several similar charts but with different values of this parameter. This can facilitate anomaly and issue analysis: you can split a metric into several metrics and examine each one separately.
+
+For example, configure repetition by the `host` parameter to view CPU utilization charts for each one of your VMs. With a separate chart for each VM, it will be so much easier to localize your problem. By adding the `cpu` parameter, you can build utilization charts for each one of your VM's vCPUs.
+
+For VMs, we recommend you to regularly monitor such parameters as CPU and RAM utilization and disk errors.
+
+For more on chart repetition, see [{#T}](../../operations/dashboard/add-parameters.md#repeated-graphs).

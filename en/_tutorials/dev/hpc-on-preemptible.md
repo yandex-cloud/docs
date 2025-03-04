@@ -17,7 +17,6 @@ To create a cluster and run a computational task:
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The costs for hosting servers include:
@@ -32,11 +31,11 @@ The costs for hosting servers include:
 To create a VM:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}` as the boot [disk](../../compute/concepts/disk.md) type.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify parameters for your current computing tasks:
 
@@ -54,18 +53,18 @@ To create a VM:
         * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
             * In the window that opens, enter the network name and select the folder to host the network.
-            * Optionally, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** to automatically create subnets in all availability zones.
+            * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
             * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool. Alternatively, select a static address from the list if you reserved one.
 
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the information required to access the VM:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
     * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a name for the user you want to create on the VM, e.g., `ubuntu`.
 
       {% note alert %}
 
-      Do not use `root` or other reserved usernames. To perform actions requiring root privileges, use the `sudo` command.
+      Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
 
       {% endnote %}
 
@@ -114,7 +113,7 @@ To create a VM:
    * In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, enter a name for your instance group, e.g., `compute-group`.
    * In the **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** field, add a [service account](../../compute/concepts/instance-groups/access.md) to the instance group. If you do not have a service account, click **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**, enter a name, and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
-     To be able to create, update, and delete VMs in the group, assign the [compute.editor](../../compute/security/index.md#compute-editor) role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of the service account.
+     To create, update, and delete VMs in the group, assign the [compute.editor](../../compute/security/index.md#compute-editor) role to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
 
    * In the **{{ ui-key.yacloud.compute.groups.create.field_zone }}** field, select the availability zone where the `master-node` VM resides. Make sure the VMs are in the same availability zone to reduce latency between them.
    * Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**. This will open a screen for creating a [template](../../compute/concepts/instance-groups/instance-template.md).
@@ -180,7 +179,7 @@ To allow the VMs to use the same source files, create a shared network directory
    sudo service nfs-kernel-server restart
    ```
 
-#### Mount the directories on the VM from the group {#mount}
+#### Mount the directories on the group VMs {#mount}
 
 On each VM in `compute-group`, mount the directory you created:
 1. Create a `shared` directory and mount the directory with the `master-node` VM on it:
@@ -260,7 +259,7 @@ You can check the load on the VM cores by running the `htop` command in a separa
    0: Time of task=36.561695
    ```
 
-1. Run the task on four cores using the resources of two VMs with two cores per VM. To do this, run the task with the `-host` key that accepts parameters in the `<VM IP address>:<number of cores>[,<ip>:<cores>[,...]]` format:
+1. Run the task on four cores using the resources of two VMs with two cores per VM. To do this, run the task with the `-host` key that accepts parameters in `<VM IP address>:<number of cores>[,<ip>:<cores>[,...]]` format:
 
    ```bash
    mpirun -np 4 -host localhost:2,<VM IP address>:2 task

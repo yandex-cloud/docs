@@ -8,7 +8,7 @@ To configure continuous integration (CI) for VM [disk snapshots](../../compute/c
 1. [Configure the test application VM](#configure-vm): Install a web server and test application components on the VM. Write a test application reversing words in a text sent to the server.
 1. [Check how the application works](#test-app): Send a test request to check whether the server settings are correct.
 1. [Create a VM disk snapshot](#create-snapshot): Create a disk snapshot that CI will use to create new VMs.
-1. [Create a {{ GL }} VM](#create-gitlab-vm): Create a [{{ GL }}](https://about.gitlab.com/) VM with a repository to store CI settings and a test script.
+1. [Create a VM with {{ GL }}](#create-gitlab-vm): Create a [{{ GL }}](https://about.gitlab.com/) VM with a repository to store CI settings and a test script.
 1. [Configure {{ GL }}](#configure-gitlab): Create a file repository and get configuration parameters.
 1. [Configure Runner](#configure-runner): Tool for performing tasks.
 1. [Configure CI](#configure-ci): Specify the required command and testing parameters.
@@ -24,14 +24,12 @@ Before creating a VM:
 1. Navigate to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with.
 1. Make sure the selected folder has a [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) where you can connect your VM. To do this, select **{{ vpc-name }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If there are no networks in the list or the selected network has no subnets, [create them](../../vpc/quickstart.md) as required.
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for storing created images (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+* Fee for dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create the test application VM {#create-vm}
 
@@ -42,7 +40,7 @@ Create a VM where you will install a web server, your test application, and its 
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts) public image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these parameters:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
@@ -290,7 +288,7 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [{{ GL }}](/marketplace/products/yc/gitlab) image.
-1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these parameters:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`

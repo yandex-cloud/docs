@@ -5,7 +5,7 @@
 
 To configure audit log export:
 
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Prepare the environment](#environment-preparing).
 1. [Create a trail to send logs to a {{ yds-name }} data stream](#create-trail).
 1. [In MaxPatrol SIEM, set up a job to collect data from a {{ yds-name }} data stream](#configure-maxpatrol).
@@ -41,7 +41,7 @@ Create a service account in the same folder where you are going to create the tr
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `maxpatrol-sa`.
+  1. Specify a name for the service account: `maxpatrol-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -86,7 +86,7 @@ Assign the `audit-trails.viewer` and `yds.editor` roles to the `maxpatrol-sa` se
 
       Where:
 
-      * `--role`: Role you want to assign.
+      * `--role`: Role to assign.
       * `--id`: [ID](../../organization/operations/organization-get-id.md) of the organization the service account belongs to.
       * `--service-account-id`: `maxpatrol-sa` service account ID.
 
@@ -108,7 +108,7 @@ Assign the `audit-trails.viewer` and `yds.editor` roles to the `maxpatrol-sa` se
 
       Where:
 
-      * `--role`: Role you want to assign.
+      * `--role`: Role to assign.
       * `--subject`: `maxpatrol-sa` service account ID.
 
       Result:
@@ -140,7 +140,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
   {% note alert %}
 
-  Save the ID and secret key. After you close the dialog, the key value will become unavailable.
+  Save the ID and secret key. After you close this dialog, the key value will not be shown again.
 
   {% endnote %}
 
@@ -165,7 +165,7 @@ MaxPatrol SIEM uses [static access keys](../../iam/concepts/authorization/access
 
   {% note alert %}
 
-  Save the ID (`key_id`) and secret key (`secret`). You cannot retrieve the key value a second time.
+  Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the key value again.
 
   {% endnote %}
 
@@ -186,7 +186,7 @@ The database is required for the `{{ yds-name }}` data stream.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_ydb }}**.
   1. Specify **{{ ui-key.yacloud.ydb.forms.label_field_name }}**: `maxpatrol-db`.
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
-  1. Leave the other parameters at their default settings.
+  1. Leave other parameters at their defaults.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
   Wait for the database status to change to `Running`.
@@ -241,7 +241,7 @@ This is the data stream the trail will upload organization resource logs to.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-streams }}**.
   1. In the **{{ ui-key.yacloud.data-streams.label_database }}** field, select `maxpatrol-db`.
   1. Specify **{{ ui-key.yacloud.common.name }}** `maxpatrol-stream`.
-  1. Leave the other parameters at their default settings.
+  1. Leave other parameters at their defaults.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   Wait for the data stream status to change to `Running`.
@@ -251,7 +251,7 @@ This is the data stream the trail will upload organization resource logs to.
 
 ## Create a trail {#create-trail}
 
-The trail will collect management audit logs for all your organization's resources and [upload](../../audit-trails/operations/export-organization-data-streams.md) them to the `maxpatrol-stream` data stream.
+The trail will collect management audit logs for all your organization's resources and upload them to the `maxpatrol-stream` data stream.
 
 {% list tabs group=instructions %}
 
@@ -274,6 +274,7 @@ The trail will collect management audit logs for all your organization's resourc
 
 {% endlist %}
 
+For more information about creating a trail, see [{#T}](../../compute/concepts/vm-metadata.md).
 
 ## Configure MaxPatrol SIEM {#configure-maxpatrol}
 

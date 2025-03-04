@@ -11,6 +11,7 @@ To set up IP network connectivity across the resources in the customer’s on-pr
 
 This document explains how to set up [routing](../../vpc/concepts/routing) for your cloud network and configure your {{ interconnect-name }} [private connection](../../interconnect/concepts/priv-con) to enable network connectivity between the on-premise infrastructure and segments hosted behind the NGFW.
 
+
 | Name                            | Description                                                                                                                                   |
 |-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | FW-A                                | Primary NGFW in zone A                                                                                                                     |
@@ -40,7 +41,7 @@ If the [prerequisites](#necessary-conditions) are met and your cloud route table
 1. The NGFW must have configured security policies to allow access from the `interconnect` {{ vpc-short-name }} to the `dmz` and `app` {{ vpc-short-name }}, based on the requirements of your corporate information security service.
 1. Route tables for subnets in the `dmz` and `app` {{ vpc-short-name }} must contain routes to the networks used in your on-premise infrastructure. The default route, `0.0.0.0/0`, is normally used. For `Next hop`, these routes must use the IP address of the primary NGFW in the corresponding {{ vpc-short-name }}: `dmz` or `app`.
 1. The NGFW must have static routes configured to networks used in the customer's on-premise infrastructure. For `Next hop`, these routes must use the gateway address (the first address in the subnet range, e.g., `x.x.x.1` for the `x.x.x.x.0/24` subnet) from the cloud subnet of the NGFW interface in the `interconnect` {{ vpc-short-name }}.
-1. We recommend that you plan your address plans in the `dmz` and `app` {{ vpc-short-name }} so that aggregated prefixes (aggregates) can be used. With aggregates (`С.С.0.0/16` and `D.D.0.0/16` in the example), you only need to configure route tables in the `interconnect` {{ vpc-short-name }} and prefix announcements in private {{ interconnect-name }} connections once. You will no longer have to edit route tables in the `interconnect` {{ vpc-short-name }} when adding new subnets to the `dmz` and `app`{{ vpc-short-name }}, nor open support tickets to have announcements added to {{ interconnect-name }}.
+1. We recommend that you plan your address plans in the `dmz` and `app` {{ vpc-short-name }} so that aggregated prefixes (aggregates) can be used. With aggregates (`C.C.0.0/16` and `D.D.0.0/16` in the example), you only need to configure route tables in the `interconnect` {{ vpc-short-name }} and prefix announcements in private {{ interconnect-name }} connections once. You will no longer have to edit route tables in the `interconnect` {{ vpc-short-name }} when adding new subnets to the `dmz` and `app`{{ vpc-short-name }}, nor open support tickets to have announcements added to {{ interconnect-name }}.
 
 ## Configure route tables in the `interconnect` {{ vpc-short-name }} {#configure-route-tables}
 
@@ -50,8 +51,8 @@ To the subnet in the primary NGFW zone (`A.A.A.0/24` in zone A), apply a route t
 
 | Destination prefix | Next hop                                            |
 |--------------------|-----------------------------------------------------|
-| `С.С.0.0/17`       | FW-A IP address in the `interconnect` {{ vpc-short-name }} |
-| `С.С.128.0/17`     | FW-A IP address in the `interconnect` {{ vpc-short-name }} |
+| `C.C.0.0/17`       | FW-A IP address in the `interconnect` {{ vpc-short-name }} |
+| `C.C.128.0/17`     | FW-A IP address in the `interconnect` {{ vpc-short-name }} |
 | `D.D.0.0/17`       | FW-A IP address in the `interconnect` {{ vpc-short-name }} |
 | `D.D.128.0/17`     | FW-A IP address in the `interconnect` {{ vpc-short-name }} |
 
@@ -60,7 +61,7 @@ To the subnet in the standby NGFW zone (`B.B.B.0/24` in zone B), apply another r
 
 | Destination prefix | Next hop                                            |
 |--------------------|-----------------------------------------------------|
-| `С.С.0.0/16`       | FW-A IP address in the `interconnect` {{ vpc-short-name }} |
+| `C.C.0.0/16`       | FW-A IP address in the `interconnect` {{ vpc-short-name }} |
 | `D.D.0.0/16`       | FW-A IP address in the `interconnect` {{ vpc-short-name }} |
 
 The above settings ensure that traffic to subnets in the `dmz` and `app` {{ vpc-short-name }} is routed to the primary NGFW. Provided that the [`route-switcher`](https://github.com/yandex-cloud-examples/yc-route-switcher) module is on, traffic will be routed to the standby NGFW should the primary one fail.
@@ -86,7 +87,7 @@ For the example outlined in this tutorial, specify the following details under `
 
 ```yaml
 vpc: 
-  vpc_net_id: <`interconnect` {{ vpc-short-name }} ID> 
+  vpc_net_id: <{{ vpc-short-name }}_interconnect_ID> 
     vpc_subnets:
       ru-central1-a: [A.A.A.0/24, C.C.0.0/17, C.C.128.0/17, D.D.0.0/17, D.D.128.0/17]
       ru-central1-b: [B.B.B.0/24, C.C.0.0/16, D.D.0.0/16]

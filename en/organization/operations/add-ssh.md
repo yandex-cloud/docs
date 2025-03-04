@@ -1,13 +1,13 @@
 ---
 title: How to add a user SSH key
-description: Follow this guide to add to a user profile the SSH keys to allow the user to connect to VMs and {{ k8s }} cluster nodes with {{ oslogin }} access configured.
+description: Follow this guide to add SSH keys to a user profile to enable the user to connect to VMs and {{ k8s }} cluster nodes.
 ---
 
 # Adding an SSH key
 
-Upload SSH keys to the {{ org-name }} profile of an organization user or [service account](../../iam/concepts/users/service-accounts.md) so it can connect to virtual machines and {{ managed-k8s-full-name }} cluster nodes with [{{ oslogin }}](../concepts/os-login.md) access enabled.
+Upload SSH keys to the {{ org-name }} profile of an organization user or [service account](../../iam/concepts/users/service-accounts.md) so that the user or service account can connect to VMs and {{ k8s }} cluster nodes.
 
-To add an SSH key to a user profile or service account, make sure the **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}** option is [enabled](./os-login-access.md) at the organization level. If required, [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair.
+[Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair before you begin this tutorial, if you need to.
 
 To add a public SSH key to an {{ oslogin }} profile:
 
@@ -25,7 +25,7 @@ To add a public SSH key to an {{ oslogin }} profile:
   
       Use the filter or search as needed.
 
-  1. Go to the **{{ ui-key.yacloud_org.page.user.title_tab-ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens:
+  1. Navigate to the **{{ ui-key.yacloud_org.page.user.title_tab-ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens:
   
       1. Name the SSH key you are adding.
 
@@ -84,6 +84,8 @@ To add a public SSH key to an {{ oslogin }} profile:
       +----------------------+-----------------------+---------------------------------+----------------------+
       ```
 
+      To add an SSH key to an {{ oslogin }} profile of a service account, [get](../../iam/operations/sa/get-id.md) the service account ID.
+
   1. Upload the SSH key to your user or service account profile:
 
       ```bash
@@ -123,7 +125,7 @@ To add a public SSH key to an {{ oslogin }} profile:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_user_ssh_key" "my_user_ssh_key" {
@@ -141,22 +143,22 @@ To add a public SSH key to an {{ oslogin }} profile:
       * `subject_id`: ID of the [user](./users-get.md) or [service account](../../iam/operations/sa/get-id.md) to whose profile you are adding the SSH key.
       * `data`: Contents of a public SSH key.
       * `name`: Uploaded key name.
-      * `expires_at`: Uploaded key expiration date. This is an optional parameter. It allows you to set any time and date for the uploaded key, after which the key becomes invalid. The value is set in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format, e.g., `YYYY-MM-DDT00:00:00Z`.
+      * `expires_at`: Uploaded key expiration date. This is an optional parameter. It allows you to set any expiration time and date for the uploaded key. The value is set in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format, e.g., `YYYY-MM-DDT00:00:00Z`.
 
       For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_user_ssh_key).
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the folder where you created the configuration file.
+      1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
       1. If the configuration does not contain any errors, run this command:
 
@@ -164,7 +166,7 @@ To add a public SSH key to an {{ oslogin }} profile:
           terraform apply
           ```
 
-      1. Confirm that you want to create the resources.
+      1. Confirm creating the resources.
 
       The SSH key will then be uploaded to the user profile. To make sure the SSH key is added, run the YC CLI command, specifying the organization ID:
 

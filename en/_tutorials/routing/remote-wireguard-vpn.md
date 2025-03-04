@@ -11,40 +11,38 @@ Notes to the chart elements:
 | Name | Description |
 | ---- | ---- |
 | Firezone VM | VM with installed Firezone software based on WireGuard VPN to set up VPN access |
-| Database cluster | [Managed Service for PostgreSQL](../../managed-postgresql/) to run Firezone and Keycloak VMs |
-| Keycloak VM | Open-source [Keycloak](https://www.keycloak.org/) software for user single sign-on authentication in a corporate user identity federation, such as Active Directory |
+| Database cluster | [Managed Service for PostgreSQL](../../managed-postgresql/) to run Firezone and Keycloak VMs. | 
+| Keycloak VM | Open-source [Keycloak](https://www.keycloak.org/) software for user single sign-on authentication in a corporate user identity federation, such as Active Directory. |
 
 
-For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone/blob/main/README.md).
+For more information, see the project repository [here](https://github.com/yandex-cloud-examples/yc-remote-acess-vpn-with-wireguard-firezone/blob/main/README.md).
 
 To set up Firezone and test it:
 
-1. [Prepare your cloud](#prepare-cloud).
-1. [Prepare an environment for deploying the resources](#setup-environment).
+1. [Get your cloud ready](#prepare-cloud).
+1. [Set up an environment for deploying the resources](#setup-environment).
 1. [Prepare a domain](#prepare-domain).
 1. [Deploy Firezone and Keycloak](#deploy-firezone).
 1. [Set up Keycloak integration with Firezone](#configure-keycloak).
-1. [Configure Firezone](#configure-firezone).
+1. [Configure Firezone](#configure-firezone). 
 1. [Test Firezone](#test-firezone).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using {{ mpg-name }} (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
 * Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
-
-## Prepare an environment for deploying the resources {#setup-environment}
+## Set up the environment for deploying the resources {#setup-environment}
 
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in as a user.
@@ -55,9 +53,9 @@ The infrastructure support costs include:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-     1. Enter a name for the service account, e.g., `sa-firezone`.
+     1. Specify the service account name, e.g., `sa-firezone`.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -90,7 +88,7 @@ The infrastructure support costs include:
    - Management console {#console}
 
      1. On the management console [home page]({{ link-console-main }}), select a folder.
-     1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
      1. Find the `sa-firezone` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
      1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** in the dialog that opens and select the `admin` role.
@@ -107,7 +105,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Set up the CLI profile to perform operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -137,7 +135,7 @@ The infrastructure support costs include:
          key_algorithm: RSA_2048
          ```
 
-     1. Create a CLI profile to run operations on behalf of the service account:
+     1. Create a CLI profile to perform operations under the service account:
 
          ```bash
          yc config profile create sa-firezone
@@ -192,7 +190,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
    {% note warning %}
 
       The values set in the file are intended for deploying resource-intensive infrastructures.
-      Check out the cloud quotas to be able to deploy your resources.
+      Check whether your cloud quotas allow you to deploy your resources.
 
    {% endnote %}
 
@@ -239,7 +237,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
          terraform plan
          ```
 
-     1. Create resources:
+     1. Create the resources:
 
          ```bash
          terraform apply
@@ -297,7 +295,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
       terraform plan
       ```
 
-  1. Create resources:
+  1. Create the resources:
 
       ```bash
       terraform apply
@@ -328,16 +326,16 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
 1. Click **Save** to apply the settings.
 1. Go to the **SETTINGS / Security** section to change the security settings.
 1. Disable the **Allow unprivileged device configuration** setting so that the users cannot change the VPN client network settings through the Firezone user web interface.
-1. Activate the **Auto disable VPN** setting. This will allow disabling a user's VPN connections when the user is removed in the Identity Provider (in this case, Keycloak).
+1. Activate the **Auto disable VPN** setting. This will allow disabling a user's VPN connections when the user is removed in the identity provider (in this case, Keycloak).
 1. Click **Add OpenID Connect Provider** to add Keycloak.
 1. In the **OIDC Configuration** section, fill in the following fields:
-   - **Config ID**: `keycloak`
-   - **Label**: `Keycloak`
-   - **OIDC scopes**: `openid email profile offline_access`
-   - **Client ID**: `firezone`
+   - **Config ID**: `keycloak`.
+   - **Label**: `Keycloak`.
+   - **OIDC scopes**: `openid email profile offline_access`.
+   - **Client ID**: `firezone`.
    - **Client secret**: `client_secret` from the `terraform output keycloak_config_for_firezone` output in the `keycloak-config` directory (specify the value without quotes).
    - **Discovery Document URI**: `discovery_document_uri` from the `terraform output keycloak_config_for_firezone` output in the `keycloak-config` directory (specify the value without quotes).
-   - **Redirect URI**: Leave it blank.
+   - **Redirect URI**: Leave blank.
    - Enable **Auto-create users** to automatically add users to Firezone after their successful authentication in Keycloak.
 1. Click **Save** in the **OIDC Configuration** section to apply the settings.
 
@@ -360,7 +358,7 @@ You will need a domain to use for Firezone and Keycloak VMs. Make sure to first 
    {% endnote %}
 
 1. Add a new VPN tunnel (**Import tunnel(s) from file**) in the WireGuard app using the configuration file you downloaded.
-1. Click **Activate** to activate the tunnel.
+1. Click **Activate** to activate the tunnel.  
 1. Use `ping 192.168.1.1` in the command line on your device to check whether the gateway is accessible from the `firezone` cloud subnet. You are now connected to the cloud infrastructure through the VPN tunnel.
 
    ```bash

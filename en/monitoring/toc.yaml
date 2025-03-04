@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Working with metrics
         items:
+          - name: Metrics overview
+            href: operations/metric/metric-explorer.md
           - name: Delivering Linux system metrics
             href: operations/unified-agent/linux_metrics.md
           - name: Delivering custom application metrics
@@ -91,6 +93,8 @@ items:
         items:
           - name: Overview
             href: concepts/visualization/index.md
+          - name: Metrics overview
+            href: concepts/visualization/metric-explorer.md
           - name: Query string
             href: concepts/visualization/query-string.md
           - name: Widgets
@@ -133,6 +137,8 @@ items:
             href: operations/prometheus/ingestion/index.md
           - name: Remote Write
             href: operations/prometheus/ingestion/remote-write.md
+          - name: Diagnostics and troubleshooting
+            href: operations/prometheus/ingestion/troubleshooting.md
       - name: Reading metrics
         items:
           - name: Overview

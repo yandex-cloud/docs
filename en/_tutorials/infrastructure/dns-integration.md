@@ -81,7 +81,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
 The infrastructure support costs include:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 
 ## Set up cloud DNS {#setup-cloud-dns}
@@ -309,7 +309,7 @@ Configure the corporate servers so that DNS queries to the [{{ yandex-cloud }} p
     ns1.corp.example.net has address 172.16.1.5
     ```
 
-1. Check that domain names are resolved in public zones on cloud hosts `forwarder1`, `forwarder2`, and `test1`, for example:
+1. Check that the `forwarder1`, `forwarder2`, and `test1` cloud hosts perform name recognition in public zones, for example:
 
     ```bash
     host cisco.com

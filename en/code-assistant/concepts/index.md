@@ -24,8 +24,12 @@ LLMs that are used in {{ ca-name }} have been fine-tuned based on the open-sourc
 * Inline completion: Provides suggestions as you type. Works for code, texts, and documents.
 * Full-function completion: Provides autocompletion for entire functions or methods.
 
+{% include [help-indicator-load](../../_includes/code-assistant/help-indicator-load.md) %}
+
+For more information on managing the suggestion indicator, see [{#T}](../quickstart.md#help-indicator).
+
+
 #### See also {#see-also}
 
 * [{#T}](../quickstart.md)
-* [{{ ca-full-name }} terms of use](https://yandex.com/legal/cloud_terms_code_assistant/)
-
+* [{{ ca-name }}](https://yandex.com/legal/cloud_terms_code_assistant/) terms of use

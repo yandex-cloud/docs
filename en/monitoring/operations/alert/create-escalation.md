@@ -8,6 +8,7 @@ description: In this article, you will learn how to create and configure an esca
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
 
 
+
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}
 
 ## Getting started {#before-you-begin}

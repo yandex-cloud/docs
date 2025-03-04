@@ -19,7 +19,7 @@ To create a tunnel between two subnets:
 1. [Create the VMs you want to connect](#create-target-vm).
 1. [Create a gateway VM](#create-vm-gateway).
 1. [Set up a VPN server](#create-vpn-server).
-1. [Configure network traffic rules](#network-settings).
+1. [Configure network traffic permissions](#network-settings).
 1. [Get the administrator password](#get-admin-password).
 1. [Create an OpenVPN remote user account](#configure-openvpn).
 1. [Configure the OpenVPN gateway on the second subnet](#configure-second-end-of-the-tunnel).
@@ -31,7 +31,6 @@ If you no longer need your VPN server, [delete the created VMs](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of the OpenVPN infrastructure support includes:
@@ -39,7 +38,6 @@ The cost of the OpenVPN infrastructure support includes:
 * Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for the OpenVPN Access Server license (when using more than two connections).
-
 
 ## Create a network and subnets {#create-environment}
 
@@ -82,12 +80,12 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, select an image for the VM.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for the `ovpn-left` subnet.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `ovpn-network` and the `ovpn-left` subnet.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `ovpn-network` and the `ovpn-left`subnet.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
       * Expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section:
 
@@ -111,9 +109,9 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
 - Management console {#console}
 
-  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}** in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, select an image for the VM.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where the `ovpn-right` subnet resides.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for the `ovpn-right` subnet.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `ovpn-network` and the `ovpn-right` subnet.
@@ -142,7 +140,7 @@ Create a VM to run the VPN server:
 
 - Management console {#console}
 
-  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, specify `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where the `ovpn-left` subnet resides.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -202,7 +200,7 @@ Once you set up a {{ yandex-cloud }} VM running OpenVPN Access Server, you will 
 1. `vpn-server` gateway internal IP: `10.128.0.3`
 1. `vpn-server` VM public IP: `<VM_public_IP_address>`
 1. Admin Web UI: `https://<VM_public_IP_address>:943/admin`
-1. Admin UI account: `openvpn/<admin password>`
+1. Admin UI account: `openvpn/<admin_password>`
 1. Client Web UI: `https://<VM_public_IP_address>:943`
 
 Create an OpenVPN account the second subnet gateway will use to connect to the OpenVPN server. Log in to the admin web UI:

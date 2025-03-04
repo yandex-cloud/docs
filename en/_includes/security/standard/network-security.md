@@ -38,13 +38,13 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
   1. Open the [{{ yandex-cloud }} management console]({{ link-console-main }}) in your browser.
   1. Go to each cloud and [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) and open all resources listed in "Objects that security groups can be applied to", one by one.
   1. In the object settings, find the **Security group** parameter and make sure that at least one security group is assigned.
-  1. If the parameters of each object with security group support have at least one group set, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameters of each object with security group support have at least one group set, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
   Check whether the NGFW is used instead of security groups:
   1. Open the {{ yandex-cloud }} management console in your browser.
   1. Go to each cloud and folder and open all VM [disks](../../../compute/concepts/vm.md) one by one.
   1. In the disk settings, find the **{{ marketplace-short-name }}** product parameter.
-  1. If the disk's **{{ marketplace-short-name }} product** parameters have one of the NGFW product names specified: Check Point CloudGuard IaaS — Firewall & Threat Prevention PAYG or UserGate NGFW, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+  1. If the disk's **{{ marketplace-short-name }} product** parameters have one of the NGFW product names specified: Check Point CloudGuard IaaS — Firewall & Threat Prevention PAYG or UserGate NGFW, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -66,7 +66,7 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. If you get the cloud resource `ID` in the output, proceed to _Guides and solutions to use_.
+  1. If an empty string is output, the recommendation is fulfilled. If you get the cloud resource `ID` in the output, proceed to "Guides and solutions to use".
 
   Check whether the NGFW is used instead of a security group:
   1. Run the command to search for the NGFW in the cloud. By default, the command searches for Checkpoint or Usergate. If you use a custom image, specify it.
@@ -81,7 +81,7 @@ Make sure you use security groups in your [clouds](../../../resource-manager/con
      done
      ```
 
-  1. If you get the `ID` of a VM with the NGFW in the output, the recommendation is fulfilled. If you get an empty string, proceed to _Guides and solutions to use_.
+  1. If you get the `ID` of a VM with the NGFW in the output, the recommendation is fulfilled. If you get an empty string, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -103,7 +103,7 @@ To apply security groups to your cloud objects in {{ vpc-name }}, make sure ther
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to each cloud and then to each folder and each {{ vpc-name }}.
   1. Go to **Security groups**.
-  1. If at least one security group for each {{ vpc-name }} or the default security group is found, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+  1. If at least one security group for each {{ vpc-name }} or the default security group is found, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -124,7 +124,7 @@ To apply security groups to your cloud objects in {{ vpc-name }}, make sure ther
      done
      ```
 
-  1. If each `SG_ID` combination has the `ID` specified in front of the `FOLDER_ID` of the folder it resides in, the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+  1. If each `SG_ID` combination has the `ID` specified in front of the `FOLDER_ID` of the folder it resides in, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -155,7 +155,7 @@ Make sure to only allow access through the ports that your application requires 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to each cloud and then to each folder and each {{ vpc-name }}.
   1. Go to **Security groups**.
-  1. If there is no security group containing network access rules that allow access through any port and from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If there is no security group containing network access rules that allow access through any port and from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -178,7 +178,7 @@ Make sure to only allow access through the ports that your application requires 
      done
      ```
 
-  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If you see a non-empty `SG_ID`, proceed to _Guides and solutions to use_.
+  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If you see a non-empty `SG_ID`, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -201,7 +201,7 @@ We recommend that you only allow access to your cloud infrastructure through con
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to each cloud and then to each folder and each {{ vpc-name }}.
   1. Go to **Security groups**.
-  1. If there is no security group containing network access rules that allow access through control ports from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to **Guides and solutions to use**.
+  1. If there is no security group containing network access rules that allow access through control ports from any IP address (for explanation, see above), the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -224,7 +224,7 @@ We recommend that you only allow access to your cloud infrastructure through con
      done
      ```
 
-  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not empty, proceed to _Guides and solutions to use_.
+  1. If an empty value is set in `SG_ID` next to `FOLDER_ID`, the recommendation is fulfilled. If the `SG_ID` is not empty, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -237,8 +237,8 @@ We recommend that you only allow access to your cloud infrastructure through con
 {{ yandex-cloud }} provides basic and advanced DDoS protection as well as protection at the application level with {{ sws-full-name }}. Make sure to use at least basic protection.
 
 * [{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}. In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
-* [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Qrator Labs. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
-* [Advanced](/services/ddos-protection) DDoS protection operates at Levels 3, 4, and 7 of the OSI model. You can also follow load and attack parameters and enable Solidwall WAF in your Qrator Labs account. To enable advanced protection, contact your manager or technical support.
+* [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Curator Labs. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
+* [Advanced](/services/ddos-protection) DDoS protection operates at Levels 3, 4, and 7 of the OSI model. You can also follow load and attack parameters and enable Solidwall WAF in your Curator Labs account. To enable advanced protection, contact your manager or technical support.
 
 {% list tabs group=instructions %}
 
@@ -249,13 +249,13 @@ We recommend that you only allow access to your cloud infrastructure through con
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
       1. Make sure you have security profiles created.
-      1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+      1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
   * To make sure you are using basic DDoS protection:
 
       1. In the [management console]({{ link-console-main }}), open all the created networks.
       1. Go to **IP addresses**.
-      1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+      1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Manual check {#manual}
 
@@ -269,7 +269,7 @@ We recommend that you only allow access to your cloud infrastructure through con
       yc smartwebsecurity security-profile list
       ```
 
-      If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+      If the command returns information about the existing security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
   * To make sure you are using basic DDoS protection:
 
@@ -292,7 +292,7 @@ We recommend that you only allow access to your cloud infrastructure through con
            done
            ```
 
-        1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+        1. If an empty value is set in `Address_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -377,7 +377,7 @@ Regardless of which option you select for setting up outbound internet access, b
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
   1. Go to **IP addresses**.
-  1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If all the public IP addresses have the **DDoS protection** column set to **Enabled**, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -399,7 +399,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty value is set in `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty value is set in `VM_ID` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
   1. Run the command below to see if there is Egress NAT (NAT gateway):
 
      ```bash
@@ -411,7 +411,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. otherwise, proceed to the Guides and solutions to use.
+  1. If an empty value is set in `NAT_GW` next to `FOLDER_ID`, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
   1. Run the command below to see if there is a NAT instance:
 
      ```bash
@@ -424,7 +424,7 @@ Regardless of which option you select for setting up outbound internet access, b
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. If you see the NAT instance `ID`, proceed to _Guides and solutions to use_.
+  1. If an empty string is output, the recommendation is fulfilled. If you see the NAT instance `ID`, proceed to "Guides and solutions to use".
 
 {% endlist %}
 

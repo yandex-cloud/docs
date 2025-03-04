@@ -1,5 +1,5 @@
 1. [Get your cloud ready](#before-begin).
-1. [Set up your environment](#prepare).
+1. [Prepare the environment](#prepare).
 1. [Create an instance group with autoscaling and a network load balancer](#create-vm-group).
 1. [Add a network load balancer with a target group](#connect-balancer).
 1. [Test your instance group and network load balancer](#check-service).
@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare the environment {#prepare}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-autoscale`: To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-autoscale`: To create, update, and delete VMs in the group, as well as integrate the group with an {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
 
    {% list tabs group=instructions %}
 
@@ -177,20 +177,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            1. Select the **Outbound traffic** or **Inbound traffic** tab.
            1. Click **Add rule**.
-           1. In the **Port range** field of the window that opens, specify a single port or a port range for traffic to come to or from.
-           1. In the **Protocol** field, specify the appropriate protocol or leave **Any** to allow traffic transmission over any protocol.
-           1. In the **Purpose** or **Source** field, select the rule purpose:
-              * **CIDR**: Rule will apply to the range of [IP addresses](../../vpc/concepts/address.md). In the **CIDR blocks** field, specify the CIDR and the masks of the subnets for traffic to come to or from. To add multiple CIDRs, click **Add CIDR**.
+           1. In the **Port range** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+           1. In the **Protocol** field, specify the protocol or leave **Any** to allow traffic over any protocol.
+           1. In the **Purpose** or **Source** field, select the purpose of the rule:
+              * **CIDR**: Rule will apply to the range of [IP addresses](../../vpc/concepts/address.md). In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
               * **Security group**: Rule will apply to the VMs from the current group or the selected security group.
-              * **Load balancer health checks**: Rule allowing a load balancer to health-check VMs.
-           1. Click **Save**. Repeat these steps to create all rules from the table.
+              * **Load balancer health checks**: Rule allowing a load balancer to health check VMs.
+           1. Click **Save**. Repeat the steps to create all rules from the table.
         1. Click **Save**.
 
    {% endlist %}
 
 ## Create an instance group with autoscaling and a network load balancer {#create-vm-group}
 
-1. You will be creating all instance groups from a [{{ coi }}](../../cos/concepts/index.md). Each VM instance will have a Docker container running a web server that emulates the service load.
+1. All instance groups are created from [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
 
    {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
@@ -326,9 +326,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Enter `group-balancer` as the name.
      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, specify `{{ ui-key.yacloud.common.label_auto }}`.
      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**. In the window that opens, specify:
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**: `http`.
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (port where the load balancer will receive inbound traffic): `80`.
-        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (port to which the load balancer will route traffic): `80`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**: `http`
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (port the load balancer will receive incoming traffic at): `80`
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (port the load balancer will route traffic to): `80`
         * Click **{{ ui-key.yacloud.common.add }}**.
      1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
      1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select `auto-group-tg` and click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify:

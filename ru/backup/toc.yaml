@@ -68,6 +68,8 @@ items:
             href: operations/backup-vm/view-disk-layout.md
           - name: Удалить копию
             href: operations/backup-vm/delete.md
+          - name: Удалить все копии ВМ или сервера {{ baremetal-name }}
+            href: operations/backup-vm/batch-delete.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
       - name: Посмотреть статистику резервного копирования

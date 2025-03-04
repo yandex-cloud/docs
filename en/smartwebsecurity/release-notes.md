@@ -5,6 +5,10 @@ description: This section contains {{ sws-name }} release notes.
 
 # {{ sws-full-name }} release notes
 
+## January 2025 {#jan-2025}
+
+{{ sws-name }} got certificates of compliance with [152-FZ, GOST R 57589, and PCI DSS](https://yandex.cloud/ru/security/standards).
+
 ## Q4 2024 {#q4-2024}
 
 * Added [IP blacklists and whitelists](concepts/lists.md). These allow managing the traffic and creating security rules based on IP reputation analysis. You can use the preset {{ yandex-cloud }} blacklists and whitelists or create your own.
@@ -20,7 +24,7 @@ description: This section contains {{ sws-name }} release notes.
   * You only pay for [legitimate](concepts/rules.md#rule-action) requests.
   * Profiles and rules are not billable.
 * Under basic rules, you now can send requests to [{{ captcha-full-name }}](../smartcaptcha/).
-* Implemented sending [service-level events](./at-ref.md#data-plane-events) to {{ at-full-name }}: `ArlMatchedRequest`, `WafMatchedExclusionRule`, and `WafMatchedRule`.
+* Implemented sending [data events](./at-ref.md#data-plane-events) to {{ at-full-name }}: `ArlMatchedRequest`, `WafMatchedExclusionRule`, and `WafMatchedRule`.
 * API, CLI, and {{ TF }} are now supported.
 * For traffic conditions that use regular expressions, you can now use case-sensitive string search. For more information, see [Regular expression format](concepts/conditions.md#regular-expressions).
 

@@ -13,4 +13,4 @@
 * [{{ yandex-cloud }} provider documentation]({{ tf-provider-link }}/).
 * [Sensitive Data in State](https://www.terraform.io/docs/state/sensitive-data.html).
 * [Encrypting data using the {{ yandex-cloud }}](../../kms/operations/symmetric-encryption.md) CLI and API.
-* [{#T}](../../kms/tutorials/vault-secret.md).
+* [{#T}](../../kms/tutorials/vault-secret.md)

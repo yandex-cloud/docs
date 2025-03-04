@@ -6,7 +6,7 @@ description: This section contains {{ monitoring-name }} release notes.
 # {{ monitoring-full-name }} release notes
 
 
-## October – November 2024 {#oct-nov-2024}
+## October – December 2024 {#oct-nov-2024}
 
 * **Added phone calls** as a notification channel to make an automated call to the user when an alert triggers (currently available for escalations only).
 
@@ -36,6 +36,16 @@ description: This section contains {{ monitoring-name }} release notes.
   * Improved the widget loading speed and performance.
   
 
+## April – September 2024 {#apr-sep-2024}
+
+Updated the [decimation](concepts/decimation.md) policy for historical data in monitoring. Now the data stores not only the average value, but also the maximum, minimum, total, and last value in each time interval subject to aggregation.
+
+The new policy is more accurate in reflecting local spikes in charts and allows you to see the original data, which helps you analyze changes in more detail. Historical metrics charts now have smoother lines.
+
+To select one of the decimation types for your chart, go to **Metric Explorer** and **Dashboards** in the chart settings.
+
+The new policy applies to all data obtained since August 7, 2024. For older data, only the average value is available.
+
 ## January – March 2024 {#jan-mar-2024}
 
 ### Updates {#updates}
@@ -45,6 +55,6 @@ description: This section contains {{ monitoring-name }} release notes.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Accelerated the [export of metrics in {{ prometheus-name }} format](operations/metric/prometheusExport.md).
+* Enabled faster [export of metrics in {{ prometheus-name }} format](operations/metric/prometheusExport.md).
 
 {% include [trademark](../_includes/monitoring/trademark.md) %}

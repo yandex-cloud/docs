@@ -36,6 +36,7 @@ To learn about installing the NGINX Ingress controller using {{ marketplace-full
 
 * [{#T}](container-registry.md)
 * [{#T}](sign-cr-with-cosign.md)
+* [{#T}](image-storage.md)
 
 ## {{ mkf-name }} usage {#kafka}
 
@@ -80,6 +81,7 @@ To learn about installing the NGINX Ingress controller using {{ marketplace-full
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](alb-ingress-controller-log-options.md)
 * [{#T}](custom-health-checks.md)
+* [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)
 * [{#T}](marketplace/kyverno.md)
 * [{#T}](marketplace/metrics-provider.md)

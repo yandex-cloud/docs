@@ -17,6 +17,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 - Management console {#console}
 
 
+
   {% include [create-vm-with-gpu](../../../_includes/compute/create/create-vm-with-gpu-console.md) %}
 
 - CLI {#cli}
@@ -49,7 +50,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
        --memory=96 \
        --gpus=1 \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
+       --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu,kms-key-id=<key_ID> \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
@@ -78,7 +79,14 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 
      * `--create-boot-disk`: OS [image](../images-with-pre-installed-software/get-list.md).
 
-       {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
+         * `image-family`: [Image family](../../concepts/image.md#family), e.g., `ubuntu-1604-lts-gpu`. This option allows you to install the latest version of the OS from the specified family.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+
+           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+           
+           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The VM will automatically create a user named `yc-user` for this key.
 
@@ -156,11 +164,10 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
      ```
 
      Where:
-
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
        * `type`: Disk type.
-       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
        * `size`: Disk size in GB.
        * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
@@ -169,8 +176,8 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
      * `yandex_compute_instance`: VM description:
        * `name`: VM name.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
-       * `platform_id`: [Platform](../../concepts/vm-platforms.md) ID.
-       * `zone`: Availability zone the VM will be in.
+       * `platform_id`: [Platform](../../concepts/vm-platforms.md) ID:
+       * `zone`: Availability zone the VM will reside in.
 
          {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
@@ -199,7 +206,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

@@ -1,11 +1,9 @@
-To stop using the platform and delete your billing account:
+To stop using the platform, terminate the agreement, and delete your billing account:
 
 
 
 {% include [delete-account](delete-account.md) %}
 
-
-{% include [payment-refund](../../_includes/billing/payment-refund.md) %}
 
 #### See also {#see-also}
 

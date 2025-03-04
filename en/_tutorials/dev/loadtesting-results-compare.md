@@ -5,7 +5,7 @@ In this use case, you will set up a load testing environment, run the tests, and
 The use case uses the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md) and a simple web service as the test target.
 
 To perform load testing and compare test results:
-1. [Prepare your cloud environment](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Prepare your infrastructure](#infrastructure-prepare).
 1. [Prepare a test target](#target-prepare).
 1. [Create an agent](#create-agent).
@@ -16,7 +16,7 @@ To perform load testing and compare test results:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud environment {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -110,7 +110,7 @@ To prepare a test target:
 
 1. Generate payloads in [URI](../../load-testing/concepts/payloads/uri.md) format:
    ```text
-   [Host: <test_target_internal_IP_address>]
+   [Host: <internal_IP_address_of_test_target>]
    [Connection: Close]
    / index
    /test?param1=1&param2=2 get_test
@@ -192,7 +192,7 @@ To prepare a test target:
                - id: HTTP
                   gun:
                   type: http # Protocol.
-                  target: <test_target_internal_IP_address>:443 
+                  target: <internal_IP_address_of_test_target>:443 
                   ssl: true
                   ammo:
                   type: uri
@@ -258,6 +258,7 @@ With that done, the configuration will pass the checks, and the agent will start
 Repeat these steps several times to get several completed tests.
 
 ## Compare the results {#compare-results}
+
 
 
 To compare the results:

@@ -17,6 +17,26 @@ For full configuration of the resources for Gateway API, see the following secti
 * [HTTPRoute](../../k8s-ref/http-route.md): Rules for routing traffic across backends or redirecting it.
 * [Service](../../k8s-ref/service-for-gateway.md): Description of {{ k8s }} services used as backends.
 
+## Route order in virtual hosts {#route-order}
+
+Route order in virtual hosts is defined by the algorithm described in the [Gateway API](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2Fv1.HTTPRouteRule) specification. This algorithm sorts routes based on how closely route parameters match those of an incoming HTTP request.
+
+Match conditions (in order of decreasing priority):
+
+1. Exact path match.
+1. Path prefix match with the largest number of characters.
+1. Method match.
+1. Highest number of header matches.
+1. Highest number of request parameter matches.
+
+If, after applying these conditions, there are still routes with equal priority from different resources, older routes get higher priority first, followed by the remaining routes in alphabetical order according to the `{namespace}/{name}` format.
+
+In the case of equal priority routes within a single HTTPRoute, the first matching rule is selected in the order they are listed, while also taking the above criteria into account.
+
+If a request does not match any of the rules linked to the current parent element, the `404` code is returned.
+
+The order of routes can affect the logic of request processing.
+
 ## Sample configuration {#example}
 
 Below is a sample configuration of the `Gateway` and `HTTPRoute` resources. It will be used to create a load balancer to receive HTTPS traffic and to distribute it to two services based on the URI request path.

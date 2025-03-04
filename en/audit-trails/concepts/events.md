@@ -59,6 +59,12 @@ Service name: `backup`.
 
 {% include [backup-events](../../_includes/audit-trails/events/backup-events.md) %}
 
+## {{ billing-name }} {#billing}
+
+Service name: `billing`.
+
+{% include [billing-events](../../_includes/audit-trails/events/billing-events.md) %}
+
 ## {{ cdn-full-name }} {#cdn}
 
 Service name: `cdn`.

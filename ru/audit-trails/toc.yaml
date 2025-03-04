@@ -15,6 +15,12 @@ items:
         href: operations/operation-logs.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
+        href: tutorials/search-bucket.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
+        href: tutorials/search-cloud-logging.md
       - name: Поиск событий в аудитных логах
         items:
           - name: Обзор

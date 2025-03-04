@@ -17,10 +17,14 @@ Before deleting an ARL profile, delete it from all associated [security profiles
   1. In the **{{ ui-key.yacloud.smart-web-security.arl.label_connected-security-profiles }}** field in the row with the ARL profile, select the security profile that uses this ARL profile.
   1. At the top right, click **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**. In the window that opens:
 
-     1. Select a different ARL profile from the **{{ ui-key.yacloud.smart-web-security.arl.title_profile }}** list or click **{{ ui-key.yacloud.common.clear }}**.
-     1. Click **{{ ui-key.yacloud.common.save }}**.
+      1. Select a different ARL profile from the **{{ ui-key.yacloud.smart-web-security.arl.title_profile }}** list or click **{{ ui-key.yacloud.common.clear }}**.
+      1. Click **{{ ui-key.yacloud.common.save }}**.
   1. Similarly, delete the ARL profile from all other associated security profiles.
   1. Go back to the page of the ARL profile you want to delete.
-  1. Click ![recycle-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** at the top right and confirm deletion.
+  1. At the top right, click ![recycle-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}** and confirm the deletion.
+
+- API {#api}
+
+  Use the [delete](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/delete.md) REST API method for the [AdvancedRateLimiterProfile](../advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/index.md) resource or the [AdvancedRateLimiterProfile/Delete](../advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/delete.md) gRPC API call.
 
 {% endlist %}

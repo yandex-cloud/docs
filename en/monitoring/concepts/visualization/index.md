@@ -1,8 +1,10 @@
 # Visualization
 
-The primary visual component in {{ monitoring-full-name }} is the [dashboard](dashboard.md). With dashboards, you can combine multiple [widgets](widget.md) on one page.
+{{ monitoring-full-name }} provides the following visualization tools:
 
-The service can display collected metrics as charts. You can place charts on dashboards as a widget.
+* [Metric Explorer](metric-explorer.md) to view metrics in real time and flexibly manage their display.
+
+* [Dashboard](dashboard.md) to arrange multiple [widgets](widget.md) on a single page, such as charts with service and app metrics, alerts, escalations, and text snippets with comments.
 
 #### See also {#see-also}
 

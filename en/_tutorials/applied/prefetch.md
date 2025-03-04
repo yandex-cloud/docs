@@ -111,7 +111,6 @@ Create two buckets: one will store files and the other will store request logs f
 
      Here is an example of the configuration file structure:
 
-     
      ```hcl
      provider "yandex" {
        token     = "<OAuth_token>"
@@ -134,10 +133,8 @@ Create two buckets: one will store files and the other will store request logs f
      }
      ```
 
-
-
   1. Make sure that the configuration files are correct:
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
@@ -168,7 +165,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
 - AWS CLI {#cli}
 
-  1. Create a file with logging settings in JSON format. For example:
+  1. Create a file with logging settings in JSON format. Here is an example:
 
       ```json
       {
@@ -275,8 +272,8 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy cloud resources.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
         ```bash
@@ -408,14 +405,14 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
      For more information, see the description of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
   1. Make sure the configuration files are correct.
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. This is a test step; no resources will be created. If the configuration contains any errors, {{ TF }} will point them out.
   1. Apply the configuration changes:
      1. If the configuration does not contain any errors, run this command:
 
@@ -425,7 +422,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
   1. Enable client redirect for a resource. In CDN resource parameters, add this field at the top of the `options` section:
 
      ```hcl
@@ -513,9 +510,9 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
         ```
 
         Where:
-        * `--name`: Zone name
-        * `--zone`: Domain zone (your domain with a dot at the end)
-        * `--public-visibility`: Zone public visibility option
+        * `--name`: Zone name.
+        * `--zone`: Domain zone (your domain with a dot at the end).
+        * `--public-visibility`: Zone public visibility option.
 
         Result:
 
@@ -535,8 +532,8 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
         ```
 
         Where:
-        * `--name`: Zone name
-        * `--record`: Resource record
+        * `--name`: Zone name.
+        * `--record`: Resource record.
      1. Check that the record was created:
 
         ```bash
@@ -577,7 +574,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
   1. In the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field, specify the path to the file stored in the origin, omitting the domain name:
 

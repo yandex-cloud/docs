@@ -17,6 +17,7 @@ description: In this tutorial, you will learn how to install and update {{ unifi
 
 
 
+
 ## Before you begin installation {#before-you-begin}
 
 Prior to installing {{ unified-agent-full-name }}, follow these steps:
@@ -32,6 +33,7 @@ Prior to installing {{ unified-agent-full-name }}, follow these steps:
 1. Set up agent authorization in the {{ monitoring-full-name }} API:
    - If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM. In that case, the agent will automatically receive the service account IAM token from the metadata service.
    - If the agent is installed on a host outside {{ yandex-cloud }}, [create an authorized key](../../../../iam/operations/authorized-key/create.md) for service accounts. For more information about delivering metrics from hosts outside {{ yandex-cloud }}, see [{#T}](../../../operations/unified-agent/non-yc.md).
+
 
 ## Installation {#setup}
 
@@ -75,7 +77,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
   To install the agent from the [management console]({{ link-console-main }}), enable **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** under **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}**.
 
-  To install the agent via the CLI or API, provide the following string in the [user metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
+  To install the agent via the CLI, API, or {{ TF }}, provide the following string in the [user metadata](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`):
 
   
   ```text
@@ -84,23 +86,6 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 
 
-  To install the agent using {{ TF }}, add this metadata to the configuration file:
-
-  ```hcl
-  resource "yandex_compute_instance" "this" {
-  ...
-  resources {
-    ...
-  }
-
-  ...
-
-  metadata = {
-    ssh-keys = "<username>:<SSH_key_contents>",
-    "install-unified-agent": "1"
-  }
-  }
-  ```
 
   To install the agent and send metrics, make sure the VM has access to the internet.
 
@@ -111,9 +96,9 @@ Install {{ unified-agent-short-name }} using one of the following methods:
   You can also [configure](./configuration.md) the delivery of custom metrics or [logs to {{ cloud-logging-name }}](./outputs.md#yc_logs_output).
 
 
-  Once the VM is deployed, {{ unified-agent-short-name }} will run automatically and start sending basic VM metrics to {{ monitoring-full-name }}.
+  Once the VM is deployed, {{ unified-agent-short-name }} will be started automatically and begin delivering basic VM metrics to {{ monitoring-full-name }}.
 
-  You are responsible for updating and maintaining the agent.
+  Update the agent manually via a binary file.
 
 {% endlist %}
 

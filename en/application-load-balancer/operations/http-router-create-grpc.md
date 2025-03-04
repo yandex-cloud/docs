@@ -17,12 +17,12 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Enter **{{ ui-key.yacloud.common.name }}**.
   1. In the **{{ ui-key.yacloud.alb.label_authority }}** field, type `*` or the [IP address](../../vpc/concepts/address.md) of the load balancer.
-  1. (Optional) In the **Security profile** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
+  1. (Optional) In the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}** and select **{{ ui-key.yacloud.alb.label_route-type }}**: `{{ ui-key.yacloud.alb.label_proto-grpc }}`.
      1. Enter **{{ ui-key.yacloud.common.name }}**.
-     1. Under **{{ ui-key.yacloud.alb.label_fqmn }}**, select one of the options:
+     1. In the **{{ ui-key.yacloud.alb.label_fqmn }}** field, select one of the options:
         * `{{ ui-key.yacloud.alb.label_match-prefix }}` to route all requests starting with a specific FQMN. In the input field, specify `/<first_word_in_service_name>`, e.g., `/helloworld`.
         * `{{ ui-key.yacloud.alb.label_match-exact }}` to route all requests matching the specified FQMN.
         * `{{ ui-key.yacloud.alb.label_match-regex }}` to route all requests that satisfy the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
@@ -40,7 +40,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
             * `none`: No rewriting.
             * `rewrite`: Rewriting to the specified value.
             * `auto`: Automatic rewriting to the target [VM](../../compute/concepts/vm.md) address.
-          * (Optional) In the **{{ ui-key.yacloud.alb.label_timeout }}** field, specify the maximum connection time.
+          * (Optional) In the **{{ ui-key.yacloud_billing.alb.label_max-timeout }}** field, specify the maximum connection time. The client can specify a `grpc-timeout` HTTP header with a shorter timeout in the request.
           * (Optional) In the **{{ ui-key.yacloud.alb.label_idle-timeout }}** field, specify the maximum connection keep-alive time with zero data transmission.
         * `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`:
           * In the **{{ ui-key.yacloud.alb.label_grpc-status-code }}** field, select the code to be used for response.
@@ -91,7 +91,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      Where:
      * `--http-router-name`: HTTP router name.
      * `--authority`: Domains for the `:authority` headers that will be associated with this virtual host. This parameter supports wildcards, e.g., `*.foo.com` or `*-bar.foo.com`.
-     * `--security-profile-id` (optional): ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). This is an optional parameter.
+     * `--security-profile-id` (optional): ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Result:
@@ -129,7 +129,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        * `--exact-fqmn-match` to route all requests matching the specified FQMN. The parameter should be followed by `/<FQMN>/`.
        * `--regex-fqmn-match` to route all requests that satisfy the [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). Specify `/<regular_expression>` following the parameter.
      * `--backend-group-name`: [Backend group](../concepts/backend-group.md) name.
-     * `--request-max-timeout`: Maximum request idle timeout in seconds.
+     * `--request-max-timeout`: Maximum request idle timeout in seconds. The client can specify a `grpc-timeout` HTTP header with a shorter timeout in the request.
 
      For more information about the `yc alb virtual-host append-grpc-route` command parameters, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
@@ -188,13 +188,13 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
      Where:
      * `yandex_alb_http_router`: HTTP router description.
-       * `name`: HTTP router name. The name format is as follows:
+       * `name`: HTTP router name. The name should match the following format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
        * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
      * `yandex_alb_virtual_host`: Virtual host description:
-       * `name`: Virtual host name. The name format is as follows:
+       * `name`: Virtual host name. The name should match the following format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -204,12 +204,12 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
          * `grpc_route`: Description of the route for gRPC traffic:
            * `grpc_route_action`: Parameter to specify an action with gRPC traffic.
              * `backend_group_id`: [Backend group](../concepts/backend-group.md) ID.
-             * `max_timeout`: Maximum request idle timeout in seconds.
+             * `max_timeout`: Maximum request idle timeout in seconds. The client can specify a `grpc-timeout` HTTP header with a shorter timeout in the request.
        * `route_options` (optional): Additional parameters of the virtual host:
-         * `security_profile_id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md).
+         * `security_profile_id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to set up filtering of incoming requests, enable WAF, and limit the number of requests for protection against malicious activities. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
-     For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+     For more information about the properties of {{ TF }} resources, see these {{ TF }} guides:
      * [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) resource
      * [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resource
   1. Create the resources

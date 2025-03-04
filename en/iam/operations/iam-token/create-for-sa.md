@@ -496,8 +496,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   }
   
   $jwk = JWKFactory::createFromKey(
-      $privateKeyPem,
-      null,
+      $privateKeyPem, 
+      null, 
       [
           'alg' => 'PS256',
           'use' => 'sig',
@@ -524,7 +524,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   
   
   $serializer = new CompactSerializer();
-  $token = $serializer->serialize($jws, 0);
+  $token = $serializer->serialize($jws, 0); 
   
   // Saving the token to a file
   file_put_contents('jwt_token.txt', $token);
@@ -656,7 +656,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
   To get an IAM token, use the [create](../../api-ref/IamToken/create.md) REST API method for the [IamToken](../../api-ref/IamToken/index.md) resource or the [IamTokenService/CreateForServiceAccount](../../api-ref/grpc/IamToken/createForServiceAccount.md) gRPC API call.
 
-  Example of request using cURL for the `create` REST API method:
+  Request example with cURL for the `create` REST API method:
 
   ```curl
   curl \
@@ -666,7 +666,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
       https://iam.{{ api-host }}/iam/v1/tokens
   ```
 
-  Where `<JWT_token>` is the JWT received in the previous step.
+  Where `<JWT_token>` is the JWT you got in the previous step.
 
 - Go {#go}
 

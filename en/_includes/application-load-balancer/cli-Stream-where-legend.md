@@ -6,7 +6,7 @@ Where:
   * `port`: Port.
   * `healthy-threshold`: Healthy threshold.
   * `unhealthy-threshold`: Unhealthy threshold.
-  * `timeout`: Timeout.
+  * `timeout`: Maximum period for which a connection can be established.
   * `interval`: Interval.
   * `send-text`: Data to send to the endpoint for a health check.
   * `receive-text`: Data to receive from the endpoint for it to pass the health check.

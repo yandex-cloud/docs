@@ -152,7 +152,6 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
   * `serial-port-enable`: Flag enabling access to the [serial console](../operations/serial-console/index.md). Use `1` to enable or `0` (default) to disable access.
   * `enable-oslogin`: Flag enabling access via [{{ oslogin }}](../operations/vm-connect/os-login.md). Use `true` to enable or `false` (default) to disable access.
-  * `install-unified-agent`: Flag that installs the agent for collecting [{{ unified-agent-short-name }}](../../monitoring/concepts/data-collection/unified-agent/installation.md#setup) metrics and logs. Use `1` to install or `0` (default) not to install the agent.
   * `user-data`: String with the user metadata to be processed by the [cloud-init](https://cloud-init.io) agent running on a VM instance.
 
     Cloud-init supports different metadata transmission [formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html), e.g., [cloud-config](https://cloudinit.readthedocs.io/en/latest/topics/examples.html). In this format, you can provide SSH keys and indicate which user each key is associated with. To do this, specify them in the `users/ssh_authorized_keys` section:

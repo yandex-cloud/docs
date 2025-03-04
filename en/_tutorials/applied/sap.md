@@ -4,9 +4,9 @@ You will learn to configure an SAP server and write your first program exporting
 
 To create an SAP program in {{ yandex-cloud }}:
 1. [Get your cloud ready](#before-begin).
-1. [Create an SAP VM](#vm-sap).
-1. [Set up your VM file system](#fs-settings).
-1. [Configure SAP installation](#install-config).
+1. [Create a VM for SAP](#vm-sap).
+1. [Set up the VM file system](#fs-settings).
+1. [Set up an install configuration](#install-config).
 1. [Install SAP](#sap-install).
 1. [Configure SAP](#sap-settings).
 1. [Make sure the program runs correctly](#sap-app).
@@ -16,7 +16,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -54,18 +53,19 @@ Create a VM and give it a public IP address:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet where your VM will get connected. If the selected network has no [subnets](../../vpc/concepts/network.md#subnet) or there are no [networks](../../vpc/concepts/network.md#network) in the list, [create them](../../vpc/operations/subnet-create.md) as required.
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or, if you reserved a static IP address, select it from the list.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify your VM access credentials:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, specify a username. Do not use `root` or other reserved usernames. To run commands requiring root privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
+
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vhcalnplci` that will be used in the SAP installation script.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-{% endlist %}
+{% endlist %} 
 
 ## Set up your VM file system {#fs-settings}
 
@@ -166,7 +166,7 @@ Create a file system structure for SAP installation.
 
       Result:
 
-      ```text
+      ```text       
       NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
       vda    254:0    0  40G  0 disk
       ├─vda1 254:1    0   4M  0 part

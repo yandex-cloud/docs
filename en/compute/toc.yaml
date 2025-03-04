@@ -497,10 +497,32 @@ items:
         href: tutorials/gre-over-ipsec.md
       - name: Creating a bastion host
         href: tutorials/bastion.md
-      - name: Implementing fault-tolerant scenarios for network VMs
+      - name: Implementing fault-tolerant use cases for network VMs
         href: tutorials/route-switcher.md
       - name: Creating a tunnel between two subnets using OpenVPN Access Server
         href: tutorials/site-to-site-openvpn.md
+      - name: '{{ coi }}'
+        items:
+          - name: Creating a VM with {{ coi }} support
+            href: tutorials/vm-create.md
+          - name: >-
+              Creating a VM from a {{ coi }} with additional volume for a Docker
+              container
+            href: tutorials/vm-create-with-second-disk.md
+          - name: Creating a VM from a {{ coi }} with multiple Docker containers
+            href: tutorials/docker-compose.md
+          - name: Creating an instance group from a {{ coi }}
+            href: tutorials/ig-create.md
+          - name: >-
+              Creating an instance group from a {{ coi }} with multiple Docker
+              containers
+            href: tutorials/ig-with-containers.md
+          - name: Updating a VM with a {{ coi }}
+            href: tutorials/vm-update.md
+          - name: >-
+              Creating a VM and an instance group with a {{ coi }} using {{ TF
+              }}
+            href: tutorials/coi-with-terraform.md
       - name: Microsoft products in {{ yandex-cloud }}
         items:
           - name: Deploying Active Directory
