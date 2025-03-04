@@ -6,8 +6,8 @@ This tutorial shows you as an example how to get the [{{ lockbox-full-name }}](.
 
 To get the {{ lockbox-name }} secret value under a {{ GL }} account:
 
-1. [Create a {{ GL }} project](#create-gitlab-project)
-1. [Prepare your cloud environment](#prepare-cloud).
+1. [Create a {{ GL }} project](#create-gitlab-project).
+1. [Get your cloud ready](#prepare-cloud).
 1. [Configure a {{ GL }} CI/CD script](#gitlab-actions-workflow).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -16,15 +16,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 [Create a new {{ GL }}]({{ gl.docs }}/ee/user/project/) project or use an existing one where you have permissions to view and run {{ GL }} CI/CD pipelines.
 
-## Prepare your cloud environment {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes a fee for storing a [secret](../../lockbox/concepts/secret.md) and requests to it (see [{{ lockbox-name }}](../../lockbox/pricing.md) pricing).
-
 
 ### Create a workload identity federation {#federation-iam-accounts}
 
@@ -76,7 +74,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -90,7 +88,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
    - Management console {#console}
 
       1. On the management console [home page]({{ link-console-main }}), select a folder.
-      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-lockbox` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** in the dialog that opens and select the `{{ roles-lockbox-payloadviewer }}` role.
@@ -106,7 +104,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
    1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. In the list of service accounts, select `sa-lockbox`.
-   1. Go to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
+   1. Navigate to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
    1. Click **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
    1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select the federation you created earlier.
    1. In the **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** field, specify the external account ID: `project_path:<group_name>/<gitlab_project_name>:ref_type:branch:ref:<repository_branch_name>`.
@@ -145,7 +143,7 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
        -H "Content-Type: application/x-www-form-urlencoded" 
        -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&requested_token_type=urn:ietf:params:oauth:token-type:access_token&audience=${SA_ID}&subject_token=${GITLAB_OIDC_TOKEN}&subject_token_type=urn:ietf:params:oauth:token-type:id_token" 
        -X POST https://{{ auth-main-host }}/oauth/token | jq -r '.access_token')"
-      # Requesting secret value via the API using an IAM token in {{ yandex-cloud }}
+      # Requesting the secret via the API using an IAM token in {{ yandex-cloud }}
       - SECRET_ID="<secret_ID>"
       - >-
        SECRET_DATA=$(curl -sH "Authorization: Bearer ${IAM_TOKEN}" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload)

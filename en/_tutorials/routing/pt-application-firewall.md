@@ -7,42 +7,40 @@ In this tutorial, you will deploy a test infrastructure with PT Application Fire
 
 To set up PT Application Firewall and test it:
 
-1. [Prepare your cloud](#prepare-cloud).
-1. [Create a web server](#create-web-server).
-1. [Run your DVWA](#run-dvwa).
-1. [Set up the firewall](#configure-firewall).
-1. [Test the firewall](#test-firewall).
+1. [Get your cloud ready](#prepare-cloud).
+1. [Create a web server](#create-web-server). 
+1. [Run your DVWA](#run-dvwa). 
+1. [Set up the firewall](#configure-firewall). 
+1. [Test the firewall](#test-firewall). 
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#prepare-cloud}
+## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+* Fee for IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a web server {#create-web-server}
 
 1. Create a [Ubuntu](/marketplace/products/yc/ubuntu-22-04-lts) VM named `dvwa-server`.
 
-    1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+    1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04` and select a public [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts) image.
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
         * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-        * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+        * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
-    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `ycuser`.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username: `ycuser`.
         * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `dvwa-server`.
@@ -81,7 +79,7 @@ The infrastructure support costs include:
    http://<public_IP_address_of_dvwa-server>:8080
    ```
 
-   1. On the authorization page, enter `admin` for username and `password` for password.
+   1. On the authorization page, enter `admin` for the username and `password` for the password.
    1. Click **Create / Reset Database** at the bottom of the `Database Setup` page. 
    1. Log in again using the same username and password.
    1. Click **DVWA Security** on the left of the screen and go to the page with security settings.
@@ -96,17 +94,17 @@ The infrastructure support costs include:
 
     - Management console {#console}
 
-        1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+        1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `PT Application Firewall` and select the current [PT Application Firewall](/marketplace/products/pt/pt-application-firewall) image.
-        1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the same [availability zone](../../overview/concepts/geo-scope.md) as the one the `dvwa-server` VM is in.
+        1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where the `dvwa-server` VM resides.
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
             * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-            * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+            * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
 
-        1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `ycuser`.
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username: `ycuser`.
             * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
                 If there are no saved SSH keys in your profile, or you want to add a new key:
@@ -117,14 +115,14 @@ The infrastructure support costs include:
                 * Click **{{ ui-key.yacloud.common.add }}**.
 
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `pt-firewall`.
-        1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable the `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}` option.
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
         1. Leave all other settings unchanged and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
     {% endlist %}
 
     {% note info %}
 
-    A public and a private IP addresses are assigned to the VM when you create it. It is recommended to [make the public IP address static](../../vpc/operations/set-static-ip.md).
+    A public and a private IP addresses are assigned to the VM when you create it. We recommend [making your public IP address static](../../vpc/operations/set-static-ip.md).
 
     {% endnote %}
 
@@ -136,8 +134,8 @@ The infrastructure support costs include:
 
       1. In the [management console]({{ link-console-main }}), select the folder the VM was created in.
       1. Go to **{{ compute-name }}** and select the `pt-firewall` VM.
-      1. Go to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
-      1. Enter `pt` for username and `positive` for password.
+      1. Navigate to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
+      1. Enter `pt` for the username and `positive` for the password.
       1. You will be prompted to change the password. Enter the current password (`positive`) and create a new one in line with the system requirements.
       1. Possible further actions will be suggested. Enter `0`.
       1. Create a configuration by running the following commands one by one:
@@ -156,13 +154,13 @@ The infrastructure support costs include:
       ```html
       http://<public_IP_address_of_pt-firewall>:8443
       ```
-   1. On the authorization page, enter `admin` for username and `positive` for password.
+   1. On the authorization page, enter `admin` for the username and `positive` for the password.
    1. You will be prompted to change the password. Enter the current password (`positive`) and create a new one.
 1. Configure the network interfaces:
    1. At the top of the screen, select **Configuration** / **Network** / **Gateways**.
    1. In the table, click the edit icon in the row with the `pt-firewall` interface.
    1. On the **General** tab, enable `Active` to activate the interface.
-   1. In the **Aliases** field of the **Network** tab, add the `WAN-wan`, `LAN-lan`, and `MGMT-mgmt` options from the drop-down list.
+   1. In the **Aliases** field of the **Network** tab, add the `WAN-wan`, `LAN-lan`, and `MGMT-mgmt` options from the drop-down list. 
    1. Click **Apply**.
 1. Configure an **Upstream** with the DVWA set as a backend server:
    1. At the top of the screen, select **Configuration** / **Network** / **Upstreams**.
@@ -171,7 +169,7 @@ The infrastructure support costs include:
    1. In the **Backend** line, click **Add** and specify the following:
       * In the **Host** field: `<public_IP_address_of_dvwa-server>`.
       * In the **Port** field: `8080`.
-   1. Leave all the other settings as they are and click **Apply**.
+   1. Leave all the other settings unchanged and click **Apply**.
 1. Configure the service:
    1. At the top of the screen, select **Configuration** / **Network** / **Services**.
    1. On the `SERVICES` page, click **Create**.
@@ -180,7 +178,7 @@ The infrastructure support costs include:
       * In the **Network interface alias** field: `WAN-wan` from the drop-down list.
       * In the **Listen Port** field: `80`.
       * In the **Upstream** field: `DVWA` from the drop-down list.
-   1. Leave all the other settings as they are and click **Apply**.
+   1. Leave all the other settings unchanged and click **Apply**.
 1. Add a web application:
    1. At the top of the screen, select **Configuration** / **Security** / **Web applications**.
    1. On the `WEB APPLICATIONS` page, click **Create**.
@@ -188,7 +186,7 @@ The infrastructure support costs include:
    1. In the **Service** field, select `DVWA-RP` from the drop-down list.
    1. In the **Protection mode** field, select `Detection` from the drop-down list.
    1. In the **Locations** line, click **Add** and specify ` \/ `.
-   1. Leave all the other settings as they are and click **Apply**.
+   1. Leave all the other settings unchanged and click **Apply**.
 
 ## Test the firewall {#test-firewall}
 
@@ -205,7 +203,7 @@ To test the firewall, use the Wallarm [GoTestWAF](https://github.com/wallarm/got
    sudo docker run -v ${PWD}/reports:/app/reports wallarm/gotestwaf --url=http://<public_IP_address_of_pt-firewall>/ --skipWAFBlockCheck
    ```
 
-1. Wait for the test to complete and view the results. It is easy to see from the `Summary` table that no attacks were blocked (the `TRUE-NEGATIVE TESTS BLOCKED` section):
+1. Wait for the test to complete and view the results. The `Summary` table clearly shows that no attacks were blocked (the `TRUE-NEGATIVE TESTS BLOCKED` section): 
 
    ```bash
    Summary:
@@ -222,7 +220,7 @@ To test the firewall, use the Wallarm [GoTestWAF](https://github.com/wallarm/got
 1. In your browser, return to the `WEB APPLICATIONS` section (**Configuration** / **Security** / **Web applications**) of the firewall setup page and click the edit icon in the `DVWA` row.
 1. In the **Protection mode** field, select `Active prevention` from the drop-down list and click **Apply**.
 1. In the terminal, run the test from step 2 once again.
-1. Wait for the test to complete and view the results. This time, the `Summary` table shows that all attacks were blocked (100% of attacks in the `TRUE-NEGATIVE TESTS BLOCKED` section):
+1. Wait for the test to complete and view the results. This time, the `Summary` table shows that all the attacks were blocked (100% of attacks in the `TRUE-NEGATIVE TESTS BLOCKED` section): 
 
    ```bash
    Summary:

@@ -4,7 +4,7 @@
 You can use {{ load-testing-name }} for service load testing via [gRPC](https://grpc.io/docs/) with the [Pandora](../../load-testing/concepts/load-generator.md) [load generator](../../load-testing/concepts/load-generator.md#pandora).
 
 To perform load testing:
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Prepare a test target](#target-prepare).
 1. [Prepare your infrastructure](#infrastructure-prepare).
 1. [Create an agent](#create-agent).
@@ -14,17 +14,15 @@ To perform load testing:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
 If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, you pay for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
-
 
 ## Prepare a test target {#target-prepare}
 
@@ -138,7 +136,7 @@ For a service whose subnet and security group is different from the agent's ones
                 - id: GRPC
                   gun:
                     type: grpc # Protocol.
-                    target: 172.17.0.10:8080 # Test target address.
+                    target: 172.17.0.10:8080 # Address of the test target.
                     tls: false
                   ammo:
                     type: grpc/json
@@ -153,7 +151,7 @@ For a service whose subnet and security group is different from the agent's ones
                       to: 1500
                   startup:
                     type: once
-                    times: 1500 # Number of threads
+                    times: 1500 # Number of threads.
               log:
                 level: debug
               monitoring:
@@ -183,7 +181,7 @@ For a service whose subnet and security group is different from the agent's ones
 
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-    Once you do that, the configuration will pass checks, and the agent will start loading the gRPC service you are testing.
+    With that done, the configuration will pass the checks, and the agent will start loading the gRPC service you are testing.
 
     To see the testing progress, select the new test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
@@ -194,5 +192,5 @@ For a service whose subnet and security group is different from the agent's ones
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
-1. Delete the [route table](../../vpc/operations/delete-route-table.md).
-1. Delete the [NAT gateway](../../vpc/operations/delete-nat-gateway.md).
+1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

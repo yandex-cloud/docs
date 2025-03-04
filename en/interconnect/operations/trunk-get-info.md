@@ -35,7 +35,7 @@ description: Follow this guide to get information about trunks in {{ interconnec
   1. Get information about the trunk by specifying its ID obtained in the previous step:
 
       ```bash
-      # yc cic trunk get <trunk ID>
+      # yc cic trunk get <trunk_ID>
       yc cic trunk get euuqqctbrflq3i******
       ```
 
@@ -61,17 +61,17 @@ description: Follow this guide to get information about trunks in {{ interconnec
       * `region_id`: Region of the cloud the trunk belongs to.
       * Trunk type:
         * `single_port_direct_joint`: Direct trunk:
-           * `transceiver_type`: [Transceiver](../concepts/transceivers.md) type in use.
-           * `port_name`: Number of the port(s) allocated for the trunk on the network device.
+           * `transceiver_type`: [Transceiver](../concepts/transceivers.md) type.
+           * `port_name`: Port(s) allocated for the trunk on the network device.
            * `access_device_name`: Name of the network device with ports allocated for the trunk.
         * `lag_direct_joint`: Aggregated (LAG) direct trunk:
-           * `transceiver_type`: [Transceiver](../concepts/transceivers.md) type in use.
+           * `transceiver_type`: [Transceiver](../concepts/transceivers.md) type.
            * `lag_id`: Aggregated connection ID.
-           * `port_names`: List of physical ports in the LAG.
+           * `port_names`: List of physical ports in LAG.
         * `partner_joint_info`: Partner trunk:
            * `partner_id`: Partner ID.
-           * `service_key`: Service key for a trunk via a partner.
+           * `service_key`: Service key for the partner trunk.
       * `point_of_presence_id`: [Point of presence](../concepts/pops.md) ID.
-      * `capacity`: Trunk [capacity](../concepts/capacity.md). 
+      * `capacity`: Trunk [traffic packet](../concepts/capacity.md) size. 
 
 {% endlist %}

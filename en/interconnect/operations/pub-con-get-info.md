@@ -64,8 +64,8 @@ description: Follow this guide to get information about {{ interconnect-name }} 
       Where:
       * `id`: Public connection ID.
       * `name`: Public connection name.
-      * `folder_id`: ID of the cloud folder containing the new public connection.
-      * `region_id`: Region of the cloud the new public connection belongs to.
+      * `folder_id`: ID of the cloud folder the public connection was created in.
+      * `region_id`: Cloud region of the public connection was created in.
       * `trunk_connection_id`: ID of the trunk the public connection belongs to.
       * `vlan_id`: VLAN ID for the public connection.
       * IP and BGP connectivity parameters for the point-to-point subnet of the public connection:

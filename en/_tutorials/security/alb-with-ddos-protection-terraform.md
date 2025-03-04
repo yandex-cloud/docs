@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
+To create an infrastructure with {{ TF }}:
 
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see the [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) section, Step 1).
 1. Prepare a file with the infrastructure description:
@@ -83,7 +83,7 @@ To create an infrastructure using {{ TF }}:
 
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
     * `vm_user`: VM username.
-    * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path`: Path to the public SSH key that is required to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Create the resources:
 
@@ -100,7 +100,7 @@ After creating the infrastructure, [test](#test) it.
 
 To stop paying for the resources you created:
 
-1. Open the `tls-termination-config.tf` configuration file and delete the description of the new infrastructure from it.
+1. Open the `alb-with-ddos-protection.tf` configuration file and delete the new infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

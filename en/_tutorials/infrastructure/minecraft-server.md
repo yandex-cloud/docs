@@ -1,34 +1,32 @@
 # Deploying a Minecraft server in {{ yandex-cloud }}
 
-Follow this tutorial to deploy the current version of a [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) server in {{ yandex-cloud }} on an Ubuntu 22.04 [virtual machine](../../compute/concepts/vm.md).
+Follow this tutorial to deploy the current version of a [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) server in {{ yandex-cloud }} on an Ubuntu 24.04 [VM](../../compute/concepts/vm.md).
 
-To deploy a server running the current Minecraft version in {{ yandex-cloud }}:
+To deploy a Minecraft server in {{ yandex-cloud }}:
 
 1. [Get your cloud ready](#prepare-cloud).
 1. [Create a security group](#create-sg).
 1. [Create a VM for the Minecraft server](#vm-minecraft).
 1. [Install the required utilities](#install-tools).
 1. [Download and run the Minecraft server](#get-and-launch-server).
-1. [Test the solution](#test-functionality).
+1. [Test the server](#test-functionality).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
 
 ## Get your cloud ready {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
-
-* Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+* Fee for a continuously running [VM](../../compute/concepts/vm.md) (see {{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a security group {#create-sg}
 
-Create a [security group](../../vpc/concepts/security-groups.md) with a rule allowing traffic to port `25565`. This port is the default choice in the server configuration file.
+Create a [security group](../../vpc/concepts/security-groups.md) with a rule allowing incoming traffic to port `25565`. This is the defalut port for client access in the Minecraft server configuration file. Also, rules allowing SSH access to the VM to configure the server and VM access to the internet to download software will be added to the security group.
 
 {% list tabs group=instructions %}
 
@@ -42,19 +40,46 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `default`.
    1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, [create](../../vpc/operations/security-group-add-rule.md) the following traffic management rules:
 
-      | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
-      | --- | --- | --- | --- | --- | --- |
-      | Inbound | `any`           | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Inbound | `any`           | `22`    | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Outbound | `any`           | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      #|
+      || **Traffic**
+      **direction**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** 
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
+      **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
+      || Inbound
+      | `Client access to`
+      `Minecraft server`
+      | `25565`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0` ||
+      || Inbound
+      | `Access to VM over`
+      `SSH`
+      | `22`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0` ||
+      || Outbound
+      | `VM access to`
+      `the internet`
+      | `0-65535`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0` ||
+      |#
 
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
+
 ## Create a VM for the Minecraft server {#vm-minecraft}
 
-1. Create an SSH key pair:
+1. [Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair:
    ```bash
    ssh-keygen -t ed25519
    ```
@@ -67,11 +92,11 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
-      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts) image.
+      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) the VM will reside in.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot [disk](../../compute/concepts/disk.md):
 
           * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`
@@ -86,7 +111,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, select a [cloud network](../../vpc/concepts/network.md#network) from the list.
+          * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
               * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
               * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
@@ -125,9 +150,10 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
    {% note warning %}
 
-   Note that this configuration table is in line with the default settings defined in `server.properties`. As the game world grows, the requirements may become higher, especially in terms of RAM. In addition, larger rendered areas, villages, and other dynamic objects will result in higher virtual server requirements.
+   Note that this configuration table is in line with the default settings defined in `server.properties`. The bigger the game world grows, the higher the requirements, especially for RAM. In addition, larger rendered areas, villages, and other dynamic objects will result in higher virtual server requirements.
 
    {% endnote %}
+
 
 ## Install the required utilities {#install-tools}
 
@@ -135,8 +161,9 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 1. Install the required Java packages from the repository and the `screen` utility to run the terminal session in background mode:
 
    ```bash
-   sudo add-apt-repository -y ppa:openjdk-r/ppa && sudo apt update -y && sudo apt install -y openjdk-17-jre-headless screen
+   sudo add-apt-repository -y ppa:openjdk-r/ppa && sudo apt update -y && sudo apt install -y openjdk-23-jre-headless screen
    ```
+
 
 ## Download and run the Minecraft server {#get-and-launch-server}
 
@@ -146,9 +173,9 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
    ```
 
 1. Follow [this link](https://www.minecraft.net/en-us/download/server/) and copy the URL to download the distribution kit of the current server version.
-1. Download the distribution kit to the current directory using `wget`:
+1. Download the distribution kit to the current directory using `wget` by specifying the previously copied link, for example:
    ```bash
-   wget -O minecraft_server_1.20.4.jar https://piston-data.mojang.com/v1/objects/8dd1a28015f51b1803213892b50b7b4fc76e594d/server.jar
+   wget -O minecraft_server.jar https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar
    ```
 
 1. Create the `eula.txt` file to automatically accept the [EULA](https://aka.ms/MinecraftEULA) terms:
@@ -168,7 +195,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 1. In the background session, run the server:
 
    ```bash
-   java -Xms1024M -Xmx1024M -jar minecraft_server_1.20.4.jar nogui
+   java -Xms1024M -Xmx1024M -jar minecraft_server.jar nogui
    ```
 
    Wait for the game world to be created.
@@ -183,8 +210,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
    [09:19:09] [Server thread/INFO]: Done (92.666s)! For help, type "help"
    ```
 
-   
-1. Optionally, you can leave the `screen` session running in the background using `control + a + d` and return to the VM main terminal.
+1. Optionally, you can leave the `screen` session running in the background by pressing **Ctrl + A + D** and return to the main VM terminal.
 
    If there is only one such background session with the server running and you want to return to it, run the following command:
 
@@ -231,9 +257,10 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
        4096 Mar 16 09:13 world
    ```
 
-## Test the solution {#test-functionality}
 
-1. Add the server to the server list in the Minecraft client. Give the server a name of your choice. In the **Server address** field, specify the [public IP address](../../vpc/concepts/address#public-addresses) assigned to your virtual machine when created.
+## Test the server {#test-functionality}
+
+1. Add the server to the server list in the Minecraft client. Give the server a name of your choice. In the **Server address** field, specify the [public IP address](../../vpc/concepts/address#public-addresses) of your `minecraft-server` VM.
 
    ![add-server-address](../../_assets/tutorials/infrastructure/minecraft-add-server-address.png =750x447)
 
@@ -241,8 +268,9 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
    ![server-list](../../_assets/tutorials/infrastructure/minecraft-server-list.png =750x449)
 
+
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created:
-1. In {{ compute-name }}, [delete](../../compute/operations/vm-control/vm-delete.md) the VM you created.
-1. In {{ vpc-name }}, [delete](../../vpc/operations/security-group-delete.md) the security group you created.
+1. [Delete](../../compute/operations/vm-control/vm-delete.md) the `minecraft-server` VM.
+1. [Delete](../../vpc/operations/security-group-delete.md) the `minecraft-sg` security group.

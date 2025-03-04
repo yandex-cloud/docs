@@ -10,7 +10,7 @@ If you are using an older version of Ubuntu, such as [16.04 LTS](/marketplace/pr
 
 To configure a local caching DNS resolver:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Prepare your infrastructure](#prepare-infrastructure).
 1. [Test `systemd-resolved` performance](#test-resolver).
 1. [Install an alternative resolver](#alternate-resolvers).
@@ -22,20 +22,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or a static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Prepare the infrastructure {#prepare-infrastructure}
 
 1. [Create](../../compute/operations/#vm-create) a VM with an Ubuntu OS, e.g., [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts).
 1. [Assign](../../compute/operations/vm-control/vm-attach-public-ip.md) a public IP address to the VM.
 
-## Test systemd-resolved performance {#test-resolver}
+## Test `systemd-resolved` performance {#test-resolver}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
@@ -142,7 +140,7 @@ Configuration parameters are given as an example. For information about how to s
       Oct 28 22:39:58 <...> systemd[1]: Started dnsmasq - A lightweight DHCP and caching DNS server.
       ```
 
-      Also pay attention to the address in the `using nameserver <...>`. The line should contain the {{ dns-full-name }} server address, the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
+      Also pay attention to the address in the `using nameserver <...>` line. The line should contain the {{ dns-full-name }} server address, the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
       
    1. Use `dig` to check that external DNS names are successfully resolved:
 
@@ -210,9 +208,9 @@ Configuration parameters are given as an example. For information about how to s
       Loaded: loaded (/lib/systemd/system/unbound.service; enabled; vendor preset: enabled)
       Active: active (running) <...>
       <...>
-      Oct 29 00:21:06 <...> unbound[<...>]: * Starting DNS server unbound
+      Oct 29 00:21:06 <...> unbound[<...>]:  * Starting DNS server unbound
       Oct 29 00:21:06 <...> unbound[<...>]: [<...>:0] info: start of service (unbound 1.5.8).
-      Oct 29 00:21:06 <...> unbound[<...>]: ...done.
+      Oct 29 00:21:06 <...> unbound[<...>]:    ...done.
       Oct 29 00:23:21 <...> systemd[1]: Started unbound.service.
       ```
    
@@ -282,4 +280,4 @@ If you need to replace `systemd-resolved` with a different local caching DNS res
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) your VM.

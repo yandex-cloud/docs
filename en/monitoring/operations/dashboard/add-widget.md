@@ -13,7 +13,8 @@ description: In this tutorial, you will learn how to add a widget to a dashboard
 ## Chart {#new}
 
 1. Click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
-1. Configure a new chart by specifying queries and configuring metric visualization. 
+1. Configure the chart by specifying queries and visualization of metrics.
+1. Optionally, add [parameters](add-parameters.md) and configure [chart repetition](add-parameters.md#repeated-graphs).
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
 
 ## Alert {#alert}

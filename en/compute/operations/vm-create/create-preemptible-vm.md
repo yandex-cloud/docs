@@ -36,9 +36,9 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
   1. {% include [section-storages-filesystem](../../../_includes/compute/create/section-storages-filesystem.md) %}
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
 
-      * Go to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab.
+      * Navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab.
       * Select a [platform](../../../compute/concepts/vm-platforms.md).
-      * Specify the [guaranteed share](../../../compute/concepts/performance-levels.md) and required number of vCPUs, as well as RAM size.
+      * Specify the [guaranteed performance](../../../compute/concepts/performance-levels.md) and required number of vCPUs, as well as RAM size.
       * In the **{{ ui-key.yacloud.component.compute.resources.field_advanced }}** field, enable **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
       * Optionally, enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
@@ -80,7 +80,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
        --zone {{ region-id }}-a \
        --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
        --preemptible \
-       --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
+       --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<key_ID> \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
@@ -103,6 +103,13 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
      * `--preemptible`: Select to create a preemptible VM.
      * `--create-boot-disk`: VM boot disk settings:
          * `image-family`: [Image family](../../concepts/image.md#family), e.g., `centos-7`. This option allows you to install the latest version of the OS from the specified family.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+
+           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+           
+           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      * `--ssh-key`: Path to the file with the [public SSH key](../vm-connect/ssh.md#creating-ssh-keys). The preemptible VM will automatically create a user named `yc-user` for this key.
 
@@ -130,7 +137,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
        zone                      = "<availability_zone>"
 
        resources {
-         cores  = <number_of_vCPU_cores>
+         cores  = <number_of_vCPUs>
          memory = <RAM_in_GB>
        }
 
@@ -167,7 +174,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
        * `type`: Disk [type](../../concepts/disk.md#disks_types).
-       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
        * `size`: Disk size in GB.
        * `image_id`: ID of the [image](../../concepts/image.md) to create the preemptible VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
@@ -200,7 +207,7 @@ To create a [preemptible VM](../../concepts/preemptible-vm.md):
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -221,9 +228,9 @@ To change the type of a VM, such as making it non-preemptible:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the preemptible VM is located.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. In the line with the VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the VM you need and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.
-  1. In the line with the VM, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the VM you need and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, disable **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
   1. At the top right, click ![image](../../../_assets/console-icons/play-fill.svg) **{{ ui-key.yacloud.common.start }}**.
@@ -318,7 +325,7 @@ To change the type of a VM, such as making it non-preemptible:
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -328,7 +335,7 @@ To change the type of a VM, such as making it non-preemptible:
 
      1. Confirm creating the resources.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

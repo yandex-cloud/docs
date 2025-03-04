@@ -17,3 +17,6 @@ The general format of the `event_type` field value is as follows:
 
 {% include [managed-k8s-events](../_includes/audit-trails/events/managed-k8s-events.md) %}
 
+## Data event reference {#data-plane-events}
+
+{% include [managed-k8s-events](../_includes/audit-trails/events/managed-k8s-events-dp.md) %}

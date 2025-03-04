@@ -274,6 +274,10 @@ items:
         href: tutorials/replicate-logs-to-storage.md
       - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
+      - name: Загрузка аудитных логов в SIEM ArcSight
+        href: tutorials/export-logs-to-arcsight.md
+      - name: Загрузка аудитных логов в SIEM Splunk
+        href: tutorials/export-logs-to-splunk.md
       - name: Создание сервера MLFlow для логирования экспериментов и артефактов
         href: tutorials/mlflow-datasphere.md
       - name: Работа с данными с помощью {{ yq-full-name }}
@@ -292,6 +296,10 @@ items:
           Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
           аутентификацией в Firebase
         href: tutorials/jwt-authorizer-firebase.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+        href: tutorials/search-events-query.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
+        href: tutorials/search-events-bucket.md
   - name: Концепции
     items:
       - name: Обзор

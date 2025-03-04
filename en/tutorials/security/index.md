@@ -5,7 +5,9 @@ description: Various security use cases in {{ yandex-cloud }}.
 
 # Security guides
 
+* [{#T}](user-group-access-control.md)
 * [Creating an L7 load balancer with DDoS protection](alb-with-ddos-protection/index.md)
+* [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
 * [Terminating TLS connections](tls-termination/index.md)
 * [Transferring logs from a VM instance to {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)
@@ -17,6 +19,7 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [{#T}](audit-trails-events-to-kuma/index.md)
 * [{#T}](wlif-github-integration.md)
 * [{#T}](wlif-gitlab-integration.md)
+* [{#T}](wlif-k8s-integration.md)
 * [{#T}](coi-fluent-bit-logging.md)
 * [{#T}](../container-infrastructure/k8s-fluent-bit-logging.md)
 * [{#T}](balancer-with-sws-profile.md)

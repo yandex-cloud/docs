@@ -127,6 +127,10 @@ items:
             href: tutorials/search-events-audit-logs/query.md
       - name: Обработка потока изменений Debezium
         href: tutorials/debezium.md
+      - name: Загрузка аудитных логов в MaxPatrol SIEM
+        href: tutorials/maxpatrol.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+        href: tutorials/search-events-query.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

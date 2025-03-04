@@ -7,10 +7,10 @@ This build will enable you to use {{ kms-name }} as a trusted service for encryp
 In this guide, you will learn how to set up the Auto Unseal feature to work with {{ kms-short-name }}.
 
 To set up Auto Unseal:
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Set up Auto Unseal](#setup).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 1. Download the most recent Docker image using the command below:
 
@@ -50,7 +50,6 @@ To set up Auto Unseal:
 
 1. [Create](../../kms/operations/key.md#create) a separate [{{ kms-name}} key](../../kms/concepts/key.md) for Vault (recommended).
 1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-short-name }}. When interacting with {{ kms-short-name }}, Vault performs only [encryption and decryption](../../kms/concepts/symmetric-encryption.md) operations, so the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md) will be enough.
-
 
 ### Required paid resources {#paid-resources}
 
@@ -153,7 +152,7 @@ This way you can rotate the Vault master key through [key rotation in {{ kms-sho
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the created resources:
+To stop paying for the resources you created:
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md) if you created one to run Vault.
 * [Delete the static public IP](../../vpc/operations/address-delete.md) if you reserved one.
 * [Delete the {{ kms-name }} key](../../kms/operations/key.md#delete).

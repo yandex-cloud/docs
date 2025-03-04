@@ -7,7 +7,7 @@ You will create a UserGate virtual machine in {{ yandex-cloud }} and set up the 
 
 To deploy a UserGate gateway and check its health:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a cloud network and subnet](#create-network).
 1. [Reserve a static public IP address](#get-static-ip).
 1. [Create a UserGate VM](#create-vm).
@@ -20,7 +20,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -115,16 +114,16 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
   
      1. If the configuration does not contain any errors, run this command:
 
@@ -202,13 +201,13 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - Management console {#console}
 
-  1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, go to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
@@ -220,12 +219,12 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a network named `usergate-network` and a subnet named `usergate-subnet-{{ region-id }}-d`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `usergate-network` and the subnet named `usergate-subnet-{{ region-id }}-d`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, click `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and select the IP address [reserved earlier](#get-static-ip).
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser permissions, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `usergate-firewall`.
@@ -332,9 +331,9 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
   
      1. If the configuration does not contain any errors, run this command:
 
@@ -551,9 +550,9 @@ Create a [static route](../../vpc/concepts/routing.md):
 
   To create a route table and add [static routes](../../vpc/concepts/routing.md):
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
-     * `name`: Name of the route table. The name format is as follows:
+     * `name`: Name of the route table. The name should match the following format:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -581,16 +580,16 @@ Create a [static route](../../vpc/concepts/routing.md):
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```hcl
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -600,7 +599,7 @@ Create a [static route](../../vpc/concepts/routing.md):
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
         ```bash
         yc vpc route-table list

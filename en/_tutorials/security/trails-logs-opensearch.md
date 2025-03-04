@@ -9,7 +9,7 @@ You can export organization, cloud, or folder logs.
 
 To export audit logs:
 
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Create a trail to send logs to a {{ yds-name }} data stream](#create-trail).
 1. [Create a {{ mos-name }} cluster](#create-os).
 1. [Set up a transfer to deliver logs to the {{ mos-name }} cluster](#configure-data-transfer).
@@ -26,19 +26,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 
-* Fee for the {{ OS }} cluster computing resources and storage (see [{{ mos-full-name }} pricing](../../managed-opensearch/pricing.md)).
-* Using a data stream (see [{{ yds-name }} pricing](../../data-streams/pricing.md)).
-* Using {{ ydb-full-name }} in serverless mode (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
+* Fee for the {{ OS }} cluster computing resources and storage (see [{{ mos-full-name }}](../../managed-opensearch/pricing.md) pricing).
+* Using a data stream (see [{{ yds-name }}](../../data-streams/pricing.md) pricing).
+* Using {{ ydb-full-name }} in serverless mode (see [{{ ydb-name }}](../../ydb/pricing/serverless.md) pricing).
 
 ## Create a trail to send logs to a {{ yds-name }} data stream {#create-trail}
 
-Prepare the environment and create a trail depending on the {{ yandex-cloud }} resources:
+[Create a trail](../../audit-trails/operations/create-trail.md) to send logs to a data stream named `audit‑trails`. Using a stream with this name makes it easier to upload the [Security Content](#additional-content) library objects.
 
-* [Organization](../../audit-trails/operations/export-organization-data-streams.md)
-* [Cloud](../../audit-trails/operations/export-cloud-data-streams.md)
-* [Folder](../../audit-trails/operations/export-folder-data-streams.md)
-
-Make sure to give your stream the `audit‑trails` name to make it easier to upload the [Security Content](#additional-content) library objects.
+When creating a trail, select the [log collection scope](../../audit-trails/concepts/trail.md#collecting-area).
 
 ## Create a {{ mos-name }} cluster {#create-os}
 
@@ -46,7 +42,7 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
 - Manually {#manual}
 
-   [Create a {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md) with any suitable configuration.
+  [Create a {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md) cluster with any suitable configuration.
 
 - Using {{ TF }} {#tf}
 
@@ -91,7 +87,7 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/data-streams.md):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`
     * **Endpoint parameters**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
@@ -102,20 +98,20 @@ Make sure to give your stream the `audit‑trails` name to make it easier to upl
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}`
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/opensearch.md):
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ OS }}`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ OS }}`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchTarget.connection.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the name and password of the user who has access to the database, e.g., [`admin` user](../../managed-opensearch/operations/cluster-users.md).
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: Enter the name and password of the user who has access to the database, e.g., [`admin`](../../managed-opensearch/operations/cluster-users.md) user.
 
 1. Create and activate the transfer:
 
@@ -200,7 +196,7 @@ All required event fields are converted to [Elastic Common Schema (ECS)]({{ link
     * `filters.ndjson`
     * `search.ndjson`
 
-### Dashboard {#dashboard}
+### {#dashboard} dashboard
 
 Use the ready-made `Audit-trails-dashboard`:
 
@@ -243,9 +239,9 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
-1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
-1. Delete the [{{ at-name }} trail](../../audit-trails/concepts/trail.md).
+1. [Delete the {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db) database.
+1. [Delete service accounts you created](../../iam/operations/sa/delete.md).
+1. Delete the [{{ at-name }}](../../audit-trails/concepts/trail.md) trail.
 
 Delete the other resources depending on how they were created:
 
@@ -253,7 +249,7 @@ Delete the other resources depending on how they were created:
 
 - Manually {#manual}
 
-    [Delete the {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-delete.md).
+    [Delete the {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md) cluster.
 
 - Using {{ TF }} {#tf}
 

@@ -38,15 +38,16 @@ HTTP routers support two types of routes, **{{ ui-key.yacloud.alb.label_proto-ht
 
    You can perform one of the actions with the request that satisfies the conditions:
 
-   * Send the request to a **{{ ui-key.yacloud.alb.label_proto-http }}** [backend group](backend-group.md) for processing. In this case, you can configure request processing timeouts:
-     * **Timeout**: Maximum lifetime of an HTTP connection between a load balancer node and the backend, with or without data being transferred. The default value is `60`.
-     * **Idle timeout**: Maximum connection lifetime with no data being transferred. There is no default value. If the timeout is not specified, it is ignored.
-         
-         If either an active or idle connection times out, the load balancer will return the `504 Gateway Timeout` code.
-      
-      In addition to timeouts, you can add WebSocket support or enable URI modification before sending the request to the backends.
+   * Send the request to a **{{ ui-key.yacloud.alb.label_proto-http }}** [backend group](backend-group.md) for processing. In this case, you can change the `Host` header to the specified value or configure its automatic replacement with the target VM address.
+
+     In addition to the `Host` header, you can configure request processing [timeouts](#timeouts), add WebSocket support, specify protocols for a group of backends to switch to within a TCP connection at the client's request, and change the URI before forwarding the request to the backends.
+
    * Redirect the request to another address with the selected response code and request URI modifications. In this case, you can modify the path (completely or partially), delete query parameters, and change the host, port, and schema.
-   * Immediately return a static response.
+
+     If the full request path is specified as a route condition, you will not be able to replace only the beginning of the path. The entire path will be replaced, even if the settings indicate to modify only the beginning.
+   
+     If the original URI uses the `http` (`https`) schema and specifies port `80`(`443`), the change of schema will delete the port.
+   * Immediately return a load balancer's static response to the request received via this route.
 
 1. gRPC routes are designed for processing gRPC requests ([remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call)) over HTTP/2.
 
@@ -54,5 +55,18 @@ HTTP routers support two types of routes, **{{ ui-key.yacloud.alb.label_proto-ht
 
    You can perform one of the actions with the request that satisfies the conditions:
 
-   * Sending a request to a **{{ ui-key.yacloud.alb.label_proto-grpc }}** [backend group](backend-group.md) for processing. In this case, you can replace the Host header and configure timeouts to process the request.
+   * Send the request to a **{{ ui-key.yacloud.alb.label_proto-grpc }}** [backend group](backend-group.md) for processing. In this case, you can configure the request processing [timeouts](#timeouts) and change the `Host` header to the specified value or configure its automatic replacement with the target VM address.
+
    * Immediately return a static response.
+
+### Timeouts {#timeouts}
+
+A request satisfying the route conditions can be forwarded to a backend group for processing. In this case, you can configure the timeouts:
+
+* **{{ ui-key.yacloud.alb.label_timeout }}**: Maximum lifetime of an HTTP connection between a load balancer node and the backend. This option is only available for HTTP backend groups. The default value is `60`.
+
+* **{{ ui-key.yacloud_billing.alb.label_max-timeout }}**: Maximum period for which a connection between a load balancer node and a backend can be established. This option is only available for gRPC backend groups. The client can specify a `grpc-timeout` HTTP header with a shorter timeout in the request. The default value is `60`.
+
+* **{{ ui-key.yacloud.alb.label_idle-timeout }}**: Maximum connection lifetime with no data being transferred. There is no default value. If the timeout is not specified, it is ignored. You can use the idle timeout in streaming scenarios (e.g., for long polls or server-sent events). In some cases, when no primary timeout is specified, the idle timeout may be set automatically.
+
+If a connection for HTTP backend groups times out, the load balancer will return the `504 Gateway Timeout` code.

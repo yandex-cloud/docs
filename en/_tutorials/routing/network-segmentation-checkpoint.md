@@ -4,11 +4,12 @@ This tutorial will tell you how to deploy a secure network infrastructure based 
 
 If you need to ensure the NGFW’s fault tolerance and the deployed applications’ high availability, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
 
+
 The solution has these basic segments, or folders:
 
 * The `public` folder contains the internet-facing resources.
 * The `mgmt` folder manages the cloud infrastructure and hosts internal resources. It includes VMs for infrastructure protection and network segmentation into security zones (`fw`), a VM of the centralized firewall management server (`mgmt-server`), and a [WireGuard VPN](https://www.wireguard.com/) VM for secure management segment access (`jump-vm`).
-* The **`dmz`** folder enables you to publish open-access applications .
+* The **`dmz`** folder enables you to publish open-access applications.
 
 For more information, see the project repository [here](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint). 
 
@@ -19,7 +20,7 @@ To deploy a secure network infrastructure based on a Check Point next-generation
 1. [Deploy your resources](#create-resources).
 1. [Configure the firewall gateway](#configure-gateway).
 1. [Test the solution](#test-functionality).
-1. [Check the production deployment requirements](#deployment-requirements)
+1. [Check the production deployment requirements](#deployment-requirements).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -43,14 +44,12 @@ We recommend these options for production use:
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
 
 ### Required quotas {#required-quotes}
 
@@ -85,7 +84,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 ## Prepare the environment {#prepare-environment}
 
 This tutorial uses Windows software and [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
-Infrastructure deployment uses [{{ TF }}](https://www.terraform.io/). 
+The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/). 
 
 ### Set up WSL {#setup-wsl}
 
@@ -136,7 +135,7 @@ Perform all steps below in the Linux terminal.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the service account, e.g., `sa-terraform`.
 
-      The name format requirements are as follows:
+      The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -220,7 +219,7 @@ Perform all steps below in the Linux terminal.
       cd terraform
       ```
 
-   1. Run this command to download the `terraform_1.3.9_linux_amd64.zip` archive from the {{ TF }} official website:
+   1. Run this command to download the `terraform_1.3.9_linux_amd64.zip` archive from the official website:
 
       ```bash
       curl --location --remote-name https://hashicorp-releases.yandexcloud.net/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip
@@ -268,7 +267,7 @@ Perform all steps below in the Linux terminal.
       }
       ```
 
-      For more information about setting up mirrors, see [this {{ TF }} overview article](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+      For more information about setting up mirrors, see [this {{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration) overview article.
 
 ## Deploy your resources {#create-resources}
 
@@ -480,7 +479,7 @@ To set up the VPN tunnel:
 
    {% note warning %}
 
-   If the packets fail to reach the management server, make sure the `mgmt-jump-vm-sg`[security group](../../vpc/concepts/security-groups.md) rules for incoming traffic have the external IP address of your PC specified.
+   If the packets fail to reach the management server, make sure the `mgmt-jump-vm-sg` [security group](../../vpc/concepts/security-groups.md) rules for incoming traffic have the external IP address of your PC specified.
 
    {% endnote %}
 
@@ -489,7 +488,7 @@ To set up the VPN tunnel:
 To manage and set up [Check Point](https://en.wikipedia.org/wiki/Check_Point), install and run the SmartConsole GUI client: 
 
 1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser. 
-1. Sign in with `admin` as both the username and password. 
+1. Sign in using `admin` as both the username and password. 
 1. In the Gaia Portal interface that opens, download the SmartConsole GUI client. To do this, click **Manage Software Blades using SmartConsole. Download Now!**.
 1. Install SmartConsole on your PC.
 1. Get the SmartConsole access password:
@@ -525,13 +524,13 @@ Add the FW firewall gateway to the management server using the wizard:
 Configure the `eth0` network interface:
 
 1. In the **Gateways & Servers** tab, open the FW gateway setup dialog. To do this, double-click the added FW in the list.
-1. In the the **Network Management** tab of the **Topology** table, select the `eth0` interface, click **Edit**, and then click **Modify...** in the window that opens.
+1. In the **Network Management** tab of the **Topology** table, select the `eth0` interface, click **Edit**, and then click **Modify...** in the window that opens.
 1. Under **Security Zone**, activate **Specify Security Zone** and select **InternalZone**.
 
 In the same way, configure the `eth1` and `eth2` network interfaces:
 
 1. For the `eth1` interface, specify **ExternalZone** under **Security Zone**.
-1. For the `eth2` interface, in the **Leads To** section, select **Override** and enable **Interface leads to DMZ**. Under **Security Zone**, set **DMZZone**.
+1. For the `eth2` interface, in the **Leads To** section, select **Override** and enable **Interface leads to `dmz`**. Under **Security Zone**, set **DMZZone**.
 
 | Interface | IPv4 address/mask | Leads To | Security Zone | Anti Spoofing |
 | ----------- | ----------- | ----------- | ----------- | ----------- |

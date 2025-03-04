@@ -494,6 +494,8 @@ items:
         href: tutorials/batch-code-execution.md
       - name: Разработка Telegram-бота для распознавания текста и аудио
         href: tutorials/recognizer-bot.md
+      - name: Настройка реагирования в {{ cloud-logging-full-name }} и {{ sf-name }}
+        href: tutorials/logging-functions
   - name: Инструменты
     href: tools.md
   - name: Правила тарификации

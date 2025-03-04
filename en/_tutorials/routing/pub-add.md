@@ -12,7 +12,7 @@ Request text:
 Please add a public connection to an existing trunk.
 Connection parameters:
 
-trunk_id: euus5dfgchu23b******
+trunk_id: euus5dfgchu2********
 vlan_id: 101
 ipv4_peering:
   peer_bgp_asn: 65001
@@ -25,12 +25,12 @@ is_nat_extra_ip_required: false
 
 Where:
 
-* `trunk_id`: Trunk ID you got from support in the previous step.
+* `trunk_id`: Trunk ID received from the support team at the previous step.
 * `vlan_id`: `VLAN-ID` for this public connection in trunk 802.1Q. This value is selected by the customer. It must be different from the `VLAN-ID` values of the private connections previously set up in this trunk.
 * `peer_bgp_asn`: [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) on the customer's equipment in ASPlain format. This value is selected by the customer.
 * `allowed-public-services`: List of `FQDN API Endpoint` for the services [from the table](../../interconnect/concepts/pub-con.md#svc-list) to provide access to via this public connection.
 * `is_nat_extra_ip_required`: Indicates whether the customer needs an additional `/32` service address (prefix) apart from the point-to-point `/31` subnet to implement [NAT functions](../../interconnect/concepts/pub-con.md#svc-nat). By default, no additional service prefix is allocated (the value is `false`).
-* `folder_id` (optional): By default, public connection monitoring metrics will be saved to the folder specified when creating a trunk. If required, you can explicitly specify the folder to save the public connection monitoring metrics to.
+* `folder_id` (optional): By default, public connection monitoring metrics will be saved to the folder specified when creating the trunk. If required, you can explicitly specify the folder to save the public connection monitoring metrics to.
 
 ### Support team's response to the customer's request {#pub-ticket-resp}
 
@@ -38,7 +38,7 @@ Once all the actions required to set to set up a public connection are completed
 
 Here is an example of support's response when requested to create a public connection (for information):
 ```s
-id: cf3qdug4fsf737******
+id: cf3qdug4fsf7********
 ipv4_peering:
   peering_subnet: {{ cic-pbc-subnet }}
   peer_ip: {{ cic-pbc-subnet-client }}

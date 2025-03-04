@@ -5,11 +5,11 @@ description: Follow this guide to create an {{ oslogin }} profile.
 
 # Creating an {{ oslogin }} profile
 
-By default, [enabling the {{ oslogin }} access](../concepts/os-login.md#os-login-profiles) creates [{{ oslogin }} profiles](./os-login-access.md) for all users within your organization. Also, you can create additional profiles or edit the existing ones. You can use {{ oslogin }} profiles as user profiles when working within [VMs](../../compute/concepts/vm.md) or {{ k8s }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes.
+By default, [enabling the {{ oslogin }} access](../concepts/os-login.md#os-login-profiles) creates [{{ oslogin }} profiles](./os-login-access.md) for all users within your organization and [service accounts](../../iam/concepts/users/service-accounts.md). A single user or service account in a {{ org-name }} can have multiple {{ oslogin }} profiles: different profiles allow you to connect to [VMs](../../compute/concepts/vm.md) or {{ k8s }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes as different local users of those VMs or {{ k8s }} nodes.
 
 {% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 
-To create an additional {{ oslogin }} profile for a user, follow these steps:
+To create an additional {{ oslogin }} profile:
 
 {% list tabs group=instructions %}
 
@@ -27,7 +27,7 @@ To create an additional {{ oslogin }} profile for a user, follow these steps:
   
   1. On the user page, go to the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab and click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. In the window that opens:
 
-      1. Enter the OS username the user will get when connected to the VM. It must be unique within the folder.
+      1. Enter the OS username that will be assigned to the organization user or service account when connecting to the VM. It must be unique within the folder.
 
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
@@ -108,9 +108,9 @@ To create an additional {{ oslogin }} profile for a user, follow these steps:
 
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
-      * `--uid`: Unique numeric user ID (UID) within the range of `1000` to `65534`. It must be unique within the system.
-      * (Optional) `--home-directory`: Path to the user's home folder. The default value is `/home/<username>`.
-      * (Optional) `--shell`: Path to the command shell executable file. The default value is `/bin/bash`.
+      * `--uid`: Unique numeric user ID (UID) within the range from `1000` to `65534`. It must be unique within the system.
+      * `--home-directory`: Path to the user's home folder on the VM. This is an optional parameter. The default value is `/home/<username>`.
+      * `--shell`: Path to the command shell executable file on the VM. This is an optional parameter. The default value is `/bin/bash`.
 
       Result:
 
@@ -129,6 +129,8 @@ To create an additional {{ oslogin }} profile for a user, follow these steps:
   Use the [createProfile](../../organization/api-ref/OsLogin/createProfile.md) REST API method for the [OsLogin](../../organization/api-ref/OsLogin/index.md) resource or the [OsLoginService/CreateProfile](../../organization/api-ref/grpc/OsLogin/createProfile.md) gRPC API call.
 
 {% endlist %}
+
+You can only create an {{ oslogin }} service account profile using the {{ yandex-cloud }} CLI or API.
 
 {% note info %}
 

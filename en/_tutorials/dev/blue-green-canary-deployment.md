@@ -18,7 +18,7 @@ You can use various [supported tools](#supported-tools) to perform the steps.
 
 To build an architecture for the blue-green and canary deployment:
 
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate)
 1. [Create a cloud network and subnets](#create-network).
 1. [Create buckets in {{ objstorage-name }}](#create-buckets).
@@ -44,7 +44,7 @@ Some steps do not support certain tools:
   * Disable and enable caching of a CDN resource when [running a health check and testing version switching](#check).
 * Currently, you cannot get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -75,8 +75,8 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-    1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. In the [management console]({{ link-console-main }}), select `example-folder`.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `canary-network`.
     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -213,16 +213,16 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -246,7 +246,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Create a blue bucket for the backend stable version:
 
      1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
@@ -314,16 +314,16 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -382,7 +382,7 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Select the blue bucket.
      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select `index.html` version 1 for uploading.
      1. Similarly, upload `index.html` version 2 to the green bucket.
@@ -439,16 +439,16 @@ All resources belong to the same [cloud network](../../vpc/concepts/network.md).
 
      1. Make sure the configuration files are correct.
 
-        1. In the command line, go to the folder where you created the configuration file.
+        1. In the command line, go to the directory where you created the configuration file.
         1. Run a check using this command:
 
            ```bash
            terraform plan
            ```
 
-        If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+        If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-     1. Deploy cloud resources.
+     1. Deploy the cloud resources.
 
         1. If the configuration does not contain any errors, run this command:
 
@@ -490,14 +490,14 @@ To create security groups:
 
      1. Go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that will be open for inbound or outbound traffic.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a port range for traffic to come to or from.
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
 
-     1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
+     1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all rules from the table.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -598,20 +598,20 @@ To create security groups:
      }
      ```
 
-     For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -638,7 +638,7 @@ To create security groups:
   1. Create a backend group named `canary-bg-production` with the `canary-backend-blue` and `canary-backend-green` backends:
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
      1. At the top right, click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-bg-production`.
@@ -673,7 +673,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. At the top right, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-router`.
@@ -691,10 +691,10 @@ To create security groups:
 
   1. Create a virtual host named `canary-vh-staging`:
 
-     * **{{ ui-key.yacloud.common.name }}**: `canary-vh-production`.
-     * **{{ ui-key.yacloud.alb.label_authority }}**: `cdn-staging.yandexcloud.example`.
+     * **{{ ui-key.yacloud.common.name }}**: `canary-vh-production`
+     * **{{ ui-key.yacloud.alb.label_authority }}**: `cdn-staging.yandexcloud.example`
      * Route **{{ ui-key.yacloud.common.name }}**: `canary-route-staging`.
-     * **{{ ui-key.yacloud.alb.label_backend-group }}**: `canary-bg-staging`.
+     * **{{ ui-key.yacloud.alb.label_backend-group }}**: `canary-bg-staging`
      * Other parameters are the same as for `canary-vh-production`.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -856,16 +856,16 @@ To create security groups:
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -889,7 +889,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. At the top right, click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-balancer`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
@@ -1079,16 +1079,16 @@ To create security groups:
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -1111,7 +1111,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
   1. Create a CDN resource:
 
@@ -1266,16 +1266,16 @@ To create security groups:
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -1285,7 +1285,7 @@ To create security groups:
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
   1. Enable client redirect for a resource. In CDN resource parameters, add this field at the top of the `options` section:
 
@@ -1333,7 +1333,7 @@ To configure DNS:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. In the list of CDN resources, select the resource with `cdn.yandexcloud.example` as its primary domain name.
      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `cl-********.edgecdn.ru` format.
 
@@ -1444,16 +1444,16 @@ To configure DNS:
 
      1. Make sure the configuration files are correct.
 
-        1. In the command line, go to the folder where you created the configuration file.
+        1. In the command line, go to the directory where you created the configuration file.
         1. Run a check using this command:
 
            ```bash
            terraform plan
            ```
 
-        If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+        If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-     1. Deploy cloud resources.
+     1. Deploy the cloud resources.
 
         1. If the configuration does not contain any errors, run this command:
 
@@ -1488,9 +1488,9 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-     1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
      1. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** field, select `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`.
      1. Enter the path to the uploaded file: `/index.html`.
@@ -1558,9 +1558,9 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-     1. Go to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
      1. Disable the **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** option.
      1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -1579,9 +1579,9 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-     1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
      1. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** field, select `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`.
      1. Enter the path to the uploaded file: `/index.html`.
@@ -1641,7 +1641,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
      1. Select `canary-bg-production`.
      1. Set the `canary-backend-blue` backend weight to 80 instead of 100:
@@ -1727,9 +1727,9 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-     1. Go to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -1750,9 +1750,9 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-     1. Go to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
      1. Disable the **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}** option.
      1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -1771,9 +1771,9 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-     1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
      1. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** field, select `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`.
      1. Enter the path to the uploaded file: `/index.html`.
@@ -1833,7 +1833,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
      1. Select `canary-bg-production`.
      1. Set the `canary-backend-blue` backend weight to 100 instead of 0:
@@ -1912,9 +1912,9 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the created CDN resource (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
-     1. Go to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+     1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Click **{{ ui-key.yacloud.common.save }}**.

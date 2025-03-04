@@ -32,7 +32,20 @@ The scope limits the use of API keys in addition to the user's personal access p
 
 Available scopes are listed below:
 
-* `yc.postbox.send`: For sending emails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
+
+* `yc.ai.foundationModels.execute`: To send requests to [{{ assistant-api }}](../../../foundation-models/assistants/api-ref/index.md), [Image Generation API](../../../foundation-models/image-generation/api-ref/index.md), [Text Generation API](../../../foundation-models/text-generation/api-ref/index.md), [{{ speechkit-name }} API](../../../speechkit/concepts/api.md), [{{ translate-full-name }} API](../../../translate/concepts/api.md), and [{{ vision-name }} API](../../../vision/ocr/api-ref/index.md).
+* `yc.ai.imageGeneration.execute`: To send requests to image generation models in {{ foundation-models-full-name }} via the [Image Generation API](../../../foundation-models/image-generation/api-ref/index.md).
+* `yc.ai.languageModels.execute`: To send requests to text generation models in {{ foundation-models-full-name }} via the [Text Generation API](../../../foundation-models/text-generation/api-ref/index.md).
+* `yc.ai.speechkitStt.execute`: To [recognize speech](../../../speechkit/stt/index.md) via the [{{ speechkit-name }} API](../../../speechkit/concepts/api.md).
+* `yc.ai.speechkitTts.execute`: To [synthesize speech](../../../speechkit/tts/index.md) via the [{{ speechkit-name }} API](../../../speechkit/concepts/api.md).
+* `yc.ai.translate.execute`: To translate text via the [{{ translate-full-name }} API](../../../translate/concepts/api.md).
+* `yc.ai.vision.execute`: To perform optical text recognition via the [{{ vision-name }} API](../../../vision/ocr/api-ref/index.md).
+* `yc.monitoring.manage`: To view and write data in {{ monitoring-full-name }} via the [{{ monitoring-name }} API](../../../monitoring/api-ref/index.md).
+* `yc.monitoring.read`: To view data in {{ monitoring-full-name }} via the [{{ monitoring-name }} API](../../../monitoring/api-ref/index.md).
+* `yc.postbox.send`: To send emails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
+* `yc.search-api.execute`: To send search queries to [{{ search-api-name }}](../../../search-api/api-ref/index.md).
+* `yc.serverless.containers.invoke`: To invoke containers via the [{{ serverless-containers-short-name }} API](../../../serverless-containers/containers/api-ref/index.md).
+* `yc.serverless.functions.invoke`: To invoke functions via the [{{ sf-short-name }} API](../../../functions/functions/api-ref/index.md).
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 * `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
 

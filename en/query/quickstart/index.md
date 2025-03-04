@@ -12,4 +12,4 @@ To get familiar with {{ yq-name }} features, follow these guides:
 
 Processing {{ objstorage-full-name }} data using {{ yq-full-name }}:
 
-@[YouTube](https://youtu.be/HMcXKy0Xz4Q?si=N3XslIrMTtLWSUgi)
+

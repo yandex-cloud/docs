@@ -39,6 +39,7 @@ description: На странице представлен список поша�
 * [{#T}](./backup-vm/recover-file-by-file.md)
 * [{#T}](./backup-vm/view-disk-layout.md)
 * [{#T}](./backup-vm/delete.md)
+* [{#T}](./backup-vm/batch-delete.md)
 
 ## Сервисные операции {#service-operations}
 

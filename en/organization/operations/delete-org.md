@@ -9,7 +9,7 @@ description: In this tutorial, you will learn how to delete an organization in {
 
 An organization can be deleted by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](../security/index.md#admin).
 
-Before deleting an organization, make sure to [delete](../../resource-manager/operations/cloud/delete.md) all its clouds.
+Before deleting an organization, make sure to delete all its [clouds](../../resource-manager/operations/cloud/delete.md) and the [billing account](../../billing/operations/delete-account.md) linked to it.
 
 {% endnote %}
 
@@ -23,7 +23,7 @@ To delete an organization:
 
       The {{ cloud-center }} home page that opens displays the basic information about your organization.
 
-      If you have more than one organization, you can [switch](./manage-organizations.md#switch-to-another-org) to the one you need. To do this, in the top-left corner, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization and select another one. This will switch you to a different organization.
+      If you have more than one organization, you can [switch](./manage-organizations.md#switch-to-another-org) to the one you need. To do this, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) next to the name of the current organization in the top-left corner of the screen and select another one. This will switch you to a different organization.
   
   1. To delete your current organization, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.dashboard.organization.action.delete-button }}** in the box with its name in the center of the screen.
 

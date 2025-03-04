@@ -11,7 +11,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](../infrastructure-management/fault-tolerance.md)
 * [Fault-tolerant website with load balancing via {{ network-load-balancer-full-name }}](../web/load-balancer-website/index.md)
-* [Fault-tolerant website with load balancing using {{ alb-full-name }}](../web/application-load-balancer-website.md)
+* [Fault-tolerant website with load balancing via {{ alb-full-name }}](../web/application-load-balancer-website/index.md)
 * [Integrating an L7 load balancer with {{ cdn-full-name }} and {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
 * [Running an instance group with autoscaling](../infrastructure-management/vm-autoscale/index.md)
 * [Scheduled scaling of instance groups](../infrastructure-management/vm-scale-scheduled/index.md)
@@ -30,6 +30,7 @@ description: Various use cases for core infrastructure management systems in {{ 
 * [Building a VM image with infrastructure tools using Packer](../infrastructure-management/packer-custom-image.md)
 * [Locking {{ TF }} states using {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
 * [Using {{ yandex-cloud }} modules in {{ TF }}](../infrastructure-management/terraform-modules.md)
+* [{#T}](../infrastructure/coi-with-terraform.md)
 * [Running a Docker image on a VM](../infrastructure-management/run-docker-on-vm/index.md)
 * [Transferring logs through {{ unified-agent-short-name }} HTTP input to {{ cloud-logging-full-name }}](../infrastructure-management/ua-http-logging.md)
 

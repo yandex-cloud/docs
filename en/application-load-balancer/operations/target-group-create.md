@@ -101,7 +101,7 @@ To create a [target group](../concepts/target-group.md):
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resource you want to create:
 
      ```hcl
      resource "yandex_alb_target_group" "foo" {
@@ -128,7 +128,7 @@ To create a [target group](../concepts/target-group.md):
      * `name`: Target group name.
      * `target`: Target resource parameters:
        * `subnet_id`: ID of the [subnet](../../vpc/concepts/network.md#subnet) hosting the VM. You can get the list of available subnets using the `yc vpc subnet list` [CLI](../../cli/) command.
-       * `ip_address`: VM internal IP address. You can get the list of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) using the following CLI command: `yc vpc subnet list-used-addresses --id <subnet_ID>`.
+       * `ip_address`: Instance internal IP address. You can get the list of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) using the following CLI command: `yc vpc subnet list-used-addresses --id <subnet_ID>`.
 
      You can also create a target group with target resources residing outside [{{ vpc-full-name }}](../../vpc), e.g., in your data center connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/):
 
@@ -161,7 +161,7 @@ To create a [target group](../concepts/target-group.md):
        * `ip_address`: Private IPv4 address of the resource. The IP addresses must be within the [RFC 1918 private ranges](https://datatracker.ietf.org/doc/html/rfc1918#section-3). For more information, see [Subnets](../../vpc/concepts/network.md#subnet).
 
      For more information about the `yandex_alb_target_group` resource properties, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -179,6 +179,6 @@ To create a [target group](../concepts/target-group.md):
 
 #### See also {#see-also}
 
-* [{#T}](../tutorials/application-load-balancer-website.md)
+* [{#T}](../tutorials/application-load-balancer-website/index.md)
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/console.md)

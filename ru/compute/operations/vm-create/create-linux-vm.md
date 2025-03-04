@@ -256,7 +256,7 @@ description: Следуя данной инструкции, вы сможете
        },
        "bootDiskSpec": {
          "diskSpec": {
-           "size": "2621440000",
+           "size": "8589934592",
            "imageId": "fd8rc75pn12f********"
          }
        },

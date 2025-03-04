@@ -117,6 +117,8 @@ items:
         href: tutorials/websocket-app.md
       - name: Сокращатель ссылок
         href: tutorials/serverless-url-shortener.md
+      - name: Загрузка аудитных логов в MaxPatrol SIEM
+        href: tutorials/maxpatrol.md
   - name: Концепции
     items:
       - name: Обзор

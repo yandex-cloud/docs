@@ -20,7 +20,7 @@ You can create an empty disk of the specified size.
       {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Add a description for the disk, if required.
-  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
   1. Select the required disk type: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`, `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3 }}`, or `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
 
 
@@ -51,14 +51,27 @@ You can create an empty disk of the specified size.
       yc compute disk create \
         --name first-disk \
         --size 10 \
-        --description "my first disk via yc"
+        --description "my first disk via yc" \
+        --kms-key-id <key_ID>
       ```
 
+      Where:
+
+      * `--name`: Disk name. The disk naming requirements are as follows:
+
+          {% include [name-format](../../../_includes/name-format.md) %}
+
+      * `--size`: Disk size.
+      * `--description`: Disk description.
+      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+        
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+
       This command will create a 10 GB disk named `first-disk` and described as `my first disk via yc`.
-
-      The disk naming requirements are as follows:
-
-      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Get a list of disks in the default folder:
 
@@ -81,6 +94,13 @@ You can create an empty disk of the specified size.
           zone_id: {{ region-id }}-a
           size: "10737418240"
           status: READY
+          disk_placement_policy: {}
+          hardware_generation:
+            legacy_features:
+              pci_topology: PCI_TOPOLOGY_V1
+          kms_key:
+            key_id: abjbaqdga6hs********
+            version_id: abj295dgqnlp********
       - id: fhmo6rdqg5fo********
           folder_id: b1gm3og7ei7a********
           created_at: "2018-10-29T07:33:04Z"
@@ -95,6 +115,13 @@ You can create an empty disk of the specified size.
           source_image_id: fdvk34al8k5n********
           instance_ids:
           - fhm5b617fjnj********
+          disk_placement_policy: {}
+          hardware_generation:
+            legacy_features:
+              pci_topology: PCI_TOPOLOGY_V1
+          kms_key:
+            key_id: abjbaqdga6hs********
+            version_id: abj295dgqnlp********
       ```
 
 - {{ TF }} {#tf}

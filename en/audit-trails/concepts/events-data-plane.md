@@ -22,6 +22,7 @@ On this page, you will find events for the following services:
 * [{{ kms-full-name }}](#kms)
 * [{{ lockbox-full-name }}](#lockbox)
 * [{{ mch-full-name }}](#mch)
+* [{{ managed-k8s-full-name }}](#managed-service-for-kubernetes)
 * [{{ mmg-full-name }}](#mmg)
 * [{{ mmy-full-name }}](#mmy)
 * [{{ mpg-full-name }}](#mpg)
@@ -75,6 +76,11 @@ Service name: `mdb.clickhouse`.
 
 {% include [mch-events-dp](../../_includes/audit-trails/events/mch-events-dp.md) %}
 
+## {{ managed-k8s-full-name }} {#managed-service-for-kubernetes}
+
+Service name: `k8s`.
+
+{% include [managed-k8s-events-dp](../../_includes/audit-trails/events/managed-k8s-events-dp.md) %}
 
 ## {{ mmg-full-name }} {#mmg}
 
@@ -125,6 +131,7 @@ Service name: `speechsense`.
 Service name: `smartwebsecurity`.
 
 {% include [sws-events-dp](../../_includes/audit-trails/events/sws-events-dp.md) %}
+
 
 ## {{ wiki-full-name }} {#wiki}
 

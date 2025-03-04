@@ -7,32 +7,10 @@ items:
     items:
       - name: All guides
         href: operations/index.md
+      - name: Creating a trail
+        href: operations/create-trail.md
       - name: Handling errors
         href: operations/error.md
-      - name: Exporting audit logs to {{ cloud-logging-name }}
-        items:
-          - name: Organization
-            href: operations/export-organization-logging.md
-          - name: Cloud
-            href: operations/export-cloud-logging.md
-          - name: Folder
-            href: operations/export-folder-logging.md
-      - name: Exporting audit logs to {{ yds-name }}
-        items:
-          - name: Organization
-            href: operations/export-organization-data-streams.md
-          - name: Cloud
-            href: operations/export-cloud-data-streams.md
-          - name: Folder
-            href: operations/export-folder-data-streams.md
-      - name: Exporting audit logs to {{ objstorage-name }}
-        items:
-          - name: Organization
-            href: operations/export-organization-bucket.md
-          - name: Cloud
-            href: operations/export-cloud-bucket.md
-          - name: Folder
-            href: operations/export-folder-bucket.md
       - name: Viewing operations with a trail
         href: operations/operation-logs.md
   - name: Tutorials

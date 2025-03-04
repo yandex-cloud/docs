@@ -1,5 +1,5 @@
 To add the load testing invocation from {{ GL }} CI:
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Prepare your infrastructure](#infrastructure-prepare).
 1. [Prepare a file with test data](#test-file).
 1. [Create {{ GL }}](#add-variables) environment variables.
@@ -7,17 +7,15 @@ To add the load testing invocation from {{ GL }} CI:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
 1. If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-cloud }}, you pay for computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-1. Fee for data storage in a bucket and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-
+1. Fee for data storage in a bucket and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 ## Prepare the infrastructure {#infrastructure-prepare}
 
@@ -30,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `iam.serviceAccounts.user`
    * `compute.editor`
    * `vpc.user`
-   * `vpc.publicAdmin` (optional, if deploying the agent in a public network).
+   * `vpc.publicAdmin` (optional, if deploying the agent in a public network)
 
 1. [Create](../../iam/operations/authorized-key/create.md) an authorized key for the service account and save it to the `key.json` file:
 
@@ -78,7 +76,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
 
 ## Create {{ GL }} environment variables {#add-variables}
 
-1. In {{ GL }}, go to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
+1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
 1. Click **Expand** next to **Variables**.
 1. Add environment variables with the protection option disabled:
    * `SERVICE_ACCOUNT_ID`: `sa-loadtest` service account ID.
@@ -90,7 +88,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
 
    To add a variable:
    1. Click **Add variable**.
-   1. In the window that opens, enter the variable name in the **Key** field and the value in the **Value** field.
+   1. In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
    1. Disable the **Protect variable** option.
    1. Click **Add variable**.
 
@@ -218,8 +216,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
       * On commits to the main branch
       * On pull request updates
 
-   For more complex scenarios, see this video:
-   @[youtube](QrMMZu__2DI)
+
 
 ## Delete the resources you created {#clear-out}
 

@@ -32,7 +32,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of a Microsoft Exchange installation includes:
@@ -41,7 +40,6 @@ The cost of a Microsoft Exchange installation includes:
 * Fee for load balancing (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 * Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-
 
 ## Create a cloud network and subnets {#create-network}
 
@@ -82,7 +80,7 @@ Create a cloud network named `exchange-network` with subnets in all availability
       1. Click the cloud network name.
       1. Click **Add subnet**.
       1. Fill out the form: enter `exchange-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
-      1. Specify the subnet CIDR by entering the IP address and subnet mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+      1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
       Repeat these steps for two more subnets, `exchange-subnet-b` and `exchange-subnet-d`, in the `{{ region-id }}-b` and `{{ region-id }}-d` availability zones with `10.2.0.0/16` and `10.3.0.0/16` as the CIDR, respectively.
@@ -207,7 +205,7 @@ You will use a file server with internet access to configure VMs with Active Dir
       * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** tab.
       * Click **{{ ui-key.yacloud.common.select }}** and select **{{ ui-key.yacloud.common.create-new }}** in the window that opens.
       * In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then, the **Windows Server 2016 Datacenter** image from the list below. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
-      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** field, enable **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
+      * Optionally, enable **{{ ui-key.yacloud.compute.field_additional }}** in the **{{ ui-key.yacloud.compute.field_disk-autodelete }}** field if you need to automatically delete this disk when deleting the VM.
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
@@ -251,7 +249,7 @@ You will use a file server with internet access to configure VMs with Active Dir
 Active Directory VMs do not have internet access. To configure them, use `fsw-vm` through RDP.
 
 1. Connect to `fsw-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
-1. Run RDP on `fsw-vm` and connect to `ad-vm-a`. Use `Administrator` as your username and enter your password.
+1. On `fsw-vm`, run RDP and connect to `ad-vm-a`. Use `Administrator` as your username and enter your password.
 1. Run PowerShell on `ad-vm-a` and set a static address:
 
    ```powershell
@@ -510,7 +508,7 @@ Active Directory VMs do not have internet access. To configure them, use `fsw-vm
    Mount-DiskImage \\fsw-vm\distrib\ExchangeServer2016-x64-cu13.iso
    ```
 
-1. Install Exchange Mailbox Server:
+1. Install the Exchange Mailbox Server:
 
    ```powershell
    & D:\Setup.exe /Mode:Install /InstallWindowsComponents /Role:Mailbox /IAcceptExchangeServerLicenseTerms /OrganizationName:MyOrg

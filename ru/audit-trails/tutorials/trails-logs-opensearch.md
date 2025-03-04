@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/security/trails-logs-opensearch'
 ---
 
 # Загрузка аудитных логов в {{ mos-full-name }}

@@ -44,7 +44,17 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](site-to-site-openvpn.md)
 * [{#T}](mlflow-datasphere.md)
 
-## Microsoft products in {{ yandex-cloud }}
+## {{ coi }} {#coi}
+
+* [{#T}](vm-create.md)
+* [{#T}](vm-create-with-second-disk.md)
+* [{#T}](docker-compose.md)
+* [{#T}](vm-update.md)
+* [Creating a VM group with {{ coi }}](ig-create.md)
+* [{#T}](ig-with-containers.md) 
+* [{#T}](coi-with-terraform.md)
+
+## Microsoft products in {{ yandex-cloud }} {#microsoft}
 
 * [{#T}](secure-password-script.md)
 * [{#T}](active-directory.md)

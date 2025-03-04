@@ -16,17 +16,7 @@ description: Из статьи вы узнаете, как установить 
 - Fedora CoreOS (Docker-образ).
 
 
-{% list tabs %}
-
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239453&hash=1cd0d8eb71fb0296" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-- YouTube
-
-  [Смотреть видеоинструкцию о сборе метрик через {{ unified-agent-short-name }} на YouTube](https://www.youtube.com/watch?v=EY6c_6YYF10).
-
-{% endlist %}
+[Смотреть видеоинструкцию о сборе метрик через {{ unified-agent-short-name }} на YouTube](https://www.youtube.com/watch?v=EY6c_6YYF10).
 
 
 

@@ -99,6 +99,14 @@ items:
       - name: ViPNet Coordinator в {{ yandex-cloud }}
         href: security/vipnet-to-yc.md
         hidden: true
+      - name: Настройка алертов в {{ monitoring-name }}
+        href: security/alerts-monitoring.md
+      - name: Загрузка аудитных логов в MaxPatrol SIEM
+        href: security/maxpatrol.md
+      - name: Загрузка аудитных логов в SIEM Splunk
+        href: security/export-logs-to-splunk.md
+      - name: Загрузка аудитных логов в SIEM ArcSight
+        href: security/export-logs-to-arcsight.md
       - name: Управление федерациями удостоверений
         items:
           - name: Аутентификация с помощью Active Directory
@@ -157,6 +165,9 @@ items:
             href: security/wlif-gitlab-integration.md
           - name: '{{ k8s }}'
             href: security/wlif-k8s-integration.md
+      - name: Загрузка аудитных логов в {{ mos-full-name }}
+        hidden: true
+        href: security/trails-logs-opensearch.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
@@ -1038,60 +1049,72 @@ items:
         href: routing/pub-add.md
       - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
         href: routing/bms-vrf-routing.md
-  - name: Визуализация и анализ данных
+  - name: Анализ и визуализация данных
     items:
       - name: Все руководства
         href: datalens/index.md
-      - name: Знакомство с {{ datalens-short-name }}
+      - name: Аналитика
         items:
-          - name: Простой дашборд из CSV-файла
-            href: datalens/data-from-csv-visualization.md
-          - name: Публичный чарт с картой Москвы из CSV-файла
-            href: datalens/data-from-csv-to-public-visualization.md
-          - name: Дашборд сети магазинов из БД {{ CH }}
-            href: datalens/data-from-ch-visualization.md
-      - name: Работа с геоданными
+          - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+            href: analysis/search-events-query.md
+          - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
+            href: analysis/search-events-bucket.md
+          - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
+            href: analysis/search-events-logging.md
+      - name: '{{ datalens-full-name }}'
         items:
-          - name: Анализ открытых данных ДТП на дорогах России
-            href: datalens/data-from-csv-geo-visualization.md
-          - name: >-
-              Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
-              Marketplace
-            href: datalens/data-from-ch-to-geolayers-visualization.md
-          - name: >-
-              Геокодинг с помощью API Яндекс Карт для визуализации в {{
-              datalens-short-name }}
-            href: datalens/data-from-ch-geocoder.md
-      - name: Аналитика сервисов
-        items:
-          - name: 'Яндекс Метрика: прямое подключение'
-            href: datalens/data-from-metrica-visualization.md
-          - name: 'Яндекс Метрика: экспорт, постобработка и визуализация данных'
-            href: datalens/data-from-metrica-yc-visualization.md
-          - name: 'AppMetrica: прямое подключение'
-            href: datalens/data-from-appmetrica-visualization.md
-          - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
-            href: datalens/data-from-appmetrica-yc-visualization.md
-          - name: 'Битрикс24: прямое подключение'
-            href: datalens/data-from-bitrix24-visualization.md
-          - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
-            href: datalens/data-from-tracker.md
-          - name: Анализ логов {{ objstorage-name }} при помощи {{ datalens-name }}
-            href: datalens/storage-logs-analysis.md
-          - name: 'Подкасты Яндекс Музыки: статистика'
-            href: datalens/data-from-podcasts.md
-          - name: Визуализация данных {{ yq-full-name }}
-            href: datalens/data-from-yandex-query-visualization.md
-          - name: Визуализация данных {{ monitoring-full-name }}
-            href: datalens/data-from-monitoring-visualization.md
-          - name: Визуализация данных из {{ ytsaurus-name }} CHYT
-            href: datalens/data-from-ch-over-yt.md
-      - name: Функциональные
-        items:
-          - name: Использование параметров
-            href: datalens/data-from-ch-with-parameters.md
-          - name: Примеры создания QL-чартов
-            href: datalens/data-from-ch-to-sql-chart.md
+          - name: Знакомство с {{ datalens-short-name }}
+            items:
+              - name: Простой дашборд из CSV-файла
+                href: datalens/data-from-csv-visualization.md
+              - name: Публичный чарт с картой Москвы из CSV-файла
+                href: datalens/data-from-csv-to-public-visualization.md
+              - name: Дашборд сети магазинов из БД {{ CH }}
+                href: datalens/data-from-ch-visualization.md
+          - name: Работа с геоданными
+            items:
+              - name: Анализ открытых данных ДТП на дорогах России
+                href: datalens/data-from-csv-geo-visualization.md
+              - name: >-
+                  Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
+                  Marketplace
+                href: datalens/data-from-ch-to-geolayers-visualization.md
+              - name: >-
+                  Геокодинг с помощью API Яндекс Карт для визуализации в {{
+                  datalens-short-name }}
+                href: datalens/data-from-ch-geocoder.md
+          - name: Аналитика сервисов
+            items:
+              - name: 'Яндекс Метрика: прямое подключение'
+                href: datalens/data-from-metrica-visualization.md
+              - name: 'Яндекс Метрика: экспорт, постобработка и визуализация данных'
+                href: datalens/data-from-metrica-yc-visualization.md
+              - name: 'AppMetrica: прямое подключение'
+                href: datalens/data-from-appmetrica-visualization.md
+              - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
+                href: datalens/data-from-appmetrica-yc-visualization.md
+              - name: 'Битрикс24: прямое подключение'
+                href: datalens/data-from-bitrix24-visualization.md
+              - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
+                href: datalens/data-from-tracker.md
+              - name: >-
+                  Анализ логов {{ objstorage-name }} при помощи {{ datalens-name
+                  }}
+                href: datalens/storage-logs-analysis.md
+              - name: 'Подкасты Яндекс Музыки: статистика'
+                href: datalens/data-from-podcasts.md
+              - name: Визуализация данных {{ yq-full-name }}
+                href: datalens/data-from-yandex-query-visualization.md
+              - name: Визуализация данных {{ monitoring-full-name }}
+                href: datalens/data-from-monitoring-visualization.md
+              - name: Визуализация данных из {{ ytsaurus-name }} CHYT
+                href: datalens/data-from-ch-over-yt.md
+          - name: Функциональные
+            items:
+              - name: Использование параметров
+                href: datalens/data-from-ch-with-parameters.md
+              - name: Примеры создания QL-чартов
+                href: datalens/data-from-ch-to-sql-chart.md
   - name: Бессерверные технологии
     items:
       - name: Все руководства
@@ -1158,6 +1181,10 @@ items:
           Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-full-name
           }} и аутентификацией в Firebase
         href: serverless/jwt-authorizer-firebase.md
+      - name: >-
+          Настройка реагирования в {{ cloud-logging-full-name }} и {{
+          sf-full-name }}
+        href: serverless/logging-functions.md
       - name: >-
           Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
           yagpt-full-name }} и {{ postbox-full-name }}

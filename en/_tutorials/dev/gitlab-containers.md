@@ -11,11 +11,9 @@ Each commit to {{ GL }} is followed by:
 * Applying a new {{ managed-k8s-name }} cluster configuration specifying the application to deploy.
 
 To set up the infrastructure required to store the source code, build the Docker image, and deploy your applications, follow these steps:
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 
-   
    1. [Review the list of paid resources available](#paid-resources).
-
 
 1. [Prepare your infrastructure](#deploy-infrastructure).
 1. [Create a {{ GL }} instance](#create-gitlab).
@@ -28,10 +26,9 @@ To set up the infrastructure required to store the source code, build the Docker
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -73,7 +70,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 ## Configure the CI script {#ci}
 
 1. Create the [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
-   1. In {{ GL }}, go to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
+   1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
    1. Click **Expand** next to **Variables**.
    1. Add the following environment variables depending on the {{ k8s }} authentication method in {{ GL }}:
 
@@ -99,7 +96,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
       To add a variable:
       * Click **Add variable**.
-      * In the window that opens, enter the variable name in the **Key** field and the value in the **Value** field.
+      * In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
       * Click **Add variable**.
 1. Create the CI script configuration file:
    1. Open the `gitlab-test` project.
@@ -280,7 +277,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
       {% endlist %}
 
-   1. Add a comment to the commit in the **Commit message** field: `CI scripts`.
+   1. Add a comment in the **Commit message** field: `CI scripts`.
    1. Click **Commit changes**.
 
    The `.gitlab-ci.yml` file describes the following two steps of the project build process:
@@ -289,7 +286,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 ## Check the result {#check-result}
 
-1. After you save the `.gitlab-ci.yml` configuration file, the build scenario will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, then select **Pipelines** from the drop-down menu, and wait for both build stages to complete successfully.
+1. After you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, then select **Pipelines** from the drop-down menu, and wait for both build stages to complete successfully.
 1. To check how the created application is running in your {{ managed-k8s-name }} cluster, view its container logs:
 
    ```bash

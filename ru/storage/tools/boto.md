@@ -59,6 +59,25 @@ pip3 install boto3==1.35.99
 
   {% include [boto3-example](../../_includes/storage/boto3-example.md) %}
 
+  Boto3 по умолчанию использует аутентификационные данные из директории `~/.aws`, но вы можете указать переменные `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY` явно:
+
+  ```python
+  ...
+  session = boto3.session.Session()
+  s3 = session.client(
+      service_name='s3',
+      endpoint_url='https://{{ s3-storage-host }}'
+      aws_access_key_id='<идентификатор_статического_ключа>',
+      aws_secret_access_key='<секретный_ключ>'
+  )
+  ```
+
+  {% note info %}
+
+  Данный метод считается небезопасным, так как существует риск утечки ключей.
+
+  {% endnote %}
+
   {% cut "boto" %}
 
   {% include [boto-example](../../_includes/storage/boto-example.md) %}

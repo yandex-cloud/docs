@@ -43,3 +43,4 @@ description: This page provides a list of step-by-step guides for {{ sws-name }}
 * [{#T}](list-create.md)
 * [{#T}](operation-logs.md)
 * [{#T}](monitoring.md)
+* [{#T}](alerting.md)

@@ -5264,7 +5264,7 @@ default:
         clone-issue-action-title: Clone issue
         convert-to-project: Convert to project
         create-calendar-event: Create calendar event
-        create-subissue: Add sub-issue
+        create-subissue: Create sub-issue
         move-issue: Change queue
         title: Actions
         to-subissue: Convert to sub-issue
@@ -5345,8 +5345,6 @@ default:
         export: Export
         settings: Queue settings
         subscribe: Subscribe
-        subscribe-all: Subscribe to all notifications
-        subscribe-new-tickets: Subscribe to new issues
       ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm:
         field-can-assignee-update-time: Allow the assignee to edit logged time
         field-show-time-field-on-close: Automatically calculate spent time when closing the task
@@ -5441,7 +5439,6 @@ default:
       alb:
         label_max-timeout: Maximum timeout, sec.
       backup:
-        button_attach-instance: Attach VM
         button_attach-instance-submit: Attach
         label_policies: Backup policies
       billing:
@@ -5735,7 +5732,7 @@ default:
           escalations:
             title: Escalation Policies
           explorer:
-            title: Metric Explorer
+            title: Metrics
           notification-feed:
             title: Notification Feed
           prometheus:
@@ -5790,7 +5787,7 @@ default:
         action:
           settings: Settings
         title:
-          mx-mode: Metric Explorer
+          mx-mode: Metrics
       homepage:
         button_alerts-action: Create alert
         button_dashboards-action: Create dashboard
@@ -5828,8 +5825,6 @@ default:
           no-data: No data policy
           notification-channels: Notifications
           time-shift: Evaluation delay
-      nav:
-        nav-metric-explorer: Metric Explorer
       prometheus:
         alert-manager:
           config-action:
@@ -6445,8 +6440,8 @@ default:
         field_access: End-user access to content
         field_address-acl: IP-based access
         field_address-acl_excepted-values: List of IP addresses
-        field_address-acl_policy-type_allow: Block all except
-        field_address-acl_policy-type_deny: Allow all except
+        field_address-acl_policy-type_allow: Allow all except
+        field_address-acl_policy-type_deny: Block all except
         field_group-name: Group name
         field_origin: Origin domain name
         field_origin-state: Priority
@@ -7912,7 +7907,6 @@ default:
         label_groups: Groups
         label_loggroup: Log group
         label_minlevel: Min. logging level
-        label_retention-period: Log retention
         label_sinks: Sinks
         label_stream: Stream
         label_title: Logging
@@ -8855,7 +8849,7 @@ default:
         label_desktop-images: Images
         label_desktops: Desktops
         label_image-source: Image source
-        section_access: Access
+        section_access: Desktop user
         section_disks: Disks
       vpc:
         add-static-route:
@@ -9247,8 +9241,22 @@ default:
                         title: Table
                     Serializer:
                       Debezium:
+                        confluent_sr:
+                          password:
+                            title: Password
+                          url:
+                            title: URL
+                          username:
+                            title: Username
+                        converter_settings:
+                          json:
+                            title: JSON (via Schema Registry)
+                        key_converter_settings:
+                          title: Key schema type
                         parameters:
                           title: Debezium serializer settings
+                        value_converter_settings:
+                          title: Value schema type
                       serializer_auto:
                         title: Auto
                       serializer_debezium:
@@ -9393,6 +9401,8 @@ default:
                       topic_name:
                         title: Topic full name
                     KafkaTarget:
+                      advanced_settings:
+                        title: Advanced settings
                       connection:
                         title: Connection settings
                       title: Endpoint parameters
@@ -9442,6 +9452,11 @@ default:
                         title: No authentication
                       sasl:
                         title: SASL
+                    TopicConfigEntry:
+                      config_name:
+                        title: Configuration name
+                      config_value:
+                        title: Configuration value
             logbroker:
               console:
                 form:

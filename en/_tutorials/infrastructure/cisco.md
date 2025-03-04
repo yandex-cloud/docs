@@ -1,7 +1,7 @@
 # Installing the Cisco CSR 1000v virtual router
 
 
-In {{ yandex-cloud }}, you can deploy the Cisco Cloud Services Router (CSR) 1000v on a ready-made VM image.
+In {{ yandex-cloud }}, you can deploy the Cisco Cloud Services Router (CSR) 1000v on a ready-made VM image. 
 
 To install the CSR 1000v and configure SSH access to it:
 
@@ -18,7 +18,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -67,7 +66,7 @@ Save the private key in a secure location, as you will not be able to connect to
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring superuser privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router`.
@@ -185,7 +184,7 @@ Create a user with administrator privileges and password authentication disabled
 1. Log in to the router via SSH by running this command in your computer terminal:
 
    ```bash
-   ssh -i <private_key_file_path> test-user@<router_public_IP_address>
+   ssh -i <private_key_file_path> test-user@<router_public_IP_address> 
    ```
 
    If the configuration is correct, you will log in to the router as `test-user`. If these actions produce no connection, make sure the router configuration is correct in the serial console, i.e., check whether you ran the `aaa new-model` command, the key hashes are identical on your computer and the router, and password authorization is disabled for the test user. If still unable to locate the issue, repeat the previous steps. 

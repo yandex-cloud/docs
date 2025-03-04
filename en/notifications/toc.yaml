@@ -11,6 +11,40 @@ items:
         href: quickstart-push.md
       - name: Getting started with SMS
         href: quickstart-sms.md
+  - name: Step-by-step operations
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Push notifications
+        items:
+          - name: Creating a push notification channel
+            href: operations/push/channel-create.md
+          - name: Changing the push notification channel
+            href: operations/push/channel-update.md
+          - name: Deleting a push notification channel
+            href: operations/push/channel-delete.md
+          - name: Creating an endpoint
+            href: operations/push/endpoint-create.md
+          - name: Updating an endpoint
+            href: operations/push/endpoint-update.md
+          - name: Deleting an endpoint
+            href: operations/push/endpoint-delete.md
+          - name: Sending a push notification
+            href: operations/push/send.md
+      - name: SMS notifications
+        items:
+          - name: Creating an SMS notification channel
+            href: operations/sms/channel-create.md
+          - name: Deleting an SMS notification channel
+            href: operations/sms/channel-delete.md
+          - name: Adding a test phone number
+            href: operations/sms/test-number-create.md
+          - name: Deleting a test phone number
+            href: operations/sms/test-number-delete.md
+          - name: Sending a test SMS notification
+            href: operations/sms/send.md
+          - name: Exiting the sandbox
+            href: operations/sms/exit-sandbox.md
   - name: Concepts
     expanded: true
     items:
@@ -25,12 +59,26 @@ items:
   - name: Tools
     expanded: true
     items:
+      - name: All tools
+        href: tools/index.md
       - name: AWS CLI
         href: tools/aws-cli.md
-      - name: AWS SDK for Python (boto3)
-        href: tools/sdk-python.md
+      - name: AWS SDK for C++
+        href: tools/sdk-cpp.md
+      - name: AWS SDK for Go
+        href: tools/sdk-go.md
+      - name: AWS SDK for Java
+        href: tools/sdk-java.md
+      - name: AWS SDK for JavaScript
+        href: tools/sdk-javascript.md
+      - name: AWS SDK for Kotlin
+        href: tools/sdk-kotlin.md
+      - name: AWS SDK for .NET
+        href: tools/sdk-dot-net.md
       - name: AWS SDK for PHP
         href: tools/sdk-php.md
+      - name: AWS SDK for Python (boto3)
+        href: tools/sdk-python.md
   - name: Pricing policy
     href: pricing.md
   - name: API reference

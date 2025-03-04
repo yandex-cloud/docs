@@ -4,7 +4,8 @@
 
 Before you start using {{ org-full-name }}, [log in]({{ link-passport-login }}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
 
-To create an organization, follow these steps:
+
+## Creating your first organization {#enable-org}
 
 {% list tabs group=instructions %}
 
@@ -20,3 +21,10 @@ To get started:
 
 - [Add](./add-account.md) users with Yandex accounts to the organization.
 - [Configure an identity federation](../concepts/add-federation.md), so that your employees can log in to the organization using their work accounts.
+
+
+## Creating an additional organization {#create-additional-org}
+
+The process of creating an additional organization is different from creating the first one. To create an additional organization:
+
+{% include [create-additional-org](../../_includes/organization/create-additional-org.md) %}

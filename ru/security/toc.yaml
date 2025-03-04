@@ -53,20 +53,263 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: ViPNet Coordinator в {{ yandex-cloud }}
-        href: tutorials/vipnet-to-yc.md
-        hidden: true
-      - name: Настройка и тестирование PT Application Firewall
-        href: tutorials/pt-application-firewall.md
-        hidden: true
-      - name: >-
-          Защищенный доступ пользователей к облачным ресурсам на основе
-          WireGuard VPN
-        href: tutorials/remote-wireguard-vpn.md
-      - name: >-
-          Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью
-          Ansible
-        href: tutorials/sa-oslogin-ansible.md
+      - name: Аутентификация и управление доступом
+        items:
+          - name: >-
+              Разграничение прав доступа для групп пользователей с различными
+              ролями в {{ org-name }}
+            href: tutorials/authentication/user-group-access-control.md
+          - name: >-
+              Использование сервисного аккаунта с профилем {{ oslogin }} для
+              управления ВМ с помощью Ansible
+            href: tutorials/authentication/sa-oslogin-ansible.md
+          - name: Аутентификация с помощью {{ microsoft-idp.ad-short }}
+            href: tutorials/authentication/integration-adfs.md
+          - name: Аутентификация с помощью Google Workspace
+            href: tutorials/authentication/integration-gworkspace.md
+          - name: Аутентификация с помощью {{ microsoft-idp.entra-id-full }}
+            href: tutorials/authentication/integration-azure.md
+          - name: Аутентификация с помощью Keycloak
+            href: tutorials/authentication/integration-keycloak.md
+          - name: Сопоставление групп пользователей в {{ microsoft-idp.adfs-short }}
+            href: tutorials/authentication/adfs.md
+          - name: >-
+              Сопоставление групп пользователей в {{ microsoft-idp.entra-id-full
+              }}
+            href: tutorials/authentication/entra-id.md
+          - name: Сопоставление групп пользователей в {{ keycloak }}
+            href: tutorials/authentication/keycloak.md
+      - name: Сетевая безопасность
+        items:
+          - name: Организация виртуального хостинга
+            href: tutorials/network-security/virtual-hosting.md
+          - name: >-
+              Автоматическое копирование объектов из одного бакета {{
+              objstorage-name }} в другой
+            href: tutorials/network-security/bucket-to-bucket-copying.md
+          - name: >-
+              Загрузка данных из {{ yandex-direct }} в витрину {{ mch-name }} с
+              использованием {{ sf-name }}, {{ objstorage-name }} и {{
+              data-transfer-name }}
+            href: tutorials/network-security/data-transfer-direct-to-mch.md
+          - name: Создание балансировщика с защитой от DDoS
+            items:
+              - name: Обзор
+                href: tutorials/network-security/alb-with-ddos-protection/index.md
+              - name: >-
+                  Создание L7-балансировщика с защитой от DDoS с помощью консоли
+                  управления или CLI
+                href: tutorials/network-security/alb-with-ddos-protection/console.md
+              - name: >-
+                  Создание L7-балансировщика с защитой от DDoS с помощью {{ TF
+                  }}
+                href: >-
+                  tutorials/network-security/alb-with-ddos-protection/terraform.md
+          - name: >-
+              Защищенный доступ пользователей к облачным ресурсам на основе
+              WireGuard VPN
+            href: tutorials/network-security/remote-wireguard-vpn.md
+          - name: ViPNet Coordinator VA в {{ yandex-cloud }}
+            href: tutorials/network-security/vipnet-to-yc.md
+            hidden: true
+          - name: Организация защищенного доступа к контенту в {{ cdn-name }}
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/network-security/protected-access-to-content/index.md
+              - name: >-
+                  Организация защищенного доступа к контенту в {{ cdn-name }} с
+                  помощью консоли управления, CLI или API
+                href: >-
+                  tutorials/network-security/protected-access-to-content/console.md
+              - name: >-
+                  Организация защищенного доступа к контенту в {{ cdn-name }} с
+                  помощью {{ TF }}
+                href: >-
+                  tutorials/network-security/protected-access-to-content/terraform.md
+      - name: Безопасная конфигурация виртуальной среды
+        items:
+          - name: >-
+              Хостинг статического сайта на фреймворке Gatsby в {{
+              objstorage-name }}
+            href: tutorials/virtualenv-safe-config/gatsby-static-website.md
+          - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-name }}
+            href: tutorials/virtualenv-safe-config/lockbox-and-airflow.md
+          - name: >-
+              Развертывание отказоустойчивой архитектуры с прерываемыми
+              виртуальными машинами
+            href: tutorials/virtualenv-safe-config/nodejs-cron-restart-vm.md
+          - name: >-
+              Миграция сервисов с балансировщика NLB с целевыми ресурсами из
+              виртуальных машин на L7-балансировщик ALB
+            href: tutorials/virtualenv-safe-config/nlb-with-target-resource-vm.md
+          - name: >-
+              Миграция сервисов с балансировщика NLB с целевыми ресурсами из
+              группы виртуальных машин (Instance Groups) на L7-балансировщик ALB
+            href: >-
+              tutorials/virtualenv-safe-config/nlb-with-target-resource-group-vm.md
+          - name: >-
+              Миграция сервисов с внешнего балансировщика NLB на
+              L7-балансировщик ALB с целевым ресурсом — внутренним сетевым
+              балансировщиком NLB
+            href: tutorials/virtualenv-safe-config/nlb-as-target-resource-alb.md
+      - name: Шифрование данных и управление ключами
+        items:
+          - name: Какой способ шифрования выбрать?
+            href: >-
+              tutorials/data-encryption-and-key-management/choose-encryption-method.md
+          - name: Шифрование данных с помощью CLI и API {{ yandex-cloud }}
+            href: tutorials/data-encryption-and-key-management/cli-api.md
+          - name: Шифрование данных с помощью SDK {{ yandex-cloud }}
+            href: tutorials/data-encryption-and-key-management/sdk.md
+          - name: Шифрование данных с помощью AWS Encryption SDK
+            href: tutorials/data-encryption-and-key-management/aws-encryption-sdk.md
+          - name: Шифрование данных с помощью Google Tink
+            href: tutorials/data-encryption-and-key-management/google-tink.md
+          - name: Управление ключами {{ kms-name }} с {{ TF }}
+            href: tutorials/data-encryption-and-key-management/terraform-key.md
+          - name: Шифрование секретов в {{ TF }}
+            href: tutorials/data-encryption-and-key-management/terraform-secret.md
+          - name: Auto Unseal в HashiCorp Vault
+            href: tutorials/data-encryption-and-key-management/vault-secret.md
+          - name: Безопасная передача пароля в скрипт инициализации
+            href: >-
+              tutorials/data-encryption-and-key-management/secure-password-script.md
+          - name: Терминирование TLS-соединений
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/data-encryption-and-key-management/tls-termination/index.md
+              - name: Терминирование TLS-соединений с помощью консоли управления
+                href: >-
+                  tutorials/data-encryption-and-key-management/tls-termination/console.md
+              - name: Терминирование TLS-соединений с помощью {{ TF }}
+                href: >-
+                  tutorials/data-encryption-and-key-management/tls-termination/terraform.md
+          - name: >-
+              Безопасное хранение паролей для {{ GL }} CI в виде секретов {{
+              lockbox-name }}
+            href: >-
+              tutorials/data-encryption-and-key-management/gitlab-lockbox-integration.md
+          - name: >-
+              Использование секрета {{ lockbox-name }} для хранения статического
+              ключа доступа
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/data-encryption-and-key-management/static-key-in-lockbox/index.md
+              - name: >-
+                  Использование секрета {{ lockbox-name }} для хранения
+                  статического ключа доступа с помощью CLI
+                href: >-
+                  tutorials/data-encryption-and-key-management/static-key-in-lockbox/console.md
+              - name: >-
+                  Использование секрета {{ lockbox-name }} для хранения
+                  статического ключа доступа с помощью {{ TF }}
+                href: >-
+                  tutorials/data-encryption-and-key-management/static-key-in-lockbox/terraform.md
+          - name: Получение значения секрета {{ lockbox-name }} на стороне GitHub
+            href: >-
+              tutorials/data-encryption-and-key-management/wlif-github-integration.md
+          - name: Получение значения секрета {{ lockbox-name }} на стороне {{ GL }}
+            href: >-
+              tutorials/data-encryption-and-key-management/wlif-gitlab-integration.md
+      - name: Сбор, мониторинг и анализ аудитных логов
+        items:
+          - name: Поиск событий {{ yandex-cloud }} в {{ yq-name }}
+            href: tutorials/audit-logs/query.md
+          - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
+            href: tutorials/audit-logs/search-bucket.md
+          - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
+            href: tutorials/audit-logs/search-cloud-logging.md
+          - name: Настройка алертов в {{ monitoring-name }}
+            href: tutorials/audit-logs/alerts-monitoring.md
+          - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-name }}
+            href: tutorials/audit-logs/logging-functions.md
+          - name: Обработка аудитных логов {{ at-name }}
+            href: tutorials/audit-logs/audit-trails.md
+          - name: Загрузка аудитных логов в {{ mes-name }}
+            href: tutorials/audit-logs/trails-logs-opensearch.md
+            hidden: true
+          - name: Загрузка аудитных логов в MaxPatrol SIEM
+            href: tutorials/audit-logs/maxpatrol.md
+          - name: Загрузка аудитных логов в SIEM Splunk
+            href: tutorials/audit-logs/export-logs-to-splunk.md
+          - name: Загрузка аудитных логов в SIEM ArcSight
+            href: tutorials/audit-logs/export-logs-to-arcsight.md
+          - name: Загрузка аудитных логов {{ at-name }} в SIEM KUMA
+            items:
+              - name: Обзор
+                href: tutorials/audit-logs/audit-trails-events-to-kuma/index.md
+              - name: >-
+                  Загрузка аудитных логов в SIEM KUMA с помощью консоли
+                  управления, CLI или API
+                href: tutorials/audit-logs/audit-trails-events-to-kuma/console.md
+              - name: Загрузка аудитных логов в SIEM KUMA с помощью {{ TF }}
+                href: tutorials/audit-logs/audit-trails-events-to-kuma/terraform.md
+          - name: Передача логов с ВМ в {{ cloud-logging-name }}
+            href: tutorials/audit-logs/vm-fluent-bit-logging.md
+          - name: Запись логов балансировщика в {{ PG }}
+            href: tutorials/audit-logs/logging.md
+          - name: Передача логов с {{ coi }} в {{ cloud-logging-name }}
+            href: tutorials/audit-logs/coi-fluent-bit-logging.md
+      - name: Защита приложений
+        items:
+          - name: >-
+              Установка Ingress-контроллера NGINX с сертификатом из {{
+              certificate-manager-name }}
+            href: tutorials/app-security/nginx-ingress-certificate-manager.md
+          - name: >-
+              Построение пайплайна CI/CD в {{ GL }} с использованием
+              serverless-продуктов
+            href: tutorials/app-security/ci-cd-serverless.md
+          - name: >-
+              Создание интерактивного serverless-приложения с использованием
+              WebSocket
+            href: tutorials/app-security/websocket-app.md
+          - name: >-
+              Создание L7-балансировщика {{ alb-name }} с профилем безопасности
+              {{ sws-name }}
+            href: tutorials/app-security/balancer-with-sws-profile.md
+          - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
+            href: tutorials/app-security/api-gw-sws-integration.md
+          - name: Добавление HTML-страницы для работы {{ captcha-name }}
+            href: tutorials/app-security/website.md
+          - name: '{{ captcha-name }} в приложении на Android'
+            href: tutorials/app-security/quickstart-android.md
+          - name: Невидимая {{ captcha-name }} в приложении на Android
+            href: tutorials/app-security/invisible-captcha-android.md
+          - name: '{{ captcha-name }} в приложении Android на Flutter'
+            href: tutorials/app-security/quickstart-android-flutter.md
+          - name: '{{ captcha-name }} в приложении на iOS'
+            href: tutorials/app-security/quickstart-ios.md
+          - name: Настройка PT Application Firewall
+            href: tutorials/app-security/pt-application-firewall.md
+            hidden: true
+      - name: Безопасность {{ k8s }}
+        items:
+          - name: Шифрование секретов в {{ managed-k8s-name }}
+            href: tutorials/kubernetes-security/kms-k8s.md
+          - name: >-
+              Подпись и проверка Docker-образов {{ container-registry-name }} в
+              {{ managed-k8s-name }}
+            href: tutorials/kubernetes-security/sign-cr-with-cosign.md
+          - name: Синхронизация с секретами {{ managed-k8s-name }}
+            href: tutorials/kubernetes-security/kubernetes-lockbox-secrets.md
+          - name: Получение значения секрета {{ lockbox-name }} на стороне {{ k8s }}
+            href: tutorials/kubernetes-security/wlif-k8s-integration.md
+          - name: >-
+              Создание L7-балансировщика с профилем безопасности {{ sws-name }}
+              через Ingress-контроллер {{ alb-name }}
+            href: tutorials/kubernetes-security/alb-ingress-with-sws-profile.md
+          - name: >-
+              Миграция сервисов с балансировщика NLB с целевыми ресурсами из
+              кластера {{ managed-k8s-name }} на L7-балансировщик ALB
+            href: tutorials/kubernetes-security/nlb-with-target-resource-k8s.md
+          - name: >-
+              Передача логов кластера {{ managed-k8s-name }} в {{
+              cloud-logging-name }}
+            href: tutorials/kubernetes-security/k8s-fluent-bit-logging.md
   - name: Инструкции
     items:
       - name: Удаление аккаунта на Яндексе из {{ org-full-name }}

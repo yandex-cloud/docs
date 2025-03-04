@@ -3,7 +3,7 @@
 
 If you want your VMs to resolve names in a private corporate DNS zone, use the [DHCP options](../../vpc/concepts/dhcp-options.md) in the [subnet configuration](../../vpc/operations/subnet-create.md). For example, you can specify a DNS suffix and DNS server for subnet nodes.
 
-To run this scenario, make sure you have a corporate DNS server deployed that is available for the VMs in the cloud. You can also deploy Active Directory to create an infrastructure with a DNS server:
+To run this scenario, make sure you have a corporate DNS server deployed that is available for the VMs in the cloud. You can also Deploy Active Directory to create an infrastructure with a DNS server:
 
 * Cloud network named `ad-network` with subnets in different [availability zones](../../overview/concepts/geo-scope.md):
     * `ad-subnet-a` (10.1.0.0/16)
@@ -18,7 +18,7 @@ In this tutorial, you will add a new subnet, `10.128.0.0/24`, with the DNS suffi
 
 To add a subnet with DHCP settings:
 
-* [Prepare your cloud environment](#before-begin).
+* [Get your cloud ready](#before-begin).
 * [Create a subnet](#create-subnet).
 * [Test the network](#check-config).
 
@@ -28,8 +28,7 @@ If you no longer need the infrastructure, [delete](#clear-out) the created resou
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-To fully complete this tutorial, deploy Active Directory. If you use your own DNS servers that are available for cloud VMs, specify your own DNS suffix and IP address values in the scenario.
-
+To pass this scenario in full, deploy Active Directory. If you use your own DNS servers that are available for cloud VMs, specify your own DNS suffix and IP address values in the scenario.
 
 ### Required paid resources {#paid-resources}
 
@@ -51,7 +50,7 @@ To create a new subnet with DHCP settings, follow these steps:
 - Management console {#console}
 
   To create a subnet:
-  1. Open the **{{ vpc-name }}** section in the folder where you need to create a subnet.
+  1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
   1. Click the `ad-network` name.
   1. Click **Add subnet**.
   1. Fill out the form:
@@ -112,16 +111,16 @@ To check the configuration, create a VM and connect to it via RDP:
     
     - Management console {#console}
 
-      1. On the [folder page](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` tab and select the **Windows Server** image. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
+      1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` tab and select the **Windows Server** image. For more information on how to upload your own image for Microsoft products, see the [Importing required image](../../microsoft/byol.md#how-to-import) section.
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) to create your VM in.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
 
-          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`.
-          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
-          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
           * Make your VM [preemptible](../../compute/concepts/preemptible-vm.md), if required.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select `ad-network` and `test-subnet-1`.
@@ -229,7 +228,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 1. Check if there is a connection to the `yantoso.net` domain controller. 
 
-    To do this, run the following command:
+    To do this, run this command:
 
     ```
     ping ad-vm-a

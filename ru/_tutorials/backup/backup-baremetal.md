@@ -64,6 +64,8 @@
 
 Чтобы активировать сервис, у вас должна быть _минимальная_ [роль](../../backup/security/index.md#backup-editor) `backup.editor` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите арендовать сервер и подключить его к {{ backup-name }}.
 
+{% include [agent-send-data](../../_includes/backup/agent-send-data.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

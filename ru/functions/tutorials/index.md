@@ -36,3 +36,4 @@ description: В этом разделе собраны практические 
 * [{#T}](data-from-tracker.md)
 * [{#T}](batch-code-execution.md)
 * [{#T}](recognizer-bot.md)
+* [{#T}](logging-functions.md)

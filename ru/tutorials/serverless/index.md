@@ -23,4 +23,5 @@
 * [{#T}](connect-from-cf-nodejs.md)
 * [{#T}](api-gw-sws-integration.md)
 * [{#T}](jwt-authorizer-firebase.md)
+* [{#T}](logging-functions.md)
 * [{#T}](tracker-yandexgpt-postbox-integrations.md)

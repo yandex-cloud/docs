@@ -1,9 +1,9 @@
 # Updating an instance group under load
 
 
-In this step-by-step tutorial, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check how it operates when updating the configuration. To do this:
+Using this step-by-step guide, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check its operation when updating the configuration. To do this:
 1. [Get your cloud ready](#before-you-begin).
-1. [Set up your environment](#create-environment).
+1. [Prepare the environment](#create-environment).
 1. [Create an instance group from a {{ coi }}](#create-vm-group).
 1. [Create a load on a VM](#start-load-testing).
 1. [Update the instance group under load](#update-spec).
@@ -15,7 +15,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The support cost for a {{ yandex-cloud }} instance group includes fees for:
@@ -25,7 +24,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
 
 ## Prepare the environment {#create-environment}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-load`. To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `for-load`. To create, update, and delete VMs in the group, as well as integrate the group with an {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
 
    {% list tabs group=instructions %}
 
@@ -35,7 +34,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `for-load`.
-     1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}**. To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account.
+     1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}**. To create, update, and delete VMs in the group, as well as integrate the group with an {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to a service account.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -75,9 +74,9 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
 
    - API {#api}
 
-     1. Create a service account named `for-load`:
+     1. Create the `for-load` service account:
          Use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
-     1. To be able to create, update, and delete VMs in the group, as well as integrate the group with a {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
+     1. To create, update, and delete VMs in the group, as well as integrate the group with an {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
          Use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
@@ -163,7 +162,6 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
 
    {% list tabs group=instructions %}
 
-   
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select a folder where your instance group will reside.
@@ -199,7 +197,6 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
         * Enable **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**.
         * In the **{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** field, specify `load-generator`.
      1. Click **{{ ui-key.yacloud.common.create }}**.
- 
 
    - CLI {#cli}
 
@@ -260,7 +257,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
          {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
 
          Use the [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) REST API method for the [InstanceGroup](../../compute/instancegroup/api-ref/InstanceGroup/index.md) resource or the [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API call.
-
+     
    {% endlist %}
    
 1. Make sure you have created the instance group:
@@ -386,8 +383,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
      ```
 
      Result:
-     
-     
+
      ```bash
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
@@ -395,8 +391,6 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
      | b0ruab1ccvpd******** | load-generator | {{ region-id }}     | EXTERNAL |              1 | b0r1tabcphde********   | ACTIVE |
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      ```
-     
-     
 
    - API {#api}
 

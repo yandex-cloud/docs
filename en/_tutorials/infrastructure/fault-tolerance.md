@@ -17,7 +17,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of supporting a fault-tolerant {{ yandex-cloud }} architecture includes:
@@ -113,7 +112,7 @@ To prepare your {{ yandex-cloud }} application environment:
 1. In the `app/todo-service.tf` file, specify the path to the public SSH key; the default value is `~/.ssh/id_ed25519.pub`.
 1. Check the cloud quotas before deploying the required resources.
 
-   {% cut "Information about the new resources" %}
+   {% cut "Information about the number of new resources" %}
 
    You will create the following resources:
 

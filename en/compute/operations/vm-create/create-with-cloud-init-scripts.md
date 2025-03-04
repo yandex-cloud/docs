@@ -23,8 +23,8 @@ To create a VM with a custom configuration script:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** from the list of services.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. [Set](create-linux-vm.md) the required VM parameters.
@@ -48,14 +48,36 @@ To create a VM with a custom configuration script:
     --name my-sample-instance \
     --zone {{ region-id}}-a \
     --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4,security-group-ids=<security_group_ID> \
-    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
+    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,kms-key-id=<key_ID> \
     --metadata-from-file user-data="<path_to_configuration_file>"
   ```
 
   Where:
-  * `subnet-name`: Name of the [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) specified in the `--zone` parameter.
-  * `security-group-ids`: [Security group](../../../vpc/concepts/security-groups.md) ID.
-  * `--metadata-from-file`: `user-data` key and its value, i.e., path to the `cloud-config` configuration file in YAML format, such as `--metadata-from-file user-data="/home/user/metadata.yaml"`.
+
+  * `--name`: VM name. The naming requirements are as follows:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
+      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
+  * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) matching the selected subnet.
+  * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
+
+      * `subnet-name`: Name of the [subnet](../../../vpc/concepts/network.md#subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) specified in the `--zone` parameter.
+      * `security-group-ids`: [Security group](../../../vpc/concepts/security-groups.md) ID.
+
+  * `--create-boot-disk`: VM boot disk settings:
+
+      * `image-family`: [Image family](../../concepts/image.md#family), e.g., `ubuntu-2204-lts`. This option allows you to install the latest version of the OS from the specified family.
+      * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted boot disk. This is an optional parameter.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+        
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+
+  * `--metadata-from-file`: `user-data` key and its value, i.e., path to the `cloud-config` configuration file in YAML format, e.g., `--metadata-from-file user-data="/home/user/metadata.yaml"`.
 
       See configuration examples for `user-data` under [Examples](#examples).
 
@@ -95,7 +117,7 @@ To create a VM with a custom configuration script:
     "platformId": "standard-v3",
     ...
     "metadata": {
-      "user-data": "#cloud-config\ndatasource:\n  Ec2:\n    strict_id: false\nssh_pwauth: yes\nusers:\n- name: <username>\n  sudo: 'ALL=(ALL) NOPASSWD:ALL'\n  shell: /bin/bash\n  ssh_authorized_keys:\n  - <public_SSH_key>\nwrite_files:\n  - path: '/usr/local/etc/startup.sh'\n    permissions: '755'\n    content: |\n      #!/bin/bash\n      apt-get update\n      apt-get install -y nginx\n      service nginx start\n      sed -i -- 's/nginx/Yandex Cloud - ${HOSTNAME}/' /var/www/html/index.nginx-debian.html\n    defer: true\nruncmd:\n  - ['/usr/local/etc/startup.sh']"
+      "user-data": "#cloud-config\ndatasource:\n  Ec2:\n    strict_id: false\nssh_pwauth: yes\nusers:\n- name: <username>\n  sudo: 'ALL=(ALL) NOPASSWD:ALL'\n  shell: /bin/bash\n  ssh_authorized_keys:\n  - <public_SSH_key>\nwrite_files:\n  - path: '/usr/local/etc/startup.sh'\n    permissions: '755'\n    content: |\n      #!/bin/bash\n      apt-get update\n      apt-get install -y nginx\n      service nginx start\n      sed -i -- 's/ nginx/ Yandex Cloud - ${HOSTNAME}/' /var/www/html/index.nginx-debian.html\n    defer: true\nruncmd:\n  - ['/usr/local/etc/startup.sh']"
     },
     ...
   }
@@ -138,7 +160,7 @@ To make sure the configuration scripts ran successfully, [get the serial port ou
         apt-get update
         apt-get install -y nginx
         service nginx start
-        sed -i -- "s/nginx/Yandex Cloud - ${HOSTNAME}/" /var/www/html/index.nginx-debian.html
+        sed -i -- "s/ nginx/ Yandex Cloud - ${HOSTNAME}/" /var/www/html/index.nginx-debian.html
       defer: true
   runcmd:
     - ["/usr/local/etc/startup.sh"]

@@ -1,5 +1,6 @@
 
 
+
 1. If you do not have an SSH key pair yet, [create one](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 1. Create an agent.
 
@@ -18,11 +19,11 @@
         * If [security groups](../../vpc/concepts/security-groups.md) are available to you, select a security group preset for the agent.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the agent:
         * Select the `sa-loadtest` [service account](../../iam/concepts/users/service-accounts.md).
-        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username.
 
           {% note alert %}
 
-          Do not use `root` or other usernames reserved by the operating system. To perform operations requiring superuser permissions, use the `sudo` command.
+          Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
 
           {% endnote %}
 

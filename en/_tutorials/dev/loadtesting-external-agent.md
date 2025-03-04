@@ -1,7 +1,7 @@
 # Running external agents for load testing
 
 
-You can use {{ load-testing-full-name }} for service load testing with external agents.
+You can use {{ load-testing-full-name }} for service load testing with external agents. 
 
 An _external agent_ is a physical or virtual server with the load testing tool and [load generators](../../load-testing/concepts/load-generator.md), which is hosted outside {{ load-testing-name }}.
 
@@ -14,7 +14,7 @@ Load testing with an external agent is used when:
 * {{ compute-name }} VM computing resources are limited.
 
 To run load testing using an external agent:
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Prepare your infrastructure](#prepare-infrastructure).
 1. [Configure the environment](#configure-environment).
 1. [Install the external agent](#install-external-agent).
@@ -84,7 +84,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     latest: Pulling from yc/ya-lt-agent
     df6635ed1257: Pull complete 
     7a51fa4387ba: Pull complete 
-    Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d2827f1e47b
+    Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d28********
     Status: Downloaded newer image for {{ registry }}/yc/ya-lt-agent:latest
     {{ registry }}/yc/ya-lt-agent:latest
     ```
@@ -98,9 +98,9 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     ```
 
     Where:
-    * `<secret_name>`: Name of the secret with the authorized keys, such as `secret-loadtest`.
-    * `<secret_key>`: Non-secret ID of the secret with the authorized keys, such as `key-loadtest`.
-    * `<file_name>`: Name of the file where the authorized keys are saved, such as `secret-key.json`.
+    * `<secret_name>`: Name of the secret with the authorized keys, e.g., `secret-loadtest`.
+    * `<secret_key>`: Non-secret ID of the secret with the authorized keys, e.g., `key-loadtest`.
+    * `<file_name>`: Name of the file the authorized keys are saved to, e.g., `secret-key.json`.
 
     {% note warning %}
 
@@ -146,8 +146,8 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     ```
 
     Where:
-    * `<path_to_file_with_authorized_keys>`: Absolute path to the file with the authorized keys, such as `/home/user/secret-key.json`.
-    * `<path_to_configuration_file>`: Absolute path to the configuration file, such as `/home/user/config.yaml`.
+    * `<path_to_file_with_authorized_keys>`: Absolute path to the file with the authorized keys, e.g., `/home/user/secret-key.json`.
+    * `<path_to_configuration_file>`: Absolute path to the configuration file, e.g., `/home/user/config.yaml`.
 
     You can also specify the external agent configuration using the environment variables for different Docker containers.
 
@@ -210,10 +210,10 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-      1. In the left-hand panel, go to ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+      1. In the left-hand panel, go to the ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
       1. Make sure the **Register an agent** operation completed successfully.
-      1. In the left-hand panel, go to ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}**.
+      1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab.
       1. Make sure the external agent, e.g., `external-agent`, has the `Ready for test` status.
 
     {% endlist %}
@@ -230,7 +230,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-  1. In the left-hand panel, go to ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+  1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
   1. Choose the previously created test and view its results. 
 
 {% endlist %}
@@ -244,7 +244,7 @@ To delete the external agent from {{ load-testing-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-  1. In the left-hand panel, go to ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}**.
+  1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab.
   1. Next to the agent to delete, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 

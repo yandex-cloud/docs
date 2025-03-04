@@ -8,7 +8,7 @@ description: Follow this guide to learn how to search for {{ yandex-cloud }} eve
 
 {{ at-name }} support is integrated in [{{ yq-full-name }}](../../query/). You can analyze events of {{ yandex-cloud }} resources by executing [analytical](../../query/concepts/batch-processing.md) and [streaming](../../query/concepts/stream-processing.md) {{ yql-short-name }} queries.
 
-You can execute analytical queries for logs stored in a [bucket](../operations/export-organization-bucket.md) and streaming queries for logs stored in a {{ yds-full-name }} [data stream](../operations/export-organization-data-streams.md).
+You can execute analytical queries for logs stored in a bucket and streaming queries for logs stored in a {{ yds-full-name }} data stream.
 
 ![](../../_assets/audit-trails/tutorials/audit-trails-query.png)
 
@@ -48,7 +48,7 @@ The cost of infrastructure support includes a fee for a bucket (see [Pricing for
     1. On the bucket creation page:
         * Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
         * In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
-        * Leave the default values for other parameters.
+        * Leave other parameters at their defaults.
     1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
@@ -56,7 +56,7 @@ The cost of infrastructure support includes a fee for a bucket (see [Pricing for
 
 ### Create service accounts {#create-sa}
 
-Create a service account named `trail-sa`:
+Create the `trail-sa` service account:
 
 {% list tabs group=instructions %}
 
@@ -186,7 +186,7 @@ A connection must be created only the first time a trail is connected to {{ yq-s
     1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
     1. Create a connection.
         * Select **{{ ui-key.yacloud.common.resource-acl.label_service-account }}** `bucket-yq-sa`.
-        * Leave the default values for other parameters.
+        * Leave other parameters at their defaults.
     1. Click **{{ ui-key.yacloud.common.create }}**.
     1. In the window with data binding options, click **{{ ui-key.yacloud.common.create }}**.
 

@@ -198,7 +198,9 @@ items:
             href: tutorials/container-registry.md
           - name: Signing and verifying {{ container-registry-name }} Docker images
             href: tutorials/sign-cr-with-cosign.md
-      - name: Using {{ mkf-name }}
+          - name: Storing Docker images created in {{ mgl-name }} projects
+            href: tutorials/image-storage.md
+      - name: Usage {{ mkf-name }}
         items:
           - name: Deploying the {{ KF }} web interface
             href: tutorials/deploy-kafka-ui.md
@@ -263,6 +265,10 @@ items:
               an Ingress controller
             href: tutorials/alb-ingress-controller-log-options.md
           - name: >-
+              Creating an L7 load balancer with a {{ sws-name }} security
+              profile through an {{ alb-name }} Ingress controller
+            href: tutorials/alb-ingress-with-sws-profile.md
+          - name: >-
               Health checking your apps in a {{ managed-k8s-name }} cluster
               using an {{ alb-name }} L7 load balancer
             href: tutorials/custom-health-checks.md
@@ -288,7 +294,7 @@ items:
         href: concepts/encryption.md
       - name: Using {{ k8s }} API objects
         items:
-          - name: Volumes
+          - name: Volume
             href: concepts/volume.md
           - name: Service
             href: concepts/service.md

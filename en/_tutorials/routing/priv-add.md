@@ -12,7 +12,7 @@ Request text:
 Please add a new private connection to an existing trunk.
 Connection parameters:
 
-trunk_id: euus5dfgchu23b******
+trunk_id: euus5dfgchu2********
 vlan_id: 101
 ipv4_peering:
   peering_subnet: 192.168.10.0/30
@@ -21,7 +21,7 @@ ipv4_peering:
   peer_bgp_asn: 65001
   #cloud_bgp_asn: {{ cic-bgp-asn }}
 vpc:
-  vpc_net_id: enpdffqsg8r221******
+  vpc_net_id: enpdffqsg8r2********
     vpc_subnets:
       {{ region-id }}-a: [10.60.192.0/21]
       {{ region-id }}-b: [10.60.200.0/21, 10.60.220.0/24]
@@ -30,7 +30,7 @@ vpc:
 
 Where:
 
-* `trunk_id`: Trunk ID you got from the support team in the previous step.
+* `trunk_id`: Trunk ID you got from support in the previous step.
 * `vlan_id`: `VLAN-ID` for this private connection in trunk 802.1Q. This value is selected by the customer. It must be different from the `VLAN-ID` values of the private connections previously set up in this trunk.
 * `peering_subnet`: [Point-to-point subnet](../../interconnect/concepts/priv-con.md#priv-address) for BGP peering. This value is selected by the customer.
 * `peer_ip`: IP address of the point-to-point (peered) subnet on the customer's equipment. This value is selected by the customer.
@@ -47,7 +47,7 @@ Once you complete all required actions for setting up a private connection, the 
 Here is an example of support's response when requested to create a private connection (for information):
 ```s
 Adding a private connection to the trunk completed successfully.
-Connection ID: cf3qdug4fsf737******
+Connection ID: cf3qdug4fsf7********
 ```
 
 ### Monitoring the status of a private connection {#priv-check}

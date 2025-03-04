@@ -43,10 +43,8 @@ The cost of building a VM image and creating a VM from it includes:
 
 1. Install Packer:
     1. Download Packer and install it by following [this guide on the Packer website](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
-   
-        
-        You can also download Packerfor your platform from [this {{ yandex-cloud }} mirror](https://hashicorp-releases.yandexcloud.net/packer/).
-   
+
+        You can also download Packerfor your platform from [this {{ yandex-cloud }}](https://hashicorp-releases.yandexcloud.net/packer/) mirror.
 
     1. After the download is complete, add the path to the directory with the executable to the `PATH` variable. To do this, run this command: 
 

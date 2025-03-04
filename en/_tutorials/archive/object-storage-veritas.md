@@ -1,10 +1,10 @@
-# Making backups to {{ objstorage-full-name }} via Veritas Backup Exec
+# Backup to {{ objstorage-full-name }} via Veritas Backup Exec
 
 You can use {{ objstorage-full-name }} for backup and recovery via Veritas Backup Exec.
 
 To set up backups in {{ objstorage-name }} via Veritas Backup Exec:
 
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Create a bucket](#create-bucket).
 1. [Set up a service account](#configure-service-account).
 1. [Create a cloud instance on {{ objstorage-full-name }}](#new-becloudinstance)
@@ -19,17 +19,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The price for backups via Veritas Backup Exec includes:
 
-* Data storage fees.
-* Data operations fees.
-* Fees for the outbound traffic from {{ yandex-cloud }} to the Internet.
+* Data storage fee.
+* Fee for operations with data.
+* Fee for outbound traffic from {{ yandex-cloud }} to the Internet.
 
 Learn more about [{{ objstorage-full-name }} pricing plans](../../storage/pricing.md#prices).
-
 
 ## Create a bucket {#create-bucket}
 
@@ -37,7 +35,7 @@ Learn more about [{{ objstorage-full-name }} pricing plans](../../storage/pricin
 
 - Management console {#console}
 
-   {% include [create-bucket](../_tutorials_includes/create-public-bucket.md) %}
+  {% include [create-bucket](../_tutorials_includes/create-public-bucket.md) %}
 
 {% endlist %}
 
@@ -54,37 +52,37 @@ To create a service account:
 
 1. Start the Backup Exec Management Command Line Interface and run the command:
 
-   ```bash
-   BEMCLI> New-BECloudInstance
-   ```
+    ```bash
+    BEMCLI> New-BECloudInstance
+    ```
 
 1. Enter the cloud instance parameters one by one:
-   * `Provider:`: `compatible-with-s3`.
-   * `ServiceHost:`: `{{ s3-storage-host }}`.
-   * `SslMode:`: `disabled`.
-   * `Name:`: `cloud`.
+    * `Provider:`: `compatible-with-s3`.
+    * `ServiceHost:`: `{{ s3-storage-host }}`.
+    * `SslMode:`: `disabled`.
+    * `Name:`: `cloud`.
 
-   Result:
+    Result:
 
-   ```text
-   cmdlet New-BECloudInstance at command pipeline position 1
-   Supply values for the following parameters:
-     Provider: compatible-with-s3
-     ServiceHost: {{ s3-storage-host }}
-     SslMode: disabled
-     Name: cloud
+    ```text
+    cmdlet New-BECloudInstance at command pipeline position 1
+    Supply values for the following parameters:
+      Provider: compatible-with-s3
+      ServiceHost: {{ s3-storage-host }}
+      SslMode: disabled
+      Name: cloud
 
 
-   Name        : cloud
-   Id          : 12436533-a39e-4df6-81db-f836********
-   Provider    : compatible-with-s3
-   ServiceHost : {{ s3-storage-host }}
-   SslMode     : Disabled
-   UrlStyle    : Path
-   HttpPort    : 80
-   HttpsPort   : 443
-   Endpoint    :
-   ```
+    Name        : cloud
+    Id          : 12436533-a39e-4df6-81db-f836********
+    Provider    : compatible-with-s3
+    ServiceHost : {{ s3-storage-host }}
+    SslMode     : Disabled
+    UrlStyle    : Path
+    HttpPort    : 80
+    HttpsPort   : 443
+    Endpoint    :
+    ```
 
 ## Configure cloud storage {#setup-cloud}
 
@@ -93,15 +91,15 @@ To create a service account:
 1. Enter a **Name** for the cloud storage device and click **Next**.
 1. Select a vendor for the **S3** device and click **Next**.
 1. Enter the connection information:
-   * Select `cloud [ compatible-with-s3 ]` as **Cloud Storage**.
-   * Next to **Logon account**, click **Add/Edit**.
-   * In the **Logon account selection** window, click **Add**.
-   * In the **User name** field, enter the key ID.
-   * In the **Password** field, enter the secret key.
-   * Enter the secret key once again to confirm it.
-   * Set an **Account name**, for example, `Administrator of Bucket`.
-   * Confirm the name of your account and click **OK**.
-   * Click **Next**.
+    * Select **Cloud storage** `cloud [ compatible-with-s3 ]`.
+    * Next to **Logon account**, click **Add/Edit**.
+    * In the **Logon account** selection window, click **Add**.
+    * In the **User name** field, enter the key ID.
+    * In the **Password** field, enter the secret key.
+    * Enter the secret key once again to confirm it.
+    * Enter an **Account name**, e.g., `Administrator of Bucket`.
+    * Confirm the account name and click **OK**.
+    * Click **Next**.
 1. Select a backup bucket and click **Next**.
 1. Select the number of parallel operations for the device and click **Next**.
 1. Check the selected settings and click **Done**.
@@ -132,9 +130,9 @@ To create a service account:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder with backups.
-   1. Select **{{ objstorage-short-name }}**.
-   1. Open the bucket with backups and check whether all the relevant were copied.
+  1. In the [management console]({{ link-console-main }}), go to the folder the bucket with backups is in.
+  1. Select **{{ objstorage-short-name }}**.
+  1. Open the bucket with backups and check whether all the relevant files were copied.
 
 {% endlist %}
 

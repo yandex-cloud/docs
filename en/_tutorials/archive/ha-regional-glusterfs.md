@@ -9,7 +9,7 @@ To configure a high availability file system:
 
 1. [Get your cloud ready](#prepare-cloud).
 1. [Configure the CLI profile](#setup-profile).
-1. [Prepare an environment for deploying the resources](#setup-environment).
+1. [Set up an environment for deploying the resources](#setup-environment).
 1. [Deploy your resources](#deploy-resources).
 1. [Install and configure GlusterFS](#install-glusterfs).
 1. [Test the solution’s availability and fault tolerance](#test-glusterfs).
@@ -20,14 +20,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 
 * Fee for continuously running VMs and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
+* Fee for IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Configure the CLI profile {#setup-profile}
 
@@ -38,10 +36,10 @@ The infrastructure support costs include:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your service account.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
       1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter the service account name, e.g., `sa-glusterfs`.
+      1. Specify the service account name, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -93,7 +91,7 @@ The infrastructure support costs include:
 
    - API {#api}
 
-      To assign the service account a role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a service account a role for a folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -112,7 +110,7 @@ The infrastructure support costs include:
          ```
          Where:
          * `service-account-id`: Service account ID.
-         * `folder-id`: ID of the folder where you created the service account.
+         * `folder-id`: ID of the service account folder.
          * `output`: Name of the authorized key file.
 
          Result:
@@ -161,7 +159,7 @@ The infrastructure support costs include:
    ```bash
    ssh-keygen -t ed25519
    ```
-   We recommend sticking with the default key file name.
+   We recommend using the default key file name.
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. Clone the `yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs` GitHub repository and go to the `yc-distributed-ha-storage-with-glusterfs` folder:
     ```
@@ -172,7 +170,7 @@ The infrastructure support costs include:
 
    {% note warning %}
 
-   The values set in the file are for deploying a resource-intensive infrastructure.
+   The values set in the file result in deploying a resource-intensive infrastructure.
    To deploy the resources within your available quotas, use the values below or adjust the values to your specific needs.
 
    {% endnote %}
@@ -342,7 +340,7 @@ The infrastructure support costs include:
 
       - CLI {#cli}
 
-        1. To stop a VM, see the CLI command description:
+        1. See the description of the CLI command for stopping a VM:
 
            ```bash
            yc compute instance stop --help

@@ -9,7 +9,7 @@ For information about editing a VM configuration, see [{#T}](vm-update-resources
 - Management console {#console}
 
   To update a VM:
-  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+  1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM.
   1. Click ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
@@ -84,7 +84,7 @@ To change the name and description of a VM, follow these steps:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select `ID` or `NAME` of the VM you need, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Update the VM name and description:
 
      ```bash
@@ -123,7 +123,7 @@ To change VM metadata, follow these steps:
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select `ID` or `NAME` of the VM you need, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
   1. Get the VM info with its metadata. All custom metadata is specified in the `user-data` key.
 
      ```bash
@@ -150,9 +150,9 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ os
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+  1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM in question.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
@@ -173,7 +173,7 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ os
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Select `ID` or `NAME` of the VM you need, e.g., `first-instance`.
+  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
 
   1. Enable access via {{ oslogin }}:
 
@@ -188,4 +188,8 @@ To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ os
 
 {% endlist %}
 
+{% note info %}
+
 {% include [metadata-keys](../../../_includes/compute/metadata-keys.md) %}
+
+{% endnote %}
