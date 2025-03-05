@@ -33,7 +33,6 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./edit-group.md).
 * [{#T}](./access-manage-group.md).
 * [{#T}](./access-group.md).
-* [{#T}](./access-group.md).
 * [{#T}](./delete-member-group.md).
 * [{#T}](./delete-group.md).
 

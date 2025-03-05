@@ -86,6 +86,14 @@ Enables specifying the size (in pixels) for the provided text.
 
 
 
+## [TOOLTIP](TOOLTIP.md)
+
+**Syntax:**`TOOLTIP( text, tooltip [ , placement ] )`
+
+Adds a small tooltip to a text or other markup function results. The `placement` argument manages the text positioning: `top`, `right`, `bottom` or `left`. The default value is `right`.
+
+
+
 ## [URL](URL.md)
 
 **Syntax:**`URL( address, text )`

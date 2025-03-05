@@ -16,7 +16,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
    Non-replicated tables will be lost during migration.
 
-1. If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, [enable fault tolerance](zk-hosts.md#add-zk) using {{ ZK }} hosts. Otherwise, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration.
+1. If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, make sure to [add at least three {{ ZK }} hosts](zk-hosts.md#add-zk) to ensure its fault-tolerance. Otherwise, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration.
 1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move your hosts to.
 1. Add a host to your cluster:
 
@@ -52,7 +52,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
                `assign-public-ip=<public_access_to_host:_true_or_false>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
+      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 
    - {{ TF }} {#tf}
 
@@ -113,7 +113,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
          * `subnetId`: Subnet ID.
          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
-         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -155,7 +155,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
          * `subnet_id`: Subnet ID.
          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
-         You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+         You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -244,7 +244,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
                `assign-public-ip=<public_access_to_host:_true_or_false>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
+      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 
    - {{ TF }} {#tf}
 
@@ -298,14 +298,14 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
                      }'
          ```
 
-         Where `host_specs` is an array with settings for the new host. One array element contains settings for a single host and has the following structure:
+         Where `hostSpecs` is an array with settings for the new host. One array element contains settings for a single host and has the following structure:
 
          * `type`: `ZOOKEEPER` host type.
          * `zoneId`: Availability zone.
          * `subnetId`: Subnet ID.
          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
-         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -346,7 +346,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
          * `subnet_id`: Subnet ID.
          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
-         You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

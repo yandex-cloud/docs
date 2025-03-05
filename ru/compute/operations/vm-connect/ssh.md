@@ -25,21 +25,27 @@
 - Linux/macOS {#linux-macos}
 
   
-  [Смотреть видеоинструкцию о подключении к ВМ Linux по SSH в Linux и MAC на YouTube](https://www.youtube.com/watch?v=0Q4kivQo0g4&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=10&pp=iAQB)
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvujof7tlqigs4ufgs?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=0Q4kivQo0g4&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=10&pp=iAQB).
 
 
 
 - Windows 10/11 {#windows}
 
   
-  [Смотреть видеоинструкцию о подключении к ВМ Linux по SSH в Windows 10 на YouTube](https://www.youtube.com/watch?v=M7m75y80VFM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=11&pp=iAQB)
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvfxj66n2cs7nlgbzd?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=M7m75y80VFM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=11&pp=iAQB).
 
 
 
 - Windows 7/8 {#windows7-8}
 
   
-  [Смотреть видеоинструкцию о подключении к ВМ Linux по SSH в Windows с помощью PuTTY на YouTube](https://www.youtube.com/watch?v=rNA-bEbSHZ8&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=12&pp=iAQB).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvmhu4vhxduzmdtmdk?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=rNA-bEbSHZ8&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=12&pp=iAQB).
 
 
 

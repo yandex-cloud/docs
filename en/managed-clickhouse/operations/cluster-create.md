@@ -41,6 +41,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 - Management console {#console}
 
 
+
   To create a {{ mch-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
@@ -637,7 +638,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 "<security_group_N_ID>"
               ],
               "config_spec": {
-                "version": "<{{ CH }}>_version",
+                "version": "<{{ CH }}_version>",
                 "embedded_keeper": <{{ CK }}_usage>,
                 "clickhouse": {
                   "resources": {
@@ -648,7 +649,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 },
                 "zookeeper": {
                   "resources": {
-                    "resource_preset_id": "<{{ ZK }}>_host_class",
+                    "resource_preset_id": "<{{ ZK }}_host_class>",
                     "disk_size": "<storage_size_in_bytes>",
                     "disk_type_id": "<disk_type>"
                   }
@@ -919,7 +920,7 @@ To create a {{ CH }} cluster copy:
   * Protection against accidental cluster deletion: Enabled.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

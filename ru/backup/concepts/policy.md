@@ -14,6 +14,9 @@
 
 * Периодичность создания копий: по часам, дням, неделям или месяцам. Время указывается в часовом поясе [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 * Тип создаваемых копий: полные или инкрементальные. Подробнее см. в разделе [{#T}](backup.md#types).
+
+  {% include [av-note](../../_includes/backup/av-note.md) %}
+
 * Настройки [хранения резервных копий](#retention).
 
 {% include [policy-execute-time](../../_includes/backup/policy-execute-time.md) %}

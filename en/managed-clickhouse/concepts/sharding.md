@@ -17,11 +17,11 @@ Sharding can help you:
 - Overcome technical limitations. {#restrictions}
 
   If you need to work with large datasets, your data storage infrastructure may cause your commercially available hardware to become stressed to the limit (for example, the disk subsystem will demonstrate poor IOPS metrics). If the application is running at hardware performance limits, it may be a good idea to distribute data across shards. In this case, the read operations will be performed concurrently.
- 
+
 - Improve fault tolerance. {#high-availability}
 
   Sharding allows you to isolate individual host or replica failures. If you do not use sharding, then, when one host or a few replicas fail, you lose access to the entire dataset they contain. Conversely, if one shard out of five fails, 80% of the table data will still be available.
-  
+
 - Improve the query performance. {#processing-speed}
 
   Queries compete with each other for the computing resources of cluster hosts, which can reduce the rate of query processing. This drop in the rate usually becomes obvious as the number of read operations or CPU time per query grows. However, in a sharded cluster, where queries to the same table can be run in parallel, there is no competition for shared resources, which allows you to reduce the query processing time.
@@ -35,11 +35,11 @@ When running the `INSERT` query, {{ CH }} uses a _sharding key_ to determine whe
 {{ CH }} offers two different approaches to operating distributed tables with flexible data distribution in a cluster:
 - You can create a distributed table that uses [_all shards_](../operations/shards.md) in a cluster (see the example [here](../tutorials/sharding.md#shard-example)).
 - You can create a distributed table that uses a [_group of shards_](../operations/shard-groups.md) in a cluster (click [here](../tutorials/sharding.md#shard-groups-example) for a regular sharding example, and [here](../tutorials/sharding.md#shard-groups-advanced-example), for an example of advanced sharding). Such a group includes only some shards in a cluster.
-  
+
   In this case, you can:
   - Place tables with data on the same cluster shards that are used by the distributed table.
   - Place tables with data in one shard group, and the distributed table that routes queries to these tables with data, in another shard group.
-  
+
 For example, you can set up the following shard configuration within a single {{ CH }} cluster using these methods:
 - Group `A` comprised of two shards with `s2.small` [hosts](instance-types.md): Used as the main one for a distributed table with a low load. Data in the distributed table data is stored in the same shard group.
 - Group `B` comprised of two shards with `s2.medium` hosts: Used as the main one for a distributed table with a constant high load. The data in the distributed table is stored in another group, `C`, comprised of five shards with high-performance `m2.large` hosts.
@@ -60,15 +60,15 @@ To learn more about operating distributed tables, see the [{{ CH }} documentatio
     Shards with multiple hosts require running replication. Therefore:
 
     * Clusters with a multi-host shard have {{ CK }} or {{ ZK }} replication already running, which means you can immediately add hosts to the shard.
-    * In clusters with single-host shards, you need to [enable fault tolerance using {{ ZK}}](../operations/zk-hosts.md#add-zk), and only then add hosts to the shard.
+    * In clusters with single-host shards, you need to [add at least three {{ ZK }} hosts](../operations/zk-hosts.md#add-zk), and only then add hosts to the shard.
 
     For more information about replication, {{ CK }}, and {{ ZK }}, see [Replication](replication.md).
 
 - Shard IDs in {{ yandex-cloud }} are different from their IDs in {{ CH }}:
-  
+
     * {{ mch-name }} clusters use shard names.
     * {{ CH }} uses numeric IDs that match the alphabetic order of shard names in {{ mch-name }}, e.g., `A-shard`, `B-shard`, `shard10`, `shard100`.
-  
+
     Keep this in mind if your application accesses shards by their IDs when writing and reading distributed table data.
 
     To learn how IDs in {{ yandex-cloud }} and {{ CH }} match, run this query:

@@ -18,7 +18,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Function id.|
 |`--name`|<b>`string`</b><br/>Function name.|
-|`--tag`|<b>`string`</b><br/>Tag. Default $latest.|
+|`--tag`|<b>`string`</b><br/>Tag. Default \$latest.|
 |`--limit`|<b>`int`</b><br/>The maximum number of items to list.|
 |`--since`|<b>`timestamp`</b><br/>Show logs since this time in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|
 |`--until`|<b>`timestamp`</b><br/>Show logs until this time in HH:MM:SS format or RFC-3339, or duration since now. Examples: '15:04:05', '2006-01-02T15:04:05Z', '2h', '3h30m ago'|

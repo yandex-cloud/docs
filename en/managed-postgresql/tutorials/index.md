@@ -24,6 +24,7 @@ description: Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](mlflow-datasphere.md)
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
+* [{#T}](data-recording.md)
 
 ## Replication and migration {#replication-and-migration}
 

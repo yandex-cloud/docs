@@ -12,7 +12,9 @@
 
     By default, it is disabled, i.e., temporary files are not compressed.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
+
+    {% include [requires-restart](../note-requires-restart.md) %}
 
 * **Gp workfile limits per query**{#setting-gp-workfile-limits} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -20,7 +22,7 @@
 
     The maximum value is `1099511627776` (1 TB), the minimum value is `0` (unlimited amount), and the default value is `0`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
 
 * **Gp workfile limit files per query**{#setting-gp-workfile-limit-files} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -28,7 +30,7 @@
 
     The maximum value is `100000`, the minimum value is `0` (unlimited number of temporary files), and the default value is `10000`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
 
 * **Gp workfile limit per segment**{#setting-gp-workfile-limit-per-segment} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -40,7 +42,7 @@
     0.1 × <segment_host_storage_size> / <number_of_segments_per_host>
     ```
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
 
 * **Log connections**{#setting-log-connections} {{ tag-con }}
 
@@ -94,7 +96,7 @@
 
     To disable logging of most messages, select `PANIC`.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages).
 
 * **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -131,13 +133,9 @@
     min(<master_host_storage_size> / 4, 8 * <size_of_DB_data>)
     ```
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
 
-    {% note warning %}
-
-    Changing this setting will restart the cluster.
-
-    {% endnote %}
+    {% include [requires-restart](../note-requires-restart.md) %}
 
 * **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -147,9 +145,9 @@
 
     If you increase this value, we recommend increasing [Max prepared transactions](#setting-max-prepared-transactions) as well.
 
-    If you update this setting, both the master and segment hosts will be checked to have at least 20 MB of available RAM per connection. If this condition is not met, you will get an [error](../../../managed-greenplum/qa/cluster-hosts.md#memory-limit).
+    If you update this setting, both the master and segment hosts will be checked to have at least 20 MB of available RAM per connection. If this condition is not met, [this error](../../../managed-greenplum/qa/cluster-hosts.md#memory-limit) occurs.
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
 
 * **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -159,7 +157,7 @@
 
     We recommend choosing a value higher than [Max connections](#setting-max-connections).
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
 
 * **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -171,7 +169,7 @@
     0.1 × <segment_host_storage_size> / <number_of_segments_per_host>
     ```
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
 
 * **Max statement mem**{#setting-max-statement-mem} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
 
@@ -193,10 +191,6 @@
     min(<segment_host_storage_size> / (4 * <number_of_segments_per_host>), 8 * <size_of_DB_data>)
     ```
 
-    For more information, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
+    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
 
-    {% note warning %}
-
-    Changing this setting will restart the cluster.
-
-    {% endnote %}
+    {% include [requires-restart](../note-requires-restart.md) %}

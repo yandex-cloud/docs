@@ -17,7 +17,7 @@ For information about moving {{ CH }} hosts to a different [availability zone](.
 
 {% note warning %}
 
-If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [enable fault tolerance](zk-hosts.md#add-zk) using hosts {{ ZK }}.
+If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [add at least three {{ ZK }} hosts](zk-hosts.md#add-zk).
 
 {% endnote %}
 
@@ -110,7 +110,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
      {{ mch-name }} will run the operation for creating hosts.
 
      
-     The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mch-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mch-name }} will automatically select a single subnet. You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
 - {{ TF }} {#tf}
@@ -191,7 +191,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
         * `copySchema`: Enables or disables copying the data schema from a random replica to the new hosts, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -244,7 +244,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
         * `copy_schema`: Enables or disables copying the data schema from a random replica to the new hosts, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -291,7 +291,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
   Where `assign-public-ip` is internet access to the host via a public IP address, `true` or `false`.
 
-  You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host name with the [list of cluster hosts](#list-hosts), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -353,14 +353,14 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
         Where `updateHostSpecs[]` is a list of hosts to change and their parameters. Its individual elements have the following structure:
 
-        * `hostName`: Host name which you can request with a [list of hosts in the cluster](#list-hosts).
+        * `hostName`: Host name which you can request with the [list of hosts in the cluster](#list-hosts).
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
             Here only one parameter is specified: `assignPublicIp`.
 
         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -402,14 +402,14 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
         Where `update_host_specs[]` is a list of hosts to change and their parameters. Its individual elements have the following structure:
 
-        * `host_name`: Host name which you can request with a [list of hosts in the cluster](#list-hosts).
+        * `host_name`: Host name which you can request with the [list of hosts in the cluster](#list-hosts).
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
             Here only one parameter is specified: `assign_public_ip`.
 
         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -460,10 +460,9 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
   ```bash
   {{ yc-mdb-ch }} hosts delete --cluster-name=<cluster_name> \
     <host_name>
-     
   ```
 
-  You can request the host names with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host names with the [list of cluster hosts](#list-hosts), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 

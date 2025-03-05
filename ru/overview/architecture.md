@@ -14,14 +14,18 @@
 * Архитектура Compute.
 
   
-  [Смотреть видео Compute и Scheduler: Not Enough Resources не приговор на YouTube](https://www.youtube.com/watch?v=ynkFYOFHn_Q&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=4).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvl3amgaxyp2d6bpio?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=ynkFYOFHn_Q&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=4).
 
 
 
 * Архитектура гипервизора.
 
   
-  [Смотреть видео About:Hypervisor на YouTube](https://www.youtube.com/watch?v=z4rm5fQw_8Y&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=5).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvnbaxxaxatvm55yxf?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=z4rm5fQw_8Y&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=5).
 
 
 
@@ -35,7 +39,9 @@
 * Архитектура [{{ objstorage-full-name }}](../storage/index.yaml).
 
   
-  [Смотреть видео о том, что внутри S3 на YouTube](https://www.youtube.com/watch?v=NElTqVWM8WQ&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=2).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvngcqgcskyf3ysbha?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=NElTqVWM8WQ&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=2).
 
 
 

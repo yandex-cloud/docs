@@ -32,6 +32,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 - Management console {#console}
 
 
+
   To create a {{ mpg-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
@@ -637,9 +638,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ PG }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ PG }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
 
-To create a {{ PG }} cluster copy:
+To create an {{ PG }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -735,7 +736,7 @@ To create a {{ PG }} cluster copy:
   * Protection of the cluster, its DBs, and users against accidental deletion: Enabled.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

@@ -1980,6 +1980,14 @@ Returns the current date, depending on the data source and connection type.
 
 
 
+## [TOOLTIP](TOOLTIP.md)
+
+**Syntax:**`TOOLTIP( text, tooltip [ , placement ] )`
+
+Adds a small tooltip to a text or other markup function results. The `placement` argument manages the text positioning: `top`, `right`, `bottom` or `left`. The default value is `right`.
+
+
+
 ## [TOP_CONCAT](TOP_CONCAT.md)
 
 **Syntax:**<br/>`TOP_CONCAT( expression, amount [ , separator ] )`<br/>or<br/>`TOP_CONCAT( expression, amount [ , separator ]

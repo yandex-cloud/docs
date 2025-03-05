@@ -1,15 +1,15 @@
 ---
-title: Как обновить агент {{ backup-full-name }} на виртуальной машине
-description: Следуя данной инструкции, вы сможете обновить агент {{ backup-name }} на ВМ.
+title: Как обновить или восстановить агент {{ backup-full-name }} на виртуальной машине
+description: Следуя данной инструкции, вы сможете обновить агент {{ backup-name }} или восстановить его работоспособность на ВМ.
 ---
 
-# Обновить агент {{ backup-full-name }} на виртуальной машине
+# Обновить или восстановить агент {{ backup-full-name }} на виртуальной машине
 
-В некоторых ситуациях, чтобы обеспечить бесперебойное автоматическое резервное копирование [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }}, может понадобиться обновить [агент {{ backup-name }}](../concepts/agent.md).
+В некоторых ситуациях, чтобы обеспечить бесперебойное автоматическое резервное копирование [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }}, может понадобиться обновить [агент {{ backup-name }}](../concepts/agent.md) или восстановить нарушенную работоспособность агента.
 
-Например, такая ситуация может возникнуть при технических обновлениях на стороне [провайдера резервного копирования](../concepts/index.md#providers).
+## Обновление агента {{ backup-name }} {#update-agent}
 
-О подобных случаях {{ yandex-cloud }} заблаговременно предупреждает клиентов.
+Обновление агента {{ backup-name }} может потребоваться при технических обновлениях на стороне [провайдера резервного копирования](../concepts/index.md#providers). О подобных случаях {{ yandex-cloud }} заблаговременно предупреждает клиентов.
 
 {% note info %}
 
@@ -68,3 +68,21 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 Если по какой-либо причине обновить агент {{ backup-name }} не удалось, [обратитесь]({{ link-console-support }}) в техническую поддержку.
+
+## Восстановление работоспособности агента {{ backup-name }} {#restore-agent}
+
+{% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
+
+{% list tabs group=operating_system %}
+
+- Debian/Ubuntu {#ubuntu}
+
+  {% include [update-kernel-headers-ubuntu](../../_includes/backup/operations/update-kernel-headers-ubuntu.md) %}
+
+- CentOS {#centos}
+
+  {% include [update-kernel-headers-centos](../../_includes/backup/operations/update-kernel-headers-centos.md) %}
+
+{% endlist %}
+
+Если по какой-либо причине восстановить работу агента {{ backup-name }} не удалось, [обратитесь]({{ link-console-support }}) в техническую поддержку.

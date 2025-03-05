@@ -1989,6 +1989,14 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4) = #2018-05-01 00:00:00#
 
 
 
+## [TOOLTIP](TOOLTIP.md)
+
+**Синтаксис:**`TOOLTIP( text, tooltip [ , placement ] )`
+
+Добавляет небольшую всплывающую подсказку к тексту или результату выполнения других функций разметки. Аргумент `placement` отвечает за расположение подсказки (`top`, `right`, `bottom` или `left`). Значение по умолчанию — `right`.
+
+
+
 ## [TOP_CONCAT](TOP_CONCAT.md)
 
 **Синтаксис:**<br/>`TOP_CONCAT( expression, amount [ , separator ] )`<br/>или<br/>`TOP_CONCAT( expression, amount [ , separator ]

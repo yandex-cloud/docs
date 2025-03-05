@@ -113,7 +113,7 @@ items:
         href: tutorials/object-storage-to-postgresql.md
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
-      - name: Создание сайта на базе Joomla с базой данных PostgreSQL
+      - name: Создание сайта на CMS Joomla с базой данных {{ PG }}
         items:
           - name: Обзор
             href: tutorials/joomla-postgresql/index.md
@@ -235,6 +235,16 @@ items:
             href: cli-ref/backup/get.md
           - name: list
             href: cli-ref/backup/list.md
+      - name: backup-retention-policy
+        items:
+          - name: Overview
+            href: cli-ref/backup-retention-policy/index.md
+          - name: create
+            href: cli-ref/backup-retention-policy/create.md
+          - name: delete
+            href: cli-ref/backup-retention-policy/delete.md
+          - name: list
+            href: cli-ref/backup-retention-policy/list.md
       - name: cluster
         items:
           - name: Overview

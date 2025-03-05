@@ -31,6 +31,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 - Management console {#console}
 
 
+
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
   1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
@@ -206,7 +207,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-maf }}).
 
@@ -284,7 +285,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         Where:
 
-        * `folderId`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `description`: Cluster description.
         * `labels`: List of labels. Provide labels in `"<key>": "<value>"` format.
@@ -348,7 +349,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `codeSync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            With deletion protection enabled, you will still be able to manually connect to the cluster and delete it.
+            Even if enabled, one can still connect to the cluster manually and delete it.
 
         * `serviceAccountId`: Service account ID.
 
@@ -462,7 +463,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         Where:
 
-        * `folder_id`: Folder ID. You can request it with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `description`: Cluster description.
         * `labels`: List of labels. Provide labels in `"<key>": "<value>"` format.
@@ -526,7 +527,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            With deletion protection enabled, you will still be able to manually connect to the cluster and delete it.
+            Even if enabled, one can still connect to the cluster manually and delete it.
 
         * `service_account_id`: Service account ID.
 
