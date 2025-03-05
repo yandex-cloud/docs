@@ -85,6 +85,14 @@ sourcePath: ru/_api-ref/datalens/function-ref/markup-functions.md
 
 
 
+## [TOOLTIP](TOOLTIP.md)
+
+**Синтаксис:**`TOOLTIP( text, tooltip [ , placement ] )`
+
+Добавляет небольшую всплывающую подсказку к тексту или результату выполнения других функций разметки. Аргумент `placement` отвечает за расположение подсказки (`top`, `right`, `bottom` или `left`). Значение по умолчанию — `right`.
+
+
+
 ## [URL](URL.md)
 
 **Синтаксис:**`URL( address, text )`

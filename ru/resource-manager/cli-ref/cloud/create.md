@@ -19,6 +19,7 @@ Syntax:
 |----|----|
 |`--name`|<b>`string`</b><br/>Name of the cloud.|
 |`--billing-account-id`|<b>`string`</b><br/>Billing account ID.|
+|`--organization-id`|<b>`string`</b><br/>Organization ID.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the cloud.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 

@@ -1,10 +1,10 @@
 # Syncing MySQL data using {{ data-transfer-full-name }}
 
-In this scenario, you'll learn how to ensure periodic delivery of changes from an external database to the cloud using {{ data-transfer-name }}. To synchronize data in your cloud, you need to create intermediate staging data storage, {{ mmy-name }}, to replicate tables to. The data is synchronized almost in real time.
+In this scenario, you'll learn how to ensure periodic delivery of changes from an external database to the cloud using {{ data-transfer-name }}. To synchronize data in your cloud, you need to create intermediate staging data storage, {{ mmy-name }}, to replicate tables to. The data is synchronized almost in real time. 
 
 To set up the transfer of changes:
 
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Create a VM with an online store](#create-vm-mysql).
 1. [Create staging storage](#create-staging-dwh).
 1. [Configure the transfer parameters](#create-transfer).
@@ -12,10 +12,9 @@ To set up the transfer of changes:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -63,7 +62,7 @@ Infrastructure costs for data transfers include:
 1. Connect to the VM over SSH:
    ```
    ssh yc-user@<VM_public_IP_address>
-   ```
+   ```   
 
 1. Open the `hosts` (C:\Windows\System32\drivers\etc\hosts) file as an administrator and add this line:
    ```
@@ -78,7 +77,7 @@ Infrastructure costs for data transfers include:
 
 To replicate tables with information about online store orders, create a {{ mmy-name }} cluster:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster. 
 1. Select **{{ mmy-name }}** and click **Create cluster**.
 1. Specify a name for the cluster: `ya-sample-cloud-mysql`.
 1. Select the host class: `s2.small`.
@@ -105,14 +104,14 @@ For more information about creating clusters, see [Getting started with {{ mmy-s
 
 To synchronize the order information from the MySQL database of the website with the intermediate data storage hosted in the cloud, configure {{ data-transfer-name }}:
 
-1. In the management console, select the folder where you want to create a configuration for the connection.
+1. In the management console, select the folder where you want to create a configuration for the connection. 
 1. Select **{{ data-transfer-name }}** and click **Create endpoint**.
 1. Define the parameters of the data source, that is, the VM of the online store with a MySQL instance running on it:
 
    * **Name**: `magento-source`.
    * Select the `MySQL` DB type from the list.
    * **Host IP**: <VM's_public_IP_address>.
-   * **Database name**: `ya_sample_store`.
+   * **Database name**: `ya_sample_store`. 
    * **Username**: `magento-svc`, password: `m@gent0`.
    * In the whitelist, specify the prefixes of the tables to replicate, e.g., `sales_*`.
    * Click **Create**.
@@ -134,9 +133,9 @@ To synchronize the order information from the MySQL database of the website with
    * **Name**: `sales-order-sync`.
    * Under **Source**, select the `magento-source` endpoint.
    * Under **Target**, select the `magento-report-dest` endpoint.
-   * Under **Transfer type**, select `Copy and replicate`.
+   * Under **Transfer type**, select `Copy and replicate`. 
    * Click **Create**.
-   * Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the line with the transfer description and select **Activate**.
+   * Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) in the line with the transfer description and select **Activate**. 
       
    As a result, the initial synchronization of data schemas and other information is performed and, in the future, the data will be automatically synchronized when changes appear in the source database. For the synchronization status and error messages, see **Logs**.
 
@@ -145,7 +144,7 @@ To synchronize the order information from the MySQL database of the website with
    * Go to the **SQL** section of the `ya-sample-cloud-mysql` staging storage.
    * Enter the username (`yc-user`) and password (`12345678`).
    * Select the `magento-cloud` DB.
-   * Click **Connect**.
+   * Click **Connect**. 
       
    The online store's database schema appears in the window.
 
@@ -156,7 +155,7 @@ To synchronize the order information from the MySQL database of the website with
    ```sql
    SELECT so.*, soi.* FROM sales_order_grid so
    INNER JOIN sales_order_item soi ON so.entity_id = soi.order_id
-   ORDER BY entity_id DESC
+   ORDER BY entity_id DESC 
    LIMIT 10
    ```
 1. Make sure that your order data appeared in the database.

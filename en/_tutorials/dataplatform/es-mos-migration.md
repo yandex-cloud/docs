@@ -47,8 +47,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
     1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `storage.editor` role. A service account is required to access the bucket from the source and target clusters.
 
-        1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/sa/create-access-key.md) for this service account.
-
+    1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/sa/create-access-key.md) for this service account.
 
         {% note warning %}
 
@@ -68,7 +67,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [es-mos-migration-snapshot.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-to-managed-opensearch/blob/main/es-mos-migration-snapshot.tf) configuration file to the same working directory. The file describes:
+    1. Download the [es-mos-migration-snapshot.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-to-managed-opensearch/blob/main/es-mos-migration-snapshot.tf) configuration file to the same working directory. This file describes:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
@@ -131,7 +130,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
 
-1. Run the snapshot creation in the repository created in the previous step. You can create a snapshot of the entire cluster or some of the data. For more information, see the [{{ ES }} documentation]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html).
+1. Run the snapshot creation in the repository created in the previous step. You can create a snapshot of the entire cluster or some of the data. For more information, see the relevant [{{ ES }} documentation]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html).
 
     Example of creating a snapshot named `snapshot_1` for the entire cluster:
 
@@ -139,7 +138,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
 
 
-    Creating a snapshot may take a long time. Track the progress of the operation [using {{ ES }} tools]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
+    Creating a snapshot may take a long time. Track the progress of the operation [using the {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot) tools, such as:
 
     
     {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
@@ -172,7 +171,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     * Migrate only your custom indexes. The existing system indexes are not migrated. The import process only affects the user-created indexes on the source cluster.
 
-    * Use the `rename_pattern` and `rename_replacement` parameters. Indexes will be renamed as they are restored. For more information, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
+    * Use the `rename_pattern` and `rename_replacement` parameters. Indexes will be renamed as they are restored. For more information, see the relevant [{{ OS }} documentation]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
 
     Example of restoring the entire snapshot:
 
@@ -226,7 +225,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
       The list should contain the indexes transferred from {{ ES }} with the number of documents specified in the `docs.count` column.
 
     - {{ OS }} Dashboards {#opensearch}
-
+    
       1. [Connect](../../managed-opensearch/operations/connect.md#dashboards) to the target cluster using {{ OS }} Dashboards.
       1. Select the `Global` tenant.
       1. Open the control panel by clicking ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
@@ -289,7 +288,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        1. Download the [es-mos-migration-reindex.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-to-managed-opensearch/blob/main/es-mos-migration-reindex.tf) configuration file to the same working directory. The file describes:
+        1. Download the [es-mos-migration-reindex.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-to-managed-opensearch/blob/main/es-mos-migration-reindex.tf) configuration file to the same working directory. This file describes:
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).

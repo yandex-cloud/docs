@@ -2,10 +2,10 @@
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
 1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.schema-registry.label_create-namespace-action }}**.
-1. Укажите следующие параметры:
-    * **{{ ui-key.yacloud.common.name }}** — уникальное имя пространства имен.
-    * Опционально добавьте описание пространства имен.
-    * **Уровень проверки совместимости**
+1. В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя пространства имен.
+1. (Опционально) Добавьте описание пространства имен.
+1. В блоке **Параметры совместимости**:
+    1. Задайте **Уровень проверки совместимости**
         * `BACKWARD`: (значение по умолчанию) потребители, использующие новую схему, могут читать данные, написанные производителями с использованием последней зарегистрированной схемы;
         * `BACKWARD_TRANSITIVE`: потребители, использующие новую схему, могут читать данные, записанные производителями с использованием всех ранее зарегистрированных схем;
         * `FORWARD`: потребители, использующие последнюю зарегистрированную схему, могут читать данные, написанные производителями, использующими новую схему;
@@ -14,5 +14,10 @@
         * `FULL_TRANSITIVE`: новая схема совместима вперед и назад со всеми ранее зарегистрированными схемами;
         * `NONE`: проверки совместимости схемы отключены.
           Подробнее о типах совместимости схем см. в [документации Confluent](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
-    * **Правила проверки совместимости** — выберите, какие типы проверок схемы вы хотели бы проводить: [Confluent](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) (значение по умолчанию) или [Buf](https://buf-build-git-psachs-docs-and-search-bufbuild.vercel.app/docs/build/usage/).
+    1. Выберите [политику проверки совместимости](../../metadata-hub/concepts/compatibility-check-policy.md) для JSON-схем:
+        * `optional-friendly` — основывается на [решении](#optional-parameters-compatibility-solution) с использованием разных контентных моделей для производителя и потребителя. Поддерживает добавление и удаление опциональных параметров с сохранением полной транзитивной совместимости.
+        * `Confluent` — основывается на стандартах [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types) и не обеспечивает полную совместимость при добавлении и удалении опциональных параметров.
+    1. Выберите политику проверки совместимости для Protobuf-схем:
+        * Confluent — основывается на стандартах [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
+        * buf — основывается на стандартах [Buf](https://buf-build-git-psachs-docs-and-search-bufbuild.vercel.app/docs/build/usage/).
 1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

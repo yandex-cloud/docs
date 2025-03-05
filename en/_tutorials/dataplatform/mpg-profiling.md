@@ -15,14 +15,10 @@ To detect potential issues in a cluster, [use tools](../../managed-postgresql/tu
 ## Getting started {#before-start}
 
 1. Select databases to troubleshoot.
-
-
 1. [Enable the **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**](../../managed-postgresql/operations/update.md#change-additional-settings) option in the cluster.
-
-
 1. [Activate statistics collection](../../managed-postgresql/operations/performance-diagnostics.md#activate-stats-collector) about sessions and queries.
-1. [Enable the `auto_explain` module](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) for extended query execution plan logging.
-1. If you want more queries to appear in the performance log, reduce the value of the [`log_min_duration_statement` parameter](../../managed-postgresql/concepts/settings-list.md#setting-log-min-duration-statement) in the [DBMS settings](../../managed-postgresql/operations/update.md#change-postgresql-config).
+1. [Enable the `auto_explain`](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) module for extended query execution plan logging.
+1. If you want more queries to appear in the performance log, reduce the [`log_min_duration_statement`](../../managed-postgresql/concepts/settings-list.md#setting-log-min-duration-statement) value in the [DBMS settings](../../managed-postgresql/operations/update.md#change-postgresql-config).
 
     {% note warning %}
 
@@ -59,7 +55,6 @@ There are several ways to optimize problematic queries:
 
     [Create](https://www.postgresql.org/docs/current/sql-createindex.html) or [update](https://www.postgresql.org/docs/current/sql-reindex.html) appropriate indexes.
 
-    
     {% note tip %}
 
     To visualize the execution plans of the available queries, use the **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}** tab on the cluster management page.
@@ -68,8 +63,7 @@ There are several ways to optimize problematic queries:
 
     {% endnote %}
 
-
-* [Log the query execution plan automatically](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) using the [`auto_explain` module](https://www.postgresql.org/docs/current/auto-explain.html).
+* [Log the query execution plan automatically](../../managed-postgresql/operations/performance-diagnostics.md#auto-explain-enable) using the [`auto_explain`](https://www.postgresql.org/docs/current/auto-explain.html) module.
 
 * Update statistics using the [`ANALYZE`](https://www.postgresql.org/docs/current/sql-analyze.html) command.
 
@@ -105,9 +99,9 @@ In most cases, high CPU utilization and high disk I/O are due to suboptimal inde
 [Try optimizing](#solving-inefficient-queries) identified queries that consume a large amount of resources. If the load is still high or there is nothing to optimize, the only option is to [upgrade the host class](../../managed-postgresql/operations/update.md#change-resource-preset).
 
 
-## Detecting locks {#localize-locking-issues}
+## Diagnosing locks {#localize-locking-issues}
 
-Cluster performance may degrade because of locks obtained when there are multiple simultaneous attempts to access the same DB resource (table, row).
+Cluster performance may degrade because of locks caused by multiple simultaneous attempts to access the same DB resource (table, row).
 
 To detect locks using the [performance diagnostics tool](../../managed-postgresql/operations/performance-diagnostics.md):
 
@@ -127,7 +121,7 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
     ON pl.pid = psa.pid;
 ```
 
-For more information about selecting queries with locks, see the [{{ PG }}](https://www.postgresql.org/docs/current/view-pg-locks.html) documentation.
+   For more information about selecting queries with locks, see the [{{ PG }}](https://www.postgresql.org/docs/current/view-pg-locks.html) documentation.
 
 
 ## Troubleshooting locking issues {#solving-locking-issues}
@@ -143,7 +137,7 @@ The number of DB connections is limited by the `max_connections` parameter and i
 200 × <vCPU_share_on_host>: 15
 ```
 
-Where `<vCPU_share_on_host>` is the product of the number of vCPUs by their guaranteed share and `15` is the number of reserved service connections. The resulting number of connections is distributed between the database roles.
+Here, `<vCPU_share_on_host>` is the product of the number of vCPUs by their guaranteed share, and `15` is the number of reserved service connections. The resulting number of connections is distributed between the database roles.
 
 If the number of open connections reaches the limit, errors appear in the cluster logs:
 

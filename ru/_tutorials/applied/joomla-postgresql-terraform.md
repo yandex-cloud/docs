@@ -1,10 +1,7 @@
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
-1. [Установите Joomla и дополнительные компоненты](#install).
-1. [Настройте веб-сервер Apache2](#configure-apache2).
+1. [Настройте окружение на виртуальной машине](#env-install).
 1. [Настройте Joomla](#configure-joomla).
-1. [Загрузите файлы сайта](#upload-files).
-1. [Создайте инфраструктуру](#deploy).
 1. [Проверьте работу сайта](#test-site).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -13,11 +10,9 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Убедитесь, что в выбранном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) есть [сеть](../../vpc/concepts/network.md#network) с [подсетями](../../vpc/concepts/network.md#subnet) в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`. Для этого на странице каталога выберите сервис **{{ vpc-name }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если нужных подсетей или сети нет, [создайте их](../../vpc/quickstart.md).
-
 ### Необходимые платные ресурсы {#paid-resources}
 
-{% include [before-you-begin](../_tutorials_includes/joomla-postgresql-paid-resources.md) %}
+{% include [before-you-begin](../_tutorials_includes/joomla-postgresql/joomla-postgresql-paid-resources.md) %}
 
 ## Создайте инфраструктуру {#deploy}
 
@@ -29,30 +24,37 @@
 
    {% list tabs group=infrastructure_description %}
 
-   - Готовый архив {#ready}
+   - Готовая конфигурация {#ready}
 
-     1. Создайте папку для файла с описанием инфраструктуры.
-     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/joomla-postgresql-terraform.zip) (2 КБ).
-     1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `joomla-postgresql-terraform.tf` и файл с пользовательскими данными `joomla-postgresql-terraform.auto.tfvars`.
+     1. Клонируйте репозиторий с конфигурационными файлами.
+
+         ```bash
+         git clone https://github.com/yandex-cloud-examples/yc-joomla-postgresql
+         ```
+
+     1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+
+         * `joomla-postgresql-terraform.tf` — конфигурация создаваемой инфраструктуры.
+         * `joomla-postgresql-terraform.auto.tfvars` — файл c пользовательскими данными.
 
    - Вручную {#manual}
 
      1. Создайте папку для файла с описанием инфраструктуры.
      1. Создайте в папке конфигурационный файл `joomla-postgresql-terraform.tf`:
 
-        {% cut "joomla-postgresql-terraform.tf" %}
+         {% cut "joomla-postgresql-terraform.tf" %}
 
-        {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-config.md) %}
+         {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-config.md) %}
 
-        {% endcut %}
+         {% endcut %}
 
      1. Создайте в папке файл с пользовательскими данными `joomla-postgresql-terraform.auto.tfvars`:
 
-        {% cut "joomla-postgresql-terraform.auto.tfvars" %}
+         {% cut "joomla-postgresql-terraform.auto.tfvars" %}
 
-        {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-variables.md) %}
+         {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-variables.md) %}
 
-        {% endcut %}
+         {% endcut %}
 
    {% endlist %}
 
@@ -69,41 +71,32 @@
    * [Пользователь БД](../../managed-postgresql/operations/cluster-users.md) — [yandex_mdb_postgresql_user]({{ tf-provider-resources-link }}/mdb_postgresql_user).
    * [Зона DNS](../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
    * [Ресурсная запись DNS](../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
+   * [TLS-Сертификат](../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate).
 
 1. В файле `joomla-postgresql-terraform.auto.tfvars` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-   * `vm_user` — имя пользователя ВМ.
    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   * `db_user` — имя пользователя БД, например `joomla`.
- * `db_password` — пароль для доступа к БД. Длина пароля должна составлять от 8 до 128 символов.
-   * `dns_zone` — [зона DNS](../../dns/concepts/dns-zone.md). Укажите ваш зарегистрированный домен, например `example.com.`.
-   * `dns_recordset_name` — имя [ресурсной записи](../../dns/concepts/resource-record.md), например `example-recordset`.
-     Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}` в личном кабинете вашего регистратора.
+   * `db_password` — пароль для доступа к БД. Длина пароля должна составлять от 8 до 128 символов.
+   * `domain_name` — имя домена. Укажите ваше зарегистрированное доменное имя, делегированное {{ dns-full-name }}. Например: `example.com`.
+
+       Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}` в личном кабинете вашего регистратора доменных имен.
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-После создания инфраструктуры, [установите Joomla](#install).
+После создания инфраструктуры, [установите Joomla](#env-install).
 
-## Установите Joomla и дополнительные компоненты {#install}
+## Настройте окружение на виртуальной машине {#env-install}
 
-{% include [joomla-postgresql-install](../_tutorials_includes/joomla-postgresql-install.md) %}
-
-## Настройте веб-сервер Apache2 {#configure-apache2}
-
-{% include [joomla-postgresql-configure-apache2](../_tutorials_includes/joomla-postgresql-configure-apache2.md) %}
+{% include [joomla-postgresql-install-and-configure](../_tutorials_includes/joomla-postgresql/joomla-postgresql-install-and-configure.md) %}
 
 ## Настройте Joomla {#configure-joomla}
 
-{% include [joomla-postgresql-configure-joomla](../_tutorials_includes/joomla-postgresql-configure-joomla.md) %}
-
-## Загрузите файлы сайта {#upload-files}
-
-{% include [joomla-postgresql-upload-files](../_tutorials_includes/joomla-postgresql-upload-files.md) %}
+{% include [joomla-postgresql-setup-joomla](../_tutorials_includes/joomla-postgresql/joomla-postgresql-setup-joomla.md) %}
 
 ## Проверьте работу сайта {#test-site}
 
-{% include [joomla-postgresql-test-site](../_tutorials_includes/joomla-postgresql-test-site.md) %}
+{% include [joomla-postgresql-test-site](../_tutorials_includes/joomla-postgresql/joomla-postgresql-test-site.md) %}
 
 ## Как удалить созданные ресурсы {#clear-out}
 

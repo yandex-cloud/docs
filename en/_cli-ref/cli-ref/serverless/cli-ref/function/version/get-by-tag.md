@@ -18,7 +18,7 @@ Syntax:
 |----|----|
 |`--function-id`|<b>`string`</b><br/>Function id.|
 |`--function-name`|<b>`string`</b><br/>Function name.|
-|`--tag`|<b>`string`</b><br/>Tag. Default $latest.|
+|`--tag`|<b>`string`</b><br/>Tag. Default \$latest.|
 
 #### Global Flags
 

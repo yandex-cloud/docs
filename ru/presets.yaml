@@ -6863,6 +6863,7 @@ default:
           label_serverless-functions: Cloud Functions
           label_vpc: Virtual Private Cloud
         password-input:
+          label_button-enter-manually: Ввести вручную
           label_button-generate: Сгенерировать
         security-group-field:
           label_sg-auto: Автоматически

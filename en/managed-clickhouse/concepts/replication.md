@@ -5,12 +5,17 @@ description: In this tutorial, you will learn how cluster host replication works
 
 # Replication in {{ mch-name }}
 
-With {{ mch-name }}, you can use one of the following tools to manage replication and query distribution:
+In {{ CH }}, replication is performed if the cluster meets all these conditions:
 
-* [{{ CK }}](#ck).
-* [{{ ZK }}](#zk) (default).
+* There is at least one shard with two or more hosts.
+* Host coordination tool is set up.
 
-You can create [replicated tables](#replicated-tables) in a cluster with enabled replication. Meanwhile, the replication is managed automatically.
+A {{ mch-name }} cluster with enabled replication is fault-tolerant. In such a cluster, you can create [replicated tables](#replicated-tables).
+
+With {{ mch-name }}, you can use one of the following tools to coordinate hosts and distribute queries among them:
+
+* [{{ CK }}](#ck)
+* [{{ ZK }}](#zk) (default)
 
 ## {{ CK }} {#ck}
 
@@ -29,10 +34,12 @@ You can learn more about {{ CK }} in the [{{ CH }} documentation]({{ ch.docs }}/
 
 ## {{ ZK }} {#zk}
 
-If your cluster consists of one host or several single-host shards and was originally created without {{ CK }} support, you must [enable fault tolerance for the cluster](../operations/zk-hosts.md#add-zk) before adding new hosts. In which case three {{ ZK }} hosts will be added to the cluster, which is the minimum number required for replication management and fault tolerance.
+{{ ZK }} is a coordination tool you can use to distribute queries among {{ CH }} hosts. For successful replication, a {{ mch-name }} cluster must have three to five {{ ZK }} hosts.
+
+If your cluster consists of one {{ CH }} host or several single-host shards and was originally created without {{ CK }} support, you must enable fault tolerance for the cluster before adding new hosts. To do so, [add at least three {{ ZK }}](../operations/zk-hosts.md#add-zk) hosts to the cluster. If the cluster already has {{ ZK }} hosts, you can [add {{ CH }} hosts](../operations/hosts.md#add-host) to any shards.
 
 
-You can also configure {{ ZK }} hosts as soon as you create a multi-host cluster. In which case:
+If you are creating a cluster with two or more {{ CH }} hosts per shard, three {{ ZK }} hosts will be automatically added to the cluster. At this point, you can only set up their configuration. Mind the following:
 
 * If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), a {{ ZK }} host is automatically added to each subnet if you do not explicitly specify the settings for such hosts. You can explicitly specify three {{ ZK }} hosts and their settings when creating a cluster, if required.
 * If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify three {{ ZK }} hosts and their settings when creating a cluster.
@@ -47,7 +54,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 | Less than 48                                  | 2                                                     |
 | 48 or higher                                | 4                                                     |
 
-The {{ ZK }} host class can be changed when configuring fault tolerance or [cluster settings](../operations/update.md#change-resource-preset). You cannot change {{ ZK }} settings or connect to such hosts.
+You can change {{ ZK }} host class and storage size when [updating cluster settings](../operations/update.md#change-resource-preset). You cannot change {{ ZK }} settings or connect to such hosts.
 
 {% note warning %}
 

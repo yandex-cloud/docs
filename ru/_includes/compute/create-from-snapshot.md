@@ -3,7 +3,9 @@
 - Консоль управления {#console}
 
   
-  [Смотреть видеоинструкцию о создании виртуальной машины с дисками из снимков в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=Z7J5OwC8oJM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=3&pp=iAQB).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvgn27iqhtcqzygof3?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=Z7J5OwC8oJM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=3&pp=iAQB).
 
 
 

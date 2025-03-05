@@ -1,11 +1,26 @@
 ---
 title: Начало работы с {{ maf-full-name }}
 description: Чтобы начать работать с {{ maf-full-name }}, создайте кластер сервиса и откройте веб-интерфейс {{ AF }}.
+keywords:
+  - keyword: airflow
+  - keyword: кластер airflow
+  - keyword: кластер {{ AF }}
+  - keywrod: кластер Apache Airflow
+  - keyword: '{{ AF }}'
+  - keyword: Apache Airflow
+  - keyword: создание кластера {{ AF }}
+  - keyword: создание кластера airflow
+  - keyword: работа с {{ AF }}
+  - keyword: начало работы с {{ AF }}
+  - keyword: начало работы с {{ maf-name }}
+  - keyword: веб-интерфейс {{ AF }}
+  - keyword: открыть веб-интерфейс {{ AF }}
+  - keyword: открыть веб-интерфейс airflow
 ---
 
 # Как начать работать с {{ maf-name }}
 
-Чтобы начать работу с сервисом:
+Чтобы начать работу с сервисом {{ maf-name }}:
 
 1. [Создайте кластер](#cluster-create).
 1. [Откройте веб-интерфейс {{ AF }}](#web-gui).
@@ -35,7 +50,7 @@ description: Чтобы начать работать с {{ maf-full-name }}, с
 
 ## Создайте кластер {#cluster-create}
 
-1. В консоли управления выберите каталог, в котором нужно создать [кластер](../glossary/cluster.md).
+1. В консоли управления выберите каталог, в котором нужно создать [кластер](../glossary/cluster.md) {{ maf-name }}.
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
 1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.common.create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
@@ -51,6 +66,6 @@ description: Чтобы начать работать с {{ maf-full-name }}, с
 
 ## Что дальше {#whats-next}
 
-* Изучите [концепции сервиса](concepts/index.md).
-* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [работе с интерфейсами](operations/af-interfaces.md) {{ AF }}.
+* Изучите [концепции сервиса {{ maf-name }}](concepts/index.md).
+* Узнайте подробнее о [создании кластера](operations/cluster-create.md) {{ maf-name }} и [работе с интерфейсами](operations/af-interfaces.md) {{ AF }}.
 * Создайте DAG-файлы и [загрузите их](operations/upload-dags.md) в кластер {{ maf-name }}. Пример DAG-файла см. в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
