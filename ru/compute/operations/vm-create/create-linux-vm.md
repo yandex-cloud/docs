@@ -10,7 +10,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   
-  [Смотреть видеоинструкцию о создании виртуальной машины из публичного образа Linux в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=PN3b26KXb78).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplv2quzqpa76crq4el5?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=PN3b26KXb78).
 
 
 

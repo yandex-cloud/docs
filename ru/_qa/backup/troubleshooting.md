@@ -1,9 +1,3 @@
-# Решение проблем в {{ backup-name }}
-
-В этом разделе описаны типичные проблемы, которые могут возникать при работе {{ backup-name }}, и методы их решения.
-
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
 #### Почему ВМ или сервер {{ baremetal-full-name }} не добавляются в {{ backup-name }}? {#cannot-add-vm}
 
 Убедитесь, что:
@@ -28,6 +22,7 @@
 
 {% endlist %}
 
+
 #### Как заново подключить к сервису ВМ или сервер {{ baremetal-name }}, удаленные из {{ backup-name }}? {#reconnect-deleted-vm}
 
 Если вы [удалили ВМ](../../backup/operations/delete-vm.md) или сервер {{ baremetal-name }} из {{ backup-name }} и хотите подключить их к сервису заново, воспользуйтесь инструкциями:
@@ -45,6 +40,7 @@
 
 {% endlist %}
 
+
 #### Как заново подключить ВМ или сервер {{ baremetal-name }} к {{ backup-name }} после восстановления резервной копии в другую ВМ или другой сервер? {#how-to-renew-connection}
 
 {% list tabs group=backup_resource_type %}
@@ -58,6 +54,7 @@
   Сервер {{ baremetal-name }}, после восстановления его копии на другой сервер, становится неактуальным. Чтобы избежать конфликтов между исходным и целевым сервером {{ baremetal-name }} при резервном копировании, [обновите](../../backup/operations/backup-baremetal/refresh-connection.md) подключение неактуального сервера к {{ backup-name }}.
 
 {% endlist %}
+
 
 #### Ошибка при попытке восстановить ВМ или сервер {{ baremetal-name }} из резервной копии {#recovery-error}
 
@@ -79,6 +76,7 @@ Not all of the items are mapped. Please, check your goal instance and its volume
 
 {% endnote %}
 
+
 #### Ошибка при подключении ВМ на Windows {#windows-connection-issue}
 
 Текст ошибки:
@@ -95,6 +93,17 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 * Разрешен [сетевой доступ для ВМ](../../backup/concepts/vm-connection.md#vm-network-access).
 * В политиках выполнения PowerShell разрешен запуск скриптов. Если запуск запрещен, разрешите его и перезапустите PowerShell. Подробнее см. в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
+
 #### Как обновить агент {{ backup-name }} на ВМ? {#update-backup-agent}
 
 См. инструкцию [Обновить агент {{ backup-name }} на ВМ](../../backup/operations/update-backup-agent.md).
+
+#### Почему после обновления ОС перестало работать резервное копирование? {#kernel-update-consequences}
+
+{% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
+
+Чтобы обновить версии заголовков ядра Linux, воспользуйтесь инструкциями [Восстановить работоспособность агента {{ backup-name }} на ВМ](../../backup/operations/update-backup-agent.md#restore-agent) и [Восстановить работоспособность агента {{ backup-name }} на сервере {{ baremetal-name }}](../../backup/operations/backup-baremetal/restore-agent.md).
+
+#### Создание инкрементальных резервных копий ВМ или сервера {{ baremetal-name }} занимает больше времени, чем обычно {#av-interaction}
+
+На время создания [инкрементальных копий](../../backup/concepts/backup.md#types) в рамках политики с включенной [опцией](../../backup/concepts/policy.md#specification) быстрого резервного копирования `fastBackupEnabled` может влиять работа антивируса. Подробнее см. в [{#T}](../../backup/concepts/av-interaction.md).

@@ -24,12 +24,14 @@ Syntax:
 |`--network-name`|<b>`string`</b><br/>Network name.|
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Individual configurations for hosts that should be created for the Redis cluster.<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the host resides.</li> <li><code>assign-public-ip</code>:     Whether the host should get a public IP address.</li> <li><code>replica-priority</code>:     Replica priority (100 by default)</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>shard-name</code>:     Shard name host belong to.</li> </ul>|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
+|`--user`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Descriptions of database users to be created in the Redis cluster.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Name of the Redis user.</li> <li><code>password</code>:     Password of Redis user</li> <li><code>disabled</code>:     Disabled flag of Redis user. False by default.</li> <li><code>raw</code>:     Raw ACL permissions string format</li> <li><code>categories</code>:     Set of categories permissions grant access to</li> <li><code>commands</code>:     Set of commands permissions grant access to</li> <li><code>sanitize-payload</code>:     Sanitize payload setting. Possible values: sanitize-payload, skip-sanitize-payload</li> <li><code>patterns</code>:     Set of patterns permissions grant access to</li> <li><code>pub-sub-channels</code>:     Set of pub/sub channels permissions grant access to</li> </ul>|
 |`--sharded`|Enables sharding for Redis cluster.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Redis cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--enable-tls`|Enables tls for Redis cluster.|
 |`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON or OFF).|
 |`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
+|`--auth-sentinel`|Allows to use ACL users to auth in sentinel|
 |`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit in GB</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
 |`--redis-version`|<b>`string`</b><br/>Version of Redis used in the cluster. Values: 7.2|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
@@ -60,6 +62,7 @@ Syntax:
 |`--allow-data-loss`|Allows some data to be lost in favor of faster switchover/restart.|
 |`--use-luajit`|Use JIT for lua scripts and functions.|
 |`--io-threads-allowed`|Allow redis to use io-threads.|
+|`--zset-max-listpack-entries`|<b>`int`</b><br/>Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

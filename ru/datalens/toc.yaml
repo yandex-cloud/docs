@@ -588,6 +588,8 @@ items:
                 href: function-ref/MARKUP.md
               - name: SIZE
                 href: function-ref/SIZE.md
+              - name: TOOLTIP
+                href: function-ref/TOOLTIP.md
               - name: URL
                 href: function-ref/URL.md
               - name: USER_INFO

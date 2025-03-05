@@ -24,7 +24,7 @@ items:
             href: operations/connect-vm-windows.md
           - name: Обновить подключение ВМ к {{ backup-name }}
             href: operations/refresh-connection.md
-          - name: Обновить агент {{ backup-name }} на ВМ
+          - name: Обновить или восстановить агент {{ backup-name }}
             href: operations/update-backup-agent.md
           - name: Обновить подключение ВМ на Linux с {{ oslogin }}
             href: operations/refresh-connection-oslogin-linux.md
@@ -38,6 +38,8 @@ items:
               Обновить подключение сервера {{ baremetal-name }} к {{ backup-name
               }}
             href: operations/backup-baremetal/refresh-connection.md
+          - name: Восстановить работу агента {{ backup-name }}
+            href: operations/backup-baremetal/restore-agent.md
       - name: Политики резервного копирования
         items:
           - name: Создать политику
@@ -96,6 +98,8 @@ items:
         href: concepts/policy.md
       - name: Резервные копии
         href: concepts/backup.md
+      - name: Взаимодействие с антивирусом
+        href: concepts/av-interaction.md
       - name: Агент {{ backup-name }}
         href: concepts/agent.md
       - name: Квоты
@@ -128,6 +132,8 @@ items:
         items:
           - name: Overview
             href: cli-ref/backup/index.md
+          - name: batch-delete
+            href: cli-ref/backup/batch-delete.md
           - name: delete
             href: cli-ref/backup/delete.md
           - name: get

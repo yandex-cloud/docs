@@ -126,6 +126,8 @@ items:
         items:
           - name: Overview
             href: cli-ref/backup/index.md
+          - name: batch-delete
+            href: cli-ref/backup/batch-delete.md
           - name: delete
             href: cli-ref/backup/delete.md
           - name: get

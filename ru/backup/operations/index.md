@@ -21,6 +21,7 @@ description: На странице представлен список поша�
 
 * [{#T}](backup-baremetal/backup-baremetal.md)
 * [{#T}](backup-baremetal/refresh-connection.md)
+* [{#T}](backup-baremetal/restore-agent.md)
 
 ## Управление политиками резервного копирования {#policy-vm}
 

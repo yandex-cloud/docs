@@ -57,6 +57,12 @@ Aliases:
 	- [yc managed-redis shards delete](shards/delete.md) — Delete shard.
 	- [yc managed-redis shards get](shards/get.md) — Get information about a shard in a Redis cluster.
 	- [yc managed-redis shards list](shards/list.md) — List shards for a Redis cluster.
+- [yc managed-redis user](user/index.md) — Manage Redis users
+	- [yc managed-redis user create](user/create.md) — Create a Redis user
+	- [yc managed-redis user delete](user/delete.md) — Delete the specified Redis user
+	- [yc managed-redis user get](user/get.md) — Show information about the specified Redis user
+	- [yc managed-redis user list](user/list.md) — List users for the specified Redis cluster
+	- [yc managed-redis user update](user/update.md) — Update the specified Redis user
 
 #### Global Flags
 

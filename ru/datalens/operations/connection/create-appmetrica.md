@@ -7,6 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы создать подключение к AppMetrica:
 
+
 1. Перейдите на [страницу создания нового подключения]({{ link-datalens-main }}/connections/new).
 1. В разделе **Файлы и сервисы** выберите подключение **AppMetrica**.
 1. Укажите параметры подключения:
@@ -48,3 +49,5 @@ description: Следуя данной инструкции, вы сможете
 {% include [datalens-get-token](../../../_includes/datalens/operations/datalens-get-token.md) %}
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
+
+

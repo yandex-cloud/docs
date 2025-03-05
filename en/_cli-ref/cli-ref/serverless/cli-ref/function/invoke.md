@@ -18,7 +18,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Function id.|
 |`--name`|<b>`string`</b><br/>Function name.|
-|`--tag`|<b>`string`</b><br/>Tag. Default $latest.|
+|`--tag`|<b>`string`</b><br/>Tag. Default \$latest.|
 |`-d`,`--data`|<b>`string`</b><br/>Data to be sent|
 |`--data-file`|<b>`string`</b><br/>Data (file location) to be sent|
 |`--data-stdin`|Await stdin for data to be sent|

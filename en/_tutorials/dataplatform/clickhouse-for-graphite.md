@@ -26,7 +26,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Required paid resources {#paid-resources}
 
 The cost of maintaining your {{ CH }} database for Graphite includes:
@@ -147,7 +146,7 @@ Register the `rollup` configuration in your cluster to decimate and aggregate or
     ```bash
     clickhouse-client --host <host_FQDN> \
                       --secure \
-                      --user <DB_user_name> \
+                      --user <DB_username> \
                       --database <DB_name> \
                       --password <DB_user_password> \
                       --port 9440

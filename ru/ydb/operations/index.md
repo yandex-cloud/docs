@@ -5,9 +5,9 @@ description: Из статьи вы узнаете, как работать с �
 
 # Пошаговые инструкции для {{ ydb-name }}
 
-* [{#T}](connection.md).
-* [{#T}](manage-databases.md).
-* [{#T}](migration-to-an-availability-zone.md).
-* [{#T}](schema.md).
-* [{#T}](crud.md).
-* [{#T}](monitoring.md).
+* [{#T}](connection.md)
+* [{#T}](manage-databases.md)
+* [{#T}](migration-to-an-availability-zone.md)
+* [{#T}](schema.md)
+* [{#T}](crud.md)
+* [{#T}](monitoring.md)

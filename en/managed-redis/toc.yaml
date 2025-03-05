@@ -191,6 +191,20 @@ items:
             href: cli-ref/shards/get.md
           - name: list
             href: cli-ref/shards/list.md
+      - name: user
+        items:
+          - name: Overview
+            href: cli-ref/user/index.md
+          - name: create
+            href: cli-ref/user/create.md
+          - name: delete
+            href: cli-ref/user/delete.md
+          - name: get
+            href: cli-ref/user/get.md
+          - name: list
+            href: cli-ref/user/list.md
+          - name: update
+            href: cli-ref/user/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

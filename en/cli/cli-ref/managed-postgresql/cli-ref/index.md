@@ -24,6 +24,10 @@ Aliases:
 	- [yc managed-postgresql backup delete](backup/delete.md) — Delete the specified PostgreSQL backup
 	- [yc managed-postgresql backup get](backup/get.md) — Show information about the specified PostgreSQL backup
 	- [yc managed-postgresql backup list](backup/list.md) — List available backups
+- [yc managed-postgresql backup-retention-policy](backup-retention-policy/index.md) — Manage PostgreSQL backup long-term retention policies
+	- [yc managed-postgresql backup-retention-policy create](backup-retention-policy/create.md) — Create new backup retention policy
+	- [yc managed-postgresql backup-retention-policy delete](backup-retention-policy/delete.md) — Delete specific backup retention policy
+	- [yc managed-postgresql backup-retention-policy list](backup-retention-policy/list.md) — List available backup retention policies
 - [yc managed-postgresql cluster](cluster/index.md) — Manage PostgreSQL clusters
 	- [yc managed-postgresql cluster add-labels](cluster/add-labels.md) — Add labels to PostgreSQL cluster
 	- [yc managed-postgresql cluster backup](cluster/backup.md) — Create a backup for the specified PostgreSQL cluster

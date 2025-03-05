@@ -18,11 +18,9 @@
                },
                "hostSpecs": [
                  {
-                   "zoneId": "<availability_zone>",
                    "type": "ZOOKEEPER",
-                   "subnetId": "<subnet_ID>",
-                   "shardName": "<shard_name>",
-                   "assignPublicIp": <public_access_to_host>
+                   "zoneId": "<availability_zone>",
+                   "subnetId": "<subnet_ID>"
                  },
                  { <similar_settings_for_new_host_2> },
                  { ... },
@@ -36,7 +34,7 @@
 
     * `resources`: Resources for {{ ZK }} hosts.
 
-      * `resourcePresetId`: [Host class](../../../../managed-clickhouse/concepts/instance-types.md).
+      * `resourcePresetId`: [Host class](../../../../managed-clickhouse/concepts/instance-types.md) ID.
       * `diskSize`: Disk size in bytes.
       * `diskTypeId`: [Disk type](../../../../managed-clickhouse/concepts/storage.md).
 
@@ -45,10 +43,15 @@
       * `type`: `ZOOKEEPER` host type.
       * `zoneId`: Availability zone.
       * `subnetId`: Subnet ID.
-      * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
-    * `convertTablesToReplicated`: Converting non-replicated tables to [replicated](../../../../managed-clickhouse/concepts/replication.md#replicated-tables) ones, `true` or `false`.
+    * `convertTablesToReplicated`: Converting non-replicated tables to [replicated](../../../../managed-clickhouse/concepts/replication.md#replicated-tables) ones, `true` or `false`. Non-replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables will be automatically converted to replicated ones based on [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
 
-    You can get the cluster ID with a [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+      {% note warning %}
+
+      Once this option is enabled, you cannot disable it.
+
+      {% endnote %}
+
+    You can request the cluster ID with the [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
 1. View the [server response](../../../../managed-clickhouse/api-ref/Cluster/addZookeeper.md#responses) to make sure the request was successful.

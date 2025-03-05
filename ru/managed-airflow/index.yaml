@@ -20,6 +20,18 @@ meta:
     Сервис Yandex Managed Service for Apache Airflow™ помогает разворачивать и
     поддерживать кластеры серверов Apache Airflow™ в инфраструктуре Yandex
     Cloud.
+  keywords:
+    - keyword: airflow
+    - keyword: кластер airflow
+    - keyword: кластер {{ AF }}
+    - keyword: '{{ AF }}'
+    - keyword: Apache Airflow
+    - keyword: кластеры серверов Apache Airflow
+    - keyword: кластеры серверов {{ AF }}
+    - keyword: airflow в {{ yandex-cloud }}
+    - keyword: Apache Airflow в {{ yandex-cloud }}
+    - keyword: '{{ AF }} в {{ yandex-cloud }}'
+    - keyword: сервис {{ maf-name }}
 links:
   - title: Начало работы
     description: Создайте первый кластер

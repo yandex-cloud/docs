@@ -29,6 +29,7 @@ Syntax:
 |`--enable-tls`|Enables tls for Redis cluster.|
 |`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON or OFF).|
 |`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
+|`--auth-sentinel`|Allows to use ACL users to auth in sentinel|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Redis cluster.|
 |`--redis-version`|<b>`string`</b><br/>Version of Redis used in the cluster. Values: 7.2|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
@@ -59,6 +60,7 @@ Syntax:
 |`--allow-data-loss`|Allows some data to be lost in favor of faster switchover/restart.|
 |`--use-luajit`|Use JIT for lua scripts and functions.|
 |`--io-threads-allowed`|Allow redis to use io-threads.|
+|`--zset-max-listpack-entries`|<b>`int`</b><br/>Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

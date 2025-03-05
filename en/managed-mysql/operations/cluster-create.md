@@ -29,6 +29,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 - Management console {#console}
 
 
+
   To create a {{ mmy-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a DB cluster.
@@ -637,9 +638,9 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MY }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ MY }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
 
-To create a {{ MY }} cluster copy:
+To create an {{ MY }} cluster copy:
 
 {% list tabs group=instructions %}
 

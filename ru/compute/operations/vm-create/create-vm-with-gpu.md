@@ -17,7 +17,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   
-  [Смотреть видеоинструкцию о создании виртуальной машины с GPU в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=1gFAfVA4XRM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=2&pp=iAQB).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvyireo4fkd4k4i4au?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=1gFAfVA4XRM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=2&pp=iAQB).
 
 
 

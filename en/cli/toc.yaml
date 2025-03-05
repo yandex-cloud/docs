@@ -305,6 +305,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/backup/cli-ref/backup/index.md
+              - name: batch-delete
+                href: cli-ref/backup/cli-ref/backup/batch-delete.md
               - name: delete
                 href: cli-ref/backup/cli-ref/backup/delete.md
               - name: get
@@ -3086,6 +3088,20 @@ items:
                 href: cli-ref/managed-postgresql/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-postgresql/cli-ref/backup/list.md
+          - name: backup-retention-policy
+            items:
+              - name: Overview
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/backup-retention-policy/index.md
+              - name: create
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/backup-retention-policy/create.md
+              - name: delete
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/backup-retention-policy/delete.md
+              - name: list
+                href: >-
+                  cli-ref/managed-postgresql/cli-ref/backup-retention-policy/list.md
           - name: cluster
             items:
               - name: Overview
@@ -3272,6 +3288,20 @@ items:
                 href: cli-ref/managed-redis/cli-ref/shards/get.md
               - name: list
                 href: cli-ref/managed-redis/cli-ref/shards/list.md
+          - name: user
+            items:
+              - name: Overview
+                href: cli-ref/managed-redis/cli-ref/user/index.md
+              - name: create
+                href: cli-ref/managed-redis/cli-ref/user/create.md
+              - name: delete
+                href: cli-ref/managed-redis/cli-ref/user/delete.md
+              - name: get
+                href: cli-ref/managed-redis/cli-ref/user/get.md
+              - name: list
+                href: cli-ref/managed-redis/cli-ref/user/list.md
+              - name: update
+                href: cli-ref/managed-redis/cli-ref/user/update.md
       - name: managed-sqlserver
         items:
           - name: Overview

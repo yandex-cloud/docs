@@ -48,6 +48,7 @@ Syntax:
 |`--restore-only`|<b>`value[,value]`</b><br/>A list of databases and tables to restore.|
 |`--master-host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups for Greenplum master subcluster.|
 |`--segment-host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups for Greenplum segment subcluster.|
+|`--service-account`|<b>`string`</b><br/>ID of the service account used for access Yandex Cloud resources.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

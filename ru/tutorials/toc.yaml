@@ -492,7 +492,7 @@ items:
                 href: web/lamp-lemp/console.md
               - name: '{{ TF }}'
                 href: web/lamp-lemp/terraform.md
-          - name: Создание сайта на базе Joomla с базой данных PostgreSQL
+          - name: Создание сайта на CMS Joomla с базой данных {{ PG }}
             items:
               - name: Обзор
                 href: web/joomla-postgresql/index.md

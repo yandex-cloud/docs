@@ -54,6 +54,7 @@
 
 ## Ограничения {#restrictions}
 
+
 Для полей `Measure Names` и `Measure Values` существуют следующие ограничения:
 
 * `Measure Names` и `Measure Values` нельзя использовать для фильтрации чарта.

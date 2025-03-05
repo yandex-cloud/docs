@@ -47,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         Cluster hosts must be available online.
 
     1. [Create two additional shards](../../managed-clickhouse/operations/shards.md#add-shard) named `shard2` and `shard3`.
-    1. [Add three {{ ZK }} hosts to the cluster](../../managed-clickhouse/operations/zk-hosts.md#add-zk-host).
+    1. [Add three {{ ZK }} hosts to the cluster](../../managed-clickhouse/operations/zk-hosts.md#add-zk).
     1. [Create shard groups](../../managed-clickhouse/operations/shard-groups.md#create-shard-group). Their number depends on the sharding type:
 
         * [Group-based sharding](#shard-groups-example) requires one shard group named `sgroup`, which includes `shard1` and `shard2`.
@@ -139,9 +139,9 @@ To create a distributed table named `hits_v1_distributed` in the cluster:
    ENGINE = Distributed('{cluster}', tutorial, hits_v1, rand())
    ```
 
-   Here, instead of explicitly specifying the table structure, you can use the `AS tutorial.hits_v1` expression because the `hits_v1_distributed` and `hits_v1` tables are on the same hosts in the cluster.
+   Here, instead of explicitly specifying the table structure, you can use the `AS tutorial.hits_v1` expression because the `hits_v1_distributed` and `hits_v1` tables are on the same cluster hosts.
 
-   When creating a [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) table, use `chcluster` as the cluster ID. You can get it with a [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+   When creating a [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) table, use `chcluster` as the cluster ID. You can get it with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
    {% note tip %}
 
@@ -170,7 +170,7 @@ Before operating a distributed table:
    SETTINGS index_granularity = 8192
    ```
 
-To create a distributed table named`tutorial.hits_v1_distributed` in the cluster:
+To create a distributed table named `tutorial.hits_v1_distributed` in the cluster:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create a [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) table:
@@ -206,7 +206,7 @@ Before operating a distributed table:
 
    The ReplicatedMergeTree engine ensures fault tolerance.
 
-To create a distributed table named`tutorial.hits_v1_distributed` in the cluster:
+To create a distributed table named `tutorial.hits_v1_distributed` in the cluster:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
 1. Create a [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) table:

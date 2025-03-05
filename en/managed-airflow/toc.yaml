@@ -45,6 +45,8 @@ items:
         href: concepts/index.md
       - name: Networking in {{ maf-name }}
         href: concepts/network.md
+      - name: Available {{ AF }} versions
+        href: concepts/versions.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Impersonation

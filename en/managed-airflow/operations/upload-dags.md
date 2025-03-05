@@ -1,6 +1,6 @@
 # Uploading DAG files to a {{ maf-name }} cluster
 
-Automation, data processing, and scheduled task execution are implemented using _[DAG files](../concepts/index.md#about-the-service)_. DAG files are Python 3.8 scripts run inside {{ AF }}. For a DAG file example, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
+Automation, data processing, and scheduled task execution are implemented using _[DAG files](../concepts/index.md#about-the-service)_. DAG files are Python 3 scripts run inside {{ AF }}. For a DAG file example, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
 
 DAG files are uploaded to the [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) specified when creating the cluster. This automatically delivers DAG task graphs into a {{ maf-name }} cluster and makes them appear in the {{ AF }} web interface.
 

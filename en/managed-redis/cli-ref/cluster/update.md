@@ -28,6 +28,7 @@ Syntax:
 |`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON or OFF).|
 |`--force`|Override persistence turning OFF.|
 |`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
+|`--auth-sentinel`|Allows to use ACL users to auth in sentinel|
 |`--network-id`|<b>`string`</b><br/>Network id.|
 |`--network-name`|<b>`string`</b><br/>Network name.|
 |`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit in GB</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|

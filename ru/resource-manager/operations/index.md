@@ -27,3 +27,7 @@ description: Пошаговые инструкции по управлению �
 * [{#T}](folder/set-access-bindings.md)
 * [{#T}](folder/get-id.md)
 * [{#T}](folder/notify.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

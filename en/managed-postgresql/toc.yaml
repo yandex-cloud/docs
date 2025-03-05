@@ -43,7 +43,7 @@ items:
             href: operations/databases.md
       - name: '{{ PG }} users'
         items:
-          - name: Managing database users
+          - name: DB user management
             href: operations/cluster-users.md
           - name: Assigning privileges and roles
             href: operations/grant.md
@@ -133,6 +133,8 @@ items:
         href: tutorials/yq-postgre.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md
+      - name: Writing data from a device into a database
+        href: tutorials/data-recording.md
       - name: Replication and migration
         items:
           - name: Logical replication {{ PG }}
@@ -235,6 +237,16 @@ items:
             href: cli-ref/backup/get.md
           - name: list
             href: cli-ref/backup/list.md
+      - name: backup-retention-policy
+        items:
+          - name: Overview
+            href: cli-ref/backup-retention-policy/index.md
+          - name: create
+            href: cli-ref/backup-retention-policy/create.md
+          - name: delete
+            href: cli-ref/backup-retention-policy/delete.md
+          - name: list
+            href: cli-ref/backup-retention-policy/list.md
       - name: cluster
         items:
           - name: Overview

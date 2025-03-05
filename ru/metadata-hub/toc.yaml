@@ -108,6 +108,10 @@ items:
         items:
           - name: Реестр схем
             href: concepts/schema-registry.md
+          - name: Контентные модели и проблемы эволюции JSON-схем
+            href: concepts/schema-registry-content-model.md
+          - name: Политики проверки совместимости
+            href: concepts/compatibility-check-policy.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

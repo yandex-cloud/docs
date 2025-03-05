@@ -89,6 +89,12 @@
 
 При возникновении проблем с установкой агента {{ backup-name }} [обратитесь]({{ link-console-support }}) в техническую поддержку.
 
+### Обновление ядра операционной системы {#os-kernel-update}
+
+{% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
+
+Чтобы обновить версии заголовков ядра Linux, воспользуйтесь инструкциями [Восстановить работоспособность агента {{ backup-name }} на ВМ](../operations/update-backup-agent.md#restore-agent) и [Восстановить работоспособность агента {{ backup-name }} на сервере {{ baremetal-name }}](../operations/backup-baremetal/restore-agent.md).
+
 ## Сервисный аккаунт {#sa}
 
 [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — специальный аккаунт, от имени которого агент {{ backup-name }} регистрируется у провайдера Киберпротект.
