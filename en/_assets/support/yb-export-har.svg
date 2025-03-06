@@ -1,11 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15px" height="16px" viewBox="0 0 15 16" version="1.1">
-<g id="surface1">
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(27.843139%,27.843139%,27.843139%);fill-opacity:1;" d="M 1.429688 13.914062 L 13.570312 13.914062 L 13.570312 16 L 1.429688 16 Z M 1.429688 13.914062 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(27.843139%,27.843139%,27.843139%);fill-opacity:1;" d="M 0 11.824219 L 2.144531 11.824219 L 2.144531 15.304688 L 0 15.304688 Z M 0 11.824219 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(27.843139%,27.843139%,27.843139%);fill-opacity:1;" d="M 12.855469 11.824219 L 15 11.824219 L 15 15.304688 L 12.855469 15.304688 Z M 12.855469 11.824219 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(27.843139%,27.843139%,27.843139%);fill-opacity:1;" d="M 6.429688 0 L 8.570312 0 L 8.570312 11.128906 L 6.429688 11.128906 Z M 6.429688 0 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(27.843139%,27.843139%,27.843139%);fill-opacity:1;" d="M 6 10.730469 L 11.304688 5.566406 L 12.820312 7.039062 L 7.515625 12.207031 Z M 6 10.730469 "/>
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(27.843139%,27.843139%,27.843139%);fill-opacity:1;" d="M 3.714844 5.566406 L 9.019531 10.730469 L 7.503906 12.207031 L 2.199219 7.039062 Z M 3.714844 5.566406 "/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16">
+    <path d="M1.43 13.914h12.14V16H1.43Zm0 0" style="stroke:none;fill-rule:nonzero;fill:#474747;fill-opacity:1"/>
+    <path d="M0 11.824h2.145v3.48H0Zm12.855 0H15v3.48h-2.145ZM6.43 0h2.14v11.129H6.43Zm0 0" style="stroke:none;fill-rule:nonzero;fill:#474747;fill-opacity:1"/>
+    <path d="m6 10.73 5.305-5.164L12.82 7.04l-5.304 5.168Zm0 0" style="stroke:none;fill-rule:nonzero;fill:#474747;fill-opacity:1"/>
+    <path d="M3.715 5.566 9.02 10.73l-1.516 1.477-5.305-5.168Zm0 0" style="stroke:none;fill-rule:nonzero;fill:#474747;fill-opacity:1"/>
 </svg>

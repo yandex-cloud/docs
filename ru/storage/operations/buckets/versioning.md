@@ -77,6 +77,8 @@ description: Следуя данной инструкции, вы научите
 
   Получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
   Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
   ```hcl

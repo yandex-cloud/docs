@@ -35,6 +35,6 @@ description: Из статьи вы узнаете, как добавить па
 1. Настройте **{{ ui-key.yacloud_monitoring.wizard.general.repeatSettings }}**:
    1. В списке **{{ ui-key.yacloud_monitoring.wizard.general.repeatByParam }}** выберите ранее созданный параметр.
    1. В списке **{{ ui-key.yacloud_monitoring.wizard.general.chartsInRow }}** выберите, сколько графиков расположить в одной линии.
-1. Закройте панель настроек и справа вверху нажмите ![image](../../../_assets/console-icons/floppy-disk-blue.svg).
+1. Закройте панель настроек и справа вверху нажмите ![image](../../../_assets/console-icons/floppy-disk.svg).
 1. Вернитесь на дашборд и посмотрите построенные графики.
 1. Выбирайте разные значения для параметров в списке вверху — графики будут перестраиваться для выбранных значений.

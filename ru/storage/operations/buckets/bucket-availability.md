@@ -118,6 +118,9 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `access_key` — идентификатор [статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя бакета, к которому нужно открыть публичный доступ.
      * `anonymous_access_flags` — параметры публичного доступа:

@@ -69,7 +69,7 @@
 ## Сохраните созданный дашборд {#save-dashboard}
 
 1. При необходимости измените размер виджетов и разместите их в произвольном порядке на дашборде.
-1. Справа вверху нажмите ![image](../_assets/console-icons/floppy-disk-blue.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+1. Справа вверху нажмите ![image](../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 В результате вы создали дашборд с виджетами, которые отображают состояние ресурсов из разных сервисов {{ yandex-cloud }}.
 

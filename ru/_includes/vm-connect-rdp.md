@@ -6,7 +6,6 @@
 
 Для подключения по протоколу RDP укажите публичный IP-адрес или FQDN ВМ. Доступ по FQDN возможен из другой ВМ {{ yandex-cloud }}, если она подключена к той же сети. IP-адрес и FQDN можно узнать в консоли управления, в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ.
 
-
 Для подключения к ВМ:
 
 {% list tabs group=operating_system %}

@@ -84,27 +84,35 @@ description: Следуя данной инструкции, вы сможете
 
   Перед началом работы получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
   Чтобы создать объект в существующем бакете:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать.
 
      ```hcl
+     # Создание сервисного аккаунта
+
      resource "yandex_iam_service_account" "sa" {
        name = "<имя_сервисного_аккаунта>"
      }
 
-     // Назначение роли сервисному аккаунту
+     # Назначение роли сервисному аккаунту
+
      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
        folder_id = "<идентификатор_каталога>"
        role      = "storage.admin"
        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
      }
 
-     // Создание статического ключа доступа
+     # Создание статического ключа доступа
+     
      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
        service_account_id = yandex_iam_service_account.sa.id
        description        = "static access key for object storage"
      }
+
+     # Создание объекта
 
      resource "yandex_storage_object" "test-object" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -127,28 +135,11 @@ description: Следуя данной инструкции, вы сможете
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
 
-  1. Проверьте корректность конфигурационных файлов.
+1. Создайте ресурсы:
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```bash
-        terraform plan
-        ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-
-  1. Разверните облачные ресурсы.
-
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

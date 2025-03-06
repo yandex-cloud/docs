@@ -1,4 +1,3 @@
-
 ```hcl
 terraform {
   required_providers {
@@ -183,5 +182,3 @@ resource "yandex_dns_recordset" "rs-2" {
   data    = ["example.com"]
 }
 ```
-
-

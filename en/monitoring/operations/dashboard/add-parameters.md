@@ -35,6 +35,6 @@ To enable chart repetition:
 1. Configure **{{ ui-key.yacloud_monitoring.wizard.general.repeatSettings }}**:
    1. In the **{{ ui-key.yacloud_monitoring.wizard.general.repeatByParam }}** list, select the previously created parameter.
    1. In the **{{ ui-key.yacloud_monitoring.wizard.general.chartsInRow }}** list, select the number of charts per row.
-1. Close the settings panel and click ![image](../../../_assets/console-icons/floppy-disk-blue.svg) at the top right.
+1. Close the settings panel and click ![image](../../../_assets/console-icons/floppy-disk.svg) at the top right.
 1. Go back to the dashboard and look at the new charts.
 1. Select different values for the parameters in the list at the top: the charts will plot the selected values.
