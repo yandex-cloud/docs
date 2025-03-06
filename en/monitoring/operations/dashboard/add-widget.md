@@ -8,7 +8,7 @@ description: In this tutorial, you will learn how to add a widget to a dashboard
 1. Open a dashboard or [create a new one](create.md).
 1. At the top right, click ![image](../../../_assets/console-icons/plus.svg) and select the widget you want to add.
 1. Specify the widget settings.
-1. Click ![image](../../../_assets/console-icons/floppy-disk-blue.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}** at the top right.
+1. Click ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}** at the top right.
 
 ## Chart {#new}
 

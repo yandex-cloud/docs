@@ -1,4 +1,3 @@
-
 ```hcl
 # Объявление переменных для пользовательских параметров
 
@@ -196,6 +195,3 @@ resource "yandex_vpc_route_table" "nat-instance-route" {
   }
 }
 ```
-
-
-

@@ -111,6 +111,8 @@ description: Следуя данной инструкции, вы сможете
 
   Перед началом работы, получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      ```hcl
@@ -289,6 +291,9 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `access_key` — идентификатор статического ключа доступа.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя бакета.
      * `acl` — параметры управления доступом [ACL](../../concepts/acl.md#predefined-acls).
@@ -478,6 +483,9 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `access_key` — идентификатор статического ключа доступа.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя бакета.
      * `acl` — параметры управления доступом [ACL](../../concepts/acl.md#predefined-acls).

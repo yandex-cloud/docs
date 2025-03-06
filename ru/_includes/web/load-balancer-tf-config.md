@@ -1,4 +1,3 @@
-
 ```hcl
 terraform {
   required_providers {
@@ -117,5 +116,3 @@ resource "yandex_vpc_subnet" "subnet-2" {
   v4_cidr_blocks = ["192.168.2.0/24"]
 }
 ```
-
-

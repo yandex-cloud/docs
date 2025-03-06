@@ -26,4 +26,3 @@ yc resource-manager folder list-access-bindings default
 | viewer              | userAccount    | aje6o61dvog2******** |
 +---------------------+----------------+----------------------+
 ```
-

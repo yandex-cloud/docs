@@ -73,7 +73,7 @@ description: Следуя данной инструкции, вы сможете
 
     * **{{ ui-key.yacloud.greenplum.section_resource-master }}** и **{{ ui-key.yacloud.greenplum.section_resource-segment }}** — конфигурация [хостов-мастеров и хостов-сегментов](./concepts/index.md) в кластере {{ GP }}.
 
-        Измените настройки на этих вкладках, если конфигурация по умолчанию вам не подходит. Дополнительную информацию см. в разделе [{#T}](./operations/calculate-specs.md).
+        Измените настройки на этих вкладках, если конфигурация по умолчанию вам не подходит. Дополнительную информацию см. в разделе [{#T}](./concepts/calculate-specs.md).
 
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 

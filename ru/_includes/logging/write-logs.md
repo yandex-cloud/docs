@@ -8,7 +8,6 @@
 
     Чтобы добавить записи в лог-группу, выполните команду:
 
-    
     * Linux, MacOS:
         ```bash
         yc logging write \
@@ -32,8 +31,6 @@
           --message="My message" `
           --level=INFO `
           --json-payload='"{ \"request_id\": \"1234\" }"'
-        ```
-
 
         Где:
 

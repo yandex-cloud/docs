@@ -1,4 +1,3 @@
-
 ```hcl
 terraform {
   required_providers {
@@ -108,5 +107,3 @@ resource "yandex_compute_instance" "fileserver-tutorial" {
   }
 }
 ```
-
-

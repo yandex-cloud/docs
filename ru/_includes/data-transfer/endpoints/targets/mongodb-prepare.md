@@ -1,6 +1,5 @@
 {% list tabs %}
 
-
 - {{ mmg-name }}
     
     1. [Создайте базу данных](../../../../managed-mongodb/operations/databases.md#add-db).
@@ -17,7 +16,6 @@
            {% include [MongoDB endpoint DROP clean policy warning](../../note-mongodb-clean-policy.md) %}
 
        Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/).
-
 
 - {{ MG }}
     

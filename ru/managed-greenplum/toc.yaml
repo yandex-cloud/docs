@@ -11,8 +11,6 @@ items:
         items:
           - name: Информация об имеющихся кластерах
             href: operations/cluster-list.md
-          - name: Расчет конфигурации кластера
-            href: operations/calculate-specs.md
           - name: Создание кластера
             href: operations/cluster-create.md
           - name: Изменение настроек кластера
@@ -125,6 +123,8 @@ items:
         href: concepts/index.md
       - name: Классы хостов
         href: concepts/instance-types.md
+      - name: Расчет конфигурации кластера
+        href: concepts/calculate-specs.md
       - name: Сеть в {{ mgp-name }}
         href: concepts/network.md
       - name: Хранилище в {{ mgp-name }}

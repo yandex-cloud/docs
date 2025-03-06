@@ -55,7 +55,7 @@ If you do not have any resources, create them (for example, a {{ CH }} VM and cl
 ## Save the created dashboard {#save-dashboard}
 
 1. If you need to, change the size of widgets and arrange them on the dashboard in a random order.
-1. Click ![image](../_assets/console-icons/floppy-disk-blue.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}** at the top right.
+1. Click ![image](../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}** at the top right.
 
 As a result, you created a dashboard with widgets that display the status of resources from different {{ yandex-cloud }} services.
 

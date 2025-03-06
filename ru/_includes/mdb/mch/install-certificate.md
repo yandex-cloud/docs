@@ -1,4 +1,3 @@
-
 {% list tabs group=operating_system %}
 
 - Linux (Bash) {#linux}
@@ -68,4 +67,3 @@
    * `$HOME\.yandex\{{ crt-local-file-int }}`
 
 {% endlist %}
-

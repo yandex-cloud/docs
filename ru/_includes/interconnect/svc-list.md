@@ -1,4 +1,3 @@
-
 Название сервиса | Эндпоинт (FQDN) API
 --- | ---
 [{{ objstorage-name }}](../../storage/) | {{ s3-storage-host }}
@@ -11,5 +10,3 @@
 [{{ monitoring-full-name }}](../../monitoring/) | {{ api-host-monitoring-1 }}
 {{ yagpt-full-name }} сервиса [{{ foundation-models-name }}](../../foundation-models/) | {{ api-host-llm }}
 All-Services | Все сервисы {{ yandex-cloud }}, перечисленные выше
-
-

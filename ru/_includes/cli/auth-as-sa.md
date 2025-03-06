@@ -41,10 +41,8 @@
         yc config set service-account-key key.json
         ```
 
-
 1. Проверьте, что параметры для сервисного аккаунта добавлены верно:
 
-      
     ```bash
     yc config list
     ```
@@ -66,8 +64,6 @@
         MIIEvwIBAD...
         -----END PRIVATE KEY-----
     ```
-   
-
 
 1. Настройте профиль для запуска команд.
 

@@ -6,7 +6,6 @@
 
 {% list tabs %}
 
-
 - {{ mgp-name }}
 
     
@@ -32,7 +31,6 @@
         GRANT SELECT ON ALL TABLES IN SCHEMA <название_схемы> TO <имя_пользователя>;
         GRANT USAGE ON SCHEMA <название_схемы> TO <имя_пользователя>;
         ```
-
 
 - {{ GP }}
     

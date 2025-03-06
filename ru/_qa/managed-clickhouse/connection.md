@@ -24,6 +24,22 @@
 
 Нет, к публичным хостам подключиться можно только используя SSL-соединение. Подробнее см. в [документации](../../managed-clickhouse/operations/connect/index.md).
 
+#### Почему при подключении возникает ошибка `UNEXPECTED_PACKET_FROM_SERVER`? {#unexpected-packet}
+
+Полный текст ошибки:
+
+```text
+Code: 102. DB::NetException:
+Unexpected packet from server <FQDN_хоста>.mdb.yandexcloud.net:9440
+(expected Hello or Exception, got Unknown packet)
+```
+
+Эта ошибка возникает при попытке подключиться к хосту {{ CH }} через порт 9440, не используя шифрование. Подключиться через порт 9440 можно только по шифрованному соединению с использованием SSL.
+
+Убедитесь, что при подключении через порт 9440 вы указываете параметр `--secure`.
+
+Подробнее о способах подключения см. в разделе [Подключение к кластеру {{ CH }}](../../managed-clickhouse/operations/connect/clients.md).
+
 #### Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}

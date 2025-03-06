@@ -46,13 +46,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     ```
+     ```hcl
      provider "yandex" {
        cloud_id                 = "<идентификатор_облака>"
        folder_id                = "<идентификатор_каталога>"
        zone                     = "{{ region-id }}-a"
        service_account_key_file = "key.json"
-       }
+     }
 
      resource "yandex_iam_service_account" "sa" {
        name = "<имя_сервисного_аккаунта>"

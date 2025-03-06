@@ -78,9 +78,7 @@ IP-адреса, FQDN и другую информацию можно узнат
 
 {% include [cli-period.md](../../_qa/cli-period.md) %}
 
-
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
 
 #### Как обратиться в службу технической поддержки? {#support-channels}
 

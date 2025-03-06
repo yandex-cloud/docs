@@ -8,7 +8,7 @@ description: Из статьи вы узнаете, как добавить ви
 1. Откройте или [создайте дашборд](create.md).
 1. Справа вверху нажмите ![image](../../../_assets/console-icons/plus.svg) и выберите виджет, который хотите добавить.
 1. Укажите настройки виджета.
-1. Справа вверху нажмите ![image](../../../_assets/console-icons/floppy-disk-blue.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
+1. Справа вверху нажмите ![image](../../../_assets/console-icons/floppy-disk.svg) **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
 
 ## График {#new}
 
