@@ -102,6 +102,9 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `access_key` — идентификатор статического ключа доступа.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key` — значение секретного ключа доступа.
      * `max_size` — максимальный размер бакета в байтах.
 

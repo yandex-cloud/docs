@@ -28,7 +28,6 @@
 
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
-
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
@@ -43,7 +42,6 @@
    * **Ключ сервисного аккаунта** — вставьте содержимое файла `sa-key.json` или создайте новый [ключ](../../iam/concepts/authorization/key.md) [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
-
 
 ## Установка с помощью Helm-чарта {#helm-install}
 

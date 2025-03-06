@@ -28,7 +28,6 @@
      --output sa-key.json
    ```
 
-
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
@@ -49,7 +48,6 @@
 
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
-
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
 

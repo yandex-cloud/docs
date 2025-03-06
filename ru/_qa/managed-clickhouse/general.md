@@ -148,8 +148,6 @@ RENAME DICTIONARY <имя_словаря> TO <новое_имя>
 
 {% include notitle [attach-sa](../../_qa/attach-sa.md) %}
 
-
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
 
 {% include [logs](../logs.md) %}

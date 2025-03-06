@@ -91,4 +91,8 @@ description: Следуя данной инструкции, вы сможете
 * [Подключитесь](clients.md) к кластеру из браузера, графической IDE или интерфейса командной строки.
 * [Интегрируйте](code-examples.md) подключение к кластеру в код вашего приложения.
 
+## См. также {#see-also}
+
+* [Подключение к {{ CH }} — вопросы и ответы](../../qa/connection.md)
+
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

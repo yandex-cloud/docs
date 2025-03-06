@@ -107,7 +107,7 @@
     --acl <предопределенный_ACL>
   ```
 
-  Где `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../storage/concepts/acl.md#predefined-acls).
+  Где `--acl` — предопределенный ACL. Список значений см. в разделе [Предопределенные ACL](../../storage/concepts/acl.md#predefined-acls).
 
   **Отдельные разрешения**
 
@@ -146,7 +146,54 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
+  По умолчанию для аутентификации в {{ objstorage-name }} {{ TF }} использует IAM-токен. Кроме IAM-токена для аутентификации в {{ objstorage-name }} можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации {{ TF }} в в {{ objstorage-name }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+
+  **Создание бакета с использованием IAM-токена**
+
+  
+  1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и добавьте их в переменные окружения.
+
+
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+      ```hcl
+      # Создание бакета с использованием IAM-токена
+
+      resource "yandex_storage_bucket" "iam-bucket" {
+        bucket    = "<имя_бакета>"
+        folder_id = "<идентификатор_каталога>"
+      }
+      ```
+
+      Где:
+      * `bucket` — имя бакета. Обязательный параметр.
+
+        
+        По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
+
+      
+      * `folder_id` — идентификатор каталога
+
+         Если вы используете IAM-токен учетной записи пользователя, то в ресурсе `yandex_storage_bucket` необходимо указывать идентификатор каталога `folder_id`.
+
+         В случае использования IAM-токена сервисного аккаунта или статических ключей доступа, `folder_id` указывать необязательно — он потребуется только если вы хотите создать ресурс в каталоге, отличном от каталога сервисного аккаунта.
+
+         {% endnote %}
+
+      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+
+  1. Создайте ресурсы:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+
+  **Создание бакета с использованием статического ключа**
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+      {% cut "Создание бакета с использованием ключа" %}
 
       ```hcl
       terraform {
@@ -158,7 +205,8 @@
         required_version = ">= 0.13"
       }
 
-      // Настройка провайдера
+      # Настройка провайдера
+      
       provider "yandex" {
         token     = "<IAM-_или_OAuth-токен>"
         cloud_id  = "<идентификатор_облака>"
@@ -166,25 +214,29 @@
         zone      = "{{ region-id }}-a"
       }
 
-      // Создание сервисного аккаунта
+      # Создание сервисного аккаунта
+      
       resource "yandex_iam_service_account" "sa" {
         name = "<имя_сервисного_аккаунта>"
       }
 
-      // Назначение роли сервисному аккаунту
+      # Назначение роли сервисному аккаунту
+      
       resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
         folder_id = "<идентификатор_каталога>"
         role      = "storage.admin"
         member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
       }
 
-      // Создание статического ключа доступа
+      # Создание статического ключа доступа
+      
       resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
         service_account_id = yandex_iam_service_account.sa.id
         description        = "static access key for object storage"
       }
 
-      // Создание бакета с использованием ключа
+      # Создание бакета с использованием статического ключа
+      
       resource "yandex_storage_bucket" "test" {
         access_key            = yandex_iam_service_account_static_access_key.sa-static-key.access_key
         secret_key            = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
@@ -205,20 +257,22 @@
       }
       ```
 
+      {% endcut %}
+
       Где:
       * `yandex_iam_service_account` — описание [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), который создаст [бакет](../../storage/concepts/bucket.md) и будет работать с ним:
 
-        * `name` — имя сервисного аккаунта.
+        * `name` — имя сервисного аккаунта. Обязательный параметр.
         * `bucket` — имя бакета.
 
           
           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
 
 
-        * `max_size` — максимальный размер бакета в байтах.
+        * `max_size` — максимальный размер бакета в байтах. Значение по умолчанию — `0`, без ограничений. 
         * `default_storage_class` — [класс хранилища](../../storage/concepts/storage-class.md). Доступные значения:
 
-          * `standard` — стандартное хранилище.
+          * `standard` — стандартное хранилище. Значение по умолчанию.
           * `cold` — холодное хранилище.
           * `ice` — ледяное хранилище.
 
@@ -228,11 +282,9 @@
 
           * `read` — публичный доступ на чтение объектов в бакете.
           * `list` — публичный доступ на просмотр списка объектов в бакете.
-          * `config_read` — публичный доступ на чтение настроек в бакете.
+          * `config_read` — публичный доступ на чтение настроек в бакете. По умолчанию выключен.
 
         * `tags` — [метки](../../storage/concepts/tags.md) бакета в формате `ключ = "значение"`.
-
-      `name` — обязательный параметр. Остальные параметры необязательны. По умолчанию значение параметра `max-size` — `0`, публичный доступ к бакету выключен, класс хранилища — `standard`.
 
       Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
