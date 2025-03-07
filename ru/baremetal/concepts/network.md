@@ -7,6 +7,12 @@ description: Из статьи вы узнаете про публичные и 
 
 ![baremetal-network](../../_assets/baremetal/baremetal-network.svg).
 
+{% note info %}
+
+Возможность использования {{ interconnect-name }} с серверами  {{ baremetal-name }} появится в апреле 2025.
+
+{% endnote %}
+
 ## Публичная сеть {#public-network}
 
 Сеть c доступом в интернет, к которой физически подключены все серверы. Сетевой трафик между приватной сетью и интернетом на [некоторых](./traffic-restrictions.md) TCP- и UDP-портах ограничен.

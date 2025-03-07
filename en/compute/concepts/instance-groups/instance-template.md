@@ -15,7 +15,7 @@ You can set variable values for the instance template. For more information, see
 
 When describing a template, you specify the computing resources to allocate to each instance, i.e., the number and guaranteed performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](../performance-levels.md).
 
-You can also use a template to enable creating [preemptible](../preemptible-vm.md) instances, which are cheaper than regular ones. Preemptible instances can only be autohealed if the computing resources in the availability zone allow for this. If the resources are insufficient, {{ ig-name }} will resume autohealing as soon as the resources become available; this, however, may take a long time.
+You can also configure the template to create [preemptible](../preemptible-vm.md) instances, which are cheaper than regular ones. Preemptible instances can only be autohealed if there is enough computing resources in the availability zone. If the resources are insufficient, {{ ig-name }} will resume autohealing as soon as the resources become available; this, however, may take a longer time.
 
 You can enable a [software-accelerated network](../software-accelerated-network.md) for group instances. This will transfer the processing of VM network traffic to additional compute cores.
 
@@ -48,7 +48,7 @@ You can create a group without specifying any subnets for its instances if the a
 
 {% note info %}
 
-In the cloud network, there can be automatically created subnets, in addition to the ones, that you created. For example, the [{{ sf-name }}](../../../functions/concepts/networking.md#user-network), [{{ serverless-containers-name }}](../../../serverless-containers/concepts/networking.md), and [{{ api-gw-name }}](../../../api-gateway/concepts/networking.md#user-network) service subnets, or [reserved addresses[ for {{ managed-k8s-name }} cluster pods and services.
+In addition to subnets created by you, a cloud network can host automatically created subnets. For example, the [{{ sf-name }}](../../../functions/concepts/networking.md#user-network), [{{ serverless-containers-name }}](../../../serverless-containers/concepts/networking.md), and [{{ api-gw-name }}](../../../api-gateway/concepts/networking.md#user-network) service subnets, or [reserved addresses](../../../managed-kubernetes/concepts/network.md#network-resources) for {{ managed-k8s-name }} cluster pods and services.
 
 {% endnote %}
 
@@ -144,7 +144,7 @@ Key | Value
 `resources_spec.core_fraction` | Basic [vCPU performance level](../performance-levels.md).
 `boot_disk_spec` | Boot disk parameters.
 `boot_disk_spec.disk_spec.mode` | Disk access mode.</br>– `READ_ONLY`: Read access.</br>– `READ_WRITE`: Read and write access.
-`boot_disk_spec.disk_spec.image_id` | ID of the image to create the VM from.
+`boot_disk_spec.disk_spec.image_id` | ID of the image to create the disk from.
 `boot_disk_spec.disk_spec.type_id` | ID of the disk type. To get a list of available disk types, use the [diskTypes](../../api-ref/DiskType/list.md) request.
 `boot_disk_spec.disk_spec.size` | Size of the disk, specified in bytes. Acceptable values are in the range from 4194304 (4 MB) to 4398046511104 (4 TB).
 `boot_disk_spec.preserve_after_instance_delete` | Option to preserve the disk on instance deletion.</br>– `true`: Preserve the disk on instance deletion.</br>– `false`: Delete the disk together with the instance.
@@ -163,11 +163,9 @@ Key | Value
 `network_interface_specs.ip_version` | IP version for the public IP address.
 `network_interface_specs.security_group_ids` | Security group IDs.
 `network_settings.type` | (Optional) Network type.</br>– `SOFTWARE_ACCELERATED`: Software-accelerated network.</br>– `STANDARD`: Standard network (default).
-`metadata_options` | (Optional) [Metadata service parameters](../../operations/vm-info/get-info.md#metadata-options).
-`metadata_options.gce_http_endpoint` | (Optional) Access metadata using the Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled.
-`metadata_options.aws_v1_http_endpoint` | (Optional) Access metadata using the AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled.
-`metadata_options.gce_http_token` | (Optional) Access {{ iam-name }} credentials using the Google Compute Engine format.</br>– `enabled`: Enabled.</br>– `disabled`: Disabled. 
-`metadata_options.aws_v1_http_token` | (Optional) Access [{{ iam-name }}](../../../iam/) credentials using the AWS format (IMDSv1).</br>– `enabled`: Enabled.</br>– `disabled`: Disabled.
+`metadata_options` | (Optional) [Metadata service parameters](../vm-metadata.md#metadata-formats).
+`metadata_options.gce_http_endpoint` | (Optional) Access metadata using the Google Compute Engine format.</br>- `enabled`: Enabled.</br>- `disabled`: Disabled.
+`metadata_options.gce_http_token` | (Optional) Access {{ iam-name }} credentials using the Google Compute Engine format.</br>- `enabled`: Enabled.</br>- `disabled`: Disabled. 
 `metadata` | (Optional) Metadata for a template instance. For more information, see [{#T}](../vm-metadata.md).
 `metadata.user-data` | Additional settings for instance initialization. In the example, the settings are described for the `cloud-init` program.
 `placement_policy` | (Optional) [VM placement group](../placement-groups.md) parameters.

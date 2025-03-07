@@ -48,7 +48,7 @@ description: По этой инструкции вы можете создать
    * `container-registry.images.puller` — чтобы работать с Docker-образами в реестре [{{ container-registry-full-name }}](../container-registry/index.yaml);
    * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ](../iam/concepts/authorization/api-key.md) для авторизации в {{ billing-name }}.
 
-1. [Создайте API-ключ](../iam/operations/api-key/create.md).
+1. [Создайте API-ключ](../iam/operations/authentication/manage-api-keys.md#create-api-key).
 
    Сохраните идентификатор и секретную часть ключа. Их нельзя запросить позднее.
 

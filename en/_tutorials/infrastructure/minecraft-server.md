@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
-* Fee for a continuously running [VM](../../compute/concepts/vm.md) (see {{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for a continuously running [VM](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a security group {#create-sg}
@@ -91,7 +91,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
       1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
@@ -160,10 +160,17 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
 1. [Use SSH to connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM you created.
 1. Install the required Java packages from the repository and the `screen` utility to run the terminal session in background mode:
 
-   ```bash
-   sudo add-apt-repository -y ppa:openjdk-r/ppa && sudo apt update -y && sudo apt install -y openjdk-23-jre-headless screen
-   ```
+   {% note info %}
 
+   The command below installs OpenJDK version `23`. To start the current Minecraft server version, you may need a newer OpenJDK version. Therefore, check the current OpenJDK version on the [project website](https://openjdk.org/) before you install this package.
+
+   {% endnote %}
+
+   ```bash
+   sudo add-apt-repository -y ppa:openjdk-r/ppa \
+     && sudo apt update -y \
+     && sudo apt install -y openjdk-23-jre-headless screen
+   ```
 
 ## Download and run the Minecraft server {#get-and-launch-server}
 
@@ -172,11 +179,13 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule all
    mkdir minecraft-server && cd minecraft-server
    ```
 
-1. Follow [this link](https://www.minecraft.net/en-us/download/server/) and copy the URL to download the distribution kit of the current server version.
-1. Download the distribution kit to the current directory using `wget` by specifying the previously copied link, for example:
+1. Follow [this link](https://www.minecraft.net/en-us/download/server/) and copy the URL to download the distribution of the current server version.
+1. Download the current distribution to the current directory using `wget`:
    ```bash
-   wget -O minecraft_server.jar https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar
+   wget -O minecraft_server.jar <download_link>
    ```
+
+   Where `<download_link>` is the distribution download link you got in the previous step. For example: `https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar`
 
 1. Create the `eula.txt` file to automatically accept the [EULA](https://aka.ms/MinecraftEULA) terms:
 

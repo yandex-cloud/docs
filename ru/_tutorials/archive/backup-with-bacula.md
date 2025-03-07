@@ -57,7 +57,7 @@ Bacula состоит из нескольких компонентов:
 
 ### Создайте статические ключи доступа {#create-access-key}
 
-[Создайте](../../iam/operations/sa/create-access-key.md) статические ключи доступа.
+[Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статические ключи доступа.
 
 Сразу сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 

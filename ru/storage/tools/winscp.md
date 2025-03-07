@@ -32,11 +32,11 @@ keywords:
 1. Запустите WinSCP.
 1. На вкладке **Sessions** выберите **New Session...**.
 1. В блоке **Sessions** укажите следующие параметры:
-    * **File protocol** — **Amazon S3**.
-    * **Host name** — `{{ s3-storage-host }}`.
-    * **Port number** — `443`.
-    * **Access key ID** — идентификатор статического ключа, полученный ранее.
-    * **Secret access key** — секретный ключ, полученный ранее.
+    * **File protocol** — **Amazon S3**;
+    * **Host name** — `{{ s3-storage-host }}`;
+    * **Port number** — `443`;
+    * **Access key ID** — идентификатор статического ключа, [полученный ранее](#before-you-begin);
+    * **Secret access key** — содержимое статического ключа, [полученное ранее](#before-you-begin).
 
    Чтобы подключиться к определенному бакету, нажмите кнопку **Advanced...**. В окне **Advanced Site Settings** в меню слева в блоке **Environment** выберите **Directories**. В поле **Remote directory:** укажите имя бакета и нажмите **OK**.
 1. Нажмите кнопку **Login**.

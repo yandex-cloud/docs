@@ -12,4 +12,5 @@ description: Пошаговые инструкции по работе с оче
 * [{#T}](message-queue-send-message.md)
 * [{#T}](message-queue-receive-and-delete-message.md)
 * [{#T}](message-queue-delete-queue.md)
+* [{#T}](message-queue-tags.md)
 * [{#T}](monitoring.md)

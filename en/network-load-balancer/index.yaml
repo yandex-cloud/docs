@@ -1,25 +1,20 @@
 title: Yandex Network Load Balancer
 description:
   - >-
-    Yandex Network Load Balancer helps ensure applications' fault tolerance by
-    evenly distributing loads across cloud resources. The service lets you
-    create <a href="/docs/network-load-balancer/concepts/">network load
-    balancers</a> and combine cloud resources into <a
-    href="/docs/network-load-balancer/concepts/target-resources">target
-    groups</a> across which traffic can be distributed. <a
-    href="/docs/network-load-balancer/concepts/health-check">Health checks</a>
-    regularly examine resources from the target group connected to the load
-    balancer, ensuring that traffic is only sent to working resources.
+    Yandex Network Load Balancer (NLB) is designed to build fault-tolerant and
+    scalable applications and services in {{ yandex-cloud }}. Fault tolerance
+    and scalability are achieved by distributing the traffic entering the load
+    balancer among the cloud resources behind it.
   - >-
-    Yandex Cloud infrastructure <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is
-    fully secure</a> and in compliance with Russian Federal Law 152-FZ.
+    The Yandex Cloud infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
+    pursuant to the Russian Federal Law 152-FZ on personal data.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_loadbalancer">Service Level for
-    Yandex Network Load Balancer</a>.
+    This service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.com/legal/cloud_sla_loadbalancer">Yandex Network Load
+    Balancer Service Level</a>.
 meta:
   title: Yandex Network Load Balancer
   description: >-
@@ -27,25 +22,25 @@ meta:
     evenly distributing loads across cloud resources.
 links:
   - title: Getting started
-    description: Create and configure your first network load balancer
+    description: Set up your first network load balancer
     href: quickstart
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: Instructions on how to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn more about concepts and resources of the service
+    description: Learn more about the service's concepts and resources
     href: concepts/
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
-  - title: Using the service
-    description: Tips for configuring traffic load balancing
+  - title: Best practices for the service
+    description: Tips for setting up traffic load balancing
     href: concepts/best-practices
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

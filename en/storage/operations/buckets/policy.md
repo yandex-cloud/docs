@@ -23,7 +23,7 @@ The minimum role required to apply or update a bucket policy is `storage.configu
 
 {% note info %}
 
-Applying the changes will completely overwrite any existing bucket policy.
+If the bucket already had a bucket policy configured, it will be completely overwritten once you apply the changes.
 
 {% endnote %}
 
@@ -55,7 +55,7 @@ To apply or update a bucket policy:
      1. If required, add a [condition](../../s3/api-ref/policy/conditions.md) for the rule:
         * Select **{{ ui-key.yacloud.storage.bucket.policy.field_key }}** from the list.
         * Select **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** from the list. If you want the operator to apply solely to the existing fields, select **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. This way, if the field is missing, the condition will be considered met.
-        * Enter a value in **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
+        * Enter **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
         * Click **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}** to add another value to the condition.
 
         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
@@ -318,7 +318,7 @@ To apply or update a bucket policy:
 
 - API {#api}
 
-  To manage a bucket policy, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [PutBucketPolicy](../../s3/api-ref/policy/put.md) S3 API method. Applying a new bucket policy will completely overwrite any existing one.
+  To manage a bucket policy, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [PutBucketPolicy](../../s3/api-ref/policy/put.md) S3 API method. If the bucket already had a bucket policy configured, it will be completely overwritten once you apply the new policy.
 
 {% endlist %}
 

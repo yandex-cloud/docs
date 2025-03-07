@@ -10,13 +10,13 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Контроль данных (DSPM)
+      - name: Контроль данных ({{ dspm-name}})
         items:
           - name: Создать источник данных
             href: operations/dspm/create-data-source.md
           - name: Создать сканирование
             href: operations/dspm/create-scan.md
-      - name: Диагностика доступов (CIEM)
+      - name: Диагностика доступов ({{ ciem-name }})
         items:
           - name: Просмотреть список доступов
             href: operations/ciem/view-permissions.md
@@ -26,11 +26,11 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Access Transparency
+      - name: '{{ atr-name }}'
         href: concepts/access-transparency.md
-      - name: Контроль данных (DSPM)
+      - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
-      - name: Диагностика доступов (CIEM)
+      - name: Диагностика доступов ({{ ciem-name }})
         href: concepts/ciem.md
       - name: Портал соответствия требованиям
         href: concepts/compliance.md
@@ -40,11 +40,11 @@ items:
     items:
       - name: Обзор
         href: security/index.md
-      - name: Роли Access Transparency
+      - name: Роли {{ atr-name }}
         href: security/access-transparency-roles.md
-      - name: Роли DSPM
+      - name: Роли {{ dspm-name }}
         href: security/dspm-roles.md
-      - name: Роли CIEM
+      - name: Роли {{ ciem-name }}
         href: security/ciem-roles.md
   - name: Правила тарификации
     href: pricing.md

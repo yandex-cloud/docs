@@ -30,7 +30,7 @@
    * `vpc.user`;
    * `vpc.publicAdmin` (опционально, если агент будет разворачиваться в публичной сети).
 
-1. [Создайте](../../iam/operations/authorized-key/create.md) авторизованный ключ для этого сервисного аккаунта и сохраните ключ в файл `key.json`.
+1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для этого сервисного аккаунта и сохраните ключ в файл `key.json`.
 
 ### Настройте сеть {#network-setup}
 

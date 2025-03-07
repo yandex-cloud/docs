@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
      --subject serviceAccount:<идентификатор_сервисного_аккаунта>
    ```
 
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
+1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
 
    * Если установка Velero будет выполняться в [консоли управления с помощью {{ marketplace-full-name }}](#marketplace-install), создайте статический ключ в формате JSON и сохраните его в файл `sa-key.json`:
 

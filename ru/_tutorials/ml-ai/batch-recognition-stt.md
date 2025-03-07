@@ -13,10 +13,10 @@
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с именем `asr-batch-sa`.
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `storage.editor`, `{{ roles-functions-invoker }}` и `{{ roles-speechkit-stt }}` на каталог, в котором аккаунт был создан.
-1. [Создайте](../../iam/operations/sa/create-access-key.md) статический ключ доступа для сервисного аккаунта.
+1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа для сервисного аккаунта.
 
 
-1. [Создайте](../../iam/operations/api-key/create.md) API-ключ доступа для сервисного аккаунта.
+1. [Создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ доступа для сервисного аккаунта.
 1. [Создайте](../../storage/operations/buckets/create.md) бакет {{ objstorage-name }} с именем `asr-batch-bucket` в каталоге сервисного аккаунта.
 1. Откройте бакет `asr-batch-bucket`, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_create }}** и укажите в поле **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name}}** значение `input`.
 1. [Загрузите](../../storage/operations/objects/upload.md#simple) в папку `input` бакета файл `config.json` с заданным [языком распознавания](../../speechkit/stt/models.md#languages). Файл содержит только один параметр:

@@ -55,32 +55,26 @@ items:
             href: operations/roles/get-assigned-roles.md
           - name: Отзыв роли
             href: operations/roles/revoke.md
-      - name: IAM-токены
+      - name: Аутентификация
         items:
-          - name: Получение IAM-токена для аккаунта на Яндексе
-            href: operations/iam-token/create.md
-          - name: Получение IAM-токена для сервисного аккаунта
-            href: operations/iam-token/create-for-sa.md
-          - name: Получение IAM-токена для федеративного аккаунта
-            href: operations/iam-token/create-for-federation.md
-          - name: Отзыв IAM-токена
-            href: operations/iam-token/revoke-iam-token.md
-      - name: Ключи
-        items:
-          - name: Создание статического ключа доступа
-            href: operations/sa/create-access-key.md
-          - name: Удаление статического ключа доступа
-            href: operations/sa/delete-access-key.md
+          - name: IAM-токены
+            items:
+              - name: Получение IAM-токена для аккаунта на Яндексе
+                href: operations/iam-token/create.md
+              - name: Получение IAM-токена для сервисного аккаунта
+                href: operations/iam-token/create-for-sa.md
+              - name: Получение IAM-токена для федеративного аккаунта
+                href: operations/iam-token/create-for-federation.md
+              - name: Отзыв IAM-токена
+                href: operations/iam-token/revoke-iam-token.md
+          - name: Управление статическими ключами доступа
+            href: operations/authentication/manage-access-keys.md
+          - name: Управление API-ключами
+            href: operations/authentication/manage-api-keys.md
+          - name: Управление авторизованными ключами
+            href: operations/authentication/manage-authorized-keys.md
           - name: Создание временного ключа доступа с помощью {{ sts-name }}
             href: operations/sa/create-sts-key.md
-          - name: Создание API-ключа
-            href: operations/api-key/create.md
-          - name: Удаление API-ключа
-            href: operations/api-key/delete.md
-          - name: Создание авторизованного ключа
-            href: operations/authorized-key/create.md
-          - name: Удаление авторизованного ключа
-            href: operations/authorized-key/delete.md
       - name: Доступ сервисов к ресурсам пользователя
         stage: preview
         items:
@@ -141,7 +135,7 @@ items:
             href: concepts/access-control/public-group.md
           - name: Ресурсы, на которые можно назначать роли
             href: concepts/access-control/resources-with-access-control.md
-      - name: Авторизация и аутентификация
+      - name: Аутентификация
         items:
           - name: Обзор
             href: concepts/authorization/index.md

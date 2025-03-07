@@ -149,7 +149,7 @@ keywords:
 - AWS CLI {#cli}
 
     1. [Установите](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS CLI.
-    1. [Создайте](../../iam/operations/sa/create-access-key.md) статические ключи доступа для сервисного аккаунта `sa-for-eventrouter`. Надежно сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры секретного ключа станут недоступны.
+    1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статические ключи доступа для сервисного аккаунта `sa-for-eventrouter`. Надежно сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры секретного ключа станут недоступны.
     1. Настройте AWS CLI:
 
        {% include [configure-aws-cli](../../_includes/message-queue/configure-aws-cli.md) %}

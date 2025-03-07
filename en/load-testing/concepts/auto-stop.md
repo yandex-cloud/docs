@@ -53,9 +53,9 @@ Criterion | Description
 
 Except for `limit`, all other criteria can be applied to a specific URI labeled with a tag, not the whole test.
 
-For example, `time(1s,5s,/latest/index/)` stops the test if the average response time only from the URI address tagged `/latest/index/` exceeds 1 second for 5 seconds.
+For example, `time(1s,5s,/latest/index/)` stops the test if the average response time only from the URL tagged `/latest/index/` exceeds 1 second for 5 seconds.
 
-Any specific URI can be tested this way. For example:
+Any specific URI can be tested this way. Here is an example:
 
 ```yaml
 autostop:
@@ -68,3 +68,13 @@ autostop:
 ```
 
 Such autostop will stop the test if the number of URI responses tagged `case1` with HTTP code `4xx` exceeds 20% for 15 seconds, or the number of URI responses tagged `case2` with HTTP code `4xx` exceeds 5%.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../tutorials/loadtesting-gitlab-ci.md#add-loadtesting-ci)
+* [{#T}](../tutorials/loadtesting-multiply.md)
+* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)
+* [{#T}](../tutorials/loadtesting-grpc-autoscaling.md)
+* [{#T}](../tutorials/loadtesting-grpc.md)

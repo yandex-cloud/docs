@@ -63,7 +63,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Создайте сервисный аккаунт с именем `sa-win-disk-connect`:
+  1. Создайте сервисный аккаунт с именем `sa-win-disk-connect`:
 
   ```bash
   yc iam service-account create --name sa-win-disk-connect
@@ -75,11 +75,27 @@
 
   Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
+  1. Назначьте роль сервисному аккаунту роль `storage.editor`:
+
+  ```bash
+  yc resource-manager folder add-access-binding <идентификатор_каталога> \
+    --role storage.editor \
+    --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+  ```
+  
+  Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/folder/add-access-binding)
+
 - API {#api}
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
+  1. Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
+  1. [Назначьте](../../organization/operations/add-role) сервисному аккаунту роль `storage.editor`.
+  
 {% endlist %}
+
+
+{% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
+
 
 ## Создайте статический ключ доступа {#create-static-key}
 
@@ -125,6 +141,10 @@
   Чтобы создать ключ доступа, воспользуйтесь методом [create](../../iam/awscompatibility/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../iam/awscompatibility/api-ref/AccessKey/index.md).
 
 {% endlist %}
+
+
+{% include [get-static-key-info](../../_includes/storage/get-static-key-result.md) %}
+
 
 ## Создайте бакет {#bucket-create}
 
@@ -226,8 +246,8 @@
    1. Выберите тип хранилища: введите в терминал значение `4`.
    1. Выберите провайдера: введите в терминал значение `1`.
    1. Выберите ручной способ ввода учетных данных: введите в терминал значение `1`.
-   1. Введите в терминале идентификатор секретного ключа.
-   1. Введите в терминале значение секретного ключа.
+   1. Введите в терминале идентификатор секретного ключа, [полученный ранее](#create-static-key).
+   1. Введите в терминале значение секретного ключа, [полученное ранее]((#create-static-key)).
    1. Укажите регион: введите в терминал значение `{{ region-id }}`.
    1. Укажите эндпоинт: введите в терминал значение `{{ s3-storage-host }}`.
    1. Остальные настройки можно оставить по умолчанию — нажмите **Enter**, чтобы их пропустить.

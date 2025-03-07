@@ -33,7 +33,7 @@
 
 Чтобы настроить сервисный аккаунт:
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/roles-reference.md#editor) `editor`.
-1. [Создайте](../../iam/operations/sa/create-access-key.md) статический ключ доступа. Сразу сохраните [идентификатор и секретный ключ](../../iam/concepts/authorization/access-key.md#access-key-format). После того, как вы закроете окно, секретный ключ будет недоступен.
+1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа. Сразу сохраните [идентификатор и секретный ключ](../../iam/concepts/authorization/access-key.md#access-key-format). После того, как вы закроете окно, секретный ключ будет недоступен.
 
 
 ## Создайте бакет {#create-bucket}

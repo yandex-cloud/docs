@@ -21,7 +21,7 @@ items:
           Deploying an Always On availability group with an internal network
           load balancer
         href: tutorials/mssql-alwayson-lb.md
-  - name: Licensing agencies
+  - name: Licensing
     items:
       - name: Microsoft licenses in {{ yandex-cloud }}
         href: licensing.md

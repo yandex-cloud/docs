@@ -256,6 +256,34 @@ To make sure the configuration scripts ran successfully, [get the serial port ou
 
   {% include [cli-install](../../../_includes/compute/create/legend-for-creating-user-data-scripts.md) %}
 
+- {{ unified-agent-full-name }}
+
+  {% note info %}
+
+  When creating a VM with [{{ unified-agent-full-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md), make sure to link it to a [service account](../../../iam/concepts/users/service-accounts.md) with the `monitoring.editor` [role](../../../monitoring/security/index.md#monitoring-editor) for the current [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+  {% endnote %}
+
+  To install {{ unified-agent-short-name }} on the new VM, specify the following value for the `user-data` key:
+
+  ```yaml
+  #cloud-config
+  datasource:
+    Ec2:
+      strict_id: false
+  ssh_pwauth: no
+  users:
+  - name: <username>
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    shell: /bin/bash
+    ssh_authorized_keys:
+    - <public_SSH_key>
+  runcmd:
+    - wget -O - https://{{ api-host-monitoring-1 }}/monitoring/v2/unifiedAgent/config/install.sh | bash
+  ```
+
+  {% include [cli-install](../../../_includes/compute/create/legend-for-creating-user-data-scripts.md) %}
+
 - {{ TF }}
 
   To install [{{ TF }}](https://www.terraform.io/) on the new VM, specify the following value for the `user-data` key:

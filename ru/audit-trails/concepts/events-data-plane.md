@@ -97,7 +97,7 @@ description: В данном разделе приведены описания 
 
 ## {{ sd-full-name }} {#security-deck}
 
-### Модуль Access Transparency {#sd-access-transparency}
+### Модуль {{ atr-name }} {#sd-access-transparency}
 
 Имя сервиса — `accesstransparency`.
 

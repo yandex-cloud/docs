@@ -20,17 +20,17 @@ The flow chart below shows how these methods work together in {{ objstorage-name
 The checks follow this algorithm:
 
 1. _IAM_ and _bucket ACL_:
-    * If the request passes the _IAM_ **or** _bucket ACL_ check, it is checked is whether the _bucket access policy_ is enabled.
+    * If the request passes the _IAM_ **or** _bucket ACL_ check, it is checked whether the _bucket policy_ is configured.
     * If the request fails the _IAM_ **and** _bucket ACL_ checks, it is checked whether _public access_ to the bucket is enabled.
 1. _Public access_:
-    * If public access to perform the action is enabled, it is checked whether the _bucket access policy_ is enabled.
+    * If public access to perform the action is enabled, it is checked whether the _bucket policy_ is configured.
     * If public access to perform the action is disabled, an access check based on the _object ACL_ is performed.
-1. _Bucket access policy_:
-    * If access policy is enabled:
+1. _Bucket policy_:
+    * If the bucket policy is configured:
       1. If the request meets at least one of the `Deny` rules in the bucket policy, an access check based on the _object ACL_ is performed.
       1. If the request meets at least one of the `Allow` rules in the bucket policy, it is checked whether there is access via _{{ sts-name }}_.
       1. If the request does not meet any of the bucket policy rules, an access check based on the _object ACL_ is performed.
-    * If the access policy is not enabled, it is checked whether there is access via _{{ sts-name }}_.
+    * If the bucket policy is not configured, it is checked whether there is access via _{{ sts-name }}_.
 1. _{{ sts-name }}_:
     * If the request is made using {{ sts-name }}:
       1. If the request meets at least one of the `Deny` rules in the policy for the temporary key, an access check based on the _object ACL_ is performed.

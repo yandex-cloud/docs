@@ -19,8 +19,8 @@ A DNS record will be added to one of the [private zones](dns-zone.md#private-zon
 
 > For example, in the network settings, FQDN is set to `hello.world.private.`, and the following four private DNS zones can be accessed from the virtual network:
 >
-> * Service zone: `.`.
-> * Custom zones: `staging.`, `private.`, and `world.private.`.
+> * Service zone: `.`
+> * Custom zones: `staging.`, `private.`, and `world.private.`
 >
 > The `staging.` zone is out of consideration because the `staging.` domain name is not a suffix of the `hello.world.private.` FQDN.
 >
@@ -32,7 +32,13 @@ When creating a VM group, the name specified in the [VM template](../../compute/
 
 To generate unique names, you can use [variables](../../compute/concepts/instance-groups/variables-in-the-template.md) in the template. For example, if the record name is `web_server_{instance.index}`, you can create records with unique names of the group's VMs. If the name is `web_server_{instance.zone_id}`, you can create records common for all VMs in the same [availability zone](../../overview/concepts/geo-scope.md).
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/bind-domain-vm/index.md)
+* [{#T}](../tutorials/bind-domain-vm/index.md)
+
+
 #### See also {#see-also}
 
 * [Creating a VM](../../compute/operations/index.md)
-* [Assigning a domain name to a VM with a web server](../tutorials/bind-domain-vm/index.md)

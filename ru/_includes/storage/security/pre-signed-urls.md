@@ -57,7 +57,7 @@ https://<имя_бакета>.{{ s3-storage-host }}/<ключ_объекта>?
 1. [Вычислите подпись с помощью ключа](#signing).
 1. [Сформируйте подписанный URL](#composing-signed-url).
 
-Для составления подписанного URL необходимо обладать [статическими ключами](../../../iam/operations/sa/create-access-key.md) доступа.
+Для составления подписанного URL необходимо обладать [статическими ключами](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) доступа.
 
 ### Канонический запрос {#canonical-request}
 

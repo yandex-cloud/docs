@@ -107,36 +107,7 @@ Do not rename a VM if it belongs to a {{ managed-k8s-name }} cluster [node group
 
 ### Changing metadata {#changing-metadata}
 
-Metadata can vary across different operating systems. When you change the existing metadata, it is completely replaced by the data you provide in the command.
-
-To change VM metadata, follow these steps:
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. Get a list of VMs in the default folder:
-
-     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
-  1. Get the VM info with its metadata. All custom metadata is specified in the `user-data` key.
-
-     ```bash
-     yc compute instance get --full first-instance
-     ```
-
-  1. Change the VM metadata. You can change it using these flags:
-     * `--metadata`: To change a single-line value.
-     * `--metadata-from-file`: To change a multi-line value.
-
-     {% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
-
-{% endlist %}
+{% include [update-metadata-part1](../../../_includes/compute/metadata/update-metadata-part1.md) %}
 
 ### Removing SSH keys from metadata {#delete-keys-from-metadata}
 
@@ -144,52 +115,4 @@ To change VM metadata, follow these steps:
 
 ### Enabling access via {{ oslogin }} {#enable-oslogin-access}
 
-To make sure users can [connect](../vm-connect/os-login.md) to the VM via [{{ oslogin }}](../../../organization/concepts/os-login.md), enable this option in the VM settings:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click the name of the VM in question.
-  1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**.
-  1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-
-- CLI {#cli}
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. See the description of the CLI command for updating VM parameters:
-
-     ```bash
-     yc compute instance update --help
-     ```
-
-  1. Get a list of VMs in the default folder:
-
-     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-
-  1. Select the `ID` or `NAME` of the VM, e.g., `first-instance`.
-
-  1. Enable access via {{ oslogin }}:
-
-     ```bash
-     yc compute instance update first-instance \
-       --metadata enable-oslogin=true
-     ```
-
-- API {#api}
-
-  Use the `metadata` field to provide `enable-oslogin=true` in the [update](../../api-ref/Instance/update.md) REST API method for the [Instance](../../api-ref/Instance/) resource or in the [InstanceService/Update](../../api-ref/grpc/Instance/update.md) gRPC API call.
-
-{% endlist %}
-
-{% note info %}
-
-{% include [metadata-keys](../../../_includes/compute/metadata-keys.md) %}
-
-{% endnote %}
+{% include [update-metadata-part2-oslogin](../../../_includes/compute/metadata/update-metadata-part2-oslogin.md) %}

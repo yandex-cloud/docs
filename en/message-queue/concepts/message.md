@@ -16,7 +16,7 @@ A message contains several fields:
 1. A set of message attributes indicating its sending time, the number of message receipts, and the time of its first receipt by the consumer.
 1. Message receipt ID. Each time a message is received from the queue, an ID is generated to indicate that the message has been received. This ID is used when deleting the received message from the queue or changing its [visibility timeout](visibility-timeout.md). A message must be received by a consumer before being deleted. If a message is received more than once, it will be assigned a new receipt ID each time. Use the most recent ID to delete the message or change its visibility timeout.
 1. Hash sum of the message body.
-1. Message ID. Each message is assigned a unique ID that is returned in response to the [SendMessage](../api-ref/message/SendMessage.md) method call. This ID can be used to access messages, but to delete them from the queue, use the message receipt ID: `ReceiptHandle`.
+1. Message ID. Each message is assigned a unique ID that is returned in response to the [SendMessage](../api-ref/message/SendMessage.md) method call. This ID can be used to access messages; to delete messages from the queue, use the message receipt ID: `ReceiptHandle`.
 
 View of a message with plain text and without any additional parameters:
 
@@ -33,3 +33,10 @@ View of a message with plain text and without any additional parameters:
             "MessageId": "fa6bcfb7-6f121e1d-fb3b33aa***-*****"
 }
 ~~~
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/autoscale-monitoring.md)
+* [{#T}](../tutorials/video-converting-queue.md)
+* [{#T}](../tutorials/websocket-app.md)
+* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)

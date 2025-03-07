@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
 
-   1. [Создайте авторизованный ключ](../../../iam/operations/authorized-key/create.md) для созданного сервисного аккаунта при помощи утилиты [YC CLI](../../../cli/quickstart.md):
+   1. [Создайте авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для созданного сервисного аккаунта при помощи утилиты [YC CLI](../../../cli/quickstart.md):
 
        ```bash
        yc iam key create --service-account-id <идентификатор_сервисного_аккаунта> --output jwt_params.json
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
        Где `--service-account-id` – идентификатор сервисного аккаунта.
 
-      Другие способы создания авторизованных ключей описаны в разделе [{#T}](../../../iam/operations/authorized-key/create.md).
+      Другие способы создания авторизованных ключей описаны в разделе [{#T}](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
 
    1. Доставьте файл **jwt_params.json** с параметрами авторизованного ключа на хост, где будет установлен {{ unified-agent-short-name }}.
 

@@ -9,3 +9,13 @@ Data is stored in {{ objstorage-full-name }} as a file structure with directorie
 {{ yq-full-name }} allows you to access data stored in {{ objstorage-full-name }} in the same way as a DBMS by making queries in an SQL dialect called [YQL]({{ ydb.docs }}/yql/reference/syntax/).
 
 {{ objstorage-full-name }} usually stores massive amounts of data. {{ yq-full-name }} analyzes how much data needs processing and runs dozens to hundreds of concurrent data processing jobs within the computing cluster. This allows maintaining a high processing speed even for large data volumes.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/jupyter.md)
+* [{#T}](../tutorials/yq.md)
+* [{#T}](../tutorials/datalens.md)
+* [{#T}](../tutorials/billing.md)
+* [{#T}](../tutorials/yq-clickhouse.md)
+* [{#T}](../tutorials/yq-postgre.md)
+* [{#T}](../tutorials/yq-storage.md)

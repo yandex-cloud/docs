@@ -1,10 +1,20 @@
 # IAM-токен
 
-IAM-токен — уникальная последовательность символов, которая выдается пользователю после прохождения аутентификации.
+IAM-токен — уникальная последовательность символов, которая выдается пользователю после прохождения аутентификации. Получить IAM-токен можно только с помощью [CLI](../../../cli/) или [API](../../../overview/api.md).
 
 ## Использование токена {#use}
 
-{% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+IAM-токены используются в сервисах {{ yandex-cloud }} для аутентификации. IAM-токен выдается для [аккаунтов на Яндексе](../../operations/iam-token/create.md), [сервисных аккаунтов](../../operations/iam-token/create-for-sa.md) и [федеративных аккаунтов](../../operations/iam-token/create-for-federation.md).
+
+Также IAM-токены используются для аутентификации клиентов [Docker](../../../container-registry/operations/authentication.md) и [Helm](../../../container-registry/operations/helm-chart/helm-chart-push.md) в {{ container-registry-full-name }}.
+
+Если вы работаете через консоль управления или интерфейс командной строки (CLI), то получение и использование токена будет незаметным.
+
+Вы можете использовать IAM-токены для аутентификации при вызовах API к сервисам {{ yandex-cloud }}. Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API в заголовке `Authorization` в следующем формате:
+
+```yaml
+Authorization: Bearer <IAM-токен>
+```
 
 Для работы с {{ TF }} [добавьте IAM-токен в переменные окружения](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) или укажите его в [конфигурационном файле с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
@@ -13,8 +23,6 @@ provider "yandex" {
   token = "<IAM-токен>"
 }
 ```
-
-Если пользователь работает через консоль управления или интерфейс командной строки (CLI), то процесс получения и использования токена незаметен для пользователя.
 
 ## Время жизни {#lifetime}
 

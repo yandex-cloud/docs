@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with internet access and the security groups you prepared earlier.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with internet access and the security groups prepared earlier.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 
@@ -290,4 +290,4 @@ To install {{ grafana-name }}:
 
 Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If you reserved a [public static IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, [delete it](../../vpc/operations/address-delete.md).
+1. [Delete](../../vpc/operations/address-delete.md) the {{ managed-k8s-name }} cluster's [public static IP address](../../vpc/concepts/address.md#public-addresses) if you had reserved one.

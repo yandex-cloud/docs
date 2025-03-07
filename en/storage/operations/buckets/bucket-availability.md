@@ -98,7 +98,7 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
-  To enable public access to bucket operations:
+  To open public access to bucket operations:
 
   1. Open the {{ TF }} configuration file and add the `anonymous_access_flags` section to the bucket description.
 
@@ -146,19 +146,19 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. When asked to confirm the changes, type `yes` and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-  To enable public access to bucket operations, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
+  To open public access to bucket operations, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource or the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
 {% endlist %}
 
 {% note info %}
 
-If your bucket has any bucket policies applied, you will also need to [configure](./policy.md#apply-policy) them for public access to work properly.
+You will not be able to open public access if a restrictive [access policy](../../operations/buckets/policy.md) is configured for the bucket. 
 
 {% endnote %}
 
@@ -293,7 +293,7 @@ If your bucket has any bucket policies applied, you will also need to [configure
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. When asked to confirm the changes, type `yes` and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 

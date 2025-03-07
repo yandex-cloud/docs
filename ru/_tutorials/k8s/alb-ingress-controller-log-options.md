@@ -42,7 +42,7 @@
 
         Вы можете использовать один и тот же сервисный аккаунт для всех операций.
 
-    1. [Создайте авторизованный ключ](../../iam/operations/authorized-key/create.md) для сервисного аккаунта Ingress-контроллера в формате JSON и сохраните его в файл `key.json`:
+    1. [Создайте авторизованный ключ](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта Ingress-контроллера в формате JSON и сохраните его в файл `key.json`:
 
         ```bash
         yc iam key create \

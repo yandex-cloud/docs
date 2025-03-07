@@ -22,7 +22,7 @@
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Velero.
     1. [Назначьте ему роль](../../iam/concepts/access-control/roles.md) `storage.editor` для доступа к [{{ objstorage-full-name }}](../../storage/).
-    1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
 
         ```bash
         yc iam access-key create \

@@ -11,6 +11,8 @@ If there is a RAID array disk failure on a {{ baremetal-name }} server, you must
 
 This guide does not apply to disk failures in `RAID 0` arrays. Such arrays are not fault-tolerant, so if one of the disks fails, all the array data will be lost and the array will have to be completely rebuilt.
 
+This guide is based on a standard RAID 10 partitioning with four HDDs for Ubuntu 24.04. If your configuration is different or the partitioning has been modified, change the following steps according to your configuration.
+
 {% endnote %}
 
 ## Remove the defective disk from the RAID array {#remove-from-raid}
@@ -31,21 +33,21 @@ This guide does not apply to disk failures in `RAID 0` arrays. Such arrays are n
     Result:
 
     ```text
-    Personalities : [raid1] [linear] [multipath] [raid0] [raid6] [raid5] [raid4] [raid10]
-    md2 : active raid1 sdb3[1] sda3[0]
-          6287360 blocks super 1.2 [2/2] [UU]
+    Personalities : [raid10] [raid0] [raid1] [raid6] [raid5] [raid4]
+    md3 : active raid10 sdb4[1] sdc4[2] sdd4[3] sda4[0]
+          3893569536 blocks super 1.2 256K chunks 2 near-copies [4/4] [UUUU]
+          bitmap: 0/30 pages [0KB], 65536KB chunk
 
-    md3 : active raid1 sdb4[1] sda4[0]
-          849215488 blocks super 1.2 [2/2] [UU]
-          bitmap: 4/7 pages [16KB], 65536KB chunk
+    md2 : active raid10 sdc3[2] sdb3[1] sdd3[3] sda3[0]
+          2095104 blocks super 1.2 256K chunks 2 near-copies [4/4] [UUUU]
 
-    md1 : active raid1 sdb2[1] sda2[0]
-          10477568 blocks super 1.2 [2/2] [UU]
+    md1 : active raid10 sdc2[2] sdb2[1](F) sda2[0] sdd2[3]
+          8380416 blocks super 1.2 256K chunks 2 near-copies [4/3] [U_UU]
     ```
 
-    The above example shows a RAID array consisting of three partitions: `md1` (disk partitions `sdb2` and `sda2`), `md2` (disk partitions `sdb3` and `sda3`), and `md3` (disk partitions `sdb4` and `sda4`).
+    The above example shows a RAID array consisting of three partitions: `md1` (disk partitions `sdb2` and `sda2`), `md2` (disk partitions `sdb3` and `sda3`), and `md3` (disk partitions `sdb4` and `sda4`). The command output indicates a failure in the `sdb` disk: it has `(F)` next to its name.
 
-1. Get information about the roles of the RAID array partitions:
+    Additionally, you can get information about the roles of the RAID array partitions:
 
     ```bash
     lsblk
@@ -54,29 +56,46 @@ This guide does not apply to disk failures in `RAID 0` arrays. Such arrays are n
     Result:
 
     ```text
-    NAME    MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
-    sda       8:0    0 838.4G  0 disk
-    ├─sda1    8:1    0   299M  0 part
-    ├─sda2    8:2    0    10G  0 part
-    │ └─md1   9:1    0    10G  0 raid1 /boot
-    ├─sda3    8:3    0     6G  0 part
-    │ └─md2   9:2    0     6G  0 raid1 [SWAP]
-    └─sda4    8:4    0   810G  0 part
-      └─md3   9:3    0 809.9G  0 raid1 /
-    sdb       8:16   0 838.4G  0 disk
-    ├─sdb1    8:17   0   299M  0 part
-    ├─sdb2    8:18   0    10G  0 part
-    │ └─md1   9:1    0    10G  0 raid1 /boot
-    ├─sdb3    8:19   0     6G  0 part
-    │ └─md2   9:2    0     6G  0 raid1 [SWAP]
-    └─sdb4    8:20   0   810G  0 part
-      └─md3   9:3    0 809.9G  0 raid1 /
+    NAME    MAJ:MIN RM  SIZE RO TYPE   MOUNTPOINTS
+    sda       8:0    0  1.8T  0 disk
+    ├─sda1    8:1    0  299M  0 part
+    ├─sda2    8:2    0    4G  0 part
+    │ └─md1   9:1    0    8G  0 raid10 /boot
+    ├─sda3    8:3    0    1G  0 part
+    │ └─md2   9:2    0    2G  0 raid10 [SWAP]
+    └─sda4    8:4    0  1.8T  0 part
+      └─md3   9:3    0  3.6T  0 raid10 /
+    sdb       8:16   0  1.8T  0 disk
+    ├─sdb1    8:17   0  299M  0 part
+    ├─sdb2    8:18   0    4G  0 part
+    │ └─md1   9:1    0    8G  0 raid10 /boot
+    ├─sdb3    8:19   0    1G  0 part
+    │ └─md2   9:2    0    2G  0 raid10 [SWAP]`
+    └─sdb4    8:20   0  1.8T  0 part
+      └─md3   9:3    0  3.6T  0 raid10 /
+    sdc       8:32   0  1.8T  0 disk
+    ├─sdc1    8:33   0  299M  0 part
+    ├─sdc2    8:34   0    4G  0 part
+    │ └─md1   9:1    0    8G  0 raid10 /boot
+    ├─sdc3    8:35   0    1G  0 part
+    │ └─md2   9:2    0    2G  0 raid10 [SWAP]
+    └─sdc4    8:36   0  1.8T  0 part
+      └─md3   9:3    0  3.6T  0 raid10 /
+    sdd       8:48   0  1.8T  0 disk
+    ├─sdd1    8:49   0  299M  0 part
+    ├─sdd2    8:50   0    4G  0 part
+    │ └─md1   9:1    0    8G  0 raid10 /boot
+    ├─sdd3    8:51   0    1G  0 part
+    │ └─md2   9:2    0    2G  0 raid10 [SWAP]
+    └─sdd4    8:52   0  1.8T  0 part
+      └─md3   9:3    0  3.6T  0 raid10 /
     ```
 
     In the above example:
     * `md1`: `/boot` partition.
     * `md2`: `SWAP` partition.
     * `md3`: `/` partition with the root file system.
+    
 1. Let's assume the `/dev/sdb` disk is down. Remove the `/dev/sdb` disk's partitions from the RAID array's partitions:
 
     ```bash

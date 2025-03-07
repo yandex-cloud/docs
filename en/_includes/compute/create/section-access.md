@@ -10,12 +10,12 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
         {% note alert %}
 
-        Do not use `root` or other usernames reserved by the OS. To perform operations requiring superuser privileges, use the `sudo` command.
+        Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
 
         {% endnote %}
 
     * {% include [access-ssh-key](./access-ssh-key.md) %}
 
-If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../../compute/concepts/vm-metadata.md#how-to-send-metadata) these users' data under **{{ ui-key.yacloud.common.metadata }}**. You can also use metadata to [install additional software](../../../compute/operations/vm-create/create-with-cloud-init-scripts.md) on a VM when creating it.
+If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../../compute/concepts/metadata/sending-metadata.md) these users' data under **{{ ui-key.yacloud.common.metadata }}**. You can also use metadata to [install additional software](../../../compute/operations/vm-create/create-with-cloud-init-scripts.md) on a VM when creating it.
 
 {% include [vm-connect-linux](../../vm-connect-linux.md) %}

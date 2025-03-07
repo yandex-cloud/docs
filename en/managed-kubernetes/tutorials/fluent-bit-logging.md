@@ -1,6 +1,6 @@
 ---
 title: Configuring Fluent Bit for {{ cloud-logging-full-name }}
-description: The Fluent Bit log processor allows you to transfer the {{ managed-k8s-name }} cluster logs to {{ cloud-logging-name }}. The Fluent Bit plugin for {{ cloud-logging-full-name }} module is used to transfer logs.
+description: The Fluent Bit log processor allows you to transfer the {{ managed-k8s-name }} cluster logs to {{ cloud-logging-name }}. To transfer logs, you will use the Fluent Bit plugin for {{ cloud-logging-full-name }} module.
 canonical: '{{ link-docs }}/tutorials/container-infrastructure/k8s-fluent-bit-logging'
 ---
 
@@ -13,6 +13,6 @@ You can enable sending logs from the [{{ managed-k8s-name }} master host](../con
 
 {% endnote %}
 
-The [Fluent Bit](https://fluentbit.io/) log processor allows you to transfer the logs of {{ managed-k8s-name }} cluster [pods](../concepts/index.md#pod) and [services](../concepts/index.md#service) to {{ cloud-logging-name }}. The [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module is used to transfer logs.
+The [Fluent Bit](https://fluentbit.io/) log processor allows you to transfer [pod](../concepts/index.md#pod) and [service](../concepts/index.md#service) logs and [system logs](../../managed-kubernetes/concepts/index.md#node-group) of {{ managed-k8s-name }} nodes to {{ cloud-logging-name }}. To transfer logs, you will use the [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex) module.
 
 {% include [Setup Managed K8S Fluent Bit](../../_tutorials/containers/k8s-fluent-bit-logging.md) %}

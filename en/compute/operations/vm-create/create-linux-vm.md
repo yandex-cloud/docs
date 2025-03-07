@@ -19,7 +19,7 @@ description: Use this tutorial to create a Linux VM.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../../cli/) command for creating a [VM](../../concepts/vm.md):
+  1. View the description of the [CLI](../../../cli/) command to create a [VM](../../concepts/vm.md):
 
      ```bash
      yc compute instance create --help
@@ -85,7 +85,7 @@ description: Use this tutorial to create a Linux VM.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-         If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in the `--metadata-from-file` parameter. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
+         If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in the `--metadata-from-file` parameter. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -164,7 +164,7 @@ description: Use this tutorial to create a Linux VM.
 
        * `metadata`: In the metadata, provide the public SSH key for VM access. For more information, see [{#T}](../../concepts/vm-metadata.md).
 
-           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
+           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in a file and provide it under `metadata`. You can also use metadata to [install additional software](./create-with-cloud-init-scripts.md) on a VM when creating it.
      * `yandex_vpc_network`: Cloud network description.
      * `yandex_vpc_subnet`: Description of the subnet to connect your VM to.
 

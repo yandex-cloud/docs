@@ -17,7 +17,7 @@ To create a [VM](../../concepts/vm.md):
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select a public [image](../../concepts/image.md) with the software you want to use.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) for your VM.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../../overview/concepts/geo-scope.md) the VM will reside in.
   1. Optionally, configure the boot [disk](../../concepts/disk.md) under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
 
       * Select the [disk type](../../concepts/disk.md#disks_types).
@@ -38,7 +38,7 @@ To create a [VM](../../concepts/vm.md):
 
       {% note info %}
 
-      On VMs with {{ oslogin }} access enabled, provide your custom SSH keys through [metadata](../../concepts/vm-metadata.md#how-to-send-metadata).
+      On VMs with {{ oslogin }} access enabled, provide your custom SSH keys through [metadata](../../concepts/metadata/sending-metadata.md).
 
       {% endnote %}
 
@@ -59,7 +59,7 @@ To create a [VM](../../concepts/vm.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for creating a VM:
+  1. View the description of the CLI command to create a VM:
 
      ```bash
      yc compute instance create --help
@@ -123,7 +123,7 @@ To create a [VM](../../concepts/vm.md):
 
           {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-          If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in the `--metadata-from-file` parameter.
+          If you want to add multiple users with SSH keys to your VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in the `--metadata-from-file` parameter.
 
   {% include [vm-create-check](../../../_includes/compute/vm-create-check.md) %}
 
@@ -186,7 +186,7 @@ To create a [VM](../../concepts/vm.md):
      * `yandex_compute_disk`: Boot [disk](../../concepts/disk.md) description:
        * `name`: Disk name.
        * `type`: Disk type.
-       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
+       * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
        * `size`: Disk size in GB.
        * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
@@ -195,7 +195,7 @@ To create a [VM](../../concepts/vm.md):
      * `yandex_compute_instance`: VM description:
        * `name`: VM name.
        * `platform_id`: [Platform](../../concepts/vm-platforms.md).
-       * `zone`: Availability zone the VM will be in.
+       * `zone`: Availability zone the VM will reside in.
        * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
        * `boot_disk`: Boot disk settings. Specify the disk ID.
        * `network_interface`: VM [network interface](../../concepts/network.md) settings. Specify the ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). To automatically assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) to the VM, set `nat = true`.
@@ -204,7 +204,7 @@ To create a [VM](../../concepts/vm.md):
 
        * `metadata`: In the metadata, provide the username and [public key for SSH access](../vm-connect/ssh.md#creating-ssh-keys) to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
 
-           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/vm-metadata.md#how-to-send-metadata) these users' data in a file and provide it under `metadata`.
+           If you want to add multiple users with SSH keys to the VM at the same time, [specify](../../concepts/metadata/sending-metadata.md) these users' data in a file and provide it under `metadata`.
      * `yandex_vpc_network`: Cloud network description.
      * `yandex_vpc_subnet`: Description of the subnet to connect your VM to.
 
@@ -223,7 +223,7 @@ To create a [VM](../../concepts/vm.md):
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -231,7 +231,7 @@ To create a [VM](../../concepts/vm.md):
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. When asked to confirm changes, type `yes` and press **Enter**.
 
      {% include [vm-create-check](../../../_includes/compute/vm-create-check.md) %}
 

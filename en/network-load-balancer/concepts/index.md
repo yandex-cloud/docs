@@ -5,7 +5,7 @@ description: Network load balancers (NLBs) are designed to build fault-tolerant 
 
 # Network load balancer. Overview
 
-*Network load balancers (NLBs) are designed to build fault-tolerant and scalable applications and services in {{ yandex-cloud }}.
+*Network load balancers* (NLBs) are designed to build fault-tolerant and scalable applications and services in {{ yandex-cloud }}. 
 
 Fault tolerance and scalability are achieved by distributing the traffic entering the load balancer among the cloud resources behind it. 
 
@@ -19,7 +19,7 @@ A network load balancer can be used together with the following resources and se
 * [Instance groups ({{ ig-name }})](./scenarios.md#nlb-ig). The instance group tracks the number of VMs in the group and changes the composition of the balancer's target group as needed.
 * [Clusters ({{ managed-k8s-name }})](./scenarios.md#nlb-mk8s). The master node of the {{ k8s }} cluster tracks the number of VMs in the cluster node groups and changes the composition of the balancer's target group as needed.
 
-The traffic coming to the balancer is distributed in a certain way across the instances located behind it.
+A load balancer’s incoming traffic is distributed in a certain way among VMs located downstream of the load balancer.
 
 The structure of the network load balancer includes the following key components:
 

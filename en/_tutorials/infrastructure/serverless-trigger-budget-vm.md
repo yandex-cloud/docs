@@ -22,8 +22,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources includes:
-* Fee for using VMs (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for using VM instances (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 ## Download a project {#download}
 

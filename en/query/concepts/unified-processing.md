@@ -7,12 +7,12 @@ description: In this article, you will learn about using stream processing to de
 
 Let's say we need to develop an anti-fraud system to detect fraudulent transactions. They need to be detected in real time, so it's convenient to use [streaming data processing](./stream-processing.md) for our purposes.
 
-To detect fraudulent transactions, we need to know the criteria that distinguish them from regular transactions. A DBMS for processing banking data logs the full history of all customer transactions. This data can be used to define criteria that will help identify fraudulent actions. To do this, we need to write SQL queries that will analyze all the stored data and calculate the necessary criteria.
+To detect fraudulent transactions, we need to know the criteria that distinguish them from regular transactions. A DBMS for processing banking data logs the full history of all customer transactions. This data can be used to define criteria that will help identify fraudulent actions. To do this, we need to write SQL queries that will analyze all the stored data and calculate the necessary criteria. 
 
-The criteria found by analytical queries should be transferred to the streaming analysis system to quickly detect fraudulent actions. In other words, the same data should be processed using different methods: batch and streaming.
+The criteria found by analytical queries should be transferred to the streaming analysis system to quickly detect fraudulent actions. In other words, the same data should be processed using different methods: batch and streaming. 
 
 Below are the architecture patterns that allow analytical and streaming queries to be executed:
-- [Lambda architecture](#lambda).
+- [Lambda architecture](#lambda). 
 - [Kappa architecture](#kappa).
 - [Unified Lambda architecture](#unified).
 
@@ -42,7 +42,7 @@ The advantage of this architecture is that both batch and streaming processing a
 
 The unified Lambda architecture combines the advantages of the previous two generations and eliminates their typical disadvantages.
 
-In the unified Lambda architecture, a single system processes both analytical and streaming data.
+In the unified Lambda architecture, a single system processes both analytical and streaming data. 
 ![unified-lambda](../../_assets/query/unified-lambda.png)
 
 In this architecture, the runtime system should enable the processing of analytical data and data streams using common tools. This lets you unify all workflows around processing these types of data.
@@ -50,3 +50,7 @@ In this architecture, the runtime system should enable the processing of analyti
 {{yq-full-name}} is an example of such architecture. You can use {{yq-full-name}} to work with streaming and analytical data stored in different storage systems in a unified way. This will allow you to:
 - Unify data processing by using a single runtime environment.
 - Streamline system maintenance with a single data processing system.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/audit-trails.md)

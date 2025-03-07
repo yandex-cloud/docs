@@ -1,9 +1,9 @@
 ---
-title: Создание источника данных в DSPM
-description: Следуя данной инструкции, вы узнаете как из бакетов {{ objstorage-full-name }} создавать источники данных в модуле DSPM сервиса {{ sd-full-name }}.
+title: Создание источника данных в {{ dspm-name }}
+description: Следуя данной инструкции, вы узнаете как из бакетов {{ objstorage-full-name }} создавать источники данных в модуле {{ dspm-name }} сервиса {{ sd-full-name }}.
 ---
 
-# Создать источник данных DSPM
+# Создать источник данных {{ dspm-name }}
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 

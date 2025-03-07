@@ -1623,7 +1623,7 @@ description: В статье приведен полный справочник 
 
 ## {{ sd-full-name }} {#security-deck-roles}
 
-### Сервисные роли для анализа данных Access Transparency {#access-transparency-roles}
+### Сервисные роли для анализа данных {{ atr-name }} {#access-transparency-roles}
 
 #### access-transparency.viewer {#access-transparency-viewer}
 
@@ -1637,9 +1637,9 @@ description: В статье приведен полный справочник 
 
 {% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
 
-Подробнее см. [Управление доступом в Access Transparency](../security-deck/security/access-transparency-roles.md).
+Подробнее см. [Управление доступом в {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
 
-### Сервисные роли для контроля данных (DSPM) {#dspm-roles}
+### Сервисные роли для контроля данных ({{ dspm-name }}) {#dspm-roles}
 
 #### dspm.inspector {#dspm-inspector}
 
@@ -1661,7 +1661,7 @@ description: В статье приведен полный справочник 
 
 {% include [dspm.admin](../_roles/dspm/admin.md) %}
 
-Подробнее см. [Управление доступом в DSPM](../security-deck/security/dspm-roles.md).
+Подробнее см. [Управление доступом в {{ dspm-name }}](../security-deck/security/dspm-roles.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}

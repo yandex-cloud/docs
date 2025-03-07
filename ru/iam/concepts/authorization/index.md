@@ -60,10 +60,10 @@
 
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
-      [Инструкция получения API-ключа](../../operations/api-key/create.md).
+      [Инструкция получения API-ключа](../../operations/authentication/manage-api-keys.md#create-api-key).
   * С помощью [статических ключей доступа](access-key.md). Этот способ необходимо использовать в сервисах с AWS-совместимым API, например в {{ objstorage-name }} и {{ message-queue-name }}.
 
-      [Инструкция получения статического ключа доступа](../../operations/sa/create-access-key.md).
+      [Инструкция получения статического ключа доступа](../../operations/authentication/manage-access-keys.md#create-access-key).
 
 {% endlist %}
 

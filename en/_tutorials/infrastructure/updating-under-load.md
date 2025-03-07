@@ -1,7 +1,7 @@
 # Updating an instance group under load
 
 
-Using this step-by-step guide, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check its operation when updating the configuration. To do this:
+In this step-by-step tutorial, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check how it operates when updating the configuration. To do this:
 1. [Get your cloud ready](#before-you-begin).
 1. [Prepare the environment](#create-environment).
 1. [Create an instance group from a {{ coi }}](#create-vm-group).
@@ -74,7 +74,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
 
    - API {#api}
 
-     1. Create the `for-load` service account:
+     1. Create a service account named `for-load`:
          Use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
      1. To create, update, and delete VMs in the group, as well as integrate the group with an {{ network-load-balancer-name }} network load balancer, assign the [compute.editor](../../compute/security/index.md#compute-editor) and [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor) roles to the service account:
          Use the [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md) gRPC API call.
@@ -226,7 +226,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
 
         {% note info %}
 
-        You can provide an SSH key in the [VM metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) using the `ssh-keys` parameter or in the `user-data` string. This tutorial features the first option.
+        You can provide an SSH key in the [VM metadata](../../compute/concepts/vm-metadata.md) using the `ssh-keys` parameter or in the `user-data` key with the user metadata. This tutorial features the first option.
 
         {% endnote %}
 
@@ -366,7 +366,7 @@ The support cost for a {{ yandex-cloud }} instance group includes fees for:
 
    {% endlist %}
 
-1. Make sure you have created the network load balancer named `load-generator` and linked it to the instance group:
+1. Make sure you created the network load balancer named `load-generator` and linked it to the instance group:
 
    {% list tabs group=instructions %}
 
@@ -530,7 +530,7 @@ To delete the created resources:
 - Management console {#console}
 
    1. Delete the load balancer:
-      1. In the [management console]({{ link-console-main }}), select the folder where you created the load balancer.
+      1. In the [management console]({{ link-console-main }}), select the folder you created the load balancer in.
       1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
       1. To the right of the `load-generator` line, click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.remove }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.common.remove }}**.

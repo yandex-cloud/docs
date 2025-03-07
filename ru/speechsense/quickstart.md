@@ -63,7 +63,7 @@
 
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md).
 1. [Добавьте сервисный аккаунт в пространство](operations/space/add-user-to-space.md) с ролью `speech-sense.data.editor`. Подробнее о ролях, действующих в сервисе, см. раздел [{#T}](security/index.md).
-1. [Создайте API-ключ](../iam/operations/api-key/create.md) или [IAM-токен](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта, чтобы аутентифицироваться в API. [Подробнее об аутентификации в API {{ speechsense-name }}](api-ref/authentication.md).
+1. [Создайте API-ключ](../iam/operations/authentication/manage-api-keys.md#create-api-key) или [IAM-токен](../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта, чтобы аутентифицироваться в API. [Подробнее об аутентификации в API {{ speechsense-name }}](api-ref/authentication.md).
 1. [Загрузите аудиоданные](operations/data/upload-data.md) или [переписку из чата](operations/data/upload-chat-text.md) с помощью Python-скрипта отправки данных.
 
     Аудио передается целиком в одном сообщении.

@@ -13,6 +13,8 @@ description: Управление доступом в сервисе {{ objstora
 * [{{ sts-name }}](#sts).
 * [Подписанные (pre-signed) URL](#pre-signed).
 
+Также в {{ objstorage-name }} на доступ к бакетам и объектам может влиять включенное шифрование. Подробнее о работе с зашифрованными бакетами см. на странице [{#T}](../concepts/encryption.md).
+
 На схеме показана взаимосвязь механизмов управления доступом в {{ objstorage-name }}.
 
 ![access-scheme](../../_assets/storage/access-scheme.svg)

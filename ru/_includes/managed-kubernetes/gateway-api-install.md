@@ -16,7 +16,7 @@
    * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
    * `certificate-manager.admin` — для работы с [сертификатами](../../certificate-manager/concepts/index.md#types), зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer` — для использования [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
-1. Создайте для сервисного аккаунта [авторизованный ключ](../../iam/operations/authorized-key/create.md) и сохраните ключ в файл `sa-key.json`:
+1. Создайте для сервисного аккаунта [авторизованный ключ](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) и сохраните ключ в файл `sa-key.json`:
 
    ```bash
    yc iam key create \

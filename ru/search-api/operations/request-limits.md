@@ -21,7 +21,7 @@ https://yandex.<домен>/search/xml
 Где:
 
 * `folderid` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы работаете с {{ search-api }}.
-* `apikey` — [API-ключ](../../iam/concepts/authorization/api-key.md) сервисного аккаунта в этом каталоге. API-ключ можно [создать](../../iam/operations/api-key/create.md) в интерфейсе консоли управления. Значение API-ключа отображается только один раз при его создании.
+* `apikey` — [API-ключ](../../iam/concepts/authorization/api-key.md) сервисного аккаунта в этом каталоге. API-ключ можно [создать](../../iam/operations/authentication/manage-api-keys.md#create-api-key) в интерфейсе консоли управления. Значение API-ключа отображается только один раз при его создании.
 
 ### Пример запроса {#query-request}
 

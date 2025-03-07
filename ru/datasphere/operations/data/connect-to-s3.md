@@ -6,7 +6,7 @@
 
 Чтобы настроить подключение к S3 из кода ноутбука:
 
-1. [Создайте секреты](secrets.md#create) `token` с идентификатором и `key_value` с секретной частью [статического ключа доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
+1. [Создайте секреты](secrets.md#create) `token` с идентификатором и `key_value` с секретной частью [статического ключа доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 1. {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 1. Импортируйте библиотеки:
 

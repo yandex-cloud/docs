@@ -4,9 +4,9 @@ This section describes typical problems that may arise when using {{ compute-nam
 
 #### You cannot connect to a new VM with multiple network interfaces over SSH {#unable-to-connect-to-new-multi-interface-vm}
 
-When creating a Linux VM with multiple [network interfaces](../../compute/concepts/network.md), the additional network interfaces may not work correctly in the OS. In some cases, this issue can hinder network connectivity and prevent you from [connecting](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+When creating a Linux VM with multiple [network interfaces](../../compute/concepts/network.md), the additional network interfaces may not work correctly in the OS. In some cases, this issue can hinder network connectivity and prevent you from [connecting](../../compute/operations/vm-connect/ssh.md) to your VM over SSH.
 
-To fix the issue, delete the VM and [create](../../compute/operations/vm-create/create-linux-vm.md) a new one by providing additional [cloud-init](https://cloud-init.io) parameters in the new VM [metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images):
+To fix it, delete the VM and [create](../../compute/operations/vm-create/create-linux-vm.md) a new one by providing additional [cloud-init](https://cloud-init.io) parameters in the new VM [metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images):
 
 {% list tabs group=instructions %}
 
@@ -28,7 +28,7 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
 
   Where:
   * `name:`: Username for [connecting](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-  * `ssh_authorized_keys:`: List of public SSH keys to connect the user to the VM over SSH. You need to specify at least one public SSH key.
+  * `ssh_authorized_keys:`: List of public SSH keys to connect the user to the VM over SSH. Specify at least one public SSH key.
 
 - CLI {#cli}
 
@@ -46,7 +46,7 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
 
       {% endcut %}
 
-  1. When creating a VM, provide the created configuration file to it in the `--metadata-from-file` parameter, e.g.:
+  1. When creating a VM, provide the created configuration file in the `--metadata-from-file` parameter. Here is an example:
 
       ```bash
       yc compute instance create --name=multi-net-vm --hostname=multi-net-vm \
@@ -77,7 +77,7 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
 
       {% endcut %}
 
-  1. When creating a VM, provide the created metadata file to it in the `yandex_compute_instance.metadata` section, e.g.:
+  1. When creating a VM, provide the created metadata file in the `yandex_compute_instance.metadata` section. Here is an example:
 
       ```hcl
       resource "yandex_compute_instance" "multi-net-vm" {
@@ -119,17 +119,17 @@ To fix the issue, delete the VM and [create](../../compute/operations/vm-create/
 
 {% endlist %}
 
-#### Additional network interfaces do not work after you attach them to the existing VM {#added-net-interfaces-down}
+#### Additional network interfaces do not work after you attach them to an existing VM {#added-net-interfaces-down}
 
-After you attach additional [network interfaces](../../compute/concepts/network.md) to a Linux VM, they may fail to work correctly in the operating system. In some cases, this issue can hinder network connectivity and prevent you from connecting to the VM over SSH.
+After you attach additional [network interfaces](../../compute/concepts/network.md) to a Linux VM, they may not work correctly in the operating system. In some cases, this issue can hinder network connectivity and prevent you from connecting to your VM over SSH.
 
-To fix this issue, try upgrading the VM's operating system to its latest version.
+To fix it, try upgrading the VM's operating system to its latest version.
 
 If upgrading the OS is not possible or does not help:
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
-    If the SSH connection fails due to network connectivity issues, [remove](../../compute/operations/vm-control/detach-network-interface.md) all the additional network interfaces and [reboot](../../compute/operations/vm-control/vm-stop-and-start.md#restart) the VM.
+    If the SSH connection fails due to network connectivity issues, [remove](../../compute/operations/vm-control/detach-network-interface.md) all additional network interfaces and [reboot](../../compute/operations/vm-control/vm-stop-and-start.md#restart) the VM.
 
 1. Update the OS network configuration:
 
@@ -143,7 +143,7 @@ If upgrading the OS is not possible or does not help:
           sudo nano /etc/netplan/01-netcfg.yaml
           ```
 
-          In the `write_files.content.network.ethernets` configuration section, specify the settings for the required number of existing or new VM network interfaces, as shown below. Interfaces are numbered starting from zero. This example shows how to set up three interfaces. You can add up to eight network interfaces to a single VM.
+          In the `write_files.content.network.ethernets` configuration section, specify the settings for the required number of existing or new VM network interfaces, as shown below. Interface numbering starts from zero. This example shows how to set up three interfaces. You can add up to eight network interfaces to a single VM.
 
           ```
           # This file describes the network interfaces available on your system
@@ -174,7 +174,7 @@ If upgrading the OS is not possible or does not help:
           sudo chmod 0644 /etc/netplan/01-netcfg.yaml
           ```
 
-      1. Apply the configuration changes:
+      1. Apply the network configuration changes:
 
           ```bash
           sudo netplan apply
@@ -188,7 +188,7 @@ If upgrading the OS is not possible or does not help:
           sudo nano /etc/network/interfaces
           ```
       
-          In the `Primary network interface` and `Other network interfaces` configuration sections, specify the settings for the required number of existing or new VM network interfaces, as shown below. Interfaces are numbered starting from zero. This example shows how to set up three interfaces. You can add up to eight network interfaces to a single VM.
+          In the `Primary network interface` and `Other network interfaces` configuration sections, specify the settings for the required number of existing or new VM network interfaces, as shown below. Interface numbering starts from zero. This example shows how to set up three interfaces. You can add up to eight network interfaces to a single VM.
 
           ```txt
           # This file describes the network interfaces available on your system
@@ -223,4 +223,4 @@ If upgrading the OS is not possible or does not help:
 
     {% endlist %}
 
-1. If you previously had to remove additional network interfaces, [attach](../../compute/operations/vm-control/attach-network-interface.md) them again.
+1. If you previously had to remove additional network interfaces, [add](../../compute/operations/vm-control/attach-network-interface.md) them back.
