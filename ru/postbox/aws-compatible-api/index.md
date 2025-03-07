@@ -26,7 +26,7 @@ keywords:
 
    Подходящую роль можно выбрать из раздела [Управление доступом](../security/index.md#service-roles). Например, чтобы получить информацию о [конфигурации](../concepts/glossary.md#configuration), достаточно роли `postbox.viewer`. Чтобы отправлять письма, назначьте сервисному аккаунту роль `postbox.sender`.
 
-1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md).
+1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
    Он нужен для авторизации при отправке запросов к API Amazon. Чтобы хранить ключ безопасно, воспользуйтесь сервисом [{{ lockbox-full-name }}](../../lockbox/tutorials/static-key-in-lockbox/index.md).
 

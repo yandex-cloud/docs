@@ -103,7 +103,7 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Перед началом работы получите [статические ключи доступа](../../iam/operations/sa/create-access-key.md) — [секретный ключ и идентификатор ключа](../../iam/concepts/authorization/access-key.md), используемые для аутентификации в {{ objstorage-name }}.
+  Перед началом работы получите [статические ключи доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) — [секретный ключ и идентификатор ключа](../../iam/concepts/authorization/access-key.md), используемые для аутентификации в {{ objstorage-name }}.
   1. Опишите в конфигурационном файле параметры бакета:
      * `access_key` — идентификатор статического ключа доступа.
      * `secret_key` — значение секретного ключа доступа.

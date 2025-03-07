@@ -4,6 +4,7 @@
 
 ## Console clients {#cli}
 
+* [{{ yandex-cloud }} CLI](yc-cli.md)
 * [AWS CLI](aws-cli.md)
 * [S3cmd](s3cmd.md)
 

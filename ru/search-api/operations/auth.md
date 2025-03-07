@@ -14,7 +14,7 @@ description: В данном разделе приведены способы а
 {% endnote %}
 
 1. [Получите идентификатор каталога](../../resource-manager/operations/folder/get-id.md) сервисного аккаунта.
-1. [Получите API-ключ](../../iam/operations/api-key/create.md).
+1. [Получите API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
 1. Полученные значения передавайте в каждом запросе:
 
     {% list tabs %}

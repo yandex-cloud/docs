@@ -31,7 +31,7 @@ Save the service connection ID.
 
 ## Configure a bucket policy {#setup-policy}
 
-To restrict access to a bucket to _{{ vpc-short-name }} internal IP addresses only_, configure a bucket policy for service connectivity.
+To restrict access to a bucket to _{{ vpc-short-name }} internal IP addresses_, configure a bucket policy for the service connection.
 
 {% include [private-endpoint-policy-tabs](../../../_includes/storage/private-endpoint-policy-tabs.md) %}
 

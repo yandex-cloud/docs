@@ -84,8 +84,10 @@ An example of configuring testing threads to generate 200 requests per second ov
 
 {% endlist %}
 
-#### See also {#see-also}
+## Use cases {#examples}
 
 * [{#T}](../tutorials/loadtesting-grpc.md)
 * [{#T}](../tutorials/loadtesting-https-pandora.md)
 * [{#T}](../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../tutorials/loadtesting-results-compare.md)
+* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)

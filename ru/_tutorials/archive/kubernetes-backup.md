@@ -37,7 +37,7 @@
   1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `compute.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) для работы с Velero.
   1. Выдайте [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) права **READ и WRITE** к [бакету](../../storage/concepts/bucket.md) в {{ objstorage-name }}. Для этого [выполните настройки ACL бакета](../../storage/operations/buckets/edit-acl.md).
-  1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта и сохраните его идентификатор и значение. Получить значение ключа снова будет невозможно.
+  1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта и сохраните его идентификатор и значение. Получить значение ключа снова будет невозможно.
 
 - {{ TF }} {#tf}
 

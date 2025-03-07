@@ -50,7 +50,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader` для доступа к бакету {{ objstorage-name }}.
 
-1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ, они понадобятся далее.
+1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ, они понадобятся далее.
 
 1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера:
 

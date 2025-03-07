@@ -44,8 +44,8 @@ You do not pay for:
 
   Once you have used up this free amount, you will be charged according to your service plan.
 
-   The unused balance of free services is reset at the end of the month.
-* Queries for domain names of {{ yandex-cloud }} services (such as `{{ api-host }}`) and those offered by Yandex (such as `mail.yandex.com`), both from VMs and the internet.
+  The unused balance of free services is reset at the end of the month.
+* Queries for domain names of {{ yandex-cloud }} services (e.g., `{{ api-host }}`) and Yandex services (e.g., `mail.yandex.com`), both from VMs and the internet.
 
 The cost of public DNS queries is based on usage.
 

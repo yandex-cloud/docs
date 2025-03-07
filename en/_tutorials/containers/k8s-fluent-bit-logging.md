@@ -83,7 +83,7 @@ If you created the infrastructure manually, enable the `master logging` setting:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Run the following command:
+1. Run this command:
 
    ```bash
    {{ yc-k8s }} cluster update <cluster_name> \

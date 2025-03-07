@@ -55,7 +55,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 
          {% note tip %}
 
-         If you select the **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** type of details for regular export, you can also view {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id` field](#format) (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
+         If you select **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** for regular export of details, you can also view the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources in the [`resource_id`](#format) field (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
 
          {% endnote %}
   1. Click **{{ ui-key.yacloud.common.create }}**.

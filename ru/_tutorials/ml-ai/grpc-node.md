@@ -301,6 +301,6 @@
 
 1. [Удалите](../../datasphere/operations/deploy/node-delete.md) ноду.
 1. [Удалите](../../datasphere/operations/data/secrets.md#delete) секрет.
-1. [Удалите](../../iam/operations/authorized-key/delete.md) авторизованный ключ сервисного аккаунта.
+1. [Удалите](../../iam/operations/authentication/manage-authorized-keys.md#delete-authorized-key) авторизованный ключ сервисного аккаунта.
 1. [Удалите](../../container-registry/operations/docker-image/docker-image-delete.md) Docker-образ.
 1. [Удалите](../../container-registry/operations/registry/registry-delete.md) реестр {{ container-registry-name }}.

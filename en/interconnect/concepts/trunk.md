@@ -12,7 +12,7 @@ Trunks are mainly used for:
 
 {% note warning %}
 
-You can set up one or more trunks per [point of presence](./pops.md), per client. However, you cannot set up multiple [private connections](./priv-con.md) to a single cloud network through different trunks at the same point of presence.  To ensure fault tolerance, we recommend setting up multiple (at least two) trunks, one at each [point of presence](./pops.md).
+You can set up one or more trunks per [point of presence](./pops.md), per client. However, you cannot set up multiple [private connections](./priv-con.md) to a single cloud network through different trunks at the same point of presence. To ensure fault tolerance, we recommend setting up multiple (at least two) trunks, one at each [point of presence](./pops.md).
 
 
 {% endnote %}
@@ -53,9 +53,7 @@ A trunk in this setup option has the following components:
 
 One may outline this connection as follows:
 
-
 ![direct-link](../../_assets/interconnect/interconnect-phy-1.svg)
-
 
 The client equipment is located at a [point of presence](./pops.md) and connected to the {{ yandex-cloud }} equipment directly through an optical cross-connection routed within the point of presence.
 
@@ -67,9 +65,7 @@ If a client does not have their own equipment at the appropriate [point of prese
 
 One may outline this connection as follows:
 
-
 ![direct-link](../../_assets/interconnect/interconnect-phy-2.svg)
-
 
 A trunk in this setup option has the following components:
 
@@ -114,17 +110,13 @@ You can leverage the following multiplexing options:
 
 #### Direct connection at a point of presence {#mux-direct}
 
-
 ![trunk-over-direct-link](../../_assets/interconnect/interconnect-trn-1.svg)
-
 
 This option assumes setting up a 802.1Q trunk over a direct physical connection between the client equipment at the [point of presence](./pops.md) and the {{ yandex-cloud }} equipment.
 
 #### Connection via a telecom provider (L2 transit) {#mux-sp-L2}
 
-
 ![trunk-over-sp-l2](../../_assets/interconnect/interconnect-trn-2.svg)
-
 
 This option is used when the client does not have their own equipment at the point of presence. In which case:
 
@@ -135,9 +127,7 @@ This option is used when the client does not have their own equipment at the poi
 
 #### Connection via a telecom provider (L3VPN) {#mux-sp-L3}
 
-
 ![trunk-over-sp-l3vpn](../../_assets/interconnect/interconnect-trn-3.svg)
-
 
 This option is used when the client does not have their own equipment at the point of presence. In which case:
 
@@ -151,3 +141,11 @@ This option is used when the client does not have their own equipment at the poi
 At the trunk level, {{ yandex-cloud }} equipment limits data receive/send rates from/to external equipment in bits per second and packets per second according to the [connection capacity](../pricing.md) selected by the client. 
 
 To limit the rate of receiving and sending data on the {{ yandex-cloud }} equipment, one uses the **RateLimit (Policing)** tool. When the data transfer speed in bits per second or packets per second is exceeded, the data may be rejected. As a result, uniform traffic may be transmitted at a faster speed than the traffic transmitted in sudden bursts.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/trunk-priv-add.md)
+* [{#T}](../tutorials/trunk-pub-add.md)
+* [{#T}](../tutorials/trunk-capacity-change.md)
+* [{#T}](../tutorials/trunk-del.md)

@@ -1,4 +1,4 @@
-# Настроить VRRP для кластера серверов {{ baremetal-name }}
+# Настроить VRRP для кластера серверов {{ baremetal-name }} с использованием Keepalived 
 
 {% note info %}
 

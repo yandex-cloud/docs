@@ -9,59 +9,64 @@ With the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), you can create a [VM
 
 This use case demonstrates creating a VM on [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) with a preinstalled [Nginx](https://nginx.org/) web server. When executing the CLI command, the local user name and SSH key values will be provided to the VM metadata through substitution from the `USER_NAME` and `SSH_KEY` variables of the environment the command is executed in.
 
+Also, these two variables from the `data` configuration section will be provided to the VM metadata: `var1` set to `value1` and `var2` set to `value2`. These variables and their values will be available in the `user-data` [folder](../../concepts/metadata/directories.md#dir-user) of the metadata service from inside the VM after you create it.
+
 To create a VM with metadata from environment variables:
 
-{% list tabs group=instructions %}
+1. Specify the environment variables containing the VM local user's name and SSH key; these will be substituted into the VM metadata when the {{ yandex-cloud }} CLI command is executed later on:
 
-- CLI {#cli}
+    ```bash
+    export USER_NAME="<username>"
+    export SSH_KEY="<SSH_key>"
+    ```
+1. Create a file named `metadata.yaml` and paste into it the following metadata configuration for the new VM:
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+    **metadata.yaml**
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    ```yaml
+    #cloud-config
+    datasource:
+      Ec2:
+        strict_id: false
+      data:
+        var1: value1
+        var2: value2
+    ssh_pwauth: no
+    users:
+    - name: $USER_NAME
+      sudo: 'ALL=(ALL) NOPASSWD:ALL'
+      shell: /bin/bash
+      ssh_authorized_keys:
+      - $SSH_KEY
+    write_files:
+      - path: "/usr/local/etc/startup.sh"
+        permissions: "755"
+        content: |
+          #!/bin/bash
+    
+          apt-get update
+          apt-get install -y nginx
+          service nginx start
+          sed -i -- "s/ nginx/ Yandex Cloud - $$HOSTNAME/" /var/www/html/index.nginx-debian.html
+        defer: true
+    runcmd:
+      - ["/usr/local/etc/startup.sh"]
+    packages:
+      - yq
+    ```
+1. Create a virtual machine:
 
-  1. Specify the environment variables containing the VM local user's name and SSH key; these will be substituted into the VM metadata when the {{ yandex-cloud }} CLI command is executed later on:
+    {% list tabs group=instructions %}
 
-      ```bash
-      export USER_NAME="<username>"
-      export SSH_KEY="<SSH_key>"
-      ```
+    - CLI {#cli}
 
-  1. Create a file named `metadata.yaml` and paste into it the following metadata configuration for the new VM:
+      {% include [cli-install](../../../_includes/cli-install.md) %}
 
-      **metadata.yaml**
-
-      ```yaml
-      #cloud-config
-      datasource:
-        Ec2:
-          strict_id: false
-      ssh_pwauth: no
-      users:
-      - name: $USER_NAME
-        sudo: 'ALL=(ALL) NOPASSWD:ALL'
-        shell: /bin/bash
-        ssh_authorized_keys:
-        - $SSH_KEY
-      write_files:
-        - path: "/usr/local/etc/startup.sh"
-          permissions: "755"
-          content: |
-            #!/bin/bash
-      
-            apt-get update
-            apt-get install -y nginx
-            service nginx start
-            sed -i -- "s/ nginx/ Yandex Cloud - $$HOSTNAME/" /var/www/html/index.nginx-debian.html
-          defer: true
-      runcmd:
-        - ["/usr/local/etc/startup.sh"]
-      ```
-
-  1. Run this command:
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
       ```bash
       yc compute instance create \
-        --name <VM_name> \
+        --name my-vm \
         --hostname <host_name> \
         --zone <availability_zone> \
         --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4,security-group-ids=<security_group_ID> \
@@ -70,7 +75,7 @@ To create a VM with metadata from environment variables:
       ```
 
       Where:
-      * `--name`: Name of the new VM.
+      * `--name`: Name of the new VM, e.g., `my-vm`.
       * `--hostname`: Host name for the new VM. This is an optional parameter. If omitted, the VM ID will be used as the host name.
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the new VM will reside in.
       * `--network-interface`: [Network interface](../../concepts/network.md) settings for the new VM:
@@ -83,18 +88,18 @@ To create a VM with metadata from environment variables:
 
           Note that the CLI command for the `HOSTNAME` variable will not substitute its value into the metadata. Instead, the `$HOSTNAME` variable name will be provided to the `cloud-init` configuration when executing the CLI command; the hostname value of the new VM will be substituted in place of that variable later what creating the VM.
 
-          This is why the `HOSTNAME` variable is specified using the two-dollar syntax in the `user-data` key: `$$HOSTNAME`. For more information, see [{#T}](../../concepts/vm-metadata.md#environment-variables).
+          This is why the `HOSTNAME` variable is specified using the two-dollar syntax in the `user-data` key: `$$HOSTNAME`. For more information, see [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
 
           {% endnote %}
 
-      Result:
+      {% cut "Result" %}
 
       ```text
       done (36s)
       id: epd8m0fqvkuu********
       folder_id: b1gt6g8ht345********
       created_at: "2025-01-01T14:24:37Z"
-      name: my-sample-vm
+      name: my-vm
       zone_id: {{ region-id }}-b
       platform_id: standard-v2
       resources:
@@ -136,13 +141,40 @@ To create a VM with metadata from environment variables:
           pci_topology: PCI_TOPOLOGY_V1
       ```
 
-      For other configuration examples for `user-data`, see [Examples](./create-with-cloud-init-scripts.md#examples).
+      {% endcut %}
 
       For more information about the `yc compute instance create` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
-{% endlist %}
+    {% endlist %}
+
+1. Save the [public IP address](../../concepts/network.md#public-ip) of the VM you created into the `EXT_IP` variable.
+
+    ```bash
+    EXT_IP=$(yc compute instance get my-vm --jq '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
+    ```
+1. Connect to the VM over SSH:
+
+    ```bash
+    ssh $USER_NAME@$EXT_IP
+    ```
+1. Get the values of the variables you previously provided to the metadata from inside the VM. To do this, run the following requests in the VM terminal:
+
+    ```bash
+    export var1=$(curl -sf -H Metadata-Flavor:Google 169.254.169.254/latest/user-data | yq .datasource.data.var1)
+    export var2=$(curl -sf -H Metadata-Flavor:Google 169.254.169.254/latest/user-data | yq .datasource.data.var2)
+    echo $var1 $var2
+    ```
+
+    Result:
+
+    ```text
+    value1 value2
+    ```
+
+For other configuration examples for `user-data`, see [Examples](./create-with-cloud-init-scripts.md#examples).
 
 #### See also {#see-also}
 
 * [{#T}](../../concepts/vm-metadata.md)
+* [{#T}](./create-with-lockbox-secret.md)
 * [{#T}](./create-with-cloud-init-scripts.md)

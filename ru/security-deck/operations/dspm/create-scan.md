@@ -1,9 +1,9 @@
 ---
-title: Создание сканирования в DSPM
-description: Следуя данной инструкции, вы узнаете как создавать сканирования в модуле DSPM сервиса {{ sd-full-name }}.
+title: Создание сканирования в {{ dspm-name }}
+description: Следуя данной инструкции, вы узнаете как создавать сканирования в модуле {{ dspm-name }} сервиса {{ sd-full-name }}.
 ---
 
-# Создать сканирование DSPM
+# Создать сканирование {{ dspm-name }}
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 

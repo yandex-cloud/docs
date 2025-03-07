@@ -35,7 +35,7 @@ You can request protection at the application level by contacting our tech suppo
 
 ## Advanced protection {#advanced-protection}
 
-Advanced protection operates at levels 3 and 7 of the OSI model. You can also track load and attack metrics and enable Soundwall WAF in your Curator Labs account.
+Advanced protection is available at OSI layers 3, 4, and 7. You can also track load and attack metrics and enable Soundwall WAF in your Curator Labs account.
 
 When enabling advanced protection ({{ adv-ddos-protection }}), you should disable basic protection ({{ ddos-protection-full-name }}). After you disable the protection, the VM's public IP address will change.
 

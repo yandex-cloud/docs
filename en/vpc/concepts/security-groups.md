@@ -28,7 +28,7 @@ You can combine security groups by assigning up to five groups per object.
 
 Security groups are not designed to protect against DDoS attacks.
 
-To filter out large amounts of unsolicited network traffic, use [{{ ddos-protection-full-name }}](../ddos-protection/index.md).
+To filter out large volumes of unsolicited network traffic, use [{{ ddos-protection-full-name }}](../ddos-protection/index.md).
 
 {% endnote %}
 

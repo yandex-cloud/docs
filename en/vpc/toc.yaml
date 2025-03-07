@@ -17,7 +17,7 @@ items:
             href: operations/network-update.md
           - name: Getting information about a cloud network
             href: operations/network-get-info.md
-          - name: Studying a cloud network map
+          - name: Viewing a cloud network map
             href: operations/network-map.md
           - name: Moving a cloud network between folders
             href: operations/network-move.md
@@ -54,7 +54,7 @@ items:
       - name: Static routing
         stage: new
         items:
-          - name: Creating static routes
+          - name: Creating a static route
             href: operations/static-route-create.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md
@@ -104,7 +104,7 @@ items:
         items:
           - name: Enabling DDoS protection
             href: operations/enable-ddos-protection.md
-          - name: Setting up MTU when enabling DDoS protection
+          - name: Setting up the MTU when enabling DDoS protection
             href: operations/adjust-mtu-ddos-protection.md
       - name: Chart of network connections
         href: operations/connections-view.md
@@ -134,9 +134,9 @@ items:
             href: tutorials/ipsec/ipsec-vpn.md
           - name: SGW solution by the {{ yandex-cloud }} architect team
             href: tutorials/ipsec/sgw.md
-      - name: Installing a Cisco CSR 1000v virtual router
+      - name: Installing the Cisco CSR 1000v virtual router
         href: tutorials/cisco.md
-      - name: Installing a Mikrotik CHR virtual router
+      - name: Installing the Mikrotik CHR virtual router
         href: tutorials/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: tutorials/openvpn.md
@@ -150,7 +150,7 @@ items:
         href: tutorials/usergate-proxy.md
       - name: Creating and configuring a UserGate gateway in firewall mode
         href: tutorials/usergate-firewall.md
-      - name: Implementing fault-tolerant scenarios for network VMs
+      - name: Implementing fault-tolerant use cases for network VMs
         href: tutorials/route-switcher.md
       - name: Creating a tunnel between two subnets using OpenVPN Access Server
         href: tutorials/site-to-site-openvpn.md

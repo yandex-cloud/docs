@@ -48,9 +48,7 @@ The following private connection setup options are supported:
 
 ### Private connection through a direct client connection {#prc-direct-link}
 
-
 ![prc-direct-link](../../_assets/interconnect/interconnect-bgp-1.svg)
-
 
 This scenario implies setting up L3 and BGP connectivity between the client equipment at the point of presence and the {{ yandex-cloud }} equipment. In which case:
 
@@ -60,9 +58,7 @@ This scenario implies setting up L3 and BGP connectivity between the client equi
 
 ### Private connection through a telecom provider connection (L2 transit) {#prc-sp-l2}
 
-
 ![prc-sp-l2](../../_assets/interconnect/interconnect-bgp-2.svg)
-
 
 This scenario assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. In which case:
 * The telecom provider sets up L2 connectivity between its equipment at the point of presence and the {{ yandex-cloud }} equipment.
@@ -71,9 +67,7 @@ This scenario assumes you do not have your own equipment at the point of presenc
 
 ### Private connection through a telecom provider connection (L3VPN) {#prc-sp-l3vpn}
 
-
 ![prc-sp-l3vpn](../../_assets/interconnect/interconnect-bgp-3.svg)
-
 
 This scenario also assumes you do not have your own equipment at the point of presence and you use the services of a telecom provider that ensures connectivity between {{ yandex-cloud }} and your own equipment. You cannot set up BGP connectivity to the {{ yandex-cloud }} equipment on your own, technically. In which case:
 
@@ -136,3 +130,11 @@ To automatically announce new subnets in {{ interconnect-name }}, you can use **
 >
 > If later you create a subnet with the `10.128.15.0/24` prefix in this network in the `{{ region-id }}-a` availability zone, it will automatically be available via {{ interconnect-name }} because the `10.128.15.0/24` subnet belongs to the already announced address space, `10.128.0.0/16`.
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/trunk-priv-add.md)
+* [{#T}](../tutorials/priv-add.md)
+* [{#T}](../tutorials/priv-prefixes-change.md)
+* [{#T}](../tutorials/priv-del.md)
+* [{#T}](../tutorials/cic-with-ngfw.md)

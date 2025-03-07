@@ -22,7 +22,7 @@ A virtual machine can access the internet and you can access the VM via a public
 
 ```bash
 ssh -J <NAT_instance_username>@<NAT_instance_public_IP_address> \
-  <VM_user_name>@<VM_internal_IP_address>
+  <VM_username>@<VM_internal_IP_address>
 ```
 
 {% endnote %}
@@ -33,9 +33,7 @@ You can convert a dynamic public IP address to static. Static IP addresses do no
 
 {% include notitle [note-public-ip-traffic.md](../../_includes/pricing/note-public-ip-traffic.md) %}
 
-
 For more information about IP address pricing, see [{#T}](../pricing.md#prices-public-ip) in the {{ vpc-name }} documentation.
-
 
 ### Outgoing traffic to TCP port 25 {#port-25}
 

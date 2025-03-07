@@ -21,7 +21,7 @@ _Агент {{ oslogin }}_ разработан на основе [Guest Agent f
 
 ### Настройки режимов работы {{ oslogin }} на уровне организации {{ org-name }} {#modes}
 
-{{ oslogin }} позволяет использовать следующие _режимы работы_ как по отдельности, так и любое сочетание:
+{{ oslogin }} позволяет использовать следующие _режимы работы_ как по отдельности, так и оба одновременно:
 
 * **Режим 1**: {{ ui-key.yacloud_org.form.oslogin-settings.title_ssh-certificate-settings }}.
     Режим позволяет подключаться к ВМ по SSH-сертификату [через {{ yandex-cloud }} CLI](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) и [через стандартный SSH-клиент](../../compute/operations/vm-connect/os-login.md#connect-with-ssh-client).

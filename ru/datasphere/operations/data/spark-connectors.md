@@ -20,7 +20,7 @@
    * **{{ ui-key.yc-ui-datasphere.spark-connector.select-cluster.title }}** — выберите существующий кластер {{ dataproc-name }} или нажмите **{{ ui-key.yc-ui-datasphere.spark-connector.create-cluster-in-dataproc }}**, чтобы перейти в {{ dataproc-name }} и создать новый. Постоянный кластер {{ dataproc-name }} должен иметь настройку `livy:livy.spark.deploy-mode : client`.
    * **{{ ui-key.yc-ui-datasphere.spark-connector.create-temporary-cluster.title }}** — выберите, чтобы создать временный кластер {{ dataproc-name }}. Временный кластер будет создан при первом запуске вычислений в ноутбуке проекта.
 
-1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}** укажите идентификатор [статического ключа доступа](../../../iam/operations/sa/create-access-key.md) и [секрет](../../concepts/secrets.md), в котором хранится секретная часть статического ключа для [коннектора S3](../../concepts/s3-connector.md).
+1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}** укажите идентификатор [статического ключа доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) и [секрет](../../concepts/secrets.md), в котором хранится секретная часть статического ключа для [коннектора S3](../../concepts/s3-connector.md).
 
    **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}** позволяет указать данные для подключения к бакету S3. Это рекомендуется при работе с бакетами {{ objstorage-name }} в любых кластерах, и крайне желательно для кластеров {{ dataproc-name }} без включенной опции HDFS.
 

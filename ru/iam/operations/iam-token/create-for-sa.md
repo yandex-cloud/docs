@@ -42,7 +42,7 @@ yc iam create-token
 ### Перед началом работы {#before-you-begin}
 
 1. [Узнайте идентификатор сервисного аккаунта](../sa/get-id.md).
-1. [Создайте авторизованные ключи](../authorized-key/create.md), которые необходимы при создании JWT. Сохраните идентификатор открытого ключа.
+1. [Создайте авторизованные ключи](../authentication/manage-authorized-keys.md#create-authorized-key), которые необходимы при создании JWT. Сохраните идентификатор открытого ключа.
 
 ### 1. Создать JWT {#jwt-create}
 
@@ -74,7 +74,7 @@ yc iam create-token
   Header JWT для сервисного аккаунта должен содержать поля:
   * `typ` — тип токена, значение всегда `JWT`.
   * `alg` — алгоритм шифрования. Поддерживается только алгоритм [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
-  * `kid` — идентификатор открытого ключа, полученный при [создании авторизованных ключей](../authorized-key/create.md). Ключ должен принадлежать сервисному аккаунту, для которого запрашивается IAM-токен.
+  * `kid` — идентификатор открытого ключа, полученный при [создании авторизованных ключей](../authentication/manage-authorized-keys.md#create-authorized-key). Ключ должен принадлежать сервисному аккаунту, для которого запрашивается IAM-токен.
 
   Пример:
 
@@ -111,7 +111,7 @@ yc iam create-token
 
   **1.3. Формирование signature**
 
-  Создайте подпись с помощью закрытого ключа, полученного при [создании авторизованных ключей](../authorized-key/create.md). Для подписи используйте строку из header и payload, разделенных точкой (`.`):
+  Создайте подпись с помощью закрытого ключа, полученного при [создании авторизованных ключей](../authentication/manage-authorized-keys.md#create-authorized-key). Для подписи используйте строку из header и payload, разделенных точкой (`.`):
 
   ```
   header.payload
@@ -124,6 +124,8 @@ yc iam create-token
   Если вы генерируете токен с помощью [jwt.io](https://jwt.io), обратите внимание, что в значении ключа вместо `\n` должны быть подставлены переносы строки.
 
 - Python {#python}
+
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Пример создания JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/):
   - Проверено для версии Python 3.12.2 и PyJWT версии 2.8.0.
@@ -171,10 +173,11 @@ yc iam create-token
      
   # Вывод в консоль
   print(encoded_token)
-
   ```
 
 - Java {#java}
+
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Пример создания JWT с использованием библиотек [JJWT](https://github.com/jwtk/jjwt), [Bouncy Castle](https://github.com/bcgit/bc-java) и [Jackson Databind](https://github.com/FasterXML/jackson-databind):
   - Проверено для Java 21 и JJWT 0.12.5.
@@ -242,6 +245,8 @@ yc iam create-token
 
 - C# {#csharp}
 
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
+
   Пример создания JWT с использованием [jose-jwt](https://www.nuget.org/packages/jose-jwt/):
   - Проверено для версии пакета jose-jwt 5.0.0.
 
@@ -296,7 +301,6 @@ yc iam create-token
             }
         }
     }
-
     ```
 
   **.NET 5.0+**:
@@ -344,6 +348,8 @@ yc iam create-token
     ```
 
 - Go {#go}
+
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Пример создания JWT с использованием [golang-jwt](https://github.com/golang-jwt/jwt):
   - Проверено для версии Go1.22.1 и golang-jwt версии v5.
@@ -433,6 +439,8 @@ yc iam create-token
 
 - Node.js {#node}
 
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
+
   Пример создания JWT с использованием [node-jose](https://github.com/cisco/node-jose):
   - Проверено для Node.js v20.12.1 и node-jose 2.2.0.
   - Необходимые данные читаются из JSON-файла, полученного при создании авторизованного ключа.
@@ -468,6 +476,8 @@ yc iam create-token
   ```
 
 - PHP {#php}
+
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Пример создания JWT с использованием [PHP JWT Framework](https://github.com/web-token/jwt-framework):
   - Проверено для PHP v8.3.4 и web-token/jwt-framework v3.3.5.
@@ -534,6 +544,8 @@ yc iam create-token
 
 - C++ {#cpp}
 
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
+
   Пример создания JWT с использованием [jwt-cpp](https://github.com/Thalhammer/jwt-cpp):
   - Проверено для C++ 14 и jwt-cpp 0.7.0.
   - Необходимые данные читаются из JSON-файла, полученного при создании авторизованного ключа.
@@ -580,6 +592,8 @@ yc iam create-token
 
 - Ruby {#ruby}
 
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
+
   Пример создания JWT с использованием [ruby-jwt](https://github.com/jwt/ruby-jwt):
   - Проверено для версии Ruby 3.2.3 и jwt версии jwt 2.8.1.
   - Необходимые данные читаются из JSON-файла, полученного при создании авторизованного ключа.
@@ -589,7 +603,6 @@ yc iam create-token
   ```
   gem install jwt
   ```
-
 
   ```ruby
   
@@ -636,11 +649,9 @@ yc iam create-token
   rescue => e
     puts "An error occurred: #{e.message}"
   end
-  
   ```
 
 {% endlist %}
-
 
 
 ### 2. Обменять JWT на IAM-токен {#get-iam-token}

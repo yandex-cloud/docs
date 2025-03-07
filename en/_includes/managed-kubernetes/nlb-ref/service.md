@@ -83,22 +83,22 @@ You can provide the following annotations for a `ObjectMeta` object:
 
   Number of consecutive successful [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node available.
 
-  The minimum value is `2`, and the maximum value is `10`.
+  The minimum value is `2`; the maximum value is `10`.
 * **yandex.cloud/load-balancer-healthcheck-interval**
 
   [Health check](../../../network-load-balancer/concepts/health-check.md) interval in seconds.
 
-  The minimum value is `2s`, and the maximum value is `300s`.
+  The minimum value is `2s`; the maximum value is `300s`.
 * **yandex.cloud/load-balancer-healthcheck-timeout**
 
   Timeout for [health checks](../../../network-load-balancer/concepts/health-check.md) in seconds. A node is considered unavailable if it has not responded within the specified time.
 
-  The minimum value is `1s`, and the maximum value is `60s`.
+  The minimum value is `1s`; the maximum value is `60s`.
 * **yandex.cloud/load-balancer-healthcheck-unhealthy-threshold**
 
   Number of consecutive failed [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node unavailable.
 
-  The minimum value is `2`, and the maximum value is `10`.
+  The minimum value is `2`; the maximum value is `10`.
 
 ## ServiceSpec {#servicespec}
 
@@ -127,10 +127,18 @@ The {{ k8s }} services used as network load balancers must be of the `LoadBalanc
 [List of ports the service is available on](#ports).
 ||
 
-|| `loadBalancerIP` | `string` | When using an [external load balancer](../../../network-load-balancer/concepts/nlb-types.md), you may specify a static [public IP address](../../../vpc/concepts/address.md#public-addresses) in this field. You need to [reserve such an address in advance](../../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md).
+|| `loadBalancerIP` | `string` | When using an [external load balancer](../../../network-load-balancer/concepts/nlb-types.md), you may specify a static [public IP address](../../../vpc/concepts/address.md#public-addresses) in this field. You need to [reserve such an address in advance](../../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md). If you do not specify a static public IP address, the network load balancer will get a dynamic public IP address.
 
+When using an [internal load balancer](../../../network-load-balancer/concepts/nlb-types.md), you may specify an [internal IP address](../../../vpc/concepts/address.md#internal-addresses). Make sure the specified internal IP address is not assigned to some other resource in the same cloud network.
 
-If you do not specify a static IP address, the network load balancer will get a dynamic IP address. ||
+{% note warning %}
+
+If you delete the internal IP address from the specification in the future, it may be automatically assigned to another resource in the same cloud network. We recommend selecting the address closer to the end of the the selected subnet's IP address range.
+
+{% endnote %}
+
+||
+
 || `externalTrafficPolicy` | `string` | [Traffic management policy]({{ k8s-api-link }}#servicespec-v1-core):
 
 * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. If the required pods are not on the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node. Default value.

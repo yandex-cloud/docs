@@ -6,7 +6,7 @@ In this article, you will learn how to set up transfers of external metrics to {
 
 To set up the transfer of metrics:
 
-1. [Set up a work environment](#create-files).
+1. [Set up the runtime environment](#create-files).
 1. [Install {{ MP }} and the runtime environment](#install).
 1. [Test {{ MP }}](#validate).
 
@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Set up a working environment {#create-files}
+## Set up the runtime environment {#create-files}
 
 To test {{ MP }}, the following will be created: the `nginx` test app and [{{ k8s-hpa }}](../../concepts/autoscale.md#hpa), to which CPU utilization metrics will be provided by {{ MP }}. 
 1. Create the `app.yaml` file with the `nginx` app manifest:

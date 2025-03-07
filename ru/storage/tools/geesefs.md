@@ -153,7 +153,7 @@
 ## Аутентификация {#authentication}
 
 
-Для аутентификации в {{ objstorage-name }} GeeseFS использует [статический ключ доступа](../../iam/concepts/authorization/access-key.md) к {{ objstorage-name }}. Он задается несколькими способами:
+GeeseFS использует статический ключ доступа к {{ objstorage-name }}, [полученный ранее](#before-you-begin). Он задается несколькими способами:
 
 {% list tabs group=operating_system %}
 

@@ -4,9 +4,7 @@
 
 Here is an example of connectivity setup:
 
-
 ![interconnect](../../_assets/interconnect/interconnect.svg)
-
 
 In this example, the client has the following resources:
 
@@ -17,7 +15,7 @@ The goal is to ensure the IP network connectivity between resources in the clien
 
 To solve this task, you will need to do the following:
 
-* Set up a [trunk](./trunk.md).
+* Establishing a [trunk](./trunk.md).
 * Create a [private connection](./priv-con.md) within this [trunk](./trunk.md).
 * Configure a [point-to-point subnet](./priv-con.md#priv-address) and [BGP connectivity](./priv-con.md#bgp-peering) in the [private connection](./priv-con.md). {{ interconnect-name }} will not work without BGP connectivity.
 * [Announce cloud subnet prefixes](./priv-con.md#prc-announce) on the {{ yandex-cloud }} virtual network side using BGP.

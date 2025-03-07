@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы c {{ dns-name }}.
 1. [Назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `dns.editor`.
-1. [Создайте авторизованный ключ](../../../iam/operations/authorized-key/create.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `key.json`:
+1. [Создайте авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `key.json`:
 
    ```bash
    yc iam key create \

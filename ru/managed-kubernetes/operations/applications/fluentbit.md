@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы Fluent Bit.
 1. [Назначьте сервисному аккаунту роли](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` и `monitoring.editor`.
-1. [Создайте авторизованный ключ](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта и сохраните его в файл `sa-key.json`.
+1. [Создайте авторизованный ключ](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта и сохраните его в файл `sa-key.json`.
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 

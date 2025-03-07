@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
 1. [Загрузите изображения в бакет](../../../storage/operations/objects/upload.md#simple).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы Thumbor.
-1. Создайте для него [статический ключ](../../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:
+1. Создайте для него [статический ключ](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) и сохраните в файл `sa-key.json`:
 
    ```bash
    yc iam access-key create \

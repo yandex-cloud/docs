@@ -24,3 +24,14 @@ Specific load metrics highly depend on the test configuration. For example, you 
 
 If the **large** agent type is not powerful enough to meet your needs, contact [support](../../support/overview.md).
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/loadtesting-grpc.md)
+* [{#T}](../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)
+* [{#T}](../tutorials/loadtesting-jmeter.md)
+* [{#T}](../tutorials/loadtesting-multiply.md)
+* [{#T}](../tutorials/loadtesting-external-agent.md)
+* [{#T}](../tutorials/loadtesting-results-compare.md)

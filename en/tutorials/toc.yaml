@@ -144,13 +144,13 @@ items:
           Backup to {{ objstorage-name }} using MSP360 Backup (CloudBerry
           Desktop Backup)
         href: archive/object-storage-cloudberry.md
-      - name: Backup to {{ objstorage-name }} via Duplicati
+      - name: '{{ objstorage-name }} backup with Duplicati'
         href: archive/object-storage-duplicati.md
       - name: '{{ objstorage-name }} backup with Bacula'
         href: archive/backup-with-bacula.md
-      - name: '{{ objstorage-full-name }} backup with Veeam Backup'
+      - name: '{{ objstorage-name }} backup with Veeam Backup'
         href: archive/backup-with-veeam.md
-      - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
+      - name: '{{ objstorage-name }} backup with Veritas Backup Exec'
         href: archive/object-storage-veritas.md
       - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
         href: archive/kubernetes-backup.md
@@ -212,7 +212,7 @@ items:
     items:
       - name: All tutorials
         href: infrastructure/index.md
-      - name: Architecture and protection of a basic internet service
+      - name: Basic internet service architecture and protection
         href: routing/web-service.md
       - name: Fault tolerance and scaling
         items:
@@ -248,7 +248,7 @@ items:
                 href: infrastructure-management/vm-autoscale/console.md
               - name: '{{ TF }}'
                 href: infrastructure-management/vm-autoscale/terraform.md
-          - name: Scheduled scaling of instance groups
+          - name: Scheduled instance group scaling
             items:
               - name: Overview
                 href: infrastructure-management/vm-scale-scheduled/index.md
@@ -316,9 +316,9 @@ items:
                 href: routing/nat-instance/console.md
               - name: '{{ TF }}'
                 href: routing/nat-instance/terraform.md
-          - name: Installing a Cisco CSR 1000v virtual router
+          - name: Installing the Cisco CSR 1000v virtual router
             href: routing/cisco.md
-          - name: Installing a Mikrotik CHR virtual router
+          - name: Installing the Mikrotik CHR virtual router
             href: routing/mikrotik.md
       - name: VPNs
         items:
@@ -332,7 +332,7 @@ items:
                 href: routing/ipsec/sgw.md
           - name: Connecting to a cloud network using OpenVPN
             href: routing/openvpn.md
-          - name: Creating and configuring a UserGate gateway in proxy server mode
+          - name: Setting up a UserGate proxy server
             href: routing/usergate-proxy.md
       - name: '{{ dns-name }}'
         items:
@@ -390,10 +390,10 @@ items:
           Scanning vulnerabilities during continuous deployment of {{
           managed-k8s-name }} applications using {{ GL }}
         href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
-      - name: Creating a VM with {{ coi }} support
+      - name: Creating a VM from a {{ coi }}
         href: container-infrastructure/vm-create.md
       - name: >-
-          Creating a VM from a {{ coi }} with additional volume for a Docker
+          Creating a VM from a {{ coi }} with an additional volume for a Docker
           container
         href: container-infrastructure/vm-create-with-second-disk.md
       - name: >-
@@ -404,7 +404,7 @@ items:
         href: container-infrastructure/ig-create.md
       - name: Creating a VM from a {{ coi }} with multiple Docker containers
         href: container-infrastructure/docker-compose.md
-      - name: Updating a VM with a {{ coi }}
+      - name: Updating a {{ coi }} VM
         href: container-infrastructure/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: container-infrastructure/serial-port.md
@@ -530,7 +530,7 @@ items:
         items:
           - name: Creating skills for Alice
             href: serverless/alice-skill.md
-          - name: Developing a skill for Alice and a website with authorization
+          - name: Creating a skill for Alice and a website with authorization
             href: serverless/alice-shareable-todolist.md
       - name: Other
         items:
@@ -542,7 +542,7 @@ items:
             href: infrastructure/minecraft-server.md
           - name: Deploying a multiplayer server for GTA V in {{ yandex-cloud }}
             href: infrastructure/gta-v-server.md
-          - name: Converting a video to a GIF in Python
+          - name: Converting a video to GIF with Python
             href: serverless/video-converting-queue.md
   - name: Building a data platform
     items:
@@ -630,7 +630,7 @@ items:
             href: dataplatform/confluent-schema-registry.md
       - name: Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
         href: dataplatform/lockbox-and-airflow.md
-      - name: Automating {{ yq-full-name }} tasks using {{ maf-full-name }}
+      - name: Automating {{ yq-full-name }} tasks with {{ maf-full-name }}
         href: dataplatform/airflow-auto-tasks.md
       - name: >-
           Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud
@@ -930,15 +930,15 @@ items:
     items:
       - name: All tutorials
         href: routing/index.md
-      - name: Setting up networking between resources in different folders
+      - name: Connecting resources from different folders
         href: routing/multi-folder-vpc.md
       - name: Creating a bastion host
         href: routing/bastion.md
-      - name: Creating a tunnel between two subnets using OpenVPN Access Server
+      - name: Creating a tunnel between two subnets with OpenVPN Access Server
         href: routing/site-to-site-openvpn.md
       - name: Secure user access to cloud resources based on WireGuard VPN
         href: routing/remote-wireguard-vpn.md
-      - name: Creating and configuring a UserGate gateway in firewall mode
+      - name: Setting up a UserGate firewall
         href: routing/usergate-firewall.md
       - name: Implementing fault-tolerant scenarios for network VMs
         href: routing/route-switcher.md
@@ -977,6 +977,8 @@ items:
         href: routing/priv-add.md
       - name: Adding a public connection to a direct or partner trunk
         href: routing/pub-add.md
+      - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
+        href: routing/bms-vrf-routing.md
   - name: Data visualization and analytics
     items:
       - name: All tutorials
@@ -1047,7 +1049,7 @@ items:
         href: serverless/slack-bot-serverless.md
       - name: Developing a Telegram bot
         href: serverless/telegram-bot-serverless.md
-      - name: Developing a custom integration in {{ api-gw-name }}
+      - name: Building a custom integration in {{ api-gw-name }}
         href: serverless/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: serverless/movies-database.md

@@ -27,7 +27,7 @@ You can use the dataset interface or the wizard to change the field data type.
 
 A _geopoint_ is a coordinate point defined by latitude and longitude. In {{ datalens-short-name }}, you can set it using the [GEOPOINT](../function-ref/GEOPOINT.md) function.
 
-At input, the function accepts the `String`, `Geopoint` data types, or two values of the `Fractional number` or `String` type.
+At input, the function accepts the `String` and `Geopoint` data types, or two values of the `Fractional number` or `String` type.
 If a single string is input, it must contain a list of two numbers in JSON format.
 
 If the source data comes as a string in `[55.75222,37.61556]` format, you can use the dataset interface or wizard to change the field data type without using any formula.
@@ -55,7 +55,7 @@ GEOPOINT(55.7912, 37.6872)
 ## Geopolygon {#geopolygon}
 
 These are multiple coordinate points defining the polygon on the map. In {{ datalens-short-name }}, you create a geopolygon using the [GEOPOLYGON](../function-ref/GEOPOLYGON.md) function.
-To fill in the polygon, {{ datalens-name }} uses the [Even-Odd](https://en.wikipedia.org/wiki/Even–odd_rule) algorithm. This way you can create polygons with holes.
+{{ datalens-name }} fills the polygon using the [Even-Odd](https://en.wikipedia.org/wiki/Even–odd_rule) algorithm. This allows creating polygons with cutouts.
 
 At input, the function accepts a string in `[[[v1,v1], [v2,v2]], ..., [[vN-1,vN-1], [vN,vN]]]` format. If the source data is in this format, you can use the dataset interface or wizard to change the field data type without any formula.
 
@@ -68,19 +68,19 @@ At input, the function accepts a string in `[[[v1,v1], [v2,v2]], ..., [[vN-1,vN-
 #### Example notation {#geopolygon-example}
 
 ```sql
-/* Polygon without a hole */
+/* Polygon without a cutout */
 GEOPOLYGON("[[[55.79421,37.65046],[55.79594,37.6513],[55.79642,37.65133],[55.7969, 37.65114],[55.79783, 37.65098],[55.78871,37.75101]]]")
 
-/* Polygons with a hole */
+/* Polygons with a cutout */
 GEOPOLYGON("[[[55.75,37.52],[55.75,37.68],[55.65,37.60]],[[55.79,37.60],[55.76,37.57],[55.76,37.63]]]")
 GEOPOLYGON("[[[55.75,37.50],[55.80,37.60],[55.75,37.70],[55.70,37.70],[55.70,37.50]],[[55.75,37.52],[55.75,37.68],[55.65,37.60]],[[55.79,37.60],[55.76,37.57],[55.76,37.63]]]")
 ```
 
 ## Date {#date}
 
-This means a date without specified time.
+Date without time.
 
-In formulas, use `#` (hash) for date. For example, `DATETRUNC(#2018-07-12#, "year", 5)`.
+In formulas, use `#` (hash) for date, e.g., `DATETRUNC(#2018-07-12#, "year", 5)`.
 
 You can convert the source data type to `Date` using the [DATE](../function-ref/DATE.md) and [DATE_PARSE](../function-ref/DATE_PARSE.md) functions.
 
@@ -98,7 +98,7 @@ DATEADD(#2018-01-12#, "day", 6)
 
 Date with time specified (time converted to [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)).
 
-In formulas, use `#` (hash) for date and time. For example, `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
+In formulas, use `#` (hash) for date and time, e.g., `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
 
 You can convert the source data type to `Date and time (deprecated)` using the [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions.
 
@@ -132,7 +132,7 @@ Field selectors with this type are always in line with the time zone of the data
 
 {% endnote %}
 
-In formulas, use `##` (double hash) for date and time. For example, `DATEADD(##2018-01-12 01:02:03##, "second", 6)`.
+In formulas, use `##` (double hash) for date and time, e.g., `DATEADD(##2018-01-12 01:02:03##, "second", 6)`.
 
 You can convert the source data type to `Date and time` using the [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions.
 
@@ -207,6 +207,8 @@ This is a number without any fractional part.
 
 You can convert the source data type to `Integer` by using the [INT](../function-ref/INT.md) function.
 
+In {{ datalens-short-name }}, the maximum size of the `Integer` type is limited by the maximum integer for the [Number JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#integer_range_for_number) type: 2^53^ == 9,007,199,254,740,991.
+
 #### Example notation {#integer-example}
 
 ```sql
@@ -248,7 +250,7 @@ A tree can only be used in a **Table** chart.
 
 To create a tree, [add a calculated field](../dataset/create-dataset.md#create-fields) at the dataset or chart level using the `TREE(ARRAY([lev_1],[lev_2],[lev_3],[lev_n]))` formula, where `[lev_1]`, `[lev_2]`, `[lev_3]`, and `[lev_n]` are dataset fields defining the tree hierarchy.
 
-{% cut "Example of creating a tree for a source DB that does not contain an array of data" %}
+{% cut "Example of creating a tree for a source DB containing no data array" %}
 
 1. Prepare data in the source:
 
@@ -284,14 +286,14 @@ To create a tree, [add a calculated field](../dataset/create-dataset.md#create-f
 
       {% endcut %}
 
-1. In a dataset, create:
+1. Create the following in the dataset:
 
-   * **Array of strings** calculated field that describes the tree, e.g., the `position` field with the `ARRAY([country], [region], [city])` formula.
-   * **Tree of strings** calculated field, e.g., the `hierarchy` field with the `TREE([position])` formula, where `position` is an **Array of strings** type field describing the tree.
+   * **Array of strings** type calculated field describing the tree, e.g., the `position` field with the `ARRAY([country], [region], [city])` formula.
+   * **Tree of strings** type calculated field, e.g., the `hierarchy` field with the `TREE([position])` formula, where `position` is an **Array of strings** type field describing the tree.
 
      {% note tip %}
 
-     You can combine creating an array and a tree of strings in the same field with the `TREE(ARRAY([country], [region], [city]))` formula.
+     You can combine array and tree of strings in the same field with the `TREE(ARRAY([country], [region], [city]))` formula.
 
      {% endnote %}
 

@@ -11,7 +11,7 @@ To enable another user to connect to your VM, add an SSH key for them by followi
 
 {% note info %}
 
-When creating a VM accessible via [{{ oslogin }}](./os-login.md), specify SSH keys in the [metadata](../../concepts/vm-metadata.md#how-to-send-metadata). This way, you will be able to [connect to the VM via SSH](#vm-connect) even if you disable {{ oslogin }} access for it.
+When creating a VM accessible via [{{ oslogin }}](./os-login.md), specify SSH keys in the [metadata](../../concepts/metadata/sending-metadata.md). This way, you will be able to [connect to the VM via SSH](#vm-connect) even if you disable {{ oslogin }} access for it.
 
 {% endnote %}
 
@@ -144,7 +144,7 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
 
 - Windows 10/11 {#windows}
 
-  Make sure the Windows account has read permissions for the folder containing the keys.
+  Make sure the Windows account has read permissions for the directory containing the keys.
 
   To connect to the VM, run the following command in the command line:
 
@@ -220,7 +220,7 @@ For more information on how to solve connection issues, see [FAQ](../../qa/conne
 
 You can add SSH keys for another VM user. To do this, create a new user and add a file with the authorized keys for this user.
 
-To create multiple users with keys at the same time, use [metadata](../../concepts/vm-metadata.md#how-to-send-metadata).
+To create multiple users with keys at the same time, use [metadata](../../concepts/metadata/sending-metadata.md).
 
 To configure users from within the VM, follow these steps:
 

@@ -2,7 +2,7 @@
 
 If there is free capacity in the pools of interest, you can lease servers of the following configurations:
 
-| Configuration   | CPU                                  | vCPU | RAM, GB | HDD,<br/>number&nbsp;×&nbsp;GB | SSD,<br/>number&nbsp;×&nbsp;GB | Network, Gbps |
+| Configuration   | CPU                                  | Cores | RAM, GB | HDD,<br/>number&nbsp;×&nbsp;GB | SSD,<br/>number&nbsp;×&nbsp;GB | Network, Gbps |
 |----------------|--------------------------------------|------|---------|-------------------------|-------------------------|--------------|
 | BA-i100-H      | Intel® Xeon®<br/>E5-2660 (2.2 GHz)   | 32   | 128     | 2&nbsp;×&nbsp;1862      |                         | 1            |
 | BA-i101-H      | Intel® Xeon®<br/>E5-2660 (2.2 GHz)   | 32   | 128     | 4&nbsp;×&nbsp;1862      |                         | 1            |

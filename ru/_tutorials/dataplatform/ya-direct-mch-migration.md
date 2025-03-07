@@ -75,7 +75,7 @@
     - Вручную {#manual}
 
         1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `storage-lockbox-sa` и назначьте ему роли `storage.uploader` и `lockbox.payloadViewer`.
-        1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `storage-lockbox-sa`.
+        1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-lockbox-sa`.
         1. [Создайте секрет в {{ lockbox-full-name }}](../../lockbox/operations/secret-create.md) с тремя парами `ключ:значение`:
 
             * `access_key:<открытый_ключ>`;

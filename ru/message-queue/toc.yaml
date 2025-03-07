@@ -41,6 +41,8 @@ items:
         href: operations/message-queue-receive-and-delete-message.md
       - name: Удаление очереди сообщений
         href: operations/message-queue-delete-queue.md
+      - name: Управление метками очереди
+        href: operations/message-queue-tags.md
       - name: Мониторинг процессов в очереди
         href: operations/monitoring.md
   - name: Концепции
@@ -63,6 +65,8 @@ items:
         href: concepts/delay-queues.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Метки очередей
+        href: concepts/tags.md
       - name: Сравнение с {{ yds-full-name }}
         href: concepts/yds-ymq-comparison.md
   - name: Практические руководства
@@ -115,6 +119,12 @@ items:
             href: api-ref/queue/PurgeQueue.md
           - name: SetQueueAttributes
             href: api-ref/queue/SetQueueAttributes.md
+          - name: TagQueue
+            href: api-ref/queue/TagQueue.md
+          - name: UntagQueue
+            href: api-ref/queue/UntagQueue.md
+          - name: ListQueueTags
+            href: api-ref/queue/ListQueueTags.md
       - name: Message
         items:
           - name: ChangeMessageVisibility

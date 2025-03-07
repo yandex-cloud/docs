@@ -25,6 +25,8 @@ description: Из статьи вы узнаете, какие бывают ош
 
 Полученный `SAMLResponse` не содержит утверждений `assertions`. Актуальный статус-код должен быть указан в сообщении об ошибке, например: `No assertions found in response. The status code is 'Responder'`.
 
+Проверьте, что ответ поставщика удостоверений содержит корректный SAML. Подробнее о [настройке SAML-приложения на стороне IdP-сервера](operations/setup-federation.md#configure-sso).
+
 ## Ошибка при обработке ответа {#invalid-response}
 
 Не удалось декодировать строку из `SAMLResponse`.

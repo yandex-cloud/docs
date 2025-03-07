@@ -61,7 +61,7 @@ _Сервисные агенты_ — это специальные систем
 {{ compute-full-name }} — [Шифрование дисков](../../compute/concepts/encryption.md) | `disk-encryption`
 [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | `datasphere`
 {{ metadata-hub-full-name }} — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) | `connection-manager`
-{{ sd-full-name }} — [Контроль данных (DSPM)](../../security-deck/concepts/dspm.md) | `dspm`
+{{ sd-full-name }} — [Контроль данных ({{ dspm-name }})](../../security-deck/concepts/dspm.md) | `dspm`
 [{{ websql-full-name }}](../../websql/index.yaml) | `websql`
 
 В будущем у администраторов облака появится возможность управлять доступами всех сервисов, требующих прав на действия с ресурсами в облаке {{ yandex-cloud }}. С помощью [CLI](../../cli/cli-ref/iam/cli-ref/service-control/list.md) вы можете [получить](../operations/service-control/list-get.md#list) актуальный список сервисов, доступом которых можно управлять.

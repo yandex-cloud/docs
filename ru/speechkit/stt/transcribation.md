@@ -31,7 +31,7 @@ description: Асинхронное распознавание позволяе�
    * `storage.uploader` — для загрузки аудиофайла в [бакет {{ objstorage-full-name }}](../../storage/concepts/bucket.md);
    * (Опционально) `storage.configurer`, `kms.keys.encrypter` и `kms.keys.decrypter` — для шифрования и расшифровки объектов в бакете. Эти роли нужны, только если вы используете [шифрование в {{ objstorage-name }}](../../storage/concepts/encryption.md).
 
-1. Получите [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../iam/operations/api-key/create.md) для вашего сервисного аккаунта, они понадобятся для аутентификации в API.
+1. Получите [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key) для вашего сервисного аккаунта, они понадобятся для аутентификации в API.
 1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 1. [Загрузите аудиофайл в бакет](../../storage/operations/objects/upload.md).
 1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на загруженный файл.

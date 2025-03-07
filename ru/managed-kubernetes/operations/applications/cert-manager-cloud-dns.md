@@ -32,7 +32,7 @@ description: Следуя данной инструкции, вы сможете
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт, необходимый для работы cert-manager.
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `dns.editor` на каталог, где расположена публичная зона DNS.
-1. [Создайте](../../../iam/operations/authorized-key/create.md) авторизованный ключ для этого сервисного аккаунта и сохраните ключ в файл `key.json`.
+1. [Создайте](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для этого сервисного аккаунта и сохраните ключ в файл `key.json`.
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 

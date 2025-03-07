@@ -27,6 +27,10 @@ items:
             href: operations/vm-create/create-with-cloud-init-scripts.md
           - name: Creating a VM with metadata from environment variables
             href: operations/vm-create/create-with-env-variables.md
+          - name: >-
+              Creating a VM instance with access to a {{ lockbox-full-name }}
+              secret
+            href: operations/vm-create/create-with-lockbox-secret.md
           - name: Creating a VM with a GPU
             href: operations/vm-create/create-vm-with-gpu.md
           - name: Making a VM preemptible
@@ -117,6 +121,24 @@ items:
             href: operations/vm-control/vm-access.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
+      - name: Working with VM instance metadata
+        items:
+          - name: Configuring metadata service parameters
+            href: operations/vm-metadata/setup-metadata-service.md
+          - name: Getting VM instance metadata
+            href: operations/vm-metadata/get-vm-metadata.md
+          - name: Getting a VM instance identity document
+            href: operations/vm-metadata/get-identity-document.md
+          - name: Changing VM instance metadata
+            href: operations/vm-metadata/update-vm-metadata.md
+          - name: Creating a VM with a custom configuration script
+            href: operations/vm-create/create-with-cloud-init-scripts.md
+          - name: Creating a VM with metadata from environment variables
+            href: operations/vm-create/create-with-env-variables.md
+          - name: >-
+              Creating a VM instance with access to a {{ lockbox-full-name }}
+              secret
+            href: operations/vm-create/create-with-lockbox-secret.md
       - name: Using a VM
         items:
           - name: Connecting to a VM via SSH
@@ -455,7 +477,7 @@ items:
         href: tutorials/minecraft-server.md
       - name: Automating image builds using Jenkins and Packer
         href: tutorials/jenkins.md
-      - name: Creating test VMs with {{ GL }} CI
+      - name: Creating test VMs via {{ GL }} CI
         href: tutorials/test-vms-creation-via-gitlab-ci.md
       - name: High-performance computing on preemptible VMs
         href: tutorials/hpc-on-preemptible.md
@@ -565,12 +587,24 @@ items:
             href: concepts/placement-groups.md
           - name: Statuses
             href: concepts/vm-statuses.md
-          - name: Metadata
-            href: concepts/vm-metadata.md
           - name: VM maintenance policies
             href: concepts/vm-policies.md
           - name: Resetting Windows VM passwords
             href: concepts/guest-agent.md
+      - name: VM instance metadata
+        items:
+          - name: Overview
+            href: concepts/vm-metadata.md
+          - name: Metadata folders
+            href: concepts/metadata/directories.md
+          - name: Keys processed in public images
+            href: concepts/metadata/public-image-keys.md
+          - name: Transferring data to a VM instance
+            href: concepts/metadata/sending-metadata.md
+          - name: Accessing metadata
+            href: concepts/metadata/accessing-metadata.md
+          - name: Identity document
+            href: concepts/metadata/identity-document.md
       - name: Graphics processing units (GPUs)
         href: concepts/gpus.md
       - name: Disks and file storages

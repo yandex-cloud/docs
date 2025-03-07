@@ -41,33 +41,16 @@ description: Пошаговые инструкции по управлению �
 - [{#T}](roles/get-assigned-roles.md)
 - [{#T}](roles/revoke.md)
 
-## IAM-токены {#iam-tokens}
+## Аутентификация {#authentication}
 
 - [{#T}](iam-token/create.md)
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
 - [Перевыпуск IAM-токена](compromised-credentials.md#iam-reissue)
-
-
-
-## Статические ключи доступа {#static-keys}
-
-- [{#T}](sa/create-access-key.md)
-- [{#T}](sa/delete-access-key.md)
-
-## Временные ключи доступа {#temporary-keys}
-
+- [{#T}](authentication/manage-access-keys.md)
+- [{#T}](authentication/manage-api-keys.md)
+- [{#T}](authentication/manage-authorized-keys.md)
 - [{#T}](sa/create-sts-key.md)
-
-## API-ключи {#api-keys}
-
-- [{#T}](api-key/create.md)
-- [{#T}](api-key/delete.md)
-
-## Авторизованные ключи {#authorized-keys}
-
-- [{#T}](authorized-key/create.md)
-- [{#T}](authorized-key/delete.md)
 
 ## Доступ сервисов {#service-control}
 

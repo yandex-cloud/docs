@@ -16,16 +16,22 @@ To publish an app, use a `LoadBalancer` type service. The following options are 
   * From the company's internal subnets connected to {{ yandex-cloud }} via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Via VPN.
 
-When using an external load balancer, [you can specify](#advanced) a static [public IP address](../../vpc/concepts/address.md#public-addresses) in the `loadBalancerIP` field. You need to [reserve such an address in advance](../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../vpc/ddos-protection/index.md).
-
-
-If you do not specify a static IP address, the network load balancer will get a dynamic IP address.
+When using an external load balancer, [you may specify](#advanced) a static [public IP address](../../vpc/concepts/address.md#public-addresses) in the `loadBalancerIP` field. You need to [reserve such an address in advance](../../vpc/operations/get-static-ip.md). When reserving a public IP address, you can enable [DDoS protection](../../vpc/ddos-protection/index.md). If you do not specify a static public IP address, the network load balancer will get a dynamic public IP address.
 
 {% note info %}
 
-Unlike an IP address of a pod or node, which may change if node group resources are updated, the static IP address of a `LoadBalancer` type service does not change.
+Unlike an IP address of a pod or node, which may change if node group resources are updated, the static public IP address of a `LoadBalancer` type service does not change.
 
 {% endnote %}
+
+When using an internal load balancer, you may specify an [internal IP address](../../vpc/concepts/address.md#internal-addresses). Make sure the specified internal IP address is not assigned to some other resource in the same cloud network.
+
+{% note warning %}
+
+If you delete the internal IP address from the specification in the future, it may be automatically assigned to another resource in the same cloud network. We recommend selecting the address closer to the end of the the selected subnet's IP address range.
+
+{% endnote %}
+
 
 Prepare and run in a {{ k8s }} cluster the application you need to grant access to with the help of a `LoadBalancer` type service. As an example, use an application that responds to HTTP requests on port 8080.
 
@@ -72,7 +78,7 @@ Prepare the required infrastructure:
   1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
   1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-  1. Download the [k8s-load-balancer.tf](https://github.com/yandex-cloud-examples/yc-mk8s-load-balancer/blob/main/k8s-load-balancer.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. The file describes:
+  1. Download the [k8s-load-balancer.tf](https://github.com/yandex-cloud-examples/yc-mk8s-load-balancer/blob/main/k8s-load-balancer.tf) {{ managed-k8s-name }} cluster configuration file to the same working directory. This file describes:
      * [Network](../../vpc/concepts/network.md#network).
      * [Subnet](../../vpc/concepts/network.md#subnet).
      * {{ managed-k8s-name }} cluster.
@@ -253,7 +259,7 @@ When you create a `LoadBalancer` type service, the {{ yandex-cloud }} controller
 
      1. In the [management console]({{ link-console-main }}), select your default folder.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
-     1. The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** tab shows the network load balancer with the `k8s` prefix in its name and the unique ID of your {{ k8s }} cluster in its description.
+     1. The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** tab shows the network load balancer with the `k8s` prefix in the name and the unique ID of your {{ k8s }} cluster in the description.
 
    - CLI {#cli}
 

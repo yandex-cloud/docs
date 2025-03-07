@@ -318,3 +318,11 @@ Some {{ yandex-cloud }} services use {{ dns-name }} resource records and allow y
 * {{ objstorage-full-name }}: [ANAME record](#aname) required to [bind](../../storage/operations/hosting/own-domain) the domain to the bucket and marked with the ![logo](../../_assets/storage/storage-logo.svg) sign.
 
 You cannot modify service records and you can only delete one at a time. After you delete the resource for which the service resource record was created, you have to [delete](../operations/resource-record-delete.md) this resource record manually.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/connect-migration.md#yaconnect-records-move)
+* [{#T}](../tutorials/bind-domain-vm/console.md#create-record)
+* [{#T}](../tutorials/prefetch.md)
+* [{#T}](../tutorials/tls-termination/console.md#configure-dns)
