@@ -17,7 +17,7 @@
 
 В качестве примера вы можете использовать инструкцию по ручному добавлению в федерацию сертификата из Active Directory Federation Services. Этот процесс описан на странице [**Аутентификация с помощью Active Directory**](../../../organization/tutorials/federations/integration-adfs.md#add-certificate).
 
-Также вы можете автоматизировать процесс обновления сертификата с помощью [метода `create`](../../../iam/operations/authorized-key/create.md) для ресурса `Certificate` либо [средствами YC CLI](../../../cli/quickstart.md#install). 
+Также вы можете автоматизировать процесс обновления сертификата с помощью [метода `create`](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для ресурса `Certificate` либо [средствами YC CLI](../../../cli/quickstart.md#install). 
 
 Для обновления сертификата на стороне федерации средствами YC CLI выполните команду:
 ```

@@ -4,13 +4,12 @@ description:
     This service allows you to run load testing and analyze the performance of
     your services and applications.
   - |-
-    This service allows you to: <ul>
-      <li>Create a pre-configured <a
-    href="/docs/load-testing/concepts/agent">load generator</a> in your cloud.
-      <li>Set up tests in the interface and generate the load from the generator created.</li>
+    Use this service to: <ul>
+      <li>Create a pre-configured <a href="/docs/load-testing/concepts/agent">load generator in your cloud</a>.
+      <li>Set up a test in the interface and generate the load from the new generator.</li>
       <li>View test reports.</li>
-      <li>Store and manage data about previously conducted tests.</li>
-    </ul> The service can be managed from the console.
+      <li>Store and manage data on earlier tests.</li>
+    </ul> You can manage the service using the management console.
 meta:
   title: Yandex Load Testing
   description: >-
@@ -18,16 +17,16 @@ meta:
     your services and applications.
 links:
   - title: Getting started
-    description: How to run load tests with Yandex Load Testing
+    description: How to use Yandex Load Testing
     href: quickstart
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Service operation and basic concepts
     href: concepts/
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Quotas and limits
     description: Technical and organizational limitations

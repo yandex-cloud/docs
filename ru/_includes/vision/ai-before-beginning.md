@@ -45,7 +45,7 @@
 
       {% include [api-keys-disclaimer](../iam/api-keys-disclaimer.md) %}
 
-      1. [Получите API-ключ](../../iam/operations/api-key/create.md).
+      1. [Получите API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
       1. Полученный API-ключ передавайте в заголовке `Authorization` в следующем формате:
 
           ```

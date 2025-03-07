@@ -2,11 +2,12 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Click the VM name.
-  1. In the top-right corner of the page, click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. Open the **{{ ui-key.yacloud.common.metadata }}** menu and remove the keys by clicking ![image](../../_assets/cross.svg).
+  1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. In the VM row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Expand the **{{ ui-key.yacloud.common.metadata }}** section and remove the keys by clicking ![image](../../_assets/console-icons/xmark.svg).
+  1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
 

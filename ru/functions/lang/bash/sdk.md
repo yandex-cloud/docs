@@ -17,7 +17,7 @@ HOME=/tmp yc --format json resource-manager folder list --cloud-id <иденти
  
 Также для работы с совместимыми сервисами {{ yandex-cloud }} — [{{ objstorage-full-name }}](../../../storage/index.yaml) и [{{ message-queue-full-name }}](../../../message-queue/index.yaml) — в среду выполнения установлена утилита [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html).
 
-В этом случае выпишите [статические ключи доступа для сервисного аккаунта](../../../iam/operations/sa/create-access-key.md) и передайте их, например, через [переменные окружения](../../concepts/runtime/environment-variables.md) функции.
+В этом случае выпишите [статические ключи доступа для сервисного аккаунта](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) и передайте их, например, через [переменные окружения](../../concepts/runtime/environment-variables.md) функции.
 
 Более подробную информацию с примерами команд можно найти на странице [AWS Command Line Interface](../../../storage/tools/aws-cli.md) и в документации [{{ message-queue-full-name }}](../../../message-queue/instruments/index.md).
 

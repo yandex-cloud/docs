@@ -152,7 +152,7 @@ _Node labels_ is a mechanism for grouping nodes in {{ managed-k8s-name }}. There
 
 * [{{ k8s }} node labels]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) are used to group {{ k8s }} objects and [distribute pods across cluster nodes](https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes). They are indicated as `node-labels` in the CLI and as `node_labels` in {{ TF }}.
 
-  When setting {{ k8s }} labels, specify the node characteristics to group objects by. You can find sample {{ k8s }} labels in the [{{ k8s }} documentation]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/#причины-использования).
+  When setting {{ k8s }} labels, specify the node characteristics to group objects by. You can find sample {{ k8s }} labels in the [{{ k8s }} documentation]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/#motivation).
 
 You can use both types of labels at the same time, e.g., when [creating a node group](../operations/node-group/node-group-create.md) in the CLI or {{ TF }}.
 
@@ -193,18 +193,26 @@ Containers are described in pods via JSON or YAML objects.
 
 If a pod needs access to resources outside the cluster, its IP address will be replaced by the IP address of the node the pod is running on. For this, the cluster uses [IP masquerading](https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/).
 
-By default, IP masquerade is enabled for the entire range of pod IP addresses.
+By default, masquerading is enabled in the direction of the entire IP range except the directions of pod CIDRs and [link-local address](https://en.wikipedia.org/wiki/Link-local_address) CIDRs.
 
-To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, e.g., to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml), specify the IP ranges you need in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading in a particular direction, e.g., to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/index.yaml), specify the IP ranges you need in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...
 data:
   config: |+
     nonMasqueradeCIDRs:
-      - <CIDR_IP_addresses_of_pods_that_do_not_require_masking>
+      - <CIDRs_of_IP_addresses_not_requiring_masquerading>
 ...
 ```
+
+To view how the IP masquerading rules are configured in `iptables` on a specific node, [connect to the node over SSH](../operations/node-connect-ssh.md) and run this command:
+
+```bash
+sudo iptables -t nat -L IP-MASQ -v -n
+```
+
+For more information, see the [ip-masq-agent page on GitHub](https://github.com/kubernetes-sigs/ip-masq-agent).
 
 ## Service {#service}
 

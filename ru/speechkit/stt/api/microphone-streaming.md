@@ -18,7 +18,7 @@
 ## Подготовьте необходимые данные {#preparations}
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-speechkit-stt }}`.
-1. Для сервисного аккаунта [получите](../../../iam/operations/api-key/create.md) и сохраните API-ключ.
+1. Для сервисного аккаунта [получите](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) и сохраните API-ключ.
 
 ## Создайте приложение для потокового распознавания речи {#create-an-application}
 

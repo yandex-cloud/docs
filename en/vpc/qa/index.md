@@ -1,6 +1,6 @@
 ---
-title: Questions and answers about {{ vpc-full-name }}
-description: See this page for {{ vpc-name }} FAQs.
+title: FAQ about {{ vpc-full-name }}
+description: This page covers FAQs about {{ vpc-name }}.
 ---
 
 # FAQ about {{ vpc-name }}
@@ -31,7 +31,7 @@ You can have public IPs assigned to cloud resources automatically or select IPs 
 
 #### How do I make a public IP address static? {#make-ip-static}
 
-You can make a public IP address [static](../operations/set-static-ip.md) using the {{ vpc-short-name }} **{{ ui-key.yacloud.vpc.switch_addresses }}** tab in the [management console]({{ link-console-main }}).
+You can convert a public IP address to [static](../operations/set-static-ip.md) using the {{ vpc-short-name }} **{{ ui-key.yacloud.vpc.switch_addresses }}** tab in the [management console]({{ link-console-main }}).
 
 #### What limitations apply when creating subnets? {#create-subnet-limits}
 
@@ -46,16 +46,15 @@ Subnets can only use private IPv4 addresses from the ranges defined by [RFC 1918
 * Output for the `mtr <target_IP_or_domain>` command.
 * Speed results from [Yandex.Internetometer](https://yandex.com/internet/), including Technical Information.
 
-Prepare this information and send it to [technical support]({{ link-console-support }}).
+Get this information and send it to [our support]({{ link-console-support }}).
 
 {% include [cli-period.md](../../_qa/cli-period.md) %}
 
 #### What do I do if email traffic is blocked? {#if-traffic-blocked}
 
-{{ yandex-cloud }} only [blocks](../concepts/limits.md#vpc-egress-traffic-filter) traffic sent from pubic IPs on port 25. Traffic sent to Yandex email servers is the exception.
+{{ yandex-cloud }} only [blocks](../concepts/limits.md#vpc-egress-traffic-filter) traffic sent from pubic IPs on port 25. The only exception is the traffic sent to Yandex Mail email servers.
 
 To prevent email traffic from being blocked, reconfigure your email sever to use ports 465 and 587. To do this, use these ports as an email gateway and [delegate your domain](https://yandex.com/support/business/delegate-domain.html) to Yandex servers with [Yandex Mail for Domains](https://habr.com/company/plesk/blog/304204/).
-
 
 If you need port 25, assign your virtual machine a new IP:
 
@@ -68,7 +67,7 @@ If you need port 25, assign your virtual machine a new IP:
 
    ```bash
    yc compute instance remove-one-to-one-nat \
-     --id=<virtual_machine_ID> \
+     --id=<VM_ID> \
      --network-interface-index=0
    ```
 
@@ -76,10 +75,6 @@ If you need port 25, assign your virtual machine a new IP:
 
 We reserve the right to block an IP and/or suspend a VM if we receive complaints about spam originating from that IP address.
 
-
-
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
-
 
 {% include [logs](../../_qa/logs.md) %}

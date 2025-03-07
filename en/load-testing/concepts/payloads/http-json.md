@@ -38,3 +38,9 @@ config_content:
 ```
 
 When uploading a file with test data via the management console, this is done automatically.
+
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/loadtesting-gitlab-ci.md)
+* [{#T}](../../tutorials/loadtesting-grpc.md)

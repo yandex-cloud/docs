@@ -14,14 +14,14 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 ## Prepare the environment {#prepare}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `group-coi` and assign it the `editor` [role](../../iam/concepts/access-control/roles.md):
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `group-coi` and assign the `editor` [role](../../iam/concepts/access-control/roles.md) to it:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter the name: `group-coi`.
      1. To assign the service account the `editor` role for the current folder, click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
@@ -64,7 +64,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
+     1. In the [management console]({{ link-console-main }}), select the folder where you want to create your network.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Enter the network name: `yc-auto-network`.
@@ -172,7 +172,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
    {% note info %}
 
-   You can provide an SSH key in the [VM metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) using the `ssh-keys` parameter or in the `user-data` string with the user metadata. This tutorial uses the first option.
+   You can provide an SSH key in the [VM metadata](../../compute/concepts/vm-metadata.md) using the `ssh-keys` parameter or in the `user-data` key with the user metadata. This tutorial uses the first option.
 
    {% endnote %}
 
@@ -214,7 +214,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. Go to **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. Navigate to **{{ ui-key.yacloud.compute.switch_groups }}**.
      1. Click the `group-coi-containers` instance group name.
 
    - CLI {#cli}

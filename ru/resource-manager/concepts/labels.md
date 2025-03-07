@@ -56,6 +56,7 @@ _Метка_ — это пара ключ-значение в формате `<�
 * [{{ dataproc-full-name }}](../../data-proc/index.yaml)
 * [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 * [{{ ml-platform-full-name }}](../../datasphere/index.yaml)
+* [{{ message-queue-full-name }}](../../message-queue/index.yaml)
 * [{{ maf-full-name }}](../../managed-airflow/index.yaml)
 * [{{ mkf-full-name }}](../../managed-kafka/index.yaml)
 * [{{ mch-full-name }}](../../managed-clickhouse/index.yaml)

@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 
         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите один из доступных образов ОС. Вы можете [загрузить собственный образ](../image-upload.md) и использовать его.
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите один из доступных в Marketplace образов ОС. Также вы можете арендовать сервер без ОС, [загрузить собственный образ](../image-upload.md) и установить ОС из него с помощью KVM.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**:
 
      1. Укажите количество серверов, которое хотите арендовать.

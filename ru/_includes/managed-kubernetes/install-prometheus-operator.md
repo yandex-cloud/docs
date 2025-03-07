@@ -7,7 +7,7 @@
    {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [monitoring.editor](../../monitoring/security/index.md#monitoring-editor).
-1. [Создайте API-ключ](../../iam/operations/api-key/create.md) для сервисного аккаунта:
+1. [Создайте API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта:
 
    * Если установка {{ prometheus-name }} Operator будет выполняться с помощью [{{ marketplace-full-name }}](#marketplace-install), создайте API-ключ в формате JSON и сохраните его в файл `sa-key.json`:
 

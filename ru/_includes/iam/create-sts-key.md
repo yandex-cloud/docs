@@ -29,7 +29,7 @@
     {% include [sts-sa-access-backets-list](sts-sa-access-backets-list.md) %}
 
     В качестве альтернативы можно использовать разрешения [ACL](../../storage/security/acl.md) для бакета.
-1. [Создайте](../../iam/operations/sa/create-access-key.md) статический ключ доступа для сервисного аккаунта.
+1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа для сервисного аккаунта.
 1. [Установите и сконфигурируйте](../../storage/tools/aws-cli.md) AWS Command Line Interface (AWS CLI).
 1. Опишите конфигурацию [политики доступа](../../storage/concepts/policy.md) в виде [схемы данных](../../storage/s3/api-ref/policy/scheme.md) формата JSON.
 

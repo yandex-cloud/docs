@@ -63,7 +63,7 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 ### Аутентификация с произвольным сервисным аккаунтом {#sa}
 
-В `key.json` должен содержаться авторизованный ключ сервисного аккаунта. Как создать авторизованный ключ читайте в разделе [{#T}](../../../iam/operations/authorized-key/create.md).
+В `key.json` должен содержаться авторизованный ключ сервисного аккаунта. Как создать авторизованный ключ читайте в разделе [{#T}](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
 
 {% list tabs group=programming_language %}
 

@@ -28,7 +28,7 @@ description: В данном разделе приведены способы а
         Authorization: Bearer <IAM-токен>
         ```
 
-     * [Создайте API-ключ](../../iam/operations/api-key/create.md). Передайте API-ключ в заголовке `Authorization` в следующем формате:
+     * [Создайте API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key). Передайте API-ключ в заголовке `Authorization` в следующем формате:
 
         ```yaml
         Authorization: Api-Key <API-ключ>

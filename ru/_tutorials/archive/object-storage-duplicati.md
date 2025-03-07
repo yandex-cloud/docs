@@ -44,7 +44,7 @@
 Чтобы настроить сервисный аккаунт:
 
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `storage.editor`.
-1. [Создайте](../../iam/operations/sa/create-access-key.md) статический ключ доступа. Сохраните идентификатор и секретный ключ. После закрытия окна параметры закрытого ключа будут недоступны.
+1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа. Сохраните идентификатор и секретный ключ. После закрытия окна параметры закрытого ключа будут недоступны.
 
 ## Установите Duplicati {#install-duplicati}
 

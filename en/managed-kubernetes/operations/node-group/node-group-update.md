@@ -21,7 +21,7 @@ You can change the following parameters of a [{{ managed-k8s-name }} node group]
 * Description.
 * Scaling for fixed type: Number of {{ managed-k8s-name }} nodes. Scaling for [automatic type](../../concepts/node-group/cluster-autoscaler.md): Minimum, maximum, and initial number of {{ managed-k8s-name }} nodes. You cannot change the scaling type.
 * [{{ k8s }} version](../../concepts/release-channels-and-updates.md).
-* [IP address](../../../vpc/concepts/address.md) assignment method: internal only or both internal and external.
+* Method of assigning [IP addresses](../../../vpc/concepts/address.md) to group nodes: only internal addresses or public addresses as well.
 * List of [security groups](../connect/security-groups.md).
 
   {% note alert %}
@@ -150,7 +150,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Enter `yes` to confirm changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -176,10 +176,13 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Click the VM name.
-  1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
-  1. Specify the appropriate settings and click **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
+  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the cluster name.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Select the required node group.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**, in the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` IP address assignment method. Nodes will get random public IP addresses from the {{ yandex-cloud }} address pool.
+  1. Click **{{ ui-key.yacloud.common.save }}**.   
 
 - CLI {#cli}
 
@@ -257,7 +260,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Enter `yes` to confirm changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -294,7 +297,7 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Enter `yes` to confirm changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -363,7 +366,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Enter `yes` to confirm changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -417,7 +420,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Enter `yes` to confirm changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -456,7 +459,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Enter `yes` to confirm changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -647,7 +650,7 @@ After you change the metadata, the node group status will temporarily change to 
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Enter `yes` to confirm changes.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

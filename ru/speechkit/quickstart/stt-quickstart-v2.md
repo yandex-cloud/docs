@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы научите
    {% endnote %}
 
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `storage.uploader` и `ai.speechkit-stt.user` на каталог, в котором вы ранее создали бакет.
-1. [Получите API-ключ](../../iam/operations/api-key/create.md) или [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
+1. [Получите API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key) или [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
 1. Скачайте пример аудиофайла:
 
    * для API v3 — [файл WAV](https://{{ s3-storage-host }}/doc-files/speech.wav);

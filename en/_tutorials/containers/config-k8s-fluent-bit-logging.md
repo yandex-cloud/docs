@@ -1,10 +1,10 @@
 # Configuring Fluent Bit for {{ cloud-logging-name }}
 
-To set up the transfer of [{{ managed-k8s-full-name }}](../../managed-kubernetes/) [pod](../../managed-kubernetes/concepts/index.md#pod) and [service](../../managed-kubernetes/concepts/index.md#service) logs to [{{ cloud-logging-full-name }}](../../logging/):
+To configure transfer of [{{ managed-k8s-full-name }}](../../managed-kubernetes/) [pod](../../managed-kubernetes/concepts/index.md#pod), [service](../../managed-kubernetes/concepts/index.md#service) logs and [node](../../managed-kubernetes/concepts/index.md#node-group) system logs to [{{ cloud-logging-full-name }}](../../logging/):
 1. [Install and configure Fluent Bit](#fluent-bit-install).
 1. [Check the result](#check-result).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -16,7 +16,7 @@ Prepare the infrastructure:
 
   1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
   1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
-  1. [Create service accounts](../../iam/operations/sa/create.md):
+  1. [Create service accounts](../../iam/operations/sa/create.md) for {{ managed-k8s-name }}:
      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
@@ -26,6 +26,8 @@ Prepare the infrastructure:
 
      {% endnote %}
 
+  1. Create a service account for {{ cloud-logging-name }} with the [logging.writer](../../logging/security/index.md#roles-list) and [monitoring.editor](../../monitoring/security/index.md#monitoring-editor) roles. It will be used to run Fluent Bit.
+  1. [Create an authorized key](../../iam/operations/sa/create-access-key.md) for the {{ cloud-logging-name }} service account and save it to the `key.json` file.
   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -47,6 +49,7 @@ Prepare the infrastructure:
      * {{ managed-k8s-name }} cluster.
      * {{ managed-k8s-name }} node group.
      * [Service account](../../iam/concepts/users/service-accounts.md) for {{ managed-k8s-name }} resources and nodes.
+     * Service account for {{ cloud-logging-name }}.
      * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -55,6 +58,7 @@ Prepare the infrastructure:
      * [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * [{{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) version for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the service account for {{ managed-k8s-name }} resources and nodes.
+     * Name of the service account for {{ cloud-logging-name }}.
      * {{ cloud-logging-name }} log group name.
   1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
   1. Check that the {{ TF }} configuration files are correct using this command:
@@ -74,13 +78,22 @@ Prepare the infrastructure:
 
 ## Install and configure Fluent Bit {#fluent-bit-install}
 
-{% list tabs %}
+Select the Fluent Bit installation option depending on what logs you want to collect and send to {{ cloud-logging-name }}:
 
-- Using {{ yandex-cloud }}
+* [Collect only {{ managed-k8s-name }} pod and service logs](#pod-and-service-logs).
+* [Collect {{ managed-k8s-name }} pod, service, and node system logs](#system-logs).
 
-  Install Fluent Bit by following [this guide](../../managed-kubernetes/operations/applications/fluentbit.md). In the application settings, specify the ID of the [log group](#before-you-begin) you [created earlier](../../logging/concepts/log-group.md). You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
+### Installing Fluent Bit to collect pod and service logs {#pod-and-service-logs}
 
-- Manually
+{% list tabs group=instructions %}
+
+
+- Using {{ marketplace-full-name }} {#marketplace}
+
+  Install Fluent Bit by following [this guide](../../managed-kubernetes/operations/applications/fluentbit.md#marketplace-install). In the application settings, specify the ID of the log group you [created earlier](#before-you-begin). You can request the log group ID with the [list of log groups in the folder](../../logging/operations/list.md).
+
+
+- Manually {#manual}
 
   1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
   1. Create the objects required for Fluent Bit to run:
@@ -92,7 +105,7 @@ Prepare the infrastructure:
      kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
      ```
 
-  1. Create a secret containing the key of the [service account](../../iam/concepts/users/service-accounts.md):
+  1. Create a secret containing the key of the service account for {{ cloud-logging-name }} you [created earlier](#before-you-begin):
 
      ```bash
      kubectl create secret generic secret-key-json \
@@ -106,24 +119,24 @@ Prepare the infrastructure:
      wget https://raw.githubusercontent.com/knpsh/yc-logging-fluent-bit-example/main/config.yaml
      ```
 
-  1. Specify the log output parameters in the `data.output-elasticsearch.conf` section in `config.yaml`:
+  1. Specify the ID of the log group [created earlier](#before-you-begin) and (optionally) the cluster ID in the `[OUTPUT]` section of the `config.yaml` file:
 
      
      ```yaml
      ...
-       output-elasticsearch.conf: |
-         [OUTPUT]
-           Name            yc-logging
-           Match           *
-           group_id        <log_group_ID>
-           resource_id     <optional_cluster_ID>
-           message_key     log
-           authorization   iam-key-file:/etc/secret/key.json
+     output-elasticsearch.conf: |
+       [OUTPUT]
+         Name            yc-logging
+         Match           *
+         group_id        <log_group_ID>
+         resource_id     <optional_cluster_ID>
+         message_key     log
+         authorization   iam-key-file:/etc/secret/key.json
      ...
      ```
 
 
-     You can request the [log group](../../logging/concepts/log-group.md) ID with a [list of log groups in the folder](../../logging/operations/list.md).
+     You can get the [log group](../../logging/concepts/log-group.md) ID with the [list of log groups in the folder](../../logging/operations/list.md), and the cluster ID [with the list of clusters in the folder](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#list).
 
      Specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for Fluent Bit, if required.
   1. Create Fluent Bit objects:
@@ -144,6 +157,119 @@ Prepare the infrastructure:
      ```bash
      kubectl get pods -n logging
      ```
+
+{% endlist %}
+
+### Installing Fluent Bit to collect pod, service logs and node system logs {#system-logs}
+
+{% list tabs group=instructions %}
+
+
+- Using Helm {#helm}
+
+    1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+    1. {% include [Install Helm](../../_includes/managed-kubernetes/helm-install.md) %}
+    1. Download the Fluent Bit configuration file named [systemd.yaml](https://github.com/yandex-cloud-examples/yc-mk8s-fluent-bit-logging/blob/main/systemd.yaml).
+    1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Fluent Bit, run this command:
+
+        ```bash
+        cat key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+        helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit \
+          --version 2.1.7-3 \
+          --untar && \
+        helm install -f <systemd.yaml_file_path>\
+          --namespace <namespace> \
+          --create-namespace \
+          --set loggingGroupId=<log_group_ID> \
+          --set loggingFilter=<cluster_ID> \
+          --set-file auth.json=key.json \
+          fluentbit ./fluent-bit/
+        ```
+
+        For the current version of the Helm chart, see [this {{ marketplace-full-name }} page](/marketplace/products/yc/fluent-bit).
+
+        This command will create a new namespace required for Fluent Bit.
+
+        {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+
+- Manually {#manual}
+
+    1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+    1. Create the objects required for Fluent Bit to run:
+
+        ```bash
+        kubectl create namespace logging && \
+        kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml && \
+        kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-1.22.yaml && \
+        kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
+        ```
+
+    1. Create a secret containing the key of the service account for {{ cloud-logging-name }} you [created earlier](#before-you-begin):
+
+        ```bash
+        kubectl create secret generic secret-key-json \
+          --from-file=key.json \
+          --namespace logging
+        ```
+
+    1. Download the Fluent Bit configuration file named [config.yaml](https://github.com/yandex-cloud-examples/yc-mk8s-fluent-bit-logging/blob/main/config.yaml).
+
+    1. Specify the ID of the [previously created](#before-you-begin) log group in the `[OUTPUT]` sections of the `config.yaml` file:
+
+        
+        ```yaml
+        ...
+        output-elasticsearch.conf: |
+          [OUTPUT]
+            Name            yc-logging
+            Match           kube.*
+            group_id        <log_group_ID>
+            resource_type   {kubernetes/namespace_name}
+            resource_id     {kubernetes/pod_name}
+            stream_name     {kubernetes/host}
+            message_key     log
+            level_key       severity
+            default_level   INFO
+            authorization   iam-key-file:/etc/secret/key.json
+
+          [OUTPUT]
+            Name            yc-logging
+            Match           host.*
+            group_id        <log_group_ID>
+            resource_type   systemd
+            resource_id     {_SYSTEMD_UNIT}
+            stream_name     {_HOSTNAME}
+            message_key     MESSAGE
+            level_key       SEVERITY
+            default_level   INFO
+            authorization   iam-key-file:/etc/secret/key.json
+        ...
+        ```
+
+
+        You can request the [log group](../../logging/concepts/log-group.md) ID with the [list of log groups in the folder](../../logging/operations/list.md).
+
+        Specify [additional settings](https://github.com/yandex-cloud/fluent-bit-plugin-yandex#configuration-parameters) for Fluent Bit, if required.
+
+    1. Create Fluent Bit objects:
+
+        ```bash
+        kubectl apply -f config.yaml
+        ```
+
+        Result:
+
+        ```text
+        configmap/fluent-bit-config created
+        daemonset.apps/fluent-bit created
+        ```
+
+    1. Make sure the Fluent Bit pod has entered the `Running` state:
+
+        ```bash
+        kubectl get pods -n logging
+        ```
 
 {% endlist %}
 

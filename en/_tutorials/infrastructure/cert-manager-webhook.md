@@ -118,7 +118,7 @@ To [create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operati
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the required {{ managed-k8s-name }} cluster was created.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the `kubernetes-cluster-wh` cluster.
   1. On the cluster page, go to the ![nodes-management.svg](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -142,7 +142,7 @@ To [create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operati
        For more information about disk types, see the [{{ compute-full-name }}](../../compute/concepts/disk.md#disks_types) documentation.
      * Specify the disk size for the {{ managed-k8s-name }} group nodes.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
-     * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select a method for assigning an IP address:
+     * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:
        * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
      * Select [security groups](../../managed-kubernetes/operations/connect/security-groups.md).
      * Select an availability zone and subnet to deploy the {{ managed-k8s-name }} group nodes in.
@@ -236,7 +236,7 @@ To [create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operati
       - dns01:
          webhook:
            config:
-             # ID of the folder the dns-zone is located in
+             # The ID of the folder where dns-zone is located
              folder: <folder_ID>
              # This is the secret used to access the service account
              serviceAccountSecretRef:
@@ -287,6 +287,8 @@ To [create a {{ managed-k8s-name }} node group](../../managed-kubernetes/operati
    yandex-webhook-cert-manager-webhook-yandex-5578cfb98-tw4mq   1/1     Running   1          43h
    ```
 
+If you have an error and need help, contact [support]({{ link-console-support }}).
+
 ## Delete the resources you created {#clear-out}
 
-If you no longer need the resources you created, [delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+If you no longer need the resources you created, [delete](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.

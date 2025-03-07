@@ -100,7 +100,7 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
   If the plugin is enabled and ready to go, you will see ![image](../_assets/code-assistant/jb-icon-small.svg) in the editor's bottom panel.
 
-  Click this icon to view the username of the {{ yandex-cloud }} account authenticated in the plugin. You can find the username in the **Logged in as <username>** line of the message you get. If no user is authenticated, the message will display **No Auth data**.
+  Click this button to view the username of the {{ yandex-cloud }} account authenticated in the plugin. You can find the username in the **Logged in as <username>** line of the message you get. If no user is authenticated, the message will display **No Auth data**.
 
   {% note tip %}
 
@@ -155,15 +155,14 @@ How to work with {{ ca-name }}:
     }
     ```
 
-1. Select an action for the suggestion:
+1. Select what to do with the suggestion:
 
     {% list tabs group=ide %}
 
     - Visual Studio Code {#vscode}
 
-      * Click **Tab** to accept the suggestion.
-      * To start accepting the suggestion word by word, press **Ctrl** + **→** for Windows or Linux or **Command** + **→** for macOS.
-      * To discard the suggestion, press **Esc**.
+      {% include [actions-with-suggestions](../_includes/code-assistant/actions-with-suggestions.md) %}
+
       * If there are multiple suggestions, you can switch between them using **Alt** + **[** and **Alt** + **]** for Windows or Linux or **Option** + **[** and **Option** + **]** for macOS.
 
     - JetBrains IDE {#jb}
@@ -179,6 +178,8 @@ You can also watch our {{ ca-name }} video tutorial [here](https://cloud.yandex.
 
 {% include [help-indicator-load](../_includes/code-assistant/help-indicator-load.md) %}
 
+The suggestion indicator is enabled by default.
+
 To enable or disable the indicator:
 
 {% list tabs group=ide %}
@@ -192,7 +193,7 @@ To enable or disable the indicator:
   - JetBrains IDE {#jb}
 
     1. In the top-right corner, click ![image](../_assets/console-icons/gear.svg) and select **Settings...**.
-    1. In the left-hand column, select **Yandex Code Assistant**.
+    1. In the left-hand column, select **{{ ca-full-name }}**.
     1. Enable or disable **Disable suggest indicator**.
     1. Click **Save** to save the settings.
 

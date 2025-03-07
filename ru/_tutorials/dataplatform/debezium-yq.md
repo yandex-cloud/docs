@@ -29,7 +29,7 @@
 ## Настройте реквизиты подключения к потоку {#credentials}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роль `editor` на ваш каталог.
-1. [Создайте](../../iam/operations/sa/create-access-key.md) статический ключ доступа.
+1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа.
 1. На сервере, где уже установлена и запущена {{ PG }}, настройте [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html):
     1. [Установите AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) и выполните команду:
 

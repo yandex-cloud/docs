@@ -621,7 +621,7 @@
 
 **Инструкции и решения по выполнению:**
 
-[Создайте](../../../iam/operations/api-key/create.md#create-api-key) API-ключ с заданной областью действия.
+[Создайте](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ с заданной областью действия.
 
 #### 1.12 Токен для облачных функций и ВМ выдается через сервисный аккаунт {#func-token}
 
@@ -1198,11 +1198,11 @@ yc compute instance update <ID_виртуальной_машины> \
 
 {% endlist %}
 
-#### 1.26 Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием {{ sd-full-name }} CIEM {#ciem-access-control}
+#### 1.26 Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием {{ sd-full-name }} {{ ciem-name }} {#ciem-access-control}
 
 В целях обеспечения безопасности данных и облачной инфраструктуры необходимо регулярно проводить аудит прав доступа, имеющихся у пользователей и сервисных аккаунтов.
 
-[Модуль диагностики доступов]({{ link-sd-main }}iam-diagnostics/) или CIEM (Cloud Infrastructure Entitlement Management) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../../organization/concepts/groups.md), [системных групп](../../../iam/concepts/access-control/system-group.md) и [публичных групп](../../../iam/concepts/access-control/public-group.md) к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
+[Модуль диагностики доступов]({{ link-sd-main }}iam-diagnostics/) или {{ ciem-name }} (Cloud Infrastructure Entitlement Management) — это инструмент, позволяющий централизованно просматривать полный список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../../organization/concepts/groups.md), [системных групп](../../../iam/concepts/access-control/system-group.md) и [публичных групп](../../../iam/concepts/access-control/public-group.md) к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко отзывать у субъектов лишние доступы.
 
 Подробнее см. в разделе [{#T}](../../../security-deck/concepts/ciem.md).
 

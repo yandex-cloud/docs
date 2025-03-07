@@ -14,10 +14,8 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
   1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the server will be leased in.
   1. Select the [pool](../../concepts/servers.md#server-pools) the server will be leased from.
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
-  
-     1. Select the [server configuration](../../concepts/server-configurations.md).
-     1. Optionally, configure disk partitioning:
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, select a [server configuration](../../concepts/server-configurations.md).
+  1. (Optional) Under **{{ ui-key.yacloud.baremetal.title_section-disk }}**, configure disk partitioning:
 
         1. Click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
         1. Specify the partitioning parameters. To create a new partition, click ![icon](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
@@ -45,7 +43,7 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
         * In the window that opens, enter a name and description for your subnet.
         * Click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
-     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select a method for assigning a public IP address:
+     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select a public IP address assignment method:
 
         * `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`: To assign a random IP address.
         * `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`: Not to assign a public IP address.

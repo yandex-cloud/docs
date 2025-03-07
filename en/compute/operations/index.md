@@ -13,6 +13,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-create/create-from-user-image.md)
 * [{#T}](vm-create/create-with-cloud-init-scripts.md)
 * [{#T}](vm-create/create-with-env-variables.md)
+* [{#T}](vm-create/create-with-lockbox-secret.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
@@ -66,6 +67,16 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-control/vm-change-security-groups-set.md)
 * [{#T}](vm-control/vm-access.md)
 * [{#T}](vm-control/vm-delete.md)
+
+## Working with VM metadata {#use-metadata}
+
+* [{#T}](vm-metadata/setup-metadata-service.md)
+* [{#T}](vm-metadata/get-vm-metadata.md)
+* [{#T}](vm-metadata/get-identity-document.md)
+* [{#T}](vm-metadata/update-vm-metadata.md)
+* [{#T}](vm-create/create-with-cloud-init-scripts.md)
+* [{#T}](vm-create/create-with-env-variables.md)
+* [{#T}](vm-create/create-with-lockbox-secret.md)
 
 ## Using a VM {#vm-use}
 

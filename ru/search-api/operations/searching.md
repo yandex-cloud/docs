@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы узнаете
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) созданному сервисному аккаунту [роль](../security/index.md#search-api-executor) `{{ roles-search-api-executor }}`.
-1. [Создайте](../../iam/operations/api-key/create.md) API-ключ для созданного сервисного аккаунта.
+1. [Создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для созданного сервисного аккаунта.
 1. [Зарегистрируйтесь](./workaround.md) в сервисе {{ search-api-name }}.
 
 ## Сформируйте поисковый запрос {#form-request}

@@ -10,7 +10,7 @@ description: Следуя данному руководству, вы научи
 
 * [Бакет {{ objstorage-full-name }}](../../../storage/operations/buckets/create.md), в который вы загружаете аудиофайл для распознавания.
 * [Сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `{{ roles-speechkit-stt }}` и `storage.uploader`, которые нужны для работы со {{ speechkit-name }} и {{ objstorage-name }}.
-* [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../../iam/operations/api-key/create.md) для аутентификации.
+* [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) для аутентификации.
 
 Подробнее о предварительной работе см. в разделе [{#T}](../transcribation.md#async-recognition).
 

@@ -15,3 +15,7 @@ Read more about working with different data sources in these sections:
 Example of how to use federated queries in {{ yq-full-name }}:
 
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/yq-federative-queries.md)

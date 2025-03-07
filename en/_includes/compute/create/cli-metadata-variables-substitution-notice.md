@@ -4,6 +4,6 @@ The commands [`yc compute instance create`](../../../cli/cli-ref/compute/cli-ref
 
 To change such behavior, i.e. to provide a variable name to the VM metadata in `$<variable_name>` format rather than take the variable value from the CLI command runtime environment, use the two-dollar syntax, e.g., `$$<variable_name>`.
 
-For more information, see [{#T}](../../../compute/concepts/vm-metadata.md#environment-variables).
+For more information, see [{#T}](../../../compute/concepts/metadata/sending-metadata.md#environment-variables).
 
 {% endnote %}

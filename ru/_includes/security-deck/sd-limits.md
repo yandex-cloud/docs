@@ -1,4 +1,4 @@
-#### Лимиты DSPM {#sd-dspm-limits}
+#### Лимиты {{ dspm-name }} {#sd-dspm-limits}
 
 Вид ограничения | Значение    
 --- | ---

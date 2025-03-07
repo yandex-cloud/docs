@@ -279,7 +279,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
 
     1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md) с ограниченным доступом.
-    1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md).
+    1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key).
     1. (Опционально) [Создайте внешний источник данных S3](create-s3-source.md) с параметрами:
 
         * **Имя** — `objserver`;

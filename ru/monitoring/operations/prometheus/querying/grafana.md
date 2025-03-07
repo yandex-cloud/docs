@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хранятся данные.
 1. [Создайте сервисный аккаунт](../../../../iam/operations/sa/create.md) с ролью `{{ roles-monitoring-viewer }}` на выбранный каталог.
-1. [Создайте API-ключ](../../../../iam/operations/api-key/create.md) для сервисного аккаунта.
+1. [Создайте API-ключ](../../../../iam/operations/authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта.
 1. Откройте главную страницу вашей инсталляции {{ grafana-name }}.
 1. В главном меню выберите **Configuration → Data Sources**.
 1. Нажмите кнопку **Add data source**.

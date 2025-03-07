@@ -163,7 +163,7 @@ description: Для выполнения операций через API в ма
 
   Где:
 
-  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#iam-tokens).
+  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#authentication).
   * `name` — имя бакета.
   * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
   * `default_storage_class` — [класс](../../storage/concepts/storage-class.md) хранилища.
@@ -212,7 +212,7 @@ description: Для выполнения операций через API в ма
 
   Где:
 
-  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#iam-tokens).
+  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#authentication).
   * `name` — имя бакета.
   * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
   * `default_storage_class` — [класс](../../storage/concepts/storage-class.md) хранилища.

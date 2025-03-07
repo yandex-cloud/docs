@@ -38,7 +38,7 @@ _Внешний агент_ — физический или виртуальны
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт, например `sa-loadtest`, в каталоге, где будет подключен внешний агент.
 1. [Назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту [роли](../../load-testing/security/index.md#roles-list) `loadtesting.editor` и `loadtesting.generatorClient`.
-1. [Создайте](../../iam/operations/authorized-key/create.md) авторизованные ключи для сервисного аккаунта.
+1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованные ключи для сервисного аккаунта.
 
     Сохраните открытый и закрытый ключи единым файлом, для этого нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 

@@ -5,7 +5,7 @@ description: Follow this guide to create a VM that can be accessed via {{ oslogi
 
 # Creating a VM with {{ oslogin }}
 
-[{{ oslogin }}](../../../organization/concepts/os-login.md) provides users and [service accounts](../../../iam/concepts/users/service-accounts.md) access to [VMs](../../../compute/concepts/vm.md#project) relying solely on the [{{ iam-full-name }}](../../../iam/concepts/index.md) mechanisms, without requiring you to upload SSH keys to each new VM when creating it.
+With [{{ oslogin }}](../../../organization/concepts/os-login.md), you can provide users and [service accounts](../../../iam/concepts/users/service-accounts.md) access to [VMs](../../../compute/concepts/vm.md#project) relying solely on the [{{ iam-full-name }}](../../../iam/concepts/index.md) mechanisms. There is no need to upload SSH keys to each new VM when creating it.
 
 {% include [os-login-enablement-notice](../../../_includes/compute/os-login-enablement-notice.md) %}
 

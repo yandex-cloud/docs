@@ -595,7 +595,7 @@
 
   {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
 
-  1. [Получите](../../iam/operations/index.md#iam-tokens) IAM-токен, чтобы [аутентифицироваться](../api-ref/authentication.md) в API.
+  1. [Получите](../../iam/operations/index.md#authentication) IAM-токен, чтобы [аутентифицироваться](../api-ref/authentication.md) в API.
 
   1. Сохраните полученный IAM-токен в переменную, выполните в терминале:
 

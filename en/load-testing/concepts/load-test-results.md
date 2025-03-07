@@ -51,3 +51,8 @@ If there are no errors, the chart should feature only the `0` code. If it has ot
 This chart shows how [HTTP response codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) depend on time.
 
 If there are no errors, the chart should feature only the `2xx` codes. If it also has the `4xx` or `5xx` codes, this may indicate issues with the service or the test data.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/loadtesting-multiply.md)
+* [{#T}](../tutorials/loadtesting-results-compare.md)

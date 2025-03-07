@@ -1,9 +1,9 @@
 ---
 title: Роли для диагностики доступов в {{ sd-full-name }}
-description: На данной странице приведен список ролей, необходимых для управления доступом к модулю диагностики доступов (CIEM) в сервисе {{ sd-name }}.
+description: На данной странице приведен список ролей, необходимых для управления доступом к модулю диагностики доступов ({{ ciem-name }}) в сервисе {{ sd-name }}.
 ---
 
-# Роли для диагностики доступов (CIEM)
+# Роли для диагностики доступов ({{ ciem-name }})
 
 [Просматривать](../operations/ciem/view-permissions.md) доступы в [интерфейсе {{ sd-name }}]({{ link-sd-main }}iam-diagnostics/) могут [члены организации](../../organization/concepts/membership.md), которым на эту организацию назначена [роль](../../organization/security/index.md#organization-manager-viewer) `organization-manager.viewer` или выше.
 

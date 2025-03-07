@@ -128,3 +128,10 @@ You can add headers anywhere in the file. They are applied to all URIs specified
 
 
 {% endlist %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../../tutorials/loadtesting-results-compare.md)

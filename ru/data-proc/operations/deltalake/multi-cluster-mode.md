@@ -12,7 +12,7 @@
 
 1. [Создайте Serverless-базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#create-db-serverless).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `ydb.editor` для доступа к {{ ydb-short-name }}.
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
+1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 1. [Создайте секрет в {{ lockbox-full-name }}](../../../lockbox/operations/secret-create.md) и поместите в него данные статического ключа в формате двух пар `ключ-значение`:
 
     * ключ: `key-id`, значение: `<идентификатор_статического_ключа>`;

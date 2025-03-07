@@ -10,7 +10,7 @@ To set up the transfer of {{ managed-k8s-name }} master logs to {{ cloud-logging
 1. [Enable the master logging setting](#enable-master-logging).
 1. [Check the result](#check-result-master-logging).
 
-If you no longer need the created resources, [delete them](#clear-out-master-logging).
+If you no longer need the resources you created, [delete them](#clear-out-master-logging).
 
 ### Getting started {#before-you-begin-master-logging}
 
@@ -82,7 +82,7 @@ If you created the infrastructure manually, enable the `master logging` setting:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Run the following command:
+1. Run this command:
 
    ```bash
    {{ yc-k8s }} cluster update <cluster_name> \

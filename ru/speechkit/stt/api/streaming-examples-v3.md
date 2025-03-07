@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт для работы с API {{ speechkit-short-name }}.
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `{{ roles-speechkit-stt }}` или выше на каталог, в котором он был создан.
-1. Получите [API-ключ](../../../iam/operations/api-key/create.md) или [IAM-токен](../../../iam/operations/api-key/create.md) для сервисного аккаунта.
+1. Получите [API-ключ](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) или [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
 1. Скачайте [пример](https://{{ s3-storage-host }}/speechkit/speech.pcm) аудиофайла для распознавания или используйте свой аудиофайл.
 1. Создайте клиентское приложение:
 

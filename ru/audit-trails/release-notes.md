@@ -190,8 +190,8 @@ description: В разделе представлена история изме�
 
   Имя события | Описание
   --- | ---
-  `ComputeNodeAccess` | Подключение [модуля](../security-deck/concepts/access-transparency.md) Access Transparency к [подкластеру](../data-proc/concepts/index.md#resources) Data Proc
-  `MDBClusterAccess` | Подключение модуля Access Transparency к кластеру базы данных
+  `ComputeNodeAccess` | Подключение [модуля](../security-deck/concepts/access-transparency.md) {{ atr-name }} к [подкластеру](../data-proc/concepts/index.md#resources) {{ dataproc-name }}
+  `MDBClusterAccess` | Подключение модуля {{ atr-name }} к кластеру базы данных
 
   {% endcut %}
 

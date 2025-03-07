@@ -128,7 +128,11 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
    {% endlist %}
 
 1. Click **Add**.
-1. Resize the widget and move it to a convenient location on the page.
+1. Resize the widget and drag it to a convenient location on the page. You can also move the selected widget up, down, or sideways with arrow keys. Here is how you can do this:
+
+   * Use arrow keys to move by one pixel.
+   * Press **Shift** + arrow keys to move by ten pixels.
+
 1. In the top-right corner, click **Save**.
 
 You can copy and paste an existing widget onto the page:

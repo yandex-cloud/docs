@@ -14,7 +14,7 @@ configure_credentials(
 )
 ```
 
-Где `api_key` — API-ключ для сервисного аккаунта. Подробнее о том, [как создать ключ](../../../iam/operations/api-key/create.md).
+Где `api_key` — API-ключ для сервисного аккаунта. Подробнее о том, [как создать ключ](../../../iam/operations/authentication/manage-api-keys.md#create-api-key).
 
 ## Аутентификация по IAM-токену {#iam}
 

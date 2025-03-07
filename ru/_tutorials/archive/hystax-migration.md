@@ -39,7 +39,7 @@
 
 Приложение «Хайстекс Акура — Миграция» будет выполнять действия от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md):
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `hystax-acura-account` с ролями `editor`, `marketplace.meteringAgent`.
-1. [Создайте](../../iam/operations/authorized-key/create.md) авторизованный ключ для сервисного аккаунта.
+1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для сервисного аккаунта.
 
 Сохраните для использования на последующих шагах:
 1. Идентификатор сервисного аккаунта.

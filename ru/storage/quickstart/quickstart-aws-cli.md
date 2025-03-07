@@ -79,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-      Подробнее см. в документе [{#T}](../../iam/operations/sa/create-access-key.md).
+      Подробнее см. в документе [{#T}](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 {% endlist %}
 

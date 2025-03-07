@@ -48,5 +48,5 @@ curl -vvv -X PUT -T "${file}" \
 
 * `file` - имя файла, который будет загружен в бакет как объект;
 * `bucket` - имя бакета, в который будет осуществлена загрузка; 
-* `s3Key` и `s3Secret` - идентификатор и секрет [статического ключа доступа](../../../iam/operations/sa/create-access-key.md) сервисного аккаунта;
+* `s3Key` и `s3Secret` - идентификатор и секрет [статического ключа доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) сервисного аккаунта;
 * `contentType` - MIME-тип загружаемого объекта, например, `text/plain`.

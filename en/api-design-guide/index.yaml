@@ -1,15 +1,13 @@
 title: Yandex Cloud API concepts
 description:
   - >-
-    Here you can find out about the underlying concepts of the Yandex Cloud API
-    architecture.
-
-    This will be useful if you are looking to use the Yandex Cloud API to build
-    automation systems, plugins, and other apps.
+    This document describes the underlying concepts of the Yandex Cloud API
+    architecture. The document will be of value for developers who want to use
+    Yandex Cloud API to build automation systems, plugins, and other apps.
 meta:
   title: Yandex Cloud API concepts
   description: >-
-    Here you can find out about the underlying concepts of the Yandex Cloud API
+    This document describes the underlying concepts of the Yandex Cloud API
     architecture.
   keywords:
     - keyword: API basics
@@ -18,16 +16,16 @@ meta:
     - keyword: gRPC API
 links:
   - title: Basic principles
-    description: How APIs work and what the resource-based approach entails
+    description: How APIs work and the principles of the resource-based approach
     href: concepts/general
   - title: Resources
     description: How resources are identified in APIs
     href: concepts/resources-identification
   - title: API methods
-    description: How methods work in APIs
+    description: How methods work in the API
     href: concepts/about-methods
   - title: Working with operations
     description: >-
-      How asynchronous operations are implemented in APIs and how idempotence is
-      used
+      How asynchronous operations are implemented in APIs and how to use
+      idempotency
     href: concepts/about-async

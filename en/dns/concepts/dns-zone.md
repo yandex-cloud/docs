@@ -100,3 +100,11 @@ In regular DNS records, a domain name is mapped to an IP address. For example, t
 Reverse DNS records reside in special DNS zones called ARPA zones. IPv4 and IPv6 blocks reside in separate zones.
 
 You can [delegate reverse zone management](../qa/index.md#dns-reverse-zone).
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/local-dns-cache.md)
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/mdb-dns-peering.md)
+* [{#T}](../tutorials/bind-domain-vm/console.md)

@@ -12,7 +12,7 @@
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) созданному аккаунту [роль](../../../storage/security/), которая разрешит либо только чтение, либо чтение и запись.
-1. [Создайте ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
+1. [Создайте ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 
 ## Создать коннектор S3 {#create}
 

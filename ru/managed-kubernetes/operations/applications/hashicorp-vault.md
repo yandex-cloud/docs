@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
    yc iam service-account create --name vault-kms
    ```
 
-1. [Создайте авторизованный ключ](../../../iam/operations/authorized-key/create.md) для сервисного аккаунта и сохраните его в файл `authorized-key.json`:
+1. [Создайте авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта и сохраните его в файл `authorized-key.json`:
 
    ```bash
    yc iam key create \

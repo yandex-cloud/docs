@@ -26,7 +26,7 @@
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `s3-ydb-account` и ролями `storage.editor` и `ydb.editor`. Трансфер будет использовать его для доступа к бакету и базе данных.
 
-    1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `s3-ydb-account`.
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `s3-ydb-account`.
 
 - С помощью {{ TF }} {#tf}
 

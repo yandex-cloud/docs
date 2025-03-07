@@ -30,6 +30,7 @@
 ----- | ----- | ----- | -----
 `QueueName` | **string**| Да | Имя очереди. Максимальная длина — 80 символов. В имени можно использовать цифры, буквы, подчеркивания и дефисы. Имя очереди FIFO должно заканчиваться суффиксом `.fifo`.
 `Attributes.N.*` | [список атрибутов](#attributes) | Нет | Список атрибутов очереди.
+`Tags.N.*` | [список меток](#tags) | Нет | Список меток очереди.
 
 #### Атрибуты {#attributes}
 
@@ -63,6 +64,10 @@ Attribute.N.Value (значение атрибута)
 `KmsMasterKeyId` | **string** | Атрибут не поддерживается в {{ message-queue-full-name }}.
 `KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в {{ message-queue-full-name }}.
 
+#### Метки {#tags}
+
+Подробнее о [метках очереди](../../concepts/tags.md).
+
 ## Ответ {#response}
 
 ### Поля успешного ответа {#response-parameters}
@@ -88,6 +93,8 @@ Action=CreateQueue
 &QueueName=sample-queue-2
 &Attribute.1.Name=VisibilityTimeout
 &Attribute.1.Value=30
+&Tag.1.Key=environment
+&Tag.1.Value=production
 ```
 
 Подробнее о формировании запросов см. в разделе [Общий вид запросов к API](../index.md#api-request).

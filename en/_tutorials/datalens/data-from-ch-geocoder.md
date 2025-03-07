@@ -5,7 +5,7 @@ In this tutorial, you will learn how to convert addresses to geo-coordinates usi
 
 We will use data from a [{{ CH }} demo database](../../datalens/quickstart.md#create-connection) as the data source.
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Get the Geocoder API key](#get-key).
 1. [Convert your data to {{ ml-platform-short-name }}](#datasphere).
 1. [Create a connection to the file in {{ datalens-short-name }}](#create-connection).
@@ -57,7 +57,7 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `API_KEY`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter the key value.
-1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. This will display the created secret's info page.
+1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. You will see a page with detailed info on the secret you created.
 
 ### Create a notebook {#create-notebook}
 

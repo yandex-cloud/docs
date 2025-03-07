@@ -5,7 +5,7 @@ items:
   - name: Getting started
     href: quickstart.md
   - name: Step-by-step guides
-    extended: true
+    expanded: true
     items:
       - name: All guides
         href: operations/index.md
@@ -49,13 +49,23 @@ items:
       - name: Overview
         href: concepts/index.md
       - name: Servers
-        href: concepts/servers.md
-      - name: Server configurations
-        href: concepts/server-configurations.md
+        expanded: true
+        items:
+          - name: Overview
+            href: concepts/servers.md
+          - name: Server configurations
+            href: concepts/server-configurations.md
       - name: Network
-        href: concepts/network.md
-      - name: Blocked network ports
-        href: concepts/traffic-restrictions.md
+        expanded: true
+        items:
+          - name: Overview
+            href: concepts/network.md
+          - name: DHCP
+            href: concepts/dhcp.md
+          - name: Blocked network ports
+            href: concepts/traffic-restrictions.md
+          - name: Restrictions in {{ baremetal-name }} networks
+            href: concepts/network-restrictions.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tutorials
@@ -63,7 +73,11 @@ items:
     items:
       - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
         href: operations/backup-baremetal.md
+      - name: Configuring VRRP for a {{ baremetal-name }} server cluster
+        href: tutorials/bms-vrf-routing.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: FAQ
+    href: qa/all.md
