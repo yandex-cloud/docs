@@ -42,6 +42,13 @@ To renew a certificate:
 
     All the resources that use the certificate will get its new version.
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/tls-termination/index.md)
+
 #### See also {#see-also}
 
 * [Integration with {{ yandex-cloud }} services](services.md)

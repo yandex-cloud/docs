@@ -13,7 +13,7 @@ From a [related dialog](../../concepts/dialogs.md#related-dialogs), you can go t
 
         If a dialog has related dialogs, the related dialogs page will open. If a dialog has no related dialogs, the single dialog view page will open.
 
-    * [Go](manage-dialogs.md#view-dialog) to the dialog and click **![image](../../../_assets/console-icons/link.svg)** to the right of its header.
+    * [Go](manage-dialogs.md#view-dialog) to the dialog and click ![image](../../../_assets/console-icons/link.svg) to the right of its header.
 
         If there is no such button, it means that there are no related dialogs for the dialog you opened.
 
@@ -26,8 +26,8 @@ From a [related dialog](../../concepts/dialogs.md#related-dialogs), you can go t
 
     Within a single dialog, you can search by text and view the dialog tags.
 
-1. To view the semantic analysis for a dialog, click the **Analysis by {{ yagpt-name }}** tab.
+1. To view the semantic analysis for a dialog, click the **{{ yagpt-name }} analysis** tab.
 
 ## Navigating to the individual dialog view
 
-To switch from the related dialogs page to the single dialog view page, click ![image](../../../_assets/console-icons/arrow-up-right-from-square.svg) for the required dialog on either the **Dialogs** or **Analysis by {{ yagpt-name }}** tab.
+To switch from the related dialogs page to the single dialog view page, click ![image](../../../_assets/console-icons/arrow-up-right-from-square.svg) for the dialog of interest on either the **Dialogs** or **{{ yagpt-name }} analysis** tab.

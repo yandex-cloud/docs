@@ -4,13 +4,19 @@ title: _Comparison_ report in {{ speechsense-name }}
 
 # _Comparison_ report in {{ speechsense-name }}
 
+{% note warning %}
+
+Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags](../tags.md#sense-tags) instead.
+
+{% endnote %}
+
 The **Comparison** report allows you to display several parameters in a single chart and see how they correlate. For example, you can create a report that shows how the flaws in the agent’s speech, e.g., hesitation, poor articulation, or silence, affect the decision not to buy a service or product. You can use system tags as parameters for such a report: `Refused to buy`, `Agent’s hesitation`, `Stop words`, `Filler words`, etc.
 
 ## How to build a report {#form}
 
 To generate a **Comparison** report, specify these settings:
 
-* [Evaluation parameters](#parameter): The report will cover the changes in these parameters.
+* [Evaluation parameters](#parameter): The report will reflect the changes in these parameters.
 * [Filters](#filters): Filters applied to dialogs in the report.
 
 With the settings configured, you can now [build a report](../../operations/data/manage-reports.md#build-a-comparison-report). It will show the values of several evaluation parameters in a [chart and table](#display).

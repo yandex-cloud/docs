@@ -1,4 +1,4 @@
-# Configuring user group mapping for your federation
+# Configuring a federated user group mapping
 
 To configure user access to {{ yandex-cloud }} resources using [group mapping](../concepts/add-federation.md#group-mapping):
 
@@ -12,7 +12,7 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
 
     {% endnote %}
 
-1. Set up user group mapping in the identity provider's SAML attribute settings. To learn how to do this, consult the provider's documentation or contact their support.
+1. Set up user group mapping in the identity provider's SAML attribute settings. To learn how to do this, consult the identity provider's documentation or contact their support.
 
     Identity providers offer guides on how to set up group mapping:
 

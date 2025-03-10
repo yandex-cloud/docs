@@ -41,7 +41,6 @@ description: Из статьи вы узнаете, как задать наст
 * [Дополнительные параметры](#additional-settings).
 
 
-
 ### Кластер {{ mgp-name }} {#managed-service}
 
 
@@ -61,7 +60,6 @@ description: Из статьи вы узнаете, как задать наст
     {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
 {% endlist %}
-
 
 
 ### Пользовательская инсталляция {#on-premise}

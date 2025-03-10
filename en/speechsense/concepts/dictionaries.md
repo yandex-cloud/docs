@@ -1,6 +1,6 @@
 # Dictionaries for dialog tags
 
-A _dictionary_ is a collection of key phrases for [tags](tags.md). If a {{ speechsense-name }} dialog contains a phrase from a dictionary, a tag mapped to that dictionary is assigned to such a dialog.
+A _dictionary_ is a collection of key phrases for [dictionary tags](tags.md#dictionary-tags). If a {{ speechsense-name }} dialog contains a phrase from a dictionary, a tag mapped to that dictionary is assigned to such a dialog.
 
 Dictionaries allow you to reuse a group of keywords in multiple tags. This way, you can list the required words once and manage them as a single dictionary. If the user updates keywords in a dictionary, such updates will automatically apply to all tags associated with that dictionary. If a tag contains multiple dictionaries, their contents are joined as if by the logical OR operator.
 

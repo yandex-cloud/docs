@@ -1187,7 +1187,7 @@ items:
         href: serverless/logging-functions.md
       - name: >-
           Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
-          yagpt-full-name }} и {{ postbox-full-name }}
+          foundation-models-full-name }} и {{ postbox-full-name }}
         href: serverless/tracker-yandexgpt-postbox-integrations.md
   - name: Машинное обучение и искусственный интеллект
     items:

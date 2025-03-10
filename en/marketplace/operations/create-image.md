@@ -40,7 +40,7 @@ To use the image for a Marketplace product, also follow these steps:
 
 ## Checking your image {#check-image}
 
-You can clean up and check the system by the [yc-image-cleanup.sh](https://github.com/yandex-cloud/examples/blob/master/products-prepare/linux/yc-image-cleanup.sh) script.
+You can clean up and check the system by the [yc-image-cleanup.sh](https://github.com/yandex-cloud/marketplace/blob/master/products-prepare/linux/yc-image-cleanup.sh) script.
 
 You must run the `yc-image-cleanup.sh` script inside the image as a `root` user.
 

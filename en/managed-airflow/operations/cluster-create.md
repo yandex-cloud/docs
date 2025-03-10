@@ -42,7 +42,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         1. (Optional) Create [labels](../../resource-manager/concepts/labels.md):
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Enter a label in `key: value` format.
-            1. Click **Enter**.
+            1. Press **Enter**.
 
   1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**:
 
@@ -142,7 +142,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
     To create a {{ maf-name }} cluster:
 
-    1. View the description of the create cluster CLI command:
+    1. View the description of the CLI command to create a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster create --help
@@ -340,7 +340,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         * `network`: Network settings:
 
-            * `subnetIds`: List of subnet IDs.
+            * `subnetIds`: Subnet IDs list.
 
                 {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
@@ -518,7 +518,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         * `network`: Network settings:
 
-            * `subnet_ids`: List of subnet IDs.
+            * `subnet_ids`: Subnet IDs list.
 
                 {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 

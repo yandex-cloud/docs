@@ -4,11 +4,9 @@
 
 {% list tabs group=web_browsers %}
 
-
 - Яндекс Браузер {#yandex}
 
   {% include [browser-console-yandex](../_includes/support/browser-console-yandex.md) %}
-
 
 - Google Chrome {#chrome}
 

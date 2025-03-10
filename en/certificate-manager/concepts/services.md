@@ -45,6 +45,12 @@ To access [CDN resources](../../cdn/concepts/resource.md) over HTTPS, you can [u
 
 You can store a {{ certificate-manager-name }} user certificate's private key in {{ lockbox-name }} [using {{ TF }}](../operations/import/cert-create.md#create-lockbox).
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/tls-termination/index.md)
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
+
 #### See also {#see-also}
 
 * [Static website in {{ objstorage-name }}](../../tutorials/web/static/index.md)

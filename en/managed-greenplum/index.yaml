@@ -4,11 +4,11 @@ description:
     Yandex Managed Service for Greenplum<sup>®</sup> helps you deploy and
     maintain Greenplum clusters<sup>®</sup> in the Yandex Cloud infrastructure.
   - >-
-    The Yandex Cloud infrastructure is fully <a
-    href="/docs/security/conform">secure</a> in compliance with the following
-    standards: <ul> <li>Russian Federal Law No. 152-FZ on Personal Data</li>
+    The Yandex Cloud infrastructure is <a
+    href="/docs/security/conform">protected</a> pursuant to the following
+    standards: <ul><li>Russian Federal Law No. 152-FZ on Personal Data</li>
     <li>PCI DSS</li> <li>ISO 27001</li> <li>ISO 27017</li> <li>ISO 27018</li>
-    <li>GOST 57580.1-2017</li> </ul>
+    <li>GOST 57580.1-2017</li></ul>
   - >-
     <em>Greenplum<sup>®</sup> and Greenplum Database<sup>®</sup> are registered
     trademarks or trademarks of VMware, Inc. in the United States and/or other

@@ -16,7 +16,7 @@ To edit a dictionary, you need the `{{ roles-speechsense-admin }}` or `{{ roles-
 
 {% note warning %}
 
-Changes to a dictionary will only apply to conversations you upload to the project after the changes are made.
+Changes to a dictionary apply to dialogs you upload to the project afterwards as well as existing dialogs no more than 60 days old.
 
 {% endnote %}
 
@@ -31,7 +31,7 @@ Changes to a dictionary will only apply to conversations you upload to the proje
 1. In the window that opens, set the following configuration:
 
    * Dictionary name and description.
-   * **Keywords**: Use a separate line for each trigger phrase. {{ speechsense-name }} will scan the conversation for the keywords and assign a [tag](../../concepts/tags.md) with the dictionary to the recording if it finds any.
+   * **Keywords**: Use a separate line for each trigger phrase. {{ speechsense-name }} will scan the conversation for the keywords and assign a [dictionary tag](../../concepts/tags.md#dictionary-tags) to the recording if it finds any.
 
 1. Click **Save**.
 
@@ -46,7 +46,7 @@ Changes to a dictionary will only apply to conversations you upload to the proje
 1. In the line with the dictionary you need, enable **Use in projects** to activate the dictionary. Disable to deactivate it.
 1. When deactivating, you will be prompted to confirm the action. Confirm to proceed.
 
-Changes apply to new conversations only:
+These changes apply to the following dialogs:
 
-* Tag containing an activated dictionary will apply to conversations uploaded after activation.
+* Tag containing an activated dictionary will apply to dialogs uploaded after activation as well as existing dialogs no more than 60 days old.
 * Tags containing a deactivated dictionary will apply to the already uploaded conversations but not the new ones.

@@ -1,10 +1,10 @@
-# Как начать работать с {{ yagpt-full-name }}
+# Как начать работать с {{ gpt-lite }} и {{ gpt-pro }}
 
-В этом разделе вы научитесь использовать нейросеть {{ yagpt-name }} для генерации текста в [синхронном режиме](../concepts/index.md#working-mode) без дополнения контекста. Другие примеры см. в разделе [Инструкции для работы с {{ yagpt-full-name }}](../operations/index.md#yandexgpt-api)
+В этом разделе вы научитесь использовать нейросеть {{ yagpt-name }} для генерации текста в [синхронном режиме](../concepts/index.md#working-mode) без дополнения контекста. Другие примеры см. в разделе [Инструкции для работы с {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api)
 
 В [консоли управления]({{ link-console-main }}/link/foundation-models/yandexgpt) новым пользователям без [платежного аккаунта](../../billing/concepts/billing-account.md) доступно {{ gpt-freetier }} бесплатных запросов в час, чтобы вы могли максимально быстро и просто познакомиться с возможностями модели. Чтобы использовать API и иметь возможность увеличить [квоты](../concepts/limits.md) на потребление, [привяжите](../../billing/operations/pin-cloud.md) платежный аккаунт к своему облаку.
 
-О стоимости использования {{ yagpt-full-name }} читайте в разделе [{#T}](../pricing.md).
+О стоимости использования {{ foundation-models-full-name }} читайте в разделе [{#T}](../pricing.md).
 
 ## Перед началом работы {#before-begin}
 
@@ -34,7 +34,7 @@
 
   1. Получите IAM-токен: см. инструкцию для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md).
   1. Получите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-yagpt-user }}` или выше.
-  1. При обращении к {{ yagpt-full-name }} через API передайте полученные параметры:
+  1. При обращении к {{ gpt-lite }} или {{ gpt-pro }} через API передайте полученные параметры:
 
      * в файле запроса в параметре `modelUri` указывайте идентификатор каталога;
      * в запросе в заголовке `Authorization` указывайте IAM-токен.

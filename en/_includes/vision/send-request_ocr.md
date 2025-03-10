@@ -1,6 +1,6 @@
-{% list tabs group=programming_language %}
-
 Send a request using the [recognize](../../vision/ocr/api-ref/TextRecognition/recognize.md) method and save the response to a file, e.g., `output.json`:
+
+{% list tabs group=programming_language %}
 
 - UNIX {#unix}
 

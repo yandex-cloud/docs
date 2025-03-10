@@ -14,7 +14,7 @@ You can also send all the requests given below using the [Node.js](https://githu
 To get started with the {{ marketplace-short-name }} {{ cloud-apps-name }} Workload API:
 
 1. [Get](../../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) an IAM token for the [service account](../../../../iam/concepts/users/service-accounts.md) created automatically while installing the application and linked to the [VM](../../../../compute/concepts/vm.md) running this application.
-1. [Get](../../../../compute/concepts/vm-metadata.md#identity-document) the ID of the VM running the application.
+1. [Get](../../../../compute/concepts/metadata/identity-document.md) the ID of the VM running the application.
 
 To use the examples, install these utilities:
 * [cURL](https://curl.haxx.se) if using the [REST API](../../../workload/api-ref/)

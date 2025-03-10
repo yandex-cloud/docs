@@ -11,7 +11,7 @@
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [инстанс {{ GL }}](../../concepts/index.md#instance).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Выберите инстанс и нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
-  1. В блоке **{{ ui-key.yacloud.compute.group.overview.section_base }}**:
+  1. В верхней части страницы:
 
       * Задайте новые имя и описание инстанса.
       * Добавьте [метки](../../../resource-manager/concepts/labels.md) для разделения инстансов на логические группы.

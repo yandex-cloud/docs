@@ -22,7 +22,7 @@ API {{ yandex-cloud }} спроектированы на основе механ
 #### Исключения для ресурсо-ориентированного подхода {#exceptions}
 
 - [API {{ objstorage-full-name }}](../../storage/s3/index.md). Его архитектура обеспечивает совместимость с Amazon S3 API, поэтому принципы API {{ objstorage-name }} не всегда совпадают с принципами ресурсо-ориентированного подхода. Подробнее читайте в документации к сервису.
-- API сервисов искусственного интеллекта [{{ yagpt-full-name }}](../../foundation-models/concepts/api.md), [{{ speechkit-full-name }}](../../speechkit/concepts/api.md), [{{ translate-full-name }}](../../translate/api-ref/grpc/) и [{{ vision-full-name }}](../../vision/vision/api-ref/grpc/). Их API не оперирует ресурсами {{ yandex-cloud }}, запросы не идемпотентны.
+- API сервисов искусственного интеллекта [{{ foundation-models-full-name }}](../../foundation-models/concepts/api.md), [{{ speechkit-full-name }}](../../speechkit/concepts/api.md), [{{ translate-full-name }}](../../translate/api-ref/grpc/) и [{{ vision-full-name }}](../../vision/vision/api-ref/grpc/). Их API не оперирует ресурсами {{ yandex-cloud }}, запросы не идемпотентны.
 
 
 #### См. также {#see-also}

@@ -53,6 +53,23 @@ description: HTTP API {{ cns-name }} совместим с Amazon SNS API.
     ```bash
     aws configure set endpoint_url https://{{ cns-host }}/
     ```
+   Значение эндпоинта в настройках можно проверить командой:
+
+    ```bash
+    aws configure get endpoint_url
+    ```
+   
+   Команды `configure set` и `configure get` работают с настройками в конфигурационном файле `~/.aws/config`. Также можно задать параметры в [переменных окружения](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-endpoints.html#endpoints-global).
+
+    {% note warning %}
+
+     Поскольку эндпоинт можно задать разными способами, каждый из способов имеет свой [приоритет](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html#envvars-list-AWS_ENDPOINT_URL). Переменная окружения имеет больший приоритет, чем значение в файле конфигурации.
+     
+     Чтобы исключить конфликты параметров, проверьте переменную окружения с помощью команды `echo $AWS_ENDPOINT_URL` и параметр в конфигурации — `aws configure get endpoint_url`.
+
+     Также проверьте отсутствие конфликтов в конфигурации (файл `~/.aws/credentials`) с переменными окружения `AWS_DEFAULT_REGION`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`.
+     
+     {% endnote %}
 
 {% cut "Пример конфигурационных файлов" %}
 

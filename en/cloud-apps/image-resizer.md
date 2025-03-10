@@ -7,7 +7,7 @@ Use it when developing services that handle images.
 ## Required paid resources {#paid-resources}
 
 The cost of resources for the application includes:
-* Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to the function, and outbound traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
 * Fee for storing data in a bucket (see [{{ objstorage-full-name }} pricing](../storage/pricing.md)).
 
 ## Deploy the application {#deploy-app}
@@ -17,11 +17,11 @@ The cost of resources for the application includes:
 1. On the left-hand panel, select **Marketplace**.
 1. Select **Image Resizer** and click **Use**.
 1. Specify the following:
-   * Application name.
-   * (Optional) Application description.
-   * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
-   * {{ objstorage-name }} bucket.
-   * Directory with the source images.
-   * Target directory.
-   * Resulting image size.
+    * Application name.
+    * Application description (optional).
+    * Service account with the `admin` role for the folder, or select **Auto** to have the service account created when installing the application. This service account will be used to create the application resources.
+    * {{ objstorage-name }} bucket.
+    * Directory with the source images.
+    * Target directory.
+    * Resulting image size.
 1. Click **Install** and wait for the installation to complete.

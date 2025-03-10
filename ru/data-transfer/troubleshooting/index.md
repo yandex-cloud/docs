@@ -225,7 +225,6 @@
 
 {% include [generated-columns](../../_includes/data-transfer/troubles/generated-columns.md) %}
 
-
 ## {{ ydb-full-name }} {#ydb}
 
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
@@ -235,7 +234,6 @@
 {% include [overloaded](../../_includes/data-transfer/troubles/overloaded.md) %}
 
 {% include [redirects](../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
-
 
 
 ## Куда заявить о проблеме {#support}

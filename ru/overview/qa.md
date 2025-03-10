@@ -66,7 +66,6 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
   
 
-
 ### Бессерверные вычисления {#serverless}
 
 * [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
@@ -77,7 +76,6 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ message-queue-full-name }}](../message-queue/qa/index.md)
 * [{{ objstorage-full-name }}](../storage/qa.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
-
 
 
 ### Безопасность {#security}
@@ -101,7 +99,6 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ resmgr-full-name }}](../resource-manager/qa/index.md)
 
 
-
 ### Машинное обучение {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
@@ -112,15 +109,11 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ vision-full-name }}](../vision/qa/index.md)
 
 
-
-
 ### Бизнес-инструменты {#business-tools}
 
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ tracker-full-name }}](../tracker/faq.md)
 * [{{ video-full-name }}](../video/troubleshooting.md)
-
-
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
 

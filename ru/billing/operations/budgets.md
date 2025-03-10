@@ -7,7 +7,6 @@
 * _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}_ — уведомление отправляется, когда стоимость ресурсов с учетом скидок и активных промокодов превышает установленный порог потребления.
 * _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}_ — уведомление отправляется, когда баланс лицевого счета становится меньше установленного порога.
 
-
 {% note info %}
 
 Вы можете создать триггер, который будет запускать [функцию](../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при превышении пороговых значений. Подробнее о [триггере для бюджетов](../../functions/operations/trigger/budget-trigger-create.md).

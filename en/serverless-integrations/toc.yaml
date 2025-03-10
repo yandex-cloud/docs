@@ -10,6 +10,34 @@ items:
         href: quickstart/workflows.md
       - name: '{{ er-name }}'
         href: quickstart/eventrouter.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: '{{ er-name }}'
+        items:
+          - name: Getting information about a bus
+            items:
+              - name: Getting a list of buses
+                href: operations/eventrouter/bus/get-list.md
+              - name: Getting information about a bus
+                href: operations/eventrouter/bus/get-info.md
+          - name: Managing a bus
+            items:
+              - name: Creating a bus
+                href: operations/eventrouter/bus/create.md
+              - name: Updating a bus
+                href: operations/eventrouter/bus/update.md
+              - name: Managing labels
+                items:
+                  - name: Adding a label
+                    href: operations/eventrouter/bus/label-add.md
+                  - name: Updating a label
+                    href: operations/eventrouter/bus/label-update.md
+                  - name: Deleting a label
+                    href: operations/eventrouter/bus/label-delete.md
+              - name: Deleting a bus
+                href: operations/eventrouter/bus/delete.md
   - name: Concepts
     items:
       - name: Overview

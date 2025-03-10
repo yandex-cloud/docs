@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Начало работы
     items:
-      - name: Начало работы с {{ yagpt-full-name }}
+      - name: Начало работы с {{ yagpt-name }}
         href: quickstart/yandexgpt.md
       - name: Начало работы с {{ yandexart-name }}
         href: quickstart/yandexart.md
@@ -678,7 +678,7 @@ items:
             href: gpt-prompting-guide/techniques/CoT.md
           - name: Self-consistency
             href: gpt-prompting-guide/techniques/self-consistency.md
-  - name: Библиотека промтов {{ yagpt-full-name }}
+  - name: Библиотека промтов {{ yagpt-name }}
     items:
       - name: Все промты
         href: prompts/yandexgpt/index.md

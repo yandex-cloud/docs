@@ -46,12 +46,12 @@ HTTP routers support two types of routes, **{{ ui-key.yacloud.alb.label_proto-ht
 
      If the full request path is specified as a route condition, you will not be able to replace only the beginning of the path. The entire path will be replaced, even if the settings indicate to modify only the beginning.
    
-     If the original URI uses the `http` (`https`) schema and specifies port `80`(`443`), the change of schema will delete the port.
+     If the original URI uses the `http` (`https`) schema and specifies port `80` (`443`), changing the schema will delete the port.
    * Immediately return a load balancer's static response to the request received via this route.
 
 1. gRPC routes are designed for processing gRPC requests ([remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call)) over HTTP/2.
 
-   You can specify the beginning of a method, or the full method name (FQMN, fully qualified method name), or a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression) as a condition for a gRPC route. The value must start with a slash `/`.
+   You can specify the beginning of a method, or the full method name (FQMN, fully qualified method name), or a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression) as a condition for a gRPC route. The value must start with a slash (`/`).
 
    You can perform one of the actions with the request that satisfies the conditions:
 
@@ -70,3 +70,14 @@ A request satisfying the route conditions can be forwarded to a backend group fo
 * **{{ ui-key.yacloud.alb.label_idle-timeout }}**: Maximum connection lifetime with no data being transferred. There is no default value. If the timeout is not specified, it is ignored. You can use the idle timeout in streaming scenarios (e.g., for long polls or server-sent events). In some cases, when no primary timeout is specified, the idle timeout may be set automatically.
 
 If a connection for HTTP backend groups times out, the load balancer will return the `504 Gateway Timeout` code.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/tls-termination/console.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
+* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/balancer-with-sws-profile.md)

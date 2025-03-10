@@ -33,20 +33,20 @@ Added a new state saving mode: **Autosave Commit Mode**.
 
 1. Introduced Early Access Version: a new mode of running {{ ml-platform-name }}.
 
-   **Early Access Version** is a pre-release version of the system where all the key new features will be announced.
+    **Early Access Version** is a pre-release version of the system where all the key new features will be announced.
 
-   {% note info %}
+    {% note info %}
 
-   **How do I use it?**
+    **How do I use it?**
 
-   You can select the **Early Access Version** operating mode for your project in its entirety. To activate this mode, from the project menu, select **File** and then **Enable Early Access Version**.
-   You can revert to the regular mode anytime: click **File** in your project menu and select **Disable Early Access Version**.
+    You can select the **Early Access Version** operating mode for your project in its entirety. To activate this mode, from the project menu, select **File** and then **Enable Early Access Version**.
+    You can revert to the regular mode anytime: click **File** in your project menu and select **Disable Early Access Version**.
 
-   **Where to view it:**
+    **Where to view it:**
 
-   To find out what's new in the release and how you can use it, see our new notebook: **What's new in Early Access?**.
+    See our new notebook for details on what's new in the release and how you can best use it: **What's new in Early Access?**.
 
-   {% endnote %}
+    {% endnote %}
 
 1. Memory and CPU usage indicators added in {{ ml-platform-name }}: CPU core and memory usage is now shown directly in the notebook interface.
 1. TensorBoard support added.
@@ -59,7 +59,7 @@ An introductory **Welcome** notebook has been released (in Russian). It explains
 ## Release as of 23/11/2020 {#231120}
 
 1. Code completion fixed.
-1. Added support for `widgets`.
+1. Added `widgets` support.
 
 ## Release as of 11/11/2020 {#111120}
 
@@ -72,19 +72,19 @@ An introductory **Welcome** notebook has been released (in Russian). It explains
 
 1. {{ ml-platform-full-name }} has become a paid generally available (GA) feature.
 
-   Per-second billing is used, so you pay only for the computation time (you are not charged for using notebooks).
-   Pricing is based on a billing unit. One billing unit represents the cost of using one CPU core for one second.
+    Per-second billing is used, so you pay only for the computation time (you are not charged for using notebooks).
+    Pricing is based on a billing unit. One billing unit equals the cost of using one CPU core for one second.
 
-   The number of units and the cost depend on the computing resource configuration.
+    The number of units and the cost depend on the computing resource configuration.
 
 1. Added the option to use the bash command.
 
-   The `%%bash` command is still available directly, but you can use its functionality as follows:
-   * Specify `#!S:bash` in the cell headers (`S` indicates the type of VM instance to run bash on).
+    The `%%bash` command is still not available directly, but you can use its functionality as follows:
+    * Specify `#!S:bash` in the cell headers (`S` indicates the type of VM to run bash on).
 
-   Limitations:
-   * Background jobs are not supported, for example, `sshd`.
-   * Launching `pip` is not supported. Continue to use `magic` for pip.
+    Limitations:
+    * Background jobs, such as `sshd`, are not supported.
+    * `pip` is not supported. As before, this command is only available via `magic`.
 
 1. Full-featured integration with Apache Spark™ is now available. You can compute on the existing {{ dataproc-name }} clusters or even create temporary {{ dataproc-name }} clusters from {{ ml-platform-name }} directly.
 1. Added versioning and support of checkpoints.

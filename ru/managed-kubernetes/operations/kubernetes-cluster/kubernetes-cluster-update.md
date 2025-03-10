@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Управлять облачными метками кластера {{ managed-k8s-name }} {#manage-label}
 
-Вы можете выполнять следующие действия с [облачными метками кластера](../../concepts/index.md#node-labels) {{ managed-k8s-name }}:
+Вы можете выполнять следующие действия с [облачными метками кластера](../../concepts/index.md#cluster-labels) {{ managed-k8s-name }}:
 
 * [Добавить](#add-label).
 * [Изменить](#update-label).
@@ -143,6 +143,15 @@ description: Следуя данной инструкции, вы сможете
 ### Добавить облачную метку {#add-label}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. Введите ключ и значение и нажмите **Enter**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -170,6 +179,17 @@ description: Следуя данной инструкции, вы сможете
 ### Изменить облачную метку {#update-label}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Чтобы изменить облачную метку, потребуется удалить ее и создать заново:
+
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
+    1. Нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}** и введите ключ и/или значение новой метки.
+    1. Нажмите **Enter**, а затем — **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -199,6 +219,14 @@ description: Следуя данной инструкции, вы сможете
 ### Удалить облачную метку {#remove-label}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

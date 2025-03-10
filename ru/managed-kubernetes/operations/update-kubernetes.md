@@ -4,13 +4,11 @@
 
 При обновлении мажорной версии {{ k8s }} сначала обновите кластер {{ managed-k8s-name }}, потом его группу узлов.
 
-{% note info %}
-
 Вы можете изменить политику обновления [кластера {{ managed-k8s-name }}](#cluster-auto-upgrade) или [группы узлов](#node-group-auto-upgrade) в любое время.
 
-{% endnote %}
-
 Подробнее см. в разделе [{#T}](../concepts/release-channels-and-updates.md).
+
+{% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
 
 ## Список доступных версий {{ k8s }} {#versions-list}
 

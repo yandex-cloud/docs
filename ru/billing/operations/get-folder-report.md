@@ -116,7 +116,6 @@
 * `updated_at` — дата и время последнего изменения строки в формате [Unix Timestamp](https://www.unixtimestamp.com).
 * `exported_at` — дата и время добавления строки в файл детализации.
 
-
 {% cut "Устаревшие параметры" %}
 
 * `created_at` — дата и время, в которое начислена указанная стоимость потребления. В формате [Unix Timestamp](https://www.unixtimestamp.com).

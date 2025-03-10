@@ -7,7 +7,7 @@
 
 {% note info %}
 
-Сервисы искусственного интеллекта {{ yagpt-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }} и {{ vision-full-name }} не поддерживают идемпотентность.
+Сервисы искусственного интеллекта {{ foundation-models-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }} и {{ vision-full-name }} не поддерживают идемпотентность.
 
 {% endnote %}
 

@@ -7,8 +7,10 @@ description: How do I get the logs of my actions in {{ yagpt-full-name }}? Find 
 
 {% include [logs](../../_qa/logs.md) %}
 
-{% include [demo-yagpt](../../_qa/demo-yagpt.md) %}
+You cannot get the history of requests to models from logs. Request data is [stored](../operations/disable-logging.md) in depersonalized form and without any link to your account.
 
 {% include [chat-history](../../_qa/chat-history.md) %}
+
+{% include [demo-yagpt](../../_qa/demo-yagpt.md) %}
 
 {% include [requests-ai-from-frontend](../../_qa/requests-ai-from-frontend.md) %}

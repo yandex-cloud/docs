@@ -150,7 +150,7 @@ Free tier распространяется на сервисы:
 
 ## {{ foundation-models-full-name }} {#foundation-models}
 
-[{{ foundation-models-full-name }}](../../foundation-models/index.yaml) — это сервис больших генеративных моделей для бизнеса. {{ yandex-cloud }} предоставляет доступ к нейросетям {{ yagpt-name }} и {{ yandexart-name }} и позволяет применять их в ваших бизнес-приложениях и веб-сервисах.
+[{{ foundation-models-full-name }}](../../foundation-models/index.yaml) — это сервис больших генеративных моделей для бизнеса. {{ yandex-cloud }} предоставляет доступ к нейросетям {{ gpt-lite }}, {{ gpt-pro }} и {{ yandexart-name }} и позволяет применять их в ваших бизнес-приложениях и веб-сервисах.
 
 {% include [not-charged-foundation-models](../../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 

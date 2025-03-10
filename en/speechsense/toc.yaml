@@ -9,10 +9,14 @@ items:
         href: operations/index.md
       - name: Operations with data
         items:
-          - name: Uploading audio data
-            href: operations/data/upload-data.md
-          - name: Uploading chat conversations
-            href: operations/data/upload-chat-text.md
+          - name: Uploading data
+            items:
+              - name: Uploading audio data via the management console
+                href: operations/data/upload-audio-console.md
+              - name: Uploading audio data via gRPC API
+                href: operations/data/upload-data.md
+              - name: Uploading chat conversations
+                href: operations/data/upload-chat-text.md
           - name: Searching data
             items:
               - name: Data search via the gRPC API
@@ -59,10 +63,18 @@ items:
             href: operations/project/delete-user-from-project.md
       - name: Tags
         items:
-          - name: Creating a tag
-            href: operations/project/tag/create.md
-          - name: Changing a tag
-            href: operations/project/tag/change.md
+          - name: Creating a dictionary tag
+            href: operations/project/tag/create-dictionary-tag.md
+          - name: Creating a semantic tag
+            href: operations/project/tag/create-sense-tag.md
+          - name: Creating a dependent tag
+            href: operations/project/tag/create-dependent-tag.md
+          - name: Creating a dictionary tag
+            href: operations/project/tag/change-dictionary-tag.md
+          - name: Changing a semantic tag
+            href: operations/project/tag/change-sense-tag.md
+          - name: Testing a tag
+            href: operations/project/tag/test.md
           - name: Deleting a tag
             href: operations/project/tag/delete.md
       - name: Dictionaries
@@ -95,8 +107,8 @@ items:
             href: concepts/reports/comparison.md
           - name: Usage details
             href: concepts/reports/details.md
-          - name: Neuroparameters
-            href: concepts/reports/neuro-parameters.md
+          - name: Semantic attributes
+            href: concepts/reports/sense-attributes.md
       - name: Supported audio formats
         href: concepts/formats.md
       - name: Quotas and limits

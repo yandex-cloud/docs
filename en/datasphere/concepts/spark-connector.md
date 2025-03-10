@@ -26,6 +26,8 @@ Once created, the Spark connector becomes available for the project. Like any ot
 
 If you chose a temporary {{ dataproc-name }} cluster when creating the Spark connector, {{ ml-platform-name }} will create a {{ dataproc-name }} cluster the first time you run computations in your notebook and will monitor it all by itself. The cluster starts and stops together with the notebook VM. The cluster will be deleted if there are no computations on it for the period of time specified in the **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}** parameter, or if you force shut down the notebook VM.
 
+You can also work with Spark connectors from the [{{ ds-cli }}](jobs/work-with-spark.md).
+
 ### Configurations of temporary clusters {#configurations}
 
 Temporary {{ dataproc-name }} clusters are deployed on [{{ compute-full-name }} VMs](../../compute/concepts/vm.md) powered by Intel Cascade Lake (`standard-v2`).

@@ -12,8 +12,8 @@ links:
   - title: Getting started
     description: Set up the first widget and check the user
     href: quickstart
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+  - title: Step-by-step guides
+    description: How to perform routine operations
     href: operations
   - title: Widget installation methods
     description: Learn about the methods to add SmartCaptcha to your site
@@ -25,8 +25,11 @@ links:
     description: React package to work with SmartCaptcha
     href: concepts/react
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
+  - title: Tutorials
+    description: Detailed instructions on how to use SmartCaptcha
+    href: tutorials/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing

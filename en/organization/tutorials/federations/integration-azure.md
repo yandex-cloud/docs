@@ -142,7 +142,7 @@ Add users to the IdP server:
         * `--auto-create-account-on-login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `--cookie-max-age`: Time before the browser asks the user to re-authenticate.
 
@@ -173,7 +173,7 @@ Add users to the IdP server:
 
   1. Specify the federation parameters in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -219,7 +219,7 @@ Add users to the IdP server:
       * `auto_create_account_on_login`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server.
       This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-          If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+          If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
       * `case_insensitive_name_ids`: Toggles username case sensitivity.
           If this option is enabled, the IDs of federated user names will be case-insensitive.
@@ -234,7 +234,7 @@ Add users to the IdP server:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the folder where you created the configuration file.
+      1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
@@ -283,7 +283,7 @@ Add users to the IdP server:
         * `autoCreateAccountOnLogin`: Flag enabling the automatic creation of new cloud users after authenticating on the IdP server. 
         This option makes it easier to create users; however, users created this way will not be able to do anything with cloud resources. This does not apply to the resources for which roles are assigned to the `All users` or `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md).
 
-            If this option is off, users not added to the organization will not be able to log in to the management console, even if they authenticate on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
+            If this option is off, users not added to the organization will not be able to log in to the management console, even if authenticated on your IdP server. In this case, you can manage a list of users allowed to use {{ yandex-cloud }} resources.
 
         * `cookieMaxAge`: Time before the browser asks the user to re-authenticate.
 
@@ -415,7 +415,7 @@ Types of personal data supported by {{ org-full-name }} for {{ microsoft-idp.ent
 User data | Comment | Application Attributes
 ------------------- | ----------- | -------------------
 Unique user ID (name ID) | Required attribute.<br> By default, {{ microsoft-idp.entra-id-short }} uses User Principal Name (UPN) in `<login>_<domain>#EXT#@<provider>.onmicrosoft.com` format as the attribute source. When manually adding users to a federation, this name ID format is not supported. We recommend changing the attribute source in {{ microsoft-idp.entra-id-short }}: choose email address, `user.mail`, instead of UPN, `user.userprincipalname`. | **Unique user ID** claim
-Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+Surname | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 Full name | Displayed in {{ yandex-cloud }} services.<br>Example: `Ivan Ivanov`.<br> Value length limit: {{ saml-limit-display-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
 Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `ivanov@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`

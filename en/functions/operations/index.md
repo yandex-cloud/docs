@@ -14,6 +14,7 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [{#T}](function/version-list.md)
 * [{#T}](function/function-info.md)
 * [{#T}](function/version-info.md)
+* [Configuring metadata service parameters](function/metadata-options.md)
 
 ## Managing function access permissions {#function-access-rights}
 

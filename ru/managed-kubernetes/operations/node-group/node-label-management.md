@@ -4,9 +4,15 @@
 
 {% include [node-vm-manipulation-warning](../../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
 
+## Ограничения в именах и значениях {{ k8s }}-меток {#restrictions}
+
+[{{ k8s }}-метки](../../concepts/index.md#node-labels) представляют собой пары `ключ:значение`.
+
+{% include [k8s-labels-restrictions-nodes](../../../_includes/managed-kubernetes/k8s-labels-restrictions-nodes.md) %}
+
 ## Назначить {{ k8s }}-метки при создании группы узлов {#node-group-creation}
 
-Вы можете добавлять [{{ k8s }}-метки](../../concepts/index.md#node-labels) сразу на все узлы {{ managed-k8s-name }} в [группе узлов](../../concepts/index.md#node-group). Для этого задайте набор меток в параметре `node_labels` при [создании группы узлов {{ managed-k8s-name }}](../../operations/node-group/node-group-create.md).
+Вы можете добавлять {{ k8s }}-метки сразу на все узлы {{ managed-k8s-name }} в [группе узлов](../../concepts/index.md#node-group). Для этого задайте набор меток в параметре `node_labels` при [создании группы узлов {{ managed-k8s-name }}](../../operations/node-group/node-group-create.md).
 
 1. Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 

@@ -25,20 +25,23 @@ def main():
     train_dataset = sdk.datasets.get("<dataset_ID>")
     base_model = sdk.models.completions("yandexgpt-lite")
 
-    # Defining minimum parameters
-    # To control more parameters, use `base_model.tune_deferred()`
-    tuned_model = base_model.tune(train_dataset, name=str(uuid.uuid4()))
+    # Starting the tuning
+    # Tuning can last up to several hours
+    tuned_model = base_model.tune_deferred(train_dataset, 
+        name=str(uuid.uuid4())
+        n_samples=10000
+    )
     print(f"Resulting {tuned_model}")
 
-    # Starting the tuning
-    completion_result = tuned_model.run("hey!")
+    # You can access the fine-tuned model using the run() method
+    completion_result = tuned_model.run("Hello! What is your name")
     print(f"{completion_result=}")
 
-    # Saving the URI of the tuned model
+    # Or you can save the URI of the fine-tuned model
+    # And call the fine-tuned model by its URI
     tuned_uri = tuned_model.uri
     model = sdk.models.completions(tuned_uri)
-
-    completion_result = model.run("hey!")
+    completion_result = model.run("Tell me, where are you from?")
     print(f"{completion_result=}")
 
 

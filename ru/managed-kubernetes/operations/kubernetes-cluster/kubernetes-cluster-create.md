@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
   1. Если у вас еще нет [сети](../../../vpc/concepts/network.md#network), [создайте ее](../../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../../vpc/concepts/network.md#subnet), [создайте их](../../../vpc/operations/subnet-create.md) в [зонах доступности](../../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и [группа узлов](../../concepts/index.md#node-group).
   1. Создайте [сервисные аккаунты](../../../iam/operations/sa/create.md):
-     * Сервисный аккаунт с [ролью](../../security/index.md#yc-api) `k8s.clusters.agent` на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+     * Сервисный аккаунт с [ролями](../../security/index.md#yc-api) `k8s.clusters.agent` и `vpc.publicAdmin` на каталог, в котором создается кластер {{ managed-k8s-name }}. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
      * Сервисный аккаунт с ролью [{{ roles-cr-puller }}](../../../container-registry/security/index.md#choosing-roles) на каталог с [реестром](../../../container-registry/concepts/registry.md) [Docker-образов](../../../container-registry/concepts/docker-image.md). От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
@@ -74,6 +74,7 @@ description: Следуя данной инструкции, вы сможете
        --service-account-name default-sa \
        --node-service-account-name default-sa \
        --daily-maintenance-window start=22:00,duration=10h
+       --labels <имя_облачной_метки=значение_облачной_метки>
      ```
 
      Где:
@@ -105,6 +106,7 @@ description: Следуя данной инструкции, вы сможете
      * `--service-account-id` — уникальный идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
      * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для [узлов](../../concepts/index.md#node-group). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
      * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
+     * `--labels` — [облачные метки](../../concepts/index.md#cluster-labels) для кластера.
 
      Результат:
 
@@ -199,11 +201,14 @@ description: Следуя данной инструкции, вы сможете
      >  service_account_id      = yandex_iam_service_account.<имя_сервисного_аккаунта>.id
      >  node_service_account_id = yandex_iam_service_account.<имя_сервисного_аккаунта>.id
      >    depends_on = [
-     >      yandex_resourcemanager_folder_iam_member.editor,
+     >      yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
+     >      yandex_resourcemanager_folder_iam_member.vpc-public-admin,
      >      yandex_resourcemanager_folder_iam_member.images-puller
      >    ]
      > }
-     >
+     >  labels {
+     >    "<имя_облачной_метки>"="<значение_облачной_метки>"
+     >  }
      >resource "yandex_vpc_network" "<имя_сети>" { name = "<имя_сети>" }
      >
      >resource "yandex_vpc_subnet" "<имя_подсети>" {
@@ -217,10 +222,17 @@ description: Следуя данной инструкции, вы сможете
      >  description = "<описание_сервисного_аккаунта>"
      >}
      >
-     >resource "yandex_resourcemanager_folder_iam_member" "editor" {
-     >  # Сервисному аккаунту назначается роль "editor".
+     >resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
+     >  # Сервисному аккаунту назначается роль "k8s.clusters.agent".
      >  folder_id = "<идентификатор_каталога>"
-     >  role      = "editor"
+     >  role      = "k8s.clusters.agent"
+     >  member    = "serviceAccount:${yandex_iam_service_account.<имя_сервисного_аккаунта>.id}"
+     >}
+     >
+     >resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
+     >  # Сервисному аккаунту назначается роль "vpc.publicAdmin".
+     >  folder_id = "<идентификатор_каталога>"
+     >  role      = "vpc.publicAdmin"
      >  member    = "serviceAccount:${yandex_iam_service_account.<имя_сервисного_аккаунта>.id}"
      >}
      >
@@ -231,6 +243,12 @@ description: Следуя данной инструкции, вы сможете
      >  member    = "serviceAccount:${yandex_iam_service_account.<имя_сервисного_аккаунта>.id}"
      >}
      >```
+
+     {% note info %}
+     
+      Облачные метки для кластера {{ k8s }} составляются по определенным [правилам](../../concepts/index.md#cluster-labels).
+
+     {% endnote %}
 
      Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), добавьте к описанию кластера {{ managed-k8s-name }} блок `master_logging`:
 
@@ -258,6 +276,8 @@ description: Следуя данной инструкции, вы сможете
   Чтобы использовать для защиты секретов [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
 
   Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), передайте настройки отправки в параметре `masterSpec.masterLogging`.
+
+  Чтобы добавить [облачную метку](../../concepts/index.md#cluster-labels), передайте ее имя и значение в параметре `labels`.
 
 {% endlist %}
 

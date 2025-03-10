@@ -29,26 +29,29 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите [зону доступности](../overview/concepts/geo-scope.md) `{{ region-id }}-m`.
   1. Выберите пул `{{ region-id }}-m3`.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
-  
+
      1. Выберите конфигурацию сервера `BA-i103-S-10G`.
      1. (Опционально) Настройте разметку диска:
 
         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
         1. Укажите параметры разметки и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  
+
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Ubuntu 22.04 LTS`.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** укажите:
 
      1. **{{ ui-key.yacloud.baremetal.field_server-count }}** — `1`.
      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** — `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`.
-  
+
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
 
      1. В поле **Приватная подсеть** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
      1. Введите имя подсети `bm-subnetwork` и нажмите кнопку **Создать подсеть**.
      1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
-  
-  1. {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+
+      {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
+
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** введите **{{ ui-key.yacloud.baremetal.field_name }}** сервера — `bm-server`.
   1. Нажмите кнопку **Заказать сервер**.
 

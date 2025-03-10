@@ -25,17 +25,5 @@ This example shows how to translate two strings containing *Hello* and *World* i
    Where `IAM_TOKEN` is the IAM token received [before starting](#before-begin).
 
    The service will return the translated strings:
-   ```json
-   {
-       "translations": [
-           {
-           "text": "Hello",
-           "detectedLanguageCode": "en"
-           },
-           {
-           "text": "World",
-           "detectedLanguageCode": "en"
-           }
-       ]
-   }
-   ```
+
+   {% include [any-language](../../_untranslatable/translate/any-language.md) %}

@@ -49,7 +49,8 @@ description: Следуя данной инструкции, вы сможете
        --container-runtime containerd \
        --preemptible \
        --public-ip \
-       --template-labels <облачные_метки_группы_узлов> \
+       --template-labels <ключ_облачной_метки=значение_облачной_метки> \
+       --node-labels <ключ_k8s-метки=значение_k8s-метки>
        --version <версия_{{ k8s }}_на_узлах_группы> \
        --node-name <шаблон_имени_узлов> \
        --node-taints <taint-политики> \
@@ -97,7 +98,8 @@ description: Следуя данной инструкции, вы сможете
      * `--container-runtime` — среда запуска контейнеров [containerd](https://containerd.io/).
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels` — [облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в формате `<имя_метки>=<значение_метки>`. Можно указать несколько меток через запятую.
+     * `--template-labels` — [облачные метки](../../concepts/index.md/#node-labels) группы узлов. Можно указать несколько меток через запятую.
+     * `--node-labels` — [{{ k8s }}-метки](../../concepts/index.md/#node-labels) группы узлов.
      * `--version` — версия {{ k8s }} на узлах группы {{ managed-k8s-name }}.
      * `--node-name` — шаблон имени узлов {{ managed-k8s-name }}. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
@@ -171,7 +173,10 @@ description: Следуя данной инструкции, вы сможете
            type = "containerd"
          }
          labels {
-           "<имя_метки>"="<значение_метки>"
+           "<имя_облачной_метки>"="<значение_облачной_метки>"
+         }
+         node_labels {
+           "<имя_{{ k8s }}-метки>"="<значение_{{ k8s }}-метки>"
          }
          ...
        }
@@ -198,7 +203,8 @@ description: Следуя данной инструкции, вы сможете
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
        * `container_runtime`, `type` — среда запуска контейнеров [containerd](https://containerd.io/).
-       * `labels` — [облачные метки группы узлов](../../../resource-manager/concepts/labels.md). Можно указать несколько меток через запятую.
+       * `labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
+       * `node_labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
        * `scale_policy` — настройки масштабирования. 
 
          Тип масштабирования нельзя изменить после создания группы узлов.
@@ -297,7 +303,8 @@ description: Следуя данной инструкции, вы сможете
     {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
   * Среду запуска контейнеров [containerd](https://containerd.io/) в параметре `nodeTemplate.containerRuntimeSettings.type`.
-  * [Облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в параметре `nodeTemplate.labels`.
+  * [Облачные метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeTemplate.labels`.
+  * [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeLabels`.
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   
     Тип масштабирования нельзя изменить после создания группы узлов.
@@ -373,7 +380,7 @@ description: Следуя данной инструкции, вы сможете
   * Назначение узлам публичного и внутреннего IP-адресов — включено.
 * [{{ k8s }}-метка](../../concepts/index.md#node-labels) — `node-label1=node-value1`.
 * [Taint-политика](../../concepts/index.md#taints-tolerations) {{ k8s }} — `taint1=taint-value1:NoSchedule`.
-* [Ресурсная метка {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md), которая назначается ВМ, — `template-label1=template-value1`.
+* [Облачная метка](../../concepts/index.md#node-labels) — `template-label1=template-value1`.
 * Разрешение на использование [небезопасных параметров ядра](../../concepts/index.md#config) — включено. Добавлены параметры `kernel.msg*` и `net.core.somaxconn`.
 * ВМ, которая является единственным узлом группы, — [прерываемая](../../../compute/concepts/preemptible-vm.md).
 
