@@ -15,6 +15,8 @@ items:
         href: cluster.md
       - name: Реляционные базы данных
         href: relational-databases.md
+      - name: Колоночные базы данных
+        href: columnar-databases.md
   - name: Аналитика
     items:
       - name: Аналитика данных

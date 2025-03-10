@@ -217,6 +217,8 @@ items:
         href: metrics-ref/certificate-manager-ref.md
       - name: '{{ backup-name }}'
         href: metrics-ref/backup-ref.md
+      - name: '{{ baremetal-name }}'
+        href: metrics-ref/baremetal-ref.md
       - name: '{{ cdn-name }}'
         href: metrics-ref/cdn-ref.md
       - name: '{{ sf-name }}'

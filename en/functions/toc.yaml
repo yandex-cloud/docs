@@ -49,6 +49,8 @@ items:
             href: operations/function/function-info.md
           - name: Getting the function version information
             href: operations/function/version-info.md
+          - name: Configuring metadata service parameters
+            href: operations/function/metadata-options.md
       - name: Managing function access permissions
         items:
           - name: Making a function public
@@ -415,7 +417,7 @@ items:
         href: tutorials/alice-skill.md
       - name: Deploying a web application
         href: tutorials/java-servlet-todo-list.md
-      - name: Developing a skill for Alice and a website with authorization
+      - name: Creating a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: Writing data from a device into a database
         href: tutorials/data-recording.md
@@ -429,7 +431,7 @@ items:
         href: tutorials/connect-to-ydb.md
       - name: Connecting to a YDB database from a function in Node.js
         href: tutorials/connect-to-ydb-nodejs.md
-      - name: Converting a video to a GIF in Python
+      - name: Converting a video to GIF with Python
         href: tutorials/video-converting-queue.md
       - name: Creating a Node.js function using TypeScript
         href: tutorials/nodejs-typescript.md
@@ -462,7 +464,7 @@ items:
           mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Scheduled scaling of instance groups
+      - name: Scheduled instance group scaling
         items:
           - name: Overview
             href: tutorials/vm-scale-scheduled/index.md

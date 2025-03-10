@@ -30,11 +30,9 @@
 
 {% list tabs group=gl_installation %}
 
-
 - Инстанс {{ mgl-name }} {#instance-mgl}
 
     Создайте инстанс {{ mgl-name }} [согласно инструкции](../../managed-gitlab/quickstart.md#instance-create).
-
 
 - ВМ с образом {{ GL }} {#gl-image-vm}
 

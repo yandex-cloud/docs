@@ -5,11 +5,7 @@ description: In {{ monitoring-short-name }}, an alert is a sequence of named que
 
 # Alert
 
-An _alert_ is a set of consecutive named [queries](../data-model.md#queries) calculated on a regular basis.
-
-A set of queries is calculated once a minute. The resulting query value specified in the [settings](#alert-parameters) is compared to the preset threshold values.
-
-If the result of the query specified in the [settings](#alert-parameters) reaches the preset threshold value, {{ monitoring-short-name }} changes the alert [status](#alert-statuses) to `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` or `{{ ui-key.yacloud_monitoring.alert.status_warn }}` and notifies the user via a [notification channel](./notification-channel.md).
+An _alert_ is a sequence of named [queries](../data-model.md#queries) calculated once a minute. The resulting query value is compared to the preset threshold values. If a threshold is reached, {{ monitoring-short-name }} changes the alert [status](#alert-statuses) to `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` or `{{ ui-key.yacloud_monitoring.alert.status_warn }}` and notifies the user via a [notification channel](./notification-channel.md).
 
 ## Alert statuses {#alert-statuses}
 
@@ -34,7 +30,7 @@ To navigate through history, you can choose one of the preset output scales:
 * `1w`: 1 week
 * `1m`: 1 month
 
-The minimum history output scale is `1h`: each column in a chart shows the alert status for the respective minute. For big output scales, the column color is made up of the statuses calculated within the interval.
+The minimum scale is `1h`. Each chart column shows the alert status for the given minute. For big output scales, the column color is made up of the statuses calculated within the interval.
 
 By clicking a column, you bring up the alert settings information as of the selected evaluation point.
 
@@ -45,8 +41,6 @@ When drawing data from the evaluation history, the alert status is re-evaluated 
 {% endnote %}
 
 ## Alert settings {#alert-parameters}
-
-Alert settings are configured when creating an alert. You can edit them after you save the alert.
 
 ### Queries {#queries}
 
@@ -134,9 +128,6 @@ The possible values are:
 * `Warn`: Changes the alert status to `Warning`.
 * `Alarm`: Changes the alert status to `Alarm`.
 * `No data`: Changes the alert status to `No data`.
-* `Manual`: Supported only for alerts with the `Expression` type; gives control to the alert program for [manual handling](#manual-policy).
-  
-    If no metrics were found for such an alert for at least one selector and no status management function was triggered, the alert will switch to the `OK` state.
 
 ### No points in evaluation window {#no-points-policy}
 
@@ -146,59 +137,15 @@ For threshold alerts that monitor several metrics, predicates are checked for ea
 
 The possible values are:
 
-* `Default`: `No data` for all threshold alerts and `Manual` for `Expression` alerts.
+* `Default`: Default value (`No data`) for all types of threshold alerts.
 * `OK`: Changes the alert status to `OK`.
 * `Warning`: Changes the alert status to `Warning`.
 * `Alarm`: Changes the alert status to `Alarm`.
 * `No data`: Changes the alert status to `No data`.
 * `Manual`: Gives control to the predicates or alert program for [manual handling](#manual-policy).
 
-If the `No points in evaluation window` parameter is set to `Manual` or `Default` for an `Expression` alert, while its evaluation window has no points and no status management function has been triggered in the alert program, the alert status will change to `OK`. We recommend using the `No data` value for the `No points in evaluation window` policy. If you set the policy value to `Manual` or `Default`, the no-points situation is handled [manually](#manual-policy).
-
 ### Manual processing of no data {#manual-policy}
 
 Setting the `Manual` value for any policy will give control to the alert predicates or program.
 
 Avoid the `Manual` value as it complicates the alert program. The `No data` policy value should cover most cases.
-
-#### No metrics {#no-metrics-manual}
-
-To manually handle `Expression` alerts with no metrics, you can use the `size` function and status management functions: you will get the number of metrics for the selector you specify.
-
-An example of a program that will change the alert to the `OK` status if the selector specified in the `xx5` variable has retrieved 0 metrics:
-
-```javascript
-let xx5 = {
-  project="solomon",
-  cluster="production",
-  service="gateway",
-  endpoint="*",
-  code="5*",
-  method="*",
-  host="cluster",
-  name="http.server.requests.status"
-};
-...
-ok_if(size(xx5) == 0);
-...
-```
-
-#### No points {#no-points-manual}
-
-To manually handle the no-points situation, use the `count` function and the status management functions: you will get the number of points for a specified selector in the evaluation window.
-
-Example of a program that will change the alert to `No data` if there are no points for the metric specified in the `source` variable within the alert's evaluation window:
-
-```javascript
-let source = {
-  project="solomon",
-  cluster="production",
-  service="alerting",
-  endpoint="api.telegram.org/send*",
-  host="cluster",
-  name="http.client.call.inFlight"
-};
-...
-no_data_if(count(source) == 0);
-...
-```

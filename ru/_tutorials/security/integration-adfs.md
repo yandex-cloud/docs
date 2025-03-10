@@ -427,9 +427,7 @@
    {% endcut %}
 
 
-   
    ![image](../../_assets/iam/federations/specify-console-sso-link.png)
-
 
    После этого нажмите **Next**.
 

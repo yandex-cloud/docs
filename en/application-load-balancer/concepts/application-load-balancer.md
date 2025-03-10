@@ -250,3 +250,15 @@ Possible rules:
 * `GRPC_INTERNAL`
 * `GRPC_UNAVAILABLE`||
 |#
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/index.md)
+* [{#T}](../tutorials/balancer-with-sws-profile.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
+* [{#T}](../tutorials/alb-ingress-controller.md)
+* [{#T}](../tutorials/application-load-balancer-website/console.md)
+* [{#T}](../tutorials/custom-health-checks.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/alb-ingress-controller-log-options.md)

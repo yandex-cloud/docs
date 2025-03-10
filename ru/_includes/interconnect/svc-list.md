@@ -8,5 +8,5 @@
 [{{ translate-full-name }}](../../translate/) | translate.{{ api-host }}
 [Cloud API Gateway](https://api.cloud.yandex.net/endpoints) | {{ api-host }}
 [{{ monitoring-full-name }}](../../monitoring/) | {{ api-host-monitoring-1 }}
-{{ yagpt-full-name }} сервиса [{{ foundation-models-name }}](../../foundation-models/) | {{ api-host-llm }}
+[API генерации текста](../../foundation-models/concepts/yandexgpt/) сервиса [{{ foundation-models-name }}](../../foundation-models/) | {{ api-host-llm }}
 All-Services | Все сервисы {{ yandex-cloud }}, перечисленные выше

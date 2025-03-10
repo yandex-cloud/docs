@@ -58,3 +58,4 @@ Using a {{ kms-full-name }} key each time you access the secret it is encrypted 
 
 * [{#T}](../security/index.md)
 * [{#T}](../tutorials/index.md)
+* [{#T}](../pricing.md)

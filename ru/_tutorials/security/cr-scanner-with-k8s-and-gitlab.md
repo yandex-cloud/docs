@@ -22,6 +22,8 @@
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 
+Дополнительно [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) сервисному аккаунту для узлов роль `container-registry.images.scanner`. Она позволяет сканировать Docker-образы на наличие уязвимостей.
+
 {% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
 
 {% include [create-gitlab](../../_includes/managed-gitlab/create-gitlab.md) %}

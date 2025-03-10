@@ -13,9 +13,9 @@ All secrets are stored in encrypted form. By default, secrets are encrypted with
 
 ## Interfaces for using the service {#interface}
 
-To interact with {{ lockbox-full-name }}, you can use:
+To work with {{ lockbox-full-name }}, you can use:
 
-* [The {{ link-console-main }} management console].
+* [Management console]({{ link-console-main }}).
 * [Command line interface (CLI)](../../cli/).
 * API: [REST](../api-ref/) or [gRPC](../api-ref/grpc/).
 * SDK: in [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), or [Node.js](https://github.com/yandex-cloud/nodejs-sdk).

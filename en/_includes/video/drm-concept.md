@@ -15,6 +15,6 @@ For a user device to play back protected content:
 
 {% note info %}
 
-To view video on [Debian-based Linux distributions](https://en.wikipedia.org/wiki/List_of_Linux_distributionsuse) Yandex Browser, Google Chrome, Chromium, or Firefox. In other browsers, playback is not guaranteed.
+To view video on [Debian-based Linux distributions](https://en.wikipedia.org/wiki/List_of_Linux_distributionsuse) use Yandex Browser, Google Chrome, Chromium, or Firefox. In other browsers, playback is not guaranteed.
 
 {% endnote %}

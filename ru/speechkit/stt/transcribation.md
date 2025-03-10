@@ -69,4 +69,3 @@ description: Асинхронное распознавание позволяе�
 * [{#T}](api/transcribation-ogg.md).
 * [{#T}](api/transcribation-api-v3.md).
 * [{#T}](api/batch-transcribation.md).
-

@@ -6404,6 +6404,8 @@ default:
         action_stop-prolongation-server-dialog: Выключить
         action-create-subnetwork: Создать приватную подсеть
         actions_add-partition: Добавить раздел
+        field_choose-marketplace-os: Marketplace
+        field_choose-no-os: Без операционной системы
         field_CIDR: CIDR
         field_description: Описание
         field_name: Имя
@@ -6420,8 +6422,13 @@ default:
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
         label_kvm-console: KVM-консоль
+        label_lockbox-key: Ключ
+        label_lockbox-name: Имя
+        label_lockbox-version: Версия
         label_networks: VRF
         label_one-month-duration: 1 месяц
+        label_password-lockbox: Секрет Lockbox
+        label_password-plain: Новый пароль
         label_public-ip-auto: Автоматически
         label_public-ip-no: Без адреса
         label_subnetworks: Приватные подсети
@@ -7180,6 +7187,9 @@ default:
           button_create: Создать реестр
           popup-confirm_button_delete: Удалить
           popup-create_button_create: Создать реестр
+          popup-create_field_auto_scan: Автоматическое сканирование
+          popup-create_scan_period_enabled: Сканировать все Docker-образы в реестре
+          popup-create_scan_push_text: Сканировать Docker-образы при загрузке
           popup-update_button_update: Изменить
         registry:
           button_change-scan-settings: Изменить настройки
@@ -10418,7 +10428,6 @@ default:
         key-phrases-key-value: Ключевые фразы
         new-channel: Новый канал
         restrict-search-area-key-value: Ограничить область поиска
-        restrictions: Ограничения
         search-area-key-value: Направление поиска
         search-area:
           after-key-value: Вперед
@@ -10630,7 +10639,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.19
+        tag: v0.2.20
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

@@ -7,7 +7,7 @@ description: Follow this guide to create a dataset and fine-tune a classifier mo
 
 {% include [lora-tuning-preview](../../../_includes/foundation-models/lora-tuning-preview.md) %}
 
-If an out-of-the-box classifier model is not enough, you can fine-tune a {{ gpt-lite }}-based classifier model for it to classify your requests more accurately.
+If an out-of-the-box classifier model is not enough, you can [fine-tune](../../concepts/tuning/index.md) a {{ gpt-lite }}-based classifier model for it to classify your requests more accurately.
 
 ## Getting started {#before-begin}
 
@@ -221,6 +221,11 @@ Create a tuning dataset:
   Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/classifier/models#addressing-models) the model.
 
 {% endlist %}
+
+### Accessing a fine-tuned classifier {#model-call}
+
+Once the model is fine-tuned, save its URI formatted as follows: `cls://<base_model_URI>/<version>@<tuning_suffix>`. Use the URI to send [synchronous](../classifier/additionally-trained.md) requests to your fine-tuned classifier. 
+
 
 #### See also {#see-also}
 

@@ -90,7 +90,14 @@ To avoid issues with access to resources that depend on the certificate with the
 1. [Pass the domain rights check](../operations/managed/cert-validate.md).
 1. Use the new certificate in your resources.
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/tls-termination/index.md)
+
 #### See also {#see-also}
 
-- [Checking domain rights](challenges.md)
+- [Domain rights check](challenges.md)
 - [Services integrated with {{ certificate-manager-name }}](services.md)

@@ -118,7 +118,6 @@ description: Из статьи вы узнаете, как подготовит�
 {% include [prepare postgresql db](../../_includes/data-transfer/endpoints/targets/pg-prepare.md) %}
 
 
-
 ### Приемник {{ ydb-full-name }} {#target-ydb}
 
 {% include [prepare ydb db](../../_includes/data-transfer/endpoints/targets/ydb-prepare.md) %}
@@ -127,6 +126,5 @@ description: Из статьи вы узнаете, как подготовит�
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

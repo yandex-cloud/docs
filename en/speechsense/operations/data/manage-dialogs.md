@@ -19,7 +19,7 @@ To search for dialogs, you can use [filters](#filters-dialogs) and the [search b
 1. Select the required filter and enter its value.
 1. Click **Apply**.
 
-You can add multiple filters. They will be combined by the logical `AND` operation to find the dialogs satisfying all the conditions that were specified.
+You can add multiple filters. They will be combined by the logical `AND` operation to find the dialogs satisfying all the specified conditions.
 
 ## Finding dialogs by text fragment {#find-dialogs}
 
@@ -47,7 +47,7 @@ The dialog page displays the following information:
 * Metadata such as agent and customer names, call or message date, dialog language.
 * Conversation audio (only for audio).
 * Contents of the conversation on the **Dialog** tab.
-* Semantic analysis of the conversation on the **Analysis by {{ yagpt-name }}** tab.
+* Semantic analysis of the conversation on the **{{ yagpt-name }} analysis** tab.
 
     The tab contains several sections. If you want to leave only a specific section, click on it.
 

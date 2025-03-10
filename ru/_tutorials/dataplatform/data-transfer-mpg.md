@@ -230,7 +230,11 @@
 
 ## Дополнительные материалы {#video}
 
+Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
 
-[Смотреть на YouTube вебинар {{ data-transfer-full-name }} в сценариях, о которых редко говорят](https://www.youtube.com/watch?v=bzWmmPp6KFg).
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvkntkhjbfsn2c7ptv?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=bzWmmPp6KFg).
 
 

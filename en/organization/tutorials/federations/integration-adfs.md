@@ -147,7 +147,7 @@ To create a federation:
 
   1. Specify the federation parameters in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -204,7 +204,7 @@ To create a federation:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the folder where you created the configuration file.
+      1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
@@ -465,7 +465,7 @@ User data | Comment | Outgoing Claim Type
 ------------------- | ----------- | -------------------
 Unique user ID | Required attribute. We recommend using one of the unique and fixed {{ microsoft-idp.ad-short }} user attributes: **User-Principal-Name**, **Object-Sid**, **Object-Guid**, or an email address. | `Name ID`
 List of groups the user belongs to. | This list is used for group mapping when authenticating the user in {{ yandex-cloud }}.<br><br>Use a `Token-Groups` family attribute.<br><br>Depending on the attribute you select, the group list format will vary.<br>For example, if using `Token-Groups - Unqualified Names`, short group names will be provided (e.g., `adfs_group`, `Domain Users`) that do not specify the domain.<br><br>For an example of how to configure group mapping, see [{#T}](./group-mapping/adfs.md). | `Group`
-Last name | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute.<br> Value length limit: {{ saml-limit-last-name }}. | `Surname`
+Surname | Displayed in {{ yandex-cloud }} services. We recommend using the **Surname** attribute.<br> Value length limit: {{ saml-limit-last-name }}. | `Surname`
 Name | Displayed in {{ yandex-cloud }} services. We recommend using the **Given-Name** attribute.<br> Value length limit: {{ saml-limit-first-name }}. | `Given Name`
 Full name | Displayed in {{ yandex-cloud }} services. Example: Ivan Ivanov.<br>We recommend using the **Display-Name** attribute.<br> Value length limit: {{ saml-limit-display-name }}. | `Name`
 Email | Used to send notifications from {{ yandex-cloud }} services. Example: `ivanov@example.com`.<br>We recommend using the **E-Mail-Address** attribute.<br> Value length limit: {{ saml-limit-email }}. | `E-Mail Address`

@@ -8,7 +8,7 @@ description: Follow this guide to get an IAM token for a service account using f
 If the function version was created with a service account, you can get an IAM token for it from: 
 
 * The handler [context](../concepts/function.md#model-desc). You can find the IAM token in the `access_token` field of the `context` parameter.
-* The metadata service in [Google Compute Engine](../../compute/operations/vm-info/get-info.md#gce-metadata) via the API.
+* The metadata service in [Google Compute Engine](../../compute/operations/vm-info/get-info.md#inside-instance) via the API.
 
 To get an IAM token:
 

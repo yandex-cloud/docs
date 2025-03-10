@@ -6,9 +6,7 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 
 Сервис доступен по адресу `{{ api-host-sk-tts }}:443`.
 
-
 {% include [try-speechkit](../../_includes/speechkit/try-speechkit.md) %}
-
 
 
 ## Возможности синтеза {#features}
@@ -33,7 +31,6 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 | [Синтез по аудиошаблонам](templates.md)            | Нет | Параметр `text_template`                   |
 | [Способ тарификации](../pricing.md#rules-tts)      | Суммарное количество символов в запросах | По запросам   |
 | Автоматическое разбиение длинных фраз              | Не требуется | Параметр `unsafe_mode`  |
-
 
 {% note info %}
 

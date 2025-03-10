@@ -11,10 +11,10 @@ To try the examples in this section:
 1. Get an IAM token:
 
    * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
-   * [How to get a token](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
-   * [How to get a token](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+   * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
+   * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
 
-### Sample request {#sample-request}
+### Request example {#sample-request}
 
 1. Create a file with the request body, e.g., `body.json`. In the `metrics` property, specify the list of metrics to write. Send the required labels in the query parameters and additional labels in the request body.
 
@@ -46,7 +46,7 @@ To try the examples in this section:
       'https://monitoring.{{ api-host }}/monitoring/v2/data/write?folderId=aoe6vrq0g3sv********&service=custom' > output.json
     ```
 
-    Response example:
+    Sample response:
 
     **output.json:**
     ```json

@@ -39,8 +39,6 @@
 
   {% include [suspended](../_includes/billing-suspended.md) %}
 
-
 Дополнительную информацию см. в следующих разделах:
 - [Цикл оплаты для физических лиц](../payment/billing-cycle-individual.md)
 - [Цикл оплаты для организаций и ИП](../payment/billing-cycle-business.md)
-  

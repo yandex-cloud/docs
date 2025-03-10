@@ -8,6 +8,21 @@
 
   For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
 
+- **Audit log policy**{#setting-audit-log-policy} {{ tag-con }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
+
+  This parameter decides which events will be written to the audit log:
+
+  * `ALL`: All events.
+  * `LOGINS` (default): Only login events.
+  * `QUERIES`: Only query events.
+  * `NONE`: None.
+
+  The **Audit log policy** parameter is only relevant if the **Audit log** parameter is enabled.
+
+  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy).
+
 - **Auto increment**{#setting-auto-increment-increment} {{ tag-all }}
 
   Sets the interval between the values of `AUTO_INCREMENT` columns.
@@ -61,7 +76,7 @@
 
   The schema to calculate logical temporary labels that help replicas determine which transactions can be executed concurrently. It is used for generating dependency information, which is written to a binary log when multithreaded replication ([Slave parallel workers](#setting-slave-parallel-workers)) with the `LOGICAL_CLOCK` [Slave parallel type](#setting-slave-parallel-type) policy is enabled.
 
-  Possible values:
+  The possible values are:
 
   - `COMMIT_ORDER` (default): Two transactions are considered independent if the period of committing the first transaction overlaps with the period of committing the second one.
   - `WRITESET`: Schema is based on `COMMIT_ORDER`. Additionally, two transactions are considered conflicting if a value (hash) appears in the record sets of both transactions.

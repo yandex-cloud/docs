@@ -1,0 +1,29 @@
+title: Yandex Cloud Quota Manager
+description:
+  - >-
+    Yandex Cloud Quota Manager allows you to manage quotas for your cloud
+    resources.
+meta:
+  title: Yandex Cloud Quota Manager
+  description: >-
+    Yandex Cloud Quota Manager allows you to manage quotas for your cloud
+    resources.
+links:
+  - title: Getting started
+    description: View service quotas
+    href: quickstart
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn more about the service's concepts and resources
+    href: concepts/
+  - title: API reference
+    description: HTTP API method descriptions
+    href: api-ref/
+  - title: Access management
+    description: Configure access permissions to use the service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing

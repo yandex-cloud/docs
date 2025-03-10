@@ -19,7 +19,7 @@
 
 1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
    * `eso-service-account` — для взаимодействия External Secrets Operator с {{ certificate-manager-name }}.
-   * `k8s-sa` с [ролями](../../iam/concepts/access-control/roles.md) `editor`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — для создания ресурсов [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и скачивания [Docker-образов](../../container-registry/concepts/docker-image.md). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
+   * `k8s-sa` с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — для создания ресурсов [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и скачивания [Docker-образов](../../container-registry/concepts/docker-image.md). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
 1. Создайте [авторизованный ключ](../../iam/concepts/authorization/access-key.md) для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) и сохраните его в файл `authorized-key.json`:
 
    ```bash

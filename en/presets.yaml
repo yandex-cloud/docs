@@ -553,6 +553,8 @@ default:
   promql-name: PromQL
   python-cli-ver: python312
   python-full-ver: Python 3.12
+  quota-manager-full-name: Yandex Cloud Quota Manager
+  quota-manager-name: Cloud Quota Manager
   RD: Valkey™
   region-id: ru-central1
   registry: cr.yandex
@@ -882,6 +884,7 @@ default:
   yds-full-name: Yandex Data Streams
   yds-name: Data Streams
   yds-short-name: Data Streams
+  ymq-endpoint: https://message-queue.api.cloud.yandex.net/
   yq-full-name: Yandex Query
   yq-name: Query
   yq-short-name: YQ
@@ -6397,6 +6400,8 @@ default:
         action_stop-prolongation-server-dialog: Disable
         action-create-subnetwork: Create a private subnet
         actions_add-partition: Add partition
+        field_choose-marketplace-os: Marketplace
+        field_choose-no-os: No OS
         field_CIDR: CIDR
         field_description: Description
         field_name: Name
@@ -6413,8 +6418,13 @@ default:
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
         label_kvm-console: KVM console
+        label_lockbox-key: Key
+        label_lockbox-name: Name
+        label_lockbox-version: Version
         label_networks: VRF
         label_one-month-duration: 1 month
+        label_password-lockbox: Lockbox secret
+        label_password-plain: New password
         label_public-ip-auto: Automatically
         label_public-ip-no: No address
         label_subnetworks: Private subnets
@@ -7171,6 +7181,9 @@ default:
           button_create: Create registry
           popup-confirm_button_delete: Delete
           popup-create_button_create: Create registry
+          popup-create_field_auto_scan: Automatic scanning
+          popup-create_scan_period_enabled: Scan all Docker images in the registry
+          popup-create_scan_push_text: Scan Docker images on push
           popup-update_button_update: Edit
         registry:
           button_change-scan-settings: Edit settings
@@ -10411,7 +10424,6 @@ default:
         key-phrases-key-value: Keywords
         new-channel: New channel
         restrict-search-area-key-value: Limit the search area
-        restrictions: Restrictions
         search-area-key-value: Search direction
         search-area:
           after-key-value: Forward
@@ -10623,7 +10635,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.19
+        tag: v0.2.20
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

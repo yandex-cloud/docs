@@ -7,7 +7,7 @@ description: Follow this guide to create a dataset and fine-tune a text generati
 
 {% include [lora-tuning-preview](../../../_includes/foundation-models/lora-tuning-preview.md) %}
 
-This example shows how to fine-tune a {{ gpt-lite }} model based on the {{ lora }} method in {{ foundation-models-name }}. 
+This example shows how to [fine-tune](../../concepts/tuning/index.md) a {{ gpt-lite }} model based on the {{ lora }} method in {{ foundation-models-name }}. Links to other examples are available in the [See also](#see-also) section.
 
 ## Getting started {#before-begin}
 
@@ -15,7 +15,7 @@ This example shows how to fine-tune a {{ gpt-lite }} model based on the {{ lora 
 
 ## Upload the dataset {#create-dataset}
 
-Prepare [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8)-encoded model [tuning data](../../concepts/tuning/index.md#generation-data) in [JSON Lines](https://jsonlines.org/) format. If you want to split your data into two datasets for tuning and validation, repeat the steps below for each dataset. Use the IDs you got after uploading the datasets to start the fine-tuning process.
+Prepare [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8)-encoded model [tuning data](../../concepts/tuning/generating.md) in [JSON Lines](https://jsonlines.org/) format. If you want to split your data into two datasets for tuning and validation, repeat the steps below for each dataset. Use the IDs you got after uploading the datasets to start the fine-tuning process.
 
 In this example, we only use the tuning dataset for fine-tuning. 
 
@@ -38,7 +38,7 @@ Create a tuning dataset:
      Result:
 
      ```text
-     new dataset=AsyncDataset(id='fdsfehj6grsu********', folder_id='b1gt6g8ht345********', name='YandexGPT tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 11, 38, 19), updated_at=datetime.datetime(2025, 1, 20, 11, 39, 4), labels=None, status=<DatasetStatus.READY: 3>, task_type='TextToTextGeneration', rows=0, size_bytes=3514)
+     new dataset=AsyncDataset(id='fdsfehj6grsu********', folder_id='b1gt6g8ht345********', name='YandexGPT Lite tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 11, 38, 19), updated_at=datetime.datetime(2025, 1, 20, 11, 39, 4), labels=None, status=<DatasetStatus.READY: 3>, task_type='TextToTextGeneration', rows=0, size_bytes=3514)
      ```
 
      Save the new dataset's ID (the `id` field value): you will need it when fine-tuning the model.
@@ -123,14 +123,21 @@ Create a tuning dataset:
      Result:
 
      ```text
-     Resulting GPTModel(uri=gpt://b1gt6g8ht345********/yandexgpt-lite/latest@tamrhtqmscrsr********, config=GPTModelConfig(temperature=None, max_tokens=None))
-     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hello! How can I help you?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=8, total_tokens=20), model_version='23.10.2024')
-     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Hello! How can I help you?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=8, total_tokens=20), model_version='23.10.2024')
+     Resulting GPTModelResult(alternatives=(Alternative(role='assistant', text='I'm Gene. My full name is Eugene Neuron.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=14, completion_tokens=11, total_tokens=25), model_version='23.10.2024') 
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='From Perm', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=13, completion_tokens=2, total_tokens=15), model_version='23.10.2024') 
      ```
 
-     Model tuning may take up to one day depending on the dataset size and the system load.
+     Model tuning may take up to 1 day depending on the size of the dataset and the system load.
 
   Use the fine-tuned model's URI you got (the `uri` field value) when [accessing](../../concepts/yandexgpt/models.md#addressing-models) the model.
+
+  1. Tuning metrics are available in TensorBoard format. You can open the downloaded file, for example, in the [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) project:
+  
+     ```python
+     metrics_url = new_model.get_metrics_url()
+     download_tensorboard(metrics_url)
+     ```
+
 
 - cURL {#curl}
 
@@ -207,8 +214,25 @@ Create a tuning dataset:
 
   Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/yandexgpt/models.md#addressing-models) the model.
 
+  1. Tuning metrics are available in TensorBoard format. Get the link to download the file: 
+  
+     ```bash
+     grpcurl \
+       -H "Authorization: Bearer <IAM_token>" \
+       -d '{"task_id": "<job_ID>"}' \
+       {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/GetMetricsUrl
+     ```
+
+     You can open the downloaded file, for example, in the [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) project:
+
 {% endlist %}
+
+### Accessing a fine-tuned model {#model-call}
+
+Once the model is fine-tuned, save its URI in `gpt://<base_model_URI>/<version>@<tuning_suffix>` format. Use it to send [synchronous](../yandexgpt/create-prompt.md) and [asynchronous](../yandexgpt/async-request.md) requests or [create an AI assistant](../assistant/create.md) based on the fine-tuned model. 
 
 #### See also {#see-also}
 
-For more examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).
+* [{#T}](../../concepts/tuning/index.md)
+* [{#T}](./tune-classifiers.md)
+* For more SDK examples, see our [GitHub repository](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/classifiers_tuning/examples/sync/tuning).

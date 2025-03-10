@@ -18,3 +18,5 @@
     ```
 
 1. Add the `index.js` file into the `hello-js.zip` ZIP archive.
+
+    {% include [macos-zip-error](macos-zip-error.md) %}

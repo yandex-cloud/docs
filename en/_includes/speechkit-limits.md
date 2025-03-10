@@ -38,6 +38,6 @@ Maximum duration of audio | {{ stt-long-audioLength }}
 Period for storing recognition results on the server | {{ stt-long-resultsStorageTime }}
 [**Speech synthesis**](../{{ speechkit-slug }}/tts/index.md) |
 Minimum duration of a pattern for synthesis | 1 second
-Maximum REST request size | 5,000 characters
-Maximum gRPC request size | {{ tts-v3-count }} and {{ tts-v3-time }}
-Maximum gRPC request size in [unsafe](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md#speechkit.tts.v3.UtteranceSynthesisRequest) mode | 5,000 characters
+Maximum request size for the API v1 | 5,000 characters
+Maximum request size for the API v3 | {{ tts-v3-count }} and {{ tts-v3-time }}
+Maximum request size for the API v3 in unsafe mode | 5,000 characters

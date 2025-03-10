@@ -1,0 +1,1 @@
+After changing a tag, {{ speechsense-name }} will analyze the dialogs started 60 days ago or less. The required tags will be assigned automatically. All dialogs uploaded after the tag change will have the new rules applied immediately.

@@ -1,3 +1,8 @@
+---
+title: Deleting a tag
+description: Follow this guide to delete a project tag.
+---
+
 # Deleting a tag
 
 To delete a project tag, you need either the `{{ roles-speechsense-admin }}` or the `{{ roles-speechsense-editor }}` role in the project.
@@ -10,7 +15,7 @@ To delete a tag:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
-1. Go to the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab.
+1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** tab.
 1. In the line with the tag, click ![icon](../../../../_assets/console-icons/ellipsis.svg) and then ![icon](../../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-talkanalytics.common.delete-key-value }}**.
 1. Confirm tag deletion.
 

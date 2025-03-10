@@ -40,4 +40,6 @@ If using a service account, do not specify folder ID in your requests: {{ speech
 
 1. We do not impose any restrictions on the use of **{{ speechkit-short-name }}** performance results. You can use them at your discretion under the Russian law.
 1. Feel free to use the [demo stand](/services/speechkit#demo). Please note that certain restrictions apply.
-1. {{ speechkit-short-name }} offers an API designed for speech synthesis and recognition systems. No out-of-the-box web interface or executable application is currently available.
+1. You can work with {{ speechkit-name }} via the API or [Playground](../../speechkit/quickstart/index.md) web interface.
+
+For terms of use, see the [{{ speechkit-full-name }}](https://yandex.ru/legal/cloud_terms_speechkit) Terms of Use.

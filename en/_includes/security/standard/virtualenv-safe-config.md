@@ -1,9 +1,9 @@
 # Virtual environment configuration requirements
 
-## 3. Secure configuration of a virtual environment {#virtualenv-safe-config}
+## 3. Secure virtual environment configuration {#virtualenv-safe-config}
 
 
-This section provides recommendations to customers on security settings in {{ yandex-cloud }} services and the use of additional data protection tools in virtual environments.
+This section recommends customers on how to configure secure {{ yandex-cloud }} services and employ additional virtual environment data protection tools.
 
 ### Overview {#general}
 
@@ -33,7 +33,7 @@ We do not recommend using access to the serial console unless it is absolutely n
   1. Open the settings of all the necessary VMs.
   1. Under **Access**, find the **Additional** parameter.
   1. **Serial console access** must be disabled.
-  1. If it is disabled for all the VMs, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If it is disabled for all the VMs, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -55,7 +55,7 @@ We do not recommend using access to the serial console unless it is absolutely n
      done
      ```
 
-  1. If an empty value is set in VM_ID next to FOLDER_ID, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty value is set in VM_ID next to FOLDER_ID, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -80,7 +80,7 @@ When deploying virtual machines, we recommend:
   1. Go to the **Disks** tab.
   1. Open the settings of all disks.
   1. Under **Source**, find the **Identifier** parameter.
-  1. If every disk displays the ID of your benchmark image, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If every disk displays the ID of your benchmark image, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -105,7 +105,7 @@ When deploying virtual machines, we recommend:
      done
      ```
 
-  1. If an empty value is set in DISK_ID next to FOLDER_ID, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty value is set in DISK_ID next to FOLDER_ID, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -168,7 +168,7 @@ Paid solutions are also available in Yandex Cloud marketplace, such as [Kaspersk
 
 ##### 3.4.2 Integrity control of a VM runtime environment {#vm-integrity-control}
 
-To control a VM's runtime environment (e.g., to enable access from the VM to a secure repository only when running it in the YC CLI cloud), you can use the [identity document](../../../compute/concepts/vm-metadata.md#identity-document) mechanism. When creating a VM, an identity document that stores information about the VM is generated. It contains IDs of the VM, [{{ marketplace-full-name }}](/marketplace) product, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/vm-metadata.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
+To control a VM's runtime environment (e.g., to enable access from the VM to a secure repository only when running it in the YC CLI cloud), you can use the [identity document](../../../compute/concepts/metadata/identity-document.md) mechanism. When you create a VM, an identity document that stores information about the VM is generated. It contains the IDs of the VM, [{{ marketplace-full-name }}](/marketplace) product, disk image, etc. This document is signed with a {{ yandex-cloud }} certificate. The document and its [signature](../../../compute/concepts/metadata/identity-document.md#signed-identity-documents) are available to VM processes through the metadata service. Thus, the processes identify the VM runtime environment, disk image, etc., to restrict access to the resources under monitoring.
 
 {% list tabs group=instructions %}
 
@@ -225,10 +225,10 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. From the list of services, select **{{ objstorage-name }}**.
   1. Click the three dots next to each bucket and check its ACL for `allUsers` and `allAuthenticatedUsers`.
   1. Open the bucket and check the ACL of each of its objects for `allUsers` and `allAuthenticatedUsers`.
-  1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to _Guides and solutions to use_.
+  1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -247,7 +247,7 @@ If public access is enabled, [remove](../../../iam/operations/roles/revoke.md) i
 
 #### 3.7 {{ objstorage-name }} uses Bucket Policies {#bucket-policy}
 
-[Bucket policies](../../../storage/concepts/policy.md) set permissions for actions with buckets, objects, and object groups. A policy is triggered when a user makes a request to a resource. As a result, the request is either executed or rejected.
+[Bucket policies](../../../storage/concepts/policy.md) set permissions for actions with buckets, objects, and object groups. A policy applies when a user makes a request to a resource. As a result, the request is either executed or rejected.
 
 Bucket Policy [examples](../../../storage/concepts/policy.md#config-examples):
 
@@ -265,7 +265,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
   1. In the management console, select the cloud or folder to check the bucket policies in.
   1. In the list of services, select {{ objstorage-name }}.
   1. Go to **Bucket policy**.
-  1. Make sure that at least one policy is enabled. Otherwise, proceed to _Guides and solutions to use_.
+  1. Make sure that at least one policy is enabled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -296,16 +296,16 @@ For more information about lifecycles, see the {{ objstorage-name }} documentati
 
 In addition, to protect object versions against deletion, use [object locks](../../../storage/concepts/object-lock.md). For more information about object lock types and how to enable them, see the documentation.
 
-The storage period of critical data in a bucket is determined by the client's information security requirements and information security standards. For example, the PCI DSS standard states that audit logs should be stored for at least one year and be available online for at least three months.
+The storage period of critical data in a bucket is determined by the customer's information security requirements and the information security standards. For example, the PCI DSS standard states that audit logs should be stored for at least one year and be available online for at least three months.
 
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. From the list of services, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
-  1. Go to the **Versioning** tab and make sure it is enabled. Otherwise, proceed to _Guides and solutions to use_.
+  1. Go to the **Versioning** tab and make sure it is enabled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -348,16 +348,16 @@ You can only use {{ TF }}/API to check if logging is enabled by following the [i
 
 #### 3.10 In {{ objstorage-name }}, Cross-Origin Resource Sharing (CORS) is set up {#cors}
 
-If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in buckets, the client should configure the Cross-Origin Resource Sharing (CORS) policy in accordance with the client's information security requirements. For more information, see the {{ objstorage-name }} documentation, [CORS configuration of buckets](../../../storage/s3/api-ref/cors/xml-config.md).
+If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) to objects in buckets, you should configure the Cross-Origin Resource Sharing (CORS) policy in accordance with your corporate information security requirements. For more information, see the {{ objstorage-name }} documentation, [CORS configuration of buckets](../../../storage/s3/api-ref/cors/xml-config.md).
 
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. In the list of services, select **{{ objstorage-name }}**.
+  1. From the list of services, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
-  1. Go to the **CORS** tab and make sure that the configuration is set up. Otherwise, proceed to _Guides and solutions to use_.
+  1. Go to the **CORS** tab and make sure that the configuration is set up. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -413,7 +413,7 @@ We recommend prohibiting internet access to databases that contain critical data
   1. In the management console, select the cloud or folder to check the databases in.
   1. In the list of services, select a service or services with managed databases.
   1. In the object settings, find the **Security group** parameter and make sure that at least one security group is assigned.
-  1. If the parameters of each object have at least one security group set, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameters of each object have at least one security group set, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -429,7 +429,7 @@ We recommend prohibiting internet access to databases that contain critical data
      done
      ```
 
-  1. The output should return an empty string. Otherwise, proceed to _Guides and solutions to use_.
+  1. The output should return an empty string. Otherwise, proceed to "Guides and solutions to use".
 
 - Checking if managed databases have SGs {#db-check}
 
@@ -445,7 +445,7 @@ We recommend prohibiting internet access to databases that contain critical data
      done
      ```
 
-  1. The output should return an empty string. Otherwise, proceed to _Guides and solutions to use_.
+  1. The output should return an empty string. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -464,7 +464,7 @@ Assigning a public IP to a managed database raises information security risks. W
   1. In the management console, select the cloud or folder to check the databases in.
   1. In the list of services, select a service or services with managed databases.
   1. In the object settings, go to the **Hosts** tab.
-  1. If the parameters of each object have the **Public access** option disabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameters of each object have the **Public access** option disabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -486,7 +486,7 @@ Assigning a public IP to a managed database raises information security risks. W
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -496,7 +496,7 @@ Disable public access if it is not required.
 
 #### 3.15 The deletion protection feature is enabled {#deletetion-protection}
 
-In {{ yandex-cloud }} managed databases, you can enable deletion protection. Deletion protection manages cluster protection from accidental deletion by a user. Enabled protection will not prevent a manual connection to a cluster to delete data.
+In {{ yandex-cloud }} managed databases, you can enable deletion protection. The deletion protection feature safeguards the cluster against accidental deletion by a user. Even if it is enabled, one can still connect to the cluster manually and delete the data.
 
 {% list tabs group=instructions %}
 
@@ -505,7 +505,7 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
   1. In the management console, select the cloud or folder to check the databases in.
   1. In the list of services, select a service or services with managed databases.
   1. In the object settings, go to the **Advanced settings** tab.
-  1. If the parameters of each object have the **Deletion protection** option enabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameters of each object have the **Deletion protection** option enabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -527,7 +527,7 @@ In {{ yandex-cloud }} managed databases, you can enable deletion protection. Del
      done
      ```
 
-  1. The output should return an empty string. Otherwise, proceed to _Guides and solutions to use_.
+  1. The output should return an empty string. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -549,7 +549,7 @@ Do not enable access to databases containing critical data from the management c
   1. In the management console, select the cloud or folder to check the databases in.
   1. In the list of services, select a service or services with managed databases.
   1. In the object settings, go to the **Advanced settings** tab.
-  1. If the parameters of each object have **Access from {{ datalens-short-name }}** disabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameters of each object have **Access from {{ datalens-short-name }}** disabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -571,7 +571,7 @@ Do not enable access to databases containing critical data from the management c
      done
      ```
 
-  1. The output should return an empty string. Otherwise, proceed to _Guides and solutions to use_.
+  1. The output should return an empty string. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -595,7 +595,7 @@ We recommend that you enable this type of access only if needed, because it rais
   1. In the management console, select the cloud or folder to check the databases in.
   1. In the list of services, select a service or services with managed databases.
   1. In the object settings, go to the **Advanced settings** tab.
-  1. If the parameters of each object have **Access from the management console** disabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameters of each object have **Access from the management console** disabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -617,7 +617,7 @@ We recommend that you enable this type of access only if needed, because it rais
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -657,7 +657,7 @@ You can only specify a single network for functions, containers, and API gateway
   1. In the list of services, select {{ sf-name }}.
   1. Open all the functions.
   1. In the object settings, go to the **Edit function version** tab.
-  1. If the parameters of each object have **Network — {{ vpc-short-name }}** set, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameters of each object have **Network — {{ vpc-short-name }}** set, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -674,7 +674,7 @@ You can only specify a single network for functions, containers, and API gateway
      done
      ```
 
-  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If an empty string is output, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -725,7 +725,7 @@ For more information about roles and resources you can assign roles for in {{ sf
 
 #### 3.20 Side-channel attacks in {{ sf-name }} are addressed {#side-channel-attacks}
 
-Hosts and hypervisors running {{ sf-name }} contain all the applicable updates for side-channel attack protection. However, keep in mind that functions perform untrusted client code. {{ yandex-cloud }} security experts believe that side-channel attacks are unlikely in the context of functions, but this risk must be accounted for, particularly in the overall threats and risk analysis model employed by the PCI DSS infrastructure.
+Hosts and hypervisors running {{ sf-name }} contain all the applicable updates for side-channel attack protection. However, keep in mind that functions execute untrusted customer code. {{ yandex-cloud }} security experts believe that side-channel attacks are unlikely in the context of functions, but this risk must be accounted for, particularly in the overall threats and risk analysis model employed by the PCI DSS infrastructure.
 
 {% list tabs group=instructions %}
 
@@ -741,7 +741,7 @@ Hosts and hypervisors running {{ sf-name }} contain all the applicable updates f
 
 #### 3.22 Special aspects of header management in {{ sf-name }} are addressed {#http-functions}
 
-If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. It is the client's responsibility to manage the response headers according to the regulatory requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
+If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. It is the customer's responsibility to manage the response headers according to the regulatory requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
 
 You can run a function by specifying the `?integration=raw` string query parameter. When invoked this way, a function cannot parse or set HTTP headers:
 
@@ -753,8 +753,8 @@ The request must be a JSON structure which contains:
 * `httpMethod`: HTTP method: `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, or `PUT`.
 * `headers`: Dictionary of strings with HTTP request headers and their values. If the same header is provided multiple times, the dictionary contains the last provided value.
 * `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary; however, if any of the headers was repeated multiple times, its list will contain all the values provided for this header. If the header was provided only once, it gets included into this dictionary and its list will contain only one value.
-* `queryStringParameters`: Dictionary with query parameters. If the same parameter is set multiple times, the dictionary contains the last specified value.
-* `multiValueQueryStringParameters`: Dictionary with a list of all specified values for each query parameter. If the same parameter is set multiple times, the dictionary contains all the specified values.
+* `queryStringParameters`: Dictionary with the query parameters. If the same parameter is specified multiple times, the dictionary will contain the last specified value.
+* `multiValueQueryStringParameters`: Dictionary with the list of all specified values for each query parameter. If the same parameter is specified multiple times, the dictionary will contain all the specified values.
 * `requestContext`: Request context.
 
 For the purpose of debugging a function, you can use special requests that return the JSON structure of the request and the result you need for debugging. For more information, see [function debugging](../../../functions/concepts/function-invoke.md#example).
@@ -783,7 +783,7 @@ When setting up database permissions, use the principle of least privilege.
   1. In the list of services, select **{{ ydb-name }}**.
   1. Open all the databases.
   1. In the database settings, go to the **Network** tab.
-  1. If the parameters of each object have the **Public IP addresses** option disabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameters of each object have the **Public IP addresses** option disabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -805,7 +805,7 @@ When setting up database permissions, use the principle of least privilege.
      done
      ```
 
-  1. The output should return an empty string. Otherwise, proceed to _Guides and solutions to use_.
+  1. The output should return an empty string. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -832,7 +832,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
   1. In the management console, select the cloud or folder to check the registry in.
   1. In the list of services, select **{{ container-registry-short-name }}**.
   1. In the settings of the specific registry, go to the **Access for IP address** tab.
-  1. If specific IPs to allow access for are set in the parameters, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If specific IPs to allow access for are set in the parameters, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -854,7 +854,7 @@ We recommend that you limit access to your {{ container-registry-short-name }} t
      done
      ```
 
-  1. If PULL/PUSH is output before each registry ID, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If PULL/PUSH is output before each registry ID, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -875,7 +875,7 @@ We do not recommend that you use privileged containers to run loads that process
   1. In the list of services, select **{{ compute-short-name }}**.
   1. Open the settings of a specific VM with a **Container Optimized Image**.
   1. In the Docker container's **Settings**, find the **Privileged mode** parameter.
-  1. If it is disabled, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If it is disabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 
 - Performing a check via the CLI {#cli}
@@ -899,7 +899,7 @@ We do not recommend that you use privileged containers to run loads that process
      done
      ```
 
-  1. If there is no `privileged: true` in front of each VM ID, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If there is no `privileged: true` in front of each VM ID, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -930,7 +930,7 @@ We recommend that you update certificates in advance if they are not [updated au
   1. In the management console, select the cloud or folder to check the VMs in.
   1. In the list of services, select **{{ certificate-manager-full-name }}**.
   1. Open the settings of each certificate and find the **End date** parameter.
-  1. If the parameter shows that the certificate will be valid for at least 30 days more, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If the parameter shows that the certificate will be valid for at least 30 days more, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -953,7 +953,7 @@ We recommend that you update certificates in advance if they are not [updated au
      done
      ```
 
-  1. If there is no `privileged: true` in front of each VM ID, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
+  1. If there is no `privileged: true` in front of each VM ID, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
@@ -1013,7 +1013,7 @@ Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by as
 
 #### 3.33 Vulnerability scanning is performed at the cloud IP level {#ip-level}
 
-We recommend that clients scan their own hosts for vulnerabilities. Cloud resources support the installation of custom virtual images of vulnerability scanners or software agents on hosts. There are many fee-based and free solutions for scanning.
+We recommend that customers scan their own hosts for vulnerabilities. Cloud resources support the installation of custom virtual images of vulnerability scanners or software agents on hosts. There are many fee-based and free solutions for scanning.
 
 Network scanners scan hosts that are accessible over a network. Generally, authentication can be configured on network scanners. 
 

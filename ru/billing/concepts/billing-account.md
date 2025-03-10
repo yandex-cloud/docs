@@ -4,13 +4,11 @@
 
 Платежный аккаунт может быть привязан к нескольким облакам и только к одному [лицевому счету](personal-account.md). В рамках лицевого счета можно использовать только тот способ оплаты, который соответствует типу платежного аккаунта и [договору](contract.md).
 
-
 Взаимосвязь между облаками, платежным аккаунтом, лицевым счетом и способом оплаты представлена на схеме ниже.
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)
 
 {% include [account_scope.md](../_includes/account-scope.md) %}
-
 
 {% note info %}
 
@@ -64,7 +62,6 @@
 {% include [billing-account-amounts](../_includes/billing-account-amounts.md) %}
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
-
 
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 

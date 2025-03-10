@@ -4,7 +4,9 @@
 С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram, который будет отвечать на сообщения в чате.
 
 
-[Смотреть видеоинструкцию о разработке Telegram-бота c помощью Serverless на YouTube](https://www.youtube.com/watch?v=C2Ahit2EBo0).
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvjsucpfkw2e4zdzy2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=C2Ahit2EBo0).
 
 
 

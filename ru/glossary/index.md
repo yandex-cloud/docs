@@ -10,6 +10,7 @@
 * [{#T}](oltp.md)
 * [{#T}](cluster.md)
 * [{#T}](relational-databases.md)
+* [{#T}](columnar-databases.md)
 
 ## Аналитика {#analytics}
 

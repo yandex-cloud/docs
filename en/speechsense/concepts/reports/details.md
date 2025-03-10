@@ -4,14 +4,20 @@ title: _Details_ report in {{ speechsense-name }}
 
 # _Details_ report in {{ speechsense-name }}
 
+{% note warning %}
+
+Neuroreports will be discontinued starting February 24, 2025. Use [semantic tags](../tags.md#sense-tags) instead.
+
+{% endnote %}
+
 The **Details** report shows how the values of the evaluation parameter change over time for each data cross-section. For example, you can build a report based on average dialog duration, group the duration values by departments, and specify the period of one year. As a result, the report will demonstrate how average dialog duration evolved in the course of the year for each department.
 
 ## How to build a report {#form}
 
 To generate the **Details** report, specify the following settings:
 
-* [Evaluation parameter](#parameter): Report will show changes in this parameter values.
-* [Filters](#filters): Apply to dialogs in the report.
+* [Evaluation parameter](#parameter): The report will reflect the changes in this parameter.
+* [Filters](#filters): Filters applied to dialogs in the report.
 
 With the settings configured, you can now [build a report](../../operations/data/manage-reports.md#build-a-details-report). It will present the evaluation parameter values for multiple data cross-sections in [chart and table](#display) form.
 

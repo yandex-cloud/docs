@@ -1,11 +1,11 @@
 ---
-title: Quotas and limits in {{ mmg-name }}
-description: '{{ mmg-name }} has limits and quotas for the number of clusters, total number of processor cores for all database hosts, total amount of RAM for all database hosts, and total storage for all clusters per cloud. For more information about the service restrictions, read this article.'
+title: '{{ mmg-name }} quotas and limits'
+description: '{{ mmg-name }} has limits and quotas for the number of clusters, total number of processor cores for all database hosts, total amount of virtual memory for all database hosts, and total storage for all clusters per cloud. For more information about the service limitations, read this article.'
 editable: false
 ---
 
 
-# Quotas and limits in {{ mmg-name }}
+# {{ mmg-name }} quotas and limits
 
 {{ mmg-name }} has the following limits:
 

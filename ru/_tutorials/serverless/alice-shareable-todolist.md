@@ -4,7 +4,9 @@
 В этом сценарии вы разработаете навык Алисы и развернете веб-приложение, которое позволит создавать, читать и редактировать списки дел с помощью Алисы, а также делиться списками с другими пользователями на сайте.
 
 
-[Смотреть видеоинструкцию о написании навыка для Алисы на Serverless на YouTube](https://www.youtube.com/watch?v=PMWMDTBKFAc).
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplv75t2gtff4pps5fx2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=PMWMDTBKFAc).
 
 
 

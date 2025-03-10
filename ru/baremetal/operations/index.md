@@ -12,6 +12,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./servers/switch-raid-member.md)
 * [{#T}](./servers/rescue-boot.md)
 * [{#T}](./servers/reinstall-os-from-marketplace.md)
+* [{#T}](./servers/reinstall-os-from-own-image.md)
 * [{#T}](./servers/reset-password.md)
 * [{#T}](./servers/add-new-ssh-key.md)
 * [{#T}](./servers/restore-grub.md)

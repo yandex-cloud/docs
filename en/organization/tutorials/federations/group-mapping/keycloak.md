@@ -8,9 +8,9 @@ description: Follow this guide to configure user group mapping in {{ keycloak }}
 To configure user group mapping in [{{ keycloak }}](https://www.keycloak.org/) and user groups in the [identity federation](../../../concepts/add-federation.md):
 
 1. [Create a federation in {{ org-full-name }}](#create-federation).
-1. [Add a {{ keycloak }} certificate to the federation](#add-certificate)
+1. [Add a {{ keycloak }} certificate to the federation](#add-certificate).
 1. [Create and configure a SAML application in {{ keycloak }}](#keycloak-settings).
-1. [Configure group mapping on the {{ keycloak }} side](#kc-mapping)
+1. [Configure group mapping on the {{ keycloak }} side](#kc-mapping).
 1. [Configure group mapping on the federation side](#org-mapping).
 1. [Test authentication](#test-auth).
 
@@ -185,11 +185,11 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
 
     1. Click **Next**.
-    1. Specify the ACS redirect URL in the following fields:
+    1. Specify the ACS redirect URL, in the following fields:
 
         * **Home URL**
         * **Valid Redirect URIs**
-        * **IDP Initiated SSO Relay State**.
+        * **IDP Initiated SSO Relay State**
     
         
         {% cut "How to get the federation ACS URL" %}

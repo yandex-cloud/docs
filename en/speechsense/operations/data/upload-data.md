@@ -1,16 +1,18 @@
 ---
-title: Uploading audio data
-description: Follow this guide to upload audio data to {{ speechsense-name }}
+title: Uploading audio data via API
+description: Follow this guide to upload audio data to {{ speechsense-name }} via gPRC API.
 ---
 
-# Uploading audio data
+# Uploading audio data via gPRC API
 
-Use this guide to upload data for API-based speech analysis to {{ speechsense-name }}. This example uses the following parameters:
+Use this guide to upload data to {{ speechsense-name }} for speech recognition and analysis via API. This example uses the following parameters:
 
 * [Audio format](../../concepts/formats.md): WAV.
 * The dialog metadata is stored in `metadata_example.json`.
 
 {% include [authentication](../../../_includes/speechsense/data/authentication.md) %}
+
+You can discover {{ speechsense-name }} features using a quick audio data upload via the [management console](upload-audio-console.md).
 
 If you want to upload the chat text instead of voice call audio, follow [this guide](upload-chat-text.md).
 

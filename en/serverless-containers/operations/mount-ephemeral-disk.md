@@ -72,15 +72,15 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
           zip_filename = "<path_to_ZIP_archive>"
         }
 
+        image {
+          url = <container_image_path>
+        }
+
         mounts {
           mount_point_path = <mount_point>
           ephemeral_disk {
             size_gb = <disk_size>
           }
-        }
-
-        image {
-          url = <container_image_path>
         }
       }
       ```
@@ -100,7 +100,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
   You can check the container's update and settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
   ```bash
-  yc serverless container version get <container_ID>
+  yc serverless container revision get <container_revision_ID>
   ```
 
 - API {#api}

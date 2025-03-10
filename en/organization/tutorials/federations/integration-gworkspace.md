@@ -145,7 +145,7 @@ To create a federation:
 
   1. Specify the federation parameters in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -204,7 +204,7 @@ To create a federation:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the folder where you created the configuration file.
+      1. In the command line, go to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
@@ -353,14 +353,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 
 1. In the **Service provider information** step, specify information about {{ yandex-cloud }} that acts as a service provider:
 
-    * In the **ACS URL** and **Object ID** fields, enter the ACS URL to redirect users to after successful authentication:
-
-      
-      ```text
-      https://{{ auth-host }}/federations/<federation_ID>
-      ```
-
-
+    * In the **ACS URL** and **Object ID** fields, enter the ACS URL to redirect users to after successful authentication.
 
       {% cut "How to get a federation ID" %}
    
@@ -412,7 +405,7 @@ Once you have created a federation, complete the creation of the SAML applicatio
 User data | Comment | Application Attributes
 ------------------- | ----------- | -------------------
 Unique user ID | Required attribute. Using an email address is recommended. | **Name ID** field in service provider settings
-Last name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+Surname | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 Full name | Displayed in {{ yandex-cloud }} services.<br>Example: Ivan Ivanov.<br> Value length limit: {{ saml-limit-display-name }}. | Attribute unavailable
 Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `ivanov@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`

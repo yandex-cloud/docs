@@ -25,6 +25,8 @@ items:
             items:
               - name: Переустановить ОС из образа Marketplace
                 href: operations/servers/reinstall-os-from-marketplace.md
+              - name: Переустановить ОС из своего ISO-образа
+                href: operations/servers/reinstall-os-from-own-image.md
           - name: Подключиться к KVM-консоли
             href: operations/servers/server-kvm.md
           - name: Заменить диск в RAID-массиве
@@ -75,6 +77,8 @@ items:
         href: operations/backup-baremetal.md
       - name: Настроить VRRP для кластера серверов {{ baremetal-name }}
         href: tutorials/bms-vrf-routing.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

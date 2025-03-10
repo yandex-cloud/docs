@@ -1,6 +1,6 @@
 # Using fine-tuned classifiers based on {{ yagpt-name }}
 
-To run a request to the classifier of a model [fine-tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) text classification API method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
+To run a request to a [fine-tuned](../../concepts/tuning/index.md) classifier, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) text classification API method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 ## Getting started {#before-begin}
 
@@ -39,7 +39,7 @@ To send a request to the classifier:
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
-      * `model`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. This parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md) and the ID of the model [tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}.
+      * `model`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. This parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md) and fine-tuning suffix.
 
       The names of the classes between which the model will be distributing queries must be specified during model tuning; therefore, they are not provided in the request.
 
@@ -59,13 +59,13 @@ To send a request to the classifier:
   
       ```json
       {
-        "modelUri": "cls://<folder_ID>/<classifier_ID>",
+        "modelUri": "cls://<basic_model_URI>/<version>@<tuning_suffix>",
         "text": "<prompt_text>"
       }
       ```
   
       Where:
-      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message. This parameter contains the {{ yandex-cloud }} [folder ID](../../../resource-manager/operations/folder/get-id.md) and the ID of the model [tuned](../../../datasphere/concepts/models/foundation-models.md#classifier-training) in {{ ml-platform-name }}.
+      * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message.
       * `text`: Message text. The total number of [tokens](../../concepts/yandexgpt/tokens.md) per request must not exceed 8,000.
   
       The names of the classes between which the model will be distributing queries must be specified during model tuning; therefore, they are not provided in the request.

@@ -195,6 +195,8 @@ items:
             href: concepts/jobs/fork.md
           - name: Integration with {{ maf-name }}
             href: concepts/jobs/airflow.md
+          - name: Working with Spark connectors
+            href: concepts/jobs/work-with-spark.md
       - name: Resources
         items:
           - name: Overview
