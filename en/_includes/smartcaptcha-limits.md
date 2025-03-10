@@ -1,7 +1,6 @@
 #### Quotas {#quotas}
 
 Type of limit | Value
-
 ----- | -----
 Maximum number of CAPTCHAs per cloud | 10
 Maximum number of [challenge options](../smartcaptcha/concepts/captcha-variants.md) per cloud | 32
