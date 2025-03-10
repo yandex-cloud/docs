@@ -53,15 +53,7 @@ To avoid mistakes, specify the source language in the `sourceLanguageCode` field
 
     This returns a translation from the correct language:
 
-    ```json
-    {
-        "translations": [
-           {
-               "text": "fishing rod"
-           }
-        ]
-    }
-    ```
+    {% include [with-source-language](../../_untranslatable/translate/with-source-language.md) %}
 
 {% endlist %}
 
@@ -77,26 +69,7 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
 - Bash {#bash}
 
-    ```json
-    {
-       "sourceLanguageCode": "tr",
-       "targetLanguageCode": "ru",
-       "texts": [
-           "cırtlı çocuk spor ayakkabı"
-       ],
-       "folderId": "<folder_ID>",
-       "glossaryConfig": {
-           "glossaryData": {
-               "glossaryPairs": [
-                   {
-                       "sourceText": "spor ayakkabı",
-                       "translatedText": "sneakers"
-                   }
-               ]
-           }
-       }
-    }
-    ```
+    {% include [with-glossary-req](../../_untranslatable/translate/with-glossary-req.md) %}
 
     Where:
 
@@ -113,27 +86,11 @@ In the `sourceLanguageCode` field, specify the source language. This field is re
 
     The response will contain a translation based on the terms from your glossary:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "Children's sneakers with velcro"
-            }
-        ]
-    }
-    ```
+    {% include [with-glossary-ans1](../../_untranslatable/translate/with-glossary-ans1.md) %}
 
     Without the glossary, the translation would be:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "Children's sport shoes with velcro"
-            }
-        ]
-    }
-    ```
+    {% include [with-glossary-ans2](../../_untranslatable/translate/with-glossary-ans2.md) %}
 
 {% endlist %}
 
@@ -209,26 +166,10 @@ Misspelled words may be translated incorrectly or transliterated. For example, t
 
     The response will contain a translation of the word checked for spelling:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "эллада"
-            }
-        ]
-    }
-    ```
+    {% include [with-speller-ans1](../../_untranslatable/translate/with-speller-ans1.md) %}
 
     If no spelling check is enabled (`"speller": false`), the word will be translated as follows:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "хелас"
-            }
-        ]
-    }
-    ```
+    {% include [with-speller-ans2](../../_untranslatable/translate/with-speller-ans2.md) %}
 
 {% endlist %}

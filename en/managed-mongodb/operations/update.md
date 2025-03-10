@@ -643,9 +643,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
     * `--performance-diagnostics`: Specify this parameter to use the [Performance diagnostics](performance-diagnostics.md) tool in the cluster. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
 
-    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
-
-        {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+    * `--deletion-protection`: Cluster protection from accidental deletion. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
 
     You can get the cluster ID and name with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
@@ -675,18 +673,18 @@ You can change the DBMS settings of the hosts in your cluster.
 
     1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
+    1. To protect your cluster against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
           ...
-          deletion_protection = <deletion_protection>
+          deletion_protection = <cluster_deletion_protection>
         }
         ```
 
-        Where `deletion_protection` is the cluster deletion protection,`true` or `false`.
+        Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
 
-        {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        To disable the protection, set the value to `false`.
 
     1. Make sure the settings are correct.
 
@@ -721,7 +719,7 @@ You can change the DBMS settings of the hosts in your cluster.
             "seconds": "<seconds>",
             "nanos": "<nanoseconds>"
           },
-          "backupRetainPeriodDays": "<backup_storage_time_in_days>",
+          "backupRetainPeriodDays": "<backup_retention_in_days>",
           "performanceDiagnostics": {
             "profilingEnabled": <enable_profiler:_true_or_false>
           }
@@ -732,7 +730,7 @@ You can change the DBMS settings of the hosts in your cluster.
             "hour": "<hour>"
           }
         },    
-        "deletionProtection": <deletion_protection:_true_or_false>
+        "deletionProtection": <cluster_deletion_protection:_true_or_false>
       }
       ```
     
@@ -751,7 +749,7 @@ You can change the DBMS settings of the hosts in your cluster.
           * `seconds`: Between `0` and `59` seconds.
           * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        * `backupRetainPeriodDays`: Backup storage time in days.
+        * `backupRetainPeriodDays`: Backup retention in days.
 
         * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
           * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler).
@@ -764,7 +762,7 @@ You can change the DBMS settings of the hosts in your cluster.
           * `day`: Day of week, in `DDD` format.
           * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-      * `deletionProtection`: Protection of the cluster, its databases, and users against accidental deletion. Even if enabled, one can still connect manually and delete the database content.
+      * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
         
     1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -812,7 +810,7 @@ You can change the DBMS settings of the hosts in your cluster.
             "seconds": "<seconds>",
             "nanos": "<nanoseconds>"
           },
-          "backup_retain_period_days": "<backup_storage_time_in_days>",
+          "backup_retain_period_days": "<backup_retention_in_days>",
           "performance_diagnostics": {
             "profiling_enabled": <enable_profiler:_true_or_false>
           }
@@ -823,7 +821,7 @@ You can change the DBMS settings of the hosts in your cluster.
             "hour": "<hour>"
           }
         },
-        "deletion_protection": <deletion_protection:_true_or_false>
+        "deletion_protection": <cluster_deletion_protection:_true_or_false>
       }
       ```
 
@@ -856,7 +854,7 @@ You can change the DBMS settings of the hosts in your cluster.
           * `day`: Day of week, in `DDD` format.
           * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-      * `deletion_protection`: Protection of the cluster, its databases, and users against accidental deletion. Even if enabled, one can still connect manually and delete the database content.
+      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
 
   1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 

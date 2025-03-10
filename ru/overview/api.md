@@ -33,7 +33,7 @@
 | {{ data-transfer-full-name }}           | [gRPC](../data-transfer/api-ref/grpc/)<br>[REST](../data-transfer/api-ref/) |
 | {{ iam-full-name }}                     | [gRPC](../iam/api-ref/grpc/)<br>[REST](../iam/api-ref/) |
 | {{ iot-full-name }}                     | [Devices gRPC](../iot-core/api-ref/grpc/)<br>[Devices REST](../iot-core/api-ref/)<br>[Broker gRPC](../iot-core/broker/api-ref/grpc/)<br>[Broker REST](../iot-core/broker/api-ref/) |
-| {{ foundation-models-full-name }}                   | [YandexGPT API gRPC](../foundation-models/text-generation/api-ref/grpc/)<br>[YandexGPT API REST](../foundation-models/text-generation/api-ref/)<br>[{{ assistant-api }} gRPC](../foundation-models/assistants/api-ref/grpc/)<br>[{{ assistant-api }} REST](../foundation-models/assistants/api-ref/)<br>[Embeddings gRPC](../foundation-models/embeddings/api-ref/grpc/)<br>[Embeddings REST](../foundation-models/embeddings/api-ref/)<br>[YandexART gRPC](../foundation-models/image-generation/api-ref/grpc/)<br>[YandexART REST](../foundation-models/image-generation/api-ref/) |
+| {{ foundation-models-full-name }}       | [gRPC API генерации текста](../foundation-models/text-generation/api-ref/grpc/)<br>[REST API генерации текста](../foundation-models/text-generation/api-ref/)<br>[{{ assistant-api }} gRPC](../foundation-models/assistants/api-ref/grpc/)<br>[{{ assistant-api }} REST](../foundation-models/assistants/api-ref/)<br>[Embeddings gRPC](../foundation-models/embeddings/api-ref/grpc/)<br>[Embeddings REST](../foundation-models/embeddings/api-ref/)<br>[YandexART gRPC](../foundation-models/image-generation/api-ref/grpc/)<br>[YandexART REST](../foundation-models/image-generation/api-ref/) |
 | {{ kms-full-name }}                     | [gRPC](../kms/api-ref/grpc/)<br>[REST](../kms/api-ref/) |
 | {{ load-testing-full-name }}            | [gRPC](../load-testing/user/api-ref/grpc/)<br>[REST](../load-testing/user/api-ref/) |
 | {{ lockbox-name }}  | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |
@@ -65,8 +65,6 @@
 | {{ vision-full-name }}                  | [gRPC](../vision/ocr/api-ref/grpc/)<br>[REST](../vision/ocr/api-ref/) |
 | {{ vpc-full-name }}                     | [gRPC](../vpc/api-ref/grpc/)<br>[REST](../vpc/api-ref/) |
 
-
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
-
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

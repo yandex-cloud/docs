@@ -23,6 +23,8 @@ items:
             href: operations/yandexgpt/create-chat.md
           - name: Sending an asynchronous request
             href: operations/yandexgpt/async-request.md
+          - name: Invoking a function from a model
+            href: operations/yandexgpt/function-call.md
       - name: Image generation
         items:
           - name: Generating an image
@@ -61,6 +63,8 @@ items:
             href: concepts/yandexgpt/models.md
           - name: Tokens
             href: concepts/yandexgpt/tokens.md
+          - name: Function calling
+            href: concepts/yandexgpt/function-call.md
           - name: Reasoning mode
             href: concepts/yandexgpt/chain-of-thought.md
       - name: Image generation

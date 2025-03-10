@@ -13,3 +13,13 @@ You can create target groups:
 * [Using {{ ig-name }}](../../compute/operations/instance-groups/create-with-load-balancer.md). When you change the VM configuration, {{ ig-name }} automatically updates IP addresses of VMs in the target group. If the target group is connected to a backend group, {{ ig-name }} also monitors health check results delivered by the L7 load balancer.
 
 {% include [target-group-deletion-restriction](../../_includes/application-load-balancer/target-group-deletion-restriction.md) %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md)
+* [{#T}](../tutorials/tls-termination/console.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/application-load-balancer-website/index.md)

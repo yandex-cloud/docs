@@ -148,6 +148,17 @@ Note that if the backend is configured to use TLS with the target group endpoint
 
 * For Stream health checks, a TLS connection will be established and the check results will be returned through this connection.
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)
+* [{#T}](../tutorials/tls-termination/index.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md)
+* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/logging.md)
+
 ### See also {#see-also}
 
 * [{#T}](best-practices.md)

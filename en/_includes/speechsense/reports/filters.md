@@ -13,7 +13,7 @@ You can use filtering to select the dialogs to include in your report. To do thi
     * **Tags**: Classifiers applied to conversation audio recognition results or text chat messages.
     * **{{ yagpt-name }}** analysis: Agent’s performance criteria and customer’s behavioral characteristics during the dialog, such as whether the agent was polite, whether the customer acted in a rude manner, etc.
 
-    You can also use [neuroparameters](../../../speechsense/concepts/reports/neuro-parameters.md) in filters.
+    You can also use [semantic attributes](../../../speechsense/concepts/reports/sense-attributes.md) in filters.
 
     You can use multiple filters at the same time. They will be combined by the logical `AND` operation. As a result, the report will be built based on dialogs that satisfy all the conditions that were specified.
 

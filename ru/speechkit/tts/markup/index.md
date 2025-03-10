@@ -12,9 +12,7 @@
 
 {% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}
 
-
 В {{ speechkit-name }} доступно два формата разметки:
 
 * [TTS](tts-markup.md) – для API v1 и API v3.
 * [SSML](ssml.md) – только для API v1.
-

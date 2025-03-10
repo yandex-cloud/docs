@@ -31,6 +31,8 @@ items:
             href: operations/container-info.md
           - name: Getting information about a container revision
             href: operations/revision-info.md
+          - name: Configuring metadata service parameters
+            href: operations/metadata-options.md
       - name: Managing rights to access a container
         items:
           - name: Making a container public
@@ -209,7 +211,7 @@ items:
         href: tutorials/pg-connect.md
       - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: tutorials/deploy-app-container.md
-      - name: Developing a custom integration in {{ api-gw-name }}
+      - name: Building a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
   - name: Access management
     href: security/index.md

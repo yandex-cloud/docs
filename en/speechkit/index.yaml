@@ -1,28 +1,35 @@
 title: '{{ speechkit-full-name }}'
 description:
   - >-
-    {{ speechkit-full-name }} enables app developers to use speech recognition
-    (Speech-to-Text) and speech synthesis (Text-to-Speech) technologies.
-  - '{{ speechkit-name }} is accessible via the API.'
+    With {{ speechkit-full-name }}, app developers can implement Yandex speech
+    recognition (Speech-to-Text) and speech synthesis (Text-to-Speech)
+    technologies.
+  - To access {{ speechkit-name }}, use the API.
   - >-
-    {{ yandex-cloud }} infrastructure is <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
-    secure</a> and in compliance with Russian Federal Law 152-FZ.
+    The {{ yandex-cloud }} infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">is
+    protected</a> pursuant to the Russian Federal Law No. 152-FZ on Personal
+    Data.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for {{
-    speechkit-full-name }}</a>.
+    For terms of use, see the <a
+    href="https://yandex.ru/legal/cloud_terms_speechkit">{{ speechkit-full-name
+    }}</a> Terms of Use.
+  - >-
+    The service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.com/legal/cloud_sla_speechkit">{{ speechkit-full-name
+    }}</a> Service Level.
 meta:
   title: '{{ speechkit-full-name }}'
   description: >-
-    {{ speechkit-full-name }} enables app developers to use speech recognition
-    (Speech-to-Text) and speech synthesis (Text-to-Speech) technologies.
+    Developers can use the Yandex SpeechKit service to implement Yandex speech
+    technologies in their apps: speech recognition (speech-to-text) and speech
+    synthesis (text-to-speech).
 links:
   - title: Getting started
     description: Convert text to speech and speech to text
-    href: quickstart
+    href: quickstart/
   - title: Speech recognition
     description: Find out how speech recognition works
     href: stt/
@@ -33,25 +40,25 @@ links:
     description: Find out how text-to-speech conversion works
     href: tts/
   - title: Synthesis API
-    description: Description of the synthesis API v3 methods
+    description: Description of synthesis methods in API v3
     href: tts-v3/api-ref/grpc/
   - title: '{{ brand-voice-name }}'
     description: Speech synthesis technology with a unique voice
     href: tts/brand-voice/
   - title: '{{ sk-hybrid-name }}'
-    description: Running {{ speechkit-name }} voice technologies on-premise
+    description: '{{ speechkit-name }} voice technologies in on-premise infrastructure'
     href: hybrid-speechkit/
-  - title: Authentication in the API
+  - title: Authentication with the API
     description: Get an access token and use it in requests
     href: concepts/auth
   - title: Response format
     description: Response headers and response codes
     href: concepts/response
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

@@ -1,8 +1,8 @@
 # Adding a dictionary to a tag
 
-After [creating a dictionary](create.md), you can edit a [tag](../../concepts/tags.md) and add the [dictionary](../../concepts/dictionaries.md) to it. The tag will then apply to conversations containing trigger phrases from the dictionary.
+After [creating a dictionary](create.md), you can edit a [dictionary tag](../../concepts/tags.md#dictionary-tags) and add the [dictionary](../../concepts/dictionaries.md) to it. The tag will then apply to conversations containing trigger phrases from the dictionary.
 
-You can also add a dictionary when [creating a tag](../project/tag/create.md#new-tag).
+You can also add a dictionary when [creating a dictionary tag](../project/tag/create-dictionary-tag.md#new-tag).
 
 To change a project tag, you need either the `{{ roles-speechsense-admin }}` or the `{{ roles-speechsense-editor }}` role for the project.
 

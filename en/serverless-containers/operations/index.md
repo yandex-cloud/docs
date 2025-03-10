@@ -13,6 +13,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](./revision-list.md)
 * [{#T}](./container-info.md)
 * [{#T}](./revision-info.md)
+* [Configuring metadata service parameters](metadata-options.md)
 
 ## Managing permissions to access a container {#manage-access-rights-container}
 

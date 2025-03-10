@@ -53,15 +53,8 @@ description: Из статьи вы узнаете, как можно повыс
 
     В ответе будет перевод с корректно распознанного языка:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "удочка"
-            }
-        ]
-    }
-    ```
+    {% include [with-source-language](../../_untranslatable/translate/with-source-language.md) %}
+
 
 {% endlist %}
 
@@ -77,26 +70,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 - Bash {#bash}
 
-    ```json
-    {
-        "sourceLanguageCode": "tr",
-        "targetLanguageCode": "ru",
-        "texts": [
-            "cırtlı çocuk spor ayakkabı"
-        ],
-        "folderId": "<идентификатор_каталога>",
-        "glossaryConfig": {
-            "glossaryData": {
-                "glossaryPairs": [
-                    {
-                        "sourceText": "spor ayakkabı",
-                        "translatedText": "кроссовки"
-                    }
-                ]
-            }
-        }
-    }
-    ```
+    {% include [with-glossary-req](../../_untranslatable/translate/with-glossary-req.md) %}
 
     Где:
 
@@ -113,27 +87,11 @@ description: Из статьи вы узнаете, как можно повыс
 
     В ответе будет перевод с использованием терминов из глоссария:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "Детские кроссовки с липучкой"
-            }
-        ]
-    }
-    ```
+    {% include [with-glossary-ans1](../../_untranslatable/translate/with-glossary-ans1.md) %}
 
     Без использования глоссария перевод будет таким:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "детская спортивная обувь с липучкой"
-            }
-        ]
-    }
-    ```
+    {% include [with-glossary-ans2](../../_untranslatable/translate/with-glossary-ans2.md) %}
 
 {% endlist %}
 
@@ -209,26 +167,10 @@ description: Из статьи вы узнаете, как можно повыс
 
     В ответе будет перевод слова, проверенного на наличие ошибок:
     
-    ```json
-    {
-        "translations": [
-            {
-                "text": "эллада"
-            }
-        ]
-    }
-    ```
+    {% include [with-speller-ans1](../../_untranslatable/translate/with-speller-ans1.md) %}
 
     Без проверки ошибок в слове (`"speller": false`) перевод будет таким:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "хелас"
-            }
-        ]
-    }
-    ```
+    {% include [with-speller-ans2](../../_untranslatable/translate/with-speller-ans2.md) %}
 
 {% endlist %}

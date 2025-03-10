@@ -114,7 +114,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-  1. View the description of the create cluster CLI command:
+  1. View the description of the CLI command to create a cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster create --help
@@ -157,17 +157,15 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`.
          * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
          * `secondary-delay-secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
-         * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
+         * `priority`: [Priority for assigning the host as a master](../concepts/replication.md#master-failover).
 
       * `--mongod-disk-type`: Disk type.
 
 
       * `--performance-diagnostics`: Enables cluster performance diagnostics, `true` or `false`.
-      * `--deletion-protection`: Protection of the cluster, its databases, and users against accidental deletion. Even if enabled, one can still connect manually and delete the database content.
+      * `--deletion-protection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
-
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% note info %}
 
@@ -191,7 +189,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      
      ```hcl
@@ -264,16 +262,14 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
          * `secondary_delay_secs`: Replica's lag behind the master in seconds. It can be useful for data recovery in case of invalid operations.
          * `priority`: [Host priority for assignment as a master](../concepts/replication.md#master-failover).
-     * `deletion_protection`: Protection of the cluster, its databases, and users against accidental deletion, `true` or `false`. Even if enabled, one can still connect manually and delete the database content.
+     * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
      * `version`: {{ MG }} version, {{ versions.tf.str }}.
 
      {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
-     {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mmg }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-mmg }}).
 
   1. Make sure the settings are correct.
 
@@ -308,7 +304,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             ...
             "<security_group_N_ID>"
           ],
-          "deletionProtection": <deletion_protection:_true_or_false>,
+          "deletionProtection": <cluster_deletion_protection:_true_or_false>,
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
@@ -332,7 +328,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               "seconds": "<seconds>",
               "nanos": "<nanoseconds>"
             },  
-            "backupRetainPeriodDays": "<backup_storage_time_in_days>",
+            "backupRetainPeriodDays": "<backup_retention_in_days>",
             "performanceDiagnostics": {
               "profilingEnabled": <enable_profiler:_true_or_false>
             }
@@ -393,7 +389,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
 
         * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
 
@@ -423,7 +419,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               * `seconds`: Between `0` and `59` seconds.
               * `nanos`: Between `0` and `999999999` nanoseconds.
 
-            * `backupRetainPeriodDays`: Backup storage time in days.
+            * `backupRetainPeriodDays`: Backup retention in days.
 
             * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
               * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler). 
@@ -439,7 +435,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `permissions`: User permissions settings:
 
             * `databaseName`: Name of the database the user gets access to.
-            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
             For each database, add a separate element with permission settings to the `permissions` array.
 
@@ -490,7 +486,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
             ...
             "<security_group_N_ID>"
           ],
-          "deletion_protection": <deletion_protection:_true_or_false>,
+          "deletion_protection": <cluster_deletion_protection:_true_or_false>,
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
@@ -514,7 +510,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               "seconds": "<seconds>",
               "nanos": "<nanoseconds>"
             },
-            "backup_retain_period_days": "<backup_storage_time_in_days>",
+            "backup_retain_period_days": "<backup_retention_in_days>",
             "performance_diagnostics": {
               "profiling_enabled": <enable_profiler:_true_or_false>
             }
@@ -575,7 +571,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-        * `deletion_protection`: Protection of the cluster, its databases, and users against accidental deletion. Even if enabled, one can still connect manually and delete the database content.
+        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. Even if it is enabled, one can still delete a user or database as well as connect manually and delete the database content.
 
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
 
@@ -621,7 +617,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `permissions`: User permission settings:
 
             * `database_name`: Name of the database the user gets access to.
-            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
             For each database, add a separate element with permission settings to the `permissions` array.
 
@@ -761,10 +757,10 @@ To create a {{ MG }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
   * One user: `user1`, password: `user1user1`.
   * One database: `db1`.
-  * Protection against accidental cluster deletion.
+  * Deletion protection: Enabled.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash
@@ -809,7 +805,7 @@ To create a {{ MG }} cluster copy:
   * `user1` user.
   * Password: `user1user1`.
   * Database: `db1`.
-  * Protection against accidental cluster deletion: Enabled.
+  * Deletion protection: Enabled.
 
   Configuration file for a single-host cluster:
 
@@ -897,7 +893,7 @@ Cluster test specifications:
 
 * Name: `mymg`.
 * Environment: `PRODUCTION`.
-* Protection against accidental cluster deletion: Enabled.
+* Deletion protection: Enabled.
 * Version: `{{ versions.tf.latest }}`.
 * Database: `db1`.
 * `user1` user.
@@ -1059,7 +1055,7 @@ Cluster test specifications:
 
 * Name: `mymg`.
 * Environment: `PRODUCTION`.
-* Protection against accidental cluster deletion: Enabled.
+* Deletion protection: Enabled.
 * Version: `{{ versions.tf.latest }}`.
 * Database: `db1`.
 * `user1` user.

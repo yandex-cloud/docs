@@ -416,7 +416,7 @@ To follow the steps in this section, you will need:​
 
   1. Specify the federation parameters in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
 
       - Keycloak 17 or higher
 
@@ -466,7 +466,7 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/realms/master
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. Here is an example:
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID, for example:
 
           ```
           {{ link-keycloak-example }}
@@ -695,7 +695,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
 1. Set up the SAML application parameters in the **Settings** tab:
 
-    1. Specify the ACS redirect URL, in the following fields:
+    1. Specify the ACS redirect URL in the following fields:
 
        {% list tabs %}
 
@@ -735,7 +735,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
     1. Click **Save**.
 
-1. If you enabled the **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** option when [creating a federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
+1. If you enabled **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** when [creating the federation](#create-federation) in {{ org-full-name }}, set up digital signature verification in the SAML application:
 
     {% list tabs %}
 

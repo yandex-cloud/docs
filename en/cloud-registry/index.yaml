@@ -4,13 +4,13 @@ description:
     <em>Yandex Cloud Registry is at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
-    Yandex Cloud Registry is a secure storage service for software <a
+    Yandex Cloud Registry is a service for safe storage of software <a
     href="/docs/cloud-registry/concepts/artifacts">artifacts</a> used in app
     development and deployment. Store, manage, and protect your artifacts.
     Artifacts are software packages and other files used in app development and
     deployment.
   - >-
-    <ul> <li>Create a secure storage for your artifacts in just a few minutes.
+    <ul><li>Create a secure storage for your artifacts in just a few minutes.
     Manage access and operations via roles and permissions provided with <a
     href="/docs/iam/security">Identity and Access Management<a/>.</li>
     <li>Stored encrypted, all your artifacts will be securely protected from
@@ -22,7 +22,12 @@ description:
     infrastructure and guarantee its security according to industry best
     practices. You only pay for the actual space used to store your
     artifacts.</li></ul>
-  - "Yandex Cloud infrastructure is <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">protected</a> pursuant to Federal Law No. 152-FZ \"On Personal Data\" of the Russian Federation and complies with the following international and Russian standards: ISO, GDPR, PCI DSS, and GOST R\_57580."
+  - >-
+    The Yandex Cloud infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
+    pursuant to the Russian Federal Law 152-FZ on Personal Data and complies
+    with international (ISO, GDPR, PCI DSS) and Russian (GOST R 57580) national
+    standards.
 meta:
   title: Yandex Cloud Registry
   description: >-
@@ -36,7 +41,7 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn more about Container Registry's concepts and resources
+    description: Learn more about the service's concepts and resources
     href: concepts/
   - title: Access management
     description: Configure access permissions to use the service

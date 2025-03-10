@@ -10,12 +10,12 @@ description:
     involve processing and storing massive amounts data.</li> <li>Process
     transactions in real time <a href="/docs/glossary/oltp">(OLTP)</a>.</li>
     <li>Process analytical queries online <a
-    href="/docs/glossary/olap">(OLAP)</a>.</li> <li>Support and operate systems
-    that require linear scalability, both vertical and horizontal.</li> <li>Use
-    concurrent request processing on multiple processor cores.</li></ul>
+    href="/docs/glossary/olap">(OLAP)</a>.</li> <li>Support and use systems that
+    require linear scalability, both vertical and horizontal.</li> <li>Use
+    parallel query processing on multiple processor cores.</li></ul>
   - >-
-    You interact with the service through the management console, the Yandex
-    Cloud command-line interface (CLI), API, or the <a
+    You can interact with the service through the management console, the Yandex
+    Cloud command-line interface (CLI), API, or <a
     href="https://clickhouse.com/docs/en/interfaces/http">HTTP interface</a>.
     Managed Service for ClickHouse® enables you to visualize the data structure
     on your ClickHouse® cluster and send SQL queries to databases from the
@@ -23,14 +23,14 @@ description:
     href="/docs/managed-clickhouse/operations/web-sql-query">management
     console</a>.
   - >-
-    The Yandex.Cloud infrastructure is fully <a
-    href="/docs/security/conform">secure</a> in compliance with the following
-    standards: <ul> <li>Russian Federal Law No. 152-FZ on Personal Data</li>
+    The Yandex Cloud infrastructure is <a
+    href="/docs/security/conform">protected</a> pursuant to the following
+    standards: <ul><li>Russian Federal Law No. 152-FZ on Personal Data</li>
     <li>PCI DSS</li> <li>ISO 27001</li> <li>ISO 27017</li> <li>ISO 27018</li>
-    <li>GOST 57580.1-2017</li> </ul>
+    <li>GOST 57580.1-2017</li></ul>
   - >-
-    The service is subject to a <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
+    This service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_mdb">Yandex Managed Databases
     Service Level</a>.

@@ -114,7 +114,10 @@
      1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
      1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
 
-  1. {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+  
+      {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
+
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `master-server-m3`.
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
   1. Аналогичным способом арендуйте еще два сервера: с именем `backup-server-m3` в пуле серверов `{{ region-id }}-m3` и с именем `client-server-m4` и подсетью `subnet-m4` в пуле серверов `{{ region-id }}-m4`.

@@ -139,6 +139,6 @@ Once the connection is created, you can:
 
         ![screen10](../../_assets/managed-postgresql/operations/datalens-connect/screen10.png)
 
-   1. If the cluster and {{ datalens-name }} are in different folders, use the settings from the [instructions](../../datalens/operations/connection/create-postgresql.md) in the {{ datalens-name }} documentation.
+   1. If the cluster and {{ datalens-name }} are in different organizations, use the settings from this {{ datalens-name }} [tutorial](../../datalens/operations/connection/create-postgresql.md).
 
 {% endlist %}

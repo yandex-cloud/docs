@@ -1,6 +1,14 @@
 # Создать реестр
 
-Использовать созданный [реестр](../../concepts/registry.md) могут все пользователи и [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md), у которых есть права на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+Использовать созданный [реестр](../../concepts/registry.md) могут все пользователи и [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md), у которых есть права на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder). 
+
+Вы можете создать безопасный реестр с автоматическим сканированием с помощью [сканера уязвимостей](../../concepts/vulnerability-scanner.md).
+
+{% note info %}
+
+Сканирование Docker-образов на наличие уязвимостей [тарифицируется](../../pricing.md#scanner).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -12,6 +20,14 @@
   1. Задайте имя реестра. Требования к имени:
 
      {% include [name-format](../../../_includes/name-format.md) %}
+
+  1. (Опционально) В блоке **{{ ui-key.yacloud.cr.overview.popup-create_field_auto_scan }}**:
+
+
+      * отключите опцию **{{ ui-key.yacloud.cr.overview.popup-create_scan_push_text }}**, чтобы не сканировать Docker-образы при загрузке в репозиторий.
+      * отключите опцию **{{ ui-key.yacloud.cr.overview.popup-create_scan_period_enabled }}** или настройте периодичность сканирования.
+
+        {% include [safe-registry](../../../_includes/container-registry/safe-registry.md) %}
 
   1. (Опционально) Добавьте метки.
   1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
@@ -40,9 +56,20 @@
      Если в каталоге уже есть реестр, посмотрите, как можно его изменить, в разделе [{#T}](registry-update.md).
   1. Создайте реестр:
 
-     ```bash
-     yc container registry create --name my-reg
-     ```
+      * с автоматическим сканированием уязвимостей:
+
+
+         ```bash
+         yc container registry create --name my-reg --secure
+         ```
+ 
+        {% include [safe-registry](../../../_includes/container-registry/safe-registry.md) %}
+
+      * без автоматического сканирования уязвимостей:
+
+         ```bash
+         yc container registry create --name my-reg
+         ```
 
      Результат:
 
@@ -66,7 +93,7 @@
      yc container registry list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```text
      +----------------------+--------+----------------------+

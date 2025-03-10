@@ -25,17 +25,5 @@
     Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
 
     В ответе сервис вернет переведенные строки текста:
-    ```json
-    {
-        "translations": [
-            {
-            "text": "Привет",
-            "detectedLanguageCode": "en"
-            },
-            {
-            "text": "Мир",
-            "detectedLanguageCode": "en"
-            }
-        ]
-    }
-    ```
+
+    {% include [any-language](../../_untranslatable/translate/any-language.md) %}

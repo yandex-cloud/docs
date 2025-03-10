@@ -1,12 +1,15 @@
 ---
 title: Guides on using {{ speechsense-name }}
-description: The page contains all guides on how to use {{ speechsense-name }} in {{ yandex-cloud }}. Learn how to create a space, create a project for a specific connection, upload data, work with dialogs, and generate reports.
+description: This page presents all the guides on how to use {{ speechsense-name }} in {{ yandex-cloud }}. Learn how to create a space, create a project for a specific connection, upload data, work with dialogs, and generate reports.
 ---
 
 # Step-by-step guides for {{ speechsense-name }}
 
 ## Operations with data {#data}
 
+* Uploading data:
+
+* [{#T}](data/upload-audio-console.md)
 * [{#T}](data/upload-data.md)
 * [{#T}](data/upload-chat-text.md)
 
@@ -42,8 +45,12 @@ description: The page contains all guides on how to use {{ speechsense-name }} i
 
 ## Tags {#tag}
 
-* [{#T}](project/tag/create.md)
-* [{#T}](project/tag/change.md)
+* [{#T}](project/tag/create-dictionary-tag.md)
+* [{#T}](project/tag/create-sense-tag.md)
+* [{#T}](project/tag/create-dependent-tag.md)
+* [{#T}](project/tag/change-dictionary-tag.md)
+* [{#T}](project/tag/change-sense-tag.md)
+* [{#T}](project/tag/test.md)
 * [{#T}](project/tag/delete.md)
 
 ## Dictionaries {#dictionary}

@@ -5,7 +5,7 @@ description: В сервисе {{ foundation-models-full-name }} действу�
 
 # Квоты и лимиты в {{ foundation-models-full-name }}
 
-В сервисе {{ yagpt-full-name }} действуют следующие ограничения:
+В сервисе {{ foundation-models-full-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def-without-ui.md) %}
 

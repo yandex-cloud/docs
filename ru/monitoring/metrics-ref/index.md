@@ -11,6 +11,7 @@ description: На странице приведен список справоч�
 * [{{ at-full-name }}](at-ref.md)
 * [{{ certificate-manager-full-name }}](certificate-manager-ref.md)
 * [{{ backup-full-name }}](backup-ref.md)
+* [{{ baremetal-full-name }}](baremetal-ref.md)
 * [{{ cdn-full-name }}](cdn-ref.md)
 * [{{ sf-full-name }}](functions-ref.md)
 * [{{ cloud-logging-full-name }}](logging-ref.md)

@@ -71,6 +71,19 @@ The trail contains all the audit log settings:
             * `Exclude`: To receive all events except for the selected ones.
         * List of [events](events-data-plane.md#dns) is `Selected` or `Exclude` filter type is selected.
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/query.md)
+* [{#T}](../tutorials/alerts-monitoring.md)
+* [{#T}](../tutorials/logging-functions.md)
+* [{#T}](../tutorials/audit-trails.md)
+* [{#T}](../tutorials/maxpatrol.md)
+* [{#T}](../tutorials/export-logs-to-splunk.md)
+* [{#T}](../tutorials/export-logs-to-arcsight.md)
+* [{#T}](../tutorials/audit-trails-events-to-kuma/console.md)
+
+
 ## What's next {#whats-next}
 
 * Learn more about the [audit log format](./format.md).

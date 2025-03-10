@@ -80,7 +80,7 @@ items:
     items:
       - name: >-
           Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
-          yagpt-full-name }} и {{ postbox-full-name }}
+          foundation-models-full-name }} и {{ postbox-full-name }}
         href: tutorials/tracker-yandexgpt-postbox-integrations.md
   - name: Концепции
     items:

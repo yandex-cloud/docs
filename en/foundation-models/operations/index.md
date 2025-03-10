@@ -11,6 +11,7 @@ description: This page presents all the guides on how to use {{ foundation-model
 * [{#T}](./yandexgpt/create-prompt.md)
 * [{#T}](./yandexgpt/create-chat.md)
 * [{#T}](./yandexgpt/async-request.md)
+* [{#T}](./yandexgpt/function-call.md)
 
 ## Step-by-step guides for {{ yandexart-name }} {#yandexart}
 

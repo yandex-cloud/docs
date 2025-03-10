@@ -1,0 +1,57 @@
+title: Yandex Cloud Quota Manager
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Concepts
+    href: concepts/index.md
+  - name: Step-by-step guides
+    expanded: true
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Viewing the list of services and quotas
+        href: operations/list-quotas.md
+      - name: Viewing quota value
+        href: operations/read-quotas.md
+      - name: Changing quotas
+        href: operations/set-quotas.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    expanded: true
+    items:
+      - name: Authentication with the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: QuotaLimit
+            items:
+              - name: Overview
+                href: api-ref/grpc/QuotaLimit/index.md
+              - name: Get
+                href: api-ref/grpc/QuotaLimit/get.md
+              - name: List
+                href: api-ref/grpc/QuotaLimit/list.md
+              - name: ListServices
+                href: api-ref/grpc/QuotaLimit/listServices.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: QuotaLimit
+            items:
+              - name: Overview
+                href: api-ref/QuotaLimit/index.md
+              - name: Get
+                href: api-ref/QuotaLimit/get.md
+              - name: List
+                href: api-ref/QuotaLimit/list.md
+              - name: ListServices
+                href: api-ref/QuotaLimit/listServices.md
+  - name: Release notes
+    href: release-notes.md

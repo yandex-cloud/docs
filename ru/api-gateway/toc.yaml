@@ -103,7 +103,7 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
-          - name: '{{ yagpt-full-name }}'
+          - name: '{{ foundation-models-full-name }}'
             href: operations/spec-constructor/yagpt.md
       - name: Просмотр операций с ресурсами сервиса
         href: operations/operation-logs.md

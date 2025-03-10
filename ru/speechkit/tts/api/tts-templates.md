@@ -2,13 +2,11 @@
 
 Синтез по шаблонам в {{ brand-voice-premium }} и {{ brand-voice-core }} доступен только для голосов [{{ brand-voice-name }}](../brand-voice/index.md).
 
-
 {% note warning %}
 
 Сервисы {{ brand-voice-premium }} и {{ brand-voice-core }} предоставляются по запросу. Для доступа к технологии [заполните форму](#contact-form).
 
 {% endnote %}
-
 
 Чтобы синтезировать фразу по шаблону:
 

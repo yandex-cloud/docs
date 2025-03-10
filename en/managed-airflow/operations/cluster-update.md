@@ -1,6 +1,6 @@
 ---
 title: Updating an {{ AF }} cluster
-description: After creating an {{ AF }} cluster, you can change its basic and advanced settings.
+description: After creating an {{ AF }} cluster, you can edit its basic and advanced settings.
 keywords:
   - Updating an {{ AF }} cluster
   - '{{ AF }} cluster'
@@ -10,7 +10,7 @@ keywords:
 
 # Updating an {{ AF }} cluster
 
-After creating a cluster, you can change its basic and advanced settings.
+After creating a cluster, you can edit its basic and advanced settings.
 
 {% list tabs group=instructions %}
 
@@ -269,7 +269,7 @@ After creating a cluster, you can change its basic and advanced settings.
         * `codeSync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            With deletion protection enabled, you will still be able to manually connect to the cluster and delete it.
+            Even if it is enabled, one can still connect to the cluster manually and delete it.
 
         * `serviceAccountId`: ID of the service account with the `managed-airflow.integrationProvider` [role](../../iam/concepts/access-control/roles.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
@@ -456,7 +456,7 @@ After creating a cluster, you can change its basic and advanced settings.
         * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            With deletion protection enabled, you will still be able to manually connect to the cluster and delete it.
+            Even if it is enabled, one can still connect to the cluster manually and delete it.
 
         * `service_account_id`: ID of the service account with the `managed-airflow.integrationProvider` [role](../../iam/concepts/access-control/roles.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 

@@ -28,7 +28,13 @@ description: Следуя данной инструкции, вы сможете
 
         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите один из доступных в Marketplace образов ОС. Также вы можете арендовать сервер без ОС, [загрузить собственный образ](../image-upload.md) и установить ОС из него с помощью KVM.
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите:
+  
+      * `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` — чтобы установить на сервер один из доступных публичных образов ОС в {{ marketplace-full-name }}.
+      * `{{ ui-key.yacloud.baremetal.field_choose-no-os }}` — чтобы арендовать сервер без операционной системы.
+      
+          [Установить](./reinstall-os-from-own-image.md) операционную систему из собственного ISO-образа вы сможете позднее.
+
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**:
 
      1. Укажите количество серверов, которое хотите арендовать.
@@ -48,7 +54,10 @@ description: Следуя данной инструкции, вы сможете
         * `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}` — чтобы назначить случайный IP-адрес.
         * `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` — чтобы не назначать публичный IP-адрес.
 
-  1. {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
+  1. Если вы устанавливаете на сервер операционную систему из публичного образа в {{ marketplace-name }}, в блоке **{{ ui-key.yacloud.baremetal.title_server-access }}** задайте параметры доступа к серверу:
+
+      {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
+
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
 
      1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** введите имя сервера.
@@ -58,3 +67,5 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 {% endlist %}
+
+После того как вы арендуете сервер, вы в любой момент сможете установить или переустановить на нем операционную систему из публичного образа в {{ marketplace-name }} или из собственного ISO-образа. Подробнее см. в инструкциях [{#T}](./reinstall-os-from-marketplace.md) и [{#T}](./reinstall-os-from-own-image.md).

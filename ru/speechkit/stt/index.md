@@ -8,12 +8,9 @@ _[Распознавание речи](../../glossary/transcribation.md) (speech
 
 Для работы со {{ speechkit-name }} также доступен [Python SDK](../sdk/python/index.md). Он основан на [API v3 {{ speechkit-name }}](../stt-v3/api-ref/grpc/).
 
-
 {% include [try-speechkit](../../_includes/speechkit/try-speechkit.md) %}
 
-
 ## Способы распознавания {#stt-ways}
-
 
 {{ speechkit-name }} предоставляет два способа распознавания речи:
 
@@ -21,7 +18,6 @@ _[Распознавание речи](../../glossary/transcribation.md) (speech
 1. Распознавание аудиофайлов. {{ speechkit-name }} может распознавать аудиозаписи в [синхронном](request.md) и [асинхронном](transcribation.md) режиме.
    * Синхронное распознавание имеет жесткие ограничения на размер и длительность файла и подходит для распознавания одноканальных аудио до {{ stt-short-audioLength }}.
    * Асинхронное распознавание может обрабатывать многоканальные аудиозаписи. Максимальная длительность файла — {{ stt-long-audioLength }}.
-
 
 
 ### Какое распознавание выбрать {#choose-stt}

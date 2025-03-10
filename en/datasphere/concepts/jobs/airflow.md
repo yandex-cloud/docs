@@ -6,7 +6,7 @@ You can use {{ maf-name }} for {{ ds-jobs }} to be [rerun](./fork.md) on a sched
 
 ## Running jobs regularly {#airflow-dag}
 
-To run jobs regularly, specify **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** — **DataSphere Jobs: datasphere** in the **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** section when [creating](../../../managed-airflow/operations/cluster-create.md) a {{ AF }} cluster. For your {{ AF }} cluster to work with {{ ml-platform-name }} jobs, add the cluster's [service account](../../../iam/concepts/users/service-accounts.md) to the {{ ml-platform-name }} project with the `Developer` [role](../../security/index.md) or higher.
+To run jobs regularly, specify **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** — **DataSphere Jobs: datasphere** in the **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** section when [creating](../../../managed-airflow/operations/cluster-create.md) an {{ AF }} cluster. For an {{ AF }} cluster to work with {{ ml-platform-name }} jobs, add the cluster’s [service account](../../../iam/concepts/users/service-accounts.md) to the {{ ml-platform-name }} project with the `Developer` [role](../../security/index.md) or higher.
 
 To manage a DAG file through the {{ AF }} web service interface, [save](../../../managed-airflow/operations/upload-dags.md) it to the {{ objstorage-full-name }} bucket.
 
@@ -43,7 +43,7 @@ def run():
 run()
 ```
 
-Job execution logs are displayed in [{{ ds-cli }}](cli.md) and the web server interface. If there are any issues, the DAG operation will fail and the corresponding stack trace will appear in the logs.
+Job run logs are displayed in [{{ ds-cli }}](cli.md) and the web server interface. If there are any issues, the DAG operation will fail and the corresponding stack trace will appear in the logs.
 
 {% note info %}
 
@@ -57,7 +57,7 @@ A non-blocking call allows you to perform new calculations on your {{ AF }} clus
 
 #### Example {#example-fork-from-dag}
 
-Let's take a look at a DAG file with Airflow Sensor which inquires for job status every minute using the `get_job` function. When the job is completed, the last operator, `handle_job_result`,  is run:
+Let's take a look at a DAG file with Airflow Sensor which requests the job status every minute using the `get_job` function. When the job is completed, the last operator, `handle_job_result`, is run:
 
 ```python
 from typing import Optional

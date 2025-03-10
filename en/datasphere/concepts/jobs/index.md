@@ -114,13 +114,13 @@ cloud-instance-types:
 
 # Extended working directory configuration.
 working-storage:
-  type: SSD    # Disk type in use. Optional, the default type is SSD. Possible values: SSD
+  type: SSD    # Disk type in use. Optional, the default type is SSD. The possible values are: SSD
   size: 150Gb  # Working directory size from 100 GB to 10 TB.
 
 # Configuring graceful shutdown.
 graceful-shutdown:
   signal: SIGTERM  # Signal to be sent to the job process on pressing Ctrl + C (cancel); SIGTERM by default.
-                   # Possible values: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
+                   # The possible values are: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
   timeout: 15s     # Timeout after which the job process gets SIGKILL if it has not finished yet.
 
 # List of datasets to create upon a successful job completion.
@@ -132,6 +132,10 @@ output-datasets:
     labels:                   # Random list of labels to assign to the dataset.
       a: b
       c: d
+
+# Setting up a connection to a DataProc cluster via Spark Connector
+spark:
+  connector: <connector_ID> # Spark Connector ID
 ```
 
 The `config.yaml` file has multiple sections.
@@ -179,12 +183,14 @@ The `config.yaml` file has multiple sections.
 
 1. `output-dataset` describes the [datasets](../dataset.md) to create upon a successful job completion. Each dataset has a name, description, size, and a list of labels.
 
-   Once a job is completed, a dataset creation message will appear in the `cli` [log](cli.md#logs). For example:
+   Once a job is completed, a dataset creation message will appear in the `cli` [log](cli.md#logs). Here is an example:
 
    ```text
    2024-09-13 16:22:28,894 - [INFO] - Created datasets:
    2024-09-13 16:22:28,894 - [INFO] -   * <dataset-id> (dataset name) size: <size> Gb
    ```
+
+1. The `spark` section describes the configuration for [operations](work-with-spark.md) with [{{ dataproc-full-name }}](../../../data-proc/) clusters through [Spark Connector](../spark-connector.md). When specifying a Spark connector, first make sure it is [available](../../operations/data/spark-connectors.md#share) in your project.
 
 #### See also {#see-also}
 

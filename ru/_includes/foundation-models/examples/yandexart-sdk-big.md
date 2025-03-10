@@ -39,7 +39,7 @@ def main():
     result = operation.wait()
     print(result)
 
-    # Sample 4: example of combining {{ yagpt-full-name }} and {{ yandexart-name }} models
+    # Sample 4: example of combining {{ yagpt-name }} and {{ yandexart-name }} models
     gpt = sdk.models.completions("yandexgpt")
     messages = gpt.run(
         [

@@ -18,4 +18,4 @@ description: Из статьи вы узнаете, как работать с �
 * [{{ yds-name }}](datastreams.md)
 * [{{ ydb-name }}](ydb.md)
 * [{{ ml-platform-name }}](datasphere.md)
-* [{{ yagpt-full-name }}](yagpt.md)
+* [{{ foundation-models-full-name }}](yagpt.md)

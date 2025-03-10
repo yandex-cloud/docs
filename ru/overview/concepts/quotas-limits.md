@@ -26,16 +26,12 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 ## Квоты и лимиты по умолчанию для сервисов {{ yandex-cloud }} {#quotas-limits-default}
 
-
 Квоты приведены со значениями по умолчанию, которые совпадают с квотами на время [пробного периода](../../getting-started/free-trial/concepts/quickstart.md).
-
-
 
 
 ### {{ api-gw-full-name }} {#api-gw}
 
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
-
 
 
 ### {{ alb-full-name }} {#alb}
@@ -53,11 +49,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
 
 
-
 ### {{ backup-full-name }} {#backup}
 
 {% include [backup-limits.md](../../_includes/backup-limits.md) %}
-
 
 
 ### {{ baremetal-full-name }} {#baremetal}
@@ -65,12 +59,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [baremetal-limits.md](../../_includes/baremetal-limits.md) %}
 
 
-
 ### {{ billing-name }} {#billing}
 
 {% include [billing-limits](../../_includes/billing/billing-limits.md) %}
-
-
 
 
 ### {{ cdn-full-name }} {#cdn}
@@ -78,12 +69,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [cdn-limits](../../_includes/cdn/limits.md) %}
 
 
-
-
 ### {{ cloud-desktop-full-name }} {#cloud-desktop}
 
 {% include [limits](../../_includes/cloud-desktop/limits.md) %}
-
 
 
 ### {{ dns-full-name }} {#dns}
@@ -91,12 +79,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [limits](../../_includes/cloud-dns-limits.md) %}
 
 
-
 ### {{ foundation-models-full-name }} {#foundation-models}
 
 {% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
-
-
 
 
 ### {{ sf-full-name }} {#sf}
@@ -104,12 +89,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [functions-limits.md](../../_includes/functions-limits.md) %}
 
 
-
-
 ### {{ interconnect-full-name }} {#interconnect}
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
-
 
 
 ### {{ cloud-logging-full-name }} {#logging}
@@ -127,11 +109,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [org-limits.md](../../_includes/organization/org-limits.md) %}
 
 
-
 ### {{ postbox-full-name }} {#postbox}
 
 {% include [postbox-limits](../../_includes/postbox/postbox-limits.md) %}
-
 
 
 ### {{ video-full-name }} {#video}
@@ -149,18 +129,14 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [container-registry-limits.md](../../_includes/container-registry-limits.md) %}
 
 
-
 ### {{ dataproc-full-name }} {#dataproc}
 
 {% include [data-processing-limits.md](../../_includes/data-processing/data-processing-limits.md) %}
 
 
-
-
 ### {{ yds-full-name }} {#yds}
 
 {% include [yds-limits.md](../../_includes/yds-limits.md) %}
-
 
 
 ### {{ data-transfer-full-name }} {#data-transfer}
@@ -173,11 +149,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [datalens-limits.md](../../_includes/datalens/datalens-limits.md) %}
 
 
-
 ### {{ ml-platform-full-name }} {#ml-platform}
 
 {% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
-
 
 
 ### {{ iam-full-name }} {#iam}
@@ -185,17 +159,14 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [iam-limits.md](../../_includes/iam/iam-limits.md) %}
 
 
-
 ### {{ iot-full-name }} {#iot}
 
 {% include [iot-limits.md](../../_includes/iot-limits.md) %}
 
 
-
 ### {{ kms-full-name }} {#kms}
 
 {% include [kms-limits.md](../../_includes/kms/kms-limits.md) %}
-
 
 
 ### {{ load-testing-full-name }} {#load-testing}
@@ -205,17 +176,14 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 Потребление вычислительных ресурсов [агентами](../../load-testing/concepts/agent.md) учитывается в [квотах]({{ link-console-quotas }}) и ограничено лимитами сервиса [{{ compute-full-name }}](../../compute/concepts/limits.md).
 
 
-
 ### {{ lockbox-name }} {#lockbox}
 
 {% include [lockbox-limits.md](../../_includes/lockbox-limits.md) %}
 
 
-
 ### {{ maf-full-name }} {#airflow}
 
 {% include [airflow-limits.md](../../_includes/mdb/maf/limits.md) %}
-
 
 
 ### {{ mkf-full-name }} {#mkf}
@@ -230,11 +198,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 
 
-
 ### {{ mgl-full-name }} {#mgl}
 
 {% include [mgl-limits](../../_includes/managed-gitlab/limits.md) %}
-
 
 
 
@@ -249,11 +215,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [managed-kube-limits.md](../../_includes/managed-kube-limits.md) %}
 
 
-
 ### {{ mmg-full-name }} {#mmg}
 
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
-
 
 
 ### {{ mmy-full-name }} {#mmy}
@@ -275,18 +239,14 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
 
 
-
 ### {{ ydb-full-name }} {#ydb}
 
 {% include [ydb-limits.md](../../_includes/ydb/ydb-limits.md) %}
 
 
-
-
 ### {{ message-queue-full-name }} {#mq}
 
 {% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}
-
 
 
 ### {{ metadata-hub-full-name }} {#metadata-hub}
@@ -326,11 +286,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [limits.md](../../query/_includes/limits.md) %}
 
 
-
 ### {{ resmgr-full-name }} {#resource-manager}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
-
 
 
 ### {{ search-api-full-name }} {#search-api}
@@ -338,13 +296,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [search-api-limits](../../_includes/search-api-limits.md) %}
 
 
-
-
 ### {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
-
-
 
 
 ### {{ captcha-full-name }} {#captcha}
@@ -352,12 +306,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [smartcaptcha-limits](../../_includes/smartcaptcha-limits.md) %}
 
 
-
-
 ### {{ sws-full-name }} {#sws}
 
 {% include [smartwebsecurity-limits](../../_includes/sws-limits.md) %}
-
 
 
 ### {{ speechkit-full-name }} {#speechkit}
@@ -369,11 +320,9 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [speechsense-limits.md](../../_includes/speechsense-limits.md) %}
 
 
-
 ### {{ translate-full-name }} {#translate}
 
 {% include [translate-limits](../../_includes/translate-limits.md) %}
-
 
 
 ### {{ vpc-full-name }} {#vpc}
@@ -381,17 +330,13 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
 
 
-
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}
 
 
-
-
 ### {{ websql-full-name }} {#websql}
 
 {% include [websql-limits](../../_includes/websql-limits.md) %}
-
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

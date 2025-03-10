@@ -73,6 +73,8 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
 1. Add the `hello.py` file into the `hello-py.zip` archive.
 
+    {% include [macos-zip-error](../../../_includes/functions/macos-zip-error.md) %}
+
 ### Create a function version {#create-version}
 
 {% list tabs group=instructions %}
@@ -84,7 +86,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     1. Select the `python-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `{{ python-full-ver }}` runtime environment.
-    1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-py.zip`
@@ -118,7 +120,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
     * `--runtime`: Runtime environment.
     * `entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before the timeout is reached.
+    * `--execution-timeout`: Maximum running time of the function until timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:

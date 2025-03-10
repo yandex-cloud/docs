@@ -24,13 +24,17 @@ async def main():
         task_type="TextToTextGeneration",
         path="<path_to_file>",
         upload_format="jsonlines",
-        name="YandexGPT tuning",
+        name="YandexGPT Lite tuning",
     )
 
     # Waiting for the data to be uploaded and the dataset to be created
     operation = await dataset_draft.upload_deferred()
-    dataset = await operation
-    print(f"new {dataset=}")
+    tuning_dataset = await operation
+    print(f"new {tuning_dataset=}")
+
+    # Viewing the list of all uploaded datasets
+    for dataset in sdk.datasets.list():
+        print(f"List of existing datasets {dataset=}")
 
 
 if __name__ == "__main__":
