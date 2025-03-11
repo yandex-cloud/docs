@@ -20,7 +20,7 @@ description: С помощью инструкции вы сможете посм
    
    Чтобы посмотреть подсказки по горячим клавишам строки запросов, нажмите **{{ ui-key.yacloud_monitoring.querystring.hint.search-hotkey }}**.
 
-1. Чтобы отобразить на графике модифицированную метрику, в строке ![image](../../../_assets/monitoring/function.svg) выберите [функции](../../concepts/querying#functions).
+1. Чтобы отобразить на графике модифицированную метрику, в строке ![image](../../../_assets/monitoring/function.svg) выберите [функции](../../concepts/querying.md#functions).
 1. Чтобы отобразить на графике еще одну метрику, нажмите кнопку **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}** и введите значения метрик и меток.
    
    Если какие-либо запросы — промежуточные и нужны для вычисления другого запроса, скройте их на графике. Для этого нажмите ![image](../../../_assets/monitoring/concepts/visualization/chart-query-hide.svg) рядом с запросом.

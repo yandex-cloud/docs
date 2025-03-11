@@ -56,7 +56,7 @@ To create an organization, follow these steps:
       If you are currently not a member of any {{ org-full-name }}, when you open the link, you will see a form for creating a new organization:
 
       1. Enter your organization name, e.g., `Example organization`.
-      1. Click **{{ ui-key.yacloud_org.form.organization.select.action.create }}**.
+      1. Click **{{ ui-key.yacloud_components.organization.action.create }}**.
 
     - If you are a member of an organization
 
@@ -64,9 +64,9 @@ To create an organization, follow these steps:
 
       To complete this guide, let’s create a new organization so as not to interfere with the existing organizations’ infrastructure:
 
-      1. In the top-left corner, next to the current organization name, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.form.organization.create.action.create }}**.
+      1. In the top-left corner, next to the current organization name, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_components.organization.action.create-organization }}**.
       1. In the window that opens, enter a name for the organization: `Example organization`.
-      1. Click **{{ ui-key.yacloud_org.form.organization.select.action.create }}**.
+      1. Click **{{ ui-key.yacloud_components.organization.action.create }}**.
 
     {% endlist %}
 
@@ -128,7 +128,7 @@ Create a separate folder named `security` for the group of information security 
 
       1. In the **{{ ui-key.yacloud.iam.cloud.folders-create.field_name }}** field, enter the folder name, `security`.
       1. (Optional) In the **{{ ui-key.yacloud_org.iam.cloud.folders-create.field_description }}** field, enter a description for the created folder.
-      1. In the **{{ ui-key.yacloud_org.iam.cloud.folders-create.field_optionally }}** field, disable the **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** option. You will be able to create a [cloud network](../../vpc/operations/network-create.md) with the parameters you need later, at any point when creating the infrastructure.
+      1. In the **{{ ui-key.yacloud.iam.cloud.folders-create.field_optionally }}** field, disable the **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** option. You will be able to create a [cloud network](../../vpc/operations/network-create.md) with the parameters you need later, at any point when creating the infrastructure.
       1. Click **{{ ui-key.yacloud_org.iam.cloud.folders-create.button_create }}**. 
 
 {% endlist %}
@@ -183,7 +183,7 @@ To grant the required access permissions to the `security` user group:
       1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
       1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
       1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the `security` [group](../../organization/concepts/groups.md).
-      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}**, enter and select the `auditor` [role](../../iam/concepts/access-control/roles.md) in the search bar.
+      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, enter and select the `auditor` [role](../../iam/concepts/access-control/roles.md) in the search bar.
       1. Repeat the previous step to add the `audit-trails.admin` and `container-registry.images.scanner` roles.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -199,7 +199,7 @@ To grant the required access permissions to the `security` user group:
       1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
 
           1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the `security` group.
-          1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}**, enter and select the `admin` role in the search bar.
+          1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, enter and select the `admin` role in the search bar.
           1. Click **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
@@ -225,7 +225,7 @@ Assign roles for the clouds to the `devops` user group:
   1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
 
       1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the `devops` group.
-      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}**, find and select the `container-registry.editor`, `k8s.editor`, `mdb.admin`, `compute.editor`, `monitoring.admin`, and `logging.admin` roles.
+      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, find and select the `container-registry.editor`, `k8s.editor`, `mdb.admin`, `compute.editor`, `monitoring.admin`, and `logging.admin` roles.
       1. Click **{{ ui-key.yacloud.common.save }}**.
   1. In the same way, assign the same roles for the `testing` cloud to the `devops` user group.
 
@@ -254,7 +254,7 @@ Assign roles for the clouds to the `developers` user group:
   1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
 
       1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the `developers` group.
-      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}**, find and select the `container-registry.images.puller`, `k8s.viewer`, `compute.osLogin`, and `monitoring.viewer` roles.
+      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, find and select the `container-registry.images.puller`, `k8s.viewer`, `compute.osLogin`, and `monitoring.viewer` roles.
       1. Click **{{ ui-key.yacloud.common.save }}**.
   1. In the same way, assign the `developers` user group the `container-registry.images.pusher`, `k8s.editor`, `k8s.cluster-api.editor`, `compute.osAdminLogin`, and `monitoring.editor` roles for the `testing` cloud.
 
@@ -276,7 +276,7 @@ To enable your employees to use {{ yandex-cloud }} resources, add them to the {{
       1. Enter the email addresses of the users you want to invite to the organization, separated by commas.
 
           {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
-      1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+      1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
     {% endlist %}
 

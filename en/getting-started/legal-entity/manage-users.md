@@ -34,7 +34,7 @@ To add employee accounts to the organization, follow these steps:
 
         You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
 
-    1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+    1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
 {% endlist %}
 

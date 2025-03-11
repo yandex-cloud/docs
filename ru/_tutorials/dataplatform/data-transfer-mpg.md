@@ -34,6 +34,8 @@
     sudo apt update && sudo apt install kafkacat postgresql-client --yes
     ```
 
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+
 ## Подготовьте кластер-источник {#prepare-source}
 
 1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mpg-name }} уведомления об изменениях в данных, в кластере-источнике необходимо создать публикацию (publication). Чтобы пользователь `pg-user` мог создать публикацию, [назначьте](../../managed-postgresql/operations/grant.md) ему роль `mdb_replication`.

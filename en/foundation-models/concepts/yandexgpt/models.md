@@ -85,8 +85,7 @@ You can access text generation models of different versions in a number of ways.
 
       ```json
       {
-        "modelUri":
-          gpt://b1gt6g8ht345********/yandexgpt-lite/latest
+        "modelUri": "gpt://b1gt6g8ht345********/yandexgpt-lite/latest"
         ...
       }
       ```
@@ -99,8 +98,7 @@ You can access text generation models of different versions in a number of ways.
 
       ```json
       {
-        "modelUri":
-          gpt://b1gt6g8ht345********/llama/rc
+        "modelUri": "gpt://b1gt6g8ht345********/llama/rc"
         ...
       }
       ```

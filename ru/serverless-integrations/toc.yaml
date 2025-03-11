@@ -14,6 +14,22 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: '{{ sw-name }}'
+        items:
+          - name: Получение информации о рабочем процессе
+            items:
+              - name: Получить список рабочих процессов
+                href: operations/workflows/get-list.md
+              - name: Получить информацию о рабочем процессе
+                href: operations/workflows/get-info.md
+          - name: Получение информации о запуске рабочего процесса
+            items:
+              - name: Получить список запусков рабочего процесса
+                href: operations/workflows/get-execution-list.md
+              - name: Получить информацию о запуске рабочего процесса
+                href: operations/workflows/get-execution-info.md
+              - name: Получить информацию о выполнении каждого шага
+                href: operations/workflows/get-execution-history.md
       - name: '{{ er-name }}'
         items:
           - name: Получение информации о шине
@@ -74,6 +90,49 @@ items:
                 href: operations/eventrouter/rule/get-list.md
               - name: Получить информацию о правиле
                 href: operations/eventrouter/rule/get-info.md
+          - name: Управление правилом
+            items:
+              - name: Создать правило
+                items:
+                  - name: '{{ api-gw-name }}'
+                    href: operations/eventrouter/rule/create-api-gw.md
+                  - name: '{{ sf-name }}'
+                    href: operations/eventrouter/rule/create-functions.md
+                  - name: '{{ cloud-logging-name }}'
+                    href: operations/eventrouter/rule/create-logging.md
+                  - name: '{{ yds-name }}'
+                    href: operations/eventrouter/rule/create-data-streams.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/eventrouter/rule/create-message-queue.md
+                  - name: '{{ serverless-containers-name }}'
+                    href: >-
+                      operations/eventrouter/rule/create-serverless-containers.md
+                  - name: '{{ sw-name }}'
+                    href: operations/eventrouter/rule/create-workflows.md
+              - name: Изменить правило
+                href: operations/eventrouter/rule/update.md
+              - name: Управлять приемниками
+                items:
+                  - name: Добавить приемник
+                    href: operations/eventrouter/rule/add-target.md
+                  - name: Изменить приемник
+                    href: operations/eventrouter/rule/update-target.md
+                  - name: Удалить приемник
+                    href: operations/eventrouter/rule/delete-target.md
+              - name: Управлять метками
+                items:
+                  - name: Добавить метку
+                    href: operations/eventrouter/rule/label-add.md
+                  - name: Изменить метку
+                    href: operations/eventrouter/rule/label-update.md
+                  - name: Удалить метку
+                    href: operations/eventrouter/rule/label-delete.md
+              - name: Включить правило
+                href: operations/eventrouter/rule/enable.md
+              - name: Выключить правило
+                href: operations/eventrouter/rule/disable.md
+              - name: Удалить правило
+                href: operations/eventrouter/rule/delete.md
           - name: Просмотр операций с ресурсами сервиса
             href: operations/eventrouter/operation-logs.md
   - name: Практические руководства

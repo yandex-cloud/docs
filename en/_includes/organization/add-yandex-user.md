@@ -8,4 +8,4 @@
 
     {% include [send-invitation](./send-invitation.md) %}
 
-1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.

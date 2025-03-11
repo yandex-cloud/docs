@@ -26,7 +26,7 @@ You can invite a user to an organization via the management console or the {{ cl
 
         You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
 
-    1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+    1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
 {% endlist %}
 
@@ -44,7 +44,7 @@ You can delete or resend your invitation only via {{ org-name }}.
 
   1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
 
-  1. Select the **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}** tab in the center of the screen.
+  1. Select the **{{ ui-key.yacloud_org.users.title_invitations }}** tab in the center of the screen.
 
   1. In the row with the invitation, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.invitation.label_row-action-delete }}**.
 
@@ -62,7 +62,7 @@ You can delete or resend your invitation only via {{ org-name }}.
 
   1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
 
-  1. Select the **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}** tab in the center of the screen.
+  1. Select the **{{ ui-key.yacloud_org.users.title_invitations }}** tab in the center of the screen.
 
   1. In the row with the invitation, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.invitation.label_row-action-resend }}**.
 

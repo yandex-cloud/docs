@@ -7,4 +7,7 @@ description: Пошаговые инструкции для {{ at-full-name }}. 
 
 * [{#T}](./create-trail.md)
 * [{#T}](./error.md)
-* [{#T}](./operation-logs.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

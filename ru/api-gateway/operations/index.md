@@ -60,3 +60,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{{ ydb-name }}](spec-constructor/ydb.md)
 * [{{ ml-platform-name }}](spec-constructor/datasphere.md)
 * [{{ foundation-models-full-name }}](spec-constructor/yagpt.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

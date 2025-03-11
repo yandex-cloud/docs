@@ -2,6 +2,8 @@
 
 _Профиль безопасности_ — основной элемент сервиса {{ sws-name }}. Профиль состоит из набора [правил](rules.md), каждое из которых содержит [условия](conditions.md) для применения определенных [действий](rules.md#rule-action) к HTTP-запросам, приходящим к защищаемому ресурсу через [виртуальный хост](../../application-load-balancer/concepts/http-router.md#virtual-host) L7-балансировщика [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md).
 
+{% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
+
 Для создания профилей предусмотрены варианты:
   * _{{ ui-key.yacloud.smart-web-security.title_default-template }}_. Преднастроенный профиль содержит:
     * [базовое правило](rules.md#base-rules) по умолчанию, включенное для всего трафика;

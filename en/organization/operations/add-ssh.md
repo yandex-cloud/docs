@@ -25,7 +25,7 @@ To add a public SSH key to an {{ oslogin }} profile:
   
       Use the filter or search as needed.
 
-  1. Navigate to the **{{ ui-key.yacloud_org.page.user.title_tab-ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens:
+  1. Navigate to the **{{ ui-key.yacloud_org.user.title_ssh-keys }}** tab and click **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. In the window that opens:
   
       1. Name the SSH key you are adding.
 

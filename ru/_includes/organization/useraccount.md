@@ -26,7 +26,7 @@
 
         Приглашения можно отправлять на любые адреса электронной почты. Приглашенный пользователь сможет выбрать нужный аккаунт на Яндексе, когда примет приглашение.
 
-    1. Нажмите **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+    1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
 {% endlist %}
 
@@ -44,7 +44,7 @@
 
   1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
 
-  1. В центральной части экрана выберите вкладку **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}**.
+  1. В центральной части экрана выберите вкладку **{{ ui-key.yacloud_org.users.title_invitations }}**.
 
   1. В строке с нужным приглашением нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.invitation.label_row-action-delete }}**.
 
@@ -62,7 +62,7 @@
 
   1. На панели слева выберите ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
 
-  1. В центральной части экрана выберите вкладку **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}**.
+  1. В центральной части экрана выберите вкладку **{{ ui-key.yacloud_org.users.title_invitations }}**.
 
   1. В строке с нужным приглашением нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_org.entity.invitation.label_row-action-resend }}**.
 

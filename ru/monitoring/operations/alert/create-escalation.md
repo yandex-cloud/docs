@@ -8,7 +8,9 @@ description: В этой статье вы узнаете, как создать
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
 
 
-[Смотреть видеоинструкцию о звонках и эскалациях в {{ monitoring-full-name }} на YouTube](https://www.youtube.com/watch?v=iAGfn-I0CtY).
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvwouze3np3m4t5rkb?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=iAGfn-I0CtY).
 
 
 

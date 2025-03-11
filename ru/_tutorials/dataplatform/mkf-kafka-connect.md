@@ -102,6 +102,8 @@
     sudo apt install default-jdk --yes && \
     sudo apt install kafkacat
     ```
+    
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 1. [Скачайте](https://downloads.apache.org/kafka/) и распакуйте архив с {{ KF }}:
 

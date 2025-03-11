@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Выберите пользователя, которого хотите назначить администратором. При необходимости воспользуйтесь строкой поиска.
 
-  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** и выберите одну из [ролей](../../iam/concepts/access-control/roles.md):
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите одну из [ролей](../../iam/concepts/access-control/roles.md):
 
       * `organization-manager.admin`.
       * `organization-manager.organizations.owner`.

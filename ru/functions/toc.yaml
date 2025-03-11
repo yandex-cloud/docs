@@ -496,6 +496,10 @@ items:
         href: tutorials/recognizer-bot.md
       - name: Настройка реагирования в {{ cloud-logging-full-name }} и {{ sf-name }}
         href: tutorials/logging-functions
+      - name: >-
+          Разработка функций в Functions Framework и их развертывание в {{
+          serverless-containers-full-name }}
+        href: tutorials/functions-framework-to-container.md
   - name: Инструменты
     href: tools.md
   - name: Правила тарификации

@@ -36,3 +36,7 @@ description: Пошаговые инструкции по работе с клю
 - [{#T}](asymmetric-signature-key-access.md)
 - [{#T}](signature-verification.md)
 - [{#T}](signature-verification-cosign.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+- [{#T}](operation-logs.md)

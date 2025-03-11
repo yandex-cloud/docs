@@ -6,17 +6,9 @@ description: Следуя данной инструкции, вы сможете
 # Создание алерта
 
 
-{% list tabs %}
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvhs7kf62l7u2rvu75?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239452&hash=8190c5e7fa700a45" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-- YouTube
-
-  [Смотреть видеоинструкцию об алертинге на YouTube](https://www.youtube.com/watch?v=UJ0MxX4BqeM).
-
-{% endlist %}
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=UJ0MxX4BqeM).
 
 
 

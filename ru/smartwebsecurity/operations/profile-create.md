@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать профиль безопасности
 
+{% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
+
 ![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
 
 {% list tabs group=instructions %}
@@ -39,6 +41,7 @@ description: Следуя данной инструкции, вы сможете
   1. Последовательно добавьте все правила, которые вы хотите задействовать в профиле.
 
       В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** в таблице появятся созданные вами правила.
+  1. (Опционально) Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

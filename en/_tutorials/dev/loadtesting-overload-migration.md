@@ -46,10 +46,10 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, go to the ![tests](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
-  1. At the top right, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.load-testing.label_import-tests-from-overload }}**.
+  1. At the top right, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.load-testing.label_import-tests-from-lunapark }}**.
   1. In the window that opens, specify the import parameters:
-      * **{{ ui-key.yacloud.load-testing.field_overload-token }}**: Yandex OverLoad API token you previously obtained.
-      * **{{ ui-key.yacloud.load-testing.field_overload-test-id }}**: ID of the Yandex OverLoad test whose results you want to migrate. If there are multiple tests, click **{{ ui-key.yacloud.load-testing.button_add-overload-test-id }}** and enter the next ID.
+      * **Token**: Yandex OverLoad API token you previously obtained.
+      * **{{ ui-key.yacloud.load-testing.field_lunapark-test-id }}**: ID of the Yandex OverLoad test whose results you want to migrate. If there are multiple tests, click **{{ ui-key.yacloud.load-testing.button_add-lunapark-test-id }}** and enter the next ID.
   1. Click **{{ ui-key.yacloud.common.import }}**.
 
   It takes some time to transfer the load testing results.

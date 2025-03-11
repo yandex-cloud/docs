@@ -12,7 +12,8 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите посмотреть список [правил](../../../concepts/eventrouter/rule.md).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. На панели слева выберите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
-  1. Слева выберите ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}**. На странице **{{ ui-key.yacloud.serverless-event-router.label_rules }}** отобразится список правил.
+  1. Выберите нужную [шину](../../../concepts/eventrouter/bus.md).
+  1. Перейдите на вкладку ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}**. На странице **{{ ui-key.yacloud.serverless-event-router.label_rules }}** отобразится список правил.
 
 - CLI {#cli}
 

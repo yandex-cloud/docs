@@ -6,18 +6,9 @@ description: Следуя данной инструкции, вы сможете
 # Запись метрик
 
 
-{% list tabs %}
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvw3emvkulllyhgtkf?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239450&hash=8fa7722c8be1c400" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe><br>
-
-- YouTube
-
-  [Смотреть видеоинструкцию о настройках и возможностях {{ managed-prometheus-full-name }} на YouTube](https://youtu.be/KjDtR_zysPM).
-
-{% endlist %}
-
+[Смотреть видео на YouTube](https://youtu.be/KjDtR_zysPM).
 
 
 

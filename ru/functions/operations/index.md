@@ -86,3 +86,8 @@ description: Из статьи вы узнаете, как работать с {
 * [Удалить метку](trigger/label-delete.md)
 * [Посмотреть графики мониторинга](trigger/trigger-monitoring.md)
 * [Удалить триггер](trigger/trigger-delete.md)
+
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

@@ -10,3 +10,4 @@ description: На странице представлен список прак�
 * [{#T}](pg-connect.md)
 * [{#T}](deploy-app-container.md)
 * [{#T}](api-gw-integration.md)
+* [{#T}](functions-framework-to-container.md)

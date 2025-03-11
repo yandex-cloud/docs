@@ -53,8 +53,7 @@ You can access image generation models of in a number of ways.
 
   ```json
   {
-    "modelUri":
-      art://b1gt6g8ht345********/yandex-art/latest
+    "modelUri": "art://b1gt6g8ht345********/yandex-art/latest"
     ...
   }
   ```
