@@ -36,7 +36,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
 
         {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 
-    1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+    1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
 {% endlist %}
 

@@ -28,6 +28,10 @@ items:
             href: operations/update-backup-agent.md
           - name: Обновить подключение ВМ на Linux с {{ oslogin }}
             href: operations/refresh-connection-oslogin-linux.md
+          - name: Посмотреть статус подключения ВМ
+            href: operations/get-connection-status.md
+          - name: Посмотреть журнал резервного копирования
+            href: operations/get-journal.md
           - name: Удалить ВМ из {{ backup-name }}
             href: operations/delete-vm.md
       - name: '{{ baremetal-name }} в {{ backup-name }}'

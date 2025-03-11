@@ -8,4 +8,4 @@
 
 1. List the name IDs of users, separating them with spaces or line breaks.
 
-1. Click **{{ ui-key.yacloud_org.form.add-users.action.add }}**. This will give the users access to the organization.
+1. Click **{{ ui-key.yacloud_components.organization.action.add }}**. This will give the users access to the organization.

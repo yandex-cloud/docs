@@ -1,0 +1,2 @@
+* `--bus-id` — идентификатор [шины](../../serverless-integrations/concepts/eventrouter/bus.md) {{ er-name }}.
+* `--filter` — [jq-выражение](https://jqlang.github.io/jq/manual/) для [фильтрации](../../serverless-integrations/concepts/eventrouter/rule.md#filter) событий.

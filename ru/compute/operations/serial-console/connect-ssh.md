@@ -126,7 +126,7 @@
       * `<идентификатор_ВМ>` — идентификатор виртуальной машины, к серийной консоли которой требуется подключиться.
       * `<имя_пользователя_OS_Login>` — идентификатор пользователя {{ oslogin }} в организации. Логин пользователя {{ oslogin }} указан в конце имени экспортированного сертификата после [идентификатора](../../../organization/operations/organization-get-id.md) организации.
 
-          Также логин пользователя можно получить с помощью команды `yc organization-manager os-login profile list` [{{ yandex-cloud }} CLI](../../../cli/cli-ref/organization-manager/cli-ref/oslogin/profile/list.md) или в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) в профиле пользователя на вкладке **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}**.
+          Также логин пользователя можно получить с помощью команды `yc organization-manager os-login profile list` [{{ yandex-cloud }} CLI](../../../cli/cli-ref/organization-manager/cli-ref/oslogin/profile/list.md) или в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) в профиле пользователя на вкладке **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}**.
 
           {% include [os-login-profile-tab-access-notice](../../../_includes/organization/os-login-profile-tab-access-notice.md) %}
 

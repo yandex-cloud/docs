@@ -50,3 +50,7 @@ description: Пошаговые инструкции по работе с {{ alb
 * [{#T}](k8s-ingress-controller-upgrade.md)
 * [{#T}](k8s-gateway-api-install.md)
 * [{#T}](k8s-ingress-controller-apply.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

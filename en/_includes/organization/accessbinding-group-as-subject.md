@@ -15,7 +15,7 @@
           * `All users in organization X`: The group includes all users in organization `X`.
           * `All users in federation N`: The group includes all users in federation `N`.
 
-      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** and select the [role](../../iam/concepts/access-control/roles.md) you want to assign to the group for the cloud or folder you selected earlier. You can assign multiple roles.
+      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the [role](../../iam/concepts/access-control/roles.md) you want to assign to the group for the cloud or folder you selected earlier. You can assign multiple roles.
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 

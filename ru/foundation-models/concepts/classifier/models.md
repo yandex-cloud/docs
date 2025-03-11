@@ -58,8 +58,7 @@ description: Из статьи вы узнаете о моделях класс�
 
   ```json
   {
-    "modelUri":
-      cls://b1gt6g8ht345********/yandexgpt-lite/latest
+    "modelUri": "cls://b1gt6g8ht345********/yandexgpt-lite/latest"
     ...
   }
   ```

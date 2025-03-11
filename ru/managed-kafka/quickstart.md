@@ -44,6 +44,8 @@ description: Следуя данной инструкции, вы сможете
    sudo apt-get install kafkacat
    ```
 
+   Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../managed-kafka/operations/connect/clients.md#bash-zsh).
+
 
 ## Создайте кластер {#cluster-create}
 

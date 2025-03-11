@@ -78,16 +78,24 @@ items:
                 href: operations/delete-subject.md
   - name: Практические руководства
     items:
-      - name: >-
-          Совместная работа с таблицами {{ dataproc-name }} с использованием {{
-          metastore-name }}
-        href: tutorials/sharing-tables.md
-      - name: >-
-          Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
-          metastore-name }}
-        href: tutorials/metastore-import.md
-      - name: Использование {{ schema-registry-name }} с {{ mkf-full-name }}
-        href: tutorials/managed-schema-registry.md
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: '{{ metastore-full-name }}'
+        items:
+          - name: >-
+              Совместная работа с таблицами {{ dataproc-name }} с использованием
+              {{ metastore-name }}
+            href: tutorials/sharing-tables.md
+          - name: >-
+              Перенос метаданных между кластерами {{ dataproc-name }} с помощью
+              {{ metastore-name }}
+            href: tutorials/metastore-import.md
+      - name: '{{ schema-registry-full-name }}'
+        items:
+          - name: Использование {{ schema-registry-name }} с {{ mkf-full-name }}
+            href: tutorials/managed-schema-registry.md
+          - name: Поставка данных в формате Debezium CDC из {{ KF }}
+            href: tutorials/schema-registry-cdc-debezium-kafka.md
   - name: Концепции
     items:
       - name: О сервисе {{ metadata-hub-full-name }}

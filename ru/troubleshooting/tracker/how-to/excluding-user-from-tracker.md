@@ -19,7 +19,7 @@
 1. Перейти в сервис [{{ org-name }}]({{  link-org-main }}).
 1. На левой панели выбрать раздел **{{ ui-key.yacloud_org.pages.users }}**..
 1. Выбрать сотрудника из списка или воспользоваться строкой поиска вверху страницы.
-1. В строке сотрудника нажать ![***](../../../_assets/options.svg) и выбрать **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
+1. В строке сотрудника нажать ![***](../../../_assets/options.svg) и выбрать **{{ ui-key.yacloud.common.delete }}**.
 
 {% note info %}
 

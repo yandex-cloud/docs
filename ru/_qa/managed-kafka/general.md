@@ -64,10 +64,14 @@ The revocation function was unable to check revocation for the certificate
    mkdir $HOME\.kafka; curl.exe --ssl-no-revoke -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
    ```
 
-### Можно ли управлять кластером с помощью скриптов из дистрибутива {{ KF }}? {#script-apache-kafka}
+#### Можно ли управлять кластером с помощью скриптов из дистрибутива {{ KF }}? {#script-apache-kafka}
 
 Да, можно, но с ограничениями.
 
 Подробнее о том, какие виды API доступны в кластере и какие для них есть ограничения, см. в разделе [{#T}](../../managed-kafka/concepts/available-apis.md).
 
 Пример использования скриптов см. в разделе [{#T}](../../managed-kafka/operations/connect/clients.md).
+
+#### Что делать, если возникает ошибка kafkacat: command not found? {#kafkacat-not-found}
+
+На Ubuntu 24.04 и выше команда `kafkacat` не работает, используйте вместо нее команду `kcat`.

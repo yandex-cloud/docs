@@ -1,0 +1,1 @@
+(Опционально) Раскройте поле **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для преобразования событий. Если шаблон не указан, событие не преобразовывается.

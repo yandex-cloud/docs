@@ -34,6 +34,8 @@
     sudo apt update && sudo apt install kafkacat mysql-client --yes
     ```
 
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+
 ## Подготовьте кластер-источник {#prepare-source}
 
 1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mmy-name }} уведомления об изменениях в данных, в кластере-источнике необходимо настроить внешнюю репликацию. Чтобы пользователь `my-user` мог выполнять репликацию, [назначьте ему роль](../../managed-mysql/operations/grant.md) `ALL_PRIVILEGES` для базы данных `db1` и [выдайте глобальные привилегии](../../managed-mysql/operations/cluster-users.md#update-settings) `REPLICATION CLIENT` и `REPLICATION SLAVE`.

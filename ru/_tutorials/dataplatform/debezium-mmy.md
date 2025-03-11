@@ -32,6 +32,8 @@
             sudo apt install kafkacat openjdk-17-jre mysql-client --yes
         ```
 
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+
     1. Создайте директорию для {{ KF }}:
 
         ```bash

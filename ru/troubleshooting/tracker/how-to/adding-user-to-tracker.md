@@ -16,7 +16,7 @@
 1. На панели слева выберите раздел **{{ ui-key.yacloud_org.pages.users }}**.
 1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
 1. Введите адреса электронной почты пользователей Яндекса, которых вы хотите добавить в организацию, например `login@yandex.ru`.
-1. Нажмите **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
 {% note info %}
 

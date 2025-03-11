@@ -217,6 +217,10 @@ items:
         href: tutorials/deploy-app-container.md
       - name: Разработка пользовательской интеграции в {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
+      - name: >-
+          Разработка функций в Functions Framework и их развертывание в {{
+          serverless-containers-full-name }}
+        href: tutorials/functions-framework-to-container.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

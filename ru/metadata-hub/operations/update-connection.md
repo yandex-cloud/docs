@@ -5,7 +5,9 @@ description: Пошаговые инструкции по работе с {{ con
 
 # Изменение подключения
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 Для изменения настроек подключения:
 

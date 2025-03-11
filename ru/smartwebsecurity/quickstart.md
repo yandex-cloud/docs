@@ -35,6 +35,8 @@
 
 ### Создайте профиль безопасности {#profile-create}
 
+{% include [user-data-to-ml](../_includes/smartwebsecurity/user-data-to-ml.md)%}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -52,6 +54,7 @@
 
   1. Введите имя профиля, например `test-sp1`.
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
+  1. (Опционально) Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

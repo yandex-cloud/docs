@@ -85,8 +85,7 @@ description: Из статьи вы узнаете о моделях генер�
 
       ```json
       {
-        "modelUri":
-          gpt://b1gt6g8ht345********/yandexgpt-lite/latest
+        "modelUri": "gpt://b1gt6g8ht345********/yandexgpt-lite/latest"
         ...
       }
       ```
@@ -99,8 +98,7 @@ description: Из статьи вы узнаете о моделях генер�
 
       ```json
       {
-        "modelUri":
-          gpt://b1gt6g8ht345********/llama/rc
+        "modelUri": "gpt://b1gt6g8ht345********/llama/rc"
         ...
       }
       ```

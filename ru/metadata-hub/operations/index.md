@@ -5,7 +5,6 @@ description: Пошаговые инструкции по работе с {{ met
 
 # Все пошаговые инструкции
 
-
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
 ## {{ connection-manager-name }} {#instructions-connman}
@@ -15,6 +14,7 @@ description: Пошаговые инструкции по работе с {{ met
 * [{#T}](update-connection.md)
 * [{#T}](delete-connection.md)
 * [{#T}](connection-access.md)
+
 
 ## Кластеры {{ metastore-full-name }} {#metastore}
 

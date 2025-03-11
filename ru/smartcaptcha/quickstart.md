@@ -21,6 +21,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Создайте капчу {#creat-captcha}
 
+{% include [user-data-to-ml](../_includes/smartcaptcha/user-data-to-ml.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -47,6 +49,7 @@ description: Следуя данной инструкции, вы сможете
        1. Выберите [сложность](./concepts/tasks.md#task-difficulty) `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
 
     1. Вы можете добавить [варианты заданий](concepts/captcha-variants.md) и настроить правила для входящего трафика, чтобы показывать разную капчу разным пользователям. В этом примере будет добавлена только одна капча по умолчанию для всех пользователей.
+    1. (Опционально) Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
        ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)

@@ -14,24 +14,23 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Выберите нужную [шину](../../../concepts/eventrouter/bus.md).
   1. Перейдите на вкладку ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}**.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**. В открывшемся окне:
+  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ message-queue-full-name }}`.
+  1. В блоке **Настройки сообщений {{ message-queue-name }}**:
 
-      1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ message-queue-full-name }}`.
-      1. В блоке **Настройки сообщений {{ message-queue-name }}**:
+      * Выберите каталог и [очередь сообщений](../../../../message-queue/concepts/queue.md).
+      * Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из очереди сообщений.
 
-          * Выберите каталог и [очередь сообщений](../../../../message-queue/concepts/queue.md).
-          * Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из очереди сообщений.
+  1. (Опционально) Нажмите кнопку ![image](../../../../_assets/console-icons/plus.svg) **Настройки группирования сообщений** и укажите:
 
-      1. (Опционально) Нажмите кнопку ![image](../../../../_assets/console-icons/plus.svg) **Настройки группирования сообщений** и укажите:
+      * **Таймаут видимости** — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) в часах, на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 12 часов, значение по умолчанию — 0.
+      * **Размер группы** — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 12, значение по умолчанию — 10.
+      * **Таймаут опроса** — максимальное время в миллисекундах, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
 
-          * **Таймаут видимости** — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) в часах, на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 12 часов, значение по умолчанию — 0.
-          * **Размер группы** — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 12, значение по умолчанию — 10.
-          * **Таймаут опроса** — максимальное время в миллисекундах, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
+          {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
-              {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
-
-      1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
-      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -81,7 +80,7 @@ description: Следуя данной инструкции, вы сможете
 
           Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
 
-      * `--deletion-protection` — защита от удаления коннектора. Пока опция включена, удалить коннектор невозможно. Чтобы отключить защиту от удаления, укажите параметр `--no-deletion-protection`. Необязательный параметр.
+      * `--deletion-protection` — защита от удаления коннектора. По умолчанию защита выключена. Пока опция включена, удалить коннектор невозможно. Чтобы отключить защиту от удаления, укажите параметр `--no-deletion-protection`. Необязательный параметр.
 
       Результат:
 

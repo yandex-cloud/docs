@@ -5446,6 +5446,7 @@ default:
         label_max-timeout: Максимальный таймаут, с
       backup:
         button_attach-instance-submit: Привязать
+        label_instances: Виртуальные машины
         label_policies: Политики копирования
       billing:
         account:
@@ -5645,6 +5646,10 @@ default:
         label_users: Пользователи
       organization:
         action_send-invitation: Отправить приглашение
+        action:
+          add: Добавить
+          create: Создать новую организацию
+          create-organization: Создать организацию
       search:
         label_placeholder: Поиск по облачным ресурсам
         search_filters_all: Везде
@@ -5916,6 +5921,7 @@ default:
       common:
         columns:
           column_id: Идентификатор
+        section-base: Общая информация
       component:
         form-file-upload:
           field:
@@ -5931,6 +5937,8 @@ default:
           title:
             notify: Получатели уведомлений от организации
         organization:
+          action_connect-new-region: Подключить регион {{region}}
+          action_submit-new-region: Подключить
           action:
             delete-button: Удалить
             edit-button: Редактировать
@@ -5953,7 +5961,6 @@ default:
           action_add-acl: Назначить роли
           action_add-member: Добавить участника
           action_create: Создать группу
-          action_delete-group: Удалить
           action_edit: Изменить
           action_remove-acl: Отозвать права доступа
           action_remove-user: Исключить из группы
@@ -5961,12 +5968,8 @@ default:
           title_tab-access: Права доступа к группе
           title_tab-members: Участники
         invitation:
-          action_send-invitation: Отправить приглашение
           label_row-action-delete: Удалить приглашение
           label_row-action-resend: Отправить повторно
-        organization:
-          other-regions_attach-region_action: Подключить регион
-          other-regions_confirm-dialog_submit: Подключить
         oslogin-profile:
           action:
             create: Создать профиль
@@ -5977,20 +5980,10 @@ default:
           action:
             acl: Назначить роли
             delete: Удалить
-            remove: Исключить из организации
           caption:
             federation: Федерация
             user: Пользователь
-            userId: Идентификатор
       form:
-        acl:
-          edit:
-            action:
-              role:
-                add: Добавить роль
-        add-users:
-          action:
-            add: Добавить
         federation:
           action:
             create: Создать федерацию
@@ -6006,14 +5999,6 @@ default:
             group-name: Имя группы
             iam-group: IAM-группа
             tab-idp: IdP-группы
-        organization:
-          create:
-            action:
-              create: Создать организацию
-          select:
-            action:
-              create: Создать новую организацию
-              enter: Войти
         oslogin-settings:
           title_allow-edit-own-keys: Разрешить членам организации управлять своими SSH-ключами
           title_ssh-certificate-settings: Доступ по OS Login при помощи SSH-сертификатов (рекомендуется)
@@ -6040,7 +6025,6 @@ default:
           folders-create:
             button_create: Создать
             field_description: Описание
-            field_optionally: Дополнительно
       layout:
         organization: Организация
       page:
@@ -6051,14 +6035,10 @@ default:
             download-cert: Скачать сертификат
           section:
             certificates: Сертификаты
-        user:
-          title_tab-os-login: Профили OS Login
-          title_tab-ssh-keys: SSH-ключи
         users:
           action:
             add-federated-users: Добавить федеративных пользователей
             invite-users: Пригласить пользователей с аккаунтом на Яндексе
-          label_tab-invitations: Приглашения
       pages:
         acl: Права доступа
         federations: Федерации
@@ -6066,6 +6046,11 @@ default:
         oslogin:
           title: Настройки безопасности
         users: Пользователи
+      user:
+        title_oslogin-profiles: Профили OS Login
+        title_ssh-keys: SSH-ключи
+      users:
+        title_invitations: Приглашения
     yacloud_portal:
       acl:
         common:
@@ -6381,6 +6366,7 @@ default:
         label_baremetal-instances: Серверы BareMetal
         label_create: Подключён
         label_instances: Виртуальные машины
+        label_navigate-to-journal-action: Открыть журнал резервирования
         label_policies: Политики копирования
         title_backup: Резервное копирование
         title_linked-recourses: Привязанные ресурсы
@@ -6701,8 +6687,10 @@ default:
         create-new: Создать новый
         delete: Удалить
         description: Описание
+        disable: Выключить
         disabled: Выключено
         edit: Редактировать
+        enable: Включить
         enabled: Включено
         field_ddos-protection-provider: Защита от DDoS-атак
         folder: Каталог
@@ -6822,6 +6810,8 @@ default:
           button_action-change-org: Изменить организацию
           button_action-create-folder: Создать каталог
           button_cancel-deletion: Отменить удаление
+        disallow-data-processing:
+          title_ml-model-training: Обучение ML-моделей
         dns-integration:
           button_add-domain: Создать запись
         docs:
@@ -6894,6 +6884,11 @@ default:
         attach-disk:
           button_attach: Подключить
           field_instance: ВМ
+        backup-integration:
+          label_instance-backup-status-failed: Ошибка
+          label_instance-backup-status-no-applications: Нет политики
+          label_instance-backup-status-not-connected: Не подключён
+          label_instance-backup-status-ok: Подключён
         component:
           instance-storage-dialog:
             button_add-disk: Добавить диск
@@ -7048,6 +7043,7 @@ default:
           button_action-restart: Перезапустить
           button_create: Создать виртуальную машину
           button_gr-action-stop: Остановить
+          column_cloud-backup: Cloud Backup
           column_internal-ip: Внутренний IPv4
           create-disk:
             button_create: Добавить
@@ -7188,6 +7184,7 @@ default:
           popup-confirm_button_delete: Удалить
           popup-create_button_create: Создать реестр
           popup-create_field_auto_scan: Автоматическое сканирование
+          popup-create_field_name: Имя
           popup-create_scan_period_enabled: Сканировать все Docker-образы в реестре
           popup-create_scan_push_text: Сканировать Docker-образы при загрузке
           popup-update_button_update: Изменить
@@ -7402,6 +7399,7 @@ default:
             button_create: Создать
             field_default-net: Создать сеть по умолчанию
             field_name: Имя
+            field_optionally: Дополнительно
           folders:
             button_cancel-deletion: Отменить удаление
             popup-edit_button_save: Сохранить
@@ -7824,7 +7822,7 @@ default:
           label_list: Целевые группы
           label_targets-section-title: Целевые ресурсы
       load-testing:
-        button_add-overload-test-id: Добавить ID
+        button_add-lunapark-test-id: Добавить ID
         button_add-tag: Добавить метку
         button_comparison-test-add: Добавить к сравнению
         button_create-agent: Создать агент
@@ -7841,9 +7839,8 @@ default:
         field_export-filter-include: Сохранять файлы
         field_export-is-archive: Архивировать в zip
         field_load-generator: Генератор нагрузки
+        field_lunapark-test-id: ID теста
         field_name-filter: Фильтр по имени
-        field_overload-test-id: ID теста
-        field_overload-token: Токен
         field_report-export-bucket: Экспортировать в бакет
         field_report-export-folder: Папка в бакете
         field_report-export-format: Формат отчёта
@@ -7858,7 +7855,7 @@ default:
         label_agents-count: Количество агентов
         label_agents-list: Агенты
         label_choose-from-bucket: Выбрать из бакета
-        label_import-tests-from-overload: Импортировать тесты из Overload
+        label_import-tests-from-lunapark: Импортировать тесты из Lunapark
         label_monitoring-report: Мониторинг
         label_quantile: Квантиль
         label_regressions-title: Регрессии
@@ -8371,7 +8368,7 @@ default:
         label_runtime-http-server: HTTP-сервер
         label_runtime-task-execution: Выполнение команд
         label_service-account: Сервисный аккаунт
-        label_timeout: Таймаут, с
+        label_timeout: Таймаут
         label_url: Ссылка для вызова
         label_working-directory: Рабочая директория
         popup-confirm-edit-active-revision_button_confirm: Подтвердить
@@ -8391,6 +8388,7 @@ default:
         label_filter: Фильтр
         label_rules: Правила
         label_service: EventRouter
+        label_target-dead-letter-settings: Настройки обработки недоставленных сообщений
         label_target-transformer: Шаблон
         label_target-type: Тип
         label_targets: Приёмники
@@ -8431,7 +8429,7 @@ default:
             field_object: Объект
             field_resources-memory: Память
             field_runtime: Среда выполнения
-            field_timeout: Таймаут, c
+            field_timeout: Таймаут
             label_add-folder: Добавить бакет
             label_async: Асинхронный вызов
             label_aws_v1_http_endpoint: Доступ к метаданным с использованием формата AWS (IMDSv1)
@@ -8576,11 +8574,14 @@ default:
         button_create-workflow: Создать рабочий процесс
         label_additional-parameters: Дополнительные параметры
         label_input_data: Данные на входе
+        label_input-data: Данные на входе
+        label_output-data: Данные на выходе
         label_run-workflow: Запустить
         label_service: Workflows
         label_service-account: Сервисный аккаунт
         label_timeline: Шкала времени
         label_workflow-executions: Запуски
+        label_workflows: Рабочие процессы
         spec-editor-type_label_text-editor: YaML-спецификация
       smart-web-security:
         action_empty: Создать профиль

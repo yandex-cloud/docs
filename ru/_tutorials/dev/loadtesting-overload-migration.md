@@ -46,10 +46,10 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева перейдите на вкладку ![tests](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
-  1. Справа сверху нажмите ![options](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.load-testing.label_import-tests-from-overload }}**.
+  1. Справа сверху нажмите ![options](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.load-testing.label_import-tests-from-lunapark }}**.
   1. В открывшемся окне введите параметры импортирования:
-      * **{{ ui-key.yacloud.load-testing.field_overload-token }}** — API-токен OverLoad, полученный ранее.
-      * **{{ ui-key.yacloud.load-testing.field_overload-test-id }}** — идентификатор теста в OverLoad, результаты которого вы хотите перенести. Если тестов несколько, нажмите кнопку **{{ ui-key.yacloud.load-testing.button_add-overload-test-id }}** и введите следующий идентификатор. 
+      * **Токен** — API-токен OverLoad, полученный ранее.
+      * **{{ ui-key.yacloud.load-testing.field_lunapark-test-id }}** — идентификатор теста в OverLoad, результаты которого вы хотите перенести. Если тестов несколько, нажмите кнопку **{{ ui-key.yacloud.load-testing.button_add-lunapark-test-id }}** и введите следующий идентификатор. 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.import }}**.
 
   Для переноса результатов нагрузочного тестирования потребуется некоторое время. 

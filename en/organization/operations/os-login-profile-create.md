@@ -25,7 +25,7 @@ To create an additional {{ oslogin }} profile:
   
       You may want to use the filter or search for that.
   
-  1. On the user page, go to the **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** tab and click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. In the window that opens:
+  1. On the user page, go to the **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}** tab and click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. In the window that opens:
 
       1. Enter the OS username that will be assigned to the organization user or service account when connecting to the VM. It must be unique within the folder.
 

@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы научите
 
 - SDK {#sdk}
 
-  1. Создайте файл `tokenize.py` и добавьте в него следующий код:
+  1. Создайте файл `token.py` и добавьте в него следующий код:
 
       {% include [yandexgpt-tokenize-sdk](../../../_includes/foundation-models/examples/yandexgpt-tokenize-sdk.md) %}
 
@@ -58,7 +58,7 @@ description: Следуя данной инструкции, вы научите
   1. Выполните созданный файл:
 
       ```bash
-      python3 tokenize.py
+      python3 token.py
       ```
 
       {% cut "Результат выполнения запроса — список полученных токенизатором токенов:" %}
