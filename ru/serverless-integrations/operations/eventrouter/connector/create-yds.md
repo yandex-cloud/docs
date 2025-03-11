@@ -14,16 +14,15 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Выберите нужную [шину](../../../concepts/eventrouter/bus.md).
   1. Перейдите на вкладку ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}**.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**. В открывшемся окне:
+  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
+  1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ yds-full-name }}`.
+  1. В блоке **Настройки {{ yds-name }}**:
 
-      1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ yds-full-name }}`.
-      1. В блоке **Настройки {{ yds-name }}**:
+      * Выберите [поток данных](../../../../data-streams/concepts/glossary.md#stream-concepts) и [выделенного потребителя данных](../../../../data-streams/concepts/glossary.md#consumers).
+      * Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из потока данных.
 
-          * Выберите [поток данных](../../../../data-streams/concepts/glossary.md#stream-concepts) и [выделенного потребителя данных](../../../../data-streams/concepts/glossary.md#consumers).
-          * Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из потока данных.
-
-      1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
-      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -68,7 +67,7 @@ description: Следуя данной инструкции, вы сможете
 
           Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
 
-      * `--deletion-protection` — защита от удаления коннектора. Пока опция включена, удалить коннектор невозможно. Чтобы отключить защиту от удаления, укажите параметр `--no-deletion-protection`. Необязательный параметр.
+      * `--deletion-protection` — защита от удаления коннектора. По умолчанию защита выключена. Пока опция включена, удалить коннектор невозможно. Чтобы отключить защиту от удаления, укажите параметр `--no-deletion-protection`. Необязательный параметр.
 
       Результат:
 

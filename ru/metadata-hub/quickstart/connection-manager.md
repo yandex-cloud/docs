@@ -7,6 +7,7 @@ description: Управляйте подключениями к источник
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+
 Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }} и {{ TR }} с {{ connection-manager-full-name }}.
 
 ## Интеграция с сервисами управляемых баз данных {#mdb-integration}
@@ -47,7 +48,7 @@ description: Управляйте подключениями к источник
 
 {% endlist %}
 
-После того как подключение будет создано, вы можете [просмотреть его настройки](../operations/update-connection.md#list-connections) в списке подключений, [изменить их](../operations/update-connection.md#update-connections) и [управлять доступом](../operations/connection-access.md) к этому подключению.
+После того как подключение будет создано, вы можете [просмотреть его настройки](../operations/update-connection.md#list-connections) в списке подключений и [изменить их](../operations/update-connection.md#update-connections), а также [управлять доступом](../operations/connection-access.md) к этому подключению.
 
 
 ## Что дальше {#what-is-next}

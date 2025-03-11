@@ -42,6 +42,12 @@ description: Следуя этой инструкции, вы сможете п�
 sudo apt update && sudo apt install -y kafkacat
 ```
 
+{% note info %}
+
+На Ubuntu 24.04 и выше используйте утилиту `kcat`.
+
+{% endnote %}
+
 {% list tabs group=connection %}
 
 - Подключение без SSL {#without-ssl}

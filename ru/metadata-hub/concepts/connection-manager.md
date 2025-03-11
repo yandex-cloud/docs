@@ -5,9 +5,12 @@ description: С помощью {{ connection-manager-full-name }} вы може�
 
 # Подключение
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+
 {% include [connection](../../_includes/metadata-hub/connection-definition.md) %}
+
 
 ![backups](../../_assets/metadata-hub/conn-man-diagramm.svg)
 

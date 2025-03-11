@@ -14,7 +14,6 @@ description: Из статьи вы узнаете, что такое подкл
 * создание и управление кластерами {{ metastore-full-name }};
 * поиск и визуализация метаинформации о хранилищах данных и связях между ними.
 
-
 ## Управление подключениями {#connection-manager}
 
 {% include [connection](../../_includes/metadata-hub/connection-definition.md) %}

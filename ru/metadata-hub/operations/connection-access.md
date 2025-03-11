@@ -5,7 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить права доступа к подключению
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 {% list tabs group=instructions %}
 

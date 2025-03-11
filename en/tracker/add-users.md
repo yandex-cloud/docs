@@ -33,7 +33,7 @@ To invite a user to an organization:
 
    1. In the left-hand panel, click ![](../_assets/tracker/svg/add-user.svg) **Add user** (if you do not see this section, click ![](../_assets/horizontal-ellipsis.svg) **More**).
 
-   1. In the window that opens, specify employees' email addresses (such as `{{ example-account }}`) separated by commas and click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**. Each user will receive an email prompting to join your organization.
+   1. In the window that opens, specify employees' email addresses (such as `{{ example-account }}`) separated by commas and click **{{ ui-key.yacloud_components.organization.action_send-invitation }}**. Each user will receive an email prompting to join your organization.
 
       You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
 

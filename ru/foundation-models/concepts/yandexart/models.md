@@ -53,8 +53,7 @@ description: Из статьи вы узнаете о моделях генер�
 
   ```json
   {
-    "modelUri":
-      art://b1gt6g8ht345********/yandex-art/latest
+    "modelUri": "art://b1gt6g8ht345********/yandex-art/latest"
     ...
   }
   ```

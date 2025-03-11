@@ -6,7 +6,7 @@
 
     If the user is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, select a user from the list or use the search bar.
 
-1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** and select the [role](../../iam/concepts/access-control/roles.md) you want to assign to the user. You can assign multiple roles.
+1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the [role](../../iam/concepts/access-control/roles.md) you want to assign to the user. You can assign multiple roles.
 
     You can find the description of the available roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }}](../../iam/roles-reference.md) role reference.
 

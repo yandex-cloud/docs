@@ -6,17 +6,9 @@ description: '{{ managed-prometheus-full-name }} — система монито
 # Обзор {{ managed-prometheus-full-name }}
 
 
-{% list tabs %}
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvgrffiwvx5522amjv?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239449&hash=9d880d845a117cfc" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-- YouTube
-
-  [Смотреть обзор {{ managed-prometheus-full-name }} на YouTube](https://youtu.be/EEI4LseR0tw).
-
-  {% endlist %}
+[Смотреть видео на YouTube](https://youtu.be/EEI4LseR0tw).
 
 
 

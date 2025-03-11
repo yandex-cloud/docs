@@ -54,3 +54,6 @@ description: Из статьи вы узнаете как работать с {{
 * [{#T}](password/broker-password.md)
 
 
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

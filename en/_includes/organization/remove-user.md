@@ -8,7 +8,7 @@
 
   1. Select a user from the list or use the search bar or filter at the top of the page.
 
-  1. In the row with the user, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select ![PersonXmark](../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
+  1. In the row with the user, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select ![PersonXmark](../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud.common.delete }}**.
 
   1. In the window that opens, confirm user removal from the organization.
 

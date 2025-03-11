@@ -6,12 +6,12 @@
 - [{#T}](advanced-method.md)
 
 
-### Получение информации о капче {#get-info}
+## Получение информации о капче {#get-info}
 
 * [{#T}](get-list.md)
 * [{#T}](get-info.md)
 
 
-### Получение дополнительной информации {#get-extra-info}
+## Получение дополнительной информации {#get-additional-info}
 
 * [{#T}](operation-logs.md)

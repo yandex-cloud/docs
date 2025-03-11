@@ -6,18 +6,9 @@ description: Для создания дашборда в {{ monitoring-full-name
 # Создание дашборда в {{ monitoring-name }}
 
 
-{% list tabs %}
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvgvuhu34zple6f3vj?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239454&hash=525f019554ae17fd" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-- YouTube
-
-  [Смотреть видеоинструкцию о дашбордах на YouTube](https://www.youtube.com/watch?v=TvLdfcPCOHw).
-
-{% endlist %}
-
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=TvLdfcPCOHw).
 
 
 

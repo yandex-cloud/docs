@@ -4,7 +4,7 @@
 
 Сервис можно подключить к [виртуальным хостам](../../application-load-balancer/concepts/http-router.md#virtual-host) [{{ alb-full-name }}](../../application-load-balancer/).
 
-Функциональность сервиса сводится к проверке HTTP-запросов к защищаемому ресурсу через виртуальный хост L7-балансировщика на соответствие [правилам](rules.md), заданным в [профиле безопасности](profiles.md). В зависимости от результатов проверки запросы направляются к виртуальному хосту, блокируются или отправляются в сервис [{{ captcha-full-name }}](../../smartcaptcha/) для дополнительной верификации.
+{{ sws-name }} проверяет HTTP-запросы к защищаемому ресурсу через виртуальный хост L7-балансировщика на соответствие [правилам](rules.md), заданным в [профиле безопасности](profiles.md). В зависимости от результатов проверки запросы направляются к виртуальному хосту, блокируются или отправляются в сервис [{{ captcha-full-name }}](../../smartcaptcha/) для дополнительной верификации.
 
 ![schema](../../_assets/smartwebsecurity/schema.svg)
 
@@ -17,6 +17,8 @@
 Метрики {{ sws-name }} передаются в сервис [{{ monitoring-full-name }}](../../monitoring/).
 
 Аудитные логи {{ sws-name }} передаются в сервис [{{ at-full-name }}](../../audit-trails/).
+
+{% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
 
 ## Рекомендации по настройке {{ alb-name }} {#alb-settings-recommendation}
 

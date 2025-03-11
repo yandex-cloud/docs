@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
   
       При необходимости воспользуйтесь фильтром или поиском.
 
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.page.user.title_tab-ssh-keys }}** и нажмите кнопку **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. В открывшемся окне:
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.user.title_ssh-keys }}** и нажмите кнопку **{{ ui-key.yacloud_org.entity.ssh-keys.action.add-key }}**. В открывшемся окне:
   
       1. Задайте имя для добавляемого SSH-ключа.
 

@@ -12,3 +12,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](secret-delete.md)
 * [{#T}](secret-activation-manage.md)
 * [{#T}](secret-version-manage.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

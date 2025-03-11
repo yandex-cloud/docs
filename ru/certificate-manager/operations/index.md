@@ -41,3 +41,7 @@ description: Из статьи вы узнаете как работать с {{
 ## Доступ {#access}
 
 - [{#T}](cert-access.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+- [{#T}](operation-logs.md)

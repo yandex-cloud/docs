@@ -6,7 +6,7 @@
 
   1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
 
-  1. In the row with the [group](../../organization/concepts/groups.md), click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_delete-group }}**.
+  1. In the row with the [group](../../organization/concepts/groups.md), click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
   1. In the window that opens, confirm the group deletion.
 

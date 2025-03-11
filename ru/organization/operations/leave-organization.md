@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы узнаете
 
   1. Выберите пользователя из списка или воспользуйтесь строкой поиска или фильтром вверху страницы.
 
-  1. В строке с нужным пользователем нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите ![PersonXmark](../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud_org.entity.user.action.remove }}**.
+  1. В строке с нужным пользователем нажмите значок ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) и выберите ![PersonXmark](../../_assets/console-icons/person-xmark.svg) **{{ ui-key.yacloud.common.delete }}**.
 
   1. В открывшемся окне подтвердите исключение из организации.
 

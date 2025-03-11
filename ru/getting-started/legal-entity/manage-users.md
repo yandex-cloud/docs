@@ -34,7 +34,7 @@ description: Из статьи вы узнаете, как добавить по
 
         Приглашения можно отправлять на любые адреса электронной почты. Приглашенный пользователь сможет выбрать нужный аккаунт на Яндексе, когда примет приглашение.
 
-    1. Нажмите **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+    1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
 {% endlist %}
 

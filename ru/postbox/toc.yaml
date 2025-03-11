@@ -11,8 +11,10 @@ items:
         href: operations/create-address.md
       - name: Проверка владения доменом
         href: operations/check-domain.md
-      - name: Отправление письма
+      - name: Отправка письма
         href: operations/send-email.md
+      - name: Шаблонизация письма
+        href: operations/send-templated-email.md
       - name: Создание конфигурации
         href: operations/create-configuration.md
       - name: Привязка конфигурации к адресу

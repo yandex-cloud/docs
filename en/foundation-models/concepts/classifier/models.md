@@ -58,8 +58,7 @@ You can access classifier models in a number of ways.
 
   ```json
   {
-    "modelUri":
-      cls://b1gt6g8ht345********/yandexgpt-lite/latest
+    "modelUri": "cls://b1gt6g8ht345********/yandexgpt-lite/latest"
     ...
   }
   ```

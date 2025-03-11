@@ -143,7 +143,7 @@ To assign a role for an organization:
 
       If the user, service account, or user group is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, select the user, service account, or group from the list. If required, use the search bar.
 
-  1. Click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** and select the [role](../../../iam/concepts/access-control/roles.md) to assign. You can assign multiple roles.
+  1. Click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the [role](../../../iam/concepts/access-control/roles.md) to assign. You can assign multiple roles.
 
       You can find the description of the available roles in the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md).
 

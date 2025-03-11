@@ -134,3 +134,7 @@
   Убедитесь, что сетевые настройки сервера не блокируют исходящий трафик на указанные ресурсы.
 
 {% endlist %}
+
+## Статусы подключения ВМ {#statuses}
+
+{% include [connection-statuses](../../_includes/backup/connection-statuses.md) %}

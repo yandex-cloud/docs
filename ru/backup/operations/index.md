@@ -15,6 +15,8 @@ description: На странице представлен список поша�
 * [{#T}](refresh-connection.md)
 * [{#T}](update-backup-agent.md)
 * [{#T}](refresh-connection-oslogin-linux.md)
+* [{#T}](get-connection-status.md)
+* [{#T}](get-journal.md)
 * [{#T}](delete-vm.md)
 
 ## Управление серверами {{ baremetal-name }} в {{ backup-name }} {#connect-baremetal}

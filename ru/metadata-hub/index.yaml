@@ -11,7 +11,7 @@ meta:
   title: Yandex MetaData Hub
 links:
   - title: Начало работы
-    description: Создайте подключение
+    description: Создайте первое подключение или реестр схем данных
     href: quickstart/
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
