@@ -87,6 +87,12 @@ items:
             href: operations/dictionary/add.md
           - name: Удалить словарь
             href: operations/dictionary/delete.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Автоматическая загрузка данных с помощью {{ sw-full-name }}
+        href: tutorials/auto-upload.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов

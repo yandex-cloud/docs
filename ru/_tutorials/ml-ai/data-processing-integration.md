@@ -160,6 +160,7 @@
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
    1. Нажмите **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** в выпадающем списке.
    1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
+   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
    1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_version }}** выберите `2.0`.
    1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_services }}** выберите: `LIVY`, `SPARK`, `YARN` и `HDFS`.
    1. Вставьте в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** публичную часть вашего SSH-ключа.

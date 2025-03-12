@@ -15,9 +15,13 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию.
   1. В меню слева выберите ![image](../../../_assets/console-icons/pencil-to-square.svg)**{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
-  1. В блоке **Эфемерный диск** нажмите **Добавить эфемерный диск** и укажите в поле:
-      * **Точка монтирования** — имя точки монтирования. Директория, к которой монтируется эфемерный диск, будет доступна по пути `/function/storage/<точка_монтирования>`.
-      * **Размер диска** — размер памяти, который вы хотите выделить для монтируемого эфемерного диска.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:
+
+      1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-ephemeral-storage }}**.
+      1. Укажите в поле:
+
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-name }}** — точку монтирования. Директория, к которой монтируется эфемерный диск, будет доступна по пути `/function/storage/<точка_монтирования>`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_ephemeral-storage-size }}** — объем памяти, который вы хотите выделить для монтируемого эфемерного диска.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -112,5 +116,5 @@ description: Следуя данной инструкции, вы сможете
 
 ## См. также {#see-also}
 
-* [Монтирование файловых систем в функцию](../../concepts/mounting.md)
-* [Монтирование файловых систем в контейнер](../../../serverless-containers/concepts/mounting.md)
+* [{#T}](../../concepts/mounting.md)
+* [{#T}](../../../serverless-containers/concepts/mounting.md)

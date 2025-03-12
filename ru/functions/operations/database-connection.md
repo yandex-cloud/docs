@@ -28,7 +28,7 @@
 ## Подключиться к БД {#connect}
 
 Чтобы обратиться из функции к хостам кластера БД, используя созданное подключение:
-* в настройках версии функции укажите сервисный аккаунт, которому назначена роль `serverless.mdbProxies.user` на каталог, в котором создано подключение. [Как назначить роль](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
+* в настройках версии функции укажите сервисный аккаунт, которому назначена роль `{{ roles-functions-mdbProxiesUser }}` на каталог, в котором создано подключение. [Как назначить роль](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
 * в дополнительных настройках кластера включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
 
 Чтобы подключиться к БД из функции, в качестве пароля используйте [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, указанного в настройках версии функции. [Как получить IAM-токен](./function-sa.md).

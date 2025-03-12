@@ -43,6 +43,12 @@
 
 {% include [full-config](../../_includes/backup/operations/full-config.md) %}
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/vm-with-backup-policy/index.md)
+
+
 #### См. также {#see-also}
 
 * [{#T}](../operations/policy-vm/create.md)

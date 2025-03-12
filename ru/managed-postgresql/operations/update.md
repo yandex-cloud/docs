@@ -1010,6 +1010,33 @@ description: Из статьи вы узнаете, как изменить на
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+
+    1. Измените или добавьте в описании кластера {{ mpg-name }} значение параметра `folder_id`:
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
+          ...
+          folder_id = "<идентификатор_каталога_назначения>"
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:

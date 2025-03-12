@@ -5,7 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Зарезервировать потребление (CVoS)
 
-
 {% include [cvos-term](../_includes/cvos-term.md) %}
 
 ## Чтобы зарезервировать потребление (CVoS) {#enable}

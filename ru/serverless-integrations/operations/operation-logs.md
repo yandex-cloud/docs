@@ -1,6 +1,6 @@
-# Просмотр операций с ресурсами сервиса {{ er-name }}
+# Просмотр операций с ресурсами сервиса {{ si-name }}
 
-Все действия с ресурсами сервиса {{ er-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
+Все действия с ресурсами сервиса {{ si-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
 ## Получить список операций {#get-operations}
 
@@ -12,27 +12,27 @@
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится шина.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Выберите нужную шину.
-  1. Перейдите на панель ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранной шины.
+  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранной шины.
 
      В открывшемся списке отображаются операции с выбранной шиной.
 
 - CLI {#cli}
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы получить список операций для ресурса сервиса {{ er-name }}, воспользуйтесь командой:
+  Чтобы получить список операций для ресурса сервиса {{ si-name }}, воспользуйтесь командой:
 
   ```bash
-  yc serverless eventrouter <тип_ресурса> list-operations <имя_или_идентификатор_ресурса>
+  yc serverless <тип_ресурса> list-operations <имя_или_идентификатор_ресурса>
   ```
 
   **Пример**
 
-  Получить список операций для шины:
+  Получить список операций для шины {{ er-name }}:
 
   ```bash
   yc serverless eventrouter bus list-operations epdplu8jn7sr********
@@ -76,15 +76,15 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
+  Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<ресурс>/ListOperations`.
 
-  Например, для шины воспользуйтесь методом REST API [listOperations](../../../serverless-integrations/eventrouter/api-ref/Bus/listOperations.md) для ресурса [Bus](../../../serverless-integrations/eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/ListOperations](../../../serverless-integrations/eventrouter/api-ref/grpc/Bus/listOperations.md).
+  Например, для шины {{ er-name }} воспользуйтесь методом REST API [listOperations](../../serverless-integrations/eventrouter/api-ref/Bus/listOperations.md) для ресурса [Bus](../../serverless-integrations/eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/ListOperations](../../serverless-integrations/eventrouter/api-ref/grpc/Bus/listOperations.md).
 
 {% endlist %}
 
 ## Получить подробную информацию об операции {#get-operations-info}
 
-1. [Получите список операций](#get-operations) для шины.
+1. [Получите список операций](#get-operations).
 1. Скопируйте идентификатор нужной операции.
 1. Получите подробную информацию об операции:
 
@@ -92,9 +92,9 @@
 
     - CLI {#cli}
 
-      {% include [cli-install](../../../_includes/cli-install.md) %}
+      {% include [cli-install](../../_includes/cli-install.md) %}
 
-      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
       Выполните команду:
 
@@ -127,10 +127,10 @@
 
     - API {#api}
 
-      Воспользуйтесь вызовом gRPC API [OperationService/Get](../../../serverless-integrations/eventrouter/api-ref/grpc/Operation/get.md).
+      Чтобы получить подробную информацию об операции, воспользуйтесь методом REST API `get` для ресурса `Operation` или вызовом gRPC API `OperationService/Get`.
 
     {% endlist %}
 
 #### См. также {#see-also}
 
-* [{#T}](../../../api-design-guide/concepts/about-async.md)
+* [{#T}](../../api-design-guide/concepts/about-async.md)

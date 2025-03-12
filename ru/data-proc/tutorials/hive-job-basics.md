@@ -12,6 +12,7 @@
 
 1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими настройками:
 
+    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`

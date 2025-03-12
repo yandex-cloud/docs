@@ -110,6 +110,7 @@
 
     1. [Создайте два кластера {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) с именами `dataproc-source` и `dataproc-target` и следующими настройками:
 
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
 
             * `HDFS`

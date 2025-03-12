@@ -73,6 +73,7 @@ keywords:
     1. [Предоставьте сервисному аккаунту](../../storage/operations/buckets/edit-acl.md) `data-proc-sa` разрешение `READ и WRITE` на бакет `data-proc-bucket`.
     1. [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) любой подходящей конфигурации с настройками:
 
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `data-proc-sa`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** — `{{ region-id }}-a`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — `data-proc-bucket`.

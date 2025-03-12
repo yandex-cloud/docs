@@ -17,11 +17,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-
-  
   1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account).
-
-
   1. Если у вас еще нет [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../../resource-manager/operations/folder/create.md).
   1. Убедитесь, что у [аккаунта](../../../iam/concepts/users/accounts.md), с помощью которого вы собираетесь создавать кластер {{ managed-k8s-name }}, есть [необходимые для этого роли](../../security/index.md#required-roles).
   1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md).

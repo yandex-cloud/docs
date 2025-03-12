@@ -3,3 +3,5 @@
 * `disabled` — отключено.
 * `enabled` — включено.
     * `caCertificate` — сертификат CA.
+
+      {% include [certificate](../../../../../_includes/data-transfer/fields/certificate-needed.md) %}
