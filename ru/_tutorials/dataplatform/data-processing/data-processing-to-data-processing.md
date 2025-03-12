@@ -39,6 +39,7 @@
     1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для созданной подсети.
     1. [Создайте два кластера {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) с именами `dataproc-source` и `dataproc-target`, с любой [подходящей конфигурацией хостов](../../../data-proc/concepts/instance-types.md) и следующими настройками:
 
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
             * `SPARK`;
             * `YARN`.

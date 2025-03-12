@@ -590,6 +590,7 @@ default:
   roles-editor: editor
   roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
+  roles-functions-mdbProxiesUser: functions.mdbProxiesUser
   roles-functions-viewer: functions.viewer
   roles-iam-sa-admin: iam.serviceAccounts.admin
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
@@ -1239,6 +1240,16 @@ default:
         hsm|month|string: "1\_800,00\_₸"
         software|month|number: 14.4
         software|month|string: "14,40\_₸"
+  sku|KZT|load_testing:
+    storage:
+      test_results:
+        v1|pricingRate:
+          2160000|number: 0.25
+        v1|string: Не тарифицируется
+    test_execution:
+      v1|pricingRate:
+        180000|number: 2.5
+      v1|string: Не тарифицируется
   sku|KZT|lockbox:
     api:
       v1:
@@ -2511,6 +2522,16 @@ default:
         hsm|month|string: "360,00\_₽"
         software|month|number: 2.88
         software|month|string: "2,88\_₽"
+  sku|RUB|load_testing:
+    storage:
+      test_results:
+        v1|pricingRate:
+          2160000|number: 0.05
+        v1|string: Не тарифицируется
+    test_execution:
+      v1|pricingRate:
+        180000|number: 0.5
+      v1|string: Не тарифицируется
   sku|RUB|lockbox:
     api:
       v1:
@@ -6793,6 +6814,7 @@ default:
             field_sw-accelerated-net: Программное ускорение сети
             label_tab-custom: Своя конфигурация
             label_tab-gpu: GPU
+            label_tab-standard: Standard
             value_platform-tab-gpu: Есть GPU
         condition-column:
           condition_and: и
@@ -7937,6 +7959,7 @@ default:
         action_purchase-license: Купить подписку
         action_specify-vm: Привязать виртуальную машину
         button_continue: Далее
+        button_disallow-analytics-scanning: Запретить Marketplace собирать статистику
         button_k8s-product-use: Перейти к установке
         button_use: Использовать
         label_available-products: Доступные для установки приложения
@@ -8162,6 +8185,7 @@ default:
           host_column_shard-name: Имя шарда
           host_column_subnetwork: Подсеть
           host_column_zone: Зона доступности
+          label_add-subnetwork: Создать подсеть
           label_autoscaling-activated: Автоматическое масштабирование
           label_compute-subcluster: Compute
           label_data-subcluster: Data
@@ -8430,11 +8454,13 @@ default:
             field_resources-memory: Память
             field_runtime: Среда выполнения
             field_timeout: Таймаут
+            label_add-ephemeral-storage: Добавить эфемерный диск
             label_add-folder: Добавить бакет
             label_async: Асинхронный вызов
             label_aws_v1_http_endpoint: Доступ к метаданным с использованием формата AWS (IMDSv1)
             label_bucket: Бакет
             label_bucket-prefix: Папка
+            label_ephemeral-storage-size: Размер диска
             label_failed-sa: Назначение для неуспешного результата
             label_gce_http_endpoint: Доступ к метаданным с использованием формата Google Compute Engine
             label_lockbox-env-key: Переменная окружения
@@ -8456,6 +8482,7 @@ default:
             label_with-template: Добавить файлы с примерами кода
             option_queues-mq: Message Queue
             option_queues-unset: Не задано
+            title_ephemeral-storage: Смонтированный эфемерный диск
             title_mount-files: Смонтированные бакеты
             value_method-editor: Редактор кода
             value_method-storage: Object Storage
@@ -8766,6 +8793,7 @@ default:
             field_user: Пользователь
             field_value: Значение
             label_if-exists: Применить, если поле существует
+          popup-create-folder_button_create: Создать
           popup-create-folder_field_name: Имя папки
           settings:
             access_value_private: Ограниченный
@@ -8865,12 +8893,19 @@ default:
         button_restart: Перезапустить
         button_start: Запустить
         button_stop: Остановить
+        field_max-desktops-amount: Максимальный размер рабочей группы
+        field_min-ready-desktops: Горячий резерв
         label_desktop: Рабочий стол
         label_desktop-images: Образы
         label_desktops: Рабочие столы
+        label_image: Образ в Compute Cloud
         label_image-source: Источник образа
         section_access: Пользователь рабочего стола
+        section_desktop: Рабочие столы
         section_disks: Диски
+        section_type: Тип группы
+        value_type-personal: Персональная
+        value_type-session: Сессионная
       vpc:
         add-static-route:
           button_add: Добавить
@@ -10393,22 +10428,41 @@ default:
         transfer-selected-projects: Перенести выбранные проекты
     yc-ui-talkanalytics:
       common:
+        add: Добавить
+        create: Создать
         delete-key-value: Удалить
         duplicate: Дублировать
         edit: Редактировать
+        more: Еще
         save: Сохранить
       connections:
+        add-key: Добавить ключ
+        column:
+          name: Название в системе
         connection: Подключение
+        create-connection-key-value: Создать подключение
         fields:
           client: Клиент
+          metadata: Общие метаданные
           operator: Оператор
+        type:
+          chat-key-value: Чат
+          two-channel-key-value: Двухканальное аудио
       dialogs:
+        bot: Бот
         classifiers: Теги
+        client: Клиент
+        operator: Оператор
       dictionaries:
         add-dictionary: Добавить словарь
       projects:
+        add-connection: Добавить подключение
+        add-participant: Добавить участника
+        create-project: Создать проект
         dialogs: Диалоги
         projects: Проекты
+      spaces:
+        create-space: Создать пространство
       tags:
         binding-events-key-value: Ограничения
         binding-events:
@@ -10435,6 +10489,8 @@ default:
         tags-type:
           dictionary-key-value: Словарный
         words-between-key-value: Дистанция между словами
+      team:
+        add-from-organization-key-value: Добавить из организации
       upload-audio:
         upload-audio-key-value: Добавление диалогов
     yql:

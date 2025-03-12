@@ -27,3 +27,11 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
   * Логин.
 
 {% include [HTTPS info](../../_includes/managed-gitlab/note-https.md) %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/gitlab-lockbox-integration.md)
+* [{#T}](../tutorials/ci-cd-serverless.md)
+* [{#T}](../tutorials/install-gitlab-runner.md)
+* [{#T}](../tutorials/gitlab-containers.md)

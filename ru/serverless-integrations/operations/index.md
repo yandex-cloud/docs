@@ -18,6 +18,10 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](workflows/get-execution-info.md)
 * [{#T}](workflows/get-execution-history.md)
 
+### Получение дополнительной информации {#get-additional-info}
+
+* [Просмотр операций с ресурсами сервиса](operation-logs.md)
+
 ## {{ er-name }} {#event-router}
 
 ### Получение информации о шине {#bus-get-info}
@@ -78,4 +82,4 @@ description: Из статьи вы узнаете, как работать с {
 
 ### Получение дополнительной информации {#get-additional-info}
 
-* [Просмотр операций с ресурсами сервиса](eventrouter/operation-logs.md)
+* [Просмотр операций с ресурсами сервиса](operation-logs.md)

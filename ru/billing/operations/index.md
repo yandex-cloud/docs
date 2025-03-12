@@ -38,6 +38,7 @@ description: Из статьи вы узнаете, как работать с �
 
 * [{#T}](activate-promocode.md)
 * [{#T}](pay-the-bill.md)
+* [{#T}](get-offers.md)
 
 
 ## Анализ использования сервисов {{ yandex-cloud }} {#details}

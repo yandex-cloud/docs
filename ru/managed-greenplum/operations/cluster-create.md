@@ -3,8 +3,6 @@
 
 [Кластер](../../glossary/cluster.md) {{ mgp-name }} состоит из хостов-мастеров, которые принимают запросы от клиента, и хостов-сегментов, обеспечивающих обработку и хранение данных.
 
-Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
-
 Подробнее см. в разделе [{#T}](../concepts/index.md).
 
 
@@ -38,21 +36,17 @@
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
 
-        * Выберите [облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
+        * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
 
-        * В параметре **{{ ui-key.yacloud.mdb.forms.field_security-group }}** укажите [группу безопасности](../operations/connect.md#configuring-security-groups), которая содержит правила, разрешающие любой исходящий и входящий трафик по любому протоколу с любых IP-адресов.
+        * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
-            {% note alert %}
+        * [Зону доступности](../../overview/concepts/geo-scope.md) и [подсеть](../../vpc/concepts/network.md#subnet) для размещения кластера. Чтобы создать новую подсеть, нажмите **{{ ui-key.yacloud.mdb.forms.label_add-subnetwork }}** в списке подсетей.
 
-            Для корректной работы кластера {{ mgp-name }} необходимо, чтобы хотя бы в одной из его групп безопасности были правила, разрешающие любой входящий и исходящий трафик с любых IP-адресов.
+           {% include [zone-cannot-be-changed](../../_includes/mdb/mgp/zone-cannot-be-changed.md) %}
 
-            {% endnote %}
-
-        * Выберите зону доступности и подсеть для размещения кластера. Чтобы создать новую подсеть, нажмите кнопку **{{ ui-key.yacloud.common.label_create-new_female }}** рядом с нужной зоной доступности.
-
-        * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, чтобы подключаться к кластеру из интернета.
+        * Опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, чтобы подключаться к кластеру из интернета.
 
     1. (Опционально) Включите опцию **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
@@ -64,7 +58,7 @@
         {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-    1. Укажите настройки пользователя-администратора. Это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее см. в разделе [Пользователи и роли](../concepts/cluster-users.md).
+    1. Укажите реквизиты пользователя-администратора. Это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее см. в разделе [Пользователи и роли](../concepts/cluster-users.md).
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
 
@@ -101,14 +95,9 @@
 
         * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
 
-        * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
-          * Выберите [тип диска](../concepts/storage.md).
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** выберите [тип диска](../concepts/storage.md) и укажите его размер. Доступные типы диска [зависят](../concepts/storage.md) от выбранного класса хостов.
 
-            
-            {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
-
-
-          * Выберите размер хранилища.
+          {% include [warn-storage-resize](../../_includes/mdb/mgp/warn-storage-resize.md) %}
 
     1. Укажите параметры хостов-сегментов на вкладке **{{ ui-key.yacloud.greenplum.section_resource-segment }}**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](../concepts/calculate-specs.md#segment).
 
@@ -118,12 +107,9 @@
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
         * [Класс хоста](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
-        * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
-           * Выберите [тип диска](../concepts/storage.md).
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** выберите [тип диска](../concepts/storage.md) и укажите его размер. Доступные типы диска [зависят](../concepts/storage.md) от выбранного класса хостов.
 
-             
-             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
-
+           {% include [warn-storage-resize](../../_includes/mdb/mgp/warn-storage-resize.md) %}
 
            * Выберите размер хранилища.
 

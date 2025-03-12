@@ -138,3 +138,8 @@
 ## Статусы подключения ВМ {#statuses}
 
 {% include [connection-statuses](../../_includes/backup/connection-statuses.md) %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/backup-baremetal.md)
+* [{#T}](../tutorials/vm-with-backup-policy/index.md)

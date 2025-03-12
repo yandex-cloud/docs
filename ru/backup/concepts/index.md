@@ -56,3 +56,9 @@
 Минимальная роль в каталоге, необходимая для активации сервиса, — `backup.editor` (см. [описание роли](../security/index.md#backup-editor)).
 
 {% include [default-policies](../../_includes/backup/default-policies.md) %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/backup-baremetal.md)
+* [{#T}](../tutorials/vm-with-backup-policy/index.md)

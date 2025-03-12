@@ -89,9 +89,9 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - REST API {#api}
 
@@ -1298,6 +1298,33 @@ description: Следуя данной инструкции, вы сможете
         ```
 
         Чтобы узнать имя или идентификатор кластера, [получите список кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+
+    1. Измените или добавьте в описании кластера {{ mkf-name }} значение параметра `folder_id`:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
+          ...
+          folder_id = "<идентификатор_каталога_назначения>"
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mkf }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - REST API {#api}
 

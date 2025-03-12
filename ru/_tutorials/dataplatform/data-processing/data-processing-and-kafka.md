@@ -32,6 +32,7 @@
    1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md#create) с параметрами:
 
       * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `dataproc-cluster`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_version }}** — `2.1`.
       * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
 

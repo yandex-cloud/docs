@@ -8,7 +8,6 @@
 1. [Настраивать окружение](#install-dependencies).
 1. [Загружать данные в проект](#download-data).
 1. [Запускать обучение](#start-ml).
-1. [Делиться результатами](#share-with-community).
 
 ## Перед началом работы {#before-you-begin}
 

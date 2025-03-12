@@ -642,7 +642,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать кластер {{ dataproc-name }}, воспользуйтесь методом API [create](../api-ref/Cluster/create) и передайте в запросе:
   * Идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором должен быть размещен кластера {{ dataproc-name }}, в параметре `folderId`.
   * Имя кластера {{ dataproc-name }} в параметре `name`.
-  * [Окружение](../concepts/environment.md#environment) кластера в параметре `environment` — `prestable` или `production`.
+  * [Окружение](../concepts/environment.md#environment) кластера в параметре `environment` — `PRESTABLE` или `PRODUCTION`.
   * Конфигурацию кластера {{ dataproc-name }} в параметре `configSpec`, в том числе:
     * [Версию образа](../concepts/environment.md) в параметре `configSpec.versionId`.
 

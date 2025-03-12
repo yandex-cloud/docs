@@ -44,6 +44,13 @@ description: В данном разделе описана опция CDN-рес
 
 {% include [rewrite-flag-list](../../_includes/cdn/rewrite-flag-list.md) %}
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/migrate-to-yc-cdn.md)
+
+
 #### См. также {#see-also}
 
 * [Инструкция по включению перенаправления запросов](../operations/resources/setup-http-rewrite.md)

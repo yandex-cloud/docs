@@ -127,6 +127,8 @@ description: Следуя данной инструкции, вы сможете
       }
       ```
 
+      {% include [absent-chunks-notice](../../../_includes/speechkit/absent-chunks-notice.md) %}
+
 - Python 3 {#python}
 
   1. Установите пакет `requests` с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/):

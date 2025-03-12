@@ -7,7 +7,7 @@ description: This section contains {{ sws-name }} release notes.
 
 ## January 2025 {#jan-2025}
 
-{{ sws-name }} got certificates of compliance with [152-FZ, GOST R 57589, and PCI DSS](https://yandex.cloud/ru/security/standards).
+{{ sws-name }} got certificates of compliance with [152-FZ, GOST R 57580, and PCI DSS](https://yandex.cloud/ru/security/standards).
 
 ## Q4 2024 {#q4-2024}
 
@@ -15,7 +15,7 @@ description: This section contains {{ sws-name }} release notes.
 * Added the [calculator](pricing.md) for quicker service cost calculations.
 * Improved low-rate DoS analysis and blocking algorithms.
 * Optimized the error code page size.
-* {{ sws-name }} has successfully passed an external audit for 152-FZ, GOST R 57589, and PCI DSS compliance.
+* {{ sws-name }} has successfully passed an external audit for 152-FZ, GOST R 57580, and PCI DSS compliance.
 
 ## Q3 2024 {#q3-2024}
 

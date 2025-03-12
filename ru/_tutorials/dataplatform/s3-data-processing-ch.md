@@ -44,6 +44,7 @@
 
     1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) с любой [подходящей конфигурацией хостов](../../data-proc/concepts/instance-types.md) и следующими настройками:
 
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
             * `SPARK`;
             * `YARN`;

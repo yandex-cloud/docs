@@ -55,6 +55,7 @@
 
     1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
         * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `data-proc-sa`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}** — `{{ ui-key.yacloud.forms.label_form-list }}`.
         * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — выберите созданный ранее бакет.

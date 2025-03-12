@@ -14,6 +14,7 @@
 * [Secure token. Обзор функции](https://support.edgecenter.ru/knowledge_base/item/268821?sid=57227)
 * [Документация API](https://apidocs.edgecenter.ru/cdn#tag/Resources/operation/change_cdn_resource)
 
+
 ## Подписанная ссылка {#protected-link}
 
 _Подписанная ссылка_ [генерируется](#link-generation-code) вне CDN-ресурса, например на основном легковесном сайте, и содержит следующие query-параметры:
@@ -27,6 +28,7 @@ _Подписанная ссылка_ [генерируется](#link-generatio
 Пример подписанной ссылки:
 
 > http://cdn.example.com/files/image.jpg?md5=xu7AXOAOQ********Ua0xw&expires=1701609223
+
 
 ## Примеры {#link-generation-code}
 
@@ -188,8 +190,10 @@ _Подписанная ссылка_ [генерируется](#link-generatio
 
 {% endlist %}
 
+
 ### См. также {#see-also}
 
 * [{#T}](../operations/resources/enable-secure-token.md)
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)
+* [{#T}](../tutorials/protected-access-to-content/index.md)
