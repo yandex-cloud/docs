@@ -1182,6 +1182,10 @@ items:
           }} и аутентификацией в Firebase
         href: serverless/jwt-authorizer-firebase.md
       - name: >-
+          Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью
+          {{ sw-full-name }}
+        href: serverless/auto-upload.md
+      - name: >-
           Настройка реагирования в {{ cloud-logging-full-name }} и {{
           sf-full-name }}
         href: serverless/logging-functions.md

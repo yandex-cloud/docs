@@ -23,6 +23,12 @@
 Серверы {{ baremetal-name }} поддерживают только ручную установку агента {{ backup-name }}. Подробнее см. раздел [Подключить сервер {{ baremetal-name }} к {{ backup-name }}](../operations/backup-baremetal/backup-baremetal.md).
 
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/backup-baremetal.md)
+* [{#T}](../tutorials/vm-with-backup-policy/index.md)
+
+
 #### См. также {#see-also}
 
 * [{#T}](../operations/connect-vm-linux.md)

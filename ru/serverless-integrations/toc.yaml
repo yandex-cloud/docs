@@ -133,10 +133,14 @@ items:
                 href: operations/eventrouter/rule/disable.md
               - name: Удалить правило
                 href: operations/eventrouter/rule/delete.md
-          - name: Просмотр операций с ресурсами сервиса
-            href: operations/eventrouter/operation-logs.md
+      - name: Просмотр операций с ресурсами сервиса
+        href: operations/operation-logs.md
   - name: Практические руководства
     items:
+      - name: >-
+          Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью
+          {{ sw-name }}
+        href: tutorials/auto-upload.md
       - name: >-
           Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
           foundation-models-full-name }} и {{ postbox-full-name }}

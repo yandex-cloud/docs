@@ -21,7 +21,10 @@ description: В статье вы ознакомитесь с промтом д�
   "modelUri": "art://<идентификатор_каталога>/yandex-art/latest",
   "generationOptions": {
     "seed": 10,
-    "ratio": "9:16"
+    "aspectRatio": {
+      "widthRatio": "9",
+      "heightRatio": "16"
+    }
   },
   "messages": [
     {

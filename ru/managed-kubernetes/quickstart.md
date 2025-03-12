@@ -12,11 +12,7 @@ description: В этой инструкции вы создадите класт
 
 Чтобы начать работать с сервисом {{ managed-k8s-name }}:
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-
-
 1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-
-
 1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md).
 1. Установите [интерфейс командной строки](../glossary/cli.md) {{ k8s }} — [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Убедитесь, что у вас достаточно [свободных ресурсов в облаке](concepts/limits.md).

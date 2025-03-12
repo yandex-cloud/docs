@@ -14,7 +14,6 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 {% endnote %}
 
-
 В {{ managed-k8s-name }} доступны следующие классы хранилищ, которые отличаются [типом создаваемого диска](../../../compute/concepts/disk.md#disks_types):
 * `yc-network-hdd` (используется по умолчанию) — хранилище на сетевых HDD-дисках (`network-hdd`).
 * `yc-network-ssd` — хранилище на сетевых SSD-дисках (`network-ssd`).

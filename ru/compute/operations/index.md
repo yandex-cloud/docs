@@ -231,4 +231,3 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](gpu-cluster/gpu-cluster-delete.md)
 * [{#T}](gpu-cluster/gpu-cluster-get-info.md)
 * [{#T}](gpu-cluster/access.md)
-

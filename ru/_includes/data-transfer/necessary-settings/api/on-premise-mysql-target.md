@@ -5,6 +5,9 @@
         * `disabled` — отключено.
         * `enabled` — включено
             * `caCertificate` — сертификат CA.
+
+              {% include [certificate](../../../../_includes/data-transfer/fields/certificate-needed.md) %}
+
     * {% include [Field API Subnet ID](../../fields/common/api/subnet-id.md) %}
 * {% include [Field API Security Group](../../fields/common/api/security-groups.md) %}
 * {% include [Field API Database](../../fields/mysql/api/database-target.md) %}

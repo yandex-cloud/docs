@@ -5,7 +5,6 @@ description: Из статьи вы узнаете, что такое резер
 
 # Резервируемое потребление
 
-
 {% include [cvos-term](../_includes/cvos-term.md) %}
 
 {% note info %}
@@ -111,6 +110,6 @@ description: Из статьи вы узнаете, что такое резер
 * [{{ mos-name }}](../../managed-opensearch/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)
 * [{{ mrd-name }}](../../managed-redis/pricing.md#cvos)
-* [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos)
+* [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos) 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

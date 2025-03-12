@@ -54,6 +54,8 @@
 
 {% include [unable-to-parse-obj](../../_includes/data-transfer/troubles/unable-to-parse-obj.md) %}
 
+{% include [failed-to-connect](../../_includes/data-transfer/troubles/failed-to-connect.md) %}
+
 ### Снижение скорости трансфера {#speed-degrade}
 
 **Проблема**:

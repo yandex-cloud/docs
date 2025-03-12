@@ -12,6 +12,12 @@
 
 Выгрузка логов — платная функция, о ее тарификации см. раздел [{#T}](../pricing.md).
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/prefetch.md)
+
+
 #### См. также {#see-also}
 
 * [Инструкция по настройке выгрузки](../operations/resources/configure-logs.md).

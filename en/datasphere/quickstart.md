@@ -8,7 +8,6 @@ In this section, you will learn how to:
 1. [Configure the environment](#install-dependencies).
 1. [Upload data to projects](#download-data).
 1. [Start training](#start-ml).
-1. [Share your results](#share-with-community).
 
 ## Getting started {#before-you-begin}
 

@@ -43,3 +43,9 @@ description: В статье содержится информация о рез
 C помощью {{ backup-name }} вы можете восстановить из резервной копии отдельные файлы и директории на любые из ВМ, [подключенных](vm-connection.md) к сервису. Подробнее см. в разделе [{#T}](../operations/backup-vm/recover-file-by-file.md).
 
 Пофайловое восстановление на серверы {{ baremetal-name }} в настоящий момент невозможно.
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/backup-baremetal.md)
+* [{#T}](../tutorials/vm-with-backup-policy/index.md)

@@ -8,13 +8,11 @@
 
 ## Подключить диск {#attach}
 
-
 {% note info %}
 
 Подключить локальный диск к ВМ на [выделенном хосте](../../concepts/dedicated-host.md) можно только при ее создании. Подробнее см. в [инструкциях](../index.md#dedicated-host).
 
 {% endnote %}
-
 
 {% list tabs group=instructions %}
 
@@ -27,11 +25,7 @@
   1. Напротив диска, который вы хотите подключить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-attach }}**.
   1. В открывшемся окне:
      * В поле **{{ ui-key.yacloud.compute.attach-disk.field_instance }}** выберите виртуальную машину, к которой нужно подключить диск.
-
-     
      * Если в хотите подключить [зашифрованный](../../concepts/encryption.md) диск, выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) c [ролью](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../../../kms/concepts/key.md), которым зашифрован диск.
-
-
      * Укажите название устройства.
      * При необходимости включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.attach-disk.button_attach }}**.

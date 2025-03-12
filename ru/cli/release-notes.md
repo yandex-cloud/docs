@@ -1071,7 +1071,6 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-
 ##### {{ api-gw-name }} {#api-gw}
 
 * В команды `yc serverless api-gateway create` и `yc serverless api-gateway update` добавлены параметры:
@@ -1082,7 +1081,6 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлена команда `yc serverless api-gateway release-canary` для замены параметров спецификации параметрами канареечного релиза и удаления последнего.
 
 * Добавлена команда `yc serverless api-gateway rollback-canary` для отключения канареечного релиза за счет установки параметру `weight` значения, равного `0`.
-
 
 
 ##### {{ iam-name }} {#iam}
@@ -1438,7 +1436,6 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-
 **{{ mes-name }}**
 
 * В команде `{{ yc-mdb-es }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
@@ -1447,11 +1444,9 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * В команде `{{ yc-mdb-mg }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
 
-
 **{{ mmy-name }}**
 
 * В команде `{{ yc-mdb-my }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
-
 
 **Managed Service for Redis**
 
@@ -1461,7 +1456,6 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 **{{ mms-name }}**
 
 * В команде `{{ yc-mdb-ms }} cluster restore` с флагом `--folder-id` можно передать каталог для восстановления кластера.
-
 
 
 
@@ -1508,7 +1502,6 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 #### Сервисы управляемых баз данных {#managed-db}
 
-
 **{{ mgp-name }}**
 
 * Добавлена команда `yc managed-greenplum cluster expand`, которая позволяет расширить существующий кластер {{ mgp-name }}. Параметры команды:
@@ -1516,7 +1509,6 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * `--segment-host-count` — количество добавляемых в кластер хостов;
   * `--add-segments-per-host-count` — количество сегментов, добавляемых на каждый хост кластера;
   * `--duration-seconds` — максимальная длительность сеанса распределения данных в секундах.
-
 
 **{{ mkf-name }}**
 
@@ -1635,12 +1627,9 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Добавлена поддержка {{ KF }} версий 3.0, 3.1 и 3.2.
 
-
 **Managed Service for Redis**
 
 * Прекращена поддержка {{ RD }} версий 5.0 и 6.0.
-
-
 
 
 ##### {{ org-name }} {#organization}
@@ -1661,15 +1650,12 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
-
 **{{ mgp-name }}**
 
 * Добавлена поддержка команд:
 
   * `yc managed-greenplum cluster update` — позволяет изменять настройки уже созданных кластеров.
   * `yc managed-greenplum cluster update-config` — позволяет изменять параметры конфигурации уже созданных кластеров.
-
-
 
 
 **Managed Service for Redis**
@@ -1679,7 +1665,6 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   * `--assign-public-ip=true|false` — привязывает или удаляет публичный IP-адрес хоста.
   * `--replica-priority=50` — выставляет приоритет реплики (только для нешардированного кластера).
-
 
 **{{ mch-name }}**
 
@@ -1731,11 +1716,9 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
   Добавлена поддержка шаблонов при создании базы с помощью `--template-db string`.
 
-
 **{{ mmg-name }}**
 
 * При создании нового кластера по умолчанию выбирается версия MongoDB 5.0.
-
 
 
 ##### {{ managed-k8s-name }} {#k8s}
@@ -1771,7 +1754,6 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * В команду `yc certificate-manager certificate update` добавлены флаги, которые включают и отключают защиту сертификата от удаления: `--deletion-protection` и `--no-deletion-protection`.
 
 
-
 ##### Сервисы управляемых баз данных {#managed-db}
 
 **Managed Service for Redis**
@@ -1790,10 +1772,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлена команда `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false`, которая привязывает или удаляет публичный IP-адрес хоста.
 
 
-
-
 ### Версия 0.91.0 (12.05.22){#version0.91.0}
-
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -3938,6 +3917,5 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
   * Если не указан флаг `--host`, параметры для шарда копируются из самого старого шарда.
   * Если указан флаг `--host`, требуется введение всех параметров.
   * Если шарды отсутствуют, для создания шарда также требуется введение всех параметров.
-
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

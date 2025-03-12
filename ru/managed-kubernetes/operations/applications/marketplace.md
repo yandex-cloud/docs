@@ -5,14 +5,7 @@ description: Следуя данной инструкции, вы научите
 
 # Основы работы с {{ marketplace-name }}
 
-
 {{ managed-k8s-name }} позволяет использовать в кластерах приложения из [{{ marketplace-full-name }}](/marketplace).
-
-{% note info %}
-
-Работа с {{ marketplace-name }} находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-{% endnote %}
 
 ## Получение списка установленных приложений {#list-apps}
 
@@ -81,5 +74,21 @@ description: Следуя данной инструкции, вы научите
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
   1. В разделе **{{ ui-key.yacloud.k8s.cluster.marketplace.section_releases }}** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке приложения, которое требуется удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_release-uninstall }}**.
+
+{% endlist %}
+
+## Сбор статистики {#statics}
+
+Чтобы собирать статистику использования приложений, {{ marketplace-full-name }} просматривает пользовательские ресурсы во всех кластерах {{ k8s }}, в том числе [секреты](../../concepts/encryption.md#k8s-secrets-encryption) {{ k8s}}, которые имеют метку `owner: helm`. Для этого используются [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) `k8s-marketplace-analytics` и `k8s-marketplace-distributor`. Статистика собирается каждые 15 минут.
+
+Если вы хотите запретить сбор статистики для кластера {{ k8s }}:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+  1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/ban.svg) **{{ ui-key.yacloud.marketplace-v2.button_disallow-analytics-scanning }}**.
 
 {% endlist %}

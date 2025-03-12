@@ -62,6 +62,13 @@
 
 Для очистки кеша существуют технические ограничения — [лимиты](limits.md).
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/prefetch.md)
+
+
 #### См. также {#see-also}
 
 * [Инструкция по настройке кеширования](../operations/resources/configure-caching.md).

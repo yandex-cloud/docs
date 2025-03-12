@@ -1237,6 +1237,16 @@ default:
         hsm|month|string: ₸1800.00
         software|month|number: 14.4
         software|month|string: ₸14.40
+  sku|KZT|load_testing:
+    storage:
+      test_results:
+        v1|pricingRate:
+          2160000|number: 0.25
+        v1|string: Free
+    test_execution:
+      v1|pricingRate:
+        180000|number: 2.5
+      v1|string: Free
   sku|KZT|lockbox:
     api:
       v1:
@@ -2509,6 +2519,16 @@ default:
         hsm|month|string: ₽360.00
         software|month|number: 2.88
         software|month|string: ₽2.88
+  sku|RUB|load_testing:
+    storage:
+      test_results:
+        v1|pricingRate:
+          2160000|number: 0.05
+        v1|string: Free
+    test_execution:
+      v1|pricingRate:
+        180000|number: 0.5
+      v1|string: Free
   sku|RUB|lockbox:
     api:
       v1:
@@ -6789,6 +6809,7 @@ default:
             field_sw-accelerated-net: Software network acceleration
             label_tab-custom: Custom
             label_tab-gpu: GPU
+            label_tab-standard: Standard
             value_platform-tab-gpu: With GPU
         condition-column:
           condition_and: and
@@ -7931,6 +7952,7 @@ default:
         action_purchase-license: Purchase a subscription
         action_specify-vm: Link virtual machine
         button_continue: Continue
+        button_disallow-analytics-scanning: Prohibit Marketplace from collecting statistics
         button_k8s-product-use: Go to install
         button_use: Use
         label_available-products: Application available for installation
@@ -8156,6 +8178,7 @@ default:
           host_column_shard-name: Shard name
           host_column_subnetwork: Subnet
           host_column_zone: Availability zone
+          label_add-subnetwork: Create subnet
           label_autoscaling-activated: Autoscaling
           label_compute-subcluster: Compute
           label_data-subcluster: Data
@@ -8424,11 +8447,13 @@ default:
             field_resources-memory: Memory
             field_runtime: Runtime environment
             field_timeout: Timeout
+            label_add-ephemeral-storage: Add ephemeral disk
             label_add-folder: Add bucket
             label_async: Asynchronous call
             label_aws_v1_http_endpoint: Access metadata using the AWS format (IMDSv1)
             label_bucket: Bucket
             label_bucket-prefix: Directory
+            label_ephemeral-storage-size: Disk size
             label_failed-sa: Destination for unsuccessful result
             label_gce_http_endpoint: Access metadata using the Google Compute Engine format
             label_lockbox-env-key: Environment variable
@@ -8450,6 +8475,7 @@ default:
             label_with-template: Add files with code examples
             option_queues-mq: Message Queue
             option_queues-unset: Not specified
+            title_ephemeral-storage: Mounted ephemeral disk
             title_mount-files: Mounted buckets
             value_method-editor: Code editor
             value_method-storage: Object Storage
@@ -8760,6 +8786,7 @@ default:
             field_user: User
             field_value: Value
             label_if-exists: Apply if the field exists
+          popup-create-folder_button_create: Create
           popup-create-folder_field_name: Folder name
           settings:
             access_value_private: Restricted
@@ -8859,12 +8886,19 @@ default:
         button_restart: Restart
         button_start: Start
         button_stop: Stop
+        field_max-desktops-amount: Maximum desktop group size
+        field_min-ready-desktops: Hot standby
         label_desktop: Desktop
         label_desktop-images: Images
         label_desktops: Desktops
+        label_image: Image in Compute Cloud
         label_image-source: Image source
         section_access: Desktop user
+        section_desktop: Desktops
         section_disks: Disks
+        section_type: Group type
+        value_type-personal: Personal
+        value_type-session: Session
       vpc:
         add-static-route:
           button_add: Add
@@ -10389,22 +10423,41 @@ default:
         transfer-selected-projects: Transfer selected projects
     yc-ui-talkanalytics:
       common:
+        add: Add
+        create: Create
         delete-key-value: Delete
         duplicate: Duplicate
         edit: Edit
+        more: More
         save: Save
       connections:
+        add-key: Add key
+        column:
+          name: Name in the system
         connection: Connection
+        create-connection-key-value: Create connection
         fields:
           client: Client
+          metadata: Shared metadata
           operator: Agent
+        type:
+          chat-key-value: Сhat
+          two-channel-key-value: Two-channel audio
       dialogs:
+        bot: Bot
         classifiers: Tags
+        client: Customer
+        operator: Agent
       dictionaries:
         add-dictionary: Add dictionary
       projects:
+        add-connection: Add connection
+        add-participant: Add participant
+        create-project: Create project
         dialogs: Dialogs
         projects: Projects
+      spaces:
+        create-space: Create space
       tags:
         binding-events-key-value: Limitations
         binding-events:
@@ -10431,6 +10484,8 @@ default:
         tags-type:
           dictionary-key-value: Dictionary
         words-between-key-value: Distance between words
+      team:
+        add-from-organization-key-value: Add from organization
       upload-audio:
         upload-audio-key-value: Adding dialogs
     yql:
