@@ -43,10 +43,25 @@ You are not allowed to push code to protected branches on this project.
 
 #### Я получаю ошибку `500 Internal Server Error` при открытии инстанса, в чем может быть проблема? {#500-error}
 
-Дисковое пространство инстанса может быть переполнено. Для очистки дискового пространства и восстановления доступа к инстансу обратитесь в [техническую поддержку]({{ link-console-support }}).
+Дисковое пространство инстанса может быть переполнено. Вы можете самостоятельно [увеличить дисковое пространство инстанса](../../managed-gitlab/operations/instance/instance-update.md).
 
-Подробнее о том, как снизить вероятность переполнения дискового пространства инстанса, см. в [инструкции](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
+Также см. инструкцию [{#T}](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
+
+#### Где я могу отслеживать использование дискового пространства? {#disk-space}
+
+Отслеживать использование дискового пространства можно:
+
+* в консоли управления с помощью инструментов [мониторинга состояния инстанса](../../managed-gitlab/operations/instance/monitoring.md#view-graphs);
+* в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md) с возможностью [настроить алерты](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration) по заданным метрикам.
+
+#### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#alert-for-disk-space}
+
+См. инструкцию [Настройка алертов в {{ monitoring-name }} для {{ mgl-name }}](../../managed-gitlab/operations/instance/monitoring.md#monitoring-integration).
 
 #### Почему резервные копии не создаются? {#backup-failed}
 
 Если создание [резервных копий](../../managed-gitlab/concepts/backup.md) завершается ошибкой (статус `Failed`), [настройте отдельную группу безопасности](../../managed-gitlab/operations/configure-security-group.md) и привяжите ее к инстансу {{ GL }}.
+
+#### Можно ли после создания инстанса изменить его тип или размер диска? {#change-type-size}
+
+Да, можно изменить тип инстанса на более производительный, а также увеличить размер его диска. Уменьшить размер диска, а также перейти на менее производительный тип инстанса нельзя. Подробнее см. [{#T}](../../managed-gitlab/operations/instance/instance-update.md).

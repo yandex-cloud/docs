@@ -56,7 +56,7 @@
 
     1. [Назначьте роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md), чтобы трейл мог собирать и загружать логи:
 
-        * `yds.writer` на поток данных.
+        * `yds.editor` на поток данных.
 
         {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
@@ -693,7 +693,7 @@
 
       ```json
       {
-      "done": false,
+      "done": true,
       "metadata": {
         "@type": "type.googleapis.com/yandex.cloud.audittrails.v1.CreateTrailMetadata",
         "trailId": "cnpvprd5pa66********"

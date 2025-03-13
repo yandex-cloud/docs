@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Убедитесь, что ваш платежный аккаунт имеет тип потребления `{{ ui-key.yacloud_billing.billing.account.overview.usage-type_label_paid }}`. Подробнее об активации платной версии читайте в разделе [{#T}](activate-commercial.md).
   1. Убедитесь, что пользователю, управляющему платежным аккаунтом, назначена роль `billing.accounts.owner`, `editor` или `admin`. Подробнее о ролях читайте в разделе [{#T}](../security/index.md).
-  1. На панели слева выберите ![image](../../_assets/console-icons/sack.svg) **{{ ui-key.yacloud_billing.billing.account.switch_offers }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/lock.svg) **{{ ui-key.yacloud_billing.billing.account.switch_offers }}**.
   1. Ознакомьтесь с предложениями:
       1. Выберите сервис и нажмите блок с новым предложением.
       1. Выберите платформу.

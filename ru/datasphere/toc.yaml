@@ -133,6 +133,8 @@ items:
             href: operations/projects/jobs-toolkit.md
           - name: Использование результатов работы выполненных заданий
             href: operations/projects/use-job-results.md
+          - name: Работа с сервисным агентом из задания
+            href: operations/projects/jobs-with-ssa.md
       - name: Совместный доступ
         items:
           - name: Опубликовать ноутбук

@@ -7,10 +7,6 @@ import uuid
 from yandex_cloud_ml_sdk import YCloudML
 
 
-def local_path(path: str) -> pathlib.Path:
-    return pathlib.Path(__file__).parent / path
-
-
 def main():
     sdk = YCloudML(
         folder_id="<идентификатор_каталога>",
@@ -27,21 +23,20 @@ def main():
 
     # Запускаем дообучение
     # Дообучение может длиться до нескольких часов
-    tuned_model = base_model.tune_deferred(train_dataset, 
-        name=str(uuid.uuid4())
-        n_samples=10000
+    tuned_model = base_model.tune(
+        train_dataset, name=str(uuid.uuid4()), n_samples=10000
     )
     print(f"Resulting {tuned_model}")
 
     # Можно обратиться к дообученной модели с помощью метода run()
-    completion_result = tuned_model.run("Привет! Как тебя зовут?")
+    completion_result = tuned_model.run("Привет!")
     print(f"{completion_result=}")
 
     # А можно сохранить URI дообученной модели
     # И вызывать дообученную модель по URI
     tuned_uri = tuned_model.uri
     model = sdk.models.completions(tuned_uri)
-    completion_result = model.run("Расскажи, откуда ты?")
+    completion_result = model.run("Как дела?")
     print(f"{completion_result=}")
 
 

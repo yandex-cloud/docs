@@ -185,3 +185,12 @@ description: На странице представлен список прак�
 * [{#T}](log-ingestion.md)
 * [{#T}](message-broker.md)
 * [{#T}](yds-obj-migration.md)
+
+## {{ data-transfer-full-name }} {#data-transfer}
+
+* [{#T}](managed-greenplum.md)
+* [{#T}](managed-mongodb.md)
+* [{#T}](managed-mysql.md)
+* [{#T}](managed-mysql-to-mysql.md)
+* [{#T}](managed-postgresql.md)
+* [{#T}](schema-registry-cdc-debezium-kafka.md)

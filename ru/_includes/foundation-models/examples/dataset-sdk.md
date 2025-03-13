@@ -2,43 +2,43 @@
 #!/usr/bin/env python3
 
 from __future__ import annotations
-import asyncio
+
 import pathlib
-from yandex_cloud_ml_sdk import AsyncYCloudML
-from yandex_cloud_ml_sdk.auth import YandexCloudCLIAuth
+
+from yandex_cloud_ml_sdk import YCloudML
+from yandex_cloud_ml_sdk.exceptions import DatasetValidationError
 
 
-def local_path(path: str) -> pathlib.Path:
-    return pathlib.Path(__file__).parent / path
+def main() -> None:
 
-
-async def main():
-
-    sdk = AsyncYCloudML(
+    sdk = YCloudML(
         folder_id="<идентификатор_каталога>",
         auth="<API-ключ>",
     )
+
+    # Так можно посмотреть список всех ранее загруженных датасетов
+    for dataset in sdk.datasets.list():
+        print(f"List of existing datasets {dataset=}")
+
+    # Так можно удалить все ранее загруженные датасеты
+    for dataset in sdk.datasets.list():
+        dataset.delete()
 
     # Создаем датасет для дообучения базовой модели {{ gpt-lite }}
     dataset_draft = sdk.datasets.draft_from_path(
         task_type="TextToTextGeneration",
         path="<путь_к_файлу>",
         upload_format="jsonlines",
-        name="YandexGPT Lite tuning",
+        name="{{ gpt-lite }} tuning",
     )
 
     # Дождемся окончания загрузки данных и создания датасета
-    operation = await dataset_draft.upload_deferred()
-    tuning_dataset = await operation
+    operation = dataset_draft.upload_deferred()
+    tuning_dataset = operation.wait()
     print(f"new {tuning_dataset=}")
 
-    # Так можно посмотреть список всех загруженных датасетов
-    for dataset in sdk.datasets.list():
-        print(f"List of existing datasets {dataset=}")
-
-
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
 ```
 
 Где:

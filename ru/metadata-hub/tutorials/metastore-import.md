@@ -1,4 +1,5 @@
 ---
+canonical: '{{ link-docs }}/tutorials/dataplatform/metastore-import'
 noIndex: true
 ---
 

@@ -13,12 +13,13 @@ print ("Platform application ARN:", response['PlatformApplicationArn'])
 
 Где:
 
-* `Name` — имя канала уведомлений, задается пользователем. Должно быть уникальным в [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud). Может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Допустимая длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name).
+* `Name` — имя канала уведомлений, задается пользователем.
+  
+  {% include [channel-name](../../_includes/notifications/channel-name.md) %}
+
 * `Platform` — тип мобильной платформы:
 
-  * `APNS` и `APNS_SANDBOX` — Apple Push Notification service (APNs). Для тестирования приложения используйте `APNS_SANDBOX`.
-  * `GCM` — Firebase Cloud Messaging (FCM).
-  * `HMS` — Huawei Mobile Services (HMS).
+  {% include [platform-types](../../_includes/notifications/platform-types.md) %}
 
 * `Attributes` — параметры аутентификации на мобильной платформе в формате `"<параметр>": "<значение>"` через запятую. Значения зависят от типа платформы:
 
@@ -48,5 +49,10 @@ print ("Platform application ARN:", response['PlatformApplicationArn'])
 
     * `PlatformPrincipal` — идентификатор ключа.
     * `PlatformCredential` — API-ключ.
+
+  * RuStore:
+  
+    * `PlatformPrincipal` — идентификатор проекта (ProjectID).
+    * `PlatformCredential` — сервисный токен (ServiceToken).
 
 В результате вы получите идентификатор (ARN) канала уведомлений.
