@@ -27,6 +27,7 @@ description: На странице приведен список справоч�
 * [{{ maf-full-name }}](managed-airflow-ref.md)
 * [{{ mkf-full-name }}](managed-kafka-ref.md)
 * [{{ mch-full-name }}](managed-clickhouse-ref.md)
+* [{{ mgl-full-name }}](managed-gitlab-ref.md)
 * [{{ mgp-full-name }}](managed-greenplum-ref.md)
 * [{{ managed-k8s-full-name }}](managed-kubernetes-ref.md)
 * [{{ mmg-full-name }}](managed-mongodb-ref.md)

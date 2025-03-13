@@ -1,6 +1,7 @@
 ---
 title: Как загрузить данные из {{ metrika }} в витрину {{ CH }}
 description: Следуя данному руководству, вы сможете перенести данные из счетчика {{ metrika }} в кластер {{ CH }}.
+canonical: '{{ link-docs }}/tutorials/dataplatform/metrika-to-clickhouse'
 noIndex: true
 ---
 

@@ -1,5 +1,4 @@
-Вы можете аутентифицироваться на мобильной платформе APNs с помощью _токена_ или _сертификата_:
-* Для аутентификации с помощью токена вам понадобятся следующие данные:
+* Для аутентификации с помощью токена понадобятся:
   * **{{ ui-key.yacloud.cns.field_apns-key }}** — файл с ключом подписи, которым будет заверяться токен аутентификации.
       
       Создайте и скачайте ключ подписи в своей учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Keys** → ![image](../../_assets/console-icons/circle-plus-fill.svg). Скачать файл ключа можно только один раз.
@@ -9,7 +8,7 @@
    
    Подробнее о токене см. в [документации Apple](https://developer.apple.com/documentation/usernotifications/establishing-a-token-based-connection-to-apns).
 
-* Для аутентификации с помощью сертификата понадобятся следующие данные:
+* Для аутентификации с помощью сертификата понадобятся:
   * **{{ ui-key.yacloud.cns.field_apns-certificate }}** — файл сертификата SSL в формате `.pem`.
   * **{{ ui-key.yacloud.cns.field_apns-private-key }}** — файл ключа в формате `.pem`. 
 

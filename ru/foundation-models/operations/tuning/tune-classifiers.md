@@ -38,7 +38,11 @@ description: Следуя данной инструкции, вы сможете
      Результат:
 
      ```text
-     new dataset=AsyncDataset(id='fds7a7ieb0dh********', folder_id='b1gt6g8ht345********', name='YandexGPT tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 16, 19, 33), updated_at=datetime.datetime(2025, 1, 20, 16, 20, 19), labels=None, status=<DatasetStatus.READY: 3>, task_type='<тип_классификации>', rows=0, size_bytes=5679)
+     new tuning_dataset=Dataset(id='fds6vl5ttl0n********', folder_id='b1gt6g8ht345********', name='YandexGPT 
+     Lite tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.
+     datetime(2025, 3, 13, 8, 12, 43), updated_at=datetime.datetime(2025, 3, 13, 8, 13, 17), labels=None, 
+     allow_data_logging=False, status=<DatasetStatus.READY: 3>, task_type='TextClassificationMulticlass', 
+     rows=4, size_bytes=5679, validation_errors=())
      ```
 
      Сохраните идентификатор созданного датасета (значение поля `id`) — он понадобится при дообучении модели.
@@ -108,7 +112,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Создайте файл `start-tuning.py` и добавьте в него код:
 
-     {% include [sdk-tuning](../../../_includes/foundation-models/examples/tuning-sdk-cls.md) %}
+     {% include [tuning-sdk-cls](../../../_includes/foundation-models/examples/tuning-sdk-cls.md) %}
 
      Где:
 
@@ -132,9 +136,19 @@ description: Следуя данной инструкции, вы сможете
      Результат:
 
      ```text
-     Resulting TextClassifiersModel(uri=cls://b1gt6g8ht345********/yandexgpt-lite/latest@tamrjs1t1368c********, config=TextClassifiersModelConfig(task_description=None, labels=None, samples=None))
-     classification_result=TextClassifiersModelResult(predictions=(TextClassificationLabel(label='гнев', confidence=0.5534219145774841), TextClassificationLabel(label='грусть', confidence=0.00046947275404818356), TextClassificationLabel(label='радость', confidence=0.12941128015518188), TextClassificationLabel(label='страх', confidence=0.3008902668952942), TextClassificationLabel(label='удивление', confidence=0.015807058662176132)), model_version='')
-     classification_result=TextClassifiersModelResult(predictions=(TextClassificationLabel(label='гнев', confidence=0.5534219145774841), TextClassificationLabel(label='грусть', confidence=0.00046947275404818356), TextClassificationLabel(label='радость', confidence=0.12941128015518188), TextClassificationLabel(label='страх', confidence=0.3008902668952942), TextClassificationLabel(label='удивление', confidence=0.015807058662176132)), model_version='')
+     Resulting TextClassifiersModel(uri=cls://b1gt6g8ht345********/yandexgpt-lite/
+     latest@tamrqj184r59v********, config=TextClassifiersModelConfig(task_description=None, labels=None, 
+     samples=None))
+     classification_result=TextClassifiersModelResult(predictions=(TextClassificationLabel(label='гнев', 
+     confidence=0.0026986361481249332), TextClassificationLabel(label='грусть', confidence=0.
+     0013768149074167013), TextClassificationLabel(label='радость', confidence=0.00017048732843250036), 
+     TextClassificationLabel(label='страх', confidence=0.9950377345085144), TextClassificationLabel
+     (label='удивление', confidence=0.0007163778645917773)), model_version='')
+     classification_result=TextClassifiersModelResult(predictions=(TextClassificationLabel(label='гнев', 
+     confidence=0.00042847482836805284), TextClassificationLabel(label='грусть', confidence=1.
+     9441255062702112e-05), TextClassificationLabel(label='радость', confidence=2.6669084718378144e-07), 
+     TextClassificationLabel(label='страх', confidence=0.999543309211731), TextClassificationLabel
+     (label='удивление', confidence=8.627005627204198e-06)), model_version='')
      ```
 
      Дообучение модели может занять до 1 суток в зависимости от объема датасета и степени загрузки системы.

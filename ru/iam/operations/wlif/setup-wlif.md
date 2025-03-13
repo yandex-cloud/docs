@@ -5,6 +5,8 @@ description: С помощью этой инструкции вы научите
 
 # Настройка федерации сервисных аккаунтов
 
+{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
+
 {% include [move-groups-api](../../../_includes/iam/wlif-instructions-intro.md) %}
 
 Чтобы настроить аутентификацию в API {{ yandex-cloud }} через федерацию сервисных аккаунтов:

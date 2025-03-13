@@ -4,19 +4,19 @@
 
 | Конфигурация   | CPU                                  | Ядра | RAM, ГБ | HDD                  | SSD                   | Сеть, Гбит/с |
 |----------------|--------------------------------------|------|---------|----------------------|-----------------------|--------------|
-| BA-i100-H      | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 32   | 128     | 2&nbsp;×&nbsp;2 ТБ   |                       | 1            |
-| BA-i101-H      | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 32   | 128     | 4&nbsp;×&nbsp;2 ТБ   |                       | 1            |
-| BA-i102-S      | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 32   | 128     |                      | 2&nbsp;×&nbsp;900 ГБ  | 1            |
-| BA-i103-S-10G  | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 32   | 128     |                      | 2&nbsp;×&nbsp;900 ГБ  | 10           |
-| BA-i104-SH     | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 32   | 128     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 1            |
-| BA-i105-SH     | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 32   | 256     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 1            |
-| BA-i106-SH-10G | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 32   | 256     | 2&nbsp;×&nbsp;900 ГБ | 2&nbsp;×&nbsp;900 ГБ  | 10           |
-| BA-i200-H      | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 32   | 128     | 2&nbsp;×&nbsp;2 ТБ   |                       | 1            |
-| BA-i201-H      | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 32   | 128     | 4&nbsp;×&nbsp;2 ТБ   |                       | 1            |
-| BA-i202-S      | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 32   | 128     |                      | 2&nbsp;×&nbsp;900 ГБ  | 1            |
-| BA-i203-S-10G  | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 32   | 128     |                      | 2&nbsp;×&nbsp;900 ГБ  | 10           |
-| BA-i204-SH     | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 32   | 128     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 1            |
-| BA-i205-SH     | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 32   | 256     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 1            |
-| BA-i206-SH-10G | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 32   | 256     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 10           |
+| BA-i100-H      | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 16   | 128     | 2&nbsp;×&nbsp;2 ТБ   |                       | 1            |
+| BA-i101-H      | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 16   | 128     | 4&nbsp;×&nbsp;2 ТБ   |                       | 1            |
+| BA-i102-S      | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 16   | 128     |                      | 2&nbsp;×&nbsp;900 ГБ  | 1            |
+| BA-i103-S-10G  | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 16   | 128     |                      | 2&nbsp;×&nbsp;900 ГБ  | 10           |
+| BA-i104-SH     | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 16   | 128     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 1            |
+| BA-i105-SH     | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 16   | 256     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 1            |
+| BA-i106-SH-10G | Intel® Xeon®<br/>E5-2660 (2,2 ГГц)   | 16   | 256     | 2&nbsp;×&nbsp;900 ГБ | 2&nbsp;×&nbsp;900 ГБ  | 10           |
+| BA-i200-H      | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 16   | 128     | 2&nbsp;×&nbsp;2 ТБ   |                       | 1            |
+| BA-i201-H      | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 16   | 128     | 4&nbsp;×&nbsp;2 ТБ   |                       | 1            |
+| BA-i202-S      | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 16  | 128     |                      | 2&nbsp;×&nbsp;900 ГБ  | 1            |
+| BA-i203-S-10G  | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 16   | 128     |                      | 2&nbsp;×&nbsp;900 ГБ  | 10           |
+| BA-i204-SH     | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 16   | 128     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 1            |
+| BA-i205-SH     | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 16   | 256     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 1            |
+| BA-i206-SH-10G | Intel® Xeon®<br/>E5-2650V2 (2,6 ГГц) | 16   | 256     | 2&nbsp;×&nbsp;2 ТБ   | 2&nbsp;×&nbsp;900 ГБ  | 10           |
 
 Конфигурации, доступные для аренды в каждом пуле, можно посмотреть при заказе сервера в консоли управления.

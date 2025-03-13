@@ -138,7 +138,7 @@ The resources will be stopped, and the folder status will change to `PENDING_DEL
 
 While a folder is `PENDING_DELETION`, your disks, reserved IPs, and other data are still stored and billed. 
 
-While a folder is `PENDING_DELETION`, you are still charged for paid resources if metrics detect their consumption.
+While a folder is `DELETION`, you are still charged for paid resources if metrics detect their consumption.
 
 The cost of such storage is charged at the previous rate. Track your resource costs in [{{ billing-name }}]({{ link-console-billing }}).
 

@@ -50,7 +50,7 @@ items:
         href: security/logging.md
       - name: >-
           Безопасное хранение паролей для {{ GL }} CI в виде секретов {{
-          lockbox-full-name }}
+          lockbox-name }}
         href: security/gitlab-lockbox-integration.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
         items:
@@ -90,7 +90,7 @@ items:
             href: security/search-events-audit-logs/tools.md
           - name: Примеры запросов для поиска событий
             href: security/search-events-audit-logs/examples.md
-          - name: Настройка работы с {{ yq-full-name }}
+          - name: Настройка работы с {{ yq-name }}
             href: security/search-events-audit-logs/query.md
       - name: Добавление HTML-страницы для работы {{ captcha-name }}
         href: security/mobile-app/website.md
@@ -165,7 +165,7 @@ items:
             href: security/wlif-gitlab-integration.md
           - name: '{{ k8s }}'
             href: security/wlif-k8s-integration.md
-      - name: Загрузка аудитных логов в {{ mos-full-name }}
+      - name: Загрузка аудитных логов в {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
   - name: Хранение и восстановление данных
@@ -407,8 +407,8 @@ items:
           - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
             href: infrastructure-management/connect-migration.md
           - name: >-
-              Настройка {{ dns-full-name }} для доступа к кластеру {{
-              mch-full-name }} из других облачных сетей
+              Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
+              других облачных сетей
             href: dataplatform/clickhouse-dns-peering.md
           - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
             href: infrastructure-management/dns-integration.md
@@ -476,7 +476,7 @@ items:
         href: applied/index.md
       - name: Создание сайта
         items:
-          - name: Статический сайт в {{ objstorage-full-name }}
+          - name: Статический сайт в {{ objstorage-name }}
             items:
               - name: Обзор
                 href: web/static/index.md
@@ -550,7 +550,7 @@ items:
             href: web/flask.md
           - name: Хостинг статического сайта на фреймворке Gatsby
             href: web/gatsby-static-website.md
-          - name: Миграция в {{ cdn-full-name }} из стороннего CDN-провайдера
+          - name: Миграция в {{ cdn-name }} из стороннего CDN-провайдера
             href: web/migrate-to-yc-cdn.md
       - name: 1С
         items:
@@ -690,17 +690,15 @@ items:
             href: dataplatform/managed-schema-registry-rest.md
           - name: Использование Confluent Schema Registry с {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
-      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
+      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-name }}
         href: dataplatform/lockbox-and-airflow.md
-      - name: Автоматизация задач {{ yq-full-name }} с помощью {{ maf-full-name }}
+      - name: Автоматизация задач {{ yq-name }} с помощью {{ maf-name }}
         href: dataplatform/airflow-auto-tasks.md
       - name: >-
           Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
           Python SDK
         href: dataplatform/using-python-sdk-in-airflow.md
-      - name: >-
-          Миграция данных в {{ mch-full-name }} при помощи {{
-          data-transfer-full-name }}
+      - name: Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name }}
         href: dataplatform/ch-to-mch-migration.md
       - name: Миграция данных в {{ mch-name }} средствами {{ CH }}
         href: dataplatform/clickhouse-migration.md
@@ -737,21 +735,21 @@ items:
       - name: Перешардирование данных в кластере {{ mch-name }}
         href: dataplatform/mch-mch-resharding.md
       - name: >-
-          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
-          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
-          data-transfer-full-name }}
+          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-name }} с
+          использованием {{ sf-name }}, {{ objstorage-name }} и {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
-          Загрузка данных из {{ objstorage-full-name }} в {{ mch-full-name }} с
-          помощью {{ data-transfer-full-name }}
+          Загрузка данных из {{ objstorage-name }} в {{ mch-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-clickhouse.md
       - name: >-
           Миграция данных со сменой хранилища из {{ mos-name }} в {{ mch-name }}
-          с помощью {{ data-transfer-full-name }}
+          с помощью {{ data-transfer-name }}
         href: dataplatform/opensearch-to-clickhouse.md
       - name: >-
-          Загрузка данных из {{ ydb-full-name }} в {{ mch-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Загрузка данных из {{ ydb-name }} в {{ mch-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/ydb-to-clickhouse.md
       - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
@@ -767,7 +765,7 @@ items:
           Монтирование бакетов {{ objstorage-name }} к файловой системе хостов
           {{ dataproc-name }}
         href: dataplatform/data-processing-init-actions-geesefs.md
-      - name: Работа с топиками {{ KF }} с помощью {{ dataproc-full-name }}
+      - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
         href: dataplatform/data-processing-and-kafka.md
       - name: Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name }}
         href: dataplatform/data-processing-and-airflow.md
@@ -831,10 +829,10 @@ items:
           data-transfer-name }}
         href: dataplatform/rds-to-mpg.md
       - name: >-
-          Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Миграция данных из {{ mmy-name }} в {{ mgp-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/mmy-to-mgp.md
-      - name: Настройка политики индексов в {{ mos-full-name }}
+      - name: Настройка политики индексов в {{ mos-name }}
         href: dataplatform/opensearch-index-policy.md
       - name: Миграция данных из {{ ES }} в {{ mos-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
@@ -847,18 +845,18 @@ items:
           data-transfer-name }}
         href: dataplatform/opensearch-to-object-storage.md
       - name: >-
-          Миграция данных из {{ mos-full-name }} в {{ ydb-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Миграция данных из {{ mos-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/opensearch-to-ydb.md
       - name: >-
-          Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
       - name: >-
-          Аутентификация в {{ OS }} Dashboards кластера {{ mos-full-name }} с
-          помощью {{ keycloak }}
+          Аутентификация в {{ OS }} Dashboards кластера {{ mos-name }} с помощью
+          {{ keycloak }}
         href: dataplatform/opensearch-saml-keycloak.md
-      - name: Использование плагина yandex-lemmer в {{ mos-full-name }}
+      - name: Использование плагина yandex-lemmer в {{ mos-name }}
         href: dataplatform/opensearch-yandex-lemmer.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
@@ -887,8 +885,8 @@ items:
       - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
       - name: >-
-          Перенос данных из {{ objstorage-full-name }} в {{ mpg-full-name }} с
-          использованием {{ data-transfer-full-name }}
+          Перенос данных из {{ objstorage-name }} в {{ mpg-name }} с
+          использованием {{ data-transfer-name }}
         href: dataplatform/object-storage-to-postgresql.md
       - name: Захват изменений {{ PG }} и поставка в {{ DS }}
         href: dataplatform/mpg-to-yds.md
@@ -897,8 +895,8 @@ items:
           data-transfer-name }}
         href: dataplatform/mpg-to-mmy.md
       - name: >-
-          Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
@@ -907,8 +905,8 @@ items:
       - name: Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-name }}
         href: dataplatform/greenplum-yezzey.md
       - name: >-
-          Загрузка данных из {{ objstorage-full-name }} в {{ mgp-full-name }} с
-          помощью {{ data-transfer-full-name }}
+          Загрузка данных из {{ objstorage-name }} в {{ mgp-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-greenplum.md
       - name: Миграция БД из стороннего кластера {{ VLK }} в {{ mrd-name }}
         href: dataplatform/redis-data-migration.md
@@ -935,12 +933,12 @@ items:
         href: dataplatform/mpg-ydb-replication.md
         hidden: true
       - name: >-
-          Загрузка данных из {{ objstorage-full-name }} в {{ ydb-full-name }} с
-          помощью {{ data-transfer-full-name }}
+          Загрузка данных из {{ objstorage-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-ydb.md
       - name: >-
-          Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с
-          помощью {{ data-transfer-full-name }}
+          Загрузка данных из {{ ydb-name }} в {{ objstorage-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/ydb-to-object-storage.md
       - name: Обработка аудитных логов {{ at-name }}
         href: dataplatform/audit-log-processing.md
@@ -962,6 +960,22 @@ items:
           Миграция данных в {{ objstorage-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/yds-obj-migration.md
+      - name: >-
+          Миграция данных из стороннего кластера {{ GP }} или {{ PG }} в {{
+          mgp-name }} с помощью {{ data-transfer-name }}
+        href: dataplatform/managed-greenplum.md
+      - name: Миграция кластера {{ mmg-name }}
+        href: dataplatform/managed-mongodb.md
+      - name: Миграция кластера {{ MY }}
+        href: dataplatform/managed-mysql.md
+      - name: Миграция на сторонний кластер {{ MY }}
+        href: dataplatform/managed-mysql-to-mysql.md
+      - name: Миграция кластера {{ PG }}
+        href: dataplatform/managed-postgresql.md
+      - name: >-
+          Создание реестра схем для поставки данных в формате Debezium CDC из {{
+          KF }}
+        href: dataplatform/schema-registry-cdc-debezium-kafka.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
@@ -1055,13 +1069,13 @@ items:
         href: datalens/index.md
       - name: Аналитика
         items:
-          - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+          - name: Поиск событий {{ yandex-cloud }} в {{ yq-name }}
             href: analysis/search-events-query.md
           - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
             href: analysis/search-events-bucket.md
           - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
             href: analysis/search-events-logging.md
-      - name: '{{ datalens-full-name }}'
+      - name: '{{ datalens-name }}'
         items:
           - name: Знакомство с {{ datalens-short-name }}
             items:
@@ -1095,7 +1109,7 @@ items:
                 href: datalens/data-from-appmetrica-yc-visualization.md
               - name: 'Битрикс24: прямое подключение'
                 href: datalens/data-from-bitrix24-visualization.md
-              - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
+              - name: '{{ tracker-name }}: экспорт и визуализация данных'
                 href: datalens/data-from-tracker.md
               - name: >-
                   Анализ логов {{ objstorage-name }} при помощи {{ datalens-name
@@ -1103,9 +1117,9 @@ items:
                 href: datalens/storage-logs-analysis.md
               - name: 'Подкасты Яндекс Музыки: статистика'
                 href: datalens/data-from-podcasts.md
-              - name: Визуализация данных {{ yq-full-name }}
+              - name: Визуализация данных {{ yq-name }}
                 href: datalens/data-from-yandex-query-visualization.md
-              - name: Визуализация данных {{ monitoring-full-name }}
+              - name: Визуализация данных {{ monitoring-name }}
                 href: datalens/data-from-monitoring-visualization.md
               - name: Визуализация данных из {{ ytsaurus-name }} CHYT
                 href: datalens/data-from-ch-over-yt.md
@@ -1157,17 +1171,15 @@ items:
         href: serverless/serverless-live-debug.md
       - name: Создание функции Node.js с помощью TypeScript
         href: serverless/nodejs-typescript.md
-      - name: >-
-          Запуск контейнерного приложения в {{ serverless-containers-full-name
-          }}
+      - name: Запуск контейнерного приложения в {{ serverless-containers-name }}
         href: serverless/deploy-app-container.md
       - name: >-
-          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
-          анализ с помощью {{ datalens-full-name }}
+          Передача событий {{ postbox-name }} в {{ yds-name }} и их анализ с
+          помощью {{ datalens-name }}
         href: serverless/events-from-postbox-to-yds.md
       - name: >-
-          Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
-          speechkit-full-name }}
+          Использование {{ api-gw-name }} для настройки синтеза речи в {{
+          speechkit-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
       - name: Подключение к {{ ydb-short-name }} из функции {{ sf-name }} на Python
         href: serverless/connect-from-cf.md
@@ -1178,20 +1190,18 @@ items:
       - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
         href: serverless/api-gw-sws-integration.md
       - name: >-
-          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-full-name
-          }} и аутентификацией в Firebase
+          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
+          аутентификацией в Firebase
         href: serverless/jwt-authorizer-firebase.md
       - name: >-
           Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью
           {{ sw-full-name }}
         href: serverless/auto-upload.md
-      - name: >-
-          Настройка реагирования в {{ cloud-logging-full-name }} и {{
-          sf-full-name }}
+      - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-full-name }}
         href: serverless/logging-functions.md
       - name: >-
-          Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
-          foundation-models-full-name }} и {{ postbox-full-name }}
+          Настройка интеграций {{ sw-name }} с {{ tracker-name }}, {{ yagpt-name
+          }} и {{ postbox-name }}
         href: serverless/tracker-yandexgpt-postbox-integrations.md
       - name: >-
           Разработка функций в Functions Framework и их развертывание в {{

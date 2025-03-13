@@ -251,6 +251,8 @@ items:
         href: metrics-ref/managed-clickhouse-ref.md
       - name: '{{ mgp-name }}'
         href: metrics-ref/managed-greenplum-ref.md
+      - name: '{{ mgl-name }}'
+        href: metrics-ref/managed-gitlab-ref.md
       - name: '{{ managed-k8s-name }}'
         href: metrics-ref/managed-kubernetes-ref.md
       - name: '{{ mmg-name }}'

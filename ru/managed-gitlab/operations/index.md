@@ -17,4 +17,5 @@ description: На странице представлен список поша�
 * [{#T}](instance/instance-delete.md)
 * [{#T}](create-user.md)
 * [{#T}](approval-rules.md)
+* [{#T}](instance/monitoring.md)
 * [{#T}](omniauth.md)
