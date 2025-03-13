@@ -81,6 +81,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](projects/work-with-jobs.md)
 * [{#T}](projects/jobs-toolkit.md)
 * [{#T}](projects/use-job-results.md)
+* [{#T}](projects/jobs-with-ssa.md)
 
 ## Совместный доступ к ресурсам, проектам и результатам вычислений {#share}
 

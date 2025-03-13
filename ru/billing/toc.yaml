@@ -142,6 +142,8 @@ items:
         href: payment/currency.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: >-
           Создание триггера для бюджетов, который вызывает функцию для остановки
           ВМ

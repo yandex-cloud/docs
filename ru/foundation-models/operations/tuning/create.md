@@ -38,7 +38,11 @@ description: Следуя данной инструкции, вы сможете
      Результат:
 
      ```text
-     new dataset=AsyncDataset(id='fdsfehj6grsu********', folder_id='b1gt6g8ht345********', name='YandexGPT Lite tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', created_at=datetime.datetime(2025, 1, 20, 11, 38, 19), updated_at=datetime.datetime(2025, 1, 20, 11, 39, 4), labels=None, status=<DatasetStatus.READY: 3>, task_type='TextToTextGeneration', rows=0, size_bytes=3514)
+     new tuning_dataset=Dataset(id='fdsv21bmp09v********', folder_id='b1gt6g8ht345********', name=
+     'YandexGPT Lite tuning', description=None, metadata=None, created_by='ajegtlf2q28a********', 
+     created_at=datetime.datetime(2025, 3, 12, 19, 31, 44), updated_at=datetime.datetime(2025, 3, 
+     12, 19, 32, 20), labels=None, allow_data_logging=False, status=<DatasetStatus.READY: 3>, 
+     task_type='TextToTextGeneration', rows=3, size_bytes=3514, validation_errors=())
      ```
 
      Сохраните идентификатор созданного датасета (значение поля `id`) — он понадобится при дообучении модели.
@@ -123,8 +127,14 @@ description: Следуя данной инструкции, вы сможете
      Результат:
 
      ```text
-     Resulting GPTModelResult(alternatives=(Alternative(role='assistant', text='Меня зовут Женя. Полностью - Евгений Нейроныч.', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=14, completion_tokens=11, total_tokens=25), model_version='23.10.2024') 
-     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Из Перми', status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=13, completion_tokens=2, total_tokens=15), model_version='23.10.2024') 
+     Resulting GPTModel(uri=gpt://b1gt6g8ht345********/yandexgpt-lite/latest@tamrmgia22979********, 
+     config=GPTModelConfig(temperature=None, max_tokens=None, reasoning_mode=None, response_format=None))
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Привет! Как дела?', 
+     status=<AlternativeStatus.FINAL: 3>),), usage=Usage(input_text_tokens=12, completion_tokens=5, 
+     total_tokens=17), model_version='23.10.2024')
+     completion_result=GPTModelResult(alternatives=(Alternative(role='assistant', text='Здравствуйте! У меня 
+     всё хорошо, спасибо. Как ваши дела?', status=<AlternativeStatus.FINAL: 3>),), usage=Usage
+     (input_text_tokens=13, completion_tokens=13, total_tokens=26), model_version='23.10.2024')
      ```
 
      Дообучение модели может занять до 1 суток в зависимости от объема датасета и загрузки системы.

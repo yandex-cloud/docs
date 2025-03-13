@@ -158,6 +158,8 @@ items:
         href: tutorials/data-from-appmetrica-visualization.md
       - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
         href: tutorials/data-from-appmetrica-yc-visualization.md
+      - name: Загрузка данных из {{ metrika }} в витрину {{ CH }}
+        href: tutorials/metrika-to-clickhouse.md
       - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
         href: tutorials/data-from-tracker.md
       - name: Дашборд сети магазинов из БД {{ CH }}

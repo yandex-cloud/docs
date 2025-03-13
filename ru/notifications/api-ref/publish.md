@@ -44,6 +44,12 @@ AWS.SNS.MOBILE.APNS.TOPIC | Тема уведомления. Подробнее 
 --- | ---
 AWS.SNS.MOBILE.FCM.TTL | Время жизни сообщения в секундах.
 
+#### Атрибуты RUSTORE {#attributes-rustore}
+
+Атрибут | Описание
+--- | ---
+CNS.MOBILE.RUSTORE.TTL | Время жизни сообщения в секундах.
+
 ## Ответ {#response}
 
 ### Успешный ответ {#response-200}

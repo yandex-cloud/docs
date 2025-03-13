@@ -27,6 +27,7 @@
 
 Пререквизиты и инструкция по установке AWS SDK для Kotlin описаны в [документации AWS](https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/setup-basic-onetime-setup.html#setup-overview).
 
+Для работы с уведомлениями RuStore Android познакомьтесь с [документацией RuStore SDK](https://www.rustore.ru/help/sdk/push-notifications/kotlin-java/6-5-0).
 
 ### Подготовьте ОС к работе {#prepare-os}
 
@@ -169,7 +170,10 @@
 
     Где:
 
-    * `name` — имя канала уведомлений, задается пользователем. Должно быть уникальным в [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud). Может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Допустимая длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name).
+    * `name` — имя канала уведомлений, задается пользователем.
+
+        {% include [channel-name](../../_includes/notifications/channel-name.md) %}
+
     * `platform` — тип мобильной платформы:
 
         {% include [platform-types](../../_includes/notifications/platform-types.md) %}

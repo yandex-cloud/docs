@@ -2,6 +2,6 @@
 
 1. Перейдите в раздел [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}).
 1. Нажмите на нужный платежный аккаунт.
-1. Выберите раздел **{{ ui-key.yacloud_billing.billing.account.switch_offers }}** в меню слева.
+1. Выберите раздел ![image](../../_assets/console-icons/lock.svg) **{{ ui-key.yacloud_billing.billing.account.switch_offers }}** в меню слева.
 
 Механизм CVoS гарантирует скидку на потребление, но не гарантирует наличие заказанного объема ресурсов.  Подробнее о механизме работы CVoS читайте в [документации сервиса {{ billing-name }}](../../billing/concepts/cvos.md). 

@@ -9,9 +9,23 @@ items:
         href: operations/index.md
       - name: Создание трейла
         href: operations/create-trail.md
+      - name: Управление правами доступа к трейлу
+        items:
+          - name: Посмотреть роли, назначенные на трейл
+            href: operations/role-list.md
+          - name: Назначить роли на трейл
+            href: operations/role-add.md
+          - name: Отозвать роли, назначенные на трейл
+            href: operations/role-revoke.md
       - name: Обработка ошибок
         href: operations/error.md
-      - name: Просмотр операций с трейлом
+      - name: Получение информации о трейле
+        items:
+          - name: Получить список трейлов
+            href: operations/get-list.md
+          - name: Получить информацию о трейле
+            href: operations/get-info.md
+      - name: Просмотр операций с ресурсами сервиса
         href: operations/operation-logs.md
   - name: Практические руководства
     items:

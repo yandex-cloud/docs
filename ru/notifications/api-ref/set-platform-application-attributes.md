@@ -48,6 +48,13 @@ POST https://{{ cns-host }}/
 `PlatformPrincipal` | **string**<br/>Идентификатор ключа.
 `PlatformCredential` | **string**<br/>API-ключ.
 
+#### Атрибуты RUSTORE {#attributes-rustore}
+
+Атрибут | Описание
+--- | ---
+`PlatformPrincipal` | **string**<br/>Идентификатор проекта.
+`PlatformCredential` | **string**<br/>Сервисный токен.
+
 Подробнее об атрибутах для аутентификации см. в подразделе [Каналы мобильных Push-уведомлений](../concepts/push.md).
 
 ## Ответ {#response}

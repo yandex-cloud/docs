@@ -31,6 +31,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](data-from-metrica-yc-visualization.md)
 * [{#T}](data-from-appmetrica-visualization.md)
 * [{#T}](data-from-appmetrica-yc-visualization.md)
+* [{#T}](metrika-to-clickhouse.md)
 * [{#T}](data-from-tracker.md)
 * [{#T}](data-from-ch-visualization.md)
 * [{#T}](data-from-ch-to-geolayers-visualization.md)

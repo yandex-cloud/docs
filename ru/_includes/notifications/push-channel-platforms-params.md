@@ -15,3 +15,7 @@
 **{{ ui-key.yacloud.cns.select_hms-title }}**
 
 {% include [auth-hms](auth-hms.md) %}
+
+**{{ ui-key.yacloud.cns.select_ru-store-title }}**
+
+{% include [auth-rustore](auth-rustore.md) %}

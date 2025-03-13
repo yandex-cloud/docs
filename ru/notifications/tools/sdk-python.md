@@ -110,6 +110,26 @@ for app in response["PlatformApplications"]:
   print ("Message id:", response["MessageId"])
   ```
 
+- RuStore Android
+
+  ```python
+  response = client.publish(
+      TargetArn="<идентификатор_эндпоинта>",
+      Message=json.dumps({
+          "default": "<текст_уведомления_по_умолчанию>",
+          "RUSTORE": json.dumps({
+              "notification": {
+                  "title": "<заголовок уведомления>",
+                  "body": "<текст_уведомления>",
+              }
+          })
+      }),
+      MessageStructure="json"
+  )
+  message_id = response["MessageId"]
+  print(f"Message id is: {message_id}")
+  ```
+
 {% endlist %}
 
 Где:

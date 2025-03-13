@@ -16,8 +16,7 @@ description: 'С помощью {{ cns-name }} вы можете отправл�
 * [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
 * [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
 * [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
-
-Позднее также будет реализована отправка push-уведомлений через платформу [RuStore](https://www.rustore.ru/help/sdk/push-notifications).
+* [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
 
 Чтобы начать работу с push-уведомлениями:
 1. [Подготовьте облако к работе](#before-you-begin).

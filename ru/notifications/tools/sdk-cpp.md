@@ -227,7 +227,10 @@ try {
 
 Где:
 
-* `SetName` — имя канала уведомлений, задается пользователем. Должно быть уникальным в [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud). Может содержать строчные и заглавные буквы латинского алфавита, цифры, подчеркивания, дефисы и точки. Допустимая длина — от 1 до 256 символов. Рекомендуется для каналов APNs указывать в имени идентификатор приложения (Bundle ID), для FCM и HMS — полное название пакета приложения (Package name).
+* `SetName` — имя канала уведомлений, задается пользователем.
+
+    {% include [channel-name](../../_includes/notifications/channel-name.md) %}
+
 * `SetPlatform` — тип мобильной платформы:
 
     {% include [platform-types](../../_includes/notifications/platform-types.md) %}

@@ -80,7 +80,7 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: '{{ metastore-full-name }}'
+      - name: '{{ metastore-name }}'
         items:
           - name: >-
               Совместная работа с таблицами {{ dataproc-name }} с использованием
@@ -90,9 +90,9 @@ items:
               Перенос метаданных между кластерами {{ dataproc-name }} с помощью
               {{ metastore-name }}
             href: tutorials/metastore-import.md
-      - name: '{{ schema-registry-full-name }}'
+      - name: '{{ schema-registry-name }}'
         items:
-          - name: Использование {{ schema-registry-name }} с {{ mkf-full-name }}
+          - name: Использование {{ schema-registry-name }} с {{ mkf-name }}
             href: tutorials/managed-schema-registry.md
           - name: Поставка данных в формате Debezium CDC из {{ KF }}
             href: tutorials/schema-registry-cdc-debezium-kafka.md

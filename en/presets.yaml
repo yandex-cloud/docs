@@ -6346,6 +6346,7 @@ default:
         label_resource-type: Resource
         label_service-account: Service account
         label_stream-name: Data stream
+        label_trail: Trail
         label_trails: Trails
         title_kms-key: Encryption key
       backup:
@@ -6668,6 +6669,8 @@ default:
         field_hms-client-secret: API key
         field_log-group: Log group
         field_logging-folder: Folder
+        field_rustore-project-id: Project ID
+        field_rustore-service-token: Service token
         field_token: Device token
         label_editor-json: JSON
         label_editor-text: Text
@@ -6678,6 +6681,7 @@ default:
         select_apns-title: Apple iOS
         select_gcm-title: Google Android
         select_hms-title: Huawei Android
+        select_ru-store-title: RuStore Android
         sender_sms-common: Common sender
         sender_sms-individual: Individual sender
         switch_gcm-api-legacy: Legacy
@@ -7334,6 +7338,7 @@ default:
         label_additional-section: Advanced settings
         label_admin-section: Administrator data
         label_configuration-section: Configuration
+        label_instances-title: Instances list
         switch_instances: Instances
         title_backups: Backups
         title_migration: Migration

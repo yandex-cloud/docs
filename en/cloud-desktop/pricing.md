@@ -8,12 +8,6 @@ editable: false
 
 
 
-{% note warning %}
-
-The prices will take effect on February 25, 2025.
-
-{% endnote %}
-
 ## What goes into the cost of using {{ cloud-desktop-name }} {#rules}
 
 The {{ cloud-desktop-name }} usage cost is based on:

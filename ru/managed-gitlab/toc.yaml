@@ -31,6 +31,8 @@ items:
         href: operations/create-user.md
       - name: Настройка правил ревью кода
         href: operations/approval-rules.md
+      - name: Мониторинг состояния инстанса
+        href: operations/instance/monitoring.md
       - name: Настройка OmniAuth
         href: operations/omniauth.md
   - name: Практические руководства
@@ -83,6 +85,8 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений
