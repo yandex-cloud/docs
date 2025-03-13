@@ -15,9 +15,9 @@ links:
   - title: Соответствие требованиям
     description: ''
     href: conform
-  - title: Чеклист по безопасности облака
+  - title: Чеклисты безопасности облака
     description: ''
-    href: domains/checklist
+    href: domains/
   - title: Безопасность Kubernetes
     description: ''
     href: domains/kubernetes
