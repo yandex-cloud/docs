@@ -95,7 +95,7 @@ items:
         href: tutorials/cloud-logging.md
       - name: Обработка потока изменений Debezium
         href: tutorials/debezium.md
-      - name: Визуализация данных из {{ datalens-name }} в {{ objstorage-name }}
+      - name: Визуализация данных из {{ objstorage-name }} в {{ datalens-name }}
         href: tutorials/datalens.md
       - name: Обработка аудитных логов {{ at-name }}
         href: tutorials/audit-trails.md
