@@ -1,10 +1,10 @@
 # {{ coi }}
 
-_{{ coi }}_ is a VM [image](../../compute/concepts/image.md) optimized for running Docker containers. The image includes: Ubuntu LTS, Docker, and a daemon for launching Docker containers.
+A _{{ coi }}_ is a VM [image](../../compute/concepts/image.md) optimized for running Docker containers. The image includes: Ubuntu LTS, Docker, and a daemon for running Docker containers.
 
-It is integrated with the {{ yandex-cloud }} platform, which allows you to:
-* Run a Docker container immediately after the VM is created from the management console or YC CLI.
+The image is integrated with {{ yandex-cloud }}, enabling you to:
+* Run a Docker container immediately after you have created the VM from the management console or YC CLI.
 * Update running Docker containers with minimum downtime.
-* Access Docker container open network ports without any additional settings.
+* Access the open network ports of a Docker container without any additional settings.
 
-Learn more about working with a {{ coi }} in [{#T}](../tutorials/vm-create.md).
+To learn more about working with a {{ coi }}, see [{#T}](../tutorials/vm-create.md).

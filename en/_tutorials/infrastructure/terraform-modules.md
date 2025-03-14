@@ -1,7 +1,7 @@
 # Using {{ yandex-cloud }} modules in {{ TF }}
 
 
-{{ yandex-cloud }} provides a ![](../../_assets/overview/solution-library-icon.svg)[set of modules for Terraform](https://github.com/terraform-yc-modules). {{ TF }} modules combine a number of cloud resources that should work together. Modules simplify the cloud infrastructure configuration, make it easier to reuse its blocks, and allow you to specify any parameters required for creating resources in variables.
+{{ yandex-cloud }} provides a ![](../../_assets/overview/solution-library-icon.svg)[set of modules for Terraform](https://github.com/terraform-yc-modules). {{ TF }} modules combine a number of cloud resources that should work together. Modules simplify the cloud infrastructure configuration, make it easier to reuse its blocks, and allow you to specify any parameters required for creating resources in variables. 
 
 This page explains how to enable the modules and use them to create a test infrastructure with a [cloud network](../../vpc/concepts/network.md#network), three [{{ vpc-full-name }}](../../vpc/) [subnets](../../vpc/concepts/network.md#subnet), and a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 

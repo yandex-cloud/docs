@@ -24,7 +24,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 	To reserve a protected static IP address:
 
 	1. In the [management console]({{ link-console-main }}), go to the folder where you need to reserve an address.
-	1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+	1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 	1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
 	1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
 	1. Select the availability zone where you want to reserve the address.
@@ -49,7 +49,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
      }
      ```
 
-     Where the `ddos_protection_provider` parameter enables DDoS protection. Possible values: `qrator`.
+     Where the `ddos_protection_provider` parameter enables DDoS protection. The possible value is `qrator`.
 
      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_address).
 
@@ -71,7 +71,7 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 

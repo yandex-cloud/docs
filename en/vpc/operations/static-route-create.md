@@ -1,13 +1,13 @@
 ---
 title: How to create a {{ vpc-short-name }} static route
-description: The default static route (0.0.0.0/0) is used for VMs with public IPs. If you need to create a NAT instance, create it in a separate subnet. To create a route table and add static routes to it, open the {{ vpc-name }} section in the folder you need to create a static route in. Select the network to create the route table in. Click Create route table.
+description: VMs with public IP addresses use the default static route (0.0.0.0/0). If you need to create a NAT instance, create it in a separate subnet. To create a route table and add static routes to it, open the {{ vpc-name }} section in the folder where you need to create a static route. Select the network to create the route table in. Click **Create route table**.
 ---
 
-# Creating static routes
+# Creating a static route
 
 {% note info %}
 
-The `0.0.0.0/0` default static route is used for VMs with public IP addresses. If you need to [create a NAT instance](../../tutorials/routing/nat-instance/index.md), create it in a separate subnet.
+VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you need to [create a NAT instance](../../tutorials/routing/nat-instance/index.md), create it in a separate subnet.
 
 {% endnote %}
 
@@ -15,9 +15,9 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
 
 - Management console {#console}
 
-  To create a route table and add [static routes](../concepts/routing.md):
+  To create a route table and add [static routes](../concepts/routing.md) to it:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder you need to create a static route in.
+  1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a static route.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -28,22 +28,22 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
   1. (Optional) Add a description of a route table.
   1. Select the network to create the route table in.
   1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
-  1. In the window that opens, enter the prefix of the destination subnet in CIDR notation.
+  1. In the window that opens, enter the destination subnet prefix in CIDR notation.
   1. Specify the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}**, which is an IP address from the [allowed ranges](../concepts/network.md#subnet).
   1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
   1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
-  To use static routes, link the route table to a subnet:
+  To use static routes, associate the route table with a subnet:
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. In the row with the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
+  1. In the row of the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. In the window that opens, select the created table from the list.
   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI {#cli}
 
-  To create a route table and add [static routes](../concepts/routing.md):
+  To create a route table and add [static routes](../concepts/routing.md) to it:
 
   1. View the description of the CLI command for creating route tables:
 
@@ -80,7 +80,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
       Where:
 
       * `--name`: Name of the route table.
-      * `--network-id`: ID of the network the table will be created in.
+      * `--network-id`: ID of the network where the table will be created.
       * `--route`: Route settings, which include these two parameters:
 
           * `destination`: Destination subnet prefix in CIDR notation, e.g., `0.0.0.0/0`.
@@ -100,7 +100,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
         next_hop_address: 192.168.1.5
       ```
 
-  To use static routes, link the route table to a subnet:
+  To use static routes, associate the route table with a subnet:
 
   1. Get a list of subnets in your cloud:
 
@@ -118,7 +118,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
       ```
 
-  1. Link the route table to one of the subnets:
+  1. Associate the route table with one of the subnets:
 
       ```bash
       yc vpc subnet update <subnet_ID> \
@@ -146,15 +146,15 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To create a route table and add [static routes](../concepts/routing.md):
+  To create a route table and add [static routes](../concepts/routing.md) to it:
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
-     * `name`: Name of the route table. The name should match the following format:
+     * `name`: Name of the route table. The name format is as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `network_id`: ID of the network the table will be created in.
+     * `network_id`: ID of the network where the table will be created.
      * `static_route`: Static route description:
 
         * `destination_prefix`: Destination subnet prefix in CIDR notation.
@@ -186,7 +186,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -219,7 +219,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
   To create a route table and add [static routes](../concepts/routing.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request:
 
   * ID of the folder the route table will reside in, in the `folderId` parameter.
-  * Route table name in the `name` parameter. The name should match the following format:
+  * Route table name in the `name` parameter. The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -227,7 +227,7 @@ The `0.0.0.0/0` default static route is used for VMs with public IP addresses. I
   * Destination subnet prefix in CIDR notation in the `staticRoutes[].destinationPrefix` parameter.
   * Internal IP address of the VM the traffic will be routed through in the `staticRoutes[].nextHopAddress` parameter. The IP address must be within the [allowed range](../concepts/network.md#subnet).
 
-  To use static routes, link the route table to a subnet. Use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call and provide the following in the request:
+  To use static routes, associate the route table with a subnet. Use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call and provide the following in the request:
 
   * Subnet ID in the `subnetId` parameter.
 
@@ -266,7 +266,7 @@ Create a route table and associate it with your subnet. The example uses the fol
         --route destination=0.0.0.0/0,next-hop=192.168.1.5
       ```
 
-  1. Associate the route table with you subnet:
+  1. Associate the route table with your subnet:
 
       ```bash
       yc vpc subnet update b0cf2b0u7nhl******** \
@@ -292,7 +292,7 @@ Create a route table and associate it with your subnet. The example uses the fol
         network_id     = "enp846vf5fus********"
         zone           = {{ region-id }}-a
         v4_cidr_blocks = ["10.2.0.0/16"]
-        # Associating the route table with the subnet 
+        # Associating the route table with the subnet
         route_table_id = yandex_vpc_route_table.test_route_table.id
       }
       ```

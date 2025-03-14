@@ -16,10 +16,10 @@ links:
     description: Create your first Container Optimized Image VM
     href: quickstart
   - title: Concepts
-    description: Learn more about Container Optimized Image
+    description: Learn more about the Container Optimized Image
     href: concepts/
   - title: Tutorials
-    description: Tutorials on using Container Optimized Image
+    description: How to work with the Container Optimized Image
     href: tutorials/
   - title: Quotas and limits
     description: Technical and management-related limitations

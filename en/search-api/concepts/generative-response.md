@@ -9,7 +9,13 @@ You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](.
 
 {% include [note-preview-by-request](../../_includes/note-preview.md) %}
 
-Currently, you can get a generative response only to queries submitted via the [API v1](./index.md#api-v1).
+{% note warning %}
+
+Until April 1, 2025, you can get a generative response only to queries submitted via the [API v1](./index.md#api-v1).
+
+From April 1, 2025, the generative response functionality will be available only in the [API v2](./index.md#api-v2) interface. For more information about the cost of getting generative responses, see [{#T}](../pricing.md)
+
+{% endnote %}
 
 ## Search query {#request}
 

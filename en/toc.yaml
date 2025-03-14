@@ -1,6 +1,7 @@
 title: '{{ yandex-cloud }} documentation'
-href: index.yaml
 items:
+  - name: All sections
+    href: index.yaml
   - name: '{{ yandex-cloud }} API'
     href: api-design-guide/index.yaml
   - name: API Gateway

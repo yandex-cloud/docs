@@ -47,8 +47,6 @@ items:
                 href: concepts/get-request.md
               - name: POST requests
                 href: concepts/post-request.md
-              - name: Generative response
-                href: concepts/generative-response.md
           - name: Searching by images
             items:
               - name: GET requests
@@ -63,6 +61,8 @@ items:
         href: concepts/response.md
       - name: HTML response
         href: concepts/html-response.md
+      - name: Generative response
+        href: concepts/generative-response.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

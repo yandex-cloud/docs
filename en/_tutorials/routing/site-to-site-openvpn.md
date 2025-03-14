@@ -1,4 +1,4 @@
-# Creating a tunnel between two subnets using OpenVPN Access Server
+# Creating a tunnel between two subnets with OpenVPN Access Server
 
 When you use the computing resources of a public cloud, you often need a secure connection between two networks, e.g., your office network and a {{ yandex-cloud }} test farm. The best way to handle this is using a VPN, which allows you to:
 
@@ -19,7 +19,7 @@ To create a tunnel between two subnets:
 1. [Create the VMs you want to connect](#create-target-vm).
 1. [Create a gateway VM](#create-vm-gateway).
 1. [Set up a VPN server](#create-vpn-server).
-1. [Configure network traffic permissions](#network-settings).
+1. [Configure network traffic rules](#network-settings).
 1. [Get the administrator password](#get-admin-password).
 1. [Create an OpenVPN remote user account](#configure-openvpn).
 1. [Configure the OpenVPN gateway on the second subnet](#configure-second-end-of-the-tunnel).
@@ -41,7 +41,7 @@ The cost of the OpenVPN infrastructure support includes:
 
 ## Create a network and subnets {#create-environment}
 
-To connect cloud resources to the internet, make sure you have a [network](../../vpc/concepts/network.md) and [subnets](../../vpc/concepts/network.md#subnet).
+To connect cloud resources to the internet, make sure you have a [network](../../vpc/concepts/network.md) with [subnets](../../vpc/concepts/network.md#subnet).
 
 ### Create a network {#create-network}
 
@@ -68,7 +68,7 @@ To connect cloud resources to the internet, make sure you have a [network](../..
   1. Click **Add subnet**.
   1. Specify the subnet name, e.g., `ovpn-left`.
   1. Select an [availability zone](../../overview/concepts/geo-scope.md) from the drop-down list.
-  1. Enter the subnet CIDR: `10.128.0.0/24`.
+  1. Specify the subnet CIDR: `10.128.0.0/24`.
   1. Click **Create subnet**.
   1. Repeat steps 2 to 6 to create the second subnet. Name it `ovpn-right` and specify its CIDR: `10.253.11.0/24`.
 
@@ -94,7 +94,7 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify a username: `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username: `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `ao-openvpn-test`.
@@ -124,7 +124,7 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify a username: `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username: `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vm-ovpn-gw`.
@@ -142,7 +142,7 @@ Create a VM to run the VPN server:
 
   1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, specify `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where the `ovpn-left` subnet resides.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for the `ovpn-left` subnet.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
@@ -164,7 +164,7 @@ Create a VM to run the VPN server:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify a username: `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username: `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn-server`.
@@ -339,7 +339,7 @@ sudo ip route add 10.128.0.0./24 via 10.253.11.19
 
 Adding a static route on the test VM in {{ yandex-cloud }} will not work. In {{ yandex-cloud }}, you should specify VM static routes [differently](../../vpc/concepts/routing.md).
 
-In {{ yandex-cloud }}, the `ao-openvpn-as` OpenVPN server VM and `ao-openvpn-test` VM reside in the same `default` subnet. In the settings of this subnet, add a static route with the following parameters:
+In {{ yandex-cloud }}, the `ao-openvpn-as` OpenVPN server VM and `ao-openvpn-test` VM reside in the same `default` subnet. In the settings of this subnet, add a static route with the following settings:
     
 ```
 Name: office-net

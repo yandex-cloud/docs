@@ -1,3 +1,3 @@
 | Service | Cost, <br>without VAT |
 | ----- | ----- |
-| 1 request for {{ yandexart-name }} image generation  | $0.0176 |
+| 1 request for {{ yandexart-name }} image generation  | {{ sku|USD|foundation_models.image_generation.v1|string }} |

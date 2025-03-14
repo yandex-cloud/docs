@@ -1,17 +1,17 @@
-# Setting up networking between resources in different folders
+# Connecting resources from different folders
 
 
-In {{ yandex-cloud }}, network resources, such as cloud network and subnets, are usually created in a single resource cloud folder that is not linked to resources in other cloud folders. When deploying resources in {{ yandex-cloud }}, it is often necessary to ensure networking between resources residing in different folders. One of the ways to do that is using the `Multi-folder VPC` method that extends the scope of an individual {{ vpc-short-name }} network to multiple rather than one folder.
+In {{ yandex-cloud }}, you create network resources, e.g., cloud networks and subnets, in separate folders disconnected from each other and you often need to connect them. You can do it using the `Multi-folder VPC` method extending the scope of a {{ vpc-short-name }} network to multiple folders.
 
-Depending on the selected {{ yandex-cloud }} management interface, a network's scope is extended to other folders by:
+Depending on the selected {{ yandex-cloud }} tools, you can extend your network scope to other folders by:
 
-* Moving subnets to other cloud folders using the `management console (UI)` and `YC CLI`.
-* Creating subnets in target folders using `YC CLI`.
-* Creating subnets in target folders using `Terraform`.
+* Moving subnets to other folders using the `management console (UI)` and `YC CLI`.
+* Creating subnets in target folders with `YC CLI`.
+* Creating subnets in target folders with `Terraform`.
 
-After that, you can connect VMs, {{ managed-k8s-name }} clusters, database hosts, load balancers, load testing agents, and other resources residing in these folders, to the subnets hosted in target folders. As a result, your network will ensure connectivity between resources in different folders.
+Once you placed a subnet into the target folder, you can connect other folder resources to it, including VMs, {{ managed-k8s-name }} clusters, database hosts, load balancers, load testing agents, etc. As a result, you will have a network connecting resources from different folders.
 
-This guide provides an example of how to create an infrastructure consisting of three VM instances, each residing in a different folder. These instances are connected via a shared internal network. Network connectivity between cloud resources hosted in different folders is established by creating a cloud network in one of these folders and then extending its scope to other folders. This way, a single-folder network is extended to multiple folders, which allows connecting required resources to `extended subnets` residing in these folders.
+In this tutorial, we will set up three VMs residing in different folders and connected by a shared network. We will create a cloud network in one of these folders and then extend its scope to other folders, thus connecting the resources located there.
 
 {% note warning %}
 
@@ -19,26 +19,26 @@ You can only move subnets between folders within a single cloud.
 
 {% endnote %}
 
-For example, the development environment includes the CI/CD module whose components are hosted in the `net-folder`. This module should enable networking between the **dev**, **stage**, and **prod** components residing in their folders.
+In our example, we have a dev environment, including the CI/CD module with its components located in the `net-folder`. These components should be able to connect to other components located in **dev**, **stage**, and **prod** folders.
 
-This solution pattern is shown below.
+You can see this configuration in the picture below.
 
 ![Multi-folder VPC](../../_assets/tutorials/infrastructure-management/multi-folder-vpc/multi-folder-vpc.svg)
 
-This will set up networking between VMs from different environments (folders) connected to different subnets in one network. Furthermore, all VMs will be able to communicate with one another both by IPs and their FQDNs (over DNS).
+We are going to connect VMs residing in different subnets into one network. The VMs will be able to address each other by IP or FQDN addresses.
 
 ## Steps to follow {#order}
 
-Depending on the selected management interface, steps to create `Multi-folder VPC` may differ.
+Depending on the selected tools, steps to create `Multi-folder VPC` may differ.
 
-To create a test infrastructure and enable networking between resources:
+To create the test infrastructure and connect its resources:
 
 1. [Get your cloud ready](#prepare-cloud).
-1. [Create folders without a {{ vpc-short-name }} network](#create-folders).
+1. [Create folders](#create-folders).
 1. [Create a {{ vpc-short-name }} cloud network with subnets](#create-vpc).
 1. [Move the subnets](#move-subnets).
 1. [Create VM instances](#create-vms).
-1. [Check the networking](#check-connectivity).
+1. [Check the connectivity](#check-connectivity).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -51,31 +51,31 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ### Configure access permissions {#roles}
 
-Set up [access rights for the folder](../../resource-manager/operations/folder/set-access-bindings.md):
+Configure [access rights for the folder](../../resource-manager/operations/folder/set-access-bindings.md):
 
-* To create networks and manage subnets, assign the `vpc.admin` or the `vpc.privateAdmin`, `vpc.publicAdmin`, and `vpc.securityGroups.admin` service roles to the service account or user.
-* To create and manage VMs in the folder, assign the `vpc.user` and `compute.admin` service roles.
+* To create networks and manage subnets, assign the `vpc.admin` or the `vpc.privateAdmin`, `vpc.publicAdmin`, and `vpc.securityGroups.admin` roles to the service account or user.
+* To create and manage VMs, assign the `vpc.user` and `compute.admin` roles for the folder to the service account or user.
 
-For granular network access, use [security groups](../../vpc/concepts/security-groups.md).
+For granular network access management, use [security groups](../../vpc/concepts/security-groups.md).
 
-## Create folders without a {{ vpc-short-name }} network {#create-folders}
+## Create folders {#create-folders}
 
-1. Created the `net-folder`, `dev-folder`, and `prod-folder` folders:
+1. Create the `net-folder`, `dev-folder`, and `prod-folder` folders:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and click ![Create icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-     1. Enter the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) name: `net-folder`.
+     1. Specify the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) name: `net-folder`.
      1. Disable **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}** to create your network and subnets manually.
      1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
-     Similarly, create two more folders without the {{ vpc-short-name }} network, and name them `dev-folder` and `prod-folder`.
+     Similarly, create `dev-folder` and `prod-folder`.
 
    - CLI {#cli}
 
@@ -83,17 +83,17 @@ For granular network access, use [security groups](../../vpc/concepts/security-g
 
      {% note info %}
 
-     To create resources using the CLI, [get authenticated](../../cli/operations/authentication/service-account.md#auth-as-sa) using the [service account](../../iam/concepts/users/service-accounts.md) that has the `admin` [role](../../iam/concepts/access-control/roles.md) for the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+     To create resources with CLI, [get authenticated](../../cli/operations/authentication/service-account.md#auth-as-sa) under a [service account](../../iam/concepts/users/service-accounts.md) with the `admin` [role](../../iam/concepts/access-control/roles.md) for the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 
      {% endnote %}
 
-     1. View the description of the create folder command:
+     1. Read the `create folder` command description:
 
         ```bash
         yc resource-manager folder create --help
         ```
 
-     1. Created the `net-folder`, `dev-folder`, and `prod-folder` cloud folders:
+     1. Create the `net-folder`, `dev-folder`, and `prod-folder` cloud folders:
 
         ```bash
         yc resource-manager folder create --name net-folder
@@ -121,7 +121,7 @@ For granular network access, use [security groups](../../vpc/concepts/security-g
         }
         ```
 
-     1. Describe the input variables:
+     1. Specify input variables:
 
         ```hcl
         variable "cloud_id" {
@@ -129,7 +129,7 @@ For granular network access, use [security groups](../../vpc/concepts/security-g
         }
         ```
 
-     1. Describe the targets (cloud folders):
+     1. Specify your target cloud folders:
 
         ```hcl
         # ========
@@ -161,7 +161,7 @@ For granular network access, use [security groups](../../vpc/concepts/security-g
            terraform apply
            ```
 
-        1. Confirm updating the resources and wait for the operation to complete.
+        1. When asked to confirm the changes, enter `yes` and wait for the operation to complete.
 
    - API {#api}
 
@@ -171,7 +171,7 @@ For granular network access, use [security groups](../../vpc/concepts/security-g
 
 ## Create a {{ vpc-short-name }} cloud network with subnets {#create-vpc}
 
-In `net-folder`, create a network named `shared-net` with three subnets that have the following settings:
+In `net-folder`, create the `shared-net` network and three subnets with the following settings:
 
 | Subnet name | Prefix | Availability zone | Target folder |
 | --- | --- | --- | --- |
@@ -185,16 +185,16 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), go to `net-folder`.
+     1. In the [management console]({{ link-console-main }}), navigate to `net-folder`.
      1. In the list of services, select **{{ vpc-name }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-     1. Enter the network name: `shared-net`.
+     1. Specify the network name: `shared-net`.
      1. Disable [Create subnets](../../vpc/operations/subnet-create.md) to create subnets manually.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
    - CLI {#cli}
 
-     1. View the description of the CLI command for creating a cloud network:
+     1. Read the description of the `network create` command:
 
         ```bash
         yc vpc network create --help
@@ -208,7 +208,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
    - {{ TF }} {#tf}
 
-     1. Describe the target (cloud network):
+     1. Specify your target network:
 
         ```hcl
         # =============
@@ -228,7 +228,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
         terraform apply
         ```
 
-     1. Confirm updating the resources.
+     1. Enter `yes` to confirm changes.
 
      1. Wait for the operation to complete.
 
@@ -244,18 +244,18 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), go to `net-folder`.
+     1. In the [management console]({{ link-console-main }}), navigate to `net-folder`.
      1. In the list of services, select **{{ vpc-name }}**.
-     1. Click the `shared-net` name.
+     1. Click `shared-net`.
      1. Click **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
-     1. Enter the subnet name: `subnet-a`, `subnet-b`, or `subnet-d`, respectively.
-     1. Select the availability zone (`{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`, respectively) from the drop-down list.
-     1. Enter the subnet CIDR: `10.1.11.0` as IP address and `24` as subnet mask. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+     1. Specify the subnet name: `subnet-a`, `subnet-b`, or `subnet-d`.
+     1. Select the availability zone from the drop-down list: `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`, respectively.
+     1. Specify the subnet CIDR: `10.1.11.0` as IP address and `24` as subnet mask. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
      1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
    - CLI {#cli}
 
-     1. See the description of the CLI command for creating a subnet:
+     1. Read the `subnet create` command description:
 
         ```bash
         yc vpc subnet create --help
@@ -274,7 +274,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
           --network-name shared-net --zone {{ region-id }}-d --range 10.1.13.0/24
         ```
 
-     1. Check the state of the created subnets:
+     1. Check the new subnet status:
 
         ```bash
         yc vpc subnet list --folder-name net-folder
@@ -284,7 +284,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
    - {{ TF }} {#tf}
 
-     1. Describe the targets (cloud subnets):
+     1. Specify your target subnets:
 
         ```hcl
         resource "yandex_vpc_subnet" "subnet_a" {
@@ -323,7 +323,7 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
         terraform apply
         ```
 
-     1. Confirm updating the resources and wait for the operation to complete.
+     1. When asked to confirm the changes, enter `yes` and wait for the operation to complete.
 
    - API {#api}
 
@@ -333,22 +333,22 @@ In `net-folder`, create a network named `shared-net` with three subnets that hav
 
 ## Move the subnets {#move-subnets}
 
-[Move](../../vpc/operations/subnet-move.md) the `subnet-b` subnet to `dev-folder`:
+[Move](../../vpc/operations/subnet-move.md) `subnet-b` to `dev-folder`:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to `net-folder`.
+  1. In the [management console]({{ link-console-main }}), navigate to `net-folder`.
   1. In the list of services, select **{{ vpc-name }}**.
-  1. Click the `shared-net` name.
-  1. In the `subnet-b` row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
-  1. In the drop-down list, select `dev-folder`.
+  1. Click `shared-net`.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to `subnet-b` and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Select `dev-folder` from the drop-sown list.
   1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
 - CLI {#cli}
 
-  1. View a description of the CLI move subnet command:
+  1. Read the `subnet move` command description:
 
      ```bash
      yc vpc subnet move --help
@@ -371,7 +371,7 @@ Similarly, move `subnet-d` to `prod-folder`:
 
 ## Create VMs {#create-vms}
 
-Create [VMs](../../compute/concepts/vm.md) with the following parameters:
+Create [VMs](../../compute/concepts/vm.md) with the following settings:
 
 | VM name | Folder | Availability zone | Subnet |
 | --- | --- | --- | --- |
@@ -383,18 +383,18 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
 
 - Management console {#console}
 
-  Create a Linux VM named `net-vm` in `net-folder`:
+  Create the Linux-based `net-vm` VM in `net-folder`:
 
   1. In the [management console]({{ link-console-main }}), select `net-folder`.
   1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-a`.
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool or if you reserved a static IP address, select it from the list.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify your VM access credentials:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username: `ycuser`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
@@ -402,17 +402,17 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `net-vm`.
   1. Leave all other settings unchanged and click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
-  Similarly, create VMs named `dev-vm` and `prod-vm` in the respective folders.
+  Similarly, create `dev-vm` and `prod-vm` in the respective folders.
 
   {% note info %}
 
-  A public and a private IP addresses are assigned to the VM when you create it. Write them down, as you will need them to access the VM and test networking with other VMs.
+  When you create a VM, the system will assign it a public and private IP addresses Save them so you will be able to access the VM and test its connectivity.
 
   {% endnote %}
 
 - CLI {#cli}
 
-  1. Describe a template for VM metadata in a separate `vm-init.tpl` file:
+  1. Create the `vm-init.tpl` VM metadata template file:
 
      ```bash
      #cloud-config
@@ -429,7 +429,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
            - "${USER_SSH_KEY}"
      ```
 
-  1. Generate a metadata file to deploy the VM:
+  1. Generate a VM metadata file:
 
      ```bash
      export USER_NAME=ycuser
@@ -468,7 +468,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
 
      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
-  1. Save the VM public IPs to use them later:
+  1. Save the new VMs’ public IPs as you will need them later:
 
      ```bash
      NET_VM_IP=$(yc compute instance get net-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
@@ -478,7 +478,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
 
 - {{ TF }} {#tf}
 
-  1. Describe the input variables:
+  1. Specify input variables:
 
      ```hcl
      variable "user_name" {
@@ -492,7 +492,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
      }
      ```
 
-  1. Describe a template for VM metadata in a separate `vm-init.tpl` file:
+  1. Create the `vm-init.tpl` VM metadata template file:
 
      ```hcl
      #cloud-config
@@ -509,7 +509,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
            - "${USER_SSH_KEY}"
      ```
 
-  1. Describe the targets (VMs):
+  1. Describe your target VMs:
 
      ```hcl
      # =================
@@ -651,7 +651,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
      terraform apply
      ```
 
-  1. Confirm updating the resources and wait for the operation to complete.
+  1. When asked to confirm the changes, enter `yes` and wait for the operation to complete.
 
 - API {#api}
 
@@ -659,7 +659,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
 
 {% endlist %}
 
-## Check network connectivity across the resources {#check-connectivity}
+## Check your resources connectivity {#check-connectivity}
 
 1. Connect to the `net-vm` VM over SSH:
 
@@ -667,7 +667,7 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
    ssh ycuser@<net-vm_public_IP_address>
    ```
 
-1. Check the IP connectivity to `dev-vm` inside the VPC:
+1. Check whether you can connect to `dev-vm`:
 
    ```bash
    ping -c3 <net-vm_internal_IP_address>
@@ -685,12 +685,12 @@ Create [VMs](../../compute/concepts/vm.md) with the following parameters:
    rtt min/avg/max/mdev = 5.613/6.235/7.446/0.855 ms
    ```
 
-1. Similarly, check the IP connectivity to `prod-vm` inside the VPC.
+1. Similarly, check the connection to `prod-vm`.
 
-1. Connect to `dev-vm` over SSH and check the IP connectivity to `net-vm` and `prod-vm` through the **ping** command.
+1. Connect to `dev-vm` over SSH and use **ping** to check the IP connectivity between `dev-vm`, `net-vm`, and `prod-vm`.
 
-1. Connect to `prod-vm` over SSH and check the IP connectivity to `net-vm` and `dev-vm` through the **ping** command.
+1. Connect to `prod-vm` over SSH and use **ping** to check the IP connectivity between `prod-vm`, `net-vm`, and `dev-vm`.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, [delete these VMs](../../compute/operations/vm-control/vm-delete.md): `net-vm`, `dev-vm`, and `prod-vm`.
+To stop paying for the resources you created, [delete VMs](../../compute/operations/vm-control/vm-delete.md): `net-vm`, `dev-vm`, and `prod-vm`.

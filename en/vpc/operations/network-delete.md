@@ -19,7 +19,7 @@ You cannot restore a network after it is deleted.
   To delete a [cloud network](../concepts/network.md#network):
   1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a cloud network.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the network and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the network you need and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -28,7 +28,7 @@ You cannot restore a network after it is deleted.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI's delete cloud network command:
+  1. View the description of the CLI command for deleting a cloud network:
 
       ```
       yc vpc network delete --help
@@ -50,7 +50,7 @@ You cannot restore a network after it is deleted.
       +----------------------+----------------+
       ```
 
-  1. Select the network's `ID` or `NAME`.
+  1. Select the network `ID` or `NAME`.
   1. Delete the network:
 
       ```
@@ -67,7 +67,7 @@ You cannot restore a network after it is deleted.
 
   1. Open the {{ TF }} configuration file and delete the fragment with the cloud network description.
 
-     {% cut "Example cloud network description in a {{ TF }} configuration" %}
+     {% cut "Example of a cloud network description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -104,7 +104,7 @@ You cannot restore a network after it is deleted.
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -114,7 +114,7 @@ You cannot restore a network after it is deleted.
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check the update using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
      ```
      yc vpc network list
@@ -122,7 +122,7 @@ You cannot restore a network after it is deleted.
 
 - API {#api}
 
-   To delete a [cloud network](../concepts/network.md), use the [delete](../api-ref/Network/delete.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Delete](../api-ref/grpc/Network/delete.md) gRPC API call, and provide the ID of the cloud network to be deleted, in the `networkId` request parameter.
+   To delete a [cloud network](../concepts/network.md), use the [delete](../api-ref/Network/delete.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Delete](../api-ref/grpc/Network/delete.md) gRPC API call, and provide the ID of the cloud network to delete in the `networkId` request parameter.
 
    {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 

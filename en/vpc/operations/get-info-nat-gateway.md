@@ -65,7 +65,7 @@ description: Follow this guide to get information about a NAT gateway.
      Where:
      * `data "yandex_vpc_gateway"`: Description of the NAT gateway as a data source:
        * `gateway_id`: NAT gateway ID.
-     * `output "gateway"`: Output variable that contains information about the NAT gateway creation time:
+     * `output "gateway"`: Output variable containing information about the NAT gateway creation time:
        * `value`: Returned value.
 
      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_vpc_gateway` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_gateway).
@@ -73,7 +73,7 @@ description: Follow this guide to get information about a NAT gateway.
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
      ```bash
      terraform output

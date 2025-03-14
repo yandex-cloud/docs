@@ -1,25 +1,25 @@
-## Establishing a direct trunk {#trunk-create}
+## Setting up a direct trunk {#trunk-create}
 
-This guide describes the procedure for how to establish a direct trunk.
+In this tutorial, we will set up a direct trunk.
 
 ### Getting started {#trunk-prep}
 
-* See the [documentation](../../interconnect/concepts/index.md) to learn how the service works.
-* Contact your {{ yandex-cloud }} manager to agree upon the pricing plan ([connection capacity](../../interconnect/pricing.md)).
-* Select a [point of presence](../../interconnect/concepts/pops.md) for connecting a [trunk](../../interconnect/concepts/trunk.md).
+* See our [guides](../../interconnect/concepts/index.md) to learn how this service works.
+* Contact your {{ yandex-cloud }} manager to choose your pricing plan and [connection capacity](../../interconnect/pricing.md).
+* Select a [point of presence](../../interconnect/concepts/pops.md) for the [trunk](../../interconnect/concepts/trunk.md).
   
   {% note warning %}
   
-  To ensure fault tolerance, connect trunks in two points of presence.
+  To ensure fault tolerance, we recommend setting up trunk links at two points of presence.
   
   {% endnote %}
 
-* Select the type of an [optical transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect to the {{ yandex-cloud }} equipment in the [point of presence](../../interconnect/concepts/pops.md). A port of the selected type will be reserved for you on the {{ yandex-cloud }} equipment side. For installation on your equipment, purchase the transceiver of the selected type on your own.
-* If a {{ yandex-cloud }} solution architect is working with you, discuss and agree on a {{ interconnect-full-name }} service setup diagram.
+* Select the type of an [optical transceiver](../../interconnect/concepts/transceivers.md) for {{ yandex-cloud }} equipment cross-connection in the [point of presence](../../interconnect/concepts/pops.md). We will reserve a compatible transceiver port for you on the {{ yandex-cloud }} endpoint. You will need to buy a compatible transceiver to install on your endpoint.
+* If you work with a {{ yandex-cloud }} solution architect, discuss with them and agree on a {{ interconnect-full-name }} service setup plan.
 
 ### Contacting support for a new partner trunk {#trunk-ticket}
 
-Create a [new support request]({{ link-console-support }}) to reserve a port on the {{ yandex-cloud }} equipment and set up a trunk.
+Create a [new support ticket]({{ link-console-support }}) to reserve a port on the {{ yandex-cloud }} equipment and set up a trunk.
 
 Follow this request format:
 
@@ -33,32 +33,32 @@ with the following parameters:
 client: My Business LLC 
 folder-id: b1g28j9359gi********
 point of presence: M9
-Type of transceiver: 10GBASE-LR
+transceiver type: 10GBASE-LR
 connection capacity: 250mbps
 
-Details for a private connection will be provided later in a separate ticket.
+I will send the private connection details later in a separate ticket.
 ```
 
 Where:
 
 * `client`: Company name.
-* `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to send {{ interconnect-name }} monitoring metrics to.
-* `point of presence`: [Code of the point of presence](../../interconnect/concepts/pops.md).
-* `transceiver type`: [Type of transceiver](../../interconnect/concepts/transceivers.md) to enable a cross connect.
-* `Connection capacity`: [Bandwidth](../../interconnect/pricing.md) in Mbps.
+* `folder-id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) that will receive {{ interconnect-name }} monitoring metrics.
+* `point of presence`: [Point of presence code](../../interconnect/concepts/pops.md).
+* `transceiver type`: [Type of a cross connect transceiver](../../interconnect/concepts/transceivers.md).
+* `connection capacity`: [Bandwidth](../../interconnect/pricing.md) in Mbps.
 
 {% note warning %}
 
-If you need to set up a fault-tolerant {{ interconnect-name }} connection in multiple points of presence, create a separate support request for each connection.
+If you need to set up a fault-tolerant {{ interconnect-name }} architecture with trunk links in more than one point of presence, create a separate support ticket for each link.
 
 {% endnote %}
 
 
-### Tech support team's response to the customer's request {#trunk-ticket-resp}
+### Support team's response to the your ticket {#trunk-ticket-resp}
 
-Once the requested trunk is set up, the support team will send you information about the created trunk.
+Once the trunk setup has been completed, the support team will send you the following information.
 
-Example of support's response:
+Support response example:
 
 ```s
 trunk_id: euus5dfgchu2********
@@ -70,11 +70,11 @@ port: 18
 
 Where: 
 
-* `trunk_id`: ID of the {{ interconnect-name }} trunk you created.
-* `pop`: [Code of the point of presence](../../interconnect/concepts/pops.md) where the {{ interconnect-name }} trunk is created.
-* `rack`: Location of the {{ yandex-cloud }} equipment at the point of presence.
-* `unit`: Integer from 1 to 45. that indicates the equipment location in the {{ yandex-cloud }} rack.
-* `port`: Integer from 1 to 48. that specifies the port number on the equipment to enable the cross connect for.
+* `trunk_id`: New {{ interconnect-name }} trunk ID.
+* `pop`: [Point of presence](../../interconnect/concepts/pops.md) code.
+* `rack`: {{ yandex-cloud }} equipment location at the point of presence.
+* `unit`: Number between 1 and 45 that shows where your equipment is located in the {{ yandex-cloud }} rack.
+* `port`: Number between 1 and 48 specifying the port number for cross connection.
 
 ### How to write an agreement letter for a point of presence {#letter}
 
@@ -85,31 +85,31 @@ No agreement letter is required for the `STD` point of presence.
 {% endnote %}
 
 * Download the [agreement letter form](../../interconnect/concepts/pops.md#letter) for the relevant point of presence in `.docx` format.
-* In the form, specify your company data and equipment location in the point of presence (highlighted in yellow).
-* Use the information provided by the support team to set the `unit` and `port` parameter values in the form (highlighted in green).
-* Attach the completed form to the open support request.
-* Within two business days, you will receive the agreement letter in PDF format signed by {{ yandex-cloud }} as an attachment to the open support request.
+* In the form, fill in the highlighted yellow fields, providing information about your company and your equipment location in the point of presence.
+* Using the information provided by the support team, fill in the `unit` and `port` highlighted green fields.
+* Attach the completed form to your open support ticket.
+* Within two business days, you will receive the letter of authorization in PDF format signed by {{ yandex-cloud }} as an attachment to your open support ticket.
 
 ### Setting up a cross connect in a point of presence {#trunk-cross}
 
-Request and set up a cross connect between your equipment and {{ yandex-cloud }} in the point of presence you need using the agreement letter you received.
+Using the signed agreement letter you received, request setting up an interconnect between your equipment and {{ yandex-cloud }} infrastructure at the point of presence.
 
 {% note alert %}
 
-A cross connection to a {{ yandex-cloud }} equipment port can only be enabled **by the maintenance crew at the point of presence**, without engaging the {{ yandex-cloud }} engineers.
+A cross connection, linking your equipment to a {{ yandex-cloud }} port, is performed by the **point of presence personnel**, with no {{ yandex-cloud }} engineers involved.
 
-If required, the maintenance crew at the point of presence may request additional approval from {{ yandex-cloud }} duty engineers for cross-connecting the client equipment to the {{ yandex-cloud }} equipment port.
+In certain cases, before performing cross connection, the point of presence personnel may request additional approval from {{ yandex-cloud }} engineers.
 
 {% endnote %}
 
 
 ### Monitoring the trunk status {#trunk-check}
 
-Use the [monitoring](../../interconnect/concepts/monitoring.md#trunk-mon) service to track when the trunk's physical port on the {{ yandex-cloud }} equipment switches to the running status. If there are any issues, contact support for diagnostics and troubleshooting.
+Use the [monitoring](../../interconnect/concepts/monitoring.md#trunk-mon) service to track when the physical port of the trunk on the {{ yandex-cloud }} endpoint transitions to the operational state. If there are any issues, contact support for diagnostics and troubleshooting.
 
 {% note alert %}
 
-A private or public connection can only be established after the trunk's physical port becomes operational.
+A private or public connection can only be established after the physical port of the trunk becomes operational.
 
 {% endnote %}
 

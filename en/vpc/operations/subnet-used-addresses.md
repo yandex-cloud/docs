@@ -8,11 +8,11 @@ To view a list of internal addresses used in a subnet:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder the subnet is in.
+  1. In the [management console]({{ link-console-main }}), go to the folder containing your subnet.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Click the subnet name.
-  1. Go to the **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}** tab.
 
 - CLI {#cli}
 
@@ -20,7 +20,7 @@ To view a list of internal addresses used in a subnet:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI command to get a list of used addresses:
+   1. View the description of the CLI command to get a list of addresses in use:
 
       ```bash
       yc vpc subnet list-used-addresses --help

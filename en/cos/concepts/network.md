@@ -1,5 +1,5 @@
-# Specifics of working with the network
+# Working with the network
 
-In {{ coi }}, Docker containers are run using a host's network interface. All ports opened in a Docker container will also be opened on the host.
+In {{ coi }}, Docker containers run using a host network interface. All ports opened in a Docker container will also be opened on the host.
 
-All host ports have access to the internet. This lets you automatically access the ports of a running Docker container.
+All host ports have internet access, enabling you to automatically access the ports of a running Docker container.

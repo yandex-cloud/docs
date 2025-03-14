@@ -31,9 +31,9 @@ items:
         href: tutorials/priv-add.md
       - name: Adding a public connection to a trunk
         href: tutorials/pub-add.md
-      - name: Changing trunk capacity
+      - name: Changing the trunk capacity
         href: tutorials/trunk-capacity-change.md
-      - name: Changing a set of IP prefixes in a private connection
+      - name: Changing private connection IP prefixes
         href: tutorials/priv-prefixes-change.md
       - name: Deleting a private connection
         href: tutorials/priv-del.md
@@ -68,7 +68,7 @@ items:
         href: concepts/routing.md
       - name: Monitoring
         href: concepts/monitoring.md
-      - name: Data volumes and connection capacities
+      - name: Data size and connection capacity
         href: concepts/capacity.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -118,7 +118,7 @@ items:
             href: cli-ref/trunk-connection/list.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

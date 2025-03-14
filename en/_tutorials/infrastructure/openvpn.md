@@ -14,7 +14,7 @@ Learn how to configure auto-connection and a connection using a username and pas
 1. [Get your cloud ready](#before-you-begin).
 1. [Create subnets and a test VM](#create-environment).
 1. [Run a VPN server](#create-vpn-server).
-1. [Configure network traffic permissions](#network-settings).
+1. [Configure network traffic rules](#network-settings).
 1. [Get the administrator password](#get-admin-password).
 1. [Activate your license](#get-license).
 1. [Create an OpenVPN user](#configure-openvpn).
@@ -68,9 +68,9 @@ Create a VM to run the VPN server:
 
       * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select a [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the system will assign the [default security group](../../vpc/concepts/security-groups.md#default-security-group) to the network.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the data for access to the VM:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring superuser privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn-server`.

@@ -12,10 +12,10 @@ description: Follow this guide to delete a rule from a security group.
   To delete a rule from a security group:
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the security group you need to delete a rule from and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, click ![image](../../_assets/console-icons/ellipsis.svg) next to the rule you need to delete.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group you need to delete a rule from and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the rule you need to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -92,9 +92,9 @@ description: Follow this guide to delete a rule from a security group.
 
   To delete a rule created with {{ TF }} from a security group:
 
-  1. Open the {{ TF }} configuration file and add the `ingress` or `egress` section to the security group description:
+  1. Open the {{ TF }} configuration file and delete the `ingress` or `egress` section from the security group description:
 
-     {% cut "Sample description of a security group with rules in a {{ TF }} configuration" %}
+     {% cut "Example of a description of a security group with rules in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -143,7 +143,7 @@ description: Follow this guide to delete a rule from a security group.
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -164,7 +164,7 @@ description: Follow this guide to delete a rule from a security group.
   To delete a rule from a security group, use the [updateRules](../api-ref/SecurityGroup/updateRules.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/UpdateRules](../api-ref/grpc/SecurityGroup/updateRules.md) gRPC API call, and provide the following in the request:
 
   * ID of the security group to delete the rules from, in the `securityGroupId` parameter.
-  * IDs of the rules to be deleted, in the `deletionRuleIds[]` array.
+  * IDs of the rules to delete, in the `deletionRuleIds[]` array.
 
   {% include [get-security-group-id](../../_includes/vpc/get-security-group-id.md) %}
 

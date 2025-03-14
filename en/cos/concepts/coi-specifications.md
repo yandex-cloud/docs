@@ -1,29 +1,29 @@
 ---
 title: Docker container specifications in {{ cos-full-name }}
-description: You can describe a Docker container's launch configuration using a COI or Docker Compose specification.
+description: You can describe a Docker container's launch configuration using the COI or Docker Compose specification.
 ---
 
 # Docker container specifications
 
 There are two ways to describe a Docker container's launch configuration:
-* [COI specification](#coi-spec) that allows you to run only one Docker container.
-* [Docker Compose specification](#compose-spec) that allows you to set a more flexible configuration, such as running multiple Docker containers and the required services.
+* [COI specification](#coi-spec) that can only run one Docker container.
+* [Docker Compose specification](#compose-spec) allows a more flexible configuration. For example, you can run multiple Docker containers and any required services.
 
 {% note warning %}
 
-You can only use one specification at a time: COI or Docker Compose.
+You can only use one specification at a time, the COI or Docker Compose.
 
 {% endnote %}
 
 ## COI specification {#coi-spec}
 
-In a {{ coi }}, the Docker container is described in a specification (YAML file) based on a [{{ k8s }} pod spec](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
+In a {{ coi }}, the Docker container description is in a YAML specification file based on a [{{ k8s }} pod spec](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
-When [creating a VM from a {{ coi }}](../tutorials/vm-create.md) in the management console or YC CLI, the specification file is generated automatically using the specified data. When [creating an instance group from a {{ coi }}](../tutorials/ig-create.md), you set the specification manually. A sample specification file and required keys are described below.
+[Creating a VM from a {{ coi }}](../tutorials/vm-create.md) in the management console or YC CLI automatically generates the specification file using the provided data. When [creating an instance group from a {{ coi }}](../tutorials/ig-create.md), you set the specification manually. Below are a sample specification file and the required keys.
 
 ### Sample COI specification of a Docker container {#coi-spec-example}
 
-The COI specification is a YAML file with the following contents:
+The COI specification is a YAML file with these contents:
 
 ```yaml
 spec:
@@ -57,32 +57,32 @@ spec:
 ```
 
 Where:
-* `command`: Command executed when starting the Docker container.
-* `args`: Arguments sent to the command running in the Docker container.
+* `command`: Command to run on Docker container launch.
+* `args`: Arguments the command to run in the Docker container gets.
 * `env`: Environment variables available in the Docker container.
-* `image`: Docker image used to create and run the Docker container.
+* `image`: Docker image for creating and running a Docker container.
 * `name`: Docker container to run.
 * `securityContext`: Security and access control settings inside the Docker container. You can only run a privileged Docker container.
-* `privileged`: Run the Docker container in privileged mode. Processes in privileged Docker containers can access any system device and are the same as those with root permissions on a VM. The default value is false.
-* `stdin`: Buffer for the input stream while running the Docker container. The input stream will be linked to the running Docker container. The default value is false.
-* `tty`: Allocate a TTY to the Docker container. The default value is false.
+* `privileged`: Run the Docker container in privileged mode. Processes in privileged Docker containers can access any system device and are identical to those with root permissions on a VM. The default value is `false`.
+* `stdin`: Buffer for the input stream while running the Docker container. The system will link the input stream to the running Docker container. The default value is `false`.
+* `tty`: TTY allocation for the Docker container. The default value is `false`.
 * `restartPolicy`: Docker container [restart policy](restart-policy.md).
-* `volumeMounts`: List of volumes to mount inside the Docker container.
-* `mountPath`: Path in the Docker container to mount the volume at.
-* `volumes`: Description of the volumes used in the specification.
-* `emptyDir`: Empty directory in the `tmpfs` temporary file system created in the VM RAM. The contents of this directory are deleted when the Docker container it is mounted to is stopped or when the VM is restarted. To use `tmpfs`, make sure to specify the `medium: Memory` parameter. Volume size cannot be greater than the amount of RAM allocated to the VM.
-* `hostPath`: VM file system directory to mount in the Docker container.
-* `path`: Path to the `hostPath` directory.
+* `volumeMounts`: List of volumes to mount inside a Docker container.
+* `mountPath`: Path in the Docker container for mounting the specified volume.
+* `volumes`: Description of the volumes the specification file uses.
+* `emptyDir`: Empty directory in the `tmpfs` temporary file system created in the VM RAM. Stopping the directory Docker container or restarting the VM deletes the contents of this directory. To use `tmpfs`, make sure to specify the `medium: Memory` parameter. The size of a volume cannot be greater than the amount of RAM allocated to the VM.
+* `hostPath`: Directory from the VM file system to mount in the Docker container.
+* `path`: `hostPath` directory path.
 
 ## Docker Compose specification {#compose-spec}
 
-You need to provide instructions on running Docker containers and service configurations in the `docker-compose.yaml` specification file, as stated in this [Compose file reference](https://docs.docker.com/compose/compose-file/).
+You need to provide instructions on running Docker containers and service configurations in the `docker-compose.yaml` specification file as per [this Compose file reference](https://docs.docker.com/compose/compose-file/).
 
-For more information on how to run multiple Docker containers, see [{#T}](../tutorials/docker-compose.md).
+For more information about how to run multiple Docker containers, see [{#T}](../tutorials/docker-compose.md).
 
 ### Sample Docker Compose specification {#compose-spec-example}
 
-The Docker Compose specification is a YAML file named `docker-compose.yaml` with the following contents:
+The Docker Compose specification is a file named `docker-compose.yaml` with these contents:
 
 ```yaml
 version: '3.7'
@@ -116,12 +116,12 @@ Where:
 * `version`: Specification version tag the file should start with.
 * `services`: Section describing the services.
 * `container_name`: Docker container to run.
-* `image`: Docker image used to create and run the Docker container.
-* `ports`: Used for redirecting service ports. Use this format: `<PC_port>:<container_port>`.
-* `restart`: Docker container restart policy settings.
-* `volumes`: Description of the volumes used in the Docker container.
-* `x-yc-disks`: Section describing the [disks](../../compute/concepts/disk.md) to attach. It is an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
-* `device_name`: Device name, different from the disk name. It is used on the VM to locate the disk in the `/dev/disk/by-id/virtio-<device_name>` tree. You can set the `device-name` parameter in flags and CLI commands for adding disks to a VM or in the management console when [attaching](../../compute/operations/vm-control/vm-attach-disk#attach) a disk to a VM.
+* `image`: Docker image for creating and running the Docker container.
+* `ports`: Redirects service ports. Use this format: `<PC_port>:<container_port>`.
+* `restart`: Docker container restart policy.
+* `volumes`: Description of the volumes the Docker container uses.
+* `x-yc-disks`: Section describing the [disks](../../compute/concepts/disk.md) to connect. It is an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields) you use when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
+* `device_name`: Device name, different from the disk name. You use it on the VM to locate the disk in the `/dev/disk/by-id/virtio-<device_name>` tree. You can set the `device-name` parameter in CLI flags and commands for adding disks to a VM or in the management console when [connecting](../../compute/operations/vm-control/vm-attach-disk#attach) a disk to a VM.
 * `fs_type`: File system type. The supported file systems are ext4 and xfs.
 * `host_path`: Directory to mount the disk to.
 * `partition`: Disk partition being used.

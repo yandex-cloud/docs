@@ -19,6 +19,8 @@ items:
           Создание L7-балансировщика с профилем безопасности {{ sws-name }}
           через Ingress-контроллер {{ alb-name }}
         href: security/alb-ingress-with-sws-profile.md
+      - name: Централизованная публикация в интернете и защита приложений от DDoS
+        href: security/different-folders-services.md
       - name: >-
           Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
           защиты от DDoS-атак с помощью {{ sws-name }}
@@ -1063,6 +1065,8 @@ items:
         href: routing/pub-add.md
       - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
         href: routing/bms-vrf-routing.md
+      - name: Настройка сетевой связности в подсети {{ baremetal-full-name }}
+        href: routing/bms-simple-subnet.md
   - name: Анализ и визуализация данных
     items:
       - name: Все руководства
@@ -1207,6 +1211,16 @@ items:
           Разработка функций в Functions Framework и их развертывание в {{
           serverless-containers-full-name }}
         href: serverless/functions-framework-to-container.md
+      - name: >-
+          Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с
+          использованием {{ sf-full-name }} и {{ yq-full-name }}
+        items:
+          - name: Обзор
+            href: serverless/forms-and-datalens-integration/index.md
+          - name: Консоль управления
+            href: serverless/forms-and-datalens-integration/console.md
+          - name: Terraform
+            href: serverless/forms-and-datalens-integration/terraform.md
   - name: Машинное обучение и искусственный интеллект
     items:
       - name: Все руководства

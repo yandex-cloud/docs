@@ -9,29 +9,29 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [рабочий процесс](../../concepts/workflows/workflow.md).
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [рабочий процесс](../../../concepts/workflows/workflow.md).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Выберите рабочий процесс. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о рабочем процессе.
 
 - CLI {#cli}
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для просмотра информации о [рабочем процессе](../../concepts/workflows/workflow.md):
+  1. Посмотрите описание команды CLI для просмотра информации о [рабочем процессе](../../../concepts/workflows/workflow.md):
 
       ```bash
       yc serverless workflow get --help
       ```
 
-  1. {% include [get-workflows-list](../../../_includes/serverless-integrations/get-workflows-list.md) %}
+  1. {% include [get-workflows-list](../../../../_includes/serverless-integrations/get-workflows-list.md) %}
 
   1. Получите подробную информацию о рабочем процессе, указав его имя или идентификатор:
 
       ```bash
-      yc serverless workflow get <имя_или_идентификатор_процесса>
+      yc serverless workflow get <имя_или_идентификатор_рабочего_процесса>
       ```
 
       Результат:
@@ -71,6 +71,6 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-  Чтобы получить информацию о [рабочем процессе](../../concepts/workflows/workflow.md), воспользуйтесь методом REST API [get](../../../serverless-integrations/workflows/api-ref/Workflow/get.md) для ресурса [Workflow](../../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [WorkflowsService/Get](../../../serverless-integrations/workflows/api-ref/grpc/Workflow/get.md).
+  Чтобы получить информацию о [рабочем процессе](../../../concepts/workflows/workflow.md), воспользуйтесь методом REST API [get](../../../../serverless-integrations/workflows/api-ref/Workflow/get.md) для ресурса [Workflow](../../../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [WorkflowsService/Get](../../../../serverless-integrations/workflows/api-ref/grpc/Workflow/get.md).
 
 {% endlist %}

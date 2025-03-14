@@ -59,6 +59,16 @@ items:
             href: send-to-database.md
           - name: Визуализировать данные в {{ datalens-full-name }}
             href: visualize-datalens.md
+      - name: >-
+          Передать данные из {{ forms-full-name }} в {{ datalens-full-name }} с
+          использованием {{ sf-full-name }} и {{ yq-full-name }}
+        items:
+          - name: Обзор
+            href: forms-and-datalens-integration/index.md
+          - name: Консоль управления
+            href: forms-and-datalens-integration/console.md
+          - name: Terraform
+            href: forms-and-datalens-integration/terraform.md
       - name: Переменные в настройках интеграции
         href: vars.md
   - name: Опубликовать форму

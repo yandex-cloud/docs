@@ -13,6 +13,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры входит:
+
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за хранение секрета и запросы к нему (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+
 ## Подготовьте инфраструктуру {#infra}
 
 1. [Создайте и активируйте инстанс](../../managed-gitlab/operations/instance/instance-create.md) {{ mgl-name }}.

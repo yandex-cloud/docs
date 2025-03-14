@@ -77,6 +77,8 @@ items:
         href: operations/backup-baremetal.md
       - name: Настроить VRRP для кластера серверов {{ baremetal-name }}
         href: tutorials/bms-vrf-routing.md
+      - name: Настройка сетевой связности в подсети {{ baremetal-name }}
+        href: tutorials/bms-simple-subnet.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Управление доступом

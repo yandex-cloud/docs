@@ -19,17 +19,25 @@ items:
           - name: Получение информации о рабочем процессе
             items:
               - name: Получить список рабочих процессов
-                href: operations/workflows/get-list.md
+                href: operations/workflows/workflow/get-list.md
               - name: Получить информацию о рабочем процессе
-                href: operations/workflows/get-info.md
+                href: operations/workflows/workflow/get-info.md
+          - name: Управление запуском рабочего процесса
+            items:
+              - name: Запустить рабочий процесс
+                href: operations/workflows/execution/start.md
+              - name: Остановить запуск рабочего процесса
+                href: operations/workflows/execution/stop.md
+              - name: Принудительно остановить запуск рабочего процесса
+                href: operations/workflows/execution/terminate.md
           - name: Получение информации о запуске рабочего процесса
             items:
               - name: Получить список запусков рабочего процесса
-                href: operations/workflows/get-execution-list.md
+                href: operations/workflows/execution/get-list.md
               - name: Получить информацию о запуске рабочего процесса
-                href: operations/workflows/get-execution-info.md
+                href: operations/workflows/execution/get-info.md
               - name: Получить информацию о выполнении каждого шага
-                href: operations/workflows/get-execution-history.md
+                href: operations/workflows/execution/get-history.md
       - name: '{{ er-name }}'
         items:
           - name: Получение информации о шине
@@ -133,6 +141,14 @@ items:
                 href: operations/eventrouter/rule/disable.md
               - name: Удалить правило
                 href: operations/eventrouter/rule/delete.md
+          - name: Управление правами доступа к ресурсам
+            items:
+              - name: Посмотреть роли, назначенные на ресурс
+                href: operations/eventrouter/access-rights/role-list.md
+              - name: Назначить роли на ресурс
+                href: operations/eventrouter/access-rights/role-add.md
+              - name: Отозвать роли, назначенные на ресурс
+                href: operations/eventrouter/access-rights/role-revoke.md
       - name: Просмотр операций с ресурсами сервиса
         href: operations/operation-logs.md
   - name: Практические руководства

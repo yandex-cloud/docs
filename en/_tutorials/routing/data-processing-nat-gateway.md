@@ -50,7 +50,7 @@ In this tutorial, you will learn how to create a {{ dataproc-name }} cluster and
         * [storage.uploader](../../storage/security/index.md#storage-uploader)
         * [storage.viewer](../../storage/security/index.md#storage-viewer).
 
-    1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
+    1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) with restricted access.
 
     1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) of any suitable configuration with the following settings:
 

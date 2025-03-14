@@ -1,6 +1,6 @@
 ## Setting up a public connection {#pub-create}
 
-To establish a new public connection in an existing trunk, create a [new support request]({{ link-console-support }}).
+To add a public connection to an existing trunk, create a [new support ticket]({{ link-console-support }}).
 
 ### Contacting support for a public connection {#pub-ticket}
 
@@ -10,7 +10,7 @@ Subject: [CIC] Add a public connection to an existing trunk.
 
 Request text:
 Please add a public connection to an existing trunk.
-Connection parameters:
+Connection settings:
 
 trunk_id: euus5dfgchu2********
 vlan_id: 101
@@ -25,18 +25,18 @@ is_nat_extra_ip_required: false
 
 Where:
 
-* `trunk_id`: Trunk ID received from the support team at the previous step.
-* `vlan_id`: `VLAN-ID` for this public connection in trunk 802.1Q. This value is selected by the customer. It must be different from the `VLAN-ID` values of the private connections previously set up in this trunk.
-* `peer_bgp_asn`: [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) on the customer's equipment in ASPlain format. This value is selected by the customer.
-* `allowed-public-services`: List of `FQDN API Endpoint` for the services [from the table](../../interconnect/concepts/pub-con.md#svc-list) to provide access to via this public connection.
-* `is_nat_extra_ip_required`: Indicates whether the customer needs an additional `/32` service address (prefix) apart from the point-to-point `/31` subnet to implement [NAT functions](../../interconnect/concepts/pub-con.md#svc-nat). By default, no additional service prefix is allocated (the value is `false`).
-* `folder_id` (optional): By default, public connection monitoring metrics will be saved to the folder specified when creating the trunk. If required, you can explicitly specify the folder to save the public connection monitoring metrics to.
+* `trunk_id`: Trunk ID you got from support in the previous step.
+* `vlan_id`: Public trunk connection 802.1Q `VLAN-ID`. This value is selected by the customer. It must be different from the `VLAN-ID` values of other private connections in this trunk.
+* `peer_bgp_asn`: Customer endpoint [BGP ASN](../../interconnect/concepts/priv-con.md#bgp-asn) in ASPlain format. This value is selected by the customer.
+* `allowed-public-services`: `FQDN API Endpoints` of [services](../../interconnect/concepts/pub-con.md#svc-list) you want to access through this public connection.
+* `is_nat_extra_ip_required`: Indicates whether the customer needs a `/32` subnet prefix (in addition to the point-to-point `/31` subnet prefix) to implement [NAT](../../interconnect/concepts/pub-con.md#svc-nat). By default, this value is `false`, which means no additional subnet prefix is allocated.
+* `folder_id` (optional): Folder to store public connection monitoring metrics. If left empty, monitoring metrics will be stored in the folder you specified when creating the trunk.
 
-### Support team's response to the customer's request {#pub-ticket-resp}
+### Support team's response to your ticket {#pub-ticket-resp}
 
-Once all the actions required to set to set up a public connection are completed, the support team provides the customer with the ID of the connection created.
+Once the new public connection has been added, the support team will message you its ID.
 
-Here is an example of support's response when requested to create a public connection (for information):
+Here is an example of the support response to a request for a new public connection (for reference only):
 ```s
 id: cf3qdug4fsf7********
 ipv4_peering:
@@ -51,17 +51,17 @@ allowed-public-services:
 ```
 Where:
 
-* `id`: ID of the new public connection.
-* `peering_subnet`: [Point-to-point subnet](../../interconnect/concepts/pub-con.md#pub-address) for BGP peering. which is allocated from the {{ yandex-cloud }} [address pool](../../vpc/concepts/ips.md).
-* `peer_ip`: IP address of the point-to-point (peer) subnet on the customer's equipment. It is assigned by {{ yandex-cloud }}.
-* `cloud_ip`: IP address of the point-to-point (peer) subnet on the {{ yandex-cloud }} equipment. It is assigned by {{ yandex-cloud }}.
-* `nat_subnet`: Additional subnet allocated from the {{ yandex-cloud }} address pool to implement [NAT functions](../../interconnect/concepts/pub-con.md#pub-nat).
-* `allowed-public-services`: List of `FQDN API Endpoints` from the customer request for the services access was provided to via the created public connection.
+* `id`: Public connection ID.
+* `peering_subnet`: [Point-to-point](../../interconnect/concepts/pub-con.md#pub-address) BGP peering subnet prefix from the {{ yandex-cloud }} [address pool](../../vpc/concepts/ips.md).
+* `peer_ip`: Customer endpoint IP address on the point to point BGP peering subnet assigned by {{ yandex-cloud }}.
+* `cloud_ip`: {{ yandex-cloud }} endpoint on the point to point BGP peering subnet assigned by {{ yandex-cloud }}.
+* `nat_subnet`: Additional {{ yandex-cloud }} pool subnet prefix to implement [NAT](../../interconnect/concepts/pub-con.md#pub-nat).
+* `allowed-public-services`: `FQDN API Endpoints` of services accessible through the new public connection.
 
-### Monitoring the status of a public connection {#pub-check}
+### Public connection status monitoring {#pub-check}
 
-* Use the [monitoring](../../interconnect/concepts/monitoring.md#private-mon) service to monitor, on your own, when the public connection BGP session on the {{ yandex-cloud }} equipment switches to the running status.
-* The support team will notify you once they finish configuring access to the requested {{ yandex-cloud }} services. The configuration process usually takes up to one business day.
-* Make sure to check the IP connectivity between your equipment and the {{ yandex-cloud }} services to be accessed over the configured public connection, and notify the support team of the check results.
+* Use the [monitoring](../../interconnect/concepts/monitoring.md#private-mon) service to see when your public connection BGP session starts on the {{ yandex-cloud }} endpoint.
+* The support team will notify you once they provide access to the requested {{ yandex-cloud }} services. The configuration process usually takes up to one business day.
+* Check whether the {{ yandex-cloud }} services are accessible from your endpoint through the new public connection and inform the support team about the results.
 * If there are any IP connectivity issues, contact support for diagnostics and troubleshooting.
 

@@ -54,7 +54,7 @@ items:
       - name: Static routing
         stage: new
         items:
-          - name: Creating a static route
+          - name: Creating static routes
             href: operations/static-route-create.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md

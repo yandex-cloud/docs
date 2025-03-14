@@ -15,7 +15,7 @@ In addition to the cloud network in the default folder, you can create cloud net
       {% include [name-format](../../_includes/name-format.md) %}
 	  
   1. (Optional) In the **{{ ui-key.yacloud.vpc.networks.create.field_description }}** field, add a network description.
-  1. The default option is **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. If you want to [create](subnet-create.md) the subnets later, disable this option.
+  1. The default option is **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. If you want to [create](subnet-create.md) subnets later, disable this option.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 - CLI {#cli}
@@ -25,7 +25,7 @@ In addition to the cloud network in the default folder, you can create cloud net
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To create a [cloud network](../concepts/network.md):
-  1. See the description of the CLI command for creating a cloud network:
+  1. View the description of the CLI command for creating a cloud network:
 
       ```
       yc vpc network create --help
@@ -39,7 +39,7 @@ In addition to the cloud network in the default folder, you can create cloud net
         --description "My test network"
       ```
 
-      The `--name` and `--description` flags are optional: you can create a network without any name or description and access it by ID.
+      The `--name` and `--description` flags are optional: you can create a network without any name and description and access it by ID.
 
       The network naming requirements are as follows:
 
@@ -93,7 +93,7 @@ In addition to the cloud network in the default folder, you can create cloud net
 
         {% include [name-format](../../_includes/name-format.md) %}
 
-     * `description`: Description of the cloud network.
+     * `description`: Cloud network description.
      * `labels`: Cloud network [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
 
      Here is an example of the configuration file structure:
@@ -109,20 +109,20 @@ In addition to the cloud network in the default folder, you can create cloud net
      }
      ```
 
-     For more information about the `vpc_network` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_network).
+     For more information about the `vpc_network` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_network).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -132,7 +132,7 @@ In addition to the cloud network in the default folder, you can create cloud net
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
         ```
         yc vpc network list
@@ -143,10 +143,10 @@ In addition to the cloud network in the default folder, you can create cloud net
   To create a [cloud network](../concepts/network.md), use the [create](../api-ref/Network/create.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Create](../api-ref/grpc/Network/create.md) gRPC API call, and provide the following in the request:
 
     * ID of the folder the network will reside in, in the `folderId` parameter.
-    * Name of the new network in the `name` parameter. The name must be from 3 to 63 characters long, the last character cannot be a hyphen.
+    * Name of the new network in the `name` parameter. The name must be 3 to 63 characters long, the last character cannot be a hyphen.
     * New network description in the `description` parameter. The description may be up to 256 characters long.
 
-  The `name` and `description` parameters are optional: you can create a network without any name or description and access it by ID.
+  The `name` and `description` parameters are optional: you can create a network without any name and description and access it by ID.
 
   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
@@ -177,20 +177,20 @@ Create a cloud network with a name and description in the selected folder:
      }
      ```
 
-     For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_network).
+     For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_network).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -200,7 +200,7 @@ Create a cloud network with a name and description in the selected folder:
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
         ```
         yc vpc network list

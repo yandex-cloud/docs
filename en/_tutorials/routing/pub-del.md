@@ -1,6 +1,6 @@
 ## Deleting a public connection {#pub-del}
 
-To delete an existing public connection from a trunk, create a [new support request]({{ link-console-support }}).
+To delete an existing public connection from a trunk, create a [new support ticket]({{ link-console-support }}).
 
 ### Contacting support to delete a public connection from a trunk {#pub-ticket}
 
@@ -17,14 +17,14 @@ pbc_id: cf3qxpv5pgf692******
 
 Where:
 
-* `trunk_id`: ID of the trunk the public connection was created in.
-* `pbc_id`: ID of the public connection to delete.
+* `trunk_id`: ID of the trunk carrying your public connection.
+* `pbc_id`: ID of the public connection you want to delete.
 
-### Support team's response to the customer's request {#pub-ticket-resp}
+### Support team's response to your ticket {#pub-ticket-resp}
 
-Support will notify you when the public connection is fully removed.
+Support will notify you when the public connection has been deleted.
 
-Example of support's response:
+Support response example:
 
 ```s
 The cf3qxpv5pgf692****** public connection was successfully deleted
