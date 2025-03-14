@@ -1,6 +1,6 @@
 ---
-title: How to delete a pubic connection in a trunk in {{ interconnect-full-name }}
-description: Follow this guide to delete a pubic connection in a trunk.
+title: How to delete a pubic connection from a trunk in {{ interconnect-full-name }}
+description: In this tutorial, we will delete a pubic connection from a trunk.
 canonical: '{{ link-docs }}/tutorials/routing/pub-del'
 ---
 

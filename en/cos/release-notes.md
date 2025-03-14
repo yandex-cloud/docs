@@ -7,7 +7,7 @@ description: In this article, you will learn how to find out your COI version an
 
 {% cut "How to find out your COI version" %}
 
-* To find out the version from inside the image (version 2.0.4 and higher), run this command:
+* For version 2.0.4 and higher, run this command to get the version from inside the image:
 
   ```bash
   cat /etc/ycloud/image-info
@@ -19,7 +19,7 @@ description: In this article, you will learn how to find out your COI version an
   coi-version: 2.3.14
   ```
 
-* To find out the version in `description` (version 2.1.0 and higher), run this command:
+* For version 2.1.0 and higher, run this command to get the version in `description`:
 
   ```bash
   yc compute image get-latest-from-family container-optimized-image \
@@ -37,7 +37,7 @@ description: In this article, you will learn how to find out your COI version an
 
 {% note info %}
 
-In version 2.2.0 and higher, the patch (the third number in the version, such as 3 in 1.2.3) indicates an update of system components and packages and is not mentioned in the list of releases.
+In version 2.2.0 and higher, the patch, which is the third number in the version, such as 3 in 1.2.3, means an update of the system components and packages and is not there in the release list.
 
 {% endnote %}
 

@@ -1,7 +1,7 @@
 # Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the Check Point NGFW
 
 
-Follow this tutorial to deploy a high-availability fail-safe network infrastructure with a dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and comprehensive protection based on the [Check Point next-generation firewall](https://www.checkpoint.com/ru/cloudguard/cloud-network-security/iaas-public-cloud-security/).
+In this tutorial, we will deploy a high-availability fail-safe network infrastructure with a dedicated [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and comprehensive protection based on the [Check Point next-generation firewall](https://www.checkpoint.com/ru/cloudguard/cloud-network-security/iaas-public-cloud-security/).
 
 The infrastructure elements reside in two [availability zones](../../overview/concepts/geo-scope.md); we will also group them by purpose, placing the groups into different [folders](../../resource-manager/concepts/resources-hierarchy.md#folder). This solution enables you to publish web resources, e.g., front-end applications, in a DMZ, restricting access to the internal network and thus ensuring its extra security.
 
@@ -42,7 +42,7 @@ In this scenario, we use the [Check Point CloudGuard IaaS]({{ link-cloud-marketp
 * Session logging
 * Centralized management with Check Point Security Management
 
-In this tutorial, we will configure Check Point CloudGuard IaaS with basic access management and NAT policies.
+In this tutorial, we will configure Check Point CloudGuard IaaS with basic access control and NAT policies.
 
 ## Get your cloud ready {#prepare-cloud}
 
@@ -67,9 +67,9 @@ In this tutorial, you will have to deploy a resource-intensive infrastructure.
 
 {% endnote %}
 
-Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) that are not currently used by resources for other tasks.
+Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) that are not used by other projects.
 
-{% cut "Amount of resources the tutorial requires" %}
+{% cut "Resources used by this tutorial" %}
 
    | Resource | Amount |
    | ----------- | ----------- |
@@ -92,9 +92,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | Cloud functions | 1 |
    | Cloud function triggers | 1 |
    | Total RAM for all running functions | 128 MB |
-   | NLB network load balancers | 2 |
+   | Network load balancers (NLBs) | 2 |
    | NLB target groups | 2 |
-   | ALB application load balancers | 1 |
+   | Application load balancers (ALBs) | 1 |
    | ALB backend groups | 1 |
    | ALB target groups | 1 |
 
@@ -102,10 +102,10 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Prepare the environment {#prepare-environment}
 
-This tutorial uses Windows software and [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
-The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
+In this tutorial, we will use Windows software and [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
+To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/).
 
-### Set up WSL {#setup-wsl}
+### Configure WSL {#setup-wsl}
 
 1. Check whether WSL is installed on your PC. To do this, run this command in the CLI terminal:
 
@@ -113,7 +113,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
    wsl -l
    ```
 
-   With WSL installed, the terminal will display a list of available distribution kits, e.g.:
+   If WSL is installed, the terminal will display a list of available distributions, for example:
 
    ```bash
    Windows Subsystem for Linux Distributions:
@@ -122,7 +122,7 @@ The infrastructure is deployed using [{{ TF }}](https://www.terraform.io/).
    Ubuntu
    ```
 
-1. Otherwise, [install](https://learn.microsoft.com/en-us/windows/wsl/install) it and repeat the previous step.
+1. If WSL is not installed, [install](https://learn.microsoft.com/en-us/windows/wsl/install) it and repeat the previous step.
 1. Additionally, you can install your preferred Linux distribution, e.g., [Ubuntu](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#1-overview), on top of WSL.
 1. To set the installed distribution as default, run this command:
 
@@ -182,7 +182,7 @@ Perform all steps below in the Linux terminal.
          yc iam service-account create --name sa-terraform
          ```
 
-         Where `name` is the service account name. The name should match the following format:
+         Where `name` is the service account name. The name should meet the following requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -219,7 +219,7 @@ Perform all steps below in the Linux terminal.
 
 ### Install the required tools {#install-utilities}
 
-1. Install [Git](https://en.wikipedia.org/wiki/Git) using this command:
+1. Install [Git](https://en.wikipedia.org/wiki/Git) using the following command:
 
    ```bash
    sudo apt install git
@@ -227,13 +227,13 @@ Perform all steps below in the Linux terminal.
 
 1. Install {{ TF }}:
 
-   1. Go to the root directory:
+   1. Navigate to the root directory:
 
       ```bash
       cd ~
       ```
 
-   1. Create a directory named `terraform` and open it:
+   1. Create the `terraform` directory and open it:
 
       ```bash
       mkdir terraform
@@ -256,7 +256,7 @@ Perform all steps below in the Linux terminal.
       unzip terraform_1.3.9_linux_amd64.zip
       ```
 
-   1. Add the path to the directory with the executable to the `PATH` variable:
+   1. Add the executable directory to your `PATH`:
 
       ```bash
       export PATH=$PATH:~/terraform
@@ -277,7 +277,7 @@ Perform all steps below in the Linux terminal.
       nano .terraformrc
       ```
 
-   1. Add this section to the file:
+   1. Add the following section to the file:
 
       ```text
       provider_installation {
@@ -291,7 +291,7 @@ Perform all steps below in the Linux terminal.
       }
       ```
 
-      For more information about setting up mirrors, see [this {{ TF }} overview article](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+      For more information about mirror settings, see the relevant [{{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration) guides.
 
 ## Deploy your resources {#create-resources}
 
@@ -317,7 +317,7 @@ Perform all steps below in the Linux terminal.
          ```bash
          yc iam key create \
            --service-account-id <service_account_ID> \
-           --folder-id <service_account_folder_ID> \
+           --folder-id <ID_of_folder_with_service_account> \
            --output key.json
          ```
 
@@ -325,7 +325,7 @@ Perform all steps below in the Linux terminal.
 
          * `service-account-id`: Service account ID.
          * `folder-id`: ID of the service account folder.
-         * `output`: Name of the authorized key file.
+         * `output`: Authorized key file name.
 
          Result:
 
@@ -336,7 +336,7 @@ Perform all steps below in the Linux terminal.
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to perform operations under the service account:
+      1. Create a CLI profile to run operations on behalf of the service account:
 
          ```bash
          yc config profile create sa-terraform
@@ -418,7 +418,7 @@ Perform all steps below in the Linux terminal.
        terraform plan
        ```
 
-   1. Create the resources:
+   1. Create resources:
 
        ```bash
        terraform apply
@@ -442,7 +442,7 @@ To set up the VPN tunnel:
 
 1. [Install](https://download.wireguard.com/windows-client/wireguard-installer.exe) WireGuard on your PC.
 1. Open WireGuard and click **Add Tunnel**.
-1. In the dialog box that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-ngfw` directory.
+1. In the dialog that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-ngfw` directory.
 
    To find a Linux, e.g., Ubuntu, directory, type the file path in the dialog address bar:
 
@@ -472,7 +472,7 @@ To set up and manage [Check Point](https://en.wikipedia.org/wiki/Check_Point), i
 
 1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser.
 1. Sign in using `admin` as both username and password.
-1. You will enter Gaia Portal where you can download the SmartConsole GUI client To do this, click **Manage Software Blades using SmartConsole. Download Now!**.
+1. You will enter Gaia Portal where you can download the SmartConsole GUI client by clicking **Manage Software Blades using SmartConsole. Download Now!**.
 1. Install SmartConsole on your PC.
 1. Get a password to access SmartConsole by running this command in the terminal:
 
@@ -570,7 +570,7 @@ Renaming the interfaces the second time will cause the network object name repli
     | FW-b-dmz-IP | 10.160.2.10 |
     | FW-b-public-IP | 172.16.2.10 |
 
-1. Select **More object types → Network Object → Service → New TCP...** and create a TCP service for the DMZ application, specifying its name: `TCP_8080` and port: `8080`.
+1. Select **More object types → Network Object → Service → New TCP...** and create a TCP service for the DMZ application, specifying its name: `TCP_8080`  and port: `8080`.
 
 ### Set security policy rules {#define-policies}
 

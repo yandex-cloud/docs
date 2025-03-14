@@ -47,8 +47,6 @@ items:
                 href: concepts/get-request.md
               - name: POST-запросы
                 href: concepts/post-request.md
-              - name: Генеративный ответ
-                href: concepts/generative-response.md
           - name: Поиск по картинкам
             items:
               - name: GET-запросы
@@ -63,6 +61,8 @@ items:
         href: concepts/response.md
       - name: HTML-ответ
         href: concepts/html-response.md
+      - name: Генеративный ответ
+        href: concepts/generative-response.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

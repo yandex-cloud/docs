@@ -20,13 +20,13 @@ To move a subnet to a different availability zone:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI subnet move command:
+  1. View the description of the CLI command for moving a subnet:
 
       ```bash
       yc vpc subnet relocate --help
       ```
 
-  1. In the default folder, find the ID of the subnet you need to move:
+  1. In the default folder, get the ID of the subnet you need to move:
 
       ```bash
       yc vpc subnet list
@@ -61,7 +61,7 @@ To move a subnet to a different availability zone:
           * `{{ region-id }}-b`
           * `{{ region-id }}-d`
 
-      Here is an example:
+      Example:
 
       ```bash
       yc vpc subnet relocate \
@@ -91,17 +91,17 @@ To move a subnet to a different availability zone:
 
   **Request example**
 
-  To run the sample, install [cURL](https://curl.haxx.se).
+  To run the example, install [cURL](https://curl.haxx.se).
 
-  1. [Get](../../iam/operations/index.md#iam-tokens) an IAM token for [authentication](../api-ref/authentication.md) in the API.
+  1. [Get](../../iam/operations/index.md#iam-tokens) an IAM token for [authentication](../api-ref/authentication.md) with the API.
 
-  1. Save the token to a variable.
+  1. Save the token to a variable:
 
       ```bash
       export IAM_TOKEN=<obtained_IAM_token>
       ```
 
-  1. Prepare a `body.json` file with the request body, specifying the ID of the [availability zone](../../overview/concepts/geo-scope.md) to move the subnet to:
+  1. Create the `body.json` file with the request body, specifying the ID of the [availability zone](../../overview/concepts/geo-scope.md) to move the subnet to:
 
       ```json
       {

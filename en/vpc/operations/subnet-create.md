@@ -1,12 +1,12 @@
 ---
-title: Create a subnet
+title: Creating a subnet
 description: Follow this guide to create a subnet.
 ---
 
 # Creating a subnet
 
 
-[Subnets](../concepts/network.md#subnet) are created in cloud networks. A new subnet is located in one of the availability zones. Resources can be connected to a subnet if they reside in the same availability zone as the subnet itself.
+[Subnets](../concepts/network.md#subnet) are created in cloud networks. A new subnet is located in one of the availability zones. You can connect resources to a subnet if they reside in the same availability zone as the subnet itself.
 
 {% list tabs group=instructions %}
 
@@ -26,7 +26,7 @@ description: Follow this guide to create a subnet.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** field, enter the subnet IP address and mask. 
      For more information about subnet IP address ranges, see [Cloud networks and subnets](../concepts/network.md). 
      If you need to enter more CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-  1. (Optional) Set **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**. To do this:
+  1. (Optional) Set **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**. For this, follow these steps:
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}** field, specify a DNS domain to search for unqualified names.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}** field, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-domain-name-server }}** and enter the address of your DNS server. You can specify multiple DNS servers.
       1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_ntp-servers }}** field, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** and enter the address of your NTP server. You can specify multiple NTP servers.
@@ -41,7 +41,7 @@ description: Follow this guide to create a subnet.
 
   To create a subnet:
 
-  1. See the description of the CLI command for creating a subnet:
+  1. View the description of the CLI command for creating a subnet:
 
       ```
       yc vpc subnet create --help
@@ -79,7 +79,7 @@ description: Follow this guide to create a subnet.
 
       * `--network-id`: Cloud network ID. You can also select a cloud network by specifying its name via the `--network-name` flag. Specify the name of the cloud network to create the subnet in and the CIDR.
       * `--zone`: Availability zone to create the subnet in. If this flag is not set, the subnet is created in the default availability zone.
-      * `--range`: List of internal IPv4 addresses specified for this subnet. such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is /28, the maximum subnet size is /16. Only IPv4 is supported.
+      * `--range`: List of internal IPv4 addresses specified for this subnet, such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is /28, and the maximum subnet size is /16. Only IPv4 is supported.
 
       The subnet naming requirements are as follows:
 
@@ -146,12 +146,12 @@ description: Follow this guide to create a subnet.
 
   1. In the configuration file, describe the subnet parameters:
 
-     * `name`: Subnet name. The name should match the following format:
+     * `name`: Subnet name. The naming requirements are as follows:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
      * `description`: Subnet description.
-     * `v4_cidr_blocks`: List of IPv4 addresses to deal with outgoing and incoming traffic. such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+     * `v4_cidr_blocks`: List of IPv4 addresses the traffic will come to or from, such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, and the maximum subnet size is `/16`. Only IPv4 is supported.
      * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
      * `network_id`: ID of the network you are creating the subnet in.
 
@@ -167,7 +167,7 @@ description: Follow this guide to create a subnet.
      }
      ```
 
-     To add, update, or delete a subnet, use the `yandex_vpc_subnet` resource indicating the network in the `network_id` field (see an [example](#examples)).
+     To add, update, or delete a subnet, use the `yandex_vpc_subnet` resource indicating the network in the `network_id` field (see [this example](#examples)).
 
      For more information about the `yandex_vpc_subnet` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
 
@@ -180,7 +180,7 @@ description: Follow this guide to create a subnet.
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -192,7 +192,7 @@ description: Follow this guide to create a subnet.
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
         ```
         yc vpc subnet list
@@ -205,7 +205,7 @@ description: Follow this guide to create a subnet.
     * ID of the folder the subnet will reside in, in the `folderId` parameter.
     * ID of the network the subnet will be placed in, in the `networkId` parameter.
     * ID of the availability zone the subnet will be placed in, in the `zoneId` parameter.
-    * List of internal IPv4 addresses specified for this subnet, in the `v4CidrBlocks[]` array. such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, the maximum subnet size is `/16`. Only IPv4 is supported.
+    * List of internal IPv4 addresses specified for this subnet, in the `v4CidrBlocks[]` array, such as `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. The minimum subnet size is `/28`, and the maximum subnet size is `/16`. Only IPv4 is supported.
 
   {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 
@@ -275,7 +275,7 @@ description: Follow this guide to create a subnet.
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
 
@@ -287,7 +287,7 @@ description: Follow this guide to create a subnet.
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
         ```
         yc vpc subnet list

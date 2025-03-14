@@ -2,7 +2,7 @@ You can convert a dynamic public IP address to static. Static public IP addresse
 
 {% note info %}
 
-Make sure to check out our [pricing policy](../../vpc/pricing.md#prices-public-ip) for inactive static public IPs.
+Make sure to check out our [pricing policy](../../vpc/pricing.md#prices-public-ip) for inactive static public IP addresses.
 
 {% endnote %}
 
@@ -11,7 +11,7 @@ Make sure to check out our [pricing policy](../../vpc/pricing.md#prices-public-i
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder containing the address.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the IP address and select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
@@ -22,7 +22,7 @@ Make sure to check out our [pricing policy](../../vpc/pricing.md#prices-public-i
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI commands for updating the address attribute:
+   1. See the description of the CLI commands for updating the address attributes:
 
       ```bash
       yc vpc address update --help
@@ -79,7 +79,7 @@ Make sure to check out our [pricing policy](../../vpc/pricing.md#prices-public-i
     {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
   * `true` in the `reserved` parameter.
-  * The name of the `reserved` parameter in the `updateMask` parameter.
+  * Name of the `reserved` parameter in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

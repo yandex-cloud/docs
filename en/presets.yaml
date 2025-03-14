@@ -900,6 +900,14 @@ default:
       computing:
         v1|number: 0.006
         v1|string: ₸0.0060
+      datasets:
+        v1|number: 0.006
+      deployment|number: 0.006
+      disk:
+        v1|number: 0.006
+      jobs|number: 0.006
+      models:
+        v1|number: 0.006
     mt:
       detect|string: ₸2461.00
       translate|string: ₸2461.00
@@ -1106,6 +1114,19 @@ default:
     zones:
       v1|month|string: ₸180.00
       v1|string: ₸0.25
+  sku|KZT|foundation_models:
+    image_generation:
+      v1|string: ₸11.00
+    text_classification:
+      v1|string: ₸0.75
+    text_embedding:
+      v1|string: ₸0.05
+    text_generation_alt:
+      v1|number: 1
+      v1|string: ₸1.00
+    text_generation:
+      v1|number: 1
+      v1|string: ₸1.00
   sku|KZT|gitlab:
     backup|month|number: 9.6
     backup|month|string: ₸9.60
@@ -1746,12 +1767,16 @@ default:
         v1|string: Free
   sku|KZT|searchapi:
     requests:
+      async:
+        v3|string: ₸125.00
       day:
         v1|string: ₸2400.00
       night:
         v1|pricingRate:
           1|string: ₸1800.00
         v1|string: Free
+      sync:
+        v3|string: ₸2400.00
   sku|KZT|serverless:
     containers:
       compute:
@@ -1810,6 +1835,18 @@ default:
         v1|string: ₸0.80
       v3_request:
         v1|string: ₸0.80
+  sku|KZT|speechsense:
+    analysis:
+      audio|number: 0.05
+      audio|pricingRate:
+        30000000|number: 0.025
+        6000000|number: 0.03
+      v1|number: 0.115
+      v1|pricingRate:
+        150000000|number: 0.025
+        30000000|number: 0.05
+        6000000|number: 0.085
+        60000000|number: 0.035
   sku|KZT|storage:
     api:
       get:
@@ -2111,6 +2148,21 @@ default:
             ram:
               v2|month|string: ₸1432.08
               v2|string: ₸1.9890
+  sku|KZT|vision_ocr:
+    driver_license_text_detection:
+      v1|string: ₸3.50
+    handwriting_and_printed_text_detection:
+      v1|string: ₸7.50
+    license_plates:
+      v1|string: ₸0.65
+    passport_text_detection:
+      v1|string: ₸3.50
+    printed_text_detection:
+      v1|string: ₸0.65
+    text_and_table_text_detection:
+      v1|string: ₸6.00
+    vehicle_certificate_text_detection:
+      v1|string: ₸3.50
   sku|KZT|vpc:
     gateway:
       shared_egress_gateway:
@@ -2181,6 +2233,14 @@ default:
       computing:
         v1|number: 0.0012
         v1|string: ₽0.0012
+      datasets:
+        v1|number: 0.0012
+      deployment|number: 0.0012
+      disk:
+        v1|number: 0.0012
+      jobs|number: 0.0012
+      models:
+        v1|number: 0.0012
     mt:
       detect|string: ₽492.20
       translate|string: ₽492.20
@@ -2388,6 +2448,19 @@ default:
     zones:
       v1|month|string: ₽36.00
       v1|string: ₽0.05
+  sku|RUB|foundation_models:
+    image_generation:
+      v1|string: ₽2.20
+    text_classification:
+      v1|string: ₽0.15
+    text_embedding:
+      v1|string: ₽0.01
+    text_generation_alt:
+      v1|number: 0.2
+      v1|string: ₽0.20
+    text_generation:
+      v1|number: 0.2
+      v1|string: ₽0.20
   sku|RUB|gitlab:
     backup|month|number: 1.92
     backup|month|string: ₽1.92
@@ -3028,12 +3101,16 @@ default:
         v1|string: Free
   sku|RUB|searchapi:
     requests:
+      async:
+        v3|string: ₽25.00
       day:
         v1|string: ₽480.00
       night:
         v1|pricingRate:
           1|string: ₽360.00
         v1|string: Free
+      sync:
+        v3|string: ₽480.00
   sku|RUB|serverless:
     containers:
       compute:
@@ -3092,6 +3169,18 @@ default:
         v1|string: ₽0.16
       v3_request:
         v1|string: ₽0.16
+  sku|RUB|speechsense:
+    analysis:
+      audio|number: 0.01
+      audio|pricingRate:
+        30000000|number: 0.005
+        6000000|number: 0.006
+      v1|number: 0.023
+      v1|pricingRate:
+        150000000|number: 0.005
+        30000000|number: 0.01
+        6000000|number: 0.017
+        60000000|number: 0.007
   sku|RUB|storage:
     api:
       get:
@@ -3393,6 +3482,21 @@ default:
             ram:
               v2|month|string: ₽286.4160
               v2|string: ₽0.3978
+  sku|RUB|vision_ocr:
+    driver_license_text_detection:
+      v1|string: ₽0.70
+    handwriting_and_printed_text_detection:
+      v1|string: ₽1.50
+    license_plates:
+      v1|string: ₽0.13
+    passport_text_detection:
+      v1|string: ₽0.70
+    printed_text_detection:
+      v1|string: ₽0.13
+    text_and_table_text_detection:
+      v1|string: ₽1.20
+    vehicle_certificate_text_detection:
+      v1|string: ₽0.70
   sku|RUB|vpc:
     gateway:
       shared_egress_gateway:
@@ -3665,6 +3769,17 @@ default:
           v1|string: Free
     zones:
       v1|month|string: $0.288000
+  sku|USD|foundation_models:
+    image_generation:
+      v1|string: $0.017600
+    text_classification:
+      v1|string: $0.001200
+    text_embedding:
+      v1|string: $0.000080
+    text_generation_alt:
+      v1|string: $0.001600
+    text_generation:
+      v1|string: $0.001600
   sku|USD|gitlab:
     backup|month|number: 0.01536
     backup|month|string: $0.015360
@@ -4285,12 +4400,16 @@ default:
         v1|string: Free
   sku|USD|searchapi:
     requests:
+      async:
+        v3|string: $0.200000
       day:
         v1|string: $3.840000
       night:
         v1|int|string: Free
         v1|pricingRate:
           1|string: $2.880000
+      sync:
+        v3|string: $3.840000
   sku|USD|serverless:
     containers:
       compute:
@@ -4314,6 +4433,8 @@ default:
       invocations|string: Free
     functions:
       compute:
+        provision_enabled|string: $0.009600
+        provisioned_request|string: $0.018400
         v1|pricingRate:
           10|number: 0.04376
           10|string: $0.043760
@@ -4347,6 +4468,18 @@ default:
         v1|string: $0.001280
       v3_request:
         v1|string: $0.001280
+  sku|USD|speechsense:
+    analysis:
+      audio|number: 0.00008
+      audio|pricingRate:
+        30000000|number: 0.00004
+        6000000|number: 0.000048
+      v1|number: 0.000184
+      v1|pricingRate:
+        150000000|number: 0.00004
+        30000000|number: 0.00008
+        6000000|number: 0.000136
+        60000000|number: 0.000056
   sku|USD|storage:
     api:
       get:
@@ -4690,6 +4823,21 @@ default:
                 gold|string: $0.017949
                 platinum|month|string: $14.861539
                 platinum|string: $0.020641
+  sku|USD|vision_ocr:
+    driver_license_text_detection:
+      v1|string: $0.005600
+    handwriting_and_printed_text_detection:
+      v1|string: $0.012000
+    license_plates:
+      v1|string: $0.001040
+    passport_text_detection:
+      v1|string: $0.005600
+    printed_text_detection:
+      v1|string: $0.001040
+    text_and_table_text_detection:
+      v1|string: $0.009600
+    vehicle_certificate_text_detection:
+      v1|string: $0.005600
   sku|USD|vpc:
     gateway:
       shared_egress_gateway:
@@ -5459,6 +5607,7 @@ default:
         field_person-id: Payer
     yacloud_billing:
       alb:
+        label_backends: Backends
         label_max-timeout: Maximum timeout, sec.
       backup:
         button_attach-instance-submit: Attach
@@ -6266,6 +6415,7 @@ default:
         label_locality-aware-routing: Locality aware routing
         label_log-group: Cloud Logging log group
         label_log-requests: Write logs
+        label_map: Balancing map
         label_match-exact: Matches
         label_match-prefix: Starts with
         label_match-regex: Regular expression
@@ -6297,6 +6447,7 @@ default:
         label_route-action-route: Routing
         label_route-action-statusResponse: Response
         label_route-type: Type
+        label_security-groups: Security groups
         label_security-profile-id: Security profile
         label_send: Send
         label_server-names: Server names
@@ -6411,6 +6562,9 @@ default:
         field_choose-no-os: No OS
         field_CIDR: CIDR
         field_description: Description
+        field_dhcp-ip-range: IP address range
+        field_dhcp-settings: Assigning IP addresses via DHCP
+        field_gateway: Default gateway
         field_name: Name
         field_needed-public-ip: Public address
         field_network-id: Virtual network segment (VRF)
@@ -7523,6 +7677,7 @@ default:
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
+            label_yq: Query
             label_yq_ru: Yandex Query
             value_audit-trails: Audit trail
             value_compute: Virtual machine instance
@@ -7551,10 +7706,13 @@ default:
               field_key-expires-at: Expires at
               field_key-scope: Scope
               label_id: ID
+              label_id-title: Key ID
+              label_secret-key-title: Your secret key
               label_title: Overview
               popup-confirm_button_delete: Delete
               popup-key_button_close: Close
               popup-key_button_create: Create
+              popup-key_label_title: New key
               section_api_keys: API keys
               section_keys: Authorized keys
               section_service-account-keys: Access keys
@@ -7562,6 +7720,7 @@ default:
             popup-robot_button_save: Save
             popup-robot_field_name: Name
             popup-robot_field_roles: Roles in the folder
+            switch_overview: Overview
           service-accounts:
             button_action-delete: Delete
             button_action-edit: 'Edit '
@@ -7921,7 +8080,9 @@ default:
           title_secret-type: Secret type
           title_secret-type-custom: Custom
           title_secret-type-generated: Generated
+          title_version-payload-entries-value-placeholder: Value
           value_payload-entry-value-type-text: Text
+        label_password-key: Key
         label_secret-general-section: Information about secret
         label_secret-id: ID
         label_secret-versions-section: Versions
@@ -8443,6 +8604,7 @@ default:
             button_add-environment-variable: Add
             button_deploy-version: Save changes
             create-file: Create file
+            create-form-file-path: Name
             field_bucket: Bucket
             field_entry: Entry point
             field_environment-variables: Environment variables
@@ -8865,6 +9027,8 @@ default:
           button_version-history: Version history
           label_lifetime: Lifetime
           popup-confirm_button_delete: Delete
+        permissions-dialog:
+          label_role-write: 'READ and WRITE '
         server-logs:
           label_prefix: Prefix
           label_server-logs: Write logs
@@ -10540,6 +10704,8 @@ default:
           button-text: Preview
         binding-stream:
           title: Stream
+        connection-bucket:
+          title: Bucket
         connection-parameters:
           title: Connection parameters
         connection-type:
@@ -10565,6 +10731,7 @@ default:
             label: Basic
           enabled:
             label: Extended
+        title_infer-columns: Detect columns
       yq-binding-info:
         compression:
           label-text: Compression

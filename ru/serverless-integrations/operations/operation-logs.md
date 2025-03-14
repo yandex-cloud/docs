@@ -76,7 +76,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<ресурс>/ListOperations`.
+  Воспользуйтесь методом REST API `listOperations` для соответствующего ресурса или вызовом gRPC API `<сервис>/ListOperations`.
 
   Например, для шины {{ er-name }} воспользуйтесь методом REST API [listOperations](../../serverless-integrations/eventrouter/api-ref/Bus/listOperations.md) для ресурса [Bus](../../serverless-integrations/eventrouter/api-ref/Bus/index.md) или вызовом gRPC API [BusService/ListOperations](../../serverless-integrations/eventrouter/api-ref/grpc/Bus/listOperations.md).
 

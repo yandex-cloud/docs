@@ -1,4 +1,4 @@
 | Service | Cost per 1 GB×hour, without VAT |
 | --- | --- |
-| Downtime of a provisioned instance | $0.015385 |
-| Execution time of a function in a provisioned instance | $0.029488 |
+| Downtime of a provisioned instance | {{ sku|USD|serverless.functions.compute.provision_enabled|string }} |
+| Execution time of a function in a provisioned instance | {{ sku|USD|serverless.functions.compute.provisioned_request|string }} |

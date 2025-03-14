@@ -12,7 +12,7 @@ items:
       - name: Creating a VM from a {{ coi }}
         href: tutorials/vm-create.md
       - name: >-
-          Creating a VM from a {{ coi }} with additional volume for a Docker
+          Creating a VM from a {{ coi }} with an additional volume for a Docker
           container
         href: tutorials/vm-create-with-second-disk.md
       - name: Creating a VM from a {{ coi }} with multiple Docker containers
@@ -23,7 +23,7 @@ items:
           Creating an instance group from a {{ coi }} with multiple Docker
           containers
         href: tutorials/ig-with-containers.md
-      - name: Updating a VM with a {{ coi }}
+      - name: Updating a {{ coi }} VM
         href: tutorials/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: tutorials/serial-port.md

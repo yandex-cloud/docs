@@ -1,10 +1,10 @@
 ---
-title: How to change trunk capacity in {{ interconnect-full-name }}
-description: Follow this guide to change trunk capacity.
+title: How to change the trunk capacity in {{ interconnect-full-name }}
+description: In this tutorial, we will change the trunk capacity.
 canonical: '{{ link-docs }}/tutorials/routing/trunk-capacity-change'
 ---
 
-# Changing trunk capacity
+# Changing the trunk capacity
 
 {% include [cic-trunk-capacity-change](../../_tutorials/routing/trunk-capacity-change.md) %}
 

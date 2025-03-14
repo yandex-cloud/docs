@@ -1,22 +1,22 @@
 ---
-title: Traffic routing between cloud resources and customer infrastructure resources
+title: Traffic routing between cloud resources and customer on-premise infrastructure resources
 description: In this article, you will learn about the routing concept and best practices, load balancing, direction-based traffic prioritization, VPN gateway traffic failover, static route priority, default route (`0.0.0.0/0`) load balancing and prioritization, and working with security groups.
 ---
 
 # Routing
 
-When connecting a customer infrastructure via {{ interconnect-full-name }}, you will typically need to set up traffic routing between the cloud resources and customer infrastructure resources.
+Connecting a customer infrastructure via {{ interconnect-full-name }} usually requires setting up traffic routing between cloud-based and on-premise resources.
 
 By **routing**, we mean tools to manage traffic in {{ yandex-cloud }}.
 
 ## Best practices for routing in {{ interconnect-name }} {#cic-routing}
 
-* Prior to deploying cloud resources, make sure you have a well-planned IP addressing scheme. Subnet IP address ranges in {{ yandex-cloud }} must not overlap with those in the client infrastructure.
+* Prior to deploying cloud resources, make sure you have a well-planned IP addressing scheme. Subnet IP address ranges in {{ yandex-cloud }} must not overlap with those in the on-premise infrastructure.
 * Always set up two communication circuits through two [points of presence](pops.md).
 
-* To simplify the setup of fault-tolerant BGP routing, consider using the same [BGP ASN](priv-con.md#bgp-asn) for multiple customer edge routers connecting to {{ interconnect-name }}. You can use different **BGP ASNs**, e.g., when setting up connections via telecom providers. Keep in mind that {{ yandex-cloud }} is not responsible for configuring the customer and telecom provider network hardware.
+* To simplify the setup of fault-tolerant BGP routing, we recommend using the same [BGP ASN](priv-con.md#bgp-asn) for multiple customer edge routers connecting to {{ interconnect-name }}. You can use different **BGP ASNs**, e.g., when setting up connections via telecom providers. Keep in mind that {{ yandex-cloud }} is not responsible for configuring the customer and telecom provider network hardware.
 
-* Each customer edge router that establishes [eBGP peering](priv-con.md#bgp-peering) with {{ yandex-cloud }} hardware should also establish **iBGP** peering with other customer edge routers.
+* Each customer edge router that establishes [eBGP peering](priv-con.md#bgp-peering) with {{ yandex-cloud }} equipment should also establish **iBGP** peering with other customer edge routers.
 * Use prefixes of different lengths for BGP announcements on customer edge routers to distribute outgoing traffic from cloud subnets across communication circuits: 
     * Short prefixes, such as `/8`, have the lowest route priority.
     * Long prefixes, such as `/32`, have the highest route priority.
@@ -43,9 +43,9 @@ Customer edge routers announce the `10.0.0.0/8` prefix from the customer infrast
 
 Note that this balancing mode can create traffic asymmetry. For example, a request originating from the customer infrastructure to cloud resources could arrive through the `M9` point of presence, while the response will be sent through `NORD`.
 
-While {{ yandex-cloud }} hardware allows and correctly handles traffic asymmetry, specific types of equipment within the customer infrastructure, such as firewalls, may experience issues with asymmetric traffic patterns.
+While {{ yandex-cloud }} equipment allows and correctly handles traffic asymmetry, specific types of equipment within the customer infrastructure, such as firewalls, may experience issues with asymmetric traffic patterns.
 
-To allow asymmetric traffic from {{ yandex-cloud }}, disable [RPF](https://en.wikipedia.org/wiki/Reverse-path_forwarding) on the network elements handling traffic in the customer infrastructure. This will enable you to use all active {{ interconnect-name }} links with a redundant connectivity through two or more points of presence.
+To allow asymmetric traffic from {{ yandex-cloud }}, disable [RPF](https://en.wikipedia.org/wiki/Reverse-path_forwarding) on the network elements handling traffic in the on-premise infrastructure. This will enable you to use all active {{ interconnect-name }} links with a redundant connectivity through two or more points of presence.
 
 
 ## Direction-based traffic prioritization (Active-Standby) {#cic-routing-as}
@@ -78,9 +78,9 @@ Below, you can see an example of prioritizing traffic through two private connec
 
 You can learn more about **BGP AS path prepending** [here](https://datatracker.ietf.org/doc/html/rfc4271#section-5.1.2).
 
-The customer edge router (R1) uses the `M9` PoP to announce the `10.0.0.0/8` prefix from the customer infrastructure over BGP towards {{ yandex-cloud }}. The BGP `AS_PATH` attribute will default to `65001`, while the AS path length (amount of autonomous system number values) will be 1.
+The customer edge router (R1) uses the `M9` PoP to announce the `10.0.0.0/8` prefix from the customer infrastructure over BGP towards {{ yandex-cloud }}. The `AS_PATH` attribute will default to `65001`, while the AS path length (amount of autonomous system number values) will be 1.
 
-Another customer edge router (R2) announces the same prefix (`10.0.0.0/8`) from the customer infrastructure over BGP through the `NORD` PoP towards {{ yandex-cloud }}.
+Another customer edge router (R2) announces the same prefix (`10.0.0.0/8`) from the customer infrastructure over BGP via the `NORD` PoP towards {{ yandex-cloud }}.
 
 Before announcing the prefix, the BGP routing policy on the R2 router adds the customer's autonomous system number (BGP ASN) to the `AS_PATH` attribute value so that it will be equal to `65001 65001` and the AS path length will be 2. This makes the prefix with such AS path length less preferable for external BGP routers.
 
@@ -92,7 +92,7 @@ All traffic from the `172.16.1.0/24`, `172.16.2.0/24` and `172.16.3.0/24` cloud 
 
 ## VPN gateway traffic failover {#cic-routing-vpn}
 
-You can use a VPN gateway to make your {{ interconnect-name }} connection failsafe. For example, this might be an option when you cannot set up two physical circuits via two points of presence to ensure a fault-tolerant connection of the customer infrastructure to {{ yandex-cloud }}.
+You can use a VPN gateway to make your {{ interconnect-name }} connection failsafe. For example, this might be an option when you cannot set up two physical circuits via two points of presence to ensure a fault-tolerant connection of your on-premise infrastructure to {{ yandex-cloud }}.
 
 ![cic-routing-3](../../_assets/interconnect/cic-routing-3.svg)
 
@@ -120,7 +120,7 @@ This way, all traffic from the cloud network to the `10.0.0.0/8` customer infras
 
 ## `0.0.0.0/0` route load balancing {#cic-routing-default-aa}
 
-In some cases, for example, to connect cloud resources to the internet via the customer infrastructure, you need to set up `0.0.0.0/0` route announcement over BGP towards {{ yandex-cloud }}.
+In some cases, connecting cloud resources to the internet via the customer infrastructure may require setting up the `0.0.0.0/0` route announcement over BGP towards {{ yandex-cloud }}.
 
 ![cic-routing-5](../../_assets/interconnect/cic-routing-5.svg)
 
@@ -175,7 +175,7 @@ All traffic from the cloud subnets to the customer infrastructure will be routed
 
 [Security groups](../../vpc/concepts/security-groups.md) are used to protect {{ yandex-cloud }} resources and cannot be used for filtering traffic outside {{ yandex-cloud }}.
 
-Security group rules should be set up for the prefixes announced by client routers to {{ yandex-cloud }}. For example, to allow access from the client infrastructure to a web application (port 443) deployed in {{ yandex-cloud }}, set up a security group as follows:
+Security group rules should be set up for the prefixes customer edge routers announce to {{ yandex-cloud }}. For example, to allow access from the customer infrastructure to a web application (port 443) deployed in {{ yandex-cloud }}, set up a security group as follows:
 ```json
 ingress {
       protocol       = "TCP"

@@ -20,10 +20,10 @@ To create a new [security group](../concepts/security-groups.md):
   1. Enter a name for the security group.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network to assign the security group to.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create traffic management rules: 
-     1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab to create an outbound or inbound rule, respectively.
+     1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that will be open for traffic.
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a port range for traffic to come to or from.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or keep `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
         1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
         1. `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` field alternative. Select:
@@ -35,7 +35,7 @@ To create a new [security group](../concepts/security-groups.md):
 
 - CLI {#cli}
   
-  To create a group with an IPv4 CIDR rule, run the command:
+  To create a group with an IPv4 CIDR rule, run this command:
 
   ```bash
   yc vpc security-group create \
@@ -50,8 +50,8 @@ To create a new [security group](../concepts/security-groups.md):
   * `rule`: Rule description:
     * `direction`: Traffic direction, with `ingress` for incoming traffic and `egress` for outgoing traffic.
     * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
-    * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
-    * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets to deal with outgoing and incoming traffic.
+    * `protocol`: Data transfer protocol. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+    * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets the traffic will come to or from.
     * `network-id`: ID of the network the security group will be connected to.
 
   To create a group with a rule that allows traffic from all resources of a different security group, run this command:
@@ -69,7 +69,7 @@ To create a new [security group](../concepts/security-groups.md):
   * `rule`: Rule description:
     * `direction`: Traffic direction, with `ingress` for incoming traffic and `egress` for outgoing traffic.
     * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
-    * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+    * `protocol`: Data transfer protocol. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
     * `security-group-id`: ID of the security group that is allowed to send traffic to the new security group through port 443.
   * `network-name`: Name of the network the security group will be connected to.
 
@@ -84,11 +84,11 @@ To create a new [security group](../concepts/security-groups.md):
      * `name`: Security group name.
      * `description`: Optional description of the security group.
      * `network_id`: ID of the network to assign the security group to.
-     * `ingress` and `egress`: Rule parameters for incoming and outgoing traffic:
-       * `protocol`: Traffic transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+     * `ingress` and `egress`: Parameters for incoming and outgoing traffic rules:
+       * `protocol`: Traffic transmission protocol. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
        * `description`: Optional description of the rule.
-       * `v4_cidr_blocks`: List of CIDRs and masks of subnets to deal with outgoing and incoming traffic.
-       * `port`: Port for traffic.
+       * `v4_cidr_blocks`: List of CIDRs and masks of subnets the traffic will come to or from.
+       * `port`: Traffic port.
        * `from-port`: First port in the traffic port range. 
        * `to-port`: Last port in the traffic port range.
 
@@ -147,7 +147,7 @@ To create a new [security group](../concepts/security-groups.md):
         ```
         terraform plan
         ```
-     If the configuration is correct, the terminal will display a list of resources to create and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources you created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
         
   1. Deploy the cloud resources.
 
@@ -155,9 +155,9 @@ To create a new [security group](../concepts/security-groups.md):
         ```
         terraform apply
         ```
-     1. Confirm creating the resources.
+     2. Confirm creating the resources.
      
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -172,8 +172,8 @@ To create a new [security group](../concepts/security-groups.md):
       * `ingress`: Incoming traffic
       * `egress`: Outgoing traffic
 
-    * Name of the traffic transmission protocol, in the `ruleSpecs[].protocolName` parameter. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
-    * List of CIDRs and masks of subnets to deal with outgoing and incoming traffic, in the `ruleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter. If the rule is configured for transmitting traffic to a security group, provide the security group ID in the `ruleSpecs[].securityGroupId` parameter instead.
+    * Name of the traffic transmission protocol, in the `ruleSpecs[].protocolName` parameter. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+    * List of CIDRs and masks of subnets the traffic will come to or from, in the `ruleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter. If you set the rule for the traffic to a security group, provide the security group ID in the `ruleSpecs[].securityGroupId` parameter instead.
     * First port in the traffic port range, in the `ruleSpecs[].ports.fromPort` parameter. The values range from `0` to `65535`.
     * Last port in the traffic port range, in the `ruleSpecs[].ports.toPort` parameter. The values range from `0` to `65535`.
 

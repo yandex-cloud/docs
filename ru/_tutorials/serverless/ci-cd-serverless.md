@@ -24,6 +24,18 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры входит:
+
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование [мастера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за хранение созданных Docker-образов (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Плата за хранение секретов (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md)).
+* Плата за запросы к API-шлюзу (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
+* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+
 ## Перед началом работы {#before-begin}
 
 ### Скачайте проект {#download-project}

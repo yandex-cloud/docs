@@ -25,7 +25,14 @@ description: Следуя данной инструкции, вы сможете
 
      1. Включите опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
      1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите имеющийся [VRF](../concepts/network.md#vrf-segment) или создайте новый.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR }}** введите IP-адрес и маску подсети.
+     1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR }}** задайте [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети.
+     1. В поле **{{ ui-key.yacloud.baremetal.field_gateway }}** задайте IP-адрес шлюза, через который трафик из подсети будет идти в другие подсети, подключенные к VRF.
+     
+         По умолчанию — это первый адрес из заданного CIDR диапазона подсети.
+     1. (Опционально) Включите опцию **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}**, чтобы подключенные к приватной подсети сетевые интерфейсы серверов получали IP-адреса по DHCP.
+     1. Если вы включили опцию **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}**, задайте диапазон адресов, из которого сетевым интерфейсам серверов могут назначаться IP-адреса.
+     
+         По умолчанию соответствует диапазону, заданному CIDR подсети.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 

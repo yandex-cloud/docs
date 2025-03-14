@@ -7,7 +7,7 @@ description: This section contains {{ interconnect-name }} release notes.
 
 ## Q3 2024 {#q3-2024}
 
-Now the CLI and API support methods for getting information about the following resources:
+The CLI and API now support methods for getting information about the following resources:
   * {{ interconnect-name }} partners
   * Points of presence
   * Trunks
@@ -16,4 +16,4 @@ Now the CLI and API support methods for getting information about the following 
 
 ## Q1 2024 {#q1-2024}
 
-Added the [pricing policy](./pricing.md).
+* Updated the [pricing policy](./pricing.md).

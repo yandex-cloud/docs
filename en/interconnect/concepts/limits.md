@@ -1,6 +1,6 @@
 ---
 title: Quotas and limits in {{ interconnect-full-name }}
-description: This article explains what quotas and limits {{ interconnect-name }} has.
+description: In this article, you will learn about quotas and limits in {{ interconnect-name }}.
 editable: false
 ---
 
@@ -18,8 +18,8 @@ editable: false
 
 {% note warning "Important" %}
 
-If the number of received prefixes exceeds the limit, a BGP session will be terminated for 30 minutes.
+If you go over the limit of prefixes you get, the BGP session will be teared down for 30 minutes.
 
-To prevent such termination when the number of prefixes unexpectedly goes up, consider using monitoring to set up [notifications](../../monitoring/operations/alert/create-alert.md) for the [ipv4_announces_received_by_cloud_num](monitoring.md#private-metrics) `metric` and provide thresholds for it to trigger notifications.
+To prevent such session teardown when the number of prefixes unexpectedly goes up, consider using monitoring to set up [notifications](../../monitoring/operations/alert/create-alert.md) for the `ipv4_announces_received_by_cloud_num` [metric](monitoring.md#private-metrics) and provide thresholds for it to trigger notifications.
 
 {% endnote %}

@@ -184,7 +184,7 @@ The infrastructure support costs include:
     terraform plan
     ```
 
-1. Create the resources:
+1. Create resources:
 
     ```bash
     terraform apply

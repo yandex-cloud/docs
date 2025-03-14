@@ -6,10 +6,10 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where the address is located.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder containing the address.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the address to be moved and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the address to move and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. In the window that opens, select the destination folder.
   1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
@@ -19,7 +19,7 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI move address command:
+  1. View the description of the CLI command for moving an address:
 
       ```bash
       yc vpc address move --help
@@ -67,7 +67,7 @@ You can move [public IP addresses](../concepts/address.md) between folders withi
      ```
      Use either `--destination-folder-name` or `--destination-folder-id`.
 
-     If the address is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
+     If the address is not in the current folder (default folder), specify the source folder using `--folder-name` or `--folder-id`.
 
      Result:
 

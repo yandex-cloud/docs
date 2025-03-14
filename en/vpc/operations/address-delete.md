@@ -7,7 +7,7 @@ description: Follow this guide to delete a static public IP address.
 
 {% note alert %}
 
-Before deleting a [static IP](../concepts/address.md), you should release it by deleting the resource it is attached to.
+Before deleting a [static IP address](../concepts/address.md), you should release it by deleting the resource it is assigned to.
 If deletion protection is enabled for the IP address, disable it first.
 You cannot restore an address after it is deleted.
 
@@ -17,10 +17,10 @@ You cannot restore an address after it is deleted.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder you need to delete a static address from.
+   1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a static address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the address:
+   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the IP address you need:
       * Select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
       * (Optional) Select ![image](../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.vpc.addresses.button_action-disable-protection }}** if protection is enabled and click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_disable-protection }}**.
    1. In the window that opens, confirm by clicking **{{ ui-key.yacloud.common.delete }}**.
@@ -31,7 +31,7 @@ You cannot restore an address after it is deleted.
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI delete address command:
+   1. See the description of the CLI command for deleting an address:
 
       ```bash
       yc vpc address delete --help
@@ -67,9 +67,9 @@ You cannot restore an address after it is deleted.
 
   To delete a static public IP address created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the static public IP description.
+  1. Open the {{ TF }} configuration file and delete the fragment with the static public IP address description.
 
-     Sample description of a static public IP address in the {{ TF }} configuration:
+     Example of a static public IP address description in the {{ TF }} configuration:
 
      ```hcl
      ...
@@ -102,7 +102,7 @@ You cannot restore an address after it is deleted.
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 

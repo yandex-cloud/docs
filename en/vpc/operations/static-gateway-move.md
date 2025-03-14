@@ -1,6 +1,6 @@
 ---
 title: How to move a NAT gateway to a different folder
-description: Use this guide to move a NAT gateway to a different folder.
+description: Follow this guide to move a NAT gateway to a different folder.
 ---
 
 # Moving a NAT gateway to a different folder
@@ -34,7 +34,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
   To move a [NAT gateway](../concepts/gateways.md) to a different folder:
 
-  1. View a description of the CLI move NAT gateway command:
+  1. View the description of the CLI command for moving a NAT gateway:
 
       ```bash
       yc vpc gateway move --help
@@ -78,9 +78,9 @@ You can move cloud resources between folders within a single [cloud](../../resou
        --destination-folder-name <destination_folder_name> \
        --destination-folder-id <destination_folder_ID>
      ```
-     Use either the `--destination-folder-name` or `--destination-folder-id` parameter.
+     Use either `--destination-folder-name` or `--destination-folder-id`.
 
-     If the gateway is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
+     If the gateway is not in the current folder (default folder), specify the source folder using `--folder-name` or `--folder-id`.
 
      Result:
      ```text

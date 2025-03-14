@@ -10,13 +10,13 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
   1. In the [management console]({{ link-console-main }}), go to the folder where the cloud network is located.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the network and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the network you need and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. In the window that opens, select the destination folder.
   1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
   {% note info %}
 
-  The cloud network's subnets are also moved to the other folder.
+  All the cloud network's subnets will be moved to the other folder as well.
 
   {% endnote %}
 
@@ -28,7 +28,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
   To move a [cloud network](../concepts/network.md) to a different folder:
 
-  1. View a description of the CLI move cloud network command:
+  1. View the description of the CLI move cloud network command:
 
       ```bash
       yc vpc network move --help
@@ -76,7 +76,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
      ```
      Use either `--destination-folder-name` or `--destination-folder-id`.
 
-     If the network is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
+     If the network is not in the current folder (default folder), specify the source folder using `--folder-name` or `--folder-id`.
 
      Result:
 

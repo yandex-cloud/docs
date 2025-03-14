@@ -1,6 +1,6 @@
 ## Deleting a private connection {#priv-del}
 
-To delete an existing private connection from a trunk, create a [new support request]({{ link-console-support }}).
+To delete an existing private connection from a trunk, create a [new support ticket]({{ link-console-support }}).
 
 ### Contacting support to delete a private connection from a trunk {#priv-ticket}
 
@@ -18,14 +18,14 @@ prc_id: cf3qdug4fsf737******
 
 Where:
 
-* `trunk_id`: ID of the trunk the connection was created in.
-* `prc_id`: ID of the private connection to delete.
+* `trunk_id`: ID of the trunk where you created your private connection.
+* `prc_id`: ID of your private connection you want to delete.
 
-### Support team's response to the customer's request {#priv-ticket-resp}
+### Support team's response to your ticket {#priv-ticket-resp}
 
-Support will notify you when the private connection has been deleted.
+Support will notify you when your private connection has been deleted.
 
-Example of support's response:
+Support response example:
 
 ```s
 The cf3qdug4fsf737****** private connection was successfully deleted
