@@ -1,7 +1,7 @@
 | Минуты в месяц | Распознавание аудио,<br>вкл. НДС | Речевая аналитика,<br>вкл. НДС | Сумма,<br>вкл. НДС
 |---|---|---|---|
-| от 0 до 100 000            | 3,00 ₸ | 6,90 ₸ | 9,90 ₸ |
-| от 100 001 до 500 000      | 1,80 ₸ | 5,10 ₸ | 6,90 ₸ |
-| от 500 001 до 1 000 000    | 1,50 ₸ | 3,00 ₸ | 4,50 ₸ |
-| от 1 000 001 до 2 500 000  | 1,50 ₸ | 2,10 ₸ | 3,60 ₸ |
-| от 2 500 001               | 1,50 ₸ | 1,50 ₸ | 3,00 ₸ |
+| от 0 до 100 000           | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 %} | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|number }} × 60 %} | {% calc [currency=KZT] ({{ sku|KZT|speechsense.analysis.audio|number }} + {{ sku|KZT|speechsense.analysis.v1|number }}) × 60 %} |
+| от 100 001 до 500 000     | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 %} | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 %} | {% calc [currency=KZT] ({{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} + {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }}) × 60 %} |
+| от 500 001 до 1 000 000   | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|pricingRate.30000000|number }} × 60 %} | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|pricingRate.30000000|number }} × 60 %} | {% calc [currency=KZT] ({{ sku|KZT|speechsense.analysis.audio|pricingRate.30000000|number }} + {{ sku|KZT|speechsense.analysis.v1|pricingRate.30000000|number }}) × 60 %} |
+| от 1 000 001 до 2 500 000 | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|pricingRate.30000000|number }} × 60 %} | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|pricingRate.60000000|number }} × 60 %} | {% calc [currency=KZT] ({{ sku|KZT|speechsense.analysis.audio|pricingRate.30000000|number }} + {{ sku|KZT|speechsense.analysis.v1|pricingRate.60000000|number }}) × 60 %} |
+| от 2 500 001              | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|pricingRate.30000000|number }} × 60 %} | {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|pricingRate.150000000|number }} × 60 %} | {% calc [currency=KZT] ({{ sku|KZT|speechsense.analysis.audio|pricingRate.30000000|number }} + {{ sku|KZT|speechsense.analysis.v1|pricingRate.150000000|number }}) × 60 %} |

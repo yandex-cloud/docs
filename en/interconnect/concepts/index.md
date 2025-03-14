@@ -1,30 +1,31 @@
 # {{ interconnect-name }} overview
 
-{{ interconnect-name }} is designed to set up IP network connectivity between the resources in the client infrastructure and cloud resources in {{ yandex-cloud }}.
+{{ interconnect-name }} is designed to set up IP network connectivity between customer on-premise infrastructure resources and {{ yandex-cloud }} resources.
 
-Here is an example of connectivity setup:
+Here is an example of how to set up connectivity:
+
 
 ![interconnect](../../_assets/interconnect/interconnect.svg)
 
-In this example, the client has the following resources:
+In this example, the customer has the following resources:
 
-* On-premise infrastructure where the client resources, such as dedicated servers, are deployed.
-* Cloud infrastructure in {{ yandex-cloud }} where cloud resources, such as VMs, are deployed.
+* On-prem infrastructure with deployed customer resources, such as dedicated servers.
+* Cloud infrastructure in {{ yandex-cloud }} with deployed cloud resources, such as VMs.
 
-The goal is to ensure the IP network connectivity between resources in the client's own infrastructure and cloud resources in {{ yandex-cloud }}.
+The task is to ensure the IP network connectivity between the customer on-premise infrastructure resources and {{ yandex-cloud }} resources.
 
-To solve this task, you will need to do the following:
+Solving this task may require the following:
 
-* Establishing a [trunk](./trunk.md).
-* Create a [private connection](./priv-con.md) within this [trunk](./trunk.md).
-* Configure a [point-to-point subnet](./priv-con.md#priv-address) and [BGP connectivity](./priv-con.md#bgp-peering) in the [private connection](./priv-con.md). {{ interconnect-name }} will not work without BGP connectivity.
-* [Announce cloud subnet prefixes](./priv-con.md#prc-announce) on the {{ yandex-cloud }} virtual network side using BGP.
-* Announce the prefixes of subnets with client resources on the client infrastructure side using BGP.
+* Setting up a [trunk](./trunk.md).
+* Creating a [private connection](./priv-con.md) within this [trunk](./trunk.md).
+* Configuring a [point-to-point subnet](./priv-con.md#priv-address) and setting up [BGP peering](./priv-con.md#bgp-peering) for the [private connection](./priv-con.md). {{ interconnect-name }} will not work without BGP peering.
+* [Cloud subnet prefix announcements](./priv-con.md#prc-announce) from the {{ yandex-cloud }} virtual network over BGP.
+* Customer resource subnet prefix announcements from the customer infrastructure over BGP.
 
-Once you are done, you will have the IP connectivity available between your infrastructure resources and cloud resources in {{ yandex-cloud }} so that they can exchange IP traffic between each other.
+Once these steps are complete, your infrastructure resources and {{ yandex-cloud }} resources will feature the IP connectivity enabling them to exchange IP traffic between each other.
 
 {% note warning "Tutorials" %}
 
-For detailed guides on how to enable and manage {{ interconnect-name }}, see the [tutorials](../tutorials/) section.
+For tutorials on how to enable and manage {{ interconnect-name }}, follow [this link](../tutorials/).
 
 {% endnote %}

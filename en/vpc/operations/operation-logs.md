@@ -10,7 +10,7 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
 
   To view all operations with {{ compute-name }} resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a cloud network. The same steps apply to other {{ compute-name }} resources.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for a cloud network. The same steps apply to other service resources.
 
   1. In the [management console]({{ link-console-main }}), go to the folder where the cloud network is located.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.

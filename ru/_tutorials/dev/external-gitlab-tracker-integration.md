@@ -20,6 +20,14 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры входит:
+
+* Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за количество пользователей {{ tracker-name }} с полным доступом, если их более 5 (см. [тарифы {{ tracker-name }}](../../tracker/pricing.md)).
+* Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+
 ## Подключите {{ tracker-full-name }} {#enable-tracker}
 
 [Подключите {{ tracker-name }}](../../tracker/enable-tracker.md) к вашей [организации {{ yandex-cloud }}](../../organization/).

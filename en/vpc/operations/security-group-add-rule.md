@@ -1,11 +1,11 @@
 ---
 title: Adding a new rule to a {{ vpc-full-name }} security group
-description: You can add rules using the management console, CLI, and {{ vpc-name }} API. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
+description: You can add rules using the management console, CLI, and {{ vpc-name }} API. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources associated with a group at the same time.
 ---
 
 # Adding a new rule to a security group
 
-You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
+You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources associated with a group at the same time.
 
 {% list tabs group=instructions %}
 
@@ -15,32 +15,32 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you need to change the security group.
 
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
 
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the security group you need to add a rule to. Select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group you need to add a rule to. Select **{{ ui-key.yacloud.common.edit }}**.
 
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create traffic management rules:
 
-     1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab for an outbound rule or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab for an inbound rule.
+     1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
 
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
 
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that will be open for inbound or outbound traffic.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a port range for traffic to come to or from.
 
-     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or specify `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic over any protocol.
+     1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or keep `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
 
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
 
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
 
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`. Select one of the following:
 
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`: The rule will apply to the VMs from the current group.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}`: The rule will apply to the VMs from the selected group. Make sure that source and destination IPs used for traffic exchange are from [private ranges](../concepts/network.md#subnet). For more information, see [Concepts](../concepts/security-groups.md#groups).
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`: Rule will apply to the VMs from the current group.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}`: Rule will apply to the VMs from the selected group. Make sure that source and destination IP addresses used for traffic exchange are from [private ranges](../concepts/network.md#subnet). For more information, see [Concepts](../concepts/security-groups.md#groups).
 
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: A rule that allows checking the health of resources from [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) or [{{ alb-name }}](../../application-load-balancer/concepts/backend-group.md#health-checks).
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule that allows checking the health of resources from [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) or [{{ alb-name }}](../../application-load-balancer/concepts/backend-group.md#health-checks).
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -103,7 +103,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
      {% endnote %}
 
-     To get info regarding the `--add-rule` parameter, run the `yc vpc security-group update-rules --help` command.
+     To learn about the `--add-rule` parameter, run the `yc vpc security-group update-rules --help` command.
 
 - {{ TF }} {#tf}
 
@@ -166,7 +166,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -188,7 +188,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
      {% note warning %}
 
-     The two methods do the same but are incompatible: concurrent use of the `yandex_vpc_security_group_rule` and `yandex_vpc_security_group` resources will cause a configuration rule conflict.
+     Both methods provide the same result but they are incompatible: concurrent use of the `yandex_vpc_security_group_rule` and `yandex_vpc_security_group` resources will cause a configuration rule conflict.
 
      {% endnote %}
 
@@ -197,11 +197,11 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
      * `security_group_binding`: Security group ID.
      * `direction`: Incoming or outgoing traffic. The possible values are `ingress` or `egress`.
      * `description`: Rule description.
-     * `v4_cidr_blocks`: List of CIDRs and masks of subnets to deal with outgoing and incoming traffic.
+     * `v4_cidr_blocks`: List of CIDRs and masks of subnets the traffic will come to or from.
      * `port`: Traffic port.
      * `from_port`: First port in the traffic port range.
      * `to_port`: Last port in the traffic port range.
-     * `protocol`: Traffic transfer protocol. Possible values: `TCP`, `UDP`, `ICMP`, or `ANY`.
+     * `protocol`: Traffic transmission protocol. The possible values are `TCP`, `UDP`, `ICMP`, or `ANY`.
 
      ```hcl
      ...
@@ -246,7 +246,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -279,8 +279,8 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       * `ingress`: Incoming traffic.
       * `egress`: Outgoing traffic.
 
-    * Name of the traffic transmission protocol, in the `additionRuleSpecs[].protocolName` parameter. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
-    * List of CIDRs and masks of subnets to deal with outgoing and incoming traffic, in the `additionRuleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter. If the rule is configured for transmitting traffic to a security group, provide the security group ID in the `additionRuleSpecs[].securityGroupId` parameter instead.
+    * Name of the traffic transmission protocol, in the `additionRuleSpecs[].protocolName` parameter. The possible values are `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+    * List of CIDRs and masks of subnets the traffic will come to or from, in the `additionRuleSpecs[].cidrBlocks.v4CidrBlocks[]` parameter. If you set the rule for the traffic to a security group, provide the security group ID in the `additionRuleSpecs[].securityGroupId` parameter instead.
     * First port in the traffic port range, in the `additionRuleSpecs[].ports.fromPort` parameter. The values range from `0` to `65535`.
     * Last port in the traffic port range, in the `additionRuleSpecs[].ports.toPort` parameter. The values range from `0` to `65535`.
 

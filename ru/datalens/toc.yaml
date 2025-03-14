@@ -78,6 +78,16 @@ items:
               Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и
               их анализ с помощью {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
+          - name: >-
+              Поставка данных из {{ forms-full-name }} в {{ datalens-full-name
+              }} с использованием {{ sf-full-name }} и {{ yq-full-name }}
+            items:
+              - name: Обзор
+                href: tutorials/forms-and-datalens-integration/index.md
+              - name: Консоль управления
+                href: tutorials/forms-and-datalens-integration/console.md
+              - name: Terraform
+                href: tutorials/forms-and-datalens-integration/terraform.md
       - name: Функциональные
         items:
           - name: Использование параметров

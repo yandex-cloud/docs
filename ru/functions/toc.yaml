@@ -500,6 +500,16 @@ items:
           Разработка функций в Functions Framework и их развертывание в {{
           serverless-containers-full-name }}
         href: tutorials/functions-framework-to-container.md
+      - name: >-
+          Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с
+          использованием {{ sf-full-name }} и {{ yq-full-name }}
+        items:
+          - name: Обзор
+            href: tutorials/forms-and-datalens-integration/index.md
+          - name: Консоль управления
+            href: tutorials/forms-and-datalens-integration/console.md
+          - name: Terraform
+            href: tutorials/forms-and-datalens-integration/terraform.md
   - name: Инструменты
     href: tools.md
   - name: Правила тарификации

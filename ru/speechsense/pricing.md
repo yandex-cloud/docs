@@ -49,12 +49,6 @@ editable: false
 
 ### Анализ текстовых диалогов {#text}
 
-{% note warning %}
-
-Цена, указанная ниже, начнет действовать с 10 сентября 2024 года.
-
-{% endnote %}
-
 
 {% list tabs group=pricing %}
 

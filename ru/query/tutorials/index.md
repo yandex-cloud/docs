@@ -18,3 +18,4 @@ description: В этом разделе собраны практические 
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
 * [{#T}](search-events-query.md)
+* [{#T}](forms-and-datalens-integration/index.md)

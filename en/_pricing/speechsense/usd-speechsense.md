@@ -1,7 +1,7 @@
 | Minutes per month | Audio recognition,<br>without VAT | Speech analytics,<br>without VAT | Total,<br>without VAT |
 |---|---|---|---|
-| 0 to 100,000           | $0.0048  | $0.01104 | $0.01584 |
-| 100,001 to 500,000     | $0.00288 | $0.00816 | $0.01104 |
-| 500,001 to 1,000,000   | $0.0024  | $0.0048  | $0.0072  |
-| 1,000,001 to 2,500,000 | $0.0024  | $0.00336 | $0.00576 |
-| from 2,500,000         | $0.0024  | $0.0024  | $0.0048  |
+| 0 to 100,000           | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.audio|number }} × 60 %} | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.v1|number }} × 60 %} | {% calc [currency=USD] ({{ sku|USD|speechsense.analysis.audio|number }} + {{ sku|USD|speechsense.analysis.v1|number }}) × 60 %} |
+| 100,001 to 500,000     | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 %} | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 %} | {% calc [currency=USD] ({{ sku|USD|speechsense.analysis.audio|pricingRate.6000000|number }} + {{ sku|USD|speechsense.analysis.v1|pricingRate.6000000|number }}) × 60 %} |
+| 500,001 to 1,000,000   | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.audio|pricingRate.30000000|number }} × 60 %} | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.v1|pricingRate.30000000|number }} × 60 %} | {% calc [currency=USD] ({{ sku|USD|speechsense.analysis.audio|pricingRate.30000000|number }} + {{ sku|USD|speechsense.analysis.v1|pricingRate.30000000|number }}) × 60 %} |
+| 1,000,001 to 2,500,000 | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.audio|pricingRate.30000000|number }} × 60 %} | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.v1|pricingRate.60000000|number }} × 60 %} | {% calc [currency=USD] ({{ sku|USD|speechsense.analysis.audio|pricingRate.30000000|number }} + {{ sku|USD|speechsense.analysis.v1|pricingRate.60000000|number }}) × 60 %} |
+| from 2,500,000         | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.audio|pricingRate.30000000|number }} × 60 %} | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.v1|pricingRate.150000000|number }} × 60 %} | {% calc [currency=USD] ({{ sku|USD|speechsense.analysis.audio|pricingRate.30000000|number }} + {{ sku|USD|speechsense.analysis.v1|pricingRate.150000000|number }}) × 60 %} |

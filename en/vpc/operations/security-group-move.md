@@ -12,9 +12,9 @@ description: Follow this guide to move a security group to a different folder.
   To move a [security group](../concepts/security-groups.md) to a different folder:
 
   1. In the [management console]({{ link-console-main }}), go to the folder where the security group is located.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the security group you need to move and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the security group you need to move and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
   1. Select the destination folder from the drop-down list.
   1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
 
@@ -26,7 +26,7 @@ description: Follow this guide to move a security group to a different folder.
 
   To move a [security group](../concepts/security-groups.md) to a different folder:
 
-  1. View a description of the CLI move security group command:
+  1. View the description of the CLI command for moving a security group:
 
       ```bash
       yc vpc security-group move --help
@@ -79,7 +79,7 @@ description: Follow this guide to move a security group to a different folder.
 
      Use either `--destination-folder-name` or `--destination-folder-id`.
 
-     If the security group is not in the current folder (default folder), specify the source folder using the `--folder-name` or `--folder-id` option.
+     If the security group is not in the current folder (default folder), specify the source folder using `--folder-name` or `--folder-id`.
 
      Result:
 
@@ -98,11 +98,11 @@ description: Follow this guide to move a security group to a different folder.
 
   To move a [security group](../concepts/security-groups.md) to a different folder, use the [move](../api-ref/SecurityGroup/move.md) REST API method for the [SecurityGroup](../api-ref/SecurityGroup/index.md) resource or the [SecurityGroupService/Move](../api-ref/grpc/SecurityGroup/move.md) gRPC API call, and provide the following in the request:
 
-  * ID of the security group you need to move in the `securityGroupId` parameter.
+  * ID of the security group you need to move, in the `securityGroupId` parameter.
 
     {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 
-  * ID of the folder you want to move the security group to in the `destinationFolderId` parameter.
+  * ID of the folder you want to move the security group to, in the `destinationFolderId` parameter.
 
     {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 

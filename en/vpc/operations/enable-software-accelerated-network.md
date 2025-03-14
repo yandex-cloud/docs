@@ -14,9 +14,9 @@ To enable a software-accelerated network on an existing VM:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+  1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the line with the appropriate VM, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.stop }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the VM you need and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
   1. Wait for the VM status to change to `Stopped`, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}**.
@@ -30,7 +30,7 @@ To enable a software-accelerated network on an existing VM:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command for updating VM parameters:
+  1. See the description of the CLI command for updating VM parameters:
 
       ```bash
       yc compute instance update --help
@@ -83,7 +83,7 @@ To enable a software-accelerated network on an existing VM:
           yc compute instance start first-instance
           ```
 
-  To disable a software accelerated network, stop the VM and run the command:
+  To disable a software-accelerated network, stop the VM and run this command:
 
     ```bash
     yc compute instance update first-instance \

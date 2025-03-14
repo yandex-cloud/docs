@@ -11,7 +11,7 @@ title: How to get information about an IP address in {{ vpc-full-name }}
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [address](../concepts/address.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-  1. The page that will open will display detailed information about all available addresses.
+  1. The page that opens will display detailed information about all the available addresses.
 
 - CLI {#cli}
 
@@ -68,7 +68,7 @@ title: How to get information about an IP address in {{ vpc-full-name }}
      Where:
      * `data "yandex_vpc_address"`: Description of the address as a data source:
        * `address_id`: Address name or ID.
-     * `output "addr"`: Output variable that contains information about the IP address:
+     * `output "addr"`: Output variable containing information about the IP address:
        * `value`: Returned value.
 
      You can replace `external_ipv4_address` with any other parameter to get the information you need. For more information about the `yandex_vpc_address` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_address).
@@ -76,7 +76,7 @@ title: How to get information about an IP address in {{ vpc-full-name }}
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
 
      ```bash
      terraform output

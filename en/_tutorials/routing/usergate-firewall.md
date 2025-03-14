@@ -1,18 +1,18 @@
-# Creating and configuring a UserGate gateway in firewall mode
+# Setting up a UserGate firewall
 
 
-[UserGate](https://www.usergate.com/products/enterprise-firewall) is a next-generation firewall created by a Russia-based company of the same name.
+[UserGate](https://www.usergate.com/products/enterprise-firewall) is a next-generation firewall created by the Russia-based company UserGate.
 
-You will create a UserGate virtual machine in {{ yandex-cloud }} and set up the gateway for firewall mode. To learn about advanced UserGate features, take the free course [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
+In this tutorial, you will create and configure a {{ yandex-cloud }} VM running the UserGate firewall. To learn more about UserGate, sign up to our free course [UserGate Getting Started](https://university.tssolution.ru/usergate-getting-started-v6).
 
-To deploy a UserGate gateway and check its health:
+To set up UserGate and test its work:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Create a cloud network and subnet](#create-network).
+1. [Create a cloud network with a subnet](#create-network).
 1. [Reserve a static public IP address](#get-static-ip).
 1. [Create a UserGate VM](#create-vm).
-1. [Set up the UserGate NGFW via the admin console](#admin-console).
-1. [Set up routing in the subnet](#subnet-routing).
+1. [Set up the UserGate NGFW](#admin-console).
+1. [Configure subnet routing](#subnet-routing).
 1. [Test the firewall](#test-firewall).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -23,23 +23,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The price for the UserGate gateway includes:
+The cost of the UserGate firewall infrastructure includes:
 
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using [UserGate NGFW](/marketplace/products/usergate/ngfw).
-* Fee for using a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a public static IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
-## Create a cloud network and subnet {#create-network}
+## Create a cloud network with a subnet {#create-network}
 
-Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](../../vpc/concepts/network.md#subnet) in the [availability zones](../../overview/concepts/geo-scope.md) that will host your VM.
+Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) in the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Network**.
-  1. Enter a name for the network: `usergate-network`.
+  1. On the folder dashboard in the [management console]({{ link-console-main }}), click **Create resource** and select **Network**.
+  1. Specify the network name: `usergate-network`.
   1. Enable the **Create subnets** option.
   1. Click **Create network**.
 
@@ -95,7 +95,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the network parameters for `usergate-network` and its subnets:
+  1. Specify the `usergate-network` and its subnet settings in the terraform configuration file:
 
      ```hcl
      resource "yandex_vpc_network" "usergate-network" {
@@ -110,45 +110,45 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with [subnets](.
      }
      ```
 
-     For more information, see the descriptions of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider documentation.
+     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resource descriptions in the {{ TF }} provider documentation.
      
-  1. Make sure the configuration files are correct.
+  1. Make sure your configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the terminal, navigate to your configuration file directory.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If your configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors.
 
-  1. Deploy the cloud resources.
+  1. Deploy your cloud resources.
   
-     1. If the configuration does not contain any errors, run this command:
+     1. Once your configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. When asked to confirm the changes, type `yes` and press **Enter**.
 
 - API {#api}
 
-  1. Create a network named `usergate-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method for the Network resource.
-  1. Create a subnet named `usergate-subnet-{{ region-id }}-d` using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the Subnet resource.
+  1. To create `usergate-network`, use the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method for the Network resource.
+  1. To create the `usergate-subnet-{{ region-id }}-d` subnet, use the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the Subnet resource.
 
 {% endlist %}
 
 ## Reserve a static public IP address {#get-static-ip}
 
-The gateway will need a static [public IP address](../../vpc/concepts/address.md#public-addresses).
+Your gateway will need a static [public IP address](../../vpc/concepts/address.md#public-addresses).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), go to the page of the folder you want to reserve an IP address in.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to reserve your IP address.
   1. In the list of services, select **{{ vpc-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/ip-addresses.svg) **IP addresses**.
   1. Click **Reserve address**.
@@ -180,7 +180,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - {{ TF }} {#tf}
 
-  In the configuration file, describe the parameters of the `yandex_vpc_address` public IP address:
+  In the configuration file, specify the `yandex_vpc_address` settings:
 
   ```hcl
   resource "yandex_vpc_address" "usergate-addr" {
@@ -202,9 +202,9 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 - Management console {#console}
 
   1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, go to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
@@ -213,18 +213,18 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
       {% note info %}
 
-      These parameters are appropriate for functional testing of the gateway. To calculate the parameters for the production workload, read the UserGate [official recommendations](https://www.usergate.com/products/usergate-vm).
+      These settings will suffice for the gateway functional testing. For the production environment, use these UserGate [official recommendations](https://www.usergate.com/products/usergate-vm).
 
       {% endnote %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `usergate-network` and the subnet named `usergate-subnet-{{ region-id }}-d`.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, click `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and select the IP address [reserved earlier](#get-static-ip).
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `usergate-network` and the `usergate-subnet-{{ region-id }}-d` subnet.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, click `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` and select the [previously reserved](#get-static-ip) IP address.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** option, and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring root privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, specify a username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `usergate-firewall`.
@@ -286,8 +286,8 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
 - {{ TF }} {#tf}
 
-  1. [Get](../../compute/operations/images-with-pre-installed-software/get-list.md) an ID of the latest version of the UserGate NGFW gateway from the list of public images.
-  1. In the configuration file, describe the parameters of the `usergate-firewall` VM:
+  1. In the list of public images, select the latest version of the UserGate NGFW and [get](../../compute/operations/images-with-pre-installed-software/get-list.md) its ID.
+  1. Describe the `usergate-firewall` VM settings in the terraform configuration file:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -322,108 +322,108 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
 
      For more information, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
      
-  1. Make sure the configuration files are correct.
+  1. Make sure your configuration files are correct.
 
-     1. In the command line, go to the folder with the configuration file.
+     1. In the terminal, navigate to the configuration file directory.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If your configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors. 
 
-  1. Deploy the cloud resources.
+  1. Deploy your cloud resources.
   
-     1. If the configuration does not contain any errors, run this command:
+     1. Once your configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. When asked to confirm the changes, type `yes` and press **Enter**.
 
 - API {#api}
 
-  Create the `usergate-firewall` VM using the [create](../../compute/api-ref/Instance/create.md) REST API method for the Instance resource.
+  To create the `usergate-firewall` VM, use the [create](../../compute/api-ref/Instance/create.md) REST API method for the Instance resource.
 
 {% endlist %}
 
-## Set up the UserGate NGFW via the admin console {#admin-console}
+## Set up the UserGate NGFW {#admin-console}
 
-To set up the gateway, go to the UserGate NGFW admin console at `https://<UserGate_VM_public_IP_address>:8001` and log in with the default credentials: `Admin` for username and `utm` for password.
+Open the UserGate NGFW admin console at `https://<UserGate_VM_public_IP_address>:8001` and log in with the default credentials: `Admin` for username and `utm` for password.
 
-When you are logged in, the system prompts you to change the default password and update the OS.
+Once you log in, the system will prompt you to change the default password and update the OS.
 
-### Set up the gateway to run in firewall mode {#gateway-setup}
+### Set up your gateway to work as firewall {#gateway-setup}
 
 Configure UserGate NGFW:
 
 1. In the top menu, select **Settings**.
-1. In the menu on the left, go to **Network** ⟶ **Zones**.
-1. Click the `Trusted` zone name.
+1. In the left menu, navigate to **Network** ⟶ **Zones**.
+1. Click the `Trusted` zone.
 1. Click **Access control**, then enable **Administration console**. Click **Save**.
-1. In the menu on the left, go to **Network** ⟶ **Interfaces**.
-1. Click the `port0` network interface name.
-1. On the **General** tab, select the `Trusted` zone from the list in the **Zone** field. Click **Save**.
-1. In the menu on the left, click **Network policies** ⟶ **Firewall**.
-1. Click the name of the `Allow trusted to untrusted` preset rule.
-1. Go to the **Destination** tab and disable the `Untrusted` zone. Click **Save**.
-1. Enable the `Allow trusted to untrusted` rule. To do this, select the line with the rule and click **Enable** at the top of the screen.
-1. In the menu on the left, click **Network policies** ⟶ **NAT and routing**.
-1. Click the name of the `NAT from Trusted to Untrusted` preset rule.
-1. Go to the **Destination** tab and change the destination zone from `Untrusted` to `Trusted`. Click **Save**.
-1. Enable the `NAT from Trusted to Untrusted` rule. To do this, select the line with the rule and click **Enable** at the top of the screen.
+1. In the left menu, navigate to **Network** ⟶ **Interfaces**.
+1. Click the `port0` network interface.
+1. On the **General** tab, in the **Zone** field, select `Trusted` from the list. Click **Save**.
+1. In the left menu, click **Network policies** ⟶ **Firewall**.
+1. Click the `Allow trusted to untrusted` preset rule.
+1. Navigate to the **Destination** tab and disable the `Untrusted` zone. Click **Save**.
+1. Enable the `Allow trusted to untrusted` rule by selecting it and clicking **Enable** at the top of the screen.
+1. In the left menu, click **Network policies** ⟶ **NAT and routing**.
+1. Click the `NAT from Trusted to Untrusted` preset rule.
+1. Navigate to the **Destination** tab and change the destination zone from `Untrusted` to `Trusted`. Click **Save**.
+1. Enable the `NAT from Trusted to Untrusted` rule by selecting it and clicking **Enable** at the top of the screen.
  
-Now the gateway has been set up. 
+Now you configured the gateway. 
 
-### Set up the traffic filtering rules {#traffic-rules}
+### Configure traffic filtering rules {#traffic-rules}
 
-We recommend using the following default policies: `Block to botnets`, `Block from botnets`, and `Example block RU RKN by IP list`. First change several parameters in them:
+We recommend using the `Block to botnets`, `Block from botnets`, and `Example block RU RKN by IP list` default policies with customized settings:
 
 1. Click **Network policies** ⟶ **Firewall**.
-1. Click the name of the preset rule.
-1. Go to the **Source** tab and change the source zone from `Untrusted` to `Trusted`. 
-1. Go to the **Destination** tab and disable the `Untrusted` zone.
+1. Click the name of the preset default policy from the list above.
+1. Navigate to the **Source** tab and change the source zone from `Untrusted` to `Trusted`. 
+1. Navigate to the **Destination** tab and disable the `Untrusted` zone.
 1. Click **Save**.
-1. Enable the selected rule. To do this, select the line with the rule and click **Enable** at the top of the screen.
+1. Enable the rule by selecting it and clicking **Enable** at the top of the screen.
 
-For higher security, set up more traffic filtering rules:
+Add more rules to enhance security:
 
 1. Click **Network policies** ⟶ **Firewall**.
 1. Add the first blocking rule:
    
    1. At the top of the screen, click **Add**.
-   1. Specify the rule parameters:
+   1. Specify the rule settings:
       
-      * **Name**: `Block QUIC protocol`.
-      * **Action**: Deny.
+      * **Name**: `Block QUIC protocol`
+      * **Action**: Deny
 
-   1. Go to the **Source** tab and select `Trusted`.
+   1. Navigate to the **Source** tab and select `Trusted`.
    1. Click **Service**.
    1. Click **Add**.
-   1. Select `Quick UDP Internet Connections` and click **Add**. After that, click **Close**.
+   1. Select `Quick UDP Internet Connections` and click **Add** and then **Close**.
    1. Click **Save**.
 
 1. Add the second blocking rule:
    
    1. At the top of the screen, click **Add**.
-   1. Specify the rule parameters:
+   1. Specify the rule settings:
 
-      * **Name**: `Block Windows updates`.
-      * **Action**: Deny.
+      * **Name**: `Block Windows updates`
+      * **Action**: Deny
    
-   1. Go to the **Source** tab and select `Trusted`.
+   1. Navigate to the **Source** tab and select `Trusted`.
    1. Click **Applications**.
    1. Click **Add** ⟶ **Add applications**.
-   1. Select the `Microsoft Update` app and click **Add**.
-   1. Select the `WinUpdate` app and click **Add**. After that, click **Close**.
+   1. Select `Microsoft Update` and click **Add**.
+   1. Select `WinUpdate` and click **Add** and then **Close**.
    1. Click **Save**.
 
-You can also add other traffic filtering rules. We don't recommend combining services and applications in the same rule. The rule might not trigger in this case.
+You can add more traffic filtering rules. When doing that, avoid combining services and applications in the same rule; otherwise, it might not trigger.
 
 
-## Set up routing for the subnet {#subnet-routing}
+## Configure subnet routing {#subnet-routing}
 
 Create a [static route](../../vpc/concepts/routing.md):
 
@@ -431,40 +431,40 @@ Create a [static route](../../vpc/concepts/routing.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder you need to create a static route in.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create a static route.
   1. In the list of services, select **{{ vpc-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/route-tables.svg) **Route tables**.
   1. Click **Create**.
-  1. Enter a name for the route table. The naming requirements are as follows:
+  1. Specify the route table name meeing the following requirements:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
-  1. (Optional) Add a description of a route table.
-  1. Select the `usergate-network` network.
+  1. Optionally, specify the route table description.
+  1. Select `usergate-network`.
   1. Click **Add route**.
-  1. In the window that opens, enter the prefix for the target subnet (`0.0.0.0`) and select `0` from the drop-down list.
-  1. Specify **next hop**, i.e., the internal IP address of the UserGate VM named `usergate-firewall`.
+  1. In the window that opens, specify the destination subnet prefix (`0.0.0.0`) and select `0` from the drop-down list.
+  1. In the **next hop** field, specify the `usergate-firewall` internal IP address.
   1. Click **Add**.
   1. Click **Create route table**.
 
-  To use static routes, link the route table to a subnet:
+  Link your route table to a subnet that will use its static routes:
 
   1. In the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **Subnets**.
-  1. In the `usergate-subnet-{{ region-id }}-d` row, click ![image](../../_assets/options.svg).
+  1. Click ![image](../../_assets/options.svg) next to `usergate-subnet-{{ region-id }}-d`.
   1. In the menu that opens, select **Link route table**.
-  1. In the window that opens, select the created table from the list.
+  1. In the window that opens, select your route table from the list.
   1. Click **Link**.
 
 - CLI {#cli}
 
-  To create a route table and add [static routes](../../vpc/concepts/routing.md): 
-  1. View the description of the CLI command for creating route tables:
+  To create a route table with [static routes](../../vpc/concepts/routing.md): 
+  1. Read the `route-table create` command description:
 
      ```bash
      yc vpc route-table create --help
      ```
 
-  1. Get the IDs of cloud networks in your cloud:
+  1. Get your cloud network ID:
 
      ```bash
      yc vpc network list
@@ -479,7 +479,7 @@ Create a [static route](../../vpc/concepts/routing.md):
      +----------------------+--------------------+
      ```
 
-  1. Create a route table in the `usergate-network` network:
+  1. Create a `usergate-network` route table:
 
      ```bash
      yc vpc route-table create \
@@ -490,11 +490,11 @@ Create a [static route](../../vpc/concepts/routing.md):
 
      Where:
 
-     * `name`: Name of the route table.
-     * `network-id`: ID of the network where the table will be created.
-     * `route`: Route settings, which include these two parameters:
-        * `destination`: Destination subnet prefix in CIDR notation.
-        * `next-hop`: Internal IP address of the UserGate VM named `usergate-firewall`.
+     * `name`: Route table name.
+     * `network-id`: Route table network ID.
+     * `route`: Route settings:
+        * `destination`: Destination CIDR block.
+        * `next-hop`: `usergate-firewall` internal IP address.
 
      Result:
      ```text
@@ -509,9 +509,9 @@ Create a [static route](../../vpc/concepts/routing.md):
        next_hop_address: 10.129.0.24
      ```
 
-  To use static routes, link the route table to a subnet:
+  Link your route table to a subnet that will use its static routes:
 
-  1. Get a list of subnets in your cloud:
+  1. Get a list your cloud subnets:
 
      ```bash
      yc vpc subnet list
@@ -526,7 +526,7 @@ Create a [static route](../../vpc/concepts/routing.md):
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
      ```
 
-  1. Assign the routing table to the subnet the web service will run in, e.g., `usergate-subnet-{{ region-id }}-d`:
+  1. Link the route table to the `usergate-subnet-{{ region-id }}-d` web service-hosting subnet:
 
      ```bash
      yc vpc subnet update b0c4l3v9jrgd******** --route-table-id e2l5345dlgr1********
@@ -548,20 +548,20 @@ Create a [static route](../../vpc/concepts/routing.md):
 
 - {{ TF }} {#tf}
 
-  To create a route table and add [static routes](../../vpc/concepts/routing.md):
+  To create a route table with [static routes](../../vpc/concepts/routing.md):
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. Describe the resources you want to create in the terraform configuration file:
 
-     * `name`: Name of the route table. The name should match the following format:
+     * `name`: Route table name. Meeting the following requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `network_id`: ID of the network the table will be created in.
+     * `network_id`: Route table network ID.
      * `static_route`: Static route description:
-        * `destination_prefix`: Destination subnet prefix in CIDR notation.
-        * `next_hop_address`: Internal IP address of the VM from the [allowed ranges](../../vpc/concepts/network.md#subnet) the traffic will be routed through.
+        * `destination_prefix`: Destination CIDR block.
+        * `next_hop_address`: gateway VM internal IP address serving as the next hop for the [allowed](../../vpc/concepts/network.md#subnet) traffic.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```hcl
      resource "yandex_vpc_route_table" "usergate-rt-d" {
@@ -574,32 +574,32 @@ Create a [static route](../../vpc/concepts/routing.md):
      }
      ```
 
-     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `netword id` field, e.g. `network_id = "${yandex_vpc_network.lab-net.id}"`.
+     To add, update, or delete a route table, use the `yandex_vpc_route_table` resource and specify its network ID in the `netword id` field, e.g. `network_id = "${yandex_vpc_network.lab-net.id}"`.
 
-     For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
+     For more information about the `yandex_vpc_route_table` {{ TF }} resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
 
-  1. Make sure the configuration files are correct.
+  1. Make sure your configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the terminal, navigate to your configuration file directory.
      1. Run a check using this command:
 
         ```hcl
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+     If your configuration is correct, you will see a detailed description of new resources; otherwise, {{ TF }} will display configuration errors. 
 
-  1. Deploy the cloud resources.
+  1. Deploy your cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. Once your configuration is correct, run this command:
 
         ```hcl
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. When asked to confirm the changes, type `yes` and press **Enter**.
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+         Terraform will create your resources in the specified folder. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
         ```bash
         yc vpc route-table list
@@ -610,13 +610,13 @@ Create a [static route](../../vpc/concepts/routing.md):
 
 ## Test the firewall {#test-firewall}
 
-To test your firewall, create a test web service and make sure that you can access it from the internet.
+To test the firewall, we will create a test web service and check whether we can access it from the internet.
 
 
 ### Set up a test VM {#test-vm-prepare}
 
-1. [Create](../../compute/operations/vm-create/create-linux-vm) a VM from a public Linux image in the `usergate-subnet-{{ region-id }}-d` subnet. In the VM settings, enable the [serial console](../../compute/operations/serial-console/index.md).
-1. To connect to the VM via the [CLI](../../compute/operations/serial-console/connect-cli.md), run the command:
+1. [Create](../../compute/operations/vm-create/create-linux-vm) a Linux-running VM in the `usergate-subnet-{{ region-id }}-d` subnet and enable the [serial console](../../compute/operations/serial-console/index.md) in its settings.
+1. Connect to the VM by running the following [CLI](../../compute/operations/serial-console/connect-cli.md) command:
 
    ```bash
    yc compute connect-to-serial-port --instance-name <VM_name>
@@ -631,48 +631,48 @@ To test your firewall, create a test web service and make sure that you can acce
    sudo python3 -m http.server 80
    ```
 
-   The web server will listen to requests on port 80 and return a list of directories and files from the folder. 
+   The web server will listen on port 80 and return the contents of the `httpdocs` directory. 
 
 
-### Use the firewall to set up a reverse proxy to the web service {#setup-access}
+### Set up the web server reverse proxy on your firewall {#setup-access}
 
-1. In the UserGate administrator web console, in the top menu, select **Settings**.
-1. On the left in the **Global portal** section, select **Web portal**, and set up access by an HTTP address:
-   1. Click **Add** to open the portal adding dialog.
-   1. Tick the **Enabled** option on.
-   1. In the **Name** field, enter `Test web portal`.
-   1. In the **URL** field, enter `http://<UserGate_VM_IP_address>`.
-   1. Leave **SSL profile** at default.
+1. In the UserGate admin web UI, select **Settings** from the top menu.
+1. In the **Global portal** section on the left, select **Web portal**, and set up HTTP access to the gateway:
+   1. Click **Add** to open the new portal dialog.
+   1. Tick the **Enabled** option.
+   1. In the **Name** field, specify `Test web portal`.
+   1. In the **URL** field, specify `http://<UserGate_VM_IP_address>`.
+   1. In the **SSL profile** field, leave the default value.
    1. In the **Certificate** field, select `CA (Default)`.
    1. Click **Save**.
 1. Select **Reverse proxy servers** and add a new server:
-   1. Click **Add** to open the server adding dialog.
-   1. In the **Name** field, enter `Local server`.
-   1. In the **Server address** field, enter `<test_VM_internal_IP>`, e.g., `10.129.0.24`.
-   1. In the **Port field**, enter `80`.
+   1. Click **Add** to open the new server dialog.
+   1. In the **Name** field, specify `Local server`.
+   1. In the **Server address** field, specify the test web server VM IP address, e.g., `10.129.0.24`.
+   1. In the **Port field**, specify `80`.
    1. Click **Save**.
 1. Select **Reverse proxy rules** and add a new rule:
-   1. Click **Add** to open the rule adding dialog.
-   1. Tick the **Enabled** option on.
-   1. In the **Name** field, enter `Access to local server`.
+   1. Click **Add** to open the new rule dialog.
+   1. Tick the **Enabled** option.
+   1. In the **Name** field, specify `Access to local server`.
    1. In the **Reverse proxy server** field, select `Local server`.
-   1. In the **Ports** field, enter `5550`.
+   1. In the **Ports** field, specify `5550`.
    1. Click **Save**.
 
-   This completes setting up access to a local server. The firewall will accept requests on port 5550 and forward them to port 80 on the test VM IP address.
+   Now you configured access to your test web server. The firewall will forward requests on port 5550 to the test VM IP address on port 80.
 
-### Test that the web server is available from the internet {#service-access}
+### Check whether your web server is accessible from the internet {#service-access}
 
-1. Make sure that you can execute a request against the web service at the URL:
+1. Make an HTTP request to your server by opening the following address in your browser:
 
    ```text
    http://<IP_address_of_UserGate_VM>:5550
    ```
 
-   This should return a list of directories and files in the folder.
+   You should see the contents of your `httpdocs` folder.
 
-1. In the UserGate administrator web console, in the top menu, select **Logs and reports**.
-1. On the left side of the **Logs** section, select **Web access log** and make sure that you can see an entry about executing the `Access to local server` rule.
+1. In the top menu of the UserGate admin web UI, select **Logs and reports**.
+1. In the **Logs** section on the left, select **Web access log** and find an entry about applying the `Access to local server` rule.
 
 ## How to delete the resources you created {#clear-out}
 

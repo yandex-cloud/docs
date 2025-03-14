@@ -1,6 +1,6 @@
 ---
 title: How to delete a service connection in {{ vpc-full-name }}
-description: Follow this guide to delete a service connection (Private Endpoint) in VPC.
+description: Follow this guide to delete a service connection (private endpoint) in VPC.
 ---
 
 # Deleting a service connection
@@ -17,7 +17,7 @@ description: Follow this guide to delete a service connection (Private Endpoint)
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. View the description of the CLI command for deleting a service connection (Private Endpoint):
+  1. View the description of the CLI command for deleting a service connection (private endpoint):
 
       ```bash
       yc vpc private-endpoint delete --help
@@ -29,7 +29,7 @@ description: Follow this guide to delete a service connection (Private Endpoint)
      yc vpc private-endpoint list
      ```
 
-     Command result:
+     The command result will be as follows:
      
      ```text
      +----------------------+-------------+--------------------------------+
@@ -40,7 +40,7 @@ description: Follow this guide to delete a service connection (Private Endpoint)
      +----------------------+-------------+--------------------------------+
      ``` 
 
-  1. Select the ID (`ID`) or name (`NAME`) of the service connection.
+  1. Select the `ID` or `NAME` of the service connection.
   1. Delete the service connection:
 
      ```bash

@@ -1,6 +1,6 @@
 # Deleting a route table
 
-If you no longer need a route table, you can [delete](#delete-route-table) it. Before deleting a table, [disassociate it](#unlink-route-table) from all subnets it is associated with.
+If you no longer need the route table, you can [delete](#delete-route-table) it. Before deleting a table, [disassociate it](#unlink-route-table) from all subnets it is associated with.
 
 ## Disassociating a route table from a subnet {#unlink-route-table}
 
@@ -14,16 +14,16 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
      {% note info %}
 
-     If you do not know which network the route table belongs to, in the right-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**. This will open a list of route tables. Find the network you need in the **Network** column next to the route table name. To view the cloud network, click its name.
+     If you do not know which network the route table belongs to, in the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**. This will open a list of route tables. Find the network you need in the **Network** column next to the route table name. To view the cloud network, click its name.
 
      {% endnote %}
 
   1. In the list of subnets, find the subnet associated with the route table.
   1. Disassociate the route table from the subnet using any of these methods:
-     * In the line with subnet information, click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
-     * In the line with subnet information, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
+     * In the row with subnet information, click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
+     * In the row with subnet information, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
      * Open the subnet information and click ![image](../../_assets/console-icons/xmark.svg) next to the route table name.
-     * Open the subnet information and click **Edit** in the top right corner. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
+     * Open the subnet information and click **Edit** in the top-right corner. In the window that opens, click ![image](../../_assets/console-icons/xmark.svg) in the row with the route table name and save the changes.
 
 - CLI {#cli}
 
@@ -70,7 +70,7 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
   1. Open the {{ TF }} configuration file and find the fragment with the description of the subnet associated with the route table:
 
-     {% cut "Example subnet description in the {{ TF }} configuration" %}
+     {% cut "Example of a subnet description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -113,7 +113,7 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -123,7 +123,7 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc vpc subnet get <subnet_name_or_ID>
@@ -132,7 +132,7 @@ If you no longer need a route table, you can [delete](#delete-route-table) it. B
 
 - API {#api}
 
-  To disassociate a route table from a subnet, use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call and provide an empty string in the following request parameters:
+  To disassociate a route table from a subnet, use the [update](../api-ref/Subnet/update.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Update](../api-ref/grpc/Subnet/update.md) gRPC API call, and provide an empty string in the following request parameter:
     * `routeTableId`: For REST API
     * `route_table_id`: For gRPC API
 
@@ -156,7 +156,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
   1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a route table.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the line with the table name and select **Delete**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the table name and select **Delete**.
   1. In the window that opens, click **Delete**.
 
 - CLI {#cli}
@@ -200,9 +200,9 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
   To delete a route table created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and remove the route table description fragment.
+  1. Open the {{ TF }} configuration file and delete the route table description fragment.
 
-      {% cut "Example of a table description in the {{ TF }} configuration" %}
+     {% cut "Example of a route table description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -240,7 +240,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -250,7 +250,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc vpc subnet list
@@ -258,11 +258,11 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
 - API {#api}
 
-  To delete a route table, use the [delete](../api-ref/RouteTable/delete.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Delete](../api-ref/grpc/RouteTable/delete.md) gRPC API call and provide the ID of the route table you want to delete in the following request parameters:
+  To delete a route table, use the [delete](../api-ref/RouteTable/delete.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Delete](../api-ref/grpc/RouteTable/delete.md) gRPC API call, and provide the ID of the route table you want to delete in the following request parameter:
     * `routeTableID`: For REST API
     * `route_table_id`: For gRPC API
 
-  To get the route table ID, use the [list](../api-ref/RouteTable/list.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/List](../api-ref/grpc/RouteTable/list.md) gRPC API call and provide the folder ID in the following request parameters:
+  To get the route table ID, use the [list](../api-ref/RouteTable/list.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/List](../api-ref/grpc/RouteTable/list.md) gRPC API call, and provide the folder ID in the following request parameter:
     * `folderID`: For REST API
     * `folder_id`: For gRPC API
 

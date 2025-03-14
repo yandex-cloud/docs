@@ -1,6 +1,6 @@
 # Updating a cloud network
 
-After creating a cloud network, you can change its name, description, and tags.
+After creating a cloud network, you can change its name, description, and labels.
 
 {% list tabs group=instructions %}
 
@@ -32,7 +32,7 @@ After creating a cloud network, you can change its name, description, and tags.
       +----------------------+----------------+
       ```
 
-  1. Select the network's `ID` or `NAME`.
+  1. Select the `ID` or `NAME` of the network you need.
   1. Change the parameters of the cloud network by specifying its name:
 
       ```
@@ -50,7 +50,7 @@ After creating a cloud network, you can change its name, description, and tags.
         new_label: test_label
       ```
      
-      You can provide the ID and name not only as positional arguments, but also using the `--id` and `--name` flags:
+      You can provide the ID and name not only as positional arguments but also using the `--id` and `--name` flags:
 
       ```
       yc vpc network update \
@@ -107,7 +107,7 @@ After creating a cloud network, you can change its name, description, and tags.
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Apply the configuration changes:
 
@@ -127,13 +127,13 @@ After creating a cloud network, you can change its name, description, and tags.
 
   To update a [cloud network](../concepts/network.md), use the [update](../api-ref/Network/update.md) REST API method for the [Network](../api-ref/Network/index.md) resource or the [NetworkService/Update](../api-ref/grpc/Network/update.md) gRPC API call, and provide the following in the request:
 
-  * ID of the cloud network you want to update in the `networkId` parameter.
+  * ID of the cloud network you want to update, in the `networkId` parameter.
 
     {% include [get-network-id](../../_includes/vpc/get-network-id.md) %}
 
     {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
-  * New network settings if needed:
+  * New network settings, if required:
 
     * Name in the `name` parameter.
     * Description in the `description` parameter.
@@ -149,7 +149,7 @@ After creating a cloud network, you can change its name, description, and tags.
 
 ### Updating a cloud network using its name {#using-name}
 
-You can change a cloud network using its name instead of its ID:
+You can update a cloud network using its name instead of its ID:
 
 {% list tabs group=instructions %}
 

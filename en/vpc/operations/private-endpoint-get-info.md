@@ -1,6 +1,6 @@
 ---
 title: How to get information about a service connection in {{ vpc-full-name }}
-description: Follow this guide to get information about a service connection (Private Endpoint) in VPC.
+description: Follow this guide to get information about a service connection (private endpoint) in VPC.
 ---
 
 # Getting information about a service connection
@@ -17,7 +17,7 @@ description: Follow this guide to get information about a service connection (Pr
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
   
-  1. View the description of the CLI command for information about a service connection (Private Endpoint):
+  1. View the description of the CLI command for getting information about a service connection (private endpoint):
 
       ```bash
       yc vpc private-endpoint get --help
@@ -29,7 +29,7 @@ description: Follow this guide to get information about a service connection (Pr
      yc vpc private-endpoint get s3-vpc-link
      ```
 
-     Command result:
+     The command result will be as follows:
      ```text
      id: enpd7***************
      folder_id: b1g23***************

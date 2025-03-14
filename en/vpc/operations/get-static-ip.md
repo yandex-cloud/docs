@@ -10,7 +10,7 @@ You can reserve a static public IP address to use later for accessing cloud reso
 
 {% note info %}
 
-Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for inactive static public IPs.
+Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for inactive static public IP addresses.
 
 {% endnote %}
 
@@ -66,13 +66,13 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
      * `name`: Static public IP address name. The name format is as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `deletion_protection`: Static public IP deletion protection. You cannot delete an IP address with this option enabled. The default value is `false`.
+     * `deletion_protection`: Protection of your static public IP address against deletion. You cannot delete an IP address with this option enabled. The default value is `false`.
      * `external_ipv4_address`: IPv4 address description:
         * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
@@ -94,7 +94,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     This will create all the resources you need in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc vpc address list

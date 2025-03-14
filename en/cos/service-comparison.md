@@ -1,6 +1,6 @@
 ---
-title: '{{ cos-full-name }} comparison with other {{ yandex-cloud }} services'
-description: This table compares the parameters of {{ cos-full-name }} to other {{ yandex-cloud }} services.
+title: Comparison table for {{ cos-full-name }} and other {{ yandex-cloud }} services
+description: The table compares the properties of {{ cos-full-name }} against those of other {{ yandex-cloud }} services.
 ---
 
 # {{ cos-name }} comparison with other {{ yandex-cloud }} services

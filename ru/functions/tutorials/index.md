@@ -38,3 +38,4 @@ description: В этом разделе собраны практические 
 * [{#T}](recognizer-bot.md)
 * [{#T}](logging-functions.md)
 * [{#T}](functions-framework-to-container.md)
+* [{#T}](forms-and-datalens-integration/index.md)

@@ -1,19 +1,19 @@
-## Changing a set of IP prefixes in a private connection {#priv-change}
+## Changing private connection IP prefixes {#priv-change}
 
-To change a set of IP prefixes in a private connection, do the following:
-1. Deleting the existing IP prefixes from the private connection. 
-2. Adding new IP prefixes to the private connection.
+To change IP prefixes in a private connection, do the following:
+1. Delete the existing IP prefixes from the private connection. 
+1. Add new IP prefixes to the private connection.
 
-To change a set of IP prefixes in a private connection, create a [new support request]({{ link-console-support }}).
+To change your private connection IP prefixes, create a [new support ticket]({{ link-console-support }}).
 
-### Contacting support to change a set of IP prefixes in a private connection {#prefix-change}
+### Contacting support to change IP prefixes in a private connection {#prefix-change}
 
 Follow this request format:
 ```s
-Subject: [CIC] Changing a set of IP prefixes in a private connection.
+Subject: [CIC] Changing IP prefixes in a private connection.
 
 Request text:
-Please change a set of IP prefixes for private connection 
+Please change IP prefixes in the private connection 
 prc_id: cf3qdug4fsf737******
 
 1. Delete the following IP prefixes from the specified networks (vpc_net_id):
@@ -39,18 +39,18 @@ prc_id: cf3qdug4fsf737******
 
 Where:
 
-* `vpc_net_id`: ID of the {{ vpc-full-name }} virtual network that will be changed. You need to specify a list of IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md) for each virtual network.
+* `vpc_net_id`: {{ vpc-full-name }} virtual network ID. For each such virtual network, you need to specify IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 
 
-### Contacting support to add a set of IP prefixes to a private connection {#prefix-add}
+### Contacting support to add IP prefixes to a private connection {#prefix-add}
 
 Follow this request format:
 
 ```s
-Subject: [CIC] Adding a set of IP prefixes to a private connection.
+Subject: [CIC] Adding IP prefixes to a private connection.
 
 Request text:
-Please add a set of IP prefixes to private connection
+Please add IP prefixes to the private connection
 prc_id: cf3qdug4fsf737******
 
 Add the following IP prefixes to the specified networks (vpc_net_id):
@@ -69,17 +69,17 @@ Add the following IP prefixes to the specified networks (vpc_net_id):
 
 Where:
 
-* `vpc_net_id`: ID of the {{ vpc-full-name }} virtual network that will be changed. You need to specify a list of IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md) for each virtual network.
+* `vpc_net_id`: {{ vpc-full-name }} virtual network ID. For each such virtual network, you need to specify IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 
 
-### Contacting support to delete a set of IP prefixes from a private connection {#prefix-del}
+### Contacting support to delete IP prefixes from a private connection {#prefix-del}
 
 Follow this request format:
 ```s
-Subject: [CIC] Deleting a set of IP prefixes from a private connection.
+Subject: [CIC] Deleting IP prefixes from a private connection.
 
 Request text:
-Please delete a set of IP prefixes from private connection
+Please delete IP prefixes from the private connection
 prc_id: cf3qdug4fsf737******
 
 1. Delete the following IP prefixes from the specified networks (vpc_net_id):
@@ -97,23 +97,23 @@ prc_id: cf3qdug4fsf737******
 
 Where:
 
-* `vpc_net_id`: ID of the {{ vpc-full-name }} virtual network that will be changed. You need to specify a list of IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md) for each virtual network.
+* `vpc_net_id`: {{ vpc-full-name }} virtual network ID. For each such virtual network, you need to specify IPv4 subnet prefixes grouped by {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md).
 
 
-### Support team's response to the customer's request {#priv-ticket-resp}
+### Support team's response to your ticket {#priv-ticket-resp}
 
-Here is an example of support's response when requested to change IP prefixes in a private connection (for information):
+Here is an example of the support response to a request for changing private connection IP prefixes (for reference only):
 
 ```s
-Changes to a set of IP prefixes for the private connection have been accepted.
+Requested changes to the private connection IP prefixes have been accepted.
 prc_id: cf3qdug4fsf737******
 ```
 
 {% note info %}
 
-Changing a set of IP prefixes may take up to two business days. You will be additionally notified once the process is completed.  
+Changing IP prefixes may take up to two business days. You will be notified once the process is completed.  
 
 {% endnote %}
 
-If there are any IP connectivity issues, contact support for diagnostics and troubleshooting.
+If there are any connectivity issues, contact support for diagnostics and troubleshooting.
 

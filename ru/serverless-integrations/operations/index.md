@@ -9,14 +9,20 @@ description: Из статьи вы узнаете, как работать с {
 
 ### Получение информации о рабочем процессе {#workflow-get-info}
 
-* [{#T}](workflows/get-list.md)
-* [{#T}](workflows/get-info.md)
+* [{#T}](workflows/workflow/get-list.md)
+* [{#T}](workflows/workflow/get-info.md)
+
+### Управление запуском рабочего процесса {#workflow-control}
+
+* [{#T}](workflows/execution/start.md)
+* [{#T}](workflows/execution/stop.md)
+* [{#T}](workflows/execution/terminate.md)
 
 ### Получение информации о запуске рабочего процесса {#execution-get-info}
 
-* [{#T}](workflows/get-execution-list.md)
-* [{#T}](workflows/get-execution-info.md)
-* [{#T}](workflows/get-execution-history.md)
+* [{#T}](workflows/execution/get-list.md)
+* [{#T}](workflows/execution/get-info.md)
+* [{#T}](workflows/execution/get-history.md)
 
 ### Получение дополнительной информации {#get-additional-info}
 
@@ -80,6 +86,12 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](eventrouter/rule/disable.md)
 * [{#T}](eventrouter/rule/delete.md)
 
-### Получение дополнительной информации {#get-additional-info}
+### Управление правами доступа к ресурсам {#access-rights}
+
+* [{#T}](eventrouter/access-rights/role-list.md)
+* [{#T}](eventrouter/access-rights/role-add.md)
+* [{#T}](eventrouter/access-rights/role-revoke.md)
+
+## Получение дополнительной информации {#get-additional-info}
 
 * [Просмотр операций с ресурсами сервиса](operation-logs.md)

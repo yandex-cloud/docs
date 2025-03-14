@@ -9,9 +9,9 @@ Create a VM from a [{{ coi }}](concepts/index.md) and run a Docker container on 
 
 ## Getting started {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-name }}, create a [service account](../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
+If the required Docker image has been pushed to {{ container-registry-name }}, create a [service account](../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry under this account.
 
-## Create a VM with a Docker container from a {{ coi }} {#create-vm}
+## Create a Docker container VM from a {{ coi }} {#create-vm}
 
 {% list tabs group=instructions %}
 
@@ -23,13 +23,13 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
   1. Click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
-  1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, set the parameters using suggestions:
+  1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, set the parameters using the suggestions:
 
-      1. Specify the **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** to be used to run the Docker container on the VM.
+      1. Specify the **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** for running the Docker container on the VM.
       1. Select the **{{ ui-key.yacloud.compute.instances.create.field_coi-restart-policy }}** field value for the Docker container:
 
           * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-always }}`: Always restart the Docker container when it stops.
-          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-on-failure }}`: Restart the Docker container only if it shuts down with a non-zero return code.
+          * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-on-failure }}`: Only restart the Docker container if it shuts down with a non-zero return code.
           * `{{ ui-key.yacloud.compute.instances.create.value_coi-restart-never }}`: Do not restart the Docker container automatically.
 
       1. Fill in the remaining fields, if required.
@@ -43,13 +43,13 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 
   {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to create a VM from a {{ coi }}:
+  1. View the description of the CLI command for creating a VM from a {{ coi }}:
 
      ```bash
      yc compute instance create-with-container --help
      ```
 
-  1. Create a VM from a {{ coi }}:
+  1. Create a {{ coi }} VM:
 
      ```bash
      yc compute instance create-with-container \
@@ -102,5 +102,5 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
 
 #### What's next {#what-is-next}
 
-* Read a detailed description of a [{{ coi }}](concepts/index.md).
-* To learn what else you can do with a {{ coi }}, see our [step-by-step guides](tutorials/index.md).
+* Read the detailed description of a [{{ coi }}](concepts/index.md).
+* To learn what else you can do with a {{ coi }}, see [our step-by-step guides](tutorials/index.md).

@@ -66,7 +66,7 @@ Save the private key in a secure location, as you will not be able to connect to
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other usernames reserved for the OS. To perform operations requiring superuser privileges, use the `sudo` command.
+      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router`.
@@ -136,7 +136,7 @@ Create a user with administrator privileges and password authentication disabled
 
    ```text
    cisco-router(config)#aaa new-model
-   cisco-router(config)#ip ssh server algorithm authentication publickey
+   cisco-router(config)#ip ssh server algorithm authentication publickey 
    cisco-router(config)#ip ssh pubkey-chain
    ```
 
