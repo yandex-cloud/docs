@@ -1,6 +1,6 @@
 # Создание функции Node.js с помощью TypeScript
 
-Node.js не поддерживает [TypeScript](https://www.typescriptlang.org/) из коробки. Перед тем как загружать код на TypeScript в {{ sf-name }}, его необходимо скомпилировать в JavaScript.
+Node.js не поддерживает [TypeScript](https://www.typescriptlang.org/) по умолчанию. Перед тем как загружать код на TypeScript в {{ sf-name }}, его необходимо скомпилировать в JavaScript.
 
 1. Установите [Node.js](https://nodejs.org/ru/).
 1. Откройте директорию с вашим проектом.
