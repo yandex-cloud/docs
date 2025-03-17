@@ -11,6 +11,18 @@ meta:
     Сервис {{ mtr-name }} помогает разворачивать и поддерживать кластеры
     серверов {{ TR }} в инфраструктуре {{ yandex-cloud }}.
 links:
+  - title: Начало работы
+    description: Создайте первый кластер баз данных
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

@@ -216,8 +216,12 @@
       * по коммитам в основную ветку;
       * по обновлению в Pull Request.
 
+   Более сложные сценарии разобраны в видео:
+
    
-   [Смотреть видео «Ждем гостей»: готовим сервис к пиковой нагрузке с {{ load-testing-full-name }} на YouTube](https://www.youtube.com/watch?v=QrMMZu__2DI).
+   <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvjypgxy7j52zgpam2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+   [Смотреть видео на YouTube](https://www.youtube.com/watch?v=QrMMZu__2DI).
 
 
 

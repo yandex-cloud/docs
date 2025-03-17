@@ -2,7 +2,9 @@
 canonical: '{{ link-docs }}/tutorials/security/protected-access-to-content/terraform'
 ---
 
-{% include [protected-access-to-content](../../../../_tutorials/security/protected-access-to-content-terraform.md) %}
+# Организация защищенного доступа к контенту в {{ cdn-full-name }} с помощью {{ TF }}
+
+{% include notitle [protected-access-to-content](../../../../_tutorials/security/protected-access-to-content-terraform.md) %}
 
 #### См. также {#see-also}
 

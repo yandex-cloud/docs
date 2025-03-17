@@ -1,6 +1,6 @@
 ---
-title: Управление доступом в {{ billing-name }}
-description: Из статьи вы узнаете, какие сервисные и примитивные роли действуют в сервисе {{ billing-name }}, а также ознакомитесь с доступными операциями для ролей каждого типа.
+title: Управление доступом в партнерской программе {{ yandex-cloud }}
+description: Из статьи вы узнаете, какие сервисные и примитивные роли действуют в партнерской программе {{ yandex-cloud }}, а также ознакомитесь с доступными операциями для ролей каждого типа.
 ---
 
 # Управление доступом
@@ -34,6 +34,26 @@ description: Из статьи вы узнаете, какие сервисны�
 #### billing.accounts.admin {#billing-accounts-admin}
 
 {% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
+#### billing.accounts.partnerViewer {#billing-accounts-partnerViewer}
+
+{% include [billing.accounts.partnerViewer](../../_roles/billing/accounts/partnerViewer.md) %}
+
+#### billing.accounts.piiPartnerViewer {#billing-accounts-piiPartnerViewer}
+
+{% include [billing.accounts.piiPartnerViewer](../../_roles/billing/accounts/piiPartnerViewer.md) %}
+
+#### billing.accounts.partnerEditor {#billing-accounts-partnerEditor}
+
+{% include [billing.accounts.partnerEditor](../../_roles/billing/accounts/partnerEditor.md) %}
+
+#### billing.accounts.piiPartnerEditor {#billing-accounts-piiPartnerEditor}
+
+{% include [billing.accounts.piiPartnerEditor](../../_roles/billing/accounts/piiPartnerEditor.md) %}
+
+#### billing.accounts.partnerAdmin {#billing-accounts-partnerAdmin}
+
+{% include [billing.accounts.partnerAdmin](../../_roles/billing/accounts/partnerAdmin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

@@ -22,8 +22,8 @@ def main():
 
     paths = pathlib.Path(mypath).iterdir()
 
-    # Загрузим файлы с примерами
-    # Файлы будут храниться 5 дней
+    # Загрузим файлы с примерами.
+    # Файлы будут храниться 5 дней.
     files = []
     for path in paths:
         file = sdk.files.upload(
@@ -33,8 +33,8 @@ def main():
         )
         files.append(file)
 
-    # Создадим индекс для полнотекстового поиска по загруженным файлам
-    # Максимальный размер фрагмента — 700 токенов с перекрытием 300 токенов
+    # Создадим индекс для полнотекстового поиска по загруженным файлам.
+    # Максимальный размер фрагмента — 700 токенов с перекрытием 300 токенов.
     operation = sdk.search_indexes.create_deferred(
         files,
         index_type=TextSearchIndexType(
@@ -45,42 +45,67 @@ def main():
         ),
     )
 
-    # Дождемся создания поискового индекса
+    # Дождемся создания поискового индекса.
     search_index = operation.wait()
 
     # Создадим инструмент для работы с поисковым индексом.
     # Или даже с несколькими индексами, если бы их было больше.
     tool = sdk.tools.search_index(search_index)
 
-    # Создадим ассистента для модели {{ gpt-pro }} Latest
-    # Он будет использовать инструмент поискового индекса
+    # Создадим ассистента для модели {{ gpt-pro }} Latest.
+    # Он будет использовать инструмент поискового индекса.
     assistant = sdk.assistants.create("yandexgpt", tools=[tool])
     thread = sdk.threads.create()
 
-    input_text = ""
+    input_text = input(
+        'Введите ваш вопрос ассистенту ("exit" - чтобы завершить диалог): '
+    )
 
-    while input_text != "exit":
-        print("Введите ваш вопрос ассистенту:")
-        input_text = input()
-        if input_text != "exit":
-            thread.write(input_text)
+    while input_text.lower() != "exit":
+        thread.write(input_text)
 
-            # Отдаем модели все содержимое треда
-            run = assistant.run(thread)
+        # Отдаем модели все содержимое треда.
+        run = assistant.run(thread)
 
-            # Чтобы получить результат, нужно дождаться окончания запуска
-            result = run.wait()
+        # Чтобы получить результат, нужно дождаться окончания запуска.
+        result = run.wait()
 
-            # Выводим на экран ответ
-            print(f"Answer: {result.text}")
+        # Выводим на экран ответ.
+        print("Ответ: ", result.text)
 
-    # Можно посмотреть, что хранится в треде
-    print("Вывод всей истории сообщений при выходе из чата:")
-    for message in thread:
-        print(f"    {message=}")
-        print(f"    {message.text=}\n")
+        # Выводим на экран часть атрибутов свойства citations — информацию
+        # об использованных фрагментах, созданных из файлов-источников.
+        # Чтобы вывести на экран все содержимое свойства citations,
+        # выполните: print(result.citations)
+        count = 1
+        for citation in result.citations:
+            for source in citation.sources:
+                if source.type != "filechunk":
+                    continue
+                print(
+                    f"* Содержимое фрагмента №{count}: {source.parts}"
+                )
+                print(
+                    f"* Идентификатор поискового индекса в фрагменте №{count}: {source.search_index.id}"
+                )
+                print(
+                    f"* Настройки типа поискового индекса в фрагменте №{count}: {source.search_index.index_type}"
+                )
+                print(
+                    f"* Идентификатор файла-источника для фрагмента №{count}: {source.file.id}"
+                )
+                print(
+                    f"* MIME-тип файла-источника для фрагмента №{count}: {source.file.mime_type}"
+                )
+                print()
 
-    # Удаляем все ненужное
+            count += 1
+
+        input_text = input(
+            'Введите ваш вопрос ассистенту ("exit" - чтобы завершить диалог): '
+        )
+
+    # Удаляем все ненужное.
     search_index.delete()
     thread.delete()
     assistant.delete()

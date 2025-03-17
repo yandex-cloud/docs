@@ -21,14 +21,16 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки ввода данных в системы хранения входит:
 
-* плата за запросы к API-шлюзу (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
-* плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
-* плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../../data-transfer/pricing.md));
-* плата за постоянно запущенный кластер {{ mch-name }} (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Плата за запросы к API-шлюзу (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
+* Плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md)).
+* Плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../../data-transfer/pricing.md)).
+* Плата за постоянно запущенный кластер {{ mch-name }} (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+
 
 ## Настройте окружение {#setup}
 

@@ -4,7 +4,9 @@
 Если у вас еще нет завершенных [нагрузочных тестов](../concepts/index.md), создайте тест и запустите его несколько раз подряд. Примеры сценариев нагрузочных тестов можно найти в разделе **Практические руководства**. 
 
 
-[Смотреть видеоинструкцию о регрессионном тестировании в {{ load-testing-full-name }} на YouTube](https://www.youtube.com/watch?v=G24b3dQeqns).
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvthd3allfzkwztspn?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=G24b3dQeqns).
 
 
 

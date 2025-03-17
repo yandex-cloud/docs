@@ -2,4 +2,6 @@
 canonical: '{{ link-docs }}/tutorials/analysis/search-events-bucket'
 ---
 
-{% include [bucket](../../../_tutorials/analysis/search-events-bucket.md) %}
+# Поиск событий {{ yandex-cloud }} в {{ objstorage-full-name }}
+
+{% include notitle [bucket](../../../_tutorials/analysis/search-events-bucket.md) %}

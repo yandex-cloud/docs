@@ -45,6 +45,8 @@ items:
             href: operations/assistant/create.md
           - name: Создать ассистента для поиска
             href: operations/assistant/create-with-searchindex.md
+          - name: Получить промежуточные результаты генерации ответа
+            href: operations/assistant/request-chunked-response.md
       - name: Дообучение моделей в {{ foundation-models-name }}
         items:
           - name: Дообучение моделей генерации текста

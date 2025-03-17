@@ -23,13 +23,15 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки хранения данных входит:
 
-* плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
-* плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../../data-transfer/pricing.md));
-* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* Плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md)).
+* Плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../../data-transfer/pricing.md)).
+* Плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+
 
 ## Настройте окружение {#prepare-environment}
 

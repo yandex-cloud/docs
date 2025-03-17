@@ -90,17 +90,51 @@ items:
           - name: Обзор
             href: tutorials/migration-from-nlb-to-alb/index.md
           - name: Балансировщик NLB с целевыми ресурсами из виртуальных машин
-            href: tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
           - name: Балансировщик NLB с целевыми ресурсами из группы виртуальных машин
-            href: >-
-              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
           - name: >-
               Балансировщик NLB с целевыми ресурсами из кластера {{
               managed-k8s-name }}
-            href: >-
-              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
           - name: Балансировщик NLB как целевой ресурс для ALB
-            href: tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
       - name: Интеграция L7-балансировщика с CDN и Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
