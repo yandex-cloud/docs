@@ -9046,9 +9046,16 @@ default:
         catalogs:
           field_catalog-name: Имя каталога
           field_catalog-type: Тип коннектора
+          label_external-s3: Внешнее хранилище
+          label_filesystem: Файловое хранилище
           label_password: Пароль
+          label_postgresql-connection: Тип подключения
+          label_postgresql-on-premise: On-premise
+          label_s3: Yandex Object Storage
+          label_uri: URI
           label_url: URL
           label_userName: Имя пользователя
+          section_catalog: Настройки каталога
         overview:
           field_coordinator-url: Координатор
         title_catalogs: Каталоги
@@ -10885,7 +10892,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.18.1
+        tag: v1.18.2
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

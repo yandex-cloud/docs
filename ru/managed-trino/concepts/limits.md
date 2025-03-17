@@ -7,6 +7,8 @@ noIndex: true
 
 # Квоты и лимиты в {{ mtr-name }}
 
+{% include [preview](../../_includes/managed-trino/note-preview.md) %}
+
 
 В сервисе {{ mtr-name }} действуют следующие ограничения:
 

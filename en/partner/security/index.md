@@ -1,6 +1,6 @@
 ---
-title: Access management in {{ billing-name }}
-description: In this article, you will learn about the service roles and primitive roles in {{ billing-name }}, and take a look at the operations available for roles of each type.
+title: Access management in {{ yandex-cloud }} partner program
+description: In this article, you will learn about the service roles and primitive roles in {{ yandex-cloud }} partner program, and take a look at the operations available for roles of each type.
 ---
 
 # Access management
@@ -34,6 +34,26 @@ description: In this article, you will learn about the service roles and primiti
 #### billing.accounts.admin {#billing-accounts-admin}
 
 {% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
+#### billing.accounts.partnerViewer {#billing-accounts-partnerViewer}
+
+{% include [billing.accounts.partnerViewer](../../_roles/billing/accounts/partnerViewer.md) %}
+
+#### billing.accounts.piiPartnerViewer {#billing-accounts-piiPartnerViewer}
+
+{% include [billing.accounts.piiPartnerViewer](../../_roles/billing/accounts/piiPartnerViewer.md) %}
+
+#### billing.accounts.partnerEditor {#billing-accounts-partnerEditor}
+
+{% include [billing.accounts.partnerEditor](../../_roles/billing/accounts/partnerEditor.md) %}
+
+#### billing.accounts.piiPartnerEditor {#billing-accounts-piiPartnerEditor}
+
+{% include [billing.accounts.piiPartnerEditor](../../_roles/billing/accounts/piiPartnerEditor.md) %}
+
+#### billing.accounts.partnerAdmin {#billing-accounts-partnerAdmin}
+
+{% include [billing.accounts.partnerAdmin](../../_roles/billing/accounts/partnerAdmin.md) %}
 
 ### Primitive roles {#primitive-roles}
 

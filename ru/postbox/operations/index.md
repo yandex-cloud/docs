@@ -7,6 +7,7 @@ description: В этом разделе собраны пошаговые инс
 
 * [{#T}](create-address.md)
 * [{#T}](check-domain.md)
+* [{#T}](setup-dmarc.md)
 * [{#T}](send-email.md)
 * [{#T}](send-templated-email.md)
 * [{#T}](create-configuration.md)

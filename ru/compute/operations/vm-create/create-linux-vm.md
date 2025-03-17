@@ -58,7 +58,7 @@ description: Следуя данной инструкции, вы сможете
        --name first-instance \
        --zone {{ region-id }}-a \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<идентификатор_ключа> \
+       --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<идентификатор_ключа>,auto-delete=true \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
@@ -77,6 +77,7 @@ description: Следуя данной инструкции, вы сможете
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
      * `--create-boot-disk` — настройки загрузочного диска ВМ:
+         * `auto-delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
          * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
          * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
 
@@ -90,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-         Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/metadata/sending-metadata.md) данные этих пользователей с помощью параметра `--metadata-from-file`. С помощью метаданных вы также можете [установить дополнительное ПО](./create-with-cloud-init-scripts.md) на ВМ при ее создании.
+         Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей с помощью параметра `--metadata-from-file`. С помощью метаданных вы также можете [установить дополнительное ПО](./create-with-cloud-init-scripts.md) на ВМ при ее создании.
 
   {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
@@ -121,6 +122,7 @@ description: Следуя данной инструкции, вы сможете
        }
 
        boot_disk {
+         auto_delete = true
          disk_id = yandex_compute_disk.boot-disk.id
        }
 
@@ -162,14 +164,15 @@ description: Следуя данной инструкции, вы сможете
        * `platform_id` — [платформа](../../concepts/vm-platforms.md).
        * `zone` — зона доступности, в которой будет находиться ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска. 
+       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска.
+       * `auto_delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
        * `network_interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ. Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
 
        * `metadata` — в метаданных необходимо передать открытый SSH-ключ для доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
 
-           Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/metadata/sending-metadata.md) данные этих пользователей в файле и передайте в блоке `metadata`. С помощью метаданных вы также можете [установить дополнительное ПО](./create-with-cloud-init-scripts.md) на ВМ при ее создании.
+           Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей в файле и передайте в блоке `metadata`. С помощью метаданных вы также можете [установить дополнительное ПО](./create-with-cloud-init-scripts.md) на ВМ при ее создании.
      * `yandex_vpc_network` — описание облачной сети.
      * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
 
@@ -257,6 +260,7 @@ description: Следуя данной инструкции, вы сможете
          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
        },
        "bootDiskSpec": {
+         "autoDelete": true,
          "diskSpec": {
            "size": "8589934592",
            "imageId": "fd8rc75pn12f********"
@@ -283,11 +287,12 @@ description: Следуя данной инструкции, вы сможете
      * `resourceSpec` — ресурсы, доступные ВМ. Значения должны соответствовать выбранной платформе.
      * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
      * `bootDiskSpec` — настройки загрузочного диска. Укажите идентификатор выбранного образа и размер диска.
+     * `autoDelete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
 
        {% include [id-info](../../../_includes/compute/id-info.md) %}
 
        Размер диска должен быть не меньше минимального размера диска, указанного в информации об образе.
-     * `networkInterfaceSpecs` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ.
+     * `networkInterfaceSpecs` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
        * `subnetId` — идентификатор выбранной подсети.
        * `primaryV4AddressSpec` — IP-адрес, который будет присвоен ВМ. Чтобы добавить [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ, укажите:
 

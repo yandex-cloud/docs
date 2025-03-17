@@ -32,7 +32,9 @@
 * Архитектура [{{ iam-full-name }}](../iam/index.yaml).
 
   
-  [Смотреть видео о том, из чего состоит IAM на YouTube](https://www.youtube.com/watch?v=JCu5WD1o9Is&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=5).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvcu3nds2sajztxcth?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=JCu5WD1o9Is&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=5).
 
 
 
@@ -48,7 +50,9 @@
 * Архитектура YDB Serverless.
 
   
-  [Смотреть видео Serverless {{ ydb-short-name }} Internals на YouTube](https://www.youtube.com/watch?v=aL9NHR0i0Xs&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=7).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvzisv5jta4jeq37w7?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=aL9NHR0i0Xs&list=PL1x4ET76A10aMRLrpxwRzrEg8pcFp8yUv&index=7).
 
 
 

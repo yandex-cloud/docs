@@ -1,5 +1,7 @@
 
-[Смотреть видеоинструкцию о создании агента тестирования в {{ load-testing-full-name }}](https://www.youtube.com/watch?v=YDcw9Bci8EM).
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplv7ro3actj5mipszpt?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=YDcw9Bci8EM).
 
 
 
