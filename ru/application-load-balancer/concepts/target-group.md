@@ -18,8 +18,8 @@
 
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/console.md)
-* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md)
-* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md)
 * [{#T}](../tutorials/tls-termination/console.md)
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/application-load-balancer-website/index.md)

@@ -34,7 +34,9 @@ description: Следуя данной инструкции, вы сможете
 ## Создание теста {#create-test}
 
 
-[Смотреть видеоинструкцию о создании теста в {{ load-testing-full-name }} на YouTube](https://www.youtube.com/watch?v=a0Xh4vxdVW4).
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvmjqlnyyas67xt55d?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=a0Xh4vxdVW4).
 
 
 

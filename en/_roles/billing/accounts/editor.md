@@ -23,19 +23,19 @@ To use the `billing.accounts.editor` role, you need to assign it for a billing a
 
 {% cut "On the Yandex Cloud partner portal, users with this role can:" %}
 
-* [Create](../../../partner/program/var-pin-client.md#client-entry) customer records ([sub-accounts](../../../partner/terms.md#sub-account)).
-* View the list of sub-accounts and info on them.
-* Activate sub-accounts.
-* Suspend sub-accounts.
-* Re-activate sub-accounts.
-* Link [clouds](../../../organization/concepts/manage-services.md#cloud) to sub-accounts.
+* [Create](../../../partner/program/var-pin-client.md#client-entry) customer records ([subaccounts](../../../partner/terms.md#sub-account)).
+* View the list of subaccounts and info on them.
+* Activate subaccounts.
+* Suspend subaccounts.
+* Re-activate subaccounts.
+* Link [clouds](../../../organization/concepts/manage-services.md#cloud) to subaccounts.
 * [View](../../../partner/operations/get-client-stat.md) the details of how the customers use services.
 * View [rebate credit](../../../partner/terms.md#rebate) history.
 * Withdraw rebate.
 * View assigned [specializations](../../../partner/specializations/index.md).
-* View the list of [partner commissions](../../../partner/portal.md#premium) and info on them.
-* View the history of crediting [referral program](../../../partner/program/referral.md) commissions.
-* Withdraw referral program [commissions](../../../partner/program/referral.md#premium).
+* View the list of [partner discounts](../../../partner/portal.md#premium) and info on them.
+* View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
+* Withdraw referral program [bonuses](../../../partner/program/referral.md#premium).
 * View the status of settlements with the [referrer company](../../../partner/terms.md#referral-partner).
 * View the list of referral links.
 * Create referral links.

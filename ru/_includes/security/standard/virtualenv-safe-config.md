@@ -123,7 +123,7 @@
 Если всё же требуется указать приватную информацию в конфигурации, необходимо принять меры безопасности:
 
 * Указывать для приватной информации параметр [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output), чтобы отключить её вывод в консоль при выполнении команд `terraform plan`, `terraform apply`.
-* Использовать [terraformremotestate](https://www.terraform.io/docs/language/state/remote.html). Рекомендуется [загружать](../../../tutorials/infrastructure-management/terraform-state-storage.md) состояние {{ TF }} в {{ objstorage-name }}, а также [настроить](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state) блокировку конфигурации с помощью {{ ydb-name }} для предотвращения одновременного редактирования администраторами.
+* Использовать [terraformremotestate](https://www.terraform.io/docs/language/state/remote.html). Рекомендуется [загружать](../../../tutorials/infrastructure-management/terraform-state-storage.md) состояние {{ TF }} в {{ objstorage-name }}, а также [настроить](https://github.com/yandex-cloud-examples/yc-terraform-state) блокировку конфигурации с помощью {{ ydb-name }} для предотвращения одновременного редактирования администраторами.
 * Использовать [механизм передачи секретов в {{ TF }} через env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) вместо plaintext либо использовать встроенную возможность KeyManagementService по [шифрованию данных в {{ TF }}](../../../kms/tutorials/terraform-secret.md) с помощью отдельного файла с приватными данными. [Подробнее о данной технике](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073).
 
 Об обеспечении безопасности {{ objstorage-name }} читайте ниже в подразделе [{{ objstorage-name }}](#objstorage).
@@ -137,7 +137,7 @@
 Проверяйте ваши Terraform-манифесты с помощью [Checkov](https://github.com/bridgecrewio/checkov) с поддержкой {{ yandex-cloud }}.
 
 * [Пример: сканирование tf-файлов с помощью Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc).
-* [Пример: хранение состояния {{ TF }} в {{ objstorage-name }}](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state).
+* [Пример: хранение состояния {{ TF }} в {{ objstorage-name }}](https://github.com/yandex-cloud-examples/yc-terraform-state).
 
 {% list tabs group=instructions %}
 

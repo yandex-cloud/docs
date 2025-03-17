@@ -11,6 +11,8 @@ items:
         href: operations/create-address.md
       - name: Проверка владения доменом
         href: operations/check-domain.md
+      - name: Настройка DMARC-политики
+        href: operations/setup-dmarc.md
       - name: Отправка письма
         href: operations/send-email.md
       - name: Шаблонизация письма

@@ -30,6 +30,7 @@ description: Страница содержит все инструкции дл�
 
 * [{#T}](./assistant/create.md)
 * [{#T}](./assistant/create-with-searchindex.md)
+* [{#T}](./assistant/request-chunked-response.md)
 
 ## Дообучение моделей {{ foundation-models-name }} {#tuning}
 

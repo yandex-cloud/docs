@@ -16,14 +16,16 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры передачи данных входит:
 
-1. Плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-1. Плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-1. Плата за постоянно запущенный кластер {{ mmy-name }} (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md));
-1. Плата за сервис {{ data-transfer-name }} (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing)).
+* Плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за постоянно запущенный кластер {{ mmy-name }} (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Плата за сервис {{ data-transfer-name }} (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing)).
+
 
 ## Создайте ВМ с интернет-магазином {#create-vm-mysql}
 

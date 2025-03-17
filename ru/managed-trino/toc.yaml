@@ -5,7 +5,21 @@ noIndex: true
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
+      - name: Создание кластера
+        href: operations/cluster-create.md
+      - name: Изменение кластера
+        href: operations/cluster-update.md
+      - name: Удаление кластера
+        href: operations/cluster-delete.md
   - name: Квоты и лимиты
     href: concepts/limits.md
+  - name: Управление доступом
+    href: security.md
   - name: Правила тарификации
     href: pricing.md

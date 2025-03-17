@@ -6,7 +6,7 @@
 
 Миграция сервисов зависит от того, какие целевые ресурсы использует {{ network-load-balancer-name }}:
 
-* [{{ network-load-balancer-name }} с целевыми ресурсами из виртуальных машин](../../tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md).
-* [{{ network-load-balancer-name }} с целевыми ресурсами из группы виртуальных машин (Instance Groups)](../../tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md).
-* [{{ network-load-balancer-name }} с целевыми ресурсами из кластера Managed Service for Kubernetes](../../tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md).
-* [{{ network-load-balancer-name }} как целевой ресурс для {{ alb-name }}](../../tutorials/security/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md).
+* [{{ network-load-balancer-name }} с целевыми ресурсами из виртуальных машин](../../tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md).
+* [{{ network-load-balancer-name }} с целевыми ресурсами из группы виртуальных машин (Instance Groups)](../../tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md).
+* [{{ network-load-balancer-name }} с целевыми ресурсами из кластера Managed Service for Kubernetes](../../tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md).
+* [{{ network-load-balancer-name }} как целевой ресурс для {{ alb-name }}](../../tutorials/security/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md).

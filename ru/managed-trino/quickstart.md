@@ -6,6 +6,8 @@ noIndex: true
 
 # Как начать работать с {{ mtr-full-name }}
 
+{% include [preview](../_includes/managed-trino/note-preview.md) %}
+
 Чтобы начать работу с сервисом:
 * [Создайте кластер {{ mtr-name }}](#cluster-create).
 * [Установите {{ TR }} CLI](#install-trino-cli).
@@ -23,7 +25,7 @@ noIndex: true
 
 1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
 
-    * `managed-trino.admin` — чтобы создать кластер;
+    * [managed-trino.admin](security.md#managed-trino-admin) — чтобы создать кластер;
     * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
     * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
 
@@ -35,41 +37,47 @@ noIndex: true
 
 ## Создайте кластер {{ mtr-name }} {#cluster-create}
 
-1. В консоли управления выберите каталог, в котором нужно создать кластер {{ mtr-name }}.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Задайте имя кластера.
-1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите созданный ранее сервисный аккаунт.
-1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, подсеть и группу безопасности для кластера.
-1. Задайте конфигурацию координатора и воркеров.
-1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте каталоги:
+{% list tabs group=instructions %}
 
-   1. Для кластера {{ mpg-name }} со следующими параметрами:
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `test`.
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `PostgreSQL`.
-       * **{{ ui-key.yacloud.trino.catalogs.label_url }}** — `jdbc:postgresql://<FQDN_хоста_кластера_Managed_Service_for_Postgresql>:6432/<имя_базы_данных>?ssl=true&sslmode=verify-full`.
+- Консоль управления {#console}
 
-           Подробнее о получении FQDN хоста в кластере {{ mpg-name }} см. в [инструкции](../managed-postgresql/operations/connect.md#fqdn).
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ mtr-name }}.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+    1. Задайте имя кластера.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите созданный ранее сервисный аккаунт.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, подсеть и группу безопасности для кластера.
+    1. Задайте конфигурацию координатора и воркеров.
+    1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте каталоги:
 
-       * **{{ ui-key.yacloud.trino.catalogs.label_userName }}** — имя пользователя в кластере {{ mpg-name }}.
-       * **{{ ui-key.yacloud.trino.catalogs.label_password }}** — пароль пользователя в кластере {{ mpg-name }}.
+        1. Для кластера {{ mpg-name }} со следующими параметрами:
+           * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `test`.
+           * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `PostgreSQL`.
+           * **{{ ui-key.yacloud.trino.catalogs.label_url }}** — `jdbc:postgresql://<FQDN_хоста_кластера_Managed_Service_for_Postgresql>:6432/<имя_базы_данных>?ssl=true&sslmode=verify-full`.
 
-   1. Для тестовых данных со следующими параметрами:
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `data`.
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `TPC-H`.
+               Подробнее о получении FQDN хоста в кластере {{ mpg-name }} см. в [инструкции](../managed-postgresql/operations/connect.md#fqdn).
+
+           * **{{ ui-key.yacloud.trino.catalogs.label_userName }}** — имя пользователя в кластере {{ mpg-name }}.
+           * **{{ ui-key.yacloud.trino.catalogs.label_password }}** — пароль пользователя в кластере {{ mpg-name }}.
+
+        1. Для тестовых данных со следующими параметрами:
+            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `data`.
+            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `TPC-H`.
    
-   Вы можете добавить каталоги как при создании кластера, так и после его создания.
+        Вы можете добавить каталоги как при создании кластера, так и после его создания.
 
-1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** настройте логирование:
+    1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** настройте логирование:
 
-   1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
-   1. Выберите место записи логов:
-       * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
-       * **{{ ui-key.yacloud.logging.label_group }}** — выберите лог-группу из списка или создайте новую.
-   1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
+        1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
+        1. Выберите место записи логов:
+            * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
+            * **{{ ui-key.yacloud.logging.label_group }}** — выберите лог-группу из списка или создайте новую.
+        1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
-1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mtr-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mtr-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+
+{% endlist %}
 
 ## Установите {{ TR }} CLI {#install-trino-cli}
 
@@ -99,6 +107,7 @@ noIndex: true
    ```bash
    Trino CLI <номер_версии>
    ```
+
 ## Подключитесь к кластеру {{ mtr-name }} {#connect-to-trino}
 
 1. Создайте [IAM-токен](../iam/concepts/authorization/iam-token.md) и поместите его в переменную окружения `TRINO_PASSWORD`:
