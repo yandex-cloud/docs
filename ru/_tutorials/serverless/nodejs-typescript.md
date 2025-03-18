@@ -10,7 +10,7 @@ Node.js не поддерживает [TypeScript](https://www.typescriptlang.or
     ```
 1. Создайте конфигурацию Typescript:
     ```bash
-    npx tsc --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build --strict false --target ES2021
+    npx --no-install tsc --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build --strict false --target ES2021
     ```
 
     Чтобы использовать другую версию JavaScript, измените значение аргумента `target`. Максимальное значение версии JavaScript, которое можно указать, зависит от используемой версии Node.js:
