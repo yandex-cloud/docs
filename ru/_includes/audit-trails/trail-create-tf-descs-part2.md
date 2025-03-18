@@ -1,22 +1,17 @@
 * `filtering_policy` — настройки политики фильтрации, которая определяет, какие события будут собираться и попадут в аудитные логи. Политика состоит из набора фильтров, которые относятся к разным уровням событий. Содержит объекты `management_events_filter` и `data_events_filters`.
+
     * `management_events_filter` — фильтр событий уровня конфигурации.
     * `resource_scopes` — [область сбора логов](../../audit-trails/concepts/trail.md#collecting-area). Можно комбинировать в одном параметре `resource_scopes` несколько областей, которые принадлежат одной организации. Например, собирать логи из одного облака целиком, а из другого — только из определенных каталогов. Права сервисного аккаунта должны позволять сбор логов из указанных областей.
+
         * `resource_id` — идентификатор ресурса, для ресурсов которого будут собираться аудитные логи. В зависимости от области сбора аудитных логов укажите в этом параметре [идентификатор](../../organization/operations/organization-get-id.md) организации или [идентификатор](../../resource-manager/operations/cloud/get-id.md) облака.
         * `resource_type` — тип области согласно указанному идентификатору:
-          * `organization-manager.organization` — организация;
-          * `resource-manager.cloud` — облако;
-          * `resource-manager.folder` — каталог.
+
+            * `organization-manager.organization` — [организация](../../organization/concepts/organization.md);
+            * `resource-manager.cloud` — [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud);
+            * `resource-manager.folder` — [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
     * `data_events_filters` — фильтры событий уровня сервисов. Можно настроить несколько фильтров такого типа — по одному для каждого сервиса. Фильтр для одного сервиса имеет следующую структуру:
-        * `service` — идентификатор [сервиса](../../audit-trails/concepts/control-plane-vs-data-plane.md#data-plane-events), в котором трейл будет обрабатывать события.
-            Возможные значения:
-            * `dns`;
-            * `kms`;
-            * `lockbox`;
-            * `mdb.mongodb`;
-            * `mdb.mysql`;
-            * `mdb.postgresql`;
-            * `storage`.
+
+        * `service` — имя сервиса, в котором трейл будет обрабатывать события.  Его можно получить в [справочнике событий уровня сервисов](../../audit-trails/concepts/events-data-plane.md)).
         * `resource_scopes` — места, откуда собирать события уровня сервисов. Этот параметр настраивается аналогично фильтру событий уровня конфигурации.
         * `included_events` — собирать только указанные события. Необязательный параметр. Если не указать, то будут собираться все события. Вместо `included_events` можно указать `excluded_events` — собирать все события, кроме указанных. Эти параметры — взаимоисключающие.
             Полный перечень событий можно получить в [справочнике событий уровня сервисов](../../audit-trails/concepts/events-data-plane.md).
-

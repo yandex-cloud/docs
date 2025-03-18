@@ -144,4 +144,4 @@
 #### См. также {#see-also}
 
 * [{#T}](../../concepts/yandexart/index.md)
-* Примеры работы с ML SDK на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/image_generation)
+* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/image_generation)

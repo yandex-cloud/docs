@@ -13,6 +13,7 @@ description: Различные сценарии использования ма
 * [{#T}](batch-code-execution.md)
 * [{#T}](s3-to-datasphere.md)
 * [{#T}](mlflow-datasphere.md)
+* [{#T}](models-fine-tuning.md)
 
 
 ## Эксплуатация в {{ ml-platform-full-name }} {#datasphere-deployment}
@@ -37,3 +38,7 @@ description: Различные сценарии использования ма
 
 * [{#T}](archive-from-vision-to-object-storage.md)
 * [{#T}](recognizer-bot.md)
+
+## Использование генеративных нейросетей {{ foundation-models-full-name }} {#generative-neuronets}
+
+* [{#T}](pdf-searchindex-ai-assistant.md)

@@ -8,6 +8,17 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите](#clear-out) их.
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ mpg-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за сервис {{ container-registry-name }}: использование хранилища (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md#rules-storage)).
+* Плата за контейнер {{ serverless-containers-name }}: количество вызовов контейнера и вычислительные ресурсы (см. [тарифы {{ container-registry-name }}](../../serverless-containers/pricing.md)).
+
+
 ## Перед началом работы {#before-begin}
 
 1. Если у вас не установлен [Docker](/blog/posts/2022/03/docker-containers), [установите его](https://docs.docker.com/get-docker/). Убедитесь, что Docker Engine запущен.

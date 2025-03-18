@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Создание трейла
         href: operations/create-trail.md
+      - name: Управление трейлом
+        href: operations/manage-trail.md
       - name: Управление правами доступа к трейлу
         items:
           - name: Посмотреть роли, назначенные на трейл

@@ -30,5 +30,6 @@ _Дообучение моделей в {{ foundation-models-full-name }} нах
 ## Примеры {#examples}
 
 [{#T}](../../operations/tuning/create.md)
+[{#T}](../../tutorials/models-fine-tuning.md)
 
 ^1^ {{ meta-disclaimer }}
