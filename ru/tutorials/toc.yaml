@@ -1278,6 +1278,8 @@ items:
             href: ml-ai/s3-to-datasphere.md
           - name: Создание сервера MLFlow для логирования экспериментов и артефактов
             href: ml-ai/mlflow-datasphere.md
+          - name: Дообучение моделей в {{ ml-platform-name }}
+            href: ml-ai/models-fine-tuning.md
       - name: Эксплуатация {{ ml-platform-name }}
         items:
           - name: Развертывание сервиса в {{ ml-platform-name }} из модели ONNX
@@ -1312,3 +1314,11 @@ items:
             href: ml-ai/archive-from-vision-to-object-storage.md
           - name: Разработка Telegram-бота для распознавания текста и аудио
             href: ml-ai/recognizer-bot.md
+      - name: >-
+          Использование генеративных нейросетей {{ foundation-models-full-name
+          }}
+        items:
+          - name: >-
+              Реализация AI-ассистента с поиском по PDF-файлам со сложным
+              форматированием
+            href: ml-ai/pdf-searchindex-ai-assistant.md

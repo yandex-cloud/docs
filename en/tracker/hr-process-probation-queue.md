@@ -23,7 +23,7 @@ To have the probation period end date set automatically, create a trigger that w
 To make sure you do not miss anything important in the course of new employee onboarding, add checklist creation to trigger actions:
 
 1. Under **Trigger actions**, select **Create checklist** in the **Add new action** field.
-1. In the form that opens, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}** and enter a description of the first item, such as `Assign a supervisor`.
+1. In the form that opens, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Checklist.new-item-button-caption }}** and enter a description of the first item, such as `Assign a supervisor`.
 1. Repeat the steps to add other items to the checklist.
 1. To save the trigger, click **Create**.
 

@@ -1,3 +1,8 @@
+---
+title: Как создать трейл для загрузки аудитных логов
+description: Следуя данной инструкции, вы сможете создать трейл {{ at-full-name }} для регистрации и сохранения аудитных логов.
+---
+
 # Создание трейла для загрузки аудитных логов
 
 
@@ -136,286 +141,145 @@
 
 - CLI {#cli}
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Трейл можно создать двумя способами:
+  Посмотрите описание команды [CLI](../../cli/) для создания трейла, чтобы получить подробную информацию о доступных аргументах:
 
-    * Создать YAML-файл, содержащий параметры трейла, и передать этот файл в команду для создания трейла.
+  ```bash
+  yc audit-trails trail create --help
+  ```
 
-        Такой подход упрощает работу с параметрами трейла и снижает вероятность ошибки.
+  Трейл можно создать, указав его параметры одним из двух способов:
 
-    * Передать параметры трейла в аргументах команды для создания трейла.
+  {% cut "В YAML-спецификации:" %}
 
-        Посмотрите описание команды [CLI](../../cli/) для создания трейла, чтобы получить подробную информацию о доступных аргументах:
+  Создайте YAML-спецификацию, содержащую параметры трейла, и укажите этот файл в команде для создания трейла.
+  
+  Этот способ упрощает работу с параметрами трейла и снижает вероятность ошибки. Кроме того, настроить регистрацию [событий уровня сервисов](../concepts/control-plane-vs-data-plane.md#data-plane-events) можно только с помощью YAML-спецификации.
 
-        ```bash
-        yc audit-trails trail create --help
-        ```
+  1. Создайте YAML-файл с конфигурацией трейла:
 
-        {% note tip %}
+      {% include [trail-create-cli-yaml-config](../../_includes/audit-trails/trail-create-cli-yaml-config.md) %}
 
-        Используйте этот способ, если конфигурация трейла простая и содержит небольшое количество параметров.
+      Где:
 
-        {% endnote %}
+      * `name` — имя трейла. Оно должно быть уникальным в рамках каталога.
+      * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором будет размещен трейл.
+      * `destination` — настройки выбранного места назначения, куда будут загружаться аудитные логи.
 
-    Чтобы создать трейл, используя YAML-файл:
+          {% note warning %}
 
-    1. Создайте YAML-файл с конфигурацией трейла:
+          Настройки мест назначения — взаимоисключающие. Использование одних настроек делает невозможным использование других.
 
-        ```yaml
-        name: <имя_трейла>
-        folder_id: <идентификатор_каталога>
-        destination:
-          # Должно быть указано только одно место назначения:
-          # object_storage, cloud_logging, data_stream
-          # Настройки для всех мест назначения приведены для иллюстрации
-          object_storage:
-            bucket_id: <имя_бакета>
-            object_prefix: <префикс_для_объектов>
-          cloud_logging:
-            log_group_id: <идентификатор_лог_группы>
-          data_stream:
-            stream_name: <имя_потока_данных_YDS>
-            database_id: <идентификатор_базы_данных_YDS>
-        service_account_id: <идентификатор_сервисного_аккаунта>
-        filtering_policy:
-          management_events_filter:
-            resource_scopes:
-              - id: <идентификатор_организации_облака_или_каталога>
-                type: <тип>
-          data_events_filters:
-            - service: <имя_сервиса>
-              resource_scopes:
-                - id: <идентификатор_организации_облака_или_каталога>
-                  type: <тип>
-              # Допустимо указать либо included_events, либо excluded_events,
-              # либо не указывать оба этих параметра, чтобы собирались все события сервиса
-              # Оба параметра приведены для иллюстрации
-              included_events:
-                event_types:
-                  - <эти_события_будут_собираться>
-              excluded_events:
-                event_types:
-                  - <эти_события_не_будут_собираться>
-        ```
+          {% endnote %}
 
-        Где:
+          * `object_storage` — загружать логи в [бакет](../../storage/concepts/bucket.md#naming) {{ objstorage-full-name }}:
 
-        * `name` — имя трейла. Оно должно быть уникальным в рамках каталога.
-        * `folder_id` — идентификатор каталога, в котором будет размещен трейл.
-        * `destination` — настройки выбранного места назначения, куда будут загружаться аудитные логи.
+              * `bucket_id` — [имя](../../storage/concepts/bucket.md#naming) созданного [ранее](#before-you-begin) бакета.
 
-            {% note warning %}
+                  Имя бакета можно запросить со списком бакетов в каталоге (используется каталог по умолчанию):
 
-            Настройки мест назначения — взаимоисключающие. Использование одних настроек делает невозможным использование других.
+                  ```bash
+                  yc storage bucket list
+                  ```
 
-            {% endnote %}
+              * `object_prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
 
-            * `object_storage` — загружать логи в бакет {{ objstorage-name }}:
+                  {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-                * `bucket_id` — имя [созданного ранее](#before-you-begin) бакета.
+          * `cloud_logging` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
 
-                    Имя бакета можно запросить со списком бакетов в каталоге (используется каталог по умолчанию):
+              В параметре `log_group_id` укажите идентификатор [созданной ранее](#before-you-begin) лог-группы. Идентификатор можно запросить со [списком лог-групп в каталоге](../../logging/operations/list.md).
+          * `data_stream` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}:
 
-                    ```bash
-                    yc storage bucket list
-                    ```
+              * `stream_name` — имя [созданного ранее](#before-you-begin) потока данных. Имя можно запросить со [списком потоков данных в каталоге](../../data-streams/operations/manage-streams.md#list-data-streams).
+              * `database_id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}. Идентификатор можно запросить со [списком баз данных {{ ydb-short-name }} в каталоге](../../ydb/operations/manage-databases.md#list-db).
+      * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) созданного [ранее](#before-you-begin) сервисного аккаунта.
 
-                * `object_prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../../audit-trails/concepts/format.md#log-file-name) файла аудитного лога.
+      {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
 
-                    {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+  1. Выполните команду:
 
-            * `cloud_logging` — загружать логи в лог-группу {{ cloud-logging-name }}.
+      ```bash
+      yc audit-trails trail create --file <путь_к_файлу>
+      ```
 
-                В параметре `log_group_id` укажите идентификатор [созданной ранее](#before-you-begin) лог-группы. Идентификатор можно запросить со [списком лог-групп в каталоге](../../logging/operations/list.md).
+  {% endcut %}
 
-            * `data_stream` — загружать логи в поток данных {{ yds-name }}:
+  {% cut "В аргументах команды:" %}
 
-                * `stream_name` — имя [созданного ранее](#before-you-begin) потока данных. Имя можно запросить со [списком потоков данных в каталоге](../../data-streams/operations/manage-streams.md#list-data-streams).
+  Используйте этот способ, если конфигурация трейла простая и содержит небольшое количество параметров.
 
-                * `database_id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}. Идентификатор можно запросить со [списком баз данных {{ ydb-short-name }} в каталоге](../../ydb/operations/manage-databases.md#list-db).
+  {% note info %}
 
-        * `service_account_id` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
+  Настроить регистрацию [событий уровня сервисов](../concepts/control-plane-vs-data-plane.md#data-plane-events) можно только с помощью YAML-спецификации.
 
-        * `filtering_policy` — настройки политики фильтрации, которая определяет, какие события будут собираться и попадут в аудитные логи. Политика состоит из набора фильтров, которые относятся к разным уровням событий.
+  {% endnote %}
 
-            {% note warning %}
+  Выполните команду:
 
-            Для политики обязательно должен быть настроен хотя бы один фильтр, иначе не получится создать трейл.
+  ```bash
+  yc audit-trails trail create \
+    --name <имя_трейла> \
+    --description <описание_трейла> \
+    --labels <список_меток> \
+    --service-account-id <идентификатор_сервисного_аккаунта> \
+    --destination-bucket <имя_бакета> \
+    --destination-bucket-object-prefix <префикс_для_объектов> \
+    --destination-log-group-id <идентификатор_лог_группы> \
+    --destination-yds-stream <имя_потока_данных_YDS> \
+    --destination-yds-database-id <идентификатор_базы_данных_YDS> \
+    --filter-all-folder-id <идентификатор_каталога> \
+    --filter-all-cloud-id <идентификатор_облака> \
+    --filter-all-organisation-id <идентификатор_организации> \
+    --filter-some-folder-ids <список_каталогов_в_облаке> \
+    --filter-from-cloud-id <идентификатор_облака_с_выбранными_каталогами> \
+    --filter-some-cloud-ids <список_облаков_в_организации> \
+    --filter-from-organisation-id <идентификатор_организации_с_выбранными_облаками>
+    ```
 
-            {% endnote %}
+    Где:
+    * `--name` — имя создаваемого трейла.
 
-            Доступные фильтры:
+    {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
 
-            * `management_events_filter` — фильтр событий уровня конфигурации.
-
-                {#filter-cli}
-
-                Укажите [область сбора логов](../concepts/trail.md) в параметре `resource_scopes`:
-
-                * `id` — идентификатор организации, облака или каталога.
-                * `type` — тип области согласно указанному идентификатору:
-
-                    * `organization-manager.organization` — организация;
-                    * `resource-manager.cloud` — облако;
-                    * `resource-manager.folder` — каталог.
-
-                Можно комбинировать в одном параметре `resource_scopes` несколько областей, которые принадлежат одной организации. Например, собирать логи из одного облака целиком, а из другого — только из определенных каталогов:
-
-                ```yaml
-                resource_scopes:
-                  # Сбор логов из облака 1 целиком
-                  - id: <идентификатор_облака_1>
-                    type: resource-manager.cloud
-                  # Сбор логов из каталога 1 облака 2
-                  - id: <идентификатор_каталога_1>
-                    type: resource-manager.folder
-                  # Сбор логов из каталога 2 облака 2
-                  - id: <идентификатор_каталога_2>
-                    type: resource-manager.folder
-                ```
-
-                Права сервисного аккаунта должны позволять сбор логов из указанных областей.
-
-            * `data_events_filters` — фильтры событий уровня сервисов. Можно настроить несколько фильтров такого типа — по одному для каждого сервиса.
-
-                Фильтр для одного сервиса имеет следующую структуру:
-
-                * `service` — имя сервиса. Его можно получить в [справочнике событий уровня сервисов](../concepts/events-data-plane.md).
-
-                * `resource_scopes` — места, откуда собирать события уровня сервисов. Этот параметр настраивается аналогично фильтру событий уровня конфигурации.
-
-                * `*_events` — фильтры событий уровня сервиса:
-
-                    * `included_events.event_types` — собирать только указанные события.
-                    * `excluded_events.event_types` — собирать все события, кроме указанных.
-
-                    Перечень событий можно получить в [справочнике событий уровня сервисов](../concepts/events-data-plane.md).
-
-                    {% note warning %}
-
-                    Эти фильтры — взаимоисключающие:
-
-                    * либо настройте только `included_events`;
-                    * либо настройте только `excluded_events`.
-
-                    Если не настроить ни один фильтр, то будут собираться все события.
-
-                    {% endnote %}
-
-    1. Выполните команду:
-
-        ```bash
-        yc audit-trails trail create --file <путь_к_файлу>
-        ```
+  {% endcut %}
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-    {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-    1. Опишите в конфигурационном файле параметры трейла, который будет собирать аудитные логи:
+  1. Опишите в конфигурационном файле параметры трейла, который будет собирать аудитные логи:
 
-        ```hcl
-        resource "yandex_audit_trails_trail" "basic_trail" {
-          name        = "<имя_трейла>"
-          folder_id   = "<идентификатор_каталога>"
-          description = "<описание_трейла>"
-          labels = {
-            key = "value"
-          }
-          service_account_id = "<идентификатор_сервисного_аккаунта>"
+      {% include [trail-tf-manifest](../../_includes/audit-trails/trail-tf-manifest.md) %}
 
+      Где:
 
-          # Должно быть указано только одно место назначения:
-          # storage_destination , logging_destination, data_stream_destination
-          # Настройки для всех мест назначения приведены для иллюстрации
+      {% include [trail-create-tf-descs_part1](../../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
 
-          logging_destination {
-            log_group_id = "<идентификатор_лог-группы>"
-          }
-          storage_destination {
-            bucket_name   = "<идентификатор_бакета>"
-            object_prefix = "<префикс>"
-          }
-          data_stream_destination {
-            database_id = "<идентификатор_базы_данных_YDS>"
-            stream_name = "<имя_потока_данных_YDS>"
-          }
+      {% include [trail-create-tf-descs_logging](../../_includes/audit-trails/trail-create-tf-descs-logging.md) %}
 
-          # Настройки политики фильтрации
+      {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-          filtering_policy {
-            management_events_filter {
-              resource_scope {
-                resource_id   = "<идентификатор_организации>"
-                resource_type = "resource-manager.organization"
-              }
-            }  
-            data_events_filter {
-              service = "<сервис>"
-              included_events = ["<тип_событий_сервиса>","<тип_событий_сервиса_2>"]
-              resource_scope {
-                resource_id   = "<идентификатор_облака>"
-                resource_type = "resource-manager.cloud"
-              }
-              resource_scope {
-                resource_id   = "<идентификатор_каталога>"
-                resource_type = "resource-manager.folder"
-              }
-            }
-            data_events_filter {
-              service = "<сервис_2>"
-              resource_scope {
-                resource_id   = "<идентификатор_облака_2>"
-                resource_type = "resource-manager.cloud"
-              }
-              resource_scope {
-                resource_id   = "<идентификатор_облака_3>"
-                resource_type = "resource-manager.cloud"
-              }
-            }
-            data_events_filter {
-              service = "<сервис_3>"
-              resource_scope {
-                resource_id   = "<идентификатор_каталога_2>"
-                resource_type = "resource-manager.folder"
-              }
-              resource_scope {
-                resource_id   = "<идентификатор_каталога_3>"
-                resource_type = "resource-manager.folder"
-              }
-            }
-          }
-        }
-        ```
+      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
 
-        Где:
+  1. Создайте ресурсы:
 
-        {% include [trail-create-tf-descs_part1](../../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        {% include [trail-create-tf-descs_logging](../../_includes/audit-trails/trail-create-tf-descs-logging.md) %}
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
-        {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
-
-        Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
-
-    1. Создайте ресурсы:
-
-        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
-        {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
-
-       ```bash
-       yc audit-trails trail get <имя_трейла>
-       ```
+     ```bash
+     yc audit-trails trail get <имя_трейла>
+     ```
 
 - API {#api}
 
-    Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
+  Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
 
 {% endlist %}
 

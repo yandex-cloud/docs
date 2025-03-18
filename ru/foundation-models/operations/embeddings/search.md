@@ -90,4 +90,4 @@ description: Следуя данной инструкции, вы научите
 #### См. также {#see-also}
 
 * [{#T}](../../concepts/embeddings.md)
-* Примеры работы с ML SDK на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)
+* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/text_embeddings)

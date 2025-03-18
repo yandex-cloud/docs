@@ -459,4 +459,4 @@ description: Следуя данной инструкции, вы научите
 
 * [{#T}](../../concepts/yandexgpt/tokens.md)
 * [{#T}](../../concepts/yandexgpt/index.md)
-* Примеры работы с ML SDK на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)
+* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/completions)

@@ -136,6 +136,7 @@ default:
   cos-full-name: Yandex Container Solution
   cos-name: Container Solution
   cr-full-name: Yandex Cloud Router
+  cr-name: Cloud Router
   crt-alias: YandexCA
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
   crt-local-file: YandexInternalRootCA.crt
@@ -5348,12 +5349,10 @@ default:
         button-submit-text: Apply
       ui_Common_smart-components_BulkSuggestPopup:
         apply: Apply
-      ui_Common_smart-components_entity-page_checklist_ChecklistActionsMenu:
-        remove-title: Delete checklist
-      ui_Common_smart-components_entity-page_checklist_Footer:
-        new-item-button-caption: Add item
-      ui_Common_smart-components_entity-page_checklist_Header:
+      ui_Common_smart-components_entity-page_checklist_Checklist:
         header-title: Checklist
+        new-item-button-caption: Add item
+        remove-title: Delete checklist
       ui_Common_smart-components_entity-page_macros_FavoriteButton:
         button-tooltip-add: Add to favorites
       ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect:
@@ -5861,6 +5860,12 @@ default:
       alert-template:
         field:
           evaluation-window-key-value: Evaluation window
+        no-metrics-policy:
+          alarm: Alarm
+          manual: Manual
+          no-data-key-value: No data
+          ok: Ok
+          warn: Warn
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -6589,7 +6594,7 @@ default:
         label_public-ip-auto: Automatically
         label_public-ip-no: No address
         label_subnetworks: Private subnets
-        title_routing-settings: Routing settings
+        title_routing-settings: IP addressing and routing
         title_section-disk: Disk
         title_section-lease-conditions: Lease conditions
         title_section-server-config: Configuration
@@ -6709,8 +6714,6 @@ default:
         action_request: Let's Encrypt certificate
         button_empty-action: Add certificate
         domain:
-          action_bind-certificate: Bind certificate
-          action_edit: Edit
           form:
             button_bind: Link
             field_certificate: Certificate
@@ -6723,7 +6726,6 @@ default:
           field_chain: Intermediate certificate chain
           field_privateKey: Private key
         label_certificates: Certificates
-        label_domains: Domains
         metadata:
           field_name: Name
         overview:
@@ -8034,7 +8036,6 @@ default:
         label_agents-count: Agent count
         label_agents-list: Agents
         label_choose-from-bucket: Select from bucket
-        label_import-tests-from-lunapark: Import tests from Lunapark
         label_monitoring-report: Monitoring
         label_quantile: Quantile
         label_regressions-title: Regressions

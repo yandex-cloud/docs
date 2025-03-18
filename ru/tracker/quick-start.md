@@ -60,7 +60,7 @@
 
    1. Если нужно, загрузите файлы, кликнув на кнопку **{{ ui-key.startrek.ui_Common_smart-components_attachments-manager.attach }}**. 
 
-   1. Также вы можете добавить чекпоинты в **Чеклист**, кликнув на кнопку **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}** и заполнив открывшуюся форму.
+   1. Также вы можете добавить чекпоинты в **Чеклист**, кликнув на кнопку **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Checklist.new-item-button-caption }}** и заполнив открывшуюся форму.
 
    1. На панели справа внесите необходимые данные по задаче, например:
       * в поле **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** укажите себя как исполнителя, нажав кнопку **Назначить меня**;

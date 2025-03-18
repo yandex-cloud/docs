@@ -6,6 +6,14 @@ editable: false
 
 
 
+{% note warning %}
+
+Цены начнут действовать с 1 апреля 2025 года.
+
+Yandex BareMetal находится на стадии [Preview](../overview/concepts/launch-stages).
+
+{% endnote %}
+
 В сервисе {{ baremetal-name }} оплачивается срок аренды сервера определенной конфигурации.
 
 ## Цены для региона Россия {#prices}
