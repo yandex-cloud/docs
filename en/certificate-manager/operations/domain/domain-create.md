@@ -15,7 +15,7 @@ To add a [domain](../../concepts/domains/index.md) to be used in {{ yandex-cloud
 
    1. In the [management console]({{ link-console-main }}), select the folder to add a domain to.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.certificate-manager.label_domains }}**.
+   1. In the left-hand panel, select ![image](../../../_assets/console-icons/globe.svg) **Domains**.
    1. Click **{{ ui-key.yacloud.common.create }}**.
    1. In the window that opens, enter the domain name in the **{{ ui-key.yacloud.certificate-manager.domain.form.field_domain }}** field.
    1. (Optional) In the **{{ ui-key.yacloud.common.description }}** field, enter a description for the domain.

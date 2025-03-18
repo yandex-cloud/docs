@@ -138,6 +138,7 @@ default:
   cos-full-name: Yandex Container Solution
   cos-name: Container Solution
   cr-full-name: Yandex Cloud Router
+  cr-name: Cloud Router
   crt-alias: YandexCA
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
   crt-local-file: YandexInternalRootCA.crt
@@ -5351,12 +5352,10 @@ default:
         button-submit-text: Применить
       ui_Common_smart-components_BulkSuggestPopup:
         apply: Применить
-      ui_Common_smart-components_entity-page_checklist_ChecklistActionsMenu:
-        remove-title: Удалить чеклист
-      ui_Common_smart-components_entity-page_checklist_Footer:
-        new-item-button-caption: Добавить пункт
-      ui_Common_smart-components_entity-page_checklist_Header:
+      ui_Common_smart-components_entity-page_checklist_Checklist:
         header-title: Чеклист
+        new-item-button-caption: Добавить пункт
+        remove-title: Удалить чеклист
       ui_Common_smart-components_entity-page_macros_FavoriteButton:
         button-tooltip-add: Добавить в избранное
       ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect:
@@ -5866,6 +5865,12 @@ default:
       alert-template:
         field:
           evaluation-window-key-value: Окно вычисления
+        no-metrics-policy:
+          alarm: Alarm
+          manual: Manual
+          no-data-key-value: No data
+          ok: Ok
+          warn: Warn
         threshold-status:
           alarm: Alarm
           warn: Warning
@@ -6594,7 +6599,7 @@ default:
         label_public-ip-auto: Автоматически
         label_public-ip-no: Без адреса
         label_subnetworks: Приватные подсети
-        title_routing-settings: Настройки для маршрутизации
+        title_routing-settings: IP-адресация и маршрутизация
         title_section-disk: Диск
         title_section-lease-conditions: Условия аренды
         title_section-server-config: Конфигурация
@@ -6714,8 +6719,6 @@ default:
         action_request: Сертификат от Let's Encrypt
         button_empty-action: Добавить сертификат
         domain:
-          action_bind-certificate: Привязать сертификат
-          action_edit: Редактировать
           form:
             button_bind: Привязать
             field_certificate: Сертификат
@@ -6728,7 +6731,6 @@ default:
           field_chain: Цепочка промежуточных сертификатов
           field_privateKey: Приватный ключ
         label_certificates: Сертификаты
-        label_domains: Домены
         metadata:
           field_name: Имя
         overview:
@@ -8041,7 +8043,6 @@ default:
         label_agents-count: Количество агентов
         label_agents-list: Агенты
         label_choose-from-bucket: Выбрать из бакета
-        label_import-tests-from-lunapark: Импортировать тесты из Lunapark
         label_monitoring-report: Мониторинг
         label_quantile: Квантиль
         label_regressions-title: Регрессии
@@ -9069,7 +9070,7 @@ default:
         button_restart: Перезапустить
         button_start: Запустить
         button_stop: Остановить
-        field_max-desktops-amount: Максимальный размер рабочей группы
+        field_max-desktops-amount: Максимальный размер группы рабочих столов
         field_min-ready-desktops: Горячий резерв
         label_desktop: Рабочий стол
         label_desktop-images: Образы

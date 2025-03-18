@@ -7,7 +7,74 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.144.0 (27.02.25) {#version0.144.0}
+## Версия 0.145.0 (18.03.25) {#version0.145.0}
+
+### Изменения в сервисах {{ yandex-cloud }} {#version0.145.0-services}
+
+#### {{ mrd-name }} {#version0.145.0-mrd}
+
+* В команды: `yc managed-redis cluster create`, `yc managed-redis cluster restore`,`yc managed-redis cluster update-config` добавлены параметры:
+  * `activedefrag`;
+  * `aof-max-size-percent`.
+
+* Параметр `--persistence-mode` теперь может принимать значение `ON_REPLICAS` в командах:
+  * `yc managed-redis cluster create`;
+  * `yc managed-redis cluster restore`;
+  * `yc managed-redis cluster update`.
+
+#### {{ mos-name }} {#version0.145.0-mos}
+
+* Добавлена поддержка типа дисков `local-ssd`.
+* Добавлена возможность автоматического назначения подсетей при создании кластера или добавлении группы хостов.
+
+#### {{ quota-manager-name }} {#version0.145.0-quota-manager}
+
+* Добавлена группа команд `yc quota-manager quota-limit` для просмотра лимитов квот:
+  * `yc quota-manager quota-limit get` — вывести значение определенной квоты;
+  * `yc quota-manager quota-limit list` — вывести список квот для определенного сервиса;
+  * `yc quota-manager quota-limit list-service` — вывести список сервисов, для которых есть квоты.
+
+#### {{ interconnect-name }} {#version0.145.0-cic}
+
+* Добавлены команды для управления TrunkConnection:
+  * `yc cic trunk-connection create`;
+  * `yc cic trunk-connection update`;
+  * `yc cic trunk-connection delete`;
+  * `yc cic trunk-connection add-labels`;
+  * `yc cic trunk-connection remove-labels`;
+  * `yc cic trunk-connection list-operations`.
+
+* Добавлены команды для управления PrivateConnection:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`;
+  * `yc cic private-connection delete`;
+  * `yc cic private-connection add-labels`;
+  * `yc cic private-connection remove-labels`;
+  * `yc cic private-connection upsert-static-route`;
+  * `yc cic private-connection remove-static-route`;
+  * `yc cic private-connection list-operations`.
+
+#### {{ cr-name }} {#version0.145.0-cloudrouter}
+
+* Добавлены команды для управления RoutingInstance:
+  * `yc cloudrouter routing-instance create`;
+  * `yc cloudrouter routing-instance update`;
+  * `yc cloudrouter routing-instance delete`;
+  * `yc cloudrouter routing-instance add-labels`;
+  * `yc cloudrouter routing-instance remove-labels`;
+  * `yc cloudrouter routing-instance upsert-prefixes`;
+  * `yc cloudrouter routing-instance remove-prefixes`;
+  * `yc cloudrouter routing-instance add-private-connection`;
+  * `yc cloudrouter routing-instance remove-private-connection`;
+  * `yc cloudrouter routing-instance list-operations`.
+
+#### {{ network-load-balancer-name }} {#version0.145.0-nlb}
+
+* Для команды `yc network-load-balancer update` исправлена ошибка в обработчике флага `--allow-zonal-shift`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 0.144.0 (27.02.25) {#version0.144.0}
 
 ### Изменения в сервисах {{ yandex-cloud }} {#services}
 
@@ -61,8 +128,6 @@ description: На странице представлены релизы YC CLI,
 #### {{ network-load-balancer-name }}
 
 * Для команд `yc network-load-balancer create/update` добавлен параметр `--allow-zonal-shift`, который позволяет балансировщику работать в режиме отказа одной зоны доступности (AZ).
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.143.0 (11.02.25) {#version0.143.0}
 

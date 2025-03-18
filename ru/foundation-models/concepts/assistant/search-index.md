@@ -223,4 +223,4 @@
 #### Примеры использования {#eamples}
 
 * [{#T}](../../operations/assistant/create-with-searchindex.md)
-* Примеры работы с ML SDK на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
+* Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

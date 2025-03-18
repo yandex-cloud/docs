@@ -1,6 +1,8 @@
 title: Yandex BareMetal
 description:
-  - <i>Yandex BareMetal находится на стадии Preview.</i>
+  - >-
+    <i>Yandex BareMetal находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a>.</i>
   - Yandex BareMetal позволяет полностью арендовать физический сервер.
 meta:
   title: Yandex BareMetal

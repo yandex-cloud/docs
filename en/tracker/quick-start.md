@@ -60,7 +60,7 @@ Use the full form to set up all the issue attributes you need right from the sta
 
    1. If you need to upload files, click **{{ ui-key.startrek.ui_Common_smart-components_attachments-manager.attach }}**.
 
-   1. You can also add checkpoints to the **Checklist**. For this, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Footer.new-item-button-caption }}** and fill out the form that opens.
+   1. You can also add checkpoints to the **Checklist**. For this, click **{{ ui-key.startrek.ui_Common_smart-components_entity-page_checklist_Checklist.new-item-button-caption }}** and fill out the form that opens.
 
    1. On the left-hand panel, enter the relevant issue details, for example:
       * In the **{{ ui-key.startrek-backend.fields.issue.assignee-key-value }}** field, assign the issue to yourself by clicking **Assign to me**.
