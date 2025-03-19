@@ -20,7 +20,7 @@ Syntax:
 	- [yc backup agent install](agent/install.md) — Installs backup agent on instance. Attention! This command could be executed only on instances with oslogin support. Supported os families are: ubuntu, centos, debian, redos. This command will execute ssh connection on given instance, install needed packages, download agent installer script and launch downloaded agent installer script.
 	- [yc backup agent reinstall](agent/reinstall.md) — Reinstalls backup agent on instance. Attention! This command could be executed only on instances with oslogin support. Supported os families are: ubuntu, centos, debian, redos. This command will execute ssh connection on given instance, install needed packages, download agent reinstaller script and launch downloaded agent reinstaller script.
 - [yc backup backup](backup/index.md) — Manage backups
-	- [yc backup backup batch-delete](backup/batch-delete.md) — Batch delete of all backups from arhcive
+	- [yc backup backup batch-delete](backup/batch-delete.md) — Batch deletion of all backups from arhcive
 	- [yc backup backup delete](backup/delete.md) — Delete backup
 	- [yc backup backup get](backup/get.md) — Get full information about backup
 	- [yc backup backup list](backup/list.md) — Lists available backups

@@ -25,7 +25,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Redis cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
-|`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON or OFF).|
+|`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON, OFF or ON_REPLICAS).|
 |`--force`|Override persistence turning OFF.|
 |`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
 |`--auth-sentinel`|Allows to use ACL users to auth in sentinel|

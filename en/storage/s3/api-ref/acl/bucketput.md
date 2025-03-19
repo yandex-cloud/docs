@@ -4,7 +4,7 @@ Uploads an access control list for a bucket.
 
 {% note info %}
 
-An ACL can be uploaded as an XML document or using special `X-Amz-Grant*` headers. Do not use an XML document and `X-Amz-Grant*` headers in the same request.
+You can upload an ACL as an XML document or using special `X-Amz-Grant*` headers. Do not use an XML document and `X-Amz-Grant*` headers in the same request.
 
 {% endnote %}
 
@@ -22,7 +22,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -38,13 +38,13 @@ You can also use the headers listed below.
 
 ### Data schema {#data-schema}
 
-ACLs are passed as XML documents. For the schema description, see [ACL XML schema](xml-config.md).
+ACLs are provided as XML documents. For the schema description, see [ACL XML schema](xml-config.md).
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 

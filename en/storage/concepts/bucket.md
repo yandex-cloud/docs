@@ -1,8 +1,10 @@
 ---
 title: Bucket
-description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Names of {{ yandex-cloud }} buckets are unique, i.e., you cannot create two buckets with the same name – even in different folders of different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
+description: A bucket is an {{ objstorage-name }} storage unit allocated for user data. A bucket name is used as part of a URL to access data. Names of {{ yandex-cloud }} buckets are unique, i.e., you cannot create two buckets with the same name, even in different folders of different clouds. Keep this in mind if you are going to create buckets automatically through the API.
 keywords:
   - what is a bucket
+  - storage bucket
+  - buckets
   - bucket
   - data storage bucket
   - cloud bucket
@@ -12,7 +14,7 @@ keywords:
 
 A _bucket_ is an {{ objstorage-name }} storage unit allocated for user data. Each {{ yandex-cloud }} bucket has a [unique name](#naming) used in requests to {{ objstorage-name }}.
 
-Buckets store data as [objects](./object.md). To organize data, you can create multiple buckets or use [folders](./object.md#folder) and prefixes within a single bucket.
+Buckets store data as [objects](./object.md). To organize data, you can create multiple buckets or use [folders](./object.md#folder) (prefixes) within a single bucket.
 
 You can also use buckets to [host static websites](./hosting.md).
 
@@ -26,12 +28,12 @@ A bucket name is used as part of the data access URL and is visible to your user
 
 The naming requirements are as follows:
 
-- Bucket names are unique throughout {{ objstorage-name }}, i.e., you cannot create two buckets with the same name – even in different folders of different clouds. You should keep this in mind if you are going to create buckets automatically through the API.
+- Bucket names are unique throughout {{ objstorage-name }}, i.e., you cannot create two buckets with the same name, even in different folders of different clouds. Keep this in mind if you are going to create buckets automatically through the API.
 - Bucket names are subject to the following restrictions:
 
    {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}
 
-When choosing a name for your bucket, keep in mind that names containing dots are used for [hosting static websites](hosting.md). You may encounter a name conflict that will prevent you or another user from hosting a website in Object Storage.
+When choosing a name for your bucket, keep in mind that names containing dots are used for [static website hosting](hosting.md). You may encounter a name conflict that will prevent you or another user from hosting a website in Object Storage.
 
 ## Bucket URL {#bucket-url}
 
@@ -97,21 +99,21 @@ For more information on configuring access, see [{#T}](../operations/buckets/acc
 
 {{ objstorage-name }} automatically delivers bucket performance metrics to [{{ monitoring-full-name }}](../../monitoring/).
 
-Performance statistics are available from the [bucket page](../operations/buckets/get-stats.md#storage-ui) or the [{{ monitoring-name }} interface](../operations/buckets/get-stats.md#monitoring).
+Performance statistics are available on the [bucket page](../operations/buckets/get-stats.md#storage-ui) or in the [{{ monitoring-name }} interface](../operations/buckets/get-stats.md#monitoring).
 
-For a list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics.md).
+For the list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics.md).
 
 You can also access aggregate bucket statistics [through the {{ yandex-cloud }} CLI](../operations/buckets/get-info.md#get-statistics).
 
 
 ## Recommendations and limitations {#details-of-usage}
 
-- Updating bucket statistics may take up to 20 minutes. Therefore, sometimes the specified maximum bucket capacity may be exceeded (e.g., during fast sequential upload of multiple objects).
+- Updating bucket statistics may take up to 20 minutes. Therefore, sometimes the specified maximum bucket size may be exceeded (e.g., during fast sequential upload of multiple objects).
 - In the management console, the information about the number of objects in the bucket and used up space is updated with a delay.
 - You cannot rename buckets.
 - The number of buckets does not affect the performance of {{ objstorage-name }}. How many buckets you use to store your data is up to you.
 - Buckets cannot be nested.
-- You can delete only an empty bucket.
+- You can only delete an empty bucket.
 - After you delete objects from a bucket, the vacated space is not considered free for a while longer.
 - After deleting a bucket, you may not be able to create a new one with the same name right away. There is also a risk that another {{ yandex-cloud }} user may create a bucket with this name before you claim it again. Do not delete buckets without a good reason.
 

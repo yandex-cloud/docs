@@ -1,10 +1,10 @@
 # putObjectLegalHold method
 
-Puts or removes [legal hold](../../../concepts/object-lock.md) for an object version.
+Puts or removes [legal hold](../../../concepts/object-lock.md) for an object version.
 
-To be able to put locks on object versions, enable object lock in the bucket. For this, use the [putObjectLockConfiguration](../bucket/putobjectlockconfiguration.md) method.
+To be able to put locks on object versions, enable object lock in the bucket using the [putObjectLockConfiguration](../bucket/putobjectlockconfiguration.md) method.
 
-Users with the [`storage.uploader` role](../../../security/index.md) can place or release a legal hold. To check a legal hold, use the [getObjectLegalHold](getobjectlegalhold.md) method.
+Users with the [`storage.uploader` role](../../../security/index.md) can place or release a lock. To check a legal hold, use the [getObjectLegalHold](getobjectlegalhold.md) method.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
@@ -21,7 +21,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key.
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -48,7 +48,7 @@ Element | Description
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 

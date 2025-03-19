@@ -19,7 +19,7 @@ noIndex: true
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
-Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `mdb.admin`, `managed-trino.admin` или одна из следующих ролей:
+Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `managed-trino.admin` или одна из следующих ролей:
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
@@ -50,18 +50,6 @@ noIndex: true
 #### managed-trino.admin {#managed-trino-admin}
 
 {% include [trino.admin](../_roles/managed-trino/admin.md) %}
-
-#### mdb.auditor {#mdb-auditor}
-
-{% include [mdb-auditor](../_roles/mdb/auditor.md) %}
-
-#### mdb.viewer {#mdb-viewer}
-
-{% include [mdb-viewer](../_roles/mdb/viewer.md) %}
-
-#### mdb.admin {#mdb-admin}
-
-{% include [mdb-admin](../_roles/mdb/admin.md) %}
 
 #### managed-trino.integrationProvider {#managed-trino-integrationProvider}
 

@@ -6,6 +6,7 @@ description: Из статьи вы узнаете как работать с и
 # Все инструкции CLI
 
 - [{#T}](install-cli.md) 
+- [{#T}](update-cli.md)
 
 ## Аутентификация {#auth}
 

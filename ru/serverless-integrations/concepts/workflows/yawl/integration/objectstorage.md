@@ -3,6 +3,7 @@ title: Интеграционный шаг ObjectStorage
 description: В статье описаны поля для интеграционного шага ObjectStorage.
 ---
 
+
 # ObjectStorage
 
 Взаимодействие с объектами {{ objstorage-full-name }}. Поля `put` и `get` — взаимоисключающие, можно выполнить только одно действие над объектом.
@@ -12,10 +13,18 @@ description: В статье описаны поля для интеграцио
 `bucket` | `string` | Да | Нет | Нет | Имя бакета.
 `object` | `string` | Да | Нет | Да | Имя объекта.
 `put` | [ObjectStoragePut](#ObjectStoragePut) | Нет | Нет | Нет | Конфигурация действия `put` — добавление объекта в бакет.
-`get` | `{}` | Нет | Нет | Нет | Конфигурация действия `get` — получение объекта из бакета.
+`get` | [ObjectStorageGet](#ObjectStorageGet) | Нет | Нет | Нет | Конфигурация действия `get` — получение объекта из бакета.
+
 
 ## Объект ObjectStoragePut {#ObjectStoragePut}
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
 `content` | `string` | Да | Нет | Да | Содержимое объекта.
+
+
+## Объект ObjectStorageGet {#ObjectStorageGet}
+
+Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
+--- | --- | --- | --- | --- | ---
+`contentType` | `BINARY`\|<br/>`JSON`\|<br/>`TEXT` | Нет | `BINARY` | Нет | Определяет, как будет интерпретировано содержимое объекта: `BINARY` — набор байт в виде [base64](https://{{ lang }}.wikipedia.org/wiki/Base64)-encoded-строки;<br/>`JSON` — текст, содержащий [JSON](https://ru.wikipedia.org/wiki/JSON), будет преобразован в JSON-структуру;<br/>`TEXT` — текст.

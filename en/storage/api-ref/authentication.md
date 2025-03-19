@@ -12,17 +12,17 @@ You can use the following types of APIs to work with {{ objstorage-name }}:
 
 ## AWS S3 API {#aws-s3-api}
 
-To authenticate in the [AWS S3 API](../s3/api-ref/) and work with {{ TF }} and other [supported tools](../tools/), use a [static access key](../../iam/concepts/authorization/access-key.md). A static access key is issued for a specific [service account](../../iam/concepts/users/service-accounts.md), and all actions involving this key are performed on behalf of this service account. For more information, see [How do I use the S3 API?](../../storage/s3/).
+To authenticate with the [AWS S3 API](../s3/api-ref/) and work with {{ TF }} and other [supported tools](../tools/), use a [static access key](../../iam/concepts/authorization/access-key.md). A static access key is issued for a specific [service account](../../iam/concepts/users/service-accounts.md), and all actions involving this key are performed on behalf of this service account. For more information, see [How do I use the S3 API?](../../storage/s3/).
 
 
 {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
-For a full list of S3 API methods, see [S3 API reference](../s3/api-ref/).
+For the full list of S3 API methods, see the [S3 API reference](../s3/api-ref/).
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-If you want to use the AWS S3 API directly (without an SDK or apps), you will need to [sign requests](../s3/signing-requests.md) yourself. You can test the request and signature generation process using the AWS CLI in [debug mode](../s3/signing-requests.md#debugging).
+If you want to use the AWS S3 API directly (without an SDK or apps), you will need to [sign requests](../s3/signing-requests.md) yourself. You can test the request and signature generation using the AWS CLI in [debug mode](../s3/signing-requests.md#debugging).
 
 ### AWS S3 API use case {#s3-api-example}
 
@@ -32,7 +32,7 @@ You can also generate these headers and sign requests manually. For more informa
 
 {% note info %}
 
-Make sure that the service account you are using to make the request has the permissions to perform the requested action. For example, to upload an object into a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.uploader` [role](../security/index.md#storage-uploader) for the bucket to the service account. For more information, see [{#T}](../security/overview.md).
+Make sure the service account you are using to make the request has the permissions to perform the requested action. For example, to upload an object to a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.uploader` [role](../security/index.md#storage-uploader) for the bucket to the service account. For more information, see [{#T}](../security/overview.md).
 
 {% endnote %}
 
@@ -65,7 +65,7 @@ Below are examples of requests for uploading an object to a bucket.
   * `BUCKET_NAME`: [Name of the bucket](../concepts/bucket.md#naming) to upload the file to.
   * `OBJECT_PATH`: [Key](../concepts/object.md#key) to assign to the object in the bucket, e.g., `new-prefix/sample-object.txt`.
 
-  In the same way, you can upload the file to the bucket without saving it locally. For example, archive the directory and send the archive to the bucket:
+  In the same way, you can upload a file to the bucket without saving it locally. For example, archive the directory and send the archive to the bucket:
 
   ```bash
   AWS_KEY_ID="<static_key_ID>"
@@ -122,7 +122,7 @@ Below are examples of requests for uploading an object to a bucket.
 ## {{ yandex-cloud }} gRPC and REST APIs {#yandex-api}
 
 
-For authentication in the {{ yandex-cloud }} gRPC and REST APIs, get an IAM token. Learn more about how to get an IAM token for different types of accounts:
+For authentication in the {{ yandex-cloud }} gRPC and REST APIs, get an [IAM token](../../iam/concepts/authorization/iam-token.md). Learn more about getting an IAM token for different account types:
 
 * [Yandex account](../../iam/operations/iam-token/create.md)
 * [Federated account](../../iam/operations/iam-token/create-for-federation.md)
@@ -131,12 +131,12 @@ For authentication in the {{ yandex-cloud }} gRPC and REST APIs, get an IAM toke
 {% include [iam-token-usage](../../_includes/iam-token-usage.md) %}
 
 
-For a full list of {{ yandex-cloud }} API calls and methods, see [gRPC API](../api-ref/grpc/) and [REST API](../api-ref/) references.
+For the full list of {{ yandex-cloud }} API calls and methods, see the [gRPC API](../api-ref/grpc/) and [REST API](../api-ref/) references.
 
 
 ### {{ yandex-cloud }} API use case {#example}
 
-In the example, a 50GB bucket is created with a standard storage class.
+In this example, we will create a 50 GB bucket with a standard storage class.
 
 {% list tabs %}
 

@@ -1,6 +1,6 @@
 ---
 title: AWS SDK for Go
-description: In this tutorial, you will learn what the AWS SDK for Go is, how to install and configure it, and will also see some code snippets.
+description: In this article, you will learn what the AWS SDK for Go is, how to install and configure it, and will also see some code examples.
 ---
 
 # AWS SDK for Go
@@ -18,7 +18,7 @@ The [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go/) is a software deve
 
 {% include [install-go-sdk](../../_includes/aws-tools/install-go-sdk.md)%}
 
-## Setup {#setup}
+## Configuration {#setup}
 
 ### Configuring a directory for authentication data
 
@@ -28,7 +28,7 @@ The [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go/) is a software deve
 
 ## Code snippets {#go-code-examples}
 
-[AWS SDK v.1](https://github.com/aws/aws-sdk-go) for Go stopped receiving updates in July 2024. We recommend upgrading to [AWS SDK v.2](https://github.com/aws/aws-sdk-go-v2).
+[AWS SDK v.1](https://github.com/aws/aws-sdk-go) for Go entered maintenance mode in July 2024. We recommend migrating to [AWS SDK v.2](https://github.com/aws/aws-sdk-go-v2).
 
 #### Getting a list of bucket names {#list-buckets}
 
@@ -50,13 +50,13 @@ The [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go/) is a software deve
 
   func main() {
 
-      // Loading configuration from ~/.aws/*
+      // Loading the configuration from ~/.aws/*
       cfg, err := config.LoadDefaultConfig(context.TODO())
       if err != nil {
           log.Fatal(err)
       }
 
-      // Creating a client to access S3 storage
+      // Creating a client to access the S3 storage
       client := s3.NewFromConfig(cfg)
 
       // Requesting a list of buckets
@@ -100,13 +100,13 @@ The [AWS SDK for Go](https://docs.aws.amazon.com/sdk-for-go/) is a software deve
           return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
       })
 
-      // Loading configuration from ~/.aws/*
+      // Loading the configuration from ~/.aws/*
       cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
       if err != nil {
           log.Fatal(err)
       }
 
-      // Creating a client to access S3 storage
+      // Creating a client to access the S3 storage
       client := s3.NewFromConfig(cfg)
 
       // Requesting a list of buckets
@@ -146,7 +146,7 @@ To get a list of objects in a bucket, provide its name in the `-b` command line 
   )
 
   func main() {
-      // Getting the name of the bucket from the command line argument
+      // Getting the bucket name from the command line argument
       bucketName := flag.String("b", "", "The name of the bucket")
       flag.Parse()
 
@@ -155,13 +155,13 @@ To get a list of objects in a bucket, provide its name in the `-b` command line 
           return
       }
 
-      // Loading configuration from ~/.aws/*
+      // Loading the configuration from ~/.aws/*
       cfg, err := config.LoadDefaultConfig(context.TODO())
       if err != nil {
           log.Fatal(err)
       }
 
-      // Creating a client to access S3 storage
+      // Creating a client to access the S3 storage
       client := s3.NewFromConfig(cfg)
 
       // Requesting a list of all bucket files
@@ -195,7 +195,7 @@ To get a list of objects in a bucket, provide its name in the `-b` command line 
   )
 
   func main() {
-      // Getting the name of the bucket from the command line argument
+      // Getting the bucket name from the command line argument
       bucketName := flag.String("b", "", "The name of the bucket")
       flag.Parse()
 
@@ -216,13 +216,13 @@ To get a list of objects in a bucket, provide its name in the `-b` command line 
           return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
       })
 
-      // Loading configuration from ~/.aws/*
+      // Loading the configuration from ~/.aws/*
       cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
       if err != nil {
           log.Fatal(err)
       }
 
-      // Creating a client to access S3 storage
+      // Creating a client to access the S3 storage
       client := s3.NewFromConfig(cfg)
 
       // Requesting a list of all bucket files

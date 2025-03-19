@@ -1,7 +1,7 @@
-# Object backup
+# Object backups
 
-{{ objstorage-name }} ensures reliable storage of your uploaded objects in a replicated store; however, it does not provide dedicated backup tools.
+{{ objstorage-name }} allows you to securely store your uploaded objects in a replicated storage; however, it does not provide any dedicated backup tools.
 
-If you want to backup your objects, you can regularly download them from {{ objstorage-name }} and store them in your own infrastructure or in another cloud storage.
+To back up your objects, you can regularly download them from {{ objstorage-name }} and store them in your own infrastructure or in another cloud storage.
 
-To automate the backup process, use the [supported tools](../tools/index.md).
+To automate backups, use the [supported tools](../tools/index.md).

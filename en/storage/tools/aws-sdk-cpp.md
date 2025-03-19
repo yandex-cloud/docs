@@ -1,6 +1,6 @@
 ---
 title: AWS SDK for C++
-description: In this tutorial, you will learn what the AWS SDK for C++ is, how to install and configure it, and will also see some code snippets.
+description: In this article, you will learn what the AWS SDK for C++ is, how to install and configure it, and will also see some code examples.
 author: alehay
 ---
 
@@ -19,15 +19,15 @@ The [AWS SDK for C++](https://aws.amazon.com/ru/sdk-for-cpp/) is a software deve
 
 {% include [install-cpp-sdk](../../_includes/aws-tools/install-cpp-sdk.md)%}
 
-## Setup {#setup}
+## Configuration {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
-## Code snippets {#cpp-sdk-examples}
+## Code examples {#cpp-sdk-examples}
 
-[See C++ code snippets](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) from the developer to interface with S3.
+[See C++ code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/s3) from the developer to interface with S3.
 
-Below is an example from a simple program that illustrates the differences in {{ objstorage-full-name }} settings.
+Below is an example of a simple program that illustrates the differences in settings for {{ objstorage-full-name }}.
 
 ### CmakeLists
 
@@ -66,7 +66,7 @@ ${AWSSDK_PLATFORM_DEPS})
 #include <iostream>
 
 
-// Finds the bucket and brings its contents to the console
+// Finds the bucket and outputs its contents in the console
 bool FindTheBucket(const Aws::S3::S3Client& s3Client, const Aws::String& bucketName)
 {
     Aws::S3::Model::ListBucketsOutcome outcome = s3Client.ListBuckets();
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
     Aws::InitAPI(options);
     {
 
-        // Settings section for the AWS SDK with Object Storage
+        // Settings section for using the AWS SDK with Object Storage
         Aws::Client::ClientConfiguration config;
         config.region = Aws::String("{{ region-id }}");
         config.endpointOverride = Aws::String("{{ s3-storage-host }}");

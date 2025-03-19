@@ -88,6 +88,8 @@ items:
                 href: tutorials/forms-and-datalens-integration/console.md
               - name: Terraform
                 href: tutorials/forms-and-datalens-integration/terraform.md
+          - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+            href: tutorials/bigquery-to-clickhouse.md
       - name: Функциональные
         items:
           - name: Использование параметров

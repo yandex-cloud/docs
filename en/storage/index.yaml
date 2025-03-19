@@ -2,8 +2,9 @@ title: Yandex Object Storage
 description:
   - >-
     Yandex Object Storage is a universal, scalable data storage solution. It is
-    equally suited for high-load services requiring reliable and fast access to
-    data and for projects with moderate storage infrastructure requirements.
+    equally effective for high-load services requiring reliable and fast access
+    to data as well as for projects that do not need any complex storage
+    infrastructure.
   - >-
     With Object Storage, you can: <ul><li>Store data of any format as <a
     href="/docs/storage/concepts/object">objects</a> with access by text
@@ -21,9 +22,9 @@ description:
   - >-
     The Yandex Cloud infrastructure is <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
+    pursuant to the Russian Federal Law 152-FZ on personal data.
   - >-
-    The service is subject to a <a
+    This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
     service level is set out in the document titled <a
     href="https://yandex.com/legal/cloud_sla_storage">Service level for Yandex
@@ -41,7 +42,7 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn more about Container Registry's concepts and resources
+    description: Learn more about the service's concepts and resources
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations

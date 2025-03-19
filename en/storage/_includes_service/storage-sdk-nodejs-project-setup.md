@@ -6,15 +6,15 @@
     cd app
     ```
 
-1. Initialize a project named Node.js and use the command below to install the `aws-sdk/client-s3` library:
+1. Initialize the Node.js project and use the command below to install the `aws-sdk/client-s3` library:
 
     ```bash
     npm init -y && npm i @aws-sdk/client-s3
     ```
 
-1. Add the `"type": "module"` row into the package.json file to use the [ESM (ECMAScript Modules)](https://nodejs.org/api/esm.html) syntax in the project. A file named `package.json` with the project's basic Node.js settings will be created in the directory. 
+1. Add the `"type": "module"` string to the package.json file to use the [ESM (ECMAScript Modules)](https://nodejs.org/api/esm.html) syntax in the project. The `package.json` file with the project's basic Node.js settings will be created in the directory. 
 
-    The resulting `package.json` file will appear as follows:
+    The final `package.json` file will appear as follows:
 
     ```json
     {
@@ -35,4 +35,4 @@
     }
     ```
 
-1. Create a file named `index.js` for the code using the AWS SDK.
+1. Create a file named `index.js` to store the code using the AWS SDK.

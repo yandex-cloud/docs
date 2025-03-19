@@ -37,7 +37,7 @@ Parameter | Description
 `X-Amz-Algorithm` | Identifies the signature version and algorithm for its calculation. Value: `AWS4-HMAC-SHA256`.
 `X-Amz-Credential` | Signature ID.<br/><br/>This is a string in `<access-key-id>/<YYYYMMDD>/{{ region-id }}/s3/aws4_request` format, where `<YYYYMMDD>` must match the date set in the `X-Amz-Date` header.
 `X-Amz-Date` | Time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, e.g., `20180719T000000Z`. The specified date value (not the format) must match the date in the `X-Amz-Credential` parameter.
-`X-Amz-Expires` | Link validity time in seconds. The starting point is the time specified in `X-Amz-Date`. The maximum value is 2592000 seconds (30 days).
+`X-Amz-Expires` | Link validity time in seconds. The starting point is the time specified in `X-Amz-Date`. The maximum value is 2,592,000 seconds (30 days).
 `X-Amz-SignedHeaders` | Headers of the request you want to sign, delimited with a semicolon (`;`).<br/><br/>Make sure to sign the `Host` header and all `X-Amz-*` headers used in the request. You do not have to sign other headers; however, the more headers you sign, the safer your request is going to be.
 `X-Amz-Signature` | Request signature.
 
@@ -78,17 +78,17 @@ HTTP method to use to send the request: `GET`, `PUT`, `HEAD`, or `DELETE`.
 
 #### CanonicalURL {#canonical-url}
 
-URL-encoded object key. Example: `/folder/object.ext`.
+URL-encoded object key, e.g., `/folder/object.ext`.
 
 {% note info %}
 
-Do not normalize the path. For example, an object may have `some//strange//key//example` for a key, so normalizing the path to `/<bucket-name>/some/strange/key/example` will invalidate the key.
+Do not normalize the path. For example, if an object has the `some//strange//key//example` key, normalizing the path to `/<bucket-name>/some/strange/key/example` will invalidate the key.
 
 {% endnote %}
 
 #### CanonicalQueryString {#canonical-query-string}
 
-The canonical query string must include all query parameters of the destination URL, except `X-Amz-Signature`. The parameters in the string must be URL-encoded and sorted alphabetically.
+The canonical query string must include all query parameters of the final URL, except `X-Amz-Signature`. The parameters in the string must be URL-encoded and sorted alphabetically.
 
 Example:
 
@@ -98,13 +98,13 @@ X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2
 
 #### CanonicalHeaders {#canonical-headers}
 
-This section includes the list of the request headers and their values. 
+This section includes the list of the request headers with their values. 
 
-The list must follow these requirements:
+The requirements are as follows:
 
-* Each header must be separated with the line break symbol `\n`.
+* Each header is separated by the line break character (`\n`).
 * Header names must be lowercase.
-* Headers must be sorted alphabetically.
+* Headers must appear in alphabetical order.
 * There may not be any extra spaces.
 * The list must contain the `host` header and all `x-amz-*` headers used in the request.
 
@@ -144,7 +144,7 @@ Hex(Hash-SHA256(<CanonicalRequest>))
 
 Where:
 
-* `AWS4-HMAC-SHA256`: Hashing algorithm.
+* `AWS4-HMAC-SHA256`: Hash algorithm.
 * `timestamp`: Current time in ISO 8601 format, e.g., `20190801T000000Z`. The specified date value (not the format) must match the date in the `scope` parameter.
 * `scope`: `<YYYYMMDD>/{{ region-id }}/s3/aws4_request`.
 * `CanonicalRequest`: [Canonical request](#canonical-request) generated earlier. The signature string contains the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash of the canonical request in hexadecimal representation.
@@ -163,13 +163,13 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 ### Pre-signed URLs {#composing-signed-url}
 
-To compose a pre-signed URL, add the [parameters](#presigned-url-preview) required to authorize the request to the {{ objstorage-name }} resource URL, including the `X-Amz-Signature` parameter containing the calculated signature.
+To create a pre-signed URL, add the [parameters](#presigned-url-preview) required to authorize the request to the {{ objstorage-name }} resource URL, including the `X-Amz-Signature` parameter containing the calculated signature.
 
 The other parameter values must match their respective values specified earlier in the [canonical request](#canonical-request) and the [signature string](#composing-string-to-sign).
 
-#### Example of composing a pre-signed URL for downloading an object {#example-for-object-download}
+#### Example of creating a pre-signed URL for downloading an object {#example-for-object-download}
 
-Let's put together a pre-signed URL to download the `object-for-share.txt` object from the bucket:
+Let's put together a pre-signed URL to download the `object-for-share.txt` object from the bucket for an hour:
 
 - Static key:
 
@@ -225,7 +225,7 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
 
 The subsection provides code examples for generating pre-signed URLs.
 
-To show the principle of forming and signing requests to {{ objstorage-name }}, the examples do not use [AWS SDKs](../../../storage/tools/sdk/index.md). For examples of using the AWS SDK and other tools, see [Examples of getting a signed link in {{ objstorage-name }} tools](#example-for-getting-in-tools).
+To show the principle of generating and signing requests to {{ objstorage-name }}, the examples do not use [AWS SDKs](../../../storage/tools/sdk/index.md). For examples of using the AWS SDK and other tools, see [Examples of getting a pre-signed link in the {{ objstorage-name }} tools](#example-for-getting-in-tools).
 
 {% list tabs %}
 
@@ -337,7 +337,7 @@ To show the principle of forming and signing requests to {{ objstorage-name }}, 
 
 {% endlist %}
 
-## Examples of getting pre-signed links in {{ objstorage-name }} tools {#example-for-getting-in-tools}
+## Examples of getting a pre-signed link in the {{ objstorage-name }} tools {#example-for-getting-in-tools}
 
 This subsection provides examples of generating pre-signed URLs with the help of various [{{ objstorage-name }} tools](../../../storage/tools/index.md).
 
@@ -349,7 +349,7 @@ This subsection provides examples of generating pre-signed URLs with the help of
 
 - AWS CLI {#cli}
 
-    You can use the AWS CLI to generate a link for downloading an object. To do this, run the following command:
+    You can use the AWS CLI to generate a link for downloading an object. To do this, run this command:
 
     ```bash
     aws s3 presign s3://<bucket_name>/<object_key> \
@@ -357,7 +357,7 @@ This subsection provides examples of generating pre-signed URLs with the help of
       --endpoint-url "https://{{ s3-storage-host }}/"
     ```
 
-    To generate the link properly, make sure to provide the `--endpoint-url` parameter pointing to the {{ objstorage-name }} hostname. For detailed information, see [this section covering AWS CLI specifics](../../../storage/tools/aws-cli.md#specifics).
+    To generate the link properly, make sure to provide the `--endpoint-url` parameter pointing to the {{ objstorage-name }} hostname. For detailed information, see [this section covering the AWS CLI specifics](../../../storage/tools/aws-cli.md#specifics).
 
 - Python (boto3) {#boto3}
     
@@ -432,7 +432,7 @@ This subsection provides examples of generating pre-signed URLs with the help of
 
     * **Uploading an object**
 
-      This example generates a pre-signed URL for uploading the `object-for-share` file into `bucket-with-objects`. The URL is valid for 100 seconds.
+      This example generates a pre-signed URL for uploading `object-for-share` to `bucket-with-objects`. The URL is valid for 100 seconds.
 
       ```js
       import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";

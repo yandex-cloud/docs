@@ -9,7 +9,7 @@ keywords:
 
 # WinSCP
 
-[WinSCP](https://winscp.net/eng/docs/introduction) is a GUI client for Windows that allows you to work with cloud storages, including compatible with the Amazon S3 API.
+[WinSCP](https://winscp.net/eng/docs/introduction) is a GUI client for Windows that allows you to work with cloud storages, including those compatible with the Amazon S3 API.
 
 {% note info %}
 
@@ -41,7 +41,7 @@ To work with {{ objstorage-name }}, use version 5.14 or later.
    To connect to a particular bucket, click **Advanced...**. In the **Advanced Site Settings** window, select **Directories** in the left-hand menu, under **Environment**. In the **Remote directory:** field, specify the bucket name and click **OK**.
 1. Click **Login**.
 
-Once the connection is established, the right-hand panel will show the bucket you previously created.
+Once the connection is established, the right-hand panel will show the bucket you created earlier.
 
 {% note info %}
 
@@ -49,4 +49,4 @@ WinSCP treats {{ objstorage-name }} as a hierarchical file system. This means th
 
 {% endnote %}
 
-To learn more about how to use WinSCP with S3-compatible storage, see the [WinSCP documentation](https://winscp.net/eng/docs/guide_amazon_s3#buckets).
+Learn more about using WinSCP with an S3-compatible storage in the [WinSCP documentation](https://winscp.net/eng/docs/guide_amazon_s3#buckets).

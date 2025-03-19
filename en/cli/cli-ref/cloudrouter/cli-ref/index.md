@@ -16,8 +16,18 @@ Syntax:
 #### Command Tree
 
 - [yc cloudrouter routing-instance](routing-instance/index.md) — [PREVIEW] Manage routingInstances.
+	- [yc cloudrouter routing-instance add-labels](routing-instance/add-labels.md) — Assign labels to a routingInstance.
+	- [yc cloudrouter routing-instance add-private-connection](routing-instance/add-private-connection.md) — Add CIC private connection to the routingInstance.
+	- [yc cloudrouter routing-instance create](routing-instance/create.md) — Create a routingInstance.
+	- [yc cloudrouter routing-instance delete](routing-instance/delete.md) — Delete a routingInstance.
 	- [yc cloudrouter routing-instance get](routing-instance/get.md) — Get information about a routingInstance.
 	- [yc cloudrouter routing-instance list](routing-instance/list.md) — List routingInstances in a folder.
+	- [yc cloudrouter routing-instance list-operations](routing-instance/list-operations.md) — List operations for a routingInstance.
+	- [yc cloudrouter routing-instance remove-labels](routing-instance/remove-labels.md) — Remove labels from a routingInstance.
+	- [yc cloudrouter routing-instance remove-prefixes](routing-instance/remove-prefixes.md) — Remove announced VPC network prefixes from the routingInstance.
+	- [yc cloudrouter routing-instance remove-private-connection](routing-instance/remove-private-connection.md) — Remove CIC private connection from the routingInstance.
+	- [yc cloudrouter routing-instance update](routing-instance/update.md) — Modify configuration or attributes of a routingInstance.
+	- [yc cloudrouter routing-instance upsert-prefixes](routing-instance/upsert-prefixes.md) — Upsert announced VPC network prefixes to the routingInstance.
 
 #### Global Flags
 

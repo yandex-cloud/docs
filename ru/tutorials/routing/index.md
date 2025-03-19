@@ -17,6 +17,7 @@ description: Различные сценарии использования се
 * [{#T}](cic-with-ngfw.md)
 * [{#T}](gre-over-ipsec.md)
 * [{#T}](data-processing-nat-instance.md)
+* [{#T}](data-processing-dns-reconnect.md)
 * [{#T}](./storage-vpc-access.md)
 * [{#T}](./vpc-cr-access.md)
 * [Создание прямого транкового подключения и приватного соединения в нем](trunk-priv-add.md)

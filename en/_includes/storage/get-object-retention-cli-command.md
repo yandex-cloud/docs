@@ -1,4 +1,4 @@
-Make sure the object lock settings were updated:
+Make sure the object lock settings are updated:
 
 ```bash
 yc storage s3api get-object-retention \

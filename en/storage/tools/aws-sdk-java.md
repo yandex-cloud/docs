@@ -1,6 +1,6 @@
 ---
 title: AWS SDK for Java
-description: In this tutorial, you will learn what the AWS SDK for Java is, how to install and configure it, and will also see some code snippets.
+description: In this article, you will learn what the AWS SDK for Java is, how to install and configure it, and will also see some code examples.
 ---
 
 # AWS SDK for Java
@@ -8,7 +8,7 @@ description: In this tutorial, you will learn what the AWS SDK for Java is, how 
 
 The [AWS SDK for Java](https://aws.amazon.com/ru/sdk-for-java/) is an {{ objstorage-full-name }}-compatible software development kit for integration with AWS services.
 
-You will use the AWS SDK for Java to create a bucket, load it with objects, clean up its contents, and delete it.
+You will use the AWS SDK for Java to create a bucket, upload objects to it, clean up its contents, and delete it.
 
 ## Getting started {#before-you-begin}
 
@@ -20,7 +20,7 @@ You will use the AWS SDK for Java to create a bucket, load it with objects, clea
 
 {% note warning %}
 
-Starting December 31, 2025, support for the AWS SDK for Java version 1.x will be discontinued. We recommend that you upgrade to the AWS SDK for Java version 2.x to keep receiving new features and security updates.
+On December 31, 2025, the AWS SDK for Java version 1.x will reach end-of-support. We recommend that you migrate to the AWS SDK for Java version 2.x to keep receiving new features and security updates.
 
 {% endnote %}
 
@@ -36,7 +36,7 @@ Starting December 31, 2025, support for the AWS SDK for Java version 1.x will be
 
 {% endlist %}
 
-## Setup {#setup}
+## Configuration {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
@@ -77,7 +77,7 @@ Starting December 31, 2025, support for the AWS SDK for Java version 1.x will be
         .build();
     ```
 
-    to
+    with
 
     ```java
     AmazonS3 s3 = AmazonS3ClientBuilder.standard()

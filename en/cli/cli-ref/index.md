@@ -53,6 +53,7 @@ Syntax:
 - [yc marketplace](marketplace/cli-ref/index.md) — Manage Yandex Marketplace resources
 - [yc operation](operation/cli-ref/index.md) — Manage operations
 - [yc organization-manager](organization-manager/cli-ref/index.md) — Manage Yandex Organization Manager resources
+- [yc quota-manager](quota-manager/cli-ref/index.md) — Manage Yandex Quota Manager resources
 - [yc resource-manager](resource-manager/cli-ref/index.md) — Manage Yandex Resource Manager resources
 - [yc serverless](serverless/cli-ref/index.md) — Manage Serverless resources.
 - [yc smartcaptcha](smartcaptcha/cli-ref/index.md) — Manage Yandex SmartCaptcha resources

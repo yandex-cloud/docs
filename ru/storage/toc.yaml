@@ -131,6 +131,12 @@ items:
           Монтирование бакетов к файловой системе хостов {{ dataproc-full-name
           }}
         href: tutorials/data-processing-init-actions-geesefs.md
+      - name: Использование {{ objstorage-name }} в {{ dataproc-name }}
+        href: tutorials/copy-files-from-object-storage.md
+      - name: >-
+          Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
+          mch-name }}
+        href: tutorials/s3-data-processing-ch.md
       - name: Подключение бакета как диска в Windows
         href: tutorials/s3-disk-connect.md
       - name: >-
@@ -300,6 +306,8 @@ items:
         href: tutorials/search-events-query.md
       - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
         href: tutorials/search-events-bucket.md
+      - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+        href: tutorials/bigquery-to-clickhouse.md
   - name: Концепции
     items:
       - name: Обзор

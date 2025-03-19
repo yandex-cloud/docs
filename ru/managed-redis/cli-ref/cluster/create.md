@@ -29,7 +29,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Redis cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--enable-tls`|Enables tls for Redis cluster.|
-|`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON or OFF).|
+|`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON, OFF or ON_REPLICAS).|
 |`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
 |`--auth-sentinel`|Allows to use ACL users to auth in sentinel|
 |`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit in GB</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
@@ -63,6 +63,8 @@ Syntax:
 |`--use-luajit`|Use JIT for lua scripts and functions.|
 |`--io-threads-allowed`|Allow redis to use io-threads.|
 |`--zset-max-listpack-entries`|<b>`int`</b><br/>Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.|
+|`--aof-max-size-percent`|<b>`int`</b><br/>AOF maximum size as a percentage of disk available. Values: 1-99|
+|`--activedefrag`|Enable active (online) memory defragmentation.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

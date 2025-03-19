@@ -9050,8 +9050,6 @@ default:
           label_external-s3: Внешнее хранилище
           label_filesystem: Файловое хранилище
           label_password: Пароль
-          label_postgresql-connection: Тип подключения
-          label_postgresql-on-premise: On-premise
           label_s3: Yandex Object Storage
           label_uri: URI
           label_url: URL
@@ -10656,6 +10654,7 @@ default:
         create-tag-key-value: Создать тег
         exact-match-key-value: Точное совпадение
         exceptions: Исключения
+        exceptions-keywords: Слова исключения
         important-tag-key-value: Важный тег
         key-phrases-key-value: Ключевые фразы
         new-channel: Новый канал

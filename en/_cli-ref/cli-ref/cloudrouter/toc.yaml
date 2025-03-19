@@ -6,7 +6,27 @@ items:
     items:
       - name: Overview
         href: cli-ref/routing-instance/index.md
+      - name: add-labels
+        href: cli-ref/routing-instance/add-labels.md
+      - name: add-private-connection
+        href: cli-ref/routing-instance/add-private-connection.md
+      - name: create
+        href: cli-ref/routing-instance/create.md
+      - name: delete
+        href: cli-ref/routing-instance/delete.md
       - name: get
         href: cli-ref/routing-instance/get.md
       - name: list
         href: cli-ref/routing-instance/list.md
+      - name: list-operations
+        href: cli-ref/routing-instance/list-operations.md
+      - name: remove-labels
+        href: cli-ref/routing-instance/remove-labels.md
+      - name: remove-prefixes
+        href: cli-ref/routing-instance/remove-prefixes.md
+      - name: remove-private-connection
+        href: cli-ref/routing-instance/remove-private-connection.md
+      - name: update
+        href: cli-ref/routing-instance/update.md
+      - name: upsert-prefixes
+        href: cli-ref/routing-instance/upsert-prefixes.md

@@ -20,8 +20,16 @@ Aliases:
 
 #### Command Tree
 
+- [yc cic private-connection add-labels](add-labels.md) — Assign labels to a privateConnection.
+- [yc cic private-connection create](create.md) — Create a privateConnection.
+- [yc cic private-connection delete](delete.md) — Delete a privateConnection.
 - [yc cic private-connection get](get.md) — Get information about a privateConnection.
 - [yc cic private-connection list](list.md) — List privateConnections in a folder.
+- [yc cic private-connection list-operations](list-operations.md) — List operations for a privateConnection.
+- [yc cic private-connection remove-labels](remove-labels.md) — Remove labels from a privateConnection.
+- [yc cic private-connection remove-static-routes](remove-static-routes.md) — Remove static routes from a privateConnection.
+- [yc cic private-connection update](update.md) — Modify configuration or attributes of a privateConnection.
+- [yc cic private-connection upsert-static-routes](upsert-static-routes.md) — Upsert static routes to a privateConnection.
 
 #### Global Flags
 
