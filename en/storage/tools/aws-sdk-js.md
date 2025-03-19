@@ -1,6 +1,6 @@
 ---
 title: AWS SDK for JavaScript
-description: In this tutorial, you will learn what the AWS SDK for JavaScript is, how to install and configure it, and will also see some code snippets.
+description: In this tutorial, you will learn what the AWS SDK for JavaScript is, how to install and configure it, and will also see some code examples.
 ---
 
 # AWS SDK for JavaScript
@@ -8,7 +8,7 @@ description: In this tutorial, you will learn what the AWS SDK for JavaScript is
 
 The [AWS SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/) is a {{ objstorage-full-name }}-compatible software development kit for integration with AWS services.
 
-With the AWS SDK for Node.js, you will create a bucket, upload objects, get a list of objects, extract an object, clear the bucket contents, and delete the bucket.
+With the AWS SDK for Node.js, you will create a bucket, upload objects to it, get a list of objects, download a single object, clean up the bucket contents, and delete the bucket.
 
 ## Getting started {#before-you-begin}
 
@@ -16,7 +16,7 @@ With the AWS SDK for Node.js, you will create a bucket, upload objects, get a li
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Preparing a project {#setup-project}
+## Configuring a project {#setup-project}
 
 ### Preparing authentication data {#setup-project-aws-tools}
 
@@ -26,7 +26,7 @@ With the AWS SDK for Node.js, you will create a bucket, upload objects, get a li
 
 {% include [nodejs-project-folder-setup](../_includes_service/storage-sdk-nodejs-project-setup.md) %}
 
-## Code snippets {#js-sdk-examples}
+## Code examples {#js-sdk-examples}
 
 Below we describe how to perform basic operations with a bucket using the AWS SDK for Node.js.
 1. Add the following code to `index.js`:
@@ -48,7 +48,7 @@ Below we describe how to perform basic operations with a bucket using the AWS SD
     (async function ()
     {
         // Creating an s3 client to interact with aws.
-        // Authentication data is taken from your environment, but you can specify it explicitly. Here is an example:
+        // Authentication data is taken from your environment, but you can specify it explicitly, e.g.:
         // `new S3Client({ region: 'ru-central1', credentials: {...} })`
         const s3Client = new S3Client({});
 
@@ -62,7 +62,7 @@ Below we describe how to perform basic operations with a bucket using the AWS SD
         );
         console.log(`The bucket ${bucketName} was created.\n\n`);
 
-        // Uploading objects into a bucket
+        // Uploading objects to a bucket
         // From a string
         console.log('Creating a object from string.');
         await s3Client.send(
@@ -149,7 +149,7 @@ Below we describe how to perform basic operations with a bucket using the AWS SD
     })()
     ```
   
-    In this code snippet, we added an [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). This enables you to invoke the script when running the file.
+    In this code snippet, we added an [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) to invoke the script when running the file.
 1. Run the application:
 
     ```bash
@@ -158,4 +158,4 @@ Below we describe how to perform basic operations with a bucket using the AWS SD
 
     In the console output, you will see a step-by-step description of the operation results.
 
-To learn more about using the AWS SDK for JavaScript, see the [AWS documentation](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
+Learn more about using the AWS SDK for JavaScript in the [AWS documentation](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).

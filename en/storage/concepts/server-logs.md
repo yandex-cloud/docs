@@ -1,12 +1,12 @@
 ---
-title: Bucket actions logging mechanism
-description: In this article, you will learn about the bucket actions logging mechanism, source and target bucket requirements, log object key format, and logging features.
+title: Bucket logging
+description: In this article, you will learn about the bucket logging algorithm, source and target bucket requirements, log object key format, and logging features.
 ---
 
-# Bucket actions logging mechanism
+# Bucket logging
 
 
-{{ objstorage-name }} features a [bucket](./bucket.md) actions _logging mechanism_. For example, you can use logging for an internal security audit or to get more granular information about bucket-related operations.
+{{ objstorage-name }} allows you to _log_ all actions with a [bucket](./bucket.md). For example, you can use logging for an internal security audit or to get more granular information about bucket-related operations.
 
 {% note info %}
 
@@ -14,10 +14,10 @@ Actions performed with objects as part of their [lifecycle](./lifecycles.md) are
 
 {% endnote %}
 
-By default, logging is disabled. Once you enable this option, {{ objstorage-name }} will start writing data on bucket actions in a form of an [object](../concepts/object.md) once an hour.
+By default, logging is disabled. Once you enable this option, {{ objstorage-name }} will start writing data on bucket actions as an [object](../concepts/object.md) once an hour.
 
-To start writing logs, do the following:
-* Define the _source_ bucket you want to log the actions with.
+To enable logging, do the following:
+* Define the _source_ bucket for which you want to log actions.
 * Create a _target_ bucket where you want to save the logs.
 * [Enable logging](../operations/buckets/enable-logging.md#enable) using the [management console]({{ link-console-main }}), [AWS CLI](../tools/aws-cli.md), [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md), or API.
 * Select the prefix of the object [key](../concepts/object.md#key) (optional).
@@ -45,21 +45,21 @@ To start writing logs, do the following:
 Where:
 
 * `<prefix>`: [Prefix of the key](#key-prefix) for the log object. You can specify the prefix yourself when enabling logging.
-* `YYYY-MM-DD-HH-MM-SS`: Date and time of saving the log object in the target bucket (UTC format).
-* `<ID>`: Unique record ID that prevents the object from being overwritten.
+* `YYYY-MM-DD-HH-MM-SS`: Date and time of saving the log object in the target bucket (in UTC format).
+* `<ID>`: Unique record ID that prevents object overwrites.
 
-### Prefix of the key {#key-prefix}
+### Key prefix {#key-prefix}
 
 The key prefix allows you to distinguish:
-* Data from different buckets, if the logs for multiple source buckets are saved to the same target bucket.
-* Logging actions from other actions with the bucket, if the logs are saved to the source bucket. This is because, in this case, the logging operation is also considered an action with the bucket.
+* Data from different buckets, if logs for multiple source buckets are saved to the same target bucket.
+* Logging actions from other actions with the bucket, if logs are saved to the source bucket. This is because, in this case, the logging operation is also considered an action with the bucket.
 * Log objects from other objects, in order to regularly delete logs. You can set up a [lifecycle](../concepts/lifecycles.md) for the target bucket to automatically delete objects with a specific key prefix.
 
 ## Log object format {#object-format}
 
-Logs are saved to a JSON file. Every action with a bucket is logged to the file by adding the respective record to it.
+Logs are saved to a JSON file. Every action with a bucket adds the respective record to the file.
 
-A full list of logged parameters is provided in the [log reference](../logs-ref.md).
+You can find the full list of logged parameters in the [log reference](../logs-ref.md).
 
 Example of a record in the log file:
 
@@ -91,21 +91,21 @@ Example of a record in the log file:
 }
 ```
 
-## Logging specifics {#features}
+## Logging features {#features}
 
-There are several points to note about how bucket actions are logged in {{ objstorage-name }}.
+There are several points to note about bucket logging in {{ objstorage-name }}.
 
 ### Best-effort log delivery {#best-effort}
 
-Most requests to a bucket are written to the log file, if the bucket for logging was set up correctly. Most records are written within a few hours after the request is actually processed.
+Most requests to a bucket are written to the log file, if the bucket logging was set up correctly. Most records are written within a few hours after the request is actually processed.
 
-However, {{ objstorage-name }} does not guarantee that the logs are saved in a complete and timely manner. It may take up to a few hours to record an action with the bucket in a log file. In some cases, a record might fail to appear in the file.
+However, {{ objstorage-name }} does not guarantee complete and timely logging. It may take up to a few hours to record an action with the bucket in a log file. In some cases, a record might fail to appear in the file.
 
-The log file provides an overview of the nature of traffic in the bucket, but is not intended for logging each and every request. In the payment documents, you might find a few requests that do not show up in the log file.
+The log file provides an overview of the bucket traffic and is not intended for logging each and every request. In the payment documents, you might find a few requests absent in the log file.
 
 ### No object lifecycle action logging {#lifecycle}
 
-In buckets with [lifecycle](./lifecycles.md) rules configured, actions performed with objects as part of their lifecycle are not logged.
+In buckets with [lifecycle](./lifecycles.md) rules configured, actions on objects as part of their lifecycle are not logged.
 
 ### Enabling logging takes time {#long-engagement}
 
@@ -118,5 +118,5 @@ All changes to the settings will take effect without additional user actions.
 
 ## Pricing {#billing}
 
-The logging pricing is based on the regular [{{ objstorage-name }} pricing rules](../pricing.md).
+The logging pricing follows the regular [{{ objstorage-name }} pricing rules](../pricing.md).
 

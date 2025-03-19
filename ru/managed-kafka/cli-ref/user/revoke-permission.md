@@ -19,7 +19,7 @@ Syntax:
 |----|----|
 |`--cluster-id`|<b>`string`</b><br/>Kafka cluster id.|
 |`--cluster-name`|<b>`string`</b><br/>Kafka cluster name.|
-|`--permission`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Permission to revoke from the user.<br/><br/>Possible property names:<br/><ul> <li><code>topic</code>:     Name of the topic that the permission grants access to. (required)</li> <li><code>role</code>:     Role in the topic. Possible values are: producer, consumer, admin. To grant multiple roles specify this property multiple times. (required)</li> <li><code>allow_host</code>:     Host allowed to access from. To grant access for multiple hosts specify this property multiple times.</li> </ul>|
+|`--permission`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Permission to revoke from the user.<br/><br/>Possible property names:<br/><ul> <li><code>topic</code>:     Name of the topic that the permission grants access to. (required)</li> <li><code>role</code>:     Role in the topic. Possible values are: producer, consumer, admin. To grant multiple roles specify this property multiple times. (required)</li> <li><code>allow_host</code>:     Host allowed to access from. Only ip-addresses allowed as value of single host. To grant access for multiple hosts specify this property multiple times.</li> </ul>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/backup/cli-ref/backup/batch-delete.md
 
 # yc backup backup batch-delete
 
-Batch delete of all backups from arhcive
+Batch deletion of all backups from arhcive
 
 #### Command Usage
 
@@ -18,7 +18,7 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--archive-id`|<b>`string`</b><br/>Specified archive idto delete all backups from this archive|
+|`--archive-id`|<b>`string`</b><br/>Specified archive id to delete all backups from this archive|
 |`--instance-id`|<b>`string`</b><br/>Specified instance id to delete all backups from archive linked to given policy and instance, --policy-id must be specified with this param|
 |`--policy-id`|<b>`string`</b><br/>Specified policy id to delete all backups from archive linked to given policy and instance, --instance-id must be specified with this param|
 

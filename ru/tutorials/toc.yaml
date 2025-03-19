@@ -265,6 +265,8 @@ items:
         href: archive/replicate-logs-to-storage-via-data-streams.md
       - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
         href: archive/replicate-logs-to-storage.md
+      - name: Использование {{ objstorage-name }} в {{ dataproc-name }}
+        href: archive/copy-files-from-object-storage.md
   - name: Разработка и тестирование
     items:
       - name: Все руководства
@@ -735,6 +737,8 @@ items:
           Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
           Python SDK
         href: dataplatform/using-python-sdk-in-airflow.md
+      - name: Добавление данных в БД {{ CH }}
+        href: dataplatform/insert-data-ch.md
       - name: Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name }}
         href: dataplatform/ch-to-mch-migration.md
       - name: Миграция данных в {{ mch-name }} средствами {{ CH }}
@@ -751,6 +755,8 @@ items:
         href: dataplatform/clickhouse-for-graphite.md
       - name: Получение данных из {{ mkf-name }} в {{ mch-name }}
         href: dataplatform/fetch-data-from-mkf.md
+      - name: Получение данных из {{ mkf-name }} в ksqlDB
+        href: dataplatform/use-ksqldb-with-mkf.md
       - name: >-
           Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
           data-transfer-name }}
@@ -788,6 +794,8 @@ items:
           Загрузка данных из {{ ydb-name }} в {{ mch-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/ydb-to-clickhouse.md
+      - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+        href: dataplatform/bigquery-to-clickhouse.md
       - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
@@ -814,6 +822,28 @@ items:
           Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
           metastore-name }}
         href: dataplatform/metastore-import.md
+      - name: >-
+          Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
+          mch-name }}
+        href: dataplatform/s3-data-processing-ch.md
+      - name: Работа с заданиями {{ dataproc-name }}
+        items:
+          - name: Работа с заданиями Hive
+            href: dataplatform/hive-job-basics.md
+          - name: Работа с заданиями MapReduce
+            href: dataplatform/mapreduce-job-basics.md
+          - name: Работа с заданиями PySpark
+            href: dataplatform/pyspark-job-basics.md
+          - name: Работа с заданиями Spark
+            href: dataplatform/spark-job-basics.md
+          - name: Запуск заданий Apache Hive
+            href: dataplatform/how-to-use-hive.md
+          - name: Запуск Spark-приложений
+            href: dataplatform/run-spark-job.md
+          - name: Запуск заданий с удаленного хоста
+            href: dataplatform/remote-run-job.md
+      - name: Миграция в {{ mes-name }} с помощью снапшотов
+        href: dataplatform/migration-via-snapshots.md
       - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Миграция данных в {{ mmg-name }}
@@ -1071,6 +1101,10 @@ items:
         href: routing/gre-over-ipsec.md
       - name: Настройка сети для {{ dataproc-name }}
         href: routing/data-processing-nat-instance.md
+      - name: >-
+          Переключение сетевого соединения при пересоздании кластера {{
+          dataproc-name }}
+        href: routing/data-processing-dns-reconnect.md
       - name: Настройка PT Application Firewall
         href: routing/pt-application-firewall.md
         hidden: true

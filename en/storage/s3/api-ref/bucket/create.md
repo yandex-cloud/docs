@@ -17,9 +17,9 @@ Parameter | Description
 `bucket` | Bucket name.<br/><br/>When creating a bucket, follow the [naming conventions](../../../concepts/bucket.md#naming).
 
 ### Headers {#request-headers}
-Use [common request headers](../common-request-headers.md) in your requests.
+Use [common headers](../common-request-headers.md) in your requests.
 
-By using the headers listed below, you can set the [ACL](../../../concepts/acl.md) of the bucket being created.
+The headers below enable you to set the [ACL](../../../concepts/acl.md) for the bucket being created.
 
 {% include [storage-acl-headers](../../../_includes_service/storage-acl-bucket-headers.md) %}
 
@@ -27,7 +27,7 @@ By using the headers listed below, you can set the [ACL](../../../concepts/acl.m
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 

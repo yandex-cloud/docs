@@ -54,9 +54,6 @@ links:
   - title: '{{ data-transfer-name }}'
     description: Решения для {{ data-transfer-name }}
     href: data-transfer/
-  - title: '{{ forms-name }}'
-    description: Решения для {{ forms-name }}
-    href: forms/
   - title: '{{ iam-name }}'
     description: Решения для {{ iam-short-name }}
     href: iam/
@@ -105,9 +102,6 @@ links:
   - title: '{{ TF }}-провайдер {{ yandex-cloud }}'
     description: Решения для {{ TF }}-провайдера {{ yandex-cloud }}
     href: terraform/
-  - title: '{{ tracker-name }}'
-    description: Решения для {{ tracker-name }}
-    href: tracker/
   - title: '{{ vpc-name }}'
     description: Решения для {{ vpc-short-name}}
     href: vpc/

@@ -1,24 +1,24 @@
 # selectObjectContent method
 
-Filters and returns the contents of an {{ objstorage-name }} object based on an [S3 Select query](../../../concepts/s3-select-language.md).
+Filters and returns the contents of an {{ objstorage-name }} object using an [S3 Select request](../../../concepts/s3-select-language.md).
 
 {% note warning %}
 
-To be able to run S3 Select queries, contact [support](../../../../support/overview.md). You must also have the `s3:GetObject` permission. For more information, see [{#T}](../../../concepts/policy.md).
+To be able to make S3 Select requests, contact [support](../../../../support/overview.md). You must also have the `s3:GetObject` permission. For more information, see [{#T}](../../../concepts/policy.md).
 
 {% endnote %}
 
-Supported features of objects you can apply a query to:
+Features of objects you can query:
 
 * Objects in CSV, JSON, and Parquet formats are supported.
 
 * UTF-8 encoded objects are supported.
 
-* GZIP and BZIP2 compression methods are supported for CSV files. For Parquet files, columnar compression with GZIP, Snappy, and ZSTD algorithms is supported.
+* GZIP and BZIP2 compression methods are supported for CSV files. For Parquet files, columnar compression with GZIP, Snappy, and ZSTD is supported.
 
 * Objects can be protected by server-side encryption.
 
-For objects that are encrypted with managed encryption keys stored in YC Key Management Service (SSE-KMS), server-side encryption is performed transparently. This means you don't need to specify anything else.
+For objects that are encrypted with managed encryption keys stored in YC Key Management Service (SSE-KMS), server-side encryption is transparent. This means you do not need to specify anything else.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
@@ -36,12 +36,12 @@ Parameter | Description
 `key` | Object key.
 
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 ----- | -----
 `select` | Required parameter that indicates the type of operation.
-`select-type` | Optional parameter to indicate the type of request.
+`select-type` | Optional parameter that indicates the type of query.
 
 
 ### Headers {#request-headers}
@@ -51,7 +51,7 @@ Use the appropriate [common headers](../common-request-headers.md) in your reque
 
 ### Data schema {#request-scheme}
 
-Request parameters are passed in XML format:
+Request parameters are provided in XML format:
 
 ```
 <SelectObjectContentRequest xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
@@ -98,19 +98,19 @@ Request parameters are passed in XML format:
 
 Tag | Description
 ----- | -----
-`SelectObjectContentRequest` | Root-level tag used to provide response parameters.<br/><br/>Required: Yes.<br/><br/>Path: `/SelectObjectContentRequest`.
-`Expression` | SQL expression used to request object data.<br/><br/>Data type: string.<br/><br/>Required: Yes.<br/><br/>Path: `/SelectObjectContentRequest/Expression`.
-`ExpressionType` | Expression type used for the request.<br/><br/>Data type: string.<br/><br/>Acceptable values: `SQL`.<br/><br/>Required: Yes.<br/><br/>Path: `/SelectObjectContentRequest/ExpressionType`.
-`InputSerialization` | Description of data format in the requested object.<br/><br/>Data type: `InputSerialization`.<br/><br/>Required: Yes.<br/><br/>Path: `/SelectObjectContentRequest/InputSerialization`.
-`OutputSerialization` | Description of the returned data format.<br/><br/>Data type: `OutputSerialization`.<br/><br/>Required: Yes.<br/><br/>Path: `/SelectObjectContentRequest/OutputSerialization`.
-`RequestProgress` | Indicates whether regular notifications on request progress should be enabled.<br/><br/>Data type: `RequestProgress`.<br/><br/>Required: No.<br/><br/>Path: `/SelectObjectContentRequest/RequestProgress`.
-`ScanRange` | Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained in the range. It is used only for objects in CSV format.<br/><br/>Data type: `ScanRange`.<br/><br/>Required: No.<br/><br/>Path: `/SelectObjectContentRequest/ScanRange`.
+`SelectObjectContentRequest` | Root-level tag used for providing request parameters.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest`.
+`Expression` | SQL expression used to query object data.<br/><br/>Data type: String.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest/Expression`.
+`ExpressionType` | Expression type used for the request.<br/><br/>Data type: String.<br/><br/>The acceptable value is `SQL`.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest/ExpressionType`.
+`InputSerialization` | Description of data format in the queried object.<br/><br/>Data type: `InputSerialization`.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest/InputSerialization`.
+`OutputSerialization` | Description of the returned data format.<br/><br/>Data type: `OutputSerialization`.<br/><br/>This tag is required.<br/><br/>Path: `/SelectObjectContentRequest/OutputSerialization`.
+`RequestProgress` | Tag that indicates whether regular notifications on the request progress are enabled.<br/><br/>Data type: `RequestProgress`.<br/><br/>This tag is optional.<br/><br/>Path: `/SelectObjectContentRequest/RequestProgress`.
+`ScanRange` | Tag that specifies the byte range of the object to get the records from. A record is processed when its first byte is within the range. It is used only for objects in CSV format.<br/><br/>Data type: `ScanRange`.<br/><br/>This tag is optional.<br/><br/>Path: `/SelectObjectContentRequest/ScanRange`.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
@@ -151,8 +151,8 @@ Tag | Description
 `Payload` | Root-level tag used for providing response parameters.<br/><br/>Path: `/Payload`.
 `Cont` | Message indicating that the request is being processed.<br/><br/>Path: `/Payload/Cont`.
 `End` | Message indicating that the request has been processed.<br/><br/>Path: `/Payload/End`.
-`Progress` | Information about request progress.<br/><br/>Path: `/Payload/Progress`.
+`Progress` | Information about the request progress.<br/><br/>Path: `/Payload/Progress`.
 `Records` | Request result.<br/>Path: `/Payload/Records`.
-`Stats` | Statistics on processed data. It is sent once at the end of the request.<br/>Path: `/Payload/Stats`.
+`Stats` | Statistics on the processed data, which is sent once at the end of the request.<br/>Path: `/Payload/Stats`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

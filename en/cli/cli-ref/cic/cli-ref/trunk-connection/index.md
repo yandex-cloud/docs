@@ -21,8 +21,14 @@ Aliases:
 
 #### Command Tree
 
+- [yc cic trunk-connection add-labels](add-labels.md) — Add labels to a trunk connection.
+- [yc cic trunk-connection create](create.md) — Create a trunk connection.
+- [yc cic trunk-connection delete](delete.md) — Delete a trunk connection.
 - [yc cic trunk-connection get](get.md) — Get information about a trunk connection.
 - [yc cic trunk-connection list](list.md) — List trunk connections in a folder.
+- [yc cic trunk-connection list-operations](list-operations.md) — List operations for a trunk connection.
+- [yc cic trunk-connection remove-labels](remove-labels.md) — Remove labels from a trunk connection.
+- [yc cic trunk-connection update](update.md) — Modify configuration or attributes of a trunk connection.
 
 #### Global Flags
 

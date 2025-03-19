@@ -21,3 +21,4 @@ description: Различные сценарии хранения и восст�
 * [Автоматическая привязка политики резервного копирования {{ backup-full-name }} к ВМ](vm-with-backup-policy/index.md)
 * [{#T}](replicate-logs-to-storage-via-data-streams.md)
 * [{#T}](replicate-logs-to-storage.md)
+* [{#T}](copy-files-from-object-storage.md)

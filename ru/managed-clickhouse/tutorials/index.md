@@ -36,6 +36,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](data-from-ch-visualization.md)
 * [{#T}](data-from-ch-to-geolayers-visualization.md)
 * [{#T}](data-from-ch-geocoder.md)
+* [{#T}](s3-data-processing-ch.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](data-ingestion.md)
 * [{#T}](yq-clickhouse.md)

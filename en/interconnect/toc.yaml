@@ -96,10 +96,26 @@ items:
         items:
           - name: Overview
             href: cli-ref/private-connection/index.md
+          - name: add-labels
+            href: cli-ref/private-connection/add-labels.md
+          - name: create
+            href: cli-ref/private-connection/create.md
+          - name: delete
+            href: cli-ref/private-connection/delete.md
           - name: get
             href: cli-ref/private-connection/get.md
           - name: list
             href: cli-ref/private-connection/list.md
+          - name: list-operations
+            href: cli-ref/private-connection/list-operations.md
+          - name: remove-labels
+            href: cli-ref/private-connection/remove-labels.md
+          - name: remove-static-routes
+            href: cli-ref/private-connection/remove-static-routes.md
+          - name: update
+            href: cli-ref/private-connection/update.md
+          - name: upsert-static-routes
+            href: cli-ref/private-connection/upsert-static-routes.md
       - name: public-connection
         items:
           - name: Overview
@@ -112,10 +128,22 @@ items:
         items:
           - name: Overview
             href: cli-ref/trunk-connection/index.md
+          - name: add-labels
+            href: cli-ref/trunk-connection/add-labels.md
+          - name: create
+            href: cli-ref/trunk-connection/create.md
+          - name: delete
+            href: cli-ref/trunk-connection/delete.md
           - name: get
             href: cli-ref/trunk-connection/get.md
           - name: list
             href: cli-ref/trunk-connection/list.md
+          - name: list-operations
+            href: cli-ref/trunk-connection/list-operations.md
+          - name: remove-labels
+            href: cli-ref/trunk-connection/remove-labels.md
+          - name: update
+            href: cli-ref/trunk-connection/update.md
   - name: API reference
     items:
       - name: API authentication

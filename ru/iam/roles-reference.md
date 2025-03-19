@@ -1474,6 +1474,29 @@ description: В статье приведен полный справочник 
 {% include [managed-sqlserver.admin](../_roles/managed-sqlserver/admin.md) %}
 
 
+## {{ mtr-full-name }} {#mtr-roles}
+
+#### managed-trino.auditor {#managed-trino-auditor}
+
+{% include [managed-trino.auditor](../_roles/managed-trino/auditor.md) %}
+
+#### managed-trino.viewer {#managed-trino-viewer}
+
+{% include [managed-trino.viewer](../_roles/managed-trino/viewer.md) %}
+
+#### managed-trino.editor {#managed-trino-editor}
+
+{% include [managed-trino.editor](../_roles/managed-trino/editor.md) %}
+
+#### managed-trino.admin {#managed-trino-admin}
+
+{% include [managed-trino.admin](../_roles/managed-trino/admin.md) %}
+
+#### managed-trino.integrationProvider {#managed-trino-integrationProvider}
+
+{% include [managed-trino.integrationProvider](../_roles/managed-trino/integrationProvider.md) %}
+
+
 ## {{ ydb-full-name }} {#ydb-roles}
 
 #### ydb.auditor {#ydb-auditor}

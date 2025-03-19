@@ -10,11 +10,11 @@ conn = S3Connection(
 )
 conn.auth_region_name = '{{ region-id }}'
 
-# Create a new bucket
+# Creating a new bucket
 conn.create_bucket('bucket-name')
 bucket = conn.get_bucket('bucket-name')
 
-# Uploading objects into the bucket
+# Uploading objects into a bucket
 
 ## From a string
 bucket.new_key('test-string').set_contents_from_string('TEST')
@@ -27,7 +27,7 @@ file_key_2 = Key(bucket)
 file_key_2.key = 'script/py_script.py'
 file_key_2.set_contents_from_filename('this_script.py')
 
-# Getting a list of objects in the bucket
+# Getting a list of objects in a bucket
 keys_list=bucket.list()
 for key in keys_list:
     print (key.key)
@@ -35,7 +35,7 @@ for key in keys_list:
 # Deleting multiple objects
 response = bucket.delete_keys(['test-string', 'py_script.py'])
 
-# Retrieving an object
+# Getting an object
 key = bucket.get_key('script/py_script.py')
 print (key.get_contents_as_string())
 ```

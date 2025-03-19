@@ -17,7 +17,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -32,7 +32,7 @@ Use the appropriate [common headers](../common-request-headers.md) in your reque
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
@@ -40,6 +40,6 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 
 ### Data schema {#response-scheme}
 
-The structure of returned data is the same as the structure of the data passed by the [upload](upload.md) method.
+The structure of returned data is the same as the structure of data provided by the [upload](upload.md) method.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

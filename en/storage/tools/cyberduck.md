@@ -22,11 +22,11 @@
 
       To connect to a particular bucket, specify `<bucket_name>.{{ s3-storage-host }}` in the **Server** field.
     * **Port**: `443`.
-    * **Access key ID**: Previously obtained ID of the static key.
-    * **Secret access key**: Previously obtained secret key.
+    * **Access key ID**: ID of the static key you got earlier.
+    * **Secret access key**: Secret key you got earlier.
 1. Click **Connect**.
 
-Once the connection is established, the previously created bucket will open.
+Once the connection is established, the bucket you created earlier will open.
 
 {% note info %}
 
@@ -34,4 +34,4 @@ CyberDuck treats {{ objstorage-name }} as a hierarchical file system. This means
 
 {% endnote %}
 
-To learn more about how to use CyberDuck with S3-compatible storage, see the [CyberDuck documentation](https://docs.cyberduck.io/protocols/s3/).
+Learn more about using CyberDuck with S3-compatible storages in the [CyberDuck documentation](https://docs.cyberduck.io/protocols/s3/).

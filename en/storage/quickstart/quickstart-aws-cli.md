@@ -5,7 +5,7 @@ description: Follow this guide to create a bucket and upload an object to it usi
 
 # Getting started with the AWS CLI in {{ objstorage-full-name }}
 
-The [AWS CLI](../tools/aws-cli.md) is one of the most popular {{ objstorage-name }} tools. In this section, you will learn how to use the service with the help of this tool. For guidelines on using the management console, see [{#T}](../quickstart.md).
+The [AWS CLI](../tools/aws-cli.md) is one of the most popular tools for working with {{ objstorage-name }}. In this section, you will learn how to use the service with the help of this tool. For guidelines on using the management console, see [{#T}](../quickstart.md).
 
 To get started with the AWS CLI:
 
@@ -26,7 +26,7 @@ To get started with the AWS CLI:
   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
   1. [Assign](../../iam/operations/roles/grant.md) these _minimum_ roles to your {{ yandex-cloud }} account:
       * To create a [service account](../../iam/concepts/users/service-accounts.md) and get access keys for it: [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). If you want to use an existing service account, the `iam.serviceAccounts.admin` role for that service account will be enough.
-      * To assign a role to a service account: [storage.admin](../../storage/security/index.md#storage-admin) for a bucket or folder.
+      * To assign a role to a service account: [storage.admin](../../storage/security/index.md#storage-admin) for a folder.
 
       If you have a primitive [admin](../../iam/roles-reference.md#admin) role for a folder, you do not need to assign any additional roles.
 
@@ -51,11 +51,11 @@ To get started with the AWS CLI:
   1. Assign a [role](../security/index.md#roles-list), e.g., [storage.editor](../security/index.md#storage-editor), for a folder to a service account:
 
       1. In the [management console]({{ link-console-main }}), select the cloud or folder.
-      1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
       1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
-      1. Select the service account from the list or use the search to locate it.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar to locate it.
+      1. Select the service account from the list or use the search bar.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
       1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
       For more information, see [{#T}](../../iam/operations/sa/assign-role-for-sa.md).
@@ -65,7 +65,7 @@ To get started with the AWS CLI:
   1. Create a static access key {#create-keys}
 
       1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
       1. In the list that opens, select the service account you need.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -141,10 +141,10 @@ To get started with the AWS CLI:
           * `AWS Secret Access Key`: Previously obtained secret key.
           * `Default region name`: `{{ region-id }}`.
 
-            To work with {{ objstorage-name }}, always specify `{{ region-id }}` as the region. A different region value may lead to an authorization error.
+            To work with {{ objstorage-name }}, always specify the `{{ region-id }}`. A different region value may lead to an authorization error.
 
 
-          Leave the other parameter values unchanged.
+          Leave the other parameters unchanged.
 
           
           {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
@@ -156,7 +156,7 @@ To get started with the AWS CLI:
           aws configure set endpoint_url https://{{ s3-storage-host }}/
           ```
 
-          {% cut "Examples of the resulting configuration files" %}
+          {% cut "Examples of final configuration files" %}
 
           * `~/.aws/config`:
 
@@ -226,7 +226,7 @@ Take note of the AWS CLI [features](../tools/aws-cli.md#specifics) when used wit
   aws s3 presign s3://<bucket_name>/<object_key> --expires-in <lifetime>
   ```
 
-  You can share the received link or use it in your service to access the file.
+  You can share the obtained link or use it in your service to access the file.
 
   For more information, see [{#T}](../operations/objects/link-for-download.md).
 

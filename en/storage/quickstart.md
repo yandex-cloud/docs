@@ -17,7 +17,7 @@ To get started with {{ objstorage-name }}:
 ## Getting started {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. [Assign](../iam/operations/roles/grant.md) the `editor` [role](../iam/roles-reference.md#editor) or higher to your {{ yandex-cloud }} account. The role must be assigned for the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) you will be working with or the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) the folder belongs to.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
@@ -27,7 +27,7 @@ To get started with {{ objstorage-name }}:
 
 To create your first bucket in {{ objstorage-name }}:
 
-1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
 1. Click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![bucket](../_assets/storage/bucket.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
 1. Enter a name for the bucket.
 
@@ -42,7 +42,7 @@ To create your first bucket in {{ objstorage-name }}:
 
     In a bucket with restricted access, you can also make the uploaded files accessible with the help of [temporary links](./concepts/pre-signed-urls.md).
 
-1. Choose the default [storage class](concepts/storage-class.md) to be used when uploading objects:
+1. Choose the default [storage class](concepts/storage-class.md) to use when uploading objects:
     * _Standard storage_ is designed for storing frequently used objects.
     * _Cold storage_ is designed for long-term storage of objects that are rarely read.
     * _Ice storage_ is designed for objects you need to store for at least one year and which rarely get read requests.
@@ -63,7 +63,7 @@ To get a link to an uploaded object:
 
 {% include [storage-get-link-for-download](_includes_service/storage-get-link-for-download.md) %}
 
-You can share the received link or use it in your service to access the file.
+You can share the link you got or use it in your service to access the file.
 
 To perform operations with buckets and objects, you can use [other tools](tools/index.md) in addition to the {{ yandex-cloud }} management console.
 

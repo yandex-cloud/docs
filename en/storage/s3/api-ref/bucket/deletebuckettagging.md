@@ -18,7 +18,7 @@ Parameter | Description
 --- | ---
 `bucket` | Bucket name.
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 --- | ---
@@ -26,7 +26,7 @@ Parameter | Description
 
 ### Headers {#request-headers}
 
-Use [common request headers](../common-request-headers.md) in your requests.
+Use [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 

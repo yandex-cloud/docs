@@ -19,7 +19,7 @@ Aliases:
 
 #### Command Tree
 
-- [yc backup backup batch-delete](batch-delete.md) — Batch delete of all backups from arhcive
+- [yc backup backup batch-delete](batch-delete.md) — Batch deletion of all backups from arhcive
 - [yc backup backup delete](delete.md) — Delete backup
 - [yc backup backup get](get.md) — Get full information about backup
 - [yc backup backup list](list.md) — Lists available backups

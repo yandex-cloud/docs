@@ -1,6 +1,6 @@
 # upload method
 
-Loads the bucket object lifecycle configuration to {{ objstorage-name }}.
+Uploads the bucket object lifecycle configuration to {{ objstorage-name }}.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
@@ -17,7 +17,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -38,7 +38,7 @@ The configuration type is described in [{#T}](xml-config.md).
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 

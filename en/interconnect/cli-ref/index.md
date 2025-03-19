@@ -22,14 +22,28 @@ Syntax:
 	- [yc cic point-of-presence get](point-of-presence/get.md) — Get information about a point of presence.
 	- [yc cic point-of-presence list](point-of-presence/list.md) — List point of presences in a folder.
 - [yc cic private-connection](private-connection/index.md) — [PREVIEW] Manage privateConnections.
+	- [yc cic private-connection add-labels](private-connection/add-labels.md) — Assign labels to a privateConnection.
+	- [yc cic private-connection create](private-connection/create.md) — Create a privateConnection.
+	- [yc cic private-connection delete](private-connection/delete.md) — Delete a privateConnection.
 	- [yc cic private-connection get](private-connection/get.md) — Get information about a privateConnection.
 	- [yc cic private-connection list](private-connection/list.md) — List privateConnections in a folder.
+	- [yc cic private-connection list-operations](private-connection/list-operations.md) — List operations for a privateConnection.
+	- [yc cic private-connection remove-labels](private-connection/remove-labels.md) — Remove labels from a privateConnection.
+	- [yc cic private-connection remove-static-routes](private-connection/remove-static-routes.md) — Remove static routes from a privateConnection.
+	- [yc cic private-connection update](private-connection/update.md) — Modify configuration or attributes of a privateConnection.
+	- [yc cic private-connection upsert-static-routes](private-connection/upsert-static-routes.md) — Upsert static routes to a privateConnection.
 - [yc cic public-connection](public-connection/index.md) — [PREVIEW] Manage publicConnections.
 	- [yc cic public-connection get](public-connection/get.md) — Get information about an publicConnection.
 	- [yc cic public-connection list](public-connection/list.md) — List publicConnections in a folder.
 - [yc cic trunk-connection](trunk-connection/index.md) — [PREVIEW] Manage trunk connections.
+	- [yc cic trunk-connection add-labels](trunk-connection/add-labels.md) — Add labels to a trunk connection.
+	- [yc cic trunk-connection create](trunk-connection/create.md) — Create a trunk connection.
+	- [yc cic trunk-connection delete](trunk-connection/delete.md) — Delete a trunk connection.
 	- [yc cic trunk-connection get](trunk-connection/get.md) — Get information about a trunk connection.
 	- [yc cic trunk-connection list](trunk-connection/list.md) — List trunk connections in a folder.
+	- [yc cic trunk-connection list-operations](trunk-connection/list-operations.md) — List operations for a trunk connection.
+	- [yc cic trunk-connection remove-labels](trunk-connection/remove-labels.md) — Remove labels from a trunk connection.
+	- [yc cic trunk-connection update](trunk-connection/update.md) — Modify configuration or attributes of a trunk connection.
 
 #### Global Flags
 

@@ -85,8 +85,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Установите и настройте AWS CLI {#cli-setup}
 
-{% include [note-aws-cli-versions](../../_includes/aws-tools/note-aws-cli-versions.md) %}
-
 1. Установите AWS CLI:
 
     {% list tabs group=operating_system %}
@@ -121,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% endlist %}
 
-    {% include [install-aws-cli-versions](../../_includes/aws-tools/install-aws-cli-versions.md) %}
+    Подробнее об установке AWS CLI см. в [документации AWS](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
 1. Настройте AWS CLI:
 

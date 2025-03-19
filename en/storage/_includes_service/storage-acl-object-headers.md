@@ -6,7 +6,7 @@ Header | Description
 `X-Amz-Grant-Write-Acp` | Grants the access grantee object ACL write permission.
 `X-Amz-Grant-Full-Control` | Grants the access grantee the `READ`, `WRITE`, `READ_ACP`, and `WRITE_ACP` permissions for the object.
 
-The value for the `X-Amz-Grant-*` headers is a comma-separated list of access grantees. Each access grantee is identified in a structure `<access_grantee_type>:<access_grantee_ID>`. {{ objstorage-name }} supports the following types of access grantees:
+The value for the `X-Amz-Grant-*` header is a comma-separated list of access grantees. Each access grantee is identified as `<access_grantee_type>:<access_grantee_ID>`. {{ objstorage-name }} supports the following types of access grantees:
 * `id`: Access grantee is a cloud user.
 * `uri`: Access grantee is a public group.
 

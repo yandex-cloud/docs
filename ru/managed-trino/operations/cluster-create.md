@@ -24,9 +24,7 @@ noIndex: true
 
 Сервисному аккаунту кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами.
 
-
 О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
-
 
 ## Создать кластер {#create-cluster}
 
@@ -47,11 +45,11 @@ noIndex: true
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
 
-        1. Выберите существующий сервисный аккаунт или создайте новый.
+        1. Выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [создайте новый](../../iam/operations/sa/create.md).
 
             Сервисному аккаунту должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`.
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, подсеть и группу безопасности для кластера.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
     1. Задайте конфигурацию координатора и воркеров.
     1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте необходимые каталоги. Вы можете сделать это как при создании кластера, так и позже.
 
@@ -60,6 +58,7 @@ noIndex: true
         1. В блоке **{{ ui-key.yacloud.trino.catalogs.section_catalog }}** задайте параметры в зависимости от выбранного типа:
 
             * Для коннекторов Hive, Iceberg и Delta Lake:
+
                 * **{{ ui-key.yacloud.trino.catalogs.label_uri }}** для подключения к кластеру Metastore в формате `thrift://<IP-адрес>:<порт>`.
                 * **{{ ui-key.yacloud.trino.catalogs.label_filesystem }}** — выберите тип файлового хранилища: **{{ ui-key.yacloud.trino.catalogs.label_s3 }}** или **{{ ui-key.yacloud.trino.catalogs.label_external-s3 }}**. Для внешнего хранилища задайте следующие настройки:
                     * Идентификатор AWS-совместимого статического ключа доступа.
@@ -68,21 +67,25 @@ noIndex: true
                     * Регион файлового хранилища, например `{{ region-id }}`.
 
             * Для коннекторов {{ PG }} и {{ CH }}:
-                * **{{ ui-key.yacloud.trino.catalogs.label_postgresql-connection }}** — **{{ ui-key.yacloud.trino.catalogs.label_postgresql-on-premise }}**.
-                * **{{ ui-key.yacloud.trino.catalogs.label_url }}** для подключения к кластеру в формате `jdbc:<СУБД>://<адрес_хоста>:<порт>/<имя_базы_данных>`.
+
+                * **{{ ui-key.yacloud.trino.catalogs.label_url }}** для подключения к кластеру в формате `jdbc:<СУБД>://<адрес_хоста>:<порт>/<имя_базы_данных>`, где `СУБД` — `postgresql` или `clickhouse`.
                 * **{{ ui-key.yacloud.trino.catalogs.label_userName }}** для подключения к кластеру.
-                * **{{ ui-key.yacloud.trino.catalogs.label_password }}**.
+                * **{{ ui-key.yacloud.trino.catalogs.label_password }}** пользователя.
+
+            * Коннекторы [TPC-H](https://trino.io/docs/current/connector/tpch.html) и [TPC-DS](https://trino.io/docs/current/connector/tpcds.html) предоставляют доступ к тестовым данным и не нуждаются в настройке.
 
         1. (Опционально) Задайте дополнительные настройки каталога в формате `ключ:значение`.
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите защиту от удаления кластера.
-    1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** настройте логирование:
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
-        1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
-        1. Выберите место записи логов:
-            * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
-            * **{{ ui-key.yacloud.logging.label_group }}** — выберите лог-группу из списка или создайте новую.
-        1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
+        1. (Опционально) Включите защиту от удаления кластера.
+        1. (Опционально) Настройте логирование:
+
+            1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
+            1. Выберите место записи логов:
+                * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
+                * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
+            1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

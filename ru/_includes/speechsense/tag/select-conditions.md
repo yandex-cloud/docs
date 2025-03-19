@@ -24,7 +24,7 @@
 
 * В блоке **{{ ui-key.yc-ui-talkanalytics.tags.exceptions }}**:
 
-    * В поле **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** перечислите [фразы-исключения](../../../speechsense/concepts/tags.md#exclusion-phrases). Каждую фразу укажите на отдельной строке. Если в диалоге присутствует фраза-исключение, тег не срабатывает.
+    * В поле **{{ ui-key.yc-ui-talkanalytics.tags.exceptions-keywords }}** перечислите [фразы-исключения](../../../speechsense/concepts/tags.md#exclusion-phrases). Каждую фразу укажите на отдельной строке. Если в диалоге присутствует фраза-исключение, тег не срабатывает.
 
         {% cut "Пример" %}
 

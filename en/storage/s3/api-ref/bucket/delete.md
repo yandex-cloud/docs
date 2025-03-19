@@ -1,6 +1,6 @@
 # deleteBucket method
 
-Deletes an empty bucket. If the bucket is not empty, first delete all objects inside the bucket.
+Deletes an empty bucket. If the bucket is not empty, first delete all objects in the bucket.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
@@ -18,13 +18,13 @@ Parameter | Description
 
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in your requests.
+Use only [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 

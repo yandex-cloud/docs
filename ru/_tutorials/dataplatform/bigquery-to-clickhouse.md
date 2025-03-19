@@ -1,4 +1,4 @@
-# Миграция базы данных из Google BigQuery в {{ mch-name }}
+# Миграция базы данных из Google BigQuery в {{ mch-full-name }}
 
 
 Вы можете перенести базу данных из Google BigQuery в {{ mch-full-name }} и затем проанализировать ее с помощью {{ datalens-full-name }}.

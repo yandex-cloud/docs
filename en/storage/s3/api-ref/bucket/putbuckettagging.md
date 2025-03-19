@@ -1,4 +1,4 @@
-# PutBucketTagging method
+# putBucketTagging method
 
 Adds [labels](../../../concepts/tags.md) to a bucket. This overwrites any existing bucket labels.
 
@@ -18,7 +18,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 --- | ---
@@ -42,18 +42,18 @@ Element | Description
 --- | ---
 `Tagging` | Root element.
 `TagSet` | Array of labels.
-`Tag` | Container for labels.
+`Tag` | Container for a label.
 `Key` | Label key.<br>Type: String.
 `Value` | Label value.<br>Type: String.
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in your requests.
+Use only [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 

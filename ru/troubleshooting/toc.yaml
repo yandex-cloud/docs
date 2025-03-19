@@ -598,22 +598,6 @@ items:
         href: functions/how-to/async-functions-invokes.md
       - name: Как настроить аутентификацию для `boto3`
         href: functions/how-to/boto3-authentification.md
-  - name: '{{ forms-name }}'
-    items:
-      - name: Все решения для {{ forms-name }}
-        href: forms/index.md
-      - name: Решения для известных проблем {{ forms-name }}
-        href: forms/known-issues/index.md
-        hidden: true
-      - name: Примеры конфигураций и сценариев {{ forms-name }}
-        href: forms/how-to/index.md
-        hidden: true
-      - name: Как настроить почтовые уведомления
-        href: forms/how-to/customizing-mail-notifications.md
-      - name: Как выдать пользователю доступ к редактированию формы
-        href: forms/how-to/granting-access-to-form-editing.md
-      - name: Как найти созданную форму
-        href: forms/how-to/locating-form.md
   - name: '{{ iam-name }}'
     items:
       - name: Все решения для {{ iam-short-name }}
@@ -1185,48 +1169,6 @@ items:
         href: vpc/how-to/transferring-ip-to-a-different-zone.md
       - name: Как заблокировать IP-адрес
         href: vpc/how-to/block-ip-address.md
-  - name: '{{ tracker-name }}'
-    items:
-      - name: Все решения для {{ tracker-name }}
-        href: tracker/index.md
-      - name: Решения для известных проблем c {{ tracker-name }}
-        href: tracker/known-issues/index.md
-        hidden: true
-      - name: Недоступно редактирование воркфлоу
-        href: tracker/known-issues/unable-to-modify-workflow.md
-      - name: Устранение ошибки `Illegal parameter` при создании очереди
-        href: tracker/known-issues/illegal-parameter-while-creating-queue.md
-      - name: Примеры конфигураций и сценариев {{ tracker-name }}
-        href: tracker/how-to/index.md
-        hidden: true
-      - name: Как подключить {{ tracker-name }} после периода неактивности
-        href: tracker/how-to/activating-tracker-after-inactivity.md
-      - name: Как отключить {{ tracker-name }}
-        href: tracker/how-to/deactivating-tracker.md
-      - name: Как восстановить {{ tracker-name }} после удаления
-        href: tracker/how-to/restoring-tracker.md
-      - name: Как использовать новые доски задач
-        href: tracker/how-to/using-new-task-boards.md
-      - name: Как редактировать клонированные воркфлоу
-        href: tracker/how-to/modifying-cloned-worfklows.md
-      - name: Как ограничить доступ к очередям
-        href: tracker/how-to/limiting-queue-access.md
-      - name: Как подключить и использовать платный {{ tracker-name }}
-        href: tracker/how-to/using-paid-version.md
-      - name: Как войти в {{ tracker-name }}
-        href: tracker/how-to/logging-into-tracker.md
-      - name: Как подключить к {{ mgl-name }} репозиторий со стороннего сервера
-        href: tracker/how-to/connecting-gitlab-repository.md
-      - name: Как создать задачу в {{ tracker-name }} через {{ forms-name }}
-        href: tracker/how-to/creating-tasks-via-forms.md
-      - name: Как удалить пользователя из {{ tracker-name }}
-        href: tracker/how-to/excluding-user-from-tracker.md
-      - name: Как добавить пользователя в {{ tracker-name }}
-        href: tracker/how-to/adding-user-to-tracker.md
-      - name: Как отключить почтовые уведомления в {{ tracker-name }}
-        href: tracker/how-to/disabling-notifications.md
-      - name: Как удалить задачу из очереди
-        href: tracker/how-to/removing-task-from-queue.md
   - name: '{{ console-name }}'
     items:
       - name: Все решения для {{ console-name }}

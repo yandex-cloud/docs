@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Установка CLI
         href: operations/install-cli.md
+      - name: Обновление CLI
+        href: operations/update-cli.md
       - name: Аутентификация
         items:
           - name: Аутентификация от имени пользователя
@@ -486,10 +488,26 @@ items:
             items:
               - name: Overview
                 href: cli-ref/cic/cli-ref/private-connection/index.md
+              - name: add-labels
+                href: cli-ref/cic/cli-ref/private-connection/add-labels.md
+              - name: create
+                href: cli-ref/cic/cli-ref/private-connection/create.md
+              - name: delete
+                href: cli-ref/cic/cli-ref/private-connection/delete.md
               - name: get
                 href: cli-ref/cic/cli-ref/private-connection/get.md
               - name: list
                 href: cli-ref/cic/cli-ref/private-connection/list.md
+              - name: list-operations
+                href: cli-ref/cic/cli-ref/private-connection/list-operations.md
+              - name: remove-labels
+                href: cli-ref/cic/cli-ref/private-connection/remove-labels.md
+              - name: remove-static-routes
+                href: cli-ref/cic/cli-ref/private-connection/remove-static-routes.md
+              - name: update
+                href: cli-ref/cic/cli-ref/private-connection/update.md
+              - name: upsert-static-routes
+                href: cli-ref/cic/cli-ref/private-connection/upsert-static-routes.md
           - name: public-connection
             items:
               - name: Overview
@@ -502,10 +520,22 @@ items:
             items:
               - name: Overview
                 href: cli-ref/cic/cli-ref/trunk-connection/index.md
+              - name: add-labels
+                href: cli-ref/cic/cli-ref/trunk-connection/add-labels.md
+              - name: create
+                href: cli-ref/cic/cli-ref/trunk-connection/create.md
+              - name: delete
+                href: cli-ref/cic/cli-ref/trunk-connection/delete.md
               - name: get
                 href: cli-ref/cic/cli-ref/trunk-connection/get.md
               - name: list
                 href: cli-ref/cic/cli-ref/trunk-connection/list.md
+              - name: list-operations
+                href: cli-ref/cic/cli-ref/trunk-connection/list-operations.md
+              - name: remove-labels
+                href: cli-ref/cic/cli-ref/trunk-connection/remove-labels.md
+              - name: update
+                href: cli-ref/cic/cli-ref/trunk-connection/update.md
       - name: cloud-registry
         items:
           - name: Overview
@@ -561,10 +591,35 @@ items:
             items:
               - name: Overview
                 href: cli-ref/cloudrouter/cli-ref/routing-instance/index.md
+              - name: add-labels
+                href: cli-ref/cloudrouter/cli-ref/routing-instance/add-labels.md
+              - name: add-private-connection
+                href: >-
+                  cli-ref/cloudrouter/cli-ref/routing-instance/add-private-connection.md
+              - name: create
+                href: cli-ref/cloudrouter/cli-ref/routing-instance/create.md
+              - name: delete
+                href: cli-ref/cloudrouter/cli-ref/routing-instance/delete.md
               - name: get
                 href: cli-ref/cloudrouter/cli-ref/routing-instance/get.md
               - name: list
                 href: cli-ref/cloudrouter/cli-ref/routing-instance/list.md
+              - name: list-operations
+                href: >-
+                  cli-ref/cloudrouter/cli-ref/routing-instance/list-operations.md
+              - name: remove-labels
+                href: cli-ref/cloudrouter/cli-ref/routing-instance/remove-labels.md
+              - name: remove-prefixes
+                href: >-
+                  cli-ref/cloudrouter/cli-ref/routing-instance/remove-prefixes.md
+              - name: remove-private-connection
+                href: >-
+                  cli-ref/cloudrouter/cli-ref/routing-instance/remove-private-connection.md
+              - name: update
+                href: cli-ref/cloudrouter/cli-ref/routing-instance/update.md
+              - name: upsert-prefixes
+                href: >-
+                  cli-ref/cloudrouter/cli-ref/routing-instance/upsert-prefixes.md
       - name: components
         items:
           - name: Overview
@@ -3636,6 +3691,20 @@ items:
                 href: cli-ref/organization-manager/cli-ref/user/list.md
               - name: remove
                 href: cli-ref/organization-manager/cli-ref/user/remove.md
+      - name: quota-manager
+        items:
+          - name: Overview
+            href: cli-ref/quota-manager/cli-ref/index.md
+          - name: quota-limit
+            items:
+              - name: Overview
+                href: cli-ref/quota-manager/cli-ref/quota-limit/index.md
+              - name: get
+                href: cli-ref/quota-manager/cli-ref/quota-limit/get.md
+              - name: list
+                href: cli-ref/quota-manager/cli-ref/quota-limit/list.md
+              - name: list-services
+                href: cli-ref/quota-manager/cli-ref/quota-limit/list-services.md
       - name: resource-manager
         items:
           - name: Overview

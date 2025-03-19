@@ -2,20 +2,20 @@
 
 [GeeseFS](https://github.com/yandex-cloud/geesefs) is a utility for mounting {{ objstorage-name }} buckets using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) on Linux, MacOS, and Windows platforms. It was developed by the {{ yandex-cloud }} team as a [goofys](goofys.md) branch. It is a high-performance, POSIX-ish file system.
 
-## Functionality {#features}
+## Features {#features}
 
 ### Performance {#performance}
 
 Compared to goofys and [s3fs](s3fs.md), GeeseFS handles large amounts of small files (up to 1 MB) much faster and achieves similar or higher performance with large files. For more information about benchmark tests, see the [GeeseFS repository on GitHub](https://github.com/yandex-cloud/geesefs/tree/master/bench).
 
-To make GeeseFS run faster, it implements:
+To run faster, GeeseFS implements:
 
 * Parallel readahead.
-* Heuristic readahead for random access: if the size of multiple blocks requested in a row is below the threshold, GeeseFS downloads smaller blocks from storage for upcoming requests.
-* Parallel [multipart uploads](../concepts/multipart.md) of objects to storage.
+* Heuristic readahead for random access: if the size of multiple blocks requested in a row is below the threshold, GeeseFS downloads smaller blocks from the storage for upcoming requests.
+* Parallel [multipart uploads](../concepts/multipart.md) of objects to the storage.
 * Optimized object updates: the client and repository only exchange modified object parts.
-* Background uploads of small object trees and [directories](../concepts/object.md#folder): when a directory is requested, GeeseFS downloads the whole tree per request to storage.
-* Asynchronous object write, rename, and delete.
+* Background uploads of small object trees and [directories](../concepts/object.md#folder): when a directory is requested, GeeseFS downloads the whole tree per request to the storage.
+* Asynchronous object write, rename, and delete operations.
 * Disk cache for reads and writes.
 
 ### POSIX compatibility {#posix-compatibility}
@@ -25,21 +25,21 @@ In addition to the basic functions of the POSIX standards (`open`, `read`, `writ
 * Read-after-write consistency.
 * Partial writes (please note that partial writes in buckets with [versioning](../concepts/versioning.md) may result in intermediate object versions).
 * `fsync`: Synchronization of the contents of an object or directory between the VM memory and storage.
-* `truncate`: Changing object size at will.
+* `truncate`: Changing object size arbitrarily.
 * Soft links (symlinks).
 * `xattr`: Extended file attributes.
 * Directory renames.
 * `readdir`: Reads of directory metadata.
 
-### Partial updating and appending of objects data {#patch}
+### Partial updating and appending of object data {#patch}
 
-GeeseFS supports [partial updating and appending of objects data](../concepts/object-patch.md) to {{ objstorage-name }} buckets.
+GeeseFS supports [partial updating and appending of object data](../concepts/object-patch.md) in {{ objstorage-name }} buckets.
 
 To enable partial object updates, use the `--enable-patch` option.
 
-To learn more, see the GeeseFS repository on GitHub:
-* [Partial object updates](https://github.com/yandex-cloud/geesefs#partial-object-updates-patch): Description of partial updating and appending of objects data.
-* [Concurrent Updates](https://github.com/yandex-cloud/geesefs#concurrent-patch): Description of how an object can be partially updated by multiple concurrent requests.
+Learn more in the GeeseFS repository on GitHub:
+* [Partial object updates](https://github.com/yandex-cloud/geesefs#partial-object-updates-patch): Description of partial updating and appending of object data.
+* [Concurrent Updates](https://github.com/yandex-cloud/geesefs#concurrent-patch): Description of a partial object update using multiple concurrent requests.
 
 ### Limitations {#restrictions}
 
@@ -53,7 +53,7 @@ GeeseFS does not support the following:
   * ID of the owner of all files and directories in the `--uid` option value.
   * ID of the group all files and directories belong to in the `--gid` option value.
 
-  For example:
+  Here is an example:
 
   ```bash
   geesefs \
@@ -127,7 +127,7 @@ GeeseFS does not support the following:
 
 {% endlist %}
 
-You can also build GeeseFS yourself using its source code. For more information, see the [guide](https://github.com/yandex-cloud/geesefs#installation) in the GeeseFS repository on GitHub.
+You can also build GeeseFS yourself using its source code. For more information, see [this guide](https://github.com/yandex-cloud/geesefs#installation) in the GeeseFS repository on GitHub.
 
 ## Authentication {#authentication}
 
@@ -165,7 +165,7 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
 
   {% note info %}
 
-  You can run the `geesefs` command with superuser privileges (`sudo`). In which case make sure to send information about the key either in the `--shared-config` parameter or using environment variables.
+  You can run the `geesefs` command with superuser privileges (`sudo`). In this case, make sure to send information about the key either in the `--shared-config` parameter or using environment variables.
 
   {% endnote %}
 
@@ -200,13 +200,13 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
 
 {% endlist %}
 
-When using GeeseFS on a {{ compute-name }} VM that has a[linked service account](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), you can enable simplified authentication that does not require a static access key. To do this, use the `--iam` option when mounting the bucket.
+When using GeeseFS on a {{ compute-name }} VM that has a [linked service account](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), you can enable simplified authentication that does not require a static access key. To do this, use the `--iam` option when mounting the bucket.
 
 ## Mounting a bucket {#bucket-mounting}
 
-Select the folder or disk where you want to mount the bucket. Make sure you have sufficient rights to perform this operation.
+Select the folder or disk where you want to mount the bucket. Make sure you have sufficient permissions to perform this operation.
 
-When mounting a bucket, you can also configure GeeseFS settings related to system [performance](#performance) and object access rights. To view the list of options and their descriptions, run `geesefs --help`.
+When mounting a bucket, you can also configure GeeseFS settings related to system [performance](#performance) and object access permissions. To view the list of options and their descriptions, run `geesefs --help`.
 
 * For one-time bucket mounting, run the following command:
 
@@ -259,7 +259,7 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
           start=auto
         ```
 
-        Where `binPath` is the path to the `geesefs.exe` file with the required mounting parameters. For example: `C:\geesefs\geesefs.exe <bucket_name> <mount_point>`.
+        Where `binPath` is the path to the `geesefs.exe` file with the required mounting parameters. Here is an example: `C:\geesefs\geesefs.exe <bucket_name> <mount_point>`.
 
         Result:
 

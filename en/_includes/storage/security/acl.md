@@ -8,11 +8,11 @@ Permissions granted to a bucket apply to all objects it contains. With ACLs, you
 
 {% note warning %}
 
-A bucket [inherits](#inheritance) the same access permissions in {{ iam-short-name }} as those of the folder and cloud where it is located.
+A bucket [inherits](#inheritance) the access permissions in {{ iam-short-name }} from the folder and cloud where it is located.
 
 {% endnote %}
 
-> For example, if a user has the `viewer` role in {{ iam-short-name }} for the folder containing the bucket, they can view its content, even though such permissions are not provided in the bucket ACL.
+> For example, a user with the `viewer` role in {{ iam-short-name }} for the folder containing the bucket can view its content, even if this permission is not specified in the bucket ACL.
 
 By default, {{ objstorage-name }} creates an empty ACL for each new object or bucket. Users with the appropriate access permissions can edit and upload ACLs for {{ objstorage-name }} buckets and objects.
 
@@ -25,17 +25,17 @@ To view the ACL structure description, see [ACL XML schema](../../../storage/s3/
 
 {% note info %}
 
-ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well as access permissions updated in the {{ iam-short-name }} service, apply with a delay. For more information about delays, see the [{{ iam-short-name }} documentation](../../../iam/concepts/access-control/index.md).
+ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well as access permissions updated in {{ iam-short-name }}, apply with a delay. For more information about delays, see the [{{ iam-short-name }} documentation](../../../iam/concepts/access-control/index.md).
 
 {% endnote %}
 
-## Permission recipient ID {#accounts-ids}
+## Permission grantee’s ID {#accounts-ids}
 
 * {{ yandex-cloud }} user
 
   You can get the ID in the following ways:
   * In the [IAM]({{ link-console-access-management }}) section of the management console.
-  * Using the [{{ iam-short-name }} CLI or API](../../../iam/operations/users/get.md).
+  * Using the [CLI or {{ iam-short-name }} API](../../../iam/operations/users/get.md).
 * [Service account](../../../iam/concepts/users/service-accounts)
 
   To get the ID, in the management console, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** from the list of services. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
@@ -59,12 +59,12 @@ ACLs uploaded for objects apply immediately. ACLs uploaded for buckets, as well 
 
 ## Permission types {#permissions-types}
 
-Permissions correspond to user roles in {{ iam-short-name }}.
+Permissions match the user roles in {{ iam-short-name }}.
 
 Permission | Role in {{ iam-short-name }} | Description
 --- |--- |---
 `READ` | `viewer` | For buckets: Permission to retrieve a list of objects in the bucket, read various bucket settings (lifecycle, CORS, static hosting), and read all objects in the bucket.<br>For objects: Read permission.
-`WRITE` | `editor` | For buckets: Writing, rewriting and deleting objects in or from the bucket.<br>You must use it together with `READ`; without it, you cannot grant the `WRITE` permission separately.<br>For objects: This permission is meaningless, because the permission is checked for the bucket when writing an object.
+`WRITE` | `editor` | For buckets: Writing, overwriting, and deleting the bucket’s objects.<br>You must use it together with `READ`; you cannot grant the `WRITE` permission separately.<br>For objects: This permission is meaningless, because the permission is checked for the bucket when writing an object.
 `FULL_CONTROL` | `admin` | Full access to objects and buckets.
 `READ_ACP` | `viewer` | ACL read permission. For objects only.
 `WRITE_ACP` | `editor` | ACL write permission. For objects only.
@@ -94,7 +94,7 @@ You can upload a predefined ACL using only an [Amazon S3-compatible HTTP API](..
 
 This system group includes all internet users.
 
-A permission for `AllUsers` looks as follows:
+The permission for `AllUsers` looks as follows:
 
 ```xml
 <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
@@ -104,9 +104,9 @@ A permission for `AllUsers` looks as follows:
 
 ### AuthenticatedUsers {#authenticated-users}
 
-This group includes all authenticated {{ yandex-cloud }} users: both from your clouds and other users' clouds.
+This group includes all authenticated {{ yandex-cloud }} users: both from your cloud and other users' clouds.
 
-A permission for `AuthenticatedUsers` looks as follows:
+The permission for `AuthenticatedUsers` looks as follows:
 
 ```xml
 <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
@@ -116,12 +116,12 @@ A permission for `AuthenticatedUsers` looks as follows:
 
 ## Inheritance of bucket access permissions by {{ yandex-cloud }} public groups {#inheritance}
 
-A bucket inherits the same access permissions in {{ iam-short-name }} as those of the folder and cloud where it is located. If a user has permissions to access the folder or cloud the bucket belongs to, they will also have permissions to access the bucket itself.
+A bucket inherits the access permissions in {{ iam-short-name }} from the folder and cloud where it is located. If a user has permissions to access the folder or cloud the bucket belongs to, they will also have permissions to access the bucket itself.
 
 {% note warning %}
 
 Assigning roles to the `All users` and `All authenticated users` [public groups](../../../iam/concepts/access-control/public-group.md) for the folder or cloud the bucket belongs to is equivalent to granting **public access** to the bucket:
-* `All authenticated users`: All authenticated {{ yandex-cloud }} users get access to the bucket, both from your clouds and other users' clouds.
+* `All authenticated users`: All authenticated {{ yandex-cloud }} users get access to the bucket, both from your cloud and other users' clouds.
 * `All users`: Access is granted to all users.
 
 You can grant the same access permissions to a bucket by adding access permissions for the `AuthenticatedUsers` and `AllUsers` groups to the bucket ACL.
@@ -130,7 +130,7 @@ You can grant the same access permissions to a bucket by adding access permissio
 
 ### Viewing bucket access permissions inherited from a folder {#examples}
 
-A bucket inherits access permissions from the folder. If you want to know exactly which access permissions your bucket has inherited, get a list of roles for the folder. You can also revoke these roles at any time.
+A bucket inherits access permissions from the folder. If you want to know which access permissions your bucket has inherited, get a list of roles for the folder. You can also revoke these roles at any time.
 
 * To get a list of folder roles, run this command:
 

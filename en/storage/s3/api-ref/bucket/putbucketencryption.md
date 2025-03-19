@@ -18,13 +18,13 @@ Parameter | Description
 
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in your requests.
+Use only [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
@@ -49,9 +49,9 @@ A successful response contains additional data in XML format with the schema des
 Element | Description
 ----- | -----
 `ApplyServerSideEncryptionByDefault` | Sets default encryption for the object, if other encryption parameters are not specified in the request.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault`.
-`KMSMasterKeyID` | [{{ kms-short-name }} key](../../../../kms/concepts/key.md) ID.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`.
-`Rule` | Encryption policy on the server side. <br/><br/>The encryption is defined with `KMSMasterKeyID` and `SSEAlgorithm`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule`.
-`ServerSideEncryptionConfiguration` | Encryption configuration used for new objects in the bucket by default. <br/><br/>Path: `ServerSideEncryptionConfiguration`.
-`SSEAlgorithm` | Encryption algorithm. The only possible value is `aws:kms`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.
+`KMSMasterKeyID` | [{{ kms-short-name }}](../../../../kms/concepts/key.md) key ID.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`.
+`Rule` | Server-side encryption policy. <br/><br/>The encryption is defined by `KMSMasterKeyID` and `SSEAlgorithm`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule`.
+`ServerSideEncryptionConfiguration` | Default encryption configuration for new objects in the bucket.<br/><br/>Path: `ServerSideEncryptionConfiguration`.
+`SSEAlgorithm` | Encryption algorithm that takes the `aws:kms` value.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

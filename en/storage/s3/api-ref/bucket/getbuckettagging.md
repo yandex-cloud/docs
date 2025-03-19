@@ -1,4 +1,4 @@
-# GetBucketTagging method
+# getBucketTagging method
 
 Returns bucket [labels](../../../concepts/tags.md).
 
@@ -18,7 +18,7 @@ Parameter | Description
 --- | ---
 `bucket` | Bucket name.
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 --- | ---
@@ -26,7 +26,7 @@ Parameter | Description
 
 ### Headers {#request-headers}
 
-Use [common request headers](../common-request-headers.md) in your requests.
+Use [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -58,7 +58,7 @@ Element | Description
 --- | ---
 `Tagging` | Root element.
 `TagSet` | Array of labels.
-`Tag` | Container for labels.
+`Tag` | Container for a label.
 `Key` | Label key.<br>Type: String.
 `Value` | Label value.<br>Type: String.
 

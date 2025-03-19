@@ -1,13 +1,13 @@
 ---
-title: FAQs about {{ objstorage-full-name }}
-description: This page covers FAQs about {{ objstorage-name }}.
+title: FAQ about {{ objstorage-full-name }}
+description: This page covers FAQ about {{ objstorage-name }}.
 ---
 
-# FAQs about {{ objstorage-name }}
+# FAQ about {{ objstorage-name }}
 
 #### What is {{ objstorage-full-name }}? {#qa-what-is}
 
-{{ objstorage-full-name }} is a universal scalable solution for data storage. It is equally suited for high-load services requiring reliable and fast access to data and for projects with moderate storage infrastructure requirements.
+{{ objstorage-full-name }} is a universal scalable solution for data storage. It is equally effective for high-load services requiring reliable and fast access to data as well as for projects that do not need any complex storage infrastructure.
 
 #### What can I do with {{ objstorage-full-name }}? {#qa-usecases}
 
@@ -25,7 +25,7 @@ To get started with {{ objstorage-name }}:
    At this step, you can already use {{ objstorage-name }} via the {{ yandex-cloud }} management console. You can create and delete buckets, as well as upload objects to and download them from buckets.
 1. Get static keys to use the {{ objstorage-name }} HTTP API or ready-made SDKs and apps.
 
-For more detailed instructions, see [{#T}](quickstart.md) and [{#T}](s3/index.md).
+You can find a more detailed guide in [{#T}](quickstart.md) and [{#T}](s3/index.md).
 
 #### What data formats can I store? {#qa-data-types}
 
@@ -58,7 +58,7 @@ You can delete multiple objects via the {{ yandex-cloud }} management console or
 #### A service account cannot access a bucket, why is that? {#sa-bucket-access}
 
 
-Make sure the service account is assigned the [role](./security/#roles-list) that allows accessing the bucket.
+Make sure the service account has the [role](./security/#roles-list) that allows accessing the bucket.
 
 
 If [encryption](./concepts/encryption.md) is enabled for the bucket, assign the service account the `kms.keys.encrypterDecrypter` [role](../kms/security/#service) for the [{{ kms-short-name }} key](../kms/concepts/key.md) used to encrypt the bucket. You can do this, for example, using the following CLI command:
@@ -77,7 +77,7 @@ Where:
 
 #### What does {{ yandex-cloud }} do with the data I store in {{ objstorage-full-name }}? {#qa-data-use-by-platform}
 
-The data is saved in the form in which it was transmitted by the user.
+The data is saved in the original form as transmitted by the user.
 
 
 #### Does Yandex use {{ objstorage-name }} to store its own data? {#qa-usage-by-yandex}
@@ -85,11 +85,11 @@ The data is saved in the form in which it was transmitted by the user.
 Yes. {{ objstorage-name }} is used in the Yandex infrastructure. A number of Yandex services store their websites' static data in {{ objstorage-name }}.
 
 
-#### Which data consistency model does {{ objstorage-full-name }} use? {#qa-consistency}
+#### What data consistency model does {{ objstorage-full-name }} use? {#qa-consistency}
 
 For overwritable (PUT) and removable (DELETE) objects, the strong consistency model is used.
 
-#### What AWS S3 features are supported in {{ objstorage-full-name }}? {#qa-s3-support}
+#### What AWS S3 features does {{ objstorage-full-name }} support? {#qa-s3-support}
 
 {{ objstorage-name }} supports:
 * Authorization using static tokens.
@@ -115,10 +115,10 @@ By default, the storage is accessed via HTTPS.
 
 The {{ objstorage-name }} response time depends on multiple factors:
 * Client-side performance (network speed, CPU load, or disk subsystem load).
-* Speed of trunk connections, connections between data centers, or client-server connections.
+* Speed of trunks, connections between data centers, or client-server connections.
 * Performance of {{ objstorage-name }} itself.
 
-This is why we cannot specify a particular response time value. However, we do not consider a sharp increase in response time or a marked decrease in the speed of sending data to be the norm, and keep working to improve the technical characteristics of {{ objstorage-name }}.
+This is why we cannot specify a particular response time value. However, we keep track of spikes in the response time and dips in the speed of sending data, and strive to improve the {{ objstorage-name }} performance.
 
 
 {% include [fz-152.md](../_qa/fz-152.md) %}
@@ -127,7 +127,7 @@ This is why we cannot specify a particular response time value. However, we do n
 {% include [logs.md](../_qa/logs.md) %}
 
 
-#### How do I add my own domain to a {{ objstorage-name }} bucket? {#domain-bucket}
+#### How do I add my own domain to an {{ objstorage-name }} bucket? {#domain-bucket}
 
 To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bucket.md):
 
@@ -146,16 +146,16 @@ To add your [domain](operations/hosting/own-domain.md) to a [bucket](concepts/bu
 
 #### Why did I lose access to the bucket after creating/updating a bucket policy? {#qa-lost-access}
 
-Possible causes:
+The possible causes include:
 
 * [Bucket policies](concepts/policy.md) treat objects within a bucket and the bucket itself as different resources. For a bucket policy rule to apply both to the bucket and the objects in it, specify them as separate resources, e.g., `samplebucket` and `samplebucket/*`.
 
 * If a bucket policy with no rules is applied to the bucket, access is denied to all users. To disable request verification for a bucket policy, [delete](operations/buckets/policy.md#delete-policy) it.
 
 
-* If a bucket is interfaced with a [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) or [{{ maf-full-name}}](../managed-airflow/concepts/index.md) cluster and has a bucket policy configured, the cluster will not be able to write or read to/from the bucket without a service account with the appropriate role. For more information, see these guides for [{{ metastore-name }}](../metadata-hub/operations/metastore/s3-policy-connect.md) and [{{ maf-name }}](../managed-airflow/operations/s3-policy-connect.md).
+* If a [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) or [{{ maf-full-name}}](../managed-airflow/concepts/index.md) cluster uses a bucket with the bucket policy configured, the cluster cannot write data to or read data from that bucket without a service account with the appropriate role. For more information, see these guides for [{{ metastore-name }}](../metadata-hub/operations/metastore/s3-policy-connect.md) and [{{ maf-name }}](../managed-airflow/operations/s3-policy-connect.md).
 
 
 #### How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network? {#qa-from-vpc}
 
-For resources hosted in a {{ vpc-short-name }} cloud network and having no public IP addresses or no access to the internet, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via an [API endpoint](../api-design-guide/concepts/endpoints.md). The FQDN of the endpoint will be translated to a public IP using DNS.
+For resources hosted in a {{ vpc-short-name }} cloud network and having neither public IP address nor access to the internet, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via an [API endpoint](../api-design-guide/concepts/endpoints.md). The FQDN of the endpoint will be translated to a public IP address using DNS.

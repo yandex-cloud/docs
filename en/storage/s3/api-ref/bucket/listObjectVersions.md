@@ -17,18 +17,18 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Query parameters {#parameters}
+### Request parameters {#parameters}
 
 All parameters listed in the table are optional.
 
 Parameter | Description
 ----- | -----
-`delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folders separated by the `delimiter` character. In the response to the request, the user will get a list of files and folders in the bucket. Files will be output in the `Contents` elements, and folders in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return the list of files and folders in the folder named `prefix`.
-`encoding-type` | Encoding of server response.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.<br/><br/>Possible values: `url`.
-`key-marker` | Key to start the output from.<br/><br/>In the resulting output, {{ objstorage-name }} will leave the keys starting from the one following `key-marker`.
-`max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. Use this parameter if you need less than 1,000 elements in a single response.<br/><br/>If the selection criteria are met by more keys than can fit into the output, the response contains `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all the output elements if their number exceeds `max-keys`, run multiple consecutive requests to {{ objstorage-name }} with the `key-marker` parameter, where the `key-marker` and `version-id-marker` of each request are equal to the values of the `NextKeyMarker` and `NextVersionIdMarker` elements in the previous response.
-`prefix` | String to start the key from.<br/><br/>{{ objstorage-name }} selects only those keys which start with `prefix`.<br/><br/>You can use this parameter at the same time with `delimiter`. In this case, the output logic is the same as that specified in the `delimiter` parameter description.
-`version-id-marker` | Object version to start the output from.<br/><br/>In the resulting output, {{ objstorage-name }} will leave the versions starting from the one following `version-id-marker`.
+`delimiter` | Delimiter character.<br/><br/>If this parameter is specified, {{ objstorage-name }} interprets the key as the path to the file with folders separated by the `delimiter` character. In the response, the user will get a list of <q>files</q> and <q>folders</q> in the bucket. <q>Files</q> will be output in the `Contents` elements, and <q>folders</q>, in the `CommonPrefixes` elements.<br/><br/>If the request also specifies the `prefix` parameter, {{ objstorage-name }} will return a list of <q>files</q> and <q>folders</q> in the `prefix` <q>folder</q>.
+`encoding-type` | Encoding of server responses.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.<br/><br/>The possible value is `url`.
+`key-marker` | Key to start the output from.<br/><br/>In the output, {{ objstorage-name }} will leave the keys starting from the one following `key-marker`.
+`max-keys` | Maximum number of elements in a response.<br/><br/>By default, {{ objstorage-name }} outputs no more than 1,000 `Contents` and `CommonPrefixes` elements. Use this parameter if you need fewer than 1,000 elements in a single response.<br/><br/>If the selection criteria are met by more keys than can fit into the output, the response will contain `<IsTruncated>true</IsTruncated>`.<br/><br/>To get all the output elements if their number exceeds `max-keys`, run multiple consecutive requests to {{ objstorage-name }} with the `key-marker` parameter, where the `key-marker` and `version-id-marker` of each request are equal to the values of the `NextKeyMarker` and `NextVersionIdMarker` elements in the previous response.
+`prefix` | String to start the key from.<br/><br/>{{ objstorage-name }} selects only those keys which start with `prefix`.<br/><br/>You can use this parameter together with `delimiter`. In this case, the output logic is the same as that specified in the `delimiter` parameter description.
+`version-id-marker` | Object version to start the output from.<br/><br/>In the output, {{ objstorage-name }} will leave the versions starting from the one following `version-id-marker`.
 
 ### Headers {#request-headers}
 Use only [common headers](../common-request-headers.md) in your requests.
@@ -94,19 +94,19 @@ A successful response contains additional data in XML format with the schema des
 
 Element | Description
 ----- | -----
-`ListVersionsResult` | Root element
-`CommonPrefixes` | Key name part identified when processing the `delimiter` and `prefix` query parameters.<br/><br/>Path: `/ListVersionsResult/CommonPrefixes`.
+`ListVersionsResult` | Root element.
+`CommonPrefixes` | Key name part identified when processing the `delimiter` and `prefix` request parameters.<br/><br/>Path: `/ListVersionsResult/CommonPrefixes`.
 `DeleteMarker` | Container for an object that is a delete marker.<br/><br/>Path: `/ListVersionsResult/DeleteMarker`.
-`Delimiter` | Value of the `delimiter` query parameter.<br/><br/>Path: `/ListVersionsResult/Delimiter`.
+`Delimiter` | Value of the `delimiter` request parameter.<br/><br/>Path: `/ListVersionsResult/Delimiter`.
 `EncodingType` | Encoding used by {{ objstorage-name }} to provide a key in an XML response.<br/><br/>You will get this tag if the client provided the `encoding-type` parameter in the request.<br/><br/>Path: `/ListVersionsResult/EncodingType`.
-`IsTruncated` | Marker indicating that a list is incomplete.<br/><br/>If `IsTruncated` is `true`, this means {{ objstorage-name }} returned an incomplete list of parts.<br/><br/>Path: `/ListVersionsResult/IsTruncated`.
-`KeyMarker` | The last key returned in the incomplete response.<br/><br/>Path: `/ListVersionsResult/KeyMarker`.
-`MaxKeys` | Value of the `max-keys` query parameter.<br/><br/>Path: `/ListBucketResult/MaxKeys`.
+`IsTruncated` | Flag that indicates that a list is incomplete.<br/><br/>If `IsTruncated` is `true`, this means {{ objstorage-name }} returned an incomplete list of parts.<br/><br/>Path: `/ListVersionsResult/IsTruncated`.
+`KeyMarker` | Last key returned in the incomplete response.<br/><br/>Path: `/ListVersionsResult/KeyMarker`.
+`MaxKeys` | Value of the `max-keys` request parameter.<br/><br/>Path: `/ListBucketResult/MaxKeys`.
 `Name` | Bucket name.<br/><br/>Path: `/ListBucketResult/Name`.
-`NextKeyMarker` | Value to insert in the `key-marker` query parameter to get the next part of the list if the entire list does not fit in the current response.<br/><br/>Path: `/ListBucketResult/NextMarker`.
-`NextVersionIdMarker` | Value to insert in the `version-id-marker` query parameter to get the next part of the list if the entire list does not fit in the current response.<br/><br/>Path: `/ListBucketResult/NextVersionIdMarker`.
-`Prefix` | Value of the `prefix` query parameter.<br/><br/>Path: `/ListBucketResult/Prefix`.
+`NextKeyMarker` | Value to put in the `key-marker` request parameter to get the next part of the list if the entire list does not fit in the current response.<br/><br/>Path: `/ListBucketResult/NextMarker`.
+`NextVersionIdMarker` | Value to put in the `version-id-marker` request parameter to get the next part of the list if the entire list does not fit in the current response.<br/><br/>Path: `/ListBucketResult/NextVersionIdMarker`.
+`Prefix` | Value of the `prefix` request parameter.<br/><br/>Path: `/ListBucketResult/Prefix`.
 `Version` | Object version.<br/><br/>Path: `/ListBucketResult/Version`.
-`VersionIdMarker` | Marks the latest version of the key returned in the truncated response. <br/><br/>Path: `/ListBucketResult/VersionIdMarker`.
+`VersionIdMarker` | Marks the last version of the key returned in the truncated response. <br/><br/>Path: `/ListBucketResult/VersionIdMarker`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

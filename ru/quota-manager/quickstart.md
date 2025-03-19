@@ -19,10 +19,11 @@ description: Следуя данной инструкции, вы сможете
 
 В настоящий момент для работы с квотами доступны интерфейсы: 
 
-* [Консоль]({{ link-console-quotas }}) — получение информации и запрос изменений квот.
+* [Консоль]({{ link-console-quotas }}) — получение информации и запрос на изменение квот.
+* [CLI](api-ref/authentication.md) — получение информации о квотах.
 * [API](api-ref/authentication.md) — получение информации о квотах.
 
-Позднее появится возможность получения информации и изменения квот через CLI и API.
+Позднее появится возможность создавать запрос на изменение квот через CLI и API.
 
 ## Получить информацию о квотах
 
@@ -44,6 +45,91 @@ description: Следуя данной инструкции, вы сможете
   1. Чтобы оценить потребление ресурсов, вверху справа в списке выберите:
      * **{{ ui-key.yacloud.iam.cloud.quotas.value_status-warning }}** — ресурсы, которые потребляют более половины установленной квоты.
      * **{{ ui-key.yacloud.iam.cloud.quotas.value_status-error }}** — ресурсы, которые почти израсходованы.
+
+- CLI {#cli}
+
+  **Настройте работу с CLI**
+
+  {% include [cli-install](../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../_includes/default-catalogue.md) %}
+  
+   Для просмотра квот аккаунт должен иметь [роль](../iam/operations/roles/grant.md) `quota-manager.viewer`.
+
+  **Посмотрите квоты**
+
+  1. Посмотрите список сервисов, для которых есть квоты.
+  
+      ```bash
+      yc quota-manager quota-limit list-services --resource-type=<тип_ресурса>
+      ```
+
+      Где `--resource-type` — [тип ресурса](concepts/index.md#resources-types): 
+      * `resource-manager.cloud` — облако; 
+      * `organization-manager.organization` — организация; 
+      * `billing.account` — платежный аккаунт.
+
+      Пример:
+
+      ```bash
+      yc quota-manager quota-limit list-services --resource-type=resource-manager.cloud
+      ```
+
+      Будет выведен список сервисов, которые находятся на уровне облака и для которых есть квоты.
+
+  1. Посмотрите список квот для определенного сервиса, а также значение и потребление всех квот.
+  
+      ```bash
+      yc quota-manager quota-limit list \
+         --service=<название_сервиса> \
+         --resource-type=<тип_ресурса> \
+         --resource-id=<идентификатор_ресурса>
+      ```
+
+      Где:
+       * `--service` — название сервиса, полученное на предыдущем шаге. Также название сервиса можно посмотреть в справочнике [YC CLI](../cli/cli-ref/).
+       * `--resource-id` — идентификатор [ресурса](../resource-manager/concepts/resources-hierarchy.md): идентификатор облака, организации или платежного аккаунта.
+       * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+
+      Пример:
+
+      ```bash
+      yc quota-manager quota-limit list --service=iam --resource-type=resource-manager.cloud --resource-id=b1gflhy********
+      ``` 
+
+      Будут выведены идентификаторы квот, которые есть в сервисе {{ iam-short-name }} в облаке `b1gflhy********`. А также значение и потребление этих квот.
+
+  1. Посмотрите значение и потребление определенной квоты.
+  
+      ```bash
+      yc quota-manager quota-limit get \
+         --quota-id=<идентификатор_квоты> \
+         --resource-id <идентификатор_ресурса> \
+         --resource-type <тип_ресурса>
+      ```
+
+      Где:
+       * `--quota-id` — идентификатор квоты, полученный на предыдущем шаге.
+       * `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
+       * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+
+      Пример:
+
+      ```bash
+      yc quota-manager quota-limit get --quota-id=iam.apiKeys.count --resource-id=b1gflhy********  --resource-type=resource-manager.cloud
+      ```
+
+      Будут выведены значение и потребление квоты для количества API-ключей в облаке `b1gflhy********`:
+
+      ```bash
+      quota_id: iam.apiKeys.count
+      limit: 1000
+      usage: 27
+      ```
+
+      Где:
+       * `limit` — значение квоты;
+       * `usage` — потребление квоты.
 
 - API {#api}
 
@@ -83,7 +169,7 @@ description: Следуя данной инструкции, вы сможете
       --header "Authorization: Bearer $IAM_TOKEN" \
       'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/services?resourceType=resource-manager.cloud'
 
-  1. Посмотрите список квот для определенного сервиса.
+  1. Посмотрите список квот для определенного сервиса, а также значение и потребление всех квот.
   
       Для этого воспользуйтесь методом REST API [list](api-ref/QuotaLimit/list.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/) или вызовом gRPC API [QuotaLimitService/List](api-ref/grpc/QuotaLimit/list.md).
 
@@ -97,8 +183,8 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
 
-      * `<resourceId>` — идентификатор [ресурса](../resource-manager/concepts/resources-hierarchy.md).
-      * `<resourceType>` — [тип ресурса](concepts/index.md#resources-types.md): `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+      * `<resourceId>` — идентификатор ресурса: облака, организации или платежного аккаунта.
+      * `<resourceType>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
       * `<serviceName>` — имя сервиса.
       * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
         
@@ -107,10 +193,10 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       curl -X GET \
       --header "Authorization: Bearer $IAM_TOKEN" \
-      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits?service=iam&resource.id=yc.iam.service-cloud&resource.type=resource-manager.cloud'
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits?service=iam&resource.id=b1gflhy********&resource.type=resource-manager.cloud'
       ```
 
-  1. Посмотрите значение определенной квоты.
+  1. Посмотрите значение и потребление определенной квоты.
   
       Для этого воспользуйтесь методом REST API [get](api-ref/QuotaLimit/get.md) для ресурса [QuotaLimit](api-ref/QuotaLimit/) или вызовом gRPC API [QuotaLimitService/Get](api-ref/grpc/QuotaLimit/get.md).
 
@@ -125,8 +211,8 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `<quotaId>` — идентификатор квоты, полученный на предыдущем шаге.
-      * `<resourceId>` — идентификатор ресурса.
-      * `<resourceType>` — [тип ресурса](concepts/index.md#resources-types): `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
+      * `<resourceId>` — идентификатор ресурса (облака, организации или платежного аккаунта).
+      * `<resourceType>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
       * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
       
       Пример запроса:
@@ -134,7 +220,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       curl -X GET \
       --header "Authorization: Bearer $IAM_TOKEN" \
-      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=yc.iam.service-cloud&resource.type=resource-manager.cloud'
+      'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=b1gflhy********&resource.type=resource-manager.cloud'
       ```
 
 {% endlist %}

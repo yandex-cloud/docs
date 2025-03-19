@@ -7,7 +7,7 @@ description: This article describes the syntax of the S3 Select query language.
 
 {% note info %}
 
-To be able to run S3 Select queries, contact [support](../../support/overview.md).
+To be able to make S3 Select queries, contact [support](../../support/overview.md).
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ The only standard SQL operator used by S3 Select is `SELECT`. It supports the fo
 * WHERE
 * LIMIT
 
-Nested queries and connections are not supported.
+S3 Select does not support nested queries and joins.
 
 ## SELECT {#select-list}
 
@@ -31,12 +31,12 @@ SELECT *
 SELECT projection [ AS column_alias | column_alias ] [, ...]
 ```
 
-The first form of the clause returns each line that satisfies the condition in the `WHERE` clause as is. The second one returns a row with a custom projection of the output scalar expressions for each column.
+The first form of the clause returns each row that satisfies the condition in the `WHERE` clause as is. The second one returns a row with a user-defined projection of the output scalar expressions for each column.
 
 
 ## FROM {#from-clause}
 
-`FROM` clauses provide data source for `SELECT`. As an argument, they take the name of an {{ objstorage-name }} object.
+`FROM` clauses provide data for `SELECT`. As an argument, they take the name of an {{ objstorage-name }} object.
 
 Syntax:
 
@@ -46,7 +46,7 @@ FROM S3Object alias
 FROM S3Object AS alias
 ```
 
-As in standard SQL, a `FROM` clause creates rows filtered using a `WHERE` clause and returned as a data list specified in `SELECT`.
+As in standard SQL, the `FROM` clause creates rows that are filtered in the `WHERE` clause and projected in the `SELECT` list.
 
 
 ## WHERE {#where-clause}
@@ -73,27 +73,27 @@ LIMIT number
 
 ## Attribute access {#attribute-access}
 
-`SELECT` and `WHERE` clauses can refer to a data record using file attributes.
+`SELECT` and `WHERE` clauses can refer to record data by using file attributes.
 
 CSV file attributes:
 
 * Column numbers.
 
-  In a query, you can refer to a specific column using the `_N` name, where `N` is the column sequence number in a file.
+  In a query, you can refer to a specific column using the `_N` name, where `N` is the column position in a file.
 
-  Column numbering starts with 1. For example, if the first column's name is `_1`, the second one's name is `_2`.
+  The position count starts at 1. For example, if the first column's name is `_1`, the second one's name is `_2`.
 
-  A column name can be specified in both `_N` and `alias._N` formats. For example, the `_2` and `myAlias._2` names are both valid references to a column in `SELECT` and `WHERE` clauses.
+  You can refer to a column as `_N` or `alias._N`. For example, the `_2` and `myAlias._2` names are both valid references to a column in the `SELECT` and `WHERE` clauses.
 
 * Column headers.
 
-  As in conventional SQL, expressions in `SELECT` and `WHERE` clauses may reference columns by column header, as in `alias.column_name` or `column_name`.
+  As in conventional SQL, expressions in `SELECT` and `WHERE` clauses may refer to columns by the column header, i.e., `alias.column_name` or `column_name`.
 
 JSON file attributes:
 
 * Document.
 
-  You can access a JSON file's fields by field name, e.g., `alias.name`.
+  You can access JSON file fields by the field name, i.e., `alias.name`.
 
 
 **Examples**
@@ -138,7 +138,7 @@ To indicate that CSV file column headers or JSON file attributes are case-sensit
 
 **Examples**
 
-1. A queried object has a **NAME** header or attribute.
+1. A queried object has the **NAME** header or attribute.
 
     If there is no indication of case sensitivity, the query successfully returns the object data:
 
@@ -160,7 +160,7 @@ To indicate that CSV file column headers or JSON file attributes are case-sensit
     SELECT s.name FROM S3Object s
     ```
 
-    If you enclose the header or attribute in double quotes, the request will successfully return the object data:
+    If you enclose the header or attribute in double quotes, the query will successfully return the object data:
 
     ```sql
     SELECT s."NAME" FROM S3Object s
@@ -169,15 +169,15 @@ To indicate that CSV file column headers or JSON file attributes are case-sensit
 
 ## Reserved keywords {#reserved-keywords}
 
-S3 Select has a set of reserved keywords. These are required to run SQL expressions when querying object contents. Reserved keywords include function names, data type names, operators, etc.
+S3 Select has a set of reserved keywords that are required to run SQL expressions when querying object contents. Reserved keywords include function names, data type names, operators, etc.
 
-In some cases, user terms may duplicate a reserved keyword. To avoid conflicts, use double quotes to indicate that you use a certain term intentionally. Otherwise, a 400 syntax error will occur.
+In some cases, user-defined terms may clash with a reserved keyword. To avoid conflicts, use double quotes to indicate that you use a certain term intentionally. Otherwise, a 400 syntax error will occur.
 
 **Examples**
 
 A queried object has a header or attribute called **CAST**, which is a reserved keyword.
 
-If you enclose a user-defined header or attribute in double quotes, the request will successfully return the object data:
+If you enclose a user-defined header or attribute in double quotes, the query will successfully return the object data:
 
 ```sql
 SELECT s."CAST" FROM S3Object s
@@ -193,9 +193,9 @@ SELECT s.CAST FROM S3Object s
 
 `WHERE` and `SELECT` clauses may contain SQL scalar expressions returning scalar values. These may appear as follows:
 
-* `literal`. SQL literal. A literal is an explicit numeric, character, string, or boolean value (constant) not represented by an ID.
+* `literal`. SQL literal, which is an explicit numeric, character, string, or Boolean value (constant) not represented by an ID.
 
-* `column_reference`. A reference to a column in `column_name` or `alias.column_name` format used to access a column using column header.
+* `column_reference`. Reference to a column in `column_name` or `alias.column_name` format used to access the column using the column header.
 
   Example:
 
@@ -203,7 +203,7 @@ SELECT s.CAST FROM S3Object s
   SELECT city.name FROM S3Object city
   ```
 
-* `unary_op expression`. In this expression, `unary_op` is a unary SQL operator. Unary operators perform operations on a single operand. They include, for instance, the unary minus, which changes the sign of a number.
+* `unary_op expression`. In this expression, `unary_op` is a unary SQL operator. Unary operators perform operations on a single operand. They include, e.g., the unary minus that changes the sign of a number.
 
   Example:
 
@@ -211,7 +211,7 @@ SELECT s.CAST FROM S3Object s
   SELECT -5 FROM S3Object
   ```
 
-* `expression binary_op expression`. In this expression, `binary_op` is a binary SQL operator. Binary operators perform an operation on two operands. For instance, binary operators include arithmetic, logical, and comparison operators.
+* `expression binary_op expression`. In this expression, `binary_op` is a binary SQL operator. Binary operators perform an operation on two operands. Binary operators include, e.g., arithmetic, logical, and comparison operators.
 
   Examples:
 
@@ -251,7 +251,7 @@ The following functions are supported:
 | `MIN` | Minimum value within a certain set of values | `INT` or `DECIMAL` | Same as input |
 | `MAX` | Maximum value within a certain set of values | `INT` or `DECIMAL` | Same as input |
 | `SUM` | Sum of values | `INT`, `FLOAT`, or `DECIMAL` | Same as input |
-| `AVG` | Average value | `INT`, `FLOAT`, or `DECIMAL` | `DECIMAL` if the input type is `INT`.<br/>Otherwise, same as input. |
+| `AVG` | Average value | `INT`, `FLOAT`, or `DECIMAL` | `DECIMAL` if the input type is `INT`;<br/>otherwise, same as input. |
 
 Examples:
 

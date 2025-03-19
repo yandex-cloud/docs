@@ -40,7 +40,7 @@
 
 ## Типы ресурсов {#resources-types}
 
-В {{ yandex-cloud }} есть квоты на три типа ресурсов:
+В {{ yandex-cloud }} управление квотами происходит согласно [иерархии ресурсов](../../resource-manager/concepts/resources-hierarchy.md). Поэтому при выполнении команды CLI или запроса API потребуется указать тип ресурса:
 
 * `resource-manager.cloud`
 * `organization-manager.organization`

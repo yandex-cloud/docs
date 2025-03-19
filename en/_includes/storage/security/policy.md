@@ -4,13 +4,13 @@
 
 Bucket policies set permissions for actions with buckets, objects, and object groups.
 
-A policy is triggered when a user makes a request to a resource. As a result, the request is either executed or rejected.
+A policy applies when a user makes a request to a resource. As a result, the request is either executed or rejected.
 
 [Enabling public access](../../../storage/operations/buckets/bucket-availability.md) to bucket operations does not override the restrictions set in the access policies.
 
 {% include [storage-note-empty-policy](../../../storage/_includes_service/storage-note-empty-policy.md) %}
 
-You can set up a bucket policy in the management console or describe it in JSON format using a [special scheme](../../../storage/s3/api-ref/policy/scheme.md) to provide the settings through one of the software tools: the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, or API. To learn more about policy management, see [this guide](../../../storage/operations/buckets/policy.md).
+You can set up a bucket policy in the management console or describe it in JSON format using a [special scheme](../../../storage/s3/api-ref/policy/scheme.md) to provide through one of the software tools: the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, or API. Learn more about policy management in [this guide](../../../storage/operations/buckets/policy.md).
 
 
 {% include [s3-with-policy-access](../s3-with-policy-access.md) %}
@@ -18,7 +18,7 @@ You can set up a bucket policy in the management console or describe it in JSON 
 
 ## Policy components {#elements}
 
-A bucket policy consists of rules, a rule consisting of the following basic elements:
+A bucket policy consists of rules that comprise the following basic elements:
 
 Resource
 
@@ -49,7 +49,7 @@ Principal
 
 Condition
 
-: Establishes the cases in which the rule will apply.
+: Establishes the cases when the rule applies.
 
   {% note info %}
 
@@ -130,7 +130,7 @@ First a request is checked against the `Deny` access policy rules. If at least o
 
 Then the request is checked against the `Allow` access policy rules. If at least one IP address meets the `Allow` rule criteria, the request is allowed.
 
-{% cut "An example of bucket access configuration via a chain of reverse proxy servers" %}
+{% cut "Example of bucket access configuration via a chain of reverse proxy servers" %}
 
 ```json
 {
@@ -222,7 +222,7 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
   }
   ```
 
-* Rule that prohibits downloading objects from the specified IP address:
+* Rule that denies downloading objects from the specified IP address:
 
   ```json
   {
@@ -249,7 +249,7 @@ If the bucket receives a request with the `X-Forwarded-For: 192.168.2.100, 192.1
   }
   ```
 
-* Rule that provides different users with full access only to specific folders – each user to their own:
+* Rule that provides different users with full access only to specific folders; each user to their own:
 
   ```json
   {

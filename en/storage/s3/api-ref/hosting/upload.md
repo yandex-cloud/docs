@@ -4,7 +4,7 @@ Uploads a static website hosting configuration for a bucket.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
-## Query {#request}
+## Request {#request}
 
 ```bash
 PUT /{bucket}?website HTTP/2
@@ -16,7 +16,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -53,7 +53,7 @@ You can configure a bucket:
   Element | Description
   ----- | -----
   `WebsiteConfiguration` | Top-level header of the website description.
-  `IndexDocument/Suffix` | Home page of the website.<br/><br/>Path: `/WebsiteConfiguration/IndexDocument/Suffix`.
+  `IndexDocument/Suffix` | Website home page.<br/><br/>Path: `/WebsiteConfiguration/IndexDocument/Suffix`.
   `ErrorDocument/Key` | Document the user sees in case of `4xx` errors.<br/><br/>Path: `/WebsiteConfiguration/ErrorDocument/Key`.
 
 - To redirect all requests
@@ -75,16 +75,16 @@ You can configure a bucket:
   Element | Description
   ----- | -----
   `WebsiteConfiguration` | Top-level header of the website description.
-  `RedirectAllRequestsTo` | Contains configuration for redirecting all requests.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo`.
+  `RedirectAllRequestsTo` | Contains the configuration for redirecting all requests.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo`.
   `HostName` | Host to which all requests to the bucket are redirected.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`.
   `Protocol` | Protocol used for redirects: `http` or `https`. This is an optional parameter.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`.
 
-- For conditionally redirecting requests
+- For conditional redirects
 
   Configuration example:
 
   ```xml
-  <!--Configuration for conditionally redirecting requests-->
+  <!--Configuration for conditional redirects-->
   <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
       <IndexDocument>
           <Suffix>index.html</Suffix>
@@ -110,7 +110,7 @@ You can configure a bucket:
   Element | Description
   ----- | -----
   `WebsiteConfiguration` | Top-level header of the website description.
-  `IndexDocument/Suffix` | Home page of the website.
+  `IndexDocument/Suffix` | Website home page.
   `ErrorDocument/Key` | Document the user sees in case of `4xx` errors.
   `RoutingRules` | `RoutingRule` container.<br/>It must include at least one rule.
   `RoutingRule` | Routing rule.<br/>It defines the conditions and conditional redirects.
@@ -122,7 +122,7 @@ You can configure a bucket:
   `HostName` | In the `Location` response header, the redirect indicates the host name to use.<br/>This parameter is optional if other redirects apply.
   `ReplaceKeyPrefixWith` | The redirect specifies the object key name prefix to replace the `KeyPrefixEquals` value in the redirect request.<br/>It is incompatible with `ReplaceKeyWith`.<br/>This parameter is optional if other redirects apply.
   `ReplaceKeyWith` | The redirect specifies the object key to use in the `Location` header.<br/>It is incompatible with `ReplaceKeyPrefixWith`.<br/>This parameter is optional if other redirects apply.
-  `HttpRedirectCode` | In the `Location` response header, the redirect specifies the `HTTP redirect code`.<br/>Possible values: any `3xx` code.<br/>This parameter is optional if other redirects apply.
+  `HttpRedirectCode` | In the `Location` response header, the redirect specifies the `HTTP redirect code`.<br/>The possible value is any `3xx` code.<br/>This parameter is optional if other redirects apply.
 
 {% endlist %}
 

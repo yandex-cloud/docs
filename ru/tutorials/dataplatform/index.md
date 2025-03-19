@@ -39,6 +39,7 @@ description: На странице представлен список прак�
 
 ## {{ CH }} {#clickhouse}
 
+* [{#T}](insert-data-ch.md)
 * [{#T}](ch-to-mch-migration.md)
 * [{#T}](clickhouse-migration.md)
 * [{#T}](mysql-to-clickhouse.md)
@@ -46,6 +47,7 @@ description: На странице представлен список прак�
 * [{#T}](dp-mch-data-exchange.md)
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](fetch-data-from-mkf.md)
+* [{#T}](use-ksqldb-with-mkf.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
 * [{#T}](yds-to-clickhouse.md)
@@ -56,6 +58,7 @@ description: На странице представлен список прак�
 * [{#T}](object-storage-to-clickhouse.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
+* [{#T}](bigquery-to-clickhouse.md)
 
 ## {{ GP }} {#greenplum}
 
@@ -70,6 +73,7 @@ description: На странице представлен список прак�
 ## {{ ES }} {#elasticsearch}
 
 * [{#T}](elasticsearch-to-opensearch.md)
+* [{#T}](migration-via-snapshots.md)
 
 ## {{ MG }} {#mongodb}
 
@@ -167,7 +171,20 @@ description: На странице представлен список прак�
 * [{#T}](data-processing-and-airflow.md)
 * [{#T}](data-processing-to-data-processing.md)
 * [{#T}](metastore-import.md)
+* [{#T}](s3-data-processing-ch.md)
 
+### Базовые примеры работы с заданиями {#jobs-basic-tutorials}
+
+* [{#T}](hive-job-basics.md)
+* [{#T}](mapreduce-job-basics.md)
+* [{#T}](pyspark-job-basics.md)
+* [{#T}](spark-job-basics.md)
+
+### Продвинутые примеры работы с заданиями {#jobs-advanced-tutorials}
+
+* [{#T}](how-to-use-hive.md)
+* [{#T}](run-spark-job.md)
+* [{#T}](remote-run-job.md)
 
 ## {{ yq-full-name }} {#query}
 
@@ -176,8 +193,6 @@ description: На странице представлен список прак�
 * [{#T}](debezium-yq.md)
 * [{#T}](jupyter-yq.md)
 * [{#T}](billing-detail-files-processing.md)
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
 
 ## {{ yds-full-name }} {#yds}
 
@@ -194,3 +209,5 @@ description: На странице представлен список прак�
 * [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)
 * [{#T}](schema-registry-cdc-debezium-kafka.md)
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
