@@ -1,6 +1,6 @@
 ---
 title: '{{ objstorage-full-name }} pricing policy'
-description: This article provides the {{ objstorage-name }} pricing policy.
+description: This article explains the {{ objstorage-name }} pricing policy.
 editable: false
 ---
 
@@ -13,7 +13,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or see the pricing data in this section.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on the {{ yandex-cloud }} website or check the pricing data in this section.
 
 
 {% endnote %}
@@ -25,7 +25,7 @@ To calculate the cost of using the service, use the [calculator](https://yandex.
 
 ## What goes into the cost of using {{ objstorage-short-name }} {#rules}
 
-The {{ objstorage-name }} usage cost is based on:
+The {{ objstorage-name }} usage cost includes:
 
 * [Storage class](concepts/storage-class.md).
 * Amount of storage used by your data.
@@ -39,17 +39,17 @@ The {{ objstorage-name }} usage cost is based on:
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 
-### Using storage {#rules-storage}
+### Using the storage {#rules-storage}
 
-Storage usage is measured in GB per month. The volume of data stored during a month is taken as the month's average based on granulated per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
+Storage usage is measured in GB per month. The volume of data stored for a month is calculated as the average value based on granulated per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
 
 
 ### Performing operations with data {#rules-operations}
 
-Data operations are billed according to the following policy:
+You pay for data operations according to the following policy:
 * The minimum billing unit for PUT, POST, PATCH, LIST, and TRANSITION operations is 10.
 * The minimum billing unit for GET, HEAD, and OPTIONS operations is 100.
-* You are not charged for deleting data (DELETE operation).
+* You are not charged for deleting data (the DELETE operation).
 
 
 
@@ -79,7 +79,7 @@ Here is an example of proportional calculation. Let's assume a user stores 15 GB
 Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 ```
 
-^2^ The first 1 GB of data in standard storage per month is free of charge.
+^2^ The first 1 GB of data in a standard storage per month is free of charge.
 
 
 
@@ -87,7 +87,7 @@ Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 {% include [usd-used-space-standard](../_pricing_examples/storage/usd-used-space-standard.md) %}
 
 
-^3^ The minimum billable storage time of an object in ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
+^3^ The minimum billable storage time of an object in an ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
 
 
 
@@ -106,11 +106,11 @@ Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30
 
 {% note info %}
 
-You are going to be charged for the GET, HEAD, OPTIONS, PATCH, POST, and PUT operations ending with Error 403 or 404. The cost is calculated based on standard storage rates.
+You are going to be charged for the GET, HEAD, OPTIONS, PATCH, POST, and PUT operations ending with Error 403 or 404. The cost is calculated based on the standard storage rates.
 
 {% endnote %}
 
-The first 10,000 PUT, POST, PATCH, and LIST operations and the first 100,000 GET, HEAD, and OPTIONS operations in standard storage per month are free of charge.
+The first 10,000 PUT, POST, PATCH, and LIST operations and the first 100,000 GET, HEAD, and OPTIONS operations in a standard storage per month are free of charge.
 
 
 
@@ -119,7 +119,7 @@ The first 10,000 PUT, POST, PATCH, and LIST operations and the first 100,000 GET
 
 
 
-### Egress traffic {#prices-traffic}
+### Outgoing traffic {#prices-traffic}
 
 When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
 

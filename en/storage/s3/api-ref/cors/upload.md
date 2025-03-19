@@ -2,7 +2,7 @@
 
 Uploads a CORS configuration for a bucket. It replaces any existing configuration.
 
-A CORS configuration is an XML file no larger than 64 KB. A configuration may not contain more than 100 rules.
+A CORS configuration is an XML file up to 64 KB. A configuration may not contain more than 100 rules.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
@@ -19,7 +19,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -34,13 +34,13 @@ The `Content-MD5` header is required.
 
 ### Data schema {#request-scheme}
 
-A CORS configuration is passed as an XML document. For the schema description, see [{#T}](xml-config.md)
+A CORS configuration is provided as an XML document. For the schema description, see [{#T}](xml-config.md)
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 

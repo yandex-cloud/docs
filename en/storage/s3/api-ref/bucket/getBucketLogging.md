@@ -6,11 +6,11 @@ description: In this article, you will learn what the getBucketLogging method is
 # getBucketLogging method
 
 
-Returns the settings for [bucket actions logging](../../../concepts/server-logs.md).
+Returns the settings for [bucket logging](../../../concepts/server-logs.md).
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
-## Query {#request}
+## Request {#request}
 
 ```http
 GET /{bucket}?logging HTTP/2
@@ -22,7 +22,7 @@ Parameter | Description
 --- | ---
 `bucket` | [Bucket](../../../concepts/bucket.md) name.
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 --- | ---
@@ -30,7 +30,7 @@ Parameter | Description
 
 ### Headers {#request-headers}
 
-Use [common request headers](../common-request-headers.md) in your requests.
+Use [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
@@ -46,7 +46,7 @@ A successful response contains additional data in XML format with the schema des
 
 ### Data schema {#structure}
 
-Response if logging of actions with the bucket is not configured:
+Response if bucket logging is not configured:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -55,7 +55,7 @@ Response if logging of actions with the bucket is not configured:
 </BucketLoggingStatus>
 ```
 
-Response if logging of actions with the bucket is configured:
+Response if bucket logging is configured:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

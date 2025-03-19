@@ -9043,8 +9043,6 @@ default:
           label_external-s3: External storage
           label_filesystem: File storage
           label_password: Password
-          label_postgresql-connection: Connection type
-          label_postgresql-on-premise: On-premise
           label_s3: Yandex Object Storage
           label_uri: URI
           label_url: URL
@@ -10651,6 +10649,7 @@ default:
         create-tag-key-value: Create tag
         exact-match-key-value: Exact match
         exceptions: Exceptions
+        exceptions-keywords: Exclusionary words
         important-tag-key-value: Important tag
         key-phrases-key-value: Keywords
         new-channel: New channel

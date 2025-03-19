@@ -27,7 +27,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--folder-id`|<b>`string`</b><br/>ID of folder where restored cluster will be created.|
 |`--enable-tls`|Enables tls for Redis cluster.|
-|`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON or OFF).|
+|`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON, OFF or ON_REPLICAS).|
 |`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
 |`--auth-sentinel`|Allows to use ACL users to auth in sentinel|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Redis cluster.|
@@ -61,6 +61,8 @@ Syntax:
 |`--use-luajit`|Use JIT for lua scripts and functions.|
 |`--io-threads-allowed`|Allow redis to use io-threads.|
 |`--zset-max-listpack-entries`|<b>`int`</b><br/>Controls max number of entries in zset before conversion from memory-efficient listpack to CPU-efficient hash table and skiplist.|
+|`--aof-max-size-percent`|<b>`int`</b><br/>AOF maximum size as a percentage of disk available. Values: 1-99|
+|`--activedefrag`|Enable active (online) memory defragmentation.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

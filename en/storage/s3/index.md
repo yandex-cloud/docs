@@ -1,6 +1,6 @@
 ---
-title: How do I use the {{ objstorage-name }} S3 API?
-description: In this tutorial, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests.
+title: How to use the {{ objstorage-name }} S3 API
+description: In this article, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests.
 keywords:
   - s3
   - s3 storage
@@ -31,11 +31,11 @@ For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-
 
 {% note info %}
 
-To access the S3 API from {{ objstorage-name }}, we recommend the [AWS CLI](../tools/aws-cli.md) or [AWS SDK](../tools/sdk/index.md) suitable for your development environment.
+To access the S3 API from {{ objstorage-name }}, we recommend using the [AWS CLI](../tools/aws-cli.md) or [AWS SDK](../tools/sdk/index.md) suitable for your development environment.
 
 {% endnote %}
 
-General {{ objstorage-name }} API request format:
+The general {{ objstorage-name }} API request format is as follows:
 
 ```
 {GET|HEAD|PUT|DELETE} /<bucket_name>/<object_key> HTTP/2
@@ -49,7 +49,7 @@ Request_body
 
 The request contains an HTTP method, bucket name, and [object key](../concepts/object.md).
 
-The bucket name can be specified as part of the host name. In this case, the request will look like this:
+The bucket name can be specified as part of the host name. In this case, the request will be as follows:
 
 ```
 {GET|HEAD|PUT|DELETE} /<object_key> HTTP/2
@@ -57,7 +57,7 @@ Host: <bucket_name>.{{ s3-storage-host }}
 ...
 ```
 
-The set of headers depends on the specific request and is described in the documentation for the corresponding request.
+The set of headers is request-specific and described in the documentation for the relevant request.
 
 When using the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for signing requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
 
@@ -65,18 +65,18 @@ When using the API directly (without an SDK or apps), you need to generate the `
 
 ### Request URL {#request-url}
 
-URLs can take one of the following forms:
+URLs can have the following formats:
 
-* `http(s)://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>`
-* `http(s)://<bucket_name>.{{ s3-storage-host }}/<object_key>?<query_parameters>`
+* `http(s)://{{ s3-storage-host }}/<bucket_name>/<object_key>?<request_parameters>`
+* `http(s)://<bucket_name>.{{ s3-storage-host }}/<object_key>?<request_parameters>`
 
 {% note info %}
 
-For buckets with periods in their names, e.g., `example.ru`, HTTPS is available only with a URL formatted like `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>`. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
+For buckets with periods in their names, e.g., `example.ru`, HTTPS is available only with a URL of the `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<request_parameters>` format. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
 
 {% endnote %}
 
-The URL contains the bucket name, object key, and query parameters. See an example of possible query parameters in the [Get object method description](api-ref/object/get.md).
+The URL contains the bucket name, object key, and request parameters. See an example of possible request parameters in the [Get object method description](api-ref/object/get.md).
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 

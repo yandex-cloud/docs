@@ -13,6 +13,8 @@ description: На странице представлен список прак�
 * [Анализ логов с использованием {{ datalens-name }}](./storage-logs-analysis.md)
 * [{#T}](./search-events-audit-logs/index.md)
 * [{#T}](./data-processing-init-actions-geesefs.md)
+* [{#T}](./copy-files-from-object-storage.md)
+* [{#T}](./s3-data-processing-ch.md)
 * [Подключение бакета как диска в Windows](./s3-disk-connect.md)
 * [Автоматическое копирование объектов из бакета в бакет](./bucket-to-bucket.md)
 * [Регулярное распознавание аудиофайлов в бакете](./batch-recognition-stt.md)
@@ -72,3 +74,4 @@ description: На странице представлен список прак�
 * [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](search-events-query.md)
 * [{#T}](search-events-bucket.md)
+* [{#T}](bigquery-to-clickhouse.md)

@@ -1,13 +1,13 @@
 ---
-title: UploadPart method. {{ objstorage-name }} API (S3)
-description: The `uploadPart` method in the {{ objstorage-name }} API (S3) saves a part of the object. Users number object parts themselves and transmit the numbers to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer in the range from 1 to 10,000 inclusive.
+title: uploadPart method. {{ objstorage-name }} API (S3)
+description: The `uploadPart` method in the {{ objstorage-name }} API (S3) saves a part of the object. Users number object parts themselves and transmit these numbers to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer from 1 to 10,000 inclusive.
 ---
 
 # uploadPart method
 
 Saves a part of an object.
 
-Users number object parts themselves and transmit the numbers to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer in the range from 1 to 10,000 inclusive.
+Users number object parts themselves and transmit these numbers to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer from 1 to 10,000 inclusive.
 
 If multiple parts with the same number are uploaded, {{ objstorage-name }} saves the last one received.
 
@@ -31,7 +31,7 @@ Parameter | Description
 `key` | Object key.
 
 
-### Query parameters {#request-parameters}
+### Request parameters {#request-parameters}
 
 Parameter | Description
 ----- | -----
@@ -52,11 +52,11 @@ The `Content-MD5` header is required if [default object locks](../../../concepts
 
 ### Headers {#response-headers}
 
-A response may contain [common response headers](../common-response-headers.md) and the headers listed in the table below.
+A response may contain [common headers](../common-response-headers.md) and the headers listed in the table below.
 
 Header | Description
 ----- | -----
-`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>It has the `COLD` value if the object is in a cold storage, or `ICE`, if it is in an ice storage.<br/><br/>If the object is in standard storage, there is no header.
+`X-Amz-Storage-Class` | [Storage class](../../../concepts/storage-class.md) of the object.<br/>It takes the `COLD` value if the object is in a cold storage, or `ICE`, if it is in an ice storage.<br/><br/>If the object is in a standard storage, there is no header.
 
 
 ### Response codes {#response-codes}
@@ -67,7 +67,7 @@ Additionally, {{ objstorage-name }} may return errors described in the table bel
 
 Error | Description | HTTP code
 ----- | ----- | -----
-`NoSuchUpload` | The specified upload does not exist. The specified upload ID may be incorrect or the upload was completed or deleted. | 404 Not Found
+`NoSuchUpload` | The specified upload does not exist. This may happen if you specify a wrong upload ID or the upload was completed or deleted. | 404 Not Found
 `EntityTooSmall` | The part is too small.<br/><br/>The part to upload must be at least 5 MB. | 400 Bad Request
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -2,7 +2,7 @@
 
 To access a [bucket](../concepts/bucket.md) over FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS), or [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol), you can deploy the server using a public Docker container provided by {{ objstorage-name }}.
 
-A Docker container implements links between the {{ objstorage-name }} [GeeseFS](geesefs.md) FUSE client and servers: [vsftpd](https://security.appspot.com/vsftpd.html) for FTP and FTPS and sftp-server (part of [OpenSSH](https://www.openssh.com/)) for SFTP.
+A Docker container implements links between the {{ objstorage-name }} [GeeseFS](geesefs.md) FUSE client and servers: [vsftpd](https://security.appspot.com/vsftpd.html) for FTP and FTPS, and sftp-server (part of [OpenSSH](https://www.openssh.com/)) for SFTP.
 
 ## Getting started {#before-you-begin}
 
@@ -45,7 +45,7 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
      ```
 
      
-     To learn how to create an SSH key pair, see the [{{ compute-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     Learn how to create an SSH key pair in the [{{ compute-name }} documentation](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 
    * If you are going to use FTPS, add the `ftp.pem` TLS certificate and its `ftp.key` to the folder. For example, for testing purposes, you can issue a self-signed certificate:
@@ -59,17 +59,17 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
     {% include [tls-support-alert](../../_includes/storage/tls-support-alert.md) %}
 
 
-1. Create an `env.list` file with environment variables for the Docker container:
+1. Create the `env.list` file with environment variables for the Docker container:
 
    ```text
    <variable_name>=<variable_value>
    ...
    ```
 
-   Supported variables:
+   The supported variables include:
    * `S3_BUCKET`: Bucket name or path to its folder to mount to the FTP server, in `<bucket_name>:<folder_path>` format. This is a required variable.
-   * `SFTP`: Enables the use of SFTP. The default value is `YES`.
-   * `FTP`: Enables the use of FTP. The default value is `NO`.
+   * `SFTP`: Enables SFTP. The default value is `YES`.
+   * `FTP`: Enables FTP. The default value is `NO`.
    * `FTP_USER`: Username to connect to the server. The default value is `s3`.
    * `FTP_PASS`: User password to connect to the server. By default, a random password is generated and displayed in Docker container logs.
    * `FTP_PASV_ENABLE`: Enables passive FTP connection mode. The default value is `YES`.
@@ -150,6 +150,6 @@ A Docker container implements links between the {{ objstorage-name }} [GeeseFS](
 
 ## Specifics of uploading files to a bucket {#uploading-files}
 
-The GeeseFS client that is part of a Docker container works with files asynchronously. It caches new files and uploads them to a bucket after a while. If an FTP server connection is broken between these two points of time, uploaded files may be lost either partially or completely.
+The GeeseFS client that is part of a Docker container works with files asynchronously. It caches new files and uploads them to a bucket after a while. If an FTP server connection is broken between these two points in time, uploaded files may be lost either partially or completely.
 
 To ensure data integrity when establishing SFTP connections, use the `fsync@openssh.com` extension so that file uploads are considered successful only after the `fsync` system call. For example, for the sftp client that is part of OpenSSH, the extension is enabled with the `-f` flag: `sftp -f <server_address>`. Waiting for `fsync` calls slows down operations with files.

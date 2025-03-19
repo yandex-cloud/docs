@@ -13,13 +13,13 @@ GET / HTTP/2
 ```
 
 ### Headers {#request-headers}
-Use only [common request headers](../common-request-headers.md) in your requests.
+Use only [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
@@ -43,10 +43,10 @@ A successful response contains additional data in XML format with the schema des
 
 Element | Description
 ----- | -----
-`Bucket` | Contains bucket description.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket`.
-`Buckets` | Contains a bucket list.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets`.
+`Bucket` | Contains the bucket description.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket`.
+`Buckets` | Contains the bucket list.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets`.
 `CreationDate` | Bucket creation time in `yyyy-mm-ddThh:mm:ss.timezone` format.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`.
-`ListAllMyBucketsResult` | Root element of response.<br/><br/>Path: `/ListAllMyBucketsResult`.
+`ListAllMyBucketsResult` | Root element of the response.<br/><br/>Path: `/ListAllMyBucketsResult`.
 `Name` | Bucket name.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

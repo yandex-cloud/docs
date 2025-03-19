@@ -1,6 +1,6 @@
 # Partial object updates
 
-{{ objstorage-name }} has a mechanism for _partial updating and appending of objects data_ in a bucket.
+{{ objstorage-name }} supports _partial updating and appending of objects data_ in a bucket.
 
 {% include [patch-disclaimer](../../_includes/storage/patch-disclaimer.md) %}
 
@@ -12,13 +12,13 @@ This also simplifies large file processing. For example, to change one byte of i
 
 Such partial overwrite streamlines your {{ objstorage-name }} operations and reduces costs.
 
-With partial overwrite, the following will be overwritten on the server side:
+With partial updates, the following will be overwritten on the server side:
 * Object as a whole, if initially uploaded using the [PUT](../s3/api-ref/object/upload.md) method.
-* Object components falling within the update range, if the object was initially [uploaded in parts](multipart.md).
+* Object components being updated, if the object was initially [uploaded in parts](multipart.md).
 
-This functionality is implemented as a [patch](../s3/api-ref/object/patch.md) method and is supported in [GeeseFS](../tools/geesefs.md#patch).
+This feature is implemented as a [patch](../s3/api-ref/object/patch.md) method and is supported in [GeeseFS](../tools/geesefs.md#patch).
 
-GeeseFS is the recommended tool for partial updating of objects in a bucket.
+GeeseFS is the recommended tool for partial updates of objects in a bucket.
 
 You can also directly [send patch requests](../s3/index.md) to the {{ objstorage-name }} API, or extend the set of [AWS SDK](../tools/) methods using the patch method [specification](#specification).
 
@@ -26,17 +26,17 @@ You can also directly [send patch requests](../s3/index.md) to the {{ objstorage
 
 {{ objstorage-name }} supports concurrent partial object updates.
 
-With a partial update, each parallel request is executed on a dedicated object snapshot. Therefore, different update requests for the same object are processed independently.
+With a partial update, each parallel request runs on a dedicated object snapshot. Therefore, different update requests for the same object are processed independently.
 
 All changes during parallel requests are applied atomically.
 
 ## Conflict resolution {#conflicts}
 
-A conflict resolution mechanism has been implemented for concurrent partial updates.
+A conflict resolution feature is available for concurrent partial updates.
 
-In a successful conflict resolution, the more recent update is applied.
+In case fo success, the more recent update is applied. 
 
-The number of overwrite retries on the server side is limited. If the server fails to resolve conflicts, the user gets the `ConcurrentUpdatesPatchConflict` error.
+The number of overwrite retries on the server side is limited. If the server fails to resolve conflicts, the user gets the `ConcurrentUpdatesPatchConflict` error. 
 
 ## Specification {#specification}
 

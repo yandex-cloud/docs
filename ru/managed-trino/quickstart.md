@@ -15,6 +15,7 @@ noIndex: true
 * [Отправьте запросы к кластеру {{ mpg-full-name }} через {{ TR }}](#query-mpg-via-trino).
 * [Проверьте запросы в кластере {{ mpg-name }}](#check-queries-in-psql).
 
+
 ## Перед началом работы {#before-you-begin}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
@@ -46,21 +47,23 @@ noIndex: true
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Задайте имя кластера.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите созданный ранее сервисный аккаунт.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, подсеть и группу безопасности для кластера.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../vpc/operations/network-create.md), [подсеть](../vpc/operations/subnet-create.md) и [группу безопасности](../vpc/concepts/security-groups.md) для кластера.
     1. Задайте конфигурацию координатора и воркеров.
     1. В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте каталоги:
 
         1. Для кластера {{ mpg-name }} со следующими параметрами:
+
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `test`.
            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `PostgreSQL`.
-           * **{{ ui-key.yacloud.trino.catalogs.label_url }}** — `jdbc:postgresql://<FQDN_хоста_кластера_Managed_Service_for_Postgresql>:6432/<имя_базы_данных>?ssl=true&sslmode=verify-full`.
+           * **{{ ui-key.yacloud.trino.catalogs.label_url }}** — `jdbc:postgresql://<FQDN_хоста_кластера_{{ PG }}>:6432/<имя_базы_данных>?ssl=true&sslmode=verify-full`.
 
                Подробнее о получении FQDN хоста в кластере {{ mpg-name }} см. в [инструкции](../managed-postgresql/operations/connect.md#fqdn).
 
            * **{{ ui-key.yacloud.trino.catalogs.label_userName }}** — имя пользователя в кластере {{ mpg-name }}.
-           * **{{ ui-key.yacloud.trino.catalogs.label_password }}** — пароль пользователя в кластере {{ mpg-name }}.
+           * **{{ ui-key.yacloud.trino.catalogs.label_password }}** — пароль пользователя.
 
         1. Для тестовых данных со следующими параметрами:
+
             * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}** — `data`.
             * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}** — `TPC-H`.
    
@@ -71,7 +74,7 @@ noIndex: true
         1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
         1. Выберите место записи логов:
             * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка.
-            * **{{ ui-key.yacloud.logging.label_group }}** — выберите лог-группу из списка или создайте новую.
+            * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../logging/concepts/log-group.md) из списка или создайте новую.
         1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

@@ -12,7 +12,7 @@ meta:
     серверов {{ TR }} в инфраструктуре {{ yandex-cloud }}.
 links:
   - title: Начало работы
-    description: Создайте первый кластер баз данных
+    description: Создайте первый кластер {{ TR }}
     href: quickstart
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций

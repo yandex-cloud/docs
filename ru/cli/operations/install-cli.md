@@ -48,3 +48,6 @@
 
 {% endlist %}
 
+## См. также {#see-also}
+
+* [{#T}](update-cli.md)

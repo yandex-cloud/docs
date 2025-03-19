@@ -6,12 +6,12 @@ A _label_ is a key-value pair used for logical bucket and object labeling.
 
 ## Bucket labels {#bucket-tags}
 
-Buckets support [labels](../../resource-manager/concepts/labels.md) {{ resmgr-full-name }}.
+Buckets support {{ resmgr-full-name }} [labels](../../resource-manager/concepts/labels.md).
 
 
-You can view spending details for buckets or other resources of {{ yandex-cloud }} [services](../../resource-manager/concepts/labels.md#services) marked with a specific label. For example, using labels, you can view expenses for a particular project or organizational department.
+You can view spending details for buckets or other resources of {{ yandex-cloud }} [services](../../resource-manager/concepts/labels.md#services) marked with a specific label. For example, using labels, you can view expenses for a particular project or corporate department.
 
-You can view expenses by labeled resources in a CSV [file with usage details](../../billing/operations/get-folder-report.md#format) and on the [{{ datalens-full-name }} dashboard](../../billing/operations/dashboard.md).
+You can view expenses for the labeled resources in a CSV [file with usage details](../../billing/operations/get-folder-report.md#format) and on the [{{ datalens-full-name }} dashboard](../../billing/operations/dashboard.md).
 
 
 {% include [tags-restrictions](../../_includes/tags-restrictions.md) %}
@@ -20,7 +20,7 @@ You can view expenses by labeled resources in a CSV [file with usage details](..
 
 ## Object labels {#object-tags}
 
-Object label operation limits:
+Object label operation limits are as follows:
 
 * Maximum number of labels per object: 10.
 * Label key parameters:

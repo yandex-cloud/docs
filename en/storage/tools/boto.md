@@ -1,6 +1,6 @@
 ---
 title: boto3 and boto
-description: In this tutorial, you will learn about boto3 and boto, how to install and configure them, and will see some examples of operations.
+description: In this article, you will learn about boto3 and boto, how to install and configure them, and will see some examples of operations.
 ---
 
 # boto3 and boto
@@ -27,7 +27,7 @@ pip3 install boto3==1.35.99
 
 {% include [install-boto](../../_includes/aws-tools/install-boto.md)%}
 
-## Setup {#setup}
+## Configuration {#setup}
 
 {% list tabs group=instructions %}
 
@@ -39,11 +39,11 @@ pip3 install boto3==1.35.99
   
   [Add environment variables](../../functions/operations/function/version-manage#version-env) to a function in {{ sf-name }}:
 
-  * `AWS_ACCESS_KEY_ID`: Static service account key ID.
+  * `AWS_ACCESS_KEY_ID`: Static key ID of the service account.
   * `AWS_SECRET_ACCESS_KEY`: Secret key.
   * `AWS_DEFAULT_REGION`: Region ID.
 
-  Use the {{ objstorage-name }} address to access `{{ s3-storage-host }}`.
+  Use the `{{ s3-storage-host }}` address to access {{ objstorage-name }}.
 
 {% endlist %}
 

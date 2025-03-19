@@ -146,3 +146,8 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
    yc vpc subnet delete my-yc-subnet-a
    yc vpc network delete my-yc-network
    ```
+
+
+## См. также {#see-also}
+
+* [{#T}](operations/update-cli.md)

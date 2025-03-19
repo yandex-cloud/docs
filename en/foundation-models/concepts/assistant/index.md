@@ -31,7 +31,7 @@ For detailed costs of running an assistant, see [Assistant pricing policy](../..
 
 ### Handling external information sources {#files}
 
-For your model to use external information sources to respond to requests, upload supplementary data files through the [Files API](../../files/api-ref/grpc/index.md) and create a [_search index_](../../searchindex/api-ref/grpc/SearchIndex/create.md) for them. You can upload up to 1,000 files, with maximum size of 128 MB per file. A single file can be included in multiple search indexes at the same time. Currently, a search index can include up to 100 files.
+For your model to use external information sources to respond to requests, upload supplementary data files through the [Files API](../../files/api-ref/grpc/index.md) and create a [_search index_](../../searchindex/api-ref/grpc/SearchIndex/create.md) for them. You can upload up to 10,000 files, with maximum size of 128 MB per file. A single file can be included in multiple search indexes at the same time. 
 
 For all {{ assistant-api }} limitations, see [{#T}](../limits.md).
 

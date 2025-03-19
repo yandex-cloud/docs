@@ -36,6 +36,7 @@ description: В разделе описаны сценарии использо�
   * [Визуализация данных из {{ ytsaurus-name }} CHYT](data-from-ch-over-yt.md)
   * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)
   * [{#T}](forms-and-datalens-integration/index.md)
+  * [{#T}](bigquery-to-clickhouse.md)
 
 * Функциональные
 

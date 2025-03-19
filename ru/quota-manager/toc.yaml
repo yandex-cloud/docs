@@ -20,6 +20,20 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: quota-limit
+        items:
+          - name: Overview
+            href: cli-ref/quota-limit/index.md
+          - name: get
+            href: cli-ref/quota-limit/get.md
+          - name: list
+            href: cli-ref/quota-limit/list.md
+          - name: list-services
+            href: cli-ref/quota-limit/list-services.md
   - name: Справочник API
     expanded: true
     items:

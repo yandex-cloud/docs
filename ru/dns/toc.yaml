@@ -87,6 +87,10 @@ items:
         href: tutorials/storage-vpc-access.md
       - name: Подключение к {{ container-registry-name }} из {{ vpc-name }}
         href: tutorials/vpc-cr-access.md
+      - name: >-
+          Переключение сетевого соединения при пересоздании кластера {{
+          dataproc-name }}
+        href: tutorials/reconnect-network.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

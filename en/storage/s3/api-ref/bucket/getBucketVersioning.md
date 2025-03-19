@@ -16,20 +16,20 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Query parameters {#request-params}
+### Request parameters {#request-params}
 
 Parameter | Description
 ----- | -----
 `versioning` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
-Use [common request headers](../common-request-headers.md) in your requests.
+Use [common headers](../common-request-headers.md) in your requests.
 
 ## Response {#response}
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
@@ -48,6 +48,6 @@ A successful response contains additional data in XML format with the schema des
 Element | Description
 ----- | -----
 `VersioningConfiguration` | Root element.
-`Status` | Bucket versioning status.<br/><br/>Path: `/VersioningConfiguration/Status`<br/>Type: String<br/>Possible values: `Enabled | Suspended`
+`Status` | Bucket versioning status.<br/><br/>Path: `/VersioningConfiguration/Status`.<br/>Type: String.<br/>The possible values are: `Enabled | Suspended`
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

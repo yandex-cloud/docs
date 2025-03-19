@@ -1,6 +1,6 @@
 ---
 title: Reference for {{ objstorage-full-name }} metrics in {{ monitoring-full-name }}
-description: This page provides reference information on {{ objstorage-name }} metrics delivered to {{ monitoring-full-name }}.
+description: This page is a reference for {{ objstorage-name }} metrics delivered to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference

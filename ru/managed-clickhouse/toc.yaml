@@ -172,6 +172,10 @@ items:
           Геокодинг с помощью API Яндекс Карт для визуализации в {{
           datalens-short-name }}
         href: tutorials/data-from-ch-geocoder.md
+      - name: >-
+          Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
+          mch-name }}
+        href: tutorials/s3-data-processing-ch.md
       - name: Работа с данными с помощью {{ yq-name }}
         href: tutorials/yq-clickhouse.md
       - name: Федеративные запросы к данным с помощью {{ yq-name }}

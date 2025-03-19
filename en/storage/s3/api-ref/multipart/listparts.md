@@ -20,16 +20,16 @@ Parameter | Description
 `key` | Object key.
 
 
-### Query parameters {#request-parameters}
+### Request parameters {#request-parameters}
 
 You can change a response from {{ objstorage-name }} using the parameters described in the table below.
 
 Parameter | Description
 ----- | -----
-`encoding-type` | Encoding of server response.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.
+`encoding-type` | Encoding of server responses.<br/><br/>{{ objstorage-name }} can encode responses in the format requested by the client.
 `max-parts` | Maximum number of elements in a response per request.<br/><br/>The default value is 1,000.
 `part-number-marker` | Number of the part to start a response from.<br/><br/>{{ objstorage-name }} will only include in the response the parts whose numbers are greater than the one specified.
-`uploadId` | ID of multipart upload.
+`uploadId` | ID of the multipart upload.
 
 
 Only the `uploadId` parameter is required.
@@ -43,7 +43,7 @@ Use the appropriate [common headers](../common-request-headers.md) in your reque
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
@@ -86,15 +86,15 @@ A successful response contains additional data in XML format with the schema des
 </ListPartsResult>
 ```
 
-Possible response tags are described in the table below.
+The possible response tags are described in the table below.
 
 Tag | Description
 ----- | -----
-`ListPartsResult` | Root element of response.<br/><br/>Path: `/ListPartsResult`.
-`Bucket` | Bucket the multipart upload belongs to.<br/><br/>Path: `/ListPartsResult/Bucket`.
+`ListPartsResult` | Root element of the response.<br/><br/>Path: `/ListPartsResult`.
+`Bucket` | Bucket to which the parts are being uploaded.<br/><br/>Path: `/ListPartsResult/Bucket`.
 `Encoding-Type` | Encoding used by {{ objstorage-name }} to provide a key in an XML response.<br/><br/>You will get this tag if the client provided the `encoding-type` parameter in the request.<br/><br/>Path: `/ListPartsResult/Encoding-Type`.
 `Key` | Key the multipart upload is performed for.<br/><br/>Path: `/ListPartsResult/Key`.
-`UploadId` | Multipart upload ID.<br/><br/>Path: `/ListPartsResult/UploadId`.
+`UploadId` | ID of the multipart upload.<br/><br/>Path: `/ListPartsResult/UploadId`.
 `Initiator` | Information about the user who initiated the upload.<br/><br/>Path: `/ListPartsResult/Initiator`.
 `ID` | User ID.<br/><br/>Path: `/ListPartsResult/Initiator/ID`.
 `DisplayName` | Displayed user name.<br/><br/>Path: `/ListPartsResult/Initiator/DisplayName`.
@@ -103,9 +103,9 @@ Tag | Description
 `PartNumberMarker` | Number of the part immediately preceeding the list.<br/><br/>The number of the first list item is the next one after `PartNumberMarker`.<br/><br/>Path: `/ListPartsResult/PartNumberMarker`.
 `NextPartNumberMarker` | Number of the part the list ends with.<br/><br/>You will get this tag if there are more parts than listed in the response.<br/><br/>Path: `/ListPartsResult/NextPartNumberMarker`.
 `MaxParts` | Maximum list size per response.<br/><br/>Path: `/ListPartsResult/MaxParts`.
-`IsTruncated` | Marker indicating that a list is incomplete.<br/><br/>If `IsTruncated` is `true`, this means {{ objstorage-name }} returned an incomplete list of parts.<br/><br/>Path: `/ListPartsResult/IsTruncated`.
+`IsTruncated` | Tag that indicates that a list is incomplete.<br/><br/>If `IsTruncated` is `true`, this means {{ objstorage-name }} returned an incomplete list of parts.<br/><br/>Path: `/ListPartsResult/IsTruncated`.
 `Part` | Upload part description.<br/><br/>Path: `/ListPartsResult/Part`.
-`PartNumber` | Part number.<br/><br/>Unique integer ID that defines the position of a part in the upload.<br/><br/>Path: `/ListPartsResult/Part/PartNumber`.
+`PartNumber` | Part number.<br/><br/>It is a unique integer ID that determines the part position in the upload.<br/><br/>Path: `/ListPartsResult/Part/PartNumber`.
 `LastModified` | Date and time when the part was uploaded.<br/><br/>Path: `/ListPartsResult/Part/LastModified`.
 `ETag` | `ETag` of the uploaded part.<br/><br/>Path: `/ListPartsResult/Part/ETag`.
 `Size` | Size of the uploaded part.<br/><br/>Path: `/ListPartsResult/Part/Size`.
