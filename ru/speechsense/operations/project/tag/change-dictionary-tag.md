@@ -44,8 +44,8 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
-1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}**.
-1. В строке нужного тега нажмите ![icon](../../../../_assets/console-icons/ellipsis.svg), затем ![icon](../../../../_assets/console-icons/arrow-right-arrow-left.svg) **Изменить канал**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.tags.tags }}**.
+1. В строке нужного тега нажмите ![icon](../../../../_assets/console-icons/ellipsis.svg), затем ![icon](../../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yc-ui-talkanalytics.tags.change-channel }}**.
 1. Укажите канал в зависимости от того, где {{ speechsense-name }} должен искать ключевые слова тега:
 
     * **{{ ui-key.yc-ui-talkanalytics.tags.channel.operator-and-client }}** — во всем диалоге;
@@ -60,7 +60,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
-1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** и выберите нужные теги.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** и выберите нужные теги.
 1. Во всплывающем окне нажмите кнопку ![icon](../../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yc-ui-talkanalytics.tags.change-channel }}**.
 1. Укажите канал для каждого тега. Если для всех тегов нужен один канал, выберите его в поле **{{ ui-key.yc-ui-talkanalytics.tags.new-channel }}** над списком тегов.
 1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.save }}**.

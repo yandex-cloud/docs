@@ -255,43 +255,43 @@ Create a VM and give it a public IP address:
          --metadata-from-file user-data=setpass
        ```
 
-      Result:
+       Result:
 
-      ```
-      done (25s)
-      id: frmogfp7mm1k********
-      folder_id: big67u7m5flp********
-      created_at: "2021-06-09T10:51:58Z"
-      name: my-rds-gw
-      zone_id: {{ region-id }}-d
-      platform_id: standard-v3
-      resources:
-      memory: "4294967296"
-      cores: "2"
-      core_fraction: "100"
-      status: RUNNING
-      boot_disk:
-      mode: READ_WRITE
-      device_name: fhmplfvr7g6p********
-      auto_delete: true
-      disk_id: fhmplfvr7g6p********
-      network_interfaces:
-      - index: "0"
-        mac_address: d0:0d:18:83:c8:7b
-        subnet_id: e9b95m6al33r********
-        primary_v4_address:
-        address: 10.1.0.3
-        one_to_one_nat:
-        address: 178.154.231.126
-        ip_version: IPV4
-        security_group_ids:
-         - enp136p8s2a********
-           fqdn: my-rds-gw.{{ region-id }}.internal
-           scheduling_policy: {}
-           network_settings:
-           type: STANDARD
-           placement_policy: {}
-      ```
+       ```
+       done (25s)
+       id: frmogfp7mm1k********
+       folder_id: big67u7m5flp********
+       created_at: "2021-06-09T10:51:58Z"
+       name: my-rds-gw
+       zone_id: {{ region-id }}-d
+       platform_id: standard-v3
+       resources:
+       memory: "4294967296"
+       cores: "2"
+       core_fraction: "100"
+       status: RUNNING
+       boot_disk:
+       mode: READ_WRITE
+       device_name: fhmplfvr7g6p********
+       auto_delete: true
+       disk_id: fhmplfvr7g6p********
+       network_interfaces:
+       - index: "0"
+         mac_address: d0:0d:18:83:c8:7b
+         subnet_id: e9b95m6al33r********
+         primary_v4_address:
+         address: 10.1.0.3
+         one_to_one_nat:
+         address: 178.154.231.126
+         ip_version: IPV4
+         security_group_ids:
+          - enp136p8s2a********
+            fqdn: my-rds-gw.{{ region-id }}.internal
+            scheduling_policy: {}
+            network_settings:
+            type: STANDARD
+            placement_policy: {}
+       ```
 
        {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 

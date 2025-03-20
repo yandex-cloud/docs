@@ -739,6 +739,7 @@ default:
   si-name: Serverless Integrations
   sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
+  sk-operations-host: api.cloud.yandex.net
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
@@ -2188,6 +2189,8 @@ default:
         requests|pricingRate:
           1|number: 106.9
           1|string: "106,90\_₸"
+        requests|string: Не тарифицируется
+        storage|month|string: Не тарифицируется
   sku|KZT|yds:
     events:
       puts|pricingRate:
@@ -2232,6 +2235,7 @@ default:
         v1|pricingRate:
           10|number: 3
           10|string: "3,00\_₸"
+        v1|string: Не тарифицируется
   sku|RUB|ai:
     datasphere:
       computing:
@@ -3522,6 +3526,8 @@ default:
         requests|pricingRate:
           1|number: 21.38
           1|string: "21,38\_₽"
+        requests|string: Не тарифицируется
+        storage|month|string: Не тарифицируется
   sku|RUB|yds:
     events:
       puts|pricingRate:
@@ -3566,6 +3572,7 @@ default:
         v1|pricingRate:
           10|number: 0.6
           10|string: "0,60\_₽"
+        v1|string: Не тарифицируется
   sku|USD|ai:
     mt:
       detect|string: "3,937600\_$"
@@ -10604,17 +10611,28 @@ default:
     yc-ui-talkanalytics:
       common:
         add: Добавить
+        add-filter: Добавить фильтр
+        apply: Применить
+        bind: Привязать
         create: Создать
         delete-key-value: Удалить
         duplicate: Дублировать
         edit: Редактировать
+        filters: Фильтры
         more: Еще
+        'no': Нет
+        period: Период
         save: Сохранить
+        settings: Настройки
+        show-more: Показать ещё
+        'yes': Да
       connections:
         add-key: Добавить ключ
         column:
           name: Название в системе
         connection: Подключение
+        connection-name: Название подключения
+        connections: Подключения
         create-connection-key-value: Создать подключение
         fields:
           client: Клиент
@@ -10624,20 +10642,78 @@ default:
           chat-key-value: Чат
           two-channel-key-value: Двухканальное аудио
       dialogs:
+        analysis: Анализ
         bot: Бот
+        classifier:
+          appreciation-key-value: Благодарность
         classifiers: Теги
         client: Клиент
+        client-tags: Теги клиента
+        common-metadata: Общие метаданные
+        dialog: Диалог
+        dialogs: Диалоги
+        direction-key-value: Направление
+        direction:
+          incoming: Входящий
+          outgoing: Исходящий
+        open-dialog: Перейти в диалог
         operator: Оператор
+        operator-tags: Теги оператора
+        speech-statistics: Статистики речи
+        system-meta:
+          talk:
+            statistics:
+              simultaneous_silence:
+                ratio-key-value: Доля тишины в диалоге
       dictionaries:
         add-dictionary: Добавить словарь
+        create-dictionary-key-value: Создать словарь
+        dictionaries: Словари
+      neuro-tags:
+        confidence-key-value: Вероятность
+        reasons-key-value: Причины
+        refresh-suggestions: Обновить список
+        results-key-value: Итоги
+        test-tag: Протестировать тег
+        testing-dataset: Тестирование тега
+        themes-key-value: Темы
       projects:
         add-connection: Добавить подключение
         add-participant: Добавить участника
         create-project: Создать проект
         dialogs: Диалоги
         projects: Проекты
+        sumarization: Анализ от YandexGPT
+      reports:
+        add-parameter: Добавить параметр
+        barchart: График
+        comparison-key-value: Сравнение
+        create-report: Создать отчет
+        details-key-value: Детализация
+        generate-report: Создать отчет
+        grouping-field: Группировать по
+        parameter:
+          description: Название параметра в отчете
+          filter: Параметры оценки
+          weight: Вес
+        rating-key-value: Форма оценки
+        reports: Отчеты
+        save-report-key-value: Сохранить отчет
+        table-key-value: Таблица
       spaces:
         create-space: Создать пространство
+        error:
+          billing:
+            title: Пространство не привязано к платёжному аккаунту
+      statements:
+        call_reasons: Причины звонка
+        call_results: Итоги
+        client_keywords: Ключевые слова клиента
+        common_question: Общий вопрос
+        operator_keywords: Ключевые слова оператора
+        problems: Проблемы
+        summary: Суммаризация
+        theme: Тема
       tags:
         binding-events-key-value: Ограничения
         binding-events:
@@ -10662,11 +10738,15 @@ default:
         search-area-key-value: Направление поиска
         search-area:
           after-key-value: Вперед
+        tag-using-key-value: Использование
+        tags: Теги
         tags-type:
           dictionary-key-value: Словарный
         words-between-key-value: Дистанция между словами
       team:
         add-from-organization-key-value: Добавить из организации
+        invite-new-key-value: Пригласить нового пользователя
+        team: Команда
       upload-audio:
         upload-audio-key-value: Добавление диалогов
     yql:

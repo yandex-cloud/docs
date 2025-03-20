@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы подготовиться к загрузке аудиоданных:
 
-1. [Создайте подключение](../connection/create.md#create-audio-connection) типа **Двухканальное аудио**.
+1. [Создайте подключение](../connection/create.md#create-audio-connection) типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**.
 1. [Создайте проект](../project/create.md) с новым подключением.
 
    В созданные проект и подключение будут загружены аудиозаписи разговоров.

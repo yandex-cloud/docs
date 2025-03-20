@@ -32,7 +32,7 @@
       curl \
         --insecure \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
-        --data @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
+        --data @request.json https://{{ api-host-sk-stt }}:443/stt/v3/recognizeFileAsync
       ```
 
       Где `IAM_TOKEN` — IAM-токен сервисного аккаунта.
@@ -46,7 +46,7 @@
       curl \
         --insecure \
         --header "Authorization: Api-Key ${API_KEY}" \
-        --data @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
+        --data @request.json https://{{ api-host-sk-stt }}:443/stt/v3/recognizeFileAsync
       ```
 
     Пример результата:
@@ -75,7 +75,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
-          https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
+          https://operation.{{ api-host-sk-stt }}/operations/<идентификатор_операции_распознавания>
         ```
 
     * С аутентификацией с помощью API-ключа:
@@ -85,7 +85,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Api-key ${API_KEY}" \
-          https://operation.{{ api-host }}/operations/<идентификатор_операции_распознавания>
+          https://operation.{{ api-host-sk-stt }}/operations/<идентификатор_операции_распознавания>
         ```
 
     Пример результата:
@@ -110,7 +110,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
-          https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
+          https://{{ api-host-sk-stt }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
         ```
 
     * С аутентификацией с помощью API-ключа:
@@ -120,7 +120,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Api-key ${API_KEY}" \
-          https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
+          https://{{ api-host-sk-stt }}:443/stt/v3/getRecognition?operation_id=<идентификатор_операции_распознавания>
         ```
 
     {% cut "Пример результата" %}

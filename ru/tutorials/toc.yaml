@@ -927,12 +927,16 @@ items:
         href: dataplatform/opensearch-yandex-lemmer.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
+      - name: Поиск проблем с производительностью кластера {{ mpg-name }}
+        href: dataplatform/mpg-performance-problems.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}
         href: dataplatform/mpg-profiling.md
-      - name: Миграция БД из {{ mpg-name }}
-        href: dataplatform/outbound-replication.md
+      - name: Логическая репликация {{ PG }}
+        href: dataplatform/mpg-replication-overview.md
       - name: Миграция БД из стороннего кластера {{ PG }} в {{ mpg-name }}
         href: dataplatform/postgresql-data-migration.md
+      - name: Миграция БД из {{ mpg-name }}
+        href: dataplatform/outbound-replication.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
         hidden: true
@@ -975,6 +979,10 @@ items:
           Загрузка данных из {{ objstorage-name }} в {{ mgp-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/object-storage-to-greenplum.md
+      - name: >-
+          Создание внешней таблицы на базе таблицы из бакета {{ objstorage-name
+          }} с помощью конфигурационного файла
+        href: dataplatform/mgp-config-server-for-s3.md
       - name: Миграция БД из стороннего кластера {{ VLK }} в {{ mrd-name }}
         href: dataplatform/redis-data-migration.md
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP

@@ -74,4 +74,5 @@ description: На странице представлен список прак�
 * [{#T}](jwt-authorizer-firebase.md)
 * [{#T}](search-events-query.md)
 * [{#T}](search-events-bucket.md)
+* [{#T}](mgp-config-server-for-s3.md)
 * [{#T}](bigquery-to-clickhouse.md)

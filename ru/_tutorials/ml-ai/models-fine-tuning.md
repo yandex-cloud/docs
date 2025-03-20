@@ -108,7 +108,7 @@
 
 1. Откройте ноутбук с кодом по ссылке ниже:
 
-   <a href="{{ link-datasphere-main }}/import-ipynb?path=https://raw.githubusercontent.com/yandex-cloud-examples/yc-yq-datasphere-examples/main/Working%20with%20Yandex%20Query%20in%20DataSphere.ipynb"><img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v2_ru.svg" 
+   <a href="{{ link-datasphere-main }}/import-ipynb?path=https://raw.githubusercontent.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning/main/LoRA-train-YandexGPT.ipynb"><img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v2_ru.svg" 
      alt="Открыть в {{ ml-platform-name }}"/></a>
 
 1. Скачайте файл `generations.jsonlines` из репозитория на [GitHub](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и поместите его рядом с ноутбуком.

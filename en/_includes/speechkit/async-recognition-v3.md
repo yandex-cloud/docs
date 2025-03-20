@@ -32,7 +32,7 @@
       curl \
         --insecure \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
-        --data @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
+        --data @request.json https://{{ api-host-sk-stt }}:443/stt/v3/recognizeFileAsync
       ```
 
       Where `IAM_TOKEN` is the IAM token of the service account.
@@ -46,7 +46,7 @@
       curl \
         --insecure \
         --header "Authorization: Api-Key ${API_KEY}" \
-        --data @request.json https://stt.{{ api-host }}:443/stt/v3/recognizeFileAsync
+        --data @request.json https://{{ api-host-sk-stt }}:443/stt/v3/recognizeFileAsync
       ```
 
     Result example:
@@ -75,7 +75,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
-          https://operation.{{ api-host }}/operations/<recognition_operation_ID>
+          https://operation.{{ api-host-sk-stt }}/operations/<recognition_operation_ID>
         ```
 
     * Authentication with an API key:
@@ -85,7 +85,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Api-key ${API_KEY}" \
-          https://operation.{{ api-host }}/operations/<recognition_operation_ID>
+          https://operation.{{ api-host-sk-stt }}/operations/<recognition_operation_ID>
         ```
 
     Result example:
@@ -110,7 +110,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Bearer ${IAM_TOKEN}" \
-          https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
+          https://{{ api-host-sk-stt }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
         ```
 
     * Authentication with an API key:
@@ -120,7 +120,7 @@
           --insecure \
           --request GET \
           --header "Authorization: Api-key ${API_KEY}" \
-          https://stt.{{ api-host }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
+          https://{{ api-host-sk-stt }}:443/stt/v3/getRecognition?operation_id=<recognition_operation_ID>
         ```
 
     {% cut "Result example" %}

@@ -736,6 +736,7 @@ default:
   si-name: Serverless Integrations
   sk-hybrid-full-name: Yandex SpeechKit Hybrid
   sk-hybrid-name: SpeechKit Hybrid
+  sk-operations-host: api.cloud.yandex.net
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
@@ -2185,6 +2186,8 @@ default:
         requests|pricingRate:
           1|number: 106.9
           1|string: ₸106.90
+        requests|string: Free
+        storage|month|string: Free
   sku|KZT|yds:
     events:
       puts|pricingRate:
@@ -2229,6 +2232,7 @@ default:
         v1|pricingRate:
           10|number: 3
           10|string: ₸3.00
+        v1|string: Free
   sku|RUB|ai:
     datasphere:
       computing:
@@ -3519,6 +3523,8 @@ default:
         requests|pricingRate:
           1|number: 21.38
           1|string: ₽21.38
+        requests|string: Free
+        storage|month|string: Free
   sku|RUB|yds:
     events:
       puts|pricingRate:
@@ -3563,6 +3569,7 @@ default:
         v1|pricingRate:
           10|number: 0.6
           10|string: ₽0.60
+        v1|string: Free
   sku|USD|ai:
     mt:
       detect|string: $3.937600
@@ -10599,17 +10606,28 @@ default:
     yc-ui-talkanalytics:
       common:
         add: Add
+        add-filter: Add filter
+        apply: Apply
+        bind: Link
         create: Create
         delete-key-value: Delete
         duplicate: Duplicate
         edit: Edit
+        filters: Filters
         more: More
+        'no': 'No'
+        period: Period
         save: Save
+        settings: Settings
+        show-more: Show more
+        'yes': 'Yes'
       connections:
         add-key: Add key
         column:
           name: Name in the system
         connection: Connection
+        connection-name: Connection name
+        connections: Connections
         create-connection-key-value: Create connection
         fields:
           client: Client
@@ -10619,20 +10637,78 @@ default:
           chat-key-value: Сhat
           two-channel-key-value: Two-channel audio
       dialogs:
+        analysis: Analysis
         bot: Bot
+        classifier:
+          appreciation-key-value: Appreciation
         classifiers: Tags
         client: Customer
+        client-tags: Customer tags
+        common-metadata: Shared metadata
+        dialog: Dialog
+        dialogs: Dialogs
+        direction-key-value: Direction
+        direction:
+          incoming: Incoming
+          outgoing: Outgoing
+        open-dialog: Open dialog
         operator: Agent
+        operator-tags: 'Agent tags '
+        speech-statistics: Conversation statistics
+        system-meta:
+          talk:
+            statistics:
+              simultaneous_silence:
+                ratio-key-value: Share of silence in dialog
       dictionaries:
         add-dictionary: Add dictionary
+        create-dictionary-key-value: Create dictionary
+        dictionaries: Dictionaries
+      neuro-tags:
+        confidence-key-value: Confidence
+        reasons-key-value: Reasons
+        refresh-suggestions: Refresh list
+        results-key-value: Results
+        test-tag: Test tag
+        testing-dataset: Tag testing
+        themes-key-value: Themes
       projects:
         add-connection: Add connection
         add-participant: Add participant
         create-project: Create project
         dialogs: Dialogs
         projects: Projects
+        sumarization: YandexGPT analysis
+      reports:
+        add-parameter: Add parameter
+        barchart: Chart
+        comparison-key-value: Comparison
+        create-report: Create report
+        details-key-value: Details
+        generate-report: Create report
+        grouping-field: Group by
+        parameter:
+          description: Parameter name in report
+          filter: Evaluation parameters
+          weight: Weight
+        rating-key-value: Evaluation form
+        reports: Reports
+        save-report-key-value: Save report
+        table-key-value: Table
       spaces:
         create-space: Create space
+        error:
+          billing:
+            title: Space is not linked to a billing account
+      statements:
+        call_reasons: Call reasons
+        call_results: Results
+        client_keywords: Client keywords
+        common_question: Common question
+        operator_keywords: Agent keywords
+        problems: Problems
+        summary: Summarization
+        theme: Theme
       tags:
         binding-events-key-value: Limitations
         binding-events:
@@ -10657,11 +10733,15 @@ default:
         search-area-key-value: Search direction
         search-area:
           after-key-value: Forward
+        tag-using-key-value: Usage
+        tags: Tags
         tags-type:
           dictionary-key-value: Dictionary
         words-between-key-value: Distance between words
       team:
         add-from-organization-key-value: Add from organization
+        invite-new-key-value: Invite a new user
+        team: Team
       upload-audio:
         upload-audio-key-value: Adding dialogs
     yql:
