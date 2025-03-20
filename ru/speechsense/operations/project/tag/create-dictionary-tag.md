@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
-1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** нажмите кнопку ![icon](../../../../_assets/console-icons/tag.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
+1. На вкладке **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** нажмите кнопку ![icon](../../../../_assets/console-icons/tag.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
 1. Выберите тип тега **{{ ui-key.yc-ui-talkanalytics.tags.tags-type.dictionary-key-value }}**.
 1. Задайте параметры тега:
 
@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
-1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.tags.tags }}**.
 1. В строке тега, который надо продублировать, нажмите ![icon](../../../../_assets/console-icons/ellipsis.svg), затем ![icon](../../../../_assets/console-icons/copy.svg) **{{ ui-key.yc-ui-talkanalytics.common.duplicate }}**.
 
     В открывшемся окне видно, что по умолчанию подставляются значения настроек, которые были заданы в исходном теге. Имя нового тега по умолчанию — `<имя_исходного_тега> копия`.

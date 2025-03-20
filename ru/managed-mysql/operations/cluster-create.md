@@ -29,7 +29,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   
-  [Смотреть видеоинструкцию о создании кластера {{ MY }} в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=XflGoG03SHE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=5&pp=iAQB).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvfjog2u3zppo74es4?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=XflGoG03SHE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=5&pp=iAQB).
 
 
 

@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
-1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** выберите нужный тег и нажмите кнопку ![icon](../../../../_assets/console-icons/ellipsis.svg).
+1. На вкладке **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** выберите нужный тег и нажмите кнопку ![icon](../../../../_assets/console-icons/ellipsis.svg).
 1. В раскрывающемся списке выберите ![icon](../../../../_assets/console-icons/link.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-dependent-tag }}**.
 1. В зависимости от типа создаваемого тега задайте настройки [смыслового](create-sense-tag.md#new-tag) или [словарного](create-dictionary-tag.md#new-tag) тега и нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
 

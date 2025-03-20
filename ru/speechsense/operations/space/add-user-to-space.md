@@ -12,19 +12,19 @@
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство.
-1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **Добавить участника** → ![image](../../../_assets/console-icons/persons.svg) **Добавить из организации**.
+1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
 1. В строке поиска введите имя или электронную почту пользователя. Если вы добавляете сервисный аккаунт, скопируйте его идентификатор и вставьте в строку поиска.
 1. Выберите нового пользователя и укажите его роль.
 
    Подробнее о ролях см. в разделе [{#T}](../../security/index.md).
 
-1. Нажмите кнопку **Добавить**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
 
 ## Добавить нового пользователя {#new-user}
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство.
-1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **Добавить участника** → ![image](../../../_assets/console-icons/person-plus.svg) **Пригласить нового пользователя**.
+1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.team.invite-new-key-value }}**.
 1. В открывшемся окне введите электронную почту пользователя, которого вы хотите пригласить в пространство.
 
    Приглашения можно отправлять на любые адреса электронной почты. Приглашенный пользователь сможет выбрать нужный аккаунт на Яндексе, когда примет приглашение.

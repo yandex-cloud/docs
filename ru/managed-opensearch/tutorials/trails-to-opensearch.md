@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/security/trails-logs-opensearch'
 ---
 
 # Загрузка логов из {{ at-full-name }}

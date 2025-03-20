@@ -43,6 +43,7 @@ description: Различные сценарии использования {{ c
 * [{#T}](route-switcher.md)
 * [{#T}](site-to-site-openvpn.md)
 * [{#T}](mlflow-datasphere.md)
+* [{#T}](mgp-config-server-for-s3.md)
 
 ## {{ coi }} {#coi}
 

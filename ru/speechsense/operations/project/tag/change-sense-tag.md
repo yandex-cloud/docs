@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
-1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** откройте нужный тег и нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.edit }}**.
+1. На вкладке **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** откройте нужный тег и нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.edit }}**.
 1. В открывшемся окне измените нужные настройки:
 
     * Введите название и описание тега.

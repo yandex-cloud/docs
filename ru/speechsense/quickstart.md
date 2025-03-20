@@ -20,7 +20,7 @@
 
 ## Настройте окружение {#set-space}
 
-1. Создайте [пространство](concepts/resources-hierarchy.md#space), в котором будут находиться все ваши [проекты](concepts/resources-hierarchy.md#project): выберите **Создать пространство**, введите название, (опционально) добавьте описание и нажмите кнопку **Создать**.
+1. Создайте [пространство](concepts/resources-hierarchy.md#space), в котором будут находиться все ваши [проекты](concepts/resources-hierarchy.md#project): выберите **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**, введите название, (опционально) добавьте описание и нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
 1. К пространству [привяжите платежный аккаунт](operations/space/link-ba.md), с которого будет оплачиваться использование {{ speechsense-name }}.
 
    {% note tip %}
@@ -29,12 +29,12 @@
 
    {% endnote %}
 
-1. Перейдите на вкладку **Подключения** и создайте [подключение](concepts/resources-hierarchy.md#connection) на основе метаинформации ваших аудиозаписей или переписок из чатов:
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и создайте [подключение](concepts/resources-hierarchy.md#connection) на основе метаинформации ваших аудиозаписей или переписок из чатов:
 
-   1. Введите **Название подключения**.
-   1. Выберите тип данных **Двухканальное аудио** или **Чат**.
+   1. Введите **{{ ui-key.yc-ui-talkanalytics.connections.connection-name }}**.
+   1. Выберите тип данных **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** или **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
    1. Задайте параметры подключения. Процесс подробно рассмотрен в разделе [Создать подключение](operations/connection/create.md).
-   1. Нажмите кнопку **Создать подключение**.
+   1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 
    {% cut "Пример metadata.json для загрузки аудиоданных" %}
 
@@ -53,7 +53,7 @@
 
    {% endcut %}
 
-1. Создайте проект: на странице пространства нажмите кнопку **Создать проект**, введите имя проекта, добавьте в проект подключение. Для каждого подключения вы можете выбрать правила фильтрации на основе метаинформации подключения и критериев [{{ gpt-pro }}](../foundation-models/concepts/yandexgpt/index.md). Фильтры будут добавлять в проект только нужные диалоги. После добавления всех нужных подключений и настройки фильтров нажмите кнопку **Создать проект**.
+1. Создайте проект: на странице пространства нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**, введите имя проекта, добавьте в проект подключение. Для каждого подключения вы можете выбрать правила фильтрации на основе метаинформации подключения и критериев [{{ gpt-pro }}](../foundation-models/concepts/yandexgpt/index.md). Фильтры будут добавлять в проект только нужные диалоги. После добавления всех нужных подключений и настройки фильтров нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
 
 ## Загрузите данные {#upload-data}
 

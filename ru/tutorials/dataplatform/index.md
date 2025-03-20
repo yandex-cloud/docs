@@ -68,7 +68,7 @@ description: На странице представлен список прак�
 * [{#T}](greenplum-to-postgresql.md)
 * [{#T}](greenplum-yezzey.md)
 * [{#T}](object-storage-to-greenplum.md)
-
+* [{#T}](mgp-config-server-for-s3.md)
 
 ## {{ ES }} {#elasticsearch}
 
@@ -121,9 +121,11 @@ description: На странице представлен список прак�
 ## {{ PG }} {#postgresql}
 
 * [Создание кластера {{ PG }} для «1С:Предприятия»](1c-postgresql.md)
+* [{#T}](mpg-performance-problems.md)
 * [Анализ производительности и оптимизация {{ mpg-name }}](mpg-profiling.md)
-* [Миграция базы данных из {{ mpg-name }}](outbound-replication.md)
+* [{#T}](mpg-replication-overview.md)
 * [Миграция базы данных из стороннего кластера {{ PG }} в {{ mpg-name }}](postgresql-data-migration.md)
+* [Миграция базы данных из {{ mpg-name }}](outbound-replication.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mkf-to-mpg.md)
 * [{#T}](data-transfer-mpg.md)
