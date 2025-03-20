@@ -5,8 +5,6 @@ description: В данном разделе описаны федерации с
 
 # Федерации сервисных аккаунтов
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 Федерация сервисных аккаунтов (Workload Identity Federation) — это инструмент {{ iam-full-name }}, позволяющий настроить процесс обмена токенов любой системы, совместимой с протоколом [OpenID Connect](https://openid.net/developers/how-connect-works/), на [IAM-токены](./authorization/iam-token.md), которые можно использовать для обращения к [API {{ yandex-cloud }}](../../api-design-guide/index.yaml).
 
 Популярные варианты использования этого инструмента:

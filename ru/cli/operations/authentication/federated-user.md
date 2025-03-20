@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [include](../../../_includes/cli/auth-federated-user.md) %}
 
-## Пример аутентификации на ВМ Linux {#linux-vm-auth}
+## Пример аутентификации на ВМ Linux без графического интерфейса {#linux-vm-auth}
 
 Для аутентификации на ВМ Linux выполните следующие шаги:
 

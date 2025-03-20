@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
-1. На вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** нажмите кнопку ![icon](../../../../_assets/console-icons/tag.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
+1. На вкладке **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** нажмите кнопку ![icon](../../../../_assets/console-icons/tag.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
 1. Выберите тип тега **Смысловой**.
 1. Задайте параметры тега:
 

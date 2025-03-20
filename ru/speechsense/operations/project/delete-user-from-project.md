@@ -6,6 +6,6 @@
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите нужный проект.
-1. Перейдите на вкладку **Команда**.
-1. В строке нужного пользователя нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.team.team }}**.
+1. В строке нужного пользователя нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-talkanalytics.common.delete-key-value }}**.
 1. Подтвердите удаление пользователя.

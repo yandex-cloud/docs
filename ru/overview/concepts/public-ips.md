@@ -2,6 +2,7 @@
 
 {% include [ip-intro](../../_includes/public-ip/ip-intro.md) %}
 
+
 ## Адреса ресурсов сервисов {{ yandex-cloud }}, доступные клиентам {#yandex-resource-ips}
 
 ### {{ vpc-name }}
@@ -19,19 +20,23 @@
 * Балансировщики нагрузки {{ network-load-balancer-name }} и {{ alb-name }}.
 
 
+
 ### {{ baremetal-name }}
 
 {% include [baremetal-ip-ru](../../_includes/public-ip/ru/baremetal.md) %}
 
+
 ### {{ cdn-name }}
 
 {% include [cdn-ip-ru](../../_includes/public-ip/ru/cdn.md) %}
+
 
 ### {{ captcha-name }} {#smartcaptcha-ips}
 
 {% include [smartcaptcha-ip-list](../../_includes/smartcaptcha-ips.md) %}
 
 Эти адреса нельзя назначить пользовательским ресурсам. Они нужны только для корректной работы запроса к API, отправленного на `/validate`.
+
 
 
 ## Адреса, используемые {{ yandex-cloud }} для работы сервисов {#yandex-cloud-ips}
@@ -44,6 +49,7 @@
 
 
 Такие диапазоны адресов недоступны пользователям.
+
 
 #### См. также {#see-also}
 

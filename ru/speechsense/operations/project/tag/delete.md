@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
-1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.tags.tags }}**.
 1. В строке нужного тега нажмите ![icon](../../../../_assets/console-icons/ellipsis.svg), затем ![icon](../../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-talkanalytics.common.delete-key-value }}**.
 1. Подтвердите удаление тега.
 
@@ -25,6 +25,6 @@ description: Следуя данной инструкции, вы сможете
 
 1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
 1. Перейдите в нужное пространство, затем выберите проект.
-1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}** и выберите нужный основной тег. В разворачивающемся списке будут перечислены зависимые теги.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** и выберите нужный основной тег. В разворачивающемся списке будут перечислены зависимые теги.
 1. В строке нужного зависимого тега нажмите ![icon](../../../../_assets/console-icons/ellipsis.svg), затем ![icon](../../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yc-ui-talkanalytics.common.delete-key-value }}**.
 1. Подтвердите удаление тега.

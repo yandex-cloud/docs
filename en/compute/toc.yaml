@@ -547,7 +547,7 @@ items:
             href: tutorials/coi-with-terraform.md
       - name: Microsoft products in {{ yandex-cloud }}
         items:
-          - name: Deploying Active Directory
+          - name: Secure password transmission to an initialization script
             href: tutorials/secure-password-script.md
           - name: Deploying Active Directory
             href: tutorials/active-directory.md

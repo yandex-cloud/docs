@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 
 * Количество хостов, которые можно создать вместе с кластером {{ PG }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
 * Доступные типы диска зависят от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
-* Если хранилище БД заполнится на 95%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее.
+* Если хранилище БД заполнится на 97%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее или [настройте автоматическое увеличение его размера](storage-space.md#disk-size-autoscale).
 
 {% endnote %}
 
@@ -32,7 +32,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   
-  [Смотреть видеоинструкцию о создании кластера {{ PG }} в консоли управления {{ yandex-cloud }} на YouTube](https://www.youtube.com/watch?v=UByUvah7lDU&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=6&pp=iAQB).
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvhanaqkgdchwzk7xu?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=UByUvah7lDU&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=6&pp=iAQB).
 
 
 
@@ -83,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     * Имя пользователя — владельца БД и пароль. По умолчанию новому пользователю выделяется 50 подключений к каждому хосту кластера.
+     * Имя пользователя — владельца БД и пароль. По умолчанию новому пользователю выделяется 50 подключений к каждому хосту кластера. Изменить допустимое количество подключений можно с помощью настройки [Conn limit](../concepts/settings-list.md#setting-conn-limit).
 
        {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
@@ -93,7 +95,11 @@ description: Следуя данной инструкции, вы сможете
 
   
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
-     * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
+     * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера. Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+
+       1. В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
+       1. (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
+       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 

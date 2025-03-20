@@ -534,6 +534,10 @@ items:
       - name: ViPNet Coordinator в {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
         hidden: true
+      - name: >-
+          Создание внешней таблицы на базе таблицы из бакета {{ objstorage-name
+          }} с помощью конфигурационного файла
+        href: tutorials/mgp-config-server-for-s3.md
       - name: '{{ coi }}'
         items:
           - name: Создать ВМ с {{ coi }}
@@ -554,7 +558,7 @@ items:
             href: tutorials/coi-with-terraform.md
       - name: Продукты Microsoft в {{ yandex-cloud }}
         items:
-          - name: Развертывание Active Directory
+          - name: Безопасная передача пароля в скрипт инициализации
             href: tutorials/secure-password-script.md
           - name: Развертывание Active Directory
             href: tutorials/active-directory.md

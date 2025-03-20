@@ -1,10 +1,10 @@
 # Работа с {{ iot-full-name }} с устройства Android на языке Java
 
-В этом сценарии вы узнаете как подключиться к {{ iot-full-name }} с устройства Android с помощью библиотеки [Paho](https://www.eclipse.org/paho/) и языка программирования Java. Данный сценарий предполагает, что вы имеете навыки разработки для операционной системы Android на языке Java в Android Studio.
+В этом руководстве вы узнаете как подключиться к {{ iot-full-name }} с устройства Android с помощью библиотеки [Paho](https://www.eclipse.org/paho/) и языка программирования Java. Данное руководство предполагает, что вы имеете навыки разработки для операционной системы Android на языке Java в Android Studio.
 
 {% note info %}
 
-Исходный код, который используется в этом сценарии, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java_android/YandexIoTCoreConnectionExample).
+Исходный код руководства доступен в репозитории на [GitHub](https://github.com/yandex-cloud-examples/yc-iot-android). 
 
 {% endnote %}
 
@@ -109,7 +109,7 @@ MqttConnectOptions options = new MqttConnectOptions();
 options.setKeepAliveInterval(keepAliveInterval);
 ```
 
-В котором:
+Где:
 * `MqttAndroidClient` — класс, в котором указываются параметры подключения к {{ iot-full-name }}. Адрес, порт и идентификатор клиента.
 * `MqttConnectOptions` — класс для установки параметров соединения. Вы можете оставить настройки по умолчанию, но рекомендуется задать параметр `KeepAliveInterval`. От его значения зависит частота отправки команд `PINGREQ`. Чем меньше данный параметр, тем быстрее клиент понимает, что соединение было разорвано нештатным путем. Но для этого чаще отправляются тарифицируемые команды `PINGREQ`.
 
@@ -121,7 +121,7 @@ options.setKeepAliveInterval(keepAliveInterval);
 
 ### Аутентификация с помощью X.509-сертификатов {#certs}
 
-Для такого вида аутентификации удобнее всего использовать сертификаты [PKCS#12](https://ru.wikipedia.org/wiki/PKCS12) в PFX-формате. Сгенерировать сертификат в PKCS#12-формате из PEM- сертификатов можно с помощью команды:
+Для такого вида аутентификации удобнее всего использовать сертификаты [PKCS#12](https://ru.wikipedia.org/wiki/PKCS12) в PFX-формате. Сгенерировать сертификат в PKCS#12-формате из PEM-сертификатов можно с помощью команды:
 
 ```bash
 openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
@@ -288,6 +288,5 @@ mqttAndroidClient.close();
 ```
 
 Где:
-
 * Метод `disconnect` закрывает соединение с сервером.
 * Метод `close` освобождает ресурсы класса `MqttAndroidClient`.

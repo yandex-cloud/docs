@@ -9,9 +9,9 @@ description: Страница содержит все инструкции дл�
 
 * Загрузка данных:
 
-* [{#T}](data/upload-audio-console.md)
-* [{#T}](data/upload-data.md)
-* [{#T}](data/upload-chat-text.md)
+  * [{#T}](data/upload-audio-console.md)
+  * [{#T}](data/upload-data.md)
+  * [{#T}](data/upload-chat-text.md)
 
 * Поиск данных:
 

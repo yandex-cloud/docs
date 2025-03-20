@@ -96,8 +96,8 @@ items:
       - name: Миграция базы данных в {{ mgp-name }}
         href: tutorials/data-migration.md
       - name: >-
-          Создание внешней таблицы на базе таблицы из бакета {{
-          objstorage-full-name }} с помощью конфигурационного файла
+          Создание внешней таблицы на базе таблицы из бакета {{ objstorage-name
+          }} с помощью конфигурационного файла
         href: tutorials/config-server-for-s3.md
       - name: Миграция базы данных из {{ GP }} в {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
@@ -105,13 +105,11 @@ items:
         href: tutorials/greenplum-to-clickhouse.md
       - name: Миграция базы данных из {{ MY }} в {{ GP }}
         href: tutorials/mmy-to-mgp.md
-      - name: >-
-          Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name
-          }}
+      - name: Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-name }}
         href: tutorials/yezzey.md
       - name: >-
-          Загрузка данных из {{ objstorage-full-name }} в {{ mgp-name }} с
-          помощью {{ data-transfer-full-name }}
+          Загрузка данных из {{ objstorage-name }} в {{ mgp-name }} с помощью {{
+          data-transfer-name }}
         href: tutorials/object-storage-to-greenplum.md
       - name: Поставка данных с помощью {{ data-transfer-name }}
         items:

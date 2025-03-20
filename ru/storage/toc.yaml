@@ -306,6 +306,10 @@ items:
         href: tutorials/search-events-query.md
       - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
         href: tutorials/search-events-bucket.md
+      - name: >-
+          Создание внешней таблицы на базе таблицы из бакета с помощью
+          конфигурационного файла
+        href: tutorials/mgp-config-server-for-s3.md
       - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
         href: tutorials/bigquery-to-clickhouse.md
   - name: Концепции
