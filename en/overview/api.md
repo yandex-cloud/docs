@@ -60,7 +60,6 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ speechkit-full-name }}               | [Synchronous recognition v2 REST](../{{ speechkit-slug }}/stt/api/request-api.md)<br>[Asynchronous recognition v2 REST](../{{ speechkit-slug }}/stt/api/transcribation-api.md)<br>[Streaming recognition v2 gRPC](../{{ speechkit-slug }}/stt/api/streaming-api.md)<br>[Streaming recognition v3 gRPC](../{{ speechkit-slug }}/stt-v3/api-ref/grpc/)<br>[Synthesis v1 REST](../{{ speechkit-slug }}/tts/request.md)<br>[Synthesis v3 gRPC](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/) |
 | {{ sk-hybrid-full-name }}               | [Speech synthesis gRPC](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/)<br>[Streaming recognition gRPC](../speechkit-hybrid/api-ref/stt/v3/grpc/) |
 | {{ speechsense-full-name }}             | [gRPC](../speechsense/api-ref/grpc/) |
-| {{ tracker-full-name }}                 | [REST](../tracker/about-api.md) |
 | {{ translate-full-name }}               | [gRPC](../translate/api-ref/grpc/)<br>[REST](../translate/api-ref/) |
 | {{ vision-full-name }}                  | [gRPC](../vision/ocr/api-ref/grpc/)<br>[REST](../vision/ocr/api-ref/) |
 | {{ vpc-full-name }}                     | [gRPC](../vpc/api-ref/grpc/)<br>[REST](../vpc/api-ref/) |

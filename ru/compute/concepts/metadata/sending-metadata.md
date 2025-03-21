@@ -7,7 +7,7 @@ description: Из этой статьи вы узнаете о способах 
 
 Вы можете передать [метаданные](../vm-metadata.md) в ВМ при ее [создании](../../operations/index.md#vm-create) и [изменении](../../operations/vm-control/vm-update.md#change-metadata). Данные для подключения к ВМ можно передать только при создании, причем в [ВМ с ОС Linux](../../operations/vm-create/create-linux-vm.md) для каждого пользователя необходимо также передавать открытый [SSH-ключ](../../../glossary/ssh-keygen.md).
 
-Изменять метаданные ВМ можно только в каталоге [user-data](./directories.md#dir-user). Подробнее о том, как изменить метаданные ВМ, см. в инструкции [{#T}](../../operations/vm-metadata/update-vm-metadata.md).
+Изменять метаданные ВМ можно только в каталоге [user-data](./directories.md#dir-user) и в пути `instance/attributes/*` каталога [computeMetadata](./directories.md#dir-compute). Подробнее о том, как изменить метаданные ВМ, см. в инструкции [{#T}](../../operations/vm-metadata/update-vm-metadata.md).
 
 {% note warning %}
 

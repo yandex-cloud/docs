@@ -518,15 +518,6 @@ items:
       - name: Sample Data Transfer configurations and use cases
         href: data-transfer/how-to/index.md
         hidden: true
-  - name: Forms
-    items:
-      - name: All solutions for Forms
-        href: forms/index.md
-      - name: Examples of Forms configurations and scenarios
-        href: forms/how-to/index.md
-        hidden: true
-      - name: Setting up email notifications
-        href: forms/how-to/customizing-mail-notifications.md
   - name: IAM
     items:
       - name: All solutions for IAM
@@ -973,19 +964,6 @@ items:
         href: terraform/known-issues/zone-private-and-public.md
       - name: Troubleshooting the 'invalid provider registry host' error
         href: terraform/known-issues/invalid-provider-registry-host.md
-  - name: Tracker
-    items:
-      - name: All solutions for Tracker
-        href: tracker/index.md
-      - name: Examples of configurations and scenarios for Tracker
-        href: tracker/how-to/index.md
-        hidden: true
-      - name: "Enabling Yandex\_Tracker after a period of inactivity"
-        href: tracker/how-to/activating-tracker-after-inactivity.md
-      - name: "Disabling or removing Yandex\_Tracker"
-        href: tracker/how-to/deactivating-tracker.md
-      - name: How to remove a task from the queue
-        href: tracker/how-to/removing-task-from-queue.md
   - name: Partner
     items:
       - name: All solutions for Partner

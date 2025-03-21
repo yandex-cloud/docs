@@ -125,6 +125,53 @@ FQDN можно получить несколькими способами:
 
 Объем оперативной памяти хоста определяется его классом. Все доступные варианты перечислены в разделе [Классы хостов](../../concepts/instance-types.md).
 
+## Установка MongoDB Shell {#mongosh-install}
+
+Для подключения к кластеру {{ mmg-name }} из Linux (Bash) и Windows (PowerShell) установите утилиту MongoDB Shell:
+
+{% list tabs group=connection %}
+
+- Linux {#linux}
+
+  1. Если у вас не установлен менеджер пакетов brew, установите его:
+
+      ```bash
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      ```
+
+  1. Добавьте brew в `PATH`:
+
+      ```bash
+      echo >> /home/<имя_пользователя>/.bashrc && \
+      echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/<пользователя>/.bashrc && \
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      ```
+
+  1. Установите зависимости:
+
+      ```bash
+      sudo apt-get install build-essential
+      ```
+
+  1. Установите пакет `mongodb-atlas-cli`:
+
+      ```bash
+      brew install mongodb-atlas-cli
+      ```
+
+- Windows 10/11 {#windows}
+
+  Используйте один из способов:
+
+  * Скачайте установщик MongoDB Shell в формате `*.msi` из [официального репозитория GitHub](https://github.com/mongodb-js/mongosh/releases) и установите его.
+  * Установите MongoDB Shell с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
+
+    ```bash
+    choco install mongodb-shell
+    ```
+
+{% endlist %}
+
 ## Что дальше {#whats-next}
 
 * [Подключитесь](clients.md) к кластеру с помощью инструментов командной строки, из графической IDE или Docker-контейнера.

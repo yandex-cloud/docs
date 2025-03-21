@@ -18,7 +18,7 @@
 | 100% vCPU     | {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|string }} | {{ sku|KZT|v1.commitment.selfcheckout.m6.mdb.mysql.cpu.c100.v3|string }} (-15%) | {{ sku|KZT|v1.commitment.selfcheckout.y1.mdb.mysql.cpu.c100.v3|string }} (-22%) |
 | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mysql.v3.ram|string }}      | {{ sku|KZT|v1.commitment.selfcheckout.m6.mdb.mysql.ram.v3|string }} (-15%)      | {{ sku|KZT|v1.commitment.selfcheckout.y1.mdb.mysql.ram.v3|string }} (-22%)      |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | 13,45 ₸ | − | − |
-| RAM (за 1 ГБ) | 2,65 ₸ | − | − |
+| 100% vCPU | {{ sku|KZT|mdb.cluster.mysql.highfreq-v3.cpu.c100|string }} | − | − |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.mysql.highfreq-v3.ram|string }} | − | − |
 
 

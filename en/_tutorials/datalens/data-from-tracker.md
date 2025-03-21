@@ -1,7 +1,7 @@
 # {{ tracker-full-name }}: data export and visualization
 
 
-Visualizing data from {{ tracker-short-name }} to {{ datalens-full-name }} allows you to build more advanced analytics than when using the {{ tracker-short-name }} tools.
+Visualizing data from [{{ tracker-full-name }}]({{ link-tracker-cloudless }}) to {{ datalens-full-name }} allows you to build more advanced analytics than when using the {{ tracker-short-name }} tools.
 
 To visualize data from {{ tracker-short-name }} to {{ datalens-short-name }}:
 * Set up regular export of data to external storage.
@@ -23,7 +23,7 @@ To visualize the data, follow these steps:
 
 {% note info %}
 
-We recommend [creating](../../tracker/enable-tracker.md) a separate {{ tracker-short-name }} account to use the service.
+We recommend creating a separate {{ tracker-short-name }} account to use the service.
 
 {% endnote %}
 
@@ -88,7 +88,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     Where `client_id` is the new app's ID in the **ClientID** field.
 
 1. Log in under the {{ tracker-short-name }} account to be used for data visualization.
-1. Save the received [OAuth token](../../tracker/concepts/access.md#section_about_OAauth).
+1. Save the received OAuth token.
 
 ## Create a {{ sf-name }} function for importing the data {#function-import}
 

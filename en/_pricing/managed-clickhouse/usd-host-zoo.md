@@ -17,5 +17,5 @@
 | 100% vCPU | {{ sku|USD|mdb.zk.clickhouse.v3.cpu.c100|string }} | {{ sku|USD|mdb.zk.clickhouse.v3.cpu.c100|month|string }} |
 | RAM (for 1 GB) | {{ sku|USD|mdb.zk.clickhouse.v3.ram|string }} | {{ sku|USD|mdb.zk.clickhouse.v3.ram|month|string }} |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | $0.013920 | $10.022400 |
-| RAM (for 1 GB) | $0.002560 | $1.843200 |
+| 100% vCPU | {{ sku|USD|mdb.zk.clickhouse.highfreq-v3.cpu.c100|string }} | {{ sku|USD|mdb.zk.clickhouse.highfreq-v3.cpu.c100|month|string }} |
+| RAM (for 1 GB) | {{ sku|USD|mdb.zk.clickhouse.highfreq-v3.ram|string }} | {{ sku|USD|mdb.zk.clickhouse.highfreq-v3.ram|month|string }} |

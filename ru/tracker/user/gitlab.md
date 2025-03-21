@@ -16,10 +16,6 @@ description: Из статьи вы узнаете, как работает св
 
 {% include [test hook](../../_includes/managed-gitlab/test-hook.md) %}
 
-### См. также {#see-also}
-
-* [Практическое руководство по интеграции {{ GL }} с {{ tracker-full-name }}](../../managed-gitlab/tutorials/tracker-integration.md).
-
 ## Подключить репозиторий {#repo}
 
 Чтобы подключить репозиторий на [GitLab](https://gitlab.com) к {{ tracker-name }}:

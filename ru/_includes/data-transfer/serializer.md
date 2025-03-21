@@ -7,7 +7,7 @@
       * Выберите схему значения сообщения (соответствует Debezium-параметру `value.converter`).
       * При необходимости задайте [**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}**](../../data-transfer/concepts/serializer.md#debezium) в формате `Параметр`-`Значение`.
 
-Если вы хотите использовать JSON-схемы в {{ schema-registry-full-name }}, сохраняя совместимость схем при добавлении опциональных параметров, укажите следующие настройки:
+Если вы хотите использовать JSON-схемы в {{ schema-registry-full-name }}, сохраняя совместимость схем при добавлении и удалении опциональных полей, укажите следующие настройки:
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}**.
 * Чтобы использовать {{ schema-registry-name }} для ключей, выберите **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.key_converter_settings.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**. Чтобы использовать {{ schema-registry-name }} для значений, выберите **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.value_converter_settings.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**.

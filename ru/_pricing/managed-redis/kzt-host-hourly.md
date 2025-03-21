@@ -16,7 +16,7 @@
 | 100% vCPU                          | {{ sku|KZT|mdb.cluster.redis.v3.cpu.c100|string }} | {{ sku|KZT|v1.commitment.selfcheckout.m6.mdb.redis.cpu.c100.v3|string }} (-15%) | {{ sku|KZT|v1.commitment.selfcheckout.y1.mdb.redis.cpu.c100.v3|string }} (-22%) |
 | RAM (за 1 ГБ)                      | {{ sku|KZT|mdb.cluster.redis.v3.ram|string }}      | {{ sku|KZT|v1.commitment.selfcheckout.m6.mdb.redis.ram.v3|string }} (-15%)      | {{ sku|KZT|v1.commitment.selfcheckout.y1.mdb.redis.ram.v3|string }} (-22%)      |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | 12,10 ₸ | − | − |
-| RAM (за 1 ГБ) | 2,30 ₸ | − | − |
+| 100% vCPU | {{ sku|KZT|mdb.cluster.redis.highfreq-v3.cpu.c100|string }} | − | − |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.redis.highfreq-v3.ram|string }} | − | − |
 
 

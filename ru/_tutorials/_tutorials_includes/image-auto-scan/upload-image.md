@@ -50,7 +50,7 @@
         Login Succeeded
         ```
 
-   - {{ iam-full-name }}-токена {#iam-token}
+   - {{ iam-short-name }}-токена {#iam-token}
 
      {% note info %}
 
@@ -58,7 +58,7 @@
 
      {% endnote %}
 
-     1. [Получите](../../../iam/operations/iam-token/create.md) [{{ iam-name }}-токен](../../../iam/concepts/authorization/iam-token.md).
+     1. [Получите](../../../iam/operations/iam-token/create.md) [{{ iam-short-name }}-токен](../../../iam/concepts/authorization/iam-token.md).
      1. Выполните команду:
 
         ```bash

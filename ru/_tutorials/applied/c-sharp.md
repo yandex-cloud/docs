@@ -1,10 +1,10 @@
 # Работа с {{ iot-full-name }} на языке C#
 
-В этом сценарии вы узнаете, как подключиться к {{ iot-full-name }} с помощью библиотеки [Paho](https://www.eclipse.org/paho/clients/dotnet/) на языке программирования С\#. Данный сценарий предполагает, что вы имеете навыки разработки с использованием платформы .NET на языке C\#.
+В этом руководстве вы узнаете, как подключиться к {{ iot-full-name }} с помощью библиотеки [Paho](https://www.eclipse.org/paho/clients/dotnet/) на языке программирования С\#. Данное руководство предполагает, что вы имеете навыки разработки с использованием платформы .NET на языке C\#.
 
 {% note info %}
 
-Исходный код, который используется в этом сценарии, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/c%23/). Взаимодействие с {{ iot-full-name }} инкапсулировано в классе [YaClient](https://github.com/yandex-cloud/examples/blob/master/iot/Samples/c%23/YaClient.cs), который вы можете использовать в своих проектах.
+Исходный код руководства доступен на [GitHub](https://github.com/yandex-cloud-examples/yc-mqtt-server-iot). Взаимодействие с {{ iot-full-name }} инкапсулировано в классе [YaClient](https://github.com/yandex-cloud-examples/yc-mqtt-server-iot/blob/main/YaClient.cs), который вы можете использовать в своих проектах.
 
 {% endnote %}
 

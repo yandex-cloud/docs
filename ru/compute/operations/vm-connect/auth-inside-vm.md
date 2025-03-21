@@ -100,18 +100,18 @@
 
      {% include [add-folder](../../../_includes/cli-add-folder.md) %}
 
-     Вы также можете получить [{{ iam-full-name }}-токен](../../../iam/concepts/authorization/iam-token.md), например, чтобы аутентифицироваться в API:
+     Вы также можете получить [{{ iam-short-name }}-токен](../../../iam/concepts/authorization/iam-token.md), например, чтобы аутентифицироваться в API:
 
      ```bash
      yc iam create-token
      ```
 
-     [Время жизни {{ iam-name }}-токена](../../../iam/concepts/authorization/iam-token.md#lifetime) в этом случае будет меньше чем {{ iam-token-lifetime }}. Запрашивайте {{ iam-name }}-токен чаще, например, каждый час. Чтобы узнать оставшееся время жизни токена, воспользуйтесь инструкцией для API.
+     [Время жизни {{ iam-short-name }}-токена](../../../iam/concepts/authorization/iam-token.md#lifetime) в этом случае будет меньше чем {{ iam-token-lifetime }}. Запрашивайте {{ iam-short-name }}-токен чаще, например, каждый час. Чтобы узнать оставшееся время жизни токена, воспользуйтесь инструкцией для API.
 
 - API {#api}
 
   1. Подключитесь к ВМ [по SSH](../vm-connect/ssh.md).
-  1. Получите {{ iam-name }}-токен из метаданных в формате Google Compute Engine:
+  1. Получите {{ iam-short-name }}-токен из метаданных в формате Google Compute Engine:
 
      ```bash
      curl \
@@ -124,10 +124,10 @@
      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
      ```
 
-     {{ iam-name }}-токен будет указан в ответе в поле `access_token`. Оставшееся время жизни {{ iam-name }}-токена указано в поле `expires_in`.
+     {{ iam-short-name }}-токен будет указан в ответе в поле `access_token`. Оставшееся время жизни {{ iam-short-name }}-токена указано в поле `expires_in`.
 
   1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-    Учитывайте время жизни {{ iam-name }}-токена или запрашивайте токен чаще, например, каждый час.
+    Учитывайте время жизни {{ iam-short-name }}-токена или запрашивайте токен чаще, например, каждый час.
 
 {% endlist %}

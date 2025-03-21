@@ -91,7 +91,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
      {% include [install-cosign](../../_includes/kms/install-cosign.md) %}
 
-  1. Get an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) and save it to the `$YC_IAM_TOKEN` environment variable:
+  1. Get an [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md) and save it to the `$YC_IAM_TOKEN` environment variable:
      * **Bash:**
 
        ```bash

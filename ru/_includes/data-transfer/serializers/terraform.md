@@ -6,7 +6,7 @@
 
     Для этого типа можно указать параметры [сериализации Debezium](../../../data-transfer/concepts/serializer.md#debezium), задав их в блоке `serializer_debezium.serializer_parameters` в виде пар `key`/`value`.
 
-Если вы хотите использовать JSON-схемы в {{ schema-registry-full-name }}, сохраняя совместимость схем при добавлении опциональных параметров, добавьте в конфигурационный файл блок `serializer` с описанием настроек сериализации. Чтобы генерировать закрытую схему для ключей, добавьте в блок `serializer` переменную `key.converter.dt.json.generate.closed.content.schema` со значением `true`. Чтобы генерировать закрытую схему для значений, добавьте в блок `serializer` переменную `value.converter.dt.json.generate.closed.content.schema` со значением `true`.
+Если вы хотите использовать JSON-схемы в {{ schema-registry-full-name }}, сохраняя совместимость схем при добавлении и удалении опциональных полей, добавьте в конфигурационный файл блок `serializer` с описанием настроек сериализации. Чтобы генерировать закрытую схему для ключей, добавьте в блок `serializer` переменную `key.converter.dt.json.generate.closed.content.schema` со значением `true`. Чтобы генерировать закрытую схему для значений, добавьте в блок `serializer` переменную `value.converter.dt.json.generate.closed.content.schema` со значением `true`.
 
 ```hcl
 resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {

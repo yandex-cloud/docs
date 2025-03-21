@@ -285,8 +285,6 @@ items:
         href: testing/gitlab.md
       - name: Создание тестовых ВМ через {{ GL }} CI
         href: testing/ci-for-snapshots.md
-      - name: Интеграция {{ GL }} с {{ tracker-name }}
-        href: dev/gitlab-tracker-integration.md
       - name: Высокопроизводительные вычисления (HPC) на прерываемых ВМ
         href: testing/hpc-on-preemptible.md
       - name: Нагрузочное тестирование gRPC-сервиса
@@ -729,14 +727,14 @@ items:
             href: dataplatform/managed-schema-registry-rest.md
           - name: Использование Confluent Schema Registry с {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
-      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-name }}
-        href: dataplatform/lockbox-and-airflow.md
       - name: Автоматизация задач {{ yq-name }} с помощью {{ maf-name }}
         href: dataplatform/airflow-auto-tasks.md
       - name: >-
           Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
           Python SDK
         href: dataplatform/using-python-sdk-in-airflow.md
+      - name: Настройка SMTP-сервера для отправки уведомлений по электронной почте
+        href: dataplatform/airflow-test-smtp-notification.md
       - name: Добавление данных в БД {{ CH }}
         href: dataplatform/insert-data-ch.md
       - name: Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name }}

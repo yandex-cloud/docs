@@ -35,7 +35,8 @@ description: На странице представлен список прак�
 
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](using-python-sdk-in-airflow.md)
-* [{#T}](lockbox-and-airflow.md)
+* [{#T}](airflow-test-smtp-notification.md)
+
 
 ## {{ CH }} {#clickhouse}
 

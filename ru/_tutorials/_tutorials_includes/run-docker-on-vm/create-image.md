@@ -38,7 +38,7 @@
 
       {% endnote %}
 
-      1. [Получите](../../../iam/operations/iam-token/create.md) {{ iam-name }}-токен.
+      1. [Получите](../../../iam/operations/iam-token/create.md) {{ iam-short-name }}-токен.
       1. Выполните команду:
 
           ```bash

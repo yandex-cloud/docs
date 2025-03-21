@@ -266,11 +266,11 @@ Free tier распространяется на сервисы:
 
 ## {{ tracker-full-name }} {#tracker}
 
-[{{ tracker-full-name }}](../../tracker/quick-start.md) — это сервис для управления проектами и процессами.
+[{{ tracker-full-name }}]({{ link-tracker-cloudless }}) — это сервис для управления проектами и процессами.
 
 {% include [not-charged-tracker.md](../../_includes/pricing/price-formula/not-charged-tracker.md) %}
 
-После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../tracker/pricing.md).
+После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами]({{ link-tracker-cloudless }}).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

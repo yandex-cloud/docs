@@ -24,7 +24,7 @@
 
     - Сервисный аккаунт, привязанный к ВМ {#service-account-vm}
 
-        Для аутентификации будет использоваться [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md), автоматически извлекаемый из [метаданных ВМ](../../compute/concepts/vm-metadata.md). Подробнее об этом читайте в разделе [{#T}](../../compute/operations/vm-connect/auth-inside-vm.md).
+        Для аутентификации будет использоваться [{{ iam-short-name }}-токен](../../iam/concepts/authorization/iam-token.md), автоматически извлекаемый из [метаданных ВМ](../../compute/concepts/vm-metadata.md). Подробнее об этом читайте в разделе [{#T}](../../compute/operations/vm-connect/auth-inside-vm.md).
 
         {% note tip %}
 
@@ -38,7 +38,7 @@
 
     - Аккаунт на Яндексе или федеративный аккаунт {#yandex-account}
 
-        Для аутентификации будет использован [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) или [{{ iam-name }}-токен](../../iam/concepts/authorization/iam-token.md).
+        Для аутентификации будет использован [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) или [{{ iam-short-name }}-токен](../../iam/concepts/authorization/iam-token.md).
 
         {% note tip %}
 

@@ -184,8 +184,6 @@ items:
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
-      - name: '{{ GL }} integration with {{ tracker-name }}'
-        href: dev/gitlab-tracker-integration.md
       - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
       - name: Load testing a gRPC service
