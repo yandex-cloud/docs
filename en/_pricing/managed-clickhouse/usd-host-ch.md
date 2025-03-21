@@ -21,8 +21,8 @@
    | 100% vCPU | {{ sku|USD|mdb.cluster.clickhouse.v3.cpu.c100|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.ch.cpu.c100.v3|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.ch.cpu.c100.v3|string }} (-22%) |
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.clickhouse.v3.ram|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.ch.ram.v3|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.ch.ram.v3|string }} (-22%) |
    | **Intel Ice Lake (Compute Optimized)** |
-   | 100% vCPU | $0.022000 | − | − |
-   | RAM (for 1 GB) | $0.004320 | − | − |
+   | 100% vCPU | {{ sku|USD|mdb.cluster.clickhouse.highfreq-v3.cpu.c100|string }} | − | − |
+   | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.clickhouse.highfreq-v3.ram|string }} | − | − |
 
 - Prices per month
 
@@ -45,7 +45,7 @@
    | 100% vCPU | {{ sku|USD|mdb.cluster.clickhouse.v3.cpu.c100|month|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.ch.cpu.c100.v3|month|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.ch.cpu.c100.v3|month|string }} (-22%) |
    | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.clickhouse.v3.ram|month|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.ch.ram.v3|month|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.ch.ram.v3|month|string }} (-22%) |
    | **Intel Ice Lake (Compute Optimized)** |
-   | 100% vCPU | $15.840000 | − | − |
-   | RAM (for 1 GB) | $3.110400 | − | − |
+   | 100% vCPU | {{ sku|USD|mdb.cluster.clickhouse.highfreq-v3.cpu.c100|month|string }} | − | − |
+   | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.clickhouse.highfreq-v3.ram|month|string }} | − | − |
 
 {% endlist %}

@@ -56,8 +56,6 @@ items:
     href: getting-started/free-trial/concepts/quickstart.md
   - name: Cloud Functions
     href: functions/index.yaml
-  - name: Forms
-    href: forms/index.yaml
   - name: '{{ foundation-models-name }}'
     href: foundation-models/index.yaml
   - name: Identity and Access Management
@@ -136,8 +134,6 @@ items:
     href: support/index.yaml
   - name: Serverless Containers
     href: serverless-containers/index.yaml
-  - name: Tracker
-    href: tracker/index.yaml
   - name: Translate
     href: translate/index.yaml
   - name: Vision
@@ -146,8 +142,6 @@ items:
     href: vpc/index.yaml
   - name: WebSQL
     href: websql/index.yaml
-  - name: Wiki
-    href: wiki/index.yaml
   - name: '{{ ydb-name }}'
     href: ydb/index.yaml
   - name: Troubleshooting

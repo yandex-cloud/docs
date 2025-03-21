@@ -320,6 +320,7 @@ default:
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/ru/docs
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
+  link-forms-cloudless: https://yandex.ru/support/forms/ru
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
   link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
   link-monitoring: https://monitoring.yandex.cloud
@@ -344,6 +345,7 @@ default:
   link-tracker-cloudless: https://yandex.ru/support/tracker/ru/
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.ru/
+  link-wiki-cloudless: https://yandex.ru/support/wiki/ru
   link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.ru
   links:
@@ -1295,6 +1297,12 @@ default:
     cluster:
       clickhouse:
         backup|month|string: "9,60\_₸"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "9\_900,00\_₸"
+            c100|string: "13,75\_₸"
+          ram|month|string: "1\_944,00\_₸"
+          ram|string: "2,70\_₸"
         v1:
           cpu:
             c100|month|string: "8\_208,00\_₸"
@@ -1353,6 +1361,16 @@ default:
             platinum|month|string: "10\_188,00\_₸"
             platinum|string: "14,15\_₸"
       greenplum:
+        highfreq-v3:
+          cpu:
+            c100:
+              dedicated|string: "8,65\_₸"
+            c100|month|string: "12\_384,00\_₸"
+            c100|string: "17,20\_₸"
+          ram:
+            dedicated|string: "1,60\_₸"
+          ram|month|string: "2\_376,00\_₸"
+          ram|string: "3,30\_₸"
         v2:
           cpu:
             c100:
@@ -1378,6 +1396,12 @@ default:
           ram|number: 2.85
           ram|string: "2,85\_₸"
       kafka:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "8\_712,00\_₸"
+            c100|string: "12,10\_₸"
+          ram|month|string: "1\_656,00\_₸"
+          ram|string: "2,30\_₸"
         v2:
           cpu:
             c100|month|string: "6\_048,00\_₸"
@@ -1448,6 +1472,14 @@ default:
           ram|number: 4.5
           ram|string: "4,50\_₸"
       mysql:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "9\_684,00\_₸"
+            c100|string: "13,45\_₸"
+          ram:
+            dedicated|string: "0,85\_₸"
+          ram|month|string: "1\_908,00\_₸"
+          ram|string: "2,65\_₸"
         v1:
           cpu:
             c100|month|string: "6\_804,00\_₸"
@@ -1538,6 +1570,12 @@ default:
         redis|month|string: "44,00\_₸"
       opensearch:
         backup|month|string: "9,60\_₸"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "9\_684,00\_₸"
+            c100|string: "13,45\_₸"
+          ram|month|string: "2\_916,00\_₸"
+          ram|string: "4,05\_₸"
         v2:
           cpu:
             c100|month|string: "6\_048,00\_₸"
@@ -1558,6 +1596,12 @@ default:
           ram|string: "3,50\_₸"
       pg:
         backup|month|string: "9,60\_₸"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "9\_396,00\_₸"
+            c100|string: "13,05\_₸"
+          ram|month|string: "1\_836,00\_₸"
+          ram|string: "2,55\_₸"
         v1:
           cpu:
             c100|month|string: "7\_704,00\_₸"
@@ -1594,6 +1638,12 @@ default:
           ram|string: "2,20\_₸"
       redis:
         backup|month|string: "9,60\_₸"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "8\_712,00\_₸"
+            c100|string: "12,10\_₸"
+          ram|month|string: "1\_656,00\_₸"
+          ram|string: "2,30\_₸"
         v1:
           cpu:
             c100|month|string: "7\_200,00\_₸"
@@ -1639,6 +1689,12 @@ default:
         ram|string: "0,15\_₸"
     zk:
       clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "6\_264,00\_₸"
+            c100|string: "8,70\_₸"
+          ram|month|string: "1\_152,00\_₸"
+          ram|string: "1,60\_₸"
         v1:
           cpu:
             c100|month|string: "5\_112,00\_₸"
@@ -1674,6 +1730,12 @@ default:
           ram|number: 1.4
           ram|string: "1,40\_₸"
       kafka:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "6\_264,00\_₸"
+            c100|string: "8,70\_₸"
+          ram|month|string: "1\_152,00\_₸"
+          ram|string: "1,60\_₸"
         v2:
           cpu:
             c100|month|string: "4\_356,00\_₸"
@@ -2632,6 +2694,12 @@ default:
     cluster:
       clickhouse:
         backup|month|string: "1,92\_₽"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "1\_980,00\_₽"
+            c100|string: "2,75\_₽"
+          ram|month|string: "388,80\_₽"
+          ram|string: "0,54\_₽"
         v1:
           cpu:
             c100|month|string: "1\_641,60\_₽"
@@ -2690,6 +2758,16 @@ default:
             platinum|month|string: "2\_037,60\_₽"
             platinum|string: "2,83\_₽"
       greenplum:
+        highfreq-v3:
+          cpu:
+            c100:
+              dedicated|string: "1,73\_₽"
+            c100|month|string: "2\_476,80\_₽"
+            c100|string: "3,44\_₽"
+          ram:
+            dedicated|string: "0,32\_₽"
+          ram|month|string: "475,20\_₽"
+          ram|string: "0,66\_₽"
         v2:
           cpu:
             c100:
@@ -2715,6 +2793,12 @@ default:
           ram|number: 0.57
           ram|string: "0,57\_₽"
       kafka:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "1\_742,40\_₽"
+            c100|string: "2,42\_₽"
+          ram|month|string: "331,20\_₽"
+          ram|string: "0,46\_₽"
         v2:
           cpu:
             c100|month|string: "1\_209,60\_₽"
@@ -2785,6 +2869,14 @@ default:
           ram|number: 0.9
           ram|string: "0,90\_₽"
       mysql:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "1\_936,80\_₽"
+            c100|string: "2,69\_₽"
+          ram:
+            dedicated|string: "0,17\_₽"
+          ram|month|string: "381,60\_₽"
+          ram|string: "0,53\_₽"
         v1:
           cpu:
             c100|month|string: "1\_360,80\_₽"
@@ -2875,6 +2967,12 @@ default:
         redis|month|string: "8,80\_₽"
       opensearch:
         backup|month|string: "1,92\_₽"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "1\_936,80\_₽"
+            c100|string: "2,69\_₽"
+          ram|month|string: "583,20\_₽"
+          ram|string: "0,81\_₽"
         v2:
           cpu:
             c100|month|string: "1\_209,60\_₽"
@@ -2895,6 +2993,12 @@ default:
           ram|string: "0,70\_₽"
       pg:
         backup|month|string: "1,92\_₽"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "1\_879,20\_₽"
+            c100|string: "2,61\_₽"
+          ram|month|string: "367,20\_₽"
+          ram|string: "0,51\_₽"
         v1:
           cpu:
             c100|month|string: "1\_540,80\_₽"
@@ -2931,6 +3035,12 @@ default:
           ram|string: "0,44\_₽"
       redis:
         backup|month|string: "1,92\_₽"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "1\_742,40\_₽"
+            c100|string: "2,42\_₽"
+          ram|month|string: "331,20\_₽"
+          ram|string: "0,46\_₽"
         v1:
           cpu:
             c100|month|string: "1\_440,00\_₽"
@@ -2976,6 +3086,12 @@ default:
         ram|string: "0,03\_₽"
     zk:
       clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "1\_252,80\_₽"
+            c100|string: "1,74\_₽"
+          ram|month|string: "230,40\_₽"
+          ram|string: "0,32\_₽"
         v1:
           cpu:
             c100|month|string: "1\_022,40\_₽"
@@ -3011,6 +3127,12 @@ default:
           ram|number: 0.28
           ram|string: "0,28\_₽"
       kafka:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "1\_252,80\_₽"
+            c100|string: "1,74\_₽"
+          ram|month|string: "230,40\_₽"
+          ram|string: "0,32\_₽"
         v2:
           cpu:
             c100|month|string: "871,20\_₽"
@@ -3944,6 +4066,12 @@ default:
     cluster:
       clickhouse:
         backup|month|string: "0,015360\_$"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "15,840000\_$"
+            c100|string: "0,022000\_$"
+          ram|month|string: "3,110400\_$"
+          ram|string: "0,004320\_$"
         v1:
           cpu:
             c100|month|string: "13,132800\_$"
@@ -4002,6 +4130,16 @@ default:
             platinum|month|string: "16,300800\_$"
             platinum|string: "0,022640\_$"
       greenplum:
+        highfreq-v3:
+          cpu:
+            c100:
+              dedicated|string: "0,013840\_$"
+            c100|month|string: "19,814400\_$"
+            c100|string: "0,027520\_$"
+          ram:
+            dedicated|string: "0,002560\_$"
+          ram|month|string: "3,801600\_$"
+          ram|string: "0,005280\_$"
         v2:
           cpu:
             c100:
@@ -4023,6 +4161,12 @@ default:
           ram|number: 0.00456
           ram|string: "0,004560\_$"
       kafka:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "13,939200\_$"
+            c100|string: "0,019360\_$"
+          ram|month|string: "2,649600\_$"
+          ram|string: "0,003680\_$"
         v2:
           cpu:
             c100|month|string: "9,676800\_$"
@@ -4093,6 +4237,14 @@ default:
           ram|number: 0.0072
           ram|string: "0,007200\_$"
       mysql:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "15,494400\_$"
+            c100|string: "0,021520\_$"
+          ram:
+            dedicated|string: "0,001360\_$"
+          ram|month|string: "3,052800\_$"
+          ram|string: "0,004240\_$"
         v1:
           cpu:
             c100|month|string: "10,886400\_$"
@@ -4183,6 +4335,12 @@ default:
         redis|month|string: "0,070400\_$"
       opensearch:
         backup|month|string: "0,015360\_$"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "15,494400\_$"
+            c100|string: "0,021520\_$"
+          ram|month|string: "4,665600\_$"
+          ram|string: "0,006480\_$"
         v2:
           cpu:
             c100|month|string: "9,676800\_$"
@@ -4203,6 +4361,12 @@ default:
           ram|string: "0,005600\_$"
       pg:
         backup|month|string: "0,015360\_$"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "15,033600\_$"
+            c100|string: "0,020880\_$"
+          ram|month|string: "2,937600\_$"
+          ram|string: "0,004080\_$"
         v1:
           cpu:
             c100|month|string: "12,326400\_$"
@@ -4239,6 +4403,12 @@ default:
           ram|string: "0,003520\_$"
       redis:
         backup|month|string: "0,015360\_$"
+        highfreq-v3:
+          cpu:
+            c100|month|string: "13,939200\_$"
+            c100|string: "0,019360\_$"
+          ram|month|string: "2,649600\_$"
+          ram|string: "0,003680\_$"
         v1:
           cpu:
             c100|month|string: "11,520000\_$"
@@ -4284,6 +4454,12 @@ default:
         ram|string: "0,000240\_$"
     zk:
       clickhouse:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "10,022400\_$"
+            c100|string: "0,013920\_$"
+          ram|month|string: "1,843200\_$"
+          ram|string: "0,002560\_$"
         v1:
           cpu:
             c100|month|string: "8,179200\_$"
@@ -4319,6 +4495,12 @@ default:
           ram|number: 0.00224
           ram|string: "0,002240\_$"
       kafka:
+        highfreq-v3:
+          cpu:
+            c100|month|string: "10,022400\_$"
+            c100|string: "0,013920\_$"
+          ram|month|string: "1,843200\_$"
+          ram|string: "0,002560\_$"
         v2:
           cpu:
             c100|string: "0,009680\_$"

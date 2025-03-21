@@ -187,7 +187,7 @@ Create a VM with a public IP address and link the service account you created to
 
   Create a VM using the [Create](../../compute/api-ref/Instance/create.md) method for the `Instance` resource:
   1. Prepare a key pair (public and private keys) for SSH access to the VM.
-  1. Get an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
+  1. Get an [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
       * [Guide](../../iam/operations/iam-token/create.md) for users with a Yandex account.
       * [Guide](../../iam/operations/iam-token/create-for-sa.md) for a service account.
 

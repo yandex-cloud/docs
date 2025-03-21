@@ -38,8 +38,8 @@ To push a Helm chart:
           Password: <OAuth_token>
           ```
 
-     * Using an {{ iam-full-name }} token:
-       1. [Get an {{ iam-name }} token](../../../iam/operations/iam-token/create.md).
+     * Using an {{ iam-short-name }} token:
+       1. [Get an {{ iam-short-name }} token](../../../iam/operations/iam-token/create.md).
        1. Run this command:
 
           ```bash

@@ -52,21 +52,9 @@ Collaboration services and business intelligence tools are available to all orga
 
     For more information about the service and its features, see the [{{ console-full-name }} documentation](../../console/index.yaml).
 
-* [{{ tracker-full-name }}]({{ link-tracker }}) is a service to manage your organization's tasks and projects. {{ tracker-name }} helps you allocate resources, set tasks, and track task completion.
-
-    For more information about the service and its features, see the [{{ tracker-full-name }} documentation](../../tracker/index.yaml).
-
 * [{{ datalens-full-name }}]({{ link-datalens-main }}) is a service that enables you to track product and business metrics and make data-informed decisions. In {{ datalens-full-name }}, you can connect various data sources, build visualizations and dashboards, and share results.
 
     For more information about the service and its features, see the [{{ datalens-full-name }} documentation](../../datalens/index.yaml).
-
-* [{{ wiki-full-name }}]({{ link-wiki }}) is a service to create a corporate knowledge base for company employees to populate and update. {{ wiki-name}} gives employees extra collaboration capabilities: they can share information, get answers to frequently asked questions, and hold discussions in the page comment section.
-
-    For more information about the service and its features, see the [{{ wiki-full-name }} documentation](../../wiki/index.yaml).
-
-* [{{ forms-full-name }}]({{ link-forms-b2b }}) is a service that enables you to administer surveys among co-workers or customers, collect feedback, and accept applications. Corporate users have access to [{{ forms-full-name }} advanced business functions](../../forms/forms-for-org.md), such as integration with {{ tracker-name }} and {{ wiki-name}}, form access management, as well as special question sections.
-
-    For more information about the service and its features, see the [{{ forms-full-name }} documentation](../../forms/index.yaml).
 
 * [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) is a full-cycle ML development service. {{ ml-platform-full-name }} is part of the data platform and provides powerful features to work with {{ yandex-cloud }} services. {{ ml-platform-name }} helps significantly reduce the cost of ML as compared to computing on your own hardware or other cloud platforms due to automatic maintenance of computing resources.
 

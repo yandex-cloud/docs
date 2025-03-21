@@ -189,12 +189,17 @@ Text string
 
 * **key.converter.dt.json.generate.closed.content.schema** и **value.converter.dt.json.generate.closed.content.schema** — определяют, будет ли схема производителя данных для ключа и значения генерироваться в закрытой контентной модели. Это нужно для проверки совместимости через конвертацию открытой модели потребителя в закрытую и поиск аналогичной схемы среди зарегистрированных для производителя схем. 
 
-    Значение по умолчанию — `true`, если включены соответствующие настройки **key.converter.schema.registry.url** и **value.converter.schema.registry.url**.
+    Значение по умолчанию — `false`.
 
-    Если выбрать в пространстве имен {{ schema-registry-name }} политику проверки совместимости `Optional-friendly` и включить настройку:
+    Чтобы сохранять полную транзитивную совместимость при добавлении и удалении опциональных полей в схеме ключа:
 
-    * **key.converter.dt.json.generate.closed.content.schema**, то добавление и удаление опциональных полей в схему ключа не будет нарушать полную транзитивную совместимость схем.
-    * **value.converter.dt.json.generate.closed.content.schema**, то добавление и удаление опциональных полей в схему значения не будет нарушать полную транзитивную совместимость схем.
+    1. Выберите в пространстве имен {{ schema-registry-name }} политику проверки совместимости `Optional-friendly`.
+    1. В настройках сериализации эндпоинта-приемника {{ mkf-name }} [задайте настройку](../operations/endpoint/target/kafka.md#serializer) **key.converter.dt.json.generate.closed.content.schema** — `true`.
+
+    Чтобы сохранять полную транзитивную совместимость при добавлении и удалении опциональных полей в схеме значения:
+
+    1. Выберите в пространстве имен {{ schema-registry-name }} политику проверки совместимости `Optional-friendly`.
+    1. В настройках сериализации эндпоинта-приемника [задайте настройку](../operations/endpoint/target/kafka.md#serializer) **value.converter.dt.json.generate.closed.content.schema** — `true`.    
 
 * **key.converter.basic.auth.user.info** и **value.converter.basic.auth.user.info** — имя пользователя и пароль для авторизации в Confluent Schema Registry для ключей и значений при использовании конвертера `io.confluent.connect.json.JsonSchemaConverter`.
 

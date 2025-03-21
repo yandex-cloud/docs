@@ -227,9 +227,6 @@ links:
   - title: Описание технической поддержки Yandex Cloud
     description: Правила предоставления технической поддержки
     href: support/
-  - title: Tracker
-    description: Инструмент для организации работы команды
-    href: tracker/
   - title: Translate
     description: Машинный перевод с поддержкой более 90 языков
     href: translate/

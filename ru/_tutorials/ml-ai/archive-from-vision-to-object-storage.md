@@ -217,13 +217,13 @@
      yc config set service-account-key key.json
      ```
 
-  1. Получите [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md) для сервисного аккаунта:
+  1. Получите [{{ iam-short-name }}-токен](../../iam/concepts/authorization/iam-token.md) для сервисного аккаунта:
 
      ```bash
      yc iam create-token
      ```
 
-     Сохраните {{ iam-name }}-токен, он понадобится для отправки изображений в {{ vision-name }}.
+     Сохраните {{ iam-short-name }}-токен, он понадобится для отправки изображений в {{ vision-name }}.
 
 {% endlist %}
 
@@ -327,7 +327,7 @@
    Где:
    * `BUCKETNAME` — имя бакета.
    * `FOLDERID` — идентификатор каталога.
-   * `IAMTOKEN` — {{ iam-name }}-токен, который вы получили при [настройке сервисного аккаунта](#configure-sa).
+   * `IAMTOKEN` — {{ iam-short-name }}-токен, который вы получили при [настройке сервисного аккаунта](#configure-sa).
 
 ### Создайте скрипт {#create-script}
 

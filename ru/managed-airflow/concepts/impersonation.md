@@ -30,7 +30,7 @@ _Имперсонацией_ в {{ maf-short-name }} называется вып
 
 Чтобы использовать возможности {{ lockbox-name }} в кластере {{ AF }}, [создайте секрет](../../lockbox/operations/secret-create.md) с нужными данными и [выдайте доступ к нему](../../lockbox/operations/secret-access.md) сервисному аккаунту, который привязан к кластеру. После этого данные из секрета можно будет использовать в DAG-файлах кластера.
 
-Пример интеграции см. в разделе [{#T}](../tutorials/lockbox-secrets-in-maf-cluster.md).
+Пример интеграции см. в разделе [{#T}](../operations/lockbox-secrets-in-maf-cluster.md).
 
 ## Доступные инструменты для интеграции с {{ yandex-cloud }} {#instruments}
 

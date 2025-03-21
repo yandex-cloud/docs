@@ -3,7 +3,7 @@
 
 В этом руководстве вы настроите мониторинг состояния устройств (например, вендинговых автоматов), подключенных к сервису [{{ iot-full-name }}](../../iot-core/index.yaml) и расположенных в разных точках города. Вы сможете наблюдать за состоянием автоматов на карте и графиках сервиса [{{ datalens-full-name }}](../../datalens/index.yaml). Датчики будут эмулированы с помощью сервиса [{{ sf-full-name }}](../../functions/index.yaml). Если у вас есть подключенные датчики, используйте их. Для хранения данных будет использован сервис [{{ mpg-full-name }}](../../managed-postgresql/index.yaml).
 
-Исходный код, который используется в этом руководстве, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios).
+Исходный код руководства доступен в репозитории на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios).
 
 Чтобы настроить мониторинг показаний датчиков:
 1. [Подготовьте облако к работе](#configure-cloud).
@@ -180,7 +180,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * Имя файла — `device-emulator.js`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/DashboardForGeoDistributedDevices/device-emulator.js).
+          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/device-emulator.js).
 
       1. Аналогичным образом создайте файл `package.json` со следующим содержимым:
 
@@ -354,7 +354,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * Имя файла — `myfunction.py`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/DashboardForGeoDistributedDevices/myfunction.py).
+          * Содержимое файла — код функции с [GitHub](https://github.com/yc-geo-dist-devices-iot-monitoring/blob/main/myfunction.py).
 
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `myfunction.msgHandler`.
       1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:

@@ -100,18 +100,18 @@ To get authenticated from within your VM using the linked service account:
 
      {% include [add-folder](../../../_includes/cli-add-folder.md) %}
 
-     You can also get a [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md), e.g., to get authenticated with the API:
+     You can also get a [{{ iam-short-name }} token](../../../iam/concepts/authorization/iam-token.md), e.g., to get authenticated with the API:
 
      ```bash
      yc iam create-token
      ```
 
-     The [lifetime of an {{ iam-name }} token](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an {{ iam-name }} token more often, e.g., every hour. To learn the remaining token lifetime, follow the steps for the API.
+     The [lifetime of an {{ iam-short-name }} token](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an {{ iam-short-name }} token more often, e.g., every hour. To learn the remaining token lifetime, follow the steps for the API.
 
 - API {#api}
 
   1. Connect to the VM [over SSH](../vm-connect/ssh.md).
-  1. Get an {{ iam-name }} token from metadata in Google Compute Engine format:
+  1. Get an {{ iam-short-name }} token from metadata in Google Compute Engine format:
 
      ```bash
      curl \
@@ -124,10 +124,10 @@ To get authenticated from within your VM using the linked service account:
      {"access_token":"CggVAgAAA...","expires_in":39944,"token_type":"Bearer"}
      ```
 
-     The response will return an {{ iam-name }} token in the `access_token` field. The remaining lifetime of the {{ iam-name }} token is specified in the `expires_in` field.
+     The response will return an {{ iam-short-name }} token in the `access_token` field. The remaining lifetime of the {{ iam-short-name }} token is specified in the `expires_in` field.
 
   1. {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
-    Keep track of the {{ iam-name }} token lifetime or request a new token more often, e.g., every hour.
+    Keep track of the {{ iam-short-name }} token lifetime or request a new token more often, e.g., every hour.
 
 {% endlist %}

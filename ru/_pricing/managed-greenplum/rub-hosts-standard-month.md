@@ -8,7 +8,7 @@
 | 100% vCPU     | {{ sku|RUB|mdb.cluster.greenplum.v3.cpu.c100|month|string }} | {{ sku|RUB|v1.commitment.selfcheckout.m6.mdb.greenplum.cpu.c100.v3|month|string }} (-15%) | {{ sku|RUB|v1.commitment.selfcheckout.y1.mdb.greenplum.cpu.c100.v3|month|string }} (-22%) |
 | RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.greenplum.v3.ram|month|string }}      | {{ sku|RUB|v1.commitment.selfcheckout.m6.mdb.greenplum.ram.v3|month|string }} (-15%)      | {{ sku|RUB|v1.commitment.selfcheckout.y1.mdb.greenplum.ram.v3|month|string }} (-22%)      |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | 2 476,80 ₽ | — | — |
-| RAM (за 1 ГБ) | 475,20 ₽ | — | — |
+| 100% vCPU | {{ sku|RUB|mdb.cluster.greenplum.highfreq-v3.cpu.c100|month|string }} | — | — |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.greenplum.highfreq-v3.ram|month|string }} | — | — |
 
 

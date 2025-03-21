@@ -38,8 +38,8 @@
           Password: <OAuth-токен>
           ```
 
-     * С помощью {{ iam-full-name }}-токена:
-       1. [Получите {{ iam-name }}-токен](../../../iam/operations/iam-token/create.md).
+     * С помощью {{ iam-short-name }}-токена:
+       1. [Получите {{ iam-short-name }}-токен](../../../iam/operations/iam-token/create.md).
        1. Выполните команду:
 
           ```bash

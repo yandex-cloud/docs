@@ -10,7 +10,7 @@
 | 100% vCPU     | {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|month|string }} | {{ sku|KZT|v1.commitment.selfcheckout.m6.mdb.kafka.cpu.c100.v3|month|string }} (-15%) | {{ sku|KZT|v1.commitment.selfcheckout.y1.mdb.kafka.cpu.c100.v3|month|string }} (-22%) |
 | RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.kafka.v3.ram|month|string }}      | {{ sku|KZT|v1.commitment.selfcheckout.m6.mdb.kafka.ram.v3|month|string }} (-15%)      | {{ sku|KZT|v1.commitment.selfcheckout.y1.mdb.kafka.ram.v3|month|string }} (-22%)      |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | 8 712,00 ₸ | - | - |
-| RAM (за 1 ГБ) | 1 656,00 ₸ | - | - |
+| 100% vCPU | {{ sku|KZT|mdb.cluster.kafka.highfreq-v3.cpu.c100|month|string }} | - | - |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.cluster.kafka.highfreq-v3.ram|month|string }} | - | - |
 
 

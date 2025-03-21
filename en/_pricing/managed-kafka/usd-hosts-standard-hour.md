@@ -9,5 +9,5 @@
 | 100% vCPU | {{ sku|USD|mdb.cluster.kafka.v3.cpu.c100|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.kafka.cpu.c100.v3|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.kafka.cpu.c100.v3|string }} (-22%) |
 | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.kafka.v3.ram|string }} | {{ sku|USD|v1.commitment.selfcheckout.m6.mdb.kafka.ram.v3|string }} (-15%) | {{ sku|USD|v1.commitment.selfcheckout.y1.mdb.kafka.ram.v3|string }} (-22%) |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | $0.019360 | - | - |
-| RAM (for 1 GB) | $0.003680 | - | - |
+| 100% vCPU | {{ sku|USD|mdb.cluster.kafka.highfreq-v3.cpu.c100|string }} | - | - |
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.kafka.highfreq-v3.ram|string }} | - | - |

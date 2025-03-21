@@ -8,7 +8,6 @@
 
     Где `ubuntu_name` — версия операционной системы:
 
-      * `ubuntu-14.04-trusty`
       * `ubuntu-16.04-xenial`
       * `ubuntu-18.04-bionic`
       * `ubuntu-20.04-focal`

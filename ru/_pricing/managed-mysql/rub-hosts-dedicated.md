@@ -8,4 +8,4 @@
 | RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.mysql.v3.ram.dedicated|string }}      |
 | **Intel Ice Lake (Compute Optimized)** |
 | 100% vCPU | 0,80 ₽ |
-| RAM (за 1 ГБ) | 0,17 ₽ |
+| RAM (за 1 ГБ) | {{ sku|RUB|mdb.cluster.mysql.highfreq-v3.ram.dedicated|string }} |

@@ -7,38 +7,72 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Изменение кластера
-        href: operations/cluster-update.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
+      - name: Кластеры
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Изменение кластера
+            href: operations/cluster-update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Подключения
+        items:
+          - name: '{{ maf-name }}: подключение к базе данных'
+            href: operations/update-connections.md
+          - name: '{{ mch-name }}: подключение к базе данных'
+            href: operations/clickhouse.md
+          - name: '{{ mpg-name }}: подключение к базе данных'
+            href: operations/postgres-operator.md
+      - name: Хранение артефактов в {{ lockbox-full-name }}
+        items:
+          - name: Загрузка переменной из {{ lockbox-name }}
+            href: operations/load-variable-from-lockbox.md
+          - name: Хранение подключений {{ AF }} в {{ lockbox-full-name }}
+            href: operations/lockbox-secrets-in-maf-cluster.md
+      - name: Работа с DAG-файлами
+        items:
+          - name: Загрузка DAG-файлов в кластер
+            href: operations/upload-dags.md
+          - name: Получение IAM-токена
+            href: operations/get-iam-token.md
+      - name: Работа с {{ objstorage-full-name }}
+        items:
+          - name: Загрузка файла в {{ objstorage-full-name }}
+            href: operations/upload-file-to-s3.md
+          - name: >-
+              Подключение к бакету {{ objstorage-full-name }} с политикой
+              доступа
+            href: operations/s3-policy-connect.md
+          - name: Чтение файла из {{ objstorage-full-name }}
+            href: operations/read-file-from-dags-bucket.md
       - name: Работа с интерфейсами {{ AF }}
         href: operations/af-interfaces.md
-      - name: Подключение к бакету {{ objstorage-full-name }} с политикой доступа
-        href: operations/s3-policy-connect.md
-      - name: Загрузка DAG-файлов в кластер
-        href: operations/upload-dags.md
       - name: Передача логов {{ AF }} в {{ cloud-logging-name }}
         href: operations/af-logging.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
   - name: Практические руководства
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Автоматизация работы с {{ dataproc-name }}
-        href: tutorials/data-processing-automation.md
-      - name: Автоматизация задач {{ yq-full-name }}
-        href: tutorials/airflow-auto-tasks.md
-      - name: >-
-          Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
-          Python SDK
-        href: tutorials/using-python-sdk.md
-      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
-        href: tutorials/lockbox-secrets-in-maf-cluster.md
+      - name: Работа с кластерами
+        items:
+          - name: '{{ dataproc-name }}: автоматизация работы'
+            href: tutorials/data-processing-automation.md
+          - name: '{{ yq-full-name }}: автоматизация задач'
+            href: tutorials/airflow-auto-tasks.md
+      - name: Другие руководства
+        items:
+          - name: >-
+              Настройка SMTP-сервера для отправки уведомлений по электронной
+              почте
+            href: tutorials/test-smtp-notification.md
+          - name: >-
+              Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud
+              }} Python SDK
+            href: tutorials/using-python-sdk.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
