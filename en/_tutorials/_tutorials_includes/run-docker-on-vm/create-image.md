@@ -38,7 +38,7 @@
 
       {% endnote %}
 
-      1. [Get](../../../iam/operations/iam-token/create.md) an {{ iam-name }} token.
+      1. [Get](../../../iam/operations/iam-token/create.md) an {{ iam-short-name }} token.
       1. Run this command:
 
           ```bash

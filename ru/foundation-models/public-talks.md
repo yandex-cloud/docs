@@ -9,6 +9,10 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2025 год {#2025}
 
+* Как дообучить LLM с помощью LoRA Fine-tuning. [Видео](https://www.youtube.com/watch?v=PVeuQu1j6Y4).
+
+* Deep-dive для разработчиков: создание AI-ассистентов. [Видео](https://www.youtube.com/watch?v=Xjutc_T0p8s).
+
 * Искусство {{ yandexart-name }} для бизнеса. Видео на [YouTube](https://www.youtube.com/watch?v=I9Fpsxv8Hlc) и [Яндекс](https://runtime.strm.yandex.ru/player/episode/vplefdetiqv7tasxrbyk).
 
 ### 2024 год {#2024}

@@ -187,7 +187,7 @@
 
   Создайте ВМ с помощью метода [Create](../../compute/api-ref/Instance/create.md) для ресурса `Instance`:
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
-  1. Получите [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
+  1. Получите [{{ iam-short-name }}-токен](../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
       * [Инструкция](../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
       * [Инструкция](../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
 

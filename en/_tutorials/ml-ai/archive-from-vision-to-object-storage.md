@@ -217,13 +217,13 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
      yc config set service-account-key key.json
      ```
 
-  1. Get a [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) for the service account:
+  1. Get a [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md) for the service account:
 
      ```bash
      yc iam create-token
      ```
 
-     Save the {{ iam-name }} token, you will need it to send images to {{ vision-name }}.
+     Save the {{ iam-short-name }} token, you will need it to send images to {{ vision-name }}.
 
 {% endlist %}
 
@@ -327,7 +327,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
    Where:
    * `BUCKETNAME`: Bucket name.
    * `FOLDERID`: Folder ID.
-   * `IAMTOKEN`: {{ iam-name }} token you got when [configuring the service account](#configure-sa).
+   * `IAMTOKEN`: {{ iam-short-name }} token you got when [configuring the service account](#configure-sa).
 
 ### Create a script {#create-script}
 

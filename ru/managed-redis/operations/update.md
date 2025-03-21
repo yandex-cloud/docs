@@ -1085,6 +1085,17 @@ description: Из статьи вы узнаете, как изменить на
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Выберите нужный кластер.
+    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** включите опцию **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+    {% include [enable-sharding-shard-note](../../_includes/mdb/mrd/enable-sharding-shard-note.md) %}
+
 - CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}

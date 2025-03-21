@@ -156,6 +156,9 @@ items:
                 href: concepts/datalens-usage-analytics.md
               - name: Подключение
                 href: operations/connection/create-usage-tracking.md
+          - name: Создание подключения API Connector
+            href: operations/connection/create-api-connector.md
+            hidden: true
       - name: Партнерские подключения
         items:
           - name: Создание подключения к Экстрактору 1С

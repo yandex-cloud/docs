@@ -9,6 +9,8 @@ description: Следуя данной инструкции, вы научите
 
 [Политики доступа (bucket policy)](../../concepts/policy.md) устанавливают права на действия с [бакетами](../../concepts/bucket.md), [объектами](../../concepts/object.md) и группами объектов.
 
+Образцы политик доступа для решения конкретных задач см. в подразделе [Примеры конфигураций](../../concepts/policy.md#config-examples).
+
 
 {% note warning %}
 
@@ -456,3 +458,7 @@ description: Следуя данной инструкции, вы научите
   Воспользуйтесь методом S3 API [DeleteBucketPolicy](../../s3/api-ref/policy/delete.md).
 
 {% endlist %}
+
+## См. также {#see-also}
+
+* [{#T}](../../concepts/policy.md#config-examples)

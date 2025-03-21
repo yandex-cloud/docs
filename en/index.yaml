@@ -216,9 +216,6 @@ links:
   - title: Yandex Cloud technical support description
     description: Technical support terms and conditions
     href: support/
-  - title: Tracker
-    description: A tool for effective team collaboration
-    href: tracker/
   - title: Translate
     description: Machine translation with support for over 90 languages
     href: translate/

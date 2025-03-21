@@ -60,7 +60,6 @@
 | {{ speechkit-full-name }}               | [Синхронное распознавание v2 REST](../{{ speechkit-slug }}/stt/api/request-api.md)<br>[Асинхронное распознавание v2 REST](../{{ speechkit-slug }}/stt/api/transcribation-api.md)<br>[Потоковое распознавание v2 gRPC](../{{ speechkit-slug }}/stt/api/streaming-api.md)<br>[Потоковое распознавание v3 gRPC](../{{ speechkit-slug }}/stt-v3/api-ref/grpc/)<br>[Синтез v1 REST](../{{ speechkit-slug }}/tts/request.md)<br>[Синтез v3 gRPC](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/) |
 | {{ sk-hybrid-full-name }}               | [Синтез речи gRPC](../speechkit-hybrid/api-ref/tts/v3/grpc/)<br>[Потоковое распознавание gRPC](../speechkit-hybrid/api-ref/stt/v3/grpc/) |
 | {{ speechsense-full-name }}             | [gRPC](../speechsense/api-ref/grpc/) |
-| {{ tracker-full-name }}                 | [REST](../tracker/about-api.md) |
 | {{ translate-full-name }}               | [gRPC](../translate/api-ref/grpc/)<br>[REST](../translate/api-ref/) |
 | {{ vision-full-name }}                  | [gRPC](../vision/ocr/api-ref/grpc/)<br>[REST](../vision/ocr/api-ref/) |
 | {{ vpc-full-name }}                     | [gRPC](../vpc/api-ref/grpc/)<br>[REST](../vpc/api-ref/) |

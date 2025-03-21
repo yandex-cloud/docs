@@ -266,11 +266,11 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ tracker-full-name }} {#tracker}
 
-[{{ tracker-full-name }}](../../tracker/quick-start.md) is a management service for your projects and processes.
+[{{ tracker-full-name }}]({{ link-tracker-cloudless }}) is a management service for your projects and processes.
 
 {% include [not-charged-tracker.md](../../_includes/pricing/price-formula/not-charged-tracker.md) %}
 
-After you spend the free amount of services, you will be charged at the applicable [rate](../../tracker/pricing.md).
+After you spend the free amount of services, you will be charged at the applicable [rate]({{ link-tracker-cloudless }}).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

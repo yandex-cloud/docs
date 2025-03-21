@@ -17,5 +17,5 @@
 | 100% vCPU     | {{ sku|KZT|mdb.zk.clickhouse.v3.cpu.c100|string }} | {{ sku|KZT|mdb.zk.clickhouse.v3.cpu.c100|month|string }} |
 | RAM (за 1 ГБ) | {{ sku|KZT|mdb.zk.clickhouse.v3.ram|string }}      | {{ sku|KZT|mdb.zk.clickhouse.v3.ram|month|string }}      |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | 8,70 ₸ | 6 264,00 ₸ |
-| RAM (за 1 ГБ) | 1,60 ₸ | 1 152,00 ₸ |
+| 100% vCPU | {{ sku|KZT|mdb.zk.clickhouse.highfreq-v3.cpu.c100|string }} | {{ sku|KZT|mdb.zk.clickhouse.highfreq-v3.cpu.c100|month|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|mdb.zk.clickhouse.highfreq-v3.ram|string }} | {{ sku|KZT|mdb.zk.clickhouse.highfreq-v3.ram|month|string }} |

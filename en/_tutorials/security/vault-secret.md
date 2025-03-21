@@ -24,7 +24,7 @@ To set up Auto Unseal:
 
     - Service account linked to your VM {#service-account-vm}
 
-        Authentication is performed using an [{{ iam-full-name }} token](../../iam/concepts/authorization/iam-token.md) that is automatically extracted from the [VM metadata](../../compute/concepts/vm-metadata.md). For more information, see [{#T}](../../compute/operations/vm-connect/auth-inside-vm.md).
+        Authentication is performed using an [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md) that is automatically extracted from the [VM metadata](../../compute/concepts/vm-metadata.md). For more information, see [{#T}](../../compute/operations/vm-connect/auth-inside-vm.md).
 
         {% note tip %}
 
@@ -38,7 +38,7 @@ To set up Auto Unseal:
 
     - Yandex or federated account {#yandex-account}
 
-        Authentication is done using an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or [{{ iam-name }} token](../../iam/concepts/authorization/iam-token.md).
+        Authentication is done using an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md).
 
         {% note tip %}
 

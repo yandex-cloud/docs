@@ -8,4 +8,4 @@
 | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mysql.v3.ram.dedicated|string }} |
 | **Intel Ice Lake (Compute Optimized)** |
 | 100% vCPU | $0.006400 |
-| RAM (for 1 GB) | $0.001360 |
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.mysql.highfreq-v3.ram.dedicated|string }} |

@@ -2,11 +2,7 @@
 
 _Custom installation_: {{ GL }} installed on a server or local computer (self-managed {{ GL }}). A custom installation of [{{ GL }} Community Edition](https://about.gitlab.com/install/ce-or-ee/) is discussed below.
 
-{{ mgl-name }} has additional functionality that the Community Edition does not have:
-
-* Support of the [approval rules](approval-rules.md). These provide an alternative to the [Approval Rules]({{ gl.docs }}/ee/user/project/merge_requests/approvals/rules.html) tool in the {{ GL }} Enterprise Edition.
-
-* [Integration with the {{ tracker-full-name }} development management service](../tutorials/tracker-integration.md). After integration, links to [merge requests]({{ gl.docs }}/ee/user/project/merge_requests/) are automatically added to {{ tracker-name }} tasks and their status changes are displayed.
+{{ mgl-name }} includes support for [approval rules](approval-rules.md), which is not available in the Community Edition. These rules provide an alternative to the [Approval Rules]({{ gl.docs }}/ee/user/project/merge_requests/approvals/rules.html) tool in the {{ GL }} Enterprise Edition.
 
 The custom installation is installed and administered manually. It is more costly compared to {{ mgl-name }} support. Service administration includes the following benefits:
 

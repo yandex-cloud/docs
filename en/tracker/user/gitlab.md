@@ -16,10 +16,6 @@ You can also enable automatic creation of issue comments with information about 
 
 {% include [test hook](../../_includes/managed-gitlab/test-hook.md) %}
 
-### See also {#see-also}
-
-* [Manual for integrating {{ GL }} with {{ tracker-full-name }}](../../managed-gitlab/tutorials/tracker-integration.md)
-
 ## Connecting a repository {#repo}
 
 To connect your repository on [GitLab](https://gitlab.com) to {{ tracker-name }}:

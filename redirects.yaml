@@ -105,6 +105,8 @@ ru-ru:
     to: /iam/operations/authentication/manage-authorized-keys
   - from: ^/organization/concepts/manage-services
     to: /resource-manager/concepts/resources-hierarchy
+  - from: ^/tutorials/dataplatform/lockbox-and-airflow
+    to: /managed-airflow/operations/lockbox-secrets-in-maf-cluster
 
 ru-kz:
   - from: ^/audit-trails/operations/export-organization-logging
@@ -138,4 +140,6 @@ ru-kz:
   - from: ^/iam/operations/authorized-key/delete
     to: /iam/operations/authentication/manage-authorized-keys
   - from: ^/organization/concepts/manage-services
-    to: /resource-manager/concepts/resources-hierarchy  
+    to: /resource-manager/concepts/resources-hierarchy
+  - from: ^/tutorials/dataplatform/lockbox-and-airflow
+    to: /managed-airflow/operations/lockbox-secrets-in-maf-cluster

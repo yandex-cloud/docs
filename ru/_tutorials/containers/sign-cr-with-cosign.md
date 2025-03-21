@@ -91,7 +91,7 @@
 
      {% include [install-cosign](../../_includes/kms/install-cosign.md) %}
 
-  1. Получите [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md) и сохраните его в переменную среды `$YC_IAM_TOKEN`:
+  1. Получите [{{ iam-short-name }}-токен](../../iam/concepts/authorization/iam-token.md) и сохраните его в переменную среды `$YC_IAM_TOKEN`:
      * **Bash:**
 
        ```bash

@@ -203,4 +203,9 @@ CASE
 END
 ```
 
+#### См. также {#see-also}
+
+* [{#T}](../../concepts/chart/index.md)
+* [{#T}](../dashboard/add-chart.md)
+
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

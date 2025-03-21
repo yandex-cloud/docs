@@ -195,6 +195,10 @@ description: Следуя данной инструкции, вы сможете
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
 
+      * `--user` — содержит имя (`name`) и пароль (`password`) пользователя {{ CH }}.
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
       * `--deletion-protection` — защита от удаления кластера.
@@ -359,6 +363,15 @@ description: Следуя данной инструкции, вы сможете
        }
        ```
 
+
+       Где:
+
+       * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+       * `user` — блок с данными о пользователе. Содержит имя (`name`) и пароль (`password`) пользователя {{ CH }}, а также список БД, к которым пользователь должен иметь доступ, в блоке `permission`.
+
+         {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.     
 
        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

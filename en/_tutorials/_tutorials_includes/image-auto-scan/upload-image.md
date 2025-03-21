@@ -50,7 +50,7 @@
         Login Succeeded
         ```
 
-   - {{ iam-full-name }} token {#iam-token}
+   - {{ iam-short-name }} token {#iam-token}
 
      {% note info %}
 
@@ -58,7 +58,7 @@
 
      {% endnote %}
 
-     1. [Get](../../../iam/operations/iam-token/create.md) an [{{ iam-name }} token](../../../iam/concepts/authorization/iam-token.md).
+     1. [Get](../../../iam/operations/iam-token/create.md) an [{{ iam-short-name }} token](../../../iam/concepts/authorization/iam-token.md).
      1. Run this command:
 
         ```bash

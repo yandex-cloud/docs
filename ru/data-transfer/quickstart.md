@@ -23,15 +23,17 @@
 Подробнее о том, какие роли нужны для пользования сервисом {{ data-transfer-name }}, см. в разделе [Какие роли необходимы](security/index.md#required-roles).
 
 
+Для работы с сервисом в консоли управления перейдите на страницу каталога и выберите сервис [**{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**]({{ link-console-main }}/link/data-transfer/). 
+
 ## Настройте источник и приемник {#db-settings}
 
 В качестве источника и приемника могут выступать разные системы.
 
-### Совместимость источников и приемников {#connectivity-matrix}
+### Проверьте совместимость источников и приемников {#connectivity-matrix}
 
 {% include [include](../_includes/data-transfer/connectivity-marix.md) %}
 
-### Подготовка источников и приемников {#prepare-source-and-target}
+### Подготовьте источники и приемники данных {#prepare-source-and-target}
 
 Подготовьте источник к отправке данных:
 
@@ -70,52 +72,76 @@
 
 ## Создайте эндпоинт для источника {#source}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
-1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-1. Нажмите кнопку **Создать эндпоинт**.
-1. Убедитесь, что в поле **Направление** указано `Источник`.
-1. Укажите имя эндпоинта.
-1. В поле **Тип базы данных** выберите тип СУБД, из которой вы хотите передавать данные.
-1. Укажите параметры эндпоинта в соответствующем блоке настроек.
-1. Нажмите кнопку **Создать**.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. Убедитесь, что в поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** указано `{{ ui-key.yacloud.data-transfer.forms.label_source-type }}`.
+  1. Укажите имя эндпоинта.
+  1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите тип СУБД, из которой вы хотите передавать данные.
+  1. Укажите параметры эндпоинта в соответствующем блоке настроек.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
 
 Подробнее см. в разделе [{#T}](operations/endpoint/index.md).
 
 ## Создайте эндпоинт для приемника {#target}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
-1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
-1. Нажмите кнопку **Создать эндпоинт**.
-1. Убедитесь, что в поле **Направление** указано `Приемник`.
-1. Укажите имя эндпоинта.
-1. В поле **Тип базы данных** выберите тип СУБД, в которую вы хотите передавать данные.
-1. Укажите параметры эндпоинта в соответствующем блоке настроек.
-1. Нажмите кнопку **Создать**.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **{{ ui-key.yacloud.data-transfer.label_endpoints }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-endpoint }}**.
+  1. Убедитесь, что в поле **{{ ui-key.yacloud.data-transfer.forms.label-is_source }}** указано `{{ ui-key.yacloud.data-transfer.forms.label_target-type }}`.
+  1. Укажите имя эндпоинта.
+  1. В поле **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** выберите тип СУБД, в которую вы хотите передавать данные.
+  1. Укажите параметры эндпоинта в соответствующем блоке настроек.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
 
 Подробнее см. в разделе [{#T}](./operations/endpoint/index.md).
 
 ## Создайте трансфер {#create-transfer}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
-1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
-1. Нажмите кнопку **Создать трансфер**.
-1. Укажите имя трансфера.
-1. (Опционально) Добавьте описание трансфера.
-1. Выберите эндпоинт для источника и эндпоинт для приемника.
-1. Выберите [тип трансфера](./concepts/index.md#transfer-type.md):
-    * {{ dt-type-copy }} — чтобы создать полную копию данных без дальнейшего получения обновлений из источника. Этот тип также можно использовать для [репликации постоянно меняющихся таблиц](concepts/transfer-lifecycle.md#select-transfer-type).
-        Если вам нужно создавать полную копию данных через определенные интервалы времени, включите настройку **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}**.
-    * {{ dt-type-repl }} — чтобы непрерывно получать изменения данных от источника и применять их к приемнику (без создания полной копии данных источника).
-    * {{ dt-type-copy-repl }} — чтобы создать полную копию данных источника и поддерживать ее в актуальном состоянии.
-1. Нажмите кнопку **Создать**.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
+  1. Укажите имя трансфера.
+  1. (Опционально) Добавьте описание трансфера.
+  1. Выберите эндпоинт для источника и эндпоинт для приемника.
+  1. Выберите [тип трансфера](./concepts/index.md#transfer-type.md):
+     * {{ dt-type-copy }} — чтобы создать полную копию данных без дальнейшего получения обновлений из источника. Этот тип также можно использовать для [репликации постоянно меняющихся таблиц](concepts/transfer-lifecycle.md#select-transfer-type).
+       Если вам нужно создавать полную копию данных через определенные интервалы времени, включите настройку **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferTypeSnapshot.regular_snapshot.title }}**.
+     * {{ dt-type-repl }} — чтобы непрерывно получать изменения данных от источника и применять их к приемнику (без создания полной копии данных источника).
+     * {{ dt-type-copy-repl }} — чтобы создать полную копию данных источника и поддерживать ее в актуальном состоянии.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
 
 Подробнее см. в разделе [Типы трансферов](./concepts/transfer-lifecycle.md#transfer-types).
 
 ## Активируйте трансфер {#activate}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ data-transfer-full-name }}**.
-1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
-1. Нажмите значок ![ellipsis](../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Активировать**.
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+  1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
+  1. Нажмите значок ![ellipsis](../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
+
+{% endlist %}
 
 Начнется процесс переноса данных.
 

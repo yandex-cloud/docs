@@ -187,7 +187,7 @@ description: Use this tutorial to create a Linux VM.
 
   Create a VM using the [create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/) resource:
   1. [Prepare](../vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
-  1. Get a [{{ iam-full-name }} token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
+  1. Get a [{{ iam-short-name }} token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
      * [Guide](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
      * [Guide](../../../iam/operations/iam-token/create-for-sa.md) for a [service account](../../../iam/concepts/users/service-accounts.md).
      * [Guide](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.

@@ -7,5 +7,5 @@
 | 100% vCPU | $0.008615 |
 | RAM (for 1 GB) | $0.002282 |
 | **Intel Ice Lake (Compute Optimized)** |
-| 100% vCPU | $0.013840 |
-| RAM (for 1 GB) | $0.002560 |
+| 100% vCPU | {{ sku|USD|mdb.cluster.greenplum.highfreq-v3.cpu.c100.dedicated|string }} |
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.greenplum.highfreq-v3.ram.dedicated|string }} |
