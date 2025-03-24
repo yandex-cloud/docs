@@ -45,7 +45,7 @@ items:
               Геокодинг с помощью API Яндекс Карт для визуализации в {{
               datalens-short-name }}
             href: tutorials/data-from-ch-geocoder.md
-          - name: Визуализация данных с использованием инструмента "Тепловые карты"
+          - name: Визуализация данных с использованием инструмента Тепловые карты
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
           - name: Мониторинг состояния географически распределенных устройств
