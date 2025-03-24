@@ -124,7 +124,7 @@
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Найдите аккаунт `win-secret-sa` в списке и нажмите значок ![image](../../_assets/options.svg).
       1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `kms.keys.encrypterDercrypter`.
+      1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `kms.keys.encrypterDecrypter`.
 
    - CLI {#cli}
 
@@ -132,7 +132,7 @@
 
       ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
-         --role kms.keys.encrypterDercrypter \
+         --role kms.keys.encrypterDecrypter \
          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
