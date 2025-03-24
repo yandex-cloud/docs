@@ -55,6 +55,10 @@ items:
           Организация доступа через {{ interconnect-name }} к облачным сетям,
           размещенным за NGFW
         href: tutorials/cic-with-ngfw
+      - name: >-
+          Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
+          vpc-name }}
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
   - name: Концепции
     expanded: true
     items:

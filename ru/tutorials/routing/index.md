@@ -28,3 +28,4 @@ description: Различные сценарии использования се
 * [Добавление публичного соединения в прямое или партнерское транковое подключение](pub-add.md)
 * [{#T}](./bms-vrf-routing.md)
 * [{#T}](./bms-simple-subnet.md)
+* [{#T}](./bm-vrf-and-vpc-interconnect.md)

@@ -538,6 +538,10 @@ items:
           Создание внешней таблицы на базе таблицы из бакета {{ objstorage-name
           }} с помощью конфигурационного файла
         href: tutorials/mgp-config-server-for-s3.md
+      - name: >-
+          Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
+          vpc-name }}
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: '{{ coi }}'
         items:
           - name: Создать ВМ с {{ coi }}

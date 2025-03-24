@@ -266,9 +266,9 @@ default:
   k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.28, 1.29, 1.30, 1.31
-  k8s-versions-regular: 1.28, 1.29, 1.30, 1.31
-  k8s-versions-stable: 1.28, 1.29, 1.30
+  k8s-versions-rapid: 1.29, 1.30, 1.31
+  k8s-versions-regular: 1.29, 1.30, 1.31
+  k8s-versions-stable: 1.29, 1.30
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -324,11 +324,9 @@ default:
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
   link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
   link-monitoring: https://monitoring.yandex.cloud
-  link-org-acl: https://org.yandex.cloud/acl
   link-org-cloud-center: https://center.yandex.cloud/organization
   link-org-federations: https://org.yandex.cloud/federations
   link-org-main: https://org.yandex.cloud/
-  link-org-settings: https://org.yandex.cloud/settings
   link-org-users: https://org.yandex.cloud/users
   link-oslogin-configs: https://storage.yandexcloud.net/oslogin-configs
   link-passport: https://passport.yandex.ru/
@@ -346,7 +344,6 @@ default:
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.ru/
   link-wiki-cloudless: https://yandex.ru/support/wiki/ru
-  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.ru
   links:
     es:
@@ -943,14 +940,6 @@ default:
       data_plane:
         v1|number: 180
         v1|string: "180,00\_₸"
-  sku|KZT|b2b:
-    tracker:
-      license:
-        v1|pricingRate:
-          100|string: "2\_000,00\_₸"
-          250|string: "1\_800,00\_₸"
-          6|string: "2\_200,00\_₸"
-        v1|string: Не тарифицируется
   sku|KZT|backup:
     protected_vms:
       v2|month|number: 1194
@@ -1107,6 +1096,7 @@ default:
       v1|pricingRate:
         100|number: 13.5
         100|string: "13,50\_₸"
+      v1|string: Не тарифицируется
   sku|KZT|dns:
     requests:
       public:
@@ -2339,14 +2329,6 @@ default:
       data_plane:
         v1|number: 36
         v1|string: "36,00\_₽"
-  sku|RUB|b2b:
-    tracker:
-      license:
-        v1|pricingRate:
-          100|string: "400,00\_₽"
-          250|string: "360,00\_₽"
-          6|string: "440,00\_₽"
-        v1|string: Не тарифицируется
   sku|RUB|backup:
     protected_vms:
       v2|month|number: 238.8
@@ -2504,6 +2486,7 @@ default:
       v1|pricingRate:
         100|number: 2.7
         100|string: "2,70\_₽"
+      v1|string: Не тарифицируется
   sku|RUB|dns:
     requests:
       public:
@@ -3724,14 +3707,6 @@ default:
       data_plane:
         v1|number: 0.288
         v1|string: "0,288000\_$"
-  sku|USD|b2b:
-    tracker:
-      license:
-        v1|pricingRate:
-          100|string: "3,200000\_$"
-          250|string: "2,880000\_$"
-          6|string: "3,520000\_$"
-        v1|string: Не тарифицируется
   sku|USD|backup:
     protected_vms:
       v2|month|number: 1.9104
@@ -3889,6 +3864,7 @@ default:
       v1|pricingRate:
         100|number: 0.0216
         100|string: "0,021600\_$"
+      v1|string: Не тарифицируется
   sku|USD|dns:
     requests:
       public:
@@ -5093,94 +5069,6 @@ default:
             1|string: "0,390080\_$"
         requests|string: Не тарифицируется
   ui-key:
-    beta-wiki:
-      blocks_common_desktop:
-        blocks_b-access-button:
-          delete: удалить
-        blocks_b-action-delete:
-          table_address: Адрес
-        blocks_b-editor-struct:
-          page_save: Сохранить
-        blocks_b-events-log:
-          edit_version: Редактировать эту версию
-          return_this_version: Вернуться к этой версии
-        blocks_b-file2:
-          icon_upload: Загрузить файл
-        blocks_b-foot:
-          feedback: Обратная связь
-        blocks_b-head:
-          create: Создать
-          favorite: Избранное
-          my_page: Моя страница
-          options: Настройки
-          search: Поиск
-        blocks_b-notification:
-          actual: Страница актуальна
-        blocks_b-page-more-panel:
-          create_page: Создать подстраницу
-          delete: Удалить
-          settings: Настройки
-          subscribe_users: Подписать пользователей
-          tree: Структура раздела
-        blocks_b-page:
-          page: Страница
-        blocks_b-sidebar:
-          icon-files: Файлы
-        blocks_b-subscribe-button:
-          subscribe: Подписаться на страницу
-          unsubscribe: Отписаться
-        blocks_b-widget:
-          access_to_parent: Как у родительской страницы
-          confirm: Подтвердить
-          grid: Таблица
-          load: Загрузить
-          name: Название
-          page-settings: Настройки страницы
-        blocks_sidebar:
-          grid-settings-label: Настройки
-        blocks_w-attachments:
-          upload-btn-text: Выберите файл
-        blocks_w-comment:
-          edit: Редактировать
-      blocks_common_favorites:
-        blocks_b-favs-links:
-          name_search: Поиск по названию
-        blocks_b-favs:
-          i_am_observer: Подписки
-      blocks_common_newgrid:
-        blocks_b-grid-table-code-form:
-          can_sort: Возможность сортировки
-          read_only: Только для чтения
-          show_line_nums: Показывать номера строк
-          width: Ширина
-        blocks_b-grid-table-head:
-          add: Добавить
-          author: Автор
-          checkbox: Чекбокс
-          date: Дата
-          date_created: Дата создания
-          employee: Сотрудник
-          list: Список
-          mark_made: Помечать сделанным
-          multiple_list: Множественный список
-          number: Число
-          text: Текст
-          title: Заголовок
-          type: Тип
-        blocks_b-grid-table-options:
-          copy: Копировать
-          delete: Удалить
-          parent_table: Родительская таблица
-          settings: Настройки
-          tree: Структура раздела
-        blocks_b-grid-table-settings:
-          save: Сохранить
-        blocks_b-grid-table-width-controll:
-          auto: Авто
-        blocks_b-grid-table:
-          edit: Редактировать
-        blocks_w-grid-preview:
-          data_type: Тип данных
     datalens:
       component:
         access-rights:
@@ -5201,553 +5089,6 @@ default:
         templates:
           view:
             label_metric: Индикатор
-    forms:
-      common:
-        blocks_correct-answers:
-          title: Ответы
-        blocks_error-message:
-          login-passport: Войти в аккаунт на Яндексе
-          login-sso: Войти через SSO
-        blocks_f-slider:
-          button-2: Создать форму
-        blocks_integration-group:
-          title-email: Почта
-          title-wiki: Вики
-        blocks_need-auth:
-          login: Войти
-        blocks_quiz-result:
-          correct-answers: Посмотреть правильные ответы
-        blocks_share:
-          button-share: Поделиться
-        blocks_survey:
-          feedback: Форма обратной связи
-          next-button-text: Далее
-          prev-button-text: Назад
-          simple_form-button-text: Отправить
-    startrek-backend:
-      applinks:
-        otrs:
-          status:
-            closed: Закрыт
-        samsara:
-          resolution:
-            duplicate: Дубликат
-            rejected: Не будет исправлено
-            resolved: Решен
-          status:
-            closed: Закрыт
-            in:
-              progress: В работе
-            need:
-              info: Требуется информация
-            new: Новый
-            'on':
-              hold: Приостановлен
-            open: Открыт
-            resolved: Решен
-      events:
-        event:
-          IssueCreated: Задача создана
-      fields:
-        issue:
-          access: Доступ
-          affectedVersions-key-value: Найдено в версиях
-          assignee-key-value: Исполнитель
-          author-key-value: Автор
-          boards: Доски
-          checklistItems: Чеклист
-          commentWithExternalMessageCount: Комментариев с сообщением
-          commentWithoutExternalMessageCount: Комментариев без сообщения
-          commits-key-value: Коммиты
-          components-key-value: Компоненты
-          created-key-value: Создано
-          description-key-value: Описание
-          dueDate-key-value: Дедлайн
-          emailCc: Копия
-          emailCreatedBy: Создано по письму на адрес
-          emailFrom: От
-          emailTo: Кому
-          end-key-value: Дата завершения
-          epic: Epic
-          estimation-key-value: Оценка
-          fields:
-            agile: Agile
-            email: Email
-            sla: SLA
-            system: Системные
-            timetracking: Учёт Времени
-          fixVersions-key-value: Исправить в версиях
-          followers: Наблюдатели
-          followingMaillists: Рассылки
-          key-key-value: Ключ
-          lastCommentUpdatedAt: Последний комментарий
-          links:
-            relationship:
-              has:
-                epic: Подэпик
-              is:
-                dependent:
-                  by: Блокирующая задача
-          meta:
-            comment: Комментарий
-          modifier: Изменил
-          originalEstimation-key-value: Первоначальная оценка
-          paletteColor: Цвет
-          pendingReplyFrom: Нужен ответ пользователя
-          possibleSpam: Возможно спам
-          priority-key-value: Приоритет
-          project-key-value: Проект
-          queue: Очередь
-          resolution-key-value: Резолюция
-          resolved: Разрешен
-          resolver: Решивший
-          sla-key-value: SLA
-          spent-key-value: Затрачено времени
-          sprint: Спринт
-          start-key-value: Дата начала
-          status-key-value: Статус
-          statusStartTime: Статус изменен
-          storyPoints: Story Points
-          summary-key-value: Задача
-          tags-key-value: Теги
-          type-key-value: Тип
-          updated-key-value: Обновлено
-          votes: Проголосовало
-        trigger:
-          condition:
-            field:
-              comment: Текст комментария
-            property:
-              ignoreCase: Игнорировать регистр
-              noMatchBefore: Параметр изменился
-              removeMarkup: Игнорировать разметку
-            type:
-              links:
-                created: Связь создана
-              text:
-                field:
-                  equals:
-                    string: Равно строке
-      messages:
-        boards:
-          poker:
-            aggregate:
-              function:
-                maximum:
-                  double: Максимальное значение
-        sla:
-          assignee:
-            deleted:
-              timer:
-                trigger:
-                  condition:
-                    type: Удалён исполнитель
-            set:
-              timer:
-                trigger:
-                  condition:
-                    type: Назначен исполнитель
-          client:
-            commented:
-              timer:
-                trigger:
-                  condition:
-                    type: Получен ответ заказчика
-          issue:
-            created:
-              timer:
-                trigger:
-                  condition:
-                    type: Создана задача
-            has:
-              assignee:
-                condition:
-                  type: У задачи есть исполнитель
-              'no':
-                assignee:
-                  condition:
-                    type: У задачи нет исполнителя
-            'on':
-              status:
-                timer:
-                  trigger:
-                    condition:
-                      type: Пока задача находится в статусе
-          resolution:
-            deleted:
-              timer:
-                trigger:
-                  condition:
-                    type: Удалена резолюция
-            set:
-              timer:
-                trigger:
-                  condition:
-                    type: Выбрана резолюция
-          send:
-            mail:
-              threshold:
-                excess:
-                  function:
-                    type: Письмо
-          status:
-            changed:
-              timer:
-                trigger:
-                  condition:
-                    type: Задача переведена в статус
-          team:
-            commented:
-              timer:
-                trigger:
-                  condition:
-                    type: Получен ответ от команды очереди
-        trigger:
-          condition:
-            field:
-              checklist: Чеклист
-            type:
-              and: И
-              calculate:
-                formula:
-                  watch: Поля формулы изменились
-              CommentMessage:
-                External: Письмо на почту
-                Internal: Комментарий в Трекере
-              eventType:
-                create: Создана задача
-                update: Задача изменилась
-              fieldBecameEqual: стало равно
-              fieldBecameNotEmpty: Значение поля установлено.
-              fieldChangedCondition: Значение поля изменилось
-              fieldEquals: равно
-              fieldIsEmpty: Значение поля пусто
-              or: Или
-        user:
-          named:
-            request:
-              folder:
-                my: Мои
-        workflow:
-          field:
-            maillists: Рассылки
-      presets:
-        advancedDevelopment:
-          board:
-            column:
-              ready:
-                for:
-                  test: Можно тестировать
-              testing: Тестируется
-        developmentPreset:
-          board:
-            column:
-              need:
-                info: Требуется информация
-              ready:
-                for:
-                  test: Можно тестировать
-              release:
-                candidate: Релиз-кандидат
-              review: Ревью
-              tested: Протестировано
-              testing: Тестируется
-        devPreset:
-          board:
-            column:
-              closed: Закрыт
-              in:
-                progress: В работе
-              open: Открыт
-        kanbanDevelopmentPreset:
-          board:
-            column:
-              in:
-                progress: В работе
-              need:
-                info: Требуется информация
-              open: Бэклог
-              ready:
-                for:
-                  test: Можно тестировать
-              release:
-                candidate: Релиз-кандидат
-              review: Ревью
-              tested: Протестировано
-              testing: Тестируется
-        scrumDevelopmentPreset:
-          board:
-            column:
-              in:
-                progress: В работе
-              need:
-                info: Требуется информация
-              ready:
-                for:
-                  test: Можно тестировать
-              release:
-                candidate: Релиз-кандидат
-              review: Ревью
-              tested: Протестировано
-              testing: Тестируется
-          name: Скрам
-      roles:
-        role:
-          name:
-            access: Доступ
-            assignee: Исполнитель
-            author: Автор
-            favorite-follower: Избранное
-            follower-key-value: Наблюдатель
-            modifier: Автор изменения
-            queue-follower-key-value: Подписчик очереди
-            queue-lead: Владелец очереди
-            team-member: Участник команды очереди
-            voted-by-follower: Проголосовали
-        templateRole:
-          name:
-            OWNER: Владелец
-            QUEUE_TEAM_MEMBER: Участник команды очереди
-      types:
-        types:
-          sla:
-            settings: SLA
-          trigger:
-            action:
-              calc:
-                formula: Вычислить значение
-              create:
-                comment: Добавить комментарий
-                issue: Создать задачу
-              transition: Изменить статус задачи
-    startrek:
-      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
-        enable-backlog: Включить бэклог
-      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader:
-        settings: Настройки
-      ui_Common_pages_page-my_PageMy:
-        page-title: Моя страница
-      ui_Common_pages_promo_Page:
-        login-button-label: Войти в Tracker
-      ui_Common_smart-components_actions-panel_ActionsPanel:
-        action-menu-title: Действия
-      ui_Common_smart-components_admin-repositories_ConnectRepositoryDialog:
-        connect: Подключить
-        token-label: Токен
-      ui_Common_smart-components_attachments-manager:
-        attach: Файл
-        attachments-section-title: Файлы
-      ui_Common_smart-components_bulk_BulkChangeParametersDialog:
-        button-submit-text: Применить
-      ui_Common_smart-components_BulkSuggestPopup:
-        apply: Применить
-      ui_Common_smart-components_entity-page_checklist_Checklist:
-        header-title: Чеклист
-        new-item-button-caption: Добавить пункт
-        remove-title: Удалить чеклист
-      ui_Common_smart-components_entity-page_macros_FavoriteButton:
-        button-tooltip-add: Добавить в избранное
-      ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect:
-        add-sidebar-field: Изменить список параметров
-      ui_Common_smart-components_filter-pane_FieldsSelectButton:
-        add-filter-field-button-title: Добавить поле для фильтрации
-      ui_Common_smart-components_filter-pane:
-        action-title-save: Сохранить
-        action-title-save-as: Сохранить как новый
-        all-issues-filter-title: Все задачи
-        list-mode-flat: Одноуровневый список
-        list-mode-tree: Древовидный список
-        reset-button: Сбросить
-        search-placeholder: Поиск по названию задачи
-      ui_Common_smart-components_FormField_TimeTrackingBlock:
-        field-comment-title: Комментарий
-        field-datetime-title: Дата записи
-        field-estimation-title: Общая оценка задачи
-        field-remain-title: Осталось времени
-        field-spent-title: Затрачено времени
-      ui_Common_smart-components_page-admin_OrganizationSmallPane:
-        add-org-button: Добавить организацию
-      ui_Common_smart-components_page-admin_OrgGroupsPane:
-        access-level_full-access: Полный
-        access-level_read_only: Чтение
-        title_access: Доступ в Tracker
-      ui_Common_smart-components_page-admin_OrgPanes_CloudOrgPane:
-        federation-task-action: Подключить
-        source-title: Yandex Cloud Organization
-      ui_Common_smart-components_page-admin_OrgPanes_DirectoryOrgPane:
-        domain-task-action: Подключить
-        source-title: Яндекс 360 для бизнеса
-      ui_Common_smart-components_page-admin_PageAdmin:
-        access-and-payment: Доступы и оплата
-        menu-item-groups: Группы
-        menu-item-orgs: Организации
-        menu-item-repositories: Репозитории
-        menu-item-users: Пользователи
-      ui_Common_smart-components_SortButton:
-        default-title: Сортировка
-      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingDialogBody:
-        column-comment: Комментарий
-        column-date: Дата записи
-        column-spent: Затрачено времени
-      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingHistoryDialog:
-        title: История учёта времени
-      ui_Common_smart-components_TrackerSearch:
-        queues: Очереди
-      ui_Dashboards_smart-components_DashboardHeader:
-        dashboard-header-add-button: Добавить
-        dashboard-header-add-orgAdmin: Информация для сотрудников
-        dashboard-header-settings-button: Редактировать
-      ui_Dashboards_smart-components_InfoPresetsWidget:
-        choose-template-button: Выбрать шаблон
-        widget-title: Шаблоны рабочих процессов
-      ui_Dashboards_smart-components_OrgAdminEditor:
-        editor-published-field-label: Виджет опубликован
-        editor-save-button: Сохранить
-      ui_Issues_pages_page-issues_touch:
-        all-issues-filter-title: Все задачи
-        query-language: Язык запросов
-      ui_Issues_pages_PageCreateIssue:
-        change-template: Редактировать форму
-        change-title-and-description: Изменить название и описание
-        create-new: Создать форму
-        create-new-template: Создать новую форму
-        description-placeholder: >-
-          Добавьте описание, чтобы исполнителю было понятно, что нужно сделать в
-          этой задаче
-        switch-to-admin-panel: Перейти в админку
-        try-yandex-forms: Попробуйте Yandex Forms для создания задач
-      ui_Issues_pages_PageCreateIssueForm:
-        continue: Продолжить
-      ui_Issues_pure-components_issue-comments-templates:
-        create-template-item: Создать шаблон
-      ui_Issues_smart-components_issue-actions_IssueMenu:
-        add-notification: Добавить напоминание
-        add-worklog: Указать затраченное время
-        calendar-event-me: Зарезервировать время для работы над задачей
-        clone-issue-action-title: Клонировать задачу
-        convert-to-project: Конвертировать в проект
-        create-calendar-event: Создать событие в календаре
-        create-subissue: Создать подзадачу
-        move-issue: Изменить очередь
-        title: Действия
-        to-subissue: Сделать подзадачей
-      ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog:
-        apply-button: Сохранить
-        date-label: Начало работы
-        duration-label: Затрачено времени
-      ui_Issues_smart-components_issue-links_ExternalLinksCollapse:
-        external-relations: Связи с внешними приложениями
-      ui_Issues_smart-components_issue-templates_Select:
-        manage-templates: Управление шаблонами
-        select-template: Применить шаблон
-      ui_Issues_smart-components_IssueBulkActionPanel:
-        add-link: Добавить связь
-        add-me-to-followers: Добавить меня в наблюдатели
-        add-to-board: Добавить на доску
-        add-to-projects: Добавить в проект
-        assignee: Исполнитель
-        assignee-me: Назначить меня исполнителем
-        change-status: Изменить статус
-        edit-parameters: Редактировать параметры
-        followers: Наблюдатели
-        move: Переместить
-        remove-from-both-fields: Из обоих полей
-        remove-me-from: Удалить меня из поля...
-      ui_Issues_smart-components_IssuesPresetSelect:
-        preset_assignee: Я исполнитель
-        preset_author: Я автор
-        preset_deadline: Скоро дедлайн
-        preset-deadline: Скоро дедлайн
-      ui_Portfolios_smart-components_project-list_utils:
-        field-name-resolution: Резолюция
-        filter-macro-empty_: Без значения
-      ui_Queues_constants:
-        information-time-tracking-title: Учёт времени
-        process-type-development: Разработка
-        process-type-project: Управление проектами
-        process-type-standard: Базовый
-        process-type-support: Поддержка
-      ui_Queues_pages_page-queue-admin_AliasesCreateForm:
-        mail-address: Почта
-        mail-allow-external: Принимать письма не только от сотрудников организации
-        mail-archive-folder: Папка для архива
-        mail-imap: Адрес IMAP-сервера
-        mail-incoming-folder: Папка для входящих
-        mail-login: Логин
-        mail-password: Пароль
-        mail-port: Порт
-        mail-process-messages-from: Дата начала обработки писем
-        mail-settings-title: Почта для получения писем
-        mail-ssl: Защищенное соединение (SSL)
-        save-button: Сохранить
-      ui_Queues_pages_page-queue-admin_AliasesFormSendPanel:
-        send-mail-login: Логин
-        send-mail-password: Пароль
-        send-mail-port: Порт
-        send-mail-smtp: Адрес SMTP-сервера
-        send-mail-ssl: Защищенное соединение (SSL)
-        send-settings-title: Почта для отправки ответов
-        signature-settings-title: Подписи
-        test-mail-button: Отправить тестовое письмо
-      ui_Queues_pages_page-queue-admin_AliasesStateList:
-        action-add-mail: Добавить адрес
-        action-domain: Подключить домен
-      ui_Queues_pages_page-queue-admin_QueueActionsMenu:
-        remove-queue-action: Удалить очередь
-      ui_Queues_pages_page-queue-admin_QueueAdminPageContent:
-        menu-item-aliases: Почтовые ящики
-        menu-item-autoactions: Автодействия
-        menu-item-forms: Интеграция форм
-        menu-item-permissions: Права доступа
-        menu-item-timetracking: Учёт времени
-        menu-item-workflows: Рабочие процессы
-      ui_Queues_pages_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
-        change-owner: Изменить владельца
-        set-as-default: Назначать исполнителем по умолчанию
-      ui_Queues_pages_PageQueue_header:
-        export: Выгрузить
-        settings: Настройки очереди
-        subscribe: Подписаться на очередь
-      ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm:
-        field-can-assignee-update-time: Разрешить редактирование своих записей
-        field-show-time-field-on-close: Рассчитывать затраченное время автоматически
-        field-track-time-in-issues: Включить расширенный учёт времени
-        field-use-remaining-time: Отображать поле “Осталось времени”
-        field-use-summary-time: Отображать поле “Общая оценка задачи”
-        field-working-calendar: График работы
-        save: Сохранить
-      ui_Queues_pages_queue-admin-tab-workflows_CopyWorkflowDialog:
-        action-copy: Скопировать
-        label-name: Название нового процесса
-        label-queue: Копировать из очереди
-        label-workflow: Копируемый процесс
-      ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList:
-        action-new-process: Создать рабочий процесс
-        default-type-title: Тип задачи по умолчанию
-      ui_Queues_smart-components_new-process_QueueSetupForm:
-        next-button: Продолжить
-      ui_Queues_smart-components_QueueAdminTemplateOptions:
-        allow-empty-template: Разрешить создание задач без формы
-        always: всегда
-        never: никогда
-        team: только команде очереди
-      ui_Queues_smart-components_workflow-conditions_ConditionsMenu:
-        add-condition: Добавить условие
-      ui_Queues_smart-components_workflow-conditions_WorkflowGroupCondition:
-        add-conditions-group: Добавить группу условий
-      ui_Queues_smart-components_workflow-functions_WorkflowFunctionMenu:
-        menu-title: Добавить автоматизацию
-      ui_Queues_smart-components_workflow-functions:
-        type-AddCommentFunction: Добавить комментарий
-        type-AddTextToFieldFunction: Заполнить поле
-        type-CalculateFieldFunction: Записать сумму чисел в поле
-        type-MoveUsersFunction: Переместить или скопировать список пользователей в другое поле
-        type-RemoveFieldValueFunction: Очистить содержимое поля
-        type-RemoveUsersFromCcFunction: Удалить пользователя из наблюдателей
-        type-SendEmailFunction: Отправить письмо
-        type-SetActiveSprintFunction: Установить активный спринт
-        type-SetCurrentTimeFunction: Записать текущее время в поле
-        type-UnsetResolutionFunction: Снять резолюцию
     support-center:
       billing-account:
         common:
@@ -5787,11 +5128,9 @@ default:
           title_ticket_table: Обращения
     yacloud_billing_account:
       cloud-billing-account:
-        account_label_new: Новый плательщик
         base_label_payer: Плательщик
         label_card-add: Добавить карту
         label_wizard-next: Вперед
-        payment-type_label_card: Банковская карта
         payment-type_label_invoice: Банковский перевод
         section_person-type: Тип плательщика
         section_persons: Плательщики
@@ -5915,7 +5254,6 @@ default:
             payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
-            section_card: Банковская карта
             usage-type_label_paid: Платная версия
           reconciliation-reports:
             action_download-with-facsimile: Скачать подписанный акт
@@ -5926,7 +5264,6 @@ default:
             value_completed: Готово
           switch_acts: Отчётные документы
           switch_budgets: Бюджеты
-          switch_dashboard: Обзор
           switch_detail: Детализация
           switch_expences: История расходов
           switch_exports: Экспорт детализации
@@ -5944,13 +5281,11 @@ default:
         accounts:
           button_bind: Привязать
           column_cloud: Облака
-          label_title: Список аккаунтов
           main-banner_button_create: Создать платёжный аккаунт
         cud:
           purchase:
             button_purchase: Зарезервировать потребление
         label_service: Yandex Cloud Billing
-        switch_accounts: Список аккаунтов
         title_accounts: Платёжные аккаунты
       common:
         button_cron-1min: Каждую минуту
@@ -6019,8 +5354,6 @@ default:
         button_submit: Подтвердить
         field_email: Адрес
         field_phone: Номер телефона
-        field_theme: Тема интерфейса
-        field_theme-contrast: Контрастность
         label_alerting-name: Мониторинг
         label_billing-name: Биллинг
         label_event-name: Мероприятия
@@ -6294,7 +5627,6 @@ default:
             manual: Текст
         subject-select-dialog:
           action_apply: Сохранить
-          title_dialog: Добавление участников
       dashboard:
         notify:
           placeholder_add-user-action: Добавить
@@ -7046,7 +6378,6 @@ default:
         button_cron-15min: Каждые 15 минут
         button_cron-1min: Каждую минуту
         button_cron-day: Каждый день
-        button_logout: Выйти
         button_update: Обновить
         cancel: Отменить
         clear: Очистить
@@ -7120,7 +6451,6 @@ default:
           label_time-min_zero: минут
           label_time-sec_many: секунд
         unspecified: Не задано
-        user: Пользователь
         value: Значение
       component:
         acl-dialog:
@@ -7185,8 +6515,6 @@ default:
           title_ml-model-training: Обучение ML-моделей
         dns-integration:
           button_add-domain: Создать запись
-        docs:
-          label_title: Документация
         file-content-dialog:
           button_submit: Добавить
           field_content: Содержимое
@@ -7218,7 +6546,6 @@ default:
             label_delete: Удалить
             popup_settings-submit: Сохранить
         navigation-menu:
-          label_account: Учетная запись
           label_billing: Биллинг
           label_load-balancer: Network Load Balancer
           label_managed-clickhouse: Managed Service for ClickHouse
@@ -11137,7 +10464,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.20
+        tag: v0.2.21
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

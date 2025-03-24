@@ -45,6 +45,8 @@ items:
             href: operations/network-create.md
           - name: Создать подсеть
             href: operations/subnet-create.md
+          - name: Создать приватное соединение с облачными сетями
+            href: operations/create-vpc-connection.md
   - name: Концепции
     expanded: true
     items:
@@ -73,12 +75,18 @@ items:
   - name: Практические руководства
     expanded: true
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
         href: operations/backup-baremetal.md
       - name: Настроить VRRP для кластера серверов {{ baremetal-name }}
         href: tutorials/bms-vrf-routing.md
       - name: Настройка сетевой связности в подсети {{ baremetal-name }}
         href: tutorials/bms-simple-subnet.md
+      - name: >-
+          Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
+          vpc-name }}
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Управление доступом

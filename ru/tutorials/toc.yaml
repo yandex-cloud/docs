@@ -1140,8 +1140,12 @@ items:
         href: routing/pub-add.md
       - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
         href: routing/bms-vrf-routing.md
-      - name: Настройка сетевой связности в подсети {{ baremetal-full-name }}
+      - name: Настройка сетевой связности в подсети {{ baremetal-name }}
         href: routing/bms-simple-subnet.md
+      - name: >-
+          Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
+          vpc-name }}
+        href: routing/bm-vrf-and-vpc-interconnect.md
   - name: Анализ и визуализация данных
     items:
       - name: Все руководства
@@ -1176,6 +1180,11 @@ items:
                   Геокодинг с помощью API Яндекс Карт для визуализации в {{
                   datalens-short-name }}
                 href: datalens/data-from-ch-geocoder.md
+              - name: >-
+                  Визуализация данных с использованием инструмента Тепловые
+                  карты
+                hidden: true
+                href: datalens/data-on-heat-map-dashboard.md
           - name: Аналитика сервисов
             items:
               - name: 'Яндекс Метрика: прямое подключение'

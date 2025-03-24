@@ -27,3 +27,4 @@ description: Различные сценарии использования {{ i
 ## Интеграции {#interop}
 * [{#T}](dns-integration.md)
 * [{#T}](cic-with-ngfw.md)
+* [{#T}](bm-vrf-and-vpc-interconnect.md)
