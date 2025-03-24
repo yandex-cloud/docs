@@ -98,6 +98,5 @@ description: Канбан-доска — инструмент, который п
 ### См. также {#see-also}
 
 * [Scrum или Kanban: что выбрать и как с ними работать в {{ tracker-full-name }}](/blog/posts/2023/02/scrum-or-kanban).
-* [Инструменты гибкой разработки](../tracker/manager/agile.md).
 * [Ознакомьтесь с шаблонами Kanban в {{ tracker-full-name }}](https://tracker.yandex.ru/pages/my).
 

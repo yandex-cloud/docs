@@ -18,7 +18,7 @@ Yes, you can. To do this, [add a provider](../../managed-gitlab/operations/omnia
 
 #### Is {{ GL }} integration with {{ tracker-full-name }} supported? {#tracker-integration}
 
-Yes, it is. To learn how to set up integration, see [Integration with {{ tracker-full-name }}](../../tracker/user/gitlab.md).
+Yes, it is. To learn how to set up integration, see [Integration with {{ tracker-full-name }}](https://yandex.ru/support/tracker/ru/user/gitlab).
 
 #### Why cannot I push changes to the {{ mgl-name }} repository? {#push}
 

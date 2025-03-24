@@ -265,9 +265,9 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.28, 1.29, 1.30, 1.31
-  k8s-versions-regular: 1.28, 1.29, 1.30, 1.31
-  k8s-versions-stable: 1.28, 1.29, 1.30
+  k8s-versions-rapid: 1.29, 1.30, 1.31
+  k8s-versions-regular: 1.29, 1.30, 1.31
+  k8s-versions-stable: 1.29, 1.30
   k8s-vpa: Vertical Pod Autoscaler
   keycloak: Keycloak
   KF: Apache Kafka®
@@ -323,11 +323,9 @@ default:
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
   link-keycloak-example-old: http://keycloak.example.com:8080/auth/realms/master
   link-monitoring: https://monitoring.yandex.cloud
-  link-org-acl: https://org.yandex.cloud/acl
   link-org-cloud-center: https://center.yandex.cloud/organization
   link-org-federations: https://org.yandex.cloud/federations
   link-org-main: https://org.yandex.cloud/
-  link-org-settings: https://org.yandex.cloud/settings
   link-org-users: https://org.yandex.cloud/users
   link-oslogin-configs: https://storage.yandexcloud.net/oslogin-configs
   link-passport: https://passport.yandex.com/
@@ -345,7 +343,6 @@ default:
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.com/
   link-wiki-cloudless: https://yandex.ru/support/wiki/ru
-  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.com
   links:
     es:
@@ -941,14 +938,6 @@ default:
       data_plane:
         v1|number: 180
         v1|string: ₸180.00
-  sku|KZT|b2b:
-    tracker:
-      license:
-        v1|pricingRate:
-          100|string: ₸2000.00
-          250|string: ₸1800.00
-          6|string: ₸2200.00
-        v1|string: Free
   sku|KZT|backup:
     protected_vms:
       v2|month|number: 1194
@@ -1105,6 +1094,7 @@ default:
       v1|pricingRate:
         100|number: 13.5
         100|string: ₸13.50
+      v1|string: Free
   sku|KZT|dns:
     requests:
       public:
@@ -2337,14 +2327,6 @@ default:
       data_plane:
         v1|number: 36
         v1|string: ₽36.00
-  sku|RUB|b2b:
-    tracker:
-      license:
-        v1|pricingRate:
-          100|string: ₽400.00
-          250|string: ₽360.00
-          6|string: ₽440.00
-        v1|string: Free
   sku|RUB|backup:
     protected_vms:
       v2|month|number: 238.8
@@ -2502,6 +2484,7 @@ default:
       v1|pricingRate:
         100|number: 2.7
         100|string: ₽2.70
+      v1|string: Free
   sku|RUB|dns:
     requests:
       public:
@@ -3722,14 +3705,6 @@ default:
       data_plane:
         v1|number: 0.288
         v1|string: $0.288000
-  sku|USD|b2b:
-    tracker:
-      license:
-        v1|pricingRate:
-          100|string: $3.200000
-          250|string: $2.880000
-          6|string: $3.520000
-        v1|string: Free
   sku|USD|backup:
     protected_vms:
       v2|month|number: 1.9104
@@ -3887,6 +3862,7 @@ default:
       v1|pricingRate:
         100|number: 0.0216
         100|string: $0.021600
+      v1|string: Free
   sku|USD|dns:
     requests:
       public:
@@ -5091,94 +5067,6 @@ default:
             1|string: $0.390080
         requests|string: Free
   ui-key:
-    beta-wiki:
-      blocks_common_desktop:
-        blocks_b-access-button:
-          delete: delete
-        blocks_b-action-delete:
-          table_address: Address
-        blocks_b-editor-struct:
-          page_save: Save
-        blocks_b-events-log:
-          edit_version: Edit this version
-          return_this_version: ' Return to this version'
-        blocks_b-file2:
-          icon_upload: Download file
-        blocks_b-foot:
-          feedback: Feedback
-        blocks_b-head:
-          create: Create
-          favorite: Favorites
-          my_page: My page
-          options: Options
-          search: Search
-        blocks_b-notification:
-          actual: It is actual
-        blocks_b-page-more-panel:
-          create_page: Create a subpage
-          delete: Delete
-          settings: Settings
-          subscribe_users: Subscribe users
-          tree: Cluster tree
-        blocks_b-page:
-          page: Страница
-        blocks_b-sidebar:
-          icon-files: Files
-        blocks_b-subscribe-button:
-          subscribe: Subscribe to this page
-          unsubscribe: Unsubscribe
-        blocks_b-widget:
-          access_to_parent: Like the parent page
-          confirm: Confirm
-          grid: Grid
-          load: Upload
-          name: Name
-          page-settings: Page settings
-        blocks_sidebar:
-          grid-settings-label: Settings
-        blocks_w-attachments:
-          upload-btn-text: Choose file
-        blocks_w-comment:
-          edit: Edit
-      blocks_common_favorites:
-        blocks_b-favs-links:
-          name_search: Search by name
-        blocks_b-favs:
-          i_am_observer: Subscriptions
-      blocks_common_newgrid:
-        blocks_b-grid-table-code-form:
-          can_sort: The ability to sort
-          read_only: Read-only
-          show_line_nums: Show line numbers
-          width: Width
-        blocks_b-grid-table-head:
-          add: Add
-          author: Author
-          checkbox: Checkbox
-          date: Date
-          date_created: Date created
-          employee: Employee
-          list: List
-          mark_made: Mark made
-          multiple_list: Multiple list
-          number: Number
-          text: Text
-          title: Title
-          type: Type
-        blocks_b-grid-table-options:
-          copy: Copy
-          delete: Delete
-          parent_table: Parent table
-          settings: Settings
-          tree: Cluster tree
-        blocks_b-grid-table-settings:
-          save: Save
-        blocks_b-grid-table-width-controll:
-          auto: Auto
-        blocks_b-grid-table:
-          edit: Edit
-        blocks_w-grid-preview:
-          data_type: Data type
     datalens:
       component:
         access-rights:
@@ -5199,551 +5087,6 @@ default:
         templates:
           view:
             label_metric: Indicator
-    forms:
-      common:
-        blocks_correct-answers:
-          title: Responses
-        blocks_error-message:
-          login-passport: Log in to your Yandex account
-          login-sso: Log in via SSO
-        blocks_f-slider:
-          button-2: Create a form
-        blocks_integration-group:
-          title-email: Mail
-          title-wiki: Wiki
-        blocks_need-auth:
-          login: Login
-        blocks_quiz-result:
-          correct-answers: See correct answers
-        blocks_share:
-          button-share: Share
-        blocks_survey:
-          feedback: Feedback
-          next-button-text: Next
-          prev-button-text: Back
-          simple_form-button-text: Submit
-    startrek-backend:
-      applinks:
-        otrs:
-          status:
-            closed: Closed
-        samsara:
-          resolution:
-            duplicate: Duplicate
-            rejected: Will not fix
-            resolved: Resolved
-          status:
-            closed: Closed
-            in:
-              progress: In Progress
-            need:
-              info: Need Info
-            new: New
-            'on':
-              hold: On Hold
-            open: Open
-            resolved: Resolved
-      events:
-        event:
-          IssueCreated: ' Issue Created'
-      fields:
-        issue:
-          access: Access
-          affectedVersions-key-value: Affected Version
-          assignee-key-value: Assignee
-          author-key-value: Author
-          boards: Boards
-          checklistItems: Checklist
-          commentWithExternalMessageCount: Number of comments with message
-          commentWithoutExternalMessageCount: Number of comments without message
-          commits-key-value: Commits
-          components-key-value: Components
-          created-key-value: Created
-          description-key-value: Description
-          dueDate-key-value: Deadline
-          emailCc: Email Cc
-          emailCreatedBy: Created By email to
-          emailFrom: Email From
-          emailTo: Email To
-          end-key-value: End Date
-          epic: Epic
-          estimation-key-value: Estimate
-          fields:
-            agile: Agile
-            email: Email
-            sla: SLA
-            system: System
-            timetracking: Time Tracking
-          fixVersions-key-value: Fix Version
-          followers: Followers
-          followingMaillists: Maillists
-          key-key-value: Key
-          lastCommentUpdatedAt: ' Last Comment'
-          links:
-            relationship:
-              has:
-                epic: Has epic
-              is:
-                dependent:
-                  by: Is dependent by
-          meta:
-            comment: Comment
-          modifier: Modifier
-          originalEstimation-key-value: Original Estimate
-          paletteColor: Color
-          pendingReplyFrom: Pending reply from
-          possibleSpam: Possible spam
-          priority-key-value: Priority
-          project-key-value: Project
-          queue: Queue
-          resolution-key-value: Resolution
-          resolved: Resolved
-          resolver: Resolver
-          sla-key-value: SLA
-          spent-key-value: Time Spent
-          sprint: Sprint
-          start-key-value: Start Date
-          status-key-value: Status
-          statusStartTime: Last status change
-          storyPoints: Story Points
-          summary-key-value: Summary
-          tags-key-value: Tags
-          type-key-value: Type
-          updated-key-value: Updated
-          votes: Votes
-        trigger:
-          condition:
-            field:
-              comment: Comment text
-            property:
-              ignoreCase: Ignore case
-              noMatchBefore: Parameter changed
-              removeMarkup: Ignore markup
-            type:
-              links:
-                created: Link created
-              text:
-                field:
-                  equals:
-                    string: Is equal to the line
-      messages:
-        boards:
-          poker:
-            aggregate:
-              function:
-                maximum:
-                  double: Maximum value
-        sla:
-          assignee:
-            deleted:
-              timer:
-                trigger:
-                  condition:
-                    type: Unassigned
-            set:
-              timer:
-                trigger:
-                  condition:
-                    type: Assigned
-          client:
-            commented:
-              timer:
-                trigger:
-                  condition:
-                    type: Response from requester
-          issue:
-            created:
-              timer:
-                trigger:
-                  condition:
-                    type: Issue created
-            has:
-              assignee:
-                condition:
-                  type: Issue has assignee
-              'no':
-                assignee:
-                  condition:
-                    type: Issue has no assignee
-            'on':
-              status:
-                timer:
-                  trigger:
-                    condition:
-                      type: Issue has the status
-          resolution:
-            deleted:
-              timer:
-                trigger:
-                  condition:
-                    type: Resolution deleted
-            set:
-              timer:
-                trigger:
-                  condition:
-                    type: Resolution set
-          send:
-            mail:
-              threshold:
-                excess:
-                  function:
-                    type: Email
-          status:
-            changed:
-              timer:
-                trigger:
-                  condition:
-                    type: Issue status changed to
-          team:
-            commented:
-              timer:
-                trigger:
-                  condition:
-                    type: Queue team responded
-        trigger:
-          condition:
-            field:
-              checklist: Checklist
-            type:
-              and: AND
-              calculate:
-                formula:
-                  watch: Formula fields changed
-              CommentMessage:
-                External: Email
-                Internal: Comment in Tracker
-              eventType:
-                create: Issue created
-                update: Issue changed
-              fieldBecameEqual: became equal to
-              fieldBecameNotEmpty: Field value set.
-              fieldChangedCondition: Field value changed
-              fieldEquals: is equal to
-              fieldIsEmpty: Field value is empty
-              or: Or
-        user:
-          named:
-            request:
-              folder:
-                my: My filters
-        workflow:
-          field:
-            maillists: Mailing lists
-      presets:
-        advancedDevelopment:
-          board:
-            column:
-              ready:
-                for:
-                  test: Ready for Test
-              testing: Testing
-        developmentPreset:
-          board:
-            column:
-              need:
-                info: Need info
-              ready:
-                for:
-                  test: Ready for test
-              release:
-                candidate: Release candidate
-              review: Review
-              tested: Tested
-              testing: Testing
-        devPreset:
-          board:
-            column:
-              closed: Closed
-              in:
-                progress: In Progress
-              open: Open
-        kanbanDevelopmentPreset:
-          board:
-            column:
-              in:
-                progress: In progress
-              need:
-                info: Need info
-              open: Backlog
-              ready:
-                for:
-                  test: Ready for test
-              release:
-                candidate: Release candidate
-              review: Review
-              tested: Tested
-              testing: Testing
-        scrumDevelopmentPreset:
-          board:
-            column:
-              in:
-                progress: In progress
-              need:
-                info: Need info
-              ready:
-                for:
-                  test: Ready for test
-              release:
-                candidate: Release candidate
-              review: Review
-              tested: Tested
-              testing: Testing
-          name: Scrum
-      roles:
-        role:
-          name:
-            access: Access
-            assignee: Assignee
-            author: Author
-            favorite-follower: Favorites
-            follower-key-value: Follower
-            modifier: Modifier
-            queue-follower-key-value: Queue Follower
-            queue-lead: Queue owner
-            team-member: Team Member
-            voted-by-follower: Voted
-        templateRole:
-          name:
-            OWNER: Owner
-            QUEUE_TEAM_MEMBER: Queue Team Member
-      types:
-        types:
-          sla:
-            settings: SLA
-          trigger:
-            action:
-              calc:
-                formula: Calculate value
-              create:
-                comment: Add comment
-                issue: Create issue
-              transition: Change issue status
-    startrek:
-      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader_EnableBacklogButton:
-        enable-backlog: Enable backlog
-      ui_Boards_pages_PageAgileBoard_PageAgileBoardHeader:
-        settings: Settings
-      ui_Common_pages_page-my_PageMy:
-        page-title: My page
-      ui_Common_pages_promo_Page:
-        login-button-label: Log in to Tracker
-      ui_Common_smart-components_actions-panel_ActionsPanel:
-        action-menu-title: Actions
-      ui_Common_smart-components_admin-repositories_ConnectRepositoryDialog:
-        connect: Connect
-        token-label: Token
-      ui_Common_smart-components_attachments-manager:
-        attach: File
-        attachments-section-title: Files
-      ui_Common_smart-components_bulk_BulkChangeParametersDialog:
-        button-submit-text: Apply
-      ui_Common_smart-components_BulkSuggestPopup:
-        apply: Apply
-      ui_Common_smart-components_entity-page_checklist_Checklist:
-        header-title: Checklist
-        new-item-button-caption: Add item
-        remove-title: Delete checklist
-      ui_Common_smart-components_entity-page_macros_FavoriteButton:
-        button-tooltip-add: Add to favorites
-      ui_Common_smart-components_entity-page_sidebar_SidebarFieldsSelect:
-        add-sidebar-field: Edit parameters list
-      ui_Common_smart-components_filter-pane_FieldsSelectButton:
-        add-filter-field-button-title: Add a field for filtering
-      ui_Common_smart-components_filter-pane:
-        action-title-save: Save
-        action-title-save-as: Save as new
-        all-issues-filter-title: All issues
-        list-mode-flat: Flat list
-        list-mode-tree: Tree list
-        reset-button: Reset
-        search-placeholder: Search by issue name
-      ui_Common_smart-components_FormField_TimeTrackingBlock:
-        field-comment-title: Comment
-        field-datetime-title: Date to log work for
-        field-estimation-title: Overall task estimation
-        field-remain-title: Time left
-        field-spent-title: Time spent
-      ui_Common_smart-components_page-admin_OrganizationSmallPane:
-        add-org-button: Add organization
-      ui_Common_smart-components_page-admin_OrgGroupsPane:
-        access-level_full-access: Full
-        access-level_read_only: Read
-        title_access: Access to Tracker
-      ui_Common_smart-components_page-admin_OrgPanes_CloudOrgPane:
-        federation-task-action: Connect
-        source-title: Yandex Cloud Organization
-      ui_Common_smart-components_page-admin_OrgPanes_DirectoryOrgPane:
-        domain-task-action: Connect
-        source-title: Yandex 360 for Business
-      ui_Common_smart-components_page-admin_PageAdmin:
-        access-and-payment: Access and payment
-        menu-item-groups: Groups
-        menu-item-orgs: Organizations
-        menu-item-repositories: Repositories
-        menu-item-users: Users
-      ui_Common_smart-components_SortButton:
-        default-title: Sort
-      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingDialogBody:
-        column-comment: Comment
-        column-date: Log date
-        column-spent: Time spent
-      ui_Common_smart-components_timetracking-history-dialog_TimeTrackingHistoryDialog:
-        title: Time tracking history
-      ui_Common_smart-components_TrackerSearch:
-        queues: Queues
-      ui_Dashboards_smart-components_DashboardHeader:
-        dashboard-header-add-button: Add
-        dashboard-header-add-orgAdmin: Information for employees
-        dashboard-header-settings-button: Edit
-      ui_Dashboards_smart-components_InfoPresetsWidget:
-        choose-template-button: Select template
-        widget-title: Workflow templates
-      ui_Dashboards_smart-components_OrgAdminEditor:
-        editor-published-field-label: Widget published
-        editor-save-button: Save
-      ui_Issues_pages_page-issues_touch:
-        all-issues-filter-title: All issues
-        query-language: Query language
-      ui_Issues_pages_PageCreateIssue:
-        change-template: Edit form
-        change-title-and-description: Change title and description
-        create-new: Create form
-        create-new-template: Create new form
-        description-placeholder: Add a description of the issue so the assignee knows what to do
-        switch-to-admin-panel: Switch to admin panel
-        try-yandex-forms: Try Yandex Forms for creating issues
-      ui_Issues_pages_PageCreateIssueForm:
-        continue: Continue
-      ui_Issues_pure-components_issue-comments-templates:
-        create-template-item: Create template
-      ui_Issues_smart-components_issue-actions_IssueMenu:
-        add-notification: Add reminder
-        add-worklog: Add time spent
-        calendar-event-me: Schedule a time to work on this issue
-        clone-issue-action-title: Clone issue
-        convert-to-project: Convert to project
-        create-calendar-event: Create calendar event
-        create-subissue: Create sub-issue
-        move-issue: Change queue
-        title: Actions
-        to-subissue: Convert to sub-issue
-      ui_Issues_smart-components_issue-actions_worklog_AddWorklogDialog:
-        apply-button: Save
-        date-label: Started
-        duration-label: Time spent
-      ui_Issues_smart-components_issue-links_ExternalLinksCollapse:
-        external-relations: Links to external applications
-      ui_Issues_smart-components_issue-templates_Select:
-        manage-templates: Manage templates
-        select-template: Apply template
-      ui_Issues_smart-components_IssueBulkActionPanel:
-        add-link: Add link
-        add-me-to-followers: Add me as follower
-        add-to-board: Add to board
-        add-to-projects: Add to project
-        assignee: Assignee
-        assignee-me: Assign to me
-        change-status: Change status
-        edit-parameters: Edit fields
-        followers: Followers
-        move: Move
-        remove-from-both-fields: From both fields
-        remove-me-from: Remove move from field...
-      ui_Issues_smart-components_IssuesPresetSelect:
-        preset_assignee: Assigned to me
-        preset_author: Created by me
-        preset_deadline: Deadline approaching
-        preset-deadline: Deadline approaching
-      ui_Portfolios_smart-components_project-list_utils:
-        field-name-resolution: Resolution
-        filter-macro-empty_: No value
-      ui_Queues_constants:
-        information-time-tracking-title: Time tracking
-        process-type-development: Development
-        process-type-project: Project management
-        process-type-standard: Basic
-        process-type-support: Support
-      ui_Queues_pages_page-queue-admin_AliasesCreateForm:
-        mail-address: Email
-        mail-allow-external: Accept letters not only from employees of the organization
-        mail-archive-folder: Archive folder
-        mail-imap: IMAP server address
-        mail-incoming-folder: Inbox folder
-        mail-login: Login
-        mail-password: Password
-        mail-port: Port
-        mail-process-messages-from: Start date of email processing
-        mail-settings-title: Mail for receiving emails
-        mail-ssl: Secure connection (SSL)
-        save-button: Save
-      ui_Queues_pages_page-queue-admin_AliasesFormSendPanel:
-        send-mail-login: Login
-        send-mail-password: Password
-        send-mail-port: Port
-        send-mail-smtp: SMTP server address
-        send-mail-ssl: Secure connection (SSL)
-        send-settings-title: Email for sending responses
-        signature-settings-title: Signatures
-        test-mail-button: Send a test email
-      ui_Queues_pages_page-queue-admin_AliasesStateList:
-        action-add-mail: Add an email
-        action-domain: Connect a domain
-      ui_Queues_pages_page-queue-admin_QueueActionsMenu:
-        remove-queue-action: Delete queue
-      ui_Queues_pages_page-queue-admin_QueueAdminPageContent:
-        menu-item-aliases: Mailboxes
-        menu-item-autoactions: Auto actions
-        menu-item-forms: Form integration
-        menu-item-permissions: Permissions
-        menu-item-timetracking: Time tracking
-        menu-item-workflows: Workflows
-      ui_Queues_pages_page-queue-admin_QueueAdminTabPermissions_ChangeOwnerForm:
-        change-owner: Change owner
-        set-as-default: Set as default
-      ui_Queues_pages_PageQueue_header:
-        export: Export
-        settings: Queue settings
-        subscribe: Subscribe
-      ui_Queues_pages_queue-admin-tab-timetracking_TimetackingForm:
-        field-can-assignee-update-time: Allow the assignee to edit logged time
-        field-show-time-field-on-close: Automatically calculate spent time when closing the task
-        field-track-time-in-issues: Advanced time tracking
-        field-use-remaining-time: Display the Time left field
-        field-use-summary-time: Display the Overall task estimation field
-        field-working-calendar: Work schedule
-        save: Save
-      ui_Queues_pages_queue-admin-tab-workflows_CopyWorkflowDialog:
-        action-copy: Copy
-        label-name: New workflow name
-        label-queue: Copy from queue
-        label-workflow: Copying workflow
-      ui_Queues_pages_queue-admin-tab-workflows_WorkflowsStateList:
-        action-new-process: Create workflow
-        default-type-title: Default issue type
-      ui_Queues_smart-components_new-process_QueueSetupForm:
-        next-button: Next
-      ui_Queues_smart-components_QueueAdminTemplateOptions:
-        allow-empty-template: Allow issues to be created without a form
-        always: Always
-        never: Never
-        team: Only for the queue team
-      ui_Queues_smart-components_workflow-conditions_ConditionsMenu:
-        add-condition: Add condition
-      ui_Queues_smart-components_workflow-conditions_WorkflowGroupCondition:
-        add-conditions-group: Add condition group
-      ui_Queues_smart-components_workflow-functions_WorkflowFunctionMenu:
-        menu-title: Add automation
-      ui_Queues_smart-components_workflow-functions:
-        type-AddCommentFunction: Add comment
-        type-AddTextToFieldFunction: Fill in the field
-        type-CalculateFieldFunction: Enter totals in the field
-        type-MoveUsersFunction: Move or copy the list of users to another field
-        type-RemoveFieldValueFunction: Clear field content
-        type-RemoveUsersFromCcFunction: Delete user from observers
-        type-SendEmailFunction: Send email
-        type-SetActiveSprintFunction: Set active sprint
-        type-SetCurrentTimeFunction: Enter current time in field
-        type-UnsetResolutionFunction: Unset resolution
     support-center:
       billing-account:
         common:
@@ -5783,11 +5126,9 @@ default:
           title_ticket_table: Tickets
     yacloud_billing_account:
       cloud-billing-account:
-        account_label_new: New payer
         base_label_payer: Payer
         label_card-add: Add card
         label_wizard-next: Next
-        payment-type_label_card: Bank card
         payment-type_label_invoice: Bank transfer
         section_person-type: Payer type
         section_persons: Payers
@@ -5911,7 +5252,6 @@ default:
             payment-type_label_card: Bank card
             payment-type_label_invoice: Wire transfer
             section_account-data: General information
-            section_card: Bank card
             usage-type_label_paid: Paid version
           reconciliation-reports:
             action_download-with-facsimile: Download signed report
@@ -5922,7 +5262,6 @@ default:
             value_completed: Done
           switch_acts: Reporting documents
           switch_budgets: Budgets
-          switch_dashboard: Overview
           switch_detail: Usage details
           switch_expences: Expense history
           switch_exports: Export details
@@ -5940,13 +5279,11 @@ default:
         accounts:
           button_bind: Bind
           column_cloud: Clouds
-          label_title: List of accounts
           main-banner_button_create: Create a billing account
         cud:
           purchase:
             button_purchase: Purchase commitment
         label_service: Yandex Cloud Billing
-        switch_accounts: List of accounts
         title_accounts: Billing accounts
       common:
         button_cron-1min: Every minute
@@ -6015,8 +5352,6 @@ default:
         button_submit: Confirm
         field_email: Address
         field_phone: Phone
-        field_theme: Interface theme
-        field_theme-contrast: Contrast
         label_alerting-name: Monitoring
         label_billing-name: Billing
         label_event-name: Events
@@ -6290,7 +5625,6 @@ default:
             manual: Text
         subject-select-dialog:
           action_apply: Save
-          title_dialog: Adding participants
       dashboard:
         notify:
           placeholder_add-user-action: Add
@@ -7042,7 +6376,6 @@ default:
         button_cron-15min: Every 15 minutes
         button_cron-1min: Every minute
         button_cron-day: Every day
-        button_logout: Log out
         button_update: Update
         cancel: Cancel
         clear: Clear
@@ -7116,7 +6449,6 @@ default:
           label_time-min_zero: minutes
           label_time-sec_many: seconds
         unspecified: Not specified
-        user: User
         value: Value
       component:
         acl-dialog:
@@ -7181,8 +6513,6 @@ default:
           title_ml-model-training: Fine-tuning ML models
         dns-integration:
           button_add-domain: Create record
-        docs:
-          label_title: Documentation
         file-content-dialog:
           button_submit: Add
           field_content: Content
@@ -7214,7 +6544,6 @@ default:
             label_delete: Delete
             popup_settings-submit: Save
         navigation-menu:
-          label_account: Account
           label_billing: Billing
           label_load-balancer: Network Load Balancer
           label_managed-clickhouse: Managed Service for ClickHouse
@@ -11133,7 +10462,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.20
+        tag: v0.2.21
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd

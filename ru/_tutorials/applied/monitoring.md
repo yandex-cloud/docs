@@ -3,7 +3,7 @@
 
 В этом руководстве вы настроите мониторинг и уведомления об изменениях показаний датчиков, подключенных к сервису [{{ iot-name }}](../../iot-core/). Датчики будут эмулированы с помощью сервиса [{{ sf-full-name }}](../../functions/). Если у вас есть подключенные датчики, используйте их.
 
-Для работы с руководством вам не нужно создавать и настраивать [виртуальные машины](../../compute/concepts/vm.md) — вся работа основана на бессерверных вычислениях {{ sf-name }}. Исходный код, который используется в этом руководстве, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios/ServerRoomMonitoring).
+Для работы с руководством вам не нужно создавать и настраивать [виртуальные машины](../../compute/concepts/vm.md) — вся работа основана на бессерверных вычислениях {{ sf-name }}. Исходный код руководства доступен на [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring).
 
 Чтобы настроить мониторинг показаний датчиков в серверной комнате:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -101,7 +101,7 @@
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
           * Имя файла — `device-emulator.js`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/ServerRoomMonitoring/device-emulator.js).
+          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/device-emulator.js).
       1. Аналогичным образом создайте файл `package.json` со следующим содержимым:
 
           ```json
@@ -248,7 +248,7 @@
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
           * Имя файла — `monitoring.py`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/ServerRoomMonitoring/monitoring.py).
+          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/monitoring.py).
 
               В этой функции подготовка данных для отправки в сервис мониторинга находится в методе `makeAllMetrics`. Если вы захотите добавить или удалить параметры, выполните изменения в этом методе.
 

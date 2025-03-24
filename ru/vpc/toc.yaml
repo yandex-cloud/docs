@@ -198,6 +198,10 @@ items:
       - name: ViPNet Coordinator в {{ yandex-cloud }}
         href: tutorials/vipnet-to-yc.md
         hidden: true
+      - name: >-
+          Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
+          vpc-name }}
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

@@ -44,6 +44,7 @@ description: Различные сценарии использования {{ c
 * [{#T}](site-to-site-openvpn.md)
 * [{#T}](mlflow-datasphere.md)
 * [{#T}](mgp-config-server-for-s3.md)
+* [{#T}](bm-vrf-and-vpc-interconnect.md)
 
 ## {{ coi }} {#coi}
 

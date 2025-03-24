@@ -187,6 +187,7 @@ yc iam create-token
   package com.mycompany.java.jwt;
 
   import com.fasterxml.jackson.databind.ObjectMapper;
+  import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   import io.jsonwebtoken.Jwts;
   import io.jsonwebtoken.SignatureAlgorithm;
   import org.bouncycastle.util.io.pem.PemObject;
@@ -203,6 +204,7 @@ yc iam create-token
 
   public class JavaJwt {
 
+      @JsonIgnoreProperties(ignoreUnknown = true)
       public static class KeyInfo {
 
           public String id;

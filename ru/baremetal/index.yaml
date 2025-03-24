@@ -19,6 +19,9 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+  - title: Практические руководства
+    description: Воспользуйтесь готовыми сценариями работы с серверами BareMetal
+    href: tutorials/
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

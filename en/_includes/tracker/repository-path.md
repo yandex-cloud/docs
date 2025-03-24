@@ -1,1 +1,0 @@
-In the left-hand panel, click ![](../../_assets/tracker/svg/still.svg) and select **Admin settings** → ![](../../_assets/tracker/svg/repositories.svg) **{{ ui-key.startrek.ui_Common_smart-components_page-admin_PageAdmin.menu-item-repositories }}** → **{{ ui-key.startrek.ui_Common_smart-components_admin-repositories_ConnectRepositoryDialog.connect }}**.
