@@ -114,7 +114,7 @@
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту `win-secret-sa` [роль](../../iam/concepts/access-control/roles.md) `kms.keys.encrypterDercrypter`:
+1. Назначьте сервисному аккаунту `win-secret-sa` [роль](../../iam/concepts/access-control/roles.md) `kms.keys.encrypterDecrypter`:
 
    {% list tabs group=instructions %}
 
