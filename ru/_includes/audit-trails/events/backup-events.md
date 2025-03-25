@@ -3,6 +3,7 @@
 `ApplyPolicy` | Применение политики резервного копирования
 `CreateDirectory` | Создание новой директории внутри ВМ или сервера {{ baremetal-full-name }}
 `CreatePolicy` | Создание политики резервного копирования
+`DeleteArchive` | Удаление архива резервной копии
 `DeleteBackup` | Удаление резервной копии
 `DeletePolicy` | Удаление политики резервного копирования
 `DeleteResource` | Удаление ВМ или сервера {{ baremetal-name }} из сервиса {{ backup-name }}

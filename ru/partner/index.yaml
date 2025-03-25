@@ -13,9 +13,8 @@ description:
     работать с реферальными ссылками.
   - >-
     О том, как публиковать свои продукты и продавать их клиентам Yandex Cloud,
-    читайте в документации <a
-    href="https://yandex.cloud/ru/docs/marketplace/quickstart">Yandex Cloud
-    Marketplace</a>.  
+    читайте в документации <a href="/docs/marketplace/quickstart">Yandex Cloud
+    Marketplace</a>.
 meta:
   title: Партнерская программа
   description: >-
@@ -25,16 +24,6 @@ links:
   - title: Программа прямого партнерства
     description: Самостоятельное принятие платежей от клиентов и ведение документооборота.
     href: program/var
-  - title: Реферальная программа
-    description: >-
-      Клиент оплачивает сервисы по реферальной ссылке. Не нужно вести
-      документооборот и принимать платежи.
-    href: program/referral
-  - title: Специализации Yandex Cloud Professional
-    description: >-
-      Развивайте экспертизу в одном из технологических направлений и становитесь
-      рекомендованным партнёром.
-    href: specializations/
   - title: Партнерский портал
     description: Главный инструмент для работы с клиентами.
     href: portal

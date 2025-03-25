@@ -9,11 +9,10 @@ noIndex: true
 {% include [preview](../_includes/managed-trino/note-preview.md) %}
 
 Чтобы начать работу с сервисом:
-* [Создайте кластер {{ mtr-name }}](#cluster-create).
-* [Установите {{ TR }} CLI](#install-trino-cli).
-* [Подключитесь к {{ TR }}](#connect).
-* [Отправьте запросы к кластеру {{ mpg-full-name }} через {{ TR }}](#query-mpg-via-trino).
-* [Проверьте запросы в кластере {{ mpg-name }}](#check-queries-in-psql).
+1. [Создайте кластер {{ mtr-name }}](#cluster-create).
+1. [Подключитесь к кластеру {{ mtr-name }}](#connect).
+1. [Отправьте запросы к кластеру {{ mpg-full-name }} через {{ TR }}](#query-mpg-via-trino).
+1. [Проверьте запросы в кластере {{ mpg-name }}](#check-queries-in-psql).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -82,52 +81,9 @@ noIndex: true
 
 {% endlist %}
 
-## Установите {{ TR }} CLI {#install-trino-cli}
+## Подключитесь к кластеру {{ mtr-name }} через {{ TR }} CLI {#connect-to-trino}
 
-1. Скачайте {{ TR }} CLI из центрального репозитория Apache Maven в файл `trino`:
-
-   ```bash
-   wget -O trino \
-   https://repo.maven.apache.org/maven2/io/trino/trino-cli/<номер_версии>/trino-cli-<номер_версии>-executable.jar
-   ```
-
-   Номера доступных версий вы можете посмотреть в [списке](https://repo.maven.apache.org/maven2/io/trino/trino-cli/).
-
-1. Сделайте скачанный файл исполняемым:
-
-   ```bash
-   sudo chmod +x trino
-   ```
-
-1. Убедитесь, что {{ TR }} установлен успешно. Для этого запросите версию {{ TR }}:
-
-   ```bash
-   ./trino --version
-   ```
-
-   Ответ на запрос будет выглядеть так:
-
-   ```bash
-   Trino CLI <номер_версии>
-   ```
-
-## Подключитесь к кластеру {{ mtr-name }} {#connect-to-trino}
-
-1. Создайте [IAM-токен](../iam/concepts/authorization/iam-token.md) и поместите его в переменную окружения `TRINO_PASSWORD`:
-
-   ```bash
-   export TRINO_PASSWORD=$(yc iam create-token)
-   ```
-
-   IAM-токен, хранящийся в переменной `TRINO_PASSWORD`, служит паролем для подключения к кластеру {{ mtr-name }}. Чтобы использовать его, укажите при подключении флаг `--password`.
-
-1. Подключитесь к кластеру {{ mtr-name }}:
-
-   ```bash
-   ./trino <URL_координатора> --user iam --password
-   ```
-
-   Вы можете скопировать URL координатора в поле **{{ ui-key.yacloud.trino.overview.field_coordinator-url }}** на странице обзора кластера {{ TR }} в [Консоли управления]({{ link-console-main }}).
+{% include [trino-cli-connect](../_includes/managed-trino/trino-cli-connect.md) %}
 
 ## Отправьте запросы к кластеру {{ mpg-name }} через {{ TR }} {#query-mpg-via-trino}
 
@@ -196,3 +152,7 @@ SELECT COUNT(*) FROM tpch_postgresql.customers;
 
 ```
 
+
+# Что дальше {#whats-next}
+
+* Ознакомьтесь с другими [способами подключения к кластеру {{ mtr-name }}](operations/connect.md).

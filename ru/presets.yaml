@@ -304,6 +304,7 @@ default:
   link-cloud-oauth: >-
     https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
   link-cloud-partners: https://partners.yandex.cloud/
+  link-cloud-partners-landing: https://yandex.cloud/ru/partners/
   link-cloud-services: /services
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
   link-console-access-management: https://console.yandex.cloud/iam
@@ -1068,6 +1069,12 @@ default:
         v3|number: 1.4
         v3|string: "1,40\_₸"
       ram|string: "1,95\_₸"
+      software_accelerated_network:
+        cores:
+          highfreq-v3|number: 17.6
+          v1|number: 10.7
+          v2|number: 10.7
+          v3|number: 10.7
   sku|KZT|cr:
     bucket:
       used_space:
@@ -1874,6 +1881,7 @@ default:
         v1|pricingRate:
           250|number: 500
           250|string: "500,00\_₸"
+        v1|string: Не тарифицируется
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0125
@@ -2008,6 +2016,7 @@ default:
           1000|number: 250
           1000|string: "250,00\_₸"
           10000|string: "125,00\_₸"
+        v1|string: Не тарифицируется
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -2457,6 +2466,12 @@ default:
         v3|number: 0.28
         v3|string: "0,28\_₽"
       ram|string: "0,39\_₽"
+      software_accelerated_network:
+        cores:
+          highfreq-v3|number: 3.52
+          v1|number: 2.14
+          v2|number: 2.14
+          v3|number: 2.14
   sku|RUB|cr:
     bucket:
       used_space:
@@ -3264,6 +3279,7 @@ default:
         v1|pricingRate:
           250|number: 100
           250|string: "100,00\_₽"
+        v1|string: Не тарифицируется
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0025
@@ -3398,6 +3414,7 @@ default:
           1000|number: 50
           1000|string: "50,00\_₽"
           10000|string: "25,00\_₽"
+        v1|string: Не тарифицируется
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -3835,6 +3852,12 @@ default:
         v3|number: 0.00224
         v3|string: "0,002240\_$"
       ram|string: "0,003120\_$"
+      software_accelerated_network:
+        cores:
+          highfreq-v3|number: 0.02816
+          v1|number: 0.01712
+          v2|number: 0.01712
+          v3|number: 0.01712
   sku|USD|cr:
     bucket:
       used_space:
@@ -4619,6 +4642,7 @@ default:
         v1|pricingRate:
           250|number: 0.8
           250|string: "0,800000\_$"
+        v1|string: Не тарифицируется
   sku|USD|speechkit:
     stt_long_running_deferred:
       v1|number: 0.00002
@@ -4747,6 +4771,7 @@ default:
           100|string: "1,120000\_$"
           1000|string: "0,400000\_$"
           10000|string: "0,200000\_$"
+        v1|string: Не тарифицируется
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -5451,6 +5476,7 @@ default:
         field_method: Метод
         field_name: Имя
         field_recipients: Получатели
+        field_service-account_title: Сервисный аккаунт
         status-description_error: Не удалось отправить
         status-description_resource_exhausted: Ресурс исчерпан
         status-description_success: Успешно отправлено
@@ -7757,6 +7783,7 @@ default:
           subclusters:
             action_add-subclaster: Создать подкластер
           switch_backups: Резервные копии
+          switch_explore-websql: WebSQL
           switch_hosts: Хосты
           switch_jobs: Задания
           switch_monitoring: Мониторинг
@@ -7775,6 +7802,7 @@ default:
             popup-password_button_change: Изменить
           websql-connections:
             action_create-connection: Создать подключение
+            action_go-to-websql: Перейти в WebSQL
         clusters:
           button_action-connect: Подключиться
           button_action-delete: Удалить

@@ -10,6 +10,7 @@
 `apiserver.ApiServerHead` | Получение метаданных ресурса
 `apiserver.ApiServerImpersonate` | Имперсонация
 `apiserver.ApiServerList` | Получение информации о коллекции ресурсов
+`apiserver.ApiServerOptions` | Настройка ресурса
 `apiserver.ApiServerPatch` | Изменение ресурса
 `apiserver.ApiServerPost` | Создание ресурса
 `apiserver.ApiServerPut` | Обновление ресурса

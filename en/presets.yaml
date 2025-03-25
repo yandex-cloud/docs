@@ -1066,6 +1066,12 @@ default:
         v3|number: 1.4
         v3|string: ₸1.40
       ram|string: ₸1.95
+      software_accelerated_network:
+        cores:
+          highfreq-v3|number: 17.6
+          v1|number: 10.7
+          v2|number: 10.7
+          v3|number: 10.7
   sku|KZT|cr:
     bucket:
       used_space:
@@ -1872,6 +1878,7 @@ default:
         v1|pricingRate:
           250|number: 500
           250|string: ₸500.00
+        v1|string: Free
   sku|KZT|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0125
@@ -2006,6 +2013,7 @@ default:
           1000|number: 250
           1000|string: ₸250.00
           10000|string: ₸125.00
+        v1|string: Free
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -2455,6 +2463,12 @@ default:
         v3|number: 0.28
         v3|string: ₽0.28
       ram|string: ₽0.39
+      software_accelerated_network:
+        cores:
+          highfreq-v3|number: 3.52
+          v1|number: 2.14
+          v2|number: 2.14
+          v3|number: 2.14
   sku|RUB|cr:
     bucket:
       used_space:
@@ -3262,6 +3276,7 @@ default:
         v1|pricingRate:
           250|number: 100
           250|string: ₽100.00
+        v1|string: Free
   sku|RUB|speechkit:
     stt_long_running_deferred:
       v1|number: 0.0025
@@ -3396,6 +3411,7 @@ default:
           1000|number: 50
           1000|string: ₽50.00
           10000|string: ₽25.00
+        v1|string: Free
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -3833,6 +3849,12 @@ default:
         v3|number: 0.00224
         v3|string: $0.002240
       ram|string: $0.003120
+      software_accelerated_network:
+        cores:
+          highfreq-v3|number: 0.02816
+          v1|number: 0.01712
+          v2|number: 0.01712
+          v3|number: 0.01712
   sku|USD|cr:
     bucket:
       used_space:
@@ -4617,6 +4639,7 @@ default:
         v1|pricingRate:
           250|number: 0.8
           250|string: $0.800000
+        v1|string: Free
   sku|USD|speechkit:
     stt_long_running_deferred:
       v1|number: 0.00002
@@ -4745,6 +4768,7 @@ default:
           100|string: $1.120000
           1000|string: $0.400000
           10000|string: $0.200000
+        v1|string: Free
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -5449,6 +5473,7 @@ default:
         field_method: Method
         field_name: Name
         field_recipients: Recipients
+        field_service-account_title: Service account
         status-description_error: Failed to send
         status-description_resource_exhausted: Resource exhausted
         status-description_success: Success
@@ -7753,6 +7778,7 @@ default:
           subclusters:
             action_add-subclaster: Create subcluster
           switch_backups: Backups
+          switch_explore-websql: WebSQL
           switch_hosts: Hosts
           switch_jobs: Jobs
           switch_monitoring: Monitoring
@@ -7771,6 +7797,7 @@ default:
             popup-password_button_change: Edit
           websql-connections:
             action_create-connection: Create connection
+            action_go-to-websql: Go to WebSQL
         clusters:
           button_action-connect: Connect
           button_action-delete: Delete
