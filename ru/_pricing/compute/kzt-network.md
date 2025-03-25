@@ -1,15 +1,15 @@
 | Программное ускорение сети | Цена за 1 час, вкл. НДС |
 | --- | --- |
 | **Intel Broadwell** |
-| Для ВМ с числом ядер меньше 18 | 21,40 ₸ |
-| Для ВМ c 18 ядрами и больше | 42,80 ₸ |
+| Для ВМ с числом ядер меньше 18 | {% calc [currency=KZT] {{ sku|KZT|compute.vm.software_accelerated_network.cores.v1|number }} × 2 %} |
+| Для ВМ с 18 ядрами и больше | {% calc [currency=KZT] {{ sku|KZT|compute.vm.software_accelerated_network.cores.v1|number }} × 4 %} |
 | **Intel Cascade Lake** |
-| Для ВМ с числом ядер меньше 20 | 21,40 ₸ |
-| Для ВМ c 20 ядрами и больше | 42,80 ₸ |
+| Для ВМ с числом ядер меньше 20 | {% calc [currency=KZT] {{ sku|KZT|compute.vm.software_accelerated_network.cores.v2|number }} × 2 %} |
+| Для ВМ с 20 ядрами и больше | {% calc [currency=KZT] {{ sku|KZT|compute.vm.software_accelerated_network.cores.v2|number }} × 4 %} |
 | **Intel Ice Lake** |
-| Для ВМ с числом ядер меньше 36 | 21,40 ₸ |
-| Для ВМ c 36 ядрами и больше | 42,80 ₸ |
+| Для ВМ с числом ядер меньше 36 | {% calc [currency=KZT] {{ sku|KZT|compute.vm.software_accelerated_network.cores.v3|number }} × 2 %} |
+| Для ВМ с 36 ядрами и больше | {% calc [currency=KZT] {{ sku|KZT|compute.vm.software_accelerated_network.cores.v3|number }} × 4 %} |
 | **Intel Ice Lake (Compute Optimized)** |
-| Для ВМ с числом ядер меньше 16 | 35,20 ₸ |
-| Для ВМ c 16 ядрами и больше | 70,40 ₸ |
+| Для ВМ с числом ядер меньше 16 | {% calc [currency=KZT] {{ sku|KZT|compute.vm.software_accelerated_network.cores.highfreq-v3|number }} × 2 %} |
+| Для ВМ с 16 ядрами и больше | {% calc [currency=KZT] {{ sku|KZT|compute.vm.software_accelerated_network.cores.highfreq-v3|number }} × 4 %} |
 

@@ -1,13 +1,9 @@
 ---
 title: Как создать канал уведомлений в {{ monitoring-full-name }}
-description: Следуя данной инструкции, вы сможете создать канал уведомлений.
+description: Следуя данной инструкции, вы сможете создать канал уведомлений и отправлять сообщения получателям на почту и в мессенджеры.
 ---
 
-# Создание канала уведомлений
-
-## Создание канала уведомлений с получателями
-
-Для создания [канала уведомлений](../../concepts/alerting/notification-channel.md):
+# Создание канала уведомлений с получателями
 
 1. В левой части окна выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
 1. В правой части страницы нажмите **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
@@ -34,9 +30,3 @@ description: Следуя данной инструкции, вы сможете
         1. Вставьте код авторизации и нажмите **{{ ui-key.yacloud_components.settings.button_submit }}**.
 
 1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Канал появится в списке.
-
-## Создание канала уведомлений с вызовом функции {{ sf-name }}
-
-{% include [escalation-cloud-functions](../../../_includes/monitoring/escalation-cloud-functions.md) %}
-
-{% include [cloud-functions](../../../_includes/monitoring/notification-channels-cloud-functions.md) %}

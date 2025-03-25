@@ -260,3 +260,5 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+  - name: Аудитные логи {{ cloud-desktop-name }}
+    href: at-ref.md

@@ -10,4 +10,8 @@
 `gcore.OriginUpdate` | Измнение источника
 `gcore.ProviderActivate` | Активация провайдера
 `gcore.ResourceCreate` | Создание ресурса
+`gcore.ResourceDelete` | Удаление ресурса
+`gcore.ResourceRuleCreate` | Создание правила Rewrite
+`gcore.ResourceRuleDelete` | Удаление правила Rewrite
+`gcore.ResourceRuleUpdate` | Изменение правила Rewrite
 `gcore.ResourceUpdate` | Изменение ресурса

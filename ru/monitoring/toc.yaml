@@ -47,8 +47,12 @@ items:
         items:
           - name: Создание алерта
             href: operations/alert/create-alert.md
-          - name: Создание канала уведомлений
+          - name: Создание канала уведомлений с получателем
             href: operations/alert/create-channel.md
+          - name: Создание канала уведомлений с вызовом функции
+            href: operations/alert/create-channel-function.md
+          - name: Создание webhook с вызовом внешнего API
+            href: operations/alert/alert-call-function.md
           - name: Создание политики эскалаций
             href: operations/alert/create-escalation.md
           - name: Удаление алерта
