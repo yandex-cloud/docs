@@ -1,6 +1,6 @@
 # Создание функции Node.js с помощью TypeScript
 
-Node.js не поддерживает [TypeScript](https://www.typescriptlang.org/). Перед тем как загружать код на TypeScript в {{ sf-name }}, его необходимо скомпилировать в JavaScript.
+По умолчанию Node.js не поддерживает [TypeScript](https://www.typescriptlang.org/). Перед тем как загружать код на TypeScript в {{ sf-name }}, его необходимо скомпилировать в JavaScript.
 
 1. Установите [Node.js](https://nodejs.org/ru/).
 1. Откройте директорию с вашим проектом.
@@ -10,7 +10,7 @@ Node.js не поддерживает [TypeScript](https://www.typescriptlang.or
     ```
 1. Создайте конфигурацию Typescript:
     ```bash
-    npx ts --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build --strict false --target ES2021
+    npx --no-install tsc --init --preserveConstEnums --moduleResolution Node --isolatedModules --outDir build --strict false --target ES2021
     ```
 
     Чтобы использовать другую версию JavaScript, измените значение аргумента `target`. Максимальное значение версии JavaScript, которое можно указать, зависит от используемой версии Node.js:
