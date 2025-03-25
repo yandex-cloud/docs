@@ -41,7 +41,7 @@
 1. [Установите Docker](/container-registry/operations/configure-docker).
 1. Запустите готовый легковесный образ Ubuntu с установленным графическим окружением LXDE и VNC-сервером x11vnc: 
 ```
-docker run -p 6080:80 -e HTTP_PASSWORD=<ваш пароль> -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+docker run -p 127.0.0.1:6080:80 -e HTTP_PASSWORD=<ваш пароль> -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
 ```
 1. После запуска контейнера пробросьте порт `6080` на свою машину.
 1. Откройте `http://<адрес>:6080` в браузере и авторизуйтесь c логином root и вашим паролем. Используйте левое меню для буфера обмена и нажатия дополнительных клавиш (`Ctrl`, `Alt`, `Win`, `Tab`).
