@@ -1,6 +1,6 @@
 | Количество запросов в месяц, млн | Цена за 1 млн запросов, вкл. НДС |
 | --- | --- |
-| Менее 0,01 (10 000 запросов) включительно | Не тарифицируется |
+| Менее 0,01 (10 000 запросов) включительно | {{ sku|RUB|sws.waf.requests.v1|string }} |
 | От 0,01 до 1 включительно | {{ sku|RUB|sws.waf.requests.v1|pricingRate.0.01|string }} |
 | От 1 до 10 включительно | {{ sku|RUB|sws.waf.requests.v1|pricingRate.1|string }} |
 | От 10 до 100 включительно | {{ sku|RUB|sws.waf.requests.v1|pricingRate.10|string }} |

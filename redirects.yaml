@@ -71,6 +71,8 @@ common:
     to: /security/standard/virtualenv-safe-config
   - from: ^/security/standard/physical-security
     to: /security/standard/index
+  - from: ^/managed-clickhouse/tutorials/data-from-ch-over-yt
+    to: /datalens/tutorials/data-from-ch-over-yt
 
 ru-ru: 
   - from: ^/audit-trails/operations/export-organization-logging

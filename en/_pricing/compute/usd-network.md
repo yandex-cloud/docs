@@ -1,14 +1,14 @@
 | Software network acceleration | Cost per hour, without VAT |
 --- | ---
-| **Intel Broadwell** |
-| For VMs with less than 18 cores | $0.034358 |
-| For VMs with 18 or more cores | $0.068717 |
-| **Intel Cascade Lake** |
-| For VMs with less than 20 cores | $0.034358 |
-| For VMs with 20 or more cores | $0.068717 |
-| **Intel Ice Lake** |
-| For VMs with less than 36 cores | $0.034358 |
-| For VMs with 36 or more cores | $0.068717 |
-| **Intel Ice Lake (Compute Optimized)** |
-| For VMs with less than 16 cores | $0.056320 |
-| For VMs with 16 or more cores | $0.112640 |
+**Intel Broadwell** |
+For VMs with less than 18 cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.v1|number }} × 2 %}
+For VMs with 18 or more cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.v1|number }} × 4 %}
+**Intel Cascade Lake** |
+For VMs with less than 20 cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.v2|number }} × 2 %}
+For VMs with 20 or more cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.v2|number }} × 4 %}
+**Intel Ice Lake** |
+For VMs with less than 36 cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.v3|number }} × 2 %}
+For VMs with 36 or more cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.v3|number }} × 4 %}
+**Intel Ice Lake (Compute Optimized)** |
+For VMs with less than 16 core | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.highfreq-v3|number }} × 2 %}
+For VMs with 16 or more cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.highfreq-v3|number }} × 4 %}

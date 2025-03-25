@@ -11,4 +11,5 @@ noIndex: true
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение кластера](cluster-update.md)
+* [Подключение к кластеру](connect.md)
 * [Удаление кластера](cluster-delete.md)

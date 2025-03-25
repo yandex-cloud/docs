@@ -515,5 +515,7 @@ items:
                 href: api-ref/Video/getPlayerURL.md
               - name: GetManifests
                 href: api-ref/Video/getManifests.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     href: release-notes.md

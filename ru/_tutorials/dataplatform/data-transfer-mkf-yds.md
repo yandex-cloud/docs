@@ -226,6 +226,11 @@
     - Вручную {#manual}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
+
+            Если в процессе трансфера вы хотите преобразовать данные, укажите в настройках трансфера нужные трансформеры:
+
+            {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
+
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     - {{ TF }} {#tf}
@@ -235,6 +240,32 @@
             * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
             * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
             * `transfer_enabled` – значение `1` для создания трансфера.
+
+        1. Если в процессе трансфера вы хотите преобразовать данные, добавьте в ресурс `yandex_datatransfer_transfer` блок `transformation` со списком нужных трансформеров:
+
+            ```hcl
+            resource "yandex_datatransfer_transfer" "mkf-ydb-transfer" {
+              ...
+              transformation {
+                transformers{
+                  <трансформер_1>
+                }
+                transformers{
+                  <трансформер_2>
+                }
+                ...
+                transformers{
+                  <трансформер_N>
+                }
+              }
+            }
+            ```
+
+            Доступны следующие типы трансформеров:
+
+            {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
+
+            Подробнее о настройке трансформеров см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 

@@ -17,6 +17,7 @@
 `DeleteShardGroup` | Удаление группы шардов
 `MoveCluster` | Перемещение кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`RestartClusterHosts` | Перезапуск хостов кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера

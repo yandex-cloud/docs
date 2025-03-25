@@ -71,6 +71,12 @@ description: В данном разделе приведены описания 
 
 {% include [cdn-events](../../_includes/audit-trails/events/cdn-events.md) %}
 
+## {{ cloud-desktop-full-name }} {#clouddesktop}
+
+Имя сервиса — `clouddesktop`.
+
+{% include [clouddesktop-events](../../_includes/audit-trails/events/clouddesktop-events.md) %}
+
 ## {{ dns-full-name }} {#dns}
 
 Имя сервиса — `dns`.
@@ -112,6 +118,12 @@ description: В данном разделе приведены описания 
 Имя сервиса — `cloudregistry`.
 
 {% include [cloudregistry-events](../../_includes/audit-trails/events/cloudregistry-events.md) %}
+
+## {{ video-full-name }} {#video}
+
+Имя сервиса — `video`.
+
+{% include [video-events](../../_includes/audit-trails/events/video-events.md) %}
 
 ## {{ compute-full-name }} {#compute}
 

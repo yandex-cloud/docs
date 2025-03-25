@@ -4,6 +4,7 @@
 `AddClusterShard` | Добавление шарда в кластер
 `BackupCluster` | Создание резервной копии
 `CreateCluster` | Создание кластера
+`DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
 `DeleteClusterShard` | Удаление шарда из кластера

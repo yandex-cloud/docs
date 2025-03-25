@@ -4,4 +4,4 @@ description: Ответ в {{ speechkit-name }} может содержать р
 ---
 
 
-{% include [response](../../_includes/response-translate-speechkit.md) %}
+{% include [response](../../_includes/speechkit/response-format.md) %}
