@@ -36,7 +36,7 @@
 
   Вы можете использовать {{ TF }} для создания ВМ с заранее установленным графическим окружением. Возможный пример плана {{ TF }}, который можно использовать в качестве основы, размещен [по этой ссылке](https://nikolaymatrosov.medium.com/rdp-%D0%BD%D0%B0-ubuntu-%D0%B2-yandex-cloud-c9d7870a47cc).
 
-- {{ Docker }}
+- Docker
 
   1. [Установите Docker](/container-registry/operations/configure-docker).
   1. Запустите готовый легковесный образ Ubuntu с установленным графическим окружением LXDE и VNC-сервером x11vnc:
