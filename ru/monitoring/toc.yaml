@@ -143,6 +143,8 @@ items:
         items:
           - name: Обзор
             href: operations/prometheus/ingestion/index.md
+          - name: Агент сбора метрик
+            href: operations/prometheus/ingestion/prometheus-agent.md
           - name: Remote Write
             href: operations/prometheus/ingestion/remote-write.md
           - name: Диагностика и устранение проблем

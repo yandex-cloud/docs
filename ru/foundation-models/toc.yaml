@@ -39,6 +39,18 @@ items:
         items:
           - name: Использовать эмбеддинги в поиске по базе знаний
             href: operations/embeddings/search.md
+      - name: Работа с датасетами
+        items:
+          - name: Создать датасет для дообучения генерации текста
+            href: operations/resources/create-dataset-gpt.md
+          - name: Создать датасет для дообучения классификации текста
+            href: operations/resources/create-dataset-classifier.md
+      - name: Дообучение моделей
+        items:
+          - name: Дообучить модель генерации текста
+            href: operations/tuning/create.md
+          - name: Дообучить модель классификации текста
+            href: operations/tuning/tune-classifiers.md
       - name: '{{ assistant-api }}'
         items:
           - name: Создать простого ассистента
@@ -47,12 +59,6 @@ items:
             href: operations/assistant/create-with-searchindex.md
           - name: Получить промежуточные результаты генерации ответа
             href: operations/assistant/request-chunked-response.md
-      - name: Дообучение моделей в {{ foundation-models-name }}
-        items:
-          - name: Дообучение моделей генерации текста
-            href: operations/tuning/create.md
-          - name: Дообучение моделей классификаторов
-            href: operations/tuning/tune-classifiers.md
   - name: Концепции
     items:
       - name: О сервисе {{ foundation-models-full-name }}
@@ -89,14 +95,16 @@ items:
             href: concepts/assistant/index.md
           - name: Поисковые индексы
             href: concepts/assistant/search-index.md
+      - name: Датасеты
+        href: concepts/resources/dataset.md
       - name: Дообучение
+        href: concepts/tuning/index.md
+      - name: '{{ assistant-api }}'
         items:
           - name: Обзор
-            href: concepts/tuning/index.md
-          - name: Дообучение моделей генерации текста
-            href: concepts/tuning/generating.md
-          - name: Дообучение классификаторов
-            href: concepts/tuning/classifier.md
+            href: concepts/assistant/index.md
+          - name: Поисковые индексы
+            href: concepts/assistant/search-index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Справочники API

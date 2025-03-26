@@ -15,6 +15,19 @@
 * [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md) — управление несколькими Ingress-контроллерами в кластере {{ k8s }}.
 * [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) — описание сервисов {{ k8s }}, используемых в качестве бэкендов.
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за DNS-зону и DNS-запросы (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).

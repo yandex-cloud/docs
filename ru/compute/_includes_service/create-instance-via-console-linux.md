@@ -30,3 +30,5 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../vpc/concepts/address.md) и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).
+
+{% include [trademark](../../_includes/monitoring/trademark.md) %}

@@ -41,7 +41,7 @@
 В стоимость поддержки инфраструктуры входит:
 * Использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
 * Использование [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 * Входящий трафик, обработанный балансировщиком, и использование [сетевого балансировщика](../../network-load-balancer/concepts/index.md) (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
 
 ## Добавьте сертификат в {{ certificate-manager-name }}

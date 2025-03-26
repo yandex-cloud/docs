@@ -33,16 +33,6 @@ items:
             href: operations/import/cert-modify.md
           - name: Удаление сертификата
             href: operations/import/cert-delete.md
-      - name: Домен
-        items:
-          - name: Добавление домена
-            href: operations/domain/domain-create.md
-          - name: Привязка сертификата к домену
-            href: operations/domain/domain-link-cert.md
-          - name: Изменение домена
-            href: operations/domain/domain-modify.md
-          - name: Удаление домена
-            href: operations/domain/domain-delete.md
       - name: Резервное копирование
         href: operations/cert-backup.md
       - name: Добавление алерта для сертификата
@@ -91,6 +81,7 @@ items:
             href: concepts/domains/index.md
           - name: Интеграция с сервисами {{ yandex-cloud }}
             href: concepts/domains/services.md
+        hidden: true
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

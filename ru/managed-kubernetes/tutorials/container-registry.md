@@ -28,6 +28,17 @@ description: Следуя данному руководству, вы сможе
 
 {% include [before-you-begin](../../_includes/before-begin.md) %}
 
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за [использование хранилища](../../container-registry/pricing) {{ container-registry-name }}.
+
+
 ## Создайте сервисные аккаунты {#create-sa}
 
 Создайте [сервисные аккаунты](../../iam/operations/sa/create.md):

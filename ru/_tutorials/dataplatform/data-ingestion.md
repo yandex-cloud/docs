@@ -71,7 +71,7 @@
 
     Пример настройки поставки данных из {{ yds-short-name }} приведен в [практическом руководстве по сохранению данных в {{ CH }}](../../data-streams/tutorials/send-to-clickhouse.md).
 
-1. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) или используйте SDK для прямого чтения данных из {{ yds-short-name }}:
+1. Подключите произвольную функцию обработки данных к {{ data-transfer-full-name }}. Код функции приведен в [примере](https://github.com/yandex-cloud-examples/yc-nginx-logs-data-transfer) на GitHub. Вы также можете использовать SDK для прямого чтения данных из {{ yds-short-name }}:
 
     * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/).
     * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html).

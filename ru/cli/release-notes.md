@@ -1645,7 +1645,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * В команду `yc serverless api-gateway add-domain` добавлены параметры:
 
-  * `--domain` — для указания FQDN подключаемого [домена](../certificate-manager/concepts/domains/index.md) из {{ certificate-manager-name }};
+  * `--domain` — для указания FQDN подключаемого домена из {{ certificate-manager-name }};
   * `--certificate-id` — для указания идентификатора сертификата из {{ certificate-manager-name }}.
 
   Параметр `--domain-id` считается устаревшим, вместо него рекомендуется использовать параметру `--domain` и `--certificate-id`.

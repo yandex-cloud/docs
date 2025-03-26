@@ -137,17 +137,18 @@ SSL-сертификаты различаются по уровню валида
 
 ## Как приобрести SSL-сертификат для своего сайта {#setup}
 
-Защитить данные с помощью криптографического протокола можно инструментом [{{ certificate-manager-full-name }}](../certificate-manager/index.yaml). Он предоставляет TLS-сертификаты вида Domain Validation от **Let's Encrypt** и полностью автоматизирует работу с ними. Если вам нужен сертификат вида Organization Validation или Extended Validation, то можно воспользоваться сторонним сервисом, а потом привязать его к {{ certificate-manager-name }}. Для получения пользовательского сертификата от Let's Encrypt нужно:
+Защитить данные с помощью криптографического протокола можно инструментом [{{ certificate-manager-full-name }}](/services/certificate-manager/). Он предоставляет TLS-сертификаты вида Domain Validation от **Let's Encrypt** и полностью автоматизирует работу с ними. Если вам нужен сертификат вида Organization Validation или Extended Validation, то можно воспользоваться сторонним сервисом, а потом привязать его к {{ certificate-manager-name }}. Для получения пользовательского сертификата от Let's Encrypt нужно:
 
 1. Указать список доменов, которые необходимо защитить.
 1. Выбрать тип проверки прав на домен: `HTTP` или `DNS`.
 1. Подтвердить свое владение доменами.
-1. Обновлять сертификат вручную не требуется. Каждые 90 дней {{ certificate-manager-name }} будет проводить процедуру самостоятельно.
 
-Пользоваться {{ certificate-manager-name }} и TLS-сертификатом Let's Encrypt можно бесплатно.
+Обновлять сертификат вручную не требуется. Каждые 90 дней {{ certificate-manager-name }} будет проводить процедуру самостоятельно.
+
+Пользоваться {{ certificate-manager-name }} и TLS-сертификатом Let's Encrypt можно бесплатно. Подробнее см. в [документации](../certificate-manager/).
 
 ## Интеграция {{ certificate-manager-name }} с другими сервисами {{ yandex-cloud }} {#cm-yc}
 
-* **[{{ objstorage-full-name }}](#os).** {{ certificate-manager-name }} позволяет использовать протокол HTTPS для бакетов статического сайта. Обновление сертификата в них также происходит автоматически.
+* **[{{ objstorage-full-name }}](/services/storage/).** {{ certificate-manager-name }} позволяет использовать [протокол TLS](../storage/concepts/tls.md) для бакетов статического сайта. Обновление сертификата в них также происходит автоматически.
 
-* **[{{ api-gw-full-name }}](#api-gw).** Если вы используете собственный домен для работы с API, то {{ certificate-manager-name }} обеспечит TLS-соединение для всех микросервисов, входящих в ваш продукт.
+* **[{{ api-gw-full-name }}](/services/api-gateway/).** Если вы используете собственный домен для работы с API, то {{ certificate-manager-name }} [обеспечит TLS-соединение](../api-gateway/operations/api-gw-domains.md) для всех микросервисов, входящих в ваш продукт.

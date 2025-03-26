@@ -42,6 +42,7 @@ description: Различные сценарии использования {{ c
 * [{#T}](bastion.md)
 * [{#T}](route-switcher.md)
 * [{#T}](site-to-site-openvpn.md)
+* [{#T}](gpu-cluster-deepseek.md)
 * [{#T}](mlflow-datasphere.md)
 * [{#T}](mgp-config-server-for-s3.md)
 * [{#T}](bm-vrf-and-vpc-interconnect.md)

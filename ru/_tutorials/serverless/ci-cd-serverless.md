@@ -34,7 +34,7 @@
 * Плата за хранение секретов (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
 * Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md)).
 * Плата за запросы к API-шлюзу (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
-* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 ## Перед началом работы {#before-begin}
 

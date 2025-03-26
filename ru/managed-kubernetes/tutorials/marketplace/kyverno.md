@@ -10,6 +10,16 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. Создайте [кластер](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группу узлов](../../../managed-kubernetes/concepts/index.md#node-group) {{ managed-k8s-name }}.

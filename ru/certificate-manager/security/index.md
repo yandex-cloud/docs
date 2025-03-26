@@ -70,9 +70,6 @@ description: Управление доступом в сервисе для по
 [Добавление](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` на каталог
 [Обновление](../operations/import/cert-update.md), [изменение](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` на сертификат или каталог
 Получение содержимого сертификата: [пользовательского](../operations/import/cert-get-content.md) или [сертификата от Let's Encrypt](../operations/managed/cert-get-content.md) | `get-content` | `certificate-manager.certificates.downloader` на сертификат или каталог
-[Добавление домена](../operations/domain/domain-create.md) | `create` | `editor` на каталог
-[Изменение домена](../operations/domain/domain-modify.md) и [удаление домена](../operations/domain/domain-delete.md) | `update`, `delete` | `editor` на домен или каталог
-[Обновление сертификата у домена](../operations/domain/domain-link-cert.md) | `setPrimaryCertificate` | `editor` на домен или каталог
 **IAM** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` или `certificate-manager.admin` на сертификат, домен или каталог 
 

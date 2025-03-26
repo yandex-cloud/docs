@@ -50,7 +50,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
             {% endnote %}
 
-        * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone you need.
+        * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.create }}** next to the availability zone you need.
 
         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to enable connecting to the cluster from the internet.
 
