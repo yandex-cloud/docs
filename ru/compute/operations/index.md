@@ -130,7 +130,6 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](snapshot-control/snapshot-schedule-access.md)
 * [{#T}](snapshot-control/delete-schedule.md)
 
-
 ## Группы размещения дисков {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
@@ -138,7 +137,6 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](disk-placement-groups/get-info.md)
 * [{#T}](disk-placement-groups/access.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
-
 
 ## Создание образа {#image-create}
 
@@ -156,7 +154,6 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](image-control/import.md)
 * [{#T}](image-control/access.md)
 
-
 ## Файловые хранилища {#filesystem}
 
 * [{#T}](filesystem/create.md)
@@ -166,7 +163,6 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](filesystem/get-info.md)
 * [{#T}](filesystem/filesystem-access.md)
 * [{#T}](filesystem/delete.md)
-
 
 ## Управление серийной консолью {#serial-console}
 
@@ -215,7 +211,6 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](instance-groups/delete.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
 
-
 ## Выделенные хосты {#dedicated-host}
 
 * [{#T}](dedicated-host/create-host-group.md)
@@ -231,3 +226,10 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](gpu-cluster/gpu-cluster-delete.md)
 * [{#T}](gpu-cluster/gpu-cluster-get-info.md)
 * [{#T}](gpu-cluster/access.md)
+* [{#T}](gpu-cluster/gpu-cluster-test-physical-state.md)
+* [{#T}](gpu-cluster/gpu-cluster-mpirun-parallel.md)
+* [{#T}](gpu-cluster/test-infiniband-bandwidth.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

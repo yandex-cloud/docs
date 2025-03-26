@@ -1,9 +1,9 @@
 ---
 title: Создать дообучение модели генерации текста в {{ foundation-models-name }}
-description: Следуя данной инструкции, вы сможете создать датасет и дообучить модель генерации текста в {{ foundation-models-name }} с помощью API и {{ ml-sdk-name }}.
+description: Следуя данной инструкции, вы сможете создать датасет и дообучить модель генерации текста в {{ foundation-models-name }} с помощью {{ ai-playground }}, API и {{ ml-sdk-name }}.
 ---
 
-# Создать дообучение модели генерации текста в {{ foundation-models-name }}
+# Дообучить модель генерации текста
 
 {% include [lora-tuning-preview](../../../_includes/foundation-models/lora-tuning-preview.md) %}
 
@@ -15,13 +15,28 @@ description: Следуя данной инструкции, вы сможете
 
 ## Загрузите датасет {#create-dataset}
 
-Подготовьте [данные для дообучения](../../concepts/tuning/generating.md) модели в формате [JSON Lines](https://jsonlines.org/) в кодировке [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8). Если вы хотите разбить данные на два датасета для обучения и валидации, повторите следующие шаги для каждого датасета. Используйте полученные в результате загрузки идентификаторы при запуске дообучения.
+Подготовьте [данные для дообучения](../../concepts/resources/dataset.md#generating) модели в формате [JSON Lines](https://jsonlines.org/) в кодировке [UTF-8](https://{{ lang }}.wikipedia.org/wiki/UTF-8). Если вы хотите разбить данные на два датасета для обучения и валидации, повторите следующие шаги для каждого датасета. Используйте полученные в результате загрузки идентификаторы при запуске дообучения.
 
 В этом примере дообучение запускается с использованием только обучающего датасета. 
 
 Создайте датасет для дообучения:
 
 {% list tabs group=programming_language %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть [роли](../../security/index.md) `ai.playground.user` и `ai.datasets.editor` или выше.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.dataset.datasets }}**.
+  1. Нажмите **{{ ui-key.yacloud.dataset.create }}**.
+  1. Введите имя и описания датасета. Требования к имени:
+
+     {% include [name-format](../../../_includes/name-format.md) %}
+
+  1. В поле **{{ ui-key.yacloud.common.type }}** выберите **{{ ui-key.yacloud.yagpt.foundation-models.playground.text-generation.title }}**.
+  1. Добавьте или удалите [метки](../../../resource-manager/concepts/labels.md) датасета. Они позволяют разделить и сгруппировать ресурсы на логические группы.
+  1. Нажмите **Выбрать файл** или перетащите созданный ранее JSON-файл в зону загрузки.
+  1. Нажмите **{{ ui-key.yacloud.dataset.create }}**.
 
 - SDK {#sdk}
 
@@ -103,6 +118,24 @@ description: Следуя данной инструкции, вы сможете
 ## Запустите дообучение {#start-tuning}
 
 {% list tabs group=programming_language %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, на который у вашего аккаунта есть [роли](../../security/index.md) `ai.playground.user`, `ai.datasets.user` и `ai.models.editor` или выше.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.tuning.tunings }}**.
+  1. Нажмите **{{ ui-key.yacloud.tuning.train-model }}**.
+  1. Введите имя и описания датасета. Требования к имени:
+
+     {% include [name-format](../../../_includes/name-format.md) %}
+
+  1. В поле **{{ ui-key.yacloud.tuning.task }}** выберите **{{ ui-key.yacloud.tuning.generation }}**.
+  1. (Опционально) Добавьте или удалите [метки](../../../resource-manager/concepts/labels.md) дообучения. Они позволяют разделить и сгруппировать ресурсы на логические группы.
+  1. В поле **{{ ui-key.yacloud.yagpt.model }}** выберите нужную модель.
+  1. В поле **{{ ui-key.yacloud.dataset.dataset }}** нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.dataset.select-from-created }}** и выберите созданный ранее датасет.
+  1. Нажмите **{{ ui-key.yacloud.tuning.addition-params }}**, чтобы провести тонкую настройку дообучения.
+  1. Нажмите **{{ ui-key.yacloud.tuning.start-tuning }}**.
 
 - SDK {#sdk}
 

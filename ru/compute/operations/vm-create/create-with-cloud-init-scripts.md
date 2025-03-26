@@ -260,7 +260,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% note info %}
 
-  При создании виртуальной машины с [{{ unified-agent-full-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) не забудьте привязать к ней [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на текущий [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  При создании виртуальной машины с [{{ unified-agent-full-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) привяжите к ней [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на текущий [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
   {% endnote %}
 
@@ -283,6 +283,26 @@ description: Следуя данной инструкции, вы сможете
   ```
 
   {% include [cli-install](../../../_includes/compute/create/legend-for-creating-user-data-scripts.md) %}
+
+  Чтобы привязать сервисный аккаунт к ВМ при создании ВМ с помощью {{ TF }}, укажите в конфигурации строку:
+  
+  ```hcl
+  resource "yandex_compute_instance" "my-vm" {
+    ...
+    service_account_id = "ajehka*************"
+  }
+  ```
+
+  Чтобы {{ unified-agent-short-name }} записывал метрики в {{ managed-prometheus-full-name }}, укажите в конфигурации идентификатор воркспейса:
+  
+  ```hcl
+  resource "yandex_compute_instance" "my-vm" {
+    ...
+    metadata    = {
+      monitoring_workspaceid = "mon618clr**************"
+    }
+  }
+  ```
 
 - {{ TF }}
 
@@ -419,3 +439,4 @@ description: Следуя данной инструкции, вы сможете
 * [Восстановление работоспособности сетевых интерфейсов ВМ](../../qa/troubleshooting.md#unable-to-connect-to-new-multi-interface-vm)
 * [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
 * [Установка агента для сбора метрик и логов {{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup)
+* [Установка агента для сбора метрик в формате {{ prometheus-name }}](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md)

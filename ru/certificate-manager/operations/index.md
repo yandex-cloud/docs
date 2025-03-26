@@ -23,13 +23,6 @@ description: Из статьи вы узнаете как работать с {{
 - [{#T}](import/cert-modify.md)
 - [{#T}](import/cert-delete.md)
 
-## Домен {#domain}
-
-- [{#T}](domain/domain-create.md)
-- [{#T}](domain/domain-link-cert.md)
-- [{#T}](domain/domain-modify.md)
-- [{#T}](domain/domain-delete.md)
-
 ## Резервное копирование {#backup}
 
 - [{#T}](cert-backup.md)

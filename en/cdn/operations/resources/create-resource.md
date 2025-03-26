@@ -18,7 +18,7 @@ To create a [resource](../../concepts/resource.md):
   1. Under **{{ ui-key.yacloud.cdn.label_section-content }}**, select the **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` or `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`:
      * When requesting content `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`, select an **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Specify an [origin](../../concepts/origins.md).
      * When requesting content from an `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`, select an [origin group](../../concepts/origins.md#groups) or create a new one:
-        * Click **{{ ui-key.yacloud.common.label_create-new_female }}**.
+        * Click **{{ ui-key.yacloud.common.create }}**.
         * Enter **{{ ui-key.yacloud.cdn.field_group-name }}**.
         * Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
            * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.

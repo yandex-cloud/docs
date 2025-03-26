@@ -5564,12 +5564,16 @@ default:
           upload-config: Upload a configuration file
         approved:
           tab:
+            explore: Metrics
             recording-rules: Recording rules
         common:
           action_code: File code
           action_destroy: Delete
           action_download: Download file
           action_replace: Replace file
+        query:
+          action_execute: Execute
+          label: Query in PromQL
         recording-rules:
           action_add-file: Add file
         tab:
@@ -5656,7 +5660,7 @@ default:
           title:
             notify: Recipients of notifications from the organization
         organization:
-          action_connect-new-region: Connect {{region}} region
+          action_connect-new-region: Connect {region} region
           action_submit-new-region: Connect
           action:
             delete-button: Delete
@@ -6421,7 +6425,6 @@ default:
         id: ID
         import: Import
         label_auto: Auto
-        label_create-new_female: Create new
         label_filters: Filters
         label_http: HTTP
         label_https: HTTPS
@@ -6509,6 +6512,7 @@ default:
             field_advanced: Additional
             field_core-fraction: Guaranteed vCPU performance
             field_cores: vCPU
+            field_gpu-cluster: GPU cluster
             field_gpus: GPU
             field_memory: RAM
             field_platform: Platform
@@ -6749,6 +6753,7 @@ default:
             label_public-ipv4: Public IPv4 address
             label_ssh-connect-card-title: Connect via the client SSH
             label_title: Overview
+            label_zone: Availability zone
             popup-confirm_button_remove-one-to-one-nat: Delete
             section_monitoring: Monitoring
             section_network: Network
@@ -6981,6 +6986,17 @@ default:
           field_script-variables: Script variables
           field_spark-job-type: Spark
         switch_operations: Operations
+      dataset:
+        create: Create dataset
+        dataset: Dataset
+        datasets: Datasets
+        select-from-created: ''
+        text-classification-multiclass-key-value: Multi-class classification
+        text-classification-multiclass:
+          short-title: Multi-class
+        text-classification-multilabel-key-value: Multi-label classification
+        text-classification-multilabel:
+          short-title: Multi-label
       dns:
         button_add-record: Add record
         button_record-set-create: Create record
@@ -7044,7 +7060,10 @@ default:
         title_migration: Migration
         title_omniauth: OmniAuth
       gpu-cluster:
+        action_create-cluster: Create a cluster
+        field_name: Name
         label_title: GPU clusters
+        label_zone: Availability zone
       greenplum:
         action_expand-open: Expand cluster
         action_expand-start: Expand
@@ -8597,6 +8616,15 @@ default:
         overview:
           field_coordinator-url: Coordinator
         title_catalogs: Catalogs
+      tuning:
+        _lassification-task: Type of classification
+        addition-params: Advanced settings
+        classification: Classification
+        generation: Generation
+        start-tuning: Start fine-tuning
+        task: Task
+        train-model: Fine-tune model
+        tunings: Fine-tuning models
       vdi:
         button_acl: Configure ACL
         button_add-image: Add image
@@ -8745,6 +8773,7 @@ default:
         label_promt: YandexGPT Prompt mode
         label_request-text: Request
         label_temperature-text: Temperature
+        model: Model
         speechkit:
           services:
             speech-synthesys:
@@ -8774,8 +8803,6 @@ default:
           label_title: Databases
         forms:
           button_create-database: Create a database
-          button_create-network-new: Create new
-          button_create-subnetwork-new: Create new
           button_update-database: Update database
           field_network: Cloud network
           field_public-ips: Public IP addresses

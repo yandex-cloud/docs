@@ -2,6 +2,10 @@
 
 {% list tabs group=programming_language %}
 
+- Консоль управления {#console}
+
+  Для работы из консоли управления подготовительные действия не требуются.
+
 - SDK {#sdk}
 
   1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../../foundation-models/security/index.md#languageModels-user) `ai.editor`.

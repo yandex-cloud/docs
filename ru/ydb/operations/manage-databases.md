@@ -300,12 +300,12 @@
           {% include [traffic_metering](../_includes/traffic_metering.md) %}
 
       1. Выберите существующую сеть из списка **{{ ui-key.yacloud.ydb.forms.field_network }}** или создайте новую:
-          * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
+          * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
           * В открывшемся окне укажите **{{ ui-key.yacloud.vpc.networks.create.field_name }}** новой сети.
           * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Подсети в каждой зоне доступности будут созданы автоматически.
           * Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой зоны доступности выберите подсеть или создайте новую:
-          * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
+          * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
           * В открывшемся окне укажите **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** новой подсети.
           * (Опционально) Введите **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** подсети.
           * Выберите из списка **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** нужную зону.

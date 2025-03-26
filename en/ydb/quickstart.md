@@ -122,12 +122,12 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
         {% include [traffic_metering](_includes/traffic_metering.md) %}
 
      1. Select an existing network from the **{{ ui-key.yacloud.ydb.forms.field_network }}** list or create a new one:
-        1. Click **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
+        1. Click **{{ ui-key.yacloud.common.create }}**.
         1. In the window that opens, enter a **{{ ui-key.yacloud.vpc.networks.create.field_name }}** for the new network.
         1. (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option. Subnets in each availability zone will be created automatically.
         1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
      1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each [availability zone](../overview/concepts/geo-scope.md):
-        1. Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
+        1. Click **{{ ui-key.yacloud.common.create }}**.
         1. In the window that opens, enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** for the new subnet.
         1. (Optional) Enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** of the subnet.
         1. Select the availability zone you need from the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** list.

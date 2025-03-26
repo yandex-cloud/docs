@@ -5567,12 +5567,16 @@ default:
           upload-config: Загрузить файл конфигурации
         approved:
           tab:
+            explore: Метрики
             recording-rules: Recording rules
         common:
           action_code: Код файла
           action_destroy: Удалить
           action_download: Скачать файл
           action_replace: Заменить файл
+        query:
+          action_execute: Выполнить
+          label: Запрос на языке PromQL
         recording-rules:
           action_add-file: Добавить файл
         tab:
@@ -5659,7 +5663,7 @@ default:
           title:
             notify: Получатели уведомлений от организации
         organization:
-          action_connect-new-region: Подключить регион {{region}}
+          action_connect-new-region: Подключить регион {region}
           action_submit-new-region: Подключить
           action:
             delete-button: Удалить
@@ -6424,7 +6428,6 @@ default:
         id: Идентификатор
         import: Импортировать
         label_auto: Автоматически
-        label_create-new_female: Создать новую
         label_filters: Фильтры
         label_http: HTTP
         label_https: HTTPS
@@ -6512,6 +6515,7 @@ default:
             field_advanced: Дополнительно
             field_core-fraction: Гарантированная доля vCPU
             field_cores: vCPU
+            field_gpu-cluster: Кластер GPU
             field_gpus: GPU
             field_memory: RAM
             field_platform: Платформа
@@ -6752,6 +6756,7 @@ default:
             label_public-ipv4: Публичный IPv4-адрес
             label_ssh-connect-card-title: Подключиться с помощью SSH-клиента
             label_title: Обзор
+            label_zone: Зона доступности
             popup-confirm_button_remove-one-to-one-nat: Удалить
             section_monitoring: Мониторинг
             section_network: Сеть
@@ -6986,6 +6991,17 @@ default:
           field_script-variables: Переменные скрипта
           field_spark-job-type: Spark
         switch_operations: Операции
+      dataset:
+        create: Создать датасет
+        dataset: Датасет
+        datasets: Датасеты
+        select-from-created: Выбрать из существующих
+        text-classification-multiclass-key-value: Многоклассовая классификация
+        text-classification-multiclass:
+          short-title: Многоклассовая
+        text-classification-multilabel-key-value: Классификация c несколькими метками
+        text-classification-multilabel:
+          short-title: C несколькими метками
       dns:
         button_add-record: Добавить запись
         button_record-set-create: Создать запись
@@ -7049,7 +7065,10 @@ default:
         title_migration: Миграция
         title_omniauth: OmniAuth
       gpu-cluster:
+        action_create-cluster: Создать кластер GPU
+        field_name: Имя
         label_title: Кластеры GPU
+        label_zone: Зона доступности
       greenplum:
         action_expand-open: Расширить кластер
         action_expand-start: Расширить
@@ -8602,6 +8621,15 @@ default:
         overview:
           field_coordinator-url: Координатор
         title_catalogs: Каталоги
+      tuning:
+        _lassification-task: Тип классификации
+        addition-params: Дополнительные параметры
+        classification: Классификация
+        generation: Генерация
+        start-tuning: Начать дообучение
+        task: Задача
+        train-model: Дообучить модель
+        tunings: Дообучение моделей
       vdi:
         button_acl: Настроить ACL
         button_add-image: Добавить образ
@@ -8750,6 +8778,7 @@ default:
         label_promt: Промт-режим YandexGPT
         label_request-text: Запрос
         label_temperature-text: Температура
+        model: Модель
         speechkit:
           services:
             speech-synthesys:
@@ -8779,8 +8808,6 @@ default:
           label_title: Базы данных
         forms:
           button_create-database: Создать базу данных
-          button_create-network-new: Создать новую
-          button_create-subnetwork-new: Создать новую
           button_update-database: Изменить базу данных
           field_network: Облачная сеть
           field_public-ips: Публичные IP-адреса

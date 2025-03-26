@@ -387,6 +387,12 @@ items:
             href: operations/gpu-cluster/access.md
           - name: Удалить кластер GPU
             href: operations/gpu-cluster/gpu-cluster-delete.md
+          - name: Проверить физическое состояние кластера GPU
+            href: operations/gpu-cluster/gpu-cluster-test-physical-state.md
+          - name: Запустить параллельные задачи в кластере GPU
+            href: operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
+          - name: Проверить пропускную способность InfiniBand
+            href: operations/gpu-cluster/test-infiniband-bandwidth.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
   - name: '{{ cos-full-name }}'
@@ -578,6 +584,10 @@ items:
             href: tutorials/rds-gw.md
           - name: Создание сервера MLFlow для логирования экспериментов и артефактов
             href: tutorials/mlflow-datasphere.md
+      - name: >-
+          Запуск языковой модели DeepSeek-R1 в кластере GPU {{ compute-full-name
+          }}
+        href: tutorials/gpu-cluster-deepseek.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

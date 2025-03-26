@@ -5,6 +5,17 @@
 * Для отправки логов [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) используйте настройку `master logging` при [создании](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) кластера. Настройка доступна только через API, CLI и {{ TF }}.
 * Для отправки логов [подов](../../managed-kubernetes/concepts/index.md#pod) и [сервисов](../../managed-kubernetes/concepts/index.md#service) используйте приложение [Fluent Bit с плагином для {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) в кластере {{ managed-k8s-name }}.
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за сервис {{ cloud-logging-name }}: запись и хранение данных (см. [тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
+
+
 ## Отправка логов мастера {{ managed-k8s-name }} в {{ cloud-logging-name }} с помощью master logging {#master-logging}
 
 Чтобы настроить передачу логов мастера {{ managed-k8s-name }} в {{ cloud-logging-name }}:

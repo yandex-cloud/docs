@@ -35,9 +35,6 @@ If not specified, it defaults to the subject that made the request. ||
 || description | **string**
 
 Description of the API key. ||
-|| scope | **string**
-
-Scope of the API key. ||
 || scopes[] | **string**
 
 Scopes of the API key. ||
@@ -97,9 +94,6 @@ Description of the API key. 0-256 characters long. ||
 || last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last authentication using this API key. ||
-|| scope | **string**
-
-Scope of the API key. 0-256 characters long. ||
 || scopes[] | **string**
 
 Scopes of the API key. 0-256 characters long. ||

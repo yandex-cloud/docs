@@ -109,6 +109,10 @@ ru-ru:
     to: /resource-manager/concepts/resources-hierarchy
   - from: ^/tutorials/dataplatform/lockbox-and-airflow
     to: /managed-airflow/operations/lockbox-secrets-in-maf-cluster
+  - from: ^/foundation-models/concepts/tuning/classifier
+    to: /foundation-models/concepts/resources/dataset
+  - from: ^/foundation-models/concepts/tuning/generating
+    to: /foundation-models/concepts/resources/dataset
 
 ru-kz:
   - from: ^/audit-trails/operations/export-organization-logging
@@ -145,3 +149,7 @@ ru-kz:
     to: /resource-manager/concepts/resources-hierarchy
   - from: ^/tutorials/dataplatform/lockbox-and-airflow
     to: /managed-airflow/operations/lockbox-secrets-in-maf-cluster
+  - from: ^/foundation-models/concepts/tuning/classifier
+    to: /foundation-models/concepts/resources/dataset
+  - from: ^/foundation-models/concepts/tuning/generating
+    to: /foundation-models/concepts/resources/dataset

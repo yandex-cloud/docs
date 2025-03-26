@@ -51,7 +51,20 @@ description: Из статьи вы узнаете, что такое AWS Comman
   region = {{ region-id }}
   ```
 
-* Вы можете создать несколько профилей для разных сервисных аккаунтов, указав их данные в файле `.aws/credentials`:
+
+{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
+
+### Настройка дополнительного профиля
+
+Вы можете создать несколько профилей для AWS CLI с помощью команды:
+
+  ```bash
+  aws configure --profile <имя_профиля>
+  ```
+
+Данные профилей будут сохранены в файлах `.aws/credentials` и `.aws/config` в следующем виде:
+* `credentials`:
 
   ```ini
   [default]
@@ -66,19 +79,27 @@ description: Из статьи вы узнаете, что такое AWS Comman
   aws_secret_access_key = <содержимое_статического_ключа_n>
   ```
 
+* `config`:
+
+  ```ini
+  [default]
+  region = {{ region-id }}
+  [profile <имя_профиля_2>]
+  region = {{ region-id }}
+  ...
+  [profile <имя_профиля_n>]
+  region = us-east-1
+  ```
+
   Где `default` — профиль по умолчанию.
 
-  Чтобы переключаться между разными профилями в командах AWS CLI используется опция `--profile`, например:
+Чтобы переключаться между разными профилями в командах AWS CLI используется опция `--profile`, например:
 
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }}/ \
     --profile <имя_профиля_2> \
     s3 mb s3://<имя_бакета>
   ```
-
-
-{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
-
 
 ## Особенности {#specifics}
 

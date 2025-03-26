@@ -101,11 +101,11 @@ keywords:
 
 Для работы с большими языковыми моделями {{ yandex-cloud }} предлагает следующие инструменты:
 
-* Сервис [{{ foundation-models-full-name }}](../foundation-models/), включающий:
+* Сервис [{{ foundation-models-full-name }}](/services/foundation-models/), включающий:
   * [Модели](../foundation-models/concepts/yandexgpt/models.md) генерации текста.
   * [Классификаторы](../foundation-models/concepts/classifier/index.md) на базе {{ yagpt-name }}.
-* [{{ ml-platform-full-name }}](../datasphere/) — сервис, позволяющий создавать новые модели, а также дообучать фундаментальные, чтобы они точнее отвечали на ваши запросы.
-* [{{ speechsense-full-name }}](../speechsense/) — сервис для организации аналитики контактных центров, использующий технологии {{ speechkit-name }} и {{ yagpt-name }}.
+* [{{ ml-platform-full-name }}](/services/datasphere/) — сервис, позволяющий создавать новые модели, а также дообучать фундаментальные, чтобы они точнее отвечали на ваши запросы. Подробнее см. в [документации](../datasphere/).
+* [{{ speechsense-full-name }}](/services/speechsense/) — сервис для организации аналитики контактных центров, использующий технологии {{ speechkit-name }} и {{ yagpt-name }}. Подробнее см. в [документации](../speechsense/).
 
 Для продвинутой работы с запросами к большим языковым моделям вы также можете изучить [Руководство по проектированию промтов](../foundation-models/gpt-prompting-guide/about.md).
 
