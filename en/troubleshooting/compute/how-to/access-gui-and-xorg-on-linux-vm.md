@@ -25,9 +25,9 @@ There are three options that allow you to use a graphical desktop environment on
 * Use Docker image with pre-installed desktop environment LXDE and x11vnc VNC-server
    1. Install Docker.
    2. Run ready-to-use lightweight Ubuntu image:
-```
-docker run -p 127.0.0.1:6080:80 -e HTTP_PASSWORD=<your password> -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
-```
+   ```
+   docker run -p 127.0.0.1:6080:80 -e HTTP_PASSWORD=<your password> -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
+   ```
    3. Forward 6080 port to your machine.
    4. Open `http://<address>:6080` in browser and authenicate with login root and your password. Use left menu for clipboard and keystrokes (such as Ctrl, Alt, Win, Tab).
    5. Install and start graphical application.
