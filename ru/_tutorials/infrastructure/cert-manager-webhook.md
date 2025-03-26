@@ -23,6 +23,16 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичный IP-адрес для узлов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Подготовьте окружение {#prepare-environment}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}

@@ -84,7 +84,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         If you create a {{ mkf-name }} cluster with one availability zone, you will not be able to increase the number of zones and broker hosts later on.
         For clusters with {{ KF }} version 3.6 and higher, you can select only one or three availability zones.
      1. Select a [network](../../vpc/concepts/network.md#network).
-     1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **{{ ui-key.yacloud.common.label_create-new_female }}** next to the availability zone in question.
+     1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **{{ ui-key.yacloud.common.create }}** next to the availability zone in question.
 
         {% note info %}
 

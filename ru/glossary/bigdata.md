@@ -106,20 +106,20 @@ Big Data — это крупные массивы разнообразной и�
 
 {{ yandex-cloud }} предлагает следующие инструменты для работы с большими данными:
 
-Назначение | Технологии
------------|-----------
-Обработка транзакций | [{{ mpg-name }}](../managed-postgresql/)<br>[{{ mmg-name }}](../managed-mongodb/)<br>[{{ mmy-name }}](../managed-mysql/)<br>[{{ mms-name }}](../managed-sqlserver/)
-Запросы и отчеты | [{{ dataproc-name }}](../data-proc)<br>[{{ mgp-name }}](../managed-greenplum/)<br>[{{ mch-name }}](../managed-clickhouse/)
-New SQL | [{{ ydb-name }}](../ydb/)
-Документоориентированная СУБД | [{{ mmg-name }}](../managed-mongodb/)
-Резидентная СУБД | [{{ mrd-name }}](../managed-redis/)
-БД «ключ — значение» | [{{ dataproc-name }}](../data-proc)<br>[{{ mgp-name }}](../managed-greenplum/)<br>[{{ mmg-name }}](../managed-mongodb/)
-БД временных рядов | [{{ mch-name }}](../managed-clickhouse/)
-Потоковая обработка | [{{ dataproc-name }}](../data-proc)<br>[{{ mkf-name }}](../managed-kafka/)
-Полнотекстовый поиск | [{{ mos-name }}](../managed-opensearch/)
-Очередь сообщений | [{{ message-queue-name }}](../message-queue/)
+Назначение | Сервис | Документация сервиса
+-----------|--------|---------------------
+Обработка транзакций | [{{ mpg-name }}](/services/managed-postgresql/)<br>[{{ mmg-name }}](/services/managed-mongodb/)<br>[{{ mmy-name }}](/services/managed-mysql/) | [Документация {{ mpg-name }}](../managed-postgresql/)<br>[Документация {{ mmg-name }}](../managed-mongodb/)<br>[Документация {{ mmy-name }}](../managed-mysql/)
+Запросы и отчеты | [{{ dataproc-name }}](/services/data-proc)<br>[{{ mgp-name }}](/services/managed-greenplum/)<br>[{{ mch-name }}](/services/managed-clickhouse/) | [Документация {{ dataproc-name }}](../data-proc/)<br>[Документация {{ mgp-name }}](../managed-greenplum/)<br>[Документация {{ mch-name }}](../managed-clickhouse/)
+New SQL | [{{ ydb-name }}](/services/ydb/) | [Документация {{ ydb-name }}](../ydb/)
+Документоориентированная СУБД | [{{ mmg-name }}](/services/managed-mongodb/) | [Документация {{ mmg-name }}](../managed-mongodb/)
+Резидентная СУБД | [{{ mrd-name }}](/services/managed-redis/) | [Документация {{ mrd-name }}](../managed-redis/)
+БД «ключ — значение» | [{{ dataproc-name }}](/services/data-proc)<br>[{{ mgp-name }}](/services/managed-greenplum/)<br>[{{ mmg-name }}](/services/managed-mongodb/) | [Документация {{ dataproc-name }}](../data-proc/)<br>[Документация {{ mgp-name }}](../managed-greenplum/)<br>[Документация {{ mmg-name }}](../managed-mongodb/)
+БД временных рядов | [{{ mch-name }}](/services/managed-clickhouse/) | [Документация {{ mch-name }}](../managed-clickhouse/)
+Потоковая обработка | [{{ dataproc-name }}](/services/data-proc)<br>[{{ mkf-name }}](/services/managed-kafka/) | [Документация {{ dataproc-name }}](../data-proc/)<br>[Документация {{ mkf-name }}](../managed-kafka/)
+Полнотекстовый поиск | [{{ mos-name }}](/services/managed-opensearch/) | [Документация {{ mos-name }}](../managed-opensearch/)
+Очередь сообщений | [{{ message-queue-name }}](/services/message-queue/) | [Документация {{ message-queue-name }}](../message-queue/)
 
-### Полезные материалы {#see-also} 
+### Полезные материалы {#see-also}
 
 * [Бизнес-аналитика и визуализация данных в облаке](/solutions/data-analysis)
 * [Рекомендательная система для ритейла и e‑commerce](/solutions/recommendation-system)

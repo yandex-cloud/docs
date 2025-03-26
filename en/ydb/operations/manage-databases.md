@@ -300,12 +300,12 @@ You can use the management console or {{ yandex-cloud }} CLI to:
           {% include [traffic_metering](../_includes/traffic_metering.md) %}
 
       1. Select an existing network from the **{{ ui-key.yacloud.ydb.forms.field_network }}** list or create a new one:
-          * Click **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
+          * Click **{{ ui-key.yacloud.common.create }}**.
           * In the window that opens, enter a **{{ ui-key.yacloud.vpc.networks.create.field_name }}** for the new network.
           * (Optional) Select the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option. Subnets in each availability zone will be created automatically.
           * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. Under **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}**, select a subnet or create a new one for each availability zone:
-          * Click **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
+          * Click **{{ ui-key.yacloud.common.create }}**.
           * In the window that opens, enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** for the new subnet.
           * (Optional) Enter a **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** of the subnet.
           * Select the availability zone you need from the **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** list.

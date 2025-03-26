@@ -104,7 +104,7 @@
 
 ## Дообучите модель {#fine-tuning}
 
-Код для обучения запускается из ноутбука {{ ml-platform-name }}. [Данные для обучения](../../foundation-models/concepts/tuning/generating.md) хранятся в формате [JSON Lines](https://jsonlines.org/).
+Код для обучения запускается из ноутбука {{ ml-platform-name }}. [Данные для обучения](../../foundation-models/concepts/resources/dataset.md#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
 
 1. Откройте ноутбук с кодом по ссылке ниже:
 

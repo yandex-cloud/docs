@@ -90,13 +90,13 @@ DDoS-атаки — одна из главных угроз для интерн�
 
 {{ yandex-cloud }} предлагает широкий пул средств для борьбы с DDoS-атаками:
 
-1. Сервис для защиты приложений [{{ ddos-protection-full-name }}](/services/ddos-protection);
+* [{{ ddos-protection-full-name }}](/services/ddos-protection) — сервис для защиты приложений.
 
-1. L7-балансировщик с защитой от DDoS-атак [{{ alb-full-name }}](../application-load-balancer/tutorials/alb-with-ddos-protection/index.md).
+* [Создание](../application-load-balancer/tutorials/alb-with-ddos-protection/index.md) L7-балансировщика [{{ alb-full-name }}](/services/application-load-balancer) с защитой от DDoS-атак.
 
-1. Сервис для управления облачными сетями с возможностью защиты от DDoS-атак [{{ vpc-full-name }}](../vpc/ddos-protection/).
+* [{{ vpc-full-name }}](../vpc/ddos-protection/) — сервис для управления облачными сетями с возможностью защиты от DDoS-атак. Подробнее см. в [документации](../vpc/).
 
-1. Файрволы веб-приложений:
+* Файрволы веб-приложений:
 
    * [SolidWall WAF](/marketplace/products/solidsoft/solidwall-waf);
    * [Nemesida AI MLC](/marketplace/products/pentestit/nwaf-mlc);

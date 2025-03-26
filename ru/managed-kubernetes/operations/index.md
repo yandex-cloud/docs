@@ -89,3 +89,7 @@ description: Из статьи вы узнаете, как работать с �
 ## Работа с внешними узлами {#external-nodes}
 
 * [{#T}](external-nodes-connect.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)

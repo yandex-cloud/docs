@@ -32,6 +32,11 @@ description: Страница содержит все инструкции дл�
 * [{#T}](./assistant/create-with-searchindex.md)
 * [{#T}](./assistant/request-chunked-response.md)
 
+## Пошаговые инструкции для управления ресурсами {{ foundation-models-name }} {#resources}
+
+* [{#T}](./resources/create-dataset-gpt.md)
+* [{#T}](./resources/create-dataset-classifier.md)
+
 ## Дообучение моделей {{ foundation-models-name }} {#tuning}
 
 * [{#T}](./tuning/create.md)

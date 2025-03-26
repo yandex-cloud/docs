@@ -232,8 +232,8 @@ _Ветка_ — это специальная, созданная паралл�
 
 ## Технологии контроля версий в {{ yandex-cloud }} {#vcs-yc}
 
-Для управления репозиториями с кодом {{ yandex-cloud }} предоставляет сервис {{ mgl-full-name }}.
-{{ mgl-name }} позволяет настроить развертывание приложений на [виртуальных машинах](../compute/concepts/vm.md) [{{ compute-full-name }}](../compute/), а также поддерживает интеграцию с [{{ container-registry-full-name }}](../container-registry/) и [{{ managed-k8s-full-name }}](../managed-kubernetes/).
+Для управления репозиториями с кодом {{ yandex-cloud }} предоставляет сервис [{{ mgl-full-name }}](/services/managed-gitlab/).
+{{ mgl-name }} позволяет настроить развертывание приложений на [виртуальных машинах](../compute/concepts/vm.md) в [{{ compute-full-name }}](/services/compute/), а также [поддерживает](../managed-gitlab/concepts/index.md) интеграцию с [{{ container-registry-full-name }}](/services/container-registry/) и [{{ managed-k8s-full-name }}](/services/managed-kubernetes/).
 
 Чтобы начать использовать контроль версий в {{ yandex-cloud }} для работы над проектом, [создайте локальную копию репозитория](../managed-gitlab/quickstart.md) на вашем ПК.
 
@@ -243,4 +243,4 @@ _Ветка_ — это специальная, созданная паралл�
 * [Статья о GitLab и облачном сервисе для работы с ним](https://yandex.cloud/ru/blog/posts/2023/07/managed-gitlab)
 * [Статья о построении безопасного процесса разработки в {{ yandex-cloud }}](https://yandex.cloud/ru/blog/posts/2023/05/devsecops-and-compliance)
 * [Вебинар о CI/CD в Облаке с помощью GitLab](https://www.youtube.com/watch?v=Ngadh9T2dOI)
-* [Инструкция по работе с Git в Yandex DataSphere](../datasphere/operations/projects/work-with-git.md)
+* [Инструкция по работе с Git в {{ ml-platform-full-name }}](../datasphere/operations/projects/work-with-git.md)
