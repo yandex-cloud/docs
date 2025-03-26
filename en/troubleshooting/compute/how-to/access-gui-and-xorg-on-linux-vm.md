@@ -8,7 +8,7 @@
 
 ## Solution {#case-resolution}
 
-There are three options that allow you to use a graphical desktop environment on Linux VMs:
+There are four options that allow you to use a graphical desktop environment on Linux VMs:
 
 * Use VNC or RDP To do this:
    1. Install a desktop environment
