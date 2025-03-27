@@ -83,6 +83,8 @@ items:
         href: tutorials/bms-vrf-routing.md
       - name: Настройка сетевой связности в подсети {{ baremetal-name }}
         href: tutorials/bms-simple-subnet.md
+      - name: Подключение сервера {{ baremetal-name }} к {{ backup-name }}
+        href: tutorials/backup-baremetal.md
       - name: >-
           Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
           vpc-name }}

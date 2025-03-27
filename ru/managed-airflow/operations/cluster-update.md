@@ -102,6 +102,8 @@ keywords:
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters.md) %}
 
+        {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
+
         Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
@@ -121,6 +123,16 @@ keywords:
         {% endnote %}
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters.md) %}
+
+        * `subnet_ids` — список идентификаторов подсетей.
+
+            {% note info %}
+
+            Нельзя изменить подсети после создания кластера.
+
+            {% endnote %}
+
+        {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
 
     1. Проверьте корректность настроек.
 

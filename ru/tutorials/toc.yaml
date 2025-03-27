@@ -267,6 +267,8 @@ items:
         href: archive/replicate-logs-to-storage.md
       - name: Использование {{ objstorage-name }} в {{ dataproc-name }}
         href: archive/copy-files-from-object-storage.md
+      - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
+        href: archive/backup-baremetal.md
   - name: Разработка и тестирование
     items:
       - name: Все руководства
@@ -307,6 +309,8 @@ items:
         href: testing/server-logs-yq.md
       - name: Вызов нагрузочного тестирования из {{ GL }} CI
         href: testing/loadtesting-gitlab-ci.md
+      - name: Развертывание {{ GLR }} на виртуальной машине {{ compute-name }}
+        href: dev/install-gitlab-runner.md
   - name: Базовая инфраструктура
     items:
       - name: Все руководства

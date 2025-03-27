@@ -12,7 +12,7 @@ Docker containers are created based on the [Docker Compose](../../cos/concepts/
 
 {% include [default-catalogue.md](../../_includes/default-catalogue.md) %}
 
-## Prepare the environment {#prepare}
+## Set up your environment {#prepare}
 
 1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `group-coi` and assign the `editor` [role](../../iam/concepts/access-control/roles.md) to it:
 

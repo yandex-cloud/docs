@@ -20,8 +20,7 @@
     ```
 
     Result:
-  
-    
+
     ```text
     id: a1sfe084v4h2********
     folder_id: b1g88tflrih2********
@@ -42,7 +41,6 @@
             service-account-id: aje3lebfemh2********
     status: ACTIVE
     ```
-
 
 - API {#api}
 

@@ -9,5 +9,5 @@ description: This section contains {{ si-name }} release notes.
 
 ### Updates {#updates}
 
-* Added support for the [YDBDocument](concepts/workflows/yawl.md#YDBDocument) step in {{ sw-name }}.
+* Added support for the [YDBDocument](concepts/workflows/yawl/integration/ydbdocument.md) step in {{ sw-name }}.
 * Added support for {{ er-name }} in {{ TF }}.

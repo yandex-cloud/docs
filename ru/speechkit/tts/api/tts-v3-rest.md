@@ -18,34 +18,34 @@
 
   1. Создайте файл `request.json` с параметрами запроса:
 
-    ```json
-    {"text": "Привет! Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!", "hints": [{"voice": "marina"}, {"role": "friendly"}]}
-    ```
+      ```json
+      {"text": "Привет! Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!", "hints": [{"voice": "marina"}, {"role": "friendly"}]}
+      ```
 
-    Где:
-    * `text` — синтезируемый текст;
-    * `hints` — список параметров синтеза:
-        * `voice` — голос для синтеза
-        * `role` — амплуа
+      Где:
+      * `text` — синтезируемый текст;
+      * `hints` — список параметров синтеза:
+          * `voice` — голос для синтеза
+          * `role` — амплуа
 
-  1. Получите идентификатор каталога и IAM-токен для аккаунта, который вы будете использовать для работы с {{ speechkit-name }}, и укажите их в заголовках запроса.
+  1. В терминале выполните запрос, указав IAM-токен и идентификатор каталога, который вы будете использовать для работы с {{ speechkit-name }}:
 
-    ```bash
-    export FOLDER_ID=<идентификатор_каталога>
-    export IAM_TOKEN=<IAM-токен>
+      ```bash
+      export FOLDER_ID=<идентификатор_каталога>
+      export IAM_TOKEN=<IAM-токен>
 
-    curl \
-      --header "Authorization: Bearer $IAM_TOKEN" \
-      --header "x-folder-id: $FOLDER_ID" \
-      --data @request.json https://{{ api-host-sk-tts }}:443/tts/v3/utteranceSynthesis | \
-      jq -r  '.result.audioChunk.data' | \
-      while read chunk; do base64 -d <<< "$chunk" >> audio.wav; done
-    ```
+      curl \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "x-folder-id: $FOLDER_ID" \
+        --data @request.json https://{{ api-host-sk-tts }}:443/tts/v3/utteranceSynthesis | \
+        jq -r  '.result.audioChunk.data' | \
+        while read chunk; do base64 -d <<< "$chunk" >> audio.wav; done
+      ```
 
-    Где:
-    * `FOLDER_ID`— [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-speechkit-tts }}` или выше.
-    * `IAM_TOKEN` — IAM-токен вашего [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../../iam/operations/iam-token/create-for-federation.md).
+     Где:
+     * `FOLDER_ID`— [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-speechkit-tts }}` или выше. Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно.
+     * `IAM_TOKEN` — IAM-токен вашего [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../../iam/operations/iam-token/create-for-federation.md).
 
-    Синтезированная речь вернется в кодировке Base64 и будет записана в файл `audio.wav`.
+     Синтезированная речь вернется в кодировке Base64 и будет записана в файл `audio.wav`.
 
 {% endlist %}

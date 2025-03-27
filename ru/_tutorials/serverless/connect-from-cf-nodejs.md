@@ -33,17 +33,17 @@
 
 ## Подготовьте окружение {#prepare-environment}
 
-1. Клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) с помощью Git:
+1. Клонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-ydb-connect-from-serverless-function) с помощью Git:
 
    ```bash
-   git clone https://github.com/yandex-cloud/examples.git
+   git clone https://github.com/yandex-cloud-examples/yc-ydb-connect-from-serverless-function.git
    ```
 
 1. Установите и инициализируйте [интерфейс командной строки {{ yandex-cloud }}](../../cli/quickstart.md).
 1. Перейдите в корневую директорию проекта:
 
    ```bash
-   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   cd ~/yc-ydb-connect-from-serverless-function
    ```
 
    Все последующие команды выполняйте в этой директории.
@@ -181,7 +181,7 @@
   1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Выберите алгоритм шифрования.
   1. Задайте описание [авторизованного ключа](../../iam/concepts/authorization/key.md), чтобы потом было проще найти его в консоли управления.
-  1. Сохраните открытую и закрытую части авторизованного ключа в файл `examples/serverless/functions/YDB-connect-from-serverless-function/service_account_key_file.json`:
+  1. Сохраните открытую и закрытую части авторизованного ключа в файл `yc-ydb-connect-from-serverless-function/service_account_key_file.json`:
 
      ```json
      {
@@ -273,7 +273,7 @@
 1. Перейдите в корневую директорию проекта:
 
    ```bash
-   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   cd ~/yc-ydb-connect-from-serverless-function
    ```
 
 1. Отредактируйте файл `.env`:

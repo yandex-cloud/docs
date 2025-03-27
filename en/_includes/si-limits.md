@@ -5,7 +5,7 @@
 Type of limit | Value
 --- | ---
 Maximum number of active [workflow](../serverless-integrations/concepts/workflows/workflow.md) runs per cloud | 100
-Maximum number of workflow steps considering all [Parallel](../serverless-integrations/concepts/workflows/yawl.md#Parallel) and [Foreach](../serverless-integrations/concepts/workflows/yawl.md#Foreach) execution branches | 1000
+Maximum number of workflow steps considering all [Parallel](../serverless-integrations/concepts/workflows/yawl/management/parallel.md) and [Foreach](../serverless-integrations/concepts/workflows/yawl/management/foreach.md) execution branches | 1000
 Maximum step execution time | 15 minutes
 Maximum step execution time, including retry attempts | 24 hours
 Maximum run execution time | 48 hours
