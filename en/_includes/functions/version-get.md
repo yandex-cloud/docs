@@ -18,7 +18,7 @@
 
     To get detailed information about a function version by:
 
-    * `ID`, run the command:
+    * For `ID`, run this command:
         ```
         yc serverless function version get <version_ID>
         ```
@@ -40,7 +40,7 @@
         log_group_id: eolv6578frac********
         ```
 
-    * `TAGS`, run the command:
+    * For `TAGS`, run this command:
         ```
         yc serverless function version get-by-tag --function-name <function_name> --tag <tag>
         ```
@@ -66,10 +66,8 @@
 
     To get detailed information about a function version, use the [getVersion](../../functions/functions/api-ref/Function/getVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/GetVersion](../../functions/functions/api-ref/grpc/Function/getVersion.md) gRPC API call.
 
-
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 
     You can get more information on a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
-
 
 {% endlist %}

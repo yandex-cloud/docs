@@ -3,13 +3,13 @@ title: Mounting file systems to {{ serverless-containers-full-name }}
 description: In this tutorial, you will learn how to mount file systems to {{ serverless-containers-name }}.
 ---
 
-# Mounting file systems to a container
+# Mounting external resources to a container file system
 
 You can mount [buckets](../../storage/concepts/bucket.md) and one ephemeral disk to {{ serverless-containers-name }}. To avoid data access errors, all mount points for ephemeral disks and buckets must be unique.
 
 {% endnote %}
 
-## Mounting a bucket to a container {#mount-backet}
+## Mounting buckets {#mount-backet}
 
 Mounting buckets allows you to access them through the file system interface. In the container revision settings, the user can specify one or more mount paths. Use this path to access the directory in which the bucket is mounted. Do not use this path for anything other than an empty directory; otherwise, the container initialization may result in an error, and the mounted buckets will become unavailable.
 

@@ -101,7 +101,7 @@ items:
             href: operations/function/lockbox-secret-transmit.md
           - name: Allocating memory for the /tmp directory
             href: operations/function/allocate-memory-tmp.md
-          - name: Mounting file systems
+          - name: Mounting external resources to a function file system
             items:
               - name: Mounting a bucket
                 href: operations/function/mount-bucket.md
@@ -207,7 +207,7 @@ items:
             href: concepts/runtime/execution-context.md
           - name: Preloaded runtime environment
             href: concepts/runtime/preload-runtime.md
-      - name: Mounting file systems
+      - name: Mounting external resources to a function file system
         href: concepts/mounting.md
       - name: Builder
         href: concepts/builder.md
@@ -413,11 +413,11 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Creating skills for Alice
+      - name: Creating a skill for Alice
         href: tutorials/alice-skill.md
       - name: Deploying a web application
         href: tutorials/java-servlet-todo-list.md
-      - name: Creating a skill for Alice and a website with authorization
+      - name: Developing a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: Writing data from a device into a database
         href: tutorials/data-recording.md
@@ -431,7 +431,7 @@ items:
         href: tutorials/connect-to-ydb.md
       - name: Connecting to a YDB database from a function in Node.js
         href: tutorials/connect-to-ydb-nodejs.md
-      - name: Converting a video to GIF with Python
+      - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
       - name: Creating a Node.js function using TypeScript
         href: tutorials/nodejs-typescript.md
@@ -490,6 +490,10 @@ items:
         href: tutorials/batch-code-execution.md
       - name: Developing a Telegram bot for text and audio recognition
         href: tutorials/recognizer-bot.md
+      - name: >-
+          Configuring responses in {{ cloud-logging-full-name }} and {{ sf-name
+          }}
+        href: tutorials/logging-functions
   - name: Tools
     href: tools.md
   - name: Pricing policy
@@ -510,7 +514,7 @@ items:
     href: tf-ref.md
   - name: API Functions reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
@@ -664,7 +668,7 @@ items:
                 href: functions/api-ref/Operation/cancel.md
   - name: API Triggers reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:

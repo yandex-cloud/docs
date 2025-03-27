@@ -38,6 +38,50 @@ items:
                     href: operations/eventrouter/bus/label-delete.md
               - name: Deleting a bus
                 href: operations/eventrouter/bus/delete.md
+          - name: Getting information about a connector
+            items:
+              - name: Getting a list of connectors
+                href: operations/eventrouter/connector/get-list.md
+              - name: Getting information about a connector
+                href: operations/eventrouter/connector/get-info.md
+          - name: Managing a connector
+            items:
+              - name: Creating a connector
+                items:
+                  - name: '{{ yds-name }}'
+                    href: operations/eventrouter/connector/create-yds.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/eventrouter/connector/create-message-queue.md
+              - name: Editing a connector
+                href: operations/eventrouter/connector/update.md
+              - name: Managing labels
+                items:
+                  - name: Adding a label
+                    href: operations/eventrouter/connector/label-add.md
+                  - name: Updating a label
+                    href: operations/eventrouter/connector/label-update.md
+                  - name: Deleting a label
+                    href: operations/eventrouter/connector/label-delete.md
+              - name: Running a connector
+                href: operations/eventrouter/connector/start.md
+              - name: Stopping a connector
+                href: operations/eventrouter/connector/stop.md
+              - name: Deleting a connector
+                href: operations/eventrouter/connector/delete.md
+          - name: Getting information about a rule
+            items:
+              - name: Getting a list of rules
+                href: operations/eventrouter/rule/get-list.md
+              - name: Getting information about a rule
+                href: operations/eventrouter/rule/get-info.md
+          - name: Viewing operations with the service's resources
+            href: operations/eventrouter/operation-logs.md
+  - name: Tutorials
+    items:
+      - name: >-
+          Setting up {{ sw-name }} integration with {{ tracker-full-name }}, {{
+          yagpt-full-name }}, and {{ postbox-full-name }}
+        href: tutorials/tracker-yandexgpt-postbox-integrations.md
   - name: Concepts
     items:
       - name: Overview
@@ -49,7 +93,50 @@ items:
           - name: Starting workflow
             href: concepts/workflows/execution.md
           - name: YaWL specification
-            href: concepts/workflows/yawl.md
+            items:
+              - name: Overview
+                href: concepts/workflows/yawl/index.md
+              - name: Integration steps
+                items:
+                  - name: HTTPCall
+                    href: concepts/workflows/yawl/integration/httpcall.md
+                  - name: GRPCCall
+                    href: concepts/workflows/yawl/integration/grpccall.md
+                  - name: YMQ
+                    href: concepts/workflows/yawl/integration/ymq.md
+                  - name: YDS
+                    href: concepts/workflows/yawl/integration/yds.md
+                  - name: YDBDocument
+                    href: concepts/workflows/yawl/integration/ydbdocument.md
+                  - name: FunctionCall
+                    href: concepts/workflows/yawl/integration/functioncall.md
+                  - name: ContainerCall
+                    href: concepts/workflows/yawl/integration/containercall.md
+                  - name: FoundationModelsCall
+                    href: >-
+                      concepts/workflows/yawl/integration/foundationmodelscall.md
+                  - name: ObjectStorage
+                    href: concepts/workflows/yawl/integration/objectstorage.md
+                  - name: Tracker
+                    href: concepts/workflows/yawl/integration/tracker.md
+                  - name: Postbox
+                    href: concepts/workflows/yawl/integration/postbox.md
+              - name: Control steps
+                items:
+                  - name: Switch
+                    href: concepts/workflows/yawl/management/switch.md
+                  - name: Foreach
+                    href: concepts/workflows/yawl/management/foreach.md
+                  - name: Parallel
+                    href: concepts/workflows/yawl/management/parallel.md
+                  - name: Success
+                    href: concepts/workflows/yawl/management/success.md
+                  - name: Fail
+                    href: concepts/workflows/yawl/management/fail.md
+                  - name: NoOp
+                    href: concepts/workflows/yawl/management/noop.md
+                  - name: Wait
+                    href: concepts/workflows/yawl/management/wait.md
           - name: Templating
             href: concepts/workflows/templating.md
       - name: '{{ er-name }}'
@@ -76,7 +163,7 @@ items:
     href: tf-ref.md
   - name: '{{ sw-name }} API reference'
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/workflows/authentication.md
       - name: gRPC
         items:
@@ -168,7 +255,7 @@ items:
                 href: workflows/api-ref/Workflow/listOperations.md
   - name: '{{ er-name }} API reference'
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/eventrouter/authentication.md
       - name: gRPC
         items:

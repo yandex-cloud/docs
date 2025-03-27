@@ -10,7 +10,7 @@ For example, you can get a list of cloud folders using the following script:
 #!/bin/bash
 set -e
 
-HOME=/tmp yc --format json resource-manager folder list --cloud-id <cloud_ID> | jq -c '{body:. | tostring}'
+HOME=/tmp yc --format json resource-manager folder list --cloud-id <cloud_ID> | jq -c  '{body:. | tostring}'
 ```
 
 For the YC CLI commands to be executed successfully, use the `--folder-id` or `--cloud-id` flags to specify the [folder](../../../resource-manager/operations/folder/get-id.md) or [cloud](../../../resource-manager/operations/cloud/get-id.md) ID, respectively.

@@ -64,7 +64,7 @@
 
      ```hcl
      resource "yandex_organizationmanager_organization_iam_member" "users-editors" {
-       organization_id = "<идентификатор_облака>"
+       organization_id = "<идентификатор_организации>"
        role            = "<идентификатор_роли>"
        member          = "group:<идентификатор_группы>"
      }
@@ -72,7 +72,7 @@
 
      Где:
      
-     * `organization_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Обязательный параметр.
+     * `organization_id` — [идентификатор организации](../../organization/operations/organization-get-id.md). Обязательный параметр.
      * `role` — назначаемая роль. Обязательный параметр.
      * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
 

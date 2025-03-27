@@ -89,12 +89,6 @@ items:
             href: concepts/classifier/models.md
       - name: Эмбеддинги
         href: concepts/embeddings.md
-      - name: '{{ assistant-api }}'
-        items:
-          - name: Обзор
-            href: concepts/assistant/index.md
-          - name: Поисковые индексы
-            href: concepts/assistant/search-index.md
       - name: Датасеты
         href: concepts/resources/dataset.md
       - name: Дообучение
