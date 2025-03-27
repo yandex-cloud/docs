@@ -44,4 +44,51 @@
 
       1. Нажмите кнопку **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
+    - {{ TF }}{#tf}
+
+      {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+      {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+      1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+          ```hcl
+          # Включение сопоставления групп федеративных пользователей
+
+          resource "yandex_organizationmanager_group_mapping" "my_group_map" {
+           federation_id = "<идентификатор_федерации>"
+           enabled       = true
+          }
+
+          # Настройка сопоставления групп федеративных пользователей
+
+          resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item" {
+            federation_id     = "<идентификатор_федерации>"
+            internal_group_id = "<группа_Cloud_Organization>"
+            external_group_id = "<группа_поставщика_удостоверений"
+
+          depends_on = [yandex_organizationmanager_group_mapping.my_group_map]
+          }
+
+          resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item-2" {
+            federation_id     = "<идентификатор_федерации>"
+            internal_group_id = "<группа_Cloud_Organization>"
+            external_group_id = "<группа_поставщика_удостоверений"
+
+          depends_on = [yandex_organizationmanager_group_mapping.my_group_map]
+          }
+          ```
+
+          Где:
+          * `federation_id` — идентификатор федерации.
+          * `internal_group_id` — имя группы {{ org-name }}.
+          * `external_group_id` — имя группы поставщика удостоверений.
+
+          Более подробную информацию о параметрах ресурса `yandex_organizationmanager_group_mapping_item` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
+      1. Создайте ресурсы:
+
+          {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+          {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
     {% endlist %}

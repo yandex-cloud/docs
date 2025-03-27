@@ -1,7 +1,7 @@
 # Разработка навыка Алисы и сайта с авторизацией
 
 
-В этом сценарии вы разработаете навык Алисы и развернете веб-приложение, которое позволит создавать, читать и редактировать списки дел с помощью Алисы, а также делиться списками с другими пользователями на сайте.
+В этом руководстве вы разработаете навык Алисы и развернете веб-приложение, которое позволит создавать, читать и редактировать списки дел с помощью Алисы, а также делиться списками с другими пользователями на сайте.
 
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplv75t2gtff4pps5fx2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
@@ -20,7 +20,7 @@
 
 ## Подготовьте окружение {#prepare}
 
-1. [Скачайте архив](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) с файлами проекта или клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) с помощью Git.
+1. [Скачайте архив](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) с файлами проекта или клонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-alice-shareable-todolist) `yc-alice-shareable-todolist` с помощью Git.
 1. [Создайте каталог](../../resource-manager/operations/folder/create.md), если его еще нет. Для удобства можно использовать отдельный каталог с именем `alice-skill`.
 1. Установите и инициализируйте следующие программы:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).

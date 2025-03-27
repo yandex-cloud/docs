@@ -36,3 +36,4 @@ description: This section contains tutorials for {{ sf-name }}.
 * [{#T}](data-from-tracker.md)
 * [{#T}](batch-code-execution.md)
 * [{#T}](recognizer-bot.md)
+* [{#T}](logging-functions.md)

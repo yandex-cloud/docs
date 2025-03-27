@@ -19,6 +19,7 @@
 * [{{ container-registry-full-name }}](../../audit-trails/concepts/events.md#container-registry)
 * [{{ dataproc-full-name }}](../../audit-trails/concepts/events.md#dataproc)
 * [{{ data-transfer-full-name }}](../../audit-trails/concepts/events.md#datatransfer)
+* [{{ datalens-full-name }}](../../audit-trails/concepts/events.md#datalens)
 * [{{ ml-platform-full-name }}](../../audit-trails/concepts/events.md#datasphere)
 * [{{ iam-full-name }}](../../audit-trails/concepts/events.md#iam)
 * [{{ iot-full-name }}](../../audit-trails/concepts/events.md#iot)

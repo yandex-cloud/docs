@@ -186,6 +186,13 @@ keywords:
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters.md) %}
 
+        * `--subnet-ids` — список идентификаторов подсетей.
+
+            {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+        {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
+
+
 - {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -203,6 +210,12 @@ keywords:
         * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters.md) %}
+
+        * `subnet_ids` — список идентификаторов подсетей.
+
+            {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+        {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
 
     1. Проверьте корректность настроек.
 

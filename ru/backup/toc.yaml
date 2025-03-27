@@ -82,6 +82,8 @@ items:
         href: operations/get-stats.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Подключение сервера {{ baremetal-name }} к {{ backup-name }}
         href: tutorials/backup-baremetal.md
       - name: Автоматическая привязка политики резервного копирования к ВМ

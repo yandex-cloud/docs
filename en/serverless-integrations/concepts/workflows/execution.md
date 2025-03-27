@@ -5,7 +5,7 @@ keywords:
   - workflows
   - workflow
   - WF
-  - workflow
+  - Workflow
 ---
 
 # Launching a workflow
@@ -34,13 +34,14 @@ Error | Description
 --- | ---
 `ALL` | Error you can specify in a retry policy for the policy to apply to any error type other than `STEP_INTERNAL`.
 `STEP_DATA_LIMIT_EXCEEDED` | Input or output data limit exceeded. For more information, see [{#T}](../limits.md).
-`STEP_NO_CHOICE_MATCHED` | There is no suitable execution path in `choices`. For more information, see [{#T}](yawl.md#Switch).
+`STEP_NO_CHOICE_MATCHED` | There is no suitable execution path in `choices`. For more information, see [{#T}](yawl/management/switch.md).
 `STEP_PERMISSION_DENIED` | No access to resource.
 `STEP_TIMEOUT` | Step timeout exceeded. For more information, see [{#T}](../limits.md).
 `STEP_INVALID_OUTPUT` | Invalid output data.
 `STEP_INTERNAL` | Internal error. If a step terminates with this error, you cannot apply the retry policy, and the launch immediately switches to the `Error` status.
 `STEP_INVALID_TEMPLATE_EXPRESSION` | Invalid jq expression in template.
-`STEP_FAIL` | The launch ended with an error at the `Fail` step. For more information, see [{#T}](yawl.md#Fail).
+`STEP_FAIL` | The launch ended with an error at the `Fail` step. For more information, see [{#T}](yawl/management/fail.md).
+`STEP_FAILED_PRECONDITION` | The resource state is invalid to complete the step, e.g., an email address is unverified or blocked.
 `STEP_INVALID_ARGUMENT` | Invalid step parameters.
 `STEP_QUOTA_EXCEEDED` | The resource request limit is reached.
 `HTTP_CALL_400`<br/>`HTTP_CALL_401`<br/>`HTTP_CALL_402`<br/>`HTTP_CALL_403`<br/>`HTTP_CALL_404`<br/>`HTTP_CALL_405`<br/>`HTTP_CALL_406`<br/>`HTTP_CALL_407`<br/>`HTTP_CALL_408`<br/>`HTTP_CALL_409`<br/>`HTTP_CALL_410`<br/>`HTTP_CALL_411`<br/>`HTTP_CALL_412`<br/>`HTTP_CALL_413`<br/>`HTTP_CALL_414`<br/>`HTTP_CALL_415`<br/>`HTTP_CALL_416`<br/>`HTTP_CALL_417`<br/>`HTTP_CALL_418`<br/>`HTTP_CALL_419`<br/>`HTTP_CALL_420`<br/>`HTTP_CALL_421`<br/>`HTTP_CALL_422`<br/>`HTTP_CALL_423`<br/>`HTTP_CALL_424`<br/>`HTTP_CALL_425`<br/>`HTTP_CALL_426`<br/>`HTTP_CALL_427`<br/>`HTTP_CALL_428`<br/>`HTTP_CALL_429`<br/>`HTTP_CALL_431`<br/>`HTTP_CALL_449`<br/>`HTTP_CALL_451`<br/>`HTTP_CALL_499`<br/>`HTTP_CALL_500`<br/>`HTTP_CALL_501`<br/>`HTTP_CALL_505`<br/>`HTTP_CALL_502`<br/>`HTTP_CALL_503`<br/>`HTTP_CALL_504`<br/>`HTTP_CALL_506`<br/>`HTTP_CALL_507`<br/>`HTTP_CALL_508`<br/>`HTTP_CALL_509`<br/>`HTTP_CALL_510`<br/>`HTTP_CALL_511`<br/>`HTTP_CALL_520`<br/>`HTTP_CALL_521`<br/>`HTTP_CALL_522`<br/>`HTTP_CALL_523`<br/>`HTTP_CALL_524`<br/>`HTTP_CALL_525`<br/>`HTTP_CALL_526` | HTTP response state codes. For more information, see [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses).

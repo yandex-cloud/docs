@@ -12,7 +12,7 @@ description: Follow this guide to delete a bus label.
   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [bus](../../../concepts/eventrouter/bus.md) label.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
-  1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the [bus](../../../concepts/eventrouter/bus.md) row and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the row with the [bus](../../../concepts/eventrouter/bus.md) you need and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![image](../../../../_assets/console-icons/xmark.svg) next to its name.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

@@ -584,6 +584,8 @@ items:
             href: tutorials/rds-gw.md
           - name: Создание сервера MLFlow для логирования экспериментов и артефактов
             href: tutorials/mlflow-datasphere.md
+          - name: Развертывание {{ GLR }} на виртуальной машине
+            href: tutorials/install-gitlab-runner.md
       - name: >-
           Запуск языковой модели DeepSeek-R1 в кластере GPU {{ compute-full-name
           }}

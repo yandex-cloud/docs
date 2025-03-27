@@ -1,0 +1,1 @@
+The connector groups messages for a period not exceeding the specified survey timeout and sends these to a [rule](../../serverless-integrations/concepts/eventrouter/rule.md). At the same time, the number of messages does not exceed the specified group size.

@@ -1095,6 +1095,14 @@ items:
           Deploying a web app with JWT authorization in {{ api-gw-full-name }}
           and authentication in Firebase
         href: serverless/jwt-authorizer-firebase.md
+      - name: >-
+          Configuring responses in {{ cloud-logging-full-name }} and {{
+          sf-full-name }}
+        href: serverless/logging-functions.md
+      - name: >-
+          Setting up {{ sw-name }} integration with {{ tracker-full-name }}, {{
+          yagpt-full-name }}, and {{ postbox-full-name }}
+        href: serverless/tracker-yandexgpt-postbox-integrations.md
   - name: Machine learning and artificial intelligence
     items:
       - name: All tutorials

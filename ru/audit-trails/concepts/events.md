@@ -149,6 +149,12 @@ description: В данном разделе приведены описания 
 
 {% include [datatransfer-events](../../_includes/audit-trails/events/datatransfer-events.md) %}
 
+## {{ datalens-full-name }} {#datalens}
+
+Имя сервиса — `datalens`.
+
+{% include [datalens-events](../../_includes/audit-trails/events/datalens-events.md) %}
+
 ## {{ ml-platform-full-name }} {#datasphere}
 
 Имя сервиса — `datasphere`.

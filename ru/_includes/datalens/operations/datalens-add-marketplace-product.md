@@ -5,7 +5,7 @@
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![marketplace](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В правом меню в разделе **Категория** выберите: **Геослои**, **Датасеты**, **Коннекторы** или **Темплейты**.
-1. Выберите продукт, который вы хотите добавить. Например, бесплатный геослой [Организации: спрос и предложение]({{ link-datalens-main }}/marketplace/f2e0alcha1ta8ocrn99f), бесплатный датасет [Sample Superstore]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco), бесплатный коннектор [ДашбордКоннектор]({{ link-datalens-main }}/marketplace/f2euv3r73pln2g18nckh) или бесплатный темплейт [Metrica Live Demo]({{ link-datalens-main }}/marketplace/f2e5hpq5mc7bscsjc6jr) соответственно.
+1. Выберите продукт, который вы хотите добавить. Например, бесплатный геослой [Организации: спрос и предложение]({{ link-datalens-main }}/marketplace/f2e0alcha1ta8ocrn99f), бесплатный датасет [Sample Superstore]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco), бесплатный демонстрационный дашборд [Demo Dashboard]({{ link-datalens-main }}/marketplace/f2eui5ar8omalpcg1j3r) или бесплатный темплейт [Metrica Live Demo]({{ link-datalens-main }}/marketplace/f2e5hpq5mc7bscsjc6jr) соответственно.
 1. В открытом окне с описанием продукта нажмите кнопку **Развернуть**.
 1. Выберите, где будет сохранен продукт:
 

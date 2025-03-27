@@ -1,21 +1,21 @@
 # Developing a skill for Alice and a website with authorization
 
 
-In this scenario, you will develop a skill for Alice and deploy a web app for creating, reading and editing to-do lists with Alice's help, as well as for sharing the lists with other users on the website.
+In this tutorial, you will develop a skill for Alice and deploy a web app for creating, reading, and editing to-do lists using Alice, as well as for sharing such lists with other users on the website.
 
 
 
 To deploy a project:
-1. [Prepare the environment](#prepare).
+1. [Set up your environment](#prepare).
 1. [Create resources](#create-resources).
 1. [Set the project variables](#set-variables).
 1. [Deploy the project](#deploy).
-1. [Register Alice's skill](#register-skill).
+1. [Register Alice’s skill](#register-skill).
 1. [Test the skill](#test-skill).
 
-## Prepare the environment {#prepare}
+## Set up your environment {#prepare}
 
-1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
+1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [`examples` repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you do not have any. For convenience, you can use a separate folder named `alice-skill`.
 1. Install and initialize the following programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
@@ -26,41 +26,41 @@ To deploy a project:
    * [Node.js](https://nodejs.org/en/download/package-manager/).
    * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 1. To finalize the project, you will additionally need:
-   * [The Go programming language](https://go.dev/).
-   * The [go-swagger](https://goswagger.io/) utility.
-   * The [api-spec-converter](https://www.npmjs.com/package/api-spec-converter) utility.
+   * [Go programming language](https://go.dev/)
+   * [go-swagger](https://goswagger.io/)
+   * [api-spec-converter](https://www.npmjs.com/package/api-spec-converter)
 
 ## Create resources {#create-resources}
 
 1. [Create a bucket](../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-full-name }}.
 1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **{{ ui-key.yacloud.common.id }}** and **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field values to use them in the configuration.
-1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it when setting up your project.
+1. [Create a database](../../ydb/quickstart.md#serverless) in serverless mode. Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field value from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it to set up your project.
 1. [Create an app](https://oauth.yandex.com/) in Yandex OAuth:
    1. Go to the [service website](https://oauth.yandex.com/) and log in.
    1. Click **Create new client**.
-   1. Select the desired name for the client app and upload an icon.
+   1. Specify the appropriate app name and upload an icon.
    1. Under **Platforms**, select **Web services**. Specify two Callback URIs:
       * `https://social.yandex.net/broker/redirect`.
       * `https://<API_gateway_service_domain>/receive-token`.
 
-      Please note that the specified `receive-token` URL may be unavailable until the current specification is uploaded to the API gateway. The specification will be uploaded during the project's deployment.
-   1. Under **Permissions**, expand **Yandex ID API (login)** and select **Access to user avatar (login:avatar)**.
+      Please note that the specified `receive-token` URL may be unavailable until the current specification is uploaded to the API gateway. The specification will be uploaded during project deployment.
+   1. Under **Permissions**, expand the **Yandex ID API (login)** and select **Access to user avatar (login:avatar)**.
 
-   For more information about the Yandex OAuth features, see the [documentation](https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html).
+   For more information about the Yandex OAuth features, see [this article](https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html).
 
 ## Set the project variables {#set-variables}
 
 Configure the project using the values you got when creating your resources.
 
-### Create a variables.json file {#set-variables-variables}
+### Create a `variables.json` file {#set-variables-variables}
 
-The `variables.json` file contains the project deployment configuration. To create a file from the `variables-template.json` template, go to the project folder and run the command:
+The `variables.json` file contains the project deployment configuration. To create a file from the `variables-template.json` template, navigate to the project folder and run this command:
 
 ```bash
 cp variables-template.json variables.json
 ```
 
-In the `variables.json` file, set the project parameters:
+In the `variables.json` file, set the project properties:
 * `folder-id`: ID of the cloud folder.
 * `domain`: API gateway service domain.
 * `oauth-client-id`: ID of the app registered in [Yandex OAuth](https://oauth.yandex.com/).
@@ -71,15 +71,15 @@ In the `variables.json` file, set the project parameters:
 * `storage-bucket`: Name of the bucket you created for storing static data.
 * `gateway-id`: API gateway ID.
 
-### Create a secure-config.json file {#set-variables-secure-config}
+### Create a `secure-config.json` file {#set-variables-secure-config}
 
-The `secure-config.json` file contains secrets. You can create it from the `secure-config-template.json` template. To do this, run this command:
+The `secure-config.json` file contains secrets. You can create it from the `secure-config-template.json` template. To do this, run the following command:
 
 ```bash
 cp secure-config-template.json secure-config.json
 ```
 
-Substitute the values from the variables:
+Use the values from the variables:
 * `oauth_secret`: Password of the app registered in [Yandex OAuth](https://oauth.yandex.com/).
 * `hash`: Base64-encoded random 64-byte string (e.g., `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqK********`). You can generate a random value in the terminal using `openssl rand -base64 64 | tr -d '\n'`.
 * `block`: Base64-encoded random 32-byte string (e.g., `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijI********`). You can generate a random value in the terminal using `openssl rand -base64 32 | tr -d '\n'`.
@@ -92,7 +92,7 @@ Transfer the project files to {{ yandex-cloud }} and update the configuration.
 
 ### Apply a data schema {#deploy-schema}
 
-To create tables in the database, run the command:
+To create tables in the database, run this command:
 
 ```bash
 ./upload_ydb_schema.sh
@@ -108,19 +108,19 @@ To do this, in the folder with the `app.tf` configuration file, run the followin
 terraform init
 ```
 
-Once {{ TF }} is initialized, run the command by delivering the [OAuth token](../../iam/concepts/authorization/oauth-token.md) value for authorization in {{ yandex-cloud }}:
+Once {{ TF }} is initialized, run the command by delivering the [OAuth token](../../iam/concepts/authorization/oauth-token.md) value for {{ yandex-cloud }} authorization:
 
 ```bash
 terraform apply -var-file ./variables.json -var yc-token=<OAuth_token>
 ```
 
-As a result, {{ TF }} automatically creates or updates the required resources.
+As a result, {{ TF }} will automatically create or update the required resources.
 
 ### Upload the frontend code to {{ objstorage-name }} {#deploy-frontend}
 
-To deploy the frontend web app, compile static files and upload them to {{ objstorage-name }}.
-1. Before doing that, make sure you have Node.js and the npm package manager installed.
-1. Go to the `frontend` subfolder and perform the compilation:
+To deploy the frontend web app, compile the static files and upload them to {{ objstorage-name }}.
+1. Before doing that, however, make sure you have Node.js and the `npm` package manager installed.
+1. Navigate to the `frontend` subfolder and perform the compilation:
 
    ```bash
    npm run build
@@ -155,7 +155,7 @@ To deploy the frontend web app, compile static files and upload them to {{ objst
      serve -s build
    ```
 
-1. To upload the files to {{ objstorage-name }}, run the command:
+1. To upload the files to {{ objstorage-name }}, run this command:
 
    ```bash
    ./upload_static.sh
@@ -184,7 +184,7 @@ To deploy the frontend web app, compile static files and upload them to {{ objst
 
 ### Update the API gateway configuration {#deploy-gateway}
 
-To upload the current specification to {{ api-gw-name }}, run the command:
+To upload the current specification to {{ api-gw-name }}, run this command:
 
 ```bash
 ./update_gateway.sh
@@ -210,16 +210,16 @@ log_group_id: ckg57bweoekk********
 1. Go to the [Yandex Dialogs](https://dialogs.yandex.ru/) website and log in to the console.
 1. Click **Create dialog** and select the **Alice skill** dialog type.
 1. In the **Skill name** field, set **To-do lists**.
-1. Under **Backend**, select **{{ yandex-cloud }} function**. In the list, choose the `todo-list-alice` function that you previously created in {{ sf-name }}.
+1. Under **Backend**, select **{{ yandex-cloud }} function**. From the list, select the `todo-list-alice` function you previously created in {{ sf-name }}.
 1. Enable **Use data storage in the skill**.
 
-Set the other parameters as you wish. For example, you can specify different word forms to activate the skill and choose a voice or skill access type. 
+Configure the other settings as you wish. For example, you can specify various word forms to activate the skill and select a voice or skill access type. 
 
-Learn more in the Yandex Dialogs [documentation](https://yandex.ru/dev/dialogs/alice/doc/publish.html).
+Learn more in [this Yandex Dialogs article](https://yandex.ru/dev/dialogs/alice/doc/publish.html).
 
 ### Configure authorization on the Alice page {#configure-authorization}
 
-1. Go to the **Main settings** tab and find the **Account linking** section.
+1. Navigate to the **Main settings** tab and find the **Account linking** section.
 1. In the **Authorization** line, click **Create**.
 1. Enter the following:
    * **ID** and **Application secret**: ID and password you obtained when registering your app with [Yandex OAuth](https://oauth.yandex.com/).
@@ -227,20 +227,20 @@ Learn more in the Yandex Dialogs [documentation](https://yandex.ru/dev/dialogs/
    * **Get token URL**: `https://oauth.yandex.com/token`.
    * **Refresh token URL**: `https://oauth.yandex.com/token`.
 
-For more information about OAuth 2.0, see [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749).
+To learn more about OAuth 2.0, see [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749).
 
 ### Add intents {#add-intents}
 
-1. Go to the **Intents** tab and click **Create**.
-1. Add intents for each action that is possible in the dialog. The available intents are in the project's `intents` subfolder.
+1. Navigate to the **Intents** tab and click **Create**.
+1. Add intents for each action possible in the dialog. The available intents are in the project's `intents` subfolder.
 1. Enter the following:
-   * **Name**: Any name that you want to be displayed in the interface.
-   * **ID**: Intent ID that is the same as the filename in the `intents` folder.
-   * **Grammar**: Grammar text that is the same as the contents of the file in the `intents` folder.
+   * **Name**: Any name that you want displayed in the interface.
+   * **ID**: Intent ID identical to the filename in the `intents` folder.
+   * **Grammar**: Grammar text identical to the contents of the file in the `intents` folder.
 
-For more information about intents, see the [documentation for Alice's skills](https://yandex.ru/dev/dialogs/alice/doc/nlu-docpage/).
+To learn more about intents, see [this article on Alice's skills](https://yandex.ru/dev/dialogs/alice/doc/nlu-docpage/).
 
-To complete the dialog creation, click **Publish** on the right of the page.
+To complete the dialog creation, click **Publish** on the right.
 
 ## Test the skill {#test-skill}
 
@@ -248,40 +248,40 @@ To debug the skill, use the **Testing** tab in the [Yandex Dialogs](https://dia
 
 ### In the console {#console-test}
 
-Go to the **Testing** tab. You will see a chat with Alice on the left and an interaction protocol in JSON format on the right.
+Navigate to the **Testing** tab. You will see a chat with Alice on the left and an interaction protocol in JSON format on the right.
 
 Below is a sample dialog:
 
 ```text
 Let me help you with your lists!
 
-	Hi Alice, Create a Grocery list.
+	Hi Alice. Create a Groceries list.
 
-Done, I've created the "grocery" list.
+Done, I created a Groceries list.
 
-	Add milk to the Grocery.
+	Add milk to Groceries.
 
-Done, I've added "milk" to the "grocery".
+Done, I added "milk" to Groceries.
 
 	Add bread.
 
 What list should I add "bread" to?
 
-	Products
+	Groceries
 
-Done, I've added "bread" to the "grocery".
+Done, I added "bread" to Groceries.
 
 	Add eggs.
 
 What list should I add "eggs" to?
 
-	Products
+	Groceries
 
-Done, I've added "eggs" to the "grocery".
+Done, I added "eggs" to Groceries.
 
-	Alice, tell me what's on the Grocery list.
+	Alice, tell me what's on the Groceries list.
 
-Grocery:
+Groceries:
 1. milk
 2. bread
 3. eggs
@@ -291,6 +291,6 @@ Grocery:
 
 To start a dialog, use any device or service supported by [Alice](https://yandex.ru/alice).
 
-### On the website {#site-test}
+### On a website {#site-test}
 
-In your browser, follow the URL specified in the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field of your API gateway and log in. The **My lists** page opens. In any of the lists, you can add or remove items and grant other users access to the list.
+In your browser, follow the URL specified in the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field of your API gateway and log in. The `My lists` page will open. In any of the lists, you can add or remove items and grant other users access to the list.

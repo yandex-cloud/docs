@@ -19,15 +19,13 @@ description: Follow this guide to view a list of available {{ er-full-name }} bu
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../../../cli/) command to view a list of [buses](../../../concepts/eventrouter/bus.md):
+  1. See the description of the CLI command to view a list of [buses](../../../concepts/eventrouter/bus.md):
 
       ```bash
       yc serverless eventrouter bus list --help
       ```
 
   1. {% include [get-buses-list](../../../../_includes/serverless-integrations/get-buses-list.md) %}
-
-  For more information about the `yc serverless eventrouter bus list` command, see the [CLI reference](../../../../cli/cli-ref/serverless/cli-ref/eventrouter/bus/list.md).
 
 - API {#api}
 

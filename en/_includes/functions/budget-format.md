@@ -1,4 +1,3 @@
-
 ```json
 {
    "messages":[
@@ -17,17 +16,16 @@
 }
 ```
 
-
 Where:
 
 * `billing_account_id`: Billing account ID.
 * `budget_id`: Budget ID.
 * `budget_display_name`: Budget name.
-* `amount`: The cost of resources or account balance when notifications were triggered.
+* `amount`: Cost of resources or personal account balance when notifications were sent.
 * `currency`: Payment currency.
-* `period`: Budget tracking period.
+* `period`: Budget calculation period.
 * `budgeted_amount`: Budget amount.
 * `threshold_amount`: Consumption threshold that triggered notifications.
 * `threshold_type`: Threshold type:
-   * `amount`: Currency.
-   * `percent`: Percentage.
+  * `amount`: Currency.
+  * `percent`: Percentage.

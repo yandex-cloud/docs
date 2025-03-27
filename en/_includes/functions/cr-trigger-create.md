@@ -45,9 +45,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
      {% include [repeat-request.md](repeat-request.md) %}
 
-  
   1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
-
 
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -123,7 +121,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
   To create a trigger for {{ container-registry-name }}:
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -132,7 +130,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
           id                 = "<function_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<interval_between_retry_attempts>"
+          retry_interval     = "<time_between_retry_attempts>"
         }
         container_registry {
           registry_id      = "<registry_ID>"
@@ -174,7 +172,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
       For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

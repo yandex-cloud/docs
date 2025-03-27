@@ -292,6 +292,49 @@
 
   1. Нажмите **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
+- {{ TF }} {#tf}
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры создаваемых ресурсов:
+
+      ```hcl
+      # Создание группы пользователей
+      resource "yandex_organizationmanager_group" "my-group" {
+        name            = "yc_demo_group"
+        organization_id = "demo-federation"
+      }
+
+      # Назначение роли viewer на каталог
+      resource "yandex_resourcemanager_folder_iam_member" "viewers" {
+        folder_id = "<идентификатор_каталога>"
+        role      = "viewer"
+        member    = "group:${yandex_organizationmanager_group.my-group.id}"
+      }
+
+      # Включение сопоставления групп федеративных пользователей
+      resource "yandex_organizationmanager_group_mapping" "my_group_map" {
+        federation_id = "demo-federation"
+        enabled       = true
+      }
+
+      # Настройка сопоставления групп федеративных пользователей
+      resource "yandex_organizationmanager_group_mapping_item" "group_mapping_item" {
+        federation_id     = "demo-federation"
+        internal_group_id = yandex_organizationmanager_group.my-group.id
+        external_group_id = "kc_demo_group"
+
+        depends_on = [yandex_organizationmanager_group_mapping.group_mapping]
+      }
+      ```
+
+      Где:
+      * `folder_id` — каталог, на который назначается роль.
+
+      Подробнее см. в описаниях ресурсов [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) и [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) в документации провайдера {{ TF }}.
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
 {% endlist %}
 
 ## Проверьте работу аутентификации {#test-auth}

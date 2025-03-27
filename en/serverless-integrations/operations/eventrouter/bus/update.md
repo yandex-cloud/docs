@@ -12,7 +12,7 @@ description: Follow this guide to update a bus.
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to update a [bus](../../../concepts/eventrouter/bus.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
-  1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the [bus](../../../concepts/eventrouter/bus.md) row and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the row with the [bus](../../../concepts/eventrouter/bus.md) you need and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the bus settings.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -22,7 +22,7 @@ description: Follow this guide to update a bus.
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../../cli/) command for editing [bus](../../../concepts/eventrouter/bus.md) parameters:
+  1. View the description of the CLI command for editing [bus](../../../concepts/eventrouter/bus.md) parameters:
 
       ```bash
       yc serverless eventrouter bus update --help
@@ -62,7 +62,7 @@ description: Follow this guide to update a bus.
 
   1. Open the {{ TF }} configuration file and edit the part with the `yandex_serverless_eventrouter_bus` resource description.
 
-      Example of a bus description in the {{ TF }} configuration file:
+      Example of a bus description in a {{ TF }} configuration file:
 
       ```hcl
       resource "yandex_serverless_eventrouter_bus" "example_bus" {

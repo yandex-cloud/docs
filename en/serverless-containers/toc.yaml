@@ -83,7 +83,7 @@ items:
             href: operations/network-add.md
           - name: Transferring {{ lockbox-full-name }} secrets
             href: operations/lockbox-secret-transmit.md
-          - name: Mounting file systems
+          - name: Mounting external resources to a container file system
             items:
               - name: Mounting a bucket
                 href: operations/mount-bucket.md
@@ -161,7 +161,7 @@ items:
         href: concepts/runtime.md
       - name: Networking
         href: concepts/networking.md
-      - name: Mounting file systems
+      - name: Mounting external resources to a container file system
         href: concepts/mounting.md
       - name: Long-lived containers
         href: concepts/long-lived-containers.md
@@ -206,8 +206,8 @@ items:
       - name: Building a CI/CD pipeline in {{ GL }} with serverless products
         href: tutorials/ci-cd-serverless.md
       - name: >-
-          Setting up a {{ mpg-full-name }} connection from a {{
-          serverless-containers-name }} container
+          Setting up a {{ mpg-full-name }} connection from a container in {{
+          serverless-containers-name }}
         href: tutorials/pg-connect.md
       - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: tutorials/deploy-app-container.md
@@ -229,7 +229,7 @@ items:
     href: tf-ref.md
   - name: Containers API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/containers/authentication.md
       - name: gRPC
         items:
@@ -317,7 +317,7 @@ items:
                 href: containers/api-ref/Operation/cancel.md
   - name: API Triggers reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:
