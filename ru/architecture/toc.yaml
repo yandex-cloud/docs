@@ -1,8 +1,6 @@
 title: Архитектурные решения
-stage: hidden
 href: index.yaml
 noIndex: true
 items:
   - name: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
     href: fault-tolerance.md
-    hidden: true

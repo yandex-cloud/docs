@@ -25,7 +25,7 @@ System metrics can only be delivered from Linux hosts on the AMD platform. Windo
 
    1. [Create a service account](../../../iam/operations/sa/create.md) in the folder you want to write metrics to and [assign it](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-monitoring-editor }}` role.
 
-   1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) for your new service account using [YC CLI](../../../cli/quickstart.md):
+   1. [Create an authorized key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for your new service account using [YC CLI](../../../cli/quickstart.md):
 
        ```bash
        yc iam key create --service-account-id <service_account_ID> --output jwt_params.json
@@ -33,7 +33,7 @@ System metrics can only be delivered from Linux hosts on the AMD platform. Windo
 
        Where `--service-account-id` is the service account ID.
 
-      You can find more ways to create authorized keys in [{#T}](../../../iam/operations/authorized-key/create.md).
+      You can find more ways to create authorized keys in [{#T}](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
 
    1. Deliver the **jwt_params.json** file with the parameters of the authorized key to the host where {{ unified-agent-short-name }} will be installed.
 
@@ -154,6 +154,6 @@ System metrics can only be delivered from Linux hosts on the AMD platform. Windo
 
 #### What's next {#what-is-next}
 
-- Read about [{{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md).
-- [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md).
-- [Read the {{ unified-agent-short-name }} operating guidelines](../../concepts/data-collection/unified-agent/best-practices.md).
+- Read about [{{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
+- [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
+- [Read the {{ unified-agent-short-name }} operating guidelines](../../concepts/data-collection/unified-agent/best-practices.md)

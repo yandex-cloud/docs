@@ -109,7 +109,9 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-short-name }} authentication.
+  Before you start, retrieve the [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-short-name }} authentication.
+
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
@@ -289,6 +291,9 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 
      Where:
      * `access_key`: Static access key ID.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key`: Secret access key value.
      * `bucket`: Bucket name.
      * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.
@@ -325,7 +330,7 @@ description: Follow this guide to set up static website hosting in {{ objstorage
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` in the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can use the [management console]({{ link-console-main }}) to check the request redirect settings.
 
@@ -478,6 +483,9 @@ With routing rules, you can redirect requests based on the object name prefixes 
 
      Where:
      * `access_key`: Static access key ID.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key`: Secret access key value.
      * `bucket`: Bucket name.
      * `acl`: [ACL](../../concepts/acl.md#predefined-acls) access management parameters.

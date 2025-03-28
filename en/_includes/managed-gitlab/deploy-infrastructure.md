@@ -1,4 +1,4 @@
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -28,8 +28,8 @@
 
   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a {{ managed-k8s-name }} cluster, specify the previously created service accounts for resources and nodes and the security group.
 
-   1. [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
-   1. [Create an authorized key](../../iam/operations/authorized-key/create.md) for the service account with the `{{ roles-cr-pusher }}` role and save it to the `key.json` file:
+  1. [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
+  1. [Create an authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account with the `{{ roles-cr-pusher }}` role and save it to the `key.json` file:
 
      ```bash
      yc iam key create \
@@ -48,12 +48,12 @@
 
   1. Download the [k8s-and-registry-for-gitlab.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cr-gitlab/blob/main/k8s-and-registry-for-gitlab.tf) configuration file to the same working directory.
 
-      This file describes:
-      * [Network](../../vpc/concepts/network.md#network).
-      * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-      * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group).
-      * {% include [configure-sg-terraform](../managed-kubernetes/security-groups/configure-sg-tf-with-audience-lvl3.md) %}
+     This file describes:
+     * [Network](../../vpc/concepts/network.md#network).
+     * [Subnet](../../vpc/concepts/network.md#subnet).
+     * [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+     * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group).
+     * {% include [configure-sg-terraform](../managed-kubernetes/security-groups/configure-sg-tf-with-audience-lvl3.md) %}
 
         {% include [sg-common-warning](../managed-kubernetes/security-groups/sg-common-warning.md) %}
 
@@ -66,7 +66,7 @@
      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the {{ managed-k8s-name }} cluster service account.
      * Name of the {{ container-registry-name }} registry.
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate

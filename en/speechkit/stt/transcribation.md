@@ -31,7 +31,7 @@ The {{ speechkit-name }} API v2 and v3 are used for asynchronous speech recognit
    * `storage.uploader` for uploading audio files to an [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md).
    * (Optional) `storage.configurer`, `kms.keys.encrypter`, and `kms.keys.decrypter` for bucket object encryption and decryption. These roles are only required if you use [encryption in {{ objstorage-name }}](../../storage/concepts/encryption.md).
 
-1. Obtain an [IAM token](../../iam/operations/iam-token/create-for-sa.md) or an [API key](../../iam/operations/api-key/create.md) for your service account. You will use them to authenticate to the API.
+1. Obtain an [IAM token](../../iam/operations/iam-token/create-for-sa.md) or an [API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key) for your service account. You will use them to authenticate to the API.
 1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 1. [Upload an audio file to the bucket](../../storage/operations/objects/upload.md).
 1. [Get a link](../../storage/operations/objects/link-for-download.md) to the uploaded file.

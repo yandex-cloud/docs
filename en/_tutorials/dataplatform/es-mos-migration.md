@@ -38,7 +38,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
 ### Getting started {#before-you-begin-snapshot}
 
-#### Prepare the infrastructure {#deploy-infrastructure-snapshot}
+#### Set up your infrastructure {#deploy-infrastructure-snapshot}
 
 {% list tabs group=instructions %}
 
@@ -47,7 +47,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
     1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
     1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `storage.editor` role. A service account is required to access the bucket from the source and target clusters.
 
-    1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/sa/create-access-key.md) for this service account.
+    1. If you are transferring data from a third-party {{ ES }} cluster, [create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for this service account.
 
         {% note warning %}
 
@@ -83,7 +83,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
         * `os_admin_password`: {{ OS }} admin password.
         * `os_version`: {{ OS }} version.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -273,7 +273,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
 ### Getting started {#before-you-begin-reindex}
 
 
-1. Prepare the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -300,7 +300,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
             * `os_admin_password`: {{ OS }} admin password.
             * `os_version`: {{ OS }} version.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate

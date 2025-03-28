@@ -10,7 +10,7 @@ To use the API v2, you will need:
 
 * [{{ objstorage-full-name }} bucket](../../../storage/operations/buckets/create.md) to which you will upload your audio file for recognition.
 * [Service account](../../../iam/operations/sa/create.md) with the `{{ roles-speechkit-stt }}` and `storage.uploader` roles for accessing {{ speechkit-name }} and {{ objstorage-name }}.
-* [IAM token](../../../iam/operations/iam-token/create-for-sa.md) or [API key](../../../iam/operations/api-key/create.md) for authentication.
+* [IAM token](../../../iam/operations/iam-token/create-for-sa.md) or [API key](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) for authentication.
 
 For more information on getting started, see [{#T}](../transcribation.md#async-recognition).
 
@@ -50,16 +50,16 @@ The request body structure is as follows:
 
 #|
 || **Parameter** | **Description** ||
-|| config | **object**<br>Field with recognition settings ||
+|| config | **object**<br>Field with recognition settings. ||
 || config.<br>specification | **object**<br>Recognition settings. ||
 || config.<br>specification.<br>languageCode | **string**<br>[Language](../models.md#languages) of the audio file for speech recognition.<br/>The default value is `ru-RU`, Russian. ||
 || config.<br>specification.<br>model | **string**<br>[Language model](../models.md#tags) for speech recognition.<br>The default value is `general`.<br>Different models have different [pricing](../../pricing.md#rules-stt-long). ||
 || config.<br>specification.<br>profanityFilter | **boolean**<br>Profanity filter.<br/>Acceptable values:<ul><li>`true`: Mask profanities with asterisks in recognition results.</li><li>`false` (default): Do not mask profanities.</li></ul> ||
 || config.<br>specification.<br>literature_text | **boolean**<br>Enables [normalization mode](../normalization.md). ||
-|| config.<br>specification.<br>audioEncoding | **string**<br>Submitted audio [format](../../formats.md).<br/>Acceptable values:<ul><li>`LINEAR16_PCM`: [LPCM without a WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus) format.</li><li>`MP3`: [MP3](../../formats.md#MP3).</li></ul> ||
-|| config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Submitted audio sampling frequency.<br/>This parameter is required if `format` equals `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default): 48 kHz.</li><li>`16000`: 16 kHz.</li><li>`8000`: 8 kHz.</li></ul> ||
+|| config.<br>specification.<br>audioEncoding | **string**<br>Submitted audio [format](../../formats.md).<br/>Acceptable values:<ul><li>`LINEAR16_PCM`: [LPCM without a WAV header](../../formats.md#lpcm).</li><li>`OGG_OPUS` (default): [OggOpus](../../formats.md#oggopus).</li><li>`MP3`: [MP3](../../formats.md#MP3).</li></ul> ||
+|| config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Sampling rate of the submitted audio.<br/>This parameter is required if `format` is set to `LINEAR16_PCM`. Acceptable values:<ul><li>`48000` (default): 48 kHz.</li><li>`16000`: 16 kHz.</li><li>`8000`: Sampling rate of 8 kHz.</li></ul> ||
 || config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>Number of channels for [LPCM](../../formats.md#lpcm) audio files. The default value is `1`.<br>Do not use this field for [OggOpus](../../formats.md#oggopus) or [MP3](../../formats.md#MP3) audio files. They already contain information about the channel count. ||
-|| config.<br>specification.<br>rawResults | **boolean** <br>Flag that toggles spelling out numbers.</br>Acceptable values:<ul><li>`true`: Spell out.</li><li>`false` (default): Write as numbers.</li></ul> ||
+|| config.<br>specification.<br>rawResults | **boolean** <br>Flag that toggles spelling out numbers.</br>Acceptable values:<ul><li>`true`: Spell out.</li><li>`false` (default): Use figures.</li></ul> ||
 || audio.<br>uri | **string**<br>URI of the audio file for recognition. Supports only links to files stored in [{{ objstorage-full-name }}](../../../storage/). ||
 |#
 

@@ -21,8 +21,8 @@ Install the Velero application as follows:
         {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     1. [Create a service account](../../iam/operations/sa/create.md) for Velero to run.
-    1. [Assign it the `storage.editor` role](../../iam/concepts/access-control/roles.md) to access [{{ objstorage-full-name }}](../../storage/).
-    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account in JSON format and save it to the `sa-key.json` file:
+    1. [Assign](../../iam/concepts/access-control/roles.md) it the `storage.editor` role to access [{{ objstorage-full-name }}](../../storage/).
+    1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account in JSON format and save it to the `sa-key.json` file:
 
         ```bash
         yc iam access-key create \

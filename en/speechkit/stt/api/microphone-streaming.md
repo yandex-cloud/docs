@@ -18,7 +18,7 @@ Authentication is performed under a service account using an [API key](../../../
 ## Prepare the required data {#preparations}
 
 1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-stt }}` role to it.
-1. [Get](../../../iam/operations/api-key/create.md) an API key for the service account and save it.
+1. [Get](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the service account and save it.
 
 ## Create an application for streaming speech recognition {#create-an-application}
 

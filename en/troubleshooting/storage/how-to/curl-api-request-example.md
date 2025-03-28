@@ -42,5 +42,5 @@ curl -vvv -X PUT -T "${file}" \
 Before sending the request, make sure to specify the following parameters:
 - `file`: Name of the file to be uploaded to the bucket as an object.
 - `bucket`: Name of the bucket to upload data to.
-- `s3Key` and `s3Secret`: ID and secret of the [Static access key](../../../iam/operations/sa/create-access-key.md) of the service account.
+- `s3Key` and `s3Secret`: ID and secret of the [Static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) of the service account.
 - `contentType`: MIME type of the uploaded object, for example: `text/plain`.

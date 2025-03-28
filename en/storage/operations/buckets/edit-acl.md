@@ -45,7 +45,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
   yc storage bucket get <bucket_name> --with-acl
   ```
 
-  You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md), and [public groups](../../concepts/acl.md#public-groups), such as a group of all internet users or a group of all authenticated {{ yandex-cloud }} users. These settings cannot be used together: a bucket can have either a predefined ACL or individual permissions.
+  You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md), and [public groups](../../concepts/acl.md#public-groups), such as a group of all internet users or a group of all authenticated {{ yandex-cloud }} users. You cannot use these settings together: a bucket can have either a predefined ACL or individual permissions.
 
 
   Predefined ACL
@@ -98,10 +98,10 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
          * `grant-type-all-authenticated-users`: [Public group](../../concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
          * `grant-type-all-users`: Public group that includes all internet users.
        * `grantee-id`: ID of the user, service account, or user group you need to grant a permission to. It is specified only if `grant-type=grant-type-account`.
-       * `permission`: ACL permission type. The possible values are as follows:
+       * `permission`: ACL permission type. The possible values are:
          * `permission-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, and static hosting), and read all objects in the bucket.
          * `permission-write`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `permission-read`.
-         * `permission-full-control`: Full access to the bucket and the objects in it.
+         * `permission-full-control`: Full access to the bucket and objects in it.
          For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
 
        To configure multiple permissions, specify the `--grants` parameter multiple times. For example, to grant a write permission for a bucket, run this command:
@@ -135,7 +135,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
   * `--bucket`: Bucket name.
   * `--endpoint`: {{ objstorage-name }} endpoint.
 
-  You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md), and [public groups](../../concepts/acl.md#public-groups), such as a group of all internet users or a group of all authenticated {{ yandex-cloud }} users. These settings cannot be used together: a bucket can have either a predefined ACL or individual permissions.
+  You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md), and [public groups](../../concepts/acl.md#public-groups), such as a group of all internet users or a group of all authenticated {{ yandex-cloud }} users. You cannot use these settings together: a bucket can have either a predefined ACL or individual permissions.
 
   Predefined ACL
 
@@ -152,7 +152,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
     * `--endpoint`: {{ objstorage-name }} endpoint.
     * `--bucket`: Bucket name.
-    * `--acl`: Predefined ACL. To view a list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
+    * `--acl`: Predefined ACL. For the list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
 
   Setting up individual permissions
 
@@ -179,7 +179,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
         * The possible types of ACL permissions are as follows:
           * `--grant-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, and static hosting), and read all objects in the bucket.
           * `--grant-write`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `--grant-read`.
-          * `--grant-full-control`: Full access to the bucket and the objects in it.
+          * `--grant-full-control`: Full access to the bucket and objects in it.
 
           For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
 
@@ -205,7 +205,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-short-name }} authentication.
+  Before you start, retrieve the [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-short-name }} authentication.
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
@@ -234,13 +234,13 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
      * `secret_key`: Secret access key value.
      * `bucket`: Bucket name. This is a required parameter.
      * `grant`: [ACL](../../concepts/acl.md) settings. This is an optional parameter. To manage it, the service account with static access keys must have the `storage.admin` [role](../../security/index.md#roles-list) for the bucket or folder.
-       * `type`: Permission grantee type. The possible values are as follows:
+       * `type`: Permission grantee type. The possible values are:
          * `CanonicalUser`: For a user, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
          * `Group`: For a [public group](../../concepts/acl.md#public-groups).
        * `permissions`: Type of ACL [permissions](../../concepts/acl.md#permissions-types). It can take the following values:
          * `READ`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, and static hosting), and read all objects in the bucket.
          * `WRITE`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `READ`, e.g., `permissions = ["READ", "WRITE"]`.
-         * `FULL_CONTROL`: Full access to the bucket and the objects in it.
+         * `FULL_CONTROL`: Full access to the bucket and objects in it.
 
          For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
 
@@ -253,7 +253,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
          * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
 
-       * `uri`: Public group ID. It is used with the `Group` type of permission grantee. The possible values are as follows:
+       * `uri`: Public group ID. It is used with the `Group` type of permission grantee. The possible values are:
          * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
          * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.
 

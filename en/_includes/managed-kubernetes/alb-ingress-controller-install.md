@@ -20,14 +20,13 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader): To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * [compute.viewer](../../compute/security/index.md#compute-viewer): To use {{ managed-k8s-name }} cluster nodes in the L7 load balancer [target groups](../../application-load-balancer/concepts/target-group.md).
    * [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor): (Optional) To connect your {{ sws-full-name }} [security profile](../../smartwebsecurity/concepts/profiles.md) to a virtual host of the L7 load balancer.
-1. [Create an authorized access key](../../iam/operations/authorized-key/create.md) for the service account in JSON format and save it to the `sa-key.json` file:
+1. [Create an authorized access key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account in JSON format and save it to the `sa-key.json` file:
 
    ```bash
    yc iam key create \
      --service-account-name <name_of_service_account_for_Ingress_controller> \
      --output sa-key.json
    ```
-
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
@@ -49,7 +48,6 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
-
 
 ## Installation using a Helm chart {#install-alb-helm}
 

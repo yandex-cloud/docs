@@ -63,7 +63,7 @@ Available parameters:
 * `--folder-id <folder_id>`: ID of the folder used to run {{ yq-name }} queries. The folder hosting a VM instance with {{ jlab }} is used by default.
 * `--vm-auth`: Authentication with the VM account key. For more information, see [{#T}](../../compute/operations/vm-connect/auth-inside-vm.md).
 * `--env-auth <environment_variable>`: Authentication with the authorized key kept in the environment variable. Use this mode when you cannot access the file system of the computer running {{ jlab }}. For example, in [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md). In which case create a [{{ ml-platform-name }} secret](../../datasphere/operations/data/secrets.md) and specify its name in the `--env-auth` parameter.
-* `--sa-file-auth <authorized_key>`: Authentication with authorized keys. For more information, see [{#T}](../../iam/operations/authorized-key/create.md).
+* `--sa-file-auth <authorized_key>`: Authentication with authorized keys. For more information, see [{#T}](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
 
 ### Testing the package {#check-installation}
 
@@ -85,7 +85,7 @@ If the VM does not have any attached service accounts:
 
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `yq.viewer` role to it.
 
-1. [Create an authorized key](../../iam/operations/authorized-key/create.md) for the service account.
+1. [Create an authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account.
 
 1. Run the following commands specifying the path to the authorized key file:
 

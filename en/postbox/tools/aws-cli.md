@@ -11,7 +11,7 @@ The [AWS CLI](https://docs.aws.amazon.com/cli/) is a command line interface desi
 
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. [Assign](../../iam/operations/sa/assign-role-for-sa) the [roles](../security/index.md) required for your project to the service account. For more information about roles, see the [Identity and Access Management documentation](../../iam/concepts/access-control/roles).
-1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) static access keys. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
 
 ## Installation {#installation}
 
@@ -24,9 +24,9 @@ To configure the AWS CLI, run the `aws configure` command in your terminal. The 
 1. `AWS Secret Access Key`: Contents of the static access key.
 1. `Default region name`: `{{ region-id }}`.
 
-    To work with {{ postbox-name }}, always specify `{{ region-id }}` as the region. A different region value may lead to an authorization error.
+    To work with {{ postbox-name }}, always specify the `{{ region-id }}`. A different region value may lead to an authorization error.
 
-1. Leave the other parameter values unchanged.
+1. Leave the other parameters unchanged.
 
 ### Configuration files {#config-files}
 

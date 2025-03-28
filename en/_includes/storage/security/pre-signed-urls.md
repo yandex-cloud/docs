@@ -38,7 +38,7 @@ Parameter | Description
 `X-Amz-Credential` | Signature ID.<br/><br/>This is a string in `<access-key-id>/<YYYYMMDD>/{{ region-id }}/s3/aws4_request` format, where `<YYYYMMDD>` must match the date set in the `X-Amz-Date` header.
 `X-Amz-Date` | Time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format, e.g., `20180719T000000Z`. The specified date value (not the format) must match the date in the `X-Amz-Credential` parameter.
 `X-Amz-Expires` | Link validity time in seconds. The starting point is the time specified in `X-Amz-Date`. The maximum value is 2,592,000 seconds (30 days).
-`X-Amz-SignedHeaders` | Headers of the request you want to sign, delimited with a semicolon (`;`).<br/><br/>Make sure to sign the `Host` header and all `X-Amz-*` headers used in the request. You do not have to sign other headers; however, the more headers you sign, the safer your request is going to be.
+`X-Amz-SignedHeaders` | Headers of the request you want to sign, delimited by a semicolon (`;`).<br/><br/>Make sure to sign the `Host` header and all `X-Amz-*` headers used in the request. You do not have to sign other headers; however, the more headers you sign, the safer your request is going to be.
 `X-Amz-Signature` | Request signature.
 
 ## Creating pre-signed URLs {#creating-presigned-url}
@@ -57,7 +57,7 @@ To get a pre-signed URL:
 1. [Calculate the signature using the key](#signing).
 1. [Generate a pre-signed URL](#composing-signed-url).
 
-To create a pre-signed URL, you must have [static access keys](../../../iam/operations/sa/create-access-key.md).
+To create a pre-signed URL, you must have [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 ### Canonical request {#canonical-request}
 
@@ -78,7 +78,7 @@ HTTP method to use to send the request: `GET`, `PUT`, `HEAD`, or `DELETE`.
 
 #### CanonicalURL {#canonical-url}
 
-URL-encoded object key, e.g., `/folder/object.ext`.
+URL-encoded object key. For example, `/folder/object.ext`.
 
 {% note info %}
 

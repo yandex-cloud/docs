@@ -8,7 +8,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -27,7 +27,7 @@ Prepare the infrastructure:
      {% endnote %}
 
   1. Create a service account for {{ cloud-logging-name }} with the [logging.writer](../../logging/security/index.md#roles-list) and [monitoring.editor](../../monitoring/security/index.md#monitoring-editor) roles. It will be used to run Fluent Bit.
-  1. [Create an authorized key](../../iam/operations/sa/create-access-key.md) for the {{ cloud-logging-name }} service account and save it to the `key.json` file.
+  1. [Create an authorized key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the {{ cloud-logging-name }} service account and save it to the `key.json` file.
   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -295,7 +295,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
   1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
   1. Delete the `k8s-cluster-with-log-group.tf` configuration file.
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate

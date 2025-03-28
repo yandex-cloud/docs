@@ -11,7 +11,7 @@ description: '{{ mes-name }} clusters support snapshots. This allows you to migr
 
 To migrate data from the {{ ES }} *source cluster* to the {{ mes-name }} *target cluster*:
 
-1. [Set up a work environment](#before-you-begin).
+1. [Set up the runtime environment](#before-you-begin).
 1. [Create a snapshot in the source cluster](#create-snapshot).
 1. [Restore the snapshot in the target cluster](#restore-snapshot).
 1. [Complete your migration](#finish-migration).
@@ -24,7 +24,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
 {% endnote %}
 
-## Set up a working environment {#before-you-begin}
+## Set up the runtime environment {#before-you-begin}
 
 ### Create the required resources {#create-resources}
 
@@ -34,7 +34,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
     1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
     1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `storage.editor` role. A service account is required to access the bucket from the source and target clusters.
-    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account.
+    1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
 
         {% note warning %}
 
@@ -58,7 +58,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. Download the [mes-migration.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-via-snapshots/blob/main/mes-migration.tf) configuration file to the same working directory. The file describes:
+    1. Download the [mes-migration.tf](https://github.com/yandex-cloud-examples/yc-elasticsearch-migration-via-snapshots/blob/main/mes-migration.tf) configuration file to the same working directory. This file describes:
 
        * Network.
        * Subnet.
@@ -74,7 +74,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
         * Target cluster version
         * {{ objstorage-name }} bucket name
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -88,7 +88,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the `sa-bucket` service account.
+    1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `sa-bucket` service account.
 
         {% note warning %}
 
@@ -176,7 +176,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
          "https://<source_cluster_FQDN>:9200/_snapshot/<repository_name>/snapshot_1?wait_for_completion=true&pretty"
     ```
 
-    Creating a snapshot may take a long time. Track the progress of the operation [using {{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
+    Creating a snapshot may take a long time. Track the progress of the operation [using the {{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
 
     ```bash
     curl -X GET \
@@ -232,7 +232,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
          "https://admin:<admin_user_password>@<target_cluster_FQDN>:9200/_snapshot/<repository_name>/snapshot_1/_restore"
     ```
 
-1. Start restoring data from the snapshot on the target cluster. You can restore the entire snapshot or individual indexes. For more information, see the [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html).
+1. Start restoring data from the snapshot on the target cluster. You can restore the entire snapshot or individual indexes. For more information, see the relevant [{{ ES }} documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-restore-snapshot.html).
 
     Example of restoring a snapshot with indication of the custom indexes to be restored on the target cluster:
 
@@ -246,7 +246,7 @@ You cannot use a snapshot if the {{ ES }} version in the source cluster is highe
 
     Where `list of indexes` is a list of comma-separated indexes to restore, e.g., `my_index*, my_index_2.*`. Transferring only the user indexes will enable you to avoid errors when restoring the snapshot. System indexes are not affected.
 
-    Restoring a snapshot may take a long time. Track the progress of the operation [using {{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
+    Restoring a snapshot may take a long time. Track the progress of the operation [using the {{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), such as:
 
     ```bash
     curl -X GET \

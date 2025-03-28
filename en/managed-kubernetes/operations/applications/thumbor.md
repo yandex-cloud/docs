@@ -21,7 +21,7 @@ Thumbor features:
 1. [Create a bucket](../../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-name }}.
 1. [Upload images to the bucket](../../../storage/operations/objects/upload.md#simple).
 1. [Create a service account](../../../iam/operations/sa/create.md) for Thumbor to run.
-1. Create a [static key](../../../iam/operations/sa/create-access-key.md) and save it to a file named `sa-key.json`:
+1. Create a [static key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) and save it to a file named `sa-key.json`:
 
    ```bash
    yc iam access-key create \

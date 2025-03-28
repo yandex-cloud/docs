@@ -1,9 +1,9 @@
 # Backing up a VM with Hystax Acura Backup
 
 
-You can create VM backups automatically and recover them in your cloud infrastructure using [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup).
+You can automatically create VM backups and recover them in your cloud infrastructure using [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup).
 
-A VM with Hystax Acura Backup manages backup and recovery. VM backups are saved to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md). Recovery involves an auxiliary Hystax Cloud Agent VM. It creates a new VM with a certain recovery point objective (RPO) at a random point of time in the past. Backup recovery time objective (RTO) depends on the amount of source data.
+A VM with Hystax Acura Backup manages backup and recovery. VM backups are saved to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md). Recovery involves an auxiliary Hystax Cloud Agent VM, which creates a new VM with a certain recovery point objective (RPO) at a random point of time in the past. The backup recovery time objective (RTO) depends on the amount of source data.
 
 To back up and recover a VM using Hystax Acura Backup:
 
@@ -12,12 +12,12 @@ To back up and recover a VM using Hystax Acura Backup:
 1. [Configure the network traffic permissions](#network-settings).
 1. [Create a bucket](#create-bucket).
 1. [Create a VM with Hystax Acura Backup](#create-acura-vm).
-1. [Make the VM IP address static](#static-ip).
-1. [Set up Hystax Acura Backup](#setup-hystax-acura).
+1. [Convert the VM IP address to static](#static-ip).
+1. [Configure Hystax Acura Backup](#setup-hystax-acura).
 1. [Prepare and install an agent on the VM](#prepare-agent).
 1. [Create a VM backup](#start-protection).
 1. [Create a disaster recovery plan](#create-recovery-plan).
-1. [Run the recovery process](#run-recover).
+1. [Run recovery](#run-recover).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -30,14 +30,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% note info %}
 
 Note that both the Hystax Acura Backup infrastructure and all recovered VMs will be charged and counted against the [quotas]({{ link-console-quotas }}).
-* A Hystax Acura Backup VM uses 8 vCPUs, 16 GB of RAM, and a 200-GB disk.
-* The auxiliary Hystax Cloud Agent VMs use 2 vCPU cores, 4 GB or RAM, and a 10-GB disk. A single Hystax Acura Cloud Agent VM can serve up to 6 replicated disks at the same time. Should the number of disks exceed 6, this will automatically create additional Hystax Acura Cloud Agent VMs.
+* A Hystax Acura Backup VM uses 8 vCPUs, 16 GB of RAM, and a 200-GB disk.
+* Auxiliary Hystax Cloud Agent VMs use 2 vCPUs, 4 GB of RAM, and a 10-GB disk. A single Hystax Cloud Agent VM can serve up to six replicated disks at a time. If there are more than six disks, the system will automatically create additional Hystax Cloud Agent VMs.
 
-For detailed system requirements, see the [Hystax deployment requirements](https://xn--q1ach.xn--p1ai/cdn/TechDocs/Deployment-requirements.pdf).
+For detailed system requirements, see the [Hystax deployment reference](https://xn--q1ach.xn--p1ai/cdn/TechDocs/Deployment-requirements.pdf).
 
 {% endnote %}
 
-The cost of the resources required to use Hystax Acura Backup includes:
+The cost of resources for Hystax Acura Backup includes:
 * Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 * Fee for VM disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
@@ -49,8 +49,8 @@ The cost of the resources required to use Hystax Acura Backup includes:
 
 Hystax Acura Backup will run under a [service account](../../iam/concepts/users/service-accounts.md).
 1. [Create](../../iam/operations/sa/create.md) a service account named `hystax-acura-account` with the `editor` and `marketplace.meteringAgent` roles. Save the service account ID. You will need it later.
-1. [Create](../../iam/operations/authorized-key/create.md) an authorized key for the service account. You need an authorized key to perform operations in {{ yandex-cloud }} under a service account. Save the ID and private key. You will need these later.
-1. [Create](../../iam/operations/sa/create-access-key.md) a static access key. A static key is required to access a bucket as a service account. Save the ID and secret key. You will need them later.
+1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) an authorized key for the service account. You need an authorized key to perform operations in {{ yandex-cloud }} under a service account. Save the ID and private key. You will need these later.
+1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. A static key is required to access a bucket as a service account. Save the ID and secret key. You will need these later.
 
 ### Configure the network traffic permissions {#network-settings}
 
@@ -93,7 +93,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
-      1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
@@ -126,7 +126,7 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
+      * Navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab.
       * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
       * From the list of public images, select [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
@@ -143,11 +143,11 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
           * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
           * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-              * In the window that opens, enter the network name and select the folder to host the network.
+              * In the window that opens, specify the network name and select the folder to host the network.
               * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
               * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-      * If a list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [one](../../vpc/concepts/security-groups.md#default-security-group) whose network traffic permissions you previously configured. If this list is not there, all inbound and outbound traffic will be enabled for the VM.
+      * If the list of **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** is available, select the [security group](../../vpc/concepts/security-groups.md#default-security-group) whose network traffic permissions you previously configured. If this list is not there, the system will allow all inbound and outbound traffic for the VM.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
@@ -155,7 +155,7 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `hystax-acura-vm`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select the `hystax-acura-account` service account.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select `hystax-acura-account`, the service account you created earlier.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
@@ -186,12 +186,12 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
   * `--network-interface`: VM network interface description:
     * `subnet-id`: ID of the subnet to connect your VM to. You can get the list of subnets using the `yc vpc subnet list` CLI command. Save the subnet ID. You will need it later.
     * `nat-ip-version=ipv4`: Connect a public IP address.
-    * `security-group-ids`: Security group. Use this parameter in case you previously configured a group. You can get the list of groups using the `yc vpc security-group list` CLI command. If you skip this parameter, the system will assign the [default security group](../../vpc/concepts/security-groups.md#default-security-group) to the VM.
+    * `security-group-ids`: Security group. Use this parameter in case you configured this group previously. You can get the list of groups using the `yc vpc security-group list` CLI command. If you skip this parameter, the system will assign the [default security group](../../vpc/concepts/security-groups.md#default-security-group) to the VM.
   * `--create-boot-disk`: Create a new disk for the VM:
     * `name`: Disk name, e.g., `hystax-acura-disk`.
     * `size`: Disk size.
     * `image-id`: Disk image ID. Use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-backup) in {{ marketplace-name }}.
-  * `--service-account-id`: ID of the [previously created](#create-sa) service account. You can get the list of accounts using the `yc iam service-account list` command.
+  * `--service-account-id`: ID of the service account you [created previously](#create-sa). You can get the list of accounts using the `yc iam service-account list` command.
   * `--ssh-key`: Path to the public SSH key file. The default username for SSH access is `yc-user`.
 
 - API {#api}
@@ -202,15 +202,15 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
 
 ## Convert the VM IP address to static {#static-ip}
 
-VMs get a public dynamic address when created. Since a VM with Hystax Acura Backup can reboot, you need to convert its IP to static:
+VMs get a public dynamic IP address when created. Since a VM with Hystax Acura Backup may reboot, convert its IP address to static:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), open the page for the folder you are using.
+  1. In the [management console]({{ link-console-main }}), open the dashboard of the folder you are using.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Go to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the address of your Hystax Acura Backup VM.
   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
@@ -222,7 +222,7 @@ VMs get a public dynamic address when created. Since a VM with Hystax Acura Back
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI commands for updating the address attribute:
+  1. See the description of the CLI commands for updating the address attributes:
 
       ```bash
       yc vpc address update --help
@@ -274,20 +274,20 @@ VMs get a public dynamic address when created. Since a VM with Hystax Acura Back
 
 {% endlist %}
 
-## Set up Hystax Acura Backup {#setup-hystax-acura}
+## Configure Hystax Acura Backup {#setup-hystax-acura}
 
-1. In the [management console]({{ link-console-main }}), open the Hystax Acura Backup VM page and find its public IP address.
-1. Enter the Hystax Acura Backup VM public IP address in your browser. This will open the initial setup screen.
+1. In the [management console]({{ link-console-main }}), open the page of the Hystax Acura Backup VM and find its public IP address.
+1. Enter the VM’s public IP address in your browser. This will open the initial setup screen.
 
    {% note info %}
 
-   Booting the Hystax Acura Backup VM for the first time will trigger an installation process which may take over 20 minutes.
+   Booting the Hystax Acura Backup VM for the first time will trigger an installation process which may take over 20 minutes.
 
    {% endnote %}
 
    By default, a Hystax Acura VM has a self-signed certificate. 
 
-1. On the page that opens, fill out the following fields:
+1. On the page that opens, fill out these fields:
    * **Organization**: Name of your organization.
    * **Admin user login**: Administrator username.
    * **Password**: Administrator password.
@@ -295,7 +295,7 @@ VMs get a public dynamic address when created. Since a VM with Hystax Acura Back
 1. Click **Next**.
 1. Specify the {{ yandex-cloud }} connection settings:
     * **Service account ID**: ID you got when [creating a service account](#create-sa).
-    * **Key ID**: Service account authorized key ID, the one you got when [creating a service account](#create-sa).
+    * **Key ID**: Service account authorized key ID you got when [creating a service account](#create-sa).
     * **Private key**: Service account private key you got when [creating a service account](#create-sa).
 
       {% note info %}
@@ -305,15 +305,15 @@ VMs get a public dynamic address when created. Since a VM with Hystax Acura Back
       {% endnote %}
 
     * **Default folder ID**: [ID](../../resource-manager/operations/folder/get-id.md) of your folder.
-    * **Availability zone**: Availability zone hosting the Hystax Acura Backup VM, the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm).
-    * **Hystax Service Subnet**: ID of the subnet that the Hystax Acura Backup VM is connected to, the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm).
+    * **Availability zone**: Availability zone hosting the Hystax Acura Backup VM (the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm)).
+    * **Hystax Service Subnet**: ID of the subnet the Hystax Acura Backup VM is connected to (the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm)).
     * **S3 Host**: `{{ s3-storage-host }}`.
     * **S3 Port**: `443`.
     * **Enable HTTPS**: Enable HTTPS connections.
     * **S3 Access Key ID**: ID you got when [creating a service account](#create-sa).
     * **S3 Secret Access Key**: Secret key you got when [creating a service account](#create-sa).
     * **S3 Bucket**: Name of the bucket that stores the VM backups, the one you got when [creating a bucket](#create-bucket).
-    * **Hystax Acura Control Panel Public IP**: Replace the value with the Hystax Acura Backup VM public IP, assigned when [creating a VM with Hystax Acura Backup](#create-acura-vm).
+    * **Hystax Acura Control Panel Public IP**: Replace the value with the public IP address of the Hystax Acura Backup VM (the one you got when [creating a VM with Hystax Acura Backup](#create-acura-vm)).
     * **Additional parameters**: Advanced settings. Do not edit this field.
 1. Click **Next**.
 
@@ -336,35 +336,35 @@ To install an agent on the VMs you need to back up:
    - VMware {#vmware}
 
      1. From the drop-down list, select an instance group to set up agents for, such as `Default`.
-     1. Select **New VMware vSphere** and fill out the fields:
+     1. Select **New VMware vSphere** and fill out these fields:
         * **Platform Name**.
         * **Endpoint**: Public IP address of the ESXi host where the replication agent will be deployed.
-        * **Login**: User login (the user must have the administrator permissions).
+        * **Login**: User login (the user must have administrator permissions).
         * **Password**.
 
         Click **Next**.
      1. Click **Download Agent** and wait until the download is complete.
-     1. Deploy the downloaded OVA agent file in your cluster on the VMs  you need to back up.
+     1. Deploy the downloaded OVA agent file in your cluster on the VMs you need to back up.
      1. Start the VMs with the agent.
 
    - Windows {#windows}
 
-     1. From the drop-down list, select a group of VMs to set up agents for, such as `Default`.
+     1. From the drop-down list, select an instance group to set up agents for, such as `Default`.
      1. Click **Next**.
      1. Click **Download Agent** and wait until the download is complete.
      1. Unpack the archive and install the agent from the `hwragent.msi` file on the VMs you need to back up.
 
    - Linux {#linux}
 
-     1. From the drop-down list, select a group of VMs to set up agents for, such as `Default`.
-     1. Select the Linux distribution type:
+     1. From the drop-down list, select an instance group to set up agents for, such as `Default`.
+     1. Select Linux distribution:
         * **CentOS/RHEL (.rpm package)**: CentOS or Red Hat-based.
         * **Debian/Ubuntu (.deb package)**.
      1. Select the driver installation method:
         * **Pre-built**: Install a driver binary.
         * **DKMS**: Compile as you install.
      1. Click **Next**.
-     1. You will get commands for installing the agent on the VM. Run these commands following the instructions for your distribution kit and installation method.
+     1. You will get commands for installing the agent on the VM. Run these commands following the instructions for your distribution and installation method.
 
    {% endlist %}
 
@@ -379,14 +379,14 @@ To enable VM protection:
 1. Under **Machines Groups**, deploy an instance group, e.g., `Default`.
 1. In the VM list on the right, click ![image](../../_assets/console-icons/ellipsis.svg).
 1. In the** Edit replication settings** menu, set up a replication schedule for the instance group by hour, day, or week, or select continuous protection. Under **Volume type**, specify the drive type for VM recovery: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`. 
-1. In the **Edit retention settings** menu, set the backup retention period. For more information, see this [Hystax article](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
+1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax tutorials](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
 1. Select **Start Protection**.
 
-This will start VM replication. A VM replica will include all the data of the original VM. Therefore, replication can take a while (depending on the original VM disk size). The replication status will be displayed in the **Status** column under **Machines Groups**. After the replication is complete, the VMs will change their status to `Protected`.
+This will start VM replication. A VM replica will include all the data of the original VM. Therefore, replication can take a while (depending on the original VM disk size). The replication status will be displayed in the **Status** column under **Machines Groups**. After the replication is complete, the VMs will switch their status to `Protected`.
 
 ## Create a disaster recovery plan {#create-recovery-plan}
 
-The DR plan includes a VM description and the network settings. The plan defines which VMs will be recovered to your cloud and specifies the VM configuration, subnet, and IP address. You can have a plan generated automatically or create one manually:
+The disaster recovery (DR) plan includes a VM description and the network settings. The plan defines which VMs will be recovered to your cloud and specifies the VM configuration, subnet, and IP address. You can have a plan generated automatically or create one manually:
 
 {% list tabs group=instructions %}
 
@@ -395,10 +395,10 @@ The DR plan includes a VM description and the network settings. The plan defines
   1. Open the Hystax Acura Backup control panel. Click the Hystax logo.
   1. Check the VMs you need in the list, click **Bulk actions**, and select **Generate DR plan**. You can also generate a plan for an instance group by clicking ![image](../../_assets/console-icons/ellipsis.svg) in the group title.
   1. In the **Name** field, enter `Plan-1`.
-  1. In the **Subnets** section on the right, set the parameters of the subnet where the the recovered VMs will start:  
+  1. In the right-hand **Subnets** section, set the properties of the subnet where the recovered VMs will start:  
       * In the **Subnet ID** field, enter the subnet ID.
       * In the **CIDR** field, specify the subnet [CIDR](../../vpc/concepts/network.md#subnet).
-  1. Expand the VM description and edit the **Flavor name** field containing the parameters of the VM to restore as follows: `<platform>-<cpu>-<ram>-<core_fraction>`, e.g., `3-8-16-100`.
+  1. Expand the VM description and edit the **Flavor name** field containing the settings of the VM being restored as follows: `<platform>-<cpu>-<ram>-<core_fraction>`, e.g., `3-8-16-100`.
       
       Where: 
       * `platform`: VM [platform](../../compute/concepts/vm-platforms.md#standard-platforms), such as `1`, `2`, or `3`. 
@@ -414,10 +414,10 @@ The DR plan includes a VM description and the network settings. The plan defines
   1. Click **Add DR Plan**.
   1. In the **Name** field, enter `Plan-1`.
   1. Under **Devices & Ranks**, click ![image](../../_assets/console-icons/ellipsis.svg). In the menu that opens, click **Add machine**. Select a VM group, e.g., `Default`. Select the VM to add to the DR plan. Repeat the steps for all VMs you need recovered.
-  1. In the right-hand **Subnets** section, set the properties of the subnet where the recovered VMs will start:  
+  1. In the right-hand **Subnets** section, set the properties of the subnet where the recovered VMs will start:
       * In the **Subnet ID** field, enter the subnet ID.
       * In the **CIDR** field, specify the subnet [CIDR](../../vpc/concepts/network.md#subnet).
-  1. Expand the VM description and edit the **Flavor name** field containing the parameters of the VM being restored as follows: `<platform>-<cpu>-<ram>-<core_fraction>`, e.g., `3-8-16-100`.
+  1. Expand the VM description and edit the **Flavor name** field containing the settings of the VM being restored as follows: `<platform>-<cpu>-<ram>-<core_fraction>`, e.g., `3-8-16-100`.
       
       Where: 
       * `platform`: VM [platform](../../compute/concepts/vm-platforms.md#standard-platforms), such as `1`, `2`, or `3`. 
@@ -435,7 +435,7 @@ Make sure you specified a valid IP address for each VM.
 
 {% endnote %}
 
-## Run the recovery process {#run-recover}
+## Run recovery {#run-recover}
 
 To recover a VM from a backup, Hystax Acura Backup will create a new VM with Hystax Acura Cloud Agent in your cloud. This VM will perform all operations in the cloud.
 
@@ -446,7 +446,7 @@ To recover a VM from a backup:
 1. In the **Cloud Site Name** field, enter a name, such as `Cloud-Site-from-Plan-1`.
 1. Make sure all the required resources are there in the **Final DR plan** list and click **Run Recover**.
 
-    The Hystax Acura Backup control panel will display a section named **Cloud Sites**. The VM recovery may take a while. The recovery status will be displayed in the **Status** column under **Machines**. Wait until it changes to `Running`.
+    You will see the **Cloud Sites** section in the Hystax Acura Backup control panel. The VM recovery may take a while. The recovery status will be displayed in the **Status** column under **Machines**. Wait until it switches to `Running`.
 
 1. Open the [management console]({{ link-console-main }}) and make sure this restored all required resources.
 
@@ -457,5 +457,5 @@ To stop paying for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the auxiliary Hystax Cloud Agent VMs.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the recovered VMs.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
-1. [Delete](../../iam/operations/sa/delete.md) the service account used for Hystax Acura Backup.
+1. [Delete](../../iam/operations/sa/delete.md) the service account for Hystax Acura Backup.
 1. [Delete](../../vpc/operations/address-delete.md) the public static IP address you reserved. 

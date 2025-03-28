@@ -12,17 +12,17 @@ The _API key_ is a secret key only used for simplified authorization of [service
 
 {% note alert %}
 
-If someone might have gotten access to your private key, [delete it](../../operations/api-key/delete.md) and [create a new one](../../operations/api-key/create.md).
+If someone might have gotten access to your private key, [delete it](../../operations/authentication/manage-api-keys.md#delete-api-key) and [create a new one](../../operations/authentication/manage-api-keys.md#create-api-key).
 
 {% endnote %}
 
-It is the user's responsibility to store the API key. {{ yandex-cloud }} provides access to an API key only during its creation. If the key is lost or damaged, you cannot restore it. In which case you can [reissue](../../operations/compromised-credentials.md#api-key-reissue) the key or create a new one.
+It is the user's responsibility to store the API key. {{ yandex-cloud }} provides access to an API key only during its creation. If the key is lost or damaged, you cannot restore it. In this case, you can [reissue](../../operations/compromised-credentials.md#api-key-reissue) the key or create a new one.
 
 {% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
 
 ## API keys with scope and validity limits {#scoped-api-keys}
 
-You can [create](../../operations/api-key/create.md) API keys with an expiration date and a limited scope.
+You can [create](../../operations/authentication/manage-api-keys.md#create-api-key) API keys with an expiration date and a limited scope.
 
 {% include [scoped-api-keys](../../../_includes/iam/scoped-api-keys.md) %}
 
@@ -77,6 +77,6 @@ The following services support authentication based on API keys:
 
 #### See also {#see-also}
 
-* [{#T}](../../operations/api-key/create.md)
+* [{#T}](../../operations/authentication/manage-api-keys.md#create-api-key)
 * [{#T}](iam-token.md)
 * [{#T}](./index.md)

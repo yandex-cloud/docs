@@ -29,7 +29,7 @@ To use Policy Reporter, install [Kyverno](/marketplace/products/yc/kyverno) or a
     * **{{ objstorage-name }}**
 
       1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.uploader` [role](../../../iam/concepts/access-control/roles.md). You need it to access {{ objstorage-name }}.
-      1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `sa-key.json` file:
+      1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `sa-key.json` file:
 
          ```bash
          yc iam access-key create \

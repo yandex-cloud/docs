@@ -279,10 +279,10 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
 
     1. [Create an {{ objstorage-name }}](../../../storage/operations/buckets/create.md) bucket with restricted access.
-    1. [Create a static access key](../../../iam/operations/sa/create-access-key.md).
+    1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key).
     1. (Optional) [Create an external S3 data source](create-s3-source.md) with the following parameters:
 
-        * **Name**: `objserver`
+        * **Name**: `objserver`.
         * **Access Key**: ID of the static access key you previously created.
         * **Secret Key**: Secret key you previously created along with the static access key.
         * **Endpoint**: `{{ s3-storage-host }}`.

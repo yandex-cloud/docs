@@ -11,7 +11,7 @@ Using this tutorial, you'll learn how to save application runtime logs to {{ obj
 
 To set up application runtime log storage:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Configure the environment](#setup).
 1. [Create a bucket for storing logs](#create-bucket).
 1. [Create a data stream](#create-stream).
@@ -22,7 +22,7 @@ To set up application runtime log storage:
 
 If you no longer need to store any logs, [delete the resources in use](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -34,17 +34,17 @@ The cost of application log storage support includes:
 * Fees for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 * Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 
-## Configure the environment {#setup}
+## Set up your environment {#setup}
 
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role for your folder.
-1. [Create](../../iam/operations/sa/create-access-key.md) a static access key.
+1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key.
 
 You'll need the ID and secret key in the next steps.
 
 ## Create a bucket for storing logs {#create-bucket}
 
-1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
-1. In the list of services, select **{{ objstorage-name }}**.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
+1. From the list of services, select **{{ objstorage-name }}**.
 1. Click **Create bucket**.
 1. Name the bucket.
 1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
@@ -56,7 +56,7 @@ You'll need the ID and secret key in the next steps.
 1. In the [management console]({{ link-console-main }}), select the folder to create a data stream in.
 1. Select **{{ yds-full-name }}**.
 1. Click **Create stream**.
-1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Update** after creating it to update the list of databases.
+1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Refresh** after creating it to refresh the list of databases.
 1. Enter a name for the stream.
 1. Click **Create**.
 
@@ -104,7 +104,7 @@ Wait until the transfer is activated. Once the transfer is ready for use, its st
 ## Connect Fluentd to your data stream {#connect}
 
 1. On the page of the created stream, click **Connect** and go to the **Fluentd** tab.
-1. Copy the sample configuration file and paste it into the `/etc/td-agent/td-agent.conf` file. Replace `<key_id>` and `<secret>` with the previously obtained ID and secret key.
+1. Copy the configuration file example and paste it into the `/etc/td-agent/td-agent.conf` file. Replace `<key_id>` and `<secret>` with the previously obtained ID and secret key.
 
   {% cut "Sample configuration file" %}
 

@@ -1,10 +1,20 @@
 # IAM token
 
-An IAM token is a unique sequence of characters issued to a user after authentication.
+An IAM token is a unique sequence of characters issued to a user after authentication. You can only get an IAM token using the [CLI](../../../cli/) or [API](../../../overview/api.md).
 
 ## Using the token {#use}
 
-{% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+IAM tokens are used for authentication in {{ yandex-cloud }} services. IAM tokens are issued for [Yandex accounts](../../operations/iam-token/create.md), [service accounts](../../operations/iam-token/create-for-sa.md), and [federated accounts](../../operations/iam-token/create-for-federation.md).
+
+IAM tokens also serve to authenticate [Docker](../../../container-registry/operations/authentication.md) and [Helm](../../../container-registry/operations/helm-chart/helm-chart-push.md) clients in {{ container-registry-full-name }}.
+
+If you are using the management console or the command line interface (CLI), you do not need to do anything to get or use a token.
+
+You can use IAM tokens for authentication when making API calls to {{ yandex-cloud }} services. When accessing {{ yandex-cloud }} resources through the API, specify the IAM token you got in the `Authorization` header in the following format:
+
+```yaml
+Authorization: Bearer <IAM_token>
+```
 
 To work with {{ TF }}, [add an IAM token to environment variables](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) or specify it in the [provider configuration file](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
@@ -13,8 +23,6 @@ provider "yandex" {
   token = "<IAM_token>"
 }
 ```
-
-In case you work in the management console or the command line interface (CLI), you do not need to do anything to obtain and use a token.
 
 ## Lifetime {#lifetime}
 

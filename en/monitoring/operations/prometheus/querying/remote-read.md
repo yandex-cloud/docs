@@ -7,7 +7,7 @@ description: "Use this guide to read\_metrics via the Remote API."
 
 1. In the [management console]({{ link-console-main }}), select the folder where the data is stored.
 1. [Create a service account](../../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-viewer }}` role for the selected folder.
-1. [Create an API key](../../../../iam/operations/api-key/create.md) for the service account.
+1. [Create an API key](../../../../iam/operations/authentication/manage-api-keys.md#create-api-key) for the service account.
 1. Add the endpoint (`url`) to the `remote_read` section of the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read):
    ```yaml
    ...

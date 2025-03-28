@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
   1. [Create a service account](../../iam/operations/sa/create.md) with the `compute.admin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with Velero.
   1. Grant the [service account](../../iam/concepts/users/service-accounts.md) **READ and WRITE** permissions to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}. To do this, [configure the bucket ACL](../../storage/operations/buckets/edit-acl.md).
-  1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account and save its ID and value. You will not be able to get the key value again.
+  1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account and save its ID and value. You will not be able to get the key again.
 
 - {{ TF }} {#tf}
 

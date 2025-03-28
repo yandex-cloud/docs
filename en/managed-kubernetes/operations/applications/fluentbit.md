@@ -18,7 +18,7 @@ description: Follow this tutorial to install Fluent Bit with a plugin for {{ clo
 
 1. [Create a service account](../../../iam/operations/sa/create.md), which is required for Fluent Bit.
 1. Assign the `logging.writer` and `monitoring.editor` [roles](../../../iam/operations/sa/assign-role-for-sa.md) to the service account.
-1. [Create an authorized key](../../../iam/operations/sa/create-access-key.md) for the service account and save it to the `sa-key.json` file.
+1. [Create an authorized key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account and save it to the `sa-key.json` file.
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 

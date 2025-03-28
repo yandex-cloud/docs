@@ -9,14 +9,14 @@ description: Use this guide to read and visualize metrics with Grafana.
 
 ## Connecting a data source {#data-source}
 
-1. In the [management console]({{ link-console-main }}), select the folder where the data is stored.
+1. In the [management console]({{ link-console-main }}), go to the folder the data is stored in.
 1. [Create a service account](../../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-viewer }}` role for the selected folder.
-1. [Create an API key](../../../../iam/operations/api-key/create.md) for the service account.
+1. [Create an API key](../../../../iam/operations/authentication/manage-api-keys.md#create-api-key) for the service account.
 1. Open the homepage of your {{ grafana-name }} installation.
 1. In the main menu, select **Configuration → Data Sources**.
 1. Click **Add data source**.
 1. Under **Time series databases**, select **Prometheus**.
-1. In the **Name** field, enter the data source name.
+1. In the **Name** field, enter the data source name. 
 1. In the **URL** field, the **HTTP** section, specify the [previously obtained endpoint](../index.md#access).
 1. Under **Custom HTTP headers**, click **Add Header** and add a header for authorization. In the **Header** field, enter `Authorization` and in the **Value** field, enter `Bearer <API_key>`.
 1. Click **Save & test**. You should see a message saying `The data source is working`.
@@ -27,7 +27,7 @@ description: Use this guide to read and visualize metrics with Grafana.
 |----|----|----|
 | `404` | Endpoint not found. Make sure the configuration specifies the correct `url`. | ```not_found: workspace not found: monb1piptmdo********``` |
 | `401` | Service account not found. Make sure the configuration specifies the correct [API key](../../../../iam/concepts/authorization/api-key.md). | ```auth: cannot authenticate by either token or api-key, cause: UNAUTHENTICATED: The token is invalid``` |
-| `403` | No read permissions. Make sure the service account has the `{{ roles-monitoring-viewer }}` role for the selected folder. | ```auth: PERMISSION_DENIED: Permission denied``` |
+| `403` | No read permissions. Make sure the service account has the `{{ roles-monitoring-viewer }}` role for the selected folder. | ```auth: PERMISSION_DENIED: Permission denied```|
 | `429` | [Number of HTTP API read requests per second](../index.md#limits) quota exceeded. | ```execution: too many requests: monb1piptmdo********``` |
 | `400` | Too many lines returned from the request. Try refining your request. | ```bad_data: Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 10000``` |
 

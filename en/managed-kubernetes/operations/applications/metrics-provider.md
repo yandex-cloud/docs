@@ -11,7 +11,7 @@ The provider transforms the request to collect external metrics from a {{ manage
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `monitoring.viewer` [role](../../../iam/concepts/access-control/roles.md).
-1. [Create an authorized access key](../../../iam/operations/authorized-key/create.md) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `sa-key.json` file:
+1. [Create an authorized access key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `sa-key.json` file:
 
    ```bash
    yc iam key create \

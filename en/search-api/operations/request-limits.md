@@ -21,7 +21,7 @@ https://yandex.<domain>/search/xml
 Where:
 
 * `folderid`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are using to work with {{ search-api }}.
-* `apikey`: [API key](../../iam/concepts/authorization/api-key.md) of the service account in this folder. You can [create](../../iam/operations/api-key/create.md) an API key in the management console interface. The value of an API key is displayed only once when it is being created.
+* `apikey`: [API key](../../iam/concepts/authorization/api-key.md) of the service account in this folder. You can [create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key in the management console interface. The value of an API key is displayed only once when it is being created.
 
 ### Request example {#query-request}
 
@@ -80,7 +80,7 @@ Below is the general structure of the resulting XML document with examples of va
 
 #|
 || **Tag** | **Description** | **Attributes** ||
-|| response | This is a grouping tag. |None ||
+|| response | Grouping tag |None ||
 || limits | 
 This is a grouping tag.
 

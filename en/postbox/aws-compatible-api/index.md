@@ -26,7 +26,7 @@ keywords:
 
    You can select the appropriate role from the [Access management](../security/index.md#service-roles) section. For example, to get [configuration](../concepts/glossary.md#configuration) info, the `postbox.viewer` role is enough. To send emails, the service account needs the `postbox.sender` role.
 
-1. [Create a static access key](../../iam/operations/sa/create-access-key.md).
+1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
    It is required for authorization when submitting requests to the Amazon API. To store the key safely, use [{{ lockbox-full-name }}](../../lockbox/tutorials/static-key-in-lockbox/index.md).
 

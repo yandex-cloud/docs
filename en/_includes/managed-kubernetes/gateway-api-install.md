@@ -16,7 +16,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
    * `certificate-manager.admin`: To use [certificates](../../certificate-manager/concepts/index.md#types) registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group) in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
-1. Create an [authorized key](../../iam/operations/authorized-key/create.md) for the service account and save it to the `sa-key.json` file:
+1. Create an [authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account and save it to the `sa-key.json` file:
 
    ```bash
    yc iam key create \
@@ -27,7 +27,6 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
 
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
-
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
@@ -43,7 +42,6 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
    * **Service account key**: Paste the contents of the `sa-key.json` file or create a new [service account](../../iam/concepts/users/service-accounts.md) [key](../../iam/concepts/authorization/key.md).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Wait for the application to change its status to `Deployed`.
-
 
 ## Installation using a Helm chart {#helm-install}
 

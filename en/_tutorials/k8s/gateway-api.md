@@ -5,7 +5,7 @@
 In this tutorial, you will learn how to set up access to the applications deployed in two test environments, `dev` and `prod`, using [{{ alb-full-name }}](../../application-load-balancer/) via Gateway API. For this you will need to create a [public domain zone](../../dns/concepts/dns-zone.md#public-zones) and delegate the domain to [{{ dns-full-name }}](../../dns).
 
 To integrate Gateway API and {{ alb-name }}:
-1. [Create {{ managed-k8s-name }} resources](#k8s-create).
+1. [Create the {{ managed-k8s-name }} resources](#k8s-create).
 1. [Install Gateway API and set up the domain zones](#install-gateway-api).
 1. [Prepare test applications](#prepare-apps).
 1. [Create test applications](#install-apps).
@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
 
-## Create {{ managed-k8s-name }} resources {#k8s-create}
+## Create the {{ managed-k8s-name }} resources {#k8s-create}
 
 1. Create a {{ k8s }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group).
 
@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-     1. Download the [k8s-gateway-api.tf](https://github.com/yandex-cloud-examples/yc-mk8s-gateway-api/blob/main/k8s-gateway-api.tf) cluster configuration file to the same working directory. The file describes:
+     1. Download the [k8s-gateway-api.tf](https://github.com/yandex-cloud-examples/yc-mk8s-gateway-api/blob/main/k8s-gateway-api.tf) cluster configuration file to the same working directory. This file describes:
         * Network.
         * Subnet.
         * {{ k8s }} cluster.
@@ -58,7 +58,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
         * {{ k8s }} version for the {{ k8s }} cluster and node groups.
         * {{ k8s }} cluster CIDR.
-     1. Check that the {{ TF }} configuration files are correct using this command:
+     1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -81,7 +81,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `certificate-manager.admin`: To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in the [load balancer](../../application-load-balancer/concepts/application-load-balancer.md) [target groups](../../application-load-balancer/concepts/target-group.md).
    * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#vpc-public-admin).
-1. Create a [static key](../../iam/operations/sa/create-access-key.md) and save it to a file named `sa-key.json`:
+1. Create a [static key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) and save it to a file named `sa-key.json`:
 
    ```bash
    yc iam key create \
@@ -249,7 +249,7 @@ To test Gateway API, we will create two applications, `tutum/hello-world` and `n
 
    {% endcut %}
 
-1. Create a file named `dev-route.yaml`:
+1. Create the `dev-route.yaml` file:
 
    {% cut "dev-route.yaml" %}
 

@@ -16,7 +16,7 @@ description: Follow this guide to install ExternalDNS with a {{ dns-name }} plug
 
 1. [Create a service account](../../../iam/operations/sa/create.md) for {{ dns-name }}.
 1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `dns.editor` role.
-1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `key.json` file:
+1. [Create an authorized key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the [service account](../../../iam/concepts/users/service-accounts.md) in JSON format and save it to the `key.json` file:
 
    ```bash
    yc iam key create \

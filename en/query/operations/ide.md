@@ -51,7 +51,7 @@ To connect a JDBC driver, follow these steps:
 To create a connection, you must complete these preliminary steps:
 1. [Create a service account](../../iam/operations/sa/create.md) named `dbeaver` with the `editor` role.
 
-1. [Create an authorized key](../../iam/operations/authorized-key/create.md) for the service account and save it to a file.
+1. [Create an authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account and save it to a file.
 
 
 After that, follow these steps:
@@ -65,8 +65,8 @@ After that, follow these steps:
     ```
 
     Where:
-    * `folder_id`: ID of the folder in which queries to {{ yq-full-name }} will be run.
-    * `path_to_auth_key_file.json`: Path to authorized key file.
+    - `folder_id`: ID of the folder in which queries to {{ yq-full-name }} will be run.
+    - `path_to_auth_key_file.json`: Path to authorized key file.
 
     ![](../../_assets/query/dbeaver-yandex-query-connection.png)
 

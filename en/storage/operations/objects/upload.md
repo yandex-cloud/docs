@@ -82,29 +82,37 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-short-name }} authentication.
+  Before you start, retrieve the [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-short-name }} authentication.
+  
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}  
 
   To create an object in an existing bucket:
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl
+     # Creating a service account
+
      resource "yandex_iam_service_account" "sa" {
        name = "<service_account_name>"
      }
 
-     // Assigning a role to a service account
+     # Assigning roles to a service account
+
      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
        folder_id = "<folder_ID>"
        role      = "storage.admin"
        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
      }
 
-     // Creating a static access key
+     # Creating a static access key
+     
      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
        service_account_id = yandex_iam_service_account.sa.id
        description        = "static access key for object storage"
      }
+
+     # Create object
 
      resource "yandex_storage_object" "test-object" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -119,36 +127,19 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
      * `bucket`: Name of the bucket to add the object to. This is a required parameter.
-     * `key`: Name of the object in the bucket. This is a required parameter. The name should match the following format:
+     * `key`: Name of the object in the bucket. This is a required parameter. Follow these naming requirements:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
      * `source`: Relative or absolute path to the file you need to upload to the bucket.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-resources-link }}/storage_object).
+     To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/storage_object).
 
-  1. Make sure the configuration files are correct.
+1. Create the resources:
 
-     1. In the command line, go to the directory where you created the configuration file.
-     1. Run a check using this command:
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```bash
-        terraform plan
-        ```
-
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out. 
-
-  1. Deploy the cloud resources.
-
-     1. If the configuration does not contain any errors, run this command:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. When asked to confirm the changes, type `yes` and press **Enter**.
-
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -176,7 +167,7 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
      * **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**: Prohibits deleting or overwriting the object version for a specified period of time, while you still can upload new versions of the object. A user with the `storage.uploader` role can set a retention period. When combined with legal hold, retention takes no priority.
   1. If you selected **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**, specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
      * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. Such locks cannot be bypassed, shortened, or removed until they expire.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
   1. Specify **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** in days or years. It starts from the moment you upload the object version to the bucket.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}** and refresh the page.
 

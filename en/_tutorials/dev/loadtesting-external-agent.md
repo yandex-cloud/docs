@@ -15,7 +15,7 @@ Load testing with an external agent is used when:
 
 To run load testing using an external agent:
 1. [Get your cloud ready](#before-you-begin).
-1. [Prepare your infrastructure](#prepare-infrastructure).
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Configure the environment](#configure-environment).
 1. [Install the external agent](#install-external-agent).
 1. [Run the external agent](#run-external-agent).
@@ -32,13 +32,13 @@ If you no longer need the connected external agent, [delete it](#clear-out) from
 
 At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
-## Prepare the infrastructure {#prepare-infrastructure}
+## Set up your infrastructure {#prepare-infrastructure}
 
 ### Set up a service account {#prepare-service-account}
 
 1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `sa-loadtest`, in the folder where you are going to connect the external agent.
 1. Assign the `loadtesting.editor` and `loadtesting.generatorClient` [roles](../../load-testing/security/index.md#roles-list) to the service account.
-1. [Create](../../iam/operations/authorized-key/create.md) authorized keys for the service account.
+1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) authorized keys for the service account.
 
     Save public and private keys as a single file by clicking **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
@@ -49,7 +49,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to connect the external agent.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
 
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, e.g., `secret-loadtest`.

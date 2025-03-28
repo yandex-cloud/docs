@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/container-infrastructure/metrics-provider'
 ---
 
 # Редактирование изображений для сайтов с помощью приложения Thumbor

@@ -11,7 +11,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -34,7 +34,7 @@ Prepare the infrastructure:
         ```
 
     
-    1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the service account.
+    1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
 
 
 - {{ TF }} {#tf}
