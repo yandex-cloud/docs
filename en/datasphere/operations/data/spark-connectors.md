@@ -11,7 +11,7 @@ In {{ ml-platform-name }}, you can use [Spark connectors](../../concepts/spark-c
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![spark-connector](../../../_assets/console-icons/route.svg)**{{ ui-key.yc-ui-datasphere.common.spark-connector }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.open-project.create-connector }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, enter a name for your connector. The name format is as follows:
+1. In the **{{ ui-key.yc-ui-datasphere.common.name }}** field, enter a name for your connector. Use the following name format:
 
    {% include [name-format](../../../_includes/name-format-2.md) %}
 
@@ -20,7 +20,7 @@ In {{ ml-platform-name }}, you can use [Spark connectors](../../concepts/spark-c
    * **{{ ui-key.yc-ui-datasphere.spark-connector.select-cluster.title }}**: Select an existing {{ dataproc-name }} cluster or click **{{ ui-key.yc-ui-datasphere.spark-connector.create-cluster-in-dataproc }}** to go to {{ dataproc-name }} and create a new one. The {{ dataproc-name }} persistent cluster must have the `livy:livy.spark.deploy-mode : client` setting.
    * **{{ ui-key.yc-ui-datasphere.spark-connector.create-temporary-cluster.title }}**: Select to create a temporary {{ dataproc-name }} cluster. A temporary cluster will be created the first time you run computations in your project notebook.
 
-1. Optionally, under **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}**, specify the [static access key](../../../iam/operations/sa/create-access-key.md) ID and the [secret](../../concepts/secrets.md) storing the secret part of the static key for the [S3 connector](../../concepts/s3-connector.md).
+1. Optionally, under **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}**, specify the [static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) ID and the [secret](../../concepts/secrets.md) storing the secret part of the static key for the [S3 connector](../../concepts/s3-connector.md).
 
    **{{ ui-key.yc-ui-datasphere.spark-connector.s3-settings }}** allows you to specify data for connecting to an S3 bucket. We recommend this when working with {{ objstorage-name }} buckets in any clusters, especially in {{ dataproc-name }} clusters without the HDFS option enabled.
 

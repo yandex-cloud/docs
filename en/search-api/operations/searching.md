@@ -11,12 +11,12 @@ With {{ search-api-name }}'s [API v1](../concepts/index.md#api-v1), you can perf
 
 {% include [before-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-## Prepare your cloud {#initial-setup}
+## Get your cloud ready {#initial-setup}
 
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `{{ roles-search-api-executor }}` [role](../security/index.md#search-api-executor) to the service account you created.
-1. [Create](../../iam/operations/api-key/create.md) an API key for the created service account.
-1. [Sign up](./workaround.md) for {{ search-api-name }}.
+1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the created service account.
+1. [Sign up](./workaround.md) to {{ search-api-name }}.
 
 ## Create a search query {#form-request}
 
@@ -37,7 +37,7 @@ Based on the search type selected when signing up for the service, specify the a
 
   {% endnote %}
 
-  1. To get an [XML](../concepts/response.md) response, make a GET request formatted as follows:
+  1. To get an [XML](../concepts/response.md) response, create a GET request formatted as follows:
 
       ```httpget
       https://yandex.<domain>/search/xml
@@ -150,7 +150,7 @@ Based on the search type selected when signing up for the service, specify the a
 
   {% endnote %}
 
-  1. Make a GET request in the following format:
+  1. Create a GET request in the following format:
 
       ```text
       https://yandex.<domain>/images-xml
@@ -175,7 +175,7 @@ Based on the search type selected when signing up for the service, specify the a
       https://yandex.ru/images-xml?folderid=b1gt6g8ht345********&apikey=your_service_account_API_key********&text=funny+cats&groupby=attr=ii.groups-on-page=3&p=2&fyandex=1&site=somepics.ru&itype=jpg&iorient=horizontal&isize=medium&icolor=color
       ```
 
-      This request returns the third page of image search results for the `funny cats` query. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). {{ search-api-name }} will return results for medium-sized color images in JPG format with horizontal image orientation found on `somepics.ru`. The **Family search** filter will be applied. The page will contain three groups of search results.
+      This request returns the third page of image search results for the `funny cats` query. The search type is `{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}` (yandex.ru). {{ search-api-name }} will return results for medium-sized color images in JPG format with horizontal image orientation found on `somepics.ru`. The _Family search_ filter will be applied to the search results. The page will contain three groups of search results.
 
   1. Send a query to the Yandex image search database. To do this, use the [cURL](https://curl.haxx.se) utility:
 

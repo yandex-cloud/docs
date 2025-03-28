@@ -1,1 +1,1 @@
-To authenticate to the {{ yandex-cloud }} API, [create an API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/iam-token/create-for-sa.md) for the service account.
+To authenticate to the {{ yandex-cloud }} API, [create an API key](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) or [IAM token](../../../iam/operations/iam-token/create-for-sa.md) for the service account.

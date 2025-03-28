@@ -4,7 +4,7 @@
 
 To use {{ CSI }} capabilities:
 
-1. [Set up a work environment](#create-environment).
+1. [Set up the runtime environment](#create-environment).
 1. [Configure {{ CSI }}](#configure-csi).
 
 See also:
@@ -15,7 +15,7 @@ See also:
 ## Setting up a runtime environment {#create-environment}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` [role](../../../iam/concepts/access-control/roles.md).
-1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for your [service account](../../../iam/concepts/index.md#sa). Save the key ID and secret key, as you will need them when installing {{ CSI }}.
+1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for your [service account](../../../iam/concepts/index.md#sa). Save the key ID and secret key, as you will need them when installing {{ CSI }}.
 1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md) that will be mounted to a `PersistentVolume`. Save the bucket name, as you will need it when installing {{ CSI }}.
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 

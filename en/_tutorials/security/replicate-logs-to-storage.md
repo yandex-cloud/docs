@@ -12,7 +12,7 @@ The solution described below works in the following way:
 
 To set up log replication:
 
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Configure the environment](#setup).
 1. [Create an {{ objstorage-name }} bucket for storing your logs](#create-bucket).
 1. [Create a data stream {{ yds-name }}](#create-stream).
@@ -23,7 +23,7 @@ To set up log replication:
 
 If you no longer want to store logs, [delete the resources allocated to them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -35,14 +35,14 @@ The cost of data storage support includes:
 * Fees for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 * Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 
-## Configure the environment {#setup}
+## Set up your environment {#setup}
 
 1. [Create a service account](../../iam/operations/sa/create.md), e.g., `logs-sa`, with the `editor` role for the folder.
-1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account. Save the ID and secret key. You will need them to log in to AWS.
-1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the service account that you created in the previous step.
+1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the ID and secret key. You will need them to log in to AWS.
+1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the service account you created at the previous step.
 1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH.
 1. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) utility on the VM.
-1. Run the following command:
+1. Run this command:
 
     ```bash
     aws configure
@@ -77,7 +77,7 @@ This tutorial uses the current Fluent Bit version 1.9.
     ```bash
     sudo systemctl start fluent-bit
     ```
-1. Check `fluent-bit` status, it must be active:
+1. Check `fluent-bit` status; the service must be active:
     ```bash
     sudo systemctl status fluent-bit
     ```

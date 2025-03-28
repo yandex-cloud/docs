@@ -29,7 +29,7 @@ For any of the above-listed authentication methods, you can use the [existing SD
 In this example, we will use an authorized key. To create an authorized key, follow these steps:
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `yq.editor` [role](../security/#query-editor).
-1. [Create an authorized access key](../../iam/operations/authorized-key/create.md) for the service account you created. Save the authorized access key to a JSON file.
+1. [Create an authorized access key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account you created. Save the authorized access key to a JSON file.
 
 ## Connection {#setup}
 

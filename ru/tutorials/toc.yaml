@@ -463,8 +463,6 @@ items:
           Развертывание и нагрузочное тестирование gRPC-сервиса с
           масштабированием в {{ managed-k8s-name }}
         href: container-infrastructure/loadtesting-grpc-autoscaling.md
-      - name: Настройка Gateway API в {{ managed-k8s-name }}
-        href: container-infrastructure/gateway-api.md
       - name: >-
           Установка Ingress-контроллера NGINX с сертификатом из {{
           certificate-manager-name }}
@@ -477,10 +475,6 @@ items:
           Проверка состояния приложений в кластере {{ managed-k8s-name }} с
           помощью Ingress-контроллера {{ alb-name }}
         href: container-infrastructure/custom-health-checks.md
-      - name: >-
-          Передача логов кластера {{ managed-k8s-name }} в {{ cloud-logging-name
-          }}
-        href: container-infrastructure/k8s-fluent-bit-logging.md
       - name: Шифрование секретов в {{ managed-k8s-name }}
         href: container-infrastructure/kms-k8s.md
       - name: Синхронизация секретов {{ lockbox-name }} и {{ managed-k8s-name }}
@@ -511,6 +505,44 @@ items:
         href: container-infrastructure/vm-update.md
       - name: Настройка вывода информации из Docker-контейнера в серийный порт
         href: container-infrastructure/serial-port.md
+      - name: '{{ managed-k8s-name }}'
+        items:
+          - name: Использование продуктов {{ marketplace-name }}
+            items:
+              - name: Интеграция с Argo CD
+                href: container-infrastructure/argo-cd.md
+              - name: Интеграция с Crossplane
+                href: container-infrastructure/crossplane.md
+              - name: >-
+                  Синхронизация секретов {{ lockbox-name }} и {{
+                  managed-k8s-name }}
+                href: container-infrastructure/kubernetes-lockbox-secrets.md
+              - name: >-
+                  Передача логов кластера {{ managed-k8s-name }} в {{
+                  cloud-logging-name }}
+                href: container-infrastructure/k8s-fluent-bit-logging.md
+              - name: Настройка Gateway API в {{ managed-k8s-name }}
+                href: container-infrastructure/gateway-api.md
+              - name: Настройка Ingress-контроллера {{ alb-name }}
+                href: container-infrastructure/alb-ingress-controller.md
+              - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
+                href: container-infrastructure/alb-ingress-controller-log-options.md
+              - name: >-
+                  Проверка состояния приложений в кластере {{ managed-k8s-name
+                  }} с помощью Ingress-контроллера {{ alb-name }}
+                href: container-infrastructure/custom-health-checks.md
+              - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
+                href: container-infrastructure/jaeger-over-ydb.md
+              - name: Настройка Kyverno & Kyverno Policies
+                href: container-infrastructure/kyverno.md
+              - name: Использование {{ MP }} для трансляции метрик
+                href: container-infrastructure/metrics-provider.md
+              - name: Редактирование изображений для сайтов с помощью Thumbor
+                href: container-infrastructure/thumbor.md
+              - name: Использование Istio
+                href: container-infrastructure/istio.md
+              - name: Использование HashiCorp Vault для хранения секретов
+                href: container-infrastructure/hashicorp-vault.md
   - name: Прикладные решения
     items:
       - name: Все руководства

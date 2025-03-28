@@ -213,7 +213,10 @@ To apply or update a bucket policy:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-name }} authentication.
+  Retrieve [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-name }} authentication.
+
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
   1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl

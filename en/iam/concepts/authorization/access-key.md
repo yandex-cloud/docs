@@ -15,7 +15,7 @@ It consists of two parts:
 
 Both parts are used in requests to the AWS-compatible API. A key ID is specified in open format. A secret key is used to sign request parameters and is not specified in the request.
 
-It is the client's responsibility to store the secret key. {{ yandex-cloud }} gives access to it only when [creating a static key](../../operations/sa/create-access-key.md).
+It is the client's responsibility to store the secret key. {{ yandex-cloud }} gives access to it only when [creating a static key](../../operations/authentication/manage-access-keys.md#create-access-key).
 
 A static key has no expiration date.
 
@@ -65,7 +65,7 @@ The following services support authentication based on static access keys:
 
 #### See also {#see-also}
 
-* [{#T}](../../operations/sa/create-access-key.md)
+* [{#T}](../../operations/authentication/manage-access-keys.md#create-access-key)
 * [{#T}](./index.md)
 * [{#T}](./sts.md)
 * [{#T}](../../tutorials/static-key-in-lockbox/index.md)

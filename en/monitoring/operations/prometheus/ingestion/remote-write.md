@@ -9,7 +9,7 @@ To set up metric writes via the Remote API with Prometheus used as an agent for 
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to store data.
 1. [Create a service account](../../../../iam/operations/sa/create.md) with the `{{ roles-monitoring-editor }}` role for the selected folder.
-1. [Create an API key](../../../../iam/operations/api-key/create.md) for the service account.
+1. [Create an API key](../../../../iam/operations/authentication/manage-api-keys.md#create-api-key) for the service account.
 1. Add the endpoint (`url`) to the `remote_write` section of the [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write):
    ```yaml
    ...

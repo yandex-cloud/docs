@@ -1,16 +1,16 @@
 # Analyzing {{ objstorage-short-name }} logs in {{ datalens-short-name }}
 
 
-For the {{ objstorage-full-name }} bucket you can enable [action logging](../../storage/concepts/server-logs.md). The logs store information about operations with a [bucket](../../storage/concepts/bucket.md) and the [objects](../../storage/concepts/object.md) in it. Analysis of bucket logs can be useful, for example, if you want to understand what caused a sharp increase in load or get the overall picture of traffic distribution.
+For a {{ objstorage-full-name }} bucket, you can enable [action logging](../../storage/concepts/server-logs.md). The logs store info on operations involving a [bucket](../../storage/concepts/bucket.md) and the [objects](../../storage/concepts/object.md) in it. For example, analyzing bucket logs can help understand what caused a steep load increase or get the overall picture of traffic distribution.
 
 You can create visualizations for your analysis using [{{ datalens-full-name }}](../../datalens/). You must transfer previously saved logs to the {{ CH }} database, which will be used as a source for {{ datalens-short-name }}.
 
-To analyze the logs and present the results in interactive charts:
+To analyze logs and present the results in interactive charts:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a bucket for storing logs](#create-bucket).
 1. [Enable log export](#logs-export).
-1. [Prepare the data source](#prepare-origin).
+1. [Get the data source ready](#prepare-origin).
 1. [Create a connection in {{ datalens-short-name }}](#create-connection).
 1. [Create a dataset in {{ datalens-short-name }}](#create-dataset).
 1. [Create charts in {{ datalens-short-name }}](#create-charts).
@@ -18,7 +18,7 @@ To analyze the logs and present the results in interactive charts:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost includes:
 
-* Fee for data storage in {{ objstorage-short-name }}, operations with data, and outgoing traffic (see [{{ objstorage-short-name }} pricing](../../storage/pricing.md)).
+* Fee for data storage in {{ objstorage-short-name }}, data operations, and outbound traffic (see [{{ objstorage-short-name }} pricing](../../storage/pricing.md)).
 * Fee for a continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 
 
@@ -37,8 +37,8 @@ The cost includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -68,11 +68,11 @@ The cost includes:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Describe the parameters for creating a service account and access key in the configuration file:
+  1. Describe the properties for creating a service account and access key in the configuration file:
 
      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
-  1. Add bucket parameters to the configuration file:
+  1. Add the bucket properties to the configuration file:
   
      ```hcl
      resource "yandex_storage_bucket" "bucket-logs" {
@@ -82,8 +82,8 @@ The cost includes:
      }
      ```
 
-      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
-
+     For more information about the `yandex_storage_bucket` resource, see this [{{ TF }} overview article]({{ tf-provider-resources-link }}/storage_bucket).
+     
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -168,11 +168,11 @@ The cost includes:
         * `target_bucket`: Reference to the log storage bucket.
         * `target_prefix`: [Key prefix](../../storage/concepts/server-logs.md#key-prefix) for objects with logs.
 
-        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -180,20 +180,20 @@ The cost includes:
 
 {% endlist %}
 
-## Prepare the data source {#prepare-origin}
+## Get the data source ready {#prepare-origin}
 
 ### Create a {{ CH }} cluster {#create-ch-cluster}
 
-To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mch.editor }} roles or higher](../../managed-clickhouse/security.md#roles-list). To learn more about assigning roles, see [this {{ iam-name }} article](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a cluster in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. Specify the settings for a {{ CH }} cluster:
+  1. Specify the {{ CH }} cluster settings:
 
      1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify `s3-logs` in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field.
 
@@ -208,9 +208,9 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, set a password.
         * In the **{{ ui-key.yacloud.mdb.forms.database_field_name }}** field, specify `s3_data`.
 
-        Remember the database name.
+        Memorize the database name.
 
-     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable the following options:
+     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, enable these options:
 
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**.
         * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
@@ -233,7 +233,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-  1. Specify the cluster parameters in the create command:
+  1. Specify the cluster properties in the creation command:
 
      ```bash
      {{ yc-mdb-ch }} cluster create \
@@ -252,7 +252,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - {{ TF }} {#tf}
 
-  1. Add a description of the cluster and cluster hosts to the configuration file:
+  1. Add the cluster description and cluster hosts to the configuration file:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
@@ -293,7 +293,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
+     To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-mch }}).
 
   1. Make sure the settings are correct.
 
@@ -311,16 +311,16 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 After creating the cluster, you will be automatically redirected to the **{{ ui-key.yacloud.clickhouse.switch_list }}** page.
 
-Wait for the cluster status to change to `Alive`.
+Wait until the cluster status switches to `Alive`.
 
-### Change user settings {#user-settings}
+### Change the user settings {#user-settings}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Select the `s3-logs` cluster.
-  1. Go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.button_advanced-settings }}** → **Settings**.
   1. In the **Date time input format** field, select `best_effort`.
@@ -330,7 +330,7 @@ Wait for the cluster status to change to `Alive`.
 
 ### Create a static key {#create-static-key}
 
-To create a table with access to {{ objstorage-name }}, you need a static key. [Create it](../../iam/operations/sa/create-access-key.md) and save the ID and secret part of the key.
+To create a table with access to {{ objstorage-name }}, you will need a static key. [Create one](../../iam/operations/authentication/manage-access-keys.md#create-access-key) and save its ID and secret part.
 
 ### Create a table in the database {#create-table}
 
@@ -339,41 +339,41 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 - Management console {#console}
 
   1. Select the `s3-logs` cluster.
-  1. Go to the **SQL** tab.
+  1. Navigate to the **SQL** tab.
   1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password.
   1. Click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
-  1. In the window on the right, write an SQL query:
+  1. In the window on the right, write this SQL query:
 
      ```sql
      CREATE TABLE s3_data.s3logs
      (
         bucket String,              -- Bucket name.
-        bytes_received Int64,       -- Size of the request in bytes.
+        bytes_received Int64,       -- Request size in bytes.
         bytes_send Int64,           -- Response size in bytes.
         handler String,             -- Request method in this format: REST.<HTTP method>.<subject>.
-        http_referer String,        -- URL of request source.
+        http_referer String,        -- Request source URL.
         ip String,                  -- User IP address.
         method String,              -- HTTP request method.
         object_key String,          -- Object key in URL-encoded format.
         protocol String,            -- Data transfer protocol version.
-        range String,               -- HTTP header that defines range of bytes to load from object.
+        range String,               -- HTTP header defining the byte range to load from the object.
         requester String,           -- User ID.
         request_args String,        -- Arguments of the URL request.
-        request_id String,          -- Query ID.
-        request_path String,        -- Full path of the request.
+        request_id String,          -- Request ID.
+        request_path String,        -- Full request path.
         request_time Int64,         -- Request processing time in milliseconds.
         scheme String,              -- Data transfer protocol type.
-                                    -- The possible values are:
+                                    -- The possible values are as follows:
                                     -- * http: Application layer protocol.
                                     -- * https: Application layer protocol with encryption support.
         ssl_protocol String,        -- Security protocol.
         status Int64,               -- HTTP response code.
-        storage_class String,       -- Storage class of the object.
-        timestamp DateTime,        -- Date and time of the operation with the bucket in the YYYY-MM-DDTHH:MM:MMZ format.
+        storage_class String,       -- Object storage class.
+        timestamp DateTime,         -- Date and time of the bucket operation in the YYYY-MM-DDTHH:MM:SSZ format.
         user_agent String,          -- Client application (user agent) that executed the request.
         version_id String,          -- Object version.
-        vhost String                -- Virtual host of request.
-                                    -- The possible values are:
+        vhost String                -- Virtual host of the request.
+                                    -- The possible values are as follows:
                                     -- * {{ s3-storage-host }}.
                                     -- * <bucket_name>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.
@@ -399,14 +399,14 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 - Management console {#console}
 
   1. Select the `s3-logs` cluster.
-  1. Go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_datalens }}** tab.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.datalens.button-action_new-connection }}**.
   1. Fill in the connection settings:
 
      1. Add a connection name: `s3-logs-con`.
      1. In the **Cluster** field, select `s3-logs`.
      1. In the **Host name** field, select the {{ CH }} host from the drop-down list. 
-     1. Enter the DB user name and password.
+     1. Enter the DB username and password.
 
   1. Click **Confirm connection**.
   1. After checking the connection, click **Create connection**.
@@ -418,7 +418,7 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 
 1. Click **Create dataset**.
 1. In the new dataset, move the `s3_data.s3logs` table to the workspace.
-1. Go to the **Fields** tab.
+1. Navigate to the **Fields** tab.
 1. Click ![image](../../_assets/console-icons/plus.svg)**Add field**.
 1. Create a calculated field with the file type:
    
@@ -428,19 +428,19 @@ To create a table with access to {{ objstorage-name }}, you need a static key. [
 1. Click **Create**.
 1. In the top-right corner, click **Save**.
 1. Enter the `s3-dataset` name for the dataset and click **Create**.
-1. When the dataset is saved, click **Create chart** in the top-right corner.
+1. Once the dataset is saved, click **Create chart** in the top-right corner.
 
 ## Create charts in {{ datalens-short-name }} {#create-charts}
 
 ### Create the first chart {#create-pie-chart}
 
-To visualize the number of requests to a bucket using different methods, create a pie chart:
+To visualize the number of requests to a bucket via different methods, create a pie chart:
 
-1. For the visualization type, select `Pie chart`.
+1. Select `Pie chart` as the visualization type.
 1. Drag the `method` field from the **Dimensions** section to the **Colors** section.
 1. Drag the `request_id` field from the **Dimensions** section to the **Measures** section.
 1. In the top-right corner, click **Save**.
-1. In the window that opens, enter the `S3 - Method pie` name for the chart and click **Save**.
+1. In the window that opens, enter the `S3 - Method pie` name for the new chart and click **Save**.
 
 ### Create the second chart {#create-column-chart}
 
@@ -448,21 +448,21 @@ To visualize the number of requests ratio by object type, create a bar chart:
 
 1. Copy the chart from the previous step:
 
-   1. In the top-right corner, click the down arrow next to the **Save** button.
+   1. In the top-right corner, click the check mark next to the **Save** button.
    1. Click **Save as**.
    1. In the window that opens, enter the `S3 - Object type bars` name for the new chart and click **Save**.
 
-1. Select the **Bar chart** visualization type. The `method` and `request_id` fields will automatically appear in the **X** and **Y** sections, respectively.
+1. Select **Bar chart** as the visualization type. The `method` and `request_id` fields will automatically appear in the **X** and **Y** sections, respectively.
 1. Delete the `method` field from the **X** section and drag the `object_type` field there.
 1. In the top-right corner, click **Save**.
 
 ### Create the third chart {#create-column-chart-2}
 
-To visualize the distribution of outgoing traffic by day, create a bar chart:
+To visualize the distribution of outbound traffic by day, create a bar chart:
 
 1. Copy the chart from the previous step:
 
-   1. In the top-right corner, click the down arrow next to the **Save** button.
+   1. In the top-right corner, click the check mark next to the **Save** button.
    1. Click **Save as**.
    1. In the window that opens, enter the `S3 - Traffic generated by days` name for the new chart and click **Save**.
 
@@ -472,14 +472,14 @@ To visualize the distribution of outgoing traffic by day, create a bar chart:
 1. Delete the `request_id` field from the **Y** section and drag the `bytes_send` field there.
 1. In the top-right corner, click **Save**.
 
-## Create a dashboard in {{ datalens-short-name }} and add charts there {#create-dashboard}
+## Create a dashboard in {{ datalens-short-name }} and add charts to it {#create-dashboard}
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
-1. Enter a name for the `S3 Logs Analysis` dashboard and click **Create**.
+1. Enter the `S3 Logs Analysis` name for the dashboard and click **Create**.
 1. In the top-right corner, click **Add** and select `Chart`.
-1. In the **Chart** field, click **Select** and choose the `S3 - Method pie` chart from the list.
-1. Click **Add**. The chart will be displayed on the dashboard.
+1. In the **Chart** field, click **Select** and select the `S3 - Method pie` chart from the list.
+1. Click **Add**. You will now see the chart on the dashboard.
 1. Repeat the previous steps for the `S3 - Object type bars` and `S3 - Traffic generated by days` charts.
 
 ## How to delete the resources you created {#clear-out}

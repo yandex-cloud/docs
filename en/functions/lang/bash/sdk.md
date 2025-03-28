@@ -17,7 +17,7 @@ For the YC CLI commands to be executed successfully, use the `--folder-id` or `-
  
 The runtime environment comes with pre-installed [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html) for support of {{ yandex-cloud }}-compatible services, such as [{{ objstorage-full-name }}](../../../storage/index.yaml) and [{{ message-queue-full-name }}](../../../message-queue/index.yaml).
 
-In which case copy the [static access keys for the service account](../../../iam/operations/sa/create-access-key.md) and provide them, e.g., via the function's [environment variables](../../concepts/runtime/environment-variables.md).
+In which case copy the [static access keys for the service account](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) and provide them, e.g., via the function's [environment variables](../../concepts/runtime/environment-variables.md).
 
 For more information and sample commands, see [AWS Command Line Interface](../../../storage/tools/aws-cli.md) and the [{{ message-queue-full-name }}](../../../message-queue/instruments/index.md) documentation.
 

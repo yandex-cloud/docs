@@ -4,15 +4,15 @@
 You can migrate data from {{ objstorage-name }} to the {{ ydb-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -26,7 +26,7 @@ Prepare the infrastructure:
 
     1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `s3-ydb-account` with the `storage.editor` and `ydb.editor` roles. The transfer will use it to access the bucket and the database.
 
-    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for `s3-ydb-account`.
+    1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for `s3-ydb-account`.
 
 - Using {{ TF }} {#tf}
 
@@ -40,7 +40,7 @@ Prepare the infrastructure:
         This file describes:
 
         * Service account to use when working with the {{ ydb-name }} bucket and database.
-        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
+        * {{ lockbox-name }} secret with the static key of the service account for configuring the source endpoint.
         * {{ objstorage-name }} source bucket.
         * {{ ydb-name }} target cluster.
         * Target endpoint.
@@ -51,7 +51,7 @@ Prepare the infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -90,9 +90,9 @@ Prepare the infrastructure:
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data1.csv` file to the {{ objstorage-name }} bucket.
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with the following settings:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with these settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
@@ -108,22 +108,22 @@ Prepare the infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    Leave the default values for other properties.
+    For the other properties, leave the default values.
 
-1. Create a target endpoint and a transfer:
+1. Create a target endpoint and transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) of the `{{ ydb-short-name }}` type and specify the cluster connection parameters in it:
+        1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) of the `{{ ydb-short-name }}` type and specify the cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-short-name }} database from the list.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select the `s3-ydb-account` service account.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
 
-        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - Using {{ TF }} {#tf}
 
@@ -132,7 +132,7 @@ Prepare the infrastructure:
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -148,7 +148,7 @@ Prepare the infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Check the transfer performance by testing the copy and replication processes.
 
@@ -159,16 +159,16 @@ Check the transfer performance by testing the copy and replication processes.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
     1. Select the database from the list.
-    1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
     1. Check that the {{ ydb-name }} database contains a table named `table1` with the test data.
 
 - CLI {#cli}
 
     1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
 
-    1. Run the following query:
+    1. Run this query:
 
         ```sql
         SELECT * FROM table1;
@@ -201,16 +201,16 @@ Check the transfer performance by testing the copy and replication processes.
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list.
-        1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+        1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that `table1` now contains the new data.
 
     - CLI {#cli}
 
         1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
 
-        1. Run the following query:
+        1. Run this query:
 
             ```sql
                 SELECT * FROM table1;
@@ -238,7 +238,7 @@ Check the transfer performance by testing the copy and replication processes.
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

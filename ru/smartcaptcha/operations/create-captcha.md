@@ -95,4 +95,170 @@ description: Следуя данной инструкции, вы сможете
 
   Капча отобразится на странице сервиса в разделе **{{ ui-key.yacloud.smartcaptcha.label_captcha-settings-list }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для создания капчи:
+
+     ```bash
+     yc smartcaptcha captcha create --help
+     ```
+
+  1. Создайте капчу:
+
+     ```bash
+     yc smartcaptcha captcha create \
+       --name <имя_капчи>
+       --turn-off-hostname-check \
+       --allowed-site <первый_хост>,<второй_хост> \
+       --style-json '<внешний_вид_капчи>' \
+       --pre-check-type <тип_основного_задания> \
+       --challenge-type <тип_дополнительного_задания> \
+       --complexity <сложность_задания> \
+       --override-variants-file <путь_к_файлу_с_правилами>.yaml \
+       --security-rules-file <путь_к_файлу_с_вариантами>.yaml
+     ```
+ 
+     Где:
+     * `--name` — имя капчи.
+     * `--turn-off-hostname-check` — [отключение проверки домена](../concepts/domain-validation.md). Необязательный параметр.
+     * `--allowed-site` — список хостов в формате IP-адресов или доменных имен. Указывайте адрес без протокола и без `/` в конце, например, `example.com`. Капча будет работать и во всех поддоменах указанных доменных имен. Необязательный параметр.
+     * `--style-json` — внешний вид окна задания и других элементов в формате `JSON`. Подробнее смотрите в `JSON`, сгенерированном с помощью [консоли управления]({{ link-console-main }}). Необязательный параметр.
+     * `--pre-check-type` — тип [основного задания](../concepts/tasks.md#main-task) по умолчанию, которое предлагается решить пользователю.
+     * `--challenge-type` — тип [дополнительного задания](../concepts/tasks.md#additional-task) по умолчанию, которое предлагается решить пользователю.
+     * `--complexity` — [сложность](../concepts/tasks.md#task-difficulty) задания по умолчанию. Возможные значения:
+       * `EASY` — простое задание.
+       * `MEDIUM` — задание среднего уровня сложности.
+       * `HARD` — сложное задание.
+       * `FORCE_HARD` — сложное задание с дополнительным вопросом. От пользователя требуется решение дополнительного задания, вне зависимости от результатов выполнения основного задания.
+ 
+       {% include [note-preview-captcha-variants](../../_includes/smartcaptcha/note-preview-captcha-variants.md) %}
+ 
+     * `--security-rules-file` — путь к файлу в формате `YAML` с [правилами для входящего трафика](../concepts/captcha-variants.md#captcha-view-rules), которые будут определять, какой вариант капчи показывать. Необязательный параметр.
+ 
+       {% cut "Пример файла с правилами для входящего трафика" %}
+ 
+       ```yaml
+       - name: <название_правила_1>
+         priority: "<приоритет_правила_1>"
+         description: <описание_правила_1>
+         override_variant_uuid: <идентификатор_варианта_задания>
+         condition:
+           host:
+             hosts:
+               - exact_match: example.com
+               - exact_match: example.net
+       - name: <название_правила_2>
+         priority: "<приоритет_правила_2>"
+         description: <описание_правила_2>
+         override_variant_uuid: <идентификатор_варианта_задания>
+         condition:
+           source_ip:
+             geo_ip_match:
+               locations:
+                 - ru
+                 - es
+       ```
+ 
+       Где:
+       * `name` — имя правила.
+       * `priority` — приоритет правила от `1` до `999999`.
+         
+         Правила проверяются в порядке приоритета от меньшего к большему: `1`, `2` и так далее. Если трафик соответствует нескольким правилам, к нему применится первое сработавшее правило.
+ 
+       * `description` — описание правила. Необязательный параметр.
+       * `override_variant_uuid` — идентификатор варианта задания, которое будет отображаться в случае соответствия трафика правилу. Если параметр не указан, будет отображаться задание по умолчанию.
+       * `condition` — одно или несколько [условий для входящего трафика](../concepts/captcha-variants.md#traffic-conditions). Необязательный параметр.
+ 
+       {% endcut %}
+ 
+     * `--override-variants-file` — путь к файлу в формате `YAML` с [вариантами](../concepts/captcha-variants.md) заданий. Необязательный параметр.
+ 
+       {% cut "Пример файла с вариантами заданий" %}
+ 
+       ```yaml
+       - uuid: <идентификатор_варианта_1>
+         description: <описание_варианта_1>
+         complexity: <сложность_задания>
+         pre_check_type: <основное_задание>
+         challenge_type: <дополнительное_задание>
+       - uuid: <идентификатор_варианта_2>
+         description: <описание_варианта_2>
+         complexity: <сложность_задания>
+         pre_check_type: <основное_задание>
+         challenge_type: <дополнительное_задание>
+       ```
+ 
+       Где:
+       * `uuid` — уникальный идентификатор варианта задания.
+       * `description` — описание варианта задания. 
+       * `complexity` — сложность задания, которое увидит пользователь.
+       * `pre_check_type` — тип основного задания, которое предлагается решить пользователю.
+       * `challenge_type` — тип дополнительного задания, которое предлагается решить пользователю.
+ 
+       {% endcut %}
+
+  {% include [cli-creation-result](../../_includes/smartcaptcha/cli-creation-result.md) %}
+
+- Terraform {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы создать капчу:
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+     {% include [tf-creation-configuration](../../_includes/smartcaptcha/tf-creation-configuration.md) %}
+
+     Где:
+     * `name` — имя капчи.
+     * `style_json` — внешний вид окна задания и других элементов в формате `JSON`. Подробнее смотрите в `JSON`, сгенерированном с помощью [консоли управления]({{ link-console-main }}). Необязательный параметр.
+     * `complexity` — [сложность](../concepts/tasks.md#task-difficulty) задания по умолчанию, которое увидит пользователь. Возможные значения:
+       * `EASY` — простое задание.
+       * `MEDIUM` — задание среднего уровня сложности.
+       * `HARD` — сложное задание.
+       * `FORCE_HARD` — сложное задание с дополнительным вопросом. От пользователя требуется решение дополнительного задания, вне зависимости от результатов выполнения основного задания.
+
+       {% include [note-preview-captcha-variants](../../_includes/smartcaptcha/note-preview-captcha-variants.md) %}
+
+     * `pre_check_type` — тип [основного задания](../concepts/tasks.md#main-task) по умолчанию, которое предлагается решить пользователю.
+     * `challenge_type` — тип [дополнительного задания](../concepts/tasks.md#additional-task) по умолчанию, которое предлагается решить пользователю.
+     * `allowed_sites` — список хостов в формате IP-адресов или доменных имен. Указывайте адрес без протокола и без `/` в конце, например, `example.com`. Капча будет работать и во всех поддоменах указанных доменных имен. Необязательный параметр.
+     * `override_variant` — блок с описанием [варианта](../concepts/captcha-variants.md) задания. Необязательный параметр.
+       * `uuid` — уникальный идентификатор варианта задания.
+       * `description` — описание варианта задания. Необязательный параметр.
+       * `complexity` — сложность задания, которое увидит пользователь.
+       * `pre_check_type` — тип основного задания, которое предлагается решить пользователю.
+       * `challenge_type` — тип дополнительного задания, которое предлагается решить пользователю.
+     * `security_rule` — блок с описанием [правила для входящего трафика](../concepts/captcha-variants.md#captcha-view-rules), которое будет определять, какой вариант капчи показывать. Необязательный параметр.
+       * `name` — имя правила.
+       * `priority` — приоритет правила от `1` до `999999`.
+
+         Правила проверяются в порядке приоритета от меньшего к большему: `1`, `2` и так далее. Если трафик соответствует нескольким правилам, к нему применится первое сработавшее правило.
+
+       * `description` — описание правила. Необязательный параметр.
+       * `override_variant_uuid` — идентификатор варианта задания, которое будет отображаться в случае соответствия трафика правилу. Если параметр не указан, будет отображаться задание по умолчанию.
+       * `condition` — одно или несколько [условий для входящего трафика](../concepts/captcha-variants.md#traffic-conditions). Необязательный параметр.
+
+     Более подробную информацию о параметрах ресурса `yandex_smartcaptcha_captcha`, см. в [документации провайдера]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+     ```bash
+     yc smartcaptcha captcha list
+     ```
+
+- API {#api}
+
+  Чтобы создать капчу, воспользуйтесь методом REST API [create](../../smartcaptcha/api-ref/Captcha/create.md) для ресурса [Captcha](../../smartcaptcha/api-ref/Captcha/index.md) или вызовом gRPC API [Captcha/Create](../../smartcaptcha/api-ref/grpc/Captcha/create.md).
+
 {% endlist %}

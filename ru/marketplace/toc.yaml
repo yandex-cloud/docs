@@ -254,6 +254,52 @@ items:
             href: operations/users/move-subscription.md
           - name: Отключение автопродления
             href: operations/users/cancel-subscription.md
+      - name: Практические руководства
+        items:
+          - name: Все руководства
+            href: tutorials/index.md
+          - name: >-
+              Использование продуктов {{ marketplace-name }} в {{
+              managed-k8s-name }}
+            items:
+              - name: Интеграция с Argo CD
+                href: tutorials/argo-cd.md
+              - name: Интеграция с Crossplane
+                href: tutorials/crossplane.md
+              - name: Синхронизация с секретами {{ lockbox-name }}
+                href: tutorials/kubernetes-lockbox-secrets.md
+              - name: Настройка Fluent Bit для работы с {{ cloud-logging-name }}
+                href: tutorials/fluent-bit-logging.md
+              - name: Настройка Gateway API
+                href: tutorials/gateway-api.md
+              - name: >-
+                  Настройка L7-балансировщика {{ alb-name }} с помощью
+                  Ingress-контроллера
+                href: tutorials/alb-ingress-controller.md
+              - name: >-
+                  Настройка логирования для L7-балансировщика {{ alb-name }} с
+                  помощью Ingress-контроллера
+                href: tutorials/alb-ingress-controller-log-options.md
+              - name: >-
+                  Создание L7-балансировщика с профилем безопасности {{ sws-name
+                  }} через Ingress-контроллер {{ alb-name }}
+                href: tutorials/alb-ingress-with-sws-profile.md
+              - name: >-
+                  Проверка состояния приложений в кластере {{ managed-k8s-name
+                  }} с помощью L7-балансировщика {{ alb-name }}
+                href: tutorials/custom-health-checks.md
+              - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
+                href: tutorials/jaeger-over-ydb.md
+              - name: Настройка Kyverno & Kyverno Policies
+                href: tutorials/kyverno.md
+              - name: Использование {{ MP }} для трансляции метрик
+                href: tutorials/metrics-provider.md
+              - name: Редактирование изображений для сайтов с помощью Thumbor
+                href: tutorials/thumbor.md
+              - name: Использование Istio
+                href: tutorials/istio.md
+              - name: Использование HashiCorp Vault для хранения секретов
+                href: tutorials/hashicorp-vault.md
       - name: Концепции
         items:
           - name: Подписка

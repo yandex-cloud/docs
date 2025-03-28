@@ -41,7 +41,7 @@ The infrastructure support cost includes:
    * `ydb.admin`
    * `{{ roles-functions-invoker }}`
 
-1. [Create a static key](../../iam/operations/sa/create-access-key.md) for the service account. Save the **Key ID** and **Your secret key**.
+1. [Create a static key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the **Key ID** and **Your secret key**.
 1. [Create a secret](../../lockbox/quickstart.md) named `ffmpeg-sa-secret` in {{ lockbox-name }}. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**, specify:
 
    * `ACCESS_KEY_ID` as the key with **Key ID** from the previous step for value.
@@ -80,7 +80,7 @@ The function implements an API which you can use to perform the following action
         ```
 
      1. Create a file named `index.py` and paste into it the contents of the `ffmpeg-api.py` file from the archive.
-     1. Specify the following parameters:
+     1. Specify the following settings:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handle_api`
@@ -121,7 +121,7 @@ Video conversion is performed using the FFmpeg utility. The FFmpeg executable fi
   1. [Upload](../../storage/operations/objects/upload.md) the `src.zip` archive to the bucket you created earlier.
   1. [Create](../../functions/operations/function/version-manage.md) a function version:
 
-     1. Specify the following parameters:
+     1. Specify the following settings:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python37`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` upload method
@@ -206,7 +206,7 @@ After the task is created, the number of messages in the queue increases by one 
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Select the `converter-queue` queue.
   1. Under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, you can see how many messages are in the queue and how many are being processed.
-  1. Go to **{{ ui-key.yacloud.common.monitoring }}**. View the **Overall queue stats** charts.
+  1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**. View the **Overall queue stats** charts.
 
 {% endlist %}
 

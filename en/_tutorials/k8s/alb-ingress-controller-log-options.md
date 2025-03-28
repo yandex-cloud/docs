@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-begin}
 
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -42,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         You can use the same service account for all operations.
 
-    1. [Create an authorized key](../../iam/operations/authorized-key/create.md) for the Ingress controller's service account in JSON format and save it to a file named `key.json`:
+    1. [Create an authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the Ingress controller's service account in JSON format and save it to a file named `key.json`:
 
         ```bash
         yc iam key create \
@@ -104,7 +104,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * Name of the service account for the operation of the {{ alb-name }} Ingress controller.
         * Name of the custom {{ cloud-logging-name }} log group.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -284,7 +284,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
                 backend:
                   service:
                     name: alb-demo-1
-                    port:
+                    port: 
                       name: http
     ---
     apiVersion: networking.k8s.io/v1
@@ -338,7 +338,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
     * `ingress.alb.yc.io/group-name`: Group name. Ingress resources are grouped together, each group served by a separate {{ alb-name }} L7 load balancer.
     * `ingress.alb.yc.io/subnets`: One or more [subnets](../../vpc/concepts/network.md#subnet) to host the load balancer.
     * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used.
-    * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
+    * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Enter the [IP address you got earlier](../../vpc/operations/get-static-ip.md) or set `auto` to get a new IP address automatically.
 
        If you set `auto`, deleting the load balancer from the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) will also delete the [IP address](../../vpc/concepts/address.md). To avoid this, use an existing reserved IP address.
 
@@ -448,7 +448,7 @@ No settings need to be specified to save logs to the default log group.
       disable: true
     ```
 
-1. Create resources:
+1. Create the resources:
 
     ```bash
     kubectl apply -f settings.yaml
@@ -480,7 +480,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 - Manually {#manual}
 
     1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-    1. [Delete](../../vpc/operations/address-delete.md) the cluster's public static IP address if you had reserved one.
+    1. [Delete](../../vpc/operations/address-delete.md) the cluster public static IP address if you reserved one.
     1. [Delete the service accounts](../../iam/operations/sa/delete.md).
     1. [Delete the log group](../../logging/operations/delete-group.md).
 

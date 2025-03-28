@@ -33,7 +33,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
      --subject serviceAccount:<service_account_ID>
    ```
 
-1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for your [service account](../../../iam/concepts/users/service-accounts.md).
+1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for your [service account](../../../iam/concepts/users/service-accounts.md).
 
    * If installing Velero [in the management console using {{ marketplace-full-name }}](#marketplace-install), create a static key in JSON format and save it to the `sa-key.json` file:
 

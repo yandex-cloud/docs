@@ -25,13 +25,13 @@ To work with the {{ speechkit-name }} API, you need to pass authentication. The 
 
      {% include [api-keys-disclaimer](../iam/api-keys-disclaimer.md) %}
 
-      1. [Get an API key](../../iam/operations/api-key/create.md).
+      1. [Get an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
       1. Provide the API key in the `Authorization` header in the following format:
 
           ```yaml
           Authorization: Api-Key <API_key>
           ```
 
-   Do not specify the folder ID in your requests, as {{ yagpt-name }} uses the folder in which the service account was created.
+   Do not specify the folder ID in your requests, as the service uses the folder the service account was created in.
 
 {% endlist %}

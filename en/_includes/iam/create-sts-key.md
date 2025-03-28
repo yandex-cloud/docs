@@ -29,9 +29,9 @@ To get a temporary access key:
     {% include [sts-sa-access-backets-list](sts-sa-access-backets-list.md) %}
 
     Alternatively, you can use [ACL](../../storage/security/acl.md) permissions for a bucket.
-1. [Create](../../iam/operations/sa/create-access-key.md) a static access key for the service account.
+1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key for the service account.
 1. [Install and configure](../../storage/tools/aws-cli.md) the AWS Command Line Interface (AWS CLI).
-1. Describe the [access policy](../../storage/concepts/policy.md) configuration as a [data schema](../../storage/s3/api-ref/policy/scheme.md) in JSON format.
+1. Describe the [bucket policy](../../storage/concepts/policy.md) configuration as a [data schema](../../storage/s3/api-ref/policy/scheme.md) in JSON format.
 
     {% include [sts-sa-scope-note](sts-sa-scope-note.md) %}
 
@@ -64,13 +64,13 @@ To get a temporary access key:
         * `arn:aws:s3:::<bucket_name>/<object_key>`: Bucket object.
         * `arn:aws:s3:::<bucket_name>/<prefix>*`: All objects in the bucket whose keys start with a prefix, e.g., `arn:aws:s3:::samplebucket/some/path/*`. A prefix can be empty, e.g., `arn:aws:s3:::samplebucket/*`, in which case the rule will apply to all bucket objects.
     
-        A bucket resource does not include resources of all its objects. To make sure a bucket policy rule refers to the bucket and all objects, specify them as separate resources, e.g., `arn:aws:s3:::samplebucket` and `arn:aws:s3:::samplebucket/*`.
+        A bucket resource does not include resources of all its objects. To make sure a bucket policy rule applies to the bucket and all its objects, specify them as separate resources, e.g., `arn:aws:s3:::samplebucket` and `arn:aws:s3:::samplebucket/*`.
 
-      If you apply an access policy without rules when creating temporary access keys, access by temporary key will be denied.
+      If you apply a bucket policy without rules when creating temporary access keys, access by temporary key will be denied.
 
     {% endcut %}
 
-    Once complete, save the configuration to a file named `policy.json`.
+    Once the configuration is complete, save it to a file named `policy.json`.
 
     {% include [sts-object-acl-note](sts-object-acl-note.md) %}
 

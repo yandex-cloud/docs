@@ -29,7 +29,7 @@ To implement this use case:
 ## Set the stream connection parameters {#credentials}
 
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role for your folder.
-1. [Create](../../iam/operations/sa/create-access-key.md) a static access key.
+1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key.
 1. On the server where {{ PG }} is set up and running, configure the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html):
     1. [Install the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and run this command:
 

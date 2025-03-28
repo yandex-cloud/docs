@@ -29,7 +29,7 @@ To use the {{ speechsense-name }} API, [create](../../iam/operations/sa/create.m
 
       {% endnote %}
 
-      1. [Get an API key](../../iam/operations/api-key/create.md).
+      1. [Get an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
       1. Provide the API key in the `Authorization` header in the following format:
 
           ```yaml

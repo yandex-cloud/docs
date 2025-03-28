@@ -12,7 +12,7 @@ The functionality for loading data from {{ objstorage-name }} in {{ data-transfe
 You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
-1. [Set up the transfer](#prepare-transfer).
+1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=resources %}
 
@@ -28,10 +28,10 @@ Prepare the infrastructure:
 
     1. [Create a {{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) of any suitable [configuration](../../managed-postgresql/concepts/instance-types.md) with the following settings:
 
-        * Public access to cluster hosts: Allowed.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`.
+        * Public access to cluster hosts: Allowed
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<user_password>`
 
     
     1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-postgresql/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
@@ -40,7 +40,7 @@ Prepare the infrastructure:
     1. [Create an {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
 
     1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
-    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the `storage-viewer` service account.
+    1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-viewer` service account.
 
 - {{ TF }} {#tf}
 
@@ -55,9 +55,9 @@ Prepare the infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) required to connect to a cluster.
-        * Service account to be used to create and access the bucket.
-        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
+        * [Security group](../../vpc/concepts/security-groups.md) required to connect to the cluster.
+        * Service account for creating and accessing the bucket.
+        * {{ lockbox-name }} secret with the static key of the service account for configuring the source endpoint.
         * {{ objstorage-name }} source bucket.
         * {{ mpg-name }} target cluster.
         * Target endpoint.
@@ -69,7 +69,7 @@ Prepare the infrastructure:
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `pg_password`: {{ PG }} user password.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -97,11 +97,11 @@ Prepare the infrastructure:
     5,Viktor
     ```
 
-1. [Upload](../../storage/operations/objects/upload.md#simple) the prepared file to the {{ objstorage-name }} bucket.
+1. [Upload](../../storage/operations/objects/upload.md#simple) the file you prepared to the {{ objstorage-name }} bucket.
 
-## Set up the transfer {#prepare-transfer}
+## Set up your transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md) of the `{{ objstorage-name }}` type with these settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
@@ -117,15 +117,15 @@ Prepare the infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    Leave the default values for other properties.
+    For the other properties, leave the default values.
 
-1. Create a target endpoint and a transfer:
+1. Create a target endpoint and transfer:
 
     {% list tabs group=resources %}
 
     - Manually {#manual}
 
-        1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
+        1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: Name of the {{ PG }} source cluster from the drop-down list.
@@ -133,7 +133,7 @@ Prepare the infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
 
     - {{ TF }} {#tf}
 
@@ -142,7 +142,7 @@ Prepare the infrastructure:
             * `source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -158,9 +158,9 @@ Prepare the infrastructure:
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. [Connect to the {{ mpg-name }} target cluster database](../../managed-postgresql/operations/connect.md).
-1. Run the following query:
+1. Run this query:
 
     ```sql
     SELECT * FROM public."demo_data.csv";

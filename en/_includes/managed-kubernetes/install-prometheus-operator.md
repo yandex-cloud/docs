@@ -7,7 +7,7 @@
    {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the [monitoring.editor](../../monitoring/security/index.md#monitoring-editor) role.
-1. [Create an API key](../../iam/operations/api-key/create.md) for the service account:
+1. [Create an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key) for the service account:
 
    * If you want to install {{ prometheus-name }} Operator using [{{ marketplace-full-name }}](#marketplace-install), create an API key in JSON format and save it to the `sa-key.json` file:
 

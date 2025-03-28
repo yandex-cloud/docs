@@ -256,7 +256,7 @@ The `{{ roles-auditor }}` role allows you to perform the following operations:
 
 * View information about a resource.
 * View resource metadata.
-* View a list of operations with a resource.
+* View a list of operations with the resource.
 
 To control access more selectively and implement the principle of least privilege, use the `{{ roles-auditor }}` role by default.
 
@@ -268,7 +268,7 @@ To control access more selectively and implement the principle of least privileg
   1. Click the **Access permissions** tab.
   1. Click **Assign roles**.
   1. In the **Configure access bindings** window, click **Select user**.
-  1. Select a user from the list or search by user.
+  1. Select a user from the list or use the user search option.
   1. Click **Add role**.
   1. Select the `{{ roles-auditor }}` role in the folder.
   1. Click **Save**.
@@ -396,7 +396,7 @@ Follow the principle of least privilege and [assign to the service account](../.
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Check the list of service accounts.
   1. Repeat the steps for other folders.
@@ -475,7 +475,7 @@ Each service account with extended permissions should be placed as a resource in
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and go to the **Access permissions** tab.
   1. Check the access permissions assigned to the service account.
@@ -530,7 +530,7 @@ You need to rotate keys with unlimited validity yourself: delete and generate ne
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Click the service account you need and see the date of each key's generation under **Access key properties**.
   1. Repeat the steps for each of your folders.
@@ -602,10 +602,10 @@ The scope limits the use of [API keys](../../../iam/concepts/authorization/api-k
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
   1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, check the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** field in the table with your API keys’ details.
-  1. If all API keys have their scopes specified, the recommendation is fulfilled. Otherwise, proceed to the _Guides and solutions to use_.
+  1. If all API keys have their scopes specified, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 - Performing a check via the CLI {#cli}
 
@@ -615,13 +615,13 @@ The scope limits the use of [API keys](../../../iam/concepts/authorization/api-k
   yc iam api-key list --service-account-name <service_account_name>
   ```
 
-  If all API keys listed in the `SCOPE` filed of the command output have their scopes set, the recommendation is fulfilled. Otherwise, proceed to the _Guides and solutions to use_.
+  If all API keys listed in the `SCOPE` filed of the command output have their scopes set, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 
 **Guides and solutions to use:**
 
-[Create](../../../iam/operations/api-key/create.md#create-api-key) an API key with a specified scope.
+[Create](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key with a specified scope.
 
 #### 1.12 Tokens for cloud functions and VMs are issued by a service account {#func-token}
 
@@ -1033,7 +1033,7 @@ Make sure that these groups have no public access to your resources: clouds, fol
   1. Open the {{ yandex-cloud }} management console in your browser.
   1. Next, go to each cloud and find **{{ sf-name }}**.
   1. Open all cloud functions and make sure the **Public access** parameter is disabled.
-  1. Make sure none of the specified resources contain `All users` or `All authenticated users`. Otherwise, proceed to the <q>Guides and solutions to use</q>.
+  1. Make sure none of the specified resources contain `All users` or `All authenticated users`. Otherwise, proceed to <q>Guides and solutions to use</q>.
 
 - Performing a check via the CLI {#cli}
 
@@ -1191,20 +1191,20 @@ For more information, see [{#T}](../../../iam/concepts/users/service-accounts.md
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account with access keys belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you need.
   1. You can see the time of the last key use in the table with key info under **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_last-used-at }}**.
 
 {% endlist %}
 
-#### 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} CIEM {#ciem-access-control}
+#### 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} {{ ciem-name }} {#ciem-access-control}
 
 To ensure data and cloud infrastructure security, you need to regularly audit the access permissions of users and service accounts.
 
-[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or CIEM is a tool that provides a centralized view of the full list of accesses to the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke accesses from subjects.
+[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or {{ ciem-name }} is a tool that provides a centralized view of the full list of access permissions for the organization's [resources](../../../iam/concepts/access-control/resources-with-access-control.md), granted to [subjects](../../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../../organization/concepts/groups.md), [system groups](../../../iam/concepts/access-control/system-group.md), and [public groups](../../../iam/concepts/access-control/public-group.md). The tool also makes it easy to revoke accesses from subjects.
 
-For more information, see [{#T}](../../../security-deck/concepts/ciem.md).
+To learn more, see [{#T}](../../../security-deck/concepts/ciem.md).
 
 **Guides and solutions to use:**
 

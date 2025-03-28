@@ -103,13 +103,13 @@ Create two buckets: one will store files and the other will store request logs f
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Before you start, obtain [static access keys](../../iam/operations/sa/create-access-key.md), i.e., a [secret key and key ID](../../iam/concepts/authorization/access-key.md) used for authentication in {{ objstorage-name }}.
+  Before you start, obtain [static access keys](../../iam/operations/authentication/manage-access-keys.md#create-access-key), i.e., a [secret key and key ID](../../iam/concepts/authorization/access-key.md) used for authentication in {{ objstorage-name }}.
   1. In the configuration file, describe the bucket parameters:
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
      * `bucket`: Name of the bucket you are creating.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```hcl
      provider "yandex" {
@@ -192,7 +192,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
 
       Where:
 
-      * `--bucket`: Name of the source bucket to enable action logging for.
+      * `--bucket`: Name of the source bucket to enable logging for.
       * `--bucket-logging-status`: Path to the logging settings file.
 
 - API {#api}
@@ -251,7 +251,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
      * `key`: Name of the object in the bucket, `ycgame-update-v1.1.exe`. This is a required parameter.
      * `source`: Relative or absolute path to the file you upload as an object.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```hcl
      ...
@@ -260,7 +260,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
        secret_key = "<secret_key>"
        bucket     = "<name_of_bucket_with_files>"
        key        = "ycgame-update-v1.1.exe"
-       source     = "<path_to_file>/ycgame-update-v1.1.exe"
+       source     = "<file_path>/ycgame-update-v1.1.exe"
      }
      ```
 
@@ -327,7 +327,7 @@ Make sure that, when a user sends a request, files are downloaded from the CDN s
      1. Click **{{ ui-key.yacloud.common.save }}**.
   1. Enable [caching](../../cdn/concepts/caching.md) on CDN servers for the resource:
      1. In the **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the resource you created previously.
-     1. Go to **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
+     1. Navigate to **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
      1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
      1. Click **{{ ui-key.yacloud.common.save }}**.

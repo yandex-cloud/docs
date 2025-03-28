@@ -18,7 +18,7 @@ You can install container Storage Interface for S3 in the following ways:
 ## Getting started {#before-you-begin}
 
 1. [Create](../../../iam/operations/sa/create.md) a service account with the `storage.editor` [role](../../../storage/security/index.md#storage-editor).
-1. [Create](../../../iam/operations/sa/create-access-key.md) a static access key for the service account. Save the key ID and secret key, you will need them when installing the application.
+1. [Create](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key for the service account. Save the key ID and secret key, you will need them when installing the application.
 1. (Optional) To make new volumes fit into a single bucket with different prefixes, [create](../../../storage/operations/buckets/create.md) a {{ objstorage-full-name }} bucket. Save the bucket name, you will need it when installing the application. Skip this step if you need to create a separate bucket for each volume.
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}

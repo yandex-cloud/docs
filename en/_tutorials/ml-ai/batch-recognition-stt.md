@@ -13,10 +13,10 @@ To set up automatic audio file recognition using {{ speechkit-short-name }}:
 
 1. [Create](../../iam/operations/sa/create.md) a service account named `asr-batch-sa`.
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the service account the `storage.editor`, `{{ roles-functions-invoker }}`, and `{{ roles-speechkit-stt }}` roles for the folder in which it was created.
-1. [Create](../../iam/operations/sa/create-access-key.md) a static access key for the service account.
+1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key for the service account.
 
 
-1. [Create](../../iam/operations/api-key/create.md) an API key to access the service account.
+1. [Create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key to access the service account.
 1. [Create](../../storage/operations/buckets/create.md) an {{ objstorage-name }} bucket named `asr-batch-bucket` in the service account folder.
 1. Open `asr-batch-bucket`, click **{{ ui-key.yacloud.storage.bucket.button_create }}**, and specify `input` in the **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name}}** field.
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `config.json` file with the specified [recognition language](../../speechkit/stt/models.md#languages) to the bucket's `input` folder. The file only contains one parameter:

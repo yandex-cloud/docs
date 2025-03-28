@@ -51,7 +51,7 @@ To get started in {{ yandex-cloud }}:
     1. Select the `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` type. Do not change other settings.
     1. Click **{{ ui-key.yacloud.common.create }}**.
     1. Open the queue you created.
-    1. On the **{{ ui-key.yacloud.common.overview }}** tab under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, copy the queue URL and ARN for later use.
+    1. In the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, copy the queue URL as you will need it later.
 
 {% endlist %}
 
@@ -107,7 +107,7 @@ To get started in {{ yandex-cloud }}:
     1. Navigate to the **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
     1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select `{{ message-queue-full-name }}`.
-    1. Specify the queue ARN in the **Message queue** field.
+    1. Specify `sample-queue` in the **Message queue** field.
     1. In the **Service account** field, specify `sa-for-eventrouter`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -149,7 +149,7 @@ Make sure the messages matching the created rule are converted and forwarded to 
 - AWS CLI {#cli}
 
     1. [Install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) the AWS CLI.
-    1. [Create](../../iam/operations/sa/create-access-key.md) static access keys for the `sa-for-eventrouter` service account. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+    1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) static access keys for the `sa-for-eventrouter` service account. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
     1. Configure the AWS CLI:
 
        {% include [configure-aws-cli](../../_includes/message-queue/configure-aws-cli.md) %}

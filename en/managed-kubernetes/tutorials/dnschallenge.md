@@ -6,7 +6,7 @@ description: Follow this guide to add a DNS Challenge when issuing Let's Encrypt
 # DNS Challenge for Let's Encrypt® certificates
 
 
-To add an option to run DNS Challenge when issuing [Let's Encrypt® certificates](../../certificate-manager/concepts/managed-certificate.md):
+To add a DNS Challenge when issuing [Let's Encrypt® certificates](../../certificate-manager/concepts/managed-certificate.md):
 
 1. [Create a certificate](#create-cert).
 1. [Check the result](#check-result).
@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `dns.editor` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the [domain zone](../../dns/concepts/dns-zone.md) will be in.
 
-1. [Create an authorized key](../../iam/operations/authorized-key/create.md) for the [service account](../../iam/concepts/users/service-accounts.md) and save it to JSON file:
+1. [Create an authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the [service account](../../iam/concepts/users/service-accounts.md) and save it to JSON file:
 
    ```bash
    yc iam key create \
@@ -42,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     During the installation, specify the service account and the authorized key created at the [Getting started](#before-begin) step.
 
-1. Create a file named `certificate.yaml`:
+1. Create the `certificate.yaml` file:
 
    ```yaml
    apiVersion: cert-manager.io/v1

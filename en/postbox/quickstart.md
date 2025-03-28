@@ -10,8 +10,8 @@ Use this guide to create your address and send a verification email.
 
 1. [Create](../iam/operations/sa/create.md) a service account named `postbox-user` and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `postbox.sender` [role](security/index.md#postbox-sender).
 1. Create a key for the service account:
-   * To send an email using the AWS CLI, [create](../iam/operations/sa/create-access-key.md) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
-   * To send an email via SMTP, [create](../iam/operations/api-key/create.md) an API key. When creating the API key, set the scope to `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key parameters again after you close the window.
+   * To send an email using the AWS CLI, [create](../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+   * To send an email via SMTP, [create](../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key. When creating an API key, set the scope for `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key parameters again after you close the window.
 1. Generate a key to create a DKIM signature:
 
     ```
