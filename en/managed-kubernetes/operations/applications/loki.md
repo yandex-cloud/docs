@@ -21,7 +21,7 @@ description: Follow this guide to install Loki.
 1. Prepare for Loki installation:
 
     1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.uploader` and `storage.viewer` [roles](../../../iam/concepts/access-control/roles.md). You need it to access [{{ objstorage-full-name }}](../../../storage/).
-    1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for your [service account](../../../iam/concepts/users/service-accounts.md) in JSON format:
+    1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for your [service account](../../../iam/concepts/users/service-accounts.md) in JSON format:
 
         ```bash
         yc iam access-key create \

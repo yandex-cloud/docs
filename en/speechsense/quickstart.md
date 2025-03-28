@@ -18,7 +18,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Select the organization to work with {{ speechsense-name }} in or [create](../organization/operations/enable-org.md) a new one.
 
-## Configure the environment {#set-space}
+## Set up your environment {#set-space}
 
 1. Create a [space](concepts/resources-hierarchy.md#space) where all your [projects](concepts/resources-hierarchy.md#project) will be stored: select **Create space**, enter a name, add a description (optional), and click **Create**.
 1. [Link a billing account](operations/space/link-ba.md) to the space. This account will be debited for the use of {{ speechsense-name }}.
@@ -63,7 +63,7 @@ To upload data:
 
 1. [Create a service account](../iam/operations/sa/create.md).
 1. [Add the service account to the namespace](operations/space/add-user-to-space.md) with the `speech-sense.data.editor` role. To learn more about the roles available in the service, see [{#T}](security/index.md).
-1. [Create an API key](../iam/operations/api-key/create.md) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
+1. [Create an API key](../iam/operations/authentication/manage-api-keys.md#create-api-key) or [IAM token](../iam/operations/iam-token/create-for-sa.md) for the service account to authenticate with the API. [Learn more about authentication in the {{ speechsense-name }} API](api-ref/authentication.md).
 1. [Upload your audio data](operations/data/upload-data.md) or [chat history data](operations/data/upload-chat-text.md) using a Python data transfer script.
 
     Use one message for the whole audio.

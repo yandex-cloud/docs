@@ -11,4 +11,4 @@
 * [{#T}](./servers.md)
 * [{#T}](./server-configurations.md)
 * [{#T}](./network.md)
-* [{#T}](./traffic-restrictions.md)
+* [{#T}](./network-restrictions.md)

@@ -33,7 +33,7 @@ For more information, see [{#T}](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
 
-You cannot revoke a temporary key. However, you can [delete](../../iam/operations/sa/delete-access-key.md) a static key used to issue a temporary one.
+You cannot revoke a temporary key. However, you can [delete](../../iam/operations/authentication/manage-access-keys.md#delete-access-key) a static key used to issue a temporary one.
 
 This will revoke permissions for all temporary access keys created based on the deleted static key.
 

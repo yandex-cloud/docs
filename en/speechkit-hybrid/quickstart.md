@@ -48,12 +48,12 @@ In case of errors, use our [debugging guide](quickstart-debugging.md).
    * `container-registry.images.puller`: To work with Docker images in the [{{ container-registry-full-name }}](../container-registry/index.yaml) registry.
    * `iam.serviceAccounts.keyAdmin`: To create an [API key](../iam/concepts/authorization/api-key.md) for authorization in {{ billing-name }}.
 
-1. [Create an API key](../iam/operations/api-key/create.md).
+1. [Create an API key](../iam/operations/authentication/manage-api-keys.md#create-api-key).
 
    Save the ID and the secret part of the key. You cannot request them later.
 
 1. [Create a registry](../container-registry/operations/registry/registry-create.md) in {{ container-registry-name }}.
-1. [Send]({{ link-console-support }}) the registry ID to the {{ speechkit-name }} team. The required containers and images will appear in your registry.
+1. [Send the registry ID to the {{ speechkit-name }}]({{ link-console-support }}) team. The required containers and images will appear in your registry.
 
 ## Install additional dependencies {#prepare}
 
@@ -67,7 +67,8 @@ On a local machine:
 
 On a local machine:
 
-1. Clone the [repository with the {{ TF }} configuration](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/) from which the required infrastructure will be deployed:
+1. Clone the [repository with the {{ TF }} configuration](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/) 
+1.  from which the required infrastructure will be deployed:
 
    ```bash
    git clone git@github.com:yandex-cloud-examples/yc-speechkit-hybrid-deployment.git
@@ -259,7 +260,7 @@ To perform load testing:
    * `docker logs stt-tools` for speech recognition.
    * `docker logs tts-tools` for speech synthesis.
 
-   Until the `Load finished. Ready to serve requests on 0.0.0.0:17001` line appears in the logs, the speech recognition and synthesis services will not respond to requests. You may need to wait from 2 to 10 minutes.
+   Until the `Load finished. Ready to serve requests on 0.0.0.0:17001` line appears in the logs, the speech recognition and synthesis services will not be responding to requests. You may need to wait from 2 to 10 minutes.
 
    Next, the logs will show a message that the [Envoy](architecture.md) component has started listening to port `8080` for speech recognition and port `9080` for speech synthesis. This means {{ sk-hybrid-name }} is running and ready to serve client requests.
 

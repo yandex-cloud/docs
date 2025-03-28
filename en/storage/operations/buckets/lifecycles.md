@@ -259,7 +259,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
           * `NoncurrentDays`: Number of days before the storage class of a non-current object version is changed. The minimum value is `1`. This is a required parameter.
           * `StorageClass`: Storage class to move the object to. It can be `COLD`, `STANDARD_IA`, or `ICE`. This is a required parameter.
 
-          To set the `NoncurrentVersionTransitions` parameter, you must specify the `Prefix` parameter in the configuration file. The `Prefix` value may be empty (`""`).
+          To set the `NoncurrentVersionTransitions` parameter, you must specify the `Prefix` parameter in the configuration file. The `Prefix` value may even be empty (`""`).
       * `NoncurrentVersionExpiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter. 
 
           The rule has the required `NoncurrentDays` parameter for the number of days before non-current object version is deleted. The minimum value is `1`.
@@ -286,7 +286,9 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and key ID used for {{ objstorage-short-name }} authentication.
+  Retrieve [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-short-name }} authentication.
+
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
@@ -432,7 +434,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
      * `enabled`: Rule state. This is a required parameter.
      * `abort_incomplete_multipart_upload_days`: Parameter of a rule for removing all parts of multipart uploads that were not complete within the specified number of days. This is an optional parameter.
-     * `expiration`: Parameter of a rule used to delete any objects. This is an optional parameter.
+     * `expiration`: Parameter of a rule for deleting any objects. This is an optional parameter.
      * `transition`: Parameter of a rule for changing the storage class of any objects from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter.
      * `noncurrent_version_expiration`: Parameter of a rule for deleting non-current object versions. This is an optional parameter.
      * `noncurrent_version_transition`: Parameter of a rule for changing the storage class of non-current object versions from regular (`STANDARD`) to cold (`COLD`, `STANDARD_IA`) or ice (`ICE`) or from cold to ice. This is an optional parameter.

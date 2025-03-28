@@ -32,7 +32,7 @@ The cert-manager app with the {{ dns-full-name }} ACME webhook plugin supports [
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Create](../../../iam/operations/sa/create.md) a service account to run cert-manager.
 1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `dns.editor` role for the folder hosting the public DNS zone.
-1. [Create](../../../iam/operations/authorized-key/create.md) an authorized key for the service account and save it to the `key.json` file.
+1. [Create](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) an authorized key for the service account and save it to the `key.json` file.
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 

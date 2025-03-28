@@ -1,6 +1,6 @@
 To add the load testing invocation from {{ GL }} CI:
 1. [Get your cloud ready](#before-begin).
-1. [Prepare your infrastructure](#infrastructure-prepare).
+1. [Set up your infrastructure](#infrastructure-prepare).
 1. [Prepare a file with test data](#test-file).
 1. [Create {{ GL }}](#add-variables) environment variables.
 1. [Add the load testing stage to the CI scenario configuration file](#add-loadtesting-ci).
@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Fee for data storage in a bucket and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
-## Prepare the infrastructure {#infrastructure-prepare}
+## Set up your infrastructure {#infrastructure-prepare}
 
 ### Create a service account {#sa-create}
 
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    * `vpc.user`
    * `vpc.publicAdmin` (optional, if deploying the agent in a public network)
 
-1. [Create](../../iam/operations/authorized-key/create.md) an authorized key for the service account and save it to the `key.json` file:
+1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) an authorized key for the service account and save it to the `key.json` file:
 
 ### Configure a network {#network-setup}
 
@@ -67,7 +67,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
 1. [Create](../../storage/operations/buckets/create.md) a bucket and [upload](../../storage/operations/objects/upload.md) the test data file into it.
 1. Grant read permissions for the bucket to the service account. To do this, edit the bucket's [ACL](../../storage/concepts/acl.md):
    1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the bucket and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
    1. In the window that opens, enter the service account name, select `READ` for bucket permissions, and click **{{ ui-key.yacloud.common.add }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.

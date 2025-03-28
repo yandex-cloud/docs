@@ -13,8 +13,8 @@ In {{ postbox-name }}, you can send an email using the [AWS CLI](#aws-cli-send) 
 1. [Create](../../iam/operations/sa/create.md) a service account in the folder as the address. If you create the service account and address in different folders, you will get an error when attempting to send an email.
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `postbox.sender` [role](../security/index.md#postbox-sender) to the service account.
 1. Create a key for the service account:
-   * To send an email using the AWS CLI or via SMTP with password authentication, [create](../../iam/operations/sa/create-access-key.md) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
-   * To send an email over SMTP with API key authentication, [create](../../iam/operations/api-key/create.md) an API key. When creating an API key, set the scope for `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key parameters again after you close the window.
+   * To send an email using the AWS CLI or via SMTP with password authentication, [create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+   * To send an email over SMTP with API key authentication, [create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key. When creating an API key, set the scope for `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key parameters again after you close the window.
 
 ## Send an email {#send-email}
 

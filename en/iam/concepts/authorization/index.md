@@ -1,6 +1,6 @@
 # Authorization and authentication in {{ yandex-cloud }}
 
-When a user does something with a resource in {{ yandex-cloud }}, IAM checks whether the user has the access rights required to perform this operation.
+When a user does something with a resource in {{ yandex-cloud }}, {{ iam-short-name }} checks whether they have the access permissions required to perform this operation.
 
 Users get permissions along with resource roles. For more information about how roles are assigned and how the list of permissions is checked, see [{#T}](../access-control/index.md).
 
@@ -60,10 +60,10 @@ Before authorization, a user must get authenticated, i.e., they must log in usin
 
       {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
 
-      [Instructions for how to get an API key](../../operations/api-key/create.md).
+      [Instructions for how to get an API key](../../operations/authentication/manage-api-keys.md#create-api-key).
   * Using [static access keys](access-key.md). Use this method for services with an AWS-compatible API, such as {{ objstorage-name }} and {{ message-queue-name }}.
 
-      [Instructions for how to get a static access key](../../operations/sa/create-access-key.md).
+      [Instructions for how to get a static access key](../../operations/authentication/manage-access-keys.md#create-access-key).
 
 {% endlist %}
 

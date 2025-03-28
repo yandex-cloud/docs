@@ -43,6 +43,8 @@ items:
             href: operations/sa/set-access-bindings.md
           - name: Getting information about a service account
             href: operations/sa/get-id.md
+          - name: Getting an ID token for a service account
+            href: operations/sa/get-id-token.md
           - name: Deleting a service account
             href: operations/sa/delete.md
       - name: Roles
@@ -53,33 +55,27 @@ items:
             href: operations/roles/get-assigned-roles.md
           - name: Revoking a role
             href: operations/roles/revoke.md
-      - name: IAM tokens
+      - name: Authentication
         items:
-          - name: Getting an IAM token for a Yandex account
-            href: operations/iam-token/create.md
-          - name: Getting an IAM token for a service account
-            href: operations/iam-token/create-for-sa.md
-          - name: Getting an IAM token for a federated account
-            href: operations/iam-token/create-for-federation.md
-          - name: Revoking an IAM token
-            href: operations/iam-token/revoke-iam-token.md
-      - name: Keys
-        items:
-          - name: Creating a static access key
-            href: operations/sa/create-access-key.md
-          - name: Deleting a static access key
-            href: operations/sa/delete-access-key.md
+          - name: IAM tokens
+            items:
+              - name: Getting an IAM token for a Yandex account
+                href: operations/iam-token/create.md
+              - name: Getting an IAM token for a service account
+                href: operations/iam-token/create-for-sa.md
+              - name: Getting an IAM token for a federated account
+                href: operations/iam-token/create-for-federation.md
+              - name: Revoking an IAM token
+                href: operations/iam-token/revoke-iam-token.md
+          - name: Managing static access keys
+            href: operations/authentication/manage-access-keys.md
+          - name: Managing API keys
+            href: operations/authentication/manage-api-keys.md
+          - name: Managing authorized keys
+            href: operations/authentication/manage-authorized-keys.md
           - name: Creating a temporary access key using {{ sts-name }}
             href: operations/sa/create-sts-key.md
-          - name: Creating an API key
-            href: operations/api-key/create.md
-          - name: Deleting API keys
-            href: operations/api-key/delete.md
-          - name: Creating authorized keys
-            href: operations/authorized-key/create.md
-          - name: Deleting authorized keys
-            href: operations/authorized-key/delete.md
-      - name: Services' access to user's resources
+      - name: Service access to user resources
         stage: preview
         items:
           - name: Viewing the status of services
@@ -139,7 +135,7 @@ items:
             href: concepts/access-control/public-group.md
           - name: Resources that roles can be assigned for
             href: concepts/access-control/resources-with-access-control.md
-      - name: Authorization and authentication
+      - name: Authentication
         items:
           - name: Overview
             href: concepts/authorization/index.md
@@ -147,6 +143,8 @@ items:
             href: concepts/authorization/cookie.md
           - name: IAM token
             href: concepts/authorization/iam-token.md
+          - name: ID token
+            href: concepts/authorization/id-token.md
           - name: OAuth token
             href: concepts/authorization/oauth-token.md
           - name: API key
@@ -333,7 +331,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

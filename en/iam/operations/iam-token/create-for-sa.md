@@ -42,7 +42,7 @@ To get an IAM token, create a [JSON Web Token](https://tools.ietf.org/html/rfc75
 ### Getting started {#before-you-begin}
 
 1. [Find out the service account ID](../sa/get-id.md).
-1. [Create the authorized keys](../authorized-key/create.md) required for generating a JWT. Save the public key ID.
+1. [Create the authorized keys](../authentication/manage-authorized-keys.md#create-authorized-key) required for generating a JWT. Save the public key ID.
 
 ### 1. To create a JWT {#jwt-create}
 
@@ -74,7 +74,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   A service account's JWT header must contain the following fields:
   * `typ`: Token type, the value is always `JWT`.
   * `alg`: Encryption algorithm. The only supported algorithm is [PS256](https://tools.ietf.org/html/rfc7518#section-3.5).
-  * `kid`: ID of the public key obtained when [creating authorized keys](../authorized-key/create.md). The key must belong to the service account that the IAM token is requested for.
+  * `kid`: ID of the public key obtained when [creating authorized keys](../authentication/manage-authorized-keys.md#create-authorized-key). The key must belong to the service account that the IAM token is requested for.
 
   Example:
 
@@ -111,7 +111,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
   **1.3. Generating a signature**
 
-  Create a signature using the private key obtained when [creating authorized keys](../authorized-key/create.md). For the signature, use a string consisting of the header and payload separated by a period (`.`):
+  Create a signature using the private key obtained when [creating authorized keys](../authentication/manage-authorized-keys.md#create-authorized-key). For the signature, use a string consisting of the header and payload separated by a period (`.`):
 
   ```
   header.payload
@@ -124,6 +124,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   If you generate a token using [jwt.io](https://jwt.io), note that `\n` in the key value must be replaced with line breaks.
 
 - Python {#python}
+
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [PyJWT](https://github.com/jpadilla/pyjwt/):
   - Verified for Python 3.12.2 and PyJWT 2.8.0.
@@ -142,8 +144,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   import json
 
   # Reading a private key from a JSON file
-  with open('<JSON_file_with_keys>', 'r') as f:
-    obj = f.read()
+  with open('<JSON_file_with_keys>', 'r') as f: 
+    obj = f.read() 
     obj = json.loads(obj)
     private_key = obj['private_key']
     key_id = obj['id']
@@ -171,10 +173,11 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
      
   # Printing to console
   print(encoded_token)
-
   ```
 
 - Java {#java}
+
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using the [JJWT](https://github.com/jwtk/jjwt), [Bouncy Castle](https://github.com/bcgit/bc-java), and [Jackson Databind](https://github.com/FasterXML/jackson-databind) libraries:
   - Verified for Java 21 and JJWT 0.12.5.
@@ -242,6 +245,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
 - C# {#csharp}
 
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
+
   Example of creating a JWT using [jose-jwt](https://www.nuget.org/packages/jose-jwt/):
   - Verified for jose-jwt 5.0.0.
 
@@ -296,7 +301,6 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
             }
         }
     }
-
     ```
 
   **.NET 5.0+**:
@@ -345,6 +349,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
 - Go {#go}
 
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
+
   Example of creating a JWT using [golang-jwt](https://github.com/golang-jwt/jwt).
   - Verified for Go1.22.1 and golang-jwt v5.
   - The private key is read from the JSON file obtained when creating the authorized key.
@@ -357,7 +363,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   ```
 
   ```go
-  package main
+  package main  
   
   import (
   	"crypto/rsa"
@@ -433,6 +439,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
 - Node.js {#node}
 
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
+
   Example of creating a JWT using [node-jose](https://github.com/cisco/node-jose):
   - Verified for Node.js v20.12.1 and node-jose 2.2.0.
   - The required data is read from the JSON file obtained when creating the authorized key.
@@ -468,6 +476,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   ```
 
 - PHP {#php}
+
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Example of creating a JWT using [PHP JWT Framework](https://github.com/web-token/jwt-framework):
   - Verified for PHP v8.3.4 and web-token/jwt-framework v3.3.5.
@@ -534,6 +544,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
 - C++ {#cpp}
 
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
+
   Example of creating a JWT using [jwt-cpp](https://github.com/Thalhammer/jwt-cpp):
   - Verified for C++ 14 and jwt-cpp 0.7.0.
   - The required data is read from the JSON file obtained when creating the authorized key.
@@ -580,6 +592,8 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
 - Ruby {#ruby}
 
+  {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
+
   Example of creating a JWT using [ruby-jwt](https://github.com/jwt/ruby-jwt):
   - Verified for Ruby 3.2.3 and jwt 2.8.1.
   - The required data is read from the JSON file obtained when creating the authorized key.
@@ -589,7 +603,6 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   ```
   gem install jwt
   ```
-
 
   ```ruby
   
@@ -636,11 +649,9 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   rescue => e
     puts "An error occurred: #{e.message}"
   end
-  
   ```
 
 {% endlist %}
-
 
 
 ### 2. Exchange the JWT for an IAM token {#get-iam-token}

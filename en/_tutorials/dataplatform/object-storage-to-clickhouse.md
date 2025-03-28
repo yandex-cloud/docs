@@ -12,15 +12,15 @@ The functionality for loading data from {{ objstorage-name }} in {{ data-transfe
 You can migrate data from {{ objstorage-full-name }} to the {{ mch-name }} table using {{ data-transfer-name }}. To do this:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -42,7 +42,7 @@ Prepare the infrastructure:
 
     1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `storage-viewer` with the `storage.viewer` role. The transfer will use it to access the bucket.
 
-    1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the `storage-viewer` service account.
+    1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-viewer` service account.
 
 - Using {{ TF }} {#tf}
 
@@ -57,9 +57,9 @@ Prepare the infrastructure:
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) required to connect to a cluster.
-        * Service account to be used to create and access the bucket.
-        * {{ lockbox-name }} secret which will store the static key of the service account to configure the source endpoint.
+        * [Security group](../../vpc/concepts/security-groups.md) required to connect to the cluster.
+        * Service account for creating and accessing the bucket.
+        * {{ lockbox-name }} secret with the static key of the service account for configuring the source endpoint.
         * {{ objstorage-name }} source bucket.
         * {{ mch-name }} target cluster.
         * Target endpoint.
@@ -71,7 +71,7 @@ Prepare the infrastructure:
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
         * `ch_password`: {{ CH }} user password.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -110,9 +110,9 @@ Prepare the infrastructure:
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the `demo_data1.csv` file to the {{ objstorage-name }} bucket.
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with the following settings:
+1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#endpoint-settings) of the `{{ objstorage-name }}` type with these settings:
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
@@ -128,15 +128,15 @@ Prepare the infrastructure:
         * `Id`: `Int64`
         * `Name`: `UTF8`
 
-    Leave the default values for other properties.
+    For the other properties, leave the default values.
 
-1. Create a target endpoint and a transfer:
+1. Create a target endpoint and transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md#endpoint-settings) of the `{{ CH }}` type and specify the cluster connection parameters in it:
+        1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md#endpoint-settings) of the `{{ CH }}` type and specify the cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.managed.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: `<{{ CH }}_target_cluster_name>` from the drop-down list.
@@ -144,9 +144,9 @@ Prepare the infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}**: `user1`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: `<user_password>`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
 
-        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - Using {{ TF }} {#tf}
 
@@ -155,7 +155,7 @@ Prepare the infrastructure:
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -171,7 +171,7 @@ Prepare the infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Check the transfer performance by testing the copy and replication processes.
 
@@ -179,7 +179,7 @@ Check the transfer performance by testing the copy and replication processes.
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to `db1` in the {{ mch-name }} target cluster.
 
-1. Run the following query:
+1. Run this query:
 
     ```sql
     SELECT * FROM db1.table1;
@@ -207,7 +207,7 @@ Check the transfer performance by testing the copy and replication processes.
 
     1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to `db1` in the {{ mch-name }} target cluster.
 
-    1. Run the following query:
+    1. Run this query:
 
         ```sql
         SELECT * FROM db1.table1;
@@ -233,7 +233,7 @@ Check the transfer performance by testing the copy and replication processes.
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

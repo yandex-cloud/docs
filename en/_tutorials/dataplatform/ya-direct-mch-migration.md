@@ -1,7 +1,7 @@
 # Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{ data-transfer-full-name }}
 
 
-To transfer data from {{ yandex-direct }} to {{ mch-name }}, you can use {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. To do this:
+You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. To do this:
 
 1. [Transfer your data from {{ yandex-direct }} to {{ objstorage-name }} using {{ sf-name }}](#direct-objstorage).
 1. [Transfer your data from {{ objstorage-name }} to {{ mch-name }} using {{ data-transfer-name }}](#objstorage-mch).
@@ -75,7 +75,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     - Manually {#manual}
 
         1. [Create a service account](../../iam/operations/sa/create.md) named `storage-lockbox-sa` and assign the `storage.uploader` and `lockbox.payloadViewer` roles to it.
-        1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for `storage-lockbox-sa`.
+        1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the `storage-lockbox-sa` service account.
         1. [Create a secret in {{ lockbox-full-name }}](../../lockbox/operations/secret-create.md) with three `key:value` pairs:
 
             * `access_key:<public_key>`
@@ -116,7 +116,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `bucket_name`: {{ objstorage-short-name }} bucket name. The name must be unique within the service.
             * `ch_password`: {{ mch-name }} cluster admin user password.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -186,7 +186,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `path_to_zip_cf`: Path to the ZIP archive file with the function code.
             * `create_function`: `1` to create a function.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -223,7 +223,7 @@ You will see a Parquet file in the bucket.
         * `Id`: `Int64`
         * `Name`: `String`
 
-    Leave the default values for other properties.
+    For the other properties, leave the default values.
 
 1. Create an endpoint for the target and the transfer:
 
@@ -242,7 +242,7 @@ You will see a Parquet file in the bucket.
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -256,13 +256,13 @@ You will see a Parquet file in the bucket.
 
     {% endlist %}
 
-1. Activate the transfer and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Activate the transfer and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
 1. Make sure the {{ objstorage-name }} source data was transferred to the {{ mch-name }} database:
 
     1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
-    1. Run the following query:
+    1. Run this query:
 
         ```sql
         SELECT * FROM ac05e4fe818e463f88a8a299d290734d_snappy_parquet;

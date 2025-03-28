@@ -5,11 +5,9 @@ description: Step-by-step guides on how to manage access permissions to {{ yande
 
 # Step-by-step guides for {{ iam-name }}
 
-
 ## Publicly available secrets {#credentials}
 
 - [Processing secrets that have become publicly available](compromised-credentials.md)
-
 
 ## Users {#users}
 
@@ -31,6 +29,7 @@ description: Step-by-step guides on how to manage access permissions to {{ yande
 - [{#T}](sa/set-access-bindings.md)
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
+- [{#T}](sa/get-id-token.md)
 
 ## Identity federations {#federations}
 
@@ -42,32 +41,16 @@ The guides on managing identity federations are now included in the {{ org-full-
 - [{#T}](roles/get-assigned-roles.md)
 - [{#T}](roles/revoke.md)
 
-## IAM tokens {#iam-tokens}
+## Authentication {#authentication}
 
 - [{#T}](iam-token/create.md)
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
 - [Reissue an IAM token](compromised-credentials.md#iam-reissue)
-
-
-## Static access keys {#static-keys}
-
-- [{#T}](sa/create-access-key.md)
-- [{#T}](sa/delete-access-key.md)
-
-## Temporary access keys {#temporary-keys}
-
+- [{#T}](authentication/manage-access-keys.md)
+- [{#T}](authentication/manage-api-keys.md)
+- [{#T}](authentication/manage-authorized-keys.md)
 - [{#T}](sa/create-sts-key.md)
-
-## API keys {#api-keys}
-
-- [{#T}](api-key/create.md)
-- [{#T}](api-key/delete.md)
-
-## Authorized keys {#authorized-keys}
-
-- [{#T}](authorized-key/create.md)
-- [{#T}](authorized-key/delete.md)
 
 ## Service control {#service-control}
 

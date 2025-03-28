@@ -14,7 +14,7 @@ Yandex BareMetal находится на стадии [Preview](../overview/conc
 
 {% endnote %}
 
-В сервисе {{ baremetal-name }} оплачивается срок аренды сервера определенной конфигурации.
+В сервисе {{ baremetal-name }} оплачивается срок аренды сервера [определенной конфигурации](concepts/server-configurations.md).
 
 ## Цены для региона Россия {#prices}
 

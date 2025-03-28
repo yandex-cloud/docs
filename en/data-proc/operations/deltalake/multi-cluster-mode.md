@@ -8,12 +8,12 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
 {% include [deltalake-disclaimer](../../../_includes/data-processing/deltalake-disclaimer.md) %}
 
 
-## Prepare the infrastructure {#prereq}
+## Set up your infrastructure {#prereq}
 
 1. [Create a serverless {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#create-db-serverless).
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `ydb.editor` role for access to {{ ydb-short-name }}.
-1. [Create a static access key](../../../iam/operations/sa/create-access-key.md) for the service account.
-1. [Create a {{ lockbox-full-name }} secret](../../../lockbox/operations/secret-create.md) and place there the static key data as two `key-value` pairs:
+1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
+1. [Create a {{ lockbox-full-name }} secret](../../../lockbox/operations/secret-create.md) and place into it the static key data as two `key-value` pairs:
 
     * Key: `key-id`; value: `<static_key_ID>`.
     * Key: `key-secret`; value: `<static_key_secret_part>`.
@@ -49,7 +49,7 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
 
     * Save the archive to the {{ objstorage-name }} bucket and provide the file URL in the `spark.jars` property:
 
-        `spark.jars=s3a://<bucket_name>/<path_to_file>`
+        `spark.jars=s3a://<bucket_name>/<file_path>`
 
         Make sure the cluster service account has read access to the bucket.
 
@@ -154,7 +154,7 @@ To add the cleanup functions to your cloud:
     chmod +x ./cf-cleanup/pack.sh
     ```
 
-1. In the `delta-prefixes.txt file`, specify the paths to the {{ objstorage-name }} bucket folders with temporary Delta Lake files. Make sure each path is given in a new line in the following format:
+1. In the delta-prefixes.txt file, specify the paths to the {{ objstorage-name }} bucket folders with temporary Delta Lake files. Make sure each path is given in a new line in the following format:
 
     ```txt
     BucketName Mode PathPrefix

@@ -20,7 +20,7 @@ Before you start, [create a service account](../../iam/operations/sa/create.md#c
 
 ### Authentication with a static key {#access-key-ses-example}
 
-1. [Create a static key](../../iam/operations/sa/create-access-key.md) for the service account.
+1. [Create a static key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
 1. Run this request:
 
     ```bash

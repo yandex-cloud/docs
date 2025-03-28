@@ -42,7 +42,7 @@ To use the {{ foundation-models-full-name }} API, you need to get authenticated:
 
      {% include [api-keys-disclaimer](../../_includes/iam/api-keys-disclaimer.md) %}
 
-      1. [Get an API key](../../iam/operations/api-key/create.md).
+      1. [Get an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
       1. Provide the API key in the `Authorization` header in the following format:
 
          ```bash

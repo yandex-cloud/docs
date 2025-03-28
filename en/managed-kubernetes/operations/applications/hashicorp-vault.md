@@ -28,7 +28,7 @@ To use HashiCorp Vault, you need:
    yc iam service-account create --name vault-kms
    ```
 
-1. [Create an authorized key](../../../iam/operations/authorized-key/create.md) for the service account and save it to the `authorized-key.json` file:
+1. [Create an authorized key](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account and save it to the `authorized-key.json` file:
 
    ```bash
    yc iam key create \
@@ -55,7 +55,7 @@ To use HashiCorp Vault, you need:
      --role kms.keys.encrypterDecrypter
    ```
 
-   You can fetch the folder ID with a [list of folders](../../../resource-manager/operations/folder/get-id.md).
+   You can fetch the folder ID with the [list of folders](../../../resource-manager/operations/folder/get-id.md).
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 

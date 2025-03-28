@@ -32,7 +32,7 @@ Prior to installing {{ unified-agent-full-name }}, follow these steps:
 
 1. Set up agent authorization in the {{ monitoring-full-name }} API:
    - If the agent is installed on a VM in {{ yandex-cloud }}, [link the service account you created](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) to the VM. In that case, the agent will automatically receive the service account IAM token from the metadata service.
-   - If the agent is installed on a host outside {{ yandex-cloud }}, [create an authorized key](../../../../iam/operations/authorized-key/create.md) for service accounts. For more information about delivering metrics from hosts outside {{ yandex-cloud }}, see [{#T}](../../../operations/unified-agent/non-yc.md).
+   - If the agent is installed on a host outside {{ yandex-cloud }}, [create an authorized key](../../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for service accounts. For more information about delivering metrics from hosts outside {{ yandex-cloud }}, see [{#T}](../../../operations/unified-agent/non-yc.md).
 
 
 ## Installation {#setup}
@@ -144,7 +144,7 @@ Update {{ unified-agent-short-name }} using one of the following methods:
 
 #### What's next {#what-is-next}
 
-- [Learn how to run and stop {{ unified-agent-short-name }}](./run-and-stop.md).
-- [Read about {{ unified-agent-short-name }} concepts](./index.md).
-- [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md).
-- [Read the {{ unified-agent-short-name }} operating guidelines](./best-practices.md).
+- [Learn how to run and stop {{ unified-agent-short-name }}](./run-and-stop.md)
+- [Read about {{ unified-agent-short-name }} concepts](./index.md)
+- [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md)
+- [Read the {{ unified-agent-short-name }} operating guidelines](./best-practices.md)

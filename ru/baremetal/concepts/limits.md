@@ -14,4 +14,4 @@ editable: false
 
 #### См. также {#see-also}
 
-* [{#T}](./traffic-restrictions.md)
+* [{#T}](./network-restrictions.md)

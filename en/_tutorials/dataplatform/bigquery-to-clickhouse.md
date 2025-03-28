@@ -10,7 +10,7 @@ This method of migration has the following benefits:
 * You can specify the export format and the compression ratio.
 * Lower data amounts are involved, which accelerates migration and reduces its cost.
 
-However, in this case, the data is migrated "as is", without transforming or copying the updated increments.
+However, in this case, the data is migrated _as is_ without transforming or copying the updated increments.
 
 To migrate the database from Google BigQuery to {{ mch-name }}:
 
@@ -46,11 +46,11 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
     * `term`
     * `refresh_date`
 
-### Create {{ yandex-cloud }} resources {#create-yandex-res}
+### Create the {{ yandex-cloud }} resources {#create-yandex-res}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `storage.uploader` role to access the {{ objstorage-name }} bucket.
 
-1. [Create a static access key](../../iam/operations/sa/create-access-key.md) for the service account. Save the key ID and secret key, you will need them later.
+1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the key ID and secret key, you will need them later.
 
 1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration. When creating a cluster:
 

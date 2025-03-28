@@ -63,7 +63,7 @@ You can authenticate using:
 
 ### Authentication using any service account {#sa}
 
-`key.json` must contain the authorized service account key. For information on how to create an authorized key, see [{#T}](../../../iam/operations/authorized-key/create.md).
+`key.json` must contain the authorized service account key. For information on how to create an authorized key, see [{#T}](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
 
 {% list tabs group=programming_language %}
 

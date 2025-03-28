@@ -19,7 +19,7 @@ To implement an example from this section:
 
 1. [Create](../../../iam/operations/sa/create.md) a service account to work with the {{ speechkit-short-name }} API.
 1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `{{ roles-speechkit-stt }}` role or higher for the folder where it was created.
-1. Get an [API key](../../../iam/operations/api-key/create.md) or [IAM token](../../../iam/operations/api-key/create.md) for your service account.
+1. Get an [API key](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) or [IAM token](../../../iam/operations/iam-token/create-for-sa.md) for your service account.
 1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition or use your own one.
 1. Create a client application:
 
@@ -42,7 +42,7 @@ To implement an example from this section:
       1. Go to the folder hosting the cloned {{ yandex-cloud }} API repository, create a folder named `output`, and generate the client interface code there:
 
          ```bash
-         cd <path_to_cloudapi_directory>
+         cd <path_to_cloudapi_folder>
          mkdir output
          python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
            --python_out=output \
@@ -57,7 +57,7 @@ To implement an example from this section:
              yandex/cloud/ai/stt/v3/stt.proto
          ```
 
-         As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, will be created in the `output` folder.
+         This will create the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, in the `output` folder.
 
       1. Create a file (e.g., `test.py`) in the `output` folder root, and add the following code to it:
 

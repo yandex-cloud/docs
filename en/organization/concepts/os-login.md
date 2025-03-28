@@ -1,6 +1,6 @@
 # {{ oslogin }}
 
-{{ oslogin }} facilitates SSH connections to _virtual machines_ in {{ yandex-cloud }}. Here and below, virtual machines (or VMs) will refer both to actual [{{ compute-full-name }} VM instances](../../compute/concepts/vm.md#project) and [individual nodes in node groups](../../managed-kubernetes/concepts/index.md#node-group) within [{{ managed-k8s-full-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) used to run user containers.
+{{ oslogin }} facilitates SSH connections to _virtual machines_ in {{ yandex-cloud }}. Here and below, virtual machines (or VMs) will refer both to actual [{{ compute-full-name }} VMs](../../compute/concepts/vm.md#project) and [individual nodes in node groups](../../managed-kubernetes/concepts/index.md#node-group) within [{{ managed-k8s-full-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) used to run user containers.
 
 With {{ oslogin }}, you can manage SSH access to VMs relying solely on the [{{ iam-full-name }} mechanisms](../../iam/concepts/index.md). There is no need to upload SSH keys to each new VM when it is created. {{ oslogin }} links the VM user account to a {{ org-full-name }} account, i.e., an [organization user](../../organization/concepts/membership.md) account or [service account](../../iam/concepts/users/service-accounts.md).
 

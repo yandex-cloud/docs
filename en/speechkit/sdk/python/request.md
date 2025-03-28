@@ -1,21 +1,21 @@
 ---
-title: Synchronous speech recognition using the {{ speechkit-full-name }} Python SDK
-description: Follow this guide to test synchronous speech recognition using the {{ speechkit-name }} Python SDK.
+title: Synchronous speech recognition using the Python SDK {{ speechkit-full-name }}
+description: Follow this tutorial to test synchronous speech recognition using the {{ speechkit-name }} Python SDK.
 ---
 
 # Synchronous speech recognition using the Python SDK
 
 Below, we provide an example of synchronous speech recognition from an audio file using the [{{ speechkit-name }} Python SDK](index.md). This example uses the following parameters:
 
-* [Recognition model](../../stt/models.md#tags): `General`.
-* [Language](../../stt/models.md#languages): Russian.
+* [Recognition model](../../stt/models.md#tags): `general`
+* [Language](../../stt/models.md#languages): Russian
 
 {% include [Packages and authentication](../../../_includes/speechkit/packages-and-auth.md) %}
 
 ## Getting started {#before-you-begin}
 
-1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-speechkit-stt }}` role.
-1. [Get](../../../iam/operations/api-key/create.md) an API key for the service account and save it.
+1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-stt }}` role to it.
+1. [Get](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the service account and save it.
 1. Download a [sample](https://{{ s3-storage-host }}/doc-files/speech.wav) audio file for recognition or [generate](synthesis.md) your own one.
 
 ## Create an application for synchronous speech recognition {#create-an-application}
@@ -32,22 +32,22 @@ Below, we provide an example of synchronous speech recognition from an audio fil
       from speechkit import model_repository, configure_credentials, creds
       from speechkit.stt import AudioProcessingType
 
-      # Authentication via an API key.
+      # Authentication with an API key.
       configure_credentials(
          yandex_credentials=creds.YandexCredentials(
-            api_key='<API key>'
+            api_key='<API_key>'
          )
       )
 
       def recognize(audio):
          model = model_repository.recognition_model()
 
-         # Set the recognition settings.
+         # Specify the recognition settings.
          model.model = 'general'
          model.language = 'ru-RU'
          model.audio_processing_type = AudioProcessingType.Full
 
-         # Recognition of speech in the specified audio file and output of results to the console.
+         # Recognizing speech in the specified audio file and outputting the results to the console.
          result = model.transcribe_file(audio)
          for c, res in enumerate(result):
             print('=' * 80)
@@ -68,8 +68,8 @@ Below, we provide an example of synchronous speech recognition from an audio fil
 
       Where:
 
-      * `api_key`: API key for the service account.
-      * `audio`: Path to the file for audio recording.
+      * `api_key`: Service account API key.
+      * `audio`: Audio recording file path.
       * `model`: Recognition model.
       * `language`: Recognition language.
       * `audio_processing_type`: Audio processing method.
@@ -82,7 +82,7 @@ Below, we provide an example of synchronous speech recognition from an audio fil
       python3 test.py --audio speech.pcm
       ```
 
-      Where `--audio` is the path to the audio file to transcribe.
+      Where `--audio` is the path to the audio file for recognition.
 
       The result contains recognized speech:
 
@@ -93,10 +93,10 @@ Below, we provide an example of synchronous speech recognition from an audio fil
       i'm yandex speechkit i can turn any text into speech now you can too
 
       norm_text:
-      I'm Yandex SpeechKit. I can turn any text into speech. Now you can, too!
+      I'm Yandex SpeechKit, I can turn any text into speech, now you can too.
 
       utterances:
-      I'm Yandex SpeechKit. I can turn any text into speech. Now you can, too! [0.419, 6.379]
+      - I'm Yandex SpeechKit, I can turn any text into speech, now you can too. [0.419, 6.379]
       ```
 
 {% endlist %}

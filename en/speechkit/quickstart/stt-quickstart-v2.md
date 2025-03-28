@@ -25,7 +25,7 @@ In the example, the API is used via the [cURL](https://curl.se/) utility. If you
    {% endnote %}
 
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) to the service account the `storage.uploader` and `ai.speechkit-stt.user` roles for the folder you had created the bucket in.
-1. [Get an API key](../../iam/operations/api-key/create.md) or [IAM token](../../iam/operations/iam-token/create-for-sa.md) for your service account.
+1. [Get an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key) or [IAM token](../../iam/operations/iam-token/create-for-sa.md) for your service account.
 1. Download a sample audio file:
 
    * For API v3: a WAV file.
