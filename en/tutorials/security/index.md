@@ -17,12 +17,30 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [{#T}](sa-oslogin-ansible.md)
 * [{#T}](protected-access-to-content/index.md)
 * [{#T}](audit-trails-events-to-kuma/index.md)
+* [{#T}](search-events-audit-logs/index.md)
 * [{#T}](wlif-github-integration.md)
 * [{#T}](wlif-gitlab-integration.md)
 * [{#T}](wlif-k8s-integration.md)
 * [{#T}](coi-fluent-bit-logging.md)
 * [{#T}](../container-infrastructure/k8s-fluent-bit-logging.md)
 * [{#T}](balancer-with-sws-profile.md)
+* [{#T}](alerts-monitoring.md)
+* [{#T}](maxpatrol.md)
+* [{#T}](export-logs-to-splunk.md)
+* [{#T}](export-logs-to-arcsight.md)
+
+## Managing identity federations {#federations}
+
+* [{#T}](integration-adfs.md)
+* [{#T}](integration-gworkspace.md)
+* [{#T}](integration-azure.md)
+* [{#T}](integration-keycloak.md)
+
+### User group mapping {#matching-user-groups}
+
+* [{#T}](adfs.md)
+* [{#T}](entra-id.md)
+* [{#T}](keycloak.md)
 
 ## {{ captcha-full-name }} use cases {#smartcaptcha}
 

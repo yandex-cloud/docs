@@ -13,6 +13,8 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 #|
 ||Service | Description ||
+|| [GenSearch](GenSearch/index.md) | A set of methods for searching the Yandex search database using YandexGPT generative AI. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [WebSearchAsync](WebSearchAsync/index.md) | A set of methods for async search the Yandex search database. ||
+|| [WebSearch](WebSearch/index.md) | A set of methods for searching the Yandex search database. ||
 |#

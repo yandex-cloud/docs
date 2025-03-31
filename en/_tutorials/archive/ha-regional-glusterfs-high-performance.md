@@ -1,6 +1,6 @@
 # Deploying GlusterFS in high performance mode
 
-[GlusterFS](https://ru.wikipedia.org/wiki/GlusterFS) is a parallel, distributed, and scalable file system. With horizontal scaling, the system provides the cloud with an aggregate bandwidth in the tens of GB/s and hundreds of thousands of [IOPS](https://ru.wikipedia.org/wiki/IOPS).
+[GlusterFS](https://en.wikipedia.org/wiki/Gluster#GlusterFS) is a parallel, distributed, and scalable file system. With horizontal scaling, the system provides the cloud with an aggregate bandwidth in the tens of GB/s and hundreds of thousands of [IOPS](https://en.wikipedia.org/wiki/IOPS).
 
 Use this tutorial to create an infrastructure made up of 30 segments sharing a common GlusterFS file system. Placing storage [disks](../../compute/concepts/disk.md) in a single [availability zone](../../overview/concepts/geo-scope.md) will ensure the high performance of your file system. In our scenario, it is the speed of accessing physical disks that limits performance, while network latency is less important.
 
@@ -25,11 +25,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 
 * Fee for continuously running VMs and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Configure the CLI profile {#setup-profile}
 
-1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in.
+1. If you do not have the {{ yandex-cloud }} CLI yet, [install](../../cli/quickstart.md) it and get authenticated according to instructions provided.
 1. Create a service account:
    
    {% list tabs group=instructions %}
@@ -37,7 +37,7 @@ The infrastructure support costs include:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Specify the service account name, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -68,7 +68,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Assign the service account the administrator [role](../../iam/concepts/access-control/roles.md) for the folder: 
+1. Assign the administrator [role](../../iam/concepts/access-control/roles.md) for the folder to the service account: 
 
    {% list tabs group=instructions %}
 
@@ -76,7 +76,7 @@ The infrastructure support costs include:
 
       1. On the management console [home page]({{ link-console-main }}), select a folder.
       1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. In the list, find the `sa-glusterfs` account and click ![image](../../_assets/options.svg).
+      1. Find the `sa-glusterfs` account in the list and click ![image](../../_assets/options.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
       1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}** in the dialog that opens and select the `admin` role.
 
@@ -91,7 +91,7 @@ The infrastructure support costs include:
 
    - API {#api}
 
-      To assign a service account a role for a folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -101,17 +101,17 @@ The infrastructure support costs include:
 
    - CLI {#cli}
 
-      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it into the file:
+      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it to the file:
          ```
          yc iam key create \
          --service-account-id <service_account_ID> \
-         --folder-id <service_account_folder_ID> \
+         --folder-id <ID_of_folder_with_service_account> \
          --output key.json
          ```
          Where:
          * `service-account-id`: Service account ID.
-         * `folder-id`: ID of the service account folder.
-         * `output`: Name of the authorized key file.
+         * `folder-id`: Service account folder ID.
+         * `output`: Authorized key file name.
 
          Result:
          ```
@@ -135,15 +135,15 @@ The infrastructure support costs include:
          ```
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>  
+         yc config set folder-id <folder_ID>
          ```
 
          Where:
-         * `service-account-key`: File with the service account authorized key.
+         * `service-account-key`: Authorized key file name.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Add the credentials to the environment variables:
+      1. Export your credentials to environment variables:
          ```
          export YC_TOKEN=$(yc iam create-token)
          export YC_CLOUD_ID=$(yc config get cloud-id)
@@ -153,7 +153,7 @@ The infrastructure support costs include:
     {% endlist %}
 
 
-## Prepare an environment for deploying the resources {#setup-environment}
+## Set up your resource environment {#setup-environment}
 
 1. Create an SSH key pair:
    ```bash
@@ -200,7 +200,7 @@ The infrastructure support costs include:
       ```bash
       terraform validate
       ```
-   1. Check the list of cloud resources you are about to create:
+   1. Preview the list of new cloud resources:
       ```bash
       terraform plan
       ```
@@ -241,7 +241,7 @@ The infrastructure support costs include:
       default: cluster
       confdir: /etc/clustershell/groups.conf.d $CFGDIR/groups.conf.d
       autodir: /etc/clustershell/groups.d $CFGDIR/groups.d
-      EOF      
+      EOF
 
       cat > /etc/clustershell/groups.d/cluster.yaml <<EOF
       cluster:
@@ -309,7 +309,7 @@ The infrastructure support costs include:
    1. Check the status of the `stripe-volume` shared folder:
       ```bash
       clush -w gluster01  gluster volume status
-      ```      
+      ```
 
    1. Create a text file:
       ```bash

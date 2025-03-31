@@ -110,3 +110,11 @@ application_load_balancer_spec:
 | `labels` | [Метки](../../../resource-manager/concepts/labels.md) целевой группы в формате `<имя_метки>: <значение_метки>`. |
 | `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Время, в течение которого новая ВМ в группе должна пройти проверку состояния от балансировщика. Возможные значения — 0 и от 1 секунды. Значение по умолчанию — 0: время ожидания не ограничено. Подробнее см. в разделе [Проверки состояния от балансировщиков](#principles-health-checks). |
 | `ignore_health_checks` | Игнорировать проверки состояния от балансировщика. Возможные значения `true` или `false`. |
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../tutorials/updating-under-load.md)
+* [{#T}](../../tutorials/high-accessible-dmz.md)
+* [{#T}](../../tutorials/fault-tolerance.md)
+* [{#T}](../../tutorials/alb-with-ddos-protection/index.md)

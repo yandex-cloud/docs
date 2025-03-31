@@ -271,3 +271,11 @@ _Пространство имен_ — абстракция, которая л�
 {% include [metrics-k8s-tools](../../_includes/managed-kubernetes/metrics-k8s-tools.md) %}
 
 Описание метрик приводится в разделе [{#T}](../../managed-kubernetes/metrics.md).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/k8s-cluster-with-no-internet.md)
+* [{#T}](../tutorials/kubernetes-backup.md)
+* [{#T}](../tutorials/prometheus-grafana-monitoring.md)
+* [{#T}](../tutorials/metrics-server.md)
+* [{#T}](../tutorials/driverless-gpu.md)

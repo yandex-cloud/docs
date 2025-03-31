@@ -500,7 +500,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
 {% endlist %}
 
-
 ## Folder access for a federated user {#access-to-federated-user}
 
 {% list tabs group=instructions %}
@@ -538,7 +537,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       ```
 
 {% endlist %}
-
 
 
 ## What's next {#what-is-next}

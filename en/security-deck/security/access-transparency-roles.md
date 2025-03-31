@@ -1,11 +1,11 @@
 ---
-title: Roles for analyzing Access Transparency data in {{ sd-full-name }}
-description: This page enlists roles required to analyze Access Transparency data in {{ sd-name }}.
+title: Roles for {{ atr-name }} data analysis in {{ sd-full-name }}
+description: This page lists the roles required to analyze {{ atr-name }} data in {{ sd-name }}.
 ---
 
-# Roles for analyzing Access Transparency data
+# Roles for {{ atr-name }} data analysis
 
-Access Transparency service roles allow you to set up the tool and view analytical information about the actions {{ yandex-cloud }} engineers take with your organization's resources during maintenance, when handling [support requests](../../support/overview.md), or for security purposes.
+With {{ atr-name }} service roles, you can set up the module and view analytical information about the actions {{ yandex-cloud }} engineers perform with your organization's resources during maintenance, when handling [support requests](../../support/overview.md), or for security purposes.
 
 #### access-transparency.viewer {#access-transparency-viewer}
 

@@ -84,3 +84,11 @@ IP-адреса, FQDN и другую информацию можно узнат
 После подключения сетевого интерфейса к виртуальной машине, ему будет присвоен MAC-адрес устройства.
 
 Вы можете узнать MAC-адрес изнутри виртуальной машины или в информации о ресурсе через API {{ yandex-cloud }}.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/bastion.md)
+* [{#T}](../tutorials/route-switcher.md)
+* [{#T}](../tutorials/backup-and-archive-to-sftp.md)
+* [{#T}](../tutorials/bind-domain-vm/index.md)
+* [{#T}](../tutorials/rds-gw.md)

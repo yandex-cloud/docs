@@ -9,7 +9,9 @@ description: In this tutorial, you will learn how to delete an organization in {
 
 An organization can be deleted by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. For information on assigning roles to users, see [Roles](../security/index.md#admin).
 
-Before deleting an organization, make sure to delete all its [clouds](../../resource-manager/operations/cloud/delete.md) and the [billing account](../../billing/operations/delete-account.md) linked to it.
+Before deleting an organization:
+1. [Delete](../../resource-manager/operations/cloud/delete.md) all clouds from the organization.
+1. [Delete](../../billing/operations/delete-account.md) the billing account linked to the organizaiton.
 
 {% endnote %}
 

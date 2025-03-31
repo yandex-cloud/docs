@@ -250,3 +250,7 @@ service_account_id: ajefnb8427bh********
 
 * [{#T}](../../operations/instance-groups/create-from-yaml.md)
 * [{#T}](../../operations/instance-groups/update-from-yaml.md)
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/vm-autoscale/index.md)

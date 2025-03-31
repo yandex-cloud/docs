@@ -286,7 +286,7 @@ We recommend making sure that your {{ objstorage-name }} bucket uses at least on
 
 When processing critical data in buckets, you must ensure that data is protected from deletion and that versions are backed up. This can be achieved by versioning and lifecycle management mechanisms, as well as by using object locks.
 
-Bucket versioning is the ability to store the history of object versions. Each version is a complete copy of the object and occupies space in {{ objstorage-name }}. Using version control protects your data from both unintentional user actions and application faults.
+Bucket versioning allows keeping a version history of an object. Each version is a complete copy of the object and occupies space in {{ objstorage-name }}. Using version control protects your data from both accidental user actions and application faults.
 
 If you delete or modify an object with versioning enabled, a new version of the object with a new ID is effectively created. In the case of deletion, the object becomes unreadable, but its version is kept and can be restored.
 
@@ -868,7 +868,6 @@ We do not recommend that you use privileged containers to run loads that process
 
 {% list tabs group=instructions %}
 
-
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the VMs in.
@@ -876,7 +875,6 @@ We do not recommend that you use privileged containers to run loads that process
   1. Open the settings of a specific VM with a **Container Optimized Image**.
   1. In the Docker container's **Settings**, find the **Privileged mode** parameter.
   1. If it is disabled, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
-
 
 - Performing a check via the CLI {#cli}
 
@@ -903,15 +901,12 @@ We do not recommend that you use privileged containers to run loads that process
 
 {% endlist %}
 
-
 **Guides and solutions to use:**
 
 1. In the management console, select the cloud or folder to check the VMs in.
 1. In the list of services, select **{{ compute-short-name }}**.
 1. Open the settings of a specific VM with a **Container Optimized Image**.
 1. In the Docker container's Settings, disable the **Privileged mode** parameter.
-
-
 
 #### 3.28 A {{ certificate-manager-full-name }} certificate is valid for at least 30 days {#certificate-validity}
 

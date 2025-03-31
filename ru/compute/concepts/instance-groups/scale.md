@@ -12,6 +12,11 @@
 
 Вы можете [создавать группы ВМ фиксированного размера](../../operations/instance-groups/create-fixed-group.md) и управлять размером такой группы вручную, исходя из ваших текущих потребностей в вычислительных мощностях.
 
+### Примеры использования {#examples-fixed-scale}
+
+* [{#T}](../../tutorials/vm-scale-scheduled/index.md)
+* [{#T}](../../tutorials/updating-under-load.md)
+
 ## Группы с автоматическим масштабированием {#auto-scale}
 
 При [создании автоматически масштабируемой группы ВМ](../../operations/instance-groups/create-autoscaled-group.md) вы указываете целевое значение метрики, а сервис постоянно регулирует количество ВМ: 
@@ -148,6 +153,11 @@ k=\frac{1}{exp(10/t)}
 $$
 
 где $t$ — это длительность измерения метрики в секундах, $t = b - a$.
+
+### Примеры использования {#examples-auto-scale}
+
+* [{#T}](../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../tutorials/autoscale-monitoring.md)
 
 #### См. также {#see-also}
 

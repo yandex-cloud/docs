@@ -47,6 +47,10 @@ You are not allowed to push code to protected branches on this project.
 
 Также см. инструкцию [{#T}](../../managed-gitlab/operations/instance/clean-up-disk-space.md).
 
+#### Как я могу очистить логи пайплайнов, чтобы освободить место на диске? {#pipeline-cleanup}
+
+Удалить логи отдельно нельзя. Однако это можно сделать [удалив неактуальные пайплайны](../../managed-gitlab/operations/instance/clean-up-disk-space.md#pipeline-cleanup).
+
 #### Где я могу отслеживать использование дискового пространства? {#disk-space}
 
 Отслеживать использование дискового пространства можно:

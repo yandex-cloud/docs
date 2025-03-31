@@ -1,5 +1,5 @@
 ---
-title: Revoking accesses in {{ sd-full-name }} CIEM
+title: Revoking access permissions in {{ sd-full-name }} {{ ciem-name }}
 description: In this section, you will learn how to revoke account or group access permissions for organization resources in {{ sd-name }}.
 ---
 

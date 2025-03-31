@@ -173,6 +173,13 @@ _Диск_ — это виртуальный аналог физических �
 
 Подробнее см. в разделе [{#T}](encryption.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/sap.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/index.md)
+* [{#T}](../tutorials/packer-quickstart.md)
+* [{#T}](../tutorials/hpc-on-preemptible.md)
+* [{#T}](../tutorials/minecraft-server.md)
 
 #### См. также {#see-also}
 

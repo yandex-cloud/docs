@@ -1,4 +1,4 @@
-# Installing the Mikrotik CHR virtual router
+# Installing a Mikrotik CHR virtual router
 
 In {{ yandex-cloud }}, you can deploy a virtual Mikrotik Cloud Hosted Router on a ready-made VM image. To install the Mikrotik Cloud Hosted Router and check how it runs:
 
@@ -10,9 +10,11 @@ In {{ yandex-cloud }}, you can deploy a virtual Mikrotik Cloud Hosted Router on 
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
 ## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 
 ### Required paid resources {#paid-resources}
 
@@ -26,6 +28,7 @@ The cost of using a virtual router and a test VM includes:
 
 * Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
 
 ## Create a VM with the Mikrotik Cloud Hosted Router {#create-router}
 
@@ -41,12 +44,12 @@ The cost of using a virtual router and a test VM includes:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not listed, [create it](../../vpc/operations/subnet-create.md).
-    * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one in advance.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not there, [create it](../../vpc/operations/subnet-create.md).
+    * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random external IP address to your VM from the {{ yandex-cloud }} pool. Alternatively, select a static address from the list if you reserved one.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other names reserved by the OS.
+    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other reserved usernames.
     * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     Note that you only need this data for VM creation. You cannot use the data for router access.
@@ -58,9 +61,10 @@ It may take a few minutes to create a VM. When the VM status changes to `RUNNING
 
 {% note alert %}
 
-Set a complex administrator password immediately after VM creation.
+Set a complex administrator password immediately after VM creation. To keep access to the router, you need to change the admin password within 5 minutes after the start.
 
 {% endnote %}
+
 
 ## Change the administrator password on the router {#change-password}
 
@@ -69,8 +73,9 @@ The router is created with a public IP address, so you need to change the defaul
 1. In the [management console]({{ link-console-main }}), select the folder.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Copy the `mikrotik-router` VM public IP address and open it in your browser.
-1. Enter the VM internal IP address in the **IP Address** field. 
-1. On the page that opens, enter the new administrator password, confirm it, and click **Apply Configuration**. You can apply other settings later.
+1. On the page that opens, enter the VM’s internal IP address in the **IP Address** field. 
+1. In the **Password** field, enter the new administrator password, confirm it in the **Confirm Password** field, and click **Apply Configuration**. You can apply other settings later.
+
 
 ## Create a test VM {#create-test-vm}
 
@@ -93,11 +98,12 @@ Create a test VM in the subnet that hosts the router, to test connectivity betwe
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other names reserved by the OS. To perform operations requiring superuser privileges, use the `sudo` command.
+    * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter a username. Do not use `root` or other reserved usernames. To perform operations requiring superuser privileges, use the `sudo` command.
     * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `test-vm`.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
 
 ### Check the connection between the router and test VM {#test-connection}
 
@@ -114,6 +120,7 @@ Make sure that a network connection is established between the router and test V
 1. In the terminal that opens, run the `ping <test_VM_internal_IP_address>` command.
 
 If the packets reach the test VM, you can start configuring the router. You can find the router manual in the [Mikrotik documentation](https://wiki.mikrotik.com/wiki/Main_Page).
+
 
 ## Delete the resources you created {#clear-out}
 

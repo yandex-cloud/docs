@@ -320,3 +320,11 @@ SELECT s.CAST FROM S3Object s
   ```
 
 {% endlist %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/server-logs.md)
+* [{#T}](../tutorials/user-agent-statistics.md)
+* [{#T}](../tutorials/billing-resource-detailing.md)
+

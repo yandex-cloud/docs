@@ -37,7 +37,7 @@ items:
         href: standard/authentication.md
       - name: Network security
         href: standard/network-security.md
-      - name: Secure configuration of a virtual environment
+      - name: Secure virtual environment configuration
         href: standard/virtualenv-safe-config.md
       - name: Data encryption and key management
         href: standard/encryption.md
@@ -51,18 +51,255 @@ items:
         href: standard/versions.md
   - name: Tutorials
     items:
-      - name: ViPNet Coordinator in {{ yandex-cloud }}
-        href: tutorials/vipnet-to-yc.md
-        hidden: true
-      - name: Setting up and testing PT Application Firewall
-        href: tutorials/pt-application-firewall.md
-        hidden: true
-      - name: Secure user access to cloud resources based on WireGuard VPN
-        href: tutorials/remote-wireguard-vpn.md
-      - name: >-
-          Service account with an {{ oslogin }} profile for VM management via
-          Ansible
-        href: tutorials/sa-oslogin-ansible.md
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Authentication and access management
+        items:
+          - name: >-
+              Access control for user groups with different roles in {{ org-name
+              }}
+            href: tutorials/authentication/user-group-access-control.md
+          - name: >-
+              Using a service account with an {{ oslogin }} profile for VM
+              management via Ansible
+            href: tutorials/authentication/sa-oslogin-ansible.md
+          - name: Authentication using {{ microsoft-idp.ad-short }}
+            href: tutorials/authentication/integration-adfs.md
+          - name: Authentication using Google Workspace
+            href: tutorials/authentication/integration-gworkspace.md
+          - name: Authentication using {{ microsoft-idp.entra-id-full }}
+            href: tutorials/authentication/integration-azure.md
+          - name: Authentication using Keycloak
+            href: tutorials/authentication/integration-keycloak.md
+          - name: User group mapping in {{ microsoft-idp.adfs-short }}
+            href: tutorials/authentication/adfs.md
+          - name: User group mapping in {{ microsoft-idp.entra-id-full }}
+            href: tutorials/authentication/entra-id.md
+          - name: User group mapping in {{ keycloak }}
+            href: tutorials/authentication/keycloak.md
+      - name: Network security
+        items:
+          - name: Setting up virtual hosting
+            href: tutorials/network-security/virtual-hosting.md
+          - name: >-
+              Automatically copying objects from one {{ objstorage-name }}
+              bucket to another
+            href: tutorials/network-security/bucket-to-bucket-copying.md
+          - name: >-
+              Loading data from {{ yandex-direct }} to a {{ mch-name }} data
+              mart using {{ sf-name }}, {{ objstorage-name }}, and {{
+              data-transfer-name }}
+            href: tutorials/network-security/data-transfer-direct-to-mch.md
+          - name: Creating a load balancer with DDoS protection
+            items:
+              - name: Overview
+                href: tutorials/network-security/alb-with-ddos-protection/index.md
+              - name: >-
+                  Creating an L7 load balancer with DDoS protection using the
+                  management console or CLI
+                href: tutorials/network-security/alb-with-ddos-protection/console.md
+              - name: >-
+                  Creating an L7 load balancer with DDoS protection using {{ TF
+                  }}
+                href: >-
+                  tutorials/network-security/alb-with-ddos-protection/terraform.md
+          - name: Secure user access to cloud resources based on WireGuard VPN
+            href: tutorials/network-security/remote-wireguard-vpn.md
+          - name: ViPNet Coordinator VA in {{ yandex-cloud }}
+            href: tutorials/network-security/vipnet-to-yc.md
+            hidden: true
+          - name: Providing secure access to content in {{ cdn-name }}
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/network-security/protected-access-to-content/index.md
+              - name: >-
+                  Providing secure access to content in {{ cdn-name }} using the
+                  management console, CLI, or API
+                href: >-
+                  tutorials/network-security/protected-access-to-content/console.md
+              - name: >-
+                  Providing secure access to content in {{ cdn-name }} through
+                  {{ TF }}
+                href: >-
+                  tutorials/network-security/protected-access-to-content/terraform.md
+      - name: Secure virtual environment configuration
+        items:
+          - name: Hosting a static Gatsby website in {{ objstorage-name }}
+            href: tutorials/virtualenv-safe-config/gatsby-static-website.md
+          - name: Storing {{ AF }} connections and variables in {{ lockbox-name }}
+            href: tutorials/virtualenv-safe-config/lockbox-and-airflow.md
+          - name: Deploying a fault-tolerant architecture with preemptible VMs
+            href: tutorials/virtualenv-safe-config/nodejs-cron-restart-vm.md
+          - name: >-
+              Migrating services from a NLB load balancer with target resources
+              from VMs to an L7 ALB load balancer
+            href: tutorials/virtualenv-safe-config/nlb-with-target-resource-vm.md
+          - name: >-
+              Migrating services from a NLB load balancer with target resources
+              represented by an instance group to an L7 ALB load balancer
+            href: >-
+              tutorials/virtualenv-safe-config/nlb-with-target-resource-group-vm.md
+          - name: >-
+              Migrating services from an external NLB load balancer to an L7 ALB
+              load balancer with an internal NLB load balancer for a target
+              resource
+            href: tutorials/virtualenv-safe-config/nlb-as-target-resource-alb.md
+      - name: Data encryption and key management
+        items:
+          - name: Which encryption method should I choose?
+            href: >-
+              tutorials/data-encryption-and-key-management/choose-encryption-method.md
+          - name: Encrypting data using the {{ yandex-cloud }} CLI and API
+            href: tutorials/data-encryption-and-key-management/cli-api.md
+          - name: Encrypting data using the {{ yandex-cloud }} SDK
+            href: tutorials/data-encryption-and-key-management/sdk.md
+          - name: Encrypting data using the AWS Encryption SDK
+            href: tutorials/data-encryption-and-key-management/aws-encryption-sdk.md
+          - name: Encrypting data using Google Tink
+            href: tutorials/data-encryption-and-key-management/google-tink.md
+          - name: Managing {{ kms-name }} keys with {{ TF }}
+            href: tutorials/data-encryption-and-key-management/terraform-key.md
+          - name: Encrypting secrets in {{ TF }}
+            href: tutorials/data-encryption-and-key-management/terraform-secret.md
+          - name: Auto Unseal in Hashicorp Vault
+            href: tutorials/data-encryption-and-key-management/vault-secret.md
+          - name: Secure password transmission to an initialization script
+            href: >-
+              tutorials/data-encryption-and-key-management/secure-password-script.md
+          - name: Terminating TLS connections
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/data-encryption-and-key-management/tls-termination/index.md
+              - name: Terminating TLS connections using the management console
+                href: >-
+                  tutorials/data-encryption-and-key-management/tls-termination/console.md
+              - name: Terminating TLS connections using {{ TF }}
+                href: >-
+                  tutorials/data-encryption-and-key-management/tls-termination/terraform.md
+          - name: >-
+              Secure storage of {{ GL }} CI passwords as {{ lockbox-name }}
+              secrets
+            href: >-
+              tutorials/data-encryption-and-key-management/gitlab-lockbox-integration.md
+          - name: Using a {{ lockbox-name }} secret to store a static access key
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/data-encryption-and-key-management/static-key-in-lockbox/index.md
+              - name: >-
+                  Using a {{ lockbox-name }} secret to store a static access key
+                  via the CLI
+                href: >-
+                  tutorials/data-encryption-and-key-management/static-key-in-lockbox/console.md
+              - name: >-
+                  Using a {{ lockbox-name }} secret to store a static access key
+                  using {{ TF }}
+                href: >-
+                  tutorials/data-encryption-and-key-management/static-key-in-lockbox/terraform.md
+          - name: Getting {{ lockbox-name }} secret value on the GitHub side
+            href: >-
+              tutorials/data-encryption-and-key-management/wlif-github-integration.md
+          - name: Getting {{ lockbox-name }} secret value on the {{ GL }} side
+            href: >-
+              tutorials/data-encryption-and-key-management/wlif-gitlab-integration.md
+      - name: Collecting, monitoring, and analyzing audit logs
+        items:
+          - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
+            href: tutorials/audit-logs/query.md
+          - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
+            href: tutorials/audit-logs/search-bucket.md
+          - name: >-
+              Searching for {{ yandex-cloud }} events in {{ cloud-logging-name
+              }}
+            href: tutorials/audit-logs/search-cloud-logging.md
+          - name: Alert settings in {{ monitoring-name }}
+            href: tutorials/audit-logs/alerts-monitoring.md
+          - name: >-
+              Configuring responses in {{ cloud-logging-name }} and {{ sf-name
+              }}
+            href: tutorials/audit-logs/logging-functions.md
+          - name: Processing {{ at-name }} events
+            href: tutorials/audit-logs/audit-trails.md
+          - name: Exporting audit logs to {{ mes-name }}
+            href: tutorials/audit-logs/trails-logs-opensearch.md
+            hidden: true
+          - name: Exporting audit logs to MaxPatrol SIEM
+            href: tutorials/audit-logs/maxpatrol.md
+          - name: Exporting audit logs to SIEM Splunk systems
+            href: tutorials/audit-logs/export-logs-to-splunk.md
+          - name: Uploading audit logs to ArcSight SIEM
+            href: tutorials/audit-logs/export-logs-to-arcsight.md
+          - name: Uploading {{ at-name }} audit logs to KUMA SIEM
+            items:
+              - name: Overview
+                href: tutorials/audit-logs/audit-trails-events-to-kuma/index.md
+              - name: >-
+                  Uploading audit logs to KUMA SIEM using the management
+                  console, CLI, or API
+                href: tutorials/audit-logs/audit-trails-events-to-kuma/console.md
+              - name: Uploading audit logs to KUMA SIEM through {{ TF }}
+                href: tutorials/audit-logs/audit-trails-events-to-kuma/terraform.md
+          - name: Transferring logs from a VM to {{ cloud-logging-name }}
+            href: tutorials/audit-logs/vm-fluent-bit-logging.md
+          - name: Writing load balancer logs to {{ PG }}
+            href: tutorials/audit-logs/logging.md
+          - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
+            href: tutorials/audit-logs/coi-fluent-bit-logging.md
+      - name: Application security
+        items:
+          - name: >-
+              Installing an NGINX Ingress controller with a {{
+              certificate-manager-name }} certificate
+            href: tutorials/app-security/nginx-ingress-certificate-manager.md
+          - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+            href: tutorials/app-security/ci-cd-serverless.md
+          - name: Creating an interactive serverless application using WebSocket
+            href: tutorials/app-security/websocket-app.md
+          - name: >-
+              Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name
+              }} profile
+            href: tutorials/app-security/balancer-with-sws-profile.md
+          - name: '{{ api-gw-name }} protection with {{ sws-name }}'
+            href: tutorials/app-security/api-gw-sws-integration.md
+          - name: Adding an HTML page to work with {{ captcha-name }}
+            href: tutorials/app-security/website.md
+          - name: '{{ captcha-name }} in Android apps'
+            href: tutorials/app-security/quickstart-android.md
+          - name: Invisible {{ captcha-name }} in Android apps
+            href: tutorials/app-security/invisible-captcha-android.md
+          - name: '{{ captcha-name }} in an Android app on Flutter'
+            href: tutorials/app-security/quickstart-android-flutter.md
+          - name: '{{ captcha-name }} in iOS apps'
+            href: tutorials/app-security/quickstart-ios.md
+          - name: Setting up PT Application Firewall
+            href: tutorials/app-security/pt-application-firewall.md
+            hidden: true
+      - name: Security {{ k8s }}
+        items:
+          - name: Encrypting secrets in {{ managed-k8s-name }}
+            href: tutorials/kubernetes-security/kms-k8s.md
+          - name: >-
+              Signing and verifying {{ container-registry-name }} Docker images
+              in {{ managed-k8s-name }}
+            href: tutorials/kubernetes-security/sign-cr-with-cosign.md
+          - name: Syncing with {{ managed-k8s-name }} secrets
+            href: tutorials/kubernetes-security/kubernetes-lockbox-secrets.md
+          - name: Getting {{ lockbox-name }} secret value on the {{ k8s }} side
+            href: tutorials/kubernetes-security/wlif-k8s-integration.md
+          - name: >-
+              Creating an L7 load balancer with a {{ sws-name }} security
+              profile through an {{ alb-name }} Ingress controller
+            href: tutorials/kubernetes-security/alb-ingress-with-sws-profile.md
+          - name: >-
+              Migrating services from a NLB load balancer with target resources
+              from a {{ managed-k8s-name }} cluster to an L7 ALB load balancer
+            href: tutorials/kubernetes-security/nlb-with-target-resource-k8s.md
+          - name: >-
+              Transferring {{ managed-k8s-name }} cluster logs to {{
+              cloud-logging-name }}
+            href: tutorials/kubernetes-security/k8s-fluent-bit-logging.md
   - name: Guides
     items:
       - name: Deleting a Yandex account from {{ org-full-name }}

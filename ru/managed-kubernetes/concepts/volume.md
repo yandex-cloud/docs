@@ -108,3 +108,7 @@ _Том_ — общее хранилище для совместного исп�
 {% include [about-cluster-delete](../../_includes/managed-kubernetes/note-k8s-cluster-delete.md) %}
 
 Подробнее о томах читайте в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/kubernetes-backup.md)

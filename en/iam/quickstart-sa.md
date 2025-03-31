@@ -14,23 +14,21 @@ You will learn how to:
 
 ## Getting started {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the instructions.
+1. Log in to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
 1. Make sure that you have the required [roles](./concepts/access-control/roles.md):
 
-    1. In the management console, select the appropriate cloud from the list on the left, e.g.:
+    1. In the management console, select the appropriate cloud from the list on the left. Example:
 
         ![image](../_assets/resource-manager/switch-cloud-n-n.png)
 
-    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. Specify your account in the search bar.
     1. Check that your account has the following roles:
 
         * Organization owner (`organization-manager.organizations.owner`) or administrator (`organization-manager.admin`)
         * Cloud owner (`resource-manager.clouds.owner`) or administrator (`admin`)
 
-
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
-
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 
 ## Create a service account {#create-sa}
 

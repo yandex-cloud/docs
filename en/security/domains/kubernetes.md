@@ -8,7 +8,7 @@ The user is responsible for all actions made inside the {{ k8s }} node. The user
 
 {{ yandex-cloud }} is responsible for the {{ k8s }} API security.
 
-The user is responsible for correctly choosing security settings in {{ managed-k8s-name }}, including selecting the [channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and the update schedule.
+The user is responsible for correctly choosing security settings in {{ managed-k8s-name }}, including selecting the [channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and the update schedule.  
 
 ## Sensitive data {#critical-data}
 
@@ -210,7 +210,6 @@ There are two levels where you can enable malicious code protection in {{ k8s }}
 * OS-level protection of {{ k8s }} nodes.
 
 Security scanner in [{{ container-registry-name }}](../../container-registry/concepts/vulnerability-scanner.md).
-
 
 To protect the containerization host levels, you can use a variety of paid and free solutions from the "Runtime security" and "Antivirus engine" classes. Examples of free solutions:
 

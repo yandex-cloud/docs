@@ -68,14 +68,16 @@ items:
             href: operations/federation-group-mapping.md
           - name: Renewing a {{ yandex-cloud }} SAML certificate
             href: operations/renew-yc-certificate.md
-      - name: Working with {{ oslogin }}
+      - name: Authentication
         items:
-          - name: Enabling access via {{ oslogin }}
-            href: operations/os-login-access.md
-          - name: Creating an {{ oslogin }} profile
-            href: operations/os-login-profile-create.md
           - name: Adding an SSH key
             href: operations/add-ssh.md
+          - name: Working with {{ oslogin }}
+            items:
+              - name: Enabling access via {{ oslogin }}
+                href: operations/os-login-access.md
+              - name: Creating an {{ oslogin }} profile
+                href: operations/os-login-profile-create.md
       - name: Access management
         items:
           - name: Overview
@@ -118,14 +120,14 @@ items:
         href: tutorials/sa-oslogin-ansible.md
   - name: Concepts
     items:
-      - name: Clouds and services
-        href: concepts/manage-services.md
+      - name: Organization
+        href: concepts/organization.md
       - name: Organization membership
         href: concepts/membership.md
-      - name: Identity federations
-        href: concepts/add-federation.md
       - name: User groups
         href: concepts/groups.md
+      - name: Identity federations
+        href: concepts/add-federation.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
       - name: Controlled organizations

@@ -10,6 +10,7 @@ description: Различные сценарии использования по
 * [Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}](../infrastructure-management/gitlab-containers.md)
 * [Тестирование приложений с помощью {{ GL }}](../testing/gitlab.md)
 * [Создание тестовых виртуальных машин через {{ GL }} CI](../testing/ci-for-snapshots.md)
+* [{#T}](gitlab-tracker-integration.md)
 * [Высокопроизводительные вычисления (HPC) на прерываемых ВМ](../testing/hpc-on-preemptible.md)
 * [Нагрузочное тестирование gRPC-сервиса](../testing/loadtesting-grpc.md)
 * [HTTPS-тест с постоянной нагрузкой с помощью Phantom](../testing/loadtesting-https-phantom.md)

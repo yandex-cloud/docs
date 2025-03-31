@@ -75,6 +75,13 @@ _Возможность находится на стадии [Preview](../../ove
 
 По умолчанию для оптимизированных образов установлена нулевая [квота](../concepts/limits.md#compute-quotas). Чтобы повысить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку](../../support/overview.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/packer-quickstart.md)
+* [{#T}](../tutorials/packer-custom-image.md)
+* [{#T}](../tutorials/bind-domain-vm/index.md)
+* [{#T}](../tutorials/hystax-migration.md)
+
 ## Смотрите также {#see-also}
 
 * Узнайте, как создать ВМ из [пользовательского](../operations/vm-create/create-from-user-image.md) или [публичного](../operations/images-with-pre-installed-software/create.md) образа.

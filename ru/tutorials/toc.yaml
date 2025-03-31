@@ -287,6 +287,8 @@ items:
         href: testing/gitlab.md
       - name: Создание тестовых ВМ через {{ GL }} CI
         href: testing/ci-for-snapshots.md
+      - name: Интеграция {{ GL }} с {{ tracker-name }}
+        href: dev/gitlab-tracker-integration.md
       - name: Высокопроизводительные вычисления (HPC) на прерываемых ВМ
         href: testing/hpc-on-preemptible.md
       - name: Нагрузочное тестирование gRPC-сервиса

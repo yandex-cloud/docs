@@ -80,10 +80,49 @@ items:
             href: security/audit-trails-events-to-kuma/terraform.md
       - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
         href: security/coi-fluent-bit-logging.md
+      - name: Event search in audit logs
+        items:
+          - name: Overview
+            href: security/search-events-audit-logs/index.md
+          - name: Tools for working with audit logs
+            href: security/search-events-audit-logs/tools.md
+          - name: Sample requests for searching events
+            href: security/search-events-audit-logs/examples.md
+          - name: Configuring {{ yq-full-name }}
+            href: security/search-events-audit-logs/query.md
       - name: Adding an HTML page to work with {{ captcha-name }}
         href: security/mobile-app/website.md
       - name: Creating an L7 load balancer with a security profile
         href: security/balancer-with-sws-profile.md
+      - name: ViPNet Coordinator in {{ yandex-cloud }}
+        href: security/vipnet-to-yc.md
+        hidden: true
+      - name: Alert settings in {{ monitoring-name }}
+        href: security/alerts-monitoring.md
+      - name: Exporting audit logs to MaxPatrol SIEM
+        href: security/maxpatrol.md
+      - name: Exporting audit logs to SIEM Splunk systems
+        href: security/export-logs-to-splunk.md
+      - name: Uploading audit logs to ArcSight SIEM
+        href: security/export-logs-to-arcsight.md
+      - name: Managing identity federations
+        items:
+          - name: Authentication using Active Directory
+            href: security/integration-adfs.md
+          - name: Authentication using Google Workspace
+            href: security/integration-gworkspace.md
+          - name: Authentication using {{ microsoft-idp.entra-id-full }}
+            href: security/integration-azure.md
+          - name: Authentication using Keycloak
+            href: security/integration-keycloak.md
+          - name: User group mapping
+            items:
+              - name: User group mapping in {{ microsoft-idp.adfs-short }}
+                href: security/adfs.md
+              - name: User group mapping in {{ microsoft-idp.entra-id-full }}
+                href: security/entra-id.md
+              - name: User group mapping in Keycloak
+                href: security/keycloak.md
       - name: '{{ captcha-name }} use cases'
         items:
           - name: CAPTCHA in Android apps
@@ -120,6 +159,9 @@ items:
             href: security/wlif-gitlab-integration.md
           - name: '{{ k8s }}'
             href: security/wlif-k8s-integration.md
+      - name: Exporting audit logs to {{ mos-full-name }}
+        hidden: true
+        href: security/trails-logs-opensearch.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
@@ -184,6 +226,8 @@ items:
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
+      - name: '{{ GL }} integration with {{ tracker-name }}'
+        href: dev/gitlab-tracker-integration.md
       - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
       - name: Load testing a gRPC service
@@ -981,56 +1025,70 @@ items:
     items:
       - name: All tutorials
         href: datalens/index.md
-      - name: Getting started with {{ datalens-short-name }}
+      - name: Analytics
         items:
-          - name: Simple dashboard from a CSV file
-            href: datalens/data-from-csv-visualization.md
-          - name: Public chart with a map of Moscow from a CSV file
-            href: datalens/data-from-csv-to-public-visualization.md
-          - name: Retail chain's dashboard based on a {{ CH }} DB
-            href: datalens/data-from-ch-visualization.md
-      - name: Working with geodata
-        items:
-          - name: Analyzing public data on road accidents in Russia
-            href: datalens/data-from-csv-geo-visualization.md
+          - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
+            href: analysis/search-events-query.md
+          - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
+            href: analysis/search-events-bucket.md
           - name: >-
-              Analyzing sales and locations of pizzerias based on data from the
-              {{ CH }} database and Marketplace
-            href: datalens/data-from-ch-to-geolayers-visualization.md
-          - name: >-
-              Geocoding with the Yandex Maps API for data visualization in {{
-              datalens-short-name }}
-            href: datalens/data-from-ch-geocoder.md
-      - name: Service analytics
+              Searching for {{ yandex-cloud }} events in {{ cloud-logging-name
+              }}
+            href: analysis/search-events-logging.md
+      - name: '{{ datalens-full-name }}'
         items:
-          - name: 'Yandex Metrica: direct connection'
-            href: datalens/data-from-metrica-visualization.md
-          - name: 'Yandex Metrica: data export, post-processing, and visualization'
-            href: datalens/data-from-metrica-yc-visualization.md
-          - name: 'AppMetrica: direct connection'
-            href: datalens/data-from-appmetrica-visualization.md
-          - name: 'AppMetrica: data export, post-processing, and visualization'
-            href: datalens/data-from-appmetrica-yc-visualization.md
-          - name: 'Bitrix24: direct connection'
-            href: datalens/data-from-bitrix24-visualization.md
-          - name: '{{ tracker-full-name }}: data export and visualization'
-            href: datalens/data-from-tracker.md
-          - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
-            href: datalens/storage-logs-analysis.md
-          - name: 'Yandex Music podcasts: Statistics'
-            href: datalens/data-from-podcasts.md
-          - name: Visualizing {{ yq-full-name }} data
-            href: datalens/data-from-yandex-query-visualization.md
-          - name: Visualizing {{ monitoring-full-name }} data
-            href: datalens/data-from-monitoring-visualization.md
-          - name: Visualizing {{ ytsaurus-name }} CHYT data
-            href: datalens/data-from-ch-over-yt.md
-      - name: Functional
-        items:
-          - name: Using parameters
-            href: datalens/data-from-ch-with-parameters.md
-          - name: Examples of creating QL charts
-            href: datalens/data-from-ch-to-sql-chart.md
+          - name: Getting started with {{ datalens-short-name }}
+            items:
+              - name: Simple dashboard from a CSV file
+                href: datalens/data-from-csv-visualization.md
+              - name: Public chart with a map of Moscow from a CSV file
+                href: datalens/data-from-csv-to-public-visualization.md
+              - name: Retail chain's dashboard based on a {{ CH }} DB
+                href: datalens/data-from-ch-visualization.md
+          - name: Working with geodata
+            items:
+              - name: Analyzing public data on road accidents in Russia
+                href: datalens/data-from-csv-geo-visualization.md
+              - name: >-
+                  Analyzing sales and locations of pizzerias based on data from
+                  the {{ CH }} database and Marketplace
+                href: datalens/data-from-ch-to-geolayers-visualization.md
+              - name: >-
+                  Geocoding with the Yandex Maps API for data visualization in
+                  {{ datalens-short-name }}
+                href: datalens/data-from-ch-geocoder.md
+          - name: Service analytics
+            items:
+              - name: 'Yandex Metrica: direct connection'
+                href: datalens/data-from-metrica-visualization.md
+              - name: >-
+                  Yandex Metrica: data export, post-processing, and
+                  visualization
+                href: datalens/data-from-metrica-yc-visualization.md
+              - name: 'AppMetrica: direct connection'
+                href: datalens/data-from-appmetrica-visualization.md
+              - name: 'AppMetrica: data export, post-processing, and visualization'
+                href: datalens/data-from-appmetrica-yc-visualization.md
+              - name: 'Bitrix24: direct connection'
+                href: datalens/data-from-bitrix24-visualization.md
+              - name: '{{ tracker-full-name }}: data export and visualization'
+                href: datalens/data-from-tracker.md
+              - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
+                href: datalens/storage-logs-analysis.md
+              - name: 'Yandex Music podcasts: Statistics'
+                href: datalens/data-from-podcasts.md
+              - name: Visualizing {{ yq-full-name }} data
+                href: datalens/data-from-yandex-query-visualization.md
+              - name: Visualizing {{ monitoring-full-name }} data
+                href: datalens/data-from-monitoring-visualization.md
+              - name: Visualizing {{ ytsaurus-name }} CHYT data
+                href: datalens/data-from-ch-over-yt.md
+          - name: Functional
+            items:
+              - name: Using parameters
+                href: datalens/data-from-ch-with-parameters.md
+              - name: Examples of creating QL charts
+                href: datalens/data-from-ch-to-sql-chart.md
   - name: Serverless technologies
     items:
       - name: All tutorials

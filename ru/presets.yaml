@@ -114,6 +114,8 @@ default:
   cloud-registry: registry.yandexcloud.net
   cloud-registry-full-name: Yandex Cloud Registry
   cloud-registry-name: Cloud Registry
+  cloud-shell-full-name: Yandex Cloud Shell
+  cloud-shell-name: Cloud Shell
   cloudml-full-name: Yandex Cloud AI Hybrid
   cloudml-name: Cloud AI Hybrid
   cluster-id: cat0adul1fj0********
@@ -1904,6 +1906,16 @@ default:
       audio|pricingRate:
         30000000|number: 0.025
         6000000|number: 0.03
+      text:
+        v2|number: 6.9
+        v2|pricingRate:
+          100000|number: 5.1
+          100000|string: "5,10\_₸"
+          1000000|string: "2,10\_₸"
+          2500000|string: "1,50\_₸"
+          500000|number: 3
+          500000|string: "3,00\_₸"
+        v2|string: "6,90\_₸"
       v1|number: 0.115
       v1|pricingRate:
         150000000|number: 0.025
@@ -3302,6 +3314,16 @@ default:
       audio|pricingRate:
         30000000|number: 0.005
         6000000|number: 0.006
+      text:
+        v2|number: 1.38
+        v2|pricingRate:
+          100000|number: 1.02
+          100000|string: "1,02\_₽"
+          1000000|string: "0,42\_₽"
+          2500000|string: "0,30\_₽"
+          500000|number: 0.6
+          500000|string: "0,60\_₽"
+        v2|string: "1,38\_₽"
       v1|number: 0.023
       v1|pricingRate:
         150000000|number: 0.005
@@ -4665,6 +4687,13 @@ default:
       audio|pricingRate:
         30000000|number: 0.00004
         6000000|number: 0.000048
+      text:
+        v2|pricingRate:
+          100000|string: "0,008160\_$"
+          1000000|string: "0,003360\_$"
+          2500000|string: "0,002400\_$"
+          500000|string: "0,004800\_$"
+        v2|string: "0,011040\_$"
       v1|number: 0.000184
       v1|pricingRate:
         150000000|number: 0.00004
@@ -5725,8 +5754,12 @@ default:
             tab-idp: IdP-группы
         oslogin-settings:
           title_allow-edit-own-keys: Разрешить членам организации управлять своими SSH-ключами
+          title_hide-users-list: >-
+            Запретить пользователям просматривать список членов организации и
+            информацию о них
           title_ssh-certificate-settings: Доступ по OS Login при помощи SSH-сертификатов (рекомендуется)
           title_user-ssh-key-settings: Доступ по OS Login при помощи SSH-ключей
+          title_users-list-visibility: Конфиденциальность
         oslogin:
           field_home-directory: Домашняя директория
           field_shell: Оболочка по умолчанию
@@ -6110,7 +6143,7 @@ default:
       baremetal:
         action_destroy-raid: Разобрать RAID
         action_disk-layout-settings: Настроить разделы диска
-        action_reboot-server: Перезапустить
+        action_reboot-server: Перезагрузить
         action_reinstall-server-os: Переустановить
         action_reinstall-server-os-menu: Переустановить ОС
         action_stop-prolongation-server: Выключить автопродление
@@ -6349,6 +6382,8 @@ default:
         switch_operations: Операции
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
+      cloud-shell:
+        label_service: Cloud Shell
       cloud-tree-list:
         value_search-placeholder: Поиск
       cns:
@@ -8617,19 +8652,18 @@ default:
           label_userName: Имя пользователя
           section_catalog: Настройки каталога
         overview:
-          field_coordinator-url: Координатор
+          title_resource-coordinator: Координатор
         title_catalogs: Каталоги
       tuning:
-        _lassification-task: Тип классификации
         addition-params: Дополнительные параметры
         classification: Классификация
+        classification-task: Тип классификации
         generation: Генерация
         start-tuning: Начать дообучение
         task: Задача
         train-model: Дообучить модель
         tunings: Дообучение моделей
       vdi:
-        button_acl: Настроить ACL
         button_add-image: Добавить образ
         button_desktop-create: Создать рабочий стол
         button_download-rdp: Загрузить RDP-файл
@@ -10568,7 +10602,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.5.0
+        tag: v0.6.0
     yc_gitlab-agent:
       helmChart:
         name: >-
@@ -10583,7 +10617,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/ingress-nginx/chart/ingress-nginx
-        tag: 4.10.0
+        tag: 4.12.1
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -10624,4 +10658,4 @@ default:
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 2.30.4-1
+        tag: 8.5.0-3

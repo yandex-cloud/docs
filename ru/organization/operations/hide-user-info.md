@@ -41,9 +41,11 @@ description: Следуя данной инструкции, вы узнаете
 
       При необходимости [переключитесь](./manage-organizations.md#switch-to-another-org) на нужную организацию или федерацию.
 
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud_org.layout.organization }}**.
+
   1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
 
-  1. В блоке **Конфиденциальность** включите опцию **Запретить пользователям просматривать информацию о других членах организации**.
+  1. В блоке **{{ ui-key.yacloud_org.form.oslogin-settings.title_users-list-visibility }}** включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_hide-users-list }}**.
 
       Чтобы вернуть пользователям возможность просматривать информацию о других пользователях этой организации, отключите эту опцию.
 

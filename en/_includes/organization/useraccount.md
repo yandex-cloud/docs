@@ -30,7 +30,7 @@ You can invite a user to an organization via the management console or the {{ cl
 
 {% endlist %}
 
-The user will be able to log in to the organization upon accepting the invitation via the emailed link and selecting an account for log-in. To access the [services](../../organization/concepts/manage-services.md#collaboration) enabled for the organization, the users you invited simply need to log in to their Yandex account.
+The user will be able to log in to the organization upon accepting the invitation via the emailed link and selecting an account for log-in. To access the services enabled for the organization, the users you invited simply need to log in to their Yandex account.
 
 You can delete or resend your invitation only via {{ org-name }}.
 

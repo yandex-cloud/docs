@@ -1,15 +1,15 @@
 ---
 title: How to add a user SSH key
-description: Follow this guide to add SSH keys to a user profile to enable the user to connect to VMs and {{ k8s }} cluster nodes.
+description: Follow this guide to add SSH keys to a user profile to enable the user to connect to VMs, {{ k8s }} cluster nodes, and {{ baremetal-name }} servers.
 ---
 
 # Adding an SSH key
 
-Upload SSH keys to the {{ org-name }} profile of an organization user or [service account](../../iam/concepts/users/service-accounts.md) so that the user or service account can connect to VMs and {{ k8s }} cluster nodes.
+Upload SSH keys to the {{ org-name }} profile of an organization user or [service account](../../iam/concepts/users/service-accounts.md) so that the user or service account can use these to connect to [VMs](../../compute/concepts/vm.md), {{ k8s }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group), and {{ baremetal-full-name }} [servers](../../baremetal/concepts/servers.md).
 
 [Create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a new SSH key pair before you begin this tutorial, if you need to.
 
-To add a public SSH key to an {{ oslogin }} profile:
+To add a public SSH key to a profile:
 
 {% list tabs group=instructions %}
 
@@ -21,7 +21,7 @@ To add a public SSH key to an {{ oslogin }} profile:
 
   1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
  
-  1. From the list, select the user whose {{ oslogin }} profile you want to add an SSH key to.
+  1. From the list, select the user to whose profile you want to add an SSH key.
   
       Use the filter or search as needed.
 
@@ -41,7 +41,7 @@ To add a public SSH key to an {{ oslogin }} profile:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to upload an SSH key to the user profile:
+  1. See the description of the CLI command for uploading an SSH key to a user or service account profile:
 
       ```bash
       yc organization-manager oslogin user-ssh-key create --help
@@ -84,7 +84,7 @@ To add a public SSH key to an {{ oslogin }} profile:
       +----------------------+-----------------------+---------------------------------+----------------------+
       ```
 
-      To add an SSH key to an {{ oslogin }} profile of a service account, [get](../../iam/operations/sa/get-id.md) the service account ID.
+      To add an SSH key to a service account profile, [get](../../iam/operations/sa/get-id.md) the ID of the appropriate service account.
 
   1. Upload the SSH key to your user or service account profile:
 

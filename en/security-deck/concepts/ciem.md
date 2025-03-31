@@ -1,13 +1,13 @@
 ---
 title: Cloud Infrastructure Entitlement Management in {{ sd-full-name }}
-description: This section describes the {{ sd-name }} Cloud Infrastructure Entitlement Management (CIEM) module, which allows you to view the access permissions organization users have for its resources and, if required, revoke such access permissions.
+description: This section describes the {{ sd-name }} Cloud Infrastructure Entitlement Management ({{ ciem-name }}) module, which allows you to view the access permissions that an organization’s users have for its resources and, if required, revoke such permissions.
 ---
 
-# Cloud Infrastructure Entitlement Management (CIEM)
+# Cloud Infrastructure Entitlement Management ({{ ciem-name }})
 
 To ensure data and cloud infrastructure [security](../../security/standard/all.md), you need to regularly audit the access permissions of [users](../../overview/roles-and-resources.md#users) and [service accounts](../../iam/concepts/users/accounts.md#sa).
 
-[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) or CIEM is a tool that provides a centralized [view](../operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../organization/concepts/groups.md), [system groups](../../iam/concepts/access-control/system-group.md), and [public groups](../../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](../operations/ciem/revoke-permissions.md) accesses from subjects.
+[Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/), or {{ ciem-name }}, provides a centralized [view](../operations/ciem/view-permissions.md) of the full list of access permissions for organization [resources](../../iam/concepts/access-control/resources-with-access-control.md) granted to [subjects](../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../organization/concepts/groups.md), [system groups](../../iam/concepts/access-control/system-group.md), and [public groups](../../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](../operations/ciem/revoke-permissions.md) accesses from subjects.
 
 ## Viewing access permissions {#viewing-permissions}
 

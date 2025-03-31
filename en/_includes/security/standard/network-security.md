@@ -6,7 +6,7 @@
 This section provides users with recommendations on security settings in [{{ vpc-full-name }}](../../../vpc/).
 
 
-To isolate applications from each other, put resources in different [security groups](../../../vpc/concepts/security-groups.md), and, if strict isolation is required, in different [networks](../../../vpc/concepts/network.md#network). By default, internal network traffic is allowed, while traffic between networks is not. Traffic between networks is only allowed via a [VM](../../../compute/concepts/vm.md) with two network interfaces in different networks, VPN, or [{{ interconnect-full-name }}](../../../interconnect/index.yaml).
+To isolate applications from each other, put resources in different [security groups](../../../vpc/concepts/security-groups.md), and, if strict isolation is required, in different [networks](../../../vpc/concepts/network.md#network). By default, internal network traffic is allowed, while traffic between networks is not. Traffic between networks is only allowed via [VMs](../../../compute/concepts/vm.md) with two network interfaces in different networks, VPN, or [{{ interconnect-full-name }}](../../../interconnect/index.yaml).
 
 ### Overview {#general}
 
@@ -237,8 +237,8 @@ We recommend that you only allow access to your cloud infrastructure through con
 {{ yandex-cloud }} provides basic and advanced DDoS protection as well as protection at the application level with {{ sws-full-name }}. Make sure to use at least basic protection.
 
 * [{{ sws-full-name }}](../../../smartwebsecurity/quickstart.md) is a service for protection against DDoS attacks and bots at application level L7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). {{ sws-name }} [connects](../../../smartwebsecurity/quickstart.md) to {{ alb-full-name }}. In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
-* [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Curator Labs. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
-* [Advanced](/services/ddos-protection) DDoS protection operates at Levels 3, 4, and 7 of the OSI model. You can also follow load and attack parameters and enable Solidwall WAF in your Curator Labs account. To enable advanced protection, contact your manager or technical support.
+* [{{ ddos-protection-full-name }}](../../../vpc/ddos-protection/index.md) is a {{ vpc-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-name }} is provided in partnership with Curator. You can enable it yourself for an external [IP address](../../../vpc/concepts/address.md) through cloud administration tools. Supported up to OSI L4.
+* [Advanced](/services/ddos-protection) DDoS protection operates at Levels 3, 4, and 7 of the OSI model. You can also track load and attack metrics and enable Solidwall WAF in your Curator account. To enable advanced protection, contact your manager or technical support.
 
 {% list tabs group=instructions %}
 
@@ -247,7 +247,7 @@ We recommend that you only allow access to your cloud infrastructure through con
   * To make sure you are using DDoS protection at the application level:
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
       1. Make sure you have security profiles created.
       1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 

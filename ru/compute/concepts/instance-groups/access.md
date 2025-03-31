@@ -22,6 +22,10 @@
 
 {% endnote %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/vm-autoscale/index.md)
+
 #### См. также {#see-also}
 
 - [{#T}](../../quickstart/ig.md).
