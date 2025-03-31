@@ -35,7 +35,7 @@ Folder notifications include information about the following resources:
 * MDB clusters (cluster ID)
 
 Folder notifications are sent to both folder subscribers and parent cloud subscribers. Please note that it is not possible to identify the folder for some types of resources. Therefore, we recommend subscribing important recipients to cloud notifications.
-
+  
 ### Scheduled maintenance {#technical}
 
 Some {{ yandex-cloud }} maintenance operations may affect the performance or availability of your resources. Technical support sends notification of such activities 3 calendar days in advance by email, indicating:

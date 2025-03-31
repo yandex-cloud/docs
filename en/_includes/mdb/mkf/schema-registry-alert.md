@@ -1,5 +1,5 @@
 {% note warning %}
 
-Once enabled, the **{{ ui-key.yacloud.kafka.field_schema-registry }}** setting cannot be disabled.
+You cannot disable data schema management using {{ mkf-msr }} after connecting it.
 
 {% endnote %}

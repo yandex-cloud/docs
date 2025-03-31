@@ -46,7 +46,7 @@ items:
               Transferring logs from {{ metastore-name }} to {{
               cloud-logging-name }}
             href: operations/metastore/logging.md
-          - name: Deleting an {{ metastore-name }} cluster
+          - name: Deleting a {{ metastore-name }} cluster
             href: operations/metastore/cluster-delete.md
       - name: Schema Registry
         items:
@@ -108,6 +108,10 @@ items:
         items:
           - name: Schema registry
             href: concepts/schema-registry.md
+          - name: Content models and JSON schema evolution issues
+            href: concepts/schema-registry-content-model.md
+          - name: Compatibility policies
+            href: concepts/compatibility-check-policy.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -122,7 +126,7 @@ items:
         href: security/schema-registry-roles.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: Schema Registry
         href: api-ref/schema-registry/index.md

@@ -1,11 +1,26 @@
 ---
 title: Getting started with {{ maf-full-name }}
 description: To get started with {{ maf-full-name }}, create a service cluster and open the {{ AF }} web interface.
+keywords:
+  - keyword: airflow
+  - keyword: airflow cluster
+  - keyword: '{{ AF }} cluster'
+  - keywrod: Apache Airflow cluster
+  - keyword: '{{ AF }}'
+  - keyword: Apache Airflow
+  - keyword: create {{ AF }} cluster
+  - keyword: create airflow cluster
+  - keyword: use {{ AF }}
+  - keyword: get started with {{ AF }}
+  - keyword: get started with {{ maf-name }}
+  - keyword: '{{ AF }} web interface'
+  - keyword: open {{ AF }} web interface
+  - keyword: open airflow web interface
 ---
 
 # Getting started with {{ maf-name }}
 
-To get started with the service:
+To get started with {{ maf-name }}:
 
 1. [Create a cluster](#cluster-create).
 1. [Open the {{ AF }} web interface](#web-gui).
@@ -35,7 +50,7 @@ To get started with the service:
 
 ## Create a cluster {#cluster-create}
 
-1. In the management console, select the directory where you want to create a cluster.
+1. In the management console, select the folder where you want to create a {{ maf-name }} cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 1. Click **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
 1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
@@ -51,6 +66,6 @@ In addition to the web interface, you can use the [{{ AF }} API](https://airflow
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
-* Learn more about [creating clusters](operations/cluster-create.md) and [working with {{ AF }} interfaces](operations/af-interfaces.md).
+* Read about [{{ maf-name }} concepts](concepts/index.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [using {{ AF }} interfaces](operations/af-interfaces.md).
 * Create DAG files and [upload them](operations/upload-dags.md) to the {{ maf-name }} cluster. For a DAG file example, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).

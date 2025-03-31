@@ -77,7 +77,7 @@ To use the service, you need the [{{ roles.mpg.editor }} role](../../iam/concept
 
 To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mpg.editor }}` role or higher.
 
-You can always assign a role with more permissions. For instance, you can assign `{{ roles.mpg.admin }}` instead of `{{ roles.mpg.editor }}`.
+You can always assign a role with more permissions. For example, you can assign the `{{ roles.mpg.admin }}` role instead of `{{ roles.mpg.editor }}`.
 
 ## What's next {#whats-next}
 

@@ -143,7 +143,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
   To create a {{ mkf-name }} cluster:
 
-  1. View the description of the create {{ mkf-name }} cluster CLI command:
+  1. See the description of the CLI command for creating a {{ mkf-name }} cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster create --help
@@ -157,6 +157,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         --name <cluster_name> \
         --environment <environment> \
         --version <version> \
+        --schema-registry \
         --network-name <network_name> \
         --subnet-ids <subnet_IDs> \
         --zone-ids <availability_zones> \
@@ -174,6 +175,10 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
      * `--environment`: Cluster environment, `prestable` or `production`.
      * `--version`: {{ KF }} version, {{ versions.cli.str }}.
+     * `--schema-registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+
+         {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
+
      * `--zone-ids` and `--brokers-count`: Availability zones and number of broker hosts per zone.
 
         For [clusters with {{ KF }} version 3.6 and higher](#zk-vs-kraft), only the following configurations are available:
@@ -313,10 +318,13 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
        * `zones = ["<one_availability_zone>"] brokers_count = 3`
 
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
-     * `assign_public_ip`: Public access to the cluster, `true` or `false`.
-     * `schema_registry`: Managing data schemas, `true` or `false`.
 
-     {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+       {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+     * `assign_public_ip`: Public access to the cluster, `true` or `false`.
+     * `schema_registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`.
+
+       {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -676,7 +684,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
                 {% include [rest-user-specs](../../_includes/mdb/mkf/api/grpc-user-specs.md) %}
 
-            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of the options:
+            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
@@ -720,7 +728,7 @@ If there are no {{ ZK }} hosts, it means the cluster uses {{ kraft-short-name }}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ KF }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
+You can create an {{ KF }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ KF }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ KF }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ KF }} cluster copy:
 

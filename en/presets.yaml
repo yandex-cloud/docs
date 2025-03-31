@@ -240,9 +240,6 @@ default:
   host-class: s2.micro
   host-name: rc1a-goh2a9tr********
   host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr8efcch64
-  i2:
-    2xlarge: i2.2xlarge (16 vCPU, 128 GB)
-    4xlarge: i2.4xlarge (32 vCPU, 256 GB)
   iam-full-name: Yandex Identity and Access Management
   iam-name: Identity and Access Management
   iam-short-name: IAM

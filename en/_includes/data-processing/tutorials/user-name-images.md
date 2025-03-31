@@ -1,1 +1,1 @@
-For image 2.0, specify the `ubuntu` user, for image 1.4, `root` as the username.
+For image version 2.0, specify the `ubuntu` user; for image version 1.4, specify `root`.

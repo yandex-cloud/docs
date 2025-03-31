@@ -115,7 +115,7 @@ items:
         href: tutorials/object-storage-to-postgresql.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
-      - name: Creating a Joomla website with a PostgreSQL database
+      - name: Creating a Joomla website with a {{ PG }} database
         items:
           - name: Overview
             href: tutorials/joomla-postgresql/index.md
@@ -133,7 +133,7 @@ items:
         href: tutorials/yq-postgre.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md
-      - name: Writing data from a device into a database
+      - name: Writing data from a device to a database
         href: tutorials/data-recording.md
       - name: Replication and migration
         items:
@@ -345,7 +345,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

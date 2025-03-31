@@ -115,7 +115,7 @@ You can change computing resources and storage size in the management console. A
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
-#### How do I fix the Maximum number of hosts reached error when adding a host to the cluster? {#error-when-adding-host}
+#### How do I fix the `Maximum number of hosts reached` error when adding a host to the cluster? {#error-when-adding-host}
 
 This error occurs when adding a host to the {{ mrd-name }} cluster with the `b2.medium` or `b3-c1-m4` [host class](../../managed-redis/concepts/instance-types.md#available-flavors). In this case, [change the host class](../../managed-redis/operations/update.md#change-resource-preset). The cluster will become unavailable for about five to seven minutes. Then, add a host to the cluster.
 
@@ -159,12 +159,10 @@ For `disk.used_bytes`, use notification thresholds. The recommended values are a
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `Alarm`: `96636764160` bytes (90%)
-* `Warning`: `85899345920` bytes (80%)
-
+* `Alarm`: `96636764160` bytes (90%).
+* `Warning`: `85899345920` bytes (80%).
 
 {% include [fz-152.md](../fz-152.md) %}
-
 
 {% include [logs](../logs.md) %}
 

@@ -19,7 +19,7 @@ You interact with database clusters in {{ mgp-short-name }} the same way you int
 
 #### What part of database management and maintenance is {{ mgp-short-name }} responsible for? {#services}
 
-When creating clusters, {{ mgp-short-name }} allocates resources, installs the DBMS, and creates databases.
+When you create clusters, {{ mgp-short-name }} allocates resources, installs the DBMS, and creates databases.
 
 For the created and running databases, {{ mgp-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
 
@@ -36,10 +36,10 @@ For the created and running databases, {{ mgp-short-name }} automatically create
 
 {{ mgp-short-name }} is available to any registered {{ yandex-cloud }} user.
 
-To create a database cluster in {{ mgp-short-name }}, you must define its characteristics:
+To create a database cluster in {{ mgp-short-name }}, you need to define its parameters:
 
 * [Host class](../../managed-greenplum/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
-* Storage size (reserved in full when you create the cluster).
+* Storage size (reserved to the full extent when you create a cluster).
 * Network your cluster will be connected to.
 * Number of hosts for a cluster and the cluster availability zone.
 
@@ -53,10 +53,8 @@ The database software is updated when new minor versions are released. Owners of
 
 One month after the database version becomes deprecated, {{ mgp-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 
-New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version: seven days after notification for minor versions and one month for major versions. Deprecated major versions are upgraded even if you disabled automatic updates.
-
+New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions are going to be upgraded even if you have disabled automatic updates.
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
 
 {% include [logs](../logs.md) %}

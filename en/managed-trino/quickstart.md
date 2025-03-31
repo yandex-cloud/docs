@@ -29,7 +29,7 @@ To get started:
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
-1. [Create a service account](../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles.
+1. [Create a service account](../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles.    
 
 1. [Create](../managed-postgresql/operations/cluster-create.md#create-cluster) a {{ mpg-full-name }} cluster {{ TR }} will work with.
 
@@ -45,9 +45,9 @@ To get started:
 1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add folders:
 
    1. For the {{ mpg-name }} cluster, with the following properties:
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `test`.
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `PostgreSQL`.
-       * **{{ ui-key.yacloud.trino.catalogs.label_url }}**: `jdbc:postgresql://<FQDN_of_host_of_Managed_Service_for_Postgresql>:6432/<DB_name>?ssl=true&sslmode=verify-full`.
+       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `test`
+       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `PostgreSQL`
+       * **{{ ui-key.yacloud.trino.catalogs.label_url }}**: `jdbc:postgresql://<FQDN_of_host_of_Managed_Service_for_Postgresql>:6432/<DB_name>?ssl=true&sslmode=verify-full`
 
            To learn how to get the FQDN of a host in a {{ mpg-name }} cluster, see [this guide](../managed-postgresql/operations/connect.md#fqdn).
 
@@ -88,7 +88,7 @@ To get started:
    sudo chmod +x trino
    ```
 
-1. Make sure {{ TR }} has been installed successfully by getting its version:
+1. Make sure {{ TR }} is installed successfully. Do it by requesting {{ TR }} version:
 
    ```bash
    ./trino --version
@@ -115,7 +115,7 @@ To get started:
    ./trino <coordinator_URL> --user iam --password
    ```
 
-   You can copy the coordinator URL from the **{{ ui-key.yacloud.trino.overview.field_coordinator-url }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
+   You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.field_coordinator-url }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
 
 ## Send queries to the {{ mpg-name }} cluster through {{ TR }} {#query-mpg-via-trino}
 
@@ -154,13 +154,13 @@ To get started:
 1. Get the number of rows in the table:
 
    ```sql
-   SELECT COUNT() as count FROM test.tpch_postgresql.customers;
+   SELECT COUNT(*) as count FROM test.tpch_postgresql.customers;
    ```
 
    Expected response:
 
    ```sql
-     count
+     count  
    ---------
     1000000 
    (1 row)
@@ -171,13 +171,13 @@ To get started:
 To check whether the queries to the {{ mpg-name }} cluster are running correctly, [connect to the cluster database](../managed-postgresql/operations/connect.md) and get the number of rows in the `customers` table:
 
 ```sql
-SELECT COUNT() FROM tpch_postgresql.customers;
+SELECT COUNT(*) FROM tpch_postgresql.customers;
 ```
 
 Expected response:
 
 ```sql
-  count
+  count  
 ---------
  1000000
 (1 row)

@@ -25,6 +25,18 @@ meta:
   description: >-
     Managed Service for Apache Airflow™ helps you deploy and maintain Apache
     Airflow™ server clusters in the Yandex Cloud infrastructure.
+  keywords:
+    - keyword: airflow
+    - keyword: airflow cluster
+    - keyword: '{{ AF }} cluster'
+    - keyword: '{{ AF }}'
+    - keyword: Apache Airflow
+    - keyword: Apache Airflow server clusters
+    - keyword: '{{ AF }} server clusters'
+    - keyword: airflow in {{ yandex-cloud }}
+    - keyword: Apache Airflow in {{ yandex-cloud }}
+    - keyword: '{{ AF }} in {{ yandex-cloud }}'
+    - keyword: '{{ maf-name }}'
 links:
   - title: Getting started
     description: Create your first cluster

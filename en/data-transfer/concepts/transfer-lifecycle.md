@@ -52,31 +52,35 @@ The transition between statuses for the _{{ dt-type-copy-repl }}_ transfer type 
 
 The current transfer status determines available actions with transfers. For more information, see [{#T}](../operations/transfer.md).
 
-* {{ dt-status-created }}: Assigned to a transfer immediately after [creation](../operations/transfer.md#create).
+* {{ dt-status-created }} (`CREATED`): Assigned to a transfer immediately after its [creation](../operations/transfer.md#create).
 
-* {{ dt-status-creation }}: Assigned to a transfer after [activation](../operations/transfer.md#activate).
+* {{ dt-status-creation }} (`CREATING`): Assigned to a transfer after its [activation](../operations/transfer.md#activate).
 
-   At this time, the service checks the connection to the source and target and creates the resources necessary for the transfer. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be available, e.g., creating replication slots, copying a data schema, and so on.
+  At this time, the service checks the connection to the source and target and creates the resources necessary for the transfer. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be available, e.g., creating replication slots, copying a data schema, and so on.
 
-* {{ dt-status-stopping }}: Assigned to the transfer after [deactivation](../operations/transfer.md#deactivate).
+* {{ dt-status-stopping }} (`STOPPING`): Assigned to a transfer during its [deactivation](../operations/transfer.md#deactivate).
 
-   At this time, the service performs the actions necessary to properly disconnect from the source and target. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be performed, e.g., closing replication slots, transferring triggers, stored procedures, and functions, creating indexes in the target database, etc.
+  At this time, the service performs the actions necessary to properly disconnect from the source and target. Depending on the [transfer type](./index.md#transfer-type) and [endpoint](./index.md#endpoint) settings, additional actions may be performed, e.g., closing replication slots, transferring triggers, stored procedures, and functions, creating indexes in the target database, etc.
 
-* {{ dt-status-stopped }}: Assigned to the transfer after [deactivation](../operations/transfer.md#deactivate) is complete.
+* {{ dt-status-stopped }} (`STOPPED`) : Assigned to a transfer after its [deactivation](../operations/transfer.md#deactivate) is complete.
 
-   Only successful transfer deactivation guarantees the operability of the target and the source.
+  Only successful transfer deactivation guarantees the operability of the target and the source.
 
-* {{ dt-status-copy }}: Assigned to _{{ dt-type-copy }}_ and _{{ dt-type-copy-repl }}_ transfers for the period while data is copied from the source.
+* {{ dt-status-copy }} (`SNAPSHOTTING`): Assigned to _{{ dt-type-copy }}_ and _{{ dt-type-copy-repl }}_ transfers while copying data from the source.
 
-* {{ dt-status-repl }}: Assigned to _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers.
+* {{ dt-status-repl }} (`RUNNING`): Assigned to _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers.
+  
+  * _{{ dt-type-repl }}_: After a successful [activation](../operations/transfer.md#activate).
+  * _{{ dt-type-copy-repl }}_: After successfully copying data from the source.
 
-   * _{{ dt-type-repl }}_: After a successful [activation](../operations/transfer.md#activate).
-   * _{{ dt-type-copy-repl }}_: After successfully copying data from the source.
+* {{ dt-status-finished }} (`DONE`): Assigned to transfers that have successfully moved the data.
 
-* {{ dt-status-finished }}: Assigned to transfers that have successfully transferred the data.
+* {{ dt-status-error }} (`ERROR`): Assigned to a transfer if it fails due to operational issues.
 
-* {{ dt-status-error }}: Assigned to the transfer if any issues occur.
+  A transfer's status may switch to **{{ dt-status-error }}** during activation, data replication, or copying. Depending on the status that preceded the error, the transfer can be [reactivated](../operations/transfer.md#activate). Errors may occur both on the source and the target.
 
-   A transfer's status may switch to **{{ dt-status-error }}** during activation, data replication, or copying. Depending on the status that preceded the error, the transfer can be [reactivated](../operations/transfer.md#activate). Errors may occur both on the source and the target.
+  Learn more about possible error causes and how to resolve them in [{#T}](../troubleshooting/index.md).
 
-   Learn more about possible error causes and how to resolve them in [{#T}](../troubleshooting/index.md).
+
+You will be [billed](../pricing.md) for transfers under the paid usage model when these enter the {{ dt-status-repl }} (`RUNNING`), {{ dt-status-copy }} (`SNAPSHOTTING`), or {{ dt-status-stopping }} (`STOPPING`) status. 
+

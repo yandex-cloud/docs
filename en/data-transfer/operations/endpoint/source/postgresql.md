@@ -58,7 +58,7 @@ Before you get started, check the [Service specifics for {{ PG }} sources and ta
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) role or the [`viewer`](../../../../iam/roles-reference.md#viewer) primitive role assigned for the folder where this managed database cluster resides.
 
 {% endnote %}
 
@@ -83,7 +83,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -137,7 +137,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -207,7 +207,7 @@ For OnPremise, all fields are filled in manually.
           
             {% note warning %}
 
-            The **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** setting does not guarantee replication slot deletion when its threshold value is reached, particularly if there are issues with the transfer or connectivity between the transfer and the source cluster. For additional tips, see [Preparing the source database](#wal-setup-recommendation).
+            The **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** setting does not guarantee replication slot deletion when its threshold value is reached, particularly if there are issues with the transfer or connectivity between the transfer and the source cluster. For additional tips, see [Preparing the source database](#wal-setup-recommendation).  
 
             {% endnote %}
 
@@ -394,9 +394,11 @@ Known issues when using a {{ PG }} endpoint:
 * [Excessive WAL size increase](#excessive-wal).
 * [Error when replicating from an external source](#external-replication).
 * [Error when transferring tables without primary keys](#primary-keys).
+* [Duplicate key violates a unique constraint](#duplicate-key)
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
+* [Error when transferring tables with generated columns](#generated-columns)
 
-For more troubleshooting tips, see the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [master-trans-stop](../../../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 
@@ -432,4 +434,8 @@ For more troubleshooting tips, see the [Troubleshooting](../../../troubleshootin
 
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [duplicate-key](../../../../_includes/data-transfer/troubles/duplicate-key.md) %}
+
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [generated-columns](../../../../_includes/data-transfer/troubles/generated-columns.md) %}

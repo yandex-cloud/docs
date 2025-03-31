@@ -168,9 +168,7 @@ The list of supported {{ PG }} extensions is provided in [{#T}](../../managed-po
 
 Cluster backups are stored and available in all three data centers.
 
-
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
 
 #### Can I get superuser privileges in {{ PG }}? {#superuser}
 

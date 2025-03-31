@@ -32,26 +32,36 @@ Manage schema versions with {{ schema-registry-name }}.
   1. [In the new namespace settings](../operations/update-name-space.md), copy its ID.
   1. Use the POST API method to upload and register the schema for a subject. Provide the following in the request: 
      
-      * `subject`: Subject name for uploading schemas.
-      * `subject`: Name of the schema you want to upload to the specified subject.
-      * `schemaType`: Schema type: [Avro](https://avro.apache.org/), [JSON Schema](https://json-schema.org/), or [Protobuf](https://protobuf.dev/).
+      * `schemaType`: Data format: [PROTOBUF](https://protobuf.dev/), [AVRO](https://avro.apache.org/), or [JSON](https://json-schema.org/). If `schemaType` is not specified, it defaults to `AVRO`.
+      * `schema.type`: Data type. For example, `record`.
+      * `schema.name`: Name of the schema to upload to the subject.
+      * `schema.fields`: Schema fields. Example: `[{\"name\": \"age\", \"type\": \"int\"}]`.
+      * Namespace ID.
+      * Name of the subject to upload your schema to.
+
+      Request format:
 
             
       ```bash
       curl \
-        --request POST "https://<namespace_ID>.schema-registry.yandexcloud.net/v1/namespace"\
+        --request POST \
         --header "accept: application/json" \
         --header "Authorization: <token>" \
         --header "Content-Type: application/json" \
-        --data "{
-         \ "schema": "{
-             \"type": <type>, 
-             \"name": "<schema_name>, 
-             \"fields":[schema_fields]}
+        --data '{
+           "schemaType": "<data_format>",
+           "schema": '{
+             \"type\": \"<data_type>\", 
+             \"name\": \"<schema_name>\", 
+             \"fields\":[schema_fields]}
             }' \
-        $<namespace_ID>/subjects/<subject_name>/versions
-        {"id":1}
-      ```     
+        https://<namespace_ID>.schema-registry.yandexcloud.net/subjects/<subject_name>/versions
+      ```
+
+      A successful request will return a unique schema ID, e.g., `{"id":1}`.
+
+      For examples of requests, see [this Confluent article](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#post--subjects-(string-%20subject)-versions).
+
 {% endlist %}
 
 ## What's next {what-is-next}

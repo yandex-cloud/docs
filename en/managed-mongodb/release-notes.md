@@ -7,7 +7,7 @@ description: This section contains {{ mmg-name }} release notes.
 
 ## December 2024 {#dec-2024}
 
-Creating {{ MG }} 5.0 clusters became unavailable starting December 2, 2024, as the version was [discontinued](https://www.mongodb.com/support-policy) by the vendor. Starting February 3, 2025, existing {{ MG }} 5.0 clusters will be [automatically upgraded](qa/general.md#dbms-deprecated) to 6.0.
+Creating {{ MG }} 5.0 clusters became unavailable starting December 2, 2024, as the version was [discontinued](https://www.mongodb.com/support-policy) by the vendor.
 
 ## October 2024 {#oct-2024}
 

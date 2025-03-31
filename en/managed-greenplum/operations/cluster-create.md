@@ -11,7 +11,7 @@ For more information, see [{#T}](../concepts/index.md).
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mgp.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -31,7 +31,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
     1. Select the {{ GP }} version.
 
     
-    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on the dedicated hosts. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+    1. Optionally, to place master hosts or segment hosts on dedicated hosts, select [dedicated host](../../compute/concepts/dedicated-host.md) groups. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
 
         You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -97,7 +97,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         {% include [background activities](../../_includes/mdb/mgp/background-activities-console.md) %}
 
-    1. Specify the master host parameters on the **{{ ui-key.yacloud.greenplum.section_resource-master }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#master).
+    1. Specify the master host parameters on the **{{ ui-key.yacloud.greenplum.section_resource-master }}** tab. For the recommended configuration, see [Calculating the cluster configuration](../concepts/calculate-specs.md#master).
 
         * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster master hosts will be deployed.
 
@@ -110,7 +110,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           * Select the storage size.
 
-    1. Specify the parameters of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](calculate-specs.md#segment).
+    1. Specify the parameters of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](../concepts/calculate-specs.md#segment).
 
         * Number of segment hosts.
         * [Number of segments per host](../concepts/index.md). The maximum value of this parameter depends on the host class.
@@ -149,7 +149,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-    1. View the description of the create cluster CLI command:
+    1. View the description of the CLI command to create a cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster create --help
@@ -304,7 +304,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Create a configuration file with a description of the cluster and its hosts.
 
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
 
       
       ```hcl
@@ -355,7 +355,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-          Even if enabled, one can still connect manually and delete the database content.
+          Even with cluster deletion protection enabled, one can still connect manually and delete the database contents.
 
       * `version`: {{ GP }} version.
       * `master_host_count`: Number of master hosts, 2.
@@ -371,7 +371,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
 
-      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mgp }}).
+      To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-mgp }}).
 
   
   1. Optionally, specify [dedicated host](../../compute/concepts/dedicated-host.md) groups to place master or segment hosts on dedicated hosts:
@@ -535,7 +535,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
         
-        * `masterHostGroupIds` and `segmentHostGroupIds`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+        * `masterHostGroupIds` and `segmentHostGroupIds`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -690,7 +690,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
         
-        * `master_host_group_ids` and `segment_host_group_ids`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+        * `master_host_group_ids` and `segment_host_group_ids`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -817,7 +817,7 @@ To create a {{ GP }} cluster copy:
     * With protection against accidental cluster deletion.
 
 
-    Run the following command:
+    Run this command:
 
     
     ```bash

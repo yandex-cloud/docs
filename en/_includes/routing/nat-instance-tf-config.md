@@ -1,4 +1,3 @@
-
 ```hcl
 # Declaring variables for custom parameters
 
@@ -30,7 +29,7 @@ locals {
   route_table_name = "nat-instance-route"
 }
 
-# Configuring a provider 
+# Configuring a provider
 
 terraform {
   required_providers {
@@ -196,6 +195,3 @@ resource "yandex_vpc_route_table" "nat-instance-route" {
   }
 }
 ```
-
-
-

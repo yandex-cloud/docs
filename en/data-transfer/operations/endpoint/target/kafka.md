@@ -17,7 +17,7 @@ description: In this tutorial, you will learn how to set up an {{ KF }} target e
 ## Scenarios for transferring data to {{ KF }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-   
+
     Mirroring data across queues is a separate migration task.
     * [{{ KF }} mirroring](../../../tutorials/mkf-to-mkf.md)
 
@@ -26,7 +26,7 @@ description: In this tutorial, you will learn how to set up an {{ KF }} target e
     * [Capturing changes from {{ MY }} and delivering to {{ KF }}](../../../tutorials/cdc-mmy.md).
     * [{{ ydb-short-name }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-ydb.md).
     * [Capturing changes from {{ PG }} and delivering to {{ KF }}](../../../tutorials/cdc-mpg.md).
-    
+
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Delivering data from a {{ DS }} queue to {{ KF }}](../../../tutorials/yds-to-kafka.md)
 
@@ -78,7 +78,7 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-kafka-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -125,7 +125,7 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
     {% include [On-premise Kafka Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-kafka-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -164,9 +164,9 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 {% list tabs group=instructions %}
 
 - Management console {#console}
-    
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
-    
+
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: Specify the name of the topic to send messages to. Select **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.save_tx_order.title }}**, so as not to split an event stream into independent queues by table.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}**: Specify the topic prefix, similar to the `Debezium database.server.name` setting. Messages will go to the topic named `<topic_prefix>.<schema>.<table_name>`.
@@ -201,7 +201,7 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
 {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
 
-### {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }} {#serializer}
+### Serialization settings {#serializer}
 
 {% list tabs group=instructions %}
 
@@ -211,11 +211,11 @@ Connection with the {{ KF }} cluster with explicitly specified network addresses
 
 - {{ TF }} {#tf}
 
-    {% include [serializer](../../../../_includes/data-transfer/serializers/terraform.md)  %}
+    {% include [serializer](../../../../_includes/data-transfer/serializers/terraform.md) %}
 
 - API {#api}
 
-    {% include [serializer](../../../../_includes/data-transfer/serializers/api.md)  %}
+    {% include [serializer](../../../../_includes/data-transfer/serializers/api.md) %}
 
 {% endlist %}
 

@@ -82,7 +82,11 @@ items:
       - name: Embeddings
         href: concepts/embeddings.md
       - name: '{{ assistant-api }}'
-        href: concepts/assistant/index.md
+        items:
+          - name: Overview
+            href: concepts/assistant/index.md
+          - name: Search indexes
+            href: concepts/assistant/search-index.md
       - name: Fine-tuning
         items:
           - name: Overview
@@ -97,7 +101,7 @@ items:
     items:
       - name: Overview
         href: concepts/api.md
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: Text Generation API
         items:

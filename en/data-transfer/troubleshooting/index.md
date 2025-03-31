@@ -4,6 +4,7 @@ This section describes typical problems that may arise during [transfer](../conc
 
 * [Problems that arise when working with {{ data-transfer-name }}](#overview)
 * [General](#common)
+* [Errors displayed on the timeline](#timeline)
 * [Data transformation](#data-transform)
 * [API errors](#api)
 * [Network](#network)
@@ -30,10 +31,10 @@ If {{ data-transfer-name }} operation was disrupted during data transfer, try to
 
 | Issue source | Issue | Solution |
 |-------------------|----------|---------|
-| Endpoint | Lack of network accessibility or endpoint access permissions | Check source reading using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Check writing to the target using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>If you can read and write data, check if there are any [DBMS-related restrictions](../operations/transfer.md).</br>Check the requirements for [preparing](../operations/prepare.md) and [setting up](../operations/index.md) the endpoint.</br>Check our [suggested solutions](#common). |
+| Endpoint | Lack of network accessibility or endpoint access permissions | Check source reading using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Check writing to the target using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>If the data can be read and written, check if there are any [DBMS-related restrictions](../operations/transfer.md).</br>Check the requirements for [preparing](../operations/prepare.md) and [setting up](../operations/index.md) the endpoint.</br>Check our [suggested solutions](#common). |
 | Endpoint or transfer | Lack of physical resources for the transfer or endpoints | If the data can be read and written, check if there are enough physical resources on these charts: [CPU](../operations/monitoring.md#proc.cpu%7Cproc.guarantee.cpu) and [RAM](../operations/monitoring.md#proc.ram%7Cproc.guarantee.mem).</br>Read the guidelines for DBMS diagnostics. For example, [{{ MY }}](../../managed-mysql/operations/performance-diagnostics.md), [{{ MG }}](../../managed-mongodb/operations/performance-diagnostics.md), or [{{ PG }}](../../managed-postgresql/operations/performance-diagnostics.md). |
 | Data | Outdated data due to changes in the data schema | See the different data transfer scenarios in the [{{ data-transfer-name }}](../tutorials/index.md) tutorialssection. |
-| Data | Outdated data due to large data volume | Increase the number of workers for [parallel copying](../concepts/sharded.md) or [replication](../operations/transfer.md#create).</br>Split the tables into several transfers. |
+| Data | Outdated data due to large data volume | Allocate more workers for [parallel copying](../concepts/sharded.md) or [replication](../operations/transfer.md#create).</br>Split the tables into multiple transfers. |
 
 After solving the problem, depending on the status of the transfer, activate it or change the data transfer limits of the running transfer.
 
@@ -66,6 +67,16 @@ Use the `Drop` or `Truncate` cleanup policy.
 
 {% include [required-role](../../_includes/data-transfer/troubles/required-roles.md) %}
 
+
+## Errors displayed on the transfer timeline {#timeline}
+
+{% include [no-items-in-memory](../../_includes/data-transfer/troubles/timeline/no-items-in-memory.md) %}
+
+{% include [transfer-time-sound](../../_includes/data-transfer/troubles/timeline/transfer-time-sound.md) %}
+
+{% include [row-max-lag-constant](../../_includes/data-transfer/troubles/timeline/row-max-lag-constant.md) %}
+
+{% include [replication-restarts](../../_includes/data-transfer/troubles/timeline/replication-restarts.md) %}
 
 ## Data transformation {#data-transform}
 
@@ -208,7 +219,11 @@ Error example:
 
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [duplicate-key](../../_includes/data-transfer/troubles/duplicate-key.md) %}
+
 {% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [generated-columns](../../_includes/data-transfer/troubles/generated-columns.md) %}
 
 
 ## {{ ydb-full-name }} {#ydb}

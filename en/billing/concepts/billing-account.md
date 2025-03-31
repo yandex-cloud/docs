@@ -37,6 +37,7 @@ To access the list of billing accounts, navigate to [**{{ billing-name }}**]({{ 
    * For residents of Russia and Kazakhstan and non-residents of Russia and Kazakhstan.
    * Businesses pay for resources they consume by bank transfer from the [corporate bank account](../payment/payment-methods-business.md) or using a [bank card](../payment/payment-methods-card-business.md).
    * Payments for resources are either made based on the [agreement](../concepts/contract.md) against [invoices](bill.md) or debited automatically from the linked bank card. For more information, see [Billing cycle for businesses](../payment/billing-cycle-business.md).
+   * Business accounts have access to an additional account registered through the [Partner portal](../../partner/) as their customer's account. Only a legal entity can be a [subaccount](../../partner/terms.md#sub-account). Payment invoices for use of services by subaccounts are always issued to partners.
    * New customers are eligible for a [trial period](trial-period.md).
   
 {% endlist %}
