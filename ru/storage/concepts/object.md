@@ -110,6 +110,12 @@
 Подробнее см. в инструкции [{#T}](../operations/objects/object-meta.md).
 
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/server-logs.md)
+* [{#T}](../tutorials/server-logs-yq.md)
+* [{#T}](../tutorials/bucket-to-bucket.md)
+
 ### См. также {#see-also}
 
 * [{#T}](../security/overview.md)

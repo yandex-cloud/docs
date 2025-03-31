@@ -107,7 +107,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
       * `<resource>`: Resource category. For an organization, it is always `organization`.
       * `<resource_name_or_ID>`: Resource name or ID. For an organization, use its [technical name](../operations/org-profile.md).
       * `--role`: Role ID, e.g., `organization-manager.admin`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to.
 
       For example, this command assigns the administrator role for the organization with the `bpf3crucp1v2********` ID:
 
@@ -125,12 +125,12 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
      * `organization_id`: [Organization ID](../operations/organization-get-id.md).
      * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
-     * `members`: Array of the IDs of users to assign the role to:
+     * `members`: Array of the IDs of users to assign the role to: 
        * `userAccount:{user_id}`: User Yandex account ID.
        * `serviceAccount:{service_account_id}`: Service account ID.
        * `federatedUser:{federated_user_id}`: Federated user ID.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -146,7 +146,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. Make sure the configuration files are correct.
     
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
  
        ```

@@ -17,7 +17,7 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 * Create [budgets](../../../billing/concepts/budget.md).
 * [Reserve resource usage](../../../billing/concepts/cvos.md).
 * Top up their [personal account](../../../billing/concepts/personal-account.md) using a bank account.
-* Link [clouds](../../../organization/concepts/manage-services.md#cloud) to a billing account.
+* Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to a billing account.
 * Rename billing accounts.
 * Redeem promo codes.
 
@@ -30,7 +30,7 @@ To use the `billing.accounts.admin` role, you need to assign it for a billing ac
 * Activate subaccounts.
 * Suspend subaccounts.
 * Re-activate subaccounts.
-* Link [clouds](../../../organization/concepts/manage-services.md#cloud) to subaccounts.
+* Link [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) to subaccounts.
 * [Manage](../../../partner/operations/access/partners-account.md) access permissions to subaccounts.
 * [View](../../../partner/operations/get-client-stat.md) the details of how the customers use services.
 * View [rebate credit](../../../partner/terms.md#rebate) history.

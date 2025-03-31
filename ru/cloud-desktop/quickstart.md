@@ -103,7 +103,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Справа от группы рабочих столов, созданной ранее, нажмите ![image](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.vdi.button_acl }}**.
+  1. Справа от группы рабочих столов, созданной ранее, нажмите ![image](../_assets/console-icons/ellipsis.svg) и выберите **Настроить ACL**.
   1. В появившемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выберите группу пользователей, созданную ранее, укажите для нее [роль](./security/index.md#vdi-viewer) `vdi.viewer` и нажмите **{{ ui-key.yacloud.common.add }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

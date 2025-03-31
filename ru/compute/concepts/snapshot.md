@@ -54,6 +54,11 @@ _Снимок диска_ в {{ yandex-cloud }} — это копия файло
 
 Подробнее см. в разделе [{#T}](encryption.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/hpc-on-preemptible.md)
+* [{#T}](../../tutorials/testing/ci-for-snapshots.md)
+* [{#T}](../../tutorials/web/bitrix-website/index.md)
 
 #### См. также {#see-also}
 

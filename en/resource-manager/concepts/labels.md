@@ -56,6 +56,7 @@ Some service resources do not support labels, and some interfaces may not displa
 * [{{ dataproc-full-name }}](../../data-proc/index.yaml)
 * [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 * [{{ ml-platform-full-name }}](../../datasphere/index.yaml)
+* [{{ message-queue-full-name }}](../../message-queue/index.yaml)
 * [{{ maf-full-name }}](../../managed-airflow/index.yaml)
 * [{{ mkf-full-name }}](../../managed-kafka/index.yaml)
 * [{{ mch-full-name }}](../../managed-clickhouse/index.yaml)
@@ -94,7 +95,7 @@ Some service resources do not support labels, and some interfaces may not displa
 
 * [{{ mgl-full-name }}](../../managed-gitlab/index.yaml)
 
-### Resource monitoring and management {#resources-operations}
+### Monitoring and resource management {#resources-operations}
 
 * [{{ org-full-name }}](../../organization/index.yaml)
 * [{{ resmgr-full-name }}](../../resource-manager/index.yaml)

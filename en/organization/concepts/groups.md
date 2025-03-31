@@ -1,6 +1,11 @@
+---
+title: User groups
+description: You can organize the organization users into groups to grant the same role to multiple users.
+---
+
 # User groups
 
-For organizations with a lot of employees, multiple users may need to be granted the same access rights to {{ yandex-cloud }} resources. In this case, it is more convenient to grant roles and permissions to a group rather than individually. You can [set up a group member's access](../operations/access-group.md) to clouds, folders, service accounts, and organizations in {{ yandex-cloud }}.
+In [organizations](organization.md) with many [users](membership.md), you may need to issue the same access permissions for {{ yandex-cloud }} resources to more than one user. In which case it is easier to issue roles and permissions to groups rather than individual users. Group members can [get access](../operations/access-group.md) to {{ yandex-cloud }} organizations, clouds, folders, and service accounts.
 
 Other users will be able to [manage the group](../operations/access-manage-group.md) if you grant them the relevant [roles](../security/index.md#service-roles), e.g., `organization-manager.groups.memberAdmin` to view data and add group members.
 

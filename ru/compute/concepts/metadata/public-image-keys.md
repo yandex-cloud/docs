@@ -47,6 +47,14 @@ description: Из этой статьи вы узнаете, какие ключ
 
 {% endlist %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/rds-gw.md)
+* [{#T}](../../tutorials/coi-with-terraform.md)
+* [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
+* [{#T}](../../../tutorials/routing/multi-folder-vpc.md)
+* [{#T}](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../vm-metadata.md)

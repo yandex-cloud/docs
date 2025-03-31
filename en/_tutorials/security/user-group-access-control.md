@@ -284,7 +284,7 @@ To enable your employees to use {{ yandex-cloud }} resources, add them to the {{
 
     {% note info %}
 
-    To access the [services](../../organization/concepts/manage-services.md#collaboration) enabled for the organization, the users you invited simply need to log in to their Yandex account.
+    To access the services enabled for the organization, the users you invited simply need to log in to their Yandex account.
 
     {% endnote %}
 

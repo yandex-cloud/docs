@@ -27,3 +27,7 @@ description: Step-by-step guide on managing a cloud using {{ resmgr-full-name }}
 * [{#T}](folder/set-access-bindings.md)
 * [{#T}](folder/get-id.md)
 * [{#T}](folder/notify.md)
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

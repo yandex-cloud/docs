@@ -45,3 +45,12 @@ description: '{{ objstorage-name }} позволяет хранить объек
 * Стандартное хранилище — `STANDARD`.
 * Холодное хранилище — `COLD`, `STANDARD_IA` или `NEARLINE` (последние два — только при загрузке объектов в бакет).
 * Ледяное хранилище — `ICE`, `GLACIER` (последний — только при загрузке объектов в бакет).
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/greenplum-yezzey.md)
+* [{#T}](../tutorials/log-ingestion.md)
+* [{#T}](../tutorials/hystax-backup.md)
+* [{#T}](../tutorials/clickhouse-hybrid-storage.md)
+

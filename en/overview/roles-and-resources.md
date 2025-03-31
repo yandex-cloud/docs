@@ -1,16 +1,16 @@
 # Interaction between users and {{ yandex-cloud }} resources
 
-All {{ yandex-cloud }} services work based on the common _resource and role model_. Its underlying entity is _organization_ that combines different types of resources and users in a single workspace.
+All {{ yandex-cloud }} services work based on the common _resource and role model_. Its underlying entity is _organization_ that combines different types of resources and users in a single workspace. You add and manage users at the organization level, see [{#T}](../organization/concepts/membership.md) for more details.
 
 ![users-and-resources](../_assets/overview/users-resources.svg "Users and resources hierarchy")
 
 ## {{ yandex-cloud }} resources {#resources}
 
-When using {{ yandex-cloud }} services, you create _resources_: [VMs](../compute/concepts/vm.md), managed database and [{{ k8s }}](../managed-kubernetes/concepts/index.md) clusters, [registries](../container-registry/concepts/registry.md), [secrets](../lockbox/concepts/secret.md), and more. Most services store the resources they create in [folders](../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations.
+When using {{ yandex-cloud }} services, you create _resources_: [VMs](../compute/concepts/vm.md), managed database and [{{ k8s }}](../managed-kubernetes/concepts/index.md) clusters, [registries](../container-registry/concepts/registry.md), [secrets](../lockbox/concepts/secret.md), and more. Most services store the resources they create in [folders](../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations. 
 
-In addition, organizations may have the following enabled: [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), a [{{ datalens-full-name }}]({{ link-datalens-main }}) instance, as well as [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), and [{{ forms-full-name }}]({{ link-forms-b2b }}). All of them store their resources on their own, yet are able to exchange information with other services within the same organization. Organizations do not interact with each other.
+In addition, organizations may have the following enabled: [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), a [{{ datalens-full-name }}]({{ link-datalens-main }}) instance, as well as [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), [{{ forms-full-name }}]({{ link-forms-b2b }}), and [{{ speechsense-full-name }}]({{ link-speechsense-main }}). All of them store their resources on their own, yet are able to exchange information with other services within the same organization. Organizations do not interact with each other.
 
-In the [{{ cloud-center }} interface]({{ cloud-center-link }}), you can [look up](../organization/concepts/manage-services.md) the clouds and services existing in your organization.
+In the [{{ cloud-center }} interface]({{ cloud-center-link }}), you can look up the clouds and services existing in your organization. 
 
 [Learn more about the resource hierarchy in {{ yandex-cloud }}](../resource-manager/concepts/resources-hierarchy.md).
 

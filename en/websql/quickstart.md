@@ -1,6 +1,6 @@
 # Getting started with {{ websql-full-name }}
 
-You can connect to managed database clusters from clouds and folders that belong to your {{ yandex-cloud }} [organization](../organization/concepts/manage-services.md). If you [switch to a different organization](../organization/operations/manage-organizations.md#switch-to-another-org), you will have access to clusters from other clouds and folders. The connections you added will be available while you are in the current {{ yandex-cloud }} organization.
+You can connect to managed database clusters from clouds and folders that belong to your {{ yandex-cloud }} [organization](../organization/concepts/organization.md). If you [switch to a different organization](../organization/operations/manage-organizations.md#switch-to-another-org), you will have access to clusters from other clouds and folders. The connections you added will be available while you are in the current {{ yandex-cloud }} organization.
 
 Once connected to a database, you will be able to view DB schemas, tables, and views, as well as run queries. It is a web-based tool that simplifies writing queries by suggesting prompts and commands.
 

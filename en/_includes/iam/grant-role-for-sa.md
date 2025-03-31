@@ -17,11 +17,11 @@ To assign a role for a resource:
     To assign a service account a role for a cloud or folder:
 
     1. In the [management console]({{ link-console-main }}), select the cloud or folder.
-    1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
     1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
-    1. Select the service account from the list or use the search to locate it.
-    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar to locate it.
+    1. Select the service account from the list or use the search bar.
+    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the role from the list or use the search bar.
     1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
 - CLI {#cli}
@@ -43,7 +43,7 @@ To assign a role for a resource:
   * `<resource_category>`: `cloud` to assign a role for a cloud or `folder` to assign a role for a folder.
   * `<resource_name_or_ID>`: Name or ID of the resource to assign a role for.
   * `--role`: Role ID, e.g., `{{ roles-viewer }}`.
-  * `--subject serviceAccount`: ID of the service account getting the role.
+  * `--subject serviceAccount`: ID of the service account the role is assigned to.
 
   For example, to assign a service account the `{{ roles-viewer }}` role for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) named `my-folder`:
 
@@ -53,9 +53,9 @@ To assign a role for a resource:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```
      resource "yandex_resourcemanager_folder_iam_member" "admin-account-iam" {
@@ -67,23 +67,23 @@ To assign a role for a resource:
 
      Where:
      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is a required parameter.
-     * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). This is a required parameter.
-     * `member`: [ID](../../iam/operations/sa/get-id.md) of the service account getting the role. Use this format: `serviceAccount:<service_account_ID>`. This is a required parameter.
+     * `role`: Role to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). This is a required parameter.
+     * `member`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is assigned to. Use this format: `serviceAccount:<service_account_ID>`. This is a required parameter.
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
 
      1. If the configuration does not contain any errors, run this command:
 
@@ -93,7 +93,7 @@ To assign a role for a resource:
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     This will create all the resources you need in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc resource-manager folder list-access-bindings <folder_name_or_ID>
@@ -148,7 +148,7 @@ To grant a service account permissions to access an organization, you need the `
   Where:
   * `<organization_name_or_ID>`: Technical name or [ID](../../organization/operations/organization-get-id.md) of the organization.
   * `--role`: Role ID, e.g., `{{ roles-viewer }}`.
-  * `--subject serviceAccount`: ID of the service account getting the role.
+  * `--subject serviceAccount`: ID of the service account the role is assigned to.
 
   For example, to assign a service account the `{{ roles-viewer }}` role for the `MyOrg` organization:
 
@@ -215,9 +215,9 @@ To grant a service account permissions to access an organization, you need the `
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, define the parameters of the resources you want to create:
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -231,14 +231,14 @@ To grant a service account permissions to access an organization, you need the `
 
      Where:
      * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). This is a required parameter.
-     * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource. This is a required parameter.
-     * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account getting the role. Use this format: `serviceAccount:<service_account_ID>`. This is a required parameter.
+     * `role`: Role to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource. This is a required parameter.
+     * `members`: [ID](../../iam/operations/sa/get-id.md) of the service account the role is assigned to. Use this format: `serviceAccount:<service_account_ID>`. This is a required parameter.
 
-     For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
 
   1. Make sure the configuration files are correct.
     
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, go to the directory where you created the configuration file.
      1. Run a check using this command:
  
         ```
@@ -247,7 +247,7 @@ To grant a service account permissions to access an organization, you need the `
 
      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will point them out.
  
-  1. Deploy cloud resources.
+  1. Deploy the cloud resources.
   
      1. If the configuration does not contain any errors, run this command:
 
@@ -300,7 +300,7 @@ To grant a service account permissions to access an organization, you need the `
   1. Get a list of organizations to find out their IDs:
 
       ```bash
-      export IAM_TOKEN=CggaATEVAgA...
+      export IAM_TOKEN=CggaATEVAgA... 
       curl \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --request GET \

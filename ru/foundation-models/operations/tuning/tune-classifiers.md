@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. В поле **{{ ui-key.yacloud.tuning.task }}** выберите **{{ ui-key.yacloud.tuning.classification }}**.
-  1. Выберите **{{ ui-key.yacloud.tuning._lassification-task }}**: **{{ ui-key.yacloud.dataset.text-classification-multiclass.short-title }}** или **{{ ui-key.yacloud.dataset.text-classification-multilabel.short-title }}**.
+  1. Выберите **{{ ui-key.yacloud.tuning.classification-task }}**: **{{ ui-key.yacloud.dataset.text-classification-multiclass.short-title }}** или **{{ ui-key.yacloud.dataset.text-classification-multilabel.short-title }}**.
   1. (Опционально) Добавьте или удалите [метки](../../../resource-manager/concepts/labels.md) дообучения. Они позволяют разделить и сгруппировать ресурсы на логические группы.
   1. В поле **{{ ui-key.yacloud.yagpt.model }}** выберите нужную модель.
   1. В поле **{{ ui-key.yacloud.dataset.dataset }}** нажмите **{{ ui-key.yacloud.common.add }}**.

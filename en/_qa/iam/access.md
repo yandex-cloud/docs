@@ -4,7 +4,7 @@
 
 Go to the [management console page]({{ link-console-main }}).
 
-If you are not logged in to your Yandex or Yandex 360 account, click **Log in**. If you don't have an account yet, click **Register**. For more information, see [Yandex ID Help](https://yandex.com/support/passport/auth.html).
+If not logged in to your Yandex or Yandex 360 account yet, click **Log in**. If you do not have an account yet, click **Register**. For more information, see (https://yandex.com/support/passport/auth.html).
 
 #### How are access permissions verified? {#verifying-rights}
 

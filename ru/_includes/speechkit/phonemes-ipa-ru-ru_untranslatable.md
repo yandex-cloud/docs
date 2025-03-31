@@ -8,7 +8,7 @@ IPA           | Описание                                                
 `f`             | Твердая «ф» (velarized voiceless labiodental fricative)                                               | **ф**антом, **в**колоть, ко**ф**р, пло**в**
 `fʲ`            | Мягкая «ф» (palatalized voiceless labiodental fricative)                                              | **ф**илигранный, **Ф**едор, свекро**в**ь
 `g`             | Твердая «г» (voiced velar plosive)                                                                    | **г**ром, во**к**зал, тро**г**ать
-`ɡʲ`            | Мягкая «г» (palatalized voiced velar plosive)                                                         | **г**ерань, по**г**ибель
+`gʲ`            | Мягкая «г» (palatalized voiced velar plosive)                                                         | **г**ерань, по**г**ибель
 `j`             | Звук «й» (palatal approximant)                                                                        | **й**ог, вь**ю**га, по**й**
 `k`             | Твердая «к» (voiceless velar plosive)                                                                 | **к**ость, ста**к**ан, почер**к**, оча**г**
 `kʲ`            | Мягкая «к» (palatalized voiceless velar plosive)                                                      | **к**исть, о**к**ись
@@ -44,7 +44,7 @@ IPA           | Описание                                                
 `ɛ`             | Ударная «э» (open-mid front unrounded vowel)                                                          | **э**му, п**е**сня, кар**е**
 `i`             | Ударная «и» (close front unrounded vowel)                                                             | **и**стина, кн**и**га, ручь**и**
 `ɪ`             | «е», «э» или «и» в безударном слоге (near-close front unrounded vowel)                                | **и**гла, **э**нциклопедия, л**е**нивый, н**и**кто, кон**и**
-`ɨ̞`             | «ы» (close central unrounded vowel)                                                                   | ж**и**рный, костр**ы**
+`ɨ`             | «ы» (close central unrounded vowel)                                                                   | ж**и**рный, костр**ы**
 `ɔ`             | Ударная «о» (close-mid back rounded vowel)                                                            | **о**торопь, к**о**рт, окн**о**
 `u`             | Ударная «у» или «ю» (close back rounded vowel)                                                        | **у**зкий, **ю**г, с**у**мерки, прид**у**, дежав**ю**
 `ʊ`             | Безударная «у» или «ю» (near-close back rounded vowel)^2^                                                | к**у**ркума, в рек**у**, рис**у**ю

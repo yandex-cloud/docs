@@ -83,6 +83,14 @@ description: Из этой статьи вы узнаете о каталога�
 
 {% endnote %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/secure-password-script.md)
+* [{#T}](../../tutorials/rds-gw.md)
+* [{#T}](../../../tutorials/security/gitlab-lockbox-integration.md)
+* [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
+* [{#T}](../../../tutorials/routing/multi-folder-vpc.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../vm-metadata.md)

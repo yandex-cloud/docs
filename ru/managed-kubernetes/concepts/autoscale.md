@@ -58,3 +58,10 @@
 * `updateMode: "Off"`, чтобы {{ k8s-vpa }} [предоставлял рекомендации](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#quick-start) по управлению ресурсами подов, но не изменял их.
 
 Подробнее о {{ k8s-vpa }} см. в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/autoscaling.md)
+* [{#T}](../tutorials/vpa-autoscaling.md)
+* [{#T}](../tutorials/load-testing-grpc-autoscaling.md)
+* [{#T}](../tutorials/cert-manager-webhook.md)

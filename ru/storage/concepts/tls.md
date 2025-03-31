@@ -32,3 +32,9 @@ keywords:
 * [AWS SDK для Java](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/security-java-tls.html)
 * [AWS SDK для .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/enforcing-tls.html)
 * [AWS SDK для JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/enforcing-tls.html)
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/gatsby-static-website.md)
+

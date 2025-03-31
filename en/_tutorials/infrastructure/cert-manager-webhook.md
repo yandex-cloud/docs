@@ -23,7 +23,7 @@ The certificate manager with the ACME webhook for {{ dns-full-name }} supports [
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-## Prepare the environment {#prepare-environment}
+## Set up your environment {#prepare-environment}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 1. Install [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/), which is the command line interface for {{ k8s }}.
@@ -33,7 +33,7 @@ The certificate manager with the ACME webhook for {{ dns-full-name }} supports [
 1. [Create service accounts](../../iam/operations/sa/create.md):
 
    * `sa-kubernetes` with the following [roles](../../managed-kubernetes/security/index.md#yc-api):
-     
+
      * `{{ roles.k8s.clusters.agent }}` and `{{ roles-vpc-public-admin }}` for the folder where the {{ managed-k8s-name }} is created.
      * `{{ roles-cr-puller }}` for the folder containing a Docker image [registry](../../container-registry/concepts/registry.md).
 

@@ -7,7 +7,7 @@ You can get information about a service account: its name and ID, creation and l
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the service account you need.
   1. The **{{ ui-key.yacloud.iam.folder.service-account.overview.label_title }}** page will list the service account's parameters:
@@ -33,12 +33,12 @@ You can get information about a service account: its name and ID, creation and l
   Result:
 
   ```
-  +----------------------+------------------+-------------------------------+
-  |          ID          |       NAME       |          DESCRIPTION          |
-  +----------------------+------------------+-------------------------------+
-  | aje6o61dvog2******** | my-robot         |                               |
-  | aje9sda1ufvq******** | account_name     | account_description           |
-  +----------------------+------------------+-------------------------------+
+  +----------------------+--------------+--------+---------------------+-----------------------+
+  |          ID          |     NAME     | LABELS |     CREATED AT      | LAST AUTHENTICATED AT |
+  +----------------------+--------------+--------+---------------------+-----------------------+
+  | ajeg2b2et02f******** | my-robot     |        | 2024-09-08 18:59:45 | 2025-02-18 10:10:00   |
+  | ajegtlf2q28a******** | account-name |        | 2023-06-27 16:18:18 | 2025-02-18 10:20:00   |
+  +----------------------+--------------+--------+---------------------+-----------------------+
   ```
 
   Get information about a service account using the `get` command:

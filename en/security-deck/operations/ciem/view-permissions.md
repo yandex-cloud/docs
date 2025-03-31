@@ -1,6 +1,6 @@
 ---
-title: Viewing a list of accesses in the {{ sd-full-name }} CIEM
-description: In this section, you will learn how to view all account's or group's access permissions for organization resources in the {{ sd-name }} CIEM.
+title: Viewing a list of accesses in the {{ sd-full-name }} {{ ciem-name }}
+description: In this section, you will learn how to view all access permissions an account or group has for the organization resources in the {{ sd-name }} {{ ciem-name }}.
 ---
 
 # Viewing a list of a subject's accesses

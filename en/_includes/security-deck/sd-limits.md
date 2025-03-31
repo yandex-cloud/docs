@@ -1,6 +1,6 @@
-#### DSPM limits {#sd-dspm-limits}
+#### {{ dspm-name }} limits {#sd-dspm-limits}
 
-Type of limit | Value
+Type of limit | Value    
 --- | ---
 Number of scanning sessions per folder | 10,000
 Number of data sources per folder | 1,000

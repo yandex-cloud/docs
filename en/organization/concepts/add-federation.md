@@ -43,12 +43,14 @@ You set up a relying party trust between an {{ org-name }} identity federation a
     When the {{ org-name }} identity federation sends a request to the identity provider, it signs such requests with a {{ yandex-cloud }} SAML certificate. For the identity provider to be able to verify the signature, download and add a {{ yandex-cloud }} SAML certificate to your IdP server.
 
     A {{ yandex-cloud }} SAML certificate is valid for 5 years. You can view the certificate expiration date when creating an identity federation or updating its settings.
-    
+
     {{ yandex-cloud }} generates a new SAML certificate automatically before the previous certificate's expiration date. Make sure to [start](../operations/renew-yc-certificate.md) using the new SAML certificate before the previous one expires.
 
 ### User group mapping {#group-mapping}
 
-In organizations with a lot of users, you may need to grant the same access permissions for {{ yandex-cloud }} resources to multiple users at once. In this case, it is more convenient to grant roles and permissions to a group rather than individually.
+{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
+
+In [organizations](organization.md) with many [users](membership.md), you may need to issue the same access permissions for {{ yandex-cloud }} resources to more than one user. In which case it is easier to issue roles and permissions to [groups](groups.md) rather than individual users.
 
 If you have configured user groups in your identity provider or plan to do so, [set up user group mapping](../operations/federation-group-mapping.md) between the identity provider and {{ org-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-name }}.
 
@@ -83,3 +85,4 @@ The authentication process is shown in the diagram:
 In an identity federation, the user interacts both with the IdP and the {{ yandex-cloud }} management console. This does not require network access between the IdP and {{ yandex-cloud }}.
 
 {% endnote %}
+

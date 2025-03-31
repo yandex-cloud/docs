@@ -25,3 +25,7 @@ description: Из статьи вы узнаете про группы узло�
 * Использование [мастера {{ managed-k8s-name }}](../index.md#master) оплачивается по [правилам {{ managed-k8s-name }}](../../pricing.md).
 * ВМ с GPU — по [правилам {{ compute-full-name }}](../../../compute/pricing.md#prices-instance-resources).
 * Исходящий трафик — по [правилам {{ vpc-full-name }}](../../../vpc/pricing.md).
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/driverless-gpu.md)

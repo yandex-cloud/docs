@@ -2,13 +2,11 @@
 
 {{ yandex-cloud }} uses [Yandex accounts](#passport), [service accounts](#sa), and [federated accounts](#saml-federation).
 
-
 {% note info %}
 
 Billing accounts are not used for managing resources in {{ yandex-cloud }} and are not part of {{ iam-short-name }}. For more information, see [{#T}](../../../billing/concepts/billing-account.md) in the {{ billing-name }} documentation.
 
 {% endnote %}
-
 
 ## Yandex account {#passport}
 
@@ -16,7 +14,6 @@ _Yandex account_: Your [Yandex](https://yandex.ru/support/passport/index.html) o
 
 * If you do not need to set up access permissions for your applications. Otherwise, use a [service account](#sa).
 * For smaller teams if you did not set up an identity federation in your organization (e.g., with Active Directory or Google Workspace). Otherwise, use [federated accounts](#saml-federation).
-
 
 {% include [yandex-account-2fa-warning.md](../../../_includes/iam/yandex-account-2fa-warning.md) %}
 

@@ -1,17 +1,17 @@
 ---
 title: Data Security Posture Management in {{ sd-full-name }}
-description: Data Security Posture Management (DSPM) is a {{ sd-name }} module that helps detect sensitive information stored in {{ objstorage-full-name }} buckets, as well as assess its impact on security posture and compliance with regulations and industry standards.
+description: Data Security Posture Management, or {{ dspm-name }}, is a {{ sd-name }} module that helps detect sensitive information stored in {{ objstorage-full-name }} buckets, as well as assess its impact on security posture and compliance with regulations and industry standards.
 ---
 
-# Data Security Posture Management (DSPM)
+# Data Security Posture Management ({{ dspm-name }})
 
-[Data Security Posture Management]({{ link-sd-main }}dspm/), or DSPM, is a tool that helps to quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely action to protect it from unauthorized access or leaks (configure [access policies](../../storage/concepts/policy.md), anonymize data, etc.).
+[Data Security Posture Management]({{ link-sd-main }}dspm/), or {{ dspm-name }}, helps quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely actions to protect it from unauthorized access or leaks, such as configuring [access policies](../../storage/concepts/policy.md), anonymizing data, etc.
 
-With proper integration, DSPM can work in leak prevention mode, blocking the sharing or saving of confidential information.
+With proper integration, {{ dspm-name }} can work in leak prevention mode and prevent transferring or saving confidential information.
 
 ## Scanning for sensitive information {#scanning}
 
-DSPM scans _data sources_ to identify sensitive information in buckets.
+{{ dspm-name }} scans _data sources_ for sensitive information in buckets.
 
 Before you start scanning, select a data source and specify the _data categories_ to search for. 
 

@@ -1,9 +1,9 @@
 ---
-title: Creating a scan in DSPM
-description: Follow this guide to create scans in the {{ sd-full-name }} DSPM module.
+title: Creating a scan in {{ dspm-name }}
+description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-name }}.
 ---
 
-# Creating a DSPM scan
+# Creating a {{ dspm-name }} scan
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 

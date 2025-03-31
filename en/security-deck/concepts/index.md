@@ -11,7 +11,7 @@ description: '{{ sd-name }} is a CNAPP, a comprehensive platform that discovers 
 
 The {{ sd-name }} modules allow you to achieve a number of security objectives:
 
-* **Transparent data handling**. The [Access Transparency](./access-transparency.md) module allows customers to follow what {{ yandex-cloud }} engineers do with the organization's resources.
+* **Transparent data handling**. The [{{ atr-name }}](./access-transparency.md) module allows customers to follow what {{ yandex-cloud }} engineers do with the organization's resources.
 
 * **Comprehensive data protection**. The [Data Security Posture Management](./dspm.md) (DSPM) module detects sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) for timely action to protect it from unauthorized access or leaks.
 
@@ -19,7 +19,7 @@ The {{ sd-name }} modules allow you to achieve a number of security objectives:
 
     One of the fundamental principles of [{{ iam-full-name }}](../../iam/index.yaml) is that of least privilege, where users get only the access permissions they need to perform their job duties.
 
-    The CIEM module implements this principle and helps to ensure:
+    {{ ciem-name }} implements this principle and helps to ensure:
 
     * Data security by managing user access to company resources.
     * Prevention of unauthorized access to sensitive information.
