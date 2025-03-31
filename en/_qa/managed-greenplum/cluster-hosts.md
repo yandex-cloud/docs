@@ -56,13 +56,11 @@ When creating, modifying, or restoring a cluster, you may get this error:
 Per process memory must be more then '20971520' bytes on segment host, got '<calculated_memory_size>'
 ```
 
-This error occurs if the memory size for each {{ GP }} process is less than the specified 20 MB limit. Maximum memory per cluster process is calculated using the following formula:
+This error occurs if the memory size for each {{ GP }} process is less than 20 MB and the number of connections equals the [max_connections](../../managed-greenplum/concepts/settings-list.md#setting-max-connections) value. Minimum memory per cluster process is calculated using the following formula:
 
 ```text
-<host_segment_RAM> ÷ (<Max_connections> x <number_of_segments_per_host>)
+<host_segment_RAM> ÷ (<max_connections> x <number_of_segments_per_host>)
 ```
-
-Where `Max_connections` is the {{ GP }} [DBMS setting](../../managed-greenplum/concepts/settings-list.md#setting-max-connections).
 
 To fix the error, do one of the following:
 

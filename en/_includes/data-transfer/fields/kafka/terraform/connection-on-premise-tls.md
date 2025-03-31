@@ -1,5 +1,5 @@
-`tls_mode`: Parameters for encrypting transmitted data if required, e.g., to comply with the PCI DSS.
+`tls_mode`: Parameters for encryption of transmitted data if it is required, e.g., to comply with the PCI DSS requirements.
 
 * `disabled`: Disabled.
 * `enabled`: Enabled.
-   * `ca_certificate`: CA certificate.
+    * `ca_certificate`: CA certificate.

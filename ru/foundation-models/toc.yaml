@@ -13,6 +13,8 @@ items:
         href: operations/index.md
       - name: Отключить логирование запросов
         href: operations/disable-logging.md
+      - name: Получить API-ключ
+        href: operations/get-api-key.md
       - name: Генерация текста
         items:
           - name: Оценить запрос в токенах
@@ -652,6 +654,8 @@ items:
                     href: tuning/api-ref/grpc/Tuning/listErrors.md
   - name: '{{ ml-sdk-full-name }}'
     href: sdk/index.md
+  - name: Совместимость с {{ openai }}
+    href: concepts/openai-compatibility.md
   - name: Как создавать промты
     items:
       - name: Обзор

@@ -1,0 +1,3 @@
+**{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.OnPremiseMysql.subnet_id.title }}**: Select or [create](../../../../../vpc/operations/subnet-create.md) a subnet in the appropriate [availability zone](../../../../../overview/concepts/geo-scope.md). The transfer will use this subnet to access the source.
+
+If this field has a value specified for both endpoints, both subnets must be hosted in the same availability zone.

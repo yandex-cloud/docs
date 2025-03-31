@@ -18,7 +18,7 @@ description: In this tutorial, you will learn how to set up a {{ MY }} target en
 ## Scenarios for transferring data to {{ MY }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-
+  
    * [Migrating a {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
    * [Migration with change of storage from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
    * [Migration with change of storage from {{ objstorage-name }} to {{ MY }}](../../../tutorials/objs-mmy-migration.md).
@@ -68,7 +68,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-    {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-target.md) %}
+    {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql.md) %}
 
 - CLI {#cli}
 
@@ -82,7 +82,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl
@@ -122,7 +122,7 @@ For OnPremise, all fields are filled in manually.
 
 - Management console {#console}
 
-    {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-target.md) %}
+    {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql.md) %}
 
 - CLI {#cli}
 
@@ -136,7 +136,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
     
     ```hcl

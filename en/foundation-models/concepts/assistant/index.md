@@ -31,7 +31,7 @@ For detailed costs of running an assistant, see [Assistant pricing policy](../..
 
 ### Handling external information sources {#files}
 
-For your model to use external information sources to respond to requests, upload supplementary data files through the [Files API](../../files/api-ref/grpc/index.md) and create a [_search index_](../../searchindex/api-ref/grpc/SearchIndex/create.md) for them. You can upload up to 10,000 files, with maximum size of 128 MB per file. A single file can be included in multiple search indexes at the same time. 
+For your model to use external information sources to respond to requests, upload supplementary data files through the [Files API](../../files/api-ref/grpc/index.md) and [create](../../searchindex/api-ref/grpc/SearchIndex/create.md) a [_search index_](./search-index.md) for them. You can upload up to 10,000 files, with maximum size of 128 MB per file. A single file can be included in multiple search indexes at the same time.
 
 For all {{ assistant-api }} limitations, see [{#T}](../limits.md).
 
@@ -68,7 +68,7 @@ All uploaded files and search indexes are subject to expiration. When uploading 
 
 {% endnote %}
 
-When you create a search index, you define the type of search it will support, with options for both full-text and vector searches. The indexing speed can vary based on the file types, their sizes, and the system load, taking from a few seconds to several hours. Files are indexed [asynchronously](../index.md#working-mode). When requested to create a search index, the service will return an [operation](../../../api-design-guide/concepts/async.md) object. You can use that object to check the status of the index creation operation.
+When you create a search index, you define the [type of search](./search-index.md#search-types) it will support. Full-text, vector, and hybrid search types are supported. Indexing may take from a few seconds to several hours depending on the file type and size as well as service load. The files are indexed [asynchronously](../index.md#working-mode). The response to the request to create a serach index includes the [operation](../../../api-design-guide/concepts/async.md) ID. You can use it to find out when the search index will be ready.
 
 Once a search index is created, you can configure an assistant to utilize it. In this case, the model will consider the contents of that search index and will primarily use information from it to generate responses. 
 

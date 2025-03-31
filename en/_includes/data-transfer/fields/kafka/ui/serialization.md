@@ -1,0 +1,1 @@
+Under **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}**, select the [serialization](../../../../../data-transfer/concepts/serializer.md) type. For more information, see [Serialization settings](../../../../../data-transfer/operations/endpoint/target/kafka.md#serializer).

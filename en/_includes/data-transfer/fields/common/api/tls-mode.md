@@ -1,1 +1,1 @@
-`tlsMode`: Parameters of encryption of transmitted data if it is required, for example, to meet the requirements of PCI DSS.
+`tlsMode`: Parameters for encryption of transmitted data if it is required, e.g., to comply with the PCI DSS requirements.

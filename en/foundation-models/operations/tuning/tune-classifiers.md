@@ -64,7 +64,7 @@ Create a tuning dataset:
      Where:
      * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account you got [before you started](#before-begin).
      * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) you are creating the dataset in.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for using the new dataset. The possible values are:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for using the new dataset. The possible values are as follows:
 
          * `TextClassificationMultilabel`: Binary classification or multi-label classification.
          * `TextClassificationMulticlass`: Multi-class classification.
@@ -117,7 +117,7 @@ Create a tuning dataset:
 
          {% include [sdk-auth-details-paragraph](../../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
      * `<dataset_ID>`: The new dataset's ID you saved in the previous step.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are as follows:
 
          * `binary`: Binary classification.
          * `multilabel`: Multi-label classification.
@@ -139,7 +139,15 @@ Create a tuning dataset:
 
      Model tuning may take up to one day depending on the dataset size and the system load.
 
-  Use the fine-tuned model's URI you got (the `uri` field value) when [accessing](../../concepts/classifier/models#addressing-models) the model.
+     Use the fine-tuned model's URI you got (the `uri` field value) when [accessing](../../concepts/classifier/models#addressing-models) the model.
+
+  1. Fine-tuning metrics are available in TensorBoard format. You can open the downloaded file, for example, in the [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) project:
+  
+     ```python
+     metrics_url = new_model.get_metrics_url()
+     download_tensorboard(metrics_url)
+     ```
+
 
 - cURL {#curl}
 
@@ -163,7 +171,7 @@ Create a tuning dataset:
      * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account you got [before you started](#before-begin).
      * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) you are fine-tuning the model in.
      * `<dataset_ID>`: Dataset ID you saved in the previous step.
-     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are:
+     * `<classification_type>`: [Classification type](../../concepts/classifier/index.md) the model will be tuned for. The possible values are as follows:
 
          * `text_classification_multilabel`: Binary classification or multi-label classification.
          * `text_classification_multiclass`: Multi-class classification.
@@ -218,13 +226,24 @@ Create a tuning dataset:
      }
      ```
 
-  Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/classifier/models#addressing-models) the model.
+     Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/classifier/models#addressing-models) the model.
+
+  1. Fine-tuning metrics are available in TensorBoard format. Get the link to download the file: 
+  
+     ```bash
+     grpcurl \
+       -H "Authorization: Bearer <IAM_token>" \
+       -d '{"task_id": "<job_ID>"}' \
+       {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/GetMetricsUrl
+     ```
+
+     You can open the downloaded file, for example, in the [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) project:
 
 {% endlist %}
 
 ### Accessing a fine-tuned classifier {#model-call}
 
-Once the model is fine-tuned, save its URI formatted as follows: `cls://<base_model_URI>/<version>@<tuning_suffix>`. Use the URI to send [synchronous](../classifier/additionally-trained.md) requests to your fine-tuned classifier. 
+Once the model is fine-tuned, save its URI in this format: `cls://<base_model_URI>/<version>@<tuning_suffix>`. Use the URI to send [synchronous](../classifier/additionally-trained.md) requests to your fine-tuned classifier. 
 
 
 #### See also {#see-also}

@@ -83,6 +83,16 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 
       {% endnote %}
 
+  * [Parallel copying](../../../concepts/sharded.md) settings:
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.is_snapshot_sharded.title }}**: Enable to speed up the transfer with the help of a sharded snapshot.
+
+      During the snapshot stage, tables are divided into partitions. Copying will proceed faster if the number of workers multiplied by the number of threads inside a worker is proportional to the number of partitions.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.copy_folder.title }}**: Specify the name of the directory to store the copies of the migrated tables during the snapshot stage. The directory is created in the root directory of the source base and gets the default name of `data-transfer`. The copies of tables in the directory contain only metadata, so they do not take up much memory. When the snapshot stage is complete, the directory will be deleted.
+    
+    To manage parallel copying, the service account specified in the endpoint settings must have the [`ydb.editor` role](../../../../ydb/security/index.md#ydb-editor).
+
 - {{ TF }} {#tf}
 
   * Endpoint type: `ydb_source`.

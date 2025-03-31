@@ -129,9 +129,9 @@ Create a tuning dataset:
 
      Model tuning may take up to 1 day depending on the size of the dataset and the system load.
 
-  Use the fine-tuned model's URI you got (the `uri` field value) when [accessing](../../concepts/yandexgpt/models.md#addressing-models) the model.
+     Use the fine-tuned model's URI you got (the `uri` field value) when [accessing](../../concepts/yandexgpt/models.md#addressing-models) the model.
 
-  1. Tuning metrics are available in TensorBoard format. You can open the downloaded file, for example, in the [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) project:
+  1. Fine-tuning metrics are available in TensorBoard format. You can open the downloaded file, for example, in the [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) project:
   
      ```python
      metrics_url = new_model.get_metrics_url()
@@ -212,9 +212,9 @@ Create a tuning dataset:
      }
      ```
 
-  Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/yandexgpt/models.md#addressing-models) the model.
+     Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/yandexgpt/models.md#addressing-models) the model.
 
-  1. Tuning metrics are available in TensorBoard format. Get the link to download the file: 
+  1. Fine-tuning metrics are available in TensorBoard format. Get the link to download the file: 
   
      ```bash
      grpcurl \

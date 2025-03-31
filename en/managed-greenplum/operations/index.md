@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ mgp-full-name }}
-description: This page provides a list of step-by-step guides for {{ mpg-name }}.
+description: This page provides a list of step-by-step guides for {{ mgp-name }}.
 ---
 
 # Step-by-step guides for {{ mgp-name }}
@@ -8,7 +8,6 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 ## Clusters {#clusters}
 
 * [Information about existing clusters](cluster-list.md)
-* [{#T}](calculate-specs.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating cluster settings](update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
@@ -40,7 +39,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [{#T}](pxf/create-table.md)
 * [{#T}](pxf/settings.md)
 
-## Working with gpfdist {#gpfdist}
+## Using `gpfdist` {#gpfdist}
 
 * [{#T}](gpfdist/connect.md)
 

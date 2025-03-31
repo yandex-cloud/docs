@@ -1,6 +1,5 @@
 When creating a cluster, you can select the following disk types for data storage:
 
-
 * **Network HDDs** (`network-hdd`): Most cost-effective option for clusters that do not require high read/write performance.
 * **Network SSDs** (`network-ssd`): Balanced solution. Such disks are slower than local SSD storage, but, unlike local disks, they ensure data integrity if {{ yandex-cloud }} hardware fails.
 * **Non-replicated SSDs** (`network-ssd-nonreplicated`): Network disks with enhanced performance achieved by eliminating redundancy.
@@ -13,7 +12,7 @@ When creating a cluster, you can select the following disk types for data storag
   Such disks can be increased in size only in 93 GB increments.
 
   Access to high-performance SSDs is available on request. Contact [support]({{ link-console-support }}) or your account manager.
-    
+
 
 * **Local SSDs** (`local-ssd`): Disks with the best performance.
 
@@ -22,5 +21,3 @@ When creating a cluster, you can select the following disk types for data storag
     * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments only.
 
     {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
-
-

@@ -128,7 +128,6 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
   To restore a previously deleted cluster from a backup:
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
-  1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_IP>`.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Change the settings of the new cluster if required. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -156,12 +155,12 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
       ```
 
       ```text
-      +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
-      |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
-      +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
-      | c9qud5etkq19********:... | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
-      | ...                      |                     |                      |                     |             |       |           |
-      +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+      +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+      |            ID        |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
+      +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+      | mdb29m1kk9v2******** | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
+      | ...                  |                     |                      |                     |             |       |           |
+      +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
       ```
 
   1. To restore an individual shard, provide the ID of a single backup:
@@ -290,7 +289,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
             * `securityGroupIds`: Array of security group IDs.
             * `deletionProtection`: Protection of the cluster, its databases, and users against accidental deletion.
 
-                Even if enabled, one can still connect manually and delete the database content.
+                Even if it is enabled, one can still connect manually and delete the database content.
 
             You can request the backup ID with the [list of backups in the folder](#list-backups).
 
@@ -381,7 +380,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
             * `security_group_ids`: Array of security group IDs.
             * `deletion_protection`: Protection of the cluster, its databases, and users against accidental deletion.
 
-                Even if enabled, one can still connect manually and delete the database content.
+                Even if it is enabled, one can still connect manually and delete the database content.
 
             You can request the backup ID with the [list of backups in the folder](#list-backups).
 
@@ -420,7 +419,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
 
   These lists contain the following information:
 
-  * Backup name.
+  * ID of the backup.
   * Source shard.
   * Backup size.
   * Backup type: Automatic (`Automated`) or manual (`Manual`).
@@ -440,12 +439,12 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
   ```
 
   ```text
-  +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
-  |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
-  +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
-  | c9qud5etkq19********:... | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
-  | c9qud5etkq19********:... | 2023-12-07 08:17:04 | c9qud5etkq19******** | 2023-12-07 08:15:54 | shard1      | 30 KB | MANUAL    |
-  +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+  +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+  |            ID        |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
+  +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+  | mdb29m1kk9v2******** | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
+  | mdb9sds0ast2******** | 2023-12-07 08:17:04 | c9qud5etkq19******** | 2023-12-07 08:15:54 | shard1      | 30 KB | MANUAL    |
+  +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
   ```
 
   The resulting table contains the following information:
@@ -579,7 +578,7 @@ Before you begin, [make sure](../../iam/operations/roles/get-assigned-roles.md) 
   {{ yc-mdb-ch }} backup get <backup_ID>
   ```
 
-  You can get the backup ID with the [list of backups](#list-backups).
+  You can get the backup ID together with the [list of backups](#list-backups).
 
 - REST API {#api}
 
@@ -889,7 +888,7 @@ You can only delete manual backups.
       {{ yc-mdb-ch }} backup delete <backup_ID>
       ```
   
-      You can get the backup ID with the [list of backups](#list-backups).
+      You can get the backup ID together with the [list of backups](#list-backups).
   
 - REST API {#api}
 

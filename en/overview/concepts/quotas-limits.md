@@ -289,6 +289,23 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 
 
 
+### {{ metadata-hub-full-name }} {#metadata-hub}
+
+#### {{ connection-manager-name }} quotas {#connection-manager-quota}
+
+{% include [connection-manager-quotas](../../_includes/metadata-hub/connection-manager-quotas.md) %}
+
+#### {{ metastore-name }} quotas {#metastore-quota}
+
+{% include [metastore-quotas](../../_includes/metadata-hub/metastore-quotas.md) %}
+
+#### {{ schema-registry-name }} quotas {#schema-registry-quota}
+
+{% include [schema-registry-quotas](../../_includes/metadata-hub/schema-registry-quotas.md) %}
+
+There are no limits for {{ metadata-hub-full-name }}.
+
+
 ### {{ monitoring-full-name }} {#monitoring}
 
 {% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}

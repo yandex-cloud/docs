@@ -1,6 +1,6 @@
 ---
 title: '{{ data-transfer-full-name }} pricing policy'
-description: This article provides the {{ data-transfer-name }} pricing policy.
+description: This article explains the {{ data-transfer-name }} pricing policy.
 editable: false
 ---
 
@@ -29,6 +29,11 @@ editable: false
 * [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ ydb-name }}](operations/endpoint/target/yandex-database.md)
 * [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md)
 
+{% note info %}
+
+Resource consumption fees are charged for transfers with {{ dt-status-repl }} (`RUNNING`), {{ dt-status-copy }} (`SNAPSHOTTING`), or {{ dt-status-stopping }} (`STOPPING`) statuses. You can [view](operations/transfer.md#list) the transfer status in the list of transfers.
+
+{% endnote %}
 
 Data delivery for transfers that are at the Preview stage is free of charge. For a list of available transfers and their release stages, see [Available transfers](transfer-matrix.md).
 

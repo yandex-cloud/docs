@@ -14,11 +14,11 @@ All basic models are subject to the update rules described in [Model lifecycle](
 #|
 || **URI** | **Generation** | **[Operating modes](../index.md#working-mode)** ||
 || **{{ gpt-lite }}** ||
-|| `gpt://<folder_ID>/yandexgpt-lite/deprecated`</br>`gpt://<folder_ID>/yandexgpt-lite/latest`</br>`gpt://<folder_ID>/yandexgpt-lite/rc`	| 4</br>4</br>4 |  Asynchronous, synchronous ||
+|| `gpt://<folder_ID>/yandexgpt-lite/deprecated`</br>`gpt://<folder_ID>/yandexgpt-lite/latest`</br>`gpt://<folder_ID>/yandexgpt-lite/rc`	| 4</br>4</br>5 |  Asynchronous, synchronous ||
 || **{{ gpt-pro }}** ||
-|| `gpt://<folder_ID>/yandexgpt/deprecated`</br>`gpt://<folder_ID>/yandexgpt/latest`</br>`gpt://<folder_ID>/yandexgpt/rc` | 4</br>4</br>4  | Asynchronous, synchronous ||
+|| `gpt://<folder_ID>/yandexgpt/deprecated`</br>`gpt://<folder_ID>/yandexgpt/latest`</br>`gpt://<folder_ID>/yandexgpt/rc` | 4</br>4</br>5  | Asynchronous, synchronous ||
 || **{{ gpt-pro }} 32k** ||
-|| `gpt://<folder_ID>/yandexgpt-32k/deprecated`</br>`gpt://<folder_ID>/yandexgpt-32k/latest`</br>`gpt://<folder_ID>/yandexgpt-32k/rc` | 4</br>4</br>4  | Synchronous^1^ ||
+|| `gpt://<folder_ID>/yandexgpt-32k/deprecated`</br>`gpt://<folder_ID>/yandexgpt-32k/latest`</br>`gpt://<folder_ID>/yandexgpt-32k/rc` | 4</br>4</br>5  | Synchronous^1^ ||
 || **{{ llama }} 8B**^2^ ||
 || `gpt://<folder_ID>/llama-lite/deprecated`</br>`gpt://<folder_ID>/llama-lite/latest`</br>`gpt://<folder_ID>/llama-lite/rc` | 3.1</br>3.1</br>3.1 | Asynchronous, synchronous ||
 || **{{ llama }} 70B**^2^ ||

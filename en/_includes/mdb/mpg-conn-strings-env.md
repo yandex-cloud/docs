@@ -1,4 +1,4 @@
-**Examples were tested in the following environment:**
+**The examples were tested in the following environment**:
 
 * {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS:
   * Bash: `5.0.16`.
@@ -9,9 +9,9 @@
   * Go: `1.13.8`.
   * Ruby: `2.7.0p0`.
   * unixODBC: `2.3.6`.
-* Virtual machine in {{ yandex-cloud }} running Windows Server 2019 Datacenter:
+* {{ yandex-cloud }} virtual machine running Windows Server 2019 Datacenter:
   * PostgreSQL: `13`.
-  * PowerShell: ` 5.1.17763.1490 Desktop`.
+  * PowerShell: ` 5.1.17763.1490 Desktop`.  
   * .NET 5
   * Microsoft.EntityFrameworkCore 5.0.9
   * Npgsql.EntityFrameworkCore.PostgreSQL 5.0.7

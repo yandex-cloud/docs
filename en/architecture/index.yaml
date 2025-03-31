@@ -1,0 +1,13 @@
+title: Architecture solutions
+description:
+  - >-
+    Architecture solutions and recommendations for implementing custom use cases
+    in Yandex Cloud.
+meta:
+  title: Architecture solutions
+  description: >-
+    Architecture solutions and recommendations for implementing custom use cases
+    in Yandex Cloud.
+links:
+  - title: Recommendations on fault tolerance in {{ yandex-cloud }}
+    href: fault-tolerance

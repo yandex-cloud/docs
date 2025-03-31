@@ -4,7 +4,6 @@ Since projects run on different {{ yandex-cloud }} platforms with different comp
 
 {% endnote %}
 
-
 Name | Number of vCPUs | Number of GPUs | RAM, GB | VRAM, GB
 ---- | ---- | ---- | ---- | ----
 **Configurations with vCPUs based on [Intel Ice Lake](../../../compute/concepts/performance-levels.md)**
@@ -29,5 +28,3 @@ Name | Number of vCPUs | Number of GPUs | RAM, GB | VRAM, GB
 ^1^ Available after you deposit at least $10 to your billing account or upon request to the support team.
 
 ^2^ Only available for businesses and upon request to the support team.
-
-
