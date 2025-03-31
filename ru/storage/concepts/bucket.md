@@ -124,6 +124,14 @@ _Бакет_ — это выделенная часть хранилища {{ ob
   {% endnote %}
 
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/data-processing-init-actions-geesefs.md)
+* [{#T}](../tutorials/s3-disk-connect.md)
+* [{#T}](../tutorials/bucket-to-bucket.md)
+* [{#T}](../tutorials/batch-recognition-stt.md)
+* [{#T}](../tutorials/mgp-config-server-for-s3.md)
+
 ### См. также {#see-also}
 
 * [{#T}](../security/overview.md)

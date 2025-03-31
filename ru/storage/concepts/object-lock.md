@@ -71,3 +71,9 @@
 * [Загрузка версии объекта с блокировкой](../operations/objects/upload.md#w-object-lock).
 * [Настройка блокировок версии объекта](../operations/objects/edit-object-lock.md): установка, изменение и снятие блокировок.
 * [Удаление версии объекта с блокировкой](../operations/objects/delete.md#w-object-lock).
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/backup-with-veeam.md)
+

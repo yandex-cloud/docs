@@ -20,7 +20,7 @@ Requirements for handling different classes of data are specified in the rules f
 
 The {{ yandex-cloud }} experts developed and use access control policies. This ensures that only authorized employees have access to facilities, secure areas, server rooms, and network resources.
 
-{{ yandex-cloud }} team members only have access to the resources they require to perform their duties (the need-to-know principle). Permissions are granted according to the principle of least privilege.
+{{ yandex-cloud }} team members only have access to the resources they require to perform their duties (the need-to-know principle). Permissions are granted according to the principle of least privilege. 
 
 Access rights to facilities, secure areas, server rooms, and network resources are approved by company executives. Hardware and network resource management interfaces are located in a dedicated network with highly restricted access. Yandex only provides access to source code to authorized employees according to the established security policy.
 
@@ -29,9 +29,9 @@ Access rights to facilities, secure areas, server rooms, and network resources a
 {{ yandex-cloud }} takes the following measures to ensure physical security:
 
 * {{ yandex-cloud }} hardware resources are hosted in their privately owned data centers.
-* Access to data centers is strictly regulated. Guests and {{ yandex-cloud }} members who don't permanently work there may only enter the premises if permission is granted ahead of time.
+* Access to data centers is strictly regulated. Guests and {{ yandex-cloud }} members who do not permanently work there may only enter the premises if permission is granted ahead of time.
 * Cloud service facilities (racks, lockers, diagnostic areas) are under continuous video surveillance.
-* Video camera recordings are stored on {{ yandex-cloud }} servers for at least three months and can be accessed whenever required.
+* Video camera recordings are stored on Yandex servers for at least three months and can be accessed whenever required.
 * The {{ yandex-cloud }} security team monitors access to secure areas and service racks.
 * {{ yandex-cloud }} customer data stored on disks must be encrypted.
 * Malfunctioning equipment is only replaced upon request. Data is deleted from carriers when the equipment is removed from operation or reused.
@@ -60,24 +60,24 @@ The {{ yandex-cloud }} team has developed an update management policy that regul
 
 ## Managing vulnerabilities {#vulnere-manage}
 
-{{ yandex-cloud }} regularly performs vulnerability testing for pre-production server systems with internet access and for network devices before moving them to the production environment. Any vulnerabilities are fixed before systems are put into production.
+{{ yandex-cloud }} regularly performs vulnerability testing for pre-production server systems with internet access and for network devices before moving them to the production environment. Any vulnerabilities are fixed before systems are put into production. 
 
 When vulnerabilities are detected in the components of the production environment, we analyze the operation complexity and the severity of the consequences. After this, the development team prepares updates based on the vulnerabilities found.
 
 ## Internal and external audits, penetration tests {#audits}
 
-{{ yandex-cloud }} regularly conducts internal and external audits and penetration tests to check the efficiency of the existing processes for ensuring information security and improves them.
+Yandex regularly conducts internal and external audits and penetration tests to check the efficiency of the existing processes for ensuring information security and improves them.
 
 * The ISMS is subject to regular internal audits based on ISO 19011 recommendations.
 * As part of the internal audits, we check asset management, physical security, change management, IS incident management, monitoring, and other processes and groups of IS controls.
 * An internal auditor may conduct interviews, fill out checklists, audit documented information involving the audited employee, monitor their activities, and create a representative sample.
 * Any nonconformities identified during the internal audit are analyzed to determine their cause and make changes to the action plan.
-* In accordance with the laws on personal data protection and ISO standards, {{ yandex-cloud }} has a schedule of external audits for compliance with ISO 27001, ISO 27017, and ISO 27018, and a plan of monitoring activities to check the compliance of IS processes and controls with FSTEC Order No. 21.
+* In accordance with the laws on personal data protection and ISO standards, Yandex has a schedule of external audits for compliance with ISO 27001, ISO 27017, and ISO 27018, and a plan of monitoring activities to check the compliance of IS processes and controls with FSTEC Order No. 21.
 * The {{ yandex-cloud }} security team uses Red Teaming. Vulnerabilities detected through regular penetration tests are fixed by development teams or, if it is impossible to quickly release an update, patched with appropriate security tools before a fix is released.
 
 ## Incident response {#incident-resp}
 
-{{ yandex-cloud }} has an incident management policy. IS incidents are managed by the Security Operations Center (SOC) of the information security department. If required, employees from relevant departments provide legal, administrative, and expert support. The main objective of the SOC is to conduct procedures to improve security:
+Yandex has an incident management policy. IS incidents are managed by the Security Operations Center (SOC) of the information security department. If required, employees from relevant departments provide legal, administrative, and expert support. The main objective of the SOC is to conduct procedures to improve security:
 
 * Collecting IS events from monitoring tools, user messages, and other sources.
 * Detecting IS incidents based on automated tools, as well as the knowledge and expertise of SOC employees.
@@ -87,31 +87,31 @@ When vulnerabilities are detected in the components of the production environmen
 
 ### Notifying customers {#custom-notice}
 
-Situations where the customer needs to be notified of incidents are specified in the agreement. If required, a notification is sent within 24 hours by email.
+Situations where the customer needs to be notified of incidents are specified in the agreement. If required, notification is sent within 24 hours as an email.
 
-It is written by the incident manager appointed when the incident is registered. The message describes the nature of the incident, its possible consequences, and measures taken (or planned) to address them. The incident manager approves the message content with the employees in charge and sends it to the support team.
+It is written by the incident manager appointed when the incident was registered. The message describes the nature of the incident, its possible consequences, and measures taken (or planned) to address them. The incident manager approves the message content with the employees in charge and sends it to the support team.
 
 Emails are sent in Russian and English. If the customer can prevent the incident or minimize its consequences, the notification will describe the measures they can take.
 
 ## {{ yandex-cloud }} HR measures {#employees}
 
-{{ yandex-cloud }} holds events for {{ yandex-cloud }} employees to mitigate possible information security risks associated with their actions.
+Yandex holds events for {{ yandex-cloud }} employees to mitigate possible information security risks associated with their actions.
 
-* {{ yandex-cloud }} carries background verification checks on all candidates for employment.
+* Yandex carries background verification checks on all candidates for employment.
 * Employees are familiarized with the requirements of internal policies and regulations, including the {{ yandex-cloud }} Information Security Policy and {{ yandex-cloud }} Personal Data Processing Regulations.
 * Data center employees, administrators, and developers regularly take additional training courses related to the secure development lifecycle and regulations for the administration and operation of cloud services. Training is conducted in-person and online.
 * After completing training, employees take tests that assess their knowledge.
 * The results from testing practical skills and knowledge of theory are analyzed to adjust the company's ISMS.
-* Employees who fail to pass training within the scheduled period aren't allowed to perform their duties.
+* Employees who fail to pass training within the scheduled period are not allowed to perform their duties.
 * Permissions are reviewed every six months.
 * When an employee quits or takes a different job within the company, permissions to access information resources are automatically revoked.
 * Passwords are checked for compliance with the password policy. We regularly evaluate the password strength and make sure passwords are not found in common dictionaries.
 
 ## Business continuity and fault tolerance {#continuity}
 
-{{ yandex-cloud }} uses a business continuity management system that defines requirements for all business-critical processes. The violation of these requirements affects the fulfillment of obligations to partners and customers.
+Yandex uses a business continuity management system that defines requirements for all business-critical processes. The violation of these requirements affects the fulfillment of obligations to partners and customers.
 
-The business continuity management system consists of action plans to be followed by employees when a potential negative scenario takes place. The system provides redundancy mechanisms for all business-critical components of the cloud platform. This includes geographic redundancy in three distributed data centers. {{ yandex-cloud }} also uses data storage redundancy that enables the recovery of customer data in the event of equipment failure.
+The business continuity management system consists of action plans to be followed by employees when a potential negative scenario takes place. The system provides redundancy mechanisms for all business-critical components of the cloud platform. This includes geographic redundancy in three distributed data centers. Yandex also uses data storage redundancy that enables the recovery of customer data in the event of equipment failure.
 
 We regularly conduct tests to check the effectiveness of these plans. We analyze testing results to develop remedial measures and make the decision to review existing plans.
 
@@ -133,16 +133,16 @@ There are several levels of security for physical machines and service VMs.
 
 * The following types of firewalls are used at the network level:
 
-   * Packet filters at the boundaries of internal subnets.
-   * A simple packet filter at the Top-of-Rack switching level.
-   * A hardware firewall at the boundary of the  Yandex infrastructure and  {{ yandex-cloud }} infrastructure.
-   * A software firewall installed on all physical hosts and VMs.
+    * Packet filters at the boundaries of internal subnets.
+    * A simple packet filter at the Top-of-Rack switching level.
+    * A hardware firewall at the boundary of the Yandex infrastructure and {{ yandex-cloud }} infrastructure.
+    * A software firewall installed on all physical hosts and VMs.
 
 * The following additional security features are used:
 
-   * AppArmor and Seccomp create an isolation environment (sandbox) for applications. All VMs at the host OS level run under AppArmor.
-   * Osquery 4: An improved version of the Osquery framework that implements the Host-Based Intrusion Detection System functionality, collects telemetry data from the host, including AppArmor and Seccomp logs, enriches data, and sends it to the Security Information and Event Management (SIEM) system.
-   * Suspicious behavior monitoring and notification system.
+    * AppArmor and Seccomp create an isolation environment (sandbox) for applications. All VMs at the host OS level run under AppArmor.
+    * Osquery 4: An improved version of the Osquery framework that implements the Host-Based Intrusion Detection System functionality, collects telemetry data from the host, including AppArmor and Seccomp logs, enriches data, and sends it to the Security Information and Event Management (SIEM) system.
+    * Suspicious behavior monitoring and notification system.
 
 * Operating system configurations are described using code and stored in a repository. All configuration changes are subject to mandatory testing in test environments before being transferred to the production environment.
 * Administrators and developers' access to the production environment is controlled by a bastion host that logs user sessions. The logged session data is processed and sent to the SIEM system. Information security {{ yandex-cloud }} department employees analyze this data on a regular basis.
@@ -151,11 +151,11 @@ There are several levels of security for physical machines and service VMs.
 
 ### Protection against supply chain attacks {#simply-chain-attacks}
 
- Yandex has a Research and Development (R&D) Department. It works on the design and production of the server hardware used by Yandex. All server hardware is tested before commissioning. Packages with code that are deployed to the production environment contain a cryptographic signature. A package manager checks it before installation. All third-party open-source software packages are re-signed before they're added to the company's package repository.
+Yandex has a Research and Development (R&D) department. It works on the design and production of the server hardware used by Yandex. All server hardware is tested before deployment. Packages with code that are deployed to the production environment contain a cryptographic signature. A package manager checks it before installation. All third-party open-source software packages are re-signed before they are added to the company's package repository.  
 
-Updates are released from special management servers that can only be accessed through the bastion host described above. The production environment update log is saved and analyzed by release engineers. All changes to applications or configurations are subject to mandatory verification.
+Updates are released from special management servers that can only be accessed through the bastion host described above. The production environment update log is saved and analyzed by release engineers. All changes to applications or configurations are subject to mandatory verification.  
 
-Configurations of all production environment components are collected separately using Osquery. Information security department employees analyze them using the SIEM system.
+Configurations of all production environment components are collected separately using Osquery. Information security department employees analyze them using the SIEM system.  
 
 ## Protecting employee credentials {#sec-account}
 
@@ -180,7 +180,7 @@ Strict authentication measures using hardware tokens increase the security of us
 
 ## Data protection {#sec-data}
 
-The data owner is always the cloud platform user. {{ yandex-cloud }} only uses customer data hosted on the platform to fulfill the purposes outlined in the agreement and notifies the customer of any incidents that affect their data.
+The data owner is always the cloud platform user. {{ yandex-cloud }} only uses customer data hosted on the platform to fulfill the terms of the agreement and notifies the customer of any incidents that affect their data.
 
 * Encryption at the Storage level
 
@@ -188,7 +188,7 @@ The data owner is always the cloud platform user. {{ yandex-cloud }} only uses c
 
 * Encryption at the {{ ydb-full-name }} database level
 
-  {{ ydb-short-name }} implements database-level encryption. Data is encrypted before being sent to Storage. Database-level encryption is done in {{ ydb-short-name }}-based systems (such as {{ message-queue-full-name }}) and other platform services that use {{ ydb-short-name }} for storing data.
+  {{ ydb-short-name }} implements database-level encryption. Data is encrypted before being sent to Storage. Database-level encryption is done in {{ ydb-short-name }}-based systems, such as {{ message-queue-full-name }}, and other platform services that use {{ ydb-short-name }} for storing data.
 
 * Data backup encryption in Managed Services for Databases (MDB).
 
@@ -221,33 +221,33 @@ A resource marked for deletion cannot be restored. The data is actually deleted 
 
 {% endnote %}
 
-* Deleting logs of requests to resources. Records of API requests to user resources are stored for one year. They are used for analyzing information security incidents and preventing fraud. Records are permanently deleted after one year.
+* Deleting logs of requests to resources. Records of API requests to user resources are stored for 12 months. They are used for analyzing information security incidents and preventing fraud. Records are permanently deleted once the 12-month period expires. 
 
-* When a billing account is deleted. At the user's request, the billing account is marked for deletion, and the user loses access it within 72 hours. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws. When these terms expire, the billing account is permanently deleted.
+* When a billing account is deleted. At the user's request, the billing account is marked for deletion, and the user loses access it within 72 hours. Billing account data may be used to generate financial statements. Therefore, this data is kept until the expiration of the term of the limitation of actions and the term set by the applicable finance laws. When these terms expire, the billing account is irrevocably deleted.
 
 ### Disclosing information to third parties {#data-disclosure}
 
-{{ yandex-cloud }} does not disclose information to third parties, except when required by applicable law or the provisions of the agreement. Whenever possible, {{ yandex-cloud }} redirects a third-party request to the customer.
+{{ yandex-cloud }} does not disclose information to third parties, except when required by applicable law or the provisions of the agreement. Whenever possible, {{ yandex-cloud }} redirects a third-party request to the customer. 
 
 ## Protecting user information {#sec-user-info}
 
-Information about users is provided to the {{ yandex-cloud }} team on a need-to-know basis. This means that user information is only available to those departments that require it to perform their duties. User information processing and storage systems use authentication, authorization, and record action logging.
+Information about users is provided to the {{ yandex-cloud }} team on a need-to-know basis. This means that user information is only available to those departments that require it to perform their duties. User information processing and storage systems use authentication, authorization, and record action logging.  
 
 User information includes:
 
-* User action (operation) logs.
-* API and console access logs.
-* Technical information about the status of user services.
-* Financial and resource consumption information.
+* User action (operation) logs. 
+* API and console access logs. 
+* Technical information about the status of user services. 
+* Financial and resource consumption information. 
 
-The rights to access the above information are restricted by default and regularly reviewed by the information security department. Systems for storing and processing this information are created based on the Security Development Lifecycle and are regularly subject to internal penetration testing. If possible, user information is encrypted during storage and transmission.
+The rights to access the above information are restricted by default and regularly reviewed by the information security department. Systems for storing and processing this information are created based on the Security Development Lifecycle and are regularly subject to internal penetration testing. If possible, user information is encrypted during storage and transmission.  
 
-## Monitoring {#monitoring}
+## Monitoring {#monitoring}
 
-{{ yandex-cloud }} uses the Security Information and Event Management (SIEM) system for collecting and handling security events. Event data is delivered to the SIEM system from various sources, mainly via HTTPS and Syslog.
+{{ yandex-cloud }} uses the Security Information and Event Management (SIEM) system for collecting and handling security events. Event data is delivered to the SIEM system from various sources, mainly via HTTPS and Syslog.  
 
-Events collected in the SIEM system are analyzed and correlated together. If there are any signs of an attack or violation of IS policies, the information security department receives an alert. At the same time, an alarm is logged about the activation of protective devices. The alarm appears in the system as a task that contains the necessary information and further instructions. Depending on the alarm's severity, the person in charge will receive an email or SMS.
+Events collected in the SIEM system are analyzed and correlated together. If there are any signs of an attack or violation of IS policies, the information security department receives an alert. At the same time, an alarm is logged about the activation of protective devices. The alarm appears in the system as a task that contains the necessary information and further instructions. Depending on the alarm's severity, the person in charge will receive an email or SMS. 
 
-Each alarm has a type that determines its priority and the employee responsible for handling it. Some alarms are analyzed by the employees on duty for the appropriate services, others are sent to the information security department.
+Each alarm has a type that determines its priority and the employee responsible for handling it. Some alarms are analyzed by the employees on duty for the appropriate services, others are sent to the information security department.  
 
-If an alarm is recognized as an information security incident, a regulation that describes how to handle it is put into effect.
+If an alarm is recognized as an information security incident, a regulation that describes how to handle it is put into effect. 

@@ -1900,6 +1900,16 @@ default:
       audio|pricingRate:
         30000000|number: 0.025
         6000000|number: 0.03
+      text:
+        v2|number: 6.9
+        v2|pricingRate:
+          100000|number: 5.1
+          100000|string: ₸5.10
+          1000000|string: ₸2.10
+          2500000|string: ₸1.50
+          500000|number: 3
+          500000|string: ₸3.00
+        v2|string: ₸6.90
       v1|number: 0.115
       v1|pricingRate:
         150000000|number: 0.025
@@ -3298,6 +3308,16 @@ default:
       audio|pricingRate:
         30000000|number: 0.005
         6000000|number: 0.006
+      text:
+        v2|number: 1.38
+        v2|pricingRate:
+          100000|number: 1.02
+          100000|string: ₽1.02
+          1000000|string: ₽0.42
+          2500000|string: ₽0.30
+          500000|number: 0.6
+          500000|string: ₽0.60
+        v2|string: ₽1.38
       v1|number: 0.023
       v1|pricingRate:
         150000000|number: 0.005
@@ -4661,6 +4681,13 @@ default:
       audio|pricingRate:
         30000000|number: 0.00004
         6000000|number: 0.000048
+      text:
+        v2|pricingRate:
+          100000|string: $0.008160
+          1000000|string: $0.003360
+          2500000|string: $0.002400
+          500000|string: $0.004800
+        v2|string: $0.011040
       v1|number: 0.000184
       v1|pricingRate:
         150000000|number: 0.00004
@@ -5721,8 +5748,12 @@ default:
             tab-idp: IdP group
         oslogin-settings:
           title_allow-edit-own-keys: Allow members to use their own SSH keys
+          title_hide-users-list: >-
+            Prevent users from viewing the list of organization members and
+            information about them
           title_ssh-certificate-settings: Access via OS Login using SSH certificates (recommended)
           title_user-ssh-key-settings: Access via OS Login using SSH keys
+          title_users-list-visibility: Confidentiality
         oslogin:
           field_home-directory: Home directory
           field_shell: Default shell
@@ -6345,6 +6376,8 @@ default:
         switch_operations: Operations
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
+      cloud-shell:
+        label_service: Cloud Shell
       cloud-tree-list:
         value_search-placeholder: Search
       cns:
@@ -6987,7 +7020,7 @@ default:
         create: Create dataset
         dataset: Dataset
         datasets: Datasets
-        select-from-created: ''
+        select-from-created: Select from existings
         text-classification-multiclass-key-value: Multi-class classification
         text-classification-multiclass:
           short-title: Multi-class
@@ -8611,19 +8644,18 @@ default:
           label_userName: User name
           section_catalog: Catalog settings
         overview:
-          field_coordinator-url: Coordinator
+          title_resource-coordinator: Coordinator
         title_catalogs: Catalogs
       tuning:
-        _lassification-task: Type of classification
         addition-params: Advanced settings
         classification: Classification
+        classification-task: Type of classification
         generation: Generation
         start-tuning: Start fine-tuning
         task: Task
         train-model: Fine-tune model
         tunings: Fine-tuning models
       vdi:
-        button_acl: Configure ACL
         button_add-image: Add image
         button_desktop-create: Create desktop
         button_download-rdp: Download RDP file
@@ -10564,7 +10596,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.5.0
+        tag: v0.6.0
     yc_gitlab-agent:
       helmChart:
         name: >-
@@ -10579,7 +10611,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/ingress-nginx/chart/ingress-nginx
-        tag: 4.10.0
+        tag: 4.12.1
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -10620,4 +10652,4 @@ default:
     yc_velero-yc-csi:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
-        tag: 2.30.4-1
+        tag: 8.5.0-3

@@ -115,7 +115,7 @@ To get started:
    ./trino <coordinator_URL> --user iam --password
    ```
 
-   You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.field_coordinator-url }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
+   You can copy the coordinator URL and paste it to the **{{ ui-key.yacloud.trino.overview.title_resource-coordinator }}** field on the {{ TR }} overview page in the [management console]({{ link-console-main }}).
 
 ## Send queries to the {{ mpg-name }} cluster through {{ TR }} {#query-mpg-via-trino}
 

@@ -1,10 +1,10 @@
-# Division of responsibility
+# Division of responsibility for security
 
-The security of the systems using cloud services requires sharing the responsibility between the client (end system owner) and the provider (cloud infrastructure owner). How the responsibility is shared depends on the model of cloud services: IaaS (Infrastructure as a Service), PaaS (Platform as a Service), or SaaS (Software as a Service).
+The security of the systems using cloud services requires sharing the responsibility between the client (end system owner) and the provider (cloud infrastructure owner). The division of this responsibility depends on the model of cloud services: IaaS (Infrastructure as a Service), PaaS (Platform as a Service), or SaaS (Software as a Service).
 
 It can be visualized in a table, where:
 
-- ![image](../../_assets/circle-ededed.svg =18x18) Customer
+- ![image](../../_assets/circle-ededed.svg =18x18) Client
 - ![image](../../_assets/circle-80bdf9.svg =18x18) {{ yandex-cloud }}
 
 |     | Private <br> infrastructure | IaaS | PaaS | SaaS |
@@ -13,7 +13,7 @@ It can be visualized in a table, where:
 | Application security | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | OS security | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Network security (Overlay) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
-| Reservation | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
+| Backups | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Encryption | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Audit logs | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |
 | Data storage and hardware security | ![image](../../_assets/circle-ededed.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) | ![image](../../_assets/circle-80bdf9.svg) |

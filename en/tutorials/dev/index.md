@@ -10,6 +10,7 @@ description: Various use cases for development and testing in {{ yandex-cloud }}
 * [Continuous deployment of containerized applications using {{ GL }}](../infrastructure-management/gitlab-containers.md)
 * [App testing with {{ GL }}](../testing/gitlab.md)
 * [Creating test VMs via {{ GL }} CI](../testing/ci-for-snapshots.md)
+* [{#T}](gitlab-tracker-integration.md)
 * [High-performance computing on preemptible VMs](../testing/hpc-on-preemptible.md)
 * [Load testing a gRPC service](../testing/loadtesting-grpc.md)
 * [Fixed-load HTTPS testing with Phantom](../testing/loadtesting-https-phantom.md)

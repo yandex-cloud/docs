@@ -10,7 +10,7 @@ The guide covers actions for mitigation of risks related to federation failure.
 
 ## Primary actions {#main-steps}
 
-1. Create a [federation](../../organization/concepts/add-federation.md).
+1. Create a [federation](../../organization/concepts/add-federation.md).  
 1. Verify federation functionality by logging in as a federated user.
 1. Assign the `organization-manager.organizations.owner` role to a federated user:
 
@@ -100,7 +100,7 @@ Configure {{ at-name }} to manage the service and the federated accounts with th
 
 1. [Configure the collection of audit logs at the organization level](../../audit-trails/quickstart.md) in {{ at-full-name }}.
 
-1. At least track the following events (in [Object Storage](../../audit-trails/tutorials/search-bucket.md), a [log group](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk), and [your SIEM](../../audit-trails/concepts/export-siem.md)):
+1. Make sure you [track](../../audit-trails/tutorials/search-events-audit-logs/index.md) at least the following events (in Object Storage, log group, [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk), and [your SIEM](../../audit-trails/concepts/export-siem.md)):
 
     * Creating service account keys (events: `{{ at-event-prefix }}.audit.iam.CreateAccessKey`, `{{ at-event-prefix }}.audit.iam.CreateKey`, `{{ at-event-prefix }}.audit.iam.CreateApiKey`, and `authentication.subject_id = <service account ID>`).
     * Assigning access permissions to the service account (event: `UpdateServiceAccountAccessBindings` and `details.service_account_id = <service_account_ID>`).

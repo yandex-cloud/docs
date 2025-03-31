@@ -109,3 +109,10 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 
 {% include [public-link](../../_includes/storage/public-link.md) %}
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/user-agent-statistics.md)
+* [{#T}](../tutorials/static/index.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
+* [{#T}](../tutorials/alice-shareable-todolist.md)

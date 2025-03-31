@@ -34,6 +34,11 @@ _Метаданные виртуальной машины_ — это метаи
 
 Настроить параметры сервиса метаданных вы можете при [создании](../operations/index.md#vm-create) или [изменении](../operations/vm-control/vm-update.md) ВМ. Подробнее о том, как настроить параметры сервиса метаданных, см. в [инструкции](../operations/vm-metadata/setup-metadata-service.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../../tutorials/security/gitlab-lockbox-integration.md)
+
 #### См. также {#see-also}
 
 * [{#T}](./metadata/directories.md)

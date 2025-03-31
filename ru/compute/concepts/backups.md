@@ -34,3 +34,9 @@ keywords:
 Чтобы включить на ВМ резервное копирование, [подключите](../../backup/concepts/vm-connection.md) эту ВМ к сервису {{ backup-name }} и [привяжите](../../backup/operations/policy-vm/update.md#update-vm-list) ее к [политике](../../backup/concepts/policy.md) резервного копирования. Операционная система ВМ должна [поддерживаться](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html) провайдером.
 
 {% include [backup-image-snapshot-comparison](../../_includes/backup-image-snapshot-comparison.md) %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/hystax-backup.md)
+* [{#T}](../../tutorials/archive/vm-with-backup-policy/index.md)

@@ -29,6 +29,12 @@ _Сервис_ — это [объект API {{ k8s }} (Service)](https://kuberne
 
 Подробнее о типах сервисов читайте в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/marketplace/jaeger-over-ydb.md)
+
+
 #### См. также {#see-also}
 
 * [{#T}](../operations/create-load-balancer.md).

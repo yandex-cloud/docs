@@ -91,6 +91,11 @@ allocation_policy:
       - third
 ```
 
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../../tutorials/autoscale-monitoring.md)
+
 ### См. также {#see-also}
 
 * [{#T}](healing-policy.md)

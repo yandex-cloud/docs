@@ -42,6 +42,12 @@ _Файловое хранилище_ — это виртуальная файл
 
 Подключение файловых хранилищ к ВМ {{ compute-name }} под управлением ОС Windows сейчас не поддерживается.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/ha-regional-glusterfs-high-performance.md)
+* [{#T}](../tutorials/ha-regional-glusterfs.md)
+* [{#T}](../tutorials/backup-with-bacula.md)
+
 **Смотрите также**
 
 * [{#T}](../operations/filesystem/create.md)

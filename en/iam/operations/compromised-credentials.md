@@ -81,7 +81,7 @@ Disable cookies:
 Analyze access to your {{ yandex-cloud }} resources:
 
 1. [Analyze log records](../../logging/operations/read-logs.md) {{ cloud-logging-name }}.
-1. [Search for events](../../audit-trails/tutorials/search-bucket.md) in a bucket or log group in {{ at-name }}.
+1. [Search for events](../../audit-trails/tutorials/search-events-audit-logs/index.md) in a bucket or log group in {{ at-name }}.
 1. Make sure that all events, including those related to secret leakage, are consistent with expectations.
 
 {% note tip %}

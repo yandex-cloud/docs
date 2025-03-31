@@ -10,13 +10,13 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Data Security Posture Management (DSPM)
+      - name: Data Security Posture Management ({{ dspm-name }})
         items:
           - name: Creating a data source
             href: operations/dspm/create-data-source.md
           - name: Creating a scan
             href: operations/dspm/create-scan.md
-      - name: Cloud Infrastructure Entitlement Management (CIEM)
+      - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
         items:
           - name: Viewing a list of access permissions
             href: operations/ciem/view-permissions.md
@@ -26,11 +26,11 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Access Transparency
+      - name: '{{ atr-name }}'
         href: concepts/access-transparency.md
-      - name: Data Security Posture Management (DSPM)
+      - name: Data Security Posture Management ({{ dspm-name }})
         href: concepts/dspm.md
-      - name: Cloud Infrastructure Entitlement Management (CIEM)
+      - name: Cloud Infrastructure Entitlement Management ({{ ciem-name }})
         href: concepts/ciem.md
       - name: Compliance Portal
         href: concepts/compliance.md
@@ -40,11 +40,11 @@ items:
     items:
       - name: Overview
         href: security/index.md
-      - name: Access Transparency roles
+      - name: '{{ atr-name }} roles'
         href: security/access-transparency-roles.md
-      - name: DSPM roles
+      - name: '{{ dspm-name }} roles'
         href: security/dspm-roles.md
-      - name: CIEM roles
+      - name: '{{ ciem-name }} roles'
         href: security/ciem-roles.md
   - name: Pricing policy
     href: pricing.md

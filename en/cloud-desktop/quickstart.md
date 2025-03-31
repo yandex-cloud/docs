@@ -98,7 +98,7 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 
 - Management console {#console}
 
-  1. To the right of the desktop group created earlier, click ![image](../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vdi.button_acl }}**.
+  1. To the right of the desktop group created earlier, click ![image](../_assets/console-icons/ellipsis.svg) and select **Configure ACL**.
   1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window that appears, select the user group you created earlier, specify the `vdi.viewer` [role](./security/index.md#vdi-viewer) for it, and click **{{ ui-key.yacloud.common.add }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

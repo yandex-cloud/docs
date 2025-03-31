@@ -4,22 +4,21 @@ description:
     <em>Yandex Security Deck is at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
-    Yandex Security Deck is a comprehensive CNAPP service comprised of these
-    modules: {{ atr-name }}, Data Security Posture Management ({{ dspm-name }}),
-    Cloud Infrastructure Entitlement Management ({{ ciem-name }}), and
-    Compliance Portal.
+    Yandex Security Deck is a comprehensive CNAPP comprising such modules as {{
+    atr-name }}, Data Security Posture Management (DSPM), Cloud Infrastructure
+    Entitlement Management (CIEM), and Compliance Portal.
   - >-
     Its tools enable you to discover vulnerabilities, track and protect access
     to data, and monitor compliance with regulations and industry standards.
 meta:
   title: Yandex Security Deck
   description: >-
-    Yandex Security Deck is a comprehensive CNAPP service comprised of these
-    modules: {{ atr-name }}, Data Security Posture Management ({{ dspm-name }}),
-    Cloud Infrastructure Entitlement Management ({{ ciem-name }}), and
-    Compliance Portal. Its tools enable you to discover vulnerabilities, track
-    and protect access to data, and monitor compliance with regulations and
-    industry standards.
+    Yandex Security Deck is a comprehensive CNAPP comprising such modules as {{
+    atr-name }}, Data Security Posture Management ({{ dspm-name }}), Cloud
+    Infrastructure Entitlement Management ({{ ciem-name }}), and Compliance
+    Portal. Its tools enable you to discover vulnerabilities, track and protect
+    access to data, and monitor compliance with regulations and industry
+    standards.
 links:
   - title: Getting started
     description: Getting started with Yandex Security Deck
@@ -31,10 +30,10 @@ links:
     description: Learn about service concepts and entities
     href: concepts/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access permissions to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

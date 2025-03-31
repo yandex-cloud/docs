@@ -4,7 +4,7 @@
 
 Once connected to a database, you will be able to view DB schemas, tables, and views, as well as run queries. It is a web-based tool that simplifies writing queries by suggesting prompts and commands.
 
-You can connect to managed database clusters from clouds and folders that belong to your {{ yandex-cloud }} [organization](../../organization/concepts/manage-services.md). If you [switch to a different organization](../../organization/operations/manage-organizations.md#switch-to-another-org), you will have access to clusters from other clouds and folders. The connections you added will be available while you are in the current {{ yandex-cloud }} organization.
+You can connect to managed database clusters from clouds and folders that belong to your {{ yandex-cloud }} [organization](../../organization/concepts/organization.md). If you [switch to a different organization](../../organization/operations/manage-organizations.md#switch-to-another-org), you will have access to clusters from other clouds and folders. The connections you added will be available while you are in the current {{ yandex-cloud }} organization.
 
 {{ websql-full-name }} supports the following DB versions:
 
@@ -62,7 +62,7 @@ To learn more about using saved queries, see [this guide](../operations/template
 
 ## Historical queries {#query-log}
 
-_Historical queries_ are queries executed in your {{ yandex-cloud }} [organization](../../organization/concepts/manage-services.md) within the current connection session. They are displayed in the ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **Query history** section. Next to each query, you can find its status:
+_Historical queries_ are queries executed in your {{ yandex-cloud }} [organization](../../organization/concepts/organization.md) within the current connection session. They are displayed in the ![image](../../_assets/console-icons/clock-arrow-rotate-left.svg) **Query history** section. Next to each query, you can find its status:
 
 * ![image](../../_assets/websql/success.svg): Query executed successfully.
 * ![image](../../_assets/websql/error.svg): Query execution failed.

@@ -5,9 +5,9 @@ description: Managing access permissions in {{ sd-full-name }} information secur
 
 # Access management in {{ sd-full-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. Until roles are assigned, the user cannot perform any operations.
+{{ yandex-cloud }} users can only perform the operations on resources that are allowed by the roles assigned to them. If a user has no roles yet, they cannot perform any operations.
 
-For access to {{ sd-name }} resources, assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md). Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
+To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), or [system group](../../iam/concepts/access-control/system-group.md), access to {{ sd-name }} resources, assign them the roles from the list below. Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
 
 {% note info %}
 
@@ -23,7 +23,7 @@ In {{ sd-name }}, you can manage access using both service and primitive roles.
 
 {{ yandex-cloud }} supports a separate list of roles for each {{ sd-name }} module. For more information, see:
 
-* [Roles for Access Transparency data analysis](./access-transparency-roles.md).
+* [Roles for {{ atr-name }} data analysis](./access-transparency-roles.md).
 * [Roles for Data Security Posture Management](./dspm-roles.md).
 * [Roles for Cloud Infrastructure Entitlement Management](./ciem-roles.md).
 

@@ -64,6 +64,14 @@ description: Из статьи вы узнаете, что такое шифро
 
 Расшифровка секрета происходит аналогичным образом.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/kms-k8s.md)
+* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+
+
+* [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
+
 ## См. также {#see-also}
 
 * [{#T}](../operations/applications/hashicorp-vault.md)

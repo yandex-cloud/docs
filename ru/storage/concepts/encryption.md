@@ -21,8 +21,15 @@
 
 {% include [encryption-client-side](../../_includes/storage/encryption-client-side.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/server-side-encryption.md)
+* [{#T}](../tutorials/static-key-in-lockbox/index.md)
+* [{#T}](../tutorials/export-logs-to-arcsight.md)
+* [{#T}](../tutorials/export-logs-to-splunk.md)
+
 
 #### См. также {#see-also}
 
-* [{#T}](../operations/buckets/encrypt.md) 
-* [{#T}](../../kms/operations/key.md) 
+* [{#T}](../operations/buckets/encrypt.md)
+* [{#T}](../../kms/operations/key.md)

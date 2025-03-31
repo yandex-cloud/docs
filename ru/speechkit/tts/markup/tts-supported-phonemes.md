@@ -11,6 +11,8 @@ description: Использование фонем в TTS поддерживае
 
 Подробнее о [русской](https://ru.wikipedia.org/wiki/Русская_фонетика), [узбекской](https://ru.wikipedia.org/wiki/Узбекский_язык#Фонетика_и_фонология) и [казахской](https://ru.wikipedia.org/wiki/Казахский_язык#Фонетика_и_фонология) фонологии.
 
+См. [примеры](tts-markup.md#rus-examples) использования фонем.
+
 ## Список поддерживаемых фонем русского языка {#phonemes-ru}
 
 {% include [phonemes-ru-ru_untranslatable](../../../_includes/speechkit/phonemes-ipa-ru-ru_untranslatable.md) %}

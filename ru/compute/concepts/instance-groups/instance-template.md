@@ -174,6 +174,12 @@ instance_template:
 
 О технических ограничениях компонента {{ ig-name }} читайте в разделе [{#T}](../limits.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../tutorials/vm-scale-scheduled/index.md)
+* [{#T}](../../tutorials/autoscale-monitoring.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../vm-metadata.md).

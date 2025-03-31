@@ -464,3 +464,9 @@ signature = Hex(sign(SigningKey, StringToSign))
       ```
 
 {% endlist %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/security/protected-access-to-content/index.md)
+

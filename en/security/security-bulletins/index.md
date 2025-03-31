@@ -48,35 +48,25 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 
 {% include [22.02.2023 — CVE-2022-3602, CVE-2022-3786 — OpenSSL Security release v.3.0.7](../../_includes/security/security-bulletins/cve-2022-3786-openssl.md) %}
 
-
 {% include [07.02.2023 — CVE-2022-3411-4138-3759 — CVE-2023-0518 - GitLab-1581-1576-1567](../../_includes/security/security-bulletins/cve-2022-3411-4138-3759-cve-2023-0518-GitLab-1581-1576-1567.md) %}
-
-
 
 {% include [02.02.2022 — CVE-2022-41903-23521 - GitLab-1575-1566-1559](../../_includes/security/security-bulletins/cve-2022-41903-23521-GitLab-1575-1566-1559.md) %}
 
-
 {% include [26.12.2022 — CVE-2022-47940 - KSMBD FS/KSMBD/SMB2PDU.C SMB2_WRITE](../../_includes/security/security-bulletins/cve-2022-47940-KSMBD-FS-KSMBD-SMB2PDU-C-SMB2_WRITE.md) %}
-
 
 {% include [06.12.2022 — CVE-2022-28228 — YDB](../../_includes/security/security-bulletins/cve-2022-28228-ydb.md) %}
 
-
 {% include [03.11.2022 — CVE-2022-42889 — Text4Shell](../../_includes/security/security-bulletins/cve-2022-42889.md) %}
-
 
 {% include [01.09.2022 — CVE-2022-2992 — GitLab-1532-1524-1516](../../_includes/security/security-bulletins/cve-2022-2992-GitLab-1532-1524-1516.md) %}
 
-
 {% include [31.08.2022 — CVE-2020-8561 — redirect-kube-apiserver](../../_includes/security/security-bulletins/cve-2020-8561-redirect-kube-apiserver.md) %}
-
 
 {% include [25.08.2022 — CVE-2022-2884 — github-import-in-gitlab](../../_includes/security/security-bulletins/cve-2022-2884-github-import-in-gitlab.md) %}
 
 {% include [04.07.2022 — CVE-2022-27228 — Vulnerability of "vote" module in CMS 1C-Bitrix](../../_includes/security/security-bulletins/cve-2022-27228-bitrix.md) %}
 
 {% include [21.06.2022 — CVE-2022-1680 — GitLab account takover](../../_includes/security/security-bulletins/cve-2022-1680-gitlab.md) %}
-
 
 {% include [15.06.2022 – Ingress-nginx path sanitization](../../_includes/security/security-bulletins/cve-2021-25748-ingress-nginx-path.md) %}
 
@@ -86,7 +76,6 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 
 {% include [18.03.2022 — cr8escape](../../_includes/security/security-bulletins/cve-2022-0811-cr8escape.md) %}
 
-
 {% include [09.03.2022 — Dirty Pipe](../../_includes/security/security-bulletins/cve-2022-0847-dirty-pipe.md) %}
 
 {% include [28.02.2022 — multiple-GitLab-vulnerabilities](../../_includes/security/security-bulletins/cve-2022-0735-0549-0751-0741-4191-0738-0489.md) %}
@@ -94,7 +83,6 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 {% include [28.01.2022 — CVE-2022-0185 — heap overflow bug in legacy_parse_param](../../_includes/security/security-bulletins/cve-2022-0185.md) %}
 
 {% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/security/security-bulletins/cve-2021-4034-polkit.md) %}
-
 
 ## 29/12/2021: CVE-2021-45105, CVE-2021-44832: Denial of service and remote code execution (Log4j) {#CVE-2021-45105-CVE-2021-44832}
 
@@ -139,15 +127,15 @@ Log4j 1.x is not affected by the vulnerability.
 * Java 6: Upgrade to Log4j 2.3.2.
 * Java 7: Upgrade to Log4j 2.12.4.
 * Java 8 (and later): Upgrade to Log4j 2.17.1.
-* If you cannot upgrade the library now, make sure that the JDBC Appender is not configured to use any protocol other than Java.
+* If you cannot upgrade the library now, make sure that the JDBC Appender is not configured to use any protocol other than Java. 
 
 Note that only the log4j-core JAR file is affected by this vulnerability. Applications using only the log4j-api JAR file without the log4j-core JAR file are not affected by this vulnerability.
 
-Also note that Apache Log4j is the only Logging Services subproject impacted by this vulnerability. Other projects like Log4net and Log4cxx are not impacted by this vulnerability.
+Also note that Apache Log4j is the only Logging Services subproject impacted by this vulnerability. Other projects like Log4net and Log4cxx are not impacted by this vulnerability. 
 
 Source: https://logging.apache.org/log4j/2.x/security.html
 
-You can also use the following tools to scan your infrastructure for the log4j vulnerability:
+You can also use the following tools to scan your infrastructure for the log4j vulnerability: 
 * https://github.com/google/log4jscanner
 * https://github.com/bi-zone/Log4j_Detector
 
@@ -157,15 +145,15 @@ You can also use the following tools to scan your infrastructure for the log4j v
 
 Vulnerability [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046) is found in Apache Log4j versions 2.0-beta9 through 2.15.0, excluding 2.12.2.
 
-It was found that the fix to address the [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) vulnerability in Apache Log4j 2.15.0 was incomplete in certain non-default configurations. Attackers can craft malicious input data using a JNDI Lookup pattern. This may result in an information leak and remote and local code execution.
+It was found that the fix to address the [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) vulnerability in Apache Log4j 2.15.0 was incomplete in certain non-default configurations. Attackers can craft malicious input data using a JNDI Lookup pattern. This may result in an information leak and remote and local code execution. 
 
-A detailed description of the exploit and this behavior is provided in a [Lunasec article](https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/).
+A detailed description of the exploit and this behavior is provided in a [Lunasec article](https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/). 
 
-Original report from [logging.apache.org](https://logging.apache.org/log4j/2.x/security.html).
+Original report from [logging.apache.org](https://logging.apache.org/log4j/2.x/security.html). 
 
-Vulnerability description: [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046).
+Vulnerability description: [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046). 
 
-CVSSv3.1 rating: 9.0 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H)
+CVSSv3.1 rating: 9.0 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H) 
 
 ### Impact
 
@@ -231,9 +219,9 @@ Learn more at: https://www.securitylab.ru/vulnerability/527362.php
 
 1. The Log4j library is included in almost all Apache Software Foundation enterprise solutions, such as: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Kafka, Apache Dubbo, etc. 
 
-2. The vulnerability affects such open-source products such as ElasticSearch, Elastic Logstash, the NSA’s Ghidra, etc.
+1. The vulnerability affects such open-source products such as ElasticSearch, Elastic Logstash, the NSA’s Ghidra, etc.
 
-3. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
+1. Hystax products are vulnerable because they use a vulnerable version of Elasticsearch Logstash.
 Hystax is working on new product releases to address the vulnerability.
 
 #### Impact on {{ yandex-cloud }} services

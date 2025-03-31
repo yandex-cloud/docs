@@ -61,7 +61,7 @@ Service | ID
 {{ compute-full-name }}: [Disk encryption](../../compute/concepts/encryption.md) | `disk-encryption`
 [{{ ml-platform-full-name }}](../../datasphere/index.yaml) | `datasphere`
 {{ metadata-hub-full-name }}: [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) | `connection-manager`
-{{ sd-full-name }}: [Data Security Posture Management (DSPM)](../../security-deck/concepts/dspm.md) | `dspm`
+{{ sd-full-name }}: [Data Security Posture Management ({{ dspm-name }})](../../security-deck/concepts/dspm.md) | `dspm`
 [{{ websql-full-name }}](../../websql/index.yaml) | `websql`
 
 Moving forward, cloud administrators will be able to manage access of all the services that require permissions for actions with resources in {{ yandex-cloud }}. With [CLI](../../cli/cli-ref/iam/cli-ref/service-control/list.md), you can [get](../operations/service-control/list-get.md#list) an up-to-date list of services whose access you can manage.

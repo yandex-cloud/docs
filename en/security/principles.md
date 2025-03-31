@@ -1,13 +1,13 @@
 ---
-title: Key principles of {{ yandex-cloud }} security
-description: In this tutorial, you will learn about the key security principles adopted in {{ yandex-cloud }}.
+title: '{{ yandex-cloud }} key security principles'
+description: From this article, you will learn about the key security principles of {{ yandex-cloud }}.
 ---
 
-# Key security principles {{ yandex-cloud }}
+# {{ yandex-cloud }} key security principles
 
 ## Openness and transparency {#opennes}
 
-It is impossible to use cloud services without trusting the provider. Information about the cloud platform structure and processes increases customer loyalty.
+It is impossible to use cloud services without trusting the provider. Information about the cloud platform structure and processes increases customer loyalty. 
 
 {{ yandex-cloud }} informs customers about:
 - How the key cloud infrastructure security processes work.

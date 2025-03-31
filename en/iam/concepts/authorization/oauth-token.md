@@ -41,8 +41,6 @@ These services and utilities can request an IAM token automatically, so you can 
 * [Packer](../../../tutorials/infrastructure-management/packer-quickstart.md)
 * [{{ GL }} CI](../../../tutorials/testing/ci-for-snapshots.md)
 
-
 #### See also {#see-also}
 
 * Learn more about Yandex OAuth [here](https://yandex.com/dev/id/doc/dg/oauth/concepts/about.html).
-

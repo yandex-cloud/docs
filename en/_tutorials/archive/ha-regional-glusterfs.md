@@ -25,19 +25,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support costs include:
 
 * Fee for continuously running VMs and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Configure the CLI profile {#setup-profile}
 
-1. If you do not have the {{ yandex-cloud }} command line interface yet, [install](../../cli/quickstart.md) it and sign in.
+1. If you do not have the {{ yandex-cloud }} CLI yet, [install](../../cli/quickstart.md) it and get authenticated according to instructions provided.
 1. Create a service account:
-   
+
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Specify the service account name, e.g., `sa-glusterfs`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -68,7 +68,7 @@ The infrastructure support costs include:
 
    {% endlist %}
 
-1. Assign the service account the administrator [role](../../iam/concepts/access-control/roles.md) for the folder:
+1. Assign the administrator [role](../../iam/concepts/access-control/roles.md) for the folder to the service account:
 
    {% list tabs group=instructions %}
 
@@ -91,7 +91,7 @@ The infrastructure support costs include:
 
    - API {#api}
 
-      To assign a service account a role for a folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+      To assign a role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
    {% endlist %}
 
@@ -101,17 +101,17 @@ The infrastructure support costs include:
 
    - CLI {#cli}
 
-      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it into the file:
+      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it to the file:
          ```
          yc iam key create \
          --service-account-id <service_account_ID> \
-         --folder-id <service_account_folder_ID> \
+         --folder-id <ID_of_folder_with_service_account> \
          --output key.json
          ```
          Where:
          * `service-account-id`: Service account ID.
-         * `folder-id`: ID of the service account folder.
-         * `output`: Name of the authorized key file.
+         * `folder-id`: Service account folder ID.
+         * `output`: Authorized key file name.
 
          Result:
          ```
@@ -135,15 +135,15 @@ The infrastructure support costs include:
          ```
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>  
+         yc config set folder-id <folder_ID>
          ```
 
          Where:
-         * `service-account-key`: File with the service account authorized key.
+         * `service-account-key`: Authorized key file name.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Add the credentials to the environment variables:
+      1. Export your credentials to environment variables:
          ```
          export YC_TOKEN=$(yc iam create-token)
          export YC_CLOUD_ID=$(yc config get cloud-id)
@@ -153,7 +153,7 @@ The infrastructure support costs include:
     {% endlist %}
 
 
-## Set up an environment for deploying the resources {#setup-environment}
+## Set up your resource environment {#setup-environment}
 
 1. Create an SSH key pair:
    ```bash
@@ -166,7 +166,7 @@ The infrastructure support costs include:
     git clone https://github.com/yandex-cloud-examples/yc-distributed-ha-storage-with-glusterfs.git
     cd ./yc-distributed-ha-storage-with-glusterfs
     ```
-1. Edit the `variables.tf` file, specifying the properties for the resources you are deploying:
+1. Edit the `variables.tf` file, specifying the parameters of the resources you are deploying:
 
    {% note warning %}
 
@@ -181,7 +181,7 @@ The infrastructure support costs include:
    1. If you used a non-default name when creating the SSH key pair, change `default` to `<public_SSH_key_path>` under `local_pubkey_path`.
 
 ## Deploy your resources {#deploy-resources}
-   
+
    1. Initialize {{ TF }}:
       ```bash
       terraform init
@@ -190,7 +190,7 @@ The infrastructure support costs include:
       ```bash
       terraform validate
       ```
-   1. Check the list of cloud resources you are about to create:
+   1. Preview the list of new cloud resources:
       ```bash
       terraform plan
       ```
@@ -231,7 +231,7 @@ The infrastructure support costs include:
       default: cluster
       confdir: /etc/clustershell/groups.conf.d $CFGDIR/groups.conf.d
       autodir: /etc/clustershell/groups.d $CFGDIR/groups.d
-      EOF      
+      EOF
 
       cat > /etc/clustershell/groups.d/cluster.yaml <<EOF
       cluster:
@@ -263,7 +263,7 @@ The infrastructure support costs include:
    1. Create a `vol0` folder in each data storage VM and configure availability and fault tolerance by connecting to the `regional-volume` shared folder:
       ```bash
       clush -w @gluster mkdir -p /bricks/brick1/vol0
-      clush -w gluster01 gluster volume create regional-volume disperse 3 redundancy 1 gluster01:/bricks/brick1/vol0 gluster02:/bricks/brick1/vol0 gluster03:/bricks/brick1/vol0  
+      clush -w gluster01 gluster volume create regional-volume disperse 3 redundancy 1 gluster01:/bricks/brick1/vol0 gluster02:/bricks/brick1/vol0 gluster03:/bricks/brick1/vol0
       ```
 
    1. Make use of additional performance settings:
@@ -277,7 +277,7 @@ The infrastructure support costs include:
       clush -w gluster01 gluster volume set regional-volume performance.parallel-readdir on 
       clush -w gluster01 gluster volume set regional-volume performance.io-thread-count 32
       clush -w gluster01 gluster volume set regional-volume performance.cache-size 1GB
-      clush -w gluster01 gluster volume set regional-volume server.allow-insecure on   
+      clush -w gluster01 gluster volume set regional-volume server.allow-insecure on
       ```
    1. Mount the `regional-volume` shared folder on the client VMs:
       ```bash
@@ -335,7 +335,7 @@ The infrastructure support costs include:
 
         1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-        1. From the list, select the `gluster02` VM, click ![image](../../_assets/options.svg), and opt for **{{ ui-key.yacloud.common.stop }}**.
+        1. Select the `gluster02` VM from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
         1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
       - CLI {#cli}
@@ -391,7 +391,7 @@ The infrastructure support costs include:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, delete them:
+To stop paying for the resources created, delete them:
    ```bash
    terraform destroy -auto-approve
    ```

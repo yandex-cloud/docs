@@ -21,6 +21,16 @@ items:
         href: tutorials/search-bucket.md
       - name: Searching for {{ yandex-cloud }} events in {{ cloud-logging-name }}
         href: tutorials/search-cloud-logging.md
+      - name: Event search in audit logs
+        items:
+          - name: Overview
+            href: tutorials/search-events-audit-logs/index.md
+          - name: Tools for working with audit logs
+            href: tutorials/search-events-audit-logs/tools.md
+          - name: Sample requests for searching events
+            href: tutorials/search-events-audit-logs/examples.md
+          - name: Configuring {{ yq-full-name }}
+            href: tutorials/search-events-audit-logs/query.md
       - name: Alert settings in {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in {{ sf-name }}

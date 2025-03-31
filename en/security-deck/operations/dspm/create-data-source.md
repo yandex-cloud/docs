@@ -1,9 +1,9 @@
 ---
-title: Creating a data source in DSPM
-description: Follow this guide to create data sources from {{ objstorage-full-name }} buckets using the {{ sd-full-name }} DSPM module.
+title: Creating a data source in {{ dspm-name }}
+description: Follow this guide to create data sources from {{ objstorage-full-name }} buckets using the {{ sd-full-name }} {{ dspm-name }} module.
 ---
 
-# Creating a DSPM data source
+# Creating a {{ dspm-name }} data source
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
