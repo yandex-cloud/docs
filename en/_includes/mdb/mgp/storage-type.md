@@ -18,9 +18,7 @@ When creating a cluster, you can select the following disk types for data storag
 
   The size of such a storage can be increased:
   
-    
   * For **Intel Cascade Lake**: Only in 100 GB increments.
-  
   
   * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments only.
 

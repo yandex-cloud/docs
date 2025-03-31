@@ -158,7 +158,7 @@
 
   {% note warning %}
 
-  Changing this setting will restart the cluster if the cluster uses {{ MY }} version 5.7. {{ MY }} version 8.0 cluster will restart only if you decrease this parameter.
+  If the cluster is running {{ MY }} version 5.7, changing this setting will cause the cluster hosts to restart one at a time. {{ MY }} version 8.0 cluster will restart only if you decrease this parameter.
 
   {% endnote %}
 
@@ -248,7 +248,7 @@
 
   {% include [requires-restart](note-requires-restart.md) %}
 
-  The size of a single InnoDB redo log file (in bytes). The larger the value, the less [checkpoint]({{ my.docs }}/refman/8.0/en/glossary.html#glos_checkpoint) activity is required in the buffer pool, saving disk I/O. At the same time, larger log files make crash recovery slower.
+  The size of a single InnoDB redo log file (in bytes). The higher the value, the less [checkpoint]({{ my.docs }}/refman/8.0/en/glossary.html#glos_checkpoint) activity is required in the buffer pool, saving disk I/O. At the same time, larger log files make crash recovery slower.
 
   The minimum value is `268435456` (256 MB), and the maximum value is `4294967296` (4 GB). The default value is `268435456` (256 MB).
 
@@ -770,7 +770,7 @@
 
 - **Table open cache**{#setting-table-open-cache} {{ tag-all }}
 
-  The size of the open tables cache for all threads. If the value of [Opened tables]({{ my.docs }}/refman/8.0/en/server-status-variables.html#statvar_Opened_tables) is large and you do not use [FLUSH_TABLES]({{ my.docs }}/refman/8.0/en/flush.html#flush-tables) often, increase the value of this setting.
+  The size of the open tables cache for all threads. If the [Opened tables]({{ my.docs }}/refman/8.0/en/server-status-variables.html#statvar_Opened_tables) value is large and you do not use [FLUSH_TABLES]({{ my.docs }}/refman/8.0/en/flush.html#flush-tables) often, increase this setting.
 
   Increasing it requires increasing the number of file descriptors for the {{ MY }} cluster hosts.
 

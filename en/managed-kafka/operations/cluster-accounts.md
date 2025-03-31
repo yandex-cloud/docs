@@ -28,7 +28,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 
 - CLI {#cli}
@@ -66,7 +66,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/users'
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/User/list.md#yandex.cloud.mdb.kafka.v1.ListUsersResponse) to make sure the request was successful.
 
@@ -93,7 +93,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
        yandex.cloud.mdb.kafka.v1.UserService.List
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.kafka.v1.ListUsersResponse) to make sure the request was successful.
 
@@ -113,7 +113,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
   To create a user for a producer or consumer in a cluster:
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter your username and password.
@@ -130,6 +130,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To create a user:
+
   1. View a description of the CLI create user command:
 
      ```bash
@@ -142,10 +143,16 @@ Use the CLI, API, or {{ TF }} to create an admin user.
      {{ yc-mdb-kf }} user create <username> \
        --cluster-name <cluster_name> \
        --password <password> \
-       --permission topic=<topic_name>,role=<user's_role>
+       --permission topic=<topic_name>,role=<user's_role>,allow_host=<allowed_IP_address_1>,allow_host=<allowed_IP_address_2>,...,allow_host=<allowed_IP_address_N>
      ```
 
+     The `--permission` parameter must include at least one topic-role pair, where:
+       * `topic`: Topic name.
+       * `role`: User’s role, `producer`, `consumer`, or `admin`.
+       * `allow_host`: (Optional) IP address the user is allowed to access the topic from. To specify multiple addresses, add the required number of `allow_host` options separated by commas.
+
   To create an [admin user](../concepts/topics.md#management) to manage cluster topics:
+
   1. See the description of the create user CLI command:
 
      ```bash
@@ -158,7 +165,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
      {{ yc-mdb-kf }} user create <username> \
        --cluster-name <cluster_name> \
        --password <password> \
-       --permission topic=*,role=admin
+       --permission topic=*,role=admin,allow_host=<allowed_IP_address_1>,allow_host=<allowed_IP_address_2>,...,allow_host=<allowed_IP_address_N>
      ```
 
   {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
@@ -242,7 +249,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
        * `role`: User’s role, `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topicName: "*"`).
        * `allowHosts`: (Optional) List of IP addresses the user is allowed to access the topic from.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -297,7 +304,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
        * `role`: User’s role, `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topic_name: "*"`).
        * `allow_hosts`: (Optional) List of IP addresses the user is allowed to access the topic from.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -310,7 +317,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select:
 
@@ -450,7 +457,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
   1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
@@ -598,9 +605,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Select the cluster.
-  1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the user you need to issue topic permissions to and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.kafka.button_add-topic }}**. If there is no such button, it means that the user got permissions for all existing cluster topics.
 
@@ -646,7 +653,7 @@ Use the CLI, API, or {{ TF }} to create an admin user.
      ```bash
      {{ yc-mdb-kf }} user update <username> \
        --cluster-name <cluster_name> \
-       --permission topic=<topic_name>,role=<user_role>
+       --permission topic=<topic_name>,role=<user's_role>,allow_host=<allowed_IP_address_1>,allow_host=<allowed_IP_address_2>,...,allow_host=<allowed_IP_address_N>
      ```
 
      The following `--permission` parameters are available:
@@ -656,7 +663,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
      * `role`: User’s role, `producer`, `consumer`, or `admin`.
 
-       The `admin` role is only available if all topics are selected `topic=*`).
+       The `admin` role is only available if all topics are selected (`topic=*`).
+
+     * `allow_host`: (Optional) IP address the user is allowed to access the topic from. To specify multiple addresses, add the required number of `allow_host` options separated by commas.
 
      When you update user permissions, existing permissions get revoked and replaced with new ones. This means the command must always include a complete list of permissions to be assigned to the user.
 
@@ -685,8 +694,9 @@ Use the CLI, API, or {{ TF }} to create an admin user.
      resource "yandex_mdb_kafka_user" "<username>" {
        ...
        permission {
-         topic_name = "<topic>"
-         role       = "<user's_role>"
+         topic_name  = "<topic>"
+         role        = "<user's_role>"
+         allow_hosts = [ <list_of_allowed_IP_addresses> ] 
        }
      }
      ```
@@ -701,9 +711,11 @@ Use the CLI, API, or {{ TF }} to create an admin user.
 
      * `role`: User’s role, `ACCESS_ROLE_CONSUMER`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN`. The `ACCESS_ROLE_ADMIN` role is only available if all topics are selected (`topic_name = "*"`).
 
-     Along with access to the topic, users also gain access to data schema subjects. The availability of subjects depends on the specified roles and topics. For more information, see [{#T}](../concepts/managed-schema-registry.md#subjects).
+     * `allow_hosts`: List of IP addresses the user is allowed to access the topic from.
 
-     If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
+     Along with access to the topic, users also gain access to data schema subjects. The list of available of subjects depends on the roles and topics you specify. For more information, see [Subjects in {{ mkf-msr }}](../concepts/managed-schema-registry.md#subjects).
+
+    If the user does not need permissions to certain topics, you can [revoke them](#revoke-permission).
 
   1. Make sure the settings are correct.
 
@@ -814,9 +826,9 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Select the cluster.
-  1. Go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Find the appropriate topic in the list of topics.
   1. Delete the role you no longer need: click the ![image](../../_assets/console-icons/xmark.svg) icon next to its name. To revoke all permissions for a topic, delete it from the list: hover over the topic name and click ![image](../../_assets/console-icons/xmark.svg) at the end of the line.
@@ -832,15 +844,16 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
   ```bash
   {{ yc-mdb-kf }} user update <username> \
     --cluster-name <cluster_name> \
-    --permission topic=<topic_name>,role=<user's_role>
+    --permission topic=<topic_name>,role=<user's_role>,allow_host=<allowed_IP_address_1>,allow_host=<allowed_IP_address_2>,...,allow_host=<allowed_IP_address_N>
   ```
 
   When you update user permissions, existing permissions get revoked and replaced with new ones. This means the command must always include a complete list of permissions to be assigned to the user.
 
-  The `--permission` flag must include at least one topic-role pair, where:
+  The `--permission` parameter must include at least one topic-role pair, where:
 
   * `topic`: Topic name.
   * `role`: User’s role, `producer`, `consumer`, or `admin`.
+  * `allow_host`: (Optional) IP address the user is allowed to access the topic from. To specify multiple addresses, add the required number of `allow_host` options separated by commas.
 
   To find out the cluster name, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -941,7 +954,7 @@ If you revoke the `ACCESS_ROLE_ADMIN` role from the [admin user](../concepts/top
      * `permission`: Access permission for the topic to be revoked:
        * `topic_name`: Topic name or name template. To find out the name, [get a list of cluster topics](cluster-topics.md#list-topics).
        * `role`: User’s role to be revoked, `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER`.
-       * `allow_hosts`: (Optional) List of IP addresses for which the user’s access permissions to the topic will be revoked.
+       * `allow_hosts`: (Optional) List of IP addresses for which the user’s access to the topic will be revoked.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters) and the username, with the [list of users in the cluster](#list-accounts).
 
@@ -982,7 +995,7 @@ If you delete the [admin user](../concepts/topics.md#management) with the `ACCES
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. In the services list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the appropriate user and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

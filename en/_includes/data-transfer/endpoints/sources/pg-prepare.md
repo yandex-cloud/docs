@@ -33,7 +33,9 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
     1. {% include [Tables without primary keys](../../primary-keys-postgresql.md) %}
     
     1. Disable the transfer of external keys when creating a source endpoint. Recreate them once the transfer is completed.
-    
+
+    1. {% include [generated-columns](../../generated-columns.md) %}
+
     1. Find and terminate DDL queries that are running for too long. To do this, make a selection from the {{ PG }} `pg_stat_activity` system table:
     
         ```sql
@@ -56,7 +58,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
         1. To monitor storage or disk space usage, [use monitoring tools to set up an alert](../../../../managed-postgresql/operations/monitoring.md#monitoring-hosts) (see the `disk.used_bytes` description).
         
-        1. Set the maximum WAL size for replication in the `Max slot wal keep size` [setting](../../../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size). The value of this setting can be edited as of {{ PG }} version 13. To urgently disable a transfer to perform data reads, [delete the replication slot](../../../../managed-postgresql/operations/replication-slots.md#delete).
+        1. Set the maximum WAL size for replication in the `Max slot wal keep size` [setting](../../../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size). The value of this setting can be edited as of {{ PG }} version 13. To urgently disable a transfer to perform data reads, [delete the replication slot](../../../../managed-postgresql/operations/replication-slots.md#delete). 
         
            {% note warning %}
         
@@ -181,7 +183,9 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
     1. {% include [Tables without primary keys](../../primary-keys-postgresql.md) %}
     
     1. Disable the transfer of external keys when creating a source endpoint. Recreate them once the transfer is completed.
-    
+
+    1. {% include [Tables without primary keys](../../generated-columns.md) %}
+
     1. Find and terminate DDL queries that are running for too long. To do this, make a selection from the {{ PG }} `pg_stat_activity` system table:
     
         ```sql
@@ -232,7 +236,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
             ```sql
             SELECT slot_name, pg_size_pretty(pg_current_wal_lsn() - restart_lsn), active_pid, catalog_xmin, restart_lsn, confirmed_flush_lsn
             FROM pg_replication_slots WHERE slot_name = '<transfer_ID>'
-            ```
+            ```    
 
 {% endlist %}
 

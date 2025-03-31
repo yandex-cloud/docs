@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mch-full-name }}
-description: Access management in the {{ CH }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ CH }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
 ---
 
 # Access management in {{ mch-name }}
@@ -76,7 +76,7 @@ To use the service, you need the [{{ roles.mch.editor }} role](../iam/concepts/a
 
 To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the `{{ roles.mch.editor }}` role or higher.
 
-You can always assign a role with more permissions. For instance, you can assign `{{ roles.mch.admin }}` instead of `{{ roles.mch.editor }}`.
+You can always assign a role with more permissions. For example, you can assign the `{{ roles.mch.admin }}` role instead of `{{ roles.mch.editor }}`.
 
 ## What's next {#whats-next}
 

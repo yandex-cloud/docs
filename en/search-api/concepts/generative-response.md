@@ -5,7 +5,7 @@ description: This article describes the format {{ search-api-name }}'s generativ
 
 # Generative response
 
-You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative AI to get a comprehensive and concise _generative response_ to a user query. To generate such a response, the model analyzes the relevant text search results retrieved by {{ search-api-name }} from your company's websites.
+You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative AI to get a comprehensive and concise _generative response_ to a user query. To generate such a response, the model analyzes the relevant text search results retrieved by {{ search-api-name }} from your company's websites. 
 
 {% include [note-preview-by-request](../../_includes/note-preview.md) %}
 
@@ -19,7 +19,7 @@ From April 1, 2025, the generative response functionality will be available only
 
 ## Search query {#request}
 
-Queries to {{ search-api-name }} seeking a generative response are submitted using the POST method to the `{{ link-yandex }}/search/xml/generative` endpoint.
+Queries to {{ search-api-name }} seeking a generative response are submitted using the POST method to the `{{ link-yandex }}/search/xml/generative` endpoint. 
 
 To run queries, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `search-api.executor` [role](../security/index.md#search-api-executor) and an [API key](../../iam/concepts/authorization/api-key.md) created for it. To [authenticate](../operations/auth.md) successfully, provide the [folder ID](../../resource-manager/operations/folder/get-id.md) and API key of the service account in each query.
 
@@ -27,7 +27,7 @@ To run queries, you need a [service account](../../iam/concepts/users/service-ac
 
 Each query seeking a generative response must contain the following request body in [JSON](https://en.wikipedia.org/wiki/JSON) format:
 
-```json
+```json 
 {
   "messages": [
     {
@@ -62,7 +62,7 @@ Each query seeking a generative response must contain the following request body
 
 * `messages`: Single search query or a search query with context in the form of chat with the model. It is specified as an array of objects, each one containing two elements:
     * `content`: Text of user query or the model's response (depending on the `role` value).
-    * `role`: Message sender's role. The possible values are:
+    * `role`: Message sender's role. The possible values are as follows:
         * `user`: Means the message is sent by the user, and the `content` field contains the user's query.
         * `assistant`: Means the message is sent by the model, and the `content` field contains the model's response.
 
@@ -139,7 +139,7 @@ export API_KEY=<API_key>
 
   SEARCH_API_GENERATIVE = f"https://ya.ru/search/xml/generative?folderid={os.getenv('FOLDER_ID')}"
 
-
+  
   def main():
       headers = {"Authorization": f"Api-Key {os.getenv('API_KEY')}"}
       data = {

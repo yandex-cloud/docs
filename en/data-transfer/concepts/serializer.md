@@ -116,13 +116,31 @@ Automatic selection of serialization settings depending on the source type.
 
     The default value is `false`.
 
+* **dt.batching.max.size**: Maximum message size in bytes.
+
+    The default value is `0` bytes (batching is disabled). The recommended value is `1048576` bytes (1 MB). A non-empty value enables batching.
+
+    The setting is relevant if you use JSON serialization with {{ schema-registry-name }} (see the **key.converter** and **value.converter** parameters). If using {{ schema-registry-name }}, the enqueued messages may become very small. In such a case, batching increases the throughput of queues.
+
+    When batching is enabled, a single queue message will comprise a sequence of logical messages in [Confluent wire format](https://docs.confluent.io/cloud/current/sr/fundamentals/serdes-develop/index.html#wire-format). Data serialized in this way can be easily decoded.
+
+    When batching is enabled, messages are aggregated in a buffer. If a new message leads to exceeding the `dt.batching.max.size` value, the current buffer is retained and the new message is added to an empty buffer. If one logical message from the source exceeds the `dt.batching.max.size` value, a batch consisting of this single message will be created. Batching takes place before compression in the queue client.
+
+    Enabling batching can be useful to optimize heavy delivery to a queue where messages are read by a transfer.
+
+    {% note warning %}
+
+    Only a transfer can decode batched messages.
+
+    {% endnote %}
+
 * **dt.mysql.timezone**: Time zone for {{ MY }} date and time data types in [IANA](https://www.iana.org/time-zones) format.
 
     The default value is `UTC`.
 
 * **dt.unknown.types.policy**: Policy that determines the behavior for handling user-defined data types.
 
-    The possible values are:
+    The possible values are as follows:
 
     * `skip`: Do not abort the transfer and ignore user-defined data types.
     * `to_string`: Do not abort the transfer and convert user-defined data types to text.
@@ -132,7 +150,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **decimal.handling.mode**: Mode for handling real numbers.
 
-    The possible values are:
+    The possible values are as follows:
 
     * `precise`: Precise conversion using the `java.math.BigDecimal` method.
     * `double`: Conversion to a `double` data type. This may result in precision loss.
@@ -142,7 +160,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **interval.handling.mode**: Mode for handling time intervals.
 
-    The possible values are:
+    The possible values are as follows:
 
     * `numeric`: Approximate conversion to microseconds.
     * `string`: Precise conversion based on the string template: `P<years>Y<months>M<days>DT<hours>H<minutes>M<seconds>S`.
@@ -151,7 +169,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **key.converter** and **value.converter**: Key and value converters.
 
-    The possible values are:
+    The possible values are as follows:
 
     * `org.apache.kafka.connect.json.JsonConverter`: JSON, standard for [Debezium](https://debezium.io/documentation/reference/index.html).
     * `io.confluent.connect.json.JsonSchemaConverter`: [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html).
@@ -164,10 +182,19 @@ Automatic selection of serialization settings depending on the source type.
 
 * **key.converter.schema.registry.url** and **value.converter.schema.registry.url**: Whether to add a schema description to each message for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
-    The possible values are: 
+    The possible values are as follows: 
 
     * Empty string (default): Do not add a schema description.
     * URL string value defining the path to the schema registry service. 
+
+* **key.converter.dt.json.generate.closed.content.schema** and **value.converter.dt.json.generate.closed.content.schema**: Determine whether to use the closed content model to generate the data producer schema for the key and value. This enables performing compatibility checks by converting the consumer open model to the closed one and searching for a similar schema among those registered for the producer. 
+
+    The default value is `true` if the appropriate **key.converter.schema.schema.registry.url** and **value.converter.schema.registry.url** settings are enabled.
+
+    If you select the `Optional-friendly` compatibility check policy in the {{ schema-registry-name }} namespace and enable the following setting:
+
+    * **key.converter.dt.json.generate.closed.content.schema**: Adding or removing optional fields in the key schema will not violate full transitive schema compatibility.
+    * **value.converter.dt.json.generate.closed.content.schema**: Adding or removing optional fields in the value schema will not violate full transitive schema compatibility.
 
 * **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authorization in Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 

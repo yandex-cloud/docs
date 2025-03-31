@@ -39,9 +39,13 @@ Output vector size | {{ emb-vector }}
 Maximum number of tokens in response via API | 2,000 
 Maximum number of tokens per response in the [management console]({{ link-console-main }}) | 1,000
 Total number of tokens in request and response, [3rd generation models](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
-Total number of tokens in request and response, synchronous mode of [4th generation models](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
-Total number of tokens in request and response, asynchronous mode of [4th generation models](../foundation-models/concepts/yandexgpt/models.md) | 32,000
+Total number of tokens in request and response, {{ gpt-lite }} model of [4th generation](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
+Total number of tokens in request and response, {{ gpt-lite }} model of [5th generation](../foundation-models/concepts/yandexgpt/models.md) | 32,000
+Total number of tokens in request and response, synchronous mode of {{ gpt-pro }} model of [4th generation](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
+Total number of tokens in request and response, asynchronous mode of {{ gpt-pro }} model of [4th generation models](../foundation-models/concepts/yandexgpt/models.md) | 32,000
+Total number of tokens in request and response, {{ gpt-pro }} model of [5th generation models](../foundation-models/concepts/yandexgpt/models.md) | 32,000
 Total number of tokens in request and response, {{ gpt-pro }} 32k model | 32,000
+Total number of tokens in request and response, [5th generation {{ gpt-pro }} model](../foundation-models/concepts/yandexgpt/models.md) | 32,000
 Number of free requests per hour for users without a billing account. Available only in the management console | {{ gpt-freetier }}
 **[Assistants](../foundation-models/concepts/assistant/index.md)**|
 Maximum number of assistants | 1,000

@@ -242,9 +242,6 @@ default:
   host-class: s2.micro
   host-name: rc1a-goh2a9tr********
   host-net-example: zone-id=ru-central1-a,subnet-id=b0rcctk2rvtr********
-  i2:
-    2xlarge: i2.2xlarge (16 vCPU, 128 ГБ)
-    4xlarge: i2.4xlarge (32 vCPU, 256 ГБ)
   iam-full-name: Yandex Identity and Access Management
   iam-name: Identity and Access Management
   iam-short-name: IAM
@@ -497,6 +494,7 @@ default:
   objstorage-sftps-gateway-version: '1.0'
   objstorage-short-name: Object Storage
   ocr-max-filesize: 10 МБ
+  openai: OpenAI
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Cloud Organization

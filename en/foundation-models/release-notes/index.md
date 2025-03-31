@@ -5,6 +5,13 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 25/02/2025 {#250225}
+
+The {{ yagpt-name }} 5th generation model is available for testing (`RC` branch). The 5th generation key upgrades include:
+1. [Function calling](../concepts/yandexgpt/function-call.md) was significantly improved.
+1. Added support for structured output. This feature enables you to set up the model to generate responses in random JSON format or according to the provided schema. For more information on structuring model output, see [Text generation overview](../concepts/yandexgpt/index.md#answers-formatting).
+1. Increased the supported context to 32,000 tokens for all modes.
+
 ## Release as of 11/02/25 {#110225}
 
 1. Updated the [{{ llama }} 70B](../concepts/yandexgpt/models.md) model version. Now {{ llama }} 3.3. {{ meta-disclaimer }} is available in all branches.
@@ -77,7 +84,7 @@ Added the ability to send asynchronous requests to {{ yagpt-name }} models fine-
 
 ## Release as of 09/04/24 {#090424}
 
-1. Added [generation of images](../concepts/yandexart/index.md) based on text description. The {{ yandexart-name }} model works in asynchronous mode and is available in the management console in [{{ foundation-models-name }} Playground]({{ link-console-main }}/link/foundation-models) and via the [API](../image-generation/api-ref/index.md).
+1. Added [generation of images](../concepts/yandexart/index.md) based on text description. The {{ yandexart-name }} model works in asynchronous mode and is available in the management console in [{{ foundation-models-name }} Playground]({{ link-console-main }}/link/foundation-models) and via the [API](../image-generation/api-ref/index.md). 
 1. Added examples of requests to {{ yandexart-name }} in the documentation.
 
 ## Release as of 25/03/24 {#250324}

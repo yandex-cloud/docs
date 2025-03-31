@@ -11,8 +11,6 @@ items:
         items:
           - name: Information about existing clusters
             href: operations/cluster-list.md
-          - name: Calculating the cluster configuration
-            href: operations/calculate-specs.md
           - name: Creating a cluster
             href: operations/cluster-create.md
           - name: Updating cluster settings
@@ -35,7 +33,7 @@ items:
         href: operations/connect.md
       - name: Users and sessions
         items:
-          - name: Managing roles and users
+          - name: Role and user management
             href: operations/roles-and-users.md
           - name: Managing resource groups
             href: operations/resource-groups.md
@@ -125,6 +123,8 @@ items:
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
+      - name: Calculating the cluster configuration
+        href: concepts/calculate-specs.md
       - name: Networking in {{ mgp-name }}
         href: concepts/network.md
       - name: Storage in {{ mgp-name }}
@@ -291,7 +291,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

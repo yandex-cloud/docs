@@ -1,1 +1,1 @@
-`--ca-certificate` — If the transmitted data needs to be encrypted, for example, to meet the requirements of PCI DSS.
+`--ca-certificate`: CA certificate if data encryption is required, e.g., to comply with the PCI DSS requirements.

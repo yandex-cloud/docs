@@ -6,7 +6,7 @@ description: In this article, you will learn about {{ GP }} host classes.
 # {{ GP }} host classes
 
 
-The host class determines the computing power allocated for each host in a cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. For information on how to select host classes, see [Calculating the cluster configuration](../operations/calculate-specs.md).
+The host class determines the computing power allocated for each host in a cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. For information on how to select host classes, see [Calculating the cluster configuration](../concepts/calculate-specs.md).
 
 
 For master hosts, the host class determines which [disk types](./storage.md) are available:
@@ -52,7 +52,7 @@ Configuration types:
 
 ## Using dedicated hosts {#dedicated-hosts}
 
-You can use [dedicated hosts](../../compute/concepts/dedicated-host.md) for your master hosts, segment hosts, or all your cluster's hosts at the same time. In which case the cluster's hosts will reside only on dedicated hosts from the selected group.
+You can use [dedicated hosts](../../compute/concepts/dedicated-host.md) for your master hosts, segment hosts, or all your cluster's hosts at the same time. In which case the cluster's hosts will reside on dedicated hosts from the group you select.
 
 A cluster on dedicated hosts will have the following available to it:
 

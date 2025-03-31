@@ -1,6 +1,6 @@
 ---
 title: Connecting to a {{ PG }} cluster in {{ mpg-full-name }}
-description: You can connect to {{ PG }} cluster hosts from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs located in the same virtual network.
+description: You can connect to {{ PG }} cluster hosts from the internet if you set up public access to the appropriate host and from {{ yandex-cloud }} VMs residing in the same virtual network.
 ---
 
 # Connecting to a database in a {{ PG }} cluster
@@ -85,14 +85,14 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 ## {{ PG }} host FQDN {#fqdn}
 
-To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+To connect to a host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it by doing one of the following:
 
 * [Request a list of cluster hosts](../operations/hosts.md#list-hosts).
 * In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 * Look up the FQDN in the management console:
 
    1. Go to the cluster page.
-   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
 Cluster hosts also use [special FQDNs](#special-fqdns).
@@ -109,7 +109,7 @@ If, when the [master host is changed automatically](../concepts/replication.md#r
 
 ### Current master {#fqdn-master}
 
-An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host in the cluster. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host in the cluster. You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
@@ -132,12 +132,13 @@ psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
 
 ### Most recent replica {#fqdn-replica}
 
-An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../concepts/replication.md) that is most up-to-date with the master host. You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../concepts/replication.md) that is most up-to-date with the master host. You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 **Specifics:**
 
 * When connecting to this FQDN, only read operations are allowed.
 * If there are no active replicas in the cluster, this FQDN will point to the current master host.
+* You cannot select replicas whose [replication source is specified manually](../concepts/replication.md#replication-manual) as most recent when using this FQDN.
 
 Here is an example of connecting to the most recent replica for a cluster with the `c9qash3nb1v9********` ID:
 

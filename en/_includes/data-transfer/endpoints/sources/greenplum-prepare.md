@@ -6,7 +6,6 @@
 
 {% list tabs %}
 
-
 - {{ mgp-name }}
 
     
@@ -33,7 +32,6 @@
         GRANT USAGE ON SCHEMA <schema_name> TO <username>;
         ```
 
-
 - {{ GP }}
     
     1. {% include notitle [White IP list](../../../../_includes/data-transfer/configure-white-ip.md) %}
@@ -46,7 +44,7 @@
 
     1. Configure the source cluster to enable the user you created to connect to all the cluster [master hosts](../../../../managed-greenplum/concepts/index.md).
     
-    1. If you are going to use [parallel copy](../../../../data-transfer/concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode.
+    1. If you are going to use [parallel copy](../../../../data-transfer/concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode.
     
     1. Grant the user you created the `SELECT` privilege for the tables to transfer and the `USAGE` privilege for the schemas these tables are in.
     

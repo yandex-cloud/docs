@@ -24,11 +24,27 @@ Most likely, no public access is enabled for the cluster, so you can only connec
 
 No. You can only connect to public hosts using an SSL connection. For more information, see the [documentation](../../managed-clickhouse/operations/connect/index.md).
 
+#### Why do I get an `UNEXPECTED_PACKET_FROM_SERVER` error when connecting? {#unexpected-packet}
+
+Here is the full text of the error:
+
+```text
+Code: 102. DB::NetException:
+Unexpected packet from server <host_FQDN>.mdb.yandexcloud.net:9440
+(expected Hello or Exception, got Unknown packet)
+```
+
+This error occurs when you try to connect directly to the {{ CH }} host through port 9440 without using encryption. You can only connect through port 9440 over an encrypted SSL connection.
+
+Make sure to specify the `--secure` parameter when connecting through port 9440.
+
+To learn more about connection methods, see [Connecting to a {{ CH }} cluster](../../managed-clickhouse/operations/connect/clients.md).
+
 #### Can I connect to cluster hosts via SSH or get superuser permissions on hosts? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -36,7 +52,7 @@ Here is the full text of the error:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+This means, when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
 
 To fix this error:
 

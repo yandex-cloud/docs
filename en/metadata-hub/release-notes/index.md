@@ -7,6 +7,13 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
+### February {#february25}
+
+#### New features {#new-features-february25}
+
+* Implemented access control in the list of connections. Users will only see connections they have access to (they have the [`connection-manager.auditor` role](../security/connection-manager-roles.md#connection-manager-auditor) or [`connection-manager.viewer` role](../security/connection-manager-roles.md#connection-manager-viewer)). A user with access to a folder will see all connections in that folder.
+* Improved stability when providing passwords to {{ data-transfer-full-name }}, {{ websql-full-name }}, and {{ datalens-name }}.
+
 ### January {#january25}
 
 #### New features {#new-features-january25}

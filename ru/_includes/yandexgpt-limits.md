@@ -40,6 +40,7 @@
 Максимальное количество токенов в ответе в [консоли управления]({{ link-console-main }}) | 1 000
 Суммарное количество токенов в запросе и ответе, [модели 3 поколения](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
 Суммарное количество токенов в запросе и ответе, модель {{ gpt-lite }} [4 поколения](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
+Суммарное количество токенов в запросе и ответе, модель {{ gpt-lite }} [5 поколения](../foundation-models/concepts/yandexgpt/models.md) | 32 000
 Суммарное количество токенов в запросе и ответе, синхронный режим модели {{ gpt-pro }} [4 поколения](../foundation-models/concepts/yandexgpt/models.md) | {{ yagpt-max-tokens }}
 Суммарное количество токенов в запросе и ответе, асинхронный режим модели {{ gpt-pro }} [4 поколения](../foundation-models/concepts/yandexgpt/models.md) | 32 000
 Суммарное количество токенов в запросе и ответе, модель {{ gpt-pro }} 32k | 32 000

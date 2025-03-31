@@ -11,6 +11,17 @@ You can also use the {{ yandex-cloud }} [mobile app](/mobile-app) to monitor tra
 
 
 
+## Errors displayed on the transfer timeline {#errors-timeline}
+
+Some errors you may see on the selected transfer timeline:
+
+  * The transfer does not write all the data it reads. There are fewer events written to the target than read from the source. This may indicate low throughput of the target.
+  * Transfer time has increased or is too long. If a transfer takes longer time to process data, this may suggest that the data stream from the source has increased or the target’s throughput is low.
+  * Replication lag is increasing. The lag may increase if the source starts sending more events or due to data target issues, insufficient resources, or operational errors.
+  * Replication restarts frequently. Frequent replication restarts can signify an issue in the data source or target, as well as a memory shortage.
+
+[Learn more about errors displayed on the timeline](../troubleshooting/index.md#timeline).
+
 ## Monitoring transfer status {#monitoring}
 
 {% list tabs group=instructions %}
@@ -19,7 +30,7 @@ You can also use the {{ yandex-cloud }} [mobile app](/mobile-app) to monitor tra
 
   1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.data-transfer.label_connectors }}**.
-  1. Click the name of the transfer you need and open the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab.
+  1. Click the transfer name and open the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.data-transfer.label_monitoring }}** tab.
   1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** in the top panel.
 
 {% endlist %}
@@ -114,9 +125,9 @@ Alert parameters:
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`
 
     You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
@@ -144,9 +155,9 @@ Alert parameters:
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`
 
     You can additionally set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` triggering condition for the situations when the number of replicated operations is below the expected value.
 
@@ -200,9 +211,9 @@ Alert parameters:
 
 * Alert settings:
 
-    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`.
-    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`.
+    * {{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}: `{{ ui-key.yacloud_monitoring.alert.title_comparison-eq }}`
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}: `0`
+    * {{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}: `-`
 
     Additional settings:
 

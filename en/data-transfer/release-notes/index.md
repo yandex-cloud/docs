@@ -5,6 +5,7 @@ description: This section contains {{ data-transfer-name }} release notes.
 
 # {{ data-transfer-name }} release notes
 
+- [February 2025](2502.md)
 - [January 2025](2501.md)
 
 {% cut "2024" %}{#2024}

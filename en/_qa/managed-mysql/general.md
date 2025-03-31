@@ -61,12 +61,10 @@ The minimum number of hosts depends on the selected type of [storage](../../mana
    * Local SSDs (`local-ssd`)
    * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
-* At least one host for the following:
+* A minimum of one host for these disks:
 
    * Network HDDs (`network-hdd`)
    * Network SSDs (`network-ssd`)   * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
-
-
 
 The maximum number of hosts per cluster is subject to the limits in place.
 
@@ -158,9 +156,6 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
-
-
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
 
 {% include [logs](../logs.md) %}

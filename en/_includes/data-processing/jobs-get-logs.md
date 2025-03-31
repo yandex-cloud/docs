@@ -1,6 +1,4 @@
-
 {% include [get-logs-info](note-info-get-logs.md) %}
-
 
 {% list tabs group=instructions %}
 
@@ -24,13 +22,13 @@
        --name=<job_name>
     ```
 
-    You can get the cluster ID and name with a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
+    You can get the cluster ID and name with the [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
 
 - API {#api}
 
     Use the API [listLog](../../data-proc/api-ref/Job/listLog) method and include the following in the request:
 
-    * Cluster ID in the `clusterId` parameter. You can get it with a [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
+    * Cluster ID in the `clusterId` parameter. You can get it with the [list of clusters in the folder](../../data-proc/operations/cluster-list.md#list).
     * Job ID in the `jobId` parameter. You can get it with the [list of cluster jobs](#list).
 
 {% endlist %}

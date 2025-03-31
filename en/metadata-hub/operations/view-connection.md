@@ -24,6 +24,12 @@ For the selected connection, you can view information about its dependencies on 
 
 You can open the selected connection in [{{ websql-full-name }}](../../websql/concepts/index.md) to make database requests. Click the **{{ ui-key.yacloud.connection-manager.label_open-websql }}** link in the top-right corner.
 
+{% note info %}
+
+The connection list only shows those connections for which the user has access permissions (the [`connection-manager.auditor`](../security/connection-manager-roles.md#connection-manager-auditor) or [`connection-manager.viewer` role](../security/connection-manager-roles.md#connection-manager-viewer)). A user with access permissions for a folder will be able to view all connections in that folder.
+
+{% endnote %}
+
 ## Viewing connection dependencies {#dependencies}
 
 {% list tabs group=instructions %}

@@ -9,7 +9,13 @@ editable: false
 
 In {{ yandex-cloud }}, you can use resources of both billable and non-billable services. The fee for using {{ billing-name }} is included in the service price and is not charged separately.
 
-For more information about {{ yandex-cloud }} pricing as well as pricing rules for all services, see the [Pricing]({{ link-cloud-calculator }}) page.
+
+{% note tip %}
+
+To calculate the cost of using the services, use our [calculator]({{ link-cloud-calculator }}) on the {{ yandex-cloud }} website or see the [pricing for specific services](#billable).
+
+{% endnote %}
+
 
 
 ## Fees for individual services {#billable}

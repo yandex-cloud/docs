@@ -4,6 +4,12 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
 
 ## 2.2.x images (beta) {#2-2-x}
 
+### 2.2.7 (beta) {#2-2-7}
+* Upgraded to Java 11.
+
+### 2.2.6 (beta) {#2-2-6}
+* Fixed an error where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving a memory share for YARN NodeManager.
+
 ### 2.2.5 (beta) {#2-2-5}
 
 * The following components were updated:
@@ -23,6 +29,9 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
     * scikit-learn to 1.5.1
 
 ## 2.1.x images {#2-1-x}
+
+### 2.1.19 {#2-1-19}
+* Fixed an error where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving a memory share for YARN NodeManager.
 
 ### 2.1.18 {#2-1-18}
 * Updated Conda and changed the default solver to [Mamba](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community).
@@ -65,6 +74,9 @@ For a complete list of current and deprecated {{ dataproc-name }} images, see [{
     * scikit-learn to 0.24.1
 
 ## Image 2.0.x {#2-0-x}
+
+### 2.0.78 {#2-0-78}
+* Fixed an error where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving a memory share for YARN NodeManager.
 
 ### 2.0.77 {#2-0-77}
 * Added logging during Conda package installation.

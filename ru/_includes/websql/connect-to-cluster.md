@@ -2,7 +2,7 @@
 
 {% note info %}
 
-{{ mtr-full-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). В интерфейсе {{ websql-full-name }} пока нельзя создавать подключения к {{ mtr-full-name }}, но если в текущем каталоге есть кластер {{ mtr-full-name }} и у пользователя есть к нему доступ, подключение отобразится в {{ websql-name }} и будет доступно для использования. 
+[{{ mtr-full-name }}](../../managed-trino/) находится на стадии [Preview](../../overview/concepts/launch-stages.md). В интерфейсе {{ websql-full-name }} пока нельзя создавать подключения к {{ mtr-full-name }}, но если в текущем каталоге есть кластер {{ mtr-full-name }} и у пользователя есть к нему доступ, подключение отобразится в {{ websql-name }} и будет доступно для использования. 
 
 {% endnote %}
 

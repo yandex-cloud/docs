@@ -5,7 +5,7 @@ description: Follow this guide to create and start working with a {{ GP }} clust
 
 # Getting started with {{ mgp-short-name }}
 
-To get started with the service:
+To get started:
 
 1. [Create a cluster](#create-cluster).
 1. [Get its ID](#get-cluster-id).
@@ -73,7 +73,7 @@ To create a cluster:
 
     * **{{ ui-key.yacloud.greenplum.section_resource-master }}** and **{{ ui-key.yacloud.greenplum.section_resource-segment }}**: [Master and segment host](./concepts/index.md) configuration in the {{ GP }} cluster.
 
-        You can edit the settings on these tabs if the default configuration does not suit your needs. For more information, see [{#T}](./operations/calculate-specs.md).
+        You can edit the settings on these tabs if the default configuration does not suit your needs. For more information, see [{#T}](./concepts/calculate-specs.md).
 
 1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -86,7 +86,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 
 Get the cluster ID to use to [connect](#connect) to the cluster:
 
-1. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. In the management console, navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Click the name of the cluster you need and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.mdb.cluster.switch_overview }}** tab.
 1. Copy the cluster ID specified under **{{ ui-key.yacloud.common.section-base }}**.
 

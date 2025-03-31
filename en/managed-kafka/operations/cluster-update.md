@@ -126,7 +126,7 @@ Learn more about other cluster updates:
         * `name`: New cluster name.
         * `description`: New cluster description.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -174,7 +174,7 @@ Learn more about other cluster updates:
         * `name`: New cluster name.
         * `description`: New cluster description.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -225,7 +225,7 @@ We recommend changing broker host class only when there is no active workload on
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -341,7 +341,7 @@ We recommend changing broker host class only when there is no active workload on
                 * `configSpec.kafka.resources.resourcePresetId`: To change the broker host class.
                 * `configSpec.brokersCount`: To change the number of broker hosts.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
         1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -414,7 +414,7 @@ We recommend changing broker host class only when there is no active workload on
                 * `config_spec.kafka.resources.resource_preset_id`: To change the broker host class.
                 * `config_spec.brokers_count`: To change the number of broker hosts.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
         1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -452,7 +452,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -549,7 +549,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
                 Specify the relevant parameters:
                 * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
         1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -617,7 +617,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
                 Specify the relevant parameters:
                 * `config_spec.zookeeper.resources.resource_preset_id`: To change the {{ ZK }} host class.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
         1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -747,7 +747,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
         * `assignPublicIp`: Internet access to the broker hosts, `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -808,7 +808,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
 
         * `assign_public_ip`: Internet access to the broker hosts, `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -847,7 +847,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         {{ yc-mdb-kf }} cluster update --help
         ```
 
-    1. Run the following command with a list of settings to update:
+    1. Run the following command with the list of settings to update:
 
         
         ```bash
@@ -872,7 +872,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
         {% include [Deletion protection](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    * `--schema-registry`: Enable this option to manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md).
+    * `--schema-registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`.
 
         {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
@@ -986,7 +986,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1055,7 +1055,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         * `rest_api_config.enabled`: Set to `true` for access to sending requests to the {{ KF }} REST API. You will not be able to edit this setting once it is enabled.
 
 
-        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings. Select one of the options:
+        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings. Select one of these options:
 
             * `anytime`: Anytime.
             * `weekly_maintenance_window`: On schedule:
@@ -1066,7 +1066,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1094,7 +1094,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
     To update the {{ KF }} settings:
 
-    1. View the description of the CLI update cluster settings command:
+    1. See the description of the CLI command for updating cluster settings:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -1199,7 +1199,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         * `configSpec.kafka.kafkaConfig_2_8.<setting_for_{{ KF }}_2.8_configuration`: Specify a new value for the setting if using {{ KF }} `2.8`.
         * `configSpec.kafka.kafkaConfig_3.<setting_for_{{ KF }}_3.x_configuration`: Specify a new value for the setting if using {{ KF }} `3.x`.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1265,7 +1265,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         * `config_spec.kafka.kafka_config_2_8.<setting_for_{{ KF }}_2.8_configuration`: Specify a new value for the setting if using {{ KF }} `2.8`.
         * `config_spec.kafka.kafka_config_3.<setting_for_{{ KF }}_3.x_configuration`: Specify a new value for the setting if using {{ KF }} `3.x`.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1318,7 +1318,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                     }'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1347,7 +1347,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
             yandex.cloud.mdb.kafka.v1.ClusterService.Move
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
