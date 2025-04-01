@@ -39,6 +39,14 @@ editable: false
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 
 
+{% note warning %}
+
+{% include [base-zonal-pricing](../_includes/managed-kubernetes/base-zonal-pricing.md) %}
+
+{% include [ha-regional-pricing](../_includes/managed-kubernetes/ha-regional-pricing.md) %}
+
+{% endnote %}
+
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}

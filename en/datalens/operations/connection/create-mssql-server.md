@@ -15,9 +15,11 @@ description: In this tutorial, you will learn how to connect to {{ MS }} in {{ d
 
 To create a {{ MS }} connection:
 
+
 1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Databases**, select the **MS SQL Server** connection.
-1. Specify the connection parameters:
+1. Specify the connection settings:
+
 
    * **Hostname**. Specify the path to a master host or a {{ MS }} master host IP address. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
    * **Port**. Specify the {{ MS }} connection port. The default port is 1433.

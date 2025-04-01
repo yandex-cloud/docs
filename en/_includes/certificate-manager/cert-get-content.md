@@ -7,7 +7,7 @@ To get the contents of a certificate:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where the certificate is located.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Next to the certificate, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
 
        You can only export certificates with the `Issued` status.
@@ -72,9 +72,8 @@ To get the contents of a certificate:
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To get the contents of a custom certificate using {{ TF }}:
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
 
-     
      ```hcl
      data "yandex_cm_certificate_content" "cert_by_id" {
        certificate_id = "<certificate_ID>"
@@ -90,7 +89,6 @@ To get the contents of a certificate:
      }
      ```
 
-
      Where:
      * `data "yandex_cm_certificate_content"`: Description of the data source for the certificate contents:
        * `certificate_id`: Certificate ID.
@@ -99,7 +97,7 @@ To get the contents of a certificate:
        * `sensitive`: Label data as sensitive.
 
      For more information about the `yandex_cm_certificate_content` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/cm_certificate_content).
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

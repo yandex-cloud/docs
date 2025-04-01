@@ -1,6 +1,6 @@
 ---
-title: How to work with {{ ydb-full-name }}
-description: In this tutorial, you will learn how to use the {{ ydb-full-name }} managed service in {{ yandex-cloud }}.
+title: Guides on using {{ ydb-full-name }}
+description: In this article, you will learn how to work with the managed service for {{ ydb-full-name }} in {{ yandex-cloud }}.
 ---
 
 # Step-by-step guides for {{ ydb-name }}

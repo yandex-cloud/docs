@@ -2,7 +2,7 @@
 
 #### What does the dot mean? {#comma}
 
-It separates the integer part from the fractional part of a number. For example, the value `123.456` should be interpreted as 123 and 456 thousandths.
+It separates the integer part from the fractional part of a number. For example, `123.456` should be interpreted as 123 and 456 thousandths.
 
 #### Why does cpu_usage exceed 100%? {#cpu-usage}
 

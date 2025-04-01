@@ -105,9 +105,7 @@ items:
           Получение статистики запросов к объектам с использованием {{
           yq-full-name }}
         href: tutorials/server-logs-yq.md
-      - name: >-
-          Формирование отчета по ресурсной детализации расходов с использованием
-          S3 Select
+      - name: Анализ поресурсной детализации расходов
         href: tutorials/billing-resource-detailing.md
       - name: Шифрование на стороне сервера
         href: tutorials/server-side-encryption.md
@@ -151,7 +149,7 @@ items:
         href: tutorials/opensearch-to-object-storage.md
       - name: Автоматическое копирование объектов из бакета в бакет
         href: tutorials/bucket-to-bucket.md
-      - name: Регулярное распознавание аудиофайлов в бакете
+      - name: Регулярное асинхронное распознавание аудиофайлов в бакете
         href: tutorials/batch-recognition-stt.md
       - name: >-
           Обучение модели в {{ ml-platform-full-name }} на данных из {{

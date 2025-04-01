@@ -29,14 +29,14 @@ With Metric Explorer, you can perform the following tasks:
 
 To learn how to configure and use charts, see [{#T}](../../operations/metric/metric-explorer.md).
 
-## Chart repetition by parameter {#repeated-graphs}
+## Chart repetition by parameters {#repeated-graphs}
 
-Chart repetition based on a specific parameter allows you to build several similar charts but with different values of this parameter. This helps you to analyze indicator anomalies and problems as you can split a metric into multiple ones and examine each of them separately.
+The chart repetition feature based on a specific parameter allows you to build multiple similar charts with different values of this parameter. This helps you to analyze indicator anomalies and problems as you can split a metric into multiple ones and examine each of them separately.
 
 Let’s say you have multiple VMs deployed in your cloud and observe a spike in CPU utilization. To track down the issue fast:
 
 1. Create a CPU utilization chart for all VMs.
-1. Enable chart repetition by VM to create separate charts for each VM.
+1. Enable chart repetition by VMs to create separate charts for each VM.
 1. When you spot a VM with high indicators, create CPU utilization charts for each of its vCPUs.
 
 

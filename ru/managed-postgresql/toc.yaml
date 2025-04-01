@@ -185,6 +185,8 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
+      - name: Планирование топологии кластера
+        href: concepts/planning-cluster-topology.md
       - name: Сеть в {{ mpg-name }}
         href: concepts/network.md
       - name: Квоты и лимиты

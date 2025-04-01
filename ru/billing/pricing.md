@@ -29,7 +29,9 @@ editable: false
 * [{{ alb-full-name }}](../application-load-balancer/pricing.md)
 * [{{ at-full-name }}](../audit-trails/pricing.md)
 * [{{ backup-full-name }}](../backup/pricing.md)
+* [{{ baremetal-full-name }}](../baremetal/pricing.md)
 * [{{ cdn-full-name }}](../cdn/pricing.md)
+* [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
 * [{{ dns-full-name }}](../dns/pricing.md)
 * [{{ sf-full-name }}](../functions/pricing.md)
 * [{{ interconnect-full-name }}](../interconnect/pricing.md)
@@ -74,6 +76,7 @@ editable: false
 * [{{ objstorage-full-name }}](../storage/pricing.md)
 * [{{ yq-full-name }}](../query/pricing.md)
 * [{{ search-api-full-name }}](../search-api/pricing.md)
+* [{{ sd-full-name }}](../security-deck/pricing.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/pricing.md)
 * [{{ captcha-full-name }}](../smartcaptcha/pricing.md)
 * [{{ sws-full-name }}](../smartwebsecurity/pricing.md)
@@ -93,10 +96,8 @@ editable: false
 
 Расчет стоимости за использование следующих сервисов не производится:
 
-* {{ preview-stage }} [{{ baremetal-full-name }}](../baremetal/pricing.md)
 * [{{ certificate-manager-full-name }}](../certificate-manager/pricing.md)
 * [Yandex Cloud Console](../console/pricing.md)
-* {{ preview-stage }} [{{ cloud-desktop-full-name }}](../cloud-desktop/pricing.md)
 * {{ preview-stage }} [{{ cns-full-name }}](../notifications/pricing.md)
 * [{{ org-full-name }}](../organization/pricing.md)
 * {{ preview-stage }} [{{ cloud-registry-full-name }}](../cloud-registry/pricing.md)
@@ -107,7 +108,6 @@ editable: false
 * {{ preview-stage }} [{{ mtr-full-name }}](../managed-trino/pricing.md)
 * {{ preview-stage }} [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
-* {{ preview-stage }} [{{ sd-full-name }}](../security-deck/pricing.md)
 * {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
 * [{{ websql-full-name }}](../websql/pricing.md)
 * [{{ wiki-full-name }}]({{ link-wiki-cloudless }})

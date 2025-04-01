@@ -113,8 +113,22 @@ items:
         href: tutorials/websocket-app.md
       - name: Processing {{ at-name }} events
         href: tutorials/audit-trails.md
+      - name: Event search in audit logs
+        items:
+          - name: Overview
+            href: tutorials/search-events-audit-logs/index.md
+          - name: Tools for working with audit logs
+            href: tutorials/search-events-audit-logs/tools.md
+          - name: Sample requests for searching events
+            href: tutorials/search-events-audit-logs/examples.md
+          - name: Configuring {{ yq-full-name }}
+            href: tutorials/search-events-audit-logs/query.md
       - name: Processing CDC Debezium streams
         href: tutorials/debezium.md
+      - name: Exporting audit logs to MaxPatrol SIEM
+        href: tutorials/maxpatrol.md
+      - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
+        href: tutorials/search-events-query.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

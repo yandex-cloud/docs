@@ -2,6 +2,56 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+## 01.04.2024 — CVE-2025-1974 Уязвимость в ingress-nginx в {{ k8s }} {#CVE-2025-1974}
+
+Идентификатор CVE (CVE ID): CVE-2025-1974
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2025-1974>
+
+### Исходный отчет {#original-report}
+
+<https://kubernetes.io/blog/2025/03/24/ingress-nginx-cve-2025-1974/>
+
+### Краткое описание {#brief-description}
+
+В {{ k8s }} была обнаружена уязвимость, из-за которой при определенных условиях злоумышленник, не прошедший аутентификацию и имеющий доступ к сети подов, может добиться выполнения произвольного кода в контексте контроллера ingress-nginx. Это может привести к получению несанкционированного доступа к секретам, доступных контроллеру. По умолчанию контроллер может получить доступ ко всем секретам в кластере.
+
+### Затронутые технологии {#technologies-affected}
+
+{{ k8s }}
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+* Версии до 1.11.4 включительно;
+* Версия 1.12.0.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#severity-level}
+
+9,8 CRITICAL.
+
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations}
+
+Чтобы проверить, установлен ли в вашем кластере ingress-nginx, выполните следующую команду: `kubectl get pods --all-namespaces --selector app.kubernetes.io/name=ingress-nginx`.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+Если вы используете версию ingress-nginx из {{ marketplace-name }}, обновление доступно только для версий {{ k8s }} 1.28 и выше.
+
+Установка безопасной версии ingress-nginx в кластерах {{ k8s }} с версиями до 1.28 недоступна без обновления версии {{ k8s }}.
+
+### Влияние на сервисы {{ yandex-cloud }} {#impact-on-yandex-cloud-services}
+
+Рекомендуем установить безопасную версию [ingress-nginx](/marketplace/products/yc/ingress-nginx) из {{ marketplace-name }}.
+
+Если вы используете другой способ для установки:
+
+* Helm: переустановите ingress-nginx с опцией `--set controller.admissionWebhooks.enabled=false`.
+* Манифест YAML:
+  1. Удалите ресурс `ValidatingWebhookConfiguration` с именем `ingress-nginx-admission`.
+  1. Отредактируйте ресурсы `Deployment` или `Daemonset` с именем `ingress-nginx-controller`, удалив ключ `--validating-webhook` из списка аргументов.
+
 {% include [08.07.2024 — CVE-2024-21626](../../_includes/security/security-bulletins/cve-2024-21626.md) %}
 
 {% include [05.07.2024 — CVE-2024-6387 RegreSSHion](../../_includes/security/security-bulletins/cve-2024-6387-regresshion.md) %}

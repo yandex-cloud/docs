@@ -84,13 +84,18 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc alb virtual-host create <имя_виртуального_хоста> \
        --http-router-name <имя_HTTP-роутера> \
-       --authority *
+       --authority * \
+       --rate-limit rps=100,all-requests \
        --security-profile-id <идентификатор_профиля_безопасности>
      ```
 
      Где:
      * `--http-router-name` — имя HTTP-роутера.
      * `--authority` — домены для заголовков `:authority`, которые будут связаны с этим виртуальным хостом. Поддерживаются символы подстановки, например `*.foo.com` или `*-bar.foo.com`.
+     * `--rate-limit` — (опционально) ограничение на скорость запросов:
+       * `rps` или `rpm` – количество запросов, которые можно принять в секунду или минуту.
+       * `all-requests` — ограничение на все входящие запросы.
+       * `requests-per-ip` — ограничение на количество запросов для каждого IP-адреса в отдельности. То есть в единицу времени для каждого IP-адреса можно принять указанное количество запросов.
      * `--security-profile-id` — (опционально) идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
@@ -100,7 +105,10 @@ description: Следуя данной инструкции, вы сможете
      done (1s)
      name: <имя_виртуального_хоста>
      authority:
-     - *
+       - *
+     rate_limit:
+       all_requests:
+         per_second: "100"
      ```
 
   1. Посмотрите описание команды CLI для добавления маршрута:
@@ -117,7 +125,8 @@ description: Следуя данной инструкции, вы сможете
        --http-router-name <имя_HTTP-роутера> \
        --prefix-fqmn-match / \
        --backend-group-name <имя_группы_бэкендов> \
-       --request-max-timeout 60s
+       --request-max-timeout 60s \
+       --rate-limit rps=50,requests-per-ip
      ```
 
      Где:
@@ -129,6 +138,7 @@ description: Следуя данной инструкции, вы сможете
        * `--exact-fqmn-match` — для маршрутизации всех запросов, совпадающих с указанным FQMN. После параметра укажите `/<FQMN>/`.
        * `--regex-fqmn-match` — для маршрутизации всех запросов, удовлетворяющих [регулярному выражению](https://ru.wikipedia.org/wiki/Регулярные_выражения) стандарта [RE2](https://github.com/google/re2/wiki/Syntax). После параметра укажите `/<регулярное_выражение>`.
      * `--backend-group-name` — имя [группы бэкендов](../concepts/backend-group.md).
+     * `--rate-limit` — ограничение на скорость запросов.
      * `--request-max-timeout` — максимальный тайм-аут ожидания запроса, в секундах. Клиент может указать в запросе HTTP-заголовок `grpc-timeout` с меньшим тайм-аутом.
 
      Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).

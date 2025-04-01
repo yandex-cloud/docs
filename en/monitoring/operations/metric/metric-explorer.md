@@ -33,7 +33,7 @@ You can use one of the following methods to set the metrics display period:
 * At the top of the page, click:
   * **Last hour**: You can flexibly set date and time in the drop-down list.
   * **<** or **>**: To move one hour forward or backward on the timescale.
-  * **1h**, **1d**, **1w**, 1**1M**: To plot metrics for the last hour, day, week, or month. In the field next to it, you can specify an interval of your own, e.g., `15m`.
+  * **1h**, **1d**, **1w**, 1**1M**: To show metrics for the last hour, day, week, or month on the chart. In the field next to it, you can specify your own time interval, e.g., `15m`.
 * At the top right of the chart panel, click **+** or **–**.
 * Select an area on the chart and click **{{ ui-key.yacloud_monitoring.tooltip.actions.go-to-window }}**.
 
@@ -48,7 +48,7 @@ You can use one of the following methods to set the metrics display period:
       For lines of the same name on different charts to be always of the same color, select **{{ ui-key.yacloud_monitoring.wizard.vis.scheme-hash }}**.
 
    1. **{{ ui-key.yacloud_monitoring.wizard.vis.normalize }}**: Reducing all data to the 0 - 100% range.
-   1. **{{ ui-key.yacloud_monitoring.wizard.vis.interpolate-key-value }}**: Method of filling between two points: a straight line between the points; based on known point on the left; based on known point on the right.
+   1. **{{ ui-key.yacloud_monitoring.wizard.vis.interpolate-key-value }}**: Method of filling the data gap between two points: a straight line between the points; based on known point on the left; based on known point on the right.
 1. Under **{{ ui-key.yacloud_monitoring.wizard.axes.primary-y }}** and **{{ ui-key.yacloud_monitoring.wizard.axes.secondary-y }}**, configure the signature, scale, minimum and maximum values, units of measure, and the number of decimal pieces.
 1. Under **{{ ui-key.yacloud_monitoring.wizard.tab.downsampling }}**, configure how [historical data](../../concepts/decimation.md) should be displayed on the chart.
 1. When you are done configuring the chart, close the settings panel. The chart displays all your changes as soon as you make them.

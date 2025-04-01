@@ -194,7 +194,8 @@ description: Следуя данной инструкции, вы сможете
            --exact-path-match / \
            --backend-group-name <имя_группы_бэкендов> \
            --request-timeout <тайм-аут_запроса>s \
-           --request-idle-timeout <тайм-аут_ожидания_запроса>s
+           --request-idle-timeout <тайм-аут_ожидания_запроса>s \
+           --rate-limit rps=<лимит_запросов>,requests-per-ip
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
@@ -237,7 +238,8 @@ description: Следуя данной инструкции, вы сможете
            --exact-path-match / \
            --backend-group-name <имя_группы_бэкендов> \
            --request-timeout <тайм-аут_запроса>s \
-           --request-idle-timeout <тайм-аут_ожидания_запроса>s
+           --request-idle-timeout <тайм-аут_ожидания_запроса>s \
+           --rate-limit rps=<лимит_запросов>,requests-per-ip
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host prepend-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
@@ -283,7 +285,8 @@ description: Следуя данной инструкции, вы сможете
            --exact-path-match / \
            --backend-group-name <имя_группы_бэкендов> \
            --request-timeout <тайм-аут_запроса>s \
-           --request-idle-timeout <тайм-аут_ожидания_запроса>s
+           --request-idle-timeout <тайм-аут_ожидания_запроса>s \
+           --rate-limit rps=<лимит_запросов>,requests-per-ip
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
@@ -331,7 +334,8 @@ description: Следуя данной инструкции, вы сможете
              --exact-path-match / \
              --backend-group-name <имя_группы_бэкендов> \
              --request-timeout <тайм-аут_запроса>s \
-             --request-idle-timeout <тайм-аут_ожидания_запроса>s
+             --request-idle-timeout <тайм-аут_ожидания_запроса>s \
+             --rate-limit rps=<лимит_запросов>,requests-per-ip
            ```
 
            Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
@@ -378,7 +382,8 @@ description: Следуя данной инструкции, вы сможете
            --http-router-name <имя_HTTP-роутера> \
            --prefix-fqmn-match /<первое_слово_названия_сервиса> \
            --backend-group-name <имя_группы_бэкендов> \
-           --request-max-timeout <таймаут>s 
+           --request-max-timeout <таймаут>s \
+           --rate-limit rps=<лимит_запросов>,requests-per-ip
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
@@ -419,7 +424,8 @@ description: Следуя данной инструкции, вы сможете
            --http-router-name <имя_HTTP-роутера> \
            --prefix-fqmn-match /<первое_слово_названия_сервиса> \
            --backend-group-name <имя_группы_бэкендов> \
-           --request-max-timeout <таймаут>s  
+           --request-max-timeout <таймаут>s \
+           --rate-limit rps=<лимит_запросов>,requests-per-ip
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host prepend-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
@@ -461,7 +467,8 @@ description: Следуя данной инструкции, вы сможете
            --http-router-name <имя_HTTP-роутера> \
            --prefix-fqmn-match /<первое_слово> \
            --backend-group-name <имя_группы_бэкендов> \
-           --request-max-timeout <таймаут>s  
+           --request-max-timeout <таймаут>s \
+           --rate-limit rps=<лимит_запросов>,requests-per-ip
          ```
 
           Где:
@@ -513,7 +520,8 @@ description: Следуя данной инструкции, вы сможете
             --http-router-name <имя_HTTP-роутера> \
             --prefix-fqmn-match /<первое_слово> \
             --backend-group-name <имя_группы_бэкендов> \
-            --request-max-timeout <таймаут>s  
+            --request-max-timeout <таймаут>s \
+            --rate-limit rps=<лимит_запросов>,requests-per-ip
           ```
 
           Где:

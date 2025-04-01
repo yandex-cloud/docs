@@ -75,6 +75,22 @@ items:
         href: tutorials/alb-ingress-controller-log-options.md
       - name: Processing {{ cloud-logging-name }} logs
         href: tutorials/cloud-logging.md
+      - name: >-
+          Configuring responses in {{ cloud-logging-name }} and {{ sf-full-name
+          }}
+        href: tutorials/logging-functions.md
+      - name: Searching for {{ yandex-cloud }} events in {{ cloud-logging-name }}
+        href: tutorials/search-events-logging.md
+      - name: Event search in audit logs
+        items:
+          - name: Overview
+            href: tutorials/search-events-audit-logs/index.md
+          - name: Tools for working with audit logs
+            href: tutorials/search-events-audit-logs/tools.md
+          - name: Sample requests for searching events
+            href: tutorials/search-events-audit-logs/examples.md
+          - name: Configuring {{ yq-full-name }}
+            href: tutorials/search-events-audit-logs/query.md
   - name: Concepts
     items:
       - name: Log group
@@ -151,7 +167,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

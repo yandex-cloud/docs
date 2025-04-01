@@ -5,7 +5,7 @@ Users with this role can:
 * Create new [projects](../../../datasphere/concepts/project.md) in communities.
 * Publish project [resources](../../../datasphere/concepts/resources.md) in the communities where the user has the `Developer` permissions (the `datasphere.communities.developer` role) or higher.
 * View info on projects, project settings, and project resources, as well as on granted access permissions for these projects.
-* View info on the relevant [organization](../../../organization/quickstart.md).
+* View info on the relevant [organization](../../../organization/concepts/organization.md).
 
 This role also includes the `datasphere.communities.viewer` permissions.
 

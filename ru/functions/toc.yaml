@@ -453,7 +453,9 @@ items:
         href: tutorials/regular-launch-datasphere.md
       - name: Интерактивная отладка функций
         href: tutorials/serverless-live-debug.md
-      - name: Регулярное распознавание аудиофайлов в бакете {{ objstorage-name }}
+      - name: >-
+          Регулярное асинхронное распознавание аудиофайлов из {{ objstorage-name
+          }}
         href: tutorials/batch-recognition-stt.md
       - name: Канареечный релиз функции {{ sf-name }}
         href: tutorials/canary-release.md

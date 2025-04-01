@@ -3,7 +3,7 @@ title: How to create a {{ ydb-name }} connection
 description: Follow this guide to create a connection to {{ ydb-name }}.
 ---
 
-# Creating a {{ ydb-name }} connection
+# Creating a {{ ydb-short-name }} connection
 
 {% note info %}
 
@@ -15,12 +15,12 @@ To write subqueries in datasets and queries in QL charts, use [YQL syntax]({{ yd
 
 {% endnote %}
 
-To create a {{ ydb-name }} connection:
+To create a {{ ydb-short-name }} connection:
+
 
 1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Files and services**, select the **{{ ydb-short-name }}** connection.
-
-1. Specify the connection parameters:
+1. Specify the connection settings:
 
    
    * **Cloud and folder**. Select the folder where your service account will be located.
@@ -42,7 +42,7 @@ To create a {{ ydb-name }} connection:
 
 
 
-1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.
+1. (Optional) Test the connection. To do this, click **Check connection**.
 1. Click **Create connection**.
 
 
@@ -68,3 +68,6 @@ Increasing the throughput limit in the serverless database settings may result i
 {% endnote %}
 
 {% endcut %}
+
+
+

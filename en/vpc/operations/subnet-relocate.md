@@ -93,7 +93,7 @@ To move a subnet to a different availability zone:
 
   To run the example, install [cURL](https://curl.haxx.se).
 
-  1. [Get](../../iam/operations/index.md#iam-tokens) an IAM token for [authentication](../api-ref/authentication.md) with the API.
+  1. [Get](../../iam/operations/index.md#authentication) an IAM token for [authentication](../api-ref/authentication.md) with the API.
 
   1. Save the token to a variable:
 

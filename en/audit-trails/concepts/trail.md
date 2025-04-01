@@ -74,7 +74,7 @@ The trail contains all the audit log settings:
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/query.md)
+* [{#T}](../tutorials/search-events-audit-logs/index.md)
 * [{#T}](../tutorials/alerts-monitoring.md)
 * [{#T}](../tutorials/logging-functions.md)
 * [{#T}](../tutorials/audit-trails.md)

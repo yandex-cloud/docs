@@ -7,7 +7,7 @@ Users with this role can:
 * View info on projects, project settings, and project resources, as well as on granted access permissions for these projects.
 * Create, modify, and delete [resources](../../../datasphere/concepts/resources.md) within projects, as well as publish project resources in the communities where the user has the `Developer` permissions (the `datasphere.communities.developer` role) or higher.
 * Run IDEs and code cells in projects.
-* View info on the relevant [organization](../../../organization/quickstart.md).
+* View info on the relevant [organization](../../../organization/concepts/organization.md).
 
 This role also includes the `datasphere.communities.developer` and `datasphere.community-projects.editor` permissions.
 

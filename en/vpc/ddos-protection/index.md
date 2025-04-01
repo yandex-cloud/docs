@@ -6,7 +6,7 @@ description: In this tutorial, you will learn about {{ ddos-protection-name }} a
 # {{ ddos-protection-full-name }} in {{ vpc-name }}
 
 
-{{ ddos-protection-full-name }} is a {{ vpc-short-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-short-name }} is provided in partnership with Curator Labs.
+{{ ddos-protection-full-name }} is a {{ vpc-short-name }} component that safeguards cloud resources from DDoS attacks. {{ ddos-protection-short-name }} is provided in partnership with Curator.
 
 Activating {{ ddos-protection-full-name }} for VM instances or network load balancers allows you to efficiently respond to attacks aiming to overwhelm the channel capacity and computing resources of your VM instances. Such attacks utilize broad bandwidth and produce a large number of packets per second. They are relatively easy to set up: attackers typically send a flood of TCP SYN (SYN Flood) packets or traffic of UDP-based application protocols, such as DNS, NTP, SSDP, CLDAP, and many more.
 
@@ -35,7 +35,7 @@ You can request protection at the application level by contacting our tech suppo
 
 ## Advanced protection {#advanced-protection}
 
-Advanced protection is available at OSI layers 3, 4, and 7. You can also track load and attack metrics and enable Soundwall WAF in your Curator Labs account.
+Advanced protection is available at OSI layers 3, 4, and 7. You can also track load and attack metrics and enable Soundwall WAF in your Curator account.
 
 When enabling advanced protection ({{ adv-ddos-protection }}), you should disable basic protection ({{ ddos-protection-full-name }}). After you disable the protection, the VM's public IP address will change.
 
