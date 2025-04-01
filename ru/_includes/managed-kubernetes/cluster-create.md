@@ -15,6 +15,14 @@
 1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** добавьте [облачные метки](../../managed-kubernetes/concepts/index.md#cluster-labels).
 
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
+   * (опционально) Раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../managed-kubernetes/concepts/index.md#master-resources) для мастера.
+
+     {% include [master-default-config](../../_includes/managed-kubernetes/master-default-config.md) %}
+
+     Чтобы разрешить в дальнейшем изменять конфигурацию ресурсов мастера, выберите опцию **Разрешить увеличивать объём ресурсов под нагрузку**.
+
+     {% include [master-config-preview-note](../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** выберите версию {{ k8s }}, которая будет установлена на [мастере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master).
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** выберите способ назначения [IP-адреса](../../vpc/concepts/address.md):
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}` — чтобы назначить случайный IP-адрес из пула IP-адресов {{ yandex-cloud }}.
@@ -25,20 +33,41 @@
      {% include [write-once-settings](write-once-setting.md) %}
 
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** выберите тип мастера {{ managed-k8s-name }}:
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}` — создается в [подсети](../../vpc/concepts/network.md#subnet) в одной [зоне доступности](../../overview/concepts/geo-scope.md).
+     * `Базовый` — содержит один хост мастера в одной зоне доступности. Такой мастер дешевле, но он не является отказоустойчивым. Прежнее название — _зональный_.
 
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}` — создается распределенно в трех подсетях в каждой зоне доступности.
-   * Выберите зону доступности, в которой будет создан мастер {{ managed-k8s-name }}.
+       {% note warning %}
 
-     Шаг доступен только для зонального мастера {{ managed-k8s-name }}.
+       {% include [base-zonal-pricing](../../_includes/managed-kubernetes/base-zonal-pricing.md) %}
+
+       {% endnote %}
+
+     * `Высокодоступный` — содержит три хоста мастера. Прежнее название — _региональный_.
+
+       {% note warning %}
+
+       {% include [ha-regional-pricing](../../_includes/managed-kubernetes/ha-regional-pricing.md) %}
+
+       {% endnote %}
 
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** выберите [сеть](../../vpc/concepts/network.md#network), в которой будет создан мастер {{ managed-k8s-name }}. Если сети нет, [создайте ее](../../vpc/operations/network-create.md).
 
       {% include [note-another-catalog-network](note-another-catalog-network.md) %}
 
-   * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_subnetwork }}** выберите подсеть, в которой будет создан мастер {{ managed-k8s-name }}. Если подсети нет, [создайте ее](../../vpc/operations/subnet-create.md).
+   * Для высокодоступного мастера в поле **Распределение мастеров по зонам доступности** выберите, как должны быть размещены хосты мастера:
+     * `Одна зона` — в одной зоне доступности и одной подсети. Такой мастер подойдет, если вы хотите обеспечить высокую доступность кластера и уменьшить сетевую задержку внутри него.
+     * `Разные зоны` — в трех разных зонах доступности. Такой мастер обеспечивает наибольшую отказоустойчивость: при недоступности одной зоны мастер остается работоспособным.
 
-     Для регионального мастера {{ managed-k8s-name }} необходимо указать подсеть в каждой зоне доступности.
+   * В зависимости от выбранного типа мастера:
+     * Для базового или высокодоступного мастера в одной зоне укажите зону доступности и подсеть. 
+     * Для высокодоступного мастера в разных зонах укажите подсети в каждой зоне. 
+
+     Если подсетей нет, [создайте](../../vpc/operations/subnet-create.md) их.
+
+     {% note warning %}
+
+     Тип мастера и его размещение нельзя изменить после создания кластера.
+
+     {% endnote %}
 
    * Выберите [группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера {{ managed-k8s-name }}.
 

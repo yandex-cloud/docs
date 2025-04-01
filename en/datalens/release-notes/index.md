@@ -1,86 +1,67 @@
 ---
-title: '{{ datalens-full-name }} release notes: January 2025'
-description: Check out {{ datalens-full-name }} release notes for January 2025.
+title: '{{ datalens-full-name }} release notes: February 2025'
+description: Check out {{ datalens-full-name }} release notes for February 2025.
 ---
 
-# {{ datalens-full-name }} release notes: January 2025
+# {{ datalens-full-name }} release notes: February 2025
 
 
 * [Changes in basic features](#base)
-* [Mobile version updates](#mobile-version-changes)
 * [Changes available with the _Business_ service plan](#business)
 
 ## Changes in basic features {#base}
 
 
 
-### List of palette colors {#colors-list}
+### Setting the markup type {#markup-type}
 
-In [charts](../concepts/chart/dataset-based-charts.md), fixed the incorrect display of the list of colors when switching palettes in the [color settings](../concepts/chart/settings.md#color-settings) window.
+In [charts](../concepts/chart/dataset-based-charts.md), you can no longer select the markup type in the dataset [field settings](../concepts/chart/settings.md#measure-settings). This option is now only available in the visualization sections.
 
-### Hiding a tooltip {#tooltip-hiding}
+### Fixes in charts {#charts-fixes}
 
-Added a setting to hide a [tooltip](../concepts/chart/settings.md#common-settings) in charts:
+* Fixed incorrect rendering of the gradient [fill](../concepts/chart/settings.md#color-settings) legend for charts with negative values.
+* Fixed a bug in tables where zero-value [linear indicators](../visualization-ref/table-chart.md#add-linear-indicator) persisted after filtering out.
+* Fixed an issue in [combined charts](../visualization-ref/combined-chart.md) that prevented adding a measure to the **Color** section.
+* Fixed axis renaming in [QL charts](../concepts/chart/ql-charts.md) within the [section settings](../concepts/chart/settings.md#section-settings) to match the behavior of [dataset-based charts](../concepts/chart/index.md).
+* Fixed an issue in charts where duplicating a [measure](../concepts/chart/settings.md#indicator-settings) caused the new field type to reset to the original field computed type, ignoring its settings. For example, changing the original field type from `Float ` to `Integer` would reset the duplicated field to `Float`. Now, the new field retains the correct type based on the original field settings.
 
-* [Pie chart](../visualization-ref/pie-chart.md)
-* [Donut chart](../visualization-ref/ring-chart.md)
-* [Combined chart](../visualization-ref/combined-chart.md)
+### Dashboard fixes {#dashboard-fixes}
 
-### Line chart fixes {#line-chart-improves}
+* Removed the link to guides on [filtering charts by charts](../dashboard/chart-chart-filtration.md#using) from the [dashboard chart](../operations/dashboard/add-chart.md) settings. It now appears when you hover over ![image](../../_assets/console-icons/circle-question.svg).
+* Pinned the table of contents on the [dashboard](../concepts/dashboard.md) so it no longer moves when scrolling.
+* Fixed an issue preventing users from [getting the embed code](../security/embedded-objects.md#get-code) for a public dashboard.
 
-Fixed the following [line chart](../visualization-ref/line-chart.md) issues:
+### New features for Markdown markup and editors {#new-features}
 
-* Displaying empty (`null`) tooltip and legend values.
-* Displaying single values (points).
+Added new features to [Markdown](../dashboard/markdown.md) markup and editors:
 
-### Changes in tables {#tables-fixes}
+* [Text formatting](../dashboard/markdown.md#emphasizing) options, such as underline, strikethrough, lowercase, monospace, and highlighted text.
+* [Tabs](../dashboard/markdown.md#tabs).
+* [Mermaid diagrams](../dashboard/markdown.md#mermaid).
+* [Emoji](../dashboard/markdown.md#emoji).
 
-* In the field fill settings of [tables](../visualization-ref/table-chart.md#set-field-color) and [pivot tables](../visualization-ref/pivot-table-chart.md#set-field-color), added a switch for the `Gradient` fill type to color empty (`null`) values: `Do not color` or `Color as 0`.
-* Fixed incorrect sorting in [tables](../visualization-ref/table-chart.md):
+### Aggregation type for bulk dataset operations {#bulk-changes-aggregations}
 
-  * [By multiple columns](../visualization-ref/table-chart.md#sorting-columns) using hot keys.
-  * By empty (`null`) value column.
-  * By column with a field formatted with [markup functions](../function-ref/markup-functions.md).
-
-* Fixed incorrect coloring of range edges when [filling fields](../visualization-ref/pivot-table-chart.md#set-field-color) in the pivot table.
-
-### Dashboard scrolling {#dashboard-scrolling}
-
-Fixed an issue in Safari where clicking **Clear** in a `List` selector without multiple values would start dashboard scrolling.
-
-### Selector settings {#reports-changes}
-
-Updated [selector](../dashboard/selector.md) group settings: the **Apply**, **Reset**, and **Dependent selector autoupdate** buttons are now available in a separate window that opens upon clicking **Advanced settings**.
-
-### Tooltip for the chart header {#chart-title-hint}
-
-Now you can add a tooltip to a chart header on a dashboard. To do this, in the widget settings on the dashboard, enable the **Tooltip** option and enter the tooltip text. Make sure the **Display** header option is on. Once you save your dashboard, the ![image](../../_assets/console-icons/circle-question.svg) icon will appear next to the chart header. When hovering over the icon, you will see the tooltip text.
-
-### Visual editor for chart description {#wysiwyg-chart-description}
-
-Added the ability to use a visual editor to describe a chart in the widget settings on a dashboard.
+Fixed an issue with changing the aggregation type in bulk [dataset](../dataset/index.md) operations. Earlier, when filtering the list of fields and selecting all fields at the top left, the list for changing the aggregation type displayed incorrectly.
 
 
-## Mobile version updates {#mobile-version-changes}
 
-Updated the header logo in the mobile version.
+### Creating a support ticket {#support-message}
 
-
+When opening a `Question` or `Issue` ticket, the system will now generate a suggested solution via the {{ search-api-full-name }} based on the subject you enter.
 
 ## Changes available with the _Business_ service plan {#business}
 
 ### Changes in reports {#reports-changes}
 
-* In [reports](../reports/index.md), you can now enable full-screen [view](../reports/report-operations.md#report-preview) mode in document or presentation format.
-* Added tools for [scaling and moving](../reports/report-operations.md#scaling-settings) report pages.
-* Now, in the report header settings, you can specify the text size in pixels or, as before, select a preset size: `XS`, `S`, `M`, `L`, `XL`.
-* Enabled updating report widgets with applied parameters on the current page by clicking ![icon](../../_assets/console-icons/arrows-rotate-right.svg).
-* Added the ability to edit the footer and add a link to it in the [report settings](../reports/report-operations.md#report-settings).
-* Reports now load faster.
-* Fixed backdrop export from Yandex Maps.
-* Fixed theme display in [maps](../visualization-ref/map-chart.md).
+* You can now move [report widgets](../reports/report-operations.md#add-widget) using the following hotkeys and shortcuts:
 
-### Private embedding {#private-embedded}
+  * Arrow keys to move by one pixel.
+  * **Shift** + arrow keys to move by ten pixels.
 
-Improved the appearance of dialog boxes for [private embeddings](../security/private-embedded-objects.md).
+* Selector group name is now displayed by default.
+
+* The [report widget settings](../reports/report-operations.md#add-widget) now allow specifying a custom background color using a hex code, such as `#82AFD3`.
+
+* Fixed an issue with [report creation](../reports/report-operations.md#create-report) from the navigation bar with [folder navigation disabled](../settings/disable-folder-navigation.md). Now, when creating a report, a dialog box appears prompting you to select a workbook.
 

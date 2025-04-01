@@ -1,7 +1,7 @@
 Роль `organization-manager.viewer` позволяет просматривать информацию об организации, о входящих в нее пользователях и группах пользователей, а также о настройках OS Login.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к [организации](../../organization/quickstart.md);
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к [организации](../../organization/concepts/organization.md);
 * просматривать список [пользователей](../../overview/roles-and-resources.md#users) организации;
 * просматривать список [групп](../../organization/concepts/groups.md), в которые входят пользователи;
 * просматривать информацию о настройках [OS Login](../../organization/concepts/os-login.md) и список профилей OS Login пользователей организации;

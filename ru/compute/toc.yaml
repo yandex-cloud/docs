@@ -117,6 +117,8 @@ items:
             href: operations/vm-control/vm-update-policies.md
           - name: Настроить права доступа к ВМ
             href: operations/vm-control/vm-access.md
+          - name: Подключить сервисный аккаунт к ВМ
+            href: operations/vm-control/vm-connect-sa.md
           - name: Удалить ВМ
             href: operations/vm-control/vm-delete.md
       - name: Работа с метаданными ВМ

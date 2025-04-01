@@ -99,8 +99,8 @@ You can specify additional connection settings in the **Advanced connection sett
 
 * **Readonly**: Select a permission for requests to read data, write data, and change parameters. This setting must not exceed the user's corresponding setting in {{ CH }}:
 
-  * `0`: Allows all requests.
-  * `1`: Allows only data read requests.
+  * `0`: All requests are allowed.
+  * `1`: Only read data requests are allowed.
   * `2`: Allows requests to read data and edit settings.
 
 ## Specifics of using a connection to {{ CH }} {#ch-connection-specify}

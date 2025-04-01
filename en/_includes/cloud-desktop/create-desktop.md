@@ -3,11 +3,11 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where your [desktop](../../cloud-desktop/concepts/desktops-and-groups.md) will be created.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. Click **{{ ui-key.yacloud.vdi.button_desktop-create }}**.
   1. Select the desktop group where you wish to create your desktop.
-  1. Specify the subnet to place the desktop in.
+  1. Specify the subnet the desktop will be in.
 
       {% note info %}
 
@@ -18,6 +18,34 @@
   1. Specify the user that the desktop is created for.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../cli-install.md) %}
+
+  1. See the description of the [CLI](../../cli/index.yaml) command for creating a [desktop](../../cloud-desktop/concepts/desktops-and-groups.md):
+
+      ```bash
+      yc desktops desktop create --help
+      ```
+
+  1. Select a [desktop group](../../cloud-desktop/concepts/desktops-and-groups.md):
+
+      {% include [desktops-group-list](desktops-group-list.md) %}
+
+  1. Create a desktop:
+
+      ```bash
+      yc desktops desktop create \
+        --desktop-group-id <desktop_group_ID> \
+        --user-account-id <user_ID>
+      ```
+
+      Where:
+
+      * `--desktop-group-id`: Desktop group ID.
+      * `--user-account-id`: ID of the user the desktop is created for.
+
+      {% include [create-desktop-cli-result](create-desktop-cli-result.md) %}
 
 - API {#api}
 

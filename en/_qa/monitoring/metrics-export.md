@@ -22,43 +22,41 @@ Use a [client library](https://prometheus.io/docs/instrumenting/clientlibs/) for
 
 - Go {#go}
 
-   [Prometheus client library Prometheus for Go](https://github.com/prometheus/client_golang).
+  [Prometheus client library Prometheus for Go](https://github.com/prometheus/client_golang).
 
 - Python {#python}
 
-   [Prometheus client library Prometheus for Python](https://github.com/prometheus/client_python).
+  [Prometheus client library Prometheus for Python](https://github.com/prometheus/client_python).
 
 - PHP {#php}
 
-   [Prometheus client library Prometheus for PHP](https://github.com/promphp/prometheus_client_php).
+  [Prometheus client library Prometheus for PHP](https://github.com/promphp/prometheus_client_php).
 
 - Java {#java}
 
-   [Prometheus client library Prometheus for Java](https://github.com/prometheus/client_java).
+  [Prometheus client library Prometheus for Java](https://github.com/prometheus/client_java).
 
 - Node.js {#node}
 
-   [Prometheus client library for Node.js](https://github.com/siimon/prom-client).
+  [Prometheus client library for Node.js](https://github.com/siimon/prom-client).
 
 - C++ {#cpp}
 
-   [Prometheus client library Prometheus for C++](https://github.com/jupp0r/prometheus-cpp).
+  [Prometheus client library Prometheus for C++](https://github.com/jupp0r/prometheus-cpp).
 
 {% endlist %}
 
-See examples in the following documentation sections:
+You can see examples in the following sections of our documentation:
 * [{#T}](../../monitoring/operations/unified-agent/pull_prometheus.md).
 * [{#T}](../../monitoring/operations/unified-agent/haproxy.md).
-
 
 #### Can I deliver {{ managed-k8s-full-name }} cluster metrics to {{ monitoring-name }}? {#collect-k8s}
 
 Yes, you can. To do this, use [Metrics Provider](/marketplace/products/yc/metric-provider). To install it, [follow this guide](../../managed-kubernetes/operations/applications/metrics-provider.md).
 
-
 #### How do I deliver third-party app metrics to {{ monitoring-name }}? {#collect-3rd-party}
 
-To deliver metrics from third-party applications to {{ monitoring-name }}, use {{ unified-agent-short-name }} with the `metrics_pull` input configured. {{ unified-agent-short-name }} periodically polls the third-party application directly, if the application supports metrics in the {{ prometheus-name }} format, or polls a special export application that provides integration with {{ prometheus-name }}.
+To deliver metrics from third-party applications to {{ monitoring-name }}, use {{ unified-agent-short-name }} with the `metrics_pull` input configured. {{ unified-agent-short-name }} periodically polls the third-party application directly (if the application supports metrics in the {{ prometheus-name }} format) or polls a special export application that manages the integration with {{ prometheus-name }}.
 
 You can find an example of how to configure HAProxy metrics delivery in [{#T}](../../monitoring/operations/unified-agent/haproxy.md).
 

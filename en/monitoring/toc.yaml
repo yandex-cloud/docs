@@ -127,6 +127,8 @@ items:
         href: tutorials/autoscale-monitoring.md
       - name: Monitoring sensor readings and event notifications
         href: tutorials/monitoring.md
+      - name: Alert settings in {{ monitoring-name }}
+        href: tutorials/alerts-monitoring.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Overview
@@ -167,7 +169,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST
         items:

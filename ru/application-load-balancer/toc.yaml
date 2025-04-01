@@ -191,6 +191,8 @@ items:
         href: concepts/application-load-balancer.md
       - name: HTTP-роутеры
         href: concepts/http-router.md
+      - name: Лимит на количество запросов
+        href: concepts/rate-limiter.md
       - name: Группы бэкендов
         href: concepts/backend-group.md
       - name: Целевые группы

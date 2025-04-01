@@ -44,3 +44,14 @@ For a {{ serverless-containers-name }} container to access the data stored in a 
 * [Syncing with {{ lockbox-name }} secrets in {{ managed-k8s-name }}](../../managed-kubernetes/tutorials/kubernetes-lockbox-secrets.md)
 * [{#T}](../../serverless-containers/operations/lockbox-secret-transmit.md)
 * [{#T}](../../managed-gitlab/tutorials/gitlab-lockbox-integration.md)
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
+* [{#T}](../tutorials/ci-cd-serverless.md)
+* [{#T}](../tutorials/static-key-in-lockbox/console.md)
+* [{#T}](../tutorials/websocket-app.md)
+* [{#T}](../tutorials/bucket-to-bucket-copying.md)
+* [{#T}](../tutorials/nodejs-cron-restart-vm.md)
+* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/data-transfer-direct-to-mch.md)

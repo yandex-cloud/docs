@@ -44,8 +44,8 @@ To create a chart in {{ datalens-short-name }}, you need to create a connection 
 
 To work with CHYT, create a **CHYT** connection.
 
-{% include [datalens-yt-connection](../../_includes/datalens/internal/datalens-yt-connection.md) %}
-
+ {% include [datalens-yt-connection](../../_includes/datalens/internal/datalens-yt-connection.md) %}
+ 
 You can go straight to creating a dataset from the connection creation interface. To do this, in the upper-right corner, click **Create dataset**.
 
 #### Create a dataset {#create-dataset}
@@ -97,7 +97,7 @@ If you do not know who created the connection, create a new one.
 
 {% cut "Error in the interface Clique not running" %}
 
-`ERR.DS_API.CLIQUE_STOPPED`
+`ERR.DS_API.CLIQUE_STOPPED` 
 
 The CHYT clique specified in the current connection is not running. Restart the clique.
 
@@ -128,6 +128,6 @@ The {{ ytsaurus-name }} table that I use has no schema. You cannot use such tabl
 
 {% cut "Requested database column does not exist error in the interface" %}
 
-[See here](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md) for more information.
+For details, see [here](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
 
 {% endcut %}

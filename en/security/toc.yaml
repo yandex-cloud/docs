@@ -276,7 +276,7 @@ items:
           - name: Setting up PT Application Firewall
             href: tutorials/app-security/pt-application-firewall.md
             hidden: true
-      - name: Security {{ k8s }}
+      - name: '{{ k8s }} security'
         items:
           - name: Encrypting secrets in {{ managed-k8s-name }}
             href: tutorials/kubernetes-security/kms-k8s.md

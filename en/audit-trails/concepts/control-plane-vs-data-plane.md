@@ -4,7 +4,7 @@
 
 ## Management events {#control-plane-events}
 
-Management events include actions related to configuring {{ yandex-cloud }} resources. By default, {{ at-name }} logs management events for all supported services in your {{ yandex-cloud }} account.
+Management events include actions performed to configure {{ yandex-cloud }} resources. By default, {{ at-name }} logs management events for all supported services in your {{ yandex-cloud }} account.
 
 Events related to actions such as creating, updating, or deleting infrastructure components, users, or policies belong to this type of events. For instance, creating an instance group, creating a federation in {{ org-name }}, or deleting a database cluster are all management events.
 
@@ -14,12 +14,4 @@ Data events include updates and actions related to data and resources within {{ 
 
 Data events can be logged for the following services:
 
-* [{{ dns-full-name }}](../../dns/)
-* [{{ kms-full-name }}](../../kms/)
-* [{{ lockbox-full-name }}](../../lockbox/)
-* [{{ mmg-full-name }}](../../managed-mongodb/)
-* [{{ mmy-full-name }}](../../managed-mysql/)
-* [{{ mpg-full-name }}](../../managed-postgresql/)
-* [{{ mrd-full-name }}](../../managed-redis/)
-* [{{ objstorage-full-name }}](../../storage/)
-* [{{ websql-full-name }}](../../websql/)
+{% include [dp-events-service-list](../../_includes/audit-trails/dp-events-service-list.md) %}

@@ -1,6 +1,6 @@
 ---
 title: '{{ cloud-desktop-full-name }} pricing policy'
-description: This article provides the {{ cloud-desktop-name }} pricing policy.
+description: This article explains the {{ cloud-desktop-name }} pricing policy.
 editable: false
 ---
 
@@ -10,7 +10,7 @@ editable: false
 
 ## What goes into the cost of using {{ cloud-desktop-name }} {#rules}
 
-The {{ cloud-desktop-name }} usage cost is based on:
+The {{ cloud-desktop-name }} usage cost includes:
 
 * Computing resources:
   * Number of vCPUs.
@@ -24,7 +24,7 @@ The monthly prices are based on 720 hours per month.
 
 ### Using computing resources {#use-resources}
 
-The cost of allocated computing resources is calculated based on how long the desktops were used: from when they get the `CREATING` (if creating) or `STARTING` (if starting) status until they are completely stopped. You are not charged for the time during which the desktops were stopped.
+The cost of allocated computing resources is calculated based on how long the desktops were used: from when they get the `CREATING` (if being created) or `STARTING` (if starting) status until they are completely stopped. You are not charged for the time during which the desktops were stopped.
 
 A desktop starts automatically once it is created.
 

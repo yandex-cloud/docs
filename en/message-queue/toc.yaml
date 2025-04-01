@@ -41,6 +41,8 @@ items:
         href: operations/message-queue-receive-and-delete-message.md
       - name: Deleting a message queue
         href: operations/message-queue-delete-queue.md
+      - name: Managing queue labels
+        href: operations/message-queue-tags.md
       - name: Monitoring processes in queues
         href: operations/monitoring.md
   - name: Concepts
@@ -63,6 +65,8 @@ items:
         href: concepts/delay-queues.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Queue labels
+        href: concepts/tags.md
       - name: Comparison with {{ yds-full-name }}
         href: concepts/yds-ymq-comparison.md
   - name: Tutorials
@@ -113,6 +117,12 @@ items:
             href: api-ref/queue/PurgeQueue.md
           - name: SetQueueAttributes
             href: api-ref/queue/SetQueueAttributes.md
+          - name: TagQueue
+            href: api-ref/queue/TagQueue.md
+          - name: UntagQueue
+            href: api-ref/queue/UntagQueue.md
+          - name: ListQueueTags
+            href: api-ref/queue/ListQueueTags.md
       - name: Message
         items:
           - name: ChangeMessageVisibility

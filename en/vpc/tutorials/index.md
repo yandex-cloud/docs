@@ -10,7 +10,7 @@ description: Various {{ vpc-full-name }} use cases in {{ yandex-cloud }}.
 * [Routing through a NAT instance](nat-instance/index.md)
 * [Setting up network connectivity with IPsec gateways](ipsec/index.md)
 * [Installing the Cisco CSR 1000v virtual router](cisco.md)
-* [Installing the Mikrotik CHR virtual router](mikrotik.md)
+* [Installing a Mikrotik CHR virtual router](mikrotik.md)
 * [Connecting to a cloud network using OpenVPN](openvpn.md)
 * [{#T}](clickhouse-dns-peering.md)
 * [Secure user access to cloud resources based on WireGuard VPN](remote-wireguard-vpn.md)

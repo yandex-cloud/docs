@@ -1,7 +1,7 @@
 To use the `billing.accounts.piiPartnerViewer` role, you need to assign it for a billing account. It enables managing subaccounts and viewing partner info, including personal data.
 
 On the Yandex Cloud partner portal, users with this role can:
-* Manage [subaccounts](../../../partner/terms.md#sub-account) regardless of the [access permissions](../../../iam/concepts/access-control/index.md) assigned at the [organization](../../../overview/roles-and-resources.md) level, excepting the permission to work with a partner.
+* Manage [subaccounts](../../../partner/terms.md#sub-account) regardless of the [access permissions](../../../iam/concepts/access-control/index.md) assigned at the [organization](../../../organization/concepts/organization.md) level, excepting the permission to work with a partner.
 * View info on the partner balance, discounts, and [rebate](../../../partner/terms.md#rebate) withdrawals.
 * [View](../../../partner/operations/get-client-stat.md) details on partner consumption, including partner subaccounts.
 * View the list of [partner discounts](../../../partner/portal.md#premium).

@@ -95,6 +95,7 @@ description: Следуя данной инструкции, вы сможете
        --http-router-name <имя_HTTP-роутера> \
        --authority your-domain.foo.com \
        --modify-request-header name=Accept-Language,append=ru-RU \
+       --rate-limit rps=100,all-requests \
        --security-profile-id <идентификатор_профиля_безопасности>
      ```
 
@@ -104,6 +105,10 @@ description: Следуя данной инструкции, вы сможете
      * `--modify-request-header` — настройки модификации заголовка запроса:
        * `name` — имя модифицируемого заголовка.
        * `append` — строка, которая будет добавлена к значению заголовка.
+     * `--rate-limit` — (опционально) ограничение на скорость запросов:
+       * `rps` или `rpm` – количество запросов, которые можно принять в секунду или в минуту.
+       * `all-requests` — ограничение на все входящие запросы.
+       * `requests-per-ip` — ограничение на количество запросов для каждого IP-адреса в отдельности. То есть в единицу времени для каждого IP-адреса можно принять указанное количество запросов.
      * `--security-profile-id` — (опционально) идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
@@ -112,10 +117,15 @@ description: Следуя данной инструкции, вы сможете
      ```text
      name: test-virtual-host
      authority:
-     - your-domain.foo.com
+       - your-domain.foo.com
      modify_request_headers:
-     - name: Accept-Language
-       append: ru-RU
+       - name: Accept-Language
+         append: ru-RU
+     route_options:
+       security_profile_id: fevcifh6tr**********
+     rate_limit:
+       all_requests:
+         per_second: "100"
      ```
 
   1. Посмотрите описание команды CLI для добавления маршрута:
@@ -134,6 +144,7 @@ description: Следуя данной инструкции, вы сможете
        --backend-group-name <имя_группы_бэкендов> \
        --request-timeout <тайм-аут_запроса>s \
        --request-idle-timeout <тайм-аут_ожидания_запроса>s
+       --rate-limit rps=<лимит_запросов>,requests-per-ip
      ```
 
      Где:
@@ -147,6 +158,7 @@ description: Следуя данной инструкции, вы сможете
      * `--backend-group-name` — имя [группы бэкендов](../concepts/backend-group.md).
      * `--request-timeout` — тайм-аут запроса, в секундах.
      * `--request-max-timeout` — максимальный тайм-аут ожидания запроса, в секундах.
+     * `--rate-limit` — ограничение на скорость запросов.
 
      Подробную информацию о параметрах команды `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 

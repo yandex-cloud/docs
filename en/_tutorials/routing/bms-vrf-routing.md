@@ -1,4 +1,4 @@
-# Configuring VRRP for a {{ baremetal-name }} server cluster
+# Configuring VRRP for a {{ baremetal-name }} server cluster using Keepalived 
 
 {% note info %}
 
@@ -6,11 +6,11 @@
 
 {% endnote %}
 
-[VRRP](https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol) (Virtual Router Redundancy Protocol) is a network protocol that increases fault tolerance of routers used as the default gateway. 
+[VRRP](https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol) (Virtual Router Redundancy Protocol) is a network protocol that increases fault tolerance of routers used as a default gateway. 
 
 To implement fault tolerance, two or more routers are grouped into a single virtual router acting as the default gateway for the associated network segments. VRRP enables creating a virtual IP address which is shared among the grouped routers to increase the gateway availability.
 
-This tutorial  provides an example of setting up a high-availability proxy server configuration on {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md), where proxying functions are configured symmetrically on two or more [HAProxy](https://en.wikipedia.org/wiki/HAProxy) nodes and a virtual IP address is generated and shared among these nodes using [Keepalived](https://keepalived.org/).
+This tutorial provides an example of setting up a high-availability proxy server configuration on {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md), where proxying functions are configured symmetrically on two or more [HAProxy](https://en.wikipedia.org/wiki/HAProxy) nodes and a virtual IP address is generated and shared among these nodes using [Keepalived](https://keepalived.org/).
 
 ## Solution architecture {#solution-overview}
 
@@ -22,7 +22,7 @@ In `subnet-m3`, you will create two {{ baremetal-name }} servers, `master-server
 
 In `subnet-m4` of the `{{ region-id }}-m4` server pool, you will create a {{ baremetal-name }} server named `client-server-m4`, which will serve as a client when using the virtual IP address created in the `{{ region-id }}-m3` pool.
 
-This solution provides end-to-end insights into the operation of an isolated client VRF with the [OSI](https://en.wikipedia.org/wiki/OSI_model) L3 routing between the `{{ region-id }}-m3` and `{{ region-id }}-m4` server pools as well as the operation of the broadcast VRRP at the L2 level in the `{{ region-id }}-m3` server pool.
+This solution fully demonstrates the operation of an isolated client VRF with the [OSI](https://en.wikipedia.org/wiki/OSI_model) L3 routing between the `{{ region-id }}-m3` and `{{ region-id }}-m4` server pools as well as the L2-level operation of the broadcast VRRP in the `{{ region-id }}-m3` server pool.
 
 {% note info %}
 

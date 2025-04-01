@@ -17,7 +17,13 @@ items:
         href: operations/advanced-method.md
       - name: Verifying a CAPTCHA response
         href: operations/validate-captcha.md
-      - name: Viewing operations with CAPTCHA
+      - name: Getting information about a CAPTCHA
+        items:
+          - name: Getting a list of CAPTCHAs
+            href: operations/get-list.md
+          - name: Getting information about a CAPTCHA
+            href: operations/get-info.md
+      - name: Viewing operations with resources
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -35,7 +41,7 @@ items:
         href: tutorials/mobile-app/ios/quickstart-ios.md
   - name: Concepts
     items:
-      - name: CAPTCHA accessibility
+      - name: CAPTCHA availability
         href: concepts/accessibility.md
       - name: User validation
         href: concepts/validation.md
@@ -87,7 +93,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

@@ -115,6 +115,8 @@ items:
         href: tutorials/yq-postgre.md
       - name: Federated data queries
         href: tutorials/yq-federative-queries.md
+      - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
+        href: tutorials/search-events-query.md
   - name: Working with YQL
     items:
       - name: Overview
@@ -165,7 +167,7 @@ items:
             href: api/yql-json-conversion-rules.md
       - name: '{{ AF }}'
         href: airflow/operator.md
-  - name: Integrations
+  - name: Integration options
     href: integrations.md
   - name: '{{ at-name }} events'
     href: at-ref.md

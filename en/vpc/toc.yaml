@@ -54,7 +54,7 @@ items:
       - name: Static routing
         stage: new
         items:
-          - name: Creating static routes
+          - name: Creating a static route
             href: operations/static-route-create.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md
@@ -136,7 +136,7 @@ items:
             href: tutorials/ipsec/sgw.md
       - name: Installing the Cisco CSR 1000v virtual router
         href: tutorials/cisco.md
-      - name: Installing the Mikrotik CHR virtual router
+      - name: Installing a Mikrotik CHR virtual router
         href: tutorials/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: tutorials/openvpn.md
@@ -191,6 +191,9 @@ items:
         href: tutorials/cic-with-ngfw.md
       - name: Automating tasks using {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
+      - name: ViPNet Coordinator in {{ yandex-cloud }}
+        href: tutorials/vipnet-to-yc.md
+        hidden: true
   - name: Concepts
     items:
       - name: Resource relationships
@@ -407,7 +410,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST
         items:

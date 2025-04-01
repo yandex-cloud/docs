@@ -15,24 +15,7 @@ The general value format is as follows:
 
 On this page, you will find events for the following services:
 
-* [{{ certificate-manager-full-name }}](#certificate-manager)
-* [{{ dns-full-name }}](#dns)
-* [{{ compute-full-name }}](#compute)
-* [{{ iam-full-name }}](#iam)
-* [{{ kms-full-name }}](#kms)
-* [{{ lockbox-full-name }}](#lockbox)
-* [{{ mch-full-name }}](#mch)
-* [{{ managed-k8s-full-name }}](#managed-service-for-kubernetes)
-* [{{ mmg-full-name }}](#mmg)
-* [{{ mmy-full-name }}](#mmy)
-* [{{ mpg-full-name }}](#mpg)
-* [{{ mrd-full-name }}](#mrd)
-* [{{ objstorage-full-name }}](#objstorage)
-* [{{ sd-full-name }}](#security-deck)
-* [{{ speechsense-full-name }}](#speechsense)
-* [{{ sws-full-name }}](#sws)
-* [{{ wiki-full-name }}](#wiki)
-* [{{ websql-full-name }}](#websql)
+{% include [dp-events-service-list](../../_includes/audit-trails/dp-events-service-list.md) %}
 
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
@@ -114,7 +97,7 @@ Service name: `storage`.
 
 ## {{ sd-full-name }} {#security-deck}
 
-### Access Transparency module {#sd-access-transparency}
+### {{ atr-name }} module {#sd-access-transparency}
 
 Service name: `accesstransparency`.
 

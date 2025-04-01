@@ -22,7 +22,7 @@ To add a dashboard parameter:
 
 You can [substitute a parameter](../../concepts/visualization/dashboard.md#templates) when [adding a widget to the dashboard](add-widget.md).
 
-## Chart repetition by parameter {#repeated-graphs}
+## Chart repetition by parameters {#repeated-graphs}
 
 The function of chart repetition based on a parameter allows you to build multiple identical charts with different values of this parameter.
 

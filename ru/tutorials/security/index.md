@@ -65,3 +65,4 @@ description: Различные сценарии использования по
 * [{#T}](encrypt/aws-encryption-sdk.md)
 * [{#T}](encrypt/google-tink.md)
 * [{#T}](wlif-github-integration.md)
+* [{#T}](server-side-encryption.md)

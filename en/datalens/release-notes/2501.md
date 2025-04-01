@@ -1,0 +1,86 @@
+---
+title: '{{ datalens-full-name }} release notes: January 2025'
+description: Check out {{ datalens-full-name }} release notes for January 2025.
+---
+
+# {{ datalens-full-name }} release notes: January 2025
+
+
+* [Changes in basic features](#base)
+* [Mobile version updates](#mobile-version-changes)
+* [Changes available with the _Business_ service plan](#business)
+
+## Changes in basic features {#base}
+
+
+
+### List of palette colors {#colors-list}
+
+In [charts](../concepts/chart/dataset-based-charts.md), fixed the incorrect display of the list of colors when switching palettes in the [color settings](../concepts/chart/settings.md#color-settings) window.
+
+### Hiding a tooltip {#tooltip-hiding}
+
+Added a setting to hide a [tooltip](../concepts/chart/settings.md#common-settings) in charts:
+
+* [Pie chart](../visualization-ref/pie-chart.md)
+* [Donut chart](../visualization-ref/ring-chart.md)
+* [Combined chart](../visualization-ref/combined-chart.md)
+
+### Line chart fixes {#line-chart-improves}
+
+Fixed the following [line chart](../visualization-ref/line-chart.md) issues:
+
+* Displaying empty (`null`) tooltip and legend values.
+* Displaying single values (points).
+
+### Changes in tables {#tables-fixes}
+
+* In the field fill settings of [tables](../visualization-ref/table-chart.md#set-field-color) and [pivot tables](../visualization-ref/pivot-table-chart.md#set-field-color), added a switch for the `Gradient` fill type to color empty (`null`) values: `Do not color` or `Color as 0`.
+* Fixed incorrect sorting in [tables](../visualization-ref/table-chart.md):
+
+  * [By multiple columns](../visualization-ref/table-chart.md#sorting-columns) using hot keys.
+  * By empty (`null`) value column.
+  * By column with a field formatted with [markup functions](../function-ref/markup-functions.md).
+
+* Fixed incorrect coloring of range edges when [filling fields](../visualization-ref/pivot-table-chart.md#set-field-color) in the pivot table.
+
+### Dashboard scrolling {#dashboard-scrolling}
+
+Fixed an issue in Safari where clicking **Clear** in a `List` selector without multiple values would start dashboard scrolling.
+
+### Selector settings {#reports-changes}
+
+Updated [selector](../dashboard/selector.md) group settings: the **Apply**, **Reset**, and **Dependent selector autoupdate** buttons are now available in a separate window that opens upon clicking **Advanced settings**.
+
+### Tooltip for the chart header {#chart-title-hint}
+
+Now you can add a tooltip to a chart header on a dashboard. To do this, in the widget settings on the dashboard, enable the **Tooltip** option and enter the tooltip text. Make sure the **Display** header option is on. Once you save your dashboard, the ![image](../../_assets/console-icons/circle-question.svg) icon will appear next to the chart header. When hovering over the icon, you will see the tooltip text.
+
+### Visual editor for chart description {#wysiwyg-chart-description}
+
+Added the ability to use a visual editor to describe a chart in the widget settings on a dashboard.
+
+
+## Mobile version updates {#mobile-version-changes}
+
+Updated the header logo in the mobile version.
+
+
+
+## Changes available with the _Business_ service plan {#business}
+
+### Changes in reports {#reports-changes}
+
+* In [reports](../reports/index.md), you can now enable full-screen [view](../reports/report-operations.md#report-preview) mode in document or presentation format.
+* Added tools for [scaling and moving](../reports/report-operations.md#scaling-settings) report pages.
+* Now, in the report header settings, you can specify the text size in pixels or, as before, select a preset size: `XS`, `S`, `M`, `L`, `XL`.
+* Enabled updating report widgets with applied parameters on the current page by clicking ![icon](../../_assets/console-icons/arrows-rotate-right.svg).
+* Added the ability to edit the footer and add a link to it in the [report settings](../reports/report-operations.md#report-settings).
+* Reports now load faster.
+* Fixed backdrop export from Yandex Maps.
+* Fixed theme display in [maps](../visualization-ref/map-chart.md).
+
+### Private embedding {#private-embedded}
+
+Improved the appearance of dialog boxes for [private embeddings](../security/private-embedded-objects.md).
+

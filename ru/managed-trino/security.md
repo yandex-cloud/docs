@@ -37,19 +37,23 @@ noIndex: true
 
 #### managed-trino.auditor {#managed-trino-auditor}
 
-{% include [trino.auditor](../_roles/managed-trino/auditor.md) %}
+{% include [managed-trino.auditor](../_roles/managed-trino/auditor.md) %}
 
 #### managed-trino.viewer {#managed-trino-viewer}
 
-{% include [trino.viewer](../_roles/managed-trino/viewer.md) %}
+{% include [managed-trino.viewer](../_roles/managed-trino/viewer.md) %}
+
+#### managed-trino.user {#managed-trino-user}
+
+{% include [managed-trino.user](../_roles/managed-trino/user.md) %}
 
 #### managed-trino.editor {#managed-trino-editor}
 
-{% include [trino.editor](../_roles/managed-trino/editor.md) %}
+{% include [managed-trino.editor](../_roles/managed-trino/editor.md) %}
 
 #### managed-trino.admin {#managed-trino-admin}
 
-{% include [trino.admin](../_roles/managed-trino/admin.md) %}
+{% include [managed-trino.admin](../_roles/managed-trino/admin.md) %}
 
 #### managed-trino.integrationProvider {#managed-trino-integrationProvider}
 

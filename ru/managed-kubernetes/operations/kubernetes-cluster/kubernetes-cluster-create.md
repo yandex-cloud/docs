@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  Чтобы создать кластер:
+  Чтобы создать кластер {{ managed-k8s-name }}:
 
   1. Укажите параметры кластера {{ managed-k8s-name }} в команде создания (в примере приведены не все параметры):
 
@@ -59,8 +59,6 @@ description: Следуя данной инструкции, вы сможете
      {{ yc-k8s }} cluster create \
        --name test-k8s \
        --network-name default \
-       --zone {{ region-id }}-a \
-       --subnet-name default-a \
        --public-ip \
        --release-channel regular \
        --version 1.27 \
@@ -69,6 +67,7 @@ description: Следуя данной инструкции, вы сможете
        --security-group-ids enpe5sdn7vs5********,enpj6c5ifh75******** \
        --service-account-name default-sa \
        --node-service-account-name default-sa \
+       --master-location zone={{ region-id }}-a,subnet-id=mysubnet \
        --daily-maintenance-window start=22:00,duration=10h
        --labels <имя_облачной_метки=значение_облачной_метки>
      ```
@@ -80,8 +79,6 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
-     * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
-     * `--subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet).
      * `--public-ip` — флаг, который указывает, если кластеру {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
 
        {% include [nat-instance-restriction](../../../_includes/managed-kubernetes/nat-instance-restriction.md) %}
@@ -101,6 +98,14 @@ description: Следуя данной инструкции, вы сможете
 
      * `--service-account-id` — уникальный идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
      * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для [узлов](../../concepts/index.md#node-group). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
+     * `--master-location` — конфигурация [мастера](../../concepts/index.md#master). Укажите в параметре зону доступности и подсеть, где будет размещен мастер.
+
+        Количество параметров `--master-location` зависит от типа мастера:
+
+        * Для базового мастера передайте один параметр `--master-location`.
+        * Для высокодоступного мастера, который размещается в трех зонах доступности, передайте три параметра `--master-location`. В каждом из них укажите разные зоны доступности и подсети.
+        * Для высокодоступного мастера, который размещается в одной зоне доступности, передайте три параметра `--master-location`. В каждом из них укажите одинаковую зону доступности и подсеть.
+
      * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
      * `--labels` — [облачные метки](../../concepts/index.md#cluster-labels) для кластера.
 
@@ -267,6 +272,14 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы создать кластер {{ managed-k8s-name }}, воспользуйтесь методом [create](../../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster).
 
+  Тело запроса зависит от [типа мастера](../../concepts/index.md#master):
+
+  * Для базового мастера передайте в запросе один параметр `masterSpec.locations`.
+  * Для высокодоступного мастера, который размещается в трех зонах доступности, передайте в запросе три параметра `masterSpec.locations`. В каждом из них укажите разные зоны доступности и подсети.
+  * Для высокодоступного мастера, который размещается в одной зоне доступности, передайте в запросе три параметра `masterSpec.locations`. В каждом из них укажите одинаковую зону доступности и подсеть.
+
+  При передаче параметра `masterSpec.locations` не нужно указывать параметры `masterSpec.zonalMasterSpec` или `masterSpec.regionalMasterSpec`.
+
   {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
   Чтобы использовать для защиты секретов [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
@@ -279,36 +292,59 @@ description: Следуя данной инструкции, вы сможете
 
 ## Примеры {#examples}
 
-### Создание зонального кластера {{ managed-k8s-name }} {#example-zonal-cluster}
+### Создание кластера {{ managed-k8s-name }} с базовым мастером {#example-single-cluster}
 
- Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
+{% list tabs group=instructions %}
 
-  * Название — `k8s-zonal`.
+- CLI {#cli}
+
+  Создайте кластер {{ managed-k8s-name }} с тестовыми характеристиками:
+
+  * Название — `k8s-single`.
+  * Сеть — `mynet`.
+  * Зона доступности — `{{ region-id }}-a`.
+  * Подсеть — `mysubnet`.
+  * Сервисный аккаунт — `myaccount`.
+  * Идентификатор группы безопасности — `{{ security-group }}`.
+
+  Чтобы создать кластер {{ managed-k8s-name }} с базовым мастером, выполните команду:
+
+  ```bash
+  {{ yc-k8s }} cluster create \
+     --name k8s-single \
+     --network-name mynet \
+     --master-location zone={{ region-id }}-a,subnet-name=mysubnet \
+     --service-account-name myaccount \
+     --node-service-account-name myaccount \
+     --security-group-ids {{ security-group }}
+  ```
+
+- {{ TF }} {#tf}
+
+  Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
+
+  * Название — `k8s-single`.
   * Идентификатор [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) — `{{ tf-folder-id }}`.
   * Сеть — `mynet`.
   * Подсеть — `mysubnet`. Ее сетевые настройки:
 
-    * [Зона доступности](../../../overview/concepts/geo-scope.md) — `{{ region-id }}-a`.
+    * Зона доступности — `{{ region-id }}-a`.
     * Диапазон — `10.1.0.0/16`.
 
   * Сервисный аккаунт — `myaccount`.
   * [Роли](../../../iam/concepts/access-control/roles.md) сервисного аккаунта — `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.keys.encrypterDecrypter`.
   * [Ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }} — `kms-key`.
-  * [Группа безопасности](../../../vpc/concepts/security-groups.md) — `k8s-public-services`. Она содержит [правила для подключения к сервисам из интернета](../connect/security-groups.md#rules-nodes).
+  * Группа безопасности — `k8s-public-services`. Она содержит [правила для подключения к сервисам из интернета](../connect/security-groups.md#rules-nodes).
 
-Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
-
-{% list tabs group=instructions %}
-
-- {{ TF }} {#tf}
+  Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
   ```hcl
   locals {
     folder_id   = "{{ tf-folder-id }}"
   }
 
-  resource "yandex_kubernetes_cluster" "k8s-zonal" {
-    name = "k8s-zonal"
+  resource "yandex_kubernetes_cluster" "k8s-single" {
+    name = "k8s-single"
     network_id = yandex_vpc_network.mynet.id
     master {
       master_location {
@@ -342,8 +378,8 @@ description: Следуя данной инструкции, вы сможете
   }
 
   resource "yandex_iam_service_account" "myaccount" {
-    name        = "zonal-k8s-account"
-    description = "K8S zonal service account"
+    name        = "myaccount"
+    description = "Service account for the single Kubernetes cluster"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
@@ -430,13 +466,43 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Создание регионального кластера {{ managed-k8s-name }} {#example-regional-cluster}
+### Создание кластера {{ managed-k8s-name }} с высокодоступным мастером в трех зонах доступности {#example-ha-cluster-three-zones}
 
-Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
+{% list tabs group=instructions %}
 
-  * Название — `k8s-regional`.
+- CLI {#cli}
+
+  Создайте кластер {{ managed-k8s-name }} с тестовыми характеристиками:
+
+  * Название — `k8s-ha-three-zones`.
+  * Сеть — `my-ha-net`.
+  * Подсеть для зоны доступности `{{ region-id }}-a` — `mysubnet-a`.
+  * Подсеть для зоны доступности `{{ region-id }}-b` — `mysubnet-b`.
+  * Подсеть для зоны доступности `{{ region-id }}-d` — `mysubnet-d`.
+  * Сервисный аккаунт — `ha-k8s-account`.
+  * Идентификатор группы безопасности — `{{ security-group }}`.
+
+  Чтобы создать кластер {{ managed-k8s-name }} с высокодоступным мастером в трех зонах доступности, выполните команду:
+
+  ```bash
+  {{ yc-k8s }} cluster create \
+     --name k8s-ha-three-zones \
+     --network-name my-ha-net \
+     --master-location zone={{ region-id }}-a,subnet-name=mysubnet-a \
+     --master-location zone={{ region-id }}-b,subnet-name=mysubnet-b \
+     --master-location zone={{ region-id }}-d,subnet-name=mysubnet-d \
+     --service-account-name ha-k8s-account \
+     --node-service-account-name ha-k8s-account \
+     --security-group-ids {{ security-group }}
+  ```
+
+- {{ TF }} {#tf}
+
+  Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
+
+  * Название — `k8s-ha-three-zones`.
   * Идентификатор каталога — `{{ tf-folder-id }}`.
-  * Сеть — `my-regional-net`.
+  * Сеть — `my-ha-net`.
   * Подсеть — `mysubnet-a`. Ее сетевые настройки:
 
     * Зона доступности — `{{ region-id }}-a`.
@@ -452,25 +518,21 @@ description: Следуя данной инструкции, вы сможете
     * Зона доступности — `{{ region-id }}-d`.
     * Диапазон — `10.7.0.0/16`.
 
-  * Сервисный аккаунт — `regional-k8s-account`.
+  * Сервисный аккаунт — `ha-k8s-account`.
   * Роли сервисного аккаунта — `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.keys.encrypterDecrypter`.
   * [Ключ шифрования](../../concepts/encryption.md) {{ kms-full-name }} — `kms-key`.
   * Группа безопасности — `regional-k8s-sg`. Она содержит [правила для служебного трафика](../connect/security-groups.md#rules-internal).
 
-Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
-
-{% list tabs group=instructions %}
-
-- {{ TF }} {#tf}
+  Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
   ```hcl
   locals {
     folder_id   = "{{ tf-folder-id }}"
   }
 
-  resource "yandex_kubernetes_cluster" "k8s-regional" {
-    name = "k8s-regional"
-    network_id = yandex_vpc_network.my-regional-net.id
+  resource "yandex_kubernetes_cluster" "k8s-ha-three-zones" {
+    name = "k8s-ha-three-zones"
+    network_id = yandex_vpc_network.my-ha-net.id
     master {
       master_location {
         zone      = yandex_vpc_subnet.mysubnet-a.zone
@@ -484,10 +546,10 @@ description: Следуя данной инструкции, вы сможете
         zone      = yandex_vpc_subnet.mysubnet-d.zone
         subnet_id = yandex_vpc_subnet.mysubnet-d.id
       }
-      security_group_ids = [yandex_vpc_security_group.regional-k8s-sg.id]
+      security_group_ids = [yandex_vpc_security_group.ha-k8s-sg.id]
     }
-    service_account_id      = yandex_iam_service_account.my-regional-account.id
-    node_service_account_id = yandex_iam_service_account.my-regional-account.id
+    service_account_id      = yandex_iam_service_account.ha-k8s-account.id
+    node_service_account_id = yandex_iam_service_account.ha-k8s-account.id
     depends_on = [
       yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
       yandex_resourcemanager_folder_iam_member.vpc-public-admin,
@@ -499,62 +561,62 @@ description: Следуя данной инструкции, вы сможете
     }
   }
 
-  resource "yandex_vpc_network" "my-regional-net" {
-    name = "my-regional-net"
+  resource "yandex_vpc_network" "my-ha-net" {
+    name = "my-ha-net"
   }
 
   resource "yandex_vpc_subnet" "mysubnet-a" {
     name = "mysubnet-a"
     v4_cidr_blocks = ["10.5.0.0/16"]
     zone           = "{{ region-id }}-a"
-    network_id     = yandex_vpc_network.my-regional-net.id
+    network_id     = yandex_vpc_network.my-ha-net.id
   }
 
   resource "yandex_vpc_subnet" "mysubnet-b" {
     name = "mysubnet-b"
     v4_cidr_blocks = ["10.6.0.0/16"]
     zone           = "{{ region-id }}-b"
-    network_id     = yandex_vpc_network.my-regional-net.id
+    network_id     = yandex_vpc_network.my-ha-net.id
   }
 
   resource "yandex_vpc_subnet" "mysubnet-d" {
     name = "mysubnet-d"
     v4_cidr_blocks = ["10.7.0.0/16"]
     zone           = "{{ region-id }}-d"
-    network_id     = yandex_vpc_network.my-regional-net.id
+    network_id     = yandex_vpc_network.my-ha-net.id
   }
 
-  resource "yandex_iam_service_account" "my-regional-account" {
-    name        = "regional-k8s-account"
-    description = "K8S regional service account"
+  resource "yandex_iam_service_account" "ha-k8s-account" {
+    name        = "ha-k8s-account"
+    description = "Service account for the highly available Kubernetes cluster"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
     # Сервисному аккаунту назначается роль "k8s.clusters.agent".
     folder_id = local.folder_id
     role      = "k8s.clusters.agent"
-    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
     # Сервисному аккаунту назначается роль "vpc.publicAdmin".
     folder_id = local.folder_id
     role      = "vpc.publicAdmin"
-    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
     # Сервисному аккаунту назначается роль "container-registry.images.puller".
     folder_id = local.folder_id
     role      = "container-registry.images.puller"
-    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
   }
 
   resource "yandex_resourcemanager_folder_iam_member" "encrypterDecrypter" {
     # Сервисному аккаунту назначается роль "kms.keys.encrypterDecrypter".
     folder_id = local.folder_id
     role      = "kms.keys.encrypterDecrypter"
-    member    = "serviceAccount:${yandex_iam_service_account.my-regional-account.id}"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
@@ -564,10 +626,10 @@ description: Следуя данной инструкции, вы сможете
     rotation_period   = "8760h" # 1 год.
   }
 
-  resource "yandex_vpc_security_group" "regional-k8s-sg" {
-    name        = "regional-k8s-sg"
+  resource "yandex_vpc_security_group" "ha-k8s-sg" {
+    name        = "ha-k8s-sg"
     description = "Правила группы обеспечивают базовую работоспособность кластера {{ managed-k8s-name }}. Примените ее к кластеру и группам узлов."
-    network_id  = yandex_vpc_network.my-regional-net.id
+    network_id  = yandex_vpc_network.my-ha-net.id
     ingress {
       protocol          = "TCP"
       description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера {{ managed-k8s-name }} и сервисов балансировщика."
@@ -586,6 +648,191 @@ description: Следуя данной инструкции, вы сможете
       protocol          = "ANY"
       description       = "Правило разрешает взаимодействие под-под и сервис-сервис. Укажите подсети вашего кластера {{ managed-k8s-name }} и сервисов."
       v4_cidr_blocks    = concat(yandex_vpc_subnet.mysubnet-a.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-b.v4_cidr_blocks, yandex_vpc_subnet.mysubnet-d.v4_cidr_blocks)
+      from_port         = 0
+      to_port           = 65535
+    }
+    ingress {
+      protocol          = "ICMP"
+      description       = "Правило разрешает отладочные ICMP-пакеты из внутренних подсетей."
+      v4_cidr_blocks    = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
+    }
+    ingress {
+      protocol          = "TCP"
+      description       = "Правило разрешает входящий трафик из интернета на диапазон портов NodePort. Добавьте или измените порты на нужные вам."
+      v4_cidr_blocks    = ["0.0.0.0/0"]
+      from_port         = 30000
+      to_port           = 32767
+    }
+    egress {
+      protocol          = "ANY"
+      description       = "Правило разрешает весь исходящий трафик. Узлы могут связаться с {{ container-registry-full-name }}, {{ objstorage-full-name }}, Docker Hub и т. д."
+      v4_cidr_blocks    = ["0.0.0.0/0"]
+      from_port         = 0
+      to_port           = 65535
+    }
+  }
+  ```
+
+{% endlist %}
+
+### Создание кластера {{ managed-k8s-name }} с высокодоступным мастером в одной зоне доступности {#example-ha-cluster-one-zone}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Создайте кластер {{ managed-k8s-name }} с тестовыми характеристиками:
+
+  * Название — `k8s-ha-one-zone`.
+  * Сеть — `my-ha-net`.
+  * Подсеть для зоны доступности `{{ region-id }}-a` — `my-ha-subnet`.
+  * Количество одинаковых параметров `--master-location` — три. Так создается три экземпляра мастера в одной зоне доступности.
+  * Зона доступности — `{{ region-id }}-a`.
+  * Сервисный аккаунт — `ha-k8s-account`.
+  * Идентификатор группы безопасности — `{{ security-group }}`.
+
+  Чтобы создать кластер {{ managed-k8s-name }} с высокодоступным мастером в одной зоне доступности, выполните команду:
+
+  ```bash
+  {{ yc-k8s }} cluster create \
+     --name k8s-ha-one-zone \
+     --network-name my-ha-net \
+     --master-location zone={{ region-id }}-a,subnet-name=my-ha-subnet \
+     --master-location zone={{ region-id }}-a,subnet-name=my-ha-subnet \
+     --master-location zone={{ region-id }}-a,subnet-name=my-ha-subnet \
+     --service-account-name ha-k8s-account \
+     --node-service-account-name ha-k8s-account \
+     --security-group-ids {{ security-group }}
+  ```
+
+- {{ TF }} {#tf}
+
+  Создайте кластер {{ managed-k8s-name }} и сеть для него с тестовыми характеристиками:
+
+  * Название — `k8s-ha-one-zone`.
+  * Идентификатор каталога — `{{ tf-folder-id }}`.
+  * Сеть — `my-ha-net`.
+  * Подсеть — `my-ha-subnet`. Ее сетевые настройки:
+
+    * Зона доступности — `{{ region-id }}-a`.
+    * Диапазон — `10.5.0.0/16`.
+
+  * Сервисный аккаунт — `ha-k8s-account`.
+  * Роли сервисного аккаунта — `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `kms.keys.encrypterDecrypter`.
+  * Ключ шифрования {{ kms-full-name }} — `kms-key`.
+  * Группа безопасности — `ha-k8s-sg`. Она содержит [правила для служебного трафика](../connect/security-groups.md#rules-internal).
+
+  Установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+
+  ```hcl
+  locals {
+    folder_id   = "{{ tf-folder-id }}"
+  }
+
+  resource "yandex_kubernetes_cluster" "k8s-ha-one-zone" {
+    name = "k8s-ha-one-zone"
+    network_id = yandex_vpc_network.my-ha-net.id
+    master {
+      master_location {
+        zone      = yandex_vpc_subnet.my-ha-subnet.zone
+        subnet_id = yandex_vpc_subnet.my-ha-subnet.id
+      }
+      master_location {
+        zone      = yandex_vpc_subnet.my-ha-subnet.zone
+        subnet_id = yandex_vpc_subnet.my-ha-subnet.id
+      }
+      master_location {
+        zone      = yandex_vpc_subnet.my-ha-subnet.zone
+        subnet_id = yandex_vpc_subnet.my-ha-subnet.id
+      }
+      security_group_ids = [yandex_vpc_security_group.ha-k8s-sg.id]
+    }
+    service_account_id      = yandex_iam_service_account.ha-k8s-account.id
+    node_service_account_id = yandex_iam_service_account.ha-k8s-account.id
+    depends_on = [
+      yandex_resourcemanager_folder_iam_member.k8s-clusters-agent,
+      yandex_resourcemanager_folder_iam_member.vpc-public-admin,
+      yandex_resourcemanager_folder_iam_member.images-puller,
+      yandex_resourcemanager_folder_iam_member.encrypterDecrypter
+    ]
+    kms_provider {
+      key_id = yandex_kms_symmetric_key.kms-key.id
+    }
+  }
+
+  resource "yandex_vpc_network" "my-ha-net" {
+    name = "my-ha-net"
+  }
+
+  resource "yandex_vpc_subnet" "my-ha-subnet" {
+    name = "my-ha-subnet"
+    v4_cidr_blocks = ["10.5.0.0/16"]
+    zone           = "{{ region-id }}-a"
+    network_id     = yandex_vpc_network.my-ha-net.id
+  }
+
+  resource "yandex_iam_service_account" "ha-k8s-account" {
+    name        = "ha-k8s-account"
+    description = "Service account for the highly available Kubernetes cluster"
+  }
+
+  resource "yandex_resourcemanager_folder_iam_member" "k8s-clusters-agent" {
+    # Сервисному аккаунту назначается роль "k8s.clusters.agent".
+    folder_id = local.folder_id
+    role      = "k8s.clusters.agent"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
+  }
+
+  resource "yandex_resourcemanager_folder_iam_member" "vpc-public-admin" {
+    # Сервисному аккаунту назначается роль "vpc.publicAdmin".
+    folder_id = local.folder_id
+    role      = "vpc.publicAdmin"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
+  }
+
+  resource "yandex_resourcemanager_folder_iam_member" "images-puller" {
+    # Сервисному аккаунту назначается роль "container-registry.images.puller".
+    folder_id = local.folder_id
+    role      = "container-registry.images.puller"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
+  }
+
+  resource "yandex_resourcemanager_folder_iam_member" "encrypterDecrypter" {
+    # Сервисному аккаунту назначается роль "kms.keys.encrypterDecrypter".
+    folder_id = local.folder_id
+    role      = "kms.keys.encrypterDecrypter"
+    member    = "serviceAccount:${yandex_iam_service_account.ha-k8s-account.id}"
+  }
+
+  resource "yandex_kms_symmetric_key" "kms-key" {
+    # Ключ {{ kms-full-name }} для шифрования важной информации, такой как пароли, OAuth-токены и SSH-ключи.
+    name              = "kms-key"
+    default_algorithm = "AES_128"
+    rotation_period   = "8760h" # 1 год.
+  }
+
+  resource "yandex_vpc_security_group" "ha-k8s-sg" {
+    name        = "ha-k8s-sg"
+    description = "Правила группы обеспечивают базовую работоспособность кластера {{ managed-k8s-name }}. Примените ее к кластеру и группам узлов."
+    network_id  = yandex_vpc_network.my-ha-net.id
+    ingress {
+      protocol          = "TCP"
+      description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера {{ managed-k8s-name }} и сервисов балансировщика."
+      predefined_target = "loadbalancer_healthchecks"
+      from_port         = 0
+      to_port           = 65535
+    }
+    ingress {
+      protocol          = "ANY"
+      description       = "Правило разрешает взаимодействие мастер-узел и узел-узел внутри группы безопасности."
+      predefined_target = "self_security_group"
+      from_port         = 0
+      to_port           = 65535
+    }
+    ingress {
+      protocol          = "ANY"
+      description       = "Правило разрешает взаимодействие под-под и сервис-сервис. Укажите подсети вашего кластера {{ managed-k8s-name }} и сервисов."
+      v4_cidr_blocks    = concat(yandex_vpc_subnet.my-ha-subnet.v4_cidr_blocks, yandex_vpc_subnet.my-ha-subnet.v4_cidr_blocks, yandex_vpc_subnet.my-ha-subnet.v4_cidr_blocks)
       from_port         = 0
       to_port           = 65535
     }

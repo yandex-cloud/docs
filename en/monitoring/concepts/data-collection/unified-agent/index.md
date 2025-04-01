@@ -50,7 +50,7 @@ A session is an ordered stream of messages. A session has an ID that must be uni
 
 All messages sent during a session contain both message metadata and session metadata.
 
-Types of information to collect (inputs), pipes (filters), interim storage spaces (storages), and outputs are specified in the {{ unified-agent-short-name }} configuration file.
+Types of information to collect (inputs), pipes (filters), interim storage spaces (storages), and outputs are specified in the {{ unified-agent-short-name }} configuration file. 
 
 ## Inputs {#inputs}
 An input is used by the agent to receive the messages transmitted during sessions. An input can contain the session infrastructure settings used to configure various limits.

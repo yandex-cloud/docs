@@ -23,3 +23,7 @@ description: Step-by-step guides on using push notifications and SMS in {{ cns-f
 * [{#T}](sms/test-number-delete.md)
 * [{#T}](sms/send.md)
 * [{#T}](sms/exit-sandbox.md)
+
+## Other {#other}
+
+* [{#T}](configure-logging.md)

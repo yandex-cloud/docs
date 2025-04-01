@@ -8,9 +8,9 @@ description: Follow this guide to configure a navigator.
 {% note info %}
 
 The navigator is available for those charts from the list that have a field of the `Date` or `Date and time` type in their **X** section:
-
+ 
 * [Line chart](../../visualization-ref/line-chart.md)
-* [Area chart](../../visualization-ref/area-chart.md)
+* [Stacked area chart](../../visualization-ref/area-chart.md)
 * [Normalized stacked area chart](../../visualization-ref/normalized-area-chart.md)
 * [Column chart](../../visualization-ref/column-chart.md)
 
