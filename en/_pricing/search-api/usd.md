@@ -7,14 +7,4 @@
 | **[API v2](../../search-api/concepts/index.md#api-v2) requests** | |
 | Synchronous requests | {{ sku|USD|searchapi.requests.sync.v3|string }} |
 | Deferred requests | {{ sku|USD|searchapi.requests.async.v3|string }}  |
-
-{% note warning %}
-
-The price listed below will be effective starting April 1, 2025.
-
-{% endnote %}
-
-| Service | Cost per 1,000 requests,<br/>without VAT |
-|---------|-------------------------------------|
-| **[API v2](../../search-api/concepts/index.md#api-v2) requests**  | |
 | Synchronous requests with [generative response](../../search-api/concepts/generative-response.md) | $40.00 | 

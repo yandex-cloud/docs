@@ -1,6 +1,6 @@
 ---
 title: Digital signature in {{ kms-short-name }}
-description: This article describes the features of digital signatures in {{ kms-short-name }}.
+description: This article describes how you can use digital signatures in {{ kms-short-name }}.
 ---
 
 # Digital signature in {{ kms-short-name }}
@@ -12,11 +12,11 @@ _Digital signature_ is a product of a cryptographic operation that provides addi
 * Protecting data against modification
 * Identifying the data source
 
-The digital signature algorithm supports two operations: creating a signature and [verifying a signature](#signature-verification).
+The digital signature algorithm supports two operations: creating a signature and [verifying a signature](#signature-verification). 
 
 Digital signatures are based on [asymmetric cryptography](asymmetric-encryption.md). An asymmetric key pair of a digital signature consists of two parts: a public key and a private key. The private key is used to create a signature and the public key to verify it.
 
-You can use a digital signature to validate the source code, binary files, and container images. For example, you can validate an image signed with a digital signature. If the verification shows that the signature is invalid, it means that the image was changed or damaged. You can also use a digital signature to verify the subject of a certificate issued by a [Certificate Authority](https://en.wikipedia.org/wiki/Certificate_authority).
+You can use a digital signature to validate the source code, binary files, and container images. For example, you can validate an image signed with a digital signature. If the verification shows that the signature is invalid, it means that the image was changed or damaged. You can also use a digital signature to verify the subject of a certificate issued by a [certificate authority](https://en.wikipedia.org/wiki/Certificate_authority).
 
 {% include [asymmetric-keys-quota](../../_includes/kms/asymmetric-keys-quota.md) %}
 
@@ -71,3 +71,7 @@ To verify a digital signature:
 1. Perform verification:
 
     {% include [signature-verification-rsa](../../_includes/kms/signature-verification-rsa.md) %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/sign-cr-with-cosign.md)

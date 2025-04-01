@@ -34,3 +34,4 @@ description: Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](api-gw-integration.md)
 * [{#T}](movies-database.md)
 * [{#T}](websocket-app.md)
+* [{#T}](maxpatrol.md)

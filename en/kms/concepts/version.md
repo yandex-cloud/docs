@@ -1,6 +1,6 @@
 # Key version
 
-Key version is the cryptographic material you can use for encrypting and decrypting data.
+Key version is the cryptographic material you can use for encrypting and decrypting data. 
 
 The following operations with key versions are supported:
 * Creating versions when [rotating key](#rotate-key).
@@ -14,15 +14,15 @@ The following operations with key versions are supported:
     You cannot destroy the primary version of a key.
 
 Versions can have one of the following statuses:
-* `Active`: The version is active and can be used for data encryption and decryption.
-* `Scheduled For Destruction`: The version is scheduled for destruction. This means that it is already inactive, but you can still restore it if necessary.
-* `Destroyed`: The version is destroyed and cannot be restored.
+* `Active`: Version is active and can be used to encrypt and decrypt data.
+* `Scheduled For Destruction`: Version is scheduled for destruction. This means that it is already inactive, but you can still restore it if necessary.
+* `Destroyed`: Version is destroyed and cannot be restored.
 
-## Rotating keys {#rotate-key}
+## Rotating a key {#rotate-key}
 
-Rotation limits the lifetime of cryptographic material. When a key is rotated, a new version is created: cryptographic material is generated again (its parameters are determined by the algorithm specified in the key). The version of the key created during its rotation becomes the primary one. If necessary, you can specify any other active version of the key as the primary one.
+Rotation limits the lifetime of cryptographic material. When a key is rotated, a new version is created: cryptographic material is generated again (its parameters are determined by the algorithm specified in the key). The version of the key created during its rotation becomes the primary one. If necessary, you can specify any other active version of the key as the primary one. 
 
-After key rotation:
+After key rotation: 
 * Encryption operations use the new version of the key, unless you explicitly specify a different version.
 * The previous key versions are only used to decrypt data encrypted by them before the key was rotated.
 
@@ -38,4 +38,10 @@ Destroying any version of a key means destroying all data encrypted with it. Bef
 
 To destroy previous key versions without negative consequences, use the [reEncrypt](../api-ref/SymmetricCrypto/reEncrypt) method. This operation decrypts the transmitted ciphertext and then re-encrypts it with the primary version of the key.
 
-For safety reasons, destruction is not immediate. You can [schedule a version for destruction](../operations/version#delete) by setting the time to elapse before destruction. This will change the version's status to `Scheduled For Destruction`: it can no longer be used for encryption or decryption but still can be restored. When the destruction time comes, the version's status changes to `Destroyed` and it is permanently deleted.
+For safety reasons, destruction is not immediate. You can [schedule a version for destruction](../operations/version#delete) by setting the time to elapse before destruction. The scheduled version gets the `Scheduled For Destruction` status: you cannot use it for encryption or decryption but you still can restore it. When the destruction time comes, the status changes to `Destroyed` and the version gets permanently deleted.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/encrypt/cli-api.md)
+* [{#T}](../tutorials/vault-secret.md)
+* [{#T}](../tutorials/secure-password-script.md)

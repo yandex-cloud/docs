@@ -105,7 +105,7 @@ items:
         href: tutorials/serverless-live-debug.md
       - name: Locking {{ TF }} states using {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
-      - name: Developing a custom integration in {{ api-gw-name }}
+      - name: Building a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
@@ -113,6 +113,8 @@ items:
         href: tutorials/websocket-app.md
       - name: URL shortener
         href: tutorials/serverless-url-shortener.md
+      - name: Exporting audit logs to MaxPatrol SIEM
+        href: tutorials/maxpatrol.md
   - name: Concepts
     items:
       - name: Overview
@@ -313,7 +315,7 @@ items:
     items:
       - name: Overview
         href: api-ref/overview.md
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

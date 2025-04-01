@@ -152,6 +152,10 @@ items:
           Создание триггеров, которые вызывают функции для остановки ВМ и
           отправки уведомлений в Telegram
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
+      - name: >-
+          Анализ поресурсной детализации расходов с помощью {{ objstorage-name
+          }}
+        href: tutorials/billing-resource-detailing.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

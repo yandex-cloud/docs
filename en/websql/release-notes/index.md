@@ -5,6 +5,16 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## February {#february}
+
+### New features {#new-features-feb}
+
+Now you can run [multi-queries](../operations/query-executor.md#multiple-queries) for {{ CH }} databases.
+
+### Fixed issues {#fixes-feb}
+
+Fixed an issue where certain authors were shown as unknown users in the query history.
+
 ## January {#january}
 
 ### New features {#new-features-jan}

@@ -64,7 +64,7 @@
       * `{{ roles-cr-pusher }}`
       * `{{ roles-cr-puller }}`
 
-   1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) с зональным мастером и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите созданный ранее сервисный аккаунт.
+   1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) с базовым мастером и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите созданный ранее сервисный аккаунт.
    1. Настройте группу безопасности для работы [кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/security-groups.md) и [инстанса {{ mgl-name }}](../../managed-gitlab/operations/configure-security-group.md).
 
    1. [Создайте реестр {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
@@ -83,7 +83,7 @@
       * [Сеть](../../vpc/concepts/network.md#network).
       * [Подсеть](../../vpc/concepts/network.md#subnet).
       * [Группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для работы инстанса {{ mgl-name }} и [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-      * Кластер {{ managed-k8s-name }} с зональным мастером.
+      * Кластер {{ managed-k8s-name }} с базовым мастером.
       * [Группа узлов для кластера](../../managed-kubernetes/concepts/index.md#node-group).
       * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
       * Реестр {{ container-registry-full-name }}.

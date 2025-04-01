@@ -35,4 +35,16 @@ You can use a symmetric key in data encryption and decryption operations if you 
 
 ## Deleting a key {#delete}
 
-If you delete a key or its parent resource (folder or cloud), this destroys the cryptographic material contained in it. After that, you won't be able to decrypt the data encrypted with that key.
+If you delete a key or its parent resource (folder or cloud), this destroys the cryptographic material contained in it. After that, you will not be able to decrypt the data encrypted with that key.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/encrypt/cli-api.md)
+* [{#T}](../tutorials/encrypt/sdk.md)
+* [{#T}](../tutorials/encrypt/aws-encryption-sdk.md)
+* [{#T}](../tutorials/encrypt/google-tink.md)
+* [{#T}](../tutorials/kms-k8s.md)
+* [{#T}](../tutorials/terraform-key.md)
+* [{#T}](../tutorials/terraform-secret.md)
+* [{#T}](../tutorials/vault-secret.md)
+* [{#T}](../tutorials/secure-password-script.md)

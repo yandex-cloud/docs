@@ -190,8 +190,8 @@ description: This section contains {{ at-name }} release notes.
 
   Event name | Description
   --- | ---
-  `ComputeNodeAccess` | Connecting an Access Transparency [module](../security-deck/concepts/access-transparency.md) to a Data Proc [subcluster](../data-proc/concepts/index.md#resources)
-  `MDBClusterAccess` | Connecting the Access Transparency module to the database cluster
+  `ComputeNodeAccess` | Connecting the {{ atr-name }} [module](../security-deck/concepts/access-transparency.md) to a {{ dataproc-name }} [subcluster](../data-proc/concepts/index.md#resources)
+  `MDBClusterAccess` | Connecting the {{ atr-name }} module to a database cluster
 
   {% endcut %}
 

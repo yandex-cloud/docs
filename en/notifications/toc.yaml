@@ -19,7 +19,7 @@ items:
         items:
           - name: Creating a push notification channel
             href: operations/push/channel-create.md
-          - name: Changing the push notification channel
+          - name: Updating a push notification channel
             href: operations/push/channel-update.md
           - name: Deleting a push notification channel
             href: operations/push/channel-delete.md
@@ -45,6 +45,8 @@ items:
             href: operations/sms/send.md
           - name: Exiting the sandbox
             href: operations/sms/exit-sandbox.md
+      - name: Configuring logging
+        href: operations/configure-logging.md
   - name: Concepts
     expanded: true
     items:
@@ -56,6 +58,8 @@ items:
         href: concepts/sms.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Logging
+        href: concepts/logging.md
   - name: Tools
     expanded: true
     items:

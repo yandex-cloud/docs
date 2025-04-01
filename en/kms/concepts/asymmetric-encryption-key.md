@@ -35,3 +35,7 @@ You can use an asymmetric encryption key pair in data encryption and decryption 
 ## Deleting encryption key pairs {#delete}
 
 If you delete an encryption key pair or its parent resource (folder or cloud), this destroys the cryptographic material contained in it. After that, you will not be able to decrypt the data encrypted with the public key of the key pair.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/sign-cr-with-cosign.md)

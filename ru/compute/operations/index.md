@@ -65,6 +65,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
 * [{#T}](vm-control/vm-change-security-groups-set.md)
+* [{#T}](vm-control/vm-connect-sa.md)
 * [{#T}](vm-control/vm-access.md)
 * [{#T}](vm-control/vm-delete.md)
 

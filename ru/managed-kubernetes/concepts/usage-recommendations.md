@@ -22,7 +22,7 @@ description: Используйте эти рекомендации, если в
 {% endnote %}
 
 * Обновляйте [кластер](./index.md#kubernetes-cluster) и [группы узлов](./index.md#node-group) вручную. Для этого отключите автоматические обновления [мастера](../operations/kubernetes-cluster/kubernetes-cluster-update.md) и [групп узлов](../operations/node-group/node-group-update.md).
-* Выбирайте [региональный](../concepts/index.md#master) тип мастера при [создании кластера](../operations/kubernetes-cluster/kubernetes-cluster-create.md). [Сервисы](service.md) {{ k8s }} будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса {{ managed-k8s-name }} распространяется на конфигурацию с региональным мастером.
+* Выбирайте [высокодоступный](../concepts/index.md#master) тип мастера, размещенный в трех зонах. [Сервисы](service.md) {{ k8s }} будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса {{ managed-k8s-name }} распространяется на конфигурацию с высокодоступным мастером, размещенным в трех зонах.
 * Разворачивайте сервисы типа `Deployment` и `StatefulSet` в нескольких экземплярах в разных зонах доступности. Используйте стратегии [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) и [AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), чтобы обеспечить высокую доступность сервисов и эффективное потребление ресурсов кластера {{ k8s }}.
 
   Для всех стратегий используйте комбинации меток:

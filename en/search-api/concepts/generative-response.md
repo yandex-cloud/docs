@@ -7,8 +7,6 @@ description: This article describes the format {{ search-api-name }}'s generativ
 
 You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative AI to get a comprehensive and concise _generative response_ to a user query. To generate such a response, the model analyzes the relevant text search results retrieved by {{ search-api-name }} from your company's websites. 
 
-{% include [note-preview-by-request](../../_includes/note-preview.md) %}
-
 {% note warning %}
 
 Until April 1, 2025, you can get a generative response only to queries submitted via the [API v1](./index.md#api-v1).

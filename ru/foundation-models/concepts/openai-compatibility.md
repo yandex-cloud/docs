@@ -17,7 +17,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
    client = openai.OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1"
+      base_url="https://llm.api.cloud.yandex.net/v1/chat/completions"
    )
    ```
 
@@ -28,7 +28,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
    const openai = new OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1");
+      base_url="https://llm.api.cloud.yandex.net/v1/chat/completions");
    ```
 
 {% endlist %}
@@ -41,26 +41,6 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
 {% list tabs group=programming_language %}
 
-- cURL {#curl}
-
-   ```bash
-   curl https://llm.api.cloud.yandex.net/v1
-     -H "Content-Type: application/json"
-     -H "Authorization: Bearer $<API-ключ>"
-     -d '{
-       "model": "gpt://<идентификатор_каталога>/yandexgpt/latest",
-       "messages": [
-         {
-           "role": "system",
-           "content": "Ты очень умный ассистент."
-         },
-         {
-           "role": "user",
-           "content": "Сколько стоит запрос к {{ gpt-pro }}?"
-         }
-       ]
-     }'
-   ```
 
 - Python {#python}
 
@@ -71,7 +51,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
    client = openai.OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1"
+      base_url="https://llm.api.cloud.yandex.net/v1/chat/completions"
    )
 
    response = client.chat.completions.create(
@@ -97,7 +77,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
    const openai = new OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1");
+      base_url="https://llm.api.cloud.yandex.net/v1/chat/completions");
 
    async function main() {
      const completion = await openai.chat.completions.create({
@@ -109,6 +89,27 @@ API генерации текста сервиса {{ foundation-models-name }} 
      console.log(completion.choices[0]);
    }
    main();
+   ```
+
+- cURL {#curl}
+
+   ```bash
+   curl https://llm.api.cloud.yandex.net/v1/chat/completions
+     -H "Content-Type: application/json"
+     -H "Authorization: Bearer <API-ключ>"
+     -d '{
+       "model": "gpt://<идентификатор_каталога>/yandexgpt/latest",
+       "messages": [
+         {
+           "role": "system",
+           "content": "Ты очень умный ассистент."
+         },
+         {
+           "role": "user",
+           "content": "Сколько стоит запрос к {{ gpt-pro }}?"
+         }
+       ]
+     }'
    ```
 
 {% endlist %}

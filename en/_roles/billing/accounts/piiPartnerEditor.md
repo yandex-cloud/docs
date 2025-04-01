@@ -1,7 +1,7 @@
 To use the `billing.accounts.piiPartnerEditor` role, you need to assign it for a billing account. It enables managing partner rebate withdrawals and subaccounts, as well as viewing partner info, including personal data.
 
 On the Yandex Cloud partner portal, users with this role can:
-* Manage [subaccounts](../../../partner/terms.md#sub-account) regardless of the [access permissions](../../../iam/concepts/access-control/index.md) assigned at the [organization](../../../overview/roles-and-resources.md) level, excepting the permission to work with a partner.
+* Manage [subaccounts](../../../partner/terms.md#sub-account) regardless of the [access permissions](../../../iam/concepts/access-control/index.md) assigned at the [organization](../../../organization/concepts/organization.md) level, excepting the permission to work with a partner.
 * View info on the partner balance, discounts, and [rebate](../../../partner/terms.md#rebate) withdrawals.
 * Create spending agreements for partner rebates and withdraw such rebates.
 * [View](../../../partner/operations/get-client-stat.md) details on partner consumption, including partner subaccounts.

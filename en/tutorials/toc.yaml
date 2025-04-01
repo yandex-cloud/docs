@@ -186,11 +186,11 @@ items:
           Backup to {{ objstorage-name }} using MSP360 Backup (CloudBerry
           Desktop Backup)
         href: archive/object-storage-cloudberry.md
-      - name: '{{ objstorage-name }} backup with Duplicati'
+      - name: Backing up to {{ objstorage-name }} via Duplicati
         href: archive/object-storage-duplicati.md
-      - name: '{{ objstorage-name }} backup with Bacula'
+      - name: Backing up to {{ objstorage-name }} via Bacula
         href: archive/backup-with-bacula.md
-      - name: '{{ objstorage-name }} backup with Veeam Backup'
+      - name: Backing up to {{ objstorage-name }} with Veeam Backup
         href: archive/backup-with-veeam.md
       - name: '{{ objstorage-name }} backup with Veritas Backup Exec'
         href: archive/object-storage-veritas.md
@@ -245,7 +245,7 @@ items:
       - name: JMeter load testing
         href: testing/loadtesting-jmeter.md
       - name: >-
-          Getting statistics of queries to {{ objstorage-name }} objects using
+          Getting statistics on queries to {{ objstorage-name }} objects using
           {{ yq-name }}
         href: testing/server-logs-yq.md
       - name: Invoking load testing from {{ GL }} CI
@@ -360,7 +360,7 @@ items:
                 href: routing/nat-instance/terraform.md
           - name: Installing the Cisco CSR 1000v virtual router
             href: routing/cisco.md
-          - name: Installing the Mikrotik CHR virtual router
+          - name: Installing a Mikrotik CHR virtual router
             href: routing/mikrotik.md
       - name: VPNs
         items:
@@ -423,8 +423,8 @@ items:
       - name: Signing and verifying Docker images in {{ managed-k8s-name }}
         href: container-infrastructure/sign-cr-with-cosign.md
       - name: >-
-          Setting up a {{ mpg-name }} connection from a {{
-          serverless-containers-name }} container
+          Setting up a {{ mpg-name }} connection from a container in {{
+          serverless-containers-name }}
         href: container-infrastructure/container-pg-connect.md
       - name: Storing Docker images created in {{ mgl-name }} projects
         href: container-infrastructure/image-storage.md
@@ -472,7 +472,7 @@ items:
                 href: web/lamp-lemp/console.md
               - name: '{{ TF }}'
                 href: web/lamp-lemp/terraform.md
-          - name: Creating a Joomla website with a PostgreSQL database
+          - name: Creating a Joomla website with a {{ PG }} database
             items:
               - name: Overview
                 href: web/joomla-postgresql/index.md
@@ -530,6 +530,8 @@ items:
             href: web/flask.md
           - name: Hosting a static Gatsby website
             href: web/gatsby-static-website.md
+          - name: Migrating to {{ cdn-full-name }} from a third-party CDN provider
+            href: web/migrate-to-yc-cdn.md
       - name: 1C
         items:
           - name: 1C-Bitrix online store
@@ -570,9 +572,9 @@ items:
             href: iot/data-recording.md
       - name: Alice
         items:
-          - name: Creating skills for Alice
+          - name: Creating a skill for Alice
             href: serverless/alice-skill.md
-          - name: Creating a skill for Alice and a website with authorization
+          - name: Developing a skill for Alice and a website with authorization
             href: serverless/alice-shareable-todolist.md
       - name: Other
         items:
@@ -584,7 +586,7 @@ items:
             href: infrastructure/minecraft-server.md
           - name: Deploying a multiplayer server for GTA V in {{ yandex-cloud }}
             href: infrastructure/gta-v-server.md
-          - name: Converting a video to GIF with Python
+          - name: Converting a video to a GIF in Python
             href: serverless/video-converting-queue.md
   - name: Building a data platform
     items:
@@ -1021,7 +1023,7 @@ items:
         href: routing/pub-add.md
       - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
         href: routing/bms-vrf-routing.md
-  - name: Data visualization and analytics
+  - name: Data analysis and visualization
     items:
       - name: All tutorials
         href: datalens/index.md

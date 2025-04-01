@@ -3,7 +3,7 @@ title: Setting up access in {{ datalens-full-name }} workbooks and collections
 description: You can grant users or user groups permissions to each workbook and collection. Permissions determine what you can do with a workbook or collection.
 ---
 
-# Setting up access in workbooks and collections {{ datalens-short-name }}
+# Setting up access in {{ datalens-short-name }} workbooks and collections
 
 You can assign access permissions to users and [user groups](../../iam/operations/groups/create.md) for each workbook and collection. [Access permissions](../security/roles.md#workbooks-collections-roles) determine what you can do with a workbook or collection. Permissions are inherited as follows:
 
@@ -26,7 +26,9 @@ To grant access permissions to a workbook or collection:
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 
+      
    {% include [datalens-workbooks-enable](../../_includes/datalens/datalens-workbooks-enable.md) %}
+
 
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the collection or workbook and select **Access**.
 

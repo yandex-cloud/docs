@@ -9,6 +9,7 @@
 | **[API v2](../search-api/concepts/index.md#api-v2)** | |
 | Number of synchronous requests per hour | 10,000 |
 | Number of synchronous requests per second | 10 |
+| Number of synchronous requests per second for getting generative response | 1 |
 | Number of deferred requests per hour | 35,000 |
 | Number of deferred requests per second | 10 |
 | Number of requests, per second, for results of a deferred request | 10 |

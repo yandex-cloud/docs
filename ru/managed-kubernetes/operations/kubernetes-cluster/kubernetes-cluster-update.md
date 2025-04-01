@@ -13,6 +13,7 @@ description: Следуя данной инструкции, вы сможете
 * Имя.
 * Описание.
 * [Сервисные аккаунты](../../../iam/operations/sa/create.md).
+* [Конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
 * [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md).
 * Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
 * Список [групп безопасности](../connect/security-groups.md).
@@ -246,5 +247,24 @@ description: Следуя данной инструкции, вы сможете
   name: k8s-demo
   ...
   ```
+
+{% endlist %}
+
+## Изменить конфигурацию ресурсов мастера {#manage-resources}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+  1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}** раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
+
+      {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
+
+      {% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

@@ -47,12 +47,17 @@ title: Как получить информацию об HTTP-роутере в 
           authority:
             - www.first-site.ru
             - first-site.ru
+          route_options:
+            security_profile_id: fevcifh6tr**********
+          rate_limit:
+            all_requests:
+              per_second: "100"
           routes:
             - name: route-1
               http:
                 route:
                   backend_group_id: ds7maho6c4or********
-      created_at: "2023-10-24T12:20:44.091821711Z"
+      created_at: "2024-12-12T12:20:44.091821711Z"
       ```
 
 - {{ TF }} {#tf}

@@ -1,6 +1,6 @@
 ---
 title: How to install the {{ alb-name }} Gateway API for {{ managed-k8s-name }}
-description: Follow this guide to install the {{ alb-name }} Gateway API for {{ managed-k8s-name }}.
+description: Follow this tutorial to install the {{ alb-name }} Gateway API for {{ managed-k8s-name }}.
 ---
 
 # Installing {{ alb-name }} Gateway API for {{ managed-k8s-name }}

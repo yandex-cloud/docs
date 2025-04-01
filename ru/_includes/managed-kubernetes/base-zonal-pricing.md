@@ -1,0 +1,1 @@
+_Базовый_ мастер тарифицируется как _зональный_ и отображается в {{ billing-name }} как `Managed Kubernetes. Zonal Master - small`.

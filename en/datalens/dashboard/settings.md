@@ -5,7 +5,6 @@ description: In this tutorial, you will learn about dashboard settings.
 
 # Dashboard settings
 
-
 Dashboard settings allow you to optimize it for a specific task or work with a specific data source. For example, you can set the dashboard update time, add informational messages, or customize widget loading priority.
 
 ## Auto-update {#auto-update}
@@ -20,6 +19,7 @@ The following limitations apply to auto update:
   * If the tab is not selected as the current tab, it is not considered active and the data is not updated.
   * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
 
+
 ## Description and message settings {#message-settings}
 
 You can [add a description](../operations/dashboard/add-description.md) to a dashboard. To view the description, click ![image](../../_assets/console-icons/circle-info.svg) in the top-right corner of the screen.
@@ -31,6 +31,8 @@ You can also set up additional information messages:
 
   {% include [datalens-access-message-note](../../_includes/datalens/datalens-access-message-note.md) %}
 
+
+
 ## Widget loading settings {#load-settings}
 
 You can customize the loading speed of widgets on the dashboard. To do this, [configure](../operations/dashboard/dash-settings.md) the dashboard settings under **Other settings**:
@@ -39,10 +41,12 @@ You can customize the loading speed of widgets on the dashboard. To do this, [co
 * **Number of concurrently loaded widgets**. The option limits the maximum number of concurrently loaded widgets on the dashboard. This can be of use if the dashboard data sources are not adapted to a large concurrent workload. If you set it to `Unlimited`, as many widgets will be loaded as there are simultaneous connections supported by your browser.
 * **Loading priority**. Determines the order in which widgets are loaded on the dashboard. For example, if you prioritize charts, all the charts on the screen will be loaded first, followed by selectors.
 
+
 ## Display modes {#display-modes}
 
 
 By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. For more information, see [{#T}](../operations/dashboard/display-modes.md).
+
 
 ## Pinning widgets {#widget-fixation}
 
@@ -59,5 +63,4 @@ You can manage pinned widgets in dashboard edit mode as follows:
 * To unpin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin** or drag it out of the lock area.
 * To unpin all widgets, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin all** to the right of the lock area.
 * To customize the bottom lock area behavior as you open the dashboard, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/square.svg) **Hide by default** or ![image](../../_assets/console-icons/square-check.svg) **Hide by default** to the right of the lock area.
-
 

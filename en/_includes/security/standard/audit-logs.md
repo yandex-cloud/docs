@@ -71,13 +71,9 @@ For more information about MaxPatrol, see this [section](../../../audit-trails/t
 
 You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs.md) or [s3fs](../../../storage/tools/s3fs.md). These utilities allow mounting a {{ objstorage-full-name }} bucket as a VM local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket. You can also use utilities compatible with AWS Kinesis datastreams if sending audit logs to {{ yds-full-name }}.
 
-If you have no SIEM, you can also analyze audit logs manually using one of the following methods (in descending order of convenience):
 
-* [Searching](../../../audit-trails/tutorials/query.md) for {{ yandex-cloud }} events in {{ yq-full-name }}.
+If you have no SIEM, you can also analyze audit logs manually using {{ yandex-cloud }} [event search](../../../audit-trails/tutorials/search-events-audit-logs/index.md) in {{ yq-full-name }}, {{ cloud-logging-name }}, or {{ objstorage-name }}.
 
-
-* [Searching](../../../audit-trails/tutorials/search-cloud-logging.md) for {{ yandex-cloud }} events in {{ cloud-logging-name }}.
-* [Searching](../../../audit-trails/tutorials/search-bucket.md) for {{ yandex-cloud }} events in {{ objstorage-name }}.
 
 {% list tabs group=instructions %}
 
@@ -95,9 +91,9 @@ Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, a
 
 [Solution: Notifications and responses to {{ at-name }} information security events using {{ iam-short-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud-examples/yc-audit-trails-automatic-response)
 
-#### 5.4 Hardening of the Object Storage bucket that stores {{ at-full-name }} audit logs is done {#hardering}
+#### 5.4 Object Storage bucket storing {{ at-full-name }} audit logs is hardened {#hardering}
 
-If you write {{ at-full-name }} audit logs to a {{ objstorage-full-name }} bucket, make sure the bucket is set up using best security practices, such as:
+If you write {{ at-full-name }} audit logs to a {{ objstorage-full-name }} bucket, make sure the bucket is set up using security best practices, such as:
 
 * [No public access to the {{ objstorage-full-name }} bucket is allowed](../../../security/standard/virtualenv-safe-config.md#bucket-access).
 * [Bucket policies are used in {{ objstorage-full-name }}](../../../security/standard/virtualenv-safe-config.md#bucket-policy).
@@ -179,6 +175,6 @@ A [data event audit log](../../../audit-trails/concepts/format-data-plane.md) is
 
       List of supported services:
 
-      {% include [cp-events-service-list](../../../_includes/audit-trails/cp-events-service-list.md) %}
+      {% include [dp-events-service-list](../../../_includes/audit-trails/dp-events-service-list.md) %}
 
 {% endlist %}

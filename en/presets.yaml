@@ -10208,7 +10208,6 @@ default:
         delete-key-value: Delete
         duplicate: Duplicate
         edit: Edit
-        filters: Filters
         more: More
         'no': 'No'
         period: Period

@@ -1,4 +1,3 @@
-
 ```hcl
 # Declaring variables for custom parameters
 
@@ -36,7 +35,7 @@ locals {
   dns_zone_name      = "example-zone"
 }
 
-# Configuring a provider 
+# Configuring a provider
 
 terraform {
   required_providers {
@@ -156,5 +155,3 @@ resource "yandex_dns_recordset" "rs-cname" {
   data    = [ var.dns_zone ]
 }
 ```
-
-

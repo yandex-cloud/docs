@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 Чтобы подключить виртуальную машину на Linux к {{ backup-name }}:
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../security/index.md#backup-editor) `backup.editor`.
-1. [Подключите](../../compute/operations/vm-control/vm-update.md) к ВМ сервисный аккаунт, созданный ранее.
+1. [Подключите](../../compute/operations/vm-control/vm-connect-sa.md) к ВМ сервисный аккаунт, созданный ранее.
 1. [Настройте](../concepts/vm-connection.md#vm-network-access) сетевой доступ для ВМ.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по SSH.
 1. Выполните команды:

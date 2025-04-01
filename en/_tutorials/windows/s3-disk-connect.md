@@ -78,7 +78,7 @@ The cost for bucket support includes:
 - API {#api}
 
   To create the service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
-
+  
 {% endlist %}
 
 ## Create a static access key {#create-static-key}

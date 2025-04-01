@@ -10214,7 +10214,6 @@ default:
         delete-key-value: Удалить
         duplicate: Дублировать
         edit: Редактировать
-        filters: Фильтры
         more: Еще
         'no': Нет
         period: Период

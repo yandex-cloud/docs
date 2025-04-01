@@ -13,8 +13,7 @@ description: With {{ at-full-name }}, you can collect audit logs about {{ yandex
 
 Collecting audit logs enables you to use analytical tools and promptly respond to {{ yandex-cloud }} events:
 
-* [Searching audit logs in a bucket](../tutorials/search-bucket.md).
-* [Searching audit logs in a log group](../tutorials/search-cloud-logging.md).
+* [Searching for events in audit logs](../tutorials/search-events-audit-logs/index.md).
 * [Exporting audit logs to SIEM systems](./export-siem.md).
 * [Alert settings in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
 

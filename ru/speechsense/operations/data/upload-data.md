@@ -8,7 +8,7 @@ description: Следуя данной инструкции, вы сможете
 Эта инструкция поможет вам загрузить в {{ speechsense-name }} данные для распознавания и анализа речи через API. В примере заданы параметры:
 
 * [формат аудио](../../concepts/formats.md) — WAV;
-* метаданные диалога хранятся в файле `metadata_example.json`.
+* метаданные диалога хранятся в файле `metadata.json`.
 
 {% include [authentication](../../../_includes/speechsense/data/authentication.md) %}
 
@@ -23,6 +23,9 @@ description: Следуя данной инструкции, вы сможете
 Чтобы подготовиться к загрузке аудиоданных:
 
 1. [Создайте подключение](../connection/create.md#create-audio-connection) типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**.
+
+   Если вы хотите загрузить [связанные диалоги](../../concepts/dialogs.md#related-dialogs), добавьте в общие метаданные подключения строковый ключ `ticket_id`. По этому ключу диалоги будут связаны.
+
 1. [Создайте проект](../project/create.md) с новым подключением.
 
    В созданные проект и подключение будут загружены аудиозаписи разговоров.
@@ -110,6 +113,32 @@ description: Следуя данной инструкции, вы сможете
             audio_bytes = fp.read()
          upload_talk(args.connection_id, metadata, args.key, audio_bytes)
       ```
+
+1. В папке `upload_data` создайте файл `metadata.json` с метаданными разговора:
+
+   ```json
+   {
+      "operator_name": "<имя_оператора>",
+      "operator_id": "<идентификатор_оператора>",
+      "client_name": "<имя_клиента>",
+      "client_id": "<идентификатор_клиента>",
+      "date": "<дата_начала>",
+      "direction_outgoing": "<исходящее_направление:_true_или_false>",
+      "language": "<язык>",
+      <дополнительные_параметры_подключения>
+   }
+   ```
+
+   Значение поля `date` задайте в формате `ГГГГ-ММ-ДДTЧЧ:ММ:СС.ССС`.
+
+   Поля в файле должны соответствовать параметрам подключения, в которое вы загружаете аудиозаписи. В шаблоне выше указаны обязательные поля для подключений типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**. Если вы добавляли другие параметры в подключение, укажите их в файле `metadata.json`. Например, если вы загружаете [связанные диалоги](../../concepts/dialogs.md#related-dialogs), добавьте в файл параметр:
+
+   ```json
+   {
+      ...
+      "ticket_id": "<номер_задачи>"
+   }
+   ```
 
 1. {% include [api-key](../../../_includes/speechsense/data/api-key.md) %}
 

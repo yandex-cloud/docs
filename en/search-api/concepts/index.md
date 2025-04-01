@@ -15,14 +15,6 @@ With {{ search-api-name }}, you can easily implement the search feature on indiv
 
 [API v1](./get-request.md) is a Yandex XML compatible interface. It allows you to [run](../operations/searching.md) text queries using the [GET](../concepts/get-request.md) and [POST](../concepts/post-request.md) methods and get your results in [XML](./response.md) or [HTML](./html-response.md) format in synchronous mode.
 
-You can also use API v1 for text search in combination with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative features. This gets you a single concise and coherent [generative response](./generative-response.md) to produce which the neural network analyzes the relevant results of the {{ search-api-name }}'s text search across websites.
-
-{% note info %}
-
-This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage and available upon request.
-
-{% endnote %}
-
 With {{ search-api-name }} API v1, you can choose between default search and search optimized for [mobile devices](../operations/mobile.md).
 
 In addition to various text search options, API v1 allows you to search for images based on a text query. [Image search](./pic-search.md) only supports the GET method for queries.
@@ -46,4 +38,6 @@ After registration, you can change your search type and trusted IP addresses at 
 With API v2, you set the search type directly in the [body](./web-search.md#parameters) of each query. You do not need to [register](../operations/workaround.md#registration) in {{ search-api-full-name }} or specify trusted IP addresses when using API v2.
 
 With {{ search-api-name }} v2, you can choose between default search and search optimized for [mobile devices](../operations/v2-mobile.md).
+
+You can also use API v2 for text search in combination with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative features. This gets you a single concise and coherent [generative response](./generative-response.md) to produce which the neural network analyzes the relevant results of the {{ search-api-name }}'s text search across websites.
 

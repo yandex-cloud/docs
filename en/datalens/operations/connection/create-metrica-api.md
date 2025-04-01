@@ -1,5 +1,5 @@
 ---
-title: How to create a Yandex Metrica connection in {{ datalens-full-name }}
+title: How to create a Metrica connection in {{ datalens-full-name }}
 description: Follow this guide to create a Yandex Metrica connection.
 ---
 
@@ -11,16 +11,17 @@ description: Follow this guide to create a Yandex Metrica connection.
 
 To create a Yandex Metrica connection:
 
+
 1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Files and services**, select the **Metrica** connection.
-1. Specify the connection parameters:
+1. Specify the connection settings:
 
-   * **OAuth token**: Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the Yandex Metrica data.
-   * **Tag**: Specify one or more tracking tags to connect to.
+   * **OAuth token**. Click **Get token** or enter the [OAuth token](#get-oauth-token) manually to access the Yandex Metrica data.
+   * **Counter**. Specify one or more tracking tags to connect to.
+    
+     {% include [datalens-get-token](../../../_includes/datalens/datalens-change-account-note.md) %}
 
-      {% include [datalens-get-token](../../../_includes/datalens/datalens-change-account-note.md) %}
-
-   * **Accuracy**: Set the data accuracy (sampling rate). You can change the accuracy after you create the connection.
+   * **Accuracy**. Set the data accuracy (sampling rate). You can change the accuracy after you create the connection.
    * Leave the **Automatically create a dashboard, charts, and a dataset on the connection** option enabled if you need a folder with a standard set of datasets and charts and a ready-made dashboard.
 
 1. Click **Create connection**.
@@ -42,3 +43,5 @@ Connections to the Yandex Metrica API do not support [public access](../../conce
 {% include [datalens-get-token](../../../_includes/datalens/operations/datalens-get-token.md) %}
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
+
+

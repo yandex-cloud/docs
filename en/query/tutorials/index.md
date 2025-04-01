@@ -17,3 +17,4 @@ description: This section contains tutorials for {{ yq-name }}.
 * [{#T}](yq-clickhouse.md)
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
+* [{#T}](search-events-query.md)

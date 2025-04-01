@@ -1,7 +1,7 @@
 The `organization-manager.admin` role enables managing organization settings, organization users and their groups, and the users' access permissions to the organization and its resources.
 
 Users with this role can:
-* Link a [billing account](../../billing/concepts/billing-account.md) to an [organization](../../organization/quickstart.md).
+* Link a [billing account](../../billing/concepts/billing-account.md) to an [organization](../../organization/concepts/organization.md).
 * View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for the organization and its [user groups](../../organization/concepts/groups.md) and modify such permissions.
 * View the list of the organization user groups and info on such groups, as well as view and modify the lists of users that are members of such groups.
 * Configure user group [mapping](../../organization/concepts/add-federation.md#group-mapping).

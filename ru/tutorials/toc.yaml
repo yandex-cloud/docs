@@ -188,10 +188,12 @@ items:
             href: security/encrypt/aws-encryption-sdk.md
           - name: Шифрование с помощью Google Tink
             href: security/encrypt/google-tink.md
-      - name: Управление ключами KMS с {{ TF-full }}
-        href: security/terraform-key.md
+      - name: Шифрование для бакета {{objstorage-name }} на стороне сервера
+        href: security/server-side-encryption.md
       - name: Шифрование секретов в {{ TF-full }}
         href: security/terraform-secret.md
+      - name: Управление ключами KMS с {{ TF-full }}
+        href: security/terraform-key.md
       - name: Auto Unseal в HashiCorp Vault
         href: security/vault-secret.md
       - name: Интеграции федераций удостоверений сервисных аккаунтов
@@ -309,6 +311,8 @@ items:
           Получение статистики запросов к объектам {{ objstorage-name }} с
           использованием {{ yq-name }}
         href: testing/server-logs-yq.md
+      - name: Получение количества запросов к объектам {{ objstorage-name }}
+        href: testing/server-logs.md
       - name: Вызов нагрузочного тестирования из {{ GL }} CI
         href: testing/loadtesting-gitlab-ci.md
       - name: Развертывание {{ GLR }} на виртуальной машине {{ compute-name }}
@@ -319,6 +323,10 @@ items:
         href: infrastructure/index.md
       - name: Архитектура и защита базового интернет-сервиса
         href: routing/web-service.md
+      - name: >-
+          Анализ поресурсной детализации расходов с помощью {{ objstorage-name
+          }}
+        href: infrastructure/billing-resource-detailing.md
       - name: Отказоустойчивость и масштабирование
         items:
           - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
@@ -627,6 +635,8 @@ items:
             href: web/gatsby-static-website.md
           - name: Миграция в {{ cdn-name }} из стороннего CDN-провайдера
             href: web/migrate-to-yc-cdn.md
+          - name: Получение статистики посещения сайта с использованием S3 Select
+            href: web/user-agent-statistics.md
       - name: 1С
         items:
           - name: Интернет-магазин на «1С-Битрикс»
@@ -1105,6 +1115,8 @@ items:
         href: windows/mssql-alwayson-lb.md
       - name: Развертывание Remote Desktop Gateway
         href: windows/rds-gw.md
+      - name: Подключение бакета как диска в Windows
+        href: windows/s3-disk-connect.md
   - name: Архитектура, сетевое взаимодействие
     items:
       - name: Все руководства
@@ -1401,6 +1413,10 @@ items:
             href: ml-ai/archive-from-vision-to-object-storage.md
           - name: Разработка Telegram-бота для распознавания текста и аудио
             href: ml-ai/recognizer-bot.md
+          - name: >-
+              Регулярное асинхронное распознавание аудиофайлов из {{
+              objstorage-name }}
+            href: ml-ai/batch-recognition-stt.md
       - name: >-
           Использование генеративных нейросетей {{ foundation-models-full-name
           }}

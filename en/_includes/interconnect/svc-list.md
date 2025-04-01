@@ -1,4 +1,3 @@
-
 Service name | API Endpoint (FQDN)
 --- | ---
 [{{ objstorage-name }}](../../storage/) | {{ s3-storage-host }}
@@ -11,5 +10,3 @@ Service name | API Endpoint (FQDN)
 [{{ monitoring-full-name }}](../../monitoring/) | {{ api-host-monitoring-1 }}
 {{ yagpt-full-name }} of the [{{ foundation-models-name }}](../../foundation-models/) service | {{ api-host-llm }}
 All-Services | All {{ yandex-cloud }} services listed above
-
-
