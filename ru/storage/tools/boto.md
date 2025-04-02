@@ -58,7 +58,7 @@ description: Из статьи вы узнаете, что такое boto3 и b
   session = boto3.session.Session()
   s3 = session.client(
       service_name='s3',
-      endpoint_url='https://{{ s3-storage-host }}'
+      endpoint_url='https://{{ s3-storage-host }}',
       aws_access_key_id='<идентификатор_статического_ключа>',
       aws_secret_access_key='<секретный_ключ>'
   )
