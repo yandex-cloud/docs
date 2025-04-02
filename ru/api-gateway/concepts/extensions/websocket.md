@@ -121,6 +121,6 @@ description: Чтобы подключиться к API-шлюзу по прот
       service_account_id: ajehfe56h**********
 ```
 
-#### См. также
+## Примеры использования {#examples}
 
-* [Работа с API-шлюзом по протоколу WebSocket](../../tutorials/api-gw-websocket.md).
+* [{#T}](../../tutorials/api-gw-websocket.md)

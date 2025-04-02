@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/get.md
 ---
 
-# Data Proc API, REST: Cluster.Get
+# Yandex Data Processing API, REST: Cluster.Get
 
 Returns the specified cluster.
 
@@ -21,7 +21,7 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Data Proc cluster.
+Required field. ID of the Yandex Data Processing cluster.
 
 To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request. ||
 |#
@@ -84,7 +84,7 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster
 }
 ```
 
-A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
@@ -143,10 +143,10 @@ Cluster status.
 ID of the availability zone where the cluster resides. ||
 || serviceAccountId | **string**
 
-ID of service account for the Data Proc manager agent. ||
+ID of service account for the Yandex Data Processing manager agent. ||
 || bucket | **string**
 
-Object Storage bucket to be used for Data Proc jobs that are run in the cluster. ||
+Object Storage bucket to be used for Yandex Data Processing jobs that are run in the cluster. ||
 || uiProxy | **boolean**
 
 Whether UI Proxy feature is enabled. ||
@@ -174,7 +174,7 @@ Environment of the cluster
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}
 
-Metadata of a monitoring system for a Data Proc cluster.
+Metadata of a monitoring system for a Yandex Data Processing cluster.
 
 #|
 ||Field | Description ||
@@ -199,7 +199,7 @@ Image version for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
 || hadoop | **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
 
-Data Proc specific configuration options. ||
+Yandex Data Processing specific configuration options. ||
 |#
 
 ## HadoopConfig {#yandex.cloud.dataproc.v1.HadoopConfig}

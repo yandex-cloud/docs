@@ -16,7 +16,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
 
-{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
+{% include [translate-instruction-auth](../../_includes/translate/translate-instruction-auth.md) %}
 
 
 ## Указать язык исходного текста {#with-source-language}
@@ -27,7 +27,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```json
     {
@@ -40,7 +40,7 @@ description: Из статьи вы узнаете, как можно повыс
 
     Где:
 
-    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
     * `texts` — текст для перевода в виде списка из строк.
     * `targetLanguageCode` — [язык](../concepts/supported-languages.md), на который переводится текст. Вы можете узнать код языка вместе со [списком поддерживаемых языков](list.md).
     * `sourceLanguageCode` — язык, с которого переводится текст.
@@ -49,7 +49,7 @@ description: Из статьи вы узнаете, как можно повыс
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     В ответе будет перевод с корректно распознанного языка:
 
@@ -68,7 +68,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     {% include [with-glossary-req](../../_untranslatable/translate/with-glossary-req.md) %}
 
@@ -77,13 +77,13 @@ description: Из статьи вы узнаете, как можно повыс
     * `sourceLanguageCode` — [язык](../concepts/supported-languages.md), с которого переводится текст. Вы можете узнать код языка вместе со [списком поддерживаемых языков](list.md).
     * `targetLanguageCode` — язык, на который переводится текст.
     * `texts` — текст для перевода в виде списка из строк.
-    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
 
     Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     В ответе будет перевод с использованием терминов из глоссария:
 
@@ -101,7 +101,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
   ```json
   {
@@ -137,7 +137,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```json
     {
@@ -156,14 +156,14 @@ description: Из статьи вы узнаете, как можно повыс
     * `sourceLanguageCode` — [язык](../concepts/supported-languages.md) оригинала. Вы можете узнать код языка вместе со [списком поддерживаемых языков](list.md).
     * `targetLanguageCode` — целевой язык перевода.
     * `texts` — текст для перевода в виде списка строк.
-    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
     * `speller` — параметр, который включает проверку орфографии.
 
     Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     В ответе будет перевод слова, проверенного на наличие ошибок:
     

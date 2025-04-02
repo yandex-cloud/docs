@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/create.md
 ---
 
-# Data Proc API, REST: Cluster.Create
+# Yandex Data Processing API, REST: Cluster.Create
 
 Creates a cluster in the specified folder.
 
@@ -91,7 +91,7 @@ To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/
 || name | **string**
 
 Name of the cluster. The name must be unique within the folder.
-The name can't be changed after the Data Proc cluster is created. ||
+The name can't be changed after the Yandex Data Processing cluster is created. ||
 || description | **string**
 
 Description of the cluster. ||
@@ -108,10 +108,10 @@ Required field. ID of the availability zone where the cluster should be placed.
 To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
 || serviceAccountId | **string**
 
-Required field. ID of the service account to be used by the Data Proc manager agent. ||
+Required field. ID of the service account to be used by the Yandex Data Processing manager agent. ||
 || bucket | **string**
 
-Name of the Object Storage bucket to use for Data Proc jobs. ||
+Name of the Object Storage bucket to use for Yandex Data Processing jobs. ||
 || uiProxy | **boolean**
 
 Enable UI Proxy feature. ||
@@ -147,7 +147,7 @@ Version of the image for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
 || hadoop | **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
 
-Data Proc specific options. ||
+Yandex Data Processing specific options. ||
 || subclustersSpec[] | **[CreateSubclusterConfigSpec](#yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec)**
 
 Specification for creating subclusters. ||
@@ -217,7 +217,7 @@ Execution timeout ||
 Name of the subcluster. ||
 || role | **enum** (Role)
 
-Required field. Role of the subcluster in the Data Proc cluster.
+Required field. Role of the subcluster in the Yandex Data Processing cluster.
 
 - `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
@@ -230,14 +230,14 @@ Required field. Role of the subcluster in the Data Proc cluster.
 * Spark History Server
 * Zeppelin
 * ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Data Proc cluster.
+- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
 
   DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster.
+- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
 
   COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager
@@ -486,7 +486,7 @@ A list of messages that carry the error details. ||
 
 ## Cluster {#yandex.cloud.dataproc.v1.Cluster}
 
-A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
@@ -545,10 +545,10 @@ Cluster status.
 ID of the availability zone where the cluster resides. ||
 || serviceAccountId | **string**
 
-ID of service account for the Data Proc manager agent. ||
+ID of service account for the Yandex Data Processing manager agent. ||
 || bucket | **string**
 
-Object Storage bucket to be used for Data Proc jobs that are run in the cluster. ||
+Object Storage bucket to be used for Yandex Data Processing jobs that are run in the cluster. ||
 || uiProxy | **boolean**
 
 Whether UI Proxy feature is enabled. ||
@@ -576,7 +576,7 @@ Environment of the cluster
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}
 
-Metadata of a monitoring system for a Data Proc cluster.
+Metadata of a monitoring system for a Yandex Data Processing cluster.
 
 #|
 ||Field | Description ||
@@ -601,7 +601,7 @@ Image version for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
 || hadoop | **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig2)**
 
-Data Proc specific configuration options. ||
+Yandex Data Processing specific configuration options. ||
 |#
 
 ## HadoopConfig {#yandex.cloud.dataproc.v1.HadoopConfig2}

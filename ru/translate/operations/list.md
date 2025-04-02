@@ -9,7 +9,7 @@ description: Из статьи вы узнаете, как получить сп
 
 {% include [curl](../../_includes/curl.md) %}
 
-{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
+{% include [translate-instruction-auth](../../_includes/translate/translate-instruction-auth.md) %}
 
 {% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
 
@@ -19,23 +19,23 @@ description: Из статьи вы узнаете, как получить сп
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```bash
     export FOLDER_ID=<идентификатор_каталога>
-    export IAM_TOKEN=<IAM-токен>
+    export API_KEY=<API-ключ>
     curl \
       --request POST \
       --header "Content-Type: application/json" \
-      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --header "Authorization: Api-Key ${API_KEY}" \
       --data "{\"folderId\": \"${FOLDER_ID}\"}" \
       "https://translate.{{ api-host }}/translate/v2/languages"
     ```
 
     Где:
 
-    * `FOLDER_ID` — идентификатор каталога, полученный [перед началом работы](#before-begin).
-    * `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    * `FOLDER_ID` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
+    * {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     Ответ будет содержать список языков с названиями на соответствующем языке:
 

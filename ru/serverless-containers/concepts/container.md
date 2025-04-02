@@ -60,6 +60,13 @@ _Подготовленный экземпляр_ — это экземпляр 
 * Суммарный объем RAM для всех запущенных экземпляров контейнеров в каждой зоне доступности.	
 * Количество подготовленных экземпляров контейнеров в одном облаке.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/movies-database.md)
+* [{#T}](../tutorials/pg-connect.md)
+* [{#T}](../tutorials/deploy-app-container.md)
+* [{#T}](../tutorials/functions-framework-to-container.md)
+
 #### См. также
 
 * [Создать ревизию контейнера.](../operations/manage-revision.md#create)

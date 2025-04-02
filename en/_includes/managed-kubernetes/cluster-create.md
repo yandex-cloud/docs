@@ -14,7 +14,7 @@
 
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the {{ k8s }} version to be installed on the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master.
-   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** field, select a method for assigning an [IP address](../../vpc/concepts/address.md):
+   * In the **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** field, select an [IP address](../../vpc/concepts/address.md) assignment method:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Not to assign a public IP address.
 
@@ -25,12 +25,10 @@
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** field, select the {{ managed-k8s-name }} master type:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}`: Master created in a [subnet](../../vpc/concepts/network.md#subnet) in one [availability zone](../../overview/concepts/geo-scope.md).
 
-     
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}`: Master created in a distributed manner in three subnets in each availability zone.
    * Select the availability zone to create a {{ managed-k8s-name }} master in.
 
      This step is only available for the {{ managed-k8s-name }} zonal master.
-
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** field, select the [network](../../vpc/concepts/network.md#network) to create a {{ managed-k8s-name }} master in. If there are no networks available, [create one](../../vpc/operations/network-create.md).
 
@@ -38,9 +36,7 @@
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_subnetwork }}** field, select the subnet to create a {{ managed-k8s-name }} master in. If there is no subnet, [create one](../../vpc/operations/subnet-create.md).
 
-     
      For the {{ managed-k8s-name }} regional master, specify a subnet in each availability zone.
-
 
    * Select [security groups](../../vpc/concepts/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
 

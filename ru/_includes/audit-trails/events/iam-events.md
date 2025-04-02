@@ -30,6 +30,8 @@
 `workload.DeleteFederatedCredential` | Удаление привязки из федерации сервисных аккаунтов
 `workload.oidc.CreateFederation` | Создание [федерации сервисных аккаунтов](../../../iam/concepts/workload-identity.md)
 `workload.oidc.DeleteFederation` | Удаление федерации сервисных аккаунтов
+`workload.oidc.SetFederationAccessBindings` | Назначение прав доступа федерации сервисных аккаунтов
 `workload.oidc.UpdateFederation` | Изменение федерации сервисных аккаунтов
+`workload.oidc.UpdateFederationAccessBindings` | Изменение прав доступа федерации сервисных аккаунтов
 
 \* Событие попадает в аудитный лог, только если [область сбора аудитных логов](../../../audit-trails/concepts/trail.md#collecting-area) трейла — `Организация`.

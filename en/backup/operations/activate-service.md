@@ -2,6 +2,8 @@
 
 The minimum [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) role required to activate the service is `backup.editor` (see [its description](../security/index.md#backup-editor) for details).
 
+{% include [agent-send-data](../../_includes/backup/agent-send-data.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

@@ -17,16 +17,16 @@
 1. Run CyberDuck.
 1. Click **Open Connection**.
 1. Select the **Amazon S3** connection type.
-1. Specify the connection parameters:
+1. Specify the connection settings:
     * **Server**: `{{ s3-storage-host }}`.
 
       To connect to a particular bucket, specify `<bucket_name>.{{ s3-storage-host }}` in the **Server** field.
     * **Port**: `443`.
-    * **Access key ID**: ID of the static key you got earlier.
-    * **Secret access key**: Secret key you got earlier.
+    * **Access key ID**: Static key ID [you got previously](#before-you-begin).
+    * **Secret Access Key**: Static key contents [you got previously](#before-you-begin).
 1. Click **Connect**.
 
-Once the connection is established, the bucket you created earlier will open.
+Once the connection is established, the previously created bucket will open.
 
 {% note info %}
 
@@ -34,4 +34,4 @@ CyberDuck treats {{ objstorage-name }} as a hierarchical file system. This means
 
 {% endnote %}
 
-Learn more about using CyberDuck with S3-compatible storages in the [CyberDuck documentation](https://docs.cyberduck.io/protocols/s3/).
+To learn more about how to use CyberDuck with S3-compatible storage, see the [CyberDuck documentation](https://docs.cyberduck.io/protocols/s3/).

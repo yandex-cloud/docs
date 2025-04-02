@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/get.md
 ---
 
-# Data Proc API, REST: Subcluster.Get
+# Yandex Data Processing API, REST: Subcluster.Get
 
 Returns the specified subcluster.
 
@@ -21,7 +21,7 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Data Proc cluster that the subcluster belongs to. ||
+Required field. ID of the Yandex Data Processing cluster that the subcluster belongs to. ||
 || subclusterId | **string**
 
 Required field. ID of the subcluster to return.
@@ -61,7 +61,7 @@ To get a subcluster ID make a [SubclusterService.List](/docs/data-proc/api-ref/S
 }
 ```
 
-A Data Proc subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
@@ -70,7 +70,7 @@ A Data Proc subcluster. For details about the concept, see [documentation](/docs
 ID of the subcluster. Generated at creation time. ||
 || clusterId | **string**
 
-ID of the Data Proc cluster that the subcluster belongs to. ||
+ID of the Yandex Data Processing cluster that the subcluster belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -99,14 +99,14 @@ Role that is fulfilled by hosts of the subcluster.
 * Spark History Server
 * Zeppelin
 * ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Data Proc cluster.
+- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
 
   DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster.
+- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
 
   COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager

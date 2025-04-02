@@ -1,6 +1,5 @@
 ## Quotas {#compute-quotas}
 
-
 ### Quotas for instances and instance groups {#vm-quotas}
 
 #|
@@ -91,7 +90,6 @@ Type of limit | Value
 --- | ---
 Number of concurrent [operations](../api-design-guide/concepts/operation.md) per [folder](../resource-manager/concepts/resources-hierarchy.md#folder) | 15
 
-
 ^1^ To increase [quotas]({{ link-console-quotas }}) for file storages, deployment-optimized images, or dedicated hosts, contact [support]({{ link-console-support }}).
 
 ## Limits {#compute-limits}
@@ -101,7 +99,6 @@ Number of concurrent [operations](../api-design-guide/concepts/operation.md) per
 Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 {% list tabs group=platforms %}
-
 
 - Intel Broadwell {#broadwell}
 
@@ -125,17 +122,15 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
   Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
 
-
 - Intel Ice Lake {#ice}
 
   Type of limit | Value
   --- | ---
   Maximum number of vCPUs per VM | 96
   Maximum virtual memory per VM | 640 GB
-  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 32 vCPUs: 8<br>More than 32 vCPUs: 16^3^
+  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 32 vCPUs: 8<br>More than> 32 vCPUs: 16^3^
   Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
   Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
-
 
 - Intel Ice Lake (Compute Optimized) {#optimized}
 
@@ -143,10 +138,9 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   --- | ---
   Maximum number of vCPUs per VM | 56
   Maximum virtual memory per VM | 448 GB
-  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 32 vCPUs: 8<br>More than 32 vCPUs: 16^3^
+  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 32 vCPUs: 8<br>More than> 32 vCPUs: 16^3^
   Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
   Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
-
 
 {% endlist %}
 
@@ -260,7 +254,6 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 {% endlist %}
 
-
 {% list tabs group=storages %}
 
 - SSD storage {#ssd}
@@ -282,7 +275,6 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
   Maximum size of file in storage | 300 GB
 
 {% endlist %}
-
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. For more information, see [{#T}](../compute/concepts/storage-read-write.md).
 

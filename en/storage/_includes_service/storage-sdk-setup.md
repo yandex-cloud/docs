@@ -12,7 +12,7 @@
     mkdir C:\Users\<username>\.aws\
     ```
 
-1. In the `.aws` directory, create a file named `credentials` with credentials for {{ objstorage-name }} and copy the following data into it:
+1. In the `.aws` directory, create a file named `credentials`, copy the credentials you [got earlier](#before-you-begin), and paste them into it:
 
     ```text
     [default]

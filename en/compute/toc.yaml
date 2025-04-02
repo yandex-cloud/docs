@@ -495,7 +495,7 @@ items:
         href: tutorials/ha-regional-glusterfs.md
       - name: Deploying GlusterFS in high performance mode
         href: tutorials/ha-regional-glusterfs-high-performance.md
-      - name: Backup to {{ objstorage-name }} via Bacula
+      - name: Backing up to {{ objstorage-name }} via Bacula
         href: tutorials/backup-with-bacula.md
       - name: Creating an L7 load balancer with DDoS protection
         items:
@@ -519,17 +519,20 @@ items:
         href: tutorials/gre-over-ipsec.md
       - name: Creating a bastion host
         href: tutorials/bastion.md
-      - name: Implementing fault-tolerant use cases for network VMs
+      - name: Implementing fault-tolerant scenarios for NAT VMs
         href: tutorials/route-switcher.md
       - name: Creating a tunnel between two subnets using OpenVPN Access Server
         href: tutorials/site-to-site-openvpn.md
+      - name: ViPNet Coordinator in {{ yandex-cloud }}
+        href: tutorials/vipnet-to-yc.md
+        hidden: true
       - name: '{{ coi }}'
         items:
-          - name: Creating a VM with {{ coi }} support
+          - name: Creating a VM from a {{ coi }}
             href: tutorials/vm-create.md
           - name: >-
-              Creating a VM from a {{ coi }} with additional volume for a Docker
-              container
+              Creating a VM from a {{ coi }} with an additional volume for a
+              Docker container
             href: tutorials/vm-create-with-second-disk.md
           - name: Creating a VM from a {{ coi }} with multiple Docker containers
             href: tutorials/docker-compose.md
@@ -539,7 +542,7 @@ items:
               Creating an instance group from a {{ coi }} with multiple Docker
               containers
             href: tutorials/ig-with-containers.md
-          - name: Updating a VM with a {{ coi }}
+          - name: Updating a {{ coi }} VM
             href: tutorials/vm-update.md
           - name: >-
               Creating a VM and an instance group with a {{ coi }} using {{ TF
@@ -547,7 +550,7 @@ items:
             href: tutorials/coi-with-terraform.md
       - name: Microsoft products in {{ yandex-cloud }}
         items:
-          - name: Secure password transmission to an initialization script
+          - name: Deploying Active Directory
             href: tutorials/secure-password-script.md
           - name: Deploying Active Directory
             href: tutorials/active-directory.md
@@ -1143,7 +1146,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

@@ -1,7 +1,3 @@
----
-title: How to create a VM from a custom image
-description: Follow this guide to create a VM from a custom image.
----
 
 # Creating a VM from a custom image
 
@@ -21,7 +17,7 @@ Make sure the image you upload has the `READY` status.
 
 
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your VM.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** from the list of services.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.

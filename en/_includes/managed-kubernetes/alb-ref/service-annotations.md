@@ -28,7 +28,9 @@ You can provide the following annotations for a `ObjectMeta` object:
 
   Parameters for configuring custom application health checks in a cluster.
 
-  * `http-path`: Path to the application's health check endpoint in the request URI. The default value is `/healthz`.
+  * `http-path`: Path to the application endpoint in the request URI for health checks (only for `http` or `http2` connections to backends). The default value is `/healthz`.
+
+  * `grpc-service-name`: Application gRPC service name for health checks (only for `grpc` connections to backends). If not specified, the entire backend will be health-checked.
 
   * `port`: Port on the cluster nodes used to check the application's availability. The application will be available for health checks at `http://<node_IP_address>:<port>/<path>`.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/ResourcePreset/list.md
 ---
 
-# Data Proc API, gRPC: ResourcePresetService.List
+# Yandex Data Processing API, gRPC: ResourcePresetService.List
 
 Retrieves the list of available ResourcePreset resources.
 
@@ -78,8 +78,8 @@ ID of the ResourcePreset resource. ||
 IDs of availability zones where the resource preset is available. ||
 || cores | **int64**
 
-Number of CPU cores for a Data Proc host created with the preset. ||
+Number of CPU cores for a Yandex Data Processing host created with the preset. ||
 || memory | **int64**
 
-RAM volume for a Data Proc host created with the preset, in bytes. ||
+RAM volume for a Yandex Data Processing host created with the preset, in bytes. ||
 |#

@@ -6,7 +6,7 @@ items:
     href: quickstart.md
   - name: Concepts
     href: concepts/index.md
-  - name: Quotas and limits
+  - name: Quotas
     href: concepts/limits.md
   - name: Access management
     href: security/index.md

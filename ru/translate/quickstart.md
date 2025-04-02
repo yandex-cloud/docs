@@ -14,15 +14,13 @@
 
 1. На странице [**Биллинг**]({{ link-console-billing }}) убедитесь, что [платежный аккаунт](../billing/concepts/billing-account.md) находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 
-1. Получите данные вашего аккаунта для авторизации:
-
-    {% include [user-auth](../_includes/translate/user-auth.md) %}
+1. {% include [translate-instruction-auth](../_includes/translate/translate-instruction-auth.md) %}
 
 ## Перевести текст {#translate-text}
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     {% include [translate](../_includes/translate/translate-bash.md) %}
 

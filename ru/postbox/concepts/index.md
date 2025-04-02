@@ -25,6 +25,10 @@ description: '{{ postbox-full-name }} — облачная платформа д
 * Автоматически реагировать на определенные письма, используя [{{ sf-full-name }}](../../functions/).
 * [Публиковать](../tutorials/events-from-postbox-to-yds.md) события отправки писем в поток [{{ yds-full-name }}](../../data-streams/) и анализировать их с помощью [{{ datalens-full-name }}](../../datalens/).
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/events-from-postbox-to-yds.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../quickstart.md)

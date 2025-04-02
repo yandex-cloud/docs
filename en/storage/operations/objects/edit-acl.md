@@ -146,6 +146,9 @@ If your object already has a configured [ACL](../../concepts/acl.md), it will be
 
      Where:
      * `access_key`: Static access key ID.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key`: Secret access key value.
      * `acl`: Object's [predefined ACL](../../../storage/concepts/acl.md#predefined-acls). The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 

@@ -17,7 +17,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
    client = openai.OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1/chat/completions"
+      base_url="https://llm.api.cloud.yandex.net/v1"
    )
    ```
 
@@ -28,7 +28,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
    const openai = new OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1/chat/completions");
+      base_url="https://llm.api.cloud.yandex.net/v1");
    ```
 
 {% endlist %}
@@ -51,7 +51,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
    client = openai.OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1/chat/completions"
+      base_url="https://llm.api.cloud.yandex.net/v1"
    )
 
    response = client.chat.completions.create(
@@ -77,7 +77,7 @@ API генерации текста сервиса {{ foundation-models-name }} 
 
    const openai = new OpenAI(
       api_key="<значение_API-ключа>",
-      base_url="https://llm.api.cloud.yandex.net/v1/chat/completions");
+      base_url="https://llm.api.cloud.yandex.net/v1");
 
    async function main() {
      const completion = await openai.chat.completions.create({

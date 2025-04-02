@@ -8,14 +8,14 @@
 
 Compared to goofys and [s3fs](s3fs.md), GeeseFS handles large amounts of small files (up to 1 MB) much faster and achieves similar or higher performance with large files. For more information about benchmark tests, see the [GeeseFS repository on GitHub](https://github.com/yandex-cloud/geesefs/tree/master/bench).
 
-To run faster, GeeseFS implements:
+To make GeeseFS run faster, it implements:
 
 * Parallel readahead.
-* Heuristic readahead for random access: if the size of multiple blocks requested in a row is below the threshold, GeeseFS downloads smaller blocks from the storage for upcoming requests.
-* Parallel [multipart uploads](../concepts/multipart.md) of objects to the storage.
+* Heuristic readahead for random access: if the size of multiple blocks requested in a row is below the threshold, GeeseFS downloads smaller blocks from storage for upcoming requests.
+* Parallel [multipart uploads](../concepts/multipart.md) of objects to storage.
 * Optimized object updates: the client and repository only exchange modified object parts.
-* Background uploads of small object trees and [directories](../concepts/object.md#folder): when a directory is requested, GeeseFS downloads the whole tree per request to the storage.
-* Asynchronous object write, rename, and delete operations.
+* Background uploads of small object trees and [directories](../concepts/object.md#folder): when a directory is requested, GeeseFS downloads the whole tree per request to storage.
+* Asynchronous object write, rename, and delete.
 * Disk cache for reads and writes.
 
 ### POSIX compatibility {#posix-compatibility}
@@ -25,21 +25,21 @@ In addition to the basic functions of the POSIX standards (`open`, `read`, `writ
 * Read-after-write consistency.
 * Partial writes (please note that partial writes in buckets with [versioning](../concepts/versioning.md) may result in intermediate object versions).
 * `fsync`: Synchronization of the contents of an object or directory between the VM memory and storage.
-* `truncate`: Changing object size arbitrarily.
+* `truncate`: Changing object size at will.
 * Soft links (symlinks).
 * `xattr`: Extended file attributes.
 * Directory renames.
 * `readdir`: Reads of directory metadata.
 
-### Partial updating and appending of object data {#patch}
+### Partial updating and appending of objects data {#patch}
 
-GeeseFS supports [partial updating and appending of object data](../concepts/object-patch.md) in {{ objstorage-name }} buckets.
+GeeseFS supports [partial updating and appending of objects data](../concepts/object-patch.md) to {{ objstorage-name }} buckets.
 
 To enable partial object updates, use the `--enable-patch` option.
 
-Learn more in the GeeseFS repository on GitHub:
-* [Partial object updates](https://github.com/yandex-cloud/geesefs#partial-object-updates-patch): Description of partial updating and appending of object data.
-* [Concurrent Updates](https://github.com/yandex-cloud/geesefs#concurrent-patch): Description of a partial object update using multiple concurrent requests.
+To learn more, see the GeeseFS repository on GitHub:
+* [Partial object updates](https://github.com/yandex-cloud/geesefs#partial-object-updates-patch): Description of partial updating and appending of objects data.
+* [Concurrent Updates](https://github.com/yandex-cloud/geesefs#concurrent-patch): Description of how an object can be partially updated by multiple concurrent requests.
 
 ### Limitations {#restrictions}
 
@@ -78,33 +78,54 @@ GeeseFS does not support the following:
 
 {% list tabs group=operating_system %}
 
-- Linux {#linux}
+- Debian/Ubuntu {#ubuntu}
 
-  1. Install the utilities required by FUSE. For example:
+  1. Make sure the FUSE utilities are installed in the distribution:
 
-     * Debian, Ubuntu:
+     ```bash
+     apt list --installed | grep fuse
+     ```
 
-       ```bash
-       sudo apt-get install fuse
-       ```
+     {% include [fuse-warning](../../_includes/storage/fuse-warning.md) %}
 
-     * CentOS:
+  1. If the FUSE utilities are not installed, run this command:
 
-       ```bash
-       sudo yum install fuse
-       ```
+     ```bash
+     sudo apt-get install fuse
+     ```
 
   1. Download and install GeeseFS:
 
+     {% include [geesefs-install-linux](../../_includes/storage/geesefs-install-linux.md) %}
+
+- CentOS {#centos}
+
+  1. Make sure the FUSE utilities are installed in the distribution:
+
      ```bash
-     wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-amd64
-     chmod a+x geesefs-linux-amd64
-     sudo cp geesefs-linux-amd64 /usr/bin/geesefs
+     yum list installed | grep fuse
      ```
+
+     {% include [fuse-warning](../../_includes/storage/fuse-warning.md) %}
+
+  1. If the FUSE utilities are not installed, run this command:
+
+     ```bash
+     sudo yum install fuse
+     ```
+
+  1. Download and install GeeseFS:
+
+     {% include [geesefs-install-linux](../../_includes/storage/geesefs-install-linux.md) %}
 
 - macOS {#macos}
 
-  1. Install the [macFUSE](https://osxfuse.github.io/) package. For more information, see the [installation guide](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) in the macFUSE repository on GitHub.
+  1. Install the [macFUSE](https://osxfuse.github.io/) package.
+  1. [Enable](https://github.com/macfuse/macfuse/wiki/Getting-Started#enabling-support-for-third-party-kernel-extensions-apple-silicon-macs) support for third-party core extensions. This step is only required the first time you use MacFUSE on an Apple Silicon Mac.
+  1. [Allow](https://github.com/macfuse/macfuse/wiki/Getting-Started#allow-the-macfuse-kernel-extension-to-load-apple-silicon-and-intel-macs) loading the MacFUSE core extension (Apple Silicon and Intel Mac).
+
+      For more information on installing macFUSE, see [this installation guide](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) in the macFUSE GitHub repository.
+
   1. Download and install GeeseFS:
 
      ```bash
@@ -112,7 +133,7 @@ GeeseFS does not support the following:
      if [[ $(uname -m) == 'x86_64' ]]; then platform='amd64'; fi
      wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-mac-$platform
      chmod a+x geesefs-mac-$platform
-     sudo cp geesefs-mac-$platform /usr/bin/geesefs
+     sudo cp geesefs-mac-$platform /usr/local/bin/geesefs
      ```
 
 - Windows {#windows}
@@ -127,12 +148,12 @@ GeeseFS does not support the following:
 
 {% endlist %}
 
-You can also build GeeseFS yourself using its source code. For more information, see [this guide](https://github.com/yandex-cloud/geesefs#installation) in the GeeseFS repository on GitHub.
+You can also build GeeseFS yourself using its source code. For more information, see the [guide](https://github.com/yandex-cloud/geesefs#installation) in the GeeseFS repository on GitHub.
 
 ## Authentication {#authentication}
 
 
-GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.md) for {{ objstorage-name }}. You can set it using one of the following methods:
+GeeseFS uses the static access key to {{ objstorage-name }} you [got earlier](#before-you-begin). You can set it using one of the following methods:
 
 {% list tabs group=operating_system %}
 
@@ -140,11 +161,19 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
 
   * Using the `credentials` [file](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html), which you need to put into the `~/.aws/` folder:
 
-    ```text
-    [default]
-    aws_access_key_id = <key_ID>
-    aws_secret_access_key = <secret_key>
-    ```
+      1. Create a directory:
+
+          ```bash
+          mkdir ~/.aws
+          ```
+
+      1. Create a file named `credentials` with the following contents:
+
+          ```text
+          [default]
+          aws_access_key_id = <key_ID>
+          aws_secret_access_key = <secret_key>
+          ```
 
     If the key file is located elsewhere, specify its path in the `--shared-config` parameter when mounting the bucket:
 
@@ -165,7 +194,7 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
 
   {% note info %}
 
-  You can run the `geesefs` command with superuser privileges (`sudo`). In this case, make sure to send information about the key either in the `--shared-config` parameter or using environment variables.
+  You can run the `geesefs` command with superuser privileges (`sudo`). In which case make sure to send information about the key either in the `--shared-config` parameter or using environment variables.
 
   {% endnote %}
 
@@ -189,7 +218,7 @@ GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.m
 
     The key file must have the same structure as `~/.aws/credentials`.
 
-    Specify a non-existing folder as the mount point.
+    Specify an existing folder as the mount point.
 
   * Using environment variables:
 
@@ -204,45 +233,155 @@ When using GeeseFS on a {{ compute-name }} VM that has a [linked service account
 
 ## Mounting a bucket {#bucket-mounting}
 
-Select the folder or disk where you want to mount the bucket. Make sure you have sufficient permissions to perform this operation.
+Select the folder or disk where you want to mount the bucket. Make sure you have sufficient rights to perform this operation.
 
-When mounting a bucket, you can also configure GeeseFS settings related to system [performance](#performance) and object access permissions. To view the list of options and their descriptions, run `geesefs --help`.
+When mounting a bucket, you can also configure GeeseFS settings related to system [performance](#performance) and object access rights. To view the list of options and their descriptions, run `geesefs --help`.
 
-* For one-time bucket mounting, run the following command:
-
-    1. Make sure the `.aws/credentials` file contains the up-to-date static key data.
-
-    1. Run this command:
-
-        ```bash
-        geesefs <bucket_name> <mount_point>
-        ```
-
-        Specify a non-existing folder as the mount point.
-
-* To automatically mount a bucket at system startup:
+* For one-time bucket mounting:
 
   {% list tabs group=operating_system %}
 
   - Linux/macOS {#linux-macos}
 
-    1. Add the following line to the `/etc/fuse.conf` file:
+    1. Make sure the `.aws/credentials` file contains the up-to-date static key data or provide the path to it in the `--shared-config` parameter.
+
+    1. Create a folder for mounting:
+
+        ```bash
+        mkdir <mount_point>
+        ```
+
+    1. Mount the bucket:
+
+        ```bash
+        geesefs <bucket_name> <mount_point>
+        ```
+
+        You should specify an existing folder as the mount point.
+
+  - Windows {#windows}
+
+    1. Make sure the `.aws/credentials` file contains the up-to-date static key data or provide the path to it in the `--shared-config` parameter.
+
+    1. Mount the bucket:
+
+        ```bash
+        geesefs <bucket_name> <mount_point>
+        ```
+
+        As the mount point, specify the name of the new folder that will be created when you mount the bucket. You cannot specify the name of an existing folder.
+
+  {% endlist %}
+
+* To automatically mount a bucket at system startup:
+
+  {% list tabs group=operating_system %}
+
+  - macOS {#macos}
+
+    1. Create a folder for automatic mounting:
+
+        ```bash
+        mkdir <mount_point>
+        ```
+
+    1. Create a file named `com.geesefs.automount.plist` with the autorun agent configuration:
+
+        ```bash
+        nano /Users/<username>/Library/LaunchAgents/com.geesefs.automount.plist
+        ```
+
+    1. Set the agent configuration by specifying the name of the bucket and the absolute path to the mount point:
+
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+            <key>Label</key>
+            <string>com.geesefs.automount</string>
+            <key>ProgramArguments</key>
+            <array>
+                <string>/usr/local/bin/geesefs</string>
+                <string><bucket_name></string>
+                <string><absolute_path_to_mount_point></string>
+            </array>
+            <key>RunAtLoad</key>
+            <true/>
+            <key>KeepAlive</key>
+            <dict>
+                <key>NetworkState</key>
+                <true/>
+            </dict>
+        </dict>
+        </plist>
+        ```
+
+        {% note info %}
+
+        Specify an existing empty folder as the mount point.
+
+        For the bucket to be mounted correctly, provide the full absolute path to the mount point and to the key file without `~`. e.g., `/home/user/`.
+
+        {% endnote %}
+
+    1. Enable the agent you created:
+
+        ```bash
+        launchctl load /Users/<username>/Library/LaunchAgents/com.geesefs.automount.plist
+        ```
+
+    1. Reboot and check that the bucket has been mounted to the specified folder.
+
+    To disable agent autorun, use this command:
+
+    ```bash
+    launchctl unload /Users/<username>/Library/LaunchAgents/com.geesefs.automount.plist
+    ```
+
+  - Linux {#linux}
+
+    1. Create a folder for automatic mounting:
+    
+        ```bash
+        mkdir <mount_point>
+        ```
+
+    1. Open the `/etc/fuse.conf` file:
+
+        ```bash
+        sudo nano /etc/fuse.conf
+        ```
+
+    1. Add the following line to it:
 
         ```text
         user_allow_other
         ```
 
+    1.  Open the `/etc/fstab` file:
+
+        ```bash
+        sudo nano /etc/fstab
+        ```
+
     1. Add the following line to the `/etc/fstab` file:
 
         ```text
-        <bucket_name>    <mount_point>    fuse.geesefs    _netdev,allow_other,--file-mode=0666,--dir-mode=0777    0   0
+        <bucket_name>    /home/<username>/<mount_point>    fuse.geesefs    _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--shared-config=/home/<username>/.aws/credentials    0   0
         ```
 
-    {% note info %}
+        If you had created the `.aws/credentials` file for the `root` user, you do not need to specify the `--shared-config` parameter.
 
-    To ensure that the bucket is mounted correctly, provide the full absolute path to the mount point without `~`, e.g., `/home/user/mountpoint`.
+        {% note info %}
 
-    {% endnote %}
+        For the bucket to be mounted correctly, provide the full absolute path to the mount point and to the key file without `~`, e.g., `/home/user/`.
+
+        {% endnote %}
+
+    1. Reboot and check that the bucket has been mounted to the specified folder.
+
+    To disable automounting, remove the line with the bucket name from the `/etc/fstab` file.
 
   - Windows {#windows}
 
@@ -259,7 +398,7 @@ When mounting a bucket, you can also configure GeeseFS settings related to syste
           start=auto
         ```
 
-        Where `binPath` is the path to the `geesefs.exe` file with the required mounting parameters. Here is an example: `C:\geesefs\geesefs.exe <bucket_name> <mount_point>`.
+        Where `binPath` is the path to the `geesefs.exe` file with the required mounting parameters. Here is an example: `C:\geesefs\geesefs.exe <bucket_name> <mount_point>`. As the mount point, specify the name of the new folder that will be created when you mount the bucket. You cannot specify the name of an existing folder.
 
         Result:
 

@@ -35,3 +35,7 @@ paths:
           '*': "This pet store is protected by SWS!"
         http_code: 200
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/api-gw-sws-integration.md)

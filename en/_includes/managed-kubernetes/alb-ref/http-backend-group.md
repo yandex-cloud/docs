@@ -121,7 +121,7 @@ Where:
       
       * `trustedCa` (`string`)
       
-        Contents of the X.509 certificate issued by a certificate authority in PEM format.
+        Contents of the X.509 certificate issued by a certificate authority in PEM format.  
 
     * `healthChecks` (`[]HealthChecks`)
 
@@ -171,13 +171,13 @@ Where:
 
       * `balancerMode` (`string`)
 
-        Mode of traffic distribution between the backend endpoints. Possible values: `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, and `MAGLEV_HASH`. [Learn more about each mode](../../../application-load-balancer/concepts/backend-group.md#balancing-mode).
+        Mode for distributing traffic across backend endpoints. Possible values: `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, and `MAGLEV_HASH`. [Learn more about each mode](../../../application-load-balancer/concepts/backend-group.md#balancing-mode).
 
       * `panicThreshold` (`int64`)
 
         Percentage of healthy endpoints. If it falls below the specified value, the [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode) will be activated.
 
-        The default value is `0`, which never activates the panic mode.
+        The default value is `0`, which means the panic mode will never be activated.
 
       * `localityAwareRouting` (`int64`)
 

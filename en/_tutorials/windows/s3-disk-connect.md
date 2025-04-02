@@ -11,7 +11,7 @@ This section describes how to connect a bucket in Windows. When connecting in ot
 To mount your bucket as a disk:
 
 1. [Get your cloud ready](#before-begin).
-1. [Set up your working environment](#environment-prepare).
+1. [Set up the runtime environment](#environment-prepare).
 1. [Create a service account](#create-sa).
 1. [Create a static access key](#create-static-key).
 1. [Create a bucket](#bucket-create).
@@ -30,11 +30,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost for bucket support includes:
 
-* Fee for storing data in a bucket (see [{{ objstorage-name }}](../../storage/pricing.md#prices-storage) pricing).
-* Fee for operations with data (see [{{ objstorage-name }}](../../storage/pricing.md#prices-operations) pricing).
+* Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
+* Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
 
 
-## Set up your working environment {#environment-prepare}
+## Set up the runtime environment {#environment-prepare}
 
 1. Download and install the [winfsp distribution](https://winfsp.dev/rel/) from the developer website.
 1. Download the [archive with sysinternals suite utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/) from the developer's website and unpack it to your local working folder.
@@ -51,7 +51,7 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-win-disk-connect`.
   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` role.
@@ -63,7 +63,7 @@ The cost for bucket support includes:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Create a service account named `sa-win-disk-connect`:
+  1. Create a service account named `sa-win-disk-connect`:
 
   ```bash
   yc iam service-account create --name sa-win-disk-connect
@@ -75,11 +75,27 @@ The cost for bucket support includes:
 
   For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
+  1. Assign the `storage.editor` role to the service account:
+
+  ```bash
+  yc resource-manager folder add-access-binding <folder_ID> \
+    --role storage.editor \
+    --subject serviceAccount:<service_account_ID>
+  ```
+  
+  For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/folder/add-access-binding).
+
 - API {#api}
 
-  To create the service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
+  1. To create the service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource.
+
+  1. [Assign](../../organization/operations/add-role) the `storage.editor` role to the service account.
   
 {% endlist %}
+
+
+{% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
+
 
 ## Create a static access key {#create-static-key}
 
@@ -89,7 +105,7 @@ The cost for bucket support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-win-disk-connect` service account.
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
@@ -126,14 +142,18 @@ The cost for bucket support includes:
 
 {% endlist %}
 
+
+{% include [get-static-key-info](../../_includes/storage/get-static-key-result.md) %}
+
+
 ## Create a bucket {#bucket-create}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a bucket in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket consistent with the [naming conventions](../../storage/concepts/bucket.md#naming):
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -161,7 +181,7 @@ The cost for bucket support includes:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Describe the parameters for creating a service account and access key in the configuration file:
+  1. Describe the properties for creating a service account and access key in the configuration file:
 
      {% include [terraform-sa-key](../../_includes/storage/terraform-sa-key.md) %}
 
@@ -196,7 +216,7 @@ The cost for bucket support includes:
         terraform apply
         ```
 
-     1. Confirm resource creation by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -226,8 +246,8 @@ The cost for bucket support includes:
    1. Select the storage type by entering `4` in the terminal.
    1. Select a provider by entering `1` in the terminal.
    1. Select manual entry of credentials by entering `1` in the terminal.
-   1. Enter the secret key ID in the terminal.
-   1. Enter the secret key value in the terminal.
+   1. In the terminal, enter the secret key ID you [got previously](#create-static-key).
+   1. In the terminal, enter the secret key value you [got previously](#create-static-key).
    1. Specify the region by entering `{{ region-id }}` in the terminal.
    1. Specify the endpoint by entering `{{ s3-storage-host }}` in the terminal.
    1. You can leave all other settings at their defaults by pressing **Enter** to skip them.
@@ -293,7 +313,7 @@ To mount the bucket at your desktop startup, set up mounting on behalf of the sy
 1. Open the Windows services panel and make sure `rclone-s3-disk` is listed:
 
    1. Press **Win**+**R**.
-   1. In the window that opens, enter `services.msc` and click **ОК**.
+   1. In the window that opens, enter `services.msc` and click **OK**.
    1. In the list of services, find `rclone-s3-disk`.
    
 1. Reboot your desktop and check that the disk is available.

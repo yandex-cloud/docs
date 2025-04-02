@@ -1,6 +1,6 @@
 ---
 title: FAQ about {{ baremetal-full-name }}
-description: This page covers FAQs about {{ baremetal-name }}.
+description: This page covers FAQ about {{ baremetal-name }}.
 ---
 
 # FAQ about {{ baremetal-name }}
@@ -20,3 +20,7 @@ If rebooting the WMS did not help, contact [support]({{ link-console-support }})
 If there is a disk failure on the server, contact support and request a replacement. If the defective disk was a part of a RAID array, you need to add a new disk to this array.
 
 For more information, see the [disk replacement guide](../operations/servers/switch-raid-member.md#add-to-raid).
+
+## Can I copy text from a local machine to the KVM console?
+
+Yes, you can. In the top-right part of the KVM console window, paste the text into the `Past text here` field. The text will appear immediately in the server command line.

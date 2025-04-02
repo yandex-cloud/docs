@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/listOperations.md
 ---
 
-# Data Proc API, REST: Cluster.ListOperations
+# Yandex Data Processing API, REST: Cluster.ListOperations
 
 Lists operations for the specified cluster.
 

@@ -3,7 +3,7 @@
 
 В этом руководстве вы настроите мониторинг состояния устройств (например, вендинговых автоматов), подключенных к сервису [{{ iot-full-name }}](../../iot-core/index.yaml) и расположенных в разных точках города. Вы сможете наблюдать за состоянием автоматов на карте и графиках сервиса [{{ datalens-full-name }}](../../datalens/index.yaml). Датчики будут эмулированы с помощью сервиса [{{ sf-full-name }}](../../functions/index.yaml). Если у вас есть подключенные датчики, используйте их. Для хранения данных будет использован сервис [{{ mpg-full-name }}](../../managed-postgresql/index.yaml).
 
-Исходный код руководства доступен в репозитории на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios).
+Исходный код руководства доступен в репозитории на [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring).
 
 Чтобы настроить мониторинг показаний датчиков:
 1. [Подготовьте облако к работе](#configure-cloud).

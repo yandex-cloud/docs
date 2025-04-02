@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/ResourcePreset/index.md
 ---
 
-# Data Proc API, gRPC: ResourcePresetService
+# Yandex Data Processing API, gRPC: ResourcePresetService
 
 A set of methods for managing ResourcePreset resources.
 

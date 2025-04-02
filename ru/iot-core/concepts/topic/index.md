@@ -16,3 +16,11 @@ _Перманентный топик_ — это топик, в котором �
 * [{#T}](./registries-topic.md)
 * [{#T}](./subtopic.md)
 * [{#T}](./usage.md)
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/data-recording.md)
+* [{#T}](../../tutorials/datalens.md)
+* [{#T}](../../tutorials/message-delivery-check.md)
+* [{#T}](../../tutorials/monitoring.md)
+* [{#T}](../../tutorials/mosquitto/mosquitto-publish.md)

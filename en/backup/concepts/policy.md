@@ -12,8 +12,11 @@ By default, VMs and {{ baremetal-full-name }} servers in {{ backup-name }} are n
 
 The backup policy specifies:
 
-* Backup frequency: By hour, day, week, or month. All times are now [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+* Backup frequency: By hour, day, week, or month. All times are [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 * Backup type: Full or incremental. For more information, see [{#T}](backup.md#types).
+
+  {% include [av-note](../../_includes/backup/av-note.md) %}
+
 * Settings for [storing backups](#retention).
 
 {% include [policy-execute-time](../../_includes/backup/policy-execute-time.md) %}

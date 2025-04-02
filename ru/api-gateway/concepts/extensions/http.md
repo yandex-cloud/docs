@@ -114,3 +114,7 @@ paths:
         schema:
           type: string
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/jwt-authorizer-firebase.md)

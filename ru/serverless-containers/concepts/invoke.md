@@ -83,3 +83,9 @@ description: Вы можете вызвать контейнер с помощь
 ## Расширение {{ api-gw-full-name }} {#extension}
 
 При вызове контейнера с помощью расширения {{ api-gw-name }} в контейнер передается HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост контейнера. IP-адрес источника запроса передается так же, как и при [вызове контейнера через HTTPS](#ip). Подробнее о расширении в [документации {{ api-gw-full-name }}](../../api-gateway/concepts/extensions/containers.md).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/movies-database.md)
+* [{#T}](../tutorials/pg-connect.md)
+* [{#T}](../tutorials/functions-framework-to-container.md)

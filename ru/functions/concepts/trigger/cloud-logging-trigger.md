@@ -21,6 +21,11 @@
 
 {% include [logging-format](../../../_includes/functions/logging-format.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/logging-functions.md)
+* [{#T}](../../tutorials/logging.md)
+
 ## См. также {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md)

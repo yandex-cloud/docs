@@ -87,6 +87,12 @@ items:
             href: operations/dictionary/add.md
           - name: Удалить словарь
             href: operations/dictionary/delete.md
+      - name: Внешние интеграции
+        items:
+          - name: >-
+              Создание подключения к {{ speechsense-name }} из {{
+              datalens-short-name }}
+            href: operations/external_integrations/create-datalens-connection.md
   - name: Практические руководства
     items:
       - name: Все руководства

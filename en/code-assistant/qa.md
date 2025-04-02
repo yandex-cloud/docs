@@ -1,11 +1,21 @@
 ---
 title: FAQ about {{ ca-full-name }}
-description: This page addresses the FAQs about {{ ca-name }}.
+description: This page covers FAQ about {{ ca-name }}.
 ---
 
 # FAQ about {{ ca-full-name }}
 
 ## General questions about {#common-questions}
+
+### What is the current name of the service? {#rebranding}
+
+The service is now part of [{{ src-full-name }}]({{ link-src-main }}). Therefore, the full name of **Yandex Code Assistant** has been changed to **{{ ca-full-name }}**. However, its current features are still the same.
+
+{{ ca-name }} is now also available in the built-in {{ src-name }} code editor.
+
+### Does the service have any usage limitations? {#limits}
+
+To learn more about limitations, see [{#T}](./concepts/limits.md).
 
 ### Which IDE versions are supported? {#ide-versions}
 

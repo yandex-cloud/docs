@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Subcluster/delete.md
 ---
 
-# Data Proc API, gRPC: SubclusterService.Delete
+# Yandex Data Processing API, gRPC: SubclusterService.Delete
 
 Deletes the specified subcluster.
 

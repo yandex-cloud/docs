@@ -1,0 +1,5 @@
+Updating the Linux [kernel](https://en.wikipedia.org/wiki/Linux_kernel) on a VM or {{ baremetal-name }} server connected to {{ backup-name }} may affect the performance of the {{ backup-name }} agent: it will not be able to create a backup of the VM/server or recover the VM/server from a backup.
+
+This may affect the agent’s performance, since the SnapAPI module (developed by the [backup provider](../../../backup/concepts/index.md#providers) for the agent to work with disks and built by the [DKMS framework](https://en.wikipedia.org/wiki/Dynamic_Kernel_Module_Support) for a specific Linux kernel) may not update after updating the kernel and may therefore cease to match the kernel version. 
+
+To restore the {{ backup-name }} agent’s performance affected by a Linux kernel update, you need to update the version of the Linux kernel headers DKMS refers to when building the SnapAPI module. Once the kernel header version matches the kernel version, DKMS will rebuild the SnapAPI module for the required Linux kernel version at the next start of the VM or {{ baremetal-name }} server.
