@@ -102,6 +102,9 @@ For example, if your service enables users to upload objects to {{ objstorage-na
 
      Where:
      * `access_key`: Static access key ID.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key`: Secret access key value.
      * `max_size`: Maximum bucket size, in bytes.
 

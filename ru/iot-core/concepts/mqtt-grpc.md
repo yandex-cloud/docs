@@ -118,4 +118,4 @@ message PublishBrokerDataResponse {
 
 ## Пример работы
 
-Пример работы с MQTT-сервером с помощью gRPC для языка JavaScript приведен в [коде](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/terraform/emulator_publish/publish/iot_data.js) функции, эмулирующей отправку сообщений от имени множества устройств.
+Пример работы с MQTT-сервером с помощью gRPC для языка JavaScript приведен в [коде](https://github.com/yandex-cloud-examples/yc-emulator-publish-with-iot/blob/main/publish/iot_data.js) функции, эмулирующей отправку сообщений от имени множества устройств.

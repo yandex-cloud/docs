@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Subcluster/list.md
 ---
 
-# Data Proc API, gRPC: SubclusterService.List
+# Yandex Data Processing API, gRPC: SubclusterService.List
 
 Retrieves a list of subclusters in the specified cluster.
 
@@ -26,7 +26,7 @@ Retrieves a list of subclusters in the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field. ID of the Data Proc cluster to list subclusters in. ||
+Required field. ID of the Yandex Data Processing cluster to list subclusters in. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
@@ -99,7 +99,7 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 
 ## Subcluster {#yandex.cloud.dataproc.v1.Subcluster}
 
-A Data Proc subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
@@ -108,7 +108,7 @@ A Data Proc subcluster. For details about the concept, see [documentation](/docs
 ID of the subcluster. Generated at creation time. ||
 || cluster_id | **string**
 
-ID of the Data Proc cluster that the subcluster belongs to. ||
+ID of the Yandex Data Processing cluster that the subcluster belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
@@ -130,14 +130,14 @@ Role that is fulfilled by hosts of the subcluster.
 * Spark History Server
 * Zeppelin
 * ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Data Proc cluster.
+- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
 
   DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster.
+- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
 
   COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager

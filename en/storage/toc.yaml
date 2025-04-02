@@ -31,7 +31,7 @@ items:
             href: operations/buckets/iam-access.md
           - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
-          - name: Access policy management
+          - name: Managing a bucket policy
             href: operations/buckets/policy.md
           - name: Configuring public access to a bucket
             href: operations/buckets/bucket-availability.md
@@ -61,9 +61,9 @@ items:
             href: operations/objects/info.md
           - name: Downloading an object
             href: operations/objects/download.md
-          - name: Restoring an object's version
+          - name: Restoring an object version
             href: operations/objects/restore-object-version.md
-          - name: Renaming and moving objects
+          - name: Renaming and moving an object
             href: operations/objects/rename-move.md
           - name: Copying objects
             href: operations/objects/copy.md
@@ -81,7 +81,7 @@ items:
             href: operations/objects/edit-acl.md
           - name: Managing object labels
             href: operations/objects/tagging.md
-          - name: Managing user-defined object metadata
+          - name: Managing object custom metadata
             href: operations/objects/object-meta.md
       - name: Hosting static websites
         items:
@@ -115,15 +115,25 @@ items:
         href: tutorials/blue-green-canary-deployment.md
       - name: Analyzing logs using DataLens
         href: tutorials/storage-logs-analysis.md
+      - name: Event search in audit logs
+        items:
+          - name: Overview
+            href: tutorials/search-events-audit-logs/index.md
+          - name: Tools for working with audit logs
+            href: tutorials/search-events-audit-logs/tools.md
+          - name: Sample requests for searching events
+            href: tutorials/search-events-audit-logs/examples.md
+          - name: Configuring {{ yq-full-name }}
+            href: tutorials/search-events-audit-logs/query.md
       - name: Mounting buckets to the file system of {{ dataproc-full-name }} hosts
         href: tutorials/data-processing-init-actions-geesefs.md
-      - name: Mounting a bucket as a disk in Windows
+      - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
       - name: >-
           Migrating data from {{ yds-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
-      - name: Using hybrid storage in {{ mch-full-name }}
+      - name: Using a hybrid storage in {{ mch-full-name }}
         href: tutorials/clickhouse-hybrid-storage.md
       - name: >-
           Loading data from {{ mos-full-name }} to {{ objstorage-full-name }}
@@ -131,7 +141,7 @@ items:
         href: tutorials/opensearch-to-object-storage.md
       - name: Automatically copying objects from one bucket to another
         href: tutorials/bucket-to-bucket.md
-      - name: Recognizing audio files in a bucket on a regular basis
+      - name: Regular recognition of audio files in a bucket
         href: tutorials/batch-recognition-stt.md
       - name: >-
           Training a model in {{ ml-platform-full-name }} on data from {{
@@ -232,11 +242,11 @@ items:
         href: tutorials/backup-with-bacula.md
       - name: Backing up to {{ objstorage-full-name }} with Veeam Backup
         href: tutorials/backup-with-veeam.md
-      - name: Backing up to {{ objstorage-name }} via Veritas Backup Exec
+      - name: '{{ objstorage-name }} backup with Veritas Backup Exec'
         href: tutorials/object-storage-veritas.md
       - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
         href: tutorials/kubernetes-backup.md
-      - name: Developing a custom integration in {{ api-gw-name }}
+      - name: Building a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
       - name: URL shortener
         href: tutorials/serverless-url-shortener.md
@@ -254,6 +264,10 @@ items:
         href: tutorials/replicate-logs-to-storage.md
       - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
+      - name: Uploading audit logs to ArcSight SIEM
+        href: tutorials/export-logs-to-arcsight.md
+      - name: Exporting audit logs to SIEM Splunk systems
+        href: tutorials/export-logs-to-splunk.md
       - name: Creating an MLFlow server for logging experiments and artifacts
         href: tutorials/mlflow-datasphere.md
       - name: Working with data using {{ yq-full-name }}
@@ -264,7 +278,7 @@ items:
         href: tutorials/archive-from-vision-to-object-storage.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
-      - name: Automating tasks using {{ maf-short-name }}
+      - name: Automating tasks with {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
       - name: Processing files with usage details in {{ billing-name }}
         href: tutorials/billing.md
@@ -272,6 +286,10 @@ items:
           Deploying a web app with JWT authorization in {{ api-gw-name }} and
           authentication in Firebase
         href: tutorials/jwt-authorizer-firebase.md
+      - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
+        href: tutorials/search-events-query.md
+      - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
+        href: tutorials/search-events-bucket.md
   - name: Concepts
     items:
       - name: Overview
@@ -310,7 +328,7 @@ items:
         href: concepts/server-logs.md
       - name: Backups
         href: concepts/backup.md
-      - name: TLS protocol
+      - name: TLS
         href: concepts/tls.md
       - name: Labels
         href: concepts/tags.md
@@ -468,7 +486,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST (Amazon S3-compatible)
         items:
@@ -558,7 +576,7 @@ items:
                     href: s3/api-ref/object/deleteobjecttagging.md
               - name: Multipart upload
                 items:
-                  - name: Multipart upload process
+                  - name: General multipart upload procedure
                     href: s3/api-ref/multipart.md
                   - name: startUpload
                     href: s3/api-ref/multipart/startupload.md

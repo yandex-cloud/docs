@@ -5,7 +5,7 @@ description: Follow this guide to replace a defective disk in a {{ baremetal-nam
 
 # Replacing a disk in a RAID array
 
-If there is a RAID array disk failure on a {{ baremetal-name }} server, you must [remove](#remove-from-raid) the defective disk from the array, [request](#request-swap) support to replace the physical drive on the server, and then [add](#add-to-raid) the new disk to the RAID array.
+If there is a RAID array disk failure on a {{ baremetal-name }} server, you must stop using the disk, [remove](#remove-from-raid) the defective disk from the array, [request](#request-swap) support to replace the physical drive on the server, and then [add](#add-to-raid) the new disk to the RAID array.
 
 {% note info %}
 

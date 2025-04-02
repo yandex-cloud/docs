@@ -1,6 +1,6 @@
 ---
 title: boto3 and boto
-description: In this article, you will learn about boto3 and boto, how to install and configure them, and will see some examples of operations.
+description: In this tutorial, you will learn about boto3 and boto, how to install and configure them, and will see some examples of operations.
 ---
 
 # boto3 and boto
@@ -27,7 +27,7 @@ pip3 install boto3==1.35.99
 
 {% include [install-boto](../../_includes/aws-tools/install-boto.md)%}
 
-## Configuration {#setup}
+## Setup {#setup}
 
 {% list tabs group=instructions %}
 
@@ -39,11 +39,11 @@ pip3 install boto3==1.35.99
   
   [Add environment variables](../../functions/operations/function/version-manage#version-env) to a function in {{ sf-name }}:
 
-  * `AWS_ACCESS_KEY_ID`: Static key ID of the service account.
+  * `AWS_ACCESS_KEY_ID`: Static service account key ID.
   * `AWS_SECRET_ACCESS_KEY`: Secret key.
   * `AWS_DEFAULT_REGION`: Region ID.
 
-  Use the `{{ s3-storage-host }}` address to access {{ objstorage-name }}.
+  Use the {{ objstorage-name }} address to access `{{ s3-storage-host }}`.
 
 {% endlist %}
 
@@ -58,6 +58,25 @@ pip3 install boto3==1.35.99
   boto3: 
 
   {% include [boto3-example](../../_includes/storage/boto3-example.md) %}
+
+  Boto3 retrieves authentication credentials from the `~/.aws` directory by default, but you can manually set the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` variables.
+
+  ```python
+  ...
+  session = boto3.session.Session()
+  s3 = session.client(
+      service_name='s3',
+      endpoint_url='https://{{ s3-storage-host }}'
+      aws_access_key_id='<static_key_ID>',
+      aws_secret_access_key='<secret_key>'
+  )
+  ```
+
+  {% note info %}
+
+  This method is not considered secure as it poses a risk of key leaks.
+
+  {% endnote %}
 
   {% cut "boto" %}
 

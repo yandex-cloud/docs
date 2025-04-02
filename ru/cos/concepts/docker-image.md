@@ -7,3 +7,10 @@
 Пример имени Docker-образа для разных реестров:
 * Docker Hub: `ubuntu:16.04`.
 * {{ container-registry-name }}: `{{ registry }}/<идентификатор_реестра>/ubuntu:16.04`.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/coi-fluent-bit-logging.md)
+* [{#T}](../tutorials/deploy-app-container.md)
+* [{#T}](../tutorials/docker-compose.md)
+* [{#T}](../tutorials/serial-port.md)

@@ -13,8 +13,17 @@ description: Из статьи вы узнаете про особенности
 
    {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 
+### Примеры использования {#examples-boot-disk}
+
+* [{#T}](../tutorials/docker-compose.md)
+* [{#T}](../tutorials/deploy-app-container.md)
+
 ## Работа с дополнительными дисками {#second-disk}
 
 Вы можете [смонтировать](../tutorials/vm-create-with-second-disk.md) дополнительный диск внутрь контейнера, используя раздел-расширение `x-yc-disks` в [спецификации Docker Compose](./coi-specifications.md#compose-spec):
 * Для монтирования диска внутрь ВМ с {{ coi }} и поиска по дереву `/dev/disk/by-id/virtio-...` используется `device-name` диска. Если при подключении диска к ВМ не указать этот параметр, может возникнуть [ошибка монтирования](../error/index.md#disk-mount).
 * При использовании дополнительного диска, разбитого на разделы, в [спецификации Docker Compose](./coi-specifications.md#compose-spec-example) используйте параметр `partition: x`, где `x` — номер раздела для монтирования.
+
+### Примеры использования {#examples-second-disk}
+
+* [{#T}](../tutorials/vm-create-with-second-disk.md)

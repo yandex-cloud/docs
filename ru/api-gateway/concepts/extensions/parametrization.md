@@ -54,3 +54,7 @@ paths:
         http_headers:
           Content-Type: text/plain
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/canary-release.md)

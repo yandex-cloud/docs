@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Operation/get.md
 ---
 
-# Data Proc API, gRPC: OperationService.Get
+# Yandex Data Processing API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.
 

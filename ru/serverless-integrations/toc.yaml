@@ -200,6 +200,8 @@ items:
                     href: concepts/workflows/yawl/integration/tracker.md
                   - name: Postbox
                     href: concepts/workflows/yawl/integration/postbox.md
+                  - name: Workflow
+                    href: concepts/workflows/yawl/integration/workflow.md
               - name: Управляющие шаги
                 items:
                   - name: Switch

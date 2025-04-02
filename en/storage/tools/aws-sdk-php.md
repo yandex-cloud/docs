@@ -1,6 +1,6 @@
 ---
 title: AWS SDK for PHP
-description: In this article, you will learn about the AWS SDK for PHP, how to install and configure it, and will also see some code examples.
+description: In this tutorial, you will learn about the AWS SDK for PHP, how to install and configure it, and will also see some code snippets.
 ---
 
 # AWS SDK for PHP
@@ -18,9 +18,9 @@ The [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/) is a software develop
 
 {% include [install-php-sdk](../../_includes/aws-tools/install-php-sdk.md)%}
 
-## Configuration {#setup}
+## Setup {#setup}
 
-1. In your home folder, create a file named `.aws/credentials` with this static key:
+1. In the `.aws` directory, create a file named `credentials`, copy the credentials you [got earlier](#before-you-begin), and paste them into it:
 
    ```
    [default]
@@ -38,9 +38,9 @@ The [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/) is a software develop
 
 You can use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables instead of the `.aws/credentials` file.
 
-Use the `{{ s3-storage-host }}` address to access {{ objstorage-name }}.
+Use the {{ objstorage-name }} address to access `{{ s3-storage-host }}`.
 
-## Code examples {#code-examples}
+## Code snippets {#code-examples}
 
 {% list tabs %}
 
@@ -76,4 +76,4 @@ Use the `{{ s3-storage-host }}` address to access {{ objstorage-name }}.
 
 {% endlist %}
 
-See also the [code examples](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html) and [PHP API Reference Guide](https://docs.aws.amazon.com/aws-sdk-php/v3/api/index.html) in the AWS documentation.
+See also the [code snippets](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html) and [PHP API Reference Guide](https://docs.aws.amazon.com/aws-sdk-php/v3/api/index.html) in the AWS documentation.

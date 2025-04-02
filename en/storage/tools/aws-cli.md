@@ -1,6 +1,6 @@
 ---
 title: AWS Command Line Interface (AWS CLI)
-description: In this article, you will learn about the AWS Command Line Interface (AWS CLI), how to install and configure it, explore some of its features when working with {{ objstorage-name }} and example operations.
+description: In this tutorial, you will learn about the AWS Command Line Interface (AWS CLI), how to install and configure it, explore some of its features when working with {{ objstorage-name }} and example operations.
 ---
 
 # AWS Command Line Interface (AWS CLI)
@@ -27,8 +27,8 @@ To work with {{ objstorage-name }} via the AWS CLI, you can use the following co
 ## Setup {#setup}
 
 To configure the AWS CLI, run the `aws configure` command in your terminal. The command will request values for the following parameters:
-1. `AWS Access Key ID`: ID of the static key created when [getting started](#before-you-begin).
-1. `AWS Secret Access Key`: Contents of the static key.
+1. `AWS Access Key ID`: Static key ID [you got previously](#before-you-begin).
+1. `AWS Secret Access Key`: Static key contents [you got previously](#before-you-begin).
 1. `Default region name`: `{{ region-id }}`.
 
     To work with {{ objstorage-name }}, always specify the `{{ region-id }}`. A different region value may lead to an authorization error.
@@ -38,7 +38,7 @@ To configure the AWS CLI, run the `aws configure` command in your terminal. The 
 ### Configuration files {#config-files}
 
 The `aws configure` command saves the static key and the region.
-* The static key in `.aws/credentials` has the following format:
+* Static key format in `.aws/credentials`:
 
   ```ini
   [default]
@@ -46,7 +46,7 @@ The `aws configure` command saves the static key and the region.
   aws_secret_access_key = <static_key_contents>
   ```
 
-* The default region in `.aws/config` has the following format:
+* Default region format in `.aws/config`:
 
   ```ini
   [default]
@@ -70,7 +70,7 @@ The `aws configure` command saves the static key and the region.
 
   Where `default` is the default profile.
 
-  To switch between profiles, the AWS CLI commands use the `--profile` option, e.g.:
+  To switch between different profiles, the AWS CLI commands use the `--profile` option, e.g.:
 
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -98,7 +98,7 @@ Take note of these AWS CLI features when used with {{ objstorage-name }}:
 
        This enables you to invoke commands without explicitly specifying an endpoint. For example, you can specify `aws s3 ls` instead of `aws --endpoint-url=https://{{ s3-storage-host }} s3 ls`. For more information, see the [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html) documentation.
 
-    * Create an alias using the following command:
+    * To create an alias, use the following command:
 
       ```bash
       alias {{ storage-aws-cli-alias }}='aws s3 --endpoint-url=https://{{ s3-storage-host }}'
@@ -124,7 +124,7 @@ To enable debug output in the console, use the `--debug` key.
 
 {% endnote %}
 
-### Creating a bucket {#creating-bucket}
+### Create a bucket {#creating-bucket}
 
 ```bash
 aws s3 mb s3://bucket-name

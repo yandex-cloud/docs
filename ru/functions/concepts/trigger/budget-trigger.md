@@ -17,8 +17,11 @@
 
 {% include [budget-format](../../../_includes/functions/budget-format.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)
+
 ## См. также {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/budget-trigger.md)
-* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)

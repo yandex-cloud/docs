@@ -257,13 +257,13 @@ You can provide the following annotations for a `ObjectMeta` object:
   {% endcut %}
 
   In {{ alb-name }}, the substitution will be configured on all [HTTP routers](../../../application-load-balancer/concepts/http-router.md) created for the `Ingress` resource.
-
+  
 * **ingress.alb.yc.io/upgrade-types** {#annot-upgrade-types}
 
   The `Upgrade` HTTP header values supported by the load balancer in incoming requests. The values are given as a comma-separated list.
 
   > You can use this annotation, for instance, to enable [WebSocket](https://{{ lang }}.wikipedia.org/wiki/WebSocket) support:
-  >
+  > 
   > ```yaml
   > ingress.alb.yc.io/upgrade-types: WebSocket
   > ```

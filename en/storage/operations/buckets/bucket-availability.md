@@ -118,6 +118,9 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
 
      Where:
      * `access_key`: [Static access key](../../../iam/concepts/authorization/access-key.md) ID.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key`: Secret access key value.
      * `bucket`: Name of the bucket to which you need to enable public access.
      * `anonymous_access_flags`: Public access parameters:
@@ -146,7 +149,7 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
         terraform apply
         ```
 
-     1. When asked to confirm the changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
@@ -247,7 +250,7 @@ You will not be able to open public access if a restrictive [access policy](../.
 
   To disable public access to bucket operations:
 
-  1. Open the {{ TF }} configuration file and add the `anonymous_access_flags` section to the bucket description.
+  1. Open the {{ TF }} configuration file and add the `anonymous_access_flags` section to the bucket description fragment.
 
      ```hcl
      resource "yandex_storage_bucket" "log_bucket" {
@@ -293,7 +296,7 @@ You will not be able to open public access if a restrictive [access policy](../.
         terraform apply
         ```
 
-     1. When asked to confirm the changes, type `yes` and press **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 

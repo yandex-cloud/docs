@@ -12,14 +12,14 @@
 
 To install `goofys`, follow [this guide](https://github.com/kahing/goofys#installation) in the project repository.
 
-## Configuration {#setup}
+## Setup {#setup}
 
-`goofys` uses the secret key from the [AWS CLI](aws-cli.md) settings stored in the `.aws/credentials` file. You can also put the key in the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
+`goofys` uses the secret key from the [AWS CLI](aws-cli.md) settings stored in the `.aws/credentials` file. You can also put the key data [you got earlier](#before-you-begin) in the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
 
 ## Mounting a bucket {#bucket-mounting}
 
-1. Select the folder where you want to mount a bucket and make sure you have permissions for this operation.
-1. For one-time bucket mounting, run this command:
+1. Select the folder where you want to mount a bucket and make sure you have permissions to perform the mounting operation.
+1. For one-time bucket mounting, run the command:
 
     ```
     goofys --endpoint=https://{{ s3-storage-host }} <bucket_name> <mount_point>

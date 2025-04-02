@@ -950,6 +950,24 @@ default:
     logs:
       raw|string: ₸25000.00
       shielding|string: ₸17500.00
+  sku|KZT|cloud_desktop:
+    hdd:
+      v1|month|number: 21.6
+      v1|month|string: ₸21.60
+      v1|string: ₸0.03
+    ram:
+      v1|number: 2.15
+      v1|string: ₸2.15
+    ssd:
+      v1|month|number: 79.2
+      v1|month|string: ₸79.20
+      v1|string: ₸0.11
+    vcpu:
+      c100:
+        v1|string: ₸6.85
+      c50:
+        v1|number: 4.15
+        v1|string: ₸4.15
   sku|KZT|compute_gpu:
     vm:
       cpu:
@@ -2357,6 +2375,24 @@ default:
     logs:
       raw|string: ₽5000.00
       shielding|string: ₽3500.00
+  sku|RUB|cloud_desktop:
+    hdd:
+      v1|month|number: 4.32
+      v1|month|string: ₽4.32
+      v1|string: ₽0.0060
+    ram:
+      v1|number: 0.43
+      v1|string: ₽0.43
+    ssd:
+      v1|month|number: 15.84
+      v1|month|string: ₽15.84
+      v1|string: ₽0.0220
+    vcpu:
+      c100:
+        v1|string: ₽1.37
+      c50:
+        v1|number: 0.83
+        v1|string: ₽0.83
   sku|RUB|compute_gpu:
     vm:
       cpu:
@@ -3753,6 +3789,24 @@ default:
     logs:
       raw|string: $40.000000
       shielding|string: $28.000000
+  sku|USD|cloud_desktop:
+    hdd:
+      v1|month|number: 0.03456
+      v1|month|string: $0.034560
+      v1|string: $0.000048
+    ram:
+      v1|number: 0.00344
+      v1|string: $0.003440
+    ssd:
+      v1|month|number: 0.12672
+      v1|month|string: $0.126720
+      v1|string: $0.000176
+    vcpu:
+      c100:
+        v1|string: $0.010960
+      c50:
+        v1|number: 0.00664
+        v1|string: $0.006640
   sku|USD|compute_gpu:
     vm:
       cpu:
@@ -6096,7 +6150,6 @@ default:
         action_start_backup: Create backup
         button_action-activate: Activate
         button_attach-instance: Attach a VM
-        button_attach-instance-submit: Attach
         button_create-policy: Create policy
         column_baremetal-instance-status: Server status
         context_current-bms: current
@@ -10278,6 +10331,7 @@ default:
         barchart: Chart
         comparison-key-value: Comparison
         create-report: Create report
+        datalens-key-value: Dashboard in DataLens
         details-key-value: Details
         generate-report: Create report
         grouping-field: Group by

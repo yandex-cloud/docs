@@ -14,7 +14,7 @@ To authenticate as a service account:
     | aje3932acd0c5ur7dagp | default-sa |
     +----------------------+------------+
     ```
-1. Create an authorized key for the service account and save it to the `key.json` file:
+1. Create an authorized key for the service account and save it to a file named `key.json`:
 
     ```bash
     yc iam key create --service-account-name default-sa --output key.json --folder-id <folder_ID>
@@ -41,10 +41,8 @@ To authenticate as a service account:
         yc config set service-account-key key.json
         ```
 
-
 1. Make sure that the service account parameters are added correctly:
 
-      
     ```bash
     yc config list
     ```
@@ -66,8 +64,6 @@ To authenticate as a service account:
         MIIEvwIBAD...
         -----END PRIVATE KEY-----
     ```
-   
-
 
 1. Configure your profile to run commands.
 

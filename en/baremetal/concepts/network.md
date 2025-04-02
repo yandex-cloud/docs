@@ -5,6 +5,12 @@ description: In this article, you will learn about public and private networks i
 
 # Network
 
+{% note info %}
+
+You will be able to use {{ interconnect-name }} with {{ baremetal-name }} servers starting April 2025.
+
+{% endnote %}
+
 ## Public network {#public-network}
 
 A network with internet access, to which all servers are physically connected. On [some](./traffic-restrictions.md) TCP and UDP ports, network traffic between the private network and the internet is limited.

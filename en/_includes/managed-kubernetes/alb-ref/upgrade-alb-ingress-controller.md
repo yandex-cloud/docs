@@ -45,7 +45,7 @@ If upgrading the ALB Ingress Controller from version 0.1.x to version 0.2.0 or l
    1. Apply the changed `Ingress` resource configurations:
 
       ```bash
-      kubectl apply -f <names_of_files_with_Ingress_resources>
+      kubectl apply -f <Ingress_resource_file_names>
       ```
 
 {% note info %}

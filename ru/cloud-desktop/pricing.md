@@ -38,6 +38,7 @@ editable: false
 
 ### Вычислительные ресурсы {#prices-desktop-resources}
 
+
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
@@ -50,7 +51,10 @@ editable: false
 
 {% endlist %}
 
+
+
 ### Диски {#prices-storage}
+
 
 {% list tabs group=pricing %}
 
@@ -63,6 +67,8 @@ editable: false
   {% include [kzt-storage.md](../_pricing/cloud-desktop/kzt-storage.md) %}
 
 {% endlist %}
+
+
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 

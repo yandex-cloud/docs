@@ -142,7 +142,7 @@ If you delete the internal IP address from the specification in the future, it m
 || `externalTrafficPolicy` | `string` | [Traffic management policy]({{ k8s-api-link }}#servicespec-v1-core):
 
 * `Cluster`: Traffic goes to any of the {{ k8s }} cluster nodes. If the required pods are not on the node, [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) forwards traffic to another node. Default value.
-* `Local`: Traffic goes directly to the nodes where the application containers are running. In which case:
+* `Local`: Traffic goes directly to the nodes where the application containers are running. In this case, the following applies:
 
   * User request IP is saved.
   * Less horizontal traffic is exchanged between VMs.

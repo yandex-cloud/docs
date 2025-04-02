@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/listHosts.md
 ---
 
-# Data Proc API, gRPC: ClusterService.ListHosts
+# Yandex Data Processing API, gRPC: ClusterService.ListHosts
 
 Retrieves the list of hosts in the specified cluster.
 
@@ -83,18 +83,18 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 
 ## Host {#yandex.cloud.dataproc.v1.Host}
 
-A Data Proc host. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing host. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Name of the Data Proc host. The host name is assigned by Data Proc at creation time
-and cannot be changed. The name is generated to be unique across all Data Proc
+Name of the Yandex Data Processing host. The host name is assigned by Yandex Data Processing at creation time
+and cannot be changed. The name is generated to be unique across all Yandex Data Processing
 hosts that exist on the platform, as it defines the FQDN of the host. ||
 || subcluster_id | **string**
 
-ID of the Data Proc subcluster that the host belongs to. ||
+ID of the Yandex Data Processing subcluster that the host belongs to. ||
 || health | enum **Health**
 
 Status code of the aggregated health of the host.
@@ -105,7 +105,7 @@ Status code of the aggregated health of the host.
 - `DEGRADED`: Object is partially alive (it can perform some of its essential functions). ||
 || compute_instance_id | **string**
 
-ID of the Compute virtual machine that is used as the Data Proc host. ||
+ID of the Compute virtual machine that is used as the Yandex Data Processing host. ||
 || role | enum **Role**
 
 Role of the host in the cluster.
@@ -121,14 +121,14 @@ Role of the host in the cluster.
 * Spark History Server
 * Zeppelin
 * ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Data Proc cluster.
+- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
 
   DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster.
+- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
 
   COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager

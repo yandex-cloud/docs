@@ -89,6 +89,12 @@ You can install the {{ backup-name }} agent yourself on a VM or {{ baremetal-nam
 
 If you have issues installing the {{ backup-name }} agent, [contact]({{ link-console-support }}) support.
 
+### Updating the operating system kernel {#os-kernel-update}
+
+{% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
+
+To update the Linux kernel header versions, follow these guides: [Restoring the {{ backup-name }} agent on a VM](../operations/update-backup-agent.md#restore-agent) and [Restoring the {{ backup-name }} agent on a {{ baremetal-name }} server](../operations/backup-baremetal/restore-agent.md).
+
 ## Service account {#sa}
 
 [Service account](../../iam/concepts/users/service-accounts.md) is a special account the {{ backup-name }} agent uses to get registered with the Cyberprotect provider.

@@ -35,7 +35,7 @@
 
 Where:  
 * `folder_id`: [Folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
-* `username`: VM username.
+* `username`: VM user name.
 * `family`: [Image family](../../../compute/concepts/image.md#family) ID.
 * `folder_family_id`: ID of the folder the images are in; for [public images](../../../compute/concepts/image.md#public), `standard-images`.
 * `name`: VM name.

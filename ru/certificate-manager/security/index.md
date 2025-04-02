@@ -63,15 +63,15 @@ description: Управление доступом в сервисе для по
 Действие | Методы | Необходимые роли
 ----- | ----- | -----
 **Certificate Manager** | | 
-Получение списков сертификатов или доменов | `list` | `viewer` на каталог
-Получение информации о сертификате или домене | `get` | `viewer` на сертификат или каталог
+Получение списков сертификатов | `list` | `viewer` на каталог
+Получение информации о сертификате | `get` | `viewer` на сертификат или каталог
 [Добавление](../operations/managed/cert-create.md) сертификата от Let's Encrypt | `requestNew` | `editor` на каталог
 [Изменение](../operations/managed/cert-modify.md), [удаление](../operations/managed/cert-delete.md) сертификата от Let's Encrypt | `update`, `delete` | `editor` на сертификат или каталог
 [Добавление](../operations/import/cert-create.md) пользовательского сертификата | `create` | `editor` на каталог
 [Обновление](../operations/import/cert-update.md), [изменение](../operations/import/cert-modify.md), [удаление](../operations/import/cert-delete.md) пользовательского сертификата | `update`, `delete` | `editor` на сертификат или каталог
 Получение содержимого сертификата: [пользовательского](../operations/import/cert-get-content.md) или [сертификата от Let's Encrypt](../operations/managed/cert-get-content.md) | `get-content` | `certificate-manager.certificates.downloader` на сертификат или каталог
 **IAM** | |
-[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` или `certificate-manager.admin` на сертификат, домен или каталог 
+[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBinding`, `updateAccessBindings`, `listAccessBindings` | `admin` или `certificate-manager.admin` на сертификат или каталог 
 
 #### Что дальше {what-is-next}
 

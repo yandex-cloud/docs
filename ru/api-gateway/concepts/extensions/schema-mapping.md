@@ -52,3 +52,7 @@ paths:
         type: cloud_functions
         function_id: b095c95icn**********
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/speechkit-integrarion-via-agi-gw.md)

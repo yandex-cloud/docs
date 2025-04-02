@@ -60,3 +60,7 @@ paths:
           type: string
         style: simple
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/deploy-app-container.md)

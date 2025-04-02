@@ -3,9 +3,9 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/index.md
 ---
 
-# Data Proc API, REST: Subcluster
+# Yandex Data Processing API, REST: Subcluster
 
-A set of methods for managing Data Proc subclusters.
+A set of methods for managing Yandex Data Processing subclusters.
 
 ## Methods
 

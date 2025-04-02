@@ -44,3 +44,9 @@
         error_object: error.html
         service_account_id: ajehfe65fhl********
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/java-servlet-todo-list.md)
+* [{#T}](../../tutorials/serverless-url-shortener.md)
+* [{#T}](../../tutorials/telegram-bot-serverless.md)

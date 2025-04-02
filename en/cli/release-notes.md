@@ -7,6 +7,63 @@ description: This page presents a list of YC CLI releases and the updates of eac
 
 ## Current version {#latest-release}
 
+## Version 0.144.0 (27/02/25) {#version0.144.0}
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+#### {{ mrd-name }}
+
+* Added the commands for outputting, reading, creating, updating, and deleting users:
+  * `yc managed-redis user list`
+  * `yc managed-redis user get`
+  * `yc managed-redis user create`
+  * `yc managed-redis user update`
+  * `yc managed-redis user delete`
+
+* Added the `--auth-sentinel` parameter (allowing you to log in to {{ RD }} Sentinel) to these commands:
+
+  * `yc managed-redis cluster create`
+  * `yc managed-redis cluster restore`
+  * `yc managed-redis cluster update`
+
+* Added the `--user` parameter (allowing you to add users to {{ RD }}) to the `yc managed-redis cluster create` command.
+
+* Added the `--zset-max-listpack-values` parameter to these commands:
+  * `yc managed-redis cluster create`
+  * `yc managed-redis cluster restore`
+  * `yc managed-redis cluster update-config`
+
+#### {{ resmgr-name }} {#resmgr}
+
+* Added the `--organization-id` optional parameter to the `yc resource-manager cloud create` command.
+
+#### {{ backup-name }} {#backup}
+
+* Added the `backup backup batch-delete` command for deleting all backups in an archive and the archive itself. You can specify the archive using the `--archive-id` parameter or the `--instance-id` and `--policy-id` parameters.
+
+#### {{ yc-mdb-gp }}
+
+* Updated the list of supported Greenplum® versions for the `yc managed-greenplum cluster update-config` command:
+
+  * Discontinued support for versions 6.17 and 6.19.
+  * Added support for version 6.25+.
+
+* Added the `--service-account` parameter to the `yc managed-greenplum cluster create/update/restore` command: This parameter allows you to specify a service account for accessing {{ yandex-cloud }} resources in a user cloud, e.g., {{ cloud-logging-name }}.
+
+* Added the following parameters for these `yc managed-greenplum cluster create/update` commands:
+
+  * `--log-enabled`: Enabling log delivery to {{ cloud-logging-name }}.
+  * `--log-folder-id <folder_id>` and `--log-group-id <log_group_id>`: Specifying a folder or group for log delivery in {{ cloud-logging-name }}.
+  * `--log-command-center-enabled`: Enabling log delivery from Command Center.
+  * `--log-command-center-enabled`: Enabling log delivery from Greenplum®.
+  * `--log-command-center-enabled`: Enabling log delivery from Odyssey®.
+
+#### {{ network-load-balancer-name }}
+
+* Added the `--allow-zonal-shift` parameter for the `yc network-load-balancer create/update` commands that allows the load balancer to work in one-AZ (one availability zone) fault mode.
+
+## Previous releases {#previous-release}
+
 ### Version 0.143.0 (11/02/25) {#version0.143.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -15,8 +72,6 @@ description: This page presents a list of YC CLI releases and the updates of eac
 
 * Added a parameter to the `yc storage bucket update` command to specify a {{ vpc-full-name }} [service connection](../vpc/concepts/private-endpoint.md) to access the bucket from:
   * `--private-endpoint`, example: `--enable-private-endpoints true --private-endpoints cba,abc`.
-
-## Previous releases {#previous-release}
 
 ### Version 0.142.0 (30/01/25) {#version0.142.0}
 
@@ -3641,7 +3696,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Improved**
 
-* Added API endpoint availability checks for {{ iam-full-name }}, {{ resmgr-full-name }}, and {{ compute-full-name }}. If an endpoint is unavailable, an error is returned.
+* Added API endpoint availability checks for {{ iam-full-name }}, {{ resmgr-full-name }}, {{ compute-full-name }}. If an endpoint is unavailable, an error is returned.
 * Added detailed error reporting.
 
 #### Changes to {{ yandex-cloud }} services {#services}

@@ -34,24 +34,24 @@ description: В данной статье описан формат генера
     "messages": [
       {
         "content": "<текст_сообщения_1>",
-        "role": "user"
+        "role": "ROLE_USER"
       },
       {
         "content": "<ответ_модели_2>",
-        "role": "assistant"
+        "role": "ROLE_ASSISTANT"
       },
       {
         "content": "<текст_сообщения_3>",
-        "role": "user"
+        "role": "ROLE_USER"
       },
       {
         "content": "<ответ_модели_4>",
-        "role": "assistant"
+        "role": "ROLE_ASSISTANT"
       },
       ...
       {
         "content": "<текст_сообщения_n>",
-        "role": "user"
+        "role": "ROLE_USER"
       }
     ],
     "site": {
@@ -137,24 +137,24 @@ description: В данной статье описан формат генера
     "messages": [
       {
         "content": "<текст_сообщения_1>",
-        "role": "user"
+        "role": "ROLE_USER"
       },
       {
         "content": "<ответ_модели_1>",
-        "role": "assistant"
+        "role": "ROLE_ASSISTANT"
       },
       {
         "content": "<текст_сообщения_2>",
-        "role": "user"
+        "role": "ROLE_USER"
       },
       {
         "content": "<ответ_модели_3>",
-        "role": "assistant"
+        "role": "ROLE_ASSISTANT"
       },
       ...
       {
         "content": "<текст_сообщения_n>",
-        "role": "user"
+        "role": "ROLE_USER"
       }
     ],
     "site": {

@@ -69,3 +69,6 @@ To delete a backup:
 
 {% endlist %}
 
+#### See also {#see-also}
+
+* [{#T}](./batch-delete.md)

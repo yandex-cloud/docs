@@ -163,7 +163,7 @@ In this example, we will create a 50 GB bucket with a standard storage class.
 
   Where:
 
-  * `IAM_TOKEN`: IAM token. See [Getting an IAM token](../../iam/operations/index.md#iam-tokens) for details.
+  * `IAM_TOKEN`: IAM token. See [Getting an IAM token](../../iam/operations/index.md#authentication) for details.
   * `name`: Bucket name.
   * `folder_id`: Folder [ID](../../resource-manager/operations/folder/get-id.md).
   * `default_storage_class`: Storage [class](../../storage/concepts/storage-class.md).
@@ -212,7 +212,7 @@ In this example, we will create a 50 GB bucket with a standard storage class.
 
   Where:
 
-  * `IAM_TOKEN`: IAM token. See [Getting an IAM token](../../iam/operations/index.md#iam-tokens) for details.
+  * `IAM_TOKEN`: IAM token. See [Getting an IAM token](../../iam/operations/index.md#authentication) for details.
   * `name`: Bucket name.
   * `folderId`: Folder [ID](../../resource-manager/operations/folder/get-id.md).
   * `default_storage_class`: Storage [class](../../storage/concepts/storage-class.md).

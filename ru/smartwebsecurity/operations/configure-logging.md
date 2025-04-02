@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- {{ cloud-logging-short-name }} {#console}
+- {{ cloud-logging-short-name }} {#logging}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.

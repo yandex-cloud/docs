@@ -2,8 +2,9 @@
 title: Backups in {{ compute-full-name }}
 description: Backups of data in images, snapshots, and disks that are not attached to instances are stored securely and replicated within the {{ yandex-cloud }} infrastructure. To back up the data from disks attached to an instance, create snapshots of the disks on a regular basis.
 keywords:
-  - backup
+  - back up
   - database backup
+  - backup
   - backups
   - data backups
 ---
@@ -25,6 +26,8 @@ To restore a VM from a disk snapshot, you can:
 ## Comparison with backups in {{ backup-name }} {#backup-comparison}
 
 In {{ backup-name }}, you can create [full and incremental backups](../../backup/concepts/backup.md#types) of virtual machines along with boot disks and restore VMs from these backups. VM backups are application-consistent: they save not only the data stored on disks but also the data already sent but not yet fully written.
+
+{% include [av-note](../../_includes/backup/av-note.md) %}
 
 With {{ backup-name }}, you can [restore](../../backup/operations/backup-vm/recover-file-by-file.md) individual files and directories from a backup.
 

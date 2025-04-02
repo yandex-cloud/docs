@@ -107,7 +107,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
     --acl <predefined_ACL>
   ```
 
-  Where `--acl` is a predefined ACL. For the list of values, see [{#T}](../../storage/concepts/acl.md#predefined-acls).
+  Where `--acl` is a predefined ACL. For a list of values, see [Predefined ACLs](../../storage/concepts/acl.md#predefined-acls).
 
   **Individual permissions**
 
@@ -146,7 +146,54 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
+  By default, {{ TF }} uses an IAM token for authentication in {{ objstorage-name }}. In addition to an IAM token, you can use a service account and static access keys for authentication in {{ objstorage-name }}. For more information about {{ TF }} authentication in {{ objstorage-name }}, see [this provider article]({{ tf-provider-resources-link }}/storage_bucket).
+
+  **Creating a bucket using an IAM token**
+
+  
+  1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) and add them to environment variables.
+
+
   1. In the configuration file, define the parameters of the resources you want to create:
+
+      ```hcl
+      # Creating a bucket using an IAM token
+
+      resource "yandex_storage_bucket" "iam-bucket" {
+        bucket    = "<bucket_name>"
+        folder_id = "<folder_ID>"
+      }
+      ```
+
+      Where:
+      * `bucket`: Bucket name. This is a required parameter.
+
+        
+        By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
+
+      
+      * `folder_id`: Folder ID
+
+         If using a user account IAM token, specify `folder_id` in the `yandex_storage_bucket` resource.
+
+         If using an IAM token of a service account or static access keys, you do not have to specify `folder_id`. You will only need it to create a resource in a folder other than the service account folder.
+
+         {% endnote %}
+
+      For more information about the `yandex_storage_bucket` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
+
+  1. Create the resources:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+
+
+  **Creating a bucket using a static key**
+
+  1. In the configuration file, define the parameters of the resources you want to create:
+
+      {% cut "Creating a bucket using a key" %}
 
       ```hcl
       terraform {
@@ -158,7 +205,8 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
         required_version = ">= 0.13"
       }
 
-      // Configuring a provider
+      # Configuring a provider
+      
       provider "yandex" {
         token     = "<IAM_or_OAuth_token>"
         cloud_id  = "<cloud_ID>"
@@ -166,25 +214,29 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
         zone      = "{{ region-id }}-a"
       }
 
-      // Creating a service account
+      # Creating a service account
+      
       resource "yandex_iam_service_account" "sa" {
         name = "<service_account_name>"
       }
 
-      // Assigning a role to a service account
+      # Assigning roles to a service account
+      
       resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
         folder_id = "<folder_ID>"
         role      = "storage.admin"
         member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
       }
 
-      // Creating a static access key
+      # Creating a static access key
+      
       resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
         service_account_id = yandex_iam_service_account.sa.id
         description        = "static access key for object storage"
       }
 
-      // Creating a bucket using a key
+      # Creating a bucket using a static key
+      
       resource "yandex_storage_bucket" "test" {
         access_key            = yandex_iam_service_account_static_access_key.sa-static-key.access_key
         secret_key            = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
@@ -205,34 +257,34 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       }
       ```
 
+      {% endcut %}
+
       Where:
       * `yandex_iam_service_account`: Description of the [service account](../../iam/concepts/users/service-accounts.md) to create and use the [bucket](../../storage/concepts/bucket.md):
 
-        * `name`: Service account name.
+        * `name`: Service account name. This is a required parameter.
         * `bucket`: Bucket name.
 
           
           By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
 
 
-        * `max_size`: Maximum bucket size, in bytes.
+        * `max_size`: Maximum bucket size, in bytes. The default value is `0`, unlimited. 
         * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). The possible values are:
 
-          * `standard`: Standard storage.
+          * `standard`: Standard storage. Default value.
           * `cold`: Cold storage.
           * `ice`: Ice storage.
 
-          <q>Cold</q> classes are designed to store objects that you plan to use less frequently for longer periods of time. The <q>colder</q> the storage, the cheaper it is to store data in, but the more expensive it is to read from and write to it.
+          <q>Cold</q> classes are designed to store objects that you plan to use less frequently for longer periods of time. The <q>colder</q> your storage is, the less you pay for storing data; however, the costs of reading and writing data increase.
 
         * `anonymous_access_flags`: [Access](../../storage/concepts/bucket.md#bucket-access) settings:
 
           * `read`: Public read access to bucket objects.
           * `list`: Public view access to the list of bucket objects.
-          * `config_read`: Public read access to bucket settings.
+          * `config_read`: Public read access to bucket settings. Disabled by default.
 
         * `tags`: Bucket [labels](../../storage/concepts/tags.md) in `key = "value"` format.
-
-      `name`: This is a required parameter. Other parameters are optional. By default, the `max-size` value is `0`, public access to the bucket is disabled, and the storage class is set to `standard`.
 
       For more information about the `yandex_storage_bucket` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
 

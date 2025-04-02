@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/listLog.md
 ---
 
-# Data Proc API, REST: Job.ListLog
+# Yandex Data Processing API, REST: Job.ListLog
 
 Returns a log for specified job.
 
@@ -56,7 +56,7 @@ Page token. To get the next page of results, set `page_token` to the
 ||Field | Description ||
 || content | **string**
 
-Requested part of Data Proc Job log. ||
+Requested part of Yandex Data Processing Job log. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for ListLog requests,

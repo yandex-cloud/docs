@@ -4,8 +4,7 @@
 
 ## Перед началом работы {#before-begin}
 
-{% include [user-auth](../../_includes/translate/ai-before-beginning.md) %}
-
+{% include [translate-instruction-auth](../../_includes/translate/translate-instruction-auth.md) %}
 
 {% include [translate-instruction](../../_includes/translate/translate-instruction.md) %}
 

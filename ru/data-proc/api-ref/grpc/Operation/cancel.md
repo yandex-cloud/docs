@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Operation/cancel.md
 ---
 
-# Data Proc API, gRPC: OperationService.Cancel
+# Yandex Data Processing API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.
 

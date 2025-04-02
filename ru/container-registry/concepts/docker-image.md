@@ -30,3 +30,11 @@ _Хеш_ — генерируется автоматически, являетс
 * `<реестр>/<имя_образа>@<хеш>`.
 
 Docker-образ и все его версии хранятся в репозитории.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/run-docker-on-vm/index.md)
+* [{#T}](../tutorials/container-pg-connect.md)
+* [{#T}](../tutorials/cr-scanner-with-k8s-and-gitlab.md)
+* [{#T}](../tutorials/deploy-app-container.md)
+* [{#T}](../tutorials/fault-tolerance.md)

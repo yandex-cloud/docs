@@ -3,9 +3,9 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/index.md
 ---
 
-# Data Proc API, REST: Cluster
+# Yandex Data Processing API, REST: Cluster
 
-A set of methods for managing Data Proc clusters.
+A set of methods for managing Yandex Data Processing clusters.
 
 ## Methods
 
@@ -20,5 +20,5 @@ A set of methods for managing Data Proc clusters.
 || [Stop](stop.md) | Stops the specified cluster. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified cluster. ||
 || [ListHosts](listHosts.md) | Retrieves the list of hosts in the specified cluster. ||
-|| [ListUILinks](listUILinks.md) | Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy. ||
+|| [ListUILinks](listUILinks.md) | Retrieves a list of links to web interfaces being proxied by Yandex Data Processing UI Proxy. ||
 |#

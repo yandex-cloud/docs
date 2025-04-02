@@ -24,6 +24,12 @@ description: Из статьи вы узнаете, из чего состоит
 
 Получить переменные окружения можно с помощью стандартных средств языка программирования.
 
+### Примеры использования {#examples}
+
+* [{#T}](../../tutorials/datalens.md)
+* [{#T}](../../tutorials/monitoring.md)
+* [{#T}](../../tutorials/nodejs-cron-restart-vm.md)
+
 ## Сертификат для доступа к управляемым базам данных {#mdb-certificate}
 
 В окружении доступен [SSL-сертификат](../../../glossary/ssl-certificate) для доступа к управляемым базам данных из вашего кода. Сертификат хранится в файле `/usr/local/share/ca-certificates/yandex-internal-ca.crt`.

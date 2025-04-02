@@ -207,6 +207,8 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   Before you start, retrieve the [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-short-name }} authentication.
 
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
   1. In the configuration file, define the parameters of the resources you want to create:
 
      ```hcl

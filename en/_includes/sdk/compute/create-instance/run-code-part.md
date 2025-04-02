@@ -1,5 +1,7 @@
 {% include [env-vars-description](env-vars-descr.md) %}
 
+{% include [env-reload-warning](env-reload-warning.md) %}
+
 {% include [first-output](first-output.md) %}
 
 {% include [what-is-op-id](../operation-id.md) %}

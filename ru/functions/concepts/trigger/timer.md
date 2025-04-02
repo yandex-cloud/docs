@@ -21,6 +21,15 @@ _Таймер_ — это [триггер](../trigger/), который запу
 
 {% include [timer-format](../../../_includes/functions/timer-format.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/data-from-tracker.md)
+* [{#T}](../../tutorials/datalens.md)
+* [{#T}](../../tutorials/vm-scale-scheduled/console.md)
+* [{#T}](../../tutorials/monitoring.md)
+* [{#T}](../../tutorials/nodejs-cron-restart-vm.md)
+* [{#T}](../../tutorials/regular-launch-datasphere.md)
+
 ## См. также {#see-also}
 
 * [Таймер для запуска контейнера {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/timer.md)

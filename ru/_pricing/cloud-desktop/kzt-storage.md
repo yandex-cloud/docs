@@ -1,4 +1,4 @@
 | Тип | Цена за ГБ в час, вкл. НДС | Цена за ГБ в месяц, вкл. НДС |
 | --- | --- | --- |
-| Быстрый диск (SSD) | 0,11 ₸ | {% calc [currency=KZT] 0.11 * 720 %} |
-| Стандартный диск (HDD) | 0,03 ₸ | {% calc [currency=KZT] 0.03 * 720 %} |
+| Быстрый диск (SSD) | {{ sku|KZT|cloud_desktop.ssd.v1|string }} | {{ sku|KZT|cloud_desktop.ssd.v1|month|string }} |
+| Стандартный диск (HDD) | {{ sku|KZT|cloud_desktop.hdd.v1|string }} | {{ sku|KZT|cloud_desktop.hdd.v1|month|string }} |

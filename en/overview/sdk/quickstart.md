@@ -40,14 +40,18 @@ The cost of supporting a VM created with the SDK includes:
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. [Assign](../../organization/operations/add-role.md) [roles](../../iam/concepts/access-control/roles.md) to the service account based on the services you want to manage with the {{ yandex-cloud }} SDK.
 
-    In this tutorial, you will need the [compute.admin](../../compute/security/index.md#compute-admin) role to create a VM.
+    In this tutorial, you will need the [compute.admin](../../compute/security/index.md#compute-admin) role to create a VM. 
+    
+    If you are going to use the **SDK for .NET**, also assign the [iam.serviceAccounts.admin](../../iam/security/index.md#iam-serviceAccounts-admin) role to the service account. You will need this role to get an [authorized key](../../iam/concepts/authorization/key.md).
 
 ### Prepare the {{ yandex-cloud }} CLI {#prepare-cli}
 
 1. [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} CLI.
 1. [Authenticate](../../cli/operations/authentication/service-account) in the {{ yandex-cloud }} CLI as a service account.
 
-    Using the {{ yandex-cloud }} CLI, you will get an [IAM token](../../iam/concepts/authorization/iam-token.md) to authenticate your service account in {{ yandex-cloud }}. This method is more secure than storing authentication data in code or a separate file.
+    With the {{ yandex-cloud }} CLI, you will get the {{ yandex-cloud }} authentication credentials:
+    * For Node.js, Go, Python, and Java: [IAM token](../../iam/concepts/authorization/iam-token.md).
+    * For .NET: [Authorized key](../../iam/concepts/authorization/key.md).
 
 ### Get the source data {#get-source-data}
 
@@ -150,6 +154,26 @@ The cost of supporting a VM created with the SDK includes:
         cd yc-sdk-quickstart-java
         ```
 
+- .NET {#dotnet}
+
+    1. In the terminal, check the .NET version using this command: 
+
+        ```bash
+        dotnet -version
+        ```
+
+        If .NET is not installed, select the appropriate installation option from the [Microsoft website](https://dotnet.microsoft.com/en-us/download). We recommend installing version 9.0 as it is used in this guide. If you install a different version of .NET, specify it in the `YC-test` file.
+    1. Clone the [repository containing the {{ yandex-cloud }} SDK examples for .NET](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-dotnet.git):
+
+        ```bash
+        git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-dotnet.git
+        ```
+
+    1. In the cloned repository, go to the `yc-sdk-quickstart-dotnet` directory:
+
+        ```bash
+        cd yc-sdk-quickstart-dotnet
+        ```
 
 {% endlist %}
 
@@ -181,6 +205,11 @@ The cost of supporting a VM created with the SDK includes:
 
     {% include [instance-json-config](../../_includes/sdk/compute/basic-instance-config-json.md) %}
 
+- .NET {#dotnet}
+
+    {% include [open-and-set-config](../../_includes/sdk/compute/create-instance/open-and-set-config.md) %}
+
+    {% include [instance-json-config](../../_includes/sdk/compute/basic-instance-config-json.md) %}
 
 {% endlist %}
 
@@ -226,6 +255,8 @@ The project is already configured to create a VM with console commands. See comm
 
     {% include [running-process-description](../../_includes/sdk/compute/create-instance/env-vars-descr.md) %}
 
+    {% include [env-reload-warning](../../_includes/sdk/compute/create-instance/env-reload-warning.md) %}
+
     The script runs in stages:
 
     * **Running the script to create a VM**. If the script finds no data format errors, you will see the following message:
@@ -242,10 +273,6 @@ The project is already configured to create a VM with console commands. See comm
       INFO:root:Running Yandex.Cloud operation. ID: fv45g3nfq0bn********. Description: Create instance. Created at: 2024-12-19 15:52:59. Created by: ajeutahec4**********. Meta: instance_id: "fv4bi87d50**********".
       INFO:yandexcloud._channels:Using endpoints from configuration, IAM iam.api.cloud.yandex.net:443, operation operation.api.cloud.yandex.net:443
       ```
-
-      {% include [what-is-op-id](../../_includes/sdk/compute/operation-id.md) %}
-      
-      {% include [info-by-op-id](../../_includes/sdk/compute/get-info-by-op-id.md) %}
     
     * **Operation result**. After creating a VM, you will get its details:
 
@@ -325,6 +352,36 @@ The project is already configured to create a VM with console commands. See comm
 
         {% include [running-process-description](../../_includes/sdk/compute/create-instance/run-code-part.md) %}
 
+- .NET {#dotnet}
+
+    In the root directory of the project, run the code using this command:
+
+    ```bash
+    yc iam key create \
+      --output key.json \
+      --service-account-name <service_account_name> && \
+    AUTH_KEY=$(<key.json) && \
+    rm key.json && \
+    SSH_PUBLIC_KEY_PATH=~/key.pub \
+    dotnet run
+    ```
+
+    This command consists of the following parts:
+    * `yc iam key create`: Command to get an [authorized key](../../iam/concepts/authorization/key.md), where:
+        * `--output`: Path to the file for saving the authorized key in JSON format.
+        * `--service-account-name`: Name of the service account you are creating the key for.
+    * `AUTH_KEY=$(<key.json>)`: Reading the authorized key file and placing the key contents in the `AUTH_KEY` variable.
+    * `rm key.json`: Deleting the authorized key file. You can skip this part of the command if you plan to reuse the authorized key.
+    * `SSH_PUBLIC_KEY_PATH=~/key.pub`: Providing the path to your public SSH key file to the `SSH_PUBLIC_KEY_PATH` environment variable.
+    * `dotnet run`: Running the script.
+
+    {% include [env-reload-warning](../../_includes/sdk/compute/create-instance/env-reload-warning.md) %}
+    
+    {% include [first-output](../../_includes/sdk/compute/create-instance/first-output.md) %}
+
+    {% include [what-is-op-id](../../_includes/sdk/compute/operation-id.md) %}
+    
+    {% include [info-by-op-id](../../_includes/sdk/compute/get-info-by-op-id.md) %}
 
 {% endlist %}
 

@@ -3,9 +3,9 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Subcluster/index.md
 ---
 
-# Data Proc API, gRPC: SubclusterService
+# Yandex Data Processing API, gRPC: SubclusterService
 
-A set of methods for managing Data Proc subclusters.
+A set of methods for managing Yandex Data Processing subclusters.
 
 ## Methods
 

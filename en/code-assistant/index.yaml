@@ -4,8 +4,8 @@ description:
     <i>The service is at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
   - >-
-    {{ ca-full-name }} is an AI-driven developer assistant, with which you can
-    optimize the code writing process and increase your performance. The smart
+    {{ ca-full-name }} is an AI-driven developer assistant you can use to
+    optimize code writing and increase your performance. The smart
     autocompletion mode enables {{ ca-name }} to analyze the code context and
     come up with the most relevant suggestions for functions, cycles,
     conditions, and more.
@@ -28,11 +28,11 @@ links:
   - title: Concepts
     description: Learn about the features
     href: concepts/
-  - title: Quotas and limits
-    description: Technical and organizational restrictions
+  - title: Quotas
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access permissions to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
