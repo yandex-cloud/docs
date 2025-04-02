@@ -39,7 +39,7 @@
 
 #### Неполное распознавание аудио {#incomplete}
 
-Если вы распознаете потоковое аудио, попробуйте использовать разные версии API: [API v1](../../{{ speechkit-slug }}/stt/api/streaming-api.md) или [API v3](../../{{ speechkit-slug }}/stt-v3/api-ref/grpc/). 
+Если вы распознаете потоковое аудио, попробуйте использовать разные версии API: [API v2](../../{{ speechkit-slug }}/stt/api/streaming-api.md) или [API v3](../../{{ speechkit-slug }}/stt-v3/api-ref/grpc/). 
 
 Для распознавания аудиофайлов попробуйте разные [модели](../../{{ speechkit-slug }}/stt/models.md).
 
