@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/delete.md
 ---
 
-# Data Proc API, gRPC: ClusterService.Delete
+# Yandex Data Processing API, gRPC: ClusterService.Delete
 
 Deletes the specified cluster.
 
@@ -113,5 +113,5 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || cluster_id | **string**
 
-ID of the Data Proc cluster that is being deleted. ||
+ID of the Yandex Data Processing cluster that is being deleted. ||
 |#

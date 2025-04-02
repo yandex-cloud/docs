@@ -36,6 +36,10 @@
 
 {% include [os-format](../../../_includes/functions/os-format.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/bucket-to-bucket.md)
+
 ## См. также {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/os-trigger.md)

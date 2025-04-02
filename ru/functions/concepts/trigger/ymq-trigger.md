@@ -28,6 +28,11 @@
 
 {% include [ymq-format](../../../_includes/functions/ymq-format.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/serverless-trigger-budget-queue-vm-tg.md)
+* [{#T}](../../tutorials/video-converting-queue.md)
+
 ## См. также {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/ymq-trigger.md)

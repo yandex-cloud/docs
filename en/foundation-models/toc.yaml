@@ -660,7 +660,5 @@ items:
     items:
       - name: FAQ
         href: qa/index.md
-      - name: External errors when working with models
-        href: troubleshooting/known-issues.md
       - name: Error codes
         href: troubleshooting/error-codes.md

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Operation/index.md
 ---
 
-# Data Proc API, gRPC: OperationService
+# Yandex Data Processing API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

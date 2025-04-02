@@ -3,9 +3,9 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/listUILinks.md
 ---
 
-# Data Proc API, gRPC: ClusterService.ListUILinks
+# Yandex Data Processing API, gRPC: ClusterService.ListUILinks
 
-Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
+Retrieves a list of links to web interfaces being proxied by Yandex Data Processing UI Proxy.
 
 ## gRPC request
 

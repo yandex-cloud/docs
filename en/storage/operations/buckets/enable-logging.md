@@ -8,7 +8,7 @@ description: Follow this guide to manage bucket action logging in {{ objstorage-
 
 To monitor [bucket](../../concepts/bucket.md) operations, enable [logging](../../concepts/server-logs.md).
 
-Detailed information about requests to the _source_ bucket will be saved in an [object](../../concepts/object.md) in the _target_ bucket. The source and target buckets must be different.
+Detailed information about requests to the _source_ bucket will be saved in an [object](../../concepts/object.md) in the _target_ bucket. The source and target buckets must be different. 
 
 {{ objstorage-name }} [does not guarantee](../../concepts/server-logs.md) complete and timely logging.
 
@@ -61,7 +61,7 @@ To log bucket access:
 
          * `TargetBucket`: Name of the target bucket for the logs.
          * `TargetPrefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
-
+     
      1. Enable logging in the bucket:
 
          ```bash
@@ -86,7 +86,7 @@ To log bucket access:
      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
-     To enable logging for the bucket you want to monitor:
+     To enable logging for a bucket you want to track:
 
      1. Open the {{ TF }} configuration file and add the `logging` section to the bucket description.
 
@@ -94,7 +94,7 @@ To log bucket access:
         resource "yandex_storage_bucket" "log_bucket" {
           access_key = "<static_key_ID>"
           secret_key = "<secret_key>"
-          bucket     = "<name_of_bucket_for_storing_logs>"
+          bucket     = "<name_of_bucket_to_store_logs>"
         }
 
         resource "yandex_storage_bucket" "bucket" {
@@ -112,6 +112,9 @@ To log bucket access:
 
         Where:
         * `access_key`: Static access key ID.
+
+           {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
         * `secret_key`: Secret access key value.
         * `target_bucket`: Reference to the log storage bucket.
         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
@@ -194,7 +197,7 @@ To get the target bucket name and the log object key prefix, follow these steps:
         resource "yandex_storage_bucket" "log_bucket" {
           access_key = "<static_key_ID>"
           secret_key = "<secret_key>"
-          bucket     = "<name_of_bucket_for_storing_logs>"
+          bucket     = "<name_of_bucket_to_store_logs>"
         }
 
         resource "yandex_storage_bucket" "bucket" {
@@ -216,7 +219,7 @@ To get the target bucket name and the log object key prefix, follow these steps:
         * `target_bucket`: Reference to the log storage bucket.
         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
 
-        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
 - API {#api}
 
@@ -249,7 +252,7 @@ To get logs, download the object prefixed with `logs/` from the target bucket:
   1. Select the target bucket with logs.
   1. Go to the `logs/` directory.
   1. Next to the log object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}**.
-
+  
   {% note info %}
 
   You can also use [CyberDuck](../../tools/cyberduck.md) or [WinSCP](../../tools/winscp.md) to download objects using the GUI.
@@ -258,7 +261,7 @@ To get logs, download the object prefixed with `logs/` from the target bucket:
 
 - AWS CLI {#cli}
 
-  To get logs using the [AWS CLI](../../tools/aws-cli.md), download the objects prefixed with `logs/` by following [this guide](../objects/download.md#cli).
+  To get logs using the [AWS CLI](../../tools/aws-cli.md), download the objects prefixed with `logs/` by following [this guide](../objects/download.md#cli). 
 
 - API {#api}
 
@@ -306,7 +309,7 @@ To disable logging, follow these steps:
       resource "yandex_storage_bucket" "log_bucket" {
         access_key = "<static_key_ID>"
         secret_key = "<secret_key>"
-        bucket     = "<name_of_bucket_for_storing_logs>"
+        bucket     = "<name_of_bucket_to_store_logs>"
       }
 
       resource "yandex_storage_bucket" "bucket" {

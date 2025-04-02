@@ -38,31 +38,17 @@ You are charged for disks whether the desktops are running or not.
 
 ### Computing resources {#prices-desktop-resources}
 
-{% list tabs group=pricing %}
 
-- Prices in RUB {#prices-rub}
 
-  {% include [rub-desktop-resources.md](../_pricing/cloud-desktop/rub-desktop-resources.md) %}
+{% include [usd-desktop-resources.md](../_pricing/cloud-desktop/usd-desktop-resources.md) %}
 
-- Prices in KZT {#prices-kzt}
-
-  {% include [kzt-desktop-resources.md](../_pricing/cloud-desktop/kzt-desktop-resources.md) %}
-
-{% endlist %}
 
 ### Disks {#prices-storage}
 
-{% list tabs group=pricing %}
 
-- Prices in RUB {#prices-rub}
 
-  {% include [rub-storage.md](../_pricing/cloud-desktop/rub-storage.md) %}
+{% include [usd-storage.md](../_pricing/cloud-desktop/usd-storage.md) %}
 
-- Prices in KZT {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/cloud-desktop/kzt-storage.md) %}
-
-{% endlist %}
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 

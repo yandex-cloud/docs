@@ -47,5 +47,6 @@ noIndex: true
 
 ## См. также {#see-also}
 
+* [Управление {{ cloud-shell-name }}](../operations/cloud-shell-options.md)
 * [Лимиты {{ cloud-shell-name }}](../concepts/cloud-shell/limits.md)
 * [Справочник CLI](../../cli/cli-ref/)

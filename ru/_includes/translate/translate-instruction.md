@@ -4,7 +4,7 @@
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     {% include [curl](../curl.md) %}
 
@@ -19,9 +19,12 @@
     ```python
     import requests
 
-    IAM_TOKEN = '<IAM-токен>'
-    folder_id = '<идентификатор_каталога>'
-    target_language = 'ru'
+    # Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+    API_KEY = "<API-ключ>"
+    # Параметры для аутентификации с помощью IAM-токена:
+    # IAM_TOKEN = '<IAM-токен>'
+    folder_id = "<идентификатор_каталога>"
+    target_language = "ru"
     texts = ["Hello", "World"]
 
     body = {
@@ -32,12 +35,16 @@
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer {0}".format(IAM_TOKEN)
+        # Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+        "Authorization": "Api-Key {0}".format(API_KEY),
+        # Параметры для аутентификации с помощью IAM-токена:
+        # "Authorization": "Bearer {0}".format(IAM_TOKEN)
     }
 
-    response = requests.post('https://translate.{{ api-host }}/translate/v2/translate',
-        json = body,
-        headers = headers
+    response = requests.post(
+        "https://translate.{{ api-host }}/translate/v2/translate",
+        json=body,
+        headers=headers,
     )
 
     print(response.text)
@@ -45,12 +52,12 @@
 
     Где:
 
-    * `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin). 
-    * `folder_id` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * {% include [api-key-legend-desc](./api-key-legend-desc.md) %}
+    * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
     * `target_language` — [язык](../../translate/concepts/supported-languages.md), на который переводится текст. Вы можете узнать код языка вместе со [списком поддерживаемых языков](../../translate/operations/list.md).
     * `texts` — текст для перевода в виде списка из строк.
 
-    IAM-токен можно сохранить в файл. В таком случае укажите путь к этому файлу в переменной `token_path`:
+    API-ключ можно сохранить в файл. В таком случае укажите путь к этому файлу в переменной `key_path`:
 
     {% cut "**body.py**" %}
 
@@ -58,13 +65,22 @@
     import os
     import requests
 
-    token_path = '<путь_к_файлу_с_IAM-токеном>'
-    folder_id = '<идентификатор_каталога>'
-    target_language = 'ru'
+    # Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+    key_path = "<путь_к_файлу_с_API-ключом>"
+    # Параметры для аутентификации с помощью IAM-токена:
+    # token_path = '<путь_к_файлу_с_IAM-токеном>'
+    folder_id = "<идентификатор_каталога>"
+    target_language = "ru"
     texts = ["Hello", "World"]
-    IAM_TOKEN = os.path.join(os.getcwd(), token_path)
-    with open(IAM_TOKEN) as f:
-        IAM_TOKEN = f.read().strip()
+
+    # Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+    API_KEY = os.path.join(os.getcwd(), key_path)
+    with open(API_KEY) as f:
+        API_KEY = f.read().strip()
+    # Параметры для аутентификации с помощью IAM-токена:
+    # IAM_TOKEN = os.path.join(os.getcwd(), token_path)
+    # with open(IAM_TOKEN) as f:
+    #     IAM_TOKEN = f.read().strip()
 
     body = {
         "targetLanguageCode": target_language,
@@ -74,12 +90,16 @@
 
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Bearer {0}".format(IAM_TOKEN)
+        # Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+        "Authorization": "Api-Key {0}".format(API_KEY),
+        # Параметры для аутентификации с помощью IAM-токена:
+        # "Authorization": "Bearer {0}".format(IAM_TOKEN)
     }
 
-    response = requests.post('https://translate.{{ api-host }}/translate/v2/translate',
-        json = body,
-        headers = headers
+    response = requests.post(
+        "https://translate.{{ api-host }}/translate/v2/translate",
+        json=body,
+        headers=headers,
     )
 
     print(response.text)
@@ -95,8 +115,11 @@
 
     ```php
     <?php
-    
-    $IAM_TOKEN = '<IAM-токен>';
+
+    // Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+    $API_KEY = '<API-ключ>';
+    // Параметры для аутентификации с помощью IAM-токена:
+    // $IAM_TOKEN = '<IAM-токен>';
     $folder_id = '<идентификатор_каталога>';
     $target_language = 'ru';
     $texts = ["Hello", "World"];
@@ -105,7 +128,10 @@
 
     $headers = [
         'Content-Type: application/json',
-        "Authorization: Bearer $IAM_TOKEN"
+        // Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+        "Authorization: Api-Key $API_KEY"
+        // Параметры для аутентификации с помощью IAM-токена:
+        // "Authorization: Bearer $IAM_TOKEN"
     ];
 
     $post_data = [
@@ -135,29 +161,39 @@
 
     Где: 
 
-    * `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin). 
-    * `folder_id` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * {% include [api-key-legend-desc](./api-key-legend-desc.md) %}
+    * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
     * `target_language` — [язык](../../translate/concepts/supported-languages.md), на который переводится текст. Вы можете узнать код языка вместе со [списком поддерживаемых языков](../../translate/operations/list.md).
     * `texts` — текст для перевода в виде массива строк.
 
-    IAM-токен можно сохранить в файл. В таком случае укажите путь к этому файлу в переменной `token_path`:
+    API-ключ можно сохранить в файл. В таком случае укажите путь к этому файлу в переменной `key_path`:
 
     {% cut "**body.php**" %}
 
     ```php
     <?php
 
-    $token_path = '<путь_к_файлу_с_IAM-токеном>';
+    // Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+    $key_path = '<путь_к_файлу_с_API-ключом>';
+    // Параметры для аутентификации с помощью IAM-токена:
+    // $token_path = '<путь_к_файлу_с_IAM-токеном>';
     $folder_id = '<идентификатор_каталога>';
     $target_language = 'ru';
     $texts = ["Hello", "World"];
 
-    $IAM_TOKEN = trim(file_get_contents(realpath($token_path)));
     $url = 'https://translate.{{ api-host }}/translate/v2/translate';
+
+    // Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+    $API_KEY = trim(file_get_contents(realpath($key_path)));
+    // Параметры для аутентификации с помощью IAM-токена:
+    // $IAM_TOKEN = trim(file_get_contents(realpath($token_path)));
 
     $headers = [
         'Content-Type: application/json',
-        "Authorization: Bearer $IAM_TOKEN"
+        // Параметры для аутентификации с помощью API-ключа от имени сервисного аккаунта:
+        "Authorization: Api-Key $API_KEY"
+        // Параметры для аутентификации с помощью IAM-токена:
+        // "Authorization: Bearer $IAM_TOKEN"
     ];
 
     $post_data = [

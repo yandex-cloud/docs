@@ -3,9 +3,9 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/listUILinks.md
 ---
 
-# Data Proc API, REST: Cluster.ListUILinks
+# Yandex Data Processing API, REST: Cluster.ListUILinks
 
-Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
+Retrieves a list of links to web interfaces being proxied by Yandex Data Processing UI Proxy.
 
 ## HTTP request
 

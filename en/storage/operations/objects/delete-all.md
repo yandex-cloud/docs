@@ -176,7 +176,7 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
        --bucket $BUCKET_NAME \
      | jq -r '.Uploads[] | "--key \"\(.Key)\" --upload-id \(.UploadId)"' \
      | while read -r line; do
-       eval
+       eval 
          "aws s3api abort-multipart-upload \
            --endpoint-url https://{{ s3-storage-host }} \
            --bucket $BUCKET_NAME \
@@ -192,7 +192,7 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
        --bucket $BUCKET_NAME \
      | jq -r '.Uploads[] | "--key \"\(.Key)\" --upload-id \(.UploadId)"' \
      | while read -r line; do
-       eval
+       eval 
          "aws s3api list-parts \
            --endpoint-url https://{{ s3-storage-host }} \
            --bucket $BUCKET_NAME \

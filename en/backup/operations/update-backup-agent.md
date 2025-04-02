@@ -1,19 +1,19 @@
 ---
-title: Updating the {{ backup-full-name }} agent on a VM
-description: Follow this guide to update the {{ backup-name }} agent on a VM.
+title: How to update or recover the {{ backup-full-name }} agent on a VM
+description: Follow this guide to update or recover the {{ backup-name }} agent on a VM.
 ---
 
-# Updating the {{ backup-full-name }} agent on a VM
+# Updating or recovering the {{ backup-full-name }} agent on a VM
 
-In some situations, you may need to update your [{{ backup-name }} agent](../concepts/agent.md) to ensure reliable automatic backups of {{ compute-full-name }} [VMs](../../compute/concepts/vm.md).
+In some situations, you may need to update the [{{ backup-name }} agent](../concepts/agent.md) or recover its impaired functionality to ensure reliable automatic backups of {{ compute-full-name }} [VMs](../../compute/concepts/vm.md).
 
-For example, a situation like that may arise during a technical update on the [backup provider's](../concepts/index.md#providers) side.
+## Updating the {{ backup-name }} agent {#update-agent}
 
-{{ yandex-cloud }} warns its customers in advance about such cases.
+You may need to update the {{ backup-name }} agent in the event of technical updates on the [backup provider's](../concepts/index.md#providers) side. {{ yandex-cloud }} warns its customers in advance about such cases.
 
 {% note info %}
 
-Updating the {{ backup-name }} agent will not affect the existing backups' data.
+Updating the {{ backup-name }} agent will not affect the data in your existing backups.
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ To update the {{ backup-name }} agent on your VM:
 
 - Windows {#windows}
 
-  1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM via RDP.
+  1. [Connect](../../compute/operations/vm-connect/rdp.md) to the VM over RDP.
   1. Run [Windows PowerShell](https://learn.microsoft.com/en-us/powershell/).
   1. Run the following commands:
 
@@ -68,3 +68,21 @@ To update the {{ backup-name }} agent on your VM:
 {% endlist %}
 
 If you were unable to update your {{ backup-name }} agent for any reason, [contact]({{ link-console-support }}) support.
+
+## Recovering the {{ backup-name }} agent {#restore-agent}
+
+{% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
+
+{% list tabs group=operating_system %}
+
+- Debian/Ubuntu {#ubuntu}
+
+  {% include [update-kernel-headers-ubuntu](../../_includes/backup/operations/update-kernel-headers-ubuntu.md) %}
+
+- CentOS {#centos}
+
+  {% include [update-kernel-headers-centos](../../_includes/backup/operations/update-kernel-headers-centos.md) %}
+
+{% endlist %}
+
+If you were unable to recover your {{ backup-name }} agent for any reason, [contact]({{ link-console-support }}) support.

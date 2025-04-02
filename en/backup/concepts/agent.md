@@ -1,6 +1,8 @@
 # {{ backup-name }} agent
 
-The {{ backup-name }} agent enables protected resources to work with {{ backup-name }} and the [backup provider](index.md#providers). It is installed on [{{ compute-full-name }}](../../compute/index.yaml) VMs or [{{ baremetal-full-name }}](../../baremetal/index.yaml) servers.
+The {{ backup-name }} agent enables protected resources to work with {{ backup-name }} and the backup provider. It is installed on [{{ compute-full-name }}](../../compute/index.yaml) VMs or [{{ baremetal-full-name }}](../../baremetal/index.yaml) servers.
+
+For more information about the backup provider and the data sent to it, see [{#T}](index.md#providers).
 
 The {{ backup-name }} agent performs the following actions on the protected resource:
 

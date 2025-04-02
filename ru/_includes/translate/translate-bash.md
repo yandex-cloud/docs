@@ -14,15 +14,15 @@
 
     Где:
 
-    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
     * `texts` — текст для перевода в виде списка из строк.
     * `targetLanguageCode` — [язык](../../translate/concepts/supported-languages.md), на который переводится текст. Вы можете узнать код языка вместе со [списком поддерживаемых языков](../../translate/operations/list.md).
 
 1. Передайте файл на перевод, выполнив команду:
 
-    {% include [translate-file](translate-file.md) %}
+    {% include [translate-file](./translate-file.md) %}
 
-    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    {% include [api-key-legend-desc](./api-key-legend-desc.md) %}
 
     В ответе сервис вернет переведенные строки текста:
 

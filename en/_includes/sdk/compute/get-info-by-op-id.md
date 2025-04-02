@@ -1,1 +1,1 @@
-Use the [API](../../../api-design-guide/concepts/operation.md#monitoring) or [{{ yandex-cloud }} CLI](../../../cli/cli-ref/operation/cli-ref/get.md) for operation status monitoring.
+You can track the operation status in the management console as well as in the {{ yandex-cloud }} CLI and API. To learn more, see [Viewing operations with {{ compute-name }} resources](../../../compute/operations/operation-logs.md).

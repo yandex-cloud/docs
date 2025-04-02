@@ -29,6 +29,11 @@
 
 {% include [iot-format](../../../_includes/functions/iot-format-broker.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/data-recording.md)
+* [{#T}](../../tutorials/monitoring.md)
+
 ## См. также {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)

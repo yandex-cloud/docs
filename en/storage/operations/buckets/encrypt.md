@@ -46,13 +46,13 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 
   1. In the configuration file, define the parameters of the resources you want to create:
 
-     ```
+     ```hcl
      provider "yandex" {
        cloud_id                 = "<cloud_ID>"
        folder_id                = "<folder_ID>"
        zone                     = "{{ region-id }}-a"
        service_account_key_file = "key.json"
-       }
+     }
 
      resource "yandex_iam_service_account" "sa" {
        name = "<service_account_name>"

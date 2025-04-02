@@ -7,11 +7,68 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
-## Версия 0.145.0 (18.03.25) {#version0.145.0}
+### Версия 0.146.0 (02.04.25) {#version0.146.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#version0.145.0-services}
+####  Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ mrd-name }} {#version0.145.0-mrd}
+#### {{ at-name }} {#audit-trails}
+
+* В командах `yc audit-trails trail create` и `yc audit-trails trail update` больше не проверяются флаги `--filter-from-*`. В следующем релизе эти флаги будут удалены.
+
+#### {{ interconnect-name }} {#interconnect}
+
+* В команде `yc cic trunk-connection update` удалены флаги `--capacity` и `--pop`.
+
+#### {{ compute-name }} {#compute}
+
+* Добавлены команды для управления пулами зарезервированных ВМ:
+  * `yc compute reserved-instance-pool get`;
+  * `yc compute reserved-instance-pool list`;
+  * `yc compute reserved-instance-pool create`;
+  * `yc compute reserved-instance-pool update`;
+  * `yc compute reserved-instance-pool delete`.
+ 
+#### {{ iam-name }} {#iam}
+
+* В команде `yc iam api-key create` флаг `--scope` помечен как **DEPRECATED**.
+
+#### {{ objstorage-name }} {#storage}
+
+* Добавлена команда `yc storage s3api list-objects` для получения списка объектов в бакете.
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+* Добавлен флаг `--generate-password` для автоматической генерации пароля с использованием {{ connection-manager-name }} в команды:
+  * `yc managed-clickhouse user create`, `yc managed-clickhouse user update`;
+  * `yc managed-mysql user create`, `yc managed-mysql user update`;
+  * `yc managed-postgresql user create`, `yc managed-postgresql user update`.
+
+**{{ mkf-name }}**
+
+* В командах `yc managed-kafka user create` и `yc managed-kafka user update`, во флаге `--permission`, для ключа `role` добавилось новое возможное значение `topic_admin`.
+
+**{{ mgp-name }}**
+
+* Для команды `yc managed-greenplum cluster create` исправлена версия по умолчанию с 6.19 на 6.25.
+
+**{{ mos-name }}**
+
+* Добавлена команда `yc managed-opensearch cluster restart-opensearch` для перезапуска сервиса на хосте, указанном во флаге `--host`.
+* Добавлена команда `yc managed-opensearch cluster switch-master` для переключения текущего мастера.
+  * В параметре `--from-hosts host,[host...]` можно указать список хостов, с которых должен быть переключен мастер. Если мастер уже не находится ни на одном из указанных хостов, никаких изменений не произойдет.
+  * Если параметр `--from-hosts` отсутствует, мастер будет переключен с хоста, на котором он находится в данный момент.
+
+**{{ ydb-name }}**
+
+* В команды `yc ydb database create` и `yc ydb database update` добавлен флаг `--security-groups`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 0.145.0 (18.03.25) {#version0.145.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#version0.145.0-services}
+
+##### {{ mrd-name }} {#version0.145.0-mrd}
 
 * В команды: `yc managed-redis cluster create`, `yc managed-redis cluster restore`,`yc managed-redis cluster update-config` добавлены параметры:
   * `activedefrag`;
@@ -22,19 +79,19 @@ description: На странице представлены релизы YC CLI,
   * `yc managed-redis cluster restore`;
   * `yc managed-redis cluster update`.
 
-#### {{ mos-name }} {#version0.145.0-mos}
+##### {{ mos-name }} {#version0.145.0-mos}
 
 * Добавлена поддержка типа дисков `local-ssd`.
 * Добавлена возможность автоматического назначения подсетей при создании кластера или добавлении группы хостов.
 
-#### {{ quota-manager-name }} {#version0.145.0-quota-manager}
+##### {{ quota-manager-name }} {#version0.145.0-quota-manager}
 
 * Добавлена группа команд `yc quota-manager quota-limit` для просмотра лимитов квот:
   * `yc quota-manager quota-limit get` — вывести значение определенной квоты;
   * `yc quota-manager quota-limit list` — вывести список квот для определенного сервиса;
   * `yc quota-manager quota-limit list-service` — вывести список сервисов, для которых есть квоты.
 
-#### {{ interconnect-name }} {#version0.145.0-cic}
+##### {{ interconnect-name }} {#version0.145.0-cic}
 
 * Добавлены команды для управления TrunkConnection:
   * `yc cic trunk-connection create`;
@@ -54,7 +111,7 @@ description: На странице представлены релизы YC CLI,
   * `yc cic private-connection remove-static-route`;
   * `yc cic private-connection list-operations`.
 
-#### {{ cr-name }} {#version0.145.0-cloudrouter}
+##### {{ cr-name }} {#version0.145.0-cloudrouter}
 
 * Добавлены команды для управления RoutingInstance:
   * `yc cloudrouter routing-instance create`;
@@ -68,17 +125,15 @@ description: На странице представлены релизы YC CLI,
   * `yc cloudrouter routing-instance remove-private-connection`;
   * `yc cloudrouter routing-instance list-operations`.
 
-#### {{ network-load-balancer-name }} {#version0.145.0-nlb}
+##### {{ network-load-balancer-name }} {#version0.145.0-nlb}
 
 * Для команды `yc network-load-balancer update` исправлена ошибка в обработчике флага `--allow-zonal-shift`.
 
-## Предыдущие релизы {#previous-release}
-
 ### Версия 0.144.0 (27.02.25) {#version0.144.0}
 
-### Изменения в сервисах {{ yandex-cloud }} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{ mrd-name }}
+##### {{ mrd-name }}
 
 * Добавлены команды для вывода, чтения, создания, редактирования и удаления пользователей:
   * `yc managed-redis user list`;
@@ -100,15 +155,15 @@ description: На странице представлены релизы YC CLI,
   * `yc managed-redis cluster restore`;
   * `yc managed-redis cluster update-config`.
 
-#### {{ resmgr-name }} {#resmgr}
+##### {{ resmgr-name }} {#resmgr}
 
 * В команду `yc resource-manager cloud create` добавлен опциональный параметр `--organization-id`.
 
-#### {{ backup-name }} {#backup}
+##### {{ backup-name }} {#backup}
 
 * Добавлена команда `backup backup batch-delete` для удаления всех бэкапов в архиве и удаления самого архива. Архив можно указать параметром `--archive-id` или параметрами `--instance-id` и `--policy-id`.
 
-#### {{ yc-mdb-gp }}
+##### {{ yc-mdb-gp }}
 
 * Для команды `yc managed-greenplum cluster update-config` изменен список поддерживаемых версий Greenplum®:
 
@@ -125,7 +180,7 @@ description: На странице представлены релизы YC CLI,
   * `--log-greenplum-enabled` — включить поставку логов из Greenplum®;
   * `--log-pooler-enabled` — включить поставку логов из пулера Odyssey®.
 
-#### {{ network-load-balancer-name }}
+##### {{ network-load-balancer-name }}
 
 * Для команд `yc network-load-balancer create/update` добавлен параметр `--allow-zonal-shift`, который позволяет балансировщику работать в режиме отказа одной зоны доступности (AZ).
 

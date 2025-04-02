@@ -21,6 +21,7 @@ description: This page provides a list of step-by-step guides for {{ backup-name
 
 * [{#T}](backup-baremetal/backup-baremetal.md)
 * [{#T}](backup-baremetal/refresh-connection.md)
+* [{#T}](backup-baremetal/restore-agent.md)
 
 ## Managing backup policies {#policy-vm}
 
@@ -39,6 +40,7 @@ description: This page provides a list of step-by-step guides for {{ backup-name
 * [{#T}](./backup-vm/recover-file-by-file.md)
 * [{#T}](./backup-vm/view-disk-layout.md)
 * [{#T}](./backup-vm/delete.md)
+* [{#T}](./backup-vm/batch-delete.md)
 
 ## Service operations {#service-operations}
 

@@ -25,3 +25,8 @@ _Dead Letter Queue (DLQ)_ — это [очередь](../../message-queue/concep
 [Политика перенаправления](../../message-queue/concepts/dlq.md#redrive-policy) для триггера для {{ message-queue-full-name }} настраивается при создании очереди, сообщения из которой обрабатывает вызываемая триггером функция.
 
 При перемещении в DLQ сообщение сохраняет свой идентификатор.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/datalens.md)
+* [{#T}](../tutorials/monitoring.md)

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/listOperations.md
 ---
 
-# Data Proc API, gRPC: ClusterService.ListOperations
+# Yandex Data Processing API, gRPC: ClusterService.ListOperations
 
 Lists operations for the specified cluster.
 

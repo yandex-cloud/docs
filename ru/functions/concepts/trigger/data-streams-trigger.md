@@ -26,6 +26,10 @@ description: Из статьи вы узнаете, что такое тригг
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/events-from-postbox-to-yds.md)
+
 ## См. также {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/data-streams-trigger.md)

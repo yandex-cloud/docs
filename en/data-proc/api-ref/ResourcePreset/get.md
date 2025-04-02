@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/ResourcePreset/get.md
 ---
 
-# Data Proc API, REST: ResourcePreset.Get
+# Yandex Data Processing API, REST: ResourcePreset.Get
 
 Returns the specified ResourcePreset resource.
 
@@ -52,8 +52,8 @@ ID of the ResourcePreset resource. ||
 IDs of availability zones where the resource preset is available. ||
 || cores | **string** (int64)
 
-Number of CPU cores for a Data Proc host created with the preset. ||
+Number of CPU cores for a Yandex Data Processing host created with the preset. ||
 || memory | **string** (int64)
 
-RAM volume for a Data Proc host created with the preset, in bytes. ||
+RAM volume for a Yandex Data Processing host created with the preset, in bytes. ||
 |#

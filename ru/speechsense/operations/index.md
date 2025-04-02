@@ -59,3 +59,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](dictionary/change.md)
 * [{#T}](dictionary/add.md)
 * [{#T}](dictionary/delete.md)
+
+## Внешние интеграции {#external_integrations}
+
+* [{#T}](external_integrations/create-datalens-connection.md)

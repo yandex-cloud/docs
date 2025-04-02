@@ -9,7 +9,7 @@ description: Install the {{ ca-name }} plugin for Visual Studio Code and JetBrai
 
 {% include [about-service](../_includes/code-assistant/about-service.md) %}
 
-To get started with the service:
+To get started:
 1. [Get your cloud ready](#before-you-begin).
 1. [Install and configure the plugin](#install-plugin).
 1. [Test the plugin](#work-with-plugin).
@@ -17,12 +17,6 @@ To get started with the service:
 
 
 ## Get your cloud ready {#before-you-begin}
-
-{% note info %}
-
-If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }} already has access to {{ ca-name }}, proceed to [installing and configuring the plugin](#install-plugin).
-
-{% endnote %}
 
 {% include [before-you-begin](../_includes/code-assistant/before-you-begin.md) %}
 
@@ -59,7 +53,7 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
   1. To get started with {{ ca-name }}, get authenticated in {{ yandex-cloud }}:
       1. In the **No active session found. Log in please** pop-up window, click **Go to browser**.
 
-          To re-authenticate in the plugin or log in as a different {{ yandex-cloud }} user, enter `>{{ ca-full-name }}` in the top search bar. In the list that appears, select **{{ ca-full-name }}: Login**.
+          To re-authenticate in the plugin or log in as a different {{ yandex-cloud }} user, enter `>{{ ca-full-name }}` in the top search bar. From the list that opens, select **{{ ca-full-name }}: Login**.
       1. Allow Visual Studio Code to open the authentication page in your browser.
       1. In your browser, go to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and click **Open app** in the pop-up window.
       1. Go back to Visual Studio Code.
@@ -92,7 +86,7 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
       1. Click **OK**.
 
   1. To get started with {{ ca-name }}, get authenticated in {{ yandex-cloud }}:
-      1. In the **{{ ca-full-name }} OAuth** pop-up window, click **Yandex Code Assist: Login**.
+      1. In the **{{ ca-full-name }} OAuth** pop-up window, click **{{ ca-full-name }}: Login**.
 
           To re-authenticate in the plugin or log in as a different {{ yandex-cloud }} user, click ![magnifier](../_assets/console-icons/magnifier.svg) in the top right corner of the editor, enter `{{ ca-full-name }}` in the window that opens, and select **{{ ca-full-name }}: Login**.
       1. In your browser, go to the {{ yandex-cloud }} [management console]({{ link-console-main }}).
@@ -100,7 +94,7 @@ If your [organization](../overview/roles-and-resources.md) in {{ yandex-cloud }}
 
   If the plugin is enabled and ready to go, you will see ![image](../_assets/code-assistant/jb-icon-small.svg) in the editor's bottom panel.
 
-  Click this button to view the username of the {{ yandex-cloud }} account authenticated in the plugin. You can find the username in the **Logged in as <username>** line of the message you get. If no user is authenticated, the message will display **No Auth data**.
+  Click this icon to view the username of the {{ yandex-cloud }} account authenticated in the plugin. You can find the username in the **Logged in as <username>** line of the message you get. If no user is authenticated, the message will display **No Auth data**.
 
   {% note tip %}
 
@@ -155,7 +149,7 @@ How to work with {{ ca-name }}:
     }
     ```
 
-1. Select what to do with the suggestion:
+1. Select an action for the suggestion:
 
     {% list tabs group=ide %}
 
@@ -251,7 +245,7 @@ To log out of your {{ yandex-cloud }} profile in the {{ ca-name }} plugin:
 
   * In the editor’s bottom panel, click ![image](../_assets/code-assistant/vsc-icon-small.svg) and select **Logout** from the list that opens.
 
-  * In the top search bar, enter `>{{ ca-full-name }}`. In the list that appears, select **{{ ca-full-name }}: Logout**.
+  * In the top search bar, enter `>{{ ca-full-name }}`. From the list that appears, select **{{ ca-full-name }}: Logout**.
 
 - JetBrains IDE {#jb}
 

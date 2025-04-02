@@ -1,6 +1,6 @@
 ---
 title: '{{ objstorage-full-name }} tutorials'
-description: This page presents a list of {{ objstorage-name }} tutorials.
+description: This page features a list of {{ objstorage-name }} tutorials.
 ---
 
 # {{ objstorage-name }} tutorials
@@ -11,11 +11,12 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [Integrating an L7 load balancer with {{ cdn-name }} and {{ objstorage-name }}](./cdn-storage-integration.md)
 * [Blue-green and canary deployment of service versions](./blue-green-canary-deployment.md)
 * [Analyzing logs using {{ datalens-name }}](./storage-logs-analysis.md)
+* [{#T}](./search-events-audit-logs/index.md)
 * [{#T}](./data-processing-init-actions-geesefs.md)
 * [Connecting a bucket as a disk in Windows](./s3-disk-connect.md)
 * [Automatically copying objects from one bucket to another](./bucket-to-bucket.md)
-* [Regular recognition of audio files in a bucket](./batch-recognition-stt.md)
-* [Generating a a resource-by-resource cost breakdown report using S3 Select](./billing-resource-detailing.md)
+* [Recognizing audio files in a bucket on a regular basis](./batch-recognition-stt.md)
+* [Generating a resource-by-resource cost breakdown report using S3 Select](./billing-resource-detailing.md)
 * [{#T}](./clickhouse-hybrid-storage.md)
 * [Migrating data from {{ yds-full-name }} using {{ data-transfer-full-name }}](./yds-obj-migration.md)
 * [Server-side encryption](./server-side-encryption.md)
@@ -24,10 +25,10 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [{#T}](./static/index.md)
 * [{#T}](prefetch.md)
 * [VM backup with Hystax Acura Backup](./hystax-backup.md)
-* [Backup to {{ objstorage-name }} via CloudBerry Desktop Backup](./object-storage-cloudberry.md)
-* [Backup to {{ objstorage-name }} via Duplicati](./object-storage-duplicati.md)
-* [Backup to {{ objstorage-name }} via Bacula](./backup-with-bacula.md)
-* [Backup to {{ objstorage-name }} via Veritas Backup Exec](./object-storage-veritas.md)
+* [Backing up to {{ objstorage-name }} with CloudBerry Desktop Backup](./object-storage-cloudberry.md)
+* [Backing up to {{ objstorage-name }} via Duplicati](./object-storage-duplicati.md)
+* [Backing up to {{ objstorage-name }} with Bacula](./backup-with-bacula.md)
+* [Backing up to {{ objstorage-name }} with Veritas Backup Exec](./object-storage-veritas.md)
 * [{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}](./kubernetes-backup.md)
 * [{#T}](./dp-mch-data-exchange.md)
 * [{#T}](./object-storage-to-postgresql.md)
@@ -59,6 +60,8 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [Visualizing {{ yq-full-name }}](./data-from-yandex-query-visualization.md) data
 * [{#T}](./replicate-logs-to-storage.md)
 * [{#T}](./replicate-logs-to-storage-via-data-streams.md)
+* [{#T}](./export-logs-to-arcsight.md)
+* [{#T}](./export-logs-to-splunk.md)
 * [{#T}](./mlflow-datasphere.md)
 * [{#T}](./yq-storage.md)
 * [{#T}](yq-federative-queries.md)
@@ -67,3 +70,5 @@ description: This page presents a list of {{ objstorage-name }} tutorials.
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](billing.md)
 * [{#T}](jwt-authorizer-firebase.md)
+* [{#T}](search-events-query.md)
+* [{#T}](search-events-bucket.md)

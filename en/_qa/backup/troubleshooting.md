@@ -1,9 +1,3 @@
-# Troubleshooting in {{ backup-name }}
-
-This section describes typical problems you may encounter while using {{ backup-name }} and gives troubleshooting recommendations.
-
-{% include [baremetal-note](../../_includes/backup/baremetal-note.md) %}
-
 #### Why cannot I add a VM or {{ baremetal-full-name }} server to {{ backup-name }}? {#cannot-add-vm}
 
 Make sure that:
@@ -28,6 +22,7 @@ Make sure that:
 
 {% endlist %}
 
+
 #### How do I reconnect a VM or {{ baremetal-name }} server deleted from {{ backup-name }}? {#reconnect-deleted-vm}
 
 If you have [deleted a VM](../../backup/operations/delete-vm.md) or {{ baremetal-name }} server from {{ backup-name }} and want to reconnect it to the service, follow this guide:
@@ -45,6 +40,7 @@ If you have [deleted a VM](../../backup/operations/delete-vm.md) or {{ baremetal
 
 {% endlist %}
 
+
 #### How do I reconnect a VM or {{ baremetal-name }} server to {{ backup-name }} after restoring its backup to another VM or server? {#how-to-renew-connection}
 
 {% list tabs group=backup_resource_type %}
@@ -58,6 +54,7 @@ If you have [deleted a VM](../../backup/operations/delete-vm.md) or {{ baremetal
   A {{ baremetal-name }} server becomes outdated after its backup is restored to another server. To avoid conflicts between the original and target {{ baremetal-name }} servers when performing a backup, [refresh](../../backup/operations/backup-baremetal/refresh-connection.md) the outdated server's connection to {{ backup-name }}.
 
 {% endlist %}
+
 
 #### I get an error when trying to restore a VM or {{ baremetal-name }} server from a backup {#recovery-error}
 
@@ -79,6 +76,7 @@ Check the target VM disks and [increase](../../compute/operations/disk-control/u
 
 {% endnote %}
 
+
 #### Error when connecting to a Windows VM {#windows-connection-issue}
 
 Error message:
@@ -95,6 +93,17 @@ Make sure that:
 * [Network access for your VM](../../backup/concepts/vm-connection.md#vm-network-access) is enabled.
 * The PowerShell execution policies allow scripts. If they do not, allow scripts and restart PowerShell. For more information, see the [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
+
 #### How do I update the {{ backup-name }} agent on a VM? {#update-backup-agent}
 
 See this guide: [Updating the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md).
+
+#### Why are backups no longer created after the OS update? {#kernel-update-consequences}
+
+{% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
+
+To update Linux kernel header versions, follow these tutorials: [Restoring the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md#restore-agent) and [Restoring the {{ backup-name }} agent on a {{ baremetal-name }} server](../../backup/operations/backup-baremetal/restore-agent.md).
+
+#### Creating incremental backups of a VM or {{ baremetal-name }} server is taking longer than usual {#av-interaction}
+
+Antivirus activity may affect the time required to create [incremental backups](../../backup/concepts/backup.md#types) under a policy with the fast backup [option](../../backup/concepts/policy.md#specification) enabled (`fastBackupEnabled`). For more information, see [{#T}](../../backup/concepts/av-interaction.md).

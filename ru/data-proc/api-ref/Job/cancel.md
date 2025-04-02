@@ -3,9 +3,9 @@ editable: false
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/cancel.md
 ---
 
-# Data Proc API, REST: Job.Cancel
+# Yandex Data Processing API, REST: Job.Cancel
 
-Cancels the specified Dataproc job.
+Cancels the specified Yandex Data Processing job.
 
 ## HTTP request
 
@@ -19,10 +19,10 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobI
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the Dataproc cluster. ||
+Required field. Required. ID of the Yandex Data Processing cluster. ||
 || jobId | **string**
 
-Required field. Required. ID of the Dataproc job to cancel. ||
+Required field. Required. ID of the Yandex Data Processing job to cancel. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -263,7 +263,7 @@ A list of messages that carry the error details. ||
 
 ## Job {#yandex.cloud.dataproc.v1.Job}
 
-A Data Proc job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
+A Yandex Data Processing job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
 
 #|
 ||Field | Description ||
@@ -272,7 +272,7 @@ A Data Proc job. For details about the concept, see [documentation](/docs/data-p
 ID of the job. Generated at creation time. ||
 || clusterId | **string**
 
-ID of the Data Proc cluster that the job belongs to. ||
+ID of the Yandex Data Processing cluster that the job belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -363,17 +363,17 @@ Attributes of YARN application. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and MapReduce. ||
+Property names and values, used to configure Yandex Data Processing and MapReduce. ||
 || mainJarFileUri | **string**
 
 HCFS URI of the .jar file containing the driver class.
@@ -395,17 +395,17 @@ Includes only one of the fields `mainJarFileUri`, `mainClass`. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Spark. ||
+Property names and values, used to configure Yandex Data Processing and Spark. ||
 || mainJarFileUri | **string**
 
 The HCFS URI of the JAR file containing the `main` class for the job. ||
@@ -432,17 +432,17 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and PySpark. ||
+Property names and values, used to configure Yandex Data Processing and PySpark. ||
 || mainPythonFileUri | **string**
 
 URI of the file with the driver code. Must be a .py file. ||
@@ -466,7 +466,7 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 ||Field | Description ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Hive. ||
+Property names and values, used to configure Yandex Data Processing and Hive. ||
 || continueOnFailure | **boolean**
 
 Flag indicating whether a job should continue to run if a query fails. ||

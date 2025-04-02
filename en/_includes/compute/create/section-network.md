@@ -1,15 +1,15 @@
 Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-* In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, you can select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
+* In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
 
     * Each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet). If your network has no subnets, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-    * If there are no networks in the list, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+    * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-        * In the window that opens, specify the network name and select the folder where you want to create it.
-        * Optionally, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** to automatically create subnets in all availability zones.
+        * In the window that opens, specify the network name and select the folder to host the network.
+        * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
         * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-* In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select a method for assigning an IP address:
+* In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select an IP address assignment method:
 
     * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: To assign a random IP address from the {{ yandex-cloud }} IP address pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the option below.
     * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: To select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).

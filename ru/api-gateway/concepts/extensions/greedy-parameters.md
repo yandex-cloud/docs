@@ -26,3 +26,7 @@
         object: '{file}'
         error_object: error.html
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/deploy-app-container.md)

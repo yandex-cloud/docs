@@ -116,6 +116,16 @@ _Подготовленный экземпляр_ — это экземпляр 
 * Суммарный объем RAM для всех запущенных функций в каждой зоне доступности.
 * Количество подготовленных экземпляров функций в одном облаке.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/api-gw-integration.md)
+* [{#T}](../tutorials/batch-code-execution.md)
+* [{#T}](../tutorials/canary-release.md)
+* [{#T}](../tutorials/events-from-postbox-to-yds.md)
+* [{#T}](../tutorials/functions-framework-to-container.md)
+* [{#T}](../tutorials/monitoring.md)
+* [{#T}](../tutorials/nodejs-cron-restart-vm.md)
+
 #### См. также
 
 * [Создать версию функции](../operations/function/version-manage.md)
