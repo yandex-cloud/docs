@@ -27,6 +27,8 @@ Syntax:
 |`--network-name`|<b>`string`</b><br/>Network name.|
 |`--subnet-name`|<b>`value[,value]`</b><br/>Adds subnet by Name for the database.|
 |`--subnet-id`|<b>`value[,value]`</b><br/>Adds subnet by ID for the database.|
+|`--security-group-name`|<b>`value[,value]`</b><br/>Adds security-group by Name for the database.|
+|`--security-group-id`|<b>`value[,value]`</b><br/>Adds security-group by ID for the database.|
 |`--storage`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>YDB database storage options.<br/><br/>Possible property names:<br/><ul> <li><code>type</code>:     YDB database storage type id.</li> <li><code>groups</code>:     YDB database storage group count.</li> </ul>|
 |`--fixed-size`|<b>`int`</b><br/>Specifies fixed scale policy size.|
 |`--zone`|<b>`string`</b><br/>Specifies database type - zonal.|

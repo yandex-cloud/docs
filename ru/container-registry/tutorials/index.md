@@ -19,3 +19,4 @@ description: Различные сценарии использования {{ c
 * [{#T}](node-from-docker.md)
 * [{#T}](node-from-docker-fast-api.md)
 * [{#T}](container-pg-connect.md)
+* [{#T}](container-registry.md)

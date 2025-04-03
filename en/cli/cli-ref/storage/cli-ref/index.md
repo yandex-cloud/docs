@@ -39,6 +39,7 @@ Syntax:
 	- [yc storage s3api get-object-tagging](s3api/get-object-tagging.md) — Returns bucket object labels
 	- [yc storage s3api head-object](s3api/head-object.md) — Returns object metadata from Object Storage
 	- [yc storage s3api list-multipart-uploads](s3api/list-multipart-uploads.md) — Lists in-progress multipart uploads
+	- [yc storage s3api list-objects](s3api/list-objects.md) — Lists objects in a bucket using listObjectsV2 http method
 	- [yc storage s3api list-parts](s3api/list-parts.md) — Lists parts of a multipart upload
 	- [yc storage s3api put-object](s3api/put-object.md) — Puts an object and its metadata to Object Storage
 	- [yc storage s3api put-object-legal-hold](s3api/put-object-legal-hold.md) — Puts or removes legal hold for an object version

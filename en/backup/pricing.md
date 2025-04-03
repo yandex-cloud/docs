@@ -8,21 +8,29 @@ editable: false
 
 
 
+{% note warning %}
+
+The prices for {{ baremetal-full-name }} backups and their storage will be effective starting April 14, 2025.
+
+{% endnote %}
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 ## What goes into the cost of using {{ backup-name }} {#rules}
 
-The cost of {{ backup-name }} depends on the number of protected VMs and the total size of storage used by backups.
+The cost of {{ backup-name }} depends on the number of resources to back up, such as {{ compute-full-name }} VMs and {{ baremetal-full-name }} servers, and the total storage space used by backups.
 
-### VM protection {#vms}
+### Resource protection {#vms}
 
-You start paying for a VM in {{ backup-name }} as soon as you link it to a [backup policy](./concepts/policy.md). Regardless of the VM status, you will be charged for the VM until you unlink it from the policy.
+You start paying for a VM or a {{ baremetal-name }} server in {{ backup-name }} as soon as you link it to a [backup policy](./concepts/policy.md). Regardless of the resource status, you will be charged for the resource until you unlink it from the policy.
 
 If you delete a VM in [{{ compute-full-name }}](../compute/) using the [management console]({{ link-console-main }}), this will also unlink such a VM from all policies. If you delete a VM using the CLI, {{ TF }}, or API, it will not be unlinked from policies automatically. You need to unlink it yourself.
 
-The minimum billing unit is 1 VM per hour.
+If you need to unlink a {{ baremetal-name }} from a policy, you will still have to do it on your own.
+
+The minimum billing unit is one resource (VM or {{ baremetal-name }} server) to back up, per hour.
 
 ### Using storage {#backups}
 
@@ -32,18 +40,18 @@ The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-If a VM is stopped or deleted, its backups are still stored in {{ backup-name }} and you continue to pay for their volume stored. The backup size depends on the following:
-* VM disk usage
+If a protected resource is stopped or deleted, its backups are still stored in {{ backup-name }} and you continue to pay for their volume stored. The backup size depends on the following:
+* VM or {{ baremetal-name }} server disk usage
 * Amount of data updated during regular backups
 * Data compression option
 
 {% note info %}
 
-To pay less, delete the backups of the deleted VMs that you no longer need.
+To optimize your costs, consider removing the backups of the deleted VMs or the {{ baremetal-name }} servers you stopped renting.
 
 {% endnote %}
 
-The size of VM backups can fall short of the VM disk size, e.g., if the VM disk usage is low and the level of data compression is high, or exceed it, e.g., when there are many backups and their data is continuously modified and poorly compressed.
+The size of protected resource backups can fall short of the resource disk size, e.g., if the disk usage is low and the level of data compression is high, or exceed it, e.g., when there are many backups and their data is continuously modified and poorly compressed.
 
 ## Prices for the Russia region {#prices}
 
@@ -51,7 +59,7 @@ The size of VM backups can fall short of the VM disk size, e.g., if the VM disk 
 
 The monthly prices are based on 720 hours per month.
 
-### Protected {{ backup-name }} VMs {#prices-vms}
+### Protected {{ backup-name }} resources {#prices-vms}
 
 
 

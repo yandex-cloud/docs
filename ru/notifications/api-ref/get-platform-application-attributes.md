@@ -1,6 +1,6 @@
 # Действие GetPlatformApplicationAttributes
 
-Получает параметры [канала мобильных Push-уведомлений](../concepts/push.md).
+Получает параметры [канала мобильных Push-уведомлений](../concepts/push.md) или [Push-уведомлений в браузере](../concepts/browser.md).
 
 ## HTTP-запрос {#request}
 
@@ -13,7 +13,7 @@ POST https://{{ cns-host }}/
 Параметр | Описание
 --- | ---
 `Action` | **string**<br/>Обязательное поле.<br/>Параметр для обозначения типа операции.<br/>Значение: `GetPlatformApplicationAttributes`.
-`PlatformApplicationArn` | **string**<br/>Обязательное поле.<br/>Идентификатор канала мобильных Push-уведомлений.<br/>Пример: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`PlatformApplicationArn` | **string**<br/>Обязательное поле.<br/>Идентификатор канала Push-уведомлений.<br/>Пример: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
 `ResponseFormat` | **string**<br/>Формат ответа.<br/>Возможные значения:<ul><li>`XML` (по умолчанию).</li><li>`JSON`.</li></ul>
 
 ## Ответ {#response}
@@ -82,6 +82,7 @@ POST https://{{ cns-host }}/
       * `APNS_SANDBOX` — Apple Push Notification service для тестирования приложения.
       * `FCM` — [Firebase Cloud Messaging](https://firebase.google.com/).
       * `HMS` — [Huawei Mobile Services](https://developer.huawei.com/consumer/).
+      * `WEB` — [Push-уведомления в браузере](https://developer.mozilla.org/en-US/docs/Web/API/Push_API).
     * `CreatedAt` — дата и время создания канала мобильных Push-уведомлений.
 
 {% endlist %}

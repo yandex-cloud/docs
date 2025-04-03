@@ -13,8 +13,8 @@ POST https://{{ cns-host }}/
 Параметр | Описание
 --- | ---
 `Action` | **string**<br/>Обязательное поле.<br/>Параметр для обозначения типа операции.<br/>Значение: `CreatePlatformEndpoint`.
-`PlatformApplicationArn` | **string**<br/>Обязательное поле.<br/>Идентификатор канала мобильных Push-уведомлений.<br/>Пример: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
-`Token` | **string**<br/>Обязательное поле.<br/>Уникальный токен на устройстве пользователя (Registration ID), созданный сервисом уведомлений для приложения.
+`PlatformApplicationArn` | **string**<br/>Обязательное поле.<br/>Идентификатор канала мобильных Push-уведомлений или Push-уведомлений в браузере.<br/>Пример: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`Token` | **string**<br/>Обязательное поле.<br/>Для мобильных уведомлений — уникальный токен на устройстве пользователя (Registration ID), созданный сервисом уведомлений для приложения. Для уведомлений в браузере — объект [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) в формате [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON), который получен в браузере пользователя.
 `CustomUserData` | **string**<br/>Прочие пользовательские данные, которые можно сохранить вместе с эндпоинтом. {{ cns-name }} никак не использует эти данные.
 `ResponseFormat` | **string**<br/>Формат ответа.<br/>Возможные значения:<ul><li>`XML` (по умолчанию).</li><li>`JSON`.</li></ul>
 

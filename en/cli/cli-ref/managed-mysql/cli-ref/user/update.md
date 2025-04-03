@@ -24,6 +24,7 @@ Syntax:
 |`--permissions`|<b>`value[,value]`</b><br/>Names of the databases that the permission grants access to.|
 |`--global-permissions`|<b>`value[,value]`</b><br/>User global access roles, possible values: FLUSH_OPTIMIZER_COSTS,PROCESS,REPLICATION_CLIENT,REPLICATION_SLAVE,SHOW_ROUTINE|
 |`--authentication-plugin`|<b>`string`</b><br/>Authentication plugin of the MySQL user.|
+|`--generate-password`|Generate password using Connection Manager.|
 |`--max-questions-per-hour`|<b>`int`</b><br/>The maximum permitted number of user questions per hour.|
 |`--max-updates-per-hour`|<b>`int`</b><br/>The maximum permitted number of user updates per hour.|
 |`--max-connections-per-hour`|<b>`int`</b><br/>The maximum permitted number of simultaneous client connections per hour.|

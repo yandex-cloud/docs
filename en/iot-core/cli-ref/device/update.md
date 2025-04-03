@@ -19,6 +19,7 @@ Syntax:
 |----|----|
 |`--new-name`|<b>`string`</b><br/>A new name of device.|
 |`--description`|<b>`string`</b><br/>Description of device.|
+|`--labels`|<b>`key=value[,key=value...]`</b><br/>List of KEY=VALUE pairs to replace existing.|
 |`--topic-aliases`|<b>`key=value[,key=value...]`</b><br/>A list of ALIAS=TOPIC_PREFIX pairs to add.|
 |`--id`|<b>`string`</b><br/>Device id.|
 |`--name`|<b>`string`</b><br/>Device name.|

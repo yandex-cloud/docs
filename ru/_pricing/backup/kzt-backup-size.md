@@ -1,3 +1,3 @@
 | Услуга | Цена за ГБ в месяц, вкл. НДС  |
 | --- | --- |
-| Хранение резервных копий | {{ sku|KZT|backup.used_space.v1|month|string }} |
+| Хранение резервных копий ВМ | {{ sku|KZT|backup.used_space.v1|month|string }} |

@@ -20,7 +20,6 @@ Syntax:
 |`--service-account-id`|<b>`string`</b><br/>service account id.|
 |`--service-account-name`|<b>`string`</b><br/>service account name.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of API key.|
-|`--scope`|<b>`string`</b><br/>Specifies a scope of API key.|
 |`--scopes`|<b>`value[,value]`</b><br/>Specifies list of scopes of API key.|
 |`--expires-at`|<b>`timestamp`</b><br/>The date/time after which the API key is considered expired.|
 

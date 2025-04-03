@@ -41,7 +41,7 @@ Syntax:
 |`--websql-access`|Allow access for Web SQL.|
 |`--datatransfer-access`|Allow access for DataTransfer.|
 |`--yandexquery-access`|Allow access for Yandex Query.|
-|`--greenplum-version`|<b>`string`</b><br/>Version of Greenplum used in the cluster. Values: 6.19|
+|`--greenplum-version`|<b>`string`</b><br/>Version of Greenplum used in the cluster. Values: 6.25|
 |`--zone-id`|<b>`string`</b><br/>ID of the availability zone where the host resides.|
 |`--subnet-id`|<b>`string`</b><br/>ID of the subnet that the host should be created in.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|

@@ -53,6 +53,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](data/s3-connectors.md)
 * [{#T}](data/spark-connectors.md)
 * [{#T}](data/models.md)
+* [{#T}](data/filestores.md)
 
 ## Подключение к источникам данных {#connections-to-data-sources}
 
@@ -86,6 +87,7 @@ description: Страница содержит все инструкции дл�
 ## Совместный доступ к ресурсам, проектам и результатам вычислений {#share}
 
 * [{#T}](data/dataset.md#share)
+* [{#T}](data/filestores.md#share)
 * [{#T}](data/s3-connectors.md#share)
 * [{#T}](data/secrets.md#share)
 * [{#T}](user-images.md#share)

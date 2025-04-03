@@ -7,19 +7,11 @@ description: На странице представлены релизы YC CLI,
 
 ## Текущая версия {#latest-release}
 
-### Версия 0.146.0 (02.04.25) {#version0.146.0}
+### Версия 0.146.1 (03.04.25) {#version0.146.1}
 
-####  Изменения в сервисах {{ yandex-cloud }} {#services}
+####  Изменения в сервисах {{ yandex-cloud }}
 
-#### {{ at-name }} {#audit-trails}
-
-* В командах `yc audit-trails trail create` и `yc audit-trails trail update` больше не проверяются флаги `--filter-from-*`. В следующем релизе эти флаги будут удалены.
-
-#### {{ interconnect-name }} {#interconnect}
-
-* В команде `yc cic trunk-connection update` удалены флаги `--capacity` и `--pop`.
-
-#### {{ compute-name }} {#compute}
+##### {{ compute-name }} {#compute}
 
 * Добавлены команды для управления пулами зарезервированных ВМ:
   * `yc compute reserved-instance-pool get`;
@@ -27,12 +19,26 @@ description: На странице представлены релизы YC CLI,
   * `yc compute reserved-instance-pool create`;
   * `yc compute reserved-instance-pool update`;
   * `yc compute reserved-instance-pool delete`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 0.146.0 (02.04.25) {#version0.146.0}
+
+####  Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ at-name }} {#audit-trails}
+
+* В командах `yc audit-trails trail create` и `yc audit-trails trail update` больше не проверяются флаги `--filter-from-*`. В следующем релизе эти флаги будут удалены.
+
+##### {{ interconnect-name }} {#interconnect}
+
+* В команде `yc cic trunk-connection update` удалены флаги `--capacity` и `--pop`.
  
-#### {{ iam-name }} {#iam}
+##### {{ iam-name }} {#iam}
 
 * В команде `yc iam api-key create` флаг `--scope` помечен как **DEPRECATED**.
 
-#### {{ objstorage-name }} {#storage}
+##### {{ objstorage-name }} {#storage}
 
 * Добавлена команда `yc storage s3api list-objects` для получения списка объектов в бакете.
 
@@ -60,9 +66,7 @@ description: На странице представлены релизы YC CLI,
 
 **{{ ydb-name }}**
 
-* В команды `yc ydb database create` и `yc ydb database update` добавлен флаг `--security-groups`.
-
-## Предыдущие релизы {#previous-release}
+* В команды `yc ydb database create` и `yc ydb database update` добавлены флаги `--security-group-name` и `--security-group-id`.
 
 ### Версия 0.145.0 (18.03.25) {#version0.145.0}
 

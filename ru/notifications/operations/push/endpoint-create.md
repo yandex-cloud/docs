@@ -29,7 +29,7 @@ description: Следуя этой инструкции, вы сможете с�
 
       {% include [endpoint-create-aws](../../../_includes/notifications/endpoint-create-aws.md) %}
 
-- AWS SDK для Python (boto3) {#python}
+- AWS SDK для Python {#python}
 
   1. Если у вас еще нет AWS SDK для Python (boto3), [установите и настройте его](../../tools/sdk-python.md#aws-sdk).
   1. Чтобы создать эндпоинт, используйте следующий код:

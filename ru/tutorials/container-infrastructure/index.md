@@ -17,6 +17,42 @@ description: Различные сценарии использования ко
 
 ## {{ managed-k8s-name }} {#k8s}
 
+### Создание и настройка проекта {#creating-project}
+
+* [{#T}](k8s-cluster-with-no-internet.md)
+* [{#T}](driverless-gpu.md)
+* [{#T}](kms-k8s.md)
+
+### Настройка и тестирование масштабирования {#scaling}
+
+* [{#T}](autoscaling.md)
+* [{#T}](loadtesting-grpc-autoscaling.md)
+
+### Установка NGINX {#nginx}
+
+* [{#T}](ingress-cert-manager.md)
+* [{#T}](nginx-ingress-certificate-manager.md)
+
+### Использование {{ container-registry-full-name }} {#container-registry}
+
+* [{#T}](container-registry.md)
+* [{#T}](sign-cr-with-cosign.md)
+* [{#T}](image-storage.md)
+
+### Непрерывная интеграция с {{ GL }} {#gitlab}
+
+* [{#T}](cr-scanner-with-k8s-and-gitlab.md)
+
+### Работа с DNS {#dns}
+
+* [{#T}](custom-dns.md)
+* [{#T}](dns-autoscaler.md)
+* [{#T}](dnschallenge.md)
+
+### Мониторинг {#monitoring}
+
+* [{#T}](filebeat-oss-monitoring.md)
+
 ### Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}
 
 * [{#T}](argo-cd.md)

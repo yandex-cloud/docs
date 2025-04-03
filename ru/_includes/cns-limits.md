@@ -8,7 +8,8 @@
 
 **Вид ограничения** | **Значение**
 ----- | -----
-Максимальное количество [каналов push-уведомлений](../notifications/concepts/push.md#mobile-channel) в облаке | 20
+Максимальное количество [каналов мобильных push-уведомлений](../notifications/concepts/push.md#mobile-channel) в облаке | 20
+Максимальное количество [каналов push-уведомлений в браузере](../notifications/concepts/browser.md) в облаке | 10
 Максимальное количество каналов [SMS-уведомлений](../notifications/concepts/sms.md) в облаке | 10
 Максимальное количество каналов SMS-уведомлений с [общим отправителем](../notifications/concepts/sms.md#common-sender) в облаке | 1
 Максимальное количество каналов SMS-уведомлений с [индивидуальным отправителем](../notifications/concepts/sms.md#individual-sender) в облаке | 10
