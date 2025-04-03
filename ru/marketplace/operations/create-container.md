@@ -593,7 +593,7 @@ user_values:
 ### Файл переменных values.yaml {#values}
 
 ```yaml
-# An example of values.xml related to publisher manifest above.
+# An example of values.yaml related to publisher manifest above.
 replicaCount: 1
 podAnnotations: {}
 podSecurityContext: {}
