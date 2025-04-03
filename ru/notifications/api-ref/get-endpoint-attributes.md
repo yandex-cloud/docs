@@ -13,7 +13,7 @@ POST https://{{ cns-host }}/
 Параметр | Описание
 --- | ---
 `Action` | **string**<br/>Обязательное поле.<br/>Параметр для обозначения типа операции.<br/>Значение: `GetEndpointAttributes`.
-`EndpointArn` | **string**<br/>Обязательное поле.<br/>Идентификатор (ARN) мобильного эндпоинта.<br/>Пример: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
+`EndpointArn` | **string**<br/>Обязательное поле.<br/>Идентификатор (ARN) эндпоинта.<br/>Пример: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
 `ResponseFormat` | **string**<br/>Формат ответа.<br/>Возможные значения:<ul><li>`XML` (по умолчанию).</li><li>`JSON`.</li></ul>
 
 ## Ответ {#response}

@@ -470,37 +470,9 @@ items:
       - name: Все руководства
         href: container-infrastructure/index.md
       - name: >-
-          Развертывание и нагрузочное тестирование gRPC-сервиса с
-          масштабированием в {{ managed-k8s-name }}
-        href: container-infrastructure/loadtesting-grpc-autoscaling.md
-      - name: >-
-          Установка Ingress-контроллера NGINX с сертификатом из {{
-          certificate-manager-name }}
-        href: container-infrastructure/nginx-ingress-certificate-manager.md
-      - name: Настройка Ingress-контроллера {{ alb-name }}
-        href: container-infrastructure/alb-ingress-controller.md
-      - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
-        href: container-infrastructure/alb-ingress-controller-log-options.md
-      - name: >-
-          Проверка состояния приложений в кластере {{ managed-k8s-name }} с
-          помощью Ingress-контроллера {{ alb-name }}
-        href: container-infrastructure/custom-health-checks.md
-      - name: Шифрование секретов в {{ managed-k8s-name }}
-        href: container-infrastructure/kms-k8s.md
-      - name: Синхронизация секретов {{ lockbox-name }} и {{ managed-k8s-name }}
-        href: container-infrastructure/kubernetes-lockbox-secrets.md
-      - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
-        href: container-infrastructure/sign-cr-with-cosign.md
-      - name: >-
           Настройка подключения к {{ mpg-name }} из контейнера {{
           serverless-containers-name }}
         href: container-infrastructure/container-pg-connect.md
-      - name: Хранение Docker-образов из проектов {{ mgl-name }}
-        href: container-infrastructure/image-storage.md
-      - name: >-
-          Сканирование уязвимостей при непрерывном развертывании приложений {{
-          managed-k8s-name }} с помощью {{ GL }}
-        href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
       - name: Создать ВМ с {{ coi }}
         href: container-infrastructure/vm-create.md
       - name: Создать ВМ с {{ coi }} и дополнительным томом для Docker-контейнера
@@ -517,6 +489,58 @@ items:
         href: container-infrastructure/serial-port.md
       - name: '{{ managed-k8s-name }}'
         items:
+          - name: Создание кластера {{ k8s }} без доступа в интернет
+            href: container-infrastructure/k8s-cluster-with-no-internet.md
+          - name: Использование групп узлов c GPU без предустановленных драйверов
+            href: container-infrastructure/driverless-gpu.md
+          - name: Шифрование секретов в {{ managed-k8s-name }}
+            href: container-infrastructure/kms-k8s.md
+          - name: Настройка и тестирование масштабирования
+            items:
+              - name: Горизонтальное масштабирование приложения в кластере
+                href: container-infrastructure/autoscaling.md
+              - name: >-
+                  Развертывание и нагрузочное тестирование gRPC-сервиса с
+                  масштабированием
+                href: container-infrastructure/loadtesting-grpc-autoscaling.md
+          - name: Установка NGINX
+            items:
+              - name: Установка Ingress-контроллера NGINX с {{ lets-encrypt }}
+                href: container-infrastructure/ingress-cert-manager.md
+              - name: >-
+                  Установка Ingress-контроллера NGINX с сертификатом из {{
+                  certificate-manager-name }}
+                href: container-infrastructure/nginx-ingress-certificate-manager.md
+          - name: Использование {{ container-registry-name }}
+            items:
+              - name: Интеграция с {{ container-registry-name }}
+                href: container-infrastructure/container-registry.md
+              - name: >-
+                  Подпись и проверка Docker-образов {{ container-registry-name
+                  }}
+                href: container-infrastructure/sign-cr-with-cosign.md
+              - name: Хранение Docker-образов из проектов {{ mgl-name }}
+                href: container-infrastructure/image-storage.md
+          - name: Непрерывная интеграция с {{ GL }}
+            items:
+              - name: >-
+                  Сканирование уязвимостей {{ container-registry-name }} при
+                  непрерывном развертывании приложений с помощью {{ GL }}
+                href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
+          - name: Работа с DNS
+            items:
+              - name: Интеграция с корпоративной зоной DNS
+                href: container-infrastructure/custom-dns.md
+              - name: Автоматическое масштабирование DNS по размеру кластера
+                href: container-infrastructure/dns-autoscaler.md
+              - name: Проверка DNS Challenge для сертификатов {{ lets-encrypt }}
+                href: container-infrastructure/dnschallenge.md
+          - name: Мониторинг
+            items:
+              - name: >-
+                  Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat
+                  OSS
+                href: container-infrastructure/filebeat-oss-monitoring.md
           - name: Использование продуктов {{ marketplace-name }}
             items:
               - name: Интеграция с Argo CD

@@ -25,6 +25,7 @@ Syntax:
 |`--permissions`|<b>`value[,value]`</b><br/>Names of the databases that the permission grants access to.|
 |`--login`|Indicates whether the user can login. Defaults to true.|
 |`--grants`|<b>`value[,value]`</b><br/>Roles granted to the user.|
+|`--generate-password`|Generate password using Connection Manager.|
 |`--lock-timeout`|<b>`int`</b><br/>Lock timeout in milliseconds.|
 |`--log-min-duration-statement`|<b>`int`</b><br/>Log minimal duration statement in milliseconds.|
 |`--temp-file-limit`|<b>`int`</b><br/>Temporary file limit in bytes.|

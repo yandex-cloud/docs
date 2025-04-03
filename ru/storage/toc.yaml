@@ -488,6 +488,8 @@ items:
             href: cli-ref/s3api/head-object.md
           - name: list-multipart-uploads
             href: cli-ref/s3api/list-multipart-uploads.md
+          - name: list-objects
+            href: cli-ref/s3api/list-objects.md
           - name: list-parts
             href: cli-ref/s3api/list-parts.md
           - name: put-object

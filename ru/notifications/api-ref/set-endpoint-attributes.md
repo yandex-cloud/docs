@@ -13,7 +13,7 @@ POST https://{{ cns-host }}/
 Параметр | Описание
 --- | ---
 `Action` | **string**<br/>Обязательное поле.<br/>Параметр для обозначения типа операции.<br/>Значение: `SetEndpointAttributes`.
-`EndpointArn` | **string**<br/>Обязательное поле.<br/>Идентификатор (ARN) мобильного эндпоинта.<br/>Пример: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
+`EndpointArn` | **string**<br/>Обязательное поле.<br/>Идентификатор (ARN) эндпоинта.<br/>Пример: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
 `Attributes.entry.N.key` | **string**<br/>Обязательное поле.<br/>Ключ [атрибута](#attributes). `N` — числовое значение.<br/>Пример: `Attributes.entry.1.key=Token&Attributes.entry.2.key=CustomUserData`.
 `Attributes.entry.N.value` | **string**<br/>Обязательное поле.<br/>Значение атрибута. `N` — числовое значение.<br/>Пример: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=test-text`.
 `ResponseFormat` | **string**<br/>Формат ответа.<br/>Возможные значения:<ul><li>`XML` (по умолчанию).</li><li>`JSON`.</li></ul>
@@ -22,7 +22,7 @@ POST https://{{ cns-host }}/
 
 Атрибут | Описание
 --- | ---
-`Token` | **string**<br/>Обязательное поле.<br/>Уникальный токен на устройстве пользователя (Registration ID), созданный сервисом уведомлений для приложения.
+`Token` | **string**<br/>Обязательное поле.<br/>Для мобильных уведомлений — уникальный токен на устройстве пользователя (Registration ID), созданный сервисом уведомлений для приложения. Для уведомлений в браузере — объект [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) в формате [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON), который получен в браузере пользователя.
 `CustomUserData` | **string**<br/>Прочие пользовательские данные, которые можно сохранить вместе с эндпоинтом. {{ cns-name }} никак не использует эти данные.
 
 {% note info %}

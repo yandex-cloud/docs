@@ -4,5 +4,6 @@
 | Project storage size, over 10 GB | $0.09528 |
 | Node instance disk | $0.09528 |
 | Datasets | $0.09528 |
+| File storage | $0.109572 |
 | Model | $0.09528 |
 | {{ ds-jobs }} data | $0.09528 |

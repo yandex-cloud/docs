@@ -41,6 +41,12 @@ description: В данном разделе приведены описания 
 `UpdateTrail` | Изменение трейла
 `UpdateTrailAccessBindings` | Изменение прав доступа для трейла
 
+## {{ baremetal-full-name }} {#baremetal}
+
+Имя сервиса — `baremetal`.
+
+{% include [baremetal-events](../../_includes/audit-trails/events/baremetal-events.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
 Имя сервиса — `certificatemanager`.
@@ -263,6 +269,14 @@ description: В данном разделе приведены описания 
 Имя сервиса — `ydb`.
 
 {% include [ydb-events](../../_includes/audit-trails/events/ydb-events.md) %}
+
+## {{ metadata-hub-full-name }} {#metadata-hub}
+
+### {{ metastore-full-name }} {#hive-metastore}
+
+Имя сервиса — `metastore`.
+
+{% include [hive-metastore-events](../../_includes/audit-trails/events/hive-metastore-events.md) %}
 
 ## {{ network-load-balancer-full-name }} {#network-load-balancer}
 

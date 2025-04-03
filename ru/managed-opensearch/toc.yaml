@@ -76,6 +76,8 @@ items:
             href: tutorials/opensearch-to-ydb.md
           - name: Копирование данных в {{ mch-full-name }}
             href: tutorials/opensearch-to-clickhouse.md
+      - name: Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS
+        href: tutorials/filebeat-oss-monitoring.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -146,8 +148,12 @@ items:
             href: cli-ref/cluster/list.md
           - name: list-backups
             href: cli-ref/cluster/list-backups.md
+          - name: restart-opensearch
+            href: cli-ref/cluster/restart-opensearch.md
           - name: restore
             href: cli-ref/cluster/restore.md
+          - name: switch-master
+            href: cli-ref/cluster/switch-master.md
           - name: update
             href: cli-ref/cluster/update.md
       - name: node-group

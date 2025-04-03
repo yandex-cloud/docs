@@ -37,6 +37,8 @@
       {% include [payment-card-types](payment-card-types-business.md) %}
 
       {% include [yandex-account](payment-card-validation.md) %}
+   
+      {% include [no-card](create-ba-without-card.md) %}
 
    1. Укажите актуальные почту и телефон. Контактные данные нужны не только для связи с вами, но и для выставления счетов и финансовых документов. Если вы уже зарегистрированы в {{ yandex-cloud }}, проверьте правильность контактных данных.
 

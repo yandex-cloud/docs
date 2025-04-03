@@ -27,13 +27,13 @@ Syntax:
 |`--destination-log-group-id`|<b>`string`</b><br/>Specifies the ID of the destination log group.|
 |`--destination-yds-database-id`|<b>`string`</b><br/>Specifies the ID of the YDB hosting a destination YDS stream. Requires specifying 'destination-yds-stream'.|
 |`--destination-yds-stream`|<b>`string`</b><br/>Specifies the name of the destination YDS stream. Requires specifying 'destination-yds-database-id'.|
-|`--filter-all-folder-id`|<b>`string`</b><br/>Specifies the ID of the folder from which all default events will be collected.|
-|`--filter-all-cloud-id`|<b>`string`</b><br/>Specifies the ID of the cloud from which all default events will be collected.|
-|`--filter-all-organisation-id`|<b>`string`</b><br/>Specifies the ID of the organisation from which all default events will be collected.|
-|`--filter-from-cloud-id`|<b>`string`</b><br/>Specifies the ID of the cloud which contain all folders specified at 'filter-some-folder-ids'.|
-|`--filter-some-folder-ids`|<b>`value[,value]`</b><br/>Specifies the list of folder IDs from which all default events will be collected. Requires specifying 'filter-from-cloud-id'|
-|`--filter-from-organisation-id`|<b>`string`</b><br/>Specifies the ID of the organisation which contain all clouds specified at 'filter-some-cloud-ids'.|
-|`--filter-some-cloud-ids`|<b>`value[,value]`</b><br/>Specifies a list of cloud IDs from which all default events will be collected. Requires specifying 'filter-from-organisation-id'|
+|`--filter-all-folder-id`|<b>`string`</b><br/>Specifies the ID of the folder from which all management events will be collected.|
+|`--filter-all-cloud-id`|<b>`string`</b><br/>Specifies the ID of the cloud from which all management events will be collected.|
+|`--filter-all-organisation-id`|<b>`string`</b><br/>Specifies the ID of the organisation from which all management events will be collected.|
+|`--filter-from-cloud-id`|<b>`string`</b><br/>Specifies the ID of the cloud which contain all folders specified at 'filter-some-folder-ids'. Deprecated|
+|`--filter-some-folder-ids`|<b>`value[,value]`</b><br/>Specifies the list of folder IDs from which all management events will be collected.|
+|`--filter-from-organisation-id`|<b>`string`</b><br/>Specifies the ID of the organisation which contain all clouds specified at 'filter-some-cloud-ids'. Deprecated|
+|`--filter-some-cloud-ids`|<b>`value[,value]`</b><br/>Specifies a list of cloud IDs from which all management events will be collected.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

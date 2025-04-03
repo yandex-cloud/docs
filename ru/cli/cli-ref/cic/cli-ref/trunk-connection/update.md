@@ -25,8 +25,6 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>New set of labels for the trunkConnection as key-value pairs. Existing set of labels will be completely overwritten.|
 |`--region`|<b>`string`</b><br/>Region of the trunkConnection.|
 |`--deletion-protection`|Flag protecting the trunkConnection from deletion.|
-|`--pop`|<b>`string`</b><br/>Point of presence id where the trunkConnection is located.|
-|`--capacity`|<b>`string`</b><br/>Capacity of the trunkConnection.|
 
 #### Global Flags
 

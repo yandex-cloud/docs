@@ -1432,6 +1432,20 @@ items:
                 href: api-ref/grpc/PlacementGroup/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/PlacementGroup/updateAccessBindings.md
+          - name: ReservedInstancePool
+            items:
+              - name: Overview
+                href: api-ref/grpc/ReservedInstancePool/index.md
+              - name: Get
+                href: api-ref/grpc/ReservedInstancePool/get.md
+              - name: List
+                href: api-ref/grpc/ReservedInstancePool/list.md
+              - name: Create
+                href: api-ref/grpc/ReservedInstancePool/create.md
+              - name: Update
+                href: api-ref/grpc/ReservedInstancePool/update.md
+              - name: Delete
+                href: api-ref/grpc/ReservedInstancePool/delete.md
           - name: SnapshotSchedule
             items:
               - name: Overview
@@ -1814,6 +1828,20 @@ items:
                 href: api-ref/PlacementGroup/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/PlacementGroup/updateAccessBindings.md
+          - name: ReservedInstancePool
+            items:
+              - name: Overview
+                href: api-ref/ReservedInstancePool/index.md
+              - name: Get
+                href: api-ref/ReservedInstancePool/get.md
+              - name: List
+                href: api-ref/ReservedInstancePool/list.md
+              - name: Create
+                href: api-ref/ReservedInstancePool/create.md
+              - name: Update
+                href: api-ref/ReservedInstancePool/update.md
+              - name: Delete
+                href: api-ref/ReservedInstancePool/delete.md
           - name: SnapshotSchedule
             items:
               - name: Overview

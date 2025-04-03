@@ -18,7 +18,6 @@ Syntax:
 | Flag | Description |
 |----|----|
 |`-o`,`--output`|<b>`string`</b><br/>The path where the resulting IAM key should be written.|
-|`--user-account`|Key will be created for authenticated account.|
 |`--service-account-id`|<b>`string`</b><br/>service account id.|
 |`--service-account-name`|<b>`string`</b><br/>service account name.|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the service account.|

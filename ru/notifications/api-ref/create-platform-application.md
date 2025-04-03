@@ -10,15 +10,51 @@ POST https://{{ cns-host }}/
 
 ### Query-параметры {#parameters}
 
-Параметр | Описание
---- | ---
-`Action` | **string**<br/>Обязательное поле.<br/>Параметр для обозначения типа операции.<br/>Значение: `CreatePlatformApplication`.
-`Name` | **string**<br/>Обязательное поле.<br/>Имя канала уведомлений. Требования к имени см. в разделе [{#T}](../operations/push/channel-create.md).<br/>Пример: `com.example.app`.
-`Platform` | **string**<br/>Обязательное поле.<br/>Платформа для отправки мобильных Push-уведомлений.<br/>Возможные значения:<ul><li>`APNS` — [Apple Push Notification service](https://developer.apple.com/notifications/).</li>`APNS_SANDBOX` — Apple Push Notification service для тестирования приложения.</li><li>`FCM` — [Firebase Cloud Messaging](https://firebase.google.com/).</li><li>`HMS` — [Huawei Mobile Services](https://developer.huawei.com/consumer/).</li><li>`RUSTORE` — [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).</li></ul>
-`FolderId` | **string**<br/>Обязательное поле.<br/>[Идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создается канал уведомлений.<br/>Пример: `b1gsm0k26v1l********`.
-`Attributes.entry.N.key` | **string**<br/>Обязательное поле.<br/>Ключ [атрибута](#attributes). `N` — числовое значение.<br/>Пример: `Attributes.entry.1.key=PlatformPrincipal&Attributes.entry.2.key=PlatformCredential`.
-`Attributes.entry.N.value` | **string**<br/>Обязательное поле.<br/>Значение атрибута. `N` — числовое значение.<br/>Пример: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=CgB6e3x9iW/qiE9l9wAUPK0e/bJQe5uIgTlYUD4bP********`.
-`ResponseFormat` | **string**<br/>Формат ответа.<br/>Возможные значения:<ul><li>`XML` (по умолчанию).</li><li>`JSON`.</li></ul>
+#|
+|| **Параметр** | **Описание** ||
+
+|| `Action` | **string**
+Обязательное поле.
+Параметр для обозначения типа операции.
+Значение: `CreatePlatformApplication`.||
+
+|| `Name` | **string**
+Обязательное поле.
+Имя канала уведомлений. Требования к имени см. в разделе [{#T}](../operations/push/channel-create.md).
+Пример: `com.example.app`.||
+
+|| `Platform` | **string**
+Обязательное поле.
+Платформа для отправки мобильных Push-уведомлений или уведомлений в браузер.
+Возможные значения:
+- `APNS` — [Apple Push Notification service](https://developer.apple.com/notifications/).
+- `APNS_SANDBOX` — Apple Push Notification service для тестирования приложения.
+- `FCM` — [Firebase Cloud Messaging](https://firebase.google.com/).
+- `HMS` — [Huawei Mobile Services](https://developer.huawei.com/consumer/).
+- `RUSTORE` — [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
+- `WEB` — [Push-уведомления в браузере](https://developer.mozilla.org/en-US/docs/Web/API/Push_API).||
+
+|| `FolderId` | **string**
+Обязательное поле при аутентификации через IAM-токен.
+[Идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создается канал уведомлений. При аутентификации через статический ключ сервисного аккаунта, если FolderId не указан, канал создается в одном каталоге с сервисным аккаунтом.
+Пример: `b1gsm0k26v1l********`.||
+
+|| `Attributes.entry.N.key` | **string**
+Обязательное поле.
+Ключ [атрибута](#attributes). `N` — числовое значение.
+Пример: `Attributes.entry.1.key=PlatformPrincipal&Attributes.entry.2.key=PlatformCredential`.||
+
+|| `Attributes.entry.N.value` | **string**
+Обязательное поле.
+Значение атрибута. `N` — числовое значение.
+Пример: `Attributes.entry.1.value=c8gzjriSVxDDzX2fAV********&Attributes.entry.2.value=CgB6e3x9iW/qiE9l9wAUPK0e/bJQe5uIgTlYUD4bP********`.||
+
+|| `ResponseFormat` | **string**
+Формат ответа.
+Возможные значения:
+- `XML` (по умолчанию).
+- `JSON`.||
+|#
 
 ### Атрибуты {#attributes}
 

@@ -138,6 +138,8 @@ items:
         href: api-ref/authentication.md
       - name: Schema Registry
         href: api-ref/schema-registry/index.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Правила тарификации
     href: pricing.md
   - name: Публичные материалы

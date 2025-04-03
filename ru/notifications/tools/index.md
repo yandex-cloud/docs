@@ -13,8 +13,11 @@
 * [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
 * [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
 * [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
+* [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
 
-Вы можете использовать при работе с {{ cns-name }} не только инструменты {{ yandex-cloud }}, но и популярные инструменты для работы с Amazon S3:
+А также в браузеры пользователей на любом устройстве.
+
+Вы можете использовать при работе с {{ cns-name }} не только инструменты {{ yandex-cloud }}, но и инструменты для работы с Amazon S3:
 
 * [AWS CLI](aws-cli.md)
 * [AWS SDK для C++](sdk-cpp.md)

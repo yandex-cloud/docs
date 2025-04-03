@@ -30,7 +30,7 @@ description: Следуя этой инструкции, вы сможете у�
 
       Подробнее о команде `aws sns delete-endpoint` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-endpoint.html).
 
-- AWS SDK для Python (boto3) {#python}
+- AWS SDK для Python {#python}
 
   1. Если у вас еще нет AWS SDK для Python (boto3), [установите и настройте его](../../tools/sdk-python.md#aws-sdk).
   1. Чтобы изменить эндпоинт, используйте следующий код:
