@@ -1109,6 +1109,8 @@ default:
   sku|KZT|datalens:
     users:
       v1|string: "4\_950,00\_₸"
+  sku|KZT|datasphere:
+    filestores|number: 0.006
   sku|KZT|datatransfer:
     compute:
       cpu:
@@ -2535,6 +2537,8 @@ default:
     users:
       v1|number: 990
       v1|string: "990,00\_₽"
+  sku|RUB|datasphere:
+    filestores|number: 0.0012
   sku|RUB|datatransfer:
     compute:
       cpu:
@@ -6466,10 +6470,12 @@ default:
         field_hms-client-id: Идентификатор ключа
         field_hms-client-secret: API-ключ
         field_log-group: Лог-группа
+        field_logging: Запись логов
         field_logging-folder: Каталог
         field_rustore-project-id: ID проекта
         field_rustore-service-token: Сервисный токен
         field_token: Токен устройства
+        field_web-push-endpoint_params: Параметры эндпоинта в JSON
         label_editor-json: JSON
         label_editor-text: Текст
         label_endpoints: Эндпоинты
@@ -6486,6 +6492,7 @@ default:
         switch_gcm-api-v1: HTTP v1
         type_mobile: Мобильные Push-уведомления
         type_sms: SMS-сообщения
+        type_web: Push-уведомления в браузере
       common:
         add: Добавить
         all: Все
@@ -10116,6 +10123,9 @@ default:
         security-group: Группа безопасности
       external-ide:
         external-ide-vm-configuration: Конфигурация ВМ для удаленного подключения
+      filestore:
+        create-filestore: Создать файловое хранилище
+        mount-path-key-value: Имя при подключении
       import-ipynb:
         open-in-dataSphere: Запустить в Yandex DataSphere
       invite-link:
@@ -10219,6 +10229,7 @@ default:
         dataProc: Yandex Data&nbsp;Processing
         dataset: Датасет
         docker: Docker-образ
+        filestore: Файловое хранилище
         node: Нода
         s3: Коннектор S3
         secret: Секрет

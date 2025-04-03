@@ -89,6 +89,8 @@ items:
             href: operations/data/spark-connectors.md
           - name: Работа с моделями
             href: operations/data/models.md
+          - name: Работа с файловыми хранилищами
+            href: operations/data/filestores.md
       - name: Подключение к источникам данных
         items:
           - name: Подключение к S3 с помощью библиотеки boto3
@@ -217,6 +219,8 @@ items:
             href: concepts/models/index.md
           - name: Дообученные фундаментальные модели
             href: concepts/models/tuned-models.md
+          - name: Файловые хранилища
+            href: concepts/filestores.md
       - name: Фундаментальные модели
         href: concepts/models/foundation-models.md
       - name: Квоты и лимиты

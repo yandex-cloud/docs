@@ -17,5 +17,6 @@
 * [Коннекторы Spark](spark-connector.md)
 * [Модели](models/index.md)
 * [Дообученные фундаментальные модели](models/tuned-models.md)
+* [Файловые хранилища](filestores.md)
 
 Подробнее о ресурсной модели {{ ml-platform-name }} см. [{#T}](resource-model.md).

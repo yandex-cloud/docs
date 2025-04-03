@@ -1103,6 +1103,8 @@ default:
   sku|KZT|datalens:
     users:
       v1|string: ₸4950.00
+  sku|KZT|datasphere:
+    filestores|number: 0.006
   sku|KZT|datatransfer:
     compute:
       cpu:
@@ -2529,6 +2531,8 @@ default:
     users:
       v1|number: 990
       v1|string: ₽990.00
+  sku|RUB|datasphere:
+    filestores|number: 0.0012
   sku|RUB|datatransfer:
     compute:
       cpu:
@@ -6460,10 +6464,12 @@ default:
         field_hms-client-id: Key ID
         field_hms-client-secret: API key
         field_log-group: Log group
+        field_logging: Write logs
         field_logging-folder: Folder
         field_rustore-project-id: Project ID
         field_rustore-service-token: Service token
         field_token: Device token
+        field_web-push-endpoint_params: Endpoint parameters in JSON
         label_editor-json: JSON
         label_editor-text: Text
         label_endpoints: Endpoints
@@ -6480,6 +6486,7 @@ default:
         switch_gcm-api-v1: HTTP v1
         type_mobile: Mobile Push notifications
         type_sms: SMS
+        type_web: Push notifications in browser
       common:
         add: Add
         all: All
@@ -10110,6 +10117,9 @@ default:
         security-group: Security group
       external-ide:
         external-ide-vm-configuration: VM configuration for remote connection
+      filestore:
+        create-filestore: Create filestore
+        mount-path-key-value: Name at connection
       import-ipynb:
         open-in-dataSphere: Run in Yandex DataSphere
       invite-link:
@@ -10213,6 +10223,7 @@ default:
         dataProc: Yandex Data&nbsp;Processing
         dataset: Dataset
         docker: Docker
+        filestore: Filestore
         node: Node
         s3: S3 Connector
         secret: Secret

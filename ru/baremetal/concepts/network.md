@@ -5,13 +5,7 @@ description: Из статьи вы узнаете про публичные и 
 
 # Сеть
 
-![baremetal-network](../../_assets/baremetal/baremetal-network.svg).
-
-{% note info %}
-
-Возможность использования {{ interconnect-name }} с серверами  {{ baremetal-name }} появится в апреле 2025.
-
-{% endnote %}
+![baremetal-network](../../_assets/baremetal/baremetal-network.svg)
 
 ## Публичная сеть {#public-network}
 

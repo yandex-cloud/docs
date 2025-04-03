@@ -5,11 +5,7 @@ description: In this article, you will learn about public and private networks i
 
 # Network
 
-{% note info %}
-
-You will be able to use {{ interconnect-name }} with {{ baremetal-name }} servers starting April 2025.
-
-{% endnote %}
+![baremetal-network](../../_assets/baremetal/baremetal-network.svg)
 
 ## Public network {#public-network}
 

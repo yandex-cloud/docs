@@ -24,6 +24,7 @@ Actions are performed by making RPC calls. For more information about API archit
 || [Instance](Instance/index.md) | A set of methods for managing Instance resources. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [PlacementGroup](PlacementGroup/index.md) | A set of methods for managing placement groups. ||
+|| [ReservedInstancePool](ReservedInstancePool/index.md) | A set of methods for managing reserved instance pool resources. ||
 || [SnapshotSchedule](SnapshotSchedule/index.md) | A set of methods for managing snapshot schedules. ||
 || [Snapshot](Snapshot/index.md) | A set of methods for managing Snapshot resources. ||
 || [Zone](Zone/index.md) | A set of methods to retrieve information about availability zones. ||

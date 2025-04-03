@@ -7,15 +7,17 @@ items:
     items:
       - name: Обзор
         href: quickstart.md
-      - name: Начало работы с Push-уведомлениями
+      - name: Начало работы с мобильными Push-уведомлениями
         href: quickstart-push.md
+      - name: Начало работы с Push-уведомлениями в браузере
+        href: quickstart-browser.md
       - name: Начало работы с SMS
         href: quickstart-sms.md
   - name: Пошаговые операции
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Push-уведомления
+      - name: Мобильные Push-уведомления
         items:
           - name: Создать канал push-уведомлений
             href: operations/push/channel-create.md
@@ -31,6 +33,18 @@ items:
             href: operations/push/endpoint-delete.md
           - name: Отправить push-уведомление
             href: operations/push/send.md
+      - name: Push-уведомления в браузере
+        items:
+          - name: Создать канал
+            href: operations/browser/channel-create.md
+          - name: Управлять каналом
+            href: operations/browser/channel-manage.md
+          - name: Создать эндпоинт
+            href: operations/browser/endpoint-create.md
+          - name: Управлять эндпоинтом
+            href: operations/browser/endpoint-manage.md
+          - name: Отправить push-уведомление в браузер
+            href: operations/browser/send.md
       - name: SMS-уведомления
         items:
           - name: Создать канал SMS-уведомлений
@@ -52,8 +66,10 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Push-уведомления
+      - name: Мобильные Push-уведомления
         href: concepts/push.md
+      - name: Push-уведомления в браузере
+        href: concepts/browser.md
       - name: SMS
         href: concepts/sms.md
       - name: Квоты и лимиты

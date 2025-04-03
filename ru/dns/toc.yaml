@@ -59,6 +59,8 @@ items:
         href: tutorials/connect-migration.md
       - name: Интеграция с корпоративным сервисом DNS
         href: tutorials/dns-integration.md
+      - name: Интеграция {{ managed-k8s-name }} с корпоративной зоной DNS
+        href: tutorials/custom-dns.md
       - name: >-
           Настройка {{ dns-name }} для доступа к кластерам управляемых баз
           данных из других облачных сетей

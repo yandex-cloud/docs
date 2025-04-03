@@ -10,6 +10,7 @@
 `apiserver.ApiServerHead` | Получение метаданных ресурса
 `apiserver.ApiServerImpersonate` | Имперсонация
 `apiserver.ApiServerList` | Получение информации о коллекции ресурсов
+`apiserver.ApiServerNonstandardVerb` | Событие генерируется, если аудитный лог {{ managed-k8s-name }} содержит нестандартное значение в поле `verb`
 `apiserver.ApiServerOptions` | Настройка ресурса
 `apiserver.ApiServerPatch` | Изменение ресурса
 `apiserver.ApiServerPost` | Создание ресурса

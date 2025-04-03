@@ -19,6 +19,8 @@
    * (Опционально) Укажите отчество и почтовый адрес.
    * Нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
   
+1. Привяжите банковскую карту.
+   
    {% include [pin-card-data](pin-card-data.md) %}
   
    {% include [payment-card-types](payment-card-types.md) %}
@@ -26,6 +28,8 @@
    {% include [payment-card-validation](payment-card-validation.md) %}
 
    Ваш аккаунт будет создан с платным потреблением: после использования стартового гранта с карты начнут списываться средства за используемые ресурсы сервисов {{ yandex-cloud }}. 
+
+   {% include [no-card](create-ba-without-card.md) %}
 
 1. Укажите актуальные почту и телефон. Контактные данные нужны не только для связи с вами, но и для выставления счетов и финансовых документов. Если вы уже зарегистрированы в {{ yandex-cloud }}, проверьте правильность контактных данных.
 

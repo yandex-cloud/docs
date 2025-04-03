@@ -146,8 +146,12 @@ items:
             href: cli-ref/cluster/list.md
           - name: list-backups
             href: cli-ref/cluster/list-backups.md
+          - name: restart-opensearch
+            href: cli-ref/cluster/restart-opensearch.md
           - name: restore
             href: cli-ref/cluster/restore.md
+          - name: switch-master
+            href: cli-ref/cluster/switch-master.md
           - name: update
             href: cli-ref/cluster/update.md
       - name: node-group

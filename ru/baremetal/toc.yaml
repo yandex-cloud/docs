@@ -39,6 +39,8 @@ items:
             href: operations/servers/restore-grub.md
           - name: Загрузить образ
             href: operations/image-upload.md
+          - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
+            href: operations/backup-baremetal.md
       - name: Сеть
         items:
           - name: Создать VRF
@@ -78,14 +80,12 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
-        href: operations/backup-baremetal.md
-      - name: Настроить VRRP для кластера серверов {{ baremetal-name }}
+      - name: Подключение сервера {{ baremetal-name }} к {{ backup-name }}
+        href: tutorials/backup-baremetal.md
+      - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
         href: tutorials/bms-vrf-routing.md
       - name: Настройка сетевой связности в подсети {{ baremetal-name }}
         href: tutorials/bms-simple-subnet.md
-      - name: Подключение сервера {{ baremetal-name }} к {{ backup-name }}
-        href: tutorials/backup-baremetal.md
       - name: >-
           Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
           vpc-name }}
@@ -245,6 +245,8 @@ items:
                 href: api-ref/Operation/cancel.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

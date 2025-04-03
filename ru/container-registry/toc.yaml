@@ -138,6 +138,8 @@ items:
           Настройка подключения к {{ mpg-name }} из контейнера {{
           serverless-containers-name }}
         href: tutorials/container-pg-connect.md
+      - name: Интеграция с {{ container-registry-name }}
+        href: tutorials/container-registry.md
   - name: Концепции
     items:
       - name: Обзор

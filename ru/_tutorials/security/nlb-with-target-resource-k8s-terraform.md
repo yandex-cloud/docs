@@ -22,7 +22,7 @@
 
 1. Скачайте в ту же рабочую директорию файл конфигурации в зависимости от используемого протокола:
     * `HTTP` — файл конфигурации [alb-k8s-http.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-k8s-migration/blob/main/alb-k8s-http.tf).
-    * `HTTPS` — файл конфигурации [alb-k8s-https.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-k8s-migration/blob/main/alb-k8s-https.tf]).
+    * `HTTPS` — файл конфигурации [alb-k8s-https.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-k8s-migration/blob/main/alb-k8s-https.tf).
 
     В этих файлах описаны:
 
