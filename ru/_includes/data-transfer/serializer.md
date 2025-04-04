@@ -7,11 +7,18 @@
       * Выберите схему значения сообщения (соответствует Debezium-параметру `value.converter`).
       * При необходимости задайте [**{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.parameters.title }}**](../../data-transfer/concepts/serializer.md#debezium) в формате `Параметр`-`Значение`.
 
-Если вы хотите использовать JSON-схемы в {{ schema-registry-full-name }}, сохраняя совместимость схем при добавлении и удалении опциональных полей, укажите следующие настройки:
+Если вы хотите использовать JSON-схемы в {{ schema-registry-full-name }}, сохраняя [совместимость схем при добавлении и удалении опциональных полей](../../metadata-hub/concepts/schema-registry-content-model.md#optional-parameters-compatibility-solution), укажите следующие настройки:
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.serializer_debezium.title }}**.
 * Чтобы использовать {{ schema-registry-name }} для ключей, выберите **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.key_converter_settings.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**. Чтобы использовать {{ schema-registry-name }} для значений, выберите **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.value_converter_settings.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.converter_settings.json.title }}**.
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.url.title }}** — эндпоинт пространства имен {{ schema-registry-name }}. Вы можете скопировать эндпоинт из подсказки по подключению к пространству имен {{ schema-registry-name }} на вкладке **Debezium**, в параметре `value.converter.schema.registry.url`.
+
+      {% note warning %}
+
+      В пространстве имен должна быть [выставлена](../../metadata-hub/operations/update-name-space.md) **Политика проверок совместимости для JSON** — `optional friendly`.
+
+      {% endnote %}
+
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.username.title }}** — `api-key`.
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.password.title }}** — значение [API-ключа](../../iam/concepts/authorization/api-key.md) с ограниченной областью действия для подключения к {{ schema-registry-name }}. Чтобы получить значение:
       1. Создайте API-ключ с ограниченной областью действия и поместите его в локальную переменную `SECRET`:

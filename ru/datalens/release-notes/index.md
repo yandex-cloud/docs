@@ -51,3 +51,11 @@ description: Ознакомьтесь с историей изменений в 
 
   {% endcut %}
 
+### Файловые подключения в безопасных встраиваниях {#files-secure-embeddings}
+
+При [встраивании непубличных объектов](../security/private-embedded-objects.md) теперь поддержаны следующие подключения:
+
+* [Файлы](../operations/connection/create-file.md) (CSV и `xsls` из Excel);
+* [Яндекс Документы](../operations/connection/create-yadocs.md);
+* [Google Sheets](../operations/connection/create-google-sheets.md).
+

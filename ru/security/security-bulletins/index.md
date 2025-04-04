@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [02.04.2025 — CVE-2025-1385](../../_includes/security/security-bulletins/cve-2025-1385-clickhouse-library-bridge-remote-code-execution.md) %}
+
 {% include [01.04.2025 — CVE-2025-1974](../../_includes/security/security-bulletins/cve-2025-1974.md) %}
 
 {% include [08.07.2024 — CVE-2024-21626](../../_includes/security/security-bulletins/cve-2024-21626.md) %}

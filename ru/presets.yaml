@@ -4231,9 +4231,13 @@ default:
           ram|string: "0,005040\_$"
         v3:
           cpu:
+            c100:
+              dedicated|string: "0,008640\_$"
             c100|month|string: "12,384000\_$"
             c100|number: 0.0172
             c100|string: "0,017200\_$"
+          ram:
+            dedicated|string: "0,002240\_$"
           ram|month|string: "3,283200\_$"
           ram|number: 0.00456
           ram|string: "0,004560\_$"
@@ -5730,6 +5734,11 @@ default:
         add: Добавить
         exclude: Исключить
         save-changes: Сохранить
+      billing:
+        account:
+          entities:
+            label_title: Облака и сервисы
+            label_type: Тип
       common:
         columns:
           column_id: Идентификатор

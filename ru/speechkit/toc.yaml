@@ -253,9 +253,9 @@ items:
         href: release-notes.md
   - name: Решение проблем
     items:
-      - name: Формат ответа
+      - name: Коды ошибок
         href: concepts/response.md
-      - name: Диагностика ошибок
+      - name: Заголовки запросов
         href: concepts/support-headers.md
       - name: Общие вопросы
         href: qa/general.md

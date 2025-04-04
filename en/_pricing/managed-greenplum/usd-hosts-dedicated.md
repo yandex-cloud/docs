@@ -4,8 +4,8 @@
 | 100% vCPU | {{ sku|USD|mdb.cluster.greenplum.v2.cpu.c100.dedicated|string }} |
 | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.greenplum.v2.ram.dedicated|string }} |
 | **Intel Ice Lake** |
-| 100% vCPU | $0.008615 |
-| RAM (for 1 GB) | $0.002282 |
+| 100% vCPU | {{ sku|USD|mdb.cluster.greenplum.v3.cpu.c100.dedicated|string }} |
+| RAM (for 1 GB) | {{ sku|USD|mdb.cluster.greenplum.v3.ram.dedicated|string }} |
 | **Intel Ice Lake (Compute Optimized)** |
 | 100% vCPU | {{ sku|USD|mdb.cluster.greenplum.highfreq-v3.cpu.c100.dedicated|string }} |
 | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.greenplum.highfreq-v3.ram.dedicated|string }} |

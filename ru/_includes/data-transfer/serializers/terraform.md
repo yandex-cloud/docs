@@ -6,7 +6,7 @@
 
     Для этого типа можно указать параметры [сериализации Debezium](../../../data-transfer/concepts/serializer.md#debezium), задав их в блоке `serializer_debezium.serializer_parameters` в виде пар `key`/`value`.
 
-Если вы хотите использовать JSON-схемы в {{ schema-registry-full-name }}, сохраняя совместимость схем при добавлении и удалении опциональных полей, добавьте в конфигурационный файл блок `serializer` с описанием настроек сериализации. Чтобы генерировать закрытую схему для ключей, добавьте в блок `serializer` переменную `key.converter.dt.json.generate.closed.content.schema` со значением `true`. Чтобы генерировать закрытую схему для значений, добавьте в блок `serializer` переменную `value.converter.dt.json.generate.closed.content.schema` со значением `true`.
+Если вы хотите использовать JSON-схемы в {{ schema-registry-full-name }}, сохраняя [совместимость схем при добавлении и удалении опциональных полей](../../../metadata-hub/concepts/schema-registry-content-model.md#optional-parameters-compatibility-solution), добавьте в конфигурационный файл блок `serializer` с описанием настроек сериализации. Чтобы генерировать закрытую схему для ключей, добавьте в блок `serializer` переменную `key.converter.dt.json.generate.closed.content.schema` со значением `true`. Чтобы генерировать закрытую схему для значений, добавьте в блок `serializer` переменную `value.converter.dt.json.generate.closed.content.schema` со значением `true`.
 
 ```hcl
 resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
@@ -45,6 +45,13 @@ resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>
 Где:
 
 * `URL_пространства_имен_Schema_Registry` — эндпоинт пространства имен {{ schema-registry-name }}. Вы можете скопировать эндпоинт из подсказки по подключению к пространству имен {{ schema-registry-name }} на вкладке **Debezium**, в параметре `value.converter.schema.registry.url`.
+
+    {% note warning %}
+
+    В пространстве имен должна быть [выставлена](../../../metadata-hub/operations/update-name-space.md) **Политика проверок совместимости для JSON** — `optional friendly`.
+
+    {% endnote %}
+
 * `значение_API-ключа` — значение [API-ключа](../../../iam/concepts/authorization/api-key.md) с ограниченной областью действия для подключения к {{ schema-registry-name }}. Чтобы получить значение:
     1. Создайте API-ключ с ограниченной областью действия и поместите его в локальную переменную `SECRET`:
 
