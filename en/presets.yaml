@@ -4225,9 +4225,13 @@ default:
           ram|string: $0.005040
         v3:
           cpu:
+            c100:
+              dedicated|string: $0.008640
             c100|month|string: $12.384000
             c100|number: 0.0172
             c100|string: $0.017200
+          ram:
+            dedicated|string: $0.002240
           ram|month|string: $3.283200
           ram|number: 0.00456
           ram|string: $0.004560
@@ -5724,6 +5728,11 @@ default:
         add: Add
         exclude: Remove
         save-changes: Save
+      billing:
+        account:
+          entities:
+            label_title: Clouds and services
+            label_type: Type
       common:
         columns:
           column_id: Identifier

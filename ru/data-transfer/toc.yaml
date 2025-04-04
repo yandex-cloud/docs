@@ -482,6 +482,8 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Март 2025
+        href: release-notes/2503.md
       - name: Февраль 2025
         href: release-notes/2502.md
       - name: Январь 2025

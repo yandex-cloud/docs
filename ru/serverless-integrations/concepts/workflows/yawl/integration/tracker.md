@@ -82,7 +82,7 @@ description: В статье описаны поля для интеграцио
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`pairs` | `map[string]`[TrackerUpdateIssue.Action](#trackerupdateissue-action) | Нет | Нет | Да | Словарь, состоящий из пар: название дополнительного поля и действие, которое необходимо над ним выполнить.
+`pairs` | `map[string]` [TrackerUpdateIssue.Action](#trackerupdateissue-action) | Нет | Нет | Да | Словарь, состоящий из пар: название дополнительного поля и действие, которое необходимо над ним выполнить.
 
 ## InterpolatableMap {#tracker-interpolatablemap}
 

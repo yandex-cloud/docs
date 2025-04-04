@@ -180,6 +180,12 @@ Syntax:
 	- [yc compute placement-group remove-labels](placement-group/remove-labels.md) — Remove labels from the specified placement group
 	- [yc compute placement-group set-access-bindings](placement-group/set-access-bindings.md) — Set access bindings for the specified placement group and delete all existing access bindings if there were any
 	- [yc compute placement-group update](placement-group/update.md) — Update the specified placement group
+- [yc compute reserved-instance-pool](reserved-instance-pool/index.md) — Manage reserved instance pools
+	- [yc compute reserved-instance-pool create](reserved-instance-pool/create.md) — Create a reserved instance pool
+	- [yc compute reserved-instance-pool delete](reserved-instance-pool/delete.md) — Delete the specified reserved instance pool
+	- [yc compute reserved-instance-pool get](reserved-instance-pool/get.md) — Show information about the specified reserved instance pool
+	- [yc compute reserved-instance-pool list](reserved-instance-pool/list.md) — List reserved instance pools
+	- [yc compute reserved-instance-pool update](reserved-instance-pool/update.md) — Update the specified reserved instance pool
 - [yc compute snapshot](snapshot/index.md) — Manage snapshots
 	- [yc compute snapshot add-access-binding](snapshot/add-access-binding.md) — Add access binding for the specified snapshot
 	- [yc compute snapshot add-labels](snapshot/add-labels.md) — Add labels to specified snapshot

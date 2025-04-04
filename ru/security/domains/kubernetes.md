@@ -82,8 +82,8 @@
 Чтобы организовать входящий сетевой доступ к рабочим нагрузкам по протоколу HTTP/HTTPS используйте ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 Существует как минимум 2 варианта Ingress-контроллера, которые можно использовать в {{ yandex-cloud }}:
--	[NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
--	[{{ alb-name }} Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
+- [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+- [{{ alb-name }} Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 Преимущества {{ alb-name }} Ingress-контроллера:
 * интеграция с облачным сервисом [{{ certificate-manager-full-name }}](../../certificate-manager/);

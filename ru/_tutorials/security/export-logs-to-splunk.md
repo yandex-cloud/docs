@@ -126,7 +126,7 @@
 
 - CLI {#cli}
 
-  1. Назначьте роль [audit-trails.viewer](../../audit-trails/security/#roles) на каталог, с ресурсов которого будут собираться аудитные логи:
+  1. Назначьте роль [audit-trails.viewer](../../audit-trails/security/index.md#roles) на каталог, с ресурсов которого будут собираться аудитные логи:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -141,7 +141,7 @@
       * `--id` — идентификатор каталога, с которого будут собираться аудитные логи.
       * `--service-account-id` — идентификатор сервисного аккаунта.
   
-  1. Назначьте роль [storage.uploader](../../storage/security/#storage-uploader) на каталог, в котором будет находиться трейл:
+  1. Назначьте роль [storage.uploader](../../storage/security/index.md#storage-uploader) на каталог, в котором будет находиться трейл:
      
       ```
       yc resource-manager folder add-access-binding \
@@ -156,7 +156,7 @@
       * `--id` — идентификатор каталога, в котором будет находиться трейл.
       * `--service-account-id` — идентификатор сервисного аккаунта.
   
-  1. Назначьте роль [kms.keys.encrypterDecrypter](../../kms/security/#service) на ключ шифрования:
+  1. Назначьте роль [kms.keys.encrypterDecrypter](../../kms/security/index.md#service) на ключ шифрования:
   
       ```
       yc kms symmetric-key add-access-binding \
