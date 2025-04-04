@@ -23,10 +23,10 @@ description: Следуя данной инструкции, вы сможете
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт, к которому вы хотите привязать облако.
-  1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_overview }}**.
-  1. Нажмите ссылку **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.button_bind-cloud }}** в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**.
-  1. Выберите облако из списка.
-  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** — добавленное облако появится в списке.
+  1. Перейдите на страницу ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
+  1. Нажмите ![image](../../_assets/console-icons/link.svg) **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** в верхнем правом углу страницы.
+  1. В поле **{{ ui-key.yacloud_org.billing.account.entities.label_type }}** выберите, тип привязываемой сущности из списка, а затем выберите облако или сервис.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}** — добавленное облако или сервис появится в списке.
   1. Погасите задолженность на старом платежном аккаунте, если изменяли привязку облака.
 
 - {{ TF }} {#tf}

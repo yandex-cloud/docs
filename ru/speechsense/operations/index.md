@@ -60,6 +60,6 @@ description: Страница содержит все инструкции дл�
 * [{#T}](dictionary/add.md)
 * [{#T}](dictionary/delete.md)
 
-## Внешние интеграции {#external_integrations}
+## Внешние интеграции {#external-integrations}
 
-* [{#T}](external_integrations/create-datalens-connection.md)
+* [{#T}](external-integrations/create-datalens-connection.md)

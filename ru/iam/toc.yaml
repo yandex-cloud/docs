@@ -137,22 +137,24 @@ items:
             href: concepts/access-control/resources-with-access-control.md
       - name: Аутентификация
         items:
-          - name: Обзор
+          - name: Как выбрать правильный способ аутентификации
             href: concepts/authorization/index.md
-          - name: Cookie
-            href: concepts/authorization/cookie.md
           - name: IAM-токен
             href: concepts/authorization/iam-token.md
-          - name: ID-токен
-            href: concepts/authorization/id-token.md
-          - name: OAuth-токен
-            href: concepts/authorization/oauth-token.md
           - name: API-ключ
             href: concepts/authorization/api-key.md
-          - name: Авторизованный ключ
-            href: concepts/authorization/key.md
           - name: Статический ключ доступа
             href: concepts/authorization/access-key.md
+          - name: '{{ sts-name }}'
+            href: concepts/authorization/sts.md
+          - name: Авторизованный ключ
+            href: concepts/authorization/key.md
+          - name: OAuth-токен
+            href: concepts/authorization/oauth-token.md
+          - name: ID-токен
+            href: concepts/authorization/id-token.md
+          - name: Cookie
+            href: concepts/authorization/cookie.md
       - name: Доступ сервисов к ресурсам пользователя
         stage: preview
         href: concepts/service-control.md
@@ -160,8 +162,6 @@ items:
         href: concepts/federations.md
       - name: Федерации сервисных аккаунтов
         href: concepts/workload-identity.md
-      - name: '{{ sts-name }}'
-        href: concepts/authorization/sts.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Безопасное использование {{ yandex-cloud }}

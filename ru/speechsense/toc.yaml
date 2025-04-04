@@ -92,7 +92,7 @@ items:
           - name: >-
               Создание подключения к {{ speechsense-name }} из {{
               datalens-short-name }}
-            href: operations/external_integrations/create-datalens-connection.md
+            href: operations/external-integrations/create-datalens-connection.md
   - name: Практические руководства
     items:
       - name: Все руководства

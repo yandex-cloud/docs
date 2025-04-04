@@ -992,6 +992,20 @@ items:
                 href: cli-ref/compute/cli-ref/placement-group/set-access-bindings.md
               - name: update
                 href: cli-ref/compute/cli-ref/placement-group/update.md
+          - name: reserved-instance-pool
+            items:
+              - name: Overview
+                href: cli-ref/compute/cli-ref/reserved-instance-pool/index.md
+              - name: create
+                href: cli-ref/compute/cli-ref/reserved-instance-pool/create.md
+              - name: delete
+                href: cli-ref/compute/cli-ref/reserved-instance-pool/delete.md
+              - name: get
+                href: cli-ref/compute/cli-ref/reserved-instance-pool/get.md
+              - name: list
+                href: cli-ref/compute/cli-ref/reserved-instance-pool/list.md
+              - name: update
+                href: cli-ref/compute/cli-ref/reserved-instance-pool/update.md
           - name: snapshot
             items:
               - name: Overview

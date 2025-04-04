@@ -2,6 +2,8 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [02.04.2025 — CVE-2025-1385](../../_includes/security/security-bulletins/cve-2025-1385-clickhouse-library-bridge-remote-code-execution.md) %}
+
 {% include [08.07.2024 — CVE-2024-21626](../../_includes/security/security-bulletins/cve-2024-21626.md) %}
 
 {% include [05.07.2024 — CVE-2024-6387 RegreSSHion](../../_includes/security/security-bulletins/cve-2024-6387-regresshion.md) %}

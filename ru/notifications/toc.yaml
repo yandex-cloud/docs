@@ -74,8 +74,6 @@ items:
         href: concepts/sms.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Логирование
-        href: concepts/logging.md
   - name: Инструменты
     expanded: true
     items:
@@ -135,5 +133,9 @@ items:
             href: api-ref/delete-endpoint.md
       - name: Publish
         href: api-ref/publish.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
+  - name: Логи {{ cloud-logging-name }}
+    href: concepts/logging.md
   - name: История изменений
     href: release-notes.md

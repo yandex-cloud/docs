@@ -221,18 +221,20 @@ items:
         href: metrics-ref/alb-ref.md
       - name: '{{ at-name }}'
         href: metrics-ref/at-ref.md
+      - name: '{{ baremetal-name }}'
+        href: metrics-ref/baremetal-ref.md
       - name: '{{ certificate-manager-name }}'
         href: metrics-ref/certificate-manager-ref.md
       - name: '{{ backup-name }}'
         href: metrics-ref/backup-ref.md
-      - name: '{{ baremetal-name }}'
-        href: metrics-ref/baremetal-ref.md
       - name: '{{ cdn-name }}'
         href: metrics-ref/cdn-ref.md
       - name: '{{ sf-name }}'
         href: metrics-ref/functions-ref.md
       - name: '{{ cloud-logging-name }}'
         href: metrics-ref/logging-ref.md
+      - name: '{{ cns-name}}'
+        href: metrics-ref/cns-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
       - name: '{{ container-registry-name }}'

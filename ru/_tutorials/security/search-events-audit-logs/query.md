@@ -100,7 +100,7 @@
         ```bash
         yc resource-manager folder add-access-binding example-folder \
           --role storage.uploader \
-          --subject serviceAccount:<<идентификатор_сервисного_аккаунта>
+          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
 
         Где `--subject` — идентификатор сервисного аккаунта `trail-sa`.
