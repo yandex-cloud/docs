@@ -7,10 +7,13 @@ description: Из статьи вы узнаете, как создать под
 
 {% include [datalens-speechsense-connection-roles-note](../../../_includes/datalens/operations/datalens-speechsense-connection-roles-note.md) %}
 
-Вы можете создать подключение со страницы проекта {{ speechsense-name }}.
+Вы можете создать подключение из интерфейса {{ datalens-full-name }} или со страницы проекта {{ speechsense-name }}.
 
 {% list tabs group=instructions %}
 
+- Интерфейс {{ datalens-name }} {#datalens}
+
+  {% include [create-speechsense-connection](../../../_includes/datalens/operations/datalens-create-speechsense-connection.md) %}
 
 - Интерфейс {{ speechsense-name }} {#speechsense}
 
@@ -18,6 +21,7 @@ description: Из статьи вы узнаете, как создать под
   1. Перейдите в нужное пространство, затем выберите нужный проект.
   1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.reports.reports }}**.
   1. Нажмите **{{ ui-key.yc-ui-talkanalytics.reports.datalens-key-value }}** — вы перейдете в {{ datalens-short-name }}. Поле **ID проекта** в подключении к {{ speechsense-name }} будет заполнено автоматически.
+  1. Оставьте опцию **Автоматически создать дашборд, чарты и датасет над подключением** включенной, если хотите получить готовый дашборд, датасет и стандартный набор чартов.
 
      ![image](../../../_assets/datalens/operations/connection/connection-speechsense.png)
 

@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ quota-manager-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ quota-manager-name }}.
 editable: false
 ---
 

@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ mkf-full-name }}
+description: Из статьи вы узнаете про метрики {{ mkf-name }}.
 editable: false
 ---
 

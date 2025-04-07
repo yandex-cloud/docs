@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ compute-full-name }}
+description: Из статьи вы узнаете про метрики {{ compute-name }}.
 editable: false
 ---
 

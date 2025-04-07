@@ -54,6 +54,7 @@ paths:
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите название API-шлюза.
   1. (Опционально) В поле **{{ ui-key.yacloud.common.description }}** введите описание API-шлюза.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.label_execution-timeout }}** задайте таймаут обработки запроса. Значение не должно превышать установленный [лимит](../concepts/limits.md#api-gw-limits).
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте текст [спецификаций OpenAPI](https://ru.wikipedia.org/wiki/OpenAPI_(спецификация)).
 
       {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}
@@ -79,8 +80,16 @@ paths:
      ```bash
      {{ yc-serverless }} api-gateway create \
        --name <имя_API-шлюза> \
+       --execution-timeout <таймаут_обработки_запроса> \
        --spec=<путь_к_файлу_спецификации>
      ```
+
+     Где:
+     * `--name` — имя API-шлюза:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+     * `--execution-timeout` — таймаут обработки запроса. Значение задается в секундах и не должно превышать установленный [лимит](../concepts/limits.md#api-gw-limits). Необязательный параметр. Значение по умолчанию – `300` сек.
+     * `--spec` — путь к созданному ранее файлу со спецификацией.
 
 - {{ TF }} {#tf}
 

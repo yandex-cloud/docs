@@ -1,3 +1,8 @@
+---
+title: Пошаговые инструкции для {{ captcha-full-name }}
+description: На странице представлен список пошаговых инструкций для {{ captcha-name }}.
+---
+
 # Пошаговые инструкции для {{ captcha-full-name }}
 
 - [{#T}](create-captcha.md)

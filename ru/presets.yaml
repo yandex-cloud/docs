@@ -314,6 +314,7 @@ default:
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://support.yandex.cloud
+  link-datalens-editor: https://datalens.yandex.cloud/editor
   link-datalens-main: https://datalens.yandex.cloud
   link-datalens-settings: https://datalens.yandex.cloud/settings
   link-datalens-wizard: https://datalens.yandex.cloud/wizard
@@ -900,6 +901,10 @@ default:
   ZK: ZooKeeper
   zk-host-class: b2.medium
   zone-id: ru-central1-d
+  sku|KZT|access_transparency:
+    subscription:
+      v1|number: 350000
+      v1|string: "350\_000,00\_₸"
   sku|KZT|ai:
     datasphere:
       computing:
@@ -2327,6 +2332,10 @@ default:
           10|number: 3
           10|string: "3,00\_₸"
         v1|string: Не тарифицируется
+  sku|RUB|access_transparency:
+    subscription:
+      v1|number: 70000
+      v1|string: "70\_000,00\_₽"
   sku|RUB|ai:
     datasphere:
       computing:
@@ -3755,6 +3764,10 @@ default:
           10|number: 0.6
           10|string: "0,60\_₽"
         v1|string: Не тарифицируется
+  sku|USD|access_transparency:
+    subscription:
+      v1|number: 560
+      v1|string: "560,000000\_$"
   sku|USD|ai:
     mt:
       detect|string: "3,937600\_$"
@@ -6647,6 +6660,8 @@ default:
           title_ml-model-training: Обучение ML-моделей
         dns-integration:
           button_add-domain: Создать запись
+        dyn-string-field:
+          button-upload_file: Загрузить файл
         file-content-dialog:
           button_submit: Добавить
           field_content: Содержимое
@@ -8260,6 +8275,7 @@ default:
             label_canary-release: Канареечный релиз
             label_canary-share: Доля запросов в канареечном релизе
             label_canary-variables: Переменные для канареечного релиза
+            label_execution-timeout: Таймаут обработки запроса
             label_section-variables: Управление переменными
           item:
             switch_domains: Домены
@@ -8435,6 +8451,7 @@ default:
         label_additional-parameters: Дополнительные параметры
         label_input_data: Данные на входе
         label_input-data: Данные на входе
+        label_network: Сеть
         label_output-data: Данные на выходе
         label_run-workflow: Запустить
         label_service: Workflows
@@ -8443,6 +8460,7 @@ default:
         label_workflow-executions: Запуски
         label_workflows: Рабочие процессы
         spec-editor-type_label_text-editor: YaML-спецификация
+        spec-editor-type_label_visual-editor: Конструктор
       smart-web-security:
         action_empty: Создать профиль
         arl:
@@ -10310,7 +10328,6 @@ default:
           chat-key-value: Чат
           two-channel-key-value: Двухканальное аудио
       dialogs:
-        analysis: Анализ
         bot: Бот
         classifier:
           appreciation-key-value: Благодарность
@@ -10326,7 +10343,6 @@ default:
           outgoing: Исходящий
         open-dialog: Перейти в диалог
         operator: Оператор
-        operator-tags: Теги оператора
         speech-statistics: Статистики речи
         system-meta:
           talk:

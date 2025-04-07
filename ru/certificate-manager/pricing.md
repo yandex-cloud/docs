@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ certificate-manager-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ certificate-manager-name }}.
 editable: false
 ---
 

@@ -33,6 +33,7 @@ _Подключение_ содержит информацию о парамет
    * [{{ billing-name }}](../operations/connection/create-cloud-billing.md)
    * [Yandex Monitoring](../operations/connection/create-monitoring.md)
   * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
+   * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
 
 
 * Партнерские подключения:

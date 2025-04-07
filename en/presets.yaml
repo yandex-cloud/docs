@@ -894,6 +894,10 @@ default:
   ZK: ZooKeeper
   zk-host-class: b2.medium
   zone-id: ru-central1-c
+  sku|KZT|access_transparency:
+    subscription:
+      v1|number: 350000
+      v1|string: ₸350000.00
   sku|KZT|ai:
     datasphere:
       computing:
@@ -2321,6 +2325,10 @@ default:
           10|number: 3
           10|string: ₸3.00
         v1|string: Free
+  sku|RUB|access_transparency:
+    subscription:
+      v1|number: 70000
+      v1|string: ₽70000.00
   sku|RUB|ai:
     datasphere:
       computing:
@@ -3749,6 +3757,10 @@ default:
           10|number: 0.6
           10|string: ₽0.60
         v1|string: Free
+  sku|USD|access_transparency:
+    subscription:
+      v1|number: 560
+      v1|string: $560.000000
   sku|USD|ai:
     mt:
       detect|string: $3.937600
@@ -6641,6 +6653,8 @@ default:
           title_ml-model-training: Fine-tuning ML models
         dns-integration:
           button_add-domain: Create record
+        dyn-string-field:
+          button-upload_file: Upload file
         file-content-dialog:
           button_submit: Add
           field_content: Content
@@ -8252,6 +8266,7 @@ default:
             label_canary-release: Canary release
             label_canary-share: Share of requests in canary release
             label_canary-variables: Variables for canary release
+            label_execution-timeout: Request execution timeout
             label_section-variables: Variable settings
           item:
             switch_domains: Domains
@@ -8427,6 +8442,7 @@ default:
         label_additional-parameters: Additional parameters
         label_input_data: Input data
         label_input-data: Input data
+        label_network: Network
         label_output-data: Output data
         label_run-workflow: Execute
         label_service: Workflows
@@ -8435,6 +8451,7 @@ default:
         label_workflow-executions: Executions
         label_workflows: Workflows
         spec-editor-type_label_text-editor: YaML specification
+        spec-editor-type_label_visual-editor: Constructor
       smart-web-security:
         action_empty: Create profile
         arl:
@@ -10304,7 +10321,6 @@ default:
           chat-key-value: Сhat
           two-channel-key-value: Two-channel audio
       dialogs:
-        analysis: Analysis
         bot: Bot
         classifier:
           appreciation-key-value: Appreciation
@@ -10320,7 +10336,6 @@ default:
           outgoing: Outgoing
         open-dialog: Open dialog
         operator: Agent
-        operator-tags: 'Agent tags '
         speech-statistics: Conversation statistics
         system-meta:
           talk:

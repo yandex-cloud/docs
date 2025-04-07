@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ iam-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ iam-name }}.
 editable: false
 ---
 

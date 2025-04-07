@@ -22,14 +22,36 @@ items:
                 href: operations/workflows/workflow/get-list.md
               - name: Получить информацию о рабочем процессе
                 href: operations/workflows/workflow/get-info.md
-          - name: Управление запуском рабочего процесса
+          - name: Управление рабочим процессом
             items:
-              - name: Запустить рабочий процесс
-                href: operations/workflows/execution/start.md
-              - name: Остановить запуск рабочего процесса
-                href: operations/workflows/execution/stop.md
-              - name: Принудительно остановить запуск рабочего процесса
-                href: operations/workflows/execution/terminate.md
+              - name: Создать рабочий процесс
+                items:
+                  - name: Конструктор
+                    href: operations/workflows/workflow/create-constructor.md
+                  - name: YaWL-спецификация
+                    href: operations/workflows/workflow/create-yawl.md
+              - name: Изменить рабочий процесс
+                href: operations/workflows/workflow/update.md
+              - name: Указать облачную сеть
+                href: operations/workflows/workflow/network-add.md
+              - name: Управлять метками
+                items:
+                  - name: Добавить метку
+                    href: operations/workflows/workflow/label-add.md
+                  - name: Изменить метку
+                    href: operations/workflows/workflow/label-update.md
+                  - name: Удалить метку
+                    href: operations/workflows/workflow/label-delete.md
+              - name: Посмотреть графики мониторинга
+                href: operations/workflows/workflow/monitoring.md
+              - name: Управлять логами
+                items:
+                  - name: Посмотреть логи
+                    href: operations/workflows/workflow/logs-read.md
+                  - name: Записать логи
+                    href: operations/workflows/workflow/logs-write.md
+              - name: Удалить рабочий процесс
+                href: operations/workflows/workflow/delete.md
           - name: Получение информации о запуске рабочего процесса
             items:
               - name: Получить список запусков рабочего процесса
@@ -38,6 +60,14 @@ items:
                 href: operations/workflows/execution/get-info.md
               - name: Получить информацию о выполнении каждого шага
                 href: operations/workflows/execution/get-history.md
+          - name: Управление запуском рабочего процесса
+            items:
+              - name: Запустить рабочий процесс
+                href: operations/workflows/execution/start.md
+              - name: Остановить запуск рабочего процесса
+                href: operations/workflows/execution/stop.md
+              - name: Принудительно остановить запуск рабочего процесса
+                href: operations/workflows/execution/terminate.md
       - name: '{{ er-name }}'
         items:
           - name: Получение информации о шине

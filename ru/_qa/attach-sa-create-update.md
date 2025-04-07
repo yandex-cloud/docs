@@ -8,4 +8,5 @@ ERROR: rpc error: code = PermissionDenied desc = you do not have permission to a
 
 Ошибка возникает, если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт.
 
-Чтобы исправить ошибку, [назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) или выше.
+**Решение**
+[Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) или выше.
