@@ -7,6 +7,14 @@ description: Из статьи вы узнаете, какие чарты дос
 
 
 
+
+{% note info %}
+
+В [Editor](../charts/editor/index.md) доступен свой список визуализаций.
+
+{% endnote %}
+
+
 В {{ datalens-full-name }} доступны следующие типы чартов:
 
 * **Диаграммы**:

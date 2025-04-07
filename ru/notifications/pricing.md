@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ cns-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ cns-name }}.
 editable: false
 ---
 

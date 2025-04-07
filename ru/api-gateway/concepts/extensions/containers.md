@@ -13,7 +13,7 @@
 Параметр | Тип | Описание
 ----|----|----
 `container_id` | `string` | Идентификатор контейнера.
-`service_account_id` | `string` | Идентификатор сервисного аккаунта для авторизации при обращении к контейнеру. Если параметр не указан, используется значение [верхнеуровневого](./index.md#top-level) параметра `service_account_id`.
+`service_account_id` | `string` | Идентификатор сервисного аккаунта для авторизации при обращении к контейнеру. Сервисный аккаунт необходим для [вызова](../../../serverless-containers/operations/auth.md) приватного контейнера — для этого он должен иметь [роль](../../../serverless-containers/security/index.md#serverless-containers-containerinvoker) `serverless-containers.containerInvoker` или выше на этот контейнер. Если параметр не указан, используется значение [верхнеуровневого](./index.md#top-level) параметра `service_account_id`.
 `context` | `object` | Необязательный параметр. Контекст операции — произвольный объект в формате `YAML` или `JSON`. Кодируется в `Base64` и передается в контейнер в заголовке `X-Yc-ApiGateway-Operation-Context`. В `context` осуществляется подстановка параметров.
 
 ## Спецификация расширения {#spec}

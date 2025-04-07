@@ -1,3 +1,8 @@
+---
+title: Основные принципы API {{ yandex-cloud }}
+description: Из статьи вы узнаете про основные принципы API {{ yandex-cloud }}, а также ознакомитесь с ресурсо-ориентированным подходом.
+---
+
 # Основные принципы
 
 API {{ yandex-cloud }} спроектированы на основе механизма [gRPC](https://grpc.io/docs/). Для описания методов и структур данных в API используется [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).

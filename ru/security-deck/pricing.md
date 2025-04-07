@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ sd-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ sd-name }}.
 editable: false
 ---
 

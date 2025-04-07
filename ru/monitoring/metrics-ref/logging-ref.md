@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ cloud-logging-full-name }}
+description: Из статьи вы узнаете про метрики {{ cloud-logging-name }}.
 editable: false
 ---
 

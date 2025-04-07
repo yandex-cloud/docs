@@ -142,9 +142,9 @@ items:
     href: at-ref.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Решение проблем
+    href: qa/index.md
   - name: Публичные материалы
     href: public-talks.md
   - name: История изменений
     href: release-notes/index.md
-  - name: Вопросы и ответы
-    href: qa/index.md

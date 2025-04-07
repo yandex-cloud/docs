@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить тег версии функции
 
+{% note info %}
+
+Тег `$latest` нельзя удалить.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}

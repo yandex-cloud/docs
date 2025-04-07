@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ video-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ video-name }}.
 editable: false
 ---
 

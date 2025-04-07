@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ sf-full-name }}
+description: Из статьи вы узнаете про метрики {{ sf-name }}.
 editable: false
 ---
 

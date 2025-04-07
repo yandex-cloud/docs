@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ mkf-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ mkf-name }}.
 editable: false
 ---
 

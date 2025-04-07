@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ baremetal-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ baremetal-name }}.
 editable: false
 ---
 

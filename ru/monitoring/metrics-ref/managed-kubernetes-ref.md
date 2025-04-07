@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ managed-k8s-full-name }}
+description: Из статьи вы узнаете про метрики {{ managed-k8s-name }}.
 editable: false
 ---
 

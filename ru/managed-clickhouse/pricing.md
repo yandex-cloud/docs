@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ mch-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ mch-name }}.
 editable: false
 ---
 

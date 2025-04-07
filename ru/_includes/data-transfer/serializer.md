@@ -26,7 +26,7 @@
           ```bash
           yc iam api-key create --folder-id <идентификатор_каталога> \
             --service-account-name <имя_сервисного_аккаунта_для_работы_со_Schema_Registry> \
-            --scope yc.schema-registry.schemas.manage \
+            --scopes yc.schema-registry.schemas.manage \
             --expires-at '2030-01-01T00:00:00Z' >./api-key.yaml && \
           SECRET=`cat ./api-key.yaml | grep 'secret:' | awk '{print $2}'`
           ```
