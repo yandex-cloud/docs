@@ -1,6 +1,11 @@
 ---
 title: '{{ assistant-api }}'
 description: '{{ assistant-api }} — это инструмент создания AI-ассистентов. С его помощью можно реализовать сценарий RAG и создать ассистента для поиска по вашей базе знаний.'
+keywords:
+  - keyword: RAG
+  - keyword: AI ассистент
+  - keyword: ИИ ассистент
+  - keywrod: чат-бот
 ---
 
 # {{ assistant-api }}

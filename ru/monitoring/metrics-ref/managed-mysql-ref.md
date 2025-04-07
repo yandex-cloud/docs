@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ mmy-full-name }}
+description: Из статьи вы узнаете про метрики {{ mmy-name }}.
 editable: false
 ---
 

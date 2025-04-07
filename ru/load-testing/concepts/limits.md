@@ -1,4 +1,6 @@
 ---
+title: Какие квоты и лимиты действуют в {{ load-testing-full-name }}
+description: Из статьи вы узнаете, какие квоты и лимиты действуют в {{ load-testing-name }}.
 editable: false
 ---
 

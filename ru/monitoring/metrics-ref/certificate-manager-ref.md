@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ certificate-manager-full-name }}
+description: Из статьи вы узнаете про метрики {{ certificate-manager-name }}.
 editable: false
 ---
 

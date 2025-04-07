@@ -25,7 +25,9 @@ editable: false
 
 **Тарифный план**  | **Community** | **Business**
 ------------------ |---------------|---------------
-Создание [чартов](./concepts/chart/index.md) и [дашбордов](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+Создание [чартов в визарде](./concepts/chart/dataset-based-charts.md), [QL-чартов](./concepts/chart/ql-charts.md) и [дашбордов](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
+Создание [чартов в Editor](./charts/editor/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
+Подключение [API Connector](./operations/connection/create-api-connector.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
 [Описание модели данных](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Аналитические вычисления и SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
 [Ролевая модель прав доступа](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   

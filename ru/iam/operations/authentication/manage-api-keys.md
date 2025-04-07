@@ -53,7 +53,7 @@ description: Из статьи вы узнаете, как создавать и
       ```bash
       yc iam api-key create \
         --service-account-name <имя_сервисного_аккаунта> \
-        --scope <область_действия> \
+        --scopes <область_действия_1>[,<область_действия_2>,...,<область_действия_n>] \
         --expires-at <дата_и_время> \
         > api_key.yaml
       ```
@@ -61,22 +61,28 @@ description: Из статьи вы узнаете, как создавать и
       Где:
       
       * `--service-account-name` — имя сервисного аккаунта. Обязательный параметр.
-      * `--scope` — [область действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
-      * `--expires-at` — дата и время истечения срока действия ключа. Необязательный параметр.
+      * `--scopes` — [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Можно указать одну или несколько областей действия. Необязательный параметр.
+
+          Если параметр не задан, API-ключу будут по умолчанию назначены следующие области действия:
+
+          {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
+
+      * `--expires-at` — дата и время истечения срока действия ключа в формате `YYYY-MM-DDThh:mm:ssZ`. Например: `2026-01-01T21:00:00Z`. Необязательный параметр.
       * `api_key.yaml` — файл, в который сохраняется ответ.
       
       В результате вы получите файл `api_key.yaml`, который содержит значение API-ключа в поле `secret`:
 
       ```yaml
       api_key:
-        id: ajeefjedtpbi********
-        service_account_id: ajeg2b2et02f********
-        created_at: "2025-03-03T16:29:04.709971428Z"
-        scope: yc.postbox.send
+        id: ajeuo7ng2p6u********
+        service_account_id: ajegtlf2q28a********
+        created_at: "2025-04-04T10:23:08.722440521Z"
         scopes:
+          - yc.monitoring.read
+          - yc.serverless.functions.invoke
           - yc.postbox.send
-        expires_at: "2025-04-09T08:41:27Z"
-      secret: AQVNznzc3uVybtct16KkWUFCdQEneK2-********
+        expires_at: "2026-01-01T21:00:00Z"
+      secret: AQVN3sHvAWTemWB8QxHkunfG2x4q7G3O********
       ```
 
       Надежно сохраните полученное значение ключа: повторно получить его будет невозможно.
@@ -91,7 +97,7 @@ description: Из статьи вы узнаете, как создавать и
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
         service_account_id = "<идентификатор_сервисного_аккаунта>"
         description        = "<описание_ключа>"
-        scope              = "<область_действия>"
+        scopes              = ["<область_действия_1>", "<область_действия_2>", ..., "<область_действия_n>"]
         expires_at         = "<дата_и_время>"
         pgp_key            = "<pgp-ключ>"
         output_to_lockbox  {
@@ -105,8 +111,13 @@ description: Из статьи вы узнаете, как создавать и
 
       * `service_account_id` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
       * `description` — описание ключа. Необязательный параметр.
-      * `scope` — [область действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
-      * `expires_at` — дата и время истечения срока действия ключа в формате `YYYY-MM-DDThh:mm:ssZ`. Необязательный параметр.
+      * `scopes` — [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Можно указать одну или несколько областей действия. Необязательный параметр.
+
+          Если параметр не задан, API-ключу будут по умолчанию назначены следующие области действия:
+
+          {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
+
+      * `expires_at` — дата и время истечения срока действия ключа в формате `YYYY-MM-DDThh:mm:ssZ`. Например: `2026-01-01T21:00:00Z`. Необязательный параметр.
       * `pgp_key` — дополнительный PGP-ключ для шифрования закрытого ключа. Указывается публичная часть ключа в кодировке base64, либо в виде `keybase:keybaseusername`. Необязательный параметр.
       * `output_to_lockbox` — описание [секрета](../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, в который будет сохранено значение API-ключа, во избежание его возможной утечки через файл состояния `terraform.tfstate`. Необязательный параметр. Вложенные параметры:
           * `secret_id` — идентификатор секрета {{ lockbox-full-name }}, в который будет сохранено значение API-ключа. Секрет должен быть [пользовательского типа](../../../lockbox/concepts/secret.md#secret-type).
@@ -137,7 +148,7 @@ description: Из статьи вы узнаете, как создавать и
     --header "Authorization: Bearer $IAM_TOKEN" \
     --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
-        \"scope\": \"<область_действия>\",
+        \"scopes\": [\"<область_действия_1>\",\"<область_действия_2>\",...,\"<область_действия_n>\"],
         \"expiresAt\": \"<дата_и_время>\"
     }" \
     https://iam.{{ api-host }}/iam/v1/apiKeys
@@ -147,7 +158,12 @@ description: Из статьи вы узнаете, как создавать и
 
   * `SERVICEACCOUNT_ID` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
   * `IAM_TOKEN` — [IAM-токен](../../concepts/authorization/iam-token.md). Обязательный параметр.
-  * `scope` — [область действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
+  * `scopes` — [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Можно указать одну или несколько областей действия. Необязательный параметр.
+
+      Если параметр не задан, API-ключу будут по умолчанию назначены следующие области действия:
+
+      {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
+
   * `expiresAt` — дата и время истечения срока действия ключа с ограниченным доступом. Необязательный параметр.
 
   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService/Create](../../api-ref/grpc/ApiKey/create.md).
@@ -208,13 +224,15 @@ description: Из статьи вы узнаете, как создавать и
   ```bash
   yc iam api-key create \
     --service-account-name <имя_сервисного_аккаунта> \
-    --description "this API-key is for my-robot"
+    --description "this API-key is for my-robot" \
+    --scopes yc.monitoring.read,yc.postbox.send,yc.serverless.functions.invoke
   ```
 
   Где:
 
   * `--service-account-name` — [имя](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
   * `--description` — описание API-ключа. Необязательный параметр.
+  * `--scopes` — [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
 
 - {{ TF }} {#tf}
 
@@ -222,6 +240,7 @@ description: Из статьи вы узнаете, как создавать и
   resource "yandex_iam_service_account_api_key" "sa-api-key" {
     service_account_id = "<идентификатор_сервисного_аккаунта>"
     description        = "this API-key is for my-robot"
+    scopes             = ["yc.monitoring.read", "yc.postbox.send", "yc.serverless.functions.invoke"]
   }
   ```
 
@@ -229,6 +248,7 @@ description: Из статьи вы узнаете, как создавать и
 
   * `service_account_id` — [идентификатор](../sa/get-id.md) сервисного аккаунта. Обязательный параметр.
   * `description` — описание ключа. Необязательный параметр.
+  * `scopes` — [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
 
 - API {#api}
 
@@ -243,7 +263,8 @@ description: Из статьи вы узнаете, как создавать и
     --header "Authorization: Bearer $IAM_TOKEN" \
     --data "{
         \"serviceAccountId\": \"$SERVICEACCOUNT_ID\",
-        \"description\": \"this API-key is for my-robot\"
+        \"description\": \"this API-key is for my-robot\",
+        \"scopes\": [\"yc.monitoring.read\",\"yc.postbox.send\",\"yc.serverless.functions.invoke\"]
     }" \
     https://iam.{{ api-host }}/iam/v1/apiKeys
   ```
@@ -252,6 +273,7 @@ description: Из статьи вы узнаете, как создавать и
 
   * `SERVICEACCOUNT_ID` - [идентификатор сервисного аккаунта](../sa/get-id). Обязательный параметр.
   * `IAM_TOKEN` - [IAM-токен](../../concepts/authorization/iam-token.md). Обязательный параметр.
+  * `scopes` — [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
 
 {% endlist %}
 

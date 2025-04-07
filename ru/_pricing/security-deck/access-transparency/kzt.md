@@ -1,7 +1,7 @@
 Совокупное потребление ресурсов в организации<br>за предыдущий месяц | Стоимость подписки на месяц, вкл. НДС
 ----- | -----
-| Менее 5 000 000 ₸ | 350 000 ₸ |
-| От 5 000 000 до 25 000 000 ₸ | 600 000 ₸ |
-| От 25 000 000 до 50 000 000 ₸ | 900 000 ₸ |
-| От 50 000 000 до 100 000 000 ₸ | 1 800 000 ₸ |
-| Более 100 000 000 ₸ | 2 250 000 ₸ |
+| Менее 5 000 000 ₸ | {{ sku|KZT|access_transparency.subscription.v1|string }} |
+| От 5 000 000 до 25 000 000 ₸ | {% calc [currency=KZT] {{ sku|KZT|access_transparency.subscription.v1|number }} × (12/7) %} |
+| От 25 000 000 до 50 000 000 ₸ | {% calc [currency=KZT] ({{ sku|KZT|access_transparency.subscription.v1|number }} × (12/7)) × 1,5 %} |
+| От 50 000 000 до 100 000 000 ₸ | {% calc [currency=KZT] ({{ sku|KZT|access_transparency.subscription.v1|number }} × (12/7)) × 3 %} |
+| Более 100 000 000 ₸ | {% calc [currency=KZT] ({{ sku|KZT|access_transparency.subscription.v1|number }} × (12/7)) × 3,75 %} |

@@ -12,17 +12,31 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](workflows/workflow/get-list.md)
 * [{#T}](workflows/workflow/get-info.md)
 
-### Управление запуском рабочего процесса {#workflow-control}
+### Управление рабочим процессом {#workflow-control}
 
-* [{#T}](workflows/execution/start.md)
-* [{#T}](workflows/execution/stop.md)
-* [{#T}](workflows/execution/terminate.md)
+* [{#T}](workflows/workflow/create-constructor.md)
+* [{#T}](workflows/workflow/create-yawl.md)
+* [{#T}](workflows/workflow/update.md)
+* [{#T}](workflows/workflow/network-add.md)
+* [Добавить метку](workflows/workflow/label-add.md)
+* [Изменить метку](workflows/workflow/label-update.md)
+* [Удалить метку](workflows/workflow/label-delete.md)
+* [{#T}](workflows/workflow/logs-read.md)
+* [{#T}](workflows/workflow/logs-write.md)
+* [{#T}](workflows/workflow/monitoring.md)
+* [{#T}](workflows/workflow/delete.md)
 
 ### Получение информации о запуске рабочего процесса {#execution-get-info}
 
 * [{#T}](workflows/execution/get-list.md)
 * [{#T}](workflows/execution/get-info.md)
 * [{#T}](workflows/execution/get-history.md)
+
+### Управление запуском рабочего процесса {#workflow-control}
+
+* [{#T}](workflows/execution/start.md)
+* [{#T}](workflows/execution/stop.md)
+* [{#T}](workflows/execution/terminate.md)
 
 ### Получение дополнительной информации {#get-additional-info}
 

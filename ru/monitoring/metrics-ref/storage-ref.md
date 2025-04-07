@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ objstorage-full-name }}
+description: Из статьи вы узнаете про метрики {{ objstorage-name }}.
 editable: false
 ---
 

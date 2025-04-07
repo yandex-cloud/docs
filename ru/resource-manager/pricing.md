@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ resmgr-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ resmgr-name }}.
 editable: false
 ---
 

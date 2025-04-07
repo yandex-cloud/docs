@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ lockbox-full-name }}
+description: Из статьи вы узнаете про метрики {{ lockbox-name }}.
 editable: false
 ---
 

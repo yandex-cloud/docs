@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ mgp-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ mgp-name }}.
 editable: false
 ---
 

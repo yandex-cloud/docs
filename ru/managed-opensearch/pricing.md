@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ mos-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ mos-name }}.
 editable: false
 ---
 

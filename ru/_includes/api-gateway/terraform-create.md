@@ -8,6 +8,7 @@
 
    * `description` — описание API-шлюза.
    * `labels` — [метки](../../resource-manager/concepts/labels.md) для API-шлюза. Укажите пару ключ-значение.
+   * `execution_timeout` — таймаут обработки запроса. Значение задается в секундах и не должно превышать установленный [лимит](../../api-gateway/concepts/limits.md#api-gw-limits). Необязательный параметр. Значение по умолчанию – `300` сек.
    * `spec` — спецификация API-шлюза.
 
    Пример структуры конфигурационного файла:
@@ -20,7 +21,8 @@
        label       = "label"
        empty-label = ""
      }
-     spec = <<-EOT
+     execution_timeout = "<таймаут_обработки_запроса>"
+     spec              = <<-EOT
        openapi: "3.0.0"
        info:
          version: 1.0.0

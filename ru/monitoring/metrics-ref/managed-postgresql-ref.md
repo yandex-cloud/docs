@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ mpg-full-name }}
+description: Из статьи вы узнаете про метрики {{ mpg-name }}.
 editable: false
 ---
 

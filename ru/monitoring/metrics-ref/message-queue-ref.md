@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ message-queue-full-name }}
+description: Из статьи вы узнаете про метрики {{ message-queue-name }}.
 editable: false
 ---
 

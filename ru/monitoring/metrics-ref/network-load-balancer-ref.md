@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ network-load-balancer-full-name }}
+description: Из статьи вы узнаете про метрики {{ network-load-balancer-name }}.
 editable: false
 ---
 

@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ monitoring-full-name }}
+description: Из статьи вы узнаете про метрики {{ monitoring-name }}.
 editable: false
 ---
 

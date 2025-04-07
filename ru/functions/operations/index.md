@@ -57,6 +57,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Посмотреть логи](function/function-logs.md)
 * [Записать логи в журнал выполнения](function/logs-write.md)
 * [{#T}](function/migration.md)
+* [{#T}](function/version-delete.md)
 * [{#T}](function/function-delete.md)
 
 

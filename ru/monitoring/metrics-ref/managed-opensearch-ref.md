@@ -1,4 +1,6 @@
 ---
+title: Метрики {{ mos-full-name }}
+description: Из статьи вы узнаете про метрики {{ mos-name }}.
 editable: false
 ---
 
