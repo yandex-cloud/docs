@@ -23,6 +23,6 @@ description: Из статьи вы узнаете, как настроить ф
 
 * [Фильтрация для визуализации Таблица](https://datalens.yandex/uw4m2h7evlwog?tab=Ow#Таблица)
 
-* [Фильтрация для визуализации График (Gravity Charts)](https://datalens.yandex/uw4m2h7evlwog-primery-iz-dokumentacii-dlya-editor?tab=Ow#График%20Gravity%20Сharts)
+* [Фильтрация для визуализации График (Gravity Charts)](https://datalens.yandex/uw4m2h7evlwog?tab=Ow#График%20Gravity%20Сharts)
 
 * [Фильтрация для визуализации Advanced-чарт](https://datalens.yandex/uw4m2h7evlwog?tab=Ow#Advanced%20чарт)

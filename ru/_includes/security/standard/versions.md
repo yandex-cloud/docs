@@ -2,31 +2,91 @@
 
 ### Изменения в версии {{ security-standard-current-version }} {#current-version}
 
-Дата публикации 27.12.2024.
+Дата публикации 08.04.2025.
 
-* **Удален раздел 6. Резервное копирование**. Содержимое раздела перенесено в раздел [3. Безопасная конфигурация виртуальной среды](../../../security/standard/virtualenv-safe-config.md#backup).
-
-* **Удален раздел 7. Физическая безопасность**. Содержимое раздела перенесено в раздел [{#T}](../../../security/standard/index.md#intro).
+* Пункт **3.20 Учтены атаки по побочным каналам в {{ sf-name }}** удален в связи с минимальным уровнем рисков.
 
 * **Добавлены пункты:**
-    * [{#T}](../../../security/standard/authentication.md#api-key-scopes).
-    * [{#T}](../../../security/standard/authentication.md#key-usage-control).
-    * [{#T}](../../../security/standard/authentication.md#ciem-access-control).
+    * [{#T}](../../../security/standard/network-security.md#use-cloud-desktop).
+    * [{#T}](../../../security/standard/network-security.md#use-yandex-browser).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#antivirus).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#security-specialist-certificate).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#app-container-registry).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#vip-containers).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#api-gateway-access-managment).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#networking).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#using-own-domain).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#websocket).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#inter-cloud-services).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#authorization).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#auth-context).
+    * [{#T}](../../../security/standard/virtualenv-safe-config.md#api-logs).
+    * [{#T}](../../../security/standard/audit-logs.md#access-transparency-enabled).
+    * [{#T}](../../../security/standard/app-security.md#keep-safe-cr-settings).
+    * [{#T}](../../../security/standard/app-security.md#app-sws-lists).
+
+* **В разделе 3. Безопасная конфигурация виртуальной среды:**
+    * Переименован подраздел [{#T}](../../../security/standard/virtualenv-safe-config.md#functions) (был `{{ sf-name }} и {{ api-gw-full-name }}`).
+    * Добавлен подраздел [{#T}](../../../security/standard/virtualenv-safe-config.md#api-gateway) с пунктами 3.40 - 3.48.
+    * В связи с добавлением новых подразделов и пунктов, нумерация части пунктов раздела изменена.
+    
+* **Обновлены пункты:**
+    * В пункте [{#T}](../../../security/standard/authentication.md#min-privileges) добавлены команды для выполнения проверки через CLI в PowerShell.
+    * В пункте [{#T}](../../../security/standard/authentication.md#sa-key-rotation) добавлены команды для выполнения проверки через CLI в PowerShell.
+    * В пункте [{#T}](../../../security/standard/authentication.md#cloud-keys) добавлены автоматические скрипты для выполнения проверки через CLI в Bash и PowerShell.
+    * В пункте [{#T}](../../../security/standard/authentication.md#privileged-users) добавлены команды для выполнения проверки через CLI в PowerShell.
+    * В пункт [{#T}](../../../security/standard/authentication.md#mdb-auth) добавлена рекомендация по использованию сгенерированных секретов {{ lockbox-full-name }}.
+    * В пункте [{#T}](../../../security/standard/authentication.md#resourses) расширено описание ресурсной модели и рекомендации по ее использованию.
+    * В пункте [{#T}](../../../security/standard/authentication.md#public-access) добавлены команды для выполнения проверки через CLI в PowerShell.
+    * В пункте [{#T}](../../../security/standard/authentication.md#key-usage-control) добавлены команды для выполнения проверки через CLI.
+    * В пункте [{#T}](../../../security/standard/network-security.md#firewall) переформулирован принцип использования собственных образов дисков ВМ (принцип [BYOI](https://en.wikipedia.org/wiki/Bring_your_own_operating_system)).
+    * Изменены порядковые номера пунктов [{#T}](../../../security/standard/network-security.md#outgoing-access) (был `2.7`) и [{#T}](../../../security/standard/network-security.md#recursive-resolvers) (был `2.8`).
+    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#bucket-logs) (был `3.9`), уточнено описание механизма логирования операций с бакетом в {{ at-short-name }}, исправлена пунктуация.
+    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#db-console-access) (был `3.17`), расширена команда для выполнения проверки в Bash, добавлена команда для проверки в PowerShell.
+    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#function-access-and-env) (был `3.19`), уточнена рекомендация по хранению секретов и чувствительных данных в сервисе {{ lockbox-full-name }}, обращения из функции к хостам кластера БД.
+    * В пункте [{#T}](../../../security/standard/virtualenv-safe-config.md#acl-container-registry) добавлены команды для выполнения проверки через CLI в PowerShell.
+    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#k8s-security) (был `3.31`), изменена ссылка на рекомендации в разделе [{#T}](../../../security/standard/kubernetes-security.md).
+    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#security-updates) (был `3.35`), добавлена ссылка на [бюллетени безопасности](../../../security/security-bulletins/index.md).
+    * В пункте [{#T}](../../../security/standard/encryption.md#at-rest) добавлена проверка зашифрованных дисков ВМ через CLI, а также инструкция по замене незашифрованных дисков на зашифрованные, добавлена ссылка на концепцию [ротации ключей](../../../kms/operations/key.md#rotate) в корпоративной политике информационной безопасности.
+    * В пункте [{#T}](../../../security/standard/encryption.md#alb-https):
+        * исправлена ссылка на [Описание настройки обработчика](../../../application-load-balancer/concepts/application-load-balancer.md#listener) в документации {{ alb-full-name }};
+        * исправлена ссылка на [Инструкцию](../../../application-load-balancer/tutorials/tls-termination/index.md) HTTPS обработчика {{ alb-full-name }};
+        * добавлена команда для выполнения проверки через CLI в PowerShell.
+    * В пункте [{#T}](../../../security/standard/encryption.md#secrets-lockbox) сокращен список сервисов для хранения секретов и описание работы с ними в {{ TF }} и консоли управления.
+    * В пункте [{#T}](../../../security/standard/encryption.md#secrets-scanning) переоформлен список облачных секретов для обнаружения.
+    * В пункте [{#T}](../../../security/standard/audit-logs.md#events) сокращен список SIEM-систем для которых подготовлены решения для экспорта аудитных логов {{ yandex-cloud }}.
+    * В пункте [{#T}](../../../security/standard/audit-logs.md#data-plane-events) список поддерживаемых сервисов заменен на ссылку [{#T}](../../../audit-trails/concepts/events-data-plane.md).
+    * В связи с добавлением нового пункта в раздел [6. Защита приложений](../../../security/standard/app-security.md), изменена нумерация пунктов 6.2 - 6.13 раздела.
+    * В пункте [{#T}](../../../security/standard/app-security.md#use-sws) уточнены модели угроз, защиту от которых обеспечивает сервис {{ sws-full-name }}.
+    * В пункте [{#T}](../../../security/standard/app-security.md#use-arl) уточнено определение модуля Advanced Rate Limiter (ARL).
+
+### Изменения в версии 1.3 {#version-1-3}
+
+Дата публикации 27.12.2024.
+
+* **Удален раздел 6. Резервное копирование**. Содержимое раздела перенесено в раздел **3. Безопасная конфигурация виртуальной среды**.
+
+* **Удален раздел 7. Физическая безопасность**. Содержимое раздела перенесено в раздел **Введение**.
+
+* **Добавлены пункты:**
+    * 1.11 Для API-ключей сервисных аккаунтов задана область действия.
+    * 1.25 Отслеживается дата последней аутентификации сервисного аккаунта и последнего использования ключей доступа в {{ iam-full-name }}.
+    * 1.26 Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием {{ sd-full-name }} CIEM.
 
 * **Обновлены пункты:**
-    * В пункт [{#T}](../../../security/standard/index.md#application) добавлены сервисы [{{ container-registry-full-name }}](../../../container-registry/), [{{ sws-full-name }}](../../../smartwebsecurity/) и [{{ captcha-full-name }}](../../../smartcaptcha/).
-    * В пункт [{#T}](../../../security/standard/network-security.md#ddos-protection) добавлена информация об использовании сервиса {{ sws-name }}.
-    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#vpc-functions) (был `3.22`), в пункт добавлена информация об ограничениях сетевого взаимодействия между функциями и пользовательскими ресурсами.
-    * Изменен порядковый номер и переименован пункт [{#T}](../../../security/standard/virtualenv-safe-config.md#function-access-and-env) (был `3.18 Публичные облачные функции применяются только в исключительных случаях`). В пункт добавлена информация о назначении ролей на функцию, работе с секретами и переменными окружения из функции и доступе из функции к управляемым БД {{ mpg-full-name }} и {{ mch-full-name }}.
-    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#side-channel-attacks) (был `3.19`).
-    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#ntp-functions) (был `3.20`), в пункт добавлена информация об особенностях получения функциями данных времени.
-    * Изменен порядковый номер пункта [{#T}](../../../security/standard/virtualenv-safe-config.md#http-functions) (был `3.21`), в пункт добавлено описание особенностей вызова функции с query-параметром `?integration=raw`.
-    * В пункт [{#T}](../../../security/standard/encryption.md#storage-https) добавлены:
+    * В пункт **Область применения** добавлены сервисы [{{ container-registry-full-name }}](../../../container-registry/index.yaml), [{{ sws-full-name }}](../../../smartwebsecurity/index.yaml) и [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml).
+    * В пункт **2.5 Включена защита от DDoS атак** добавлена информация об использовании сервиса {{ sws-name }}.
+    * Изменен порядковый номер пункта **3.18 {{ serverless-containers-name }}/{{ sf-short-name }} использует внутреннюю сеть {{ vpc-short-name }}** (был `3.22`), в пункт добавлена информация об ограничениях сетевого взаимодействия между функциями и пользовательскими ресурсами.
+    * Изменен порядковый номер и переименован пункт **3.19 Для функций настроены разграничение прав доступа, управление секретами и переменными окружения, а также подключение к СУБД** (был `3.18 Публичные облачные функции применяются только в исключительных случаях`). В пункт добавлена информация о назначении ролей на функцию, работе с секретами и переменными окружения из функции и доступе из функции к управляемым БД {{ mpg-full-name }} и {{ mch-full-name }}.
+    * Изменен порядковый номер пункта **3.20 Учтены атаки по побочным каналам в {{ sf-name }}** (был `3.19`).
+    * Изменен порядковый номер пункта **3.21 Учтены особенности синхронизации времени в {{ sf-name }}** (был `3.20`), в пункт добавлена информация об особенностях получения функциями данных времени.
+    * Изменен порядковый номер пункта **3.22 Учтены особенности управления заголовками в {{ sf-name }}** (был `3.21`), в пункт добавлено описание особенностей вызова функции с query-параметром `?integration=raw`.
+    * В пункт **4.2 В {{ objstorage-full-name }} включено HTTPS для хостинга статического сайта** добавлены:
         * проверка через CLI;
         * ссылка на [инструкцию](../../../storage/operations/hosting/certificate.md) по настройке HTTPS.
-    * В пункте [{#T}](../../../security/standard/audit-logs.md#hardering) добавлены ссылки на лучшие практики безопасности.
-    * В пункте [{#T}](../../../security/standard/audit-logs.md#data-plane-events) расширен список сервисов, для которых возможно отслеживание событий этого уровня.
-    * В пункте [{#T}](../../../security/standard/app-security.md#use-sws) добавлена проверка через CLI.
+    * В пункте **5.4 Выполнен hardering бакета {{ objstorage-name }}, где хранятся аудитные логи {{ at-full-name }}** добавлены ссылки на лучшие практики безопасности.
+    * В пункте **5.8 Отслеживаются события уровня сервисов** расширен список сервисов, для которых возможно отслеживание событий этого уровня.
+    * В пункте **6.9 Используется профиль безопасности {{ sws-full-name }}** добавлена проверка через CLI.
 
 ### Изменения в версии 1.2 {#version-1-2}
 

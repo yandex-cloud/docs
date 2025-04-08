@@ -139,7 +139,7 @@ description: На странице представлен список прак�
 * [{#T}](mpg-to-yds.md)
 * [{#T}](rds-to-mpg.md)
 * [{#T}](postgresql-to-opensearch.md)
-
+* [{#T}](postgresql-glibc-collation-issues.md)
 
 ## {{ VLK }} {#redis}
 

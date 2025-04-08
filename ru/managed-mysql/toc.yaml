@@ -85,6 +85,8 @@ items:
         href: concepts/settings-list.md
       - name: Ограничения для команд SQL
         href: concepts/sql-limits.md
+      - name: Сравнение {{ MY }} версий 5.7 и 8.0
+        href: concepts/mysql-57-80-comparison.md
   - name: Практические руководства
     items:
       - name: Все руководства

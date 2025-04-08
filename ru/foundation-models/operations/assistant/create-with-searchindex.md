@@ -653,5 +653,6 @@ description: Следуя этой инструкции, с помощью {{ as
 #### См. также {#see-also}
 
 * [{#T}](./create.md)
+* [{#T}](./create-with-labels.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
 * Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

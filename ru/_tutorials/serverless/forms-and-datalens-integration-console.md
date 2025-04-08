@@ -221,7 +221,7 @@
               * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** — выберите версию с пометкой `latest`.
               * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}** — выберите `static-key-value`.  
 
-      1. После создания функции на вкладке **{{ ui-key.yacloud.common.overview }}** включите опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**:
+      1. После создания функции на вкладке **{{ ui-key.yacloud.common.overview }}** включите опцию **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
           
 
 {% endlist %}

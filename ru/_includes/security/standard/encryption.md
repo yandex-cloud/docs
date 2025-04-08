@@ -11,11 +11,137 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 По умолчанию все пользовательские данные в состоянии покоя (at rest) зашифрованы на уровне {{ yandex-cloud }}. Шифрование на уровне {{ yandex-cloud }} является реализацией одной из лучших практик по защите данных пользователей и выполняется на ключах {{ yandex-cloud }}.
 
-Если ваша корпоративная политика информационной безопасности предъявляет требования к длине ключа или частоте ротации ключей, вы можете шифровать данные собственными ключами. Для этого можно использовать сервис {{ kms-short-name }} и его интеграцию с другими сервисами {{ yandex-cloud }}, либо реализовать шифрование на data plane-уровне полностью самостоятельно.
+Если ваша корпоративная политика информационной безопасности предъявляет требования к длине ключа или частоте [ротации ключей](../../../kms/operations/key.md#rotate), вы можете шифровать данные собственными ключами. Для этого можно использовать сервис {{ kms-short-name }} и его интеграцию с другими сервисами {{ yandex-cloud }}, либо реализовать шифрование на уровне Data plane полностью самостоятельно.
 
 {{ yandex-cloud }} предоставляет функции шифрования в состоянии покоя (at rest) для следующих сервисов:
-* {{ objstorage-name }};
-* {{ managed-k8s-name }}.
+* {{ compute-name }} (шифрование дисков ВМ);
+* {{ objstorage-name }} (шифрование бакетов);
+* {{ managed-k8s-name }} (шифрование секретов).
+
+**Поиск зашифрованных дисков ВМ:**
+
+{% list tabs group=instructions %}
+
+- Проверка через CLI {#cli}
+
+  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
+
+     ```bash
+     yc organization-manager organization list
+     ```
+
+  1. Выполните команду для поиска зашифрованных дисков:
+
+      {% cut "**Bash**" %}
+
+      ```bash
+      export ORG_ID=<ID_организации>
+      CLOUDS=$(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+
+      echo "Encrypted disks:"
+      for CLOUD_ID in $CLOUDS
+        do
+        FOLDERS=$(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id')
+        for FOLDER_ID in $FOLDERS
+        do
+          DISKS=$(yc compute disk list --folder-id $FOLDER_ID --format=json | jq -r '.[] | select(.kms_key.key_id)' | jq -r '.id')
+
+          if [[ -n "$DISKS" ]]; then
+            for DISK in $DISKS
+            do
+              DISKDATA=$(yc compute disk get --id $DISK --folder-id $FOLDER_ID --format=json)
+              VM_ID=$(echo $DISKDATA| jq -r '.instance_ids[]')
+
+              VMDATA=""
+
+              if [[ -n "$VM_ID" ]]; then
+                VMDATA=$(yc compute instance get --id $VM_ID --folder-id $FOLDER_ID --format=json)
+              fi
+
+              echo "------------"
+              echo "CLOUD_ID:" $CLOUD_ID
+              echo "FOLDER_ID:" $FOLDER_ID
+              echo "DISK_ID: "$(echo $DISKDATA | jq -r '.id')
+              echo "DISK_NAME: "$(echo $DISKDATA | jq -r '.name')
+              echo "DISK_TYPE: "$(echo $DISKDATA | jq -r '.type_id')
+              echo "DISK_ZONE: "$(echo $DISKDATA | jq -r '.zone_id')
+              echo "DISK_SIZE: "$(echo $DISKDATA | jq -r '.size')
+              echo "DISK_KEY: "$(echo $DISKDATA | jq -r '.kms_key')
+
+              if [[ -n "$VMDATA" ]]; then
+                echo "VM_ID: "$(echo $VMDATA | jq -r '.id')
+                echo "VM_NAME: "$(echo $VMDATA | jq -r '.name')
+                echo "VM_STATUS: "$(echo $VMDATA | jq -r '.status')
+              fi
+              echo "------------"
+            done
+          fi
+        done
+      done
+      ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<ID_организации>"
+
+      $Clouds = yc resource-manager cloud list --organization-id=$ORG_ID --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $EncryptedVMs = @()
+      $VMDisks = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+          $FolderDiskList = yc compute disk list --folder-id $Folder.id --format=json | ConvertFrom-Json | where{$_.kms_key}
+
+          foreach($Disk in $FolderDiskList) {
+            $VMData = $null
+
+            if($Disk.instance_ids) {
+              $VMData = yc compute instance get --id $Disk.instance_ids --folder-id $Folder.id --format=json | ConvertFrom-Json
+            }
+
+            $EncryptedVMs += $Disk | Select @{n="CloudID";e={$Cloud.CloudID}}, @{n="CloudName";e={$Cloud.CloudName}}, @{n="FolderID";e={$Folder.id}}, @{n="FolderName";e={$Folder.name}}, @{n="DiskID";e={$_.id}}, @{n="DiskName";e={$_.name}}, @{n="DiskType";e={$_.type_id}}, zone_id, @{n="DiskSize";e={$_.size/1GB}}, kms_key, @{n="VMID";e={$VMData.id}}, @{n="VMName";e={$VMData.name}}, @{n="VMStatus";e={$VMData.status}}
+          }
+        }
+      }
+
+      $EncryptedVMs
+      ```
+
+      {% endcut %}
+
+{% endlist %}
+
+Проверьте список возвращенных зашифрованных дисков. Если список соответствует вашей модели угроз, то дополнительных действий не требуется. Если какие-либо диски отсутствуют в списке, то выполните следующие действия:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** и найдете в списке диск, который требуется зашифровать.
+
+      Если диск присоединен к ВМ и ВМ включена, рекомендуется выключить ее.
+  1. [Создайте](../../../compute/operations/disk-control/create-snapshot.md) снимок диска.
+  1. Создайте из полученного снимка новый зашифрованный диск:
+
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+      1. В открывшейся форме:
+          1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** задайте имя диска.
+          1. В поле **{{ ui-key.yacloud.compute.disk-form.field_zone }}** укажите нужную [зону доступности](../../../overview/concepts/geo-scope.md).
+          1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и выберите созданный ранее снимок.
+          1. В поле **{{ ui-key.yacloud.compute.disk-form.field_type }}** задайте необходимый [тип диска](../../../compute/concepts/disk.md#disks-types).
+          1. В блоке **{{ ui-key.yacloud.compute.disk-form.section_encryption }}** включите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** и выберите или создайте [ключ шифрования](../../../kms/concepts/key.md) {{ kms-short-name }}.
+          1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.create.button_create }}**
+  1. После создания зашифрованного диска присоедините его к нужной ВМ вместо незашифрованного.
+
+{% endlist %}
 
 #### 4.1 В {{ objstorage-full-name }} включено шифрование данных at rest с ключом {{ kms-short-name }} {#storage-kms}
 
@@ -107,7 +233,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 #### 4.3 В {{ alb-full-name }} используется HTTPS {#alb-https}
 
-Сервис [{{ alb-name }}](../../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../../certificate-manager/concepts/imported-certificate.md) из {{ certificate-manager-name }}. См. [описание настройки обработчика](../../../application-load-balancer/concepts/application-load-balancer.md) в документации {{ alb-full-name }}.
+Сервис [{{ alb-name }}](../../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../../certificate-manager/concepts/imported-certificate.md) из {{ certificate-manager-name }}. См. [описание настройки обработчика](../../../application-load-balancer/concepts/application-load-balancer.md#listener) в документации {{ alb-full-name }}.
 
 {% list tabs group=instructions %}
 
@@ -129,16 +255,44 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
   1. Выполните команду для вывода списка всех балансировщиков без https:
 
-     ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for ALB in $(yc application-load-balancer load-balancer list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-     do yc application-load-balancer load-balancer get --id $ALB --format json | jq -r '. | select(.listeners[0].tls | not)' | jq -r '.id'
-     done;
-     done;
-     done
-     ```
+      {% cut "**Bash**" %}
+
+      ```bash
+      export ORG_ID=<ID_организации>
+      CLOUDS=$(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+      for CLOUD_ID in $CLOUDS
+      do
+        FOLDERS=$(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id')
+        for FOLDER_ID in $FOLDERS
+        do
+          yc application-load-balancer load-balancer list --folder-id $FOLDER_ID --format=json | jq -r '.[] | select(.listeners[0].tls | not)' | jq -r '.'
+        done
+      done
+      ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<ID_организации>"
+
+      $Clouds = yc resource-manager cloud list --organization-id $ORG_ID --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $ALBWithoutTLS = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+          $ALBWithoutTLS += yc application-load-balancer load-balancer list --folder-id $Folder.id --format=json | ConvertFrom-Json | where{!$_.listeners.tls}
+        }
+      }
+
+      $ALBWithoutTLS
+      ```
+
+      {% endcut %}
 
   1. Если выведен пустой список, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
 
@@ -146,7 +300,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **Инструкции и решения по выполнению:**
 
-Включите HTTPS обработчик согласно инструкции.
+Включите HTTPS обработчик согласно [инструкции](../../../application-load-balancer/tutorials/tls-termination/index.md).
 
 #### 4.4 В {{ api-gw-full-name }} используется HTTPS и собственный домен {#api-gateway-https}
 
@@ -553,15 +707,11 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 #### 4.13 В организации используется {{ lockbox-full-name }} для безопасного хранения секретов {#secrets-lockbox}
 
-Критичные данные и секреты для доступа к данным (токены аутентификации, API-ключи, ключи шифрования и т. п.) не следует использовать в открытом виде в коде, в названиях и описаниях объектов облака, в метаданных виртуальных машин и т. д. Вместо этого используйте сервисы для хранения секретов, такие как {{ lockbox-short-name }} или [HashiCorp Vault](/marketplace/products/yc/vault-yckms) (из {{ marketplace-name }}).
+Критичные данные и секреты для доступа к данным (токены аутентификации, API-ключи, ключи шифрования и т. п.) не следует использовать в открытом виде в коде, в названиях и описаниях объектов облака, в метаданных виртуальных машин и т. д. Вместо этого используйте сервисы для хранения секретов, такие как {{ lockbox-short-name }}.
 
 Сервис {{ lockbox-short-name }} обеспечивает безопасное хранение секретов только в зашифрованном виде. Шифрование выполняется с помощью {{ kms-short-name }}. Для разграничения доступа к секретам используйте сервисные роли.
 
 Инструкции по работе с сервисом см. в [документации](../../../lockbox/) {{ lockbox-short-name }}.
-
-[Vault](https://www.vaultproject.io/) позволяет использовать {{ kms-short-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal).
-
-Для хранения секретов с помощью Vault можно использовать виртуальную машину на основе [образа](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }} с предустановленной сборкой HashiCorp Vault и поддержкой Auto Unseal. Инструкция по настройке Auto Unseal приведена в статье [Auto Unseal в Hashicorp Vault](../../../kms/tutorials/vault-secret.md) документации {{ kms-short-name }}.
 
 {% note info %}
 
@@ -576,8 +726,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
   1. В консоли управления выберите облако или каталог, в которых необходимо проверить секреты.
   1. В списке сервисов выберите **{{ lockbox-short-name }}**.
   1. Убедитесь, что используется как минимум один секрет {{ lockbox-short-name }}.
-  1. Найдите параметр **Защита от удаления**.
-  1. Если используется {{ lockbox-short-name }}, либо среди виртуальных машин или сущностей {{ k8s }} находится установленный Hashicorp Vault, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
+  1. Если используется {{ lockbox-short-name }}, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
 
 - Проверка через CLI {#cli}
 
@@ -604,7 +753,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **Инструкции и решения по выполнению:**
 
-Храните секреты в {{ lockbox-short-name }} либо [Hashicorp Vault](/marketplace/products/yc/vault-yckms) из {{ marketplace-short-name }}.
+Храните секреты в {{ lockbox-short-name }}.
 
 #### 4.14 Для {{ serverless-containers-name }} и {{ sf-name }} используются секреты {{ lockbox-short-name }} {#secrets-serverless-functions}
 
@@ -647,7 +796,9 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **Инструкции и решения по выполнению:**
 
-Удалите секретные данные из env и [воспользуйтесь](../../../functions/operations/function/version-manage.md) функционалом интеграции с {{ lockbox-short-name }}.
+Удалите секретные данные из env и воспользуйтесь функционалом интеграции с {{ lockbox-short-name }}:
+* [{#T}](../../../serverless-containers/operations/lockbox-secret-transmit.md).
+* [{#T}](../../../functions/operations/function/lockbox-secret-transmit.md).
 
 #### 4.15 При работе {{ coi }} используется шифрование секретов {#secrets-coi}
 
@@ -675,8 +826,8 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 * {{ yandex-cloud }} API Key;
 * Yandex Passport OAuth token;
 * {{ yandex-cloud }} AWS API compatible Access Secret;
-* (NEW) {{ yandex-cloud }} {{ captcha-name }} Server Key;
-* (NEW) {{ lockbox-short-name }} структурированные секреты.
+* {{ yandex-cloud }} {{ captcha-name }} Server Key;
+* {{ lockbox-short-name }} структурированные секреты.
 
 Сервис автоматически уведомляет клиента о найденном секрете, который относится к его инфраструктуре:
 

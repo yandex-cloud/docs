@@ -1039,6 +1039,8 @@ items:
           Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
+      - name: Решение проблем с сортировкой строк в {{ PG }} после обновления glibc
+        href: dataplatform/postgresql-glibc-collation-issues.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}

@@ -22,8 +22,3 @@ In the {{ baremetal-name }} service, you pay for the rental period of a server w
 
 
 
-
-
-All prices are for 1 month, excluding VAT.
-
-{% include [usd-servers.md](../_pricing/baremetal/usd-servers.md) %}
