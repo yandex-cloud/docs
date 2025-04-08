@@ -10,13 +10,19 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ dataproc-name }} (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
-
-### Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки кластера {{ dataproc-name }} входит плата за вычислительные ресурсы кластера и объем хранилища (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 

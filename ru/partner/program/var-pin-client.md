@@ -30,12 +30,27 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-При создании записи о клиенте на партнерском портале создается [сабаккаунт](../terms.md#sub-account) и новая [организация](../../organization/) с именем `For subaccount 'Название_клиента'`. Сабаккаунт можно удалить, если клиент не успел его [подтвердить](#apply).
+При создании записи о клиенте на партнерском портале создается [сабаккаунт](../terms.md#sub-account), а затем, после подтверждения партнерства, новая [организация](../../organization/) с именем `For subaccount 'Название_клиента'`. Сабаккаунт можно удалить, если клиент не успел [подтвердить партнерство](#confirm-partnership).
 
-По умолчанию выдаются следующие роли:
+При этом пользователям для доступа к созданным сабаккаунту и организации по умолчанию выдаются различные роли.
 
-* партнеру — `billing.accounts.owner` на сабаккаунт и `{{ roles-organization-owner }}` на организацию;
-* клиенту — `{{ roles-admin }}` на сабаккаунт и `{{ roles-organization-owner }}` на организацию.
+* Пользователям и сервисным аккаунтам с [ролью](../security/index.md#billing-accounts-owner) `billing.accounts.owner`:
+   * [роль](../security/index.md#billing-accounts-owner) `billing.accounts.owner` на сабаккаунт;
+   * [роль](../../iam/roles-reference.md#organization-manager-organizations-owner) `organization-manager.organizations.owner` на организацию.
+
+* Пользователям и сервисным аккаунтам, создавшим сабаккаунт для клиента:
+   * [роль](../security/index.md#billing-accounts-admin) `billing.accounts.admin` на сабаккаунт;
+   * [роль](../../iam/roles-reference.md#organization-manager-admin) `organization-manager.admin` на организацию.
+
+* Пользователям, почту которых указали при создании сабаккаунта:
+   * [роль](../security/index.md#billing-accounts-admin) `billing.accounts.admin` на сабаккаунт;
+   * [роль](../../iam/roles-reference.md#organization-manager-admin) `organization-manager.admin` на организацию.
+
+{% note info %}
+
+Роли на организацию получают только пользователи с аккаунтом на Яндексе, на федеративных пользователей это не распространяется.
+
+{% endnote %}
 
 ## Подтверждение партнерства {#confirm-partnership}
 

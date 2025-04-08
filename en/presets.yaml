@@ -6733,6 +6733,7 @@ default:
         disk-form:
           field_size: Size
           field_type: Type
+          field_zone: Availability zone
           label_disk-encryption: Encrypted disk
           label_disk-kms-key: KMS key
           section_encryption: Encryption
@@ -8479,6 +8480,8 @@ default:
           section_security-rules: Security rules
         label_profiles-list: Security profiles
         label_search-rule-type: 'Rule type:'
+        match-lists:
+          label_match-lists: Lists
         overview:
           action_attach-to-host: Connect to host
           action_disconnect-host: Disconnect from profile

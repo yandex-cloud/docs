@@ -726,7 +726,7 @@ default:
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
   security-group: enp6saqnq4ie********
-  security-standard-current-version: 1.3.0
+  security-standard-current-version: 1.4.0
   serial-ssh-host: serialssh.cloud.yandex.net
   serverless-containers-full-name: Yandex Serverless Containers
   serverless-containers-host: containers.yandexcloud.net
@@ -6740,6 +6740,7 @@ default:
         disk-form:
           field_size: Размер
           field_type: Тип
+          field_zone: Зона доступности
           label_disk-encryption: Зашифрованный диск
           label_disk-kms-key: Ключ KMS
           section_encryption: Шифрование
@@ -8488,6 +8489,8 @@ default:
           section_security-rules: Правила безопасности
         label_profiles-list: Профили безопасности
         label_search-rule-type: 'Тип правила:'
+        match-lists:
+          label_match-lists: Списки
         overview:
           action_attach-to-host: Подключить к хосту
           action_disconnect-host: Отключить от профиля
