@@ -1,4 +1,4 @@
-# Логирование
+# Логи {{ cloud-logging-name }}
 
 Вы можете [настроить сохранение логов](../operations/configure-logging.md) создания эндпоинтов и отправки уведомлений в сервис [{{ cloud-logging-name }}](../../logging/).
 

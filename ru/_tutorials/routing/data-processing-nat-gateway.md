@@ -3,6 +3,16 @@
 
 В этом руководстве описано создание кластера {{ dataproc-name }} с настройкой подсетей и NAT-шлюза.
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ dataproc-name }}: использование вычислительных ресурсов ВМ и сетевых дисков {{ compute-name }}, а также сервиса {{ cloud-logging-name }} для работы с логами (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
+
 ## Создайте ресурсы {#deploy-infrastructure}
 
 {% list tabs group=instructions %}

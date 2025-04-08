@@ -67,6 +67,8 @@
 
 * Wazuh — [Сбор, мониторинг и анализ аудитных логов в Wazuh](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-wazuh/blob/main/README.md)
 
+* KUMA — [Сбор, мониторинг и анализ аудитных логов в KUMA](../../../tutorials/security/audit-trails-events-to-kuma/index.md)
+
 Вы можете подробнее ознакомиться с MaxPatrol в [разделе](../../../audit-trails/tutorials/maxpatrol.md).
 
 Для настройки экспорта в любые SIEM подходят утилиты [GeeseFS](../../../storage/tools/geesefs.md) или [s3fs](../../../storage/tools/s3fs.md). Они позволяют смонтировать бакет {{ objstorage-full-name }} как локальный диск виртуальной машины. Далее на ВМ необходимо установить коннектор для SIEM и настроить вычитывание JSON-файлов из бакета. Либо утилиты совместимые с AWS Kinesis datastreams в случае, если вы направляете аудитные логи в {{ yds-full-name }}.
@@ -173,8 +175,26 @@ C помощью {{ sf-full-name }} можно настроить оповеще
   1. Выберите нужный трейл.
   1. Убедитесь, что на странице с информацией о трейле в блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** указаны все сервисы, для которых вы хотите собирать логи уровня сервисов, и для каждого указанного сервиса задана нужная [область сбора](../../../audit-trails/concepts/trail.md#collecting-area) аудитных логов.
 
-      Список поддерживаемых сервисов:
-
-      {% include [dp-events-service-list](../../../_includes/audit-trails/dp-events-service-list.md) %}
+      Список поддерживаемых сервисов см. в [{#T}](../../../audit-trails/concepts/events-data-plane.md).
 
 {% endlist %}
+
+#### 5.9 Включен модуль {{ sd-name }} Access Transparency для проверки действий, произведенных сотрудниками {{ yandex-cloud }} с инфраструктурой {#access-transparency-enabled}
+
+Все действия сотрудников {{ yandex-cloud }} фиксируются и контролируются с помощью [бастионных хостов](../../../tutorials/routing/bastion.md), на которых записываются операции с ресурсами, обрабатывающими пользовательские данные.
+
+Модуль [Access Transparency](../../../security-deck/concepts/access-transparency.md) позволяет проверить, для каких целей сотрудники провайдера получили доступ к инфраструктуре. Например, для выполнения дополнительной диагностики IT‑систем инженерами службы поддержки или обновления ПО. [ML‑модели](../../../glossary/ml-models.md) анализируют эти действия. {{ yagpt-name }}, встроенный в Access Transparency, создает сводки о событиях доступа для повышения прозрачности. Подозрительные сессии автоматически передаются на рассмотрение команде безопасности {{ yandex-cloud }}.
+
+{% list tabs group=instructions %}
+
+- Проверка в консоли управления {#console}
+
+  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите ![CloudCheck](../../../_assets/console-icons/cloud-check.svg) **Access Transparency**.
+  1. Если вы видите предложение о подключении модуля Access Transparency, то этот модуль у вас еще не активирован: перейдите к п. <q>Инструкции и решения по выполнению</q>.
+
+{% endlist %}
+
+**Инструкции и решения по выполнению:**
+
+Нажмите кнопку **Подключить**, чтобы активировать модуль `Access Transparency`.
