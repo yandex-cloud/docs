@@ -34,9 +34,9 @@ You can learn more about {{ CK }} in the [{{ CH }} documentation]({{ ch.docs }}/
 
 ## {{ ZK }} {#zk}
 
-{{ ZK }} is a coordination tool you can use to distribute queries among {{ CH }} hosts. For successful replication, a {{ mch-name }} cluster must have three to five {{ ZK }} hosts.
+{{ ZK }} is a coordination tool you can use to distribute queries among {{ CH }} hosts. For successful replication, a {{ mch-name }} cluster must have [three or five {{ ZK }} hosts](../qa/cluster-settings.md#zookeeper-hosts-number).
 
-If your cluster consists of one {{ CH }} host or several single-host shards and was originally created without {{ CK }} support, you must enable fault tolerance for the cluster before adding new hosts. To do so, [add at least three {{ ZK }}](../operations/zk-hosts.md#add-zk) hosts to the cluster. If the cluster already has {{ ZK }} hosts, you can [add {{ CH }} hosts](../operations/hosts.md#add-host) to any shards.
+If your cluster consists of one {{ CH }} host or several single-host shards and was originally created without {{ CK }} support, you must enable fault tolerance for the cluster before adding new hosts. To do this, [add three or five {{ ZK }} hosts to the cluster](../operations/zk-hosts.md#add-zk). If the cluster already has {{ ZK }} hosts, you can [add {{ CH }} hosts](../operations/hosts.md#add-host) to any shards.
 
 
 If you are creating a cluster with two or more {{ CH }} hosts per shard, three {{ ZK }} hosts will be automatically added to the cluster. At this point, you can only set up their configuration. Mind the following:

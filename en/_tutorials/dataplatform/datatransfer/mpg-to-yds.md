@@ -4,23 +4,49 @@ You can track data changes in a {{ mpg-name }} _source cluster_ and send them to
 
 To set up CDC using {{ data-transfer-name }}:
 
-1. [Set up the transfer](#prepare-transfer).
+1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
 1. [Test the replication process](#check-replication).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	
+    Learn more about the [{{ ydb-name }} pricing](../../../ydb/pricing/index.md) plans.
+
+* Fee for {{ yds-name }}. The fee depends on the pricing mode:
+
+	* By allocated resources: You pay for the number of units of written data and resources allocated for streaming data.
+	* By actual use:
+		* If the DB operates in serverless mode, the data stream is charged under the [{{ ydb-short-name }} serverless mode pricing policy](../../../ydb/pricing/serverless.md).
+
+		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../../ydb/pricing/dedicated)).
+
+    Learn more about the [{{ yds-name }} pricing](../../../data-streams/pricing.md) plans.
+
+
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
     1. [Create a source {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-create.md) in any applicable [configuration](../../../managed-postgresql/concepts/instance-types.md) with publicly available hosts and the following settings:
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`
 
     
     1. Set up [security groups](../../../managed-postgresql/operations/connect.md#configuring-security-groups) and make sure they allow cluster connections.
@@ -45,7 +71,7 @@ Prepare the infrastructure:
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to a cluster.
+        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to the cluster.
         * {{ mpg-name }} source cluster.
         * Database: {{ ydb-name }}.
         * Service account to use to access {{ yds-name }}.
@@ -54,7 +80,7 @@ Prepare the infrastructure:
 
     1. In the `postgresql-yds.tf` file, specify the {{ PG }} user password.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -70,11 +96,11 @@ Prepare the infrastructure:
 
 {% endlist %}
 
-## Set up the transfer {#prepare-transfer}
+## Set up your transfer {#prepare-transfer}
 
 1. [Create a {{ yds-name }} data stream](../../../data-streams/operations/aws-cli/create.md) named `mpg-stream`.
 
-1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md), create a table named `measurements` in the `db1` database, and populate it with data:
+1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md), create a table named `measurements` in the `db1` database and populate it with data:
 
     ```sql
     CREATE TABLE measurements (
@@ -96,9 +122,9 @@ Prepare the infrastructure:
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/data-streams.md) of the `{{ yds-name }}` type with the following settings:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: `ydb-example`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `mpg-stream`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `yds-sa`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: `ydb-example`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `mpg-stream`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `yds-sa`
 
 1. Create a source endpoint and a transfer.
 
@@ -114,7 +140,7 @@ Prepare the infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `pg-user` user password.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
 
     - {{ TF }} {#tf}
 
@@ -123,7 +149,7 @@ Prepare the infrastructure:
             * `yds_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -139,7 +165,7 @@ Prepare the infrastructure:
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}_**.
+1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **_{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}_**.
 
 1. {% include [get-yds-data](../../../_includes/data-transfer/get-yds-data.md) %}
 

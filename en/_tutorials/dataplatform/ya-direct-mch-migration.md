@@ -1,12 +1,24 @@
 # Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{ data-transfer-full-name }}
 
 
-You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. To do this:
+You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. Proceed as follows:
 
 1. [Transfer your data from {{ yandex-direct }} to {{ objstorage-name }} using {{ sf-name }}](#direct-objstorage).
 1. [Transfer your data from {{ objstorage-name }} to {{ mch-name }} using {{ data-transfer-name }}](#objstorage-mch).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for function calls (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Secret storage and request fees (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -262,7 +274,7 @@ You will see a Parquet file in the bucket.
 
     1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
-    1. Run this query:
+    1. Run this request:
 
         ```sql
         SELECT * FROM ac05e4fe818e463f88a8a299d290734d_snappy_parquet;

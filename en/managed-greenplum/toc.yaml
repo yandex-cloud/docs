@@ -96,8 +96,8 @@ items:
       - name: Migrating a database to {{ mgp-name }}
         href: tutorials/data-migration.md
       - name: >-
-          Creating an external table from a {{ objstorage-full-name }} bucket
-          table using a configuration file
+          Creating an external table from a {{ objstorage-name }} bucket table
+          using a configuration file
         href: tutorials/config-server-for-s3.md
       - name: Migrating a database from {{ GP }} to {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
@@ -105,13 +105,11 @@ items:
         href: tutorials/greenplum-to-clickhouse.md
       - name: Migrating a database from {{ MY }} to {{ GP }}
         href: tutorials/mmy-to-mgp.md
-      - name: >-
-          Exporting {{ GP }} data to a cold storage in {{ objstorage-full-name
-          }}
+      - name: Exporting {{ GP }} data to a cold storage in {{ objstorage-name }}
         href: tutorials/yezzey.md
       - name: >-
-          Loading data from {{ objstorage-full-name }} to {{ mgp-name }} using
-          {{ data-transfer-full-name }}
+          Loading data from {{ objstorage-name }} to {{ mgp-name }} using {{
+          data-transfer-name }}
         href: tutorials/object-storage-to-greenplum.md
       - name: Delivering data using {{ data-transfer-name }}
         items:

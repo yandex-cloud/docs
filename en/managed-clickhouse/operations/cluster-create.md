@@ -11,7 +11,7 @@ A {{ CH }} cluster consists of one or more database hosts between which you can 
 
 ## Roles for creating a cluster {#roles}
 
-To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }}](../security.md#managed-clickhouse-editor) role or higher.
+To create a {{ mch-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mch.editor }}](../security.md#managed-clickhouse-editor) roles or higher.
 
 To link your service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
@@ -145,7 +145,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-  1. View the description of the create cluster CLI command:
+  1. View the description of the CLI command to create a cluster:
 
       ```bash
       {{ yc-mdb-ch }} cluster create --help
@@ -189,6 +189,10 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
 
+
+      * `--user`: Contains the {{ CH }} user `name` and `password`.
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
       * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
@@ -354,6 +358,15 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
        }
        ```
 
+
+       Where:
+
+       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
+       * `user`: User data section. Contains the {{ CH }} user `name` and `password` as well as a list of DBs the user must have access to in the `permission` section.
+
+         {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+       * `assign_public_ip`: Public access to the host, `true` or `false`.     
 
        {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

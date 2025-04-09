@@ -99,11 +99,14 @@ if err != nil {
 
 Where:
 
-* `attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on platform:
+* `attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on the platform:
 
     {% include [auth-attributes](../../_includes/notifications/auth-attributes.md) %}
 
-* `name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
+* `name`: Notification channel name, user-defined.
+  
+    {% include [channel-name](../../_includes/notifications/channel-name.md) %}
+    
 * `platform`: Mobile platform type:
 
     {% include [platform-types](../../_includes/notifications/platform-types.md) %}

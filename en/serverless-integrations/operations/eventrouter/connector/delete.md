@@ -5,6 +5,12 @@ description: Follow this guide to delete a connector.
 
 # Deleting a connector
 
+{% note info %}
+
+You cannot delete a connector if deletion protection is enabled. Before deleting the rule, [disable](update.md) the protection.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

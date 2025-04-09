@@ -1,9 +1,9 @@
 ---
-title: Agent for delivering metrics
+title: Metrics collection agent
 description: In this article, you will learn about the metric delivery agent and how it works as well as such concepts as messages, sessions, inputs, outputs, filters, storages, and routing.
 ---
 
-# Agent for delivering metrics
+# Metrics collection agent
 
 
 

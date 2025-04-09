@@ -4,12 +4,12 @@
 
 To configure integration between {{ mkf-name }} and {{ dataproc-name }} clusters:
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Create PySpark jobs](#create-jobs).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
@@ -31,8 +31,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. [Grant the `dataproc-sa` service account](../../../storage/operations/buckets/edit-acl.md) the `FULL_CONTROL` permission for `dataproc-bucket`.
    1. [Create a {{ dataproc-name }} cluster](../../../data-proc/operations/cluster-create.md#create) with the following parameters:
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `dataproc-cluster`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_version }}**: `2.1`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `dataproc-cluster`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_version }}**: `2.1`
       * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
 
          * `HDFS`
@@ -41,28 +42,28 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * `TEZ`
          * `YARN`
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-b`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `dataproc-bucket`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: `dataproc-sa`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-b`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: `dataproc-bucket`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`
       * **{{ ui-key.yacloud.mdb.forms.section_subclusters }}**: Master, one subcluster named `Data` and one subcluster named `Compute`.
 
    1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md#create-cluster) with the following parameters:
 
-      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `dataproc-kafka`.
-      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
-      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `3.5`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-b`.
-      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`.
-      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`.
-      * **Subnet**: `dataproc-subnet-b`.
+      * **{{ ui-key.yacloud.mdb.forms.base_field_name }}**: `dataproc-kafka`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
+      * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: `3.5`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_zone }}**: `{{ region-id }}-b`
+      * **{{ ui-key.yacloud.mdb.forms.config_field_network }}**: `dataproc-network`
+      * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: `dataproc-security-group`
+      * **Subnet**: `dataproc-subnet-b`
 
    1. [Create a {{ KF }} topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) with the following parameters:
 
       * **Name**: `dataproc-kafka-topic`.
-      * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`.
-      * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `1`.
+      * **{{ ui-key.yacloud.kafka.label_partitions }}**: `1`
+      * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `1`
 
    1. [Create a {{ KF }} user](../../../managed-kafka/operations/cluster-accounts.md#create-user) with the following parameters:
 
@@ -97,9 +98,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
    1. Specify the following in the `kafka-and-data-proc.tf` file:
 
       * `folder_id`: Cloud folder ID, same as in the provider settings.
-      * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
+      * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. To learn more, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
 
-   1. Check that the {{ TF }} configuration files are correct using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate

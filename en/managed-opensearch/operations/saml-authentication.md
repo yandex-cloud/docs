@@ -72,9 +72,9 @@ Incorrect settings may cause the cluster to fail.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_dashboards-url }}**: URL with a [special cluster FQDN](./connect.md#special-fqdns), same as the **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}**.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}**: SAML response parameter that stores the roles. If omitted, no roles are used.
+        * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}**: Name of the SAML response parameter that stores the roles. The SAML response comes from the identity provider. Skipping this parameter disables the use of roles.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: SAML response parameter that stores the subject. If it is not set, the `NameID` parameter is used.
+        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Name of the SAML response parameter that stores the subject. The SAML response comes from the identity provider. If it is not set, the `NameID` parameter is used.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Session lifetime in minutes. Specify if not set by the identity provider.
 
@@ -90,7 +90,7 @@ Incorrect settings may cause the cluster to fail.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.UpdateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.UpdateAuthSettings](../api-ref/Cluster/updateAuthSettings.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -121,8 +121,8 @@ Incorrect settings may cause the cluster to fail.
         * `idpMetadataFile`: Path to the Base64 metadata file.
         * `spEntityId`: URI of the SP Entity ID (Audience URI) application. Use the URI you specified when [configuring the IdP](#configuration-idp).
         * `dashboardsUrl`: URL of the host with the `DASHBOARDS` role.
-        * `rolesKey`: SAML response parameter that stores the roles.
-        * `subjectKey`: SAML response parameter that stores the subject.
+        * `rolesKey`: Name of the SAML response parameter that stores the roles. The SAML response comes from the identity provider. Skipping this parameter disables the use of roles.
+        * `subjectKey`: Name of the SAML response parameter that stores the subject. The SAML response comes from the identity provider. If it is not set, the `NameID` parameter is used.
         * `jwtDefaultExpirationTimeout`: Session lifetime in minutes. Specify if not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).
@@ -138,7 +138,7 @@ Incorrect settings may cause the cluster to fail.
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. Use the [ClusterService.UpdateAuthSettings](../api-ref/grpc/Cluster/updateAuthSettings.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.UpdateAuthSettings](../api-ref/grpc/Cluster/updateAuthSettings.md) call and send a request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -172,8 +172,8 @@ Incorrect settings may cause the cluster to fail.
         * `idp_metadata_file`: Path to the Base64 metadata file.
         * `sp_entity_id`: URI of the SP Entity ID (Audience URI) application. Use the URI you specified when [configuring the IdP](#configuration-idp).
         * `dashboards_url`: URL of the host with the `DASHBOARDS` role.
-        * `roles_key`: SAML response parameter that stores the roles.
-        * `subject_key`: SAML response parameter that stores the subject.
+        * `roles_key`: Name of the SAML response parameter that stores the roles. The SAML response comes from the identity provider. Skipping this parameter disables the use of roles.
+        * `subject_key`: Name of the SAML response parameter that stores the subject. The SAML response comes from the identity provider. If it is not set, the `NameID` parameter is used.
         * `jwt_default_expiration_timeout`: Session lifetime in minutes. Specify if not set by the identity provider.
 
             If there is no value or `0`, the session lifetime is unlimited (default).

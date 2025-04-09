@@ -7,12 +7,13 @@ aws sns create-platform-application \
 
 Where:
 
-* `--name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
+* `--name`: Notification channel name, user-defined.
+  
+  {% include [channel-name](../../_includes/notifications/channel-name.md) %}
+
 * `--platform`: Mobile platform type:
 
-  * `APNS` and `APNS_SANDBOX`: Apple Push Notification service (APNs). Use `APNS_SANDBOX` to test the application.
-  * `GCM`: Firebase Cloud Messaging (FCM).
-  * `HMS`: Huawei Mobile Services (HMS).
+  {% include [platform-types](../../_includes/notifications/platform-types.md) %}
 
 * `--attributes`: Mobile platform authentication parameters in `<parameter>=<value>` format, comma-separated. The values depend on the platform:
 
@@ -20,15 +21,15 @@ Where:
 
     * Token-based authentication:
 
-      * `PlatformPrincipal`: Path to the signature key file from Apple
-      * `PlatformCredential`: Key ID
-      * `ApplePlatformTeamID`: Team ID
-      * `ApplePlatformBundleID`: Bundle ID
+      * `PlatformPrincipal`: Path to the signature key file from Apple.
+      * `PlatformCredential`: Key ID.
+      * `ApplePlatformTeamID`: Team ID.
+      * `ApplePlatformBundleID`: Bundle ID.
 
     * Certificate-based authentication:
 
-      * `PlatformPrincipal`: SSL certificate in `.pem` format
-      * `PlatformCredential`: Certificate private key in `.pem` format
+      * `PlatformPrincipal`: SSL certificate in `.pem` format.
+      * `PlatformCredential`: Certificate private key in `.pem` format.
 
         {% include [convert-p12-to-pem](convert-p12-to-pem.md) %}
 
@@ -42,8 +43,13 @@ Where:
 
   * HMS:
 
-    * `PlatformPrincipal`: Key ID
-    * `PlatformCredential`: API key
+    * `PlatformPrincipal`: Key ID.
+    * `PlatformCredential`: API key.
+
+  * RuStore:
+  
+    * `PlatformPrincipal`: Project ID (ProjectID).
+    * `PlatformCredential`: Service token (ServiceToken).
 
 As a result, you will get a notification channel ID (ARN). Save it for future use.
 

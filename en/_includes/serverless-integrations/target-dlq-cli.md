@@ -1,0 +1,2 @@
+* `dlq-arn`: ARN of the DLQ to which messages that the target could not process will be redirected. This is an optional parameter.
+* `dlq-service-account-id`: ID of the service account to which the `ymq.writer` [role](../../message-queue/security/index.md#ymq-writer) or higher is assigned for the selected DLQ. This is an optional parameter.

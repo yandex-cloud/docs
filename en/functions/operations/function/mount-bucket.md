@@ -5,22 +5,33 @@ description: Follow this guide to mount a bucket to a function in {{ sf-name }}.
 
 # Mounting a bucket to a function
 
+You can mount {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) to a function. Mounting a bucket automatically creates a new function [version](../../concepts/function.md#version).
+
+To mount buckets to a function:
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select a function.
-  1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** section, select or create a new [service account](../../../iam/concepts/users/service-accounts) with one of these roles:
-     * `storage.viewer` to only read data from the mounted bucket.
-     * `storage.uploader` to read and write data from/to the mounted bucket.
-  1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**, click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}** and specify:
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-name }}**: Name of the mount point. Use this path to access the directory in which the bucket is mounted: `/function/storage/<mount_point>`.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket }}**: Name of the bucket you want to mount. Alternatively, you can create a new bucket.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket-prefix }}**: [Folder](../../../storage/concepts/object.md#folder) within the bucket. Leave this field empty to mount the entire bucket.
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.label_readonly }}**: Disables writing to the bucket. If this option is enabled, data from the mounted bucket is available as read-only.
+     * [`storage.viewer`](../../../storage/security/index.md#storage-viewer) to only read data from the mounted [bucket](../../../storage/concepts/bucket.md).
+     * [`storage.uploader`](../../../storage/security/index.md#storage-uploader) to read and write data from/to the mounted bucket.
+  1. Expand **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**.
+  1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_mount-files }}**:
+  
+      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}**.
+      1. Specify the following in the field:
+
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-name }}**: Name of the mount point. Use this path to access the directory the bucket will be mounted to: `/function/storage/<mount_point>`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket }}**: Bucket you want to mount. If necessary, [create](../../../storage/operations/buckets/create.md) a new bucket.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_bucket-prefix }}**: Bucket [directory](../../../storage/concepts/object.md#folder) that will be mounted to the container. Leave this field empty to mount the entire bucket.
+      1. Enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_readonly }}** to disable writing to the bucket. With this option on, data from the mounted bucket will be read-only.
+
+      To mount an additional bucket to the function, click **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-folder }}** again and configure the parameters as needed.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -29,7 +40,7 @@ description: Follow this guide to mount a bucket to a function in {{ sf-name }}.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To mount a bucket to a function, run this command:
+  Run this command:
 
   ```bash
   yc serverless function version create \
@@ -39,24 +50,27 @@ description: Follow this guide to mount a bucket to a function in {{ sf-name }}.
     --memory <RAM_size> \
     --execution-timeout <execution_timeout> \
     --source-path <path_to_ZIP_archive> \
-    --service-account-id <service_account_ID>
-    --storage-mounts mount-point=<mount_point>,bucket=<bucket_name>,prefix=<folder_name>,read-only=false
+    --service-account-id <service_account_ID> \
+    --mount type=object-storage,mount-point=<mount_point>,bucket=<bucket_name>,prefix=<directory_name>,mode=<mount_mode>
   ```
 
   Where:
 
   * `--function-name`: Function name.
-  * `--runtime`: Runtime environment.
-  * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
+  * `--runtime`: Function [runtime environment](../../concepts/runtime/index.md#runtimes).
+  * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`, e.g., `index.handler`.
   * `--memory`: Amount of RAM.
-  * `--execution-timeout`: Maximum function running time before the timeout is reached.
-  * `--source-path`: ZIP archive with the function code and required dependencies.
-  * `--service-account-id`: Service account ID. The account must have the `storage.viewer` role to read data from the bucket or the `storage.uploader` role to write data.
-  * `--storage-mounts`: {{ objstorage-name }} [bucket](../../../storage/concepts/bucket.md) mounting parameters:
-    * `mount-point`: Name of the mount point. Use this path to access the directory in which the bucket is mounted: `/function/storage/<mount_point>`.
-    * `bucket`: Bucket.
-    * `prefix`: [Folder](../../../storage/concepts/object.md#folder) within the bucket. Leave this field empty to mount the entire bucket.
-    * `read-only`: Disables writing to the bucket. If this option is enabled, data from the mounted bucket is available as read-only. The possible values are `true` and `false`.
+  * `--execution-timeout`: Maximum running time of the function until timeout.
+  * `--source-path`: Path to the ZIP archive containing the function code and relevant dependencies.
+  * `--service-account-id`: Service account [ID](../../../iam/operations/sa/get-id.md). The service account needs the `storage.viewer` [role](../../../storage/security/index.md#storage-viewer) to read from the bucket or the `storage.uploader` [role](../../../storage/security/index.md#storage-uploader) to both read and write.
+  * `--mount`: {{ objstorage-name }} [bucket](../../../storage/concepts/bucket.md) mounting parameters:
+      * `type`: Mounted storage type. For a bucket, the value is always `object-storage`.
+      * `mount-point`: Mount point. Use this path to access the directory the bucket will be mounted to: `/function/storage/<mount_point>`.
+      * `bucket`: [Bucket](../../../storage/concepts/bucket.md#naming) name.
+      * `prefix`: Bucket [directory](../../../storage/concepts/object.md#folder) that will be mounted to the function. Skip this field or leave it empty to mount the entire bucket.
+      * `mode`: Bucket mount mode, `ro` (read-only) or `rw` (read and write).
+
+      To mount several buckets to a function at the same time, set the `--mount` parameter as many times as you need.
 
 - {{ TF }} {#tf}
 
@@ -64,47 +78,42 @@ description: Follow this guide to mount a bucket to a function in {{ sf-name }}.
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To mount a bucket to a function:
-
-  1. Open the {{ TF }} configuration file and add the `storage_mounts` section to the function description:
+  1. Open the {{ TF }} configuration file and add the `mounts` section to the function description:
 
       ```hcl
       resource "yandex_function" "bucketfunction" {
-        name               = "<bucket_name>"
-        user_hash          = "<function_hash>"
-        runtime            = "<runtime_environment>"
-        entrypoint         = "<entry_point>"
-        memory             = "<RAM_size>"
-        execution_timeout  = "<execution_timeout>"
-        service_account_id = "<service_account_ID>"
-        content {
-          zip_filename = "<path_to_ZIP_archive>"
+        ...
+
+        mounts {
+          name = "<mount_point>"
+          mode = "<mount_mode>"
+          object_storage {
+            bucket = "<bucket_name>"
+            prefix = "<directory_name>"
+          }
         }
 
-        storage_mounts {
-          mount_point_name = "<mount_point>"
-          bucket           = "<bucket_name>"
-          prefix           = "<folder_name>"
-          read_only        = <read_only_flag>
-        }
       }
       ```
 
       Where:
 
-      * `storage_mounts`: [Bucket](../../../storage/concepts/bucket.md) mounting parameters:
-        * `mount_point_name`: Name of the mount point. Use this path to access the directory in which the bucket is mounted: `/function/storage/<mount_point>`.
-        * `bucket`: Bucket.
-        * `prefix`: [Folder](../../../storage/concepts/object.md#folder) within the bucket. Leave this field empty to mount the entire bucket.
-        * `read_only`: Disables writing to the bucket. If this option is enabled, data from the mounted bucket is available as read-only. The possible values are `true` and `false`.
+      * `mounts`: {{ objstorage-name }} [bucket](../../../storage/concepts/bucket.md) mounting parameters:
+          * `name`: Mount point. Use this path to access the directory the [bucket](../../../storage/concepts/bucket.md) will be mounted to: `/function/storage/<mount_point>`.
+          * `mode`: Bucket mount mode, `ro` (read-only) or `rw` (read and write).
+          * `object_storage`: Bucket parameters:
+              * `bucket`: [Bucket](../../../storage/concepts/bucket.md#naming) name.
+              * `prefix`: Bucket [folder](../../../storage/concepts/object.md#folder) that will be mounted to the container. Leave this field empty to mount the entire bucket.
 
-      For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+          To mount several buckets to a function at the same time, set the `mounts` section as many times as you need.
+
+      For more information about the `yandex_function` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the function update and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  You can check the function version update and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   yc serverless function version get <function_version_ID>
@@ -112,11 +121,11 @@ description: Follow this guide to mount a bucket to a function in {{ sf-name }}.
 
 - API {#api}
 
-  To mount a bucket to a function, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
+  Use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
 {% endlist %}
 
 ## See also {#see-also}
 
-* [Mounting file systems to a function](../../concepts/mounting.md)
-* [Mounting file systems to a container](../../../serverless-containers/concepts/mounting.md)
+* [{#T}](../../concepts/mounting.md)
+* [{#T}](../../../serverless-containers/concepts/mounting.md)

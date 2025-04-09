@@ -5,14 +5,14 @@
 
 To migrate load testing results:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Get an API token and Yandex OverLoad test IDs](#get-overload).
 1. [Migrate the testing results](#transfer-results).
 1. [Check the results](#check-results).
 
 If you no longer need the OverLoad test results, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -46,13 +46,13 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, go to the ![tests](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
-  1. At the top right, click ![options](../../_assets/options.svg) and select **Import tests from OverLoad**.
+  1. Click ![options](../../_assets/options.svg) at the top right and select **Import tests from OverLoad**.
   1. In the window that opens, specify the import parameters:
       * **Token**: Yandex OverLoad API token you previously obtained.
-      * **{{ ui-key.yacloud.load-testing.field_lunapark-test-id }}**: ID of the Yandex OverLoad test whose results you want to migrate. If there are multiple tests, click **{{ ui-key.yacloud.load-testing.button_add-lunapark-test-id }}** and enter the next ID.
+      * **{{ ui-key.yacloud.load-testing.field_lunapark-test-id }}**: ID of the Yandex OverLoad test whose results you want to migrate. If there are multiple tests, click **{{ ui-key.yacloud.load-testing.button_add-lunapark-test-id }}** and enter the next ID. 
   1. Click **{{ ui-key.yacloud.common.import }}**.
 
-  It takes some time to transfer the load testing results.
+  It takes some time to transfer the load testing results. 
 
 {% endlist %}
 
@@ -69,7 +69,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
       * **Overload Migrate Test** for each migrated test.
   1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
   1. Check that the list contains tests named as `[overload <test_ID>]<test_description>`.
-  1. Choose one of the migrated tests and view its results.
+  1. Choose one of the migrated tests and view its results. 
 
 {% endlist %}
 

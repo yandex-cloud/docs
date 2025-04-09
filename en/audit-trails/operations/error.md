@@ -58,7 +58,7 @@ Contact [support]({{ link-console-support }}) for additional information and rec
 
 ### ACCESS_DENIED {#stream-access-denied}
 
-Make sure the service account used by the trail to upload audit logs to the stream has the `yds.writer` [role](../../data-streams/security/#yds-editor) or higher.
+Make sure the service account used by the trail to upload audit logs to the stream has the `yds.editor` [role](../../data-streams/security/#yds-editor) or higher.
 
 ### STREAM_NOT_FOUND {#stream-not-found}
 
@@ -69,7 +69,7 @@ Check the stream specified in the [trail settings](../concepts/trail.md#trail-se
 ### DATABASE_INACTIVE {#database-inactive}
 
 [Make sure](../../ydb/operations/manage-databases.md#list-db) the {{ ydb-short-name }} database has the `Running` status. Start the database if you need to, e.g., via the [management console]({{ link-console-main }}):
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the database name and select **{{ ui-key.yacloud.common.start }}**.
 
 ### DATABASE_NOT_FOUND {#database-not-found}

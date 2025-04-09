@@ -314,7 +314,6 @@ default:
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://support.yandex.cloud
-  link-datalens-editor: https://datalens.yandex.cloud/editor
   link-datalens-main: https://datalens.yandex.cloud
   link-datalens-settings: https://datalens.yandex.cloud/settings
   link-datalens-wizard: https://datalens.yandex.cloud/wizard

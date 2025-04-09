@@ -26,10 +26,8 @@
 
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Allows you to use the [Performance diagnostics](../../../managed-postgresql/operations/performance-diagnostics.md) tool in a cluster. If this option is enabled, also set the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}** using the sliders. Both are measured in seconds.
 
-    This feature is at the [Preview stage](../../../overview/concepts/launch-stages.md).
 
-
-- **Autofailover**: Enable this option so that when the master host changes, the replication source for every replica host is automatically switched over to the new master host. To learn more, see [Replication](../../../managed-postgresql/concepts/replication.md).
+- **Autofailover**: If this option is enabled, the replication source for all replica hosts will automatically switch to the new master host when the master changes. To learn more, see [Replication](../../../managed-postgresql/concepts/replication.md).
 
     If the master host [is deleted](../../../managed-postgresql/operations/hosts.md#remove), a new master will be selected automatically regardless of the value of this option.
 
@@ -45,7 +43,7 @@
 - {% include [Deletion protection](../console/deletion-protection.md) %}
 
     By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](../../../managed-postgresql/operations/cluster-users.md) and [Database management](../../../managed-postgresql/operations/databases.md) sections.
-
+    
     If the parameter is changed on a running cluster, only users and databases with the **Same as cluster** protection will inherit the new value.
 
     {% include [deletion-protection-limits](../deletion-protection-limits-db.md) %}

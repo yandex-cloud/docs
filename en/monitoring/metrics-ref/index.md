@@ -1,6 +1,6 @@
 ---
 title: List of {{ yandex-cloud }} metric references
-description: The page contains a list of references for {{ yandex-cloud }} metrics, which are automatically collected in {{ monitoring-full-name }}.
+description: This page contains a list of references for {{ yandex-cloud }} metrics automatically collected in {{ monitoring-full-name }}.
 ---
 
 # {{ yandex-cloud }} metric references
@@ -11,6 +11,7 @@ description: The page contains a list of references for {{ yandex-cloud }} metri
 * [{{ at-full-name }}](at-ref.md)
 * [{{ certificate-manager-full-name }}](certificate-manager-ref.md)
 * [{{ backup-full-name }}](backup-ref.md)
+* [{{ baremetal-full-name }}](baremetal-ref.md)
 * [{{ cdn-full-name }}](cdn-ref.md)
 * [{{ sf-full-name }}](functions-ref.md)
 * [{{ cloud-logging-full-name }}](logging-ref.md)
@@ -26,6 +27,7 @@ description: The page contains a list of references for {{ yandex-cloud }} metri
 * [{{ maf-full-name }}](managed-airflow-ref.md)
 * [{{ mkf-full-name }}](managed-kafka-ref.md)
 * [{{ mch-full-name }}](managed-clickhouse-ref.md)
+* [{{ mgl-full-name }}](managed-gitlab-ref.md)
 * [{{ mgp-full-name }}](managed-greenplum-ref.md)
 * [{{ managed-k8s-full-name }}](managed-kubernetes-ref.md)
 * [{{ mmg-full-name }}](managed-mongodb-ref.md)

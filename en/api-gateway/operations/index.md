@@ -59,4 +59,8 @@ description: In this article, you will learn how to work with {{ api-gw-full-nam
 * [{{ yds-name }}](spec-constructor/datastreams.md)
 * [{{ ydb-name }}](spec-constructor/ydb.md)
 * [{{ ml-platform-name }}](spec-constructor/datasphere.md)
-* [{{ yagpt-full-name }}](spec-constructor/yagpt.md)
+* [{{ foundation-models-full-name }}](spec-constructor/yagpt.md)
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

@@ -1,6 +1,6 @@
 ---
 title: How to create a connector for {{ yds-name }}
-description: Follow this tutorial to create a connector for {{ yds-full-name }}.
+description: Follow this guide to create a connector for {{ yds-full-name }}.
 ---
 
 # Creating a connector for {{ yds-name }}
@@ -14,16 +14,15 @@ description: Follow this tutorial to create a connector for {{ yds-full-name }}.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
-  1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**. In the window that opens:
+  1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
+  1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select `{{ yds-full-name }}`.
+  1. Under **{{ yds-name }} settings**:
 
-      1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select `{{ yds-full-name }}`.
-      1. Under **{{ yds-name }} settings**:
+      * Select the [data stream](../../../../data-streams/concepts/glossary.md#stream-concepts) and [dedicated data consumer](../../../../data-streams/concepts/glossary.md#consumers).
+      * Select a [service account](../../../../iam/concepts/users/service-accounts.md) that has read permissions for the data stream.
 
-          * Select the [data stream](../../../../data-streams/concepts/glossary.md#stream-concepts) and [dedicated data consumer](../../../../data-streams/concepts/glossary.md#consumers).
-          * Select a [service account](../../../../iam/concepts/users/service-accounts.md) that has read permissions for the data stream.
-
-      1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
-      1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -68,7 +67,7 @@ description: Follow this tutorial to create a connector for {{ yds-full-name }}.
 
           You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
-      * `--deletion-protection`: Connector deletion protection. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
+      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
 
       Result:
 

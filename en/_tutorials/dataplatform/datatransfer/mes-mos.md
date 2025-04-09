@@ -1,19 +1,28 @@
 # Migrating data from {{ ES }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. To do this:
+You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Set up the source cluster](#configure-source).
 1. [Prepare the test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-1. Prepare the infrastructure:
+1. Set up your infrastructure:
 
     
     1. [Create a custom {{ ES }} installation]({{ links.es.docs }}/elasticsearch/reference/current/getting-started.html).
@@ -117,7 +126,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the [{{ ES }} source](../../../data-transfer/operations/endpoint/source/elasticsearch.md).
 
@@ -129,8 +138,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
-        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
+        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
     - {{ TF }} {#tf}
 
@@ -140,7 +149,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -152,7 +161,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
     {% endlist %}
 
@@ -188,7 +197,7 @@ Check that the {{ mos-name }} cluster's `people` index contains the data that wa
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
 
 1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).

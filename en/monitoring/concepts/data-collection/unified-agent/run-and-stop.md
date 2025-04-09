@@ -111,23 +111,7 @@ Stop {{ unified-agent-short-name }} using one of the following methods:
   sudo docker stop ua
   ```
 
-- Deb package {#deb}
-
-  **Ubuntu 14.04**
-
-  To stop the agent, run this command:
-
-  ```bash
-  sudo service unified-agent stop
-  ```
-
-  To restart the agent, run the following command:
-
-  ```bash
-  sudo service unified-agent restart
-  ```
-
-  **Ubuntu 14.04 or higher**
+- deb package {#deb}
 
   To stop the agent, run this command:
 

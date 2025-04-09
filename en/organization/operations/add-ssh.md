@@ -156,7 +156,7 @@ To add a public SSH key to a profile:
           terraform plan
           ```
 
-      If you described the configuration correctly, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 

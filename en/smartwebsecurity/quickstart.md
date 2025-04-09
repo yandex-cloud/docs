@@ -12,7 +12,7 @@
 
 To protect resources, you need to connect a security profile to a [virtual host](../application-load-balancer/concepts/http-router.md#virtual-host) or an [Ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md#smart-web-security) in {{ alb-full-name }}. You can also connect your security profile to an [API gateway](../api-gateway/concepts/index.md).
 
-To get started with the service:
+To get started:
 
 * [Get your cloud ready](#before-you-begin).
 * [Create and check a security profile](#security-profile).
@@ -35,12 +35,14 @@ If you have no L7 load balancer configured, you can deploy a [test infrastructur
 
 ### Create a security profile {#profile-create}
 
+{% include [user-data-to-ml](../_includes/smartwebsecurity/user-data-to-ml.md)%}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a profile in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       A preset profile includes:
@@ -52,6 +54,7 @@ If you have no L7 load balancer configured, you can deploy a [test infrastructur
 
   1. Enter a name for the profile, e.g., `test-sp1`.
   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`.
+  1. Optionally, enable or disable the use of HTTP request information to improve machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -112,7 +115,7 @@ WAF allows using rule sets to protect web applications from various information 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create a WAF profile in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-waf-profile-1`.
   1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the line with its description.
@@ -134,7 +137,7 @@ WAF allows using rule sets to protect web applications from various information 
 
   1. Set the required **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-option-2 }}`.
 
-      [Paranoia level](concepts/waf.md#paranoia) classifies rules according to their aggression. The higher the paranoia level, the better the protection, but also the higher the probability of WAF false positives.
+      [Paranoia level](concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the higher the probability of WAF false positives.
 
   1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly values and paranoia levels.
 
@@ -167,14 +170,14 @@ WAF allows using rule sets to protect web applications from various information 
 
 - Management console {#console}
 
-  1. Go to the ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.label_profiles-list }}** tab.
+  1. Navigate to the ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.label_profiles-list }}** tab.
   1. From the list, select the security profile you want to connect your WAF profile to, e.g., `test-sp1`.
   1. Click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. Enter a name for the rule, e.g., `waf-rule-1`.
   1. In the **{{ ui-key.yacloud.smartcaptcha.field_security-rule_priority }}** field, set a value higher than that of the Smart Protection rules already existing in the security profile, e.g., `888800`.
   1. (Optional) To test your WAF profile and simulate false positives triggered by legitimate requests, use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)** mode in the security profile.
   1. In the **Type** field, select `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
-  1. In the **{{ ui-key.yacloud.smart-web-security.overview.title_waf-profile }}** field, select the previously created `test-waf-profile-1`.
+  1. In the **{{ ui-key.yacloud.smart-web-security.overview.title_waf-profile }}** field, select the previously created profile named `test-waf-profile-1`.
   1. In the **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** field, select `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
   1. If required, set the [conditions](concepts/conditions.md) for traffic mapping.
   1. Click **{{ ui-key.yacloud.common.add }}**.
@@ -193,7 +196,7 @@ ARL allows limiting the number of requests to the protected resource to avoid an
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create your ARL profile in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-arl-profile-1`.
   1. Add profile description and labels if needed.
@@ -251,7 +254,7 @@ ARL allows limiting the number of requests to the protected resource to avoid an
 
 - Management console {#console}
 
-  1. Go to the ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** tab.
+  1. Navigate to the ![image](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** tab.
   1. From the list, select the security profile you want to connect your ARL profile to, e.g., `test-sp1`.
   1. Click ![image](../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_edit-profile }}**.
   1. In the **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** list, select the previously created `test-arl-profile-1`.

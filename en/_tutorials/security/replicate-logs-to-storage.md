@@ -13,7 +13,7 @@ The solution described below works in the following way:
 To set up log replication:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Configure the environment](#setup).
+1. [Set up your environment](#setup).
 1. [Create an {{ objstorage-name }} bucket for storing your logs](#create-bucket).
 1. [Create a data stream {{ yds-name }}](#create-stream).
 1. [Create a transfer {{ data-transfer-name }}](#create-transfer).
@@ -27,6 +27,7 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of data storage support includes:
@@ -34,6 +35,7 @@ The cost of data storage support includes:
 * Data stream maintenance fees (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
 * Fees for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 * Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+
 
 ## Set up your environment {#setup}
 

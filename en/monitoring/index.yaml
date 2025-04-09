@@ -1,55 +1,56 @@
 title: Yandex Monitoring
 description:
   - >-
-    Yandex Monitoring allows you to gather, store and display metrics as charts
-    in dashboards.
+    Yandex Monitoring allows you to collect metrics, store them, and display
+    them in dashboard charts.
   - >-
-    The service is subject to the <a
-    href="https://yandex.ru/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.ru/legal/cloud_sla_ym">Service Level for Yandex
-    Monitoring</a>.
+    This service is subject to a <a
+    href="https://yandex.ru/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.ru/legal/cloud_sla_ym">Yandex Monitoring Service
+    Level</a>.
 meta:
   title: Yandex Monitoring
   description: >-
-    Yandex Monitoring allows you to gather, store and display metrics as charts
-    in dashboards.
+    Yandex Monitoring allows you to collect metrics, store them, and display
+    them in dashboard charts.
 links:
   - title: Getting started
-    description: Start tracking your metrics
+    description: Start monitoring your metrics
     href: quickstart
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about the setup and features of the service
+    description: Learn about the service architecture and functions
     href: concepts/
-  - title: Agent for delivering metrics
-    description: >-
-      Set up delivery of system metrics or application metrics via Yandex
-      Unified Agent
+  - title: Metrics collection agent
+    description: Use Yandex Unified Agent to collect system and application metrics
     href: concepts/data-collection/unified-agent/
+  - title: Yandex Managed Service for Prometheus®
+    description: Prometheus-compatible monitoring
+    href: operations/prometheus/index
   - title: Query language
-    description: Description of query language for converting metrics
+    description: Overview of the query language for metric conversion
     href: concepts/querying
   - title: Alerting
     description: Set up metric change alerts
     href: concepts/alerting
   - title: Metric reference
-    description: Description of metrics for Yandex Cloud service
+    description: Yandex Cloud service metrics
     href: metrics-ref/
-  - title: HTTP API method descriptions
-    description: HTTP API method descriptions
+  - title: API reference
+    description: HTTP API methods
     href: api-ref/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Permissions required for using the service
+    description: Permissions required to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-  - title: Questions and answers
+  - title: FAQ
     description: Answers to frequently asked questions
     href: qa/all

@@ -5,6 +5,22 @@ description: This section contains {{ api-gw-name }} release notes.
 
 # {{ api-gw-full-name }} release notes
 
+## February 2025 {#february-2025}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Added error output to API-gateway logs when using [integration with {{ yds-full-name }}](concepts/extensions/datastreams.md).
+
+## January 2025 {#january-2025}
+
+### Updates {#updates}
+
+* Updated the load distribution mechanism:
+    * Changed the API gateway service domain format from `https://d5ds7sk1ahjl********.apigw.yandexcloud.net` to `{{ api-host-apigw }}`: the new format contains one level more.
+    * Increased the number of external IP addresses used to process user requests; one API gateway can now have multiple IP addresses.
+
+    With the new mechanism in place, the network remains stable when the load increases.
+
 ## November 2024 {#november-2024}
 
 ### Updates {#updates}
@@ -19,7 +35,7 @@ description: This section contains {{ api-gw-name }} release notes.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Enhanced the [{{ yagpt-full-name }} integration](operations/spec-constructor/yagpt.md) form in the specification constructor.
+* Upgraded the [{{ foundation-models-full-name }} integration](operations/spec-constructor/yagpt.md) form in the specification constructor.
 * Updated [integration with {{ objstorage-full-name }}](operations/spec-constructor/object-storage.md): changed the logic of managing the response code returned if a queried object is not in the specified bucket.
 
 ## August 2024 {#august-2024}
@@ -55,7 +71,7 @@ description: This section contains {{ api-gw-name }} release notes.
 * Updates to the [x-yc-apigateway-authorizer:jwt](concepts/extensions/jwt-authorizer.md) extension:
     * Added an alternative name for the `scopes` parameter: `scp`.
     * Added an option to select the array data type for one of the `scopes`/`scp` objects.
-* Added support for automatically sending the result of invoking an integration to a [WebSocket connection](concepts/extensions/websocket.md) when running the `x-yc-apigateway-websocket-connect` operation.
+* Added support for automatic sending of the result of invoking an integration to a [WebSocket connection](concepts/extensions/websocket.md) when running the `x-yc-apigateway-websocket-connect` operation.
 
 ### Fixes and improvements {#fixes-improvements}
 

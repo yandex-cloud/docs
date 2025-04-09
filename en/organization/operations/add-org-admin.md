@@ -38,7 +38,7 @@ description: By following this guide, you can assign a user as an organization a
         --subject userAccount:<user_ID>
       ```
 
-      Where:
+      Where: 
       
       * `--role`: Role ID. Specify either the `organization-manager.admin` or `organization-manager.organizations.owner` role.
       * `--subject`: User ID.
@@ -71,11 +71,11 @@ description: By following this guide, you can assign a user as an organization a
 
       * `organization_id`: [Organization ID](./organization-get-id.md).
       * `role`: Specify either the `organization-manager.admin` or `organization-manager.organizations.owner` role. For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
-      * `userAccount:<user_ID>`: Yandex user account ID.
+      * `userAccount:<user_ID>`: ID of the user Yandex account.
 
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-link }}/).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
      

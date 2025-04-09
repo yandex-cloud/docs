@@ -1,6 +1,6 @@
 ---
-title: Launching a workflow in {{ sw-full-name }}
-description: A workflow launch in {{ sw-name }} contains all information about a specific workflow execution.
+title: Workflow execution in {{ sw-full-name }}
+description: A workflow execution in {{ sw-name }} contains all information about a specific workflow execution.
 keywords:
   - workflows
   - workflow
@@ -8,25 +8,13 @@ keywords:
   - Workflow
 ---
 
-# Launching a workflow
+# Workflow execution 
 
-A launch contains all information about a specific execution of a workflow. You can view a list of all launches, as well as detailed information about them, on the **Launches** tab in the management console. Possible launch statuses include: `In queue`, `In progress`, `Paused`, `Canceled`, `Error`, and `Executed`. Learn more about [possible error codes](#errors).
+An execution contains all information about a particular workflow run. Possible execution statuses: `In queue`, `In progress`, `Paused`, `Canceled`, `Error`, and `Executed`. Learn more about [possible error codes](#errors).
 
-You can launch a workflow using the [management console](#console), [API](#api), or [{{ er-name }}](#eventrouter).
+You can start a workflow using the management console, CLI, API, or {{ er-full-name }}. For more information on how to start a workflow using {{ yandex-cloud }} interfaces, see [{#T}](../../operations/workflows/execution/start.md).
 
-## Management console {#console}
-
-You can launch a workflow by:
-* Clicking ![image](../../../_assets/console-icons/ellipsis.svg) → **Launch** in the line with the workflow.
-* Selecting a workflow and clicking **Launch** on the **Overview** page.
-
-## API {#api}
-
-You can launch a workflow using the [start](../../workflows/api-ref/Execution/start.md) REST API method for the [Execution](../../workflows/api-ref/Execution/index.md) resource or the [ExecutionService/Start](../../workflows/api-ref/grpc/Execution/start.md) gRPC API call.
-
-## {{ er-name }} {#eventrouter}
-
-You can launch a workflow by specifying it as a target in a rule. The rule defines the events that should trigger a workflow. The event body is provided to the launch as an input parameter.
+To start a workflow using {{ er-name }}, specify it as a target in a [rule](../eventrouter/rule.md). To learn more about how to create a rule, see [{#T}](../../operations/eventrouter/rule/create-workflows.md). The rule defines the events that should trigger a workflow. The event body is provided to the execution as an input parameter.
 
 ## Possible error codes {#errors}
 
@@ -38,9 +26,9 @@ Error | Description
 `STEP_PERMISSION_DENIED` | No access to resource.
 `STEP_TIMEOUT` | Step timeout exceeded. For more information, see [{#T}](../limits.md).
 `STEP_INVALID_OUTPUT` | Invalid output data.
-`STEP_INTERNAL` | Internal error. If a step terminates with this error, you cannot apply the retry policy, and the launch immediately switches to the `Error` status.
+`STEP_INTERNAL` | Internal error. If a step terminates with this error, you cannot apply the retry policy, and the execution immediately gets the `Error` status.
 `STEP_INVALID_TEMPLATE_EXPRESSION` | Invalid jq expression in template.
-`STEP_FAIL` | The launch ended with an error at the `Fail` step. For more information, see [{#T}](yawl/management/fail.md).
+`STEP_FAIL` | The execution ended with an error at the `Fail` step. For more information, see [{#T}](yawl/management/fail.md).
 `STEP_FAILED_PRECONDITION` | The resource state is invalid to complete the step, e.g., an email address is unverified or blocked.
 `STEP_INVALID_ARGUMENT` | Invalid step parameters.
 `STEP_QUOTA_EXCEEDED` | The resource request limit is reached.

@@ -16,14 +16,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 Infrastructure costs for data transfers include:
 
-1. Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-1. Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-1. Fee for a continuously running {{ mmy-name }} cluster (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-1. Fee for {{ data-transfer-name }} (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing)).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a continuously running {{ mmy-name }} cluster (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Fee for {{ data-transfer-name }} (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing)).
 
 
 ## Create a VM with an online store {#create-vm-mysql}

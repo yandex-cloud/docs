@@ -1,0 +1,1 @@
+To check how the created resources work together, open the `forms-integration-dataset` dataset and click **Create chart**. In the window that opens, create a chart using the data from the form. For better visualization, create a chart based on a field with repeating values.

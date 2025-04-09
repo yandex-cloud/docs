@@ -5,10 +5,20 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} sourc
 To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -58,7 +68,7 @@ Prepare the data transfer infrastructure:
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -131,18 +141,18 @@ Prepare the data transfer infrastructure:
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the {{ mos-name }} cluster you [created earlier](#before-you-begin) with the following settings:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `OpenSearch`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `OpenSearch`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchSource.connection.title }}**:
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select a {{ mos-name }} cluster from the list.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `admin` user password.
 
-1. Create a target endpoint and a transfer:
+1. Create a target endpoint and transfer:
 
     {% list tabs group=instructions %}
 
@@ -150,7 +160,7 @@ Prepare the data transfer infrastructure:
 
         1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**:
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: Select `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.managed.title }}`.
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select a {{ mch-name }} cluster from the list.
@@ -168,7 +178,7 @@ Prepare the data transfer infrastructure:
             * `source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` for creating a target endpoint and transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -184,9 +194,9 @@ Prepare the data transfer infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Make sure the data from the source {{ mos-name }} cluster has been moved to the {{ mch-name }} database:
 
     {% list tabs group=instructions %}

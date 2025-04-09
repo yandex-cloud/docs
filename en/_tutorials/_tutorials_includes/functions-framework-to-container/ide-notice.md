@@ -1,0 +1,1 @@
+This way, you can also run a function in debug mode and use [breakpoints](https://en.wikipedia.org/wiki/Breakpoint) with modern IDEs.

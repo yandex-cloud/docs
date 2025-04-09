@@ -2,7 +2,9 @@
 canonical: '{{ link-docs }}/tutorials/security/protected-access-to-content/console'
 ---
 
-{% include [protected-access-to-content](../../../../_tutorials/security/protected-access-to-content-console.md) %}
+# Providing secure access to content in {{ cdn-full-name }} using the management console, CLI, or API
+
+{% include notitle [protected-access-to-content](../../../../_tutorials/security/protected-access-to-content-console.md) %}
 
 #### See also {#see-also}
 

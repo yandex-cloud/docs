@@ -1,0 +1,1 @@
+{% include [article-body](../../_tutorials/dataplatform/managed-mysql.md) %}

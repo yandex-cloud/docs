@@ -1,14 +1,26 @@
 # Migrating data using {{ data-transfer-full-name }} {#data-transfer}
 
 
+
+### Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using DB hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+
+
+### Transfer the data {#transfer-data}
+
 1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-pg).
-1. Prepare the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. Create a [{{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md) in any suitable configuration. In which case:
+        1. Create a [{{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md) in any suitable configuration. In this case, the following applies:
 
              * The {{ PG }} version must be the same or higher than in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
              * When creating a cluster, specify the same database name as in the source cluster.
@@ -16,15 +28,15 @@
         1. [Prepare the target cluster](../../../data-transfer/operations/prepare.md#target-pg).
         1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`.
-             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`.
+             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `PostgreSQL`
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.on_premise.title }}`
 
            Specify the parameters for connecting to the source cluster.
 
         1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ PG }}`.
-             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+             * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ PG }}`
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`
 
            Specify the ID of the target cluster.
 
@@ -33,7 +45,7 @@
 
             {% note warning %}
 
-            Abstain from making any changes to the data schema in the source and target clusters when the data transfer is running. For more information, see [{#T}](../../../data-transfer/operations/db-actions.md).
+            Abstain from making any changes to the data schema in the source and target clusters when the data transfer is running. To learn more, see [{#T}](../../../data-transfer/operations/db-actions.md).
 
             {% endnote %}
 
@@ -65,7 +77,7 @@
                 * `target_pgsql_version`: {{ PG }} version. Must be the same or higher than in the source cluster.
                 * `target_user` and `target_password`: Name and user password of the database owner.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -84,7 +96,7 @@
     {% endlist %}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to read-only.
+1. Switch the source cluster to <q>read-only</q>.
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
@@ -99,7 +111,7 @@
 
         * [Delete the {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
         * [Delete the stopped transfer](../../../data-transfer/operations/transfer.md#delete).
-        * [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+        * [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
     - Resources created with {{ TF }} {#tf}
 

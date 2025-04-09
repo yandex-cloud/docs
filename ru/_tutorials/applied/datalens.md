@@ -354,7 +354,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * Имя файла — `myfunction.py`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yc-geo-dist-devices-iot-monitoring/blob/main/myfunction.py).
+          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/myfunction.py).
 
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `myfunction.msgHandler`.
       1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:

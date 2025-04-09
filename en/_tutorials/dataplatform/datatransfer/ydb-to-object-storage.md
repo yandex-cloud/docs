@@ -1,18 +1,33 @@
 # Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	
+    Learn more about the [{{ ydb-name }} pricing](../../../ydb/pricing/index.md) plans.
+
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -47,7 +62,7 @@ Prepare the infrastructure:
         * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -119,7 +134,7 @@ Prepare the infrastructure:
 
     1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the created endpoints.
 
-    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 
 - {{ TF }} {#tf}
 
@@ -129,7 +144,7 @@ Prepare the infrastructure:
         * `source_endpoint_id`: ID of the source endpoint.
         * `transfer_enabled`: `1` to create a transfer.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -141,18 +156,18 @@ Prepare the infrastructure:
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
 
 {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the data has been migrated from {{ ydb-name }} to the {{ objstorage-name }} bucket:
 
 1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
-1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
+1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
 1. Check that the {{ objstorage-name }} bucket contains the `from_YDB` folder with the `<seasons.csv>` object with test data.
 
 ## Delete the resources you created {#clear-out}

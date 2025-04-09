@@ -14,7 +14,7 @@ On VMs, access to the serial console is disabled by default. For risks of using 
 When working with a serial console:
 
 * Make sure that critical data is not output to the serial console.
-* If you enable SSH access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, passwords must meet PCI DSS requirements: it must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
+* If you enable SSH access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, passwords must meet the PCI DSS requirements: they must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
 
 {% note info %}
 
@@ -123,7 +123,7 @@ We do not recommend using private information in {{ TF }} configuration files, s
 If you still need to enter private information in the configuration, take the following security measures:
 
 * Specify [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) for private information to prevent outputting it to the console when running the `terraform plan` and `terraform apply` commands.
-* Use [terraformremotestate](https://www.terraform.io/docs/language/state/remote.html). We recommend [uploading](../../../tutorials/infrastructure-management/terraform-state-storage.md) a {{ TF }} state to {{ objstorage-name }} and [setting up](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state) configuration locks using {{ ydb-name }} to prevent simultaneous edits by administrators.
+* Use [terraformremotestate](https://www.terraform.io/docs/language/state/remote.html). We recommend [uploading](../../../tutorials/infrastructure-management/terraform-state-storage.md) a {{ TF }} state to {{ objstorage-name }} and [setting up](https://github.com/yandex-cloud-examples/yc-terraform-state) configuration locks using {{ ydb-name }} to prevent simultaneous edits by administrators.
 * Use the [mechanism for transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in KeyManagementService features for [encrypting data in {{ TF }}](../../../kms/tutorials/terraform-secret.md) using a separate file with private data. [Learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073).
 
 For more information about {{ objstorage-name }} security, see [{{ objstorage-name }}](#objstorage) below.
@@ -137,7 +137,7 @@ When a configuration is deployed, you can delete the configuration file with pri
 Scan your Terraform manifests using [Checkov](https://github.com/bridgecrewio/checkov) with {{ yandex-cloud }} support.
 
 * [Example: Scanning .tf files with Checkov](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/terraform-sec/checkov-yc)
-* [Example: Storing a {{ TF }} state in {{ objstorage-name }}](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state).
+* [Example: Storing a {{ TF }} state in {{ objstorage-name }}](https://github.com/yandex-cloud-examples/yc-terraform-state).
 
 {% list tabs group=instructions %}
 
@@ -735,11 +735,11 @@ Hosts and hypervisors running {{ sf-name }} contain all the applicable updates f
 
 {% endlist %}
 
-#### 3.21 Special aspects of time synchronization in {{ sf-name }} are addressed {#ntp-functions}
+#### 3.21 Aspects of time synchronization in {{ sf-name }} are addressed {#ntp-functions}
 
 {{ sf-name }} does not guarantee time synchronization prior to or during execution of requests by functions. To get a function log with exact timestamps on the {{ sf-name }} side, use a cloud logging service. For more information on function logging, see [{#T}](../../../functions/concepts/logs.md).
 
-#### 3.22 Special aspects of header management in {{ sf-name }} are addressed {#http-functions}
+#### 3.22 Aspects of header management in {{ sf-name }} are addressed {#http-functions}
 
 If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. It is the customer's responsibility to manage the response headers according to the regulatory requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
 
@@ -958,7 +958,7 @@ Update the certificate or set up auto updates.
 
 ### {{ mgl-full-name }} {#git-lab-service}
 
-#### 3.29 {{ GL }} security guidelines are followed {#git-lab-secure}
+#### 3.29 {{ GL }} instance security setup guidelines are followed {#git-lab-secure}
 
 See the recommendations [here](../../../managed-gitlab/concepts/security.md#secure-instance). 
 
@@ -1008,7 +1008,7 @@ Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by as
 
 #### 3.33 Vulnerability scanning is performed at the cloud IP level {#ip-level}
 
-We recommend that customers scan their own hosts for vulnerabilities. Cloud resources support the installation of custom virtual images of vulnerability scanners or software agents on hosts. There are many fee-based and free solutions for scanning.
+We recommend that customers should scan their hosts for vulnerabilities by themselves. Cloud resources support the installation of custom virtual images of vulnerability scanners or software agents on hosts. There are many paid and free scanning solutions on the market.
 
 Network scanners scan hosts that are accessible over a network. Generally, authentication can be configured on network scanners. 
 

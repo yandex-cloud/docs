@@ -4,6 +4,8 @@
 
 You do not have to place the **"I’m not a robot"** button on the page.
 
+{% include [user-data-to-ml](../../_includes/smartcaptcha/user-data-to-ml.md) %}
+
 ## Standard CAPTCHA {#usual-captcha}
 
 Standard CAPTCHA is a way to connect the {{ captcha-name }} widget with the **"I’m not a robot"** button, which sends the user's request to {{ captcha-name }}. If the service finds the request suspicious, it will prompt the user to complete a [challenge](tasks.md).

@@ -27,6 +27,7 @@ To get started with the AWS SDK for Kotlin:
 
 You can find the prerequisites and an AWS SDK for Kotlin installation guide in the relevant [AWS documentation](https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/setup-basic-onetime-setup.html#setup-overview).
 
+To work with RuStore Android notifications, see [this RuStore SDK article](https://www.rustore.ru/help/sdk/push-notifications/kotlin-java/6-5-0).
 
 ### Get your OS ready {#prepare-os}
 
@@ -169,12 +170,15 @@ You can find the prerequisites and an AWS SDK for Kotlin installation guide in t
 
     Where:
 
-    * `name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
+    * `name`: Notification channel name, user-defined.
+
+        {% include [channel-name](../../_includes/notifications/channel-name.md) %}
+
     * `platform`: Mobile platform type:
 
         {% include [platform-types](../../_includes/notifications/platform-types.md) %}
 
-    * `attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on platform:
+    * `attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on the platform:
 
         {% include [auth-attributes](../../_includes/notifications/auth-attributes.md) %}
 
@@ -342,7 +346,7 @@ You can find the prerequisites and an AWS SDK for Kotlin installation guide in t
             phoneNumber = "<phone_number>"
             message = "<notification_text>"
             messageAttributes = mapOf("AWS.SNS.SMS.SenderID" to MessageAttributeValue {
-                dataType = "String"; stringValue = "<sender's_text_name>"
+                dataType = "String"; stringValue = "<text_name_of_sender>"
             })
         })
         println("Message id: ${response.messageId}")

@@ -3,7 +3,7 @@ title: Assigning {{ PG }} roles in {{ mpg-full-name }}
 description: With {{ mpg-name }}, you cannot access predefined roles. Instead, this service provides special roles you can assign via the {{ yandex-cloud }} CLI or API.
 ---
 
-# Assigning {{ PG }} roles
+# Assigning roles {{ PG }}
 
 With {{ mpg-name }}, you cannot access [predefined roles](https://www.postgresql.org/docs/current/predefined-roles.html). Instead, this service provides the following special roles:
 
@@ -12,7 +12,7 @@ With {{ mpg-name }}, you cannot access [predefined roles](https://www.postgresql
 * `mdb_monitor`: For users who need to be able to read various configuration parameters, statistics, and other system information.
 * `mdb_replication`: For users who need to be able to perform logical replication.
 
-To assign a role to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by a `GRANT` request are revoked when the next database operation is performed.
+To assign a role to a user, use the [{{ yandex-cloud }} interfaces](../operations/grant.md): roles assigned by a `GRANT` request are revoked with the next database operation.
 
 {% note info %}
 

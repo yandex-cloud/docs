@@ -8,7 +8,7 @@ The functionality for loading data from {{ objstorage-name }} in {{ data-transfe
 {% endnote %}
 
 
-You can migrate data from {{ objstorage-name }} to the {{ mgp-name }} table using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-name }} to the {{ mgp-name }} table using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -16,6 +16,16 @@ You can migrate data from {{ objstorage-name }} to the {{ mgp-name }} table usin
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mgp-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -189,7 +199,7 @@ Check the transfer performance by testing the copy and replication processes.
 
 1. [Connect](../../managed-greenplum/operations/connect.md) to `db1` in the {{ mgp-name }} target cluster.
 
-1. Run this query:
+1. Run this request:
 
     ```sql
     SELECT * FROM public.table1;
@@ -217,7 +227,7 @@ Check the transfer performance by testing the copy and replication processes.
 
     1. [Connect](../../managed-greenplum/operations/connect.md) to `db1` in the {{ mgp-name }} target cluster.
 
-    1. Run this query:
+    1. Run this request:
 
         ```sql
         SELECT * FROM public.table1;

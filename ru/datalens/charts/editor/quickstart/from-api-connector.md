@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Построение таблицы на основе API Connector
 
+{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 Следуя данной инструкции, вы построите в Editor таблицу на основе подключения API Connector.
 
 В качестве источника данных будет использоваться статичный JSON-файл, расположенный по адресу: `https://storage.yandexcloud.net/datalens-public-demo-assets/data/mtcars.json`, однако в случае с полноценными API процесс будет аналогичен.

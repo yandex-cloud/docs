@@ -5,7 +5,7 @@ description: Follow this guide to create and set up a CAPTCHA.
 
 # Getting started with {{ captcha-full-name }}
 
-To get started with the service:
+To get started:
 
 1. [Create a CAPTCHA](#creat-captcha).
 1. [Get keys](#get-keys).
@@ -15,11 +15,13 @@ To get started with the service:
 
 ## Getting started {#before-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you do not have an account yet.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md).
+1. Navigate to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you do not have an account yet.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../billing/quickstart/index.md).
 
 
 ## Create a CAPTCHA {#creat-captcha}
+
+{% include [user-data-to-ml](../_includes/smartcaptcha/user-data-to-ml.md) %}
 
 {% list tabs group=instructions %}
 
@@ -31,7 +33,7 @@ To get started with the service:
 
        ![screen01](../_assets/smartcaptcha/quickstart/screen01.png)
 
-    1. Enter a CAPTCHA name. The naming requirements are as follows:
+    1. Enter a CAPTCHA name. Follow these naming requirements:
 
         {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
 
@@ -47,6 +49,7 @@ To get started with the service:
        1. Select the `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}` [level](./concepts/tasks.md#task-difficulty).
 
     1. You can add [challenge options](concepts/captcha-variants.md) and configure incoming traffic rules to display different CAPTCHAs to different users. In this example, you will configure a single default CAPTCHA for all users.
+    1. Optionally, enable or disable the use of HTTP request information to improve machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
        ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)
@@ -76,7 +79,7 @@ With the client key, you can [add a {{ captcha-name }} widget](#add-widget) to y
 
 Add the widget automatically:
 
-1. Add the JS script to the user page. To do this, place the following code anywhere on the page (for example, inside the `<head>` tag):
+1. Add the JS script to the user page. To do this, place the following code anywhere on the page, e.g., inside the `<head>` tag:
 
     ```html
     <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>

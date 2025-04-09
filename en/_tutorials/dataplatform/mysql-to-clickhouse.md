@@ -6,15 +6,26 @@ With {{ data-transfer-name }}, you can migrate your database from a {{ MY }} sou
 To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 1. [Select the data from {{ CH }}](#working-with-data-ch).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -67,7 +78,7 @@ Prepare the infrastructure:
 
             * `target_user` and `target_password`: Name and user password of the database owner.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -113,7 +124,7 @@ Prepare the infrastructure:
         (44, 'User5');
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -133,14 +144,14 @@ Prepare the infrastructure:
 
             Select a target cluster from the list and specify its connection settings.
 
-    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
     1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
 - {{ TF }} {#tf}
 
     1. In the `data-transfer-mmy-mch.tf` file, set the `transfer_enabled` variable to `1`.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -156,15 +167,15 @@ Prepare the infrastructure:
 
 {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Make sure the data from the source {{ mmy-name }} cluster has been moved to the {{ mch-name }} database:
 
     1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
-    1. Run the following query:
+    1. Run this request:
 
         ```sql
         SELECT * FROM <{{ CH }}_database_name>.x_tab
@@ -188,7 +199,7 @@ Prepare the infrastructure:
 
     1. [Connect to the {{ mmy-name }} source cluster](../../managed-mysql/operations/connect.md).
 
-    1. Run the following queries:
+    1. Run the following requests:
 
         ```sql
         DELETE FROM x_tab WHERE id = 41;
@@ -250,7 +261,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 - Manually {#manual}
 
     1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
-    1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+    1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
     1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
     1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 

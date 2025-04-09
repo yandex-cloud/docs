@@ -6,7 +6,7 @@ The use case uses the [Pandora](../../load-testing/concepts/load-generator.md#pa
 
 To perform load testing and compare test results:
 1. [Get your cloud ready](#before-begin).
-1. [Prepare your infrastructure](#infrastructure-prepare).
+1. [Set up your infrastructure](#infrastructure-prepare).
 1. [Prepare a test target](#target-prepare).
 1. [Create an agent](#create-agent).
 1. [Prepare a file with test data](#test-file).
@@ -26,7 +26,7 @@ If the [agent](../../load-testing/concepts/agent.md) is hosted on {{ yandex-clou
 
 At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
-## Prepare the infrastructure {#infrastructure-prepare}
+## Set up your infrastructure {#infrastructure-prepare}
 
 ### Create a service account {#sa-create}
 
@@ -116,7 +116,7 @@ To prepare a test target:
    /test?param1=1&param2=2 get_test
    ```
 
-   Please note that the `Connection: Close` header means that each connection will be closed following the request. This mode is heavier on the application and load generator. If you do not need to close connections, set `Keep-Alive`.
+   Please note that the `Connection: Close` header means that each connection will be closed following the request. This mode is heavier on the application and load generator. If you do not want the connections closed, set `Keep-Alive`.
 
    There are also two requests tagged `index` and `get_test`. The load generator will repeat them within a given [load profile](../../load-testing/concepts/load-profile.md).
 
@@ -247,7 +247,7 @@ To prepare a test target:
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-With that done, the configuration will pass the checks, and the agent will start loading the service you are testing.
+Next, the configuration will be checked, and the agent will start loading the service.
 
 ## Repeat the test {#rerun-test}
 

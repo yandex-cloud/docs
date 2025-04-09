@@ -25,7 +25,7 @@ In the workflow settings, you can specify the following:
 * User network to run the workflow in. The workflow will have access to resources in this network.
 * Service account to use for accessing private resources, such as {{ yds-full-name }} data streams.
 
-You can run a workflow using the management console, API, or {{ er-name }}. For more information, see [{#T}](execution.md).
+You can start a workflow using the management console, CLI, API, or {{ er-name }}. For more information, see [{#T}](execution.md).
 
 ## Workflow state {#state}
 

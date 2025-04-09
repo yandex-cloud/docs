@@ -6,14 +6,22 @@ Below is how the integration with {{ lockbox-name }} works. First you prepare a 
 
 To enable a {{ mgl-name }} instance to access {{ lockbox-name }} secrets:
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Configure the CI script](#ci).
 1. [Check the result](#check-result).
 1. [Fix potential vulnerabilities](#eliminate-vulnerabilities).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare the infrastructure {#infra}
+## Required paid resources {#paid-resources}
+
+The infrastructure support cost includes:
+
+* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Secret storage and request fees (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* Fee for using a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+## Set up your infrastructure {#infra}
 
 1. [Create and activate](../../managed-gitlab/operations/instance/instance-create.md) a {{ mgl-name }} instance.
 1. [Create a {{ GL }} project]({{ gl.docs }}/ee/user/project/).
@@ -94,7 +102,7 @@ This will run a build that will write the {{ lockbox-name }} secret value to the
 
 1. [Configure a security group](../../vpc/operations/security-group-add-rule.md) for a VM with {{ GLR }}. In this security group, ban the incoming traffic allowing connections to the VM from outside.
 
-
+   
    If the attacker connects to a VM with {{ GLR }} and knows the {{ lockbox-name }} secret ID, they will be able to access the secret.
 
 ## Delete the resources you created {#clear-out}

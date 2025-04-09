@@ -1,10 +1,10 @@
-# Configuring a {{ sw-name }} workflow integrated with {{ tracker-full-name }}, {{ yagpt-full-name }}, and {{ postbox-full-name }}
+# Configuring a {{ sw-name }} workflow integrated with {{ tracker-full-name }}, {{ foundation-models-full-name }}, and {{ postbox-full-name }}
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ yagpt-full-name }}](../../foundation-models/concepts/yandexgpt/index.md), and [{{ postbox-full-name }}](../../postbox/index.yaml).
+In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../foundation-models/concepts/yandexgpt/index.md), and [{{ postbox-full-name }}](../../postbox/index.yaml).
 
-Your workflows will receive information about the issues in the specified {{ tracker-name }} [queue]({{ link-tracker-cloudless }}about-tracker#ochered) and use {{ yagpt-name }} to analyze the work done for these issues, their statuses, and the evaluation points they received. The results of the analysis and a brief progress report will be saved in a comment to one of the issues in {{ tracker-name }} and backed up with a letter to the email address you specified, sent via {{ postbox-name }}.
+Your workflows will receive information about the issues in a given {{ tracker-name }} [queue]({{ link-tracker-cloudless }}about-tracker#ochered) and use {{ gpt-pro }} to analyze the workcompleted within these issues, their statuses, and evaluation. The results of the analysis and a brief progress report will be saved in a comment to one of the {{ tracker-name }} issues and also sent to the specified email address via {{ postbox-name }}.
 
 To configure a {{ sw-name }} workflow:
 
@@ -21,11 +21,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 1. [Log in]({{ link-passport-login }}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
-1. Sign up for {{ yandex-cloud }} and create a [billing account](../../billing/concepts/billing-account.md):
-    1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register a new account.
+1. Sign up in {{ yandex-cloud }} and create a [billing account](../../billing/concepts/billing-account.md):
+    1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register a new account.
     1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a billing account linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a cloud to it.
 
-    If you have an active billing account, you can go to the [cloud page]({{ link-console-cloud }}) to create or select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your infrastructure to operate in.
+    If you have an active billing account, you can navigate to the [cloud page]({{ link-console-cloud }}) to create or select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your infrastructure to operate in.
 
     [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md). 
 1. Install [cURL](https://curl.haxx.se): you will need it to send a request for an OAuth token for the Yandex ID application.
@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of the web service infrastructure support includes:
 
 * Fee for storing the [secret](../../lockbox/concepts/secret.md) and requests to the secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for using {{ yagpt-full-name }} (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
+* Fee for using {{ foundation-models-full-name }} (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
 * Fee for using {{ tracker-full-name }} (see [{{ tracker-name }} pricing]({{ link-tracker-cloudless }}pricing)).
 * Fee for using {{ postbox-full-name }} (see [{{ postbox-name }} pricing](../../postbox/pricing.md)).
 
@@ -132,7 +132,7 @@ On the new application's page, copy the **ClientID** and **Client secret** field
 
 ### Create a {{ lockbox-full-name }} secret {#create-secret}
 
-Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your OAuth token and assign the service account access permissions for the new secret.
+Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your OAuth token and assign access permissions for the new secret to the service account .
 
 {% list tabs group=instructions %}
 
@@ -233,7 +233,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
 ## Create a {{ sw-name }} workflow {#setup-workflow}
 
-1. Select the specification you will use to create your workflow. Both the above specifications use integrations with {{ tracker-full-name }}, {{ yagpt-full-name }}, and {{ postbox-full-name }}; however, they analyze the input data differently.
+1. Select the specification you will use to create your workflow. Both the above specifications use integrations with {{ tracker-full-name }}, {{ foundation-models-full-name }}, and {{ postbox-full-name }}; however, they analyze the input data differently.
 
     {% list tabs %}
 
@@ -290,7 +290,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
               messages:
                 messages:
                   - role: system
-                    text: "Next you will be given names of unfinished issues in {{ tracker-name }} and their descriptions. State as briefly as possible (no more than three sentences) what remains to be done"
+                    text: "Next you will get names of unfinished {{ tracker-name }} issues and their descriptions. State as briefly as possible (no more than three sentences) what remains to be done"
                   - role: user
                     text: |-
                       \("
@@ -535,7 +535,7 @@ Make sure the {{ sw-name }} workflow is being executed.
     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to `my-tracker-workflow` and select ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
-    1. In the window that opens, click **{{ ui-key.yacloud.common.start }}**. The previously created workflow will be launched; it may take a few minutes to complete.
+    1. In the window that opens, click **{{ ui-key.yacloud.common.start }}**. The previously created workflow will be executed; it may take a few minutes to complete.
     1. Navigate to the ![Timeline](../../_assets/console-icons/timeline.svg) **{{ ui-key.yacloud.serverless-workflows.label_timeline }}** tab.
 
         Make sure all workflow steps are completed successfully. Each successful step will be marked by a green box with the ![CircleCheck](../../_assets/console-icons/circle-check.svg) icon in the relevant line of the time scale.

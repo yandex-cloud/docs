@@ -5,6 +5,8 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
 
 # Creating a security profile
 
+{% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
+
 ![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
 
 {% list tabs group=instructions %}
@@ -12,7 +14,7 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your [security profile](../concepts/profiles.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Select one of the creation options:
       * **{{ ui-key.yacloud.smart-web-security.title_default-template }}** (recommended). A preset profile includes:
@@ -39,6 +41,7 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
   1. Add all relevant rules to the profile one by one.
 
       The rules you created will appear under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** in the table.
+  1. Optionally, enable or disable the use of HTTP request information to improve machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -72,7 +75,7 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional parameter. E.g., `--labels foo=baz,bar=baz'`.
      * `--default-action`: Action to apply to traffic not covered by the other rules. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
-      * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional parameter. Here is an example:
+      * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional parameter. For example:
 
           {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
 
@@ -160,9 +163,9 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
 
       If you do not specify the `smart_protection` or `waf` rule type, a basic rule will be created with simple filtering based on conditions specified under `rule_condition`.
 
-      For more information about the `yandex_sws_security_profile` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about the `yandex_sws_security_profile` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/sws_security_profile).
 
-  1. Create resources:
+  1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

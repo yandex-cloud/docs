@@ -12,7 +12,7 @@ A {{ PG }} cluster is one or more [database hosts](../concepts/index.md) between
 
 * The number of hosts you can create together with a {{ PG }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
 * Available disk types depend on the selected [host class](../concepts/instance-types.md#available-flavors).
-* If the DB storage is 95% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance.
+* If the DB storage is 97% full, the cluster switches to read-only mode. Plan and increase the required storage size in advance or [set up an automatic increase in its size](storage-space.md#disk-size-autoscale).
 
 {% endnote %}
 
@@ -24,7 +24,7 @@ By default, {{ mpg-name }} sets the maximum number of connections to each {{ PG 
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mpg.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
+To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) and [{{ roles.mpg.editor }} roles or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -80,17 +80,21 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     * DB owner username and password. By default, the new user is assigned 50 connections to each host in the cluster.
+     * DB owner username and password. By default, the new user is assigned 50 connections to each host in the cluster. You can change the allowed number of connections using the [Conn limit](../concepts/settings-list.md#setting-conn-limit) setting.
 
        {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
-     * Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual DB level.
+     * Collation (sorting) locale and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual DB level.
 
        {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
   
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
-     * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
+     * [Cloud network](../../vpc/concepts/network.md#network) for the cluster. If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+
+       1. In the window that opens, specify the network name and select the folder to host the network.
+       1. Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
+       1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
@@ -137,7 +141,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. View the description of the create cluster CLI command:
+  1. View the description of the CLI command to create a cluster:
 
      ```bash
      {{ yc-mdb-pg }} cluster create --help
@@ -225,7 +229,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      
      ```hcl

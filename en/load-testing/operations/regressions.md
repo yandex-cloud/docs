@@ -76,13 +76,13 @@ To customize your dashboard, add your first regression chart:
 
    To add labels to tests, go to the ![image](../../_assets/load-testing/test.svg)**{{ ui-key.yacloud.load-testing.label_tests-list }}** page, select the tests you need from the list, and click **Add labels**.
    Add labels in the `key:value` format.
-
+   
    {% endnote %}
 
 1. View the list of filtered tests in the **Tests included in regression** section.
 1. To save the chart to the dashboard, click **Create**.
 
-Add a second regression chart:
+Add a second regression chart: 
 
 1. On the first chart widget you just created, click the ![image](../../_assets/load-testing/edit-copy.svg) copy button at the top right.
 1. Provide a new name and description.

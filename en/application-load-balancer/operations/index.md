@@ -50,3 +50,7 @@ description: Step-by-step guides on using {{ alb-full-name }} in {{ yandex-cloud
 * [{#T}](k8s-ingress-controller-upgrade.md)
 * [{#T}](k8s-gateway-api-install.md)
 * [{#T}](k8s-ingress-controller-apply.md)
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

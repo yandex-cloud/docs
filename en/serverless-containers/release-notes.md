@@ -5,11 +5,23 @@ description: This section contains {{ serverless-containers-name }} release note
 
 # {{ serverless-containers-full-name }} release notes
 
+## February 2025 {#february-2025}
+
+### Updates {#updates}
+
+* Added support for [setting up the container metadata service](operations/metadata-options.md).
+
+## December 2024 {#december-2024}
+
+### Updates {#updates}
+
+* Added support for [container mode](operations/update-runtime.md#console_1) selection in the management console.
+
 ## November 2024 {#november-2024}
 
 ### Updates {#updates}
 
-* Added support for container mode selection in the CLI, API, and {{ TF }}.
+* Added support for [container mode](operations/update-runtime.md) selection in the CLI, API, and {{ TF }}.
 
 ## September — October 2024 {#sept-oct-2024}
 
@@ -30,7 +42,7 @@ description: This section contains {{ serverless-containers-name }} release note
 ### Updates {#updates}
 
 * Added support for editing all trigger parameters in {{ TF }}.
-* [{{ objstorage-full-name }}](concepts/mounting.md) bucket mounting to a container is now at the [general availability](../overview/concepts/launch-stages.md) stage.
+* [{{ objstorage-full-name }}](concepts/mounting.md) bucket mounting to a container is now at the [General Availability](../overview/concepts/launch-stages.md) stage.
 
 ### Fixes and improvements {#fixes-improvements}
 

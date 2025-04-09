@@ -13,14 +13,15 @@ print ("Platform application ARN:", response['PlatformApplicationArn'])
 
 Where:
 
-* `Name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
+* `Name`: Notification channel name, user-defined.
+  
+  {% include [channel-name](../../_includes/notifications/channel-name.md) %}
+
 * `Platform`: Mobile platform type:
 
-  * `APNS` and `APNS_SANDBOX`: Apple Push Notification service (APNs). Use `APNS_SANDBOX` to test the application.
-  * `GCM`: Firebase Cloud Messaging (FCM).
-  * `HMS`: Huawei Mobile Services (HMS).
+  {% include [platform-types](../../_includes/notifications/platform-types.md) %}
 
-* `Attributes`: Mobile platform authentication parameters in `"<parameter>": "<value>"` format, comma-separated. The values depend on platform:
+* `Attributes`: Mobile platform authentication parameters in `"<parameter>": "<value>"` format, comma-separated. The values depend on the platform:
 
   * APNs:
 
@@ -46,7 +47,12 @@ Where:
 
   * HMS:
 
-    * `PlatformPrincipal`: Key ID
-    * `PlatformCredential`: API key
+    * `PlatformPrincipal`: Key ID.
+    * `PlatformCredential`: API key.
+
+  * RuStore:
+  
+    * `PlatformPrincipal`: Project ID (ProjectID).
+    * `PlatformCredential`: Service token (ServiceToken).
 
 As a result, you will get a notification channel ID (ARN).

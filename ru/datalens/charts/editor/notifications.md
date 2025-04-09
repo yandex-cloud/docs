@@ -5,6 +5,8 @@ description: Из статьи вы узнаете про уведомления
 
 # Уведомления
 
+{% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 Чтобы сообщить информацию пользователю, просматривающему ваш чарт, используйте механизм уведомлений в Editor.
 
 * [Добавление уведомления в чарт](#add-notification-to-chart)
@@ -34,4 +36,4 @@ description: Из статьи вы узнаете про уведомления
 
 #### Пример {#notification-example}
 
-[Пример чарта с уведомлением]({{ link-datalens-editor }}/94re1oq1wqdi1-primer-charta-s-uvedomleniem-2)
+[Пример чарта с уведомлениями](https://datalens.yandex/uw4m2h7evlwog#Editor.%20setChartsInsights(args))

@@ -7,7 +7,7 @@ In this tutorial, you will learn how to use serverless technologies to create a 
 
 To create a bot:
 
-1. [Prepare the environment](#prepare).
+1. [Set up your environment](#prepare).
 1. [Create an application and connect it to {{ yandex-cloud }}](#app).
 1. [Get a token and a secret for the app](#env).
 1. [Create functions](#create-functions).
@@ -26,9 +26,9 @@ The cost of bot support includes:
 * Fee for using the API gateway (see [{{ api-gw-full-name }}](../../api-gateway/pricing.md) pricing).
 * Fee for using functions (see [{{ sf-full-name }}](../../functions/pricing.md) pricing).
 
-## Prepare the environment {#prepare}
+## Set up your environment {#prepare}
 
-1. Download](https://{{ s3-storage-host }}/doc-files/slackbot.zip) the file archive required to create a bot.
+1. [Download](https://{{ s3-storage-host }}/doc-files/slackbot.zip) the file archive required to create a bot.
 1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 1. [Create](../../iam/operations/sa/create.md#create-sa) a service account named `sa-slack` and [assign](../../iam/operations/roles/grant.md#cloud-or-folder) it the `{{ roles-editor }}` role for your folder.
 
@@ -56,7 +56,7 @@ The cost of bot support includes:
 1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-challenge`. Make sure it is [private](../../functions/operations/function/function-private.md).
 1. [Create](../../functions/operations/function/version-manage.md) a function version:
 
-   1. Specify the following parameters:
+   1. Specify the following settings:
 
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
@@ -126,7 +126,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
 
 1. [Create](../../functions/operations/function/version-manage.md) a function version:
 
-   1. Specify the following parameters:
+   1. Specify the following settings:
 
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
@@ -153,7 +153,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
 
 1. [Create](../../functions/operations/function/version-manage.md) a function version:
 
-   1. Specify the following parameters:
+   1. Specify the following settings:
 
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python312`.
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
@@ -227,7 +227,7 @@ A command will not work if the relevant method is not configured for it in the [
 Open the Slack client and select a chat with the `ServerlessBotApp` bot under **Apps**.
 
 1. To test the `for-slack-bot-small-talk` function:
-   * Send the `:wave:` message to the chat. The bot should respond with: `Hi there, @<username>!`.
+   * Send the `:wave:` message to the chat. The bot must respond with: `Hi there, @<username>!`.
    * Send the `knock knock` message to the chat. The bot should respond with: `Who's there?`.
 1. To test the `for-slack-bot-hello-from-serverless` function, send the `/hello-from-serverless` command in the chat. The bot should respond with: `Thanks!`.
 

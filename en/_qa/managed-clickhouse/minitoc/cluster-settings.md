@@ -6,4 +6,4 @@
 
 * [How do I increase the maximum amount of RAM to run a query?](#max-memory-usage)
 
-
+* [Why should a {{ mch-name }} cluster have three or five {{ ZK }} hosts?](#zookeeper-hosts-number)

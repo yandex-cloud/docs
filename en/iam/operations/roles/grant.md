@@ -12,7 +12,7 @@ To grant access to a resource, assign a [role](../../concepts/access-control/rol
 * [Service accounts](../../concepts/users/service-accounts.md)
 * [User groups](../../../organization/concepts/groups.md)
 
-You can assign a role not only for the resource itself but also for its parent resource, as the former inherits access permissions from the latter. For example, if a service account gets a role for a cloud, it will also get permissions for all resources across the cloud's folders. For more information, see [{#T}](../../concepts/access-control/index.md).
+You can assign a role not only for the resource itself but also for its parent resource, as the former inherits access permissions from the latter. For example, if a service account gets a role for a cloud, it will also get permissions for all resources across the cloud's folders. To learn more, see [{#T}](../../concepts/access-control/index.md).
 
 [Learn](../../concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
 
@@ -25,7 +25,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the cloud or folder.
-   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
    1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
    1. Select the group, user, or service account you want to grant access to a cloud or folder.
    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required roles.
@@ -227,7 +227,7 @@ To assign a role for an organization:
    1. Get the [ID of the user](../users/get.md), [service account](../sa/get-id.md), or user group you are assigning a role to.
    1. Describe the resource with the role for the organization in the configuration file.
 
-      Here is an example of the configuration file structure:
+      Here is the configuration file example:
 
       ```hcl
       resource "yandex_organizationmanager_organization_iam_binding" "<resource_name>" {
@@ -240,7 +240,7 @@ To assign a role for an organization:
       Where:
 
       * `organization_id`: [Organization ID](../../../organization/operations/organization-get-id.md). This is a required parameter.
-      * `role`: Role you want to assign. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required parameter.
+      * `role`: Role to assign. For each role, you can only use one `yandex_organizationmanager_organization_iam_binding` resource. This is a required parameter.
       * `members`: Users getting the role. Specify the following:
 
          * `members = ["userAccount:<user_ID>"]`: For a user with a Yandex account.

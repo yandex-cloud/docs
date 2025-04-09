@@ -6,10 +6,20 @@ A {{ mmg-name }} cluster can get data from {{ KF }} topics in real time.
 To run data delivery:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MG }} pricing](../../managed-mongodb/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -69,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_user_password`: `mmg-user` password in the target cluster.
             * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -147,7 +157,7 @@ Create a local `sample.json` file with the following test data:
 
 {% endcut %}
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
 
@@ -243,8 +253,8 @@ Create a local `sample.json` file with the following test data:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
-        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
+        1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
 
@@ -254,7 +264,7 @@ Create a local `sample.json` file with the following test data:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -270,7 +280,7 @@ Create a local `sample.json` file with the following test data:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mmg-name }} cluster:
 
@@ -290,7 +300,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
     To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-1. Make sure that the the {{ mmg-name }} cluster's `sensors` collection contains the data that was sent:
+1. Make sure that the {{ mmg-name }} cluster's `sensors` collection contains the data that was sent:
 
     1. [Connect to the {{ mmg-name }} cluster](../../managed-mongodb/operations/connect/index.md).
 
@@ -304,14 +314,14 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
 Delete the other resources depending on how they were created:
 

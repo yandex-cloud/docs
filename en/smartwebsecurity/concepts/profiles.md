@@ -2,6 +2,8 @@
 
 _Security profile_ is the main component in {{ sws-name }}. The profile consists of [rules](rules.md), each including [conditions](conditions.md) for applying certain [actions](rules.md#rule-action) to HTTP requests received via the [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host) of the [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) L7 load balancer by the resource being protected.
 
+{% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
+
 You can create a profile:
   * _{{ ui-key.yacloud.smart-web-security.title_default-template }}_. A preset profile includes:
     * [Basic default rule](rules.md#base-rules), enabled for all traffic.

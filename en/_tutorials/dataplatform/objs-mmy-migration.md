@@ -11,6 +11,16 @@ To transfer data:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
 Set up your infrastructure:

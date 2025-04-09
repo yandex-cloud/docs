@@ -1,0 +1,1 @@
+{% include [tutorial](../../_tutorials/dataplatform/data-processing/hive-job-basics.md) %}

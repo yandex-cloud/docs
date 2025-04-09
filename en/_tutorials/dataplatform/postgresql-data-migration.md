@@ -12,7 +12,7 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
     To use this method, allow connecting to the source cluster from the internet.
 
-    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
+    To learn more, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Migrating data using logical replication](#logical-replication).
 
@@ -47,6 +47,15 @@ Migration stages:
 
 If you no longer need the resources you created, [delete them](#clear-out-logical).
 
+
+### Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ### Getting started {#before-you-begin-logical}
 
 Create the required resources:
@@ -55,7 +64,7 @@ Create the required resources:
 
 - Manually {#manual}
 
-    Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable configuration. In which case:
+    Create a [{{ mpg-name }} target cluster](../../managed-postgresql/operations/cluster-create.md) in any suitable configuration. In this case, the following applies:
 
     * The {{ PG }} version must be the same or higher than in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
     * When creating a cluster, specify the same database name as in the source cluster.
@@ -86,7 +95,7 @@ Create the required resources:
             * `target_pgsql_version`: {{ PG }} version. Must be the same or higher than in the source cluster.
             * `target_user` and `target_password`: Name and user password of the database owner.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -306,6 +315,17 @@ Migration stages:
 
 If you no longer need the resources you created, [delete them](#clear-out-backup).
 
+
+### Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM fee: Using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using a public IP address for a VM (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ### Getting started {#before-you-begin-backup}
 
 Create the required resources:
@@ -321,7 +341,7 @@ Create the required resources:
 
             {% include [user-name-restore](../../_includes/mdb/mpg/note-user-name-restore.md) %}
 
-        * [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md)
+        * [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md).
 
     1. (Optional step) [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) based on [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) with the following parameters:
 
@@ -370,9 +390,9 @@ Create the required resources:
         * (Optional) Virtual machine parameters:
 
             * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu without GPU, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-            * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the instance.
+            * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), for access to the VM. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image. A user with the `ubuntu` username is created instead. Use it to connect to the VM.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

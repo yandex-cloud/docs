@@ -15,7 +15,7 @@ This guide contains information on how to create and set up a [desktop group](co
 
 Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) and deploy a {{ cloud-desktop-name }} [desktop group](./concepts/desktops-and-groups.md) for it:
 
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a user group](#create-user-group).
 1. [Deploy a desktop group](#create-desktop-group).
 1. [Configure an ACL for the desktop group](#setup-acl).
@@ -25,7 +25,7 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 
 ## Getting started {#before-you-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. Log in to the [management console]({{ link-console-main }}) or sign up. If not signed up yet, navigate to the management console and follow the on-screen instructions.
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md).
 1. [Assign](../iam/operations/roles/grant.md) these _minimum_ roles to your {{ yandex-cloud }} account:
@@ -76,16 +76,21 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Click **{{ ui-key.yacloud.vdi.button_empty-create-desktop-group }}**.
   1. Enter a name for the desktop group.
+  1. Select **{{ ui-key.yacloud.vdi.section_type }}**: **{{ ui-key.yacloud.vdi.value_type-personal }}**. Desktops are assigned to users on their first sign-in and remain reserved for them.
+  1. Under **{{ ui-key.yacloud.vdi.section_desktop }}**, specify:
+     1. **{{ ui-key.yacloud.vdi.field_max-desktops-amount }}**: `2`, maximum number of desktops per group.
+     1. **{{ ui-key.yacloud.vdi.field_min-ready-desktops }}**: `1`, number of desktops kept always loaded for quick user access.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}** on the **{{ ui-key.yacloud.component.compute.resources.label_tab-standard }}** tab, click **Basic**.
   1. Select `Ubuntu 20.04 LTS` for the OS [image](./concepts/images.md).
   1. Under **{{ ui-key.yacloud.vdi.section_disks }}**:
       * Select `SSD` for the boot and working [disk](./concepts/disks.md) [types](../compute/concepts/disk.md#disks-types).
       * Set the boot disk size to `60 GB`.
       * Set the working disk size to `4 GB`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-      * Set the number of vCPU cores to `2`.
-      * Select `100%` for the [guaranteed vCPU share](../compute/concepts/performance-levels.md).
-      * Set RAM to `8 GB`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [cloud network](../vpc/concepts/network.md#network) and [subnets](../vpc/concepts/network.md#subnet) to host desktops.
+  1. Under **Desktop users**, click **Add users** and specify those the desktops will be available to:
+     * [User groups](../iam/concepts/access-control/public-group.md).
+     * [Individual users](../iam/concepts/users/accounts.md).
+     * Any user's mail address. The user will be sent an invitation to your organization and assigned a role for desktop access.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

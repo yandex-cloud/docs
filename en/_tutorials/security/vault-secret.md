@@ -53,7 +53,7 @@ To set up Auto Unseal:
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
 * Fee for a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for the number of active {{ kms-short-name }} key versions and completed cryptographic operations (see [{{ vpc-full-name }} pricing](../../kms/pricing.md)).

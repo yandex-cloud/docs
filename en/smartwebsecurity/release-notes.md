@@ -40,7 +40,7 @@ description: This section contains {{ sws-name }} release notes.
 
 ## Q1 2024 {#q1-2024}
 
-* Released the service for [general availability](../overview/concepts/launch-stages.md).
+* The service has entered the [General Availability](../overview/concepts/launch-stages.md) stage.
 * Now you can select the [{{ captcha-full-name }}](../smartcaptcha/) user CAPTCHA.
 * Added the [limit](./concepts/limits.md#limits) for the maximum number of requests per second (RPS) in total for all load balancer virtual hosts connected to the same security profile.
 * Added logs of a security profile connected to a virtual host to the [{{ alb-full-name }}](../application-load-balancer/) log list.

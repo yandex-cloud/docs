@@ -1,17 +1,28 @@
 
 
-You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. To do this:
+You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. Proceed as follows:
 
-1. [Set up the transfer](#prepare-transfer).
+1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
 1. [Test the replication process](#example-check-replication).
 1. [Select the data from the target](#working-with-data-ch).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-For clarity, we will create all required resources in {{ yandex-cloud }}. Prepare the infrastructure:
+For clarity, we will create all required resources in {{ yandex-cloud }}. Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -58,7 +69,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
         * Transfer.
 
     1. In the `postgresql-to-clickhouse.tf` file, specify the passwords of the {{ PG }} and {{ CH }} admin user.
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -74,7 +85,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 {% endlist %}
 
-## Set up the transfer {#prepare-transfer}
+## Set up your transfer {#prepare-transfer}
 
 1. [Connect to the {{ mpg-name }} cluster](../../managed-postgresql/operations/connect.md).
 1. Create a table named `x_tab` in the `db1` database and populate it with data:
@@ -108,7 +119,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-        1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md) of the `ClickHouse` type and specify the cluster connection parameters in it:
+        1. [Create a target endpoint](../../data-transfer/operations/endpoint/target/clickhouse.md) of the `ClickHouse` type and specify the cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: `<target_{{ CH }}_cluster_name>` from the drop-down list.
@@ -123,7 +134,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
         1. In the `postgresql-to-clickhouse.tf` file, set the `transfer_enabled` parameter to `1`.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -139,7 +150,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. To check that the transfer has moved the replicated data to the target, connect to the target {{ mch-full-name }} cluster and make sure that the `x_tab` table in `db1` has the same columns as the `x_tab` table in the source database, as well as the [timestamp columns](#working-with-data-ch), `__data_transfer_commit_time` and `__data_transfer_delete_time`:
 
    ```sql

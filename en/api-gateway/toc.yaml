@@ -103,9 +103,9 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
-          - name: '{{ yagpt-full-name }}'
+          - name: '{{ foundation-models-full-name }}'
             href: operations/spec-constructor/yagpt.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing operations with service resources
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -113,7 +113,7 @@ items:
         href: tutorials/index.md
       - name: Deploying a web application using the Java Servlet API
         href: tutorials/java-servlet-todo-list.md
-      - name: Developing a skill for Alice and a website with authorization
+      - name: Creating a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: Developing a Slack bot
         href: tutorials/slack-bot-serverless.md
@@ -185,7 +185,7 @@ items:
                 href: concepts/extensions/ydb.md
           - name: Greedy parameters
             href: concepts/extensions/greedy-parameters.md
-          - name: Generalized HTTP method
+          - name: General HTTP method
             href: concepts/extensions/any-method.md
           - name: Authorization using a {{ sf-name }} function
             href: concepts/extensions/function-authorizer.md

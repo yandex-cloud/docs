@@ -5,7 +5,21 @@ noIndex: true
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Information about existing clusters
+        href: operations/cluster-list.md
+      - name: Creating a cluster
+        href: operations/cluster-create.md
+      - name: Updating a cluster
+        href: operations/cluster-update.md
+      - name: Deleting a cluster
+        href: operations/cluster-delete.md
   - name: Quotas and limits
     href: concepts/limits.md
+  - name: Access management
+    href: security.md
   - name: Pricing policy
     href: pricing.md

@@ -179,7 +179,7 @@ items:
             href: operations/trigger/trigger-monitoring.md
           - name: Deleting a trigger
             href: operations/trigger/trigger-delete.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing operations with service resources
         href: operations/operation-logs.md
   - name: Concepts
     items:
@@ -417,7 +417,7 @@ items:
         href: tutorials/alice-skill.md
       - name: Deploying a web application
         href: tutorials/java-servlet-todo-list.md
-      - name: Developing a skill for Alice and a website with authorization
+      - name: Creating a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
       - name: Writing data from a device into a database
         href: tutorials/data-recording.md
@@ -474,7 +474,7 @@ items:
             href: tutorials/vm-scale-scheduled/terraform.md
       - name: Status monitoring of geographically distributed devices
         href: tutorials/datalens.md
-      - name: Monitoring sensor readings and event notifications
+      - name: Sensor reading monitoring and event notifications
         href: tutorials/monitoring.md
       - name: Emulating multiple IoT devices
         href: tutorials/iot-emulation.md
@@ -494,6 +494,20 @@ items:
           Configuring responses in {{ cloud-logging-full-name }} and {{ sf-name
           }}
         href: tutorials/logging-functions
+      - name: >-
+          Developing functions in Functions Framework and deploying them to {{
+          serverless-containers-full-name }}
+        href: tutorials/functions-framework-to-container.md
+      - name: >-
+          Delivering data from {{ forms-full-name }} to {{ datalens-full-name }}
+          using {{ sf-full-name }} and {{ yq-full-name }}
+        items:
+          - name: Overview
+            href: tutorials/forms-and-datalens-integration/index.md
+          - name: Management console
+            href: tutorials/forms-and-datalens-integration/console.md
+          - name: '{{ TF }}'
+            href: tutorials/forms-and-datalens-integration/terraform.md
   - name: Tools
     href: tools.md
   - name: Pricing policy

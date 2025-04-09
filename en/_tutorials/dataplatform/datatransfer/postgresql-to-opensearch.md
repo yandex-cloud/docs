@@ -1,15 +1,25 @@
 ## Delivering data from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. To do this:
+You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
-1. [Set up the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -55,7 +65,7 @@ Prepare the infrastructure:
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -71,7 +81,7 @@ Prepare the infrastructure:
 
 {% endlist %}
 
-## Set up the transfer {#prepare-transfer}
+## Set up your transfer {#prepare-transfer}
 
 1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md), create a table named `x_tab` in the `db1` database and populate it with data:
 
@@ -110,7 +120,7 @@ Prepare the infrastructure:
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
+      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
 
       1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
@@ -121,7 +131,7 @@ Prepare the infrastructure:
           * `target_endpoint_id`: Target endpoint ID.
           * `transfer_enabled`: `1` to create a transfer.
 
-      1. Check that the {{ TF }} configuration files are correct using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate
@@ -137,9 +147,9 @@ Prepare the infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Connect to the target cluster using [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards).
 1. Select the `Global` tenant.
 1. Create a new index template named `public.x_tab`:

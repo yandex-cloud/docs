@@ -14,24 +14,23 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
-  1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**. In the window that opens:
+  1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-connector }}**.
+  1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select `{{ message-queue-full-name }}`.
+  1. Under **message settings{{ message-queue-name }}**:
 
-      1. In the **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** field, select `{{ message-queue-full-name }}`.
-      1. Under **message settings{{ message-queue-name }}**:
+      * Select a folder and a [message queue](../../../../message-queue/concepts/queue.md).
+      * Select a [service account](../../../../iam/concepts/users/service-accounts.md) with permissions to read from the message queue.
 
-          * Select a folder and a [message queue](../../../../message-queue/concepts/queue.md).
-          * Select a [service account](../../../../iam/concepts/users/service-accounts.md) with permissions to read from the message queue.
+  1. (Optional) Click ![image](../../../../_assets/console-icons/plus.svg) **Message grouping settings** and specify the following:
 
-      1. (Optional) Click ![image](../../../../_assets/console-icons/plus.svg) **Message grouping settings** and specify the following:
+      * **Visibility timeout**: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period in hours during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 12 hours. The default value is 0.
+      * **Group size**: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 12. The default value is 10.
+      * **Poll timeout**: Maximum time in milliseconds during which {{ er-name }} is grouping messages before sending them from the source to the rule. The values may range from 0 to 20 seconds. The default value is 10 seconds.
 
-          * **Visibility timeout**: [Time](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) period in hours during which messages are hidden from the queue after one of the recipients has accepted a message. Valid values ​​range from 0 to 12 hours. The default value is 0.
-          * **Group size**: Maximum number of messages {{ er-name }} groups together before sending from the source to the [rule](../../../concepts/eventrouter/rule.md). Valid values ​​range from 0 to 12. The default value is 10.
-          * **Poll timeout**: Maximum time in milliseconds during which {{ er-name }} is grouping messages before sending them from the source to the rule. The values may range from 0 to 20 seconds. The default value is 10 seconds.
+          {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
-              {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
-
-      1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
-      1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. {% include [connector-create-additional-params](../../../../_includes/serverless-integrations/connector-create-additional-params.md) %}
+  1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -39,7 +38,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
   {% include [default-catalogue](../../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for creating a [connector](../../../concepts/eventrouter/connector.md):
+  1. View the description of the CLI command to create a [connector](../../../concepts/eventrouter/connector.md):
 
       ```bash
       yc serverless eventrouter connector create message-queue --help
@@ -72,7 +71,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
-      * `--name`: Connector name. The naming requirements are as follows:
+      * `--name`: Connector name. Follow these naming requirements:
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
@@ -81,7 +80,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
 
           You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
-      * `--deletion-protection`: Connector deletion protection. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
+      * `--deletion-protection`: Connector deletion protection. By default, protection is disabled. You cannot delete a connector with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
 
       Result:
 
@@ -144,7 +143,7 @@ description: Follow this guide to create a connector for {{ message-queue-full-n
       Where:
 
       * `bus_id`: {{ er-name }} [bus](../../../concepts/eventrouter/bus.md) ID.
-      * `name`: Connector name. The naming requirements are as follows:
+      * `name`: Connector name. Follow these naming requirements:
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 

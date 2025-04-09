@@ -1,14 +1,24 @@
-You can set up data transfer from a {{ mkf-full-name }} topic to {{ mgp-full-name }} using {{ data-transfer-full-name }}. To do this:
+You can set up data transfer from a {{ mkf-full-name }} topic to {{ mgp-full-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mgp-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-1. Prepare the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -44,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * Transfer.
 
         1. In the `kafka-greenplum.tf` file, specify user passwords and {{ KF }} and {{ GP }} versions.
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -99,7 +109,7 @@ Create a file named `sample.json` with test data on your working instance:
 
 {% endcut %}
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) with the `{{ KF }}` type and specify the following items for it:
 
@@ -160,7 +170,7 @@ Create a file named `sample.json` with test data on your working instance:
     - Manually {#manual}
 
         1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-repl }}_ type that will use the created endpoints.
-        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-repl }}.
+        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to {{ dt-status-repl }}.
 
     - {{ TF }} {#tf}
 
@@ -170,7 +180,7 @@ Create a file named `sample.json` with test data on your working instance:
             * `gp_target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -186,7 +196,7 @@ Create a file named `sample.json` with test data on your working instance:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mgp-name }} database:
 
