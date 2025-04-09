@@ -24,6 +24,7 @@ description: This page provides a list of step-by-step guides for {{ cloud-deskt
 ## Images {#desktops}
 
 * [{#T}](images/create-from-desktop.md)
+* [{#T}](images/create-from-compute-linux.md)
 * [{#T}](images/delete.md)
 
 ## Additional features {#add-features}

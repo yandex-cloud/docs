@@ -1,0 +1,2 @@
+* `retry-attempts`: Number of message retries before {{ er-name }} moves the messages to the dead-letter queue (DLQ). Valid values range from 0 to 1,000. This is an optional parameter.
+* `maximum-age`: Time interval before a retry attempt to send the messages if the current attempt fails. Valid values range from 0 to 60 hours. This is an optional parameter.

@@ -1,4 +1,8 @@
-# Migrating databases to {{ mgp-full-name }}
+---
+canonical: '{{ link-docs }}/tutorials/dataplatform/managed-greenplum'
+---
+
+# Migrating a database to {{ mgp-full-name }}
 
 {% include notitle [Data migration MGP](../../_tutorials/dataplatform/datatransfer/managed-greenplum.md) %}
 

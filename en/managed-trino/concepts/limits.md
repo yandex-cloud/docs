@@ -7,6 +7,8 @@ noIndex: true
 
 # Quotas and limits in {{ mtr-name }}
 
+{% include [preview](../../_includes/managed-trino/note-preview.md) %}
+
 
 {{ mtr-name }} has the following limits:
 

@@ -4,7 +4,7 @@
 
 You can connect the service to [{{ alb-full-name }}](../../application-load-balancer/) [virtual hosts](../../application-load-balancer/concepts/http-router.md#virtual-host).
 
-In a nutshell, the service checks the HTTP requests sent to the protected resource via the virtual host of the L7 load balancer against the [rules](rules.md) configured in the [security profile](profiles.md). Depending on the results of the check, the requests are routed to the virtual host, blocked, or sent to [{{ captcha-full-name }}](../../smartcaptcha/) for additional verification.
+{{ sws-name }} checks the HTTP requests sent to the protected resource via the virtual host of the L7 load balancer against the [rules](rules.md) configured in the [security profile](profiles.md). Depending on the results of the check, the requests are routed to the virtual host, blocked, or sent to [{{ captcha-full-name }}](../../smartcaptcha/) for additional verification.
 
 ![schema](../../_assets/smartwebsecurity/schema.svg)
 
@@ -17,6 +17,8 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 {{ sws-name }} metrics are sent to [{{ monitoring-full-name }}](../../monitoring/).
 
 {{ sws-name }} audit logs are sent to [{{ at-full-name }}](../../audit-trails/).
+
+{% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
 
 ## {{ alb-name }} coniguration recommendations {#alb-settings-recommendation}
 

@@ -4,23 +4,48 @@ You can track data changes in a {{ mmy-name }} _source cluster_ and send them to
 
 To set up CDC using {{ data-transfer-name }}:
 
-1. [Set up the transfer](#prepare-transfer).
+1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
 1. [Test the replication process](#check-replication).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	
+    Learn more about the [{{ ydb-name }} pricing](../../../ydb/pricing/index.md) plans.
+
+* {{ yds-name }} fee. The fee depends on the pricing mode:
+
+	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
+	* Based on actual use:
+		* If the DB operates in serverless mode, the data stream is charged under the [{{ ydb-short-name }} serverless mode pricing policy](../../../ydb/pricing/serverless.md).
+
+		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../../ydb/pricing/dedicated)).
+
+    Learn more about the [{{ yds-name }} pricing](../../../data-streams/pricing.md) plans.
+
+
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
     1. [Create a {{ mmy-name }} source cluster](../../../managed-mysql/operations/cluster-create.md) in any applicable [configuration](../../../managed-mysql/concepts/instance-types.md) with publicly available hosts and the following settings:
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`
 
     1. [Grant the user](../../../managed-mysql/concepts/settings-list#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges.
 
@@ -45,7 +70,7 @@ Prepare the infrastructure:
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to a cluster.
+        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to the cluster.
         * {{ mmy-name }} source cluster.
         * Database: {{ ydb-name }}.
         * Service account to use to access {{ yds-name }}.
@@ -54,7 +79,7 @@ Prepare the infrastructure:
 
     1. In the `mysql-yds.tf` file, specify the {{ MY }} user password.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -70,7 +95,7 @@ Prepare the infrastructure:
 
 {% endlist %}
 
-## Set up the transfer {#prepare-transfer}
+## Set up your transfer {#prepare-transfer}
 
 1. [Create a {{ yds-name }} data stream](../../../data-streams/operations/aws-cli/create.md) named `mpg-stream`.
 
@@ -96,9 +121,9 @@ Prepare the infrastructure:
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/data-streams.md) of the `{{ yds-name }}` type with the following settings:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: `ydb-example`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `mpg-stream`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `yds-sa`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: `ydb-example`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `mpg-stream`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `yds-sa`
 
 1. Create a source endpoint and a transfer.
 
@@ -108,13 +133,13 @@ Prepare the infrastructure:
 
         1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/mysql.md) of the `{{ MY }}` type and specify the cluster connection parameters in it:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<source_cluster_name>` from the drop-down list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy-user`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `mmy-user` user password.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
 
     - {{ TF }} {#tf}
 
@@ -123,7 +148,7 @@ Prepare the infrastructure:
             * `yds_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -139,7 +164,7 @@ Prepare the infrastructure:
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to _{{ dt-status-repl }}_.
+1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to _{{ dt-status-repl }}_.
 
 {% include [get-yds-data](../../../_includes/data-transfer/get-yds-data.md) %}
 

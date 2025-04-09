@@ -20,10 +20,20 @@ This tutorial describes a scenario for migrating data from one {{ mkf-name }} cl
 
 To migrate data:
 
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee per {{ KF }} cluster: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -35,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
        1. Create a [source and target {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with public access from the internet in any suitable configuration.
        1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
-       1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
+       1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the created topic.
        1. [In the target cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for all topics.
 
    - {{ TF }} {#tf}
@@ -68,7 +78,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `target_kf_version`: {{ KF }} version in the target cluster.
            * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [manually create the source and target endpoints](#prepare-transfer).
 
-       1. Check that the {{ TF }} configuration files are correct using this command:
+       1. Make sure the {{ TF }} configuration files are correct using this command:
 
            ```bash
            terraform validate
@@ -116,7 +126,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -157,7 +167,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -173,7 +183,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 1. Make sure that the data from the topic in the source cluster move to the topic in the target {{ mkf-name }} cluster:
@@ -251,14 +261,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
 Delete the other resources depending on how they were created:
 

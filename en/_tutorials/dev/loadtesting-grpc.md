@@ -6,7 +6,7 @@ You can use {{ load-testing-name }} for service load testing via [gRPC](https://
 To perform load testing:
 1. [Get your cloud ready](#before-begin).
 1. [Prepare a test target](#target-prepare).
-1. [Prepare your infrastructure](#infrastructure-prepare).
+1. [Set up your infrastructure](#infrastructure-prepare).
 1. [Create an agent](#create-agent).
 1. [Test gRPC Server Reflection](#reflection-check).
 1. [Prepare a file with test data](#test-file).
@@ -40,7 +40,7 @@ For a public service, allow incoming HTTPS traffic on port `8080`.
 
 For a service whose subnet and security group is different from the agent's ones, [create](#security-group-setup) a rule for incoming HTTPS traffic on port `8080` in the security group where the test target is located.
 
-## Prepare the infrastructure {#infrastructure-prepare}
+## Set up your infrastructure {#infrastructure-prepare}
 
 ### Create a service account {#sa-create}
 
@@ -94,7 +94,7 @@ For a service whose subnet and security group is different from the agent's ones
 
 ## Prepare a file with test data {#test-file}
 
-1. Generate payloads in [HTTP_JSON](../../load-testing/concepts/payloads/http-json.md) format:
+1. Generate test data in [GRPC_JSON](../../load-testing/concepts/payloads/grpc-json.md) format:
 
    ```JSON
    {"tag": "/Add", "call": "api.Adder.Add", "payload": {"x": 21, "y": 12}}
@@ -181,7 +181,7 @@ For a service whose subnet and security group is different from the agent's ones
 
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
-    With that done, the configuration will pass the checks, and the agent will start loading the gRPC service you are testing.
+    Next, the configuration will be checked, and the agent will start loading the gRPC service.
 
     To see the testing progress, select the new test and go to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 

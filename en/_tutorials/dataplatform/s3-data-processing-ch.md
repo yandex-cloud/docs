@@ -8,7 +8,7 @@ In this example, we use two CSV tables which we will merge into a single one, im
 
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -44,6 +44,7 @@ Prepare the infrastructure:
 
     1. [Create a {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md) in any [suitable host configuration](../../data-proc/concepts/instance-types.md) with the following settings:
 
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
         * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
             * `SPARK`
             * `YARN`
@@ -57,8 +58,8 @@ Prepare the infrastructure:
     1. [Create a {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) cluster of any suitable configuration with the following settings:
 
         * With public access to cluster hosts.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `user1`
 
 - {{ TF }} {#tf}
 
@@ -86,10 +87,10 @@ Prepare the infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `input-bucket`: Name of the input data bucket.
         * `output-bucket`: Name of the output data bucket.
-        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. For more information, see [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
+        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. To learn more, see [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
         * `ch_password`: {{ CH }} user password.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

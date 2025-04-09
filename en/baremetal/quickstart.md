@@ -5,12 +5,6 @@ description: Follow this guide to lease and set up your first physical server in
 
 # Getting started with {{ baremetal-full-name }}
 
-{% note info %}
-
-The service is at the [Preview](../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
-
 Lease your first physical server and connect to it. All the leased server's resources are exclusively yours, thus providing better performance than an equivalent virtual machine.
 
 ## Getting started {#before-you-begin}

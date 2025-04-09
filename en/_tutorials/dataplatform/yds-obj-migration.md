@@ -2,15 +2,40 @@
 
 With {{ data-transfer-name }}, you can transfer data from a [{{ yds-name }} data stream](../../data-streams/concepts/glossary.md#stream-concepts) to an {{ objstorage-full-name }} bucket.
 
-1. [Prepare a {{ yds-name }} data stream](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up a stream in {{ yds-name }}](#prepare-source).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	
+    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
+
+* {{ yds-name }} fee. The fee depends on the pricing mode:
+
+	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
+	* Based on actual use:
+		* If the DB operates in serverless mode, the data stream is charged under the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
+
+		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated)).
+
+    Learn more about the [{{ yds-name }} pricing](../../data-streams/pricing.md) plans.
+
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -38,12 +63,12 @@ Prepare the infrastructure:
 
     1. Specify the following in the `data-transfer-yds-obj.tf` file:
 
-        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) the resources will be created in.
+        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you will create the resources.
         * `sa_name`: Name of the service account for creating a bucket and for use in endpoints.
         * `source_db_name`: {{ ydb-name }} database name.
         * `bucket_name`: Bucket name in {{ objstorage-name }}.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -59,7 +84,7 @@ Prepare the infrastructure:
 
 {% endlist %}
 
-## Prepare a {{ yds-name }} data stream {#prepare-source}
+## Set up a {{ yds-name }}-enabled stream {#prepare-source}
 
 1. [Create a {{ yds-name }} data stream](../../data-streams/operations/aws-cli/create.md).
 
@@ -79,17 +104,17 @@ Prepare the infrastructure:
 }
 ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
-    * **Endpoint parameters**:
+    * **Endpoint settings**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }}-enabled stream.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
@@ -97,7 +122,7 @@ Prepare the infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
-                Create and upload a `json_schema.json` data schema file in JSON format:
+                Create and upload a `json_schema.json` data schema file:
 
                 {% cut "json_schema.json" %}
 
@@ -176,7 +201,7 @@ Prepare the infrastructure:
 
             * `yandex_datatransfer_transfer` resource.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -192,18 +217,18 @@ Prepare the infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. Make sure that the data from the {{ yds-name }} stream has been moved to the bucket {{ objstorage-name }}:
+1. Make sure the data from the {{ yds-name }}-enabled stream has been moved to the {{ objstorage-name }} bucket:
 
     1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
-    1. Check that the bucket contains the `<stream_name>_0.raw` file (`.json` or `.csv`, depending on the selected output format) with the test data.
+    1. Make sure the bucket contains the `<stream_name>_0.raw` file (`.json` or `.csv`, depending on the selected output format) with the test data.
 
-1. Send a new message [to a {{ yds-name }} stream](../../data-streams/operations/aws-cli/send.md):
+1. [Send a new message to the {{ yds-name }}-enabled stream](../../data-streams/operations/aws-cli/send.md):
 
     ```json
     {
@@ -219,25 +244,25 @@ Prepare the infrastructure:
     }
     ```
 
-1. Make sure that the following data has been added to the {{ objstorage-name }} bucket:
+1. Make sure the following data has been added to the {{ objstorage-name }} bucket:
 
     1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
-    1. Check that the bucket now contains the `<stream_name>_0-1_1.raw` file (`.json` or `.csv`, depending on the selected output format) with the new data.
+    1. Make sure the bucket now contains the `<stream_name>_0-1_1.raw` file (`.json` or `.csv`, depending on the selected output format) with the new data.
 
 ## Delete the resources you created {#clear-out}
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. [Delete](../../storage/operations/objects/delete.md) the objects from the {{ objstorage-name }} bucket:
 
 Delete the other resources depending on how they were created:
@@ -248,7 +273,7 @@ Delete the other resources depending on how they were created:
 
     * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
     * [Delete the bucket in {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-    * If you created any service accounts when creating your endpoints, [delete them](../../iam/operations/sa/delete.md).
+    * If you created any service accounts when setting up your endpoints, [delete them](../../iam/operations/sa/delete.md).
 
 - {{ TF }} {#tf}
 

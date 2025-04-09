@@ -31,13 +31,14 @@
           --message="My message" `
           --level=INFO `
           --json-payload='"{ \"request_id\": \"1234\" }"'
+        ```
+        
+    Where:
 
-        Where:
-
-        * `--group-name`: Name of the log group to add records to. If this parameter is not specified, records are added to the [default log group](../../logging/concepts/log-group.md) in the current folder. You can also specify `--group-id` instead of `--group-name`. 
-        * `--message`: Message.
-        * `--level`: Logging level.
-        * `--json-payload`: Additional information in JSON format.
+    * `--group-name`: Name of the log group to add records to. If this parameter is not specified, records are added to the [default log group](../../logging/concepts/log-group.md) in the current folder. You can also specify `--group-id` instead of `--group-name`. 
+    * `--message`: Message.
+    * `--level`: Logging level.
+    * `--json-payload`: Additional information in JSON format.
 
    {% note info %}
 

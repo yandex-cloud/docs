@@ -12,7 +12,8 @@ description: Follow this guide to get information about a {{ er-full-name }} rul
   1. In the [management console]({{ link-console-main }}), select the folder containing the [rule](../../../concepts/eventrouter/rule.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
-  1. Select ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}** on the left.
+  1. Navigate to the ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}** tab.
+  1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Select the rule. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the rule.
 
 - CLI {#cli}

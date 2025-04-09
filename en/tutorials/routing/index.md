@@ -17,6 +17,7 @@ description: Various use cases for network infrastructure in {{ yandex-cloud }}.
 * [{#T}](cic-with-ngfw.md)
 * [{#T}](gre-over-ipsec.md)
 * [{#T}](data-processing-nat-instance.md)
+* [{#T}](data-processing-dns-reconnect.md)
 * [{#T}](./storage-vpc-access.md)
 * [{#T}](./vpc-cr-access.md)
 * [Creating a direct trunk and a private connection in it](trunk-priv-add.md)

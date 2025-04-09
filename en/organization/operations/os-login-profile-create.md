@@ -23,7 +23,7 @@ To create an additional {{ oslogin }} profile:
  
   1. From the list, select the user you want to create an {{ oslogin }} profile for.
   
-      You may want to use the filter or search for that.
+      Use the filter or search as needed.
   
   1. On the user page, go to the **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}** tab and click **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. In the window that opens:
 

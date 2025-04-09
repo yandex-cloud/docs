@@ -23,5 +23,8 @@
 * [{#T}](connect-from-cf-nodejs.md)
 * [{#T}](api-gw-sws-integration.md)
 * [{#T}](jwt-authorizer-firebase.md)
+* [{#T}](auto-upload.md)
 * [{#T}](logging-functions.md)
 * [{#T}](tracker-yandexgpt-postbox-integrations.md)
+* [{#T}](functions-framework-to-container.md)
+* [{#T}](forms-and-datalens-integration/index.md)

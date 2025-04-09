@@ -8,10 +8,26 @@ You can track data changes in a {{ ydb-name }} _source_ and send them to a {{ mk
 To run data delivery:
 
 1. [Prepare the source](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	
+    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -46,7 +62,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
               1. Create an [admin user](../../managed-kafka/operations/cluster-accounts.md).
               1. In addition to `ACCESS_ROLE_ADMIN`, assign the admin user the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles for `cdc.*` topics whose names begin with the `cdc` prefix.
 
-                 Required topics will be created automatically upon the first change to the source cluster tables you are tracking. This solution can be useful to track changes in multiple tables but requires extra free space in the cluster storage. For more information, see [{#T}](../../managed-kafka/concepts/storage.md).
+                 Required topics will be created automatically upon the first change to the source cluster tables you are tracking. This solution can be useful to track changes in multiple tables but requires extra free space in the cluster storage. To learn more, see [{#T}](../../managed-kafka/concepts/storage.md).
 
    - {{ TF }} {#tf}
 
@@ -84,7 +100,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `target_user_password`: User password.
            * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-       1. Check that the {{ TF }} configuration files are correct using this command:
+       1. Make sure the {{ TF }} configuration files are correct using this command:
 
            ```bash
            terraform validate
@@ -146,7 +162,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     )
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -185,7 +201,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
     - {{ TF }} {#tf}
@@ -196,7 +212,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -212,9 +228,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. In a separate terminal, run the `kafkacat` utility in consumer mode:
 
     ```bash
@@ -231,7 +247,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         -K:
     ```
 
-    You can get the FQDNs of broker hosts with a [list of hosts in the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-hosts.md).
+    You can get the FQDNs of broker hosts with the [list of hosts in the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-hosts.md).
 
 1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md) and [add test data](../../ydb/operations/crud.md) to the `sensors` table:
 
@@ -404,14 +420,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. If you had created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:

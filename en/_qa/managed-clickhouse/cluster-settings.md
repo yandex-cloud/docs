@@ -32,3 +32,19 @@ If [user management via SQL](../../managed-clickhouse/operations/cluster-users.m
     ```
 
 * For all default users by creating a [settings profile]({{ ch.docs }}/operations/access-rights/#settings-profiles-management).
+
+#### Why must a {{ mch-name }} cluster have three or five {{ ZK }} hosts? {#zookeeper-hosts-number}
+
+{{ ZK }} uses the consensus algorithm: it keeps on running as long as most {{ ZK }} hosts are healthy.
+
+For example, if a cluster has two {{ ZK }} hosts, then, should one of them stop, the remaining host will not form the majority, so the service will become unavailable. Thus, a cluster with two {{ ZK }} hosts has no fault tolerance.
+
+A cluster with three {{ ZK }} hosts, on the other hand, is fault-tolerant. When one of its hosts is down or under maintenance, the cluster remains operational. Therefore, three is the minimum recommended number of {{ ZK }} hosts per a {{ mch-name }} cluster.
+
+A cluster with four {{ ZK }} hosts has no advantages over a three-host cluster: it is going to be just as operational if only one of its hosts fails. With two hosts down, the consensus is not met, so the service becomes unavailable.
+
+A cluster with five {{ ZK }} hosts is resilient enough to keep going without two of its hosts, three hosts out of five still forming the majority. This is why it is going to be more serviceable that a three-host cluster. Even if one host out of five is [under maintenance](../../managed-clickhouse/concepts/maintenance.md) or restarting, the cluster remains fault-tolerant, i.e., it can lose one more host and still be operational.
+
+Adding more than five {{ ZK }} hosts to a cluster is not normally advisable. The more {{ ZK }} hosts there are, the longer their interaction times, slowing the service down.
+
+Therefore, we recommend creating three or five {{ ZK }} hosts per a {{ mch-name }} cluster. 

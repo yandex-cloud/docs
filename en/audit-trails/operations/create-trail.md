@@ -1,3 +1,8 @@
+---
+title: How to create a trail to upload audit logs
+description: Follow this tutorial to create {{ at-full-name }} to register and save audit logs.
+---
+
 # Creating a trail to upload audit logs
 
 
@@ -56,7 +61,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
     1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa.md) for the trail to be able to collect and upload logs:
 
-        * `yds.writer` for a data stream.
+        * `yds.editor` for a data stream.
 
         {% include [at-viewer-role-scope](../../_includes/audit-trails/create-trail/at-viewer-role-scope.md) %}
 
@@ -114,7 +119,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
         1. Select one or more services to collect events from.
 
-        1. For each such service, select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The events that end up in the logs will belong to the specified scope.
+        1. For each such service, select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
 
             The permissions of the service account [created earlier](before-you-begin) must allow log collection from the specified scope.
 
@@ -136,286 +141,145 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
 - CLI {#cli}
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    You can create a trail in two ways:
+  See the description of the [CLI](../../cli/) trail creation command for details about the arguments you can use:
 
-    * Create a YAML file containing your trail parameters and provide this file to the command to create the trail.
+  ```bash
+  yc audit-trails trail create --help
+  ```
 
-        This method simplifies working with trail parameters and reduces the probability of error.
+  You can create a trail by specifying its parameters in one of these two ways:
 
-    * Provide the trail parameters in the command arguments to create the trail.
+  {% cut "In the YAML specification" %}
 
-        See the description of the [CLI](../../cli/) trail creation command for details about the arguments you can use:
+  Create a YAML specification containing the trail parameters and specify this file in the command to create the trail.
+  
+  This method simplifies working with trail parameters and reduces error probability. In addition, you can only customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) using the YAML specification.
 
-        ```bash
-        yc audit-trails trail create --help
-        ```
+  1. Create a YAML file with the trail configuration:
 
-        {% note tip %}
+      {% include [trail-create-cli-yaml-config](../../_includes/audit-trails/trail-create-cli-yaml-config.md) %}
 
-        Use this method if your trail configuration is simple and contains few parameters.
+      Where:
 
-        {% endnote %}
+      * `name`: Trail name. It must be unique within the folder.
+      * `folder_id`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder the trail will reside in.
+      * `destination`: Settings of the selected destination the audit logs will be uploaded to.
 
-    To create a trail using a YAML file:
+          {% note warning %}
 
-    1. Create a YAML file with the trail configuration:
+          Destination settings are mutually exclusive. Using some settings makes it impossible to use others.
 
-        ```yaml
-        name: <trail_name>
-        folder_id: <folder_ID>
-        destination:
-          # Only one destination must be specified:
-          # object_storage, cloud_logging, data_stream
-          # Settings for all destinations are provided for illustration purposes.
-          object_storage:
-            bucket_id: <bucket_name>
-            object_prefix: <prefix_for_objects>
-          cloud_logging:
-            log_group_id: <log_group_ID>
-          data_stream:
-            stream_name: <YDS_name>
-            database_id: <YDS_database_ID>
-        service_account_id: <service_account_ID>
-        filtering_policy:
-          management_events_filter:
-            resource_scopes:
-              - id: <cloud_or_folder_organization_ID>
-                type: <type>
-          data_events_filters:
-            - service: <service_name>
-              resource_scopes:
-                - id: <cloud_or_folder_organization_ID>
-                  type: <type>
-              # You can specify either `included_events` or `excluded_events`,
-              # or skip both parameters to collect all service events.
-              # Both parameters are provided for illustration purposes.
-              included_events:
-                event_types:
-                  - <these_events_will_be_collected>
-              excluded_events:
-                event_types:
-                  - <these_events_will_not_be_collected>
-        ```
+          {% endnote %}
 
-        Where:
+          * `object_storage`: Uploading logs to a {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md#naming):
 
-        * `name`: Trail name. It must be unique within the folder.
-        * `folder_id`: ID of the folder the trail will reside in.
-        * `destination`: Settings of the selected destination the audit logs will be uploaded to.
+              * `bucket_id`: [Name](../../storage/concepts/bucket.md#naming) of the bucket you created [earlier](#before-you-begin).
 
-            {% note warning %}
+                  You can request the name of the bucket with the list of buckets in the folder (the default folder is used):
 
-            Destination settings are mutually exclusive. Using some settings makes it impossible to use others.
+                  ```bash
+                  yc storage bucket list
+                  ```
 
-            {% endnote %}
+              * `object_prefix`: [Prefix](../../storage/concepts/object.md#folder) that will be assigned to the objects with audit logs in the bucket. It is an optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
-            * `object_storage`: Uploading logs to the {{ objstorage-name }} bucket:
+                  {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
-                * `bucket_id`: Name of the bucket you [created earlier](#before-you-begin).
+          * `cloud_logging`: Uploading logs to a {{ cloud-logging-full-name }} [group](../../logging/concepts/log-group.md).
 
-                    You can request the name of the bucket with the list of buckets in the folder (the default folder is used):
+              In the `log_group_id` parameter, specify the ID of the log group you [created earlier](#before-you-begin). You can request the ID with the [list of log groups in the folder](../../logging/operations/list.md).
+          * `data_stream`: Uploading logs to a [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-full-name }}:
 
-                    ```bash
-                    yc storage bucket list
-                    ```
+              * `stream_name`: Name of the data stream you [created earlier](#before-you-begin). You can request the name with the [list of data streams in the folder](../../data-streams/operations/manage-streams.md#list-data-streams).
+              * `database_id`: ID of the {{ ydb-short-name }} database used by {{ yds-name }}. You can request the ID with the [list of {{ ydb-short-name }} databases in the folder](../../ydb/operations/manage-databases.md#list-db).
+      * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account you created [earlier](#before-you-begin).
 
-                * `object_prefix`: [Prefix](../../storage/concepts/object.md#folder) that will be assigned to the objects with audit logs in the bucket. It is an optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+      {% include [trail-create-cli-yaml-desc-filtering](../../_includes/audit-trails/trail-create-cli-yaml-desc-filtering.md) %}
 
-                    {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
+  1. Run this command:
 
-            * `cloud_logging`: Upload logs to a {{ cloud-logging-name }} group.
+      ```bash
+      yc audit-trails trail create --file <file_path>
+      ```
 
-                In the `log_group_id` parameter, specify the ID of the log group [created earlier](#before-you-begin). You can request the ID with the [list of log groups in the folder](../../logging/operations/list.md).
+  {% endcut %}
 
-            * `data_stream`: Upload logs to a data stream in {{ yds-name }}:
+  {% cut "In the command arguments:" %}
 
-                * `stream_name`: Name of the data stream you [created earlier](#before-you-begin). You can request the name with the [list of data streams in the folder](../../data-streams/operations/manage-streams.md#list-data-streams).
+  Use this method if your trail configuration is simple and contains few parameters.
 
-                * `database_id`: ID of the {{ ydb-short-name }} database used by {{ yds-name }}. You can request the ID with the [list of {{ ydb-short-name }} databases in the folder](../../ydb/operations/manage-databases.md#list-db).
+  {% note info %}
 
-        * `service_account_id`: ID of the service account you [created earlier](#before-you-begin).
+  You can only customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) using the YAML specification.
 
-        * `filtering_policy`: Settings of the filtering policy that determines which events to collect and include in the audit logs. The policy consists of filters pertaining to different levels of events.
+  {% endnote %}
 
-            {% note warning %}
+  Run this command:
 
-            You must configure at least one filter for the policy; otherwise, you will not be able to create a trail.
+  ```bash
+  yc audit-trails trail create \
+    --name <trail_name> \
+    --description <trail_description> \
+    --labels <label_list> \
+    --service-account-id <service_account_ID> \
+    --destination-bucket <bucket_name> \
+    --destination-bucket-object-prefix <prefix_for_objects> \
+    --destination-log-group-id <log_group_ID> \
+    --destination-yds-stream <YDS_name> \
+    --destination-yds-database-id <YDS_database_ID> \
+    --filter-all-folder-id <folder_ID> \
+    --filter-all-cloud-id <cloud_ID> \
+    --filter-all-organisation-id <organization_ID> \
+    --filter-some-folder-ids <cloud_folder_list> \
+    --filter-from-cloud-id <cloud_ID_with_selected_folders> \
+    --filter-some-cloud-ids <list_of_clouds_in_organization> \
+    --filter-from-organisation-id <organization_ID_with_selected_clouds>
+    ```
 
-            {% endnote %}
+    Where:
+    * `--name`: Name of the new trail.
 
-            Available filters:
+    {% include [trail-cli-flag-desc](../../_includes/audit-trails/trail-cli-flag-desc.md) %}
 
-            * `management_events_filter`: Management event filter.
-
-                {#filter-cli}
-
-                Specify the [log collection scope](../concepts/trail.md) in the `resource_scopes` parameter:
-
-                * `id`: Organization, cloud, or folder ID.
-                * `type`: Scope type according to the specified ID:
-
-                    * `organization-manager.organization`: Organization
-                    * `resource-manager.cloud`: Cloud
-                    * `resource-manager.folder`: Folder
-
-                You can combine several scopes belonging to the same organization in one `resource_scopes` parameter. For example, you can collect logs from one entire cloud and only from particular folders in another cloud:
-
-                ```yaml
-                resource_scopes:
-                  # Collecting logs from all of cloud 1
-                  - id: <ID_of_cloud_1>
-                    type: resource-manager.cloud
-                  # Collecting logs from folder 1 of cloud 2
-                  - id: <folder_1_ID>
-                    type: resource-manager.folder
-                  # Collecting logs from folder 2 of cloud 2
-                  - id: <folder_2_ID>
-                    type: resource-manager.folder
-                ```
-
-                Service account permissions must allow collecting logs from the specified scopes.
-
-            * `data_events_filters`: Data event filters. You can configure several filters of this type, one filter per service.
-
-                A filter for one service has the following structure:
-
-                * `service`: Service name. You can get it from the [data event reference](../concepts/events-data-plane.md).
-
-                * `resource_scopes`: Places to collect data events from. You can configure this parameter the same way as the management event filter.
-
-                * `*_events`: Data event filters.
-
-                    * `included_events.event_types`: Collect only specified events.
-                    * `excluded_events.event_types`: Collect all events other than the specified ones.
-
-                    You can get a list of events from the [data event reference](../concepts/events-data-plane.md).
-
-                    {% note warning %}
-
-                    These filters are mutually exclusive:
-
-                    * Either configure `included_events`
-                    * Or `excluded_events`
-
-                    If you configure neither, all events will be collected.
-
-                    {% endnote %}
-
-    1. Run this command:
-
-        ```bash
-        yc audit-trails trail create --file <file_path>
-        ```
+  {% endcut %}
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-    {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-    1. In the configuration file, describe the parameters of the trail that will collect audit logs:
+  1. In the configuration file, describe the parameters of the trail to collect audit logs:
 
-        ```hcl
-        resource "yandex_audit_trails_trail" "basic_trail" {
-          name        = "<trail_name>"
-          folder_id   = "<folder_ID>"
-          description = "<trail_description>"
-          labels = {
-            key = "value"
-          }
-          service_account_id = "<service_account_ID>"
+      {% include [trail-tf-manifest](../../_includes/audit-trails/trail-tf-manifest.md) %}
 
+      Where:
 
-          # Only one destination must be specified:
-          # storage_destination , logging_destination, data_stream_destination
-          # Settings for all destinations are provided for illustration purposes.
+      {% include [trail-create-tf-descs_part1](../../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
 
-          logging_destination {
-            log_group_id = "<log_group_ID>"
-          }
-          storage_destination {
-            bucket_name   = "<bucket_ID>"
-            object_prefix = "<prefix>"
-          }
-          data_stream_destination {
-            database_id = "<YDS_database_ID>"
-            stream_name = "<YDS_name>"
-          }
+      {% include [trail-create-tf-descs_logging](../../_includes/audit-trails/trail-create-tf-descs-logging.md) %}
 
-          # Filtering policy settings
+      {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-          filtering_policy {
-            management_events_filter {
-              resource_scope {
-                resource_id   = "<organization_ID>"
-                resource_type = "resource-manager.organization"
-              }
-            }  
-            data_events_filter {
-              service = "<service>"
-              included_events = ["<service_event_type>","<service_2_event_type>"]
-              resource_scope {
-                resource_id   = "<cloud_ID>"
-                resource_type = "resource-manager.cloud"
-              }
-              resource_scope {
-                resource_id   = "<folder_ID>"
-                resource_type = "resource-manager.folder"
-              }
-            }
-            data_events_filter {
-              service = "<service_2>"
-              resource_scope {
-                resource_id   = "<ID_of_cloud_2>"
-                resource_type = "resource-manager.cloud"
-              }
-              resource_scope {
-                resource_id   = "<cloud_3_ID>"
-                resource_type = "resource-manager.cloud"
-              }
-            }
-            data_events_filter {
-              service = "<service_3>"
-              resource_scope {
-                resource_id   = "<folder_2_ID>"
-                resource_type = "resource-manager.folder"
-              }
-              resource_scope {
-                resource_id   = "<folder_3_ID>"
-                resource_type = "resource-manager.folder"
-              }
-            }
-          }
-        }
-        ```
+      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/audit_trails_trail).
 
-        Where:
+  1. Create the resources:
 
-        {% include [trail-create-tf-descs_part1](../../_includes/audit-trails/trail-create-tf-descs-part1.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        {% include [trail-create-tf-descs_logging](../../_includes/audit-trails/trail-create-tf-descs-logging.md) %}
+      {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
-        {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
-
-        For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/audit_trails_trail).
-
-    1. Create the resources:
-
-        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
-        {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
-
-       ```bash
-       yc audit-trails trail get <trail_name>
-       ```
+     ```bash
+     yc audit-trails trail get <trail_name>
+     ```
 
 - API {#api}
 
-    Use the [create](../api-ref/Trail/create.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Create](../api-ref/grpc/Trail/create.md) gRPC API call.
+  Use the [create](../api-ref/Trail/create.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Create](../api-ref/grpc/Trail/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -693,7 +557,7 @@ Create a trail with the following parameters:
 
       ```json
       {
-      "done": false,
+      "done": true,
       "metadata": {
         "@type": "type.googleapis.com/yandex.cloud.audittrails.v1.CreateTrailMetadata",
         "trailId": "cnpvprd5pa66********"

@@ -18,7 +18,7 @@ To get started with {{ iam-short-name }}, add a user to your organization and gr
         * Organization owner (`organization-manager.organizations.owner`) or administrator (`organization-manager.admin`)
         * Cloud owner (`resource-manager.clouds.owner`) or administrator (`admin`)
 
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have any users to add to the cloud, you can [create a new Yandex account](https://passport.yandex.ru/registration) and grant this account access to the cloud.
 
 ## Add a user with a Yandex account to your organization {#add-organization-member}

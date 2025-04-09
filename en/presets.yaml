@@ -586,6 +586,7 @@ default:
   roles-editor: editor
   roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
+  roles-functions-mdbProxiesUser: functions.mdbProxiesUser
   roles-functions-viewer: functions.viewer
   roles-iam-sa-admin: iam.serviceAccounts.admin
   roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator

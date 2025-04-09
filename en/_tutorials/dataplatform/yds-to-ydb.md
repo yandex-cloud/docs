@@ -4,11 +4,36 @@ With {{ data-transfer-name }}, you can deliver data from a stream in {{ yds-name
 
 To transfer data:
 
-1. [Prepare a {{ yds-name }} data stream](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up a stream in {{ yds-name }}](#prepare-source).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* Fee for each {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	
+    Learn more about the [{{ ydb-name }}](../../ydb/pricing/index.md) pricing plans.
+
+* {{ yds-name }} fee. The fee depends on the pricing mode:
+
+	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
+	* Based on actual use:
+		* If the DB operates in serverless mode, the data stream is charged under the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
+
+		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated)).
+
+    Learn more about the [{{ yds-name }}](../../data-streams/pricing.md) pricing plans.
+
+* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -45,7 +70,7 @@ Prepare the data transfer infrastructure:
         * `target_db_name`: {{ ydb-name }} target database name.
         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -65,7 +90,7 @@ Prepare the data transfer infrastructure:
 
 [Create a {{ yds-name }} data stream](../../data-streams/quickstart/create-stream.md).
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create an endpoint for the {{ yds-name }} source](../../data-transfer/operations/endpoint/index.md#create).
 
@@ -157,7 +182,7 @@ Prepare the data transfer infrastructure:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -173,9 +198,9 @@ Prepare the data transfer infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. [Send test data to the data stream in {{ yds-name }}](../../data-streams/operations/aws-cli/send.md):
 
@@ -200,9 +225,9 @@ Prepare the data transfer infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder with the DB.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list.
-        1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+        1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Make sure the `<stream_name>` table now contains the test data.
 
     - {{ ydb-short-name }} CLI {#cli}
@@ -223,14 +248,14 @@ Prepare the data transfer infrastructure:
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. If you had created service accounts, [delete them](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:

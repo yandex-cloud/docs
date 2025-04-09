@@ -110,6 +110,26 @@ You will get the list of notification channels located in the same folder as the
   print ("Message id:", response["MessageId"])
   ```
 
+- RuStore Android
+
+  ```python
+  response = client.publish(
+      TargetArn="<endpoint_ID>",
+      Message=json.dumps({
+          "default": "<default_notification_text>",
+          "RUSTORE": json.dumps({
+              "notification": {
+                  "title": "<notification_title>",
+                  "body": "<notification_text>",
+              }
+          })
+      }),
+      MessageStructure="json"
+  )
+  message_id = response["MessageId"]
+  print(f"Message id is: {message_id}")
+  ```
+
 {% endlist %}
 
 Where:

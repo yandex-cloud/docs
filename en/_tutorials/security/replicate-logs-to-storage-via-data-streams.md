@@ -9,8 +9,8 @@ The solution works as described below:
 
 To set up log replication:
 
-1. [Prepare your cloud environment](#before-you-begin).
-1. [Configure the environment](#prepare-environment).
+1. [Get your cloud ready](#before-you-begin).
+1. [Set up your environment](#prepare-environment).
 1. [Create a bucket](#create-bucket).
 1. [Create a data stream](#create-stream).
 1. [Connect the stream to the log group](#stream-log-connect).
@@ -23,6 +23,7 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of data storage support includes:
@@ -31,7 +32,8 @@ The cost of data storage support includes:
 * Fees for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 * Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 
-## Configure the environment {#prepare-environment}
+
+## Set up your environment {#prepare-environment}
 
 1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `logs-sa`, with the `editor` [role](../../iam/roles-reference.md#editor) for the folder.
 1. [Set up](../../logging/tutorials/) the transfer of logs to the log group. For example, you can [transfer](../../logging/tutorials/vm-fluent-bit-logging.md) logs from a VM instance or [add](../../logging/operations/write-logs.md) test records to the log group.
@@ -59,7 +61,7 @@ The cost of data storage support includes:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the created resources:
+To stop paying for the resources you created:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../data-transfer/operations/endpoint/#delete).

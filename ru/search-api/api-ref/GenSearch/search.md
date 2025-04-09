@@ -63,15 +63,21 @@ Single search query or a search query with context in the form of chat with the 
 Required field. ID of the folder. ||
 || site | **[SiteOption](#yandex.cloud.searchapi.v2.GenSearchRequest.SiteOption)**
 
+Required field. 
+
 Includes only one of the fields `site`, `host`, `url`.
 
 Restricts the search to the specific websites, hosts or pages. ||
 || host | **[HostOption](#yandex.cloud.searchapi.v2.GenSearchRequest.HostOption)**
 
+Required field. 
+
 Includes only one of the fields `site`, `host`, `url`.
 
 Restricts the search to the specific websites, hosts or pages. ||
 || url | **[UrlOption](#yandex.cloud.searchapi.v2.GenSearchRequest.UrlOption)**
+
+Required field. 
 
 Includes only one of the fields `site`, `host`, `url`.
 

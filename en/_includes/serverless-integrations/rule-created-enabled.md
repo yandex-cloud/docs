@@ -1,0 +1,1 @@
+All newly created rules are enabled by default. To stop events matching the rule from being routed to the target, [disable](../../serverless-integrations/operations/eventrouter/rule/disable.md) the rule.

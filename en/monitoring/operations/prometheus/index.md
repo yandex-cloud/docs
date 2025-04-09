@@ -15,7 +15,7 @@ description: '{{ managed-prometheus-full-name }} is a monitoring system compatib
 
 ## Getting started {#access}
 
-To start working with {{ managed-prometheus-full-name }} in the current folder, you need to create a workspace. To do this:
+To start working with {{ managed-prometheus-full-name }} in the current folder, you need to create a workspace. Proceed as follows:
 
 1. Open the {{ monitoring-full-name }} [home page]({{ link-monitoring }}).
 1. In the left-hand panel, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.

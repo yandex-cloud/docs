@@ -1,5 +1,4 @@
-You can authenticate with APNs using either a _token_ or a _certificate_:
-* To authenticate using a token, you will need the following data:
+* To authenticate with a token, you will need:
   * **{{ ui-key.yacloud.cns.field_apns-key }}**: File with the signature key that you will use to certify the authentication token.
       
       Create and download a signature key in your Apple developer account: **Certificates, Identifiers & Profiles** → **Keys** → ![image](../../_assets/console-icons/circle-plus-fill.svg). You can download the key file only once.
@@ -9,7 +8,7 @@ You can authenticate with APNs using either a _token_ or a _certificate_:
    
    Learn more about the token in the [relevant Apple documentation](https://developer.apple.com/documentation/usernotifications/establishing-a-token-based-connection-to-apns).
 
-* To authenticate using a certificate, you will need the following data:
+* To authenticate with a certificate, you will need:
   * **{{ ui-key.yacloud.cns.field_apns-certificate }}**: SSL certificate file in `.pem` format.
   * **{{ ui-key.yacloud.cns.field_apns-private-key }}**: Key file in `.pem` format. 
 

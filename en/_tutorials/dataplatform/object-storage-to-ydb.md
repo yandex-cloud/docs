@@ -1,13 +1,28 @@
 # Loading data from {{ objstorage-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ objstorage-name }} to the {{ ydb-name }} table using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-name }} to the {{ ydb-name }} table using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
 1. [Set up and activate your transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	
+    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
+
 
 ## Getting started {#before-you-begin}
 
@@ -168,7 +183,7 @@ Check the transfer performance by testing the copy and replication processes.
 
     1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
 
-    1. Run this query:
+    1. Run this request:
 
         ```sql
         SELECT * FROM table1;
@@ -210,7 +225,7 @@ Check the transfer performance by testing the copy and replication processes.
 
         1. [Connect to the {{ ydb-name }} database](../../ydb/operations/connection.md).
 
-        1. Run this query:
+        1. Run this request:
 
             ```sql
                 SELECT * FROM table1;

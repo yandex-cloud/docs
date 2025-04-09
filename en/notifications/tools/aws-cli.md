@@ -10,7 +10,7 @@ description: The {{ cns-name }} HTTP API is compatible with the Amazon SNS API.
 To get started with the AWS CLI:
 1. [Get your cloud ready](#before-you-begin).
 1. [Get a static access key](#static-key).
-1. [Set up the AWS CLI](#aws-cli).
+1. [Configure the AWS CLI](#aws-cli).
 1. [Create a notification channel](#create-channel).
 1. [Get a list of channels](#list-channel).
 1. [Create an endpoint](#create-endpoint).
@@ -24,7 +24,7 @@ To get started with the AWS CLI:
 
 {% include [sa-role-static-key](../../_includes/notifications/sa-role-static-key.md) %}
 
-## Set up the AWS CLI {#aws-cli}
+## Configure the AWS CLI {#aws-cli}
 
 The [AWS CLI](https://aws.amazon.com/cli/) is a command line interface designed for AWS services. The {{ cns-name }} HTTP API is compatible with the [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html). To learn [how to run commands](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html), see the official Amazon documentation.
 
@@ -43,16 +43,33 @@ To configure the AWS CLI:
 
       {% note info %}
 
-      To work with {{ cns-name }}, always specify `{{ region-id }}` as the region. A different region value may lead to an authorization error.
+      To work with {{ cns-name }}, always specify the `{{ region-id }}`. A different region value may lead to an authorization error.
 
       {% endnote %}
 
-1. Leave the other parameter values unchanged.
+1. Leave the other parameters unchanged.
 1. Set the {{ cns-name }} endpoint:
 
     ```bash
     aws configure set endpoint_url https://{{ cns-host }}/
     ```
+   To check the endpoint value in the settings, use this command:
+
+    ```bash
+    aws configure get endpoint_url
+    ```
+   
+   By using `configure set` and `configure get`, you can manage settings in the `~/.aws/config` configuration file. You can also configure parameters via [environment variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-endpoints.html#endpoints-global).
+
+    {% note warning %}
+
+     Since there are multiple ways to set an endpoint, each of these ways has a defined [priority](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html#envvars-list-AWS_ENDPOINT_URL). Environment variables override configuration file settings.
+     
+     To prevent conflicts, use `echo $AWS_ENDPOINT_URL` to check the environment variable and `aws configure get endpoint_url` to verify the configuration file parameter.
+
+     Also, make sure there are no conflicts between the configuration (the `~/.aws/credentials` file) and the `AWS_DEFAULT_REGION`, `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY` environment variables.
+     
+     {% endnote %}
 
 {% cut "Sample configuration files" %}
 

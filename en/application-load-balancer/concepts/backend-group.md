@@ -31,7 +31,7 @@ By default, backends of the **{{ ui-key.yacloud.alb.label_proto-stream }}** type
 
 {% note alert %}
 
-You can only select a backend group's type when creating it. You can't change the type of an existing group.
+You can only select a backend group's type when creating it. You cannot change the type of an existing group.
 
 {% endnote %}
 
@@ -142,7 +142,7 @@ The following health check settings are supported:
   * Request body.
   * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. Here is an example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
 
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 
@@ -153,8 +153,8 @@ Note that if the backend is configured to use TLS with the target group endpoint
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/console.md)
 * [{#T}](../tutorials/tls-termination/index.md)
-* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md)
-* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md)
 * [{#T}](../tutorials/cdn-storage-integration.md)
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
 * [{#T}](../tutorials/logging.md)

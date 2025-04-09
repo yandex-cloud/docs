@@ -5,6 +5,12 @@ description: Follow this guide to delete a bus.
 
 # Deleting a bus
 
+{% note info %}
+
+You cannot delete a bus if deletion protection is enabled. [Disable](update.md) the protection before deletion.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

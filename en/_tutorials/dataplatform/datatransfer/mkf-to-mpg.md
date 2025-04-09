@@ -1,17 +1,27 @@
 # Delivering data from an {{ KF }} queue to {{ PG }} using {{ data-transfer-full-name }}
 
 
-You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using {{ data-transfer-full-name }}. To do this:
+You can set up data transfer from a {{ mkf-name }} topic to {{ mpg-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-1. Prepare the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -52,7 +62,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * {{ KF }} and {{ PG }} versions
             * {{ KF }} and {{ PG }} user passwords
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -129,7 +139,7 @@ Create a local `sample.json` file with the following test data:
 
 {% endcut %}
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) with the `{{ KF }}` type and specify the following items for it:
 
@@ -182,21 +192,21 @@ Create a local `sample.json` file with the following test data:
 
     {% endcut %}
 
-1. Create a target endpoint and a transfer:
+1. Create a target endpoint and transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
+        1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<target_{{ PG }}_cluster_name>` from the drop-down list.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
-        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
+        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
 
@@ -205,7 +215,7 @@ Create a local `sample.json` file with the following test data:
             * `kf_source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` to create a target endpoint and transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -221,7 +231,7 @@ Create a local `sample.json` file with the following test data:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ mpg-name }} database:
 
@@ -244,7 +254,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mpg-name }} database:
 
     1. [Connect to the {{ mpg-name }} database](../../../managed-postgresql/operations/connect.md).
-    1. Check that the `sensors` table contains the sent data:
+    1. Check that the `sensors` table contains the data that was sent:
 
         ```sql
         SELECT * FROM sensors;
@@ -254,7 +264,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

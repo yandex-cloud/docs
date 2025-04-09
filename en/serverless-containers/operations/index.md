@@ -79,3 +79,8 @@ description: In this article, you will learn how to work with the managed servic
 * [Updating a trigger](./trigger-update.md)
 * [Viewing monitoring charts](./trigger-monitoring.md)
 * [Deleting a trigger](./trigger-delete.md)
+
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

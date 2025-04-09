@@ -2,15 +2,25 @@ You can migrate a database from {{ GP }} to the {{ PG }} cluster using {{ data-t
 
 To transfer a database from {{ GP }} to {{ PG }}:
 
-1. [Set up the transfer](#prepare-transfer).
+1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
 1. [Check the copy function upon re-activation](#example-check-copy).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mgp-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-For clarity, we will create all required resources in {{ yandex-cloud }}. Prepare the infrastructure:
+For clarity, we will create all required resources in {{ yandex-cloud }}. Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -66,7 +76,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
 
 {% endlist %}
 
-## Set up the transfer {#prepare-transfer}
+## Set up your transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/greenplum.md) of the `{{ GP }}` type and specify the cluster connection parameters in it:
 
@@ -77,13 +87,13 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: `<user_password>`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}**: `public`
 
-1. Create a target endpoint and a transfer:
+1. Create a target endpoint and transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
+        1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) of the `{{ PG }}` type and specify the cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `Yandex Managed Service for PostgreSQL cluster`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<{{ PG }}>`_target_cluster_name from the drop-down list
@@ -91,7 +101,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
 
             Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** field under **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.title }}**, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
 
@@ -108,7 +118,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
             * `gp_source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -141,7 +151,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Prepar
     (44, 'User5');
     ```
 
-1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. To check that the data was transferred correctly, connect to the {{ mpg-name }} target cluster and make sure that the columns of the `x_tab` table in the `db1` database match those of the `x_tab` table in the source database:
 
    ```sql

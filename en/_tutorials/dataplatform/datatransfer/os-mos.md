@@ -1,15 +1,23 @@
 # Migrating data from {{ OS }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. To do this:
+With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. Proceed as follows:
 
 1. [Set up the source cluster](#configure-source).
 1. [Prepare the test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+* {{ mos-name }} cluster fee: Using computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk space (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -150,7 +158,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
     1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the [source {{ OS }} cluster](../../../data-transfer/operations/endpoint/source/opensearch.md#on-premise).
 
@@ -162,7 +170,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
     - {{ TF }} {#tf}
@@ -173,7 +181,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -191,8 +199,8 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 
 ## Test the transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Check that the {{ mos-name }} cluster's `people` index contains the data that was sent:
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Check that the the {{ mos-name }} cluster's `people` index contains the data that was sent:
 
     {% list tabs group=programming_language %}
 
@@ -222,7 +230,7 @@ You can provide data from the {{ OS }} cluster as the `admin` user with the `sup
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. Delete the other resources depending on how they were created:
 
     {% list tabs group=instructions %}

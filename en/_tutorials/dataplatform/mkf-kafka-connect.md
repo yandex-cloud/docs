@@ -74,7 +74,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * Properly configured {{ mkf-name }} cluster.
 
     1. In the file, specify the password for the user named `user` you are going to use to access the {{ mkf-name }} cluster, as well as the username and the public part of the SSH key for the virtual machine. If the virtual machine will be running Ubuntu 20.04 from the recommended [image list](../../compute/operations/images-with-pre-installed-software/get-list.md), the username you put here will be ignored. In which case use `ubuntu` for username to establish the [connection](#prepare-vm).
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
        ```bash
        terraform validate
@@ -102,6 +102,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
     sudo apt install default-jdk --yes && \
     sudo apt install kafkacat
     ```
+    
+    Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 1. [Download](https://downloads.apache.org/kafka/) and unpack the archive containing {{ KF }}:
 
@@ -167,7 +169,7 @@ Create a file named `/var/log/sample.json` with test data. This file contains da
 
     {{ KFC }} will connect to the {{ mkf-name }} cluster as the user named `user` [created earlier](#before-you-begin).
 
-    You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
+    You can request the FQDNs of broker hosts with the [list of cluster hosts](../../managed-kafka/operations/cluster-hosts.md).
 
 1. Create a file named `/etc/kafka-connect-worker/file-connector.properties` with connector settings:
 
@@ -208,7 +210,7 @@ Create a file named `/var/log/sample.json` with test data. This file contains da
         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z -K:
     ```
 
-    You can request the FQDNs of broker hosts with a [list of hosts in the cluster](../../managed-kafka/operations/cluster-hosts.md).
+    You can request the FQDNs of broker hosts with the [list of cluster hosts](../../managed-kafka/operations/cluster-hosts.md).
 
     In the command output, you will see the contents of the `/var/log/sample.json` test file provided in the previous step.
 

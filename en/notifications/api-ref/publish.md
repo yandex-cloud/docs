@@ -12,14 +12,14 @@ POST https://{{ cns-host }}/
 
 Parameter | Description
 --- | ---
-`Action` | **string**<br/>This is a required field.<br/>Operation type parameter.<br/>Value: `Publish`.
-`Message` | **string**<br/>This is a required field.<br/>Message you want to send to the endpoint.<br/> The possible formats include:<ul><li>Simple text</li><li>JSON</li></ul><br/>In JSON format, you can optionally provide text for a specific mobile platform, e.g.:<br/>`{ "default": "This is the default message which must be present when publishing a message to a topic. The default message will only be used if a message is not present for one of the notification platforms.", "APNS": "{"aps":{"alert": "Check out these awesome deals!","url":"yandex.cloud"} }", "GCM": "{"data":{"message":"Check out these awesome deals!","url":"yandex.cloud"},"notification":{"title":"GCM notification title"}}" "HMS": "{"data":{"message":"Check out these awesome deals!","url":"yandex.cloud"},"notification":{"title":"HMS notification title"}}" }`<br/>Messages for the FCM and HMS platforms must contain at least one of these fields: `data` or `notification`.
-`MessageStructure` | **string**<br/> If providing a message in JSON format in the `Message` field, set the `MessageStructure` field to `json`.
-`MessageAttributes.entry.N.Name` | **string**<br/>This is a required field.<br/>[Attribute](#attributes) name. `N` is a numeric value.<br/>e.g., `MessageAttributes.entry.1.Name=FirstName&MessageAttributes.entry.2.Name=SecondName`.
-`MessageAttributes.entry.N.Value.DataType` | **string**<br/>This is a required field.<br/>Attribute data type. `N` is a numeric value.<br/>e.g., `MessageAttributes.entry.1.Value.DataType=String&MessageAttributes.entry.2.Value.DataType=Number`.
-`MessageAttributes.entry.N.Value.StringValue` | **string**<br/>This is a required field.<br/>Attribute value. `N` is a numeric value.<br/>e.g., `MessageAttributes.entry.1.Value.StringValue=background&MessageAttributes.entry.2.Value.StringValue=5`.
-`TargetArn` | **string**<br/>This is a required field.<br/>Mobile endpoint ID (ARN).<br/>e.g., `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
-`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
+`Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `Publish`.
+`Message` | **string**<br/>Required field.<br/>Message you want to send to the endpoint.<br/>The possible formats are:<ul><li>Simple text</li><li>JSON</li></ul><br/>In JSON format, you can optionally provide text for a specific mobile platform, e.g.:<br/>`{ "default": "This is the default message which must be present when publishing a message to a topic. The default message will only be used if a message is not present for one of the notification platforms.", "APNS": "{"aps":{"alert": "Check out these awesome deals!","url":"yandex.cloud"} }", "GCM": "{"data":{"message":"Check out these awesome deals!","url":"yandex.cloud"},"notification":{"title":"GCM notification title"}}" "HMS": "{"data":{"message":"Check out these awesome deals!","url":"yandex.cloud"},"notification":{"title":"HMS notification title"}}" }`<br/>Messages for FCM and HMS platforms must contain at least one of the `data` or `notification` fields.
+`MessageStructure` | **string**<br/>If providing a message in JSON format in the `Message` field, set the `MessageStructure` field to `json`.
+`MessageAttributes.entry.N.Name` | **string**<br/>Required field.<br/>[Attribute](#attributes) name. `N` is a numeric value.<br/>Example: `MessageAttributes.entry.1.Name=FirstName&MessageAttributes.entry.2.Name=SecondName`.
+`MessageAttributes.entry.N.Value.DataType` | **string**<br/>Required field.<br/>Attribute data type. `N` is a numeric value.<br/>Example: `MessageAttributes.entry.1.Value.DataType=String&MessageAttributes.entry.2.Value.DataType=Number`.
+`MessageAttributes.entry.N.Value.StringValue` | **string**<br/>Required field.<br/>Attribute value. `N` is a numeric value.<br/>Example: `MessageAttributes.entry.1.Value.StringValue=background&MessageAttributes.entry.2.Value.StringValue=5`.
+`TargetArn` | **string**<br/>Required field.<br/>Mobile endpoint ID (ARN).<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
 
 ### Attributes {#attributes}
 
@@ -43,6 +43,12 @@ AWS.SNS.MOBILE.APNS.TOPIC | Notification topic. See the [Apple documentation](ht
 Attribute | Description
 --- | ---
 AWS.SNS.MOBILE.FCM.TTL | Message lifetime in seconds
+
+#### RUSTORE attributes {#attributes-rustore}
+
+Attribute | Description
+--- | ---
+CNS.MOBILE.RUSTORE.TTL | Message lifetime in seconds
 
 ## Response {#response}
 

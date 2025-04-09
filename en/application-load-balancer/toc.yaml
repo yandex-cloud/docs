@@ -84,21 +84,57 @@ items:
           through an {{ alb-name }} Ingress controller
         href: tutorials/alb-ingress-with-sws-profile.md
       - name: >-
-          Migrating services from an NLB to an L7 ALB for DDoS protection using
-          {{ sws-name }}
+          Migrating services from a NLB load balancer to an L7 ALB load balancer
+          for DDoS protection using {{ sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md
-          - name: NLB with target resources from VMs
-            href: tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
-          - name: NLB load balancer with target resources from an instance group
-            href: >-
-              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
-          - name: NLB with target resources from a {{ managed-k8s-name }} cluster
-            href: >-
-              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
-          - name: NLB load balancer as a target resource for an ALB load balancer
-            href: tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
+          - name: NLB load balancer with VMs as targets
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+          - name: NLB load balancer with a VM group as a target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
+          - name: >-
+              NLB load balancer with a {{ managed-k8s-name }} cluster as a
+              target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
+          - name: NLB load balancer as a target for an ALB
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
       - name: Integrating an L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions

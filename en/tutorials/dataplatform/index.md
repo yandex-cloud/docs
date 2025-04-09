@@ -35,10 +35,11 @@ description: This page provides a list of tutorials for building a data platform
 
 * [{#T}](airflow-auto-tasks.md)
 * [{#T}](using-python-sdk-in-airflow.md)
-* [{#T}](lockbox-and-airflow.md)
+* [{#T}](airflow-test-smtp-notification.md)
 
 ## {{ CH }} {#clickhouse}
 
+* [{#T}](insert-data-ch.md)
 * [{#T}](ch-to-mch-migration.md)
 * [{#T}](clickhouse-migration.md)
 * [{#T}](mysql-to-clickhouse.md)
@@ -46,6 +47,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](dp-mch-data-exchange.md)
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](fetch-data-from-mkf.md)
+* [{#T}](use-ksqldb-with-mkf.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
 * [{#T}](yds-to-clickhouse.md)
@@ -56,6 +58,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](object-storage-to-clickhouse.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
+* [{#T}](bigquery-to-clickhouse.md)
 
 ## {{ GP }} {#greenplum}
 
@@ -65,11 +68,12 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](greenplum-to-postgresql.md)
 * [{#T}](greenplum-yezzey.md)
 * [{#T}](object-storage-to-greenplum.md)
-
+* [{#T}](mgp-config-server-for-s3.md)
 
 ## {{ ES }} {#elasticsearch}
 
 * [{#T}](elasticsearch-to-opensearch.md)
+* [{#T}](migration-via-snapshots.md)
 
 ## {{ MG }} {#mongodb}
 
@@ -117,9 +121,11 @@ description: This page provides a list of tutorials for building a data platform
 ## {{ PG }} {#postgresql}
 
 * [Creating a {{ PG }} cluster for 1C:Enterprise](1c-postgresql.md)
+* [{#T}](mpg-performance-problems.md)
 * [{{ mpg-name }} performance analysis and tuning](mpg-profiling.md)
-* [Migrating a database from {{ mpg-name }}](outbound-replication.md)
+* [{#T}](mpg-replication-overview.md)
 * [Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
+* [Migrating a database from {{ mpg-name }}](outbound-replication.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mkf-to-mpg.md)
 * [{#T}](data-transfer-mpg.md)
@@ -167,7 +173,20 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](data-processing-and-airflow.md)
 * [{#T}](data-processing-to-data-processing.md)
 * [{#T}](metastore-import.md)
+* [{#T}](s3-data-processing-ch.md)
 
+### Basic examples of working with jobs {#jobs-basic-tutorials}
+
+* [{#T}](hive-job-basics.md)
+* [{#T}](mapreduce-job-basics.md)
+* [{#T}](pyspark-job-basics.md)
+* [{#T}](spark-job-basics.md)
+
+### Advanced examples of working with jobs {#jobs-advanced-tutorials}
+
+* [{#T}](how-to-use-hive.md)
+* [{#T}](run-spark-job.md)
+* [{#T}](remote-run-job.md)
 
 ## {{ yq-full-name }} {#query}
 
@@ -177,11 +196,20 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](jupyter-yq.md)
 * [{#T}](billing-detail-files-processing.md)
 
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
-
 ## {{ yds-full-name }} {#yds}
 
 * [{#T}](data-ingestion.md)
 * [{#T}](log-ingestion.md)
 * [{#T}](message-broker.md)
 * [{#T}](yds-obj-migration.md)
+
+## {{ data-transfer-full-name }} {#data-transfer}
+
+* [{#T}](managed-greenplum.md)
+* [{#T}](managed-mongodb.md)
+* [{#T}](managed-mysql.md)
+* [{#T}](managed-mysql-to-mysql.md)
+* [{#T}](managed-postgresql.md)
+* [{#T}](schema-registry-cdc-debezium-kafka.md)
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

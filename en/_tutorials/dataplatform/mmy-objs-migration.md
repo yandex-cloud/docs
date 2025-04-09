@@ -6,14 +6,24 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mmy-name }} sourc
 To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -44,7 +54,7 @@ Prepare the infrastructure:
 
     1. Specify the following in the `data-transfer-mmy-objs.tf` file:
 
-        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) the resources will be created in.
+        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you will create the resources.
         * `sa_name`: Name of the service account for creating a bucket and for use in the target endpoint.
         * `bucket_name`: Bucket name in {{ objstorage-name }}.
         * The {{ mmy-name }} source cluster parameters that will be used as the [source endpoint parameters](../../data-transfer/operations/endpoint/source/mysql.md#managed-service):
@@ -52,9 +62,9 @@ Prepare the infrastructure:
             * `source_mysql_version`: {{ MY }} version.
             * `source_db_name`: Database name.
             * `source_user` and `source_password`: Name and user password of the database owner.
-        * `transfer_enabled`: `0` to ensure that no transfer is created before you [manually create the target endpoint](#prepare-transfer).
+        * `transfer_enabled`: Set `0` to ensure that no transfer is created before [creating a target endpoint manually](#prepare-transfer).
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -103,7 +113,7 @@ Prepare the infrastructure:
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -125,7 +135,7 @@ Prepare the infrastructure:
 
         1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}**:
 
               * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**:
@@ -135,7 +145,7 @@ Prepare the infrastructure:
 
               * (Optional) **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Specify regular expressions for tables both subject and not subject to transfer.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the endpoints you created.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
     - {{ TF }} {#tf}
@@ -146,7 +156,7 @@ Prepare the infrastructure:
             * `transfer_enabled`: Set to `1` to create a transfer.
             * (Optional) `include_tables_regex`, `exclude_tables_regex`: Regular expressions for tables both subject and not subject to transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -162,22 +172,22 @@ Prepare the infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Make sure the data has been moved from the {{ mmy-name }} source cluster to the {{ objstorage-name }} bucket:
 
     1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
-    1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
     1. Make sure that the {{ objstorage-name }} bucket contains the `measurements` directory with the `<source_cluster_database_name>_measurements` object with test data.
 
 ## Delete the resources you created {#clear-out}
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

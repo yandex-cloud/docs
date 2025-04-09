@@ -5,6 +5,12 @@ description: This section contains {{ sf-name }} release notes.
 
 # {{ sf-full-name }} release notes
 
+## February 2025 {#february-2025}
+
+### Updates {#updates}
+
+* Added support for [setting up the function metadata service](operations/function/metadata-options.md).
+
 ## September — October 2024 {#sept-oct-2024}
 
 ### Updates {#updates}
@@ -46,7 +52,7 @@ description: This section contains {{ sf-name }} release notes.
 ### Updates {#updates}
 
 * Added support for editing all trigger parameters in {{ TF }}.
-* [{{ objstorage-full-name }} bucket mounting](concepts/mounting.md) to a function is now at the [general availability](../overview/concepts/launch-stages.md) stage.
+* [{{ objstorage-full-name }} bucket mounting](concepts/mounting.md) to a function is now at the [General Availability](../overview/concepts/launch-stages.md) stage.
 
 ### Fixes and improvements {#fixes-improvements}
 

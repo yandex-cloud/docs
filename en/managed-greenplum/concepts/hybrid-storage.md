@@ -25,7 +25,7 @@ Once hybrid storage is enabled in a cluster, you cannot disable it.
 
 ## Hybrid storage scope of use {#usage-scope}
 
-You can use hybrid storage only for [append-optimized](./tables.md) tables. When you migrate data between cluster storage and cold storage, whole tables are migrated. Tables are processed using the [{{ YZ }} extension](../operations/extensions/yezzey.md) by {{ yandex-cloud }}.
+You can use hybrid storage only for [append-optimized](./tables.md) tables. When you migrate data between cluster storage and cold storage, whole tables are migrated. Tables are processed using the [{{ YZ }} extension](https://github.com/open-gpdb/yezzey) extension by {{ yandex-cloud }}.
 
 The data of append-optimized tables is stored as a set of segment files, compressed and encrypted, in an {{ objstorage-name }} service bucket. The number of segment files depends on the number of segments in the cluster and on the table structure.
 

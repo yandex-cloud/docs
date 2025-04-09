@@ -5,15 +5,43 @@ With {{ data-transfer-name }}, you can deliver data from a [data stream {{ yds-n
 
 To transfer data:
 
-1. [Prepare a {{ yds-name }} data stream](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up a stream in {{ yds-name }}](#prepare-source).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	
+    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
+
+* {{ yds-name }} fee. The fee depends on the pricing mode:
+
+	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
+	* Based on actual use:
+		* If the DB operates in serverless mode, the data stream is charged under the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
+
+		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated)).
+
+    Learn more about the [{{ yds-name }} pricing](../../data-streams/pricing.md) plans.
+
+* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -64,7 +92,7 @@ Prepare the infrastructure:
         * `target_user` and `target_password`: Username and password of the {{ CH }} database owner.
         * `transfer_enabled`: `0` to ensure that no transfer is created before [a source endpoint is created manually](#prepare-transfer).
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -80,7 +108,7 @@ Prepare the infrastructure:
 
 {% endlist %}
 
-## Prepare a {{ yds-name }} data stream {#prepare-source}
+## Set up a {{ yds-name }}-enabled stream {#prepare-source}
 
 1. [Create a {{ yds-name }} data stream](../../data-streams/operations/aws-cli/create.md).
 1. [Send test data to the data stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle sensors in JSON format as a message:
@@ -99,19 +127,19 @@ Prepare the infrastructure:
 }
 ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 {% include [tips for endpoint settings](../../_includes/data-transfer/queue-ch-transfer-tips.md) %}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
-    * **Endpoint parameters**:
+    * **Endpoint settings**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }}-enabled stream.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
@@ -200,7 +228,7 @@ Prepare the infrastructure:
             * `source_endpoint_id`: ID of the source endpoint.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -216,9 +244,9 @@ Prepare the infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. [Send a new message to the data stream](../../data-streams/operations/aws-cli/send.md) {{ yds-name }}:
 
@@ -245,7 +273,7 @@ Prepare the infrastructure:
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

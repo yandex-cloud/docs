@@ -86,3 +86,8 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [Deleting a label](trigger/label-delete.md)
 * [Viewing monitoring charts](trigger/trigger-monitoring.md)
 * [Deleting a trigger](trigger/trigger-delete.md)
+
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

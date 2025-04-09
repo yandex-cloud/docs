@@ -6,8 +6,7 @@ Push notifications are sent via mobile platform notification services:
 * [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
 * [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
 * [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
-
-Push notifications via [RuStore](https://www.rustore.ru/help/sdk/push-notifications) will also be implemented later.
+* [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
 
 {% include [limits-warning](../../_includes/notifications/limits-warning.md) %}
 
@@ -20,29 +19,16 @@ Push notification delivery algorithm using FCM as an example:
 
 ## Mobile push notification channel {#mobile-channel}
 
-Minimum list of source data to create a mobile push notification channel:
+_Mobile push notification_ channel is a tool for message delivery via a notification service. Notification channels correspond to platforms where you can send push notifications.
 
-{% list tabs %}
+Channel names are unique within the entire {{ cns-short-name }}. You cannot create a channel with a name that is already taken. Once you create a channel, you cannot change its name.
 
-- Apple iOS (APNs)
+The minimum information you need to create a channel depends on the platform and may include:
 
-  {% include [auth-apns](../../_includes/notifications/auth-apns.md) %}
+* Key or key ID, token, or certificate.
+* Developer, application, or project ID.
 
-  The notification channel name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). For APNs channels, we recommend specifying the bundle ID in the name.
-
-- Google Android (FCM)
-
-  {% include [auth-fcm](../../_includes/notifications/auth-fcm.md) %}
-
-  The notification channel name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). For FCM channels, we recommend specifying the full package name.
-
-- Huawei Android (HMS)
-
-  {% include [auth-hms](../../_includes/notifications/auth-hms.md) %}
-
-  The channel name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). For HMS channels, we recommend specifying the full package name.
-
-{% endlist %}
+For the full list of details required for each notification channel, see [{#T}](../operations/push/channel-create.md). You can get your authentication parameters in the developer console of the relevant mobile platform.
 
 Once you create a notification channel, it gets a unique ID (ARN).
 

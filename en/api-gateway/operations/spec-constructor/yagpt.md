@@ -1,33 +1,33 @@
 ---
-title: Adding the {{ yagpt-full-name }} extension
-description: Follow this guide to add the {{ yagpt-full-name }} extension using the specification constructor.
+title: Adding the {{ foundation-models-full-name }} extension
+description: Follow this guide to add the {{ foundation-models-full-name }} extension using the specification constructor.
 ---
 
-# Adding the x-yc-apigateway-integration:http extension for integration with {{ yagpt-full-name }}
+# Adding the x-yc-apigateway-integration:http extension for integration with the {{ foundation-models-full-name }} text generation API
 
 {% list tabs %}
 
 - Management console
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) in which you created or want to create an [API gateway](../../concepts/index.md).
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select an API gateway or click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}** to create a new one.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, click ![image](../../../_assets/api-gateway/spec-constructor/cloud-yagpt.svg).
     1. Specify the following in the field:
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * **Service account**: Service account for authorization when accessing [{{ yagpt-full-name }}](../../../foundation-models/concepts/yandexgpt/index.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
+        * **Service account**: Service account for authorization when accessing the [text generation API](../../../foundation-models/concepts/yandexgpt/index.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
 
     1. Under **Model used** select a model and provide the following:
 
-        * For a `{{ yagpt-name }}` model: Folder ID that will be specified in the {{ yagpt-full-name }} URI.
+        * For a `{{ yagpt-name }}` model: Folder ID that will be specified in the text generation model URI.
         * For a `{{ ml-platform-short-name }}` model: ID of the model tuned in [{{ ml-platform-full-name }}](../../../datasphere/index.yaml).
 
     1. Under **Prompt delivery method**, select a prompt source and specify the following:
 
-        * For the `Query parameter` source: Name of the query parameter used to deliver the prompt for the {{ yagpt-full-name }} request.
-        * For the `Request body` source: Name of the request body field used to deliver the prompt for the {{ yagpt-full-name }} request.
+        * For the `Query parameter` source: Name of the query parameter where you will provide the prompt for the text generation API request.
+        * For the `Request body` source: Name of the request body field you will use to provide the prompt for the text generation API request.
     1. Under **Use case**, select the model use case and set the relevant parameters:
 
         * `Text generation`:
@@ -42,7 +42,7 @@ description: Follow this guide to add the {{ yagpt-full-name }} extension using 
 
                 To get correct results, use meaningful class names.
 
-            * (Optional) **Request examples**: Examples of text requests for classes in `text request:class` format. To add an example, click ![image](../../../_assets/console-icons/plus.svg). For more information, see [{#T}](../../../foundation-models/concepts/classifier/index.md#few-shot).
+            * (Optional) **Request examples**: Examples of text requests for classes in `text request:class` format. To add an example, click ![image](../../../_assets/console-icons/plus.svg). To learn more, see [{#T}](../../../foundation-models/concepts/classifier/index.md#few-shot).
 
     1. Click **{{ ui-key.yacloud.common.add }}**.
 

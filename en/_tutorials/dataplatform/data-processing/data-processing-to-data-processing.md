@@ -16,9 +16,17 @@ If a {{ dataproc-name }} cluster contains tables that should be available in ano
 
 {% endnote %}
 
+## Required paid resources {#paid-resources}
+
+The infrastructure support cost includes:
+
+* Fee for the {{ dataproc-name }} cluster computing resources and storage (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* Fee for data storage and operations in a bucket (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
+* Fee for NAT gateway usage and outbound traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
+
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -31,6 +39,7 @@ Prepare the infrastructure:
     1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet you created.
     1. [Create two {{ dataproc-name }} clusters](../../../data-proc/operations/cluster-create.md) named `dataproc-source` and `dataproc-target` in any [suitable host configuration](../../../data-proc/concepts/instance-types.md) with the following settings:
 
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`
         * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
             * `SPARK`
             * `YARN`
@@ -71,9 +80,9 @@ Prepare the infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `input-bucket`: Name of the input data bucket.
         * `output-bucket`: Name of the output data bucket.
-        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. For more information, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
+        * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. To learn more, see [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -95,7 +104,7 @@ Prepare the infrastructure:
 
 1. [Add](../../../data-proc/operations/cluster-update.md) the `spark:spark.hive.metastore.uris` property with the `thrift://<{{ metastore-name }}_cluster_IP_address>:{{ port-metastore }}` value to the {{ dataproc-name }} cluster settings.
 
-   To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster.
+   To find out the {{ metastore-name }} cluster IP address, select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** in the [management console]({{ link-console-main }}) and then select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page in the left-hand panel. Copy the **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}** column value for the cluster in question.
 
 ## Create a test table {#create-table}
 

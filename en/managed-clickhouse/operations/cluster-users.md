@@ -3,7 +3,7 @@ title: Managing {{ CH }} cluster users in {{ mch-full-name }}
 description: In this tutorial, you will learn how to manage {{ mch-name }} cluster users.
 ---
 
-# Managing {{ CH }} users
+# User management {{ CH }}
 
 {{ mch-name }} provides two ways for you to manage users and their individual settings:
 
@@ -47,7 +47,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
 
 - CLI {#cli}
@@ -63,7 +63,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -80,7 +80,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/users'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/User/list.md#responses) to make sure the request was successful.
 
@@ -108,7 +108,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
             yandex.cloud.mdb.clickhouse.v1.UserService.List
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.clickhouse.v1.ListUsersResponse) to make sure the request was successful.
 
@@ -129,7 +129,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter the database username and password.
@@ -183,7 +183,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
      ...
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   See the [example of creating a user with read-only access](#example-create-readonly-user).
 
@@ -282,7 +282,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
               --data '@body.json'
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/User/create.md#responses) to make sure the request was successful.
 
@@ -334,11 +334,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
             Where `user_spec` is an array with settings for the new users. One array element contains settings for a single user and has the following structure:
 
-            * `name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter or underscore.
-            * `password`: User password. The password must be from 8 to 128 characters long.
-            * `permissions`: List of DBs the user must have access to.
-
-                The list appears as an array of `database_name` parameters. Each parameter contains the name of a separate database.
+            {% include [grpc-user-specs](../../_includes/mdb/mch/api/grpc-user-specs.md) %}
 
             * `settings`: List of [{{ CH }} settings](../concepts/settings-list.md#user-level-settings) for the user.
 
@@ -346,7 +342,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
             * `quotas`: Array with [quota settings](../concepts/settings-list.md#quota-settings). One array element contains settings for a single quota.
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -390,7 +386,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
   1. Set a new password and click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
@@ -413,7 +409,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
   {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -482,7 +478,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             The password must be from 8 to 128 characters long.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
 
@@ -529,7 +525,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             The password must be from 8 to 128 characters long.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -556,7 +552,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
     {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-    You can request the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     {% note tip %}
 
@@ -629,7 +625,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             The password must be from 8 to 128 characters long.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure the request was successful.
 
@@ -677,7 +673,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             The password must be from 8 to 128 characters long.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -689,7 +685,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Configure user permissions to access certain databases:
@@ -719,7 +715,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
         --permissions=<DB_list>
      ```
 
-     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      This command grants the user access rights to the databases listed.
 
@@ -739,7 +735,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
        ...
      ```
 
-     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      This command overwrites all existing user quota settings with the new ones you provided to the command.
      Before running the command, make sure that you included the settings for new and changed quotas and the settings for existing quotas that have not changed.
@@ -756,7 +752,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
         --settings=<list_of_{{ CH }}>_settings
      ```
 
-     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
      The command only changes the settings that are explicitly specified in the `--settings` parameter. For example, the command with the parameter `--settings="readonly=1"` only changes the `readonly` setting and doesn't reset the values of the other settings. This is how changing {{ CH }} settings differs from changing quota settings.
 
@@ -866,7 +862,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         * To update the list of databases available to the user, provide the updated list in the `permissions` parameter.
 
-            The list appears as an array of `databaseName` parameters. Each parameter contains the name of a separate database.
+            The list is arranged as an array of `databaseName` parameters. Each parameter contains the name of a separate database.
 
             {% note warning %}
 
@@ -880,7 +876,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         * To update [quota settings](../concepts/settings-list.md#quota-settings), provide the updated list of settings in the `quotas` parameter.
 
-            The list appears as an array. One array element contains settings for a single quota.
+            The list is arranged as an array. One array element contains settings for a single quota.
 
             {% note warning %}
 
@@ -890,7 +886,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             {% endnote %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/update.md#responses) to make sure the request was successful.
 
@@ -935,7 +931,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         * To update the list of databases available to the user, provide the updated list in the `permissions` parameter.
 
-            The list appears as an array of `database_name` parameters. Each parameter contains the name of a separate database.
+            The list is arranged as an array of `database_name` parameters. Each parameter contains the name of a separate database.
 
             {% note warning %}
 
@@ -949,7 +945,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
         * To update [quota settings](../concepts/settings-list.md#quota-settings), provide the updated list of settings in the `quotas` parameter.
 
-            The list appears as an array. One array element contains settings for a single quota.
+            The list is arranged as an array. One array element contains settings for a single quota.
 
             {% note warning %}
 
@@ -959,7 +955,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
             {% endnote %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -992,7 +988,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -1009,7 +1005,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
      --cluster-name=<cluster_name>
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -1046,7 +1042,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/users/<username>'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/delete.md#responses) to make sure the request was successful.
 
@@ -1075,7 +1071,7 @@ We recommend that you use the {{ yandex-cloud }} interfaces listed below. Do not
             yandex.cloud.mdb.clickhouse.v1.UserService.Delete
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can request the user name with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1104,7 +1100,7 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the `mych` cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter `ro-user` as the DB username and `Passw0rd` as the password.

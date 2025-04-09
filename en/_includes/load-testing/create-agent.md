@@ -9,7 +9,7 @@
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create the [agent](../../load-testing/concepts/agent.md).
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+     1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
      1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
      1. Enter a name for the agent, e.g., `agent-008`.
      1. Specify the same [availability zone](../../overview/concepts/geo-scope.md) where the test target is located.
@@ -26,7 +26,7 @@
           Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
 
           {% endnote %}
-
+              
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
      1. Click **{{ ui-key.yacloud.common.create }}**.
      1. Wait for the [VM](../../compute/concepts/vm.md) instance to create. Make sure the agent status has changed to `Ready for test`.

@@ -99,7 +99,7 @@ items:
             href: concepts/visualization/query-string.md
           - name: Widgets
             href: concepts/visualization/widget.md
-          - name: Dashboards
+          - name: Dashboard
             href: concepts/visualization/dashboard.md
       - name: Query language
         href: concepts/querying.md
@@ -115,7 +115,7 @@ items:
             href: concepts/alerting/notification-channel.md
           - name: Escalations
             href: concepts/alerting/escalations.md
-      - name: Data decimation
+      - name: Data downsampling
         href: concepts/decimation.md
       - name: Deleting expired metrics (TTL)
         href: concepts/ttl.md
@@ -123,12 +123,14 @@ items:
         href: concepts/limits.md
   - name: Tutorials
     items:
-      - name: Autoscaling a group of VMs to process messages from a queue
+      - name: Autoscaling an instance group to process messages from a queue
         href: tutorials/autoscale-monitoring.md
-      - name: Monitoring sensor readings and event notifications
+      - name: Sensor reading monitoring and event notifications
         href: tutorials/monitoring.md
       - name: Alert settings in {{ monitoring-name }}
         href: tutorials/alerts-monitoring.md
+      - name: Identifying {{ mpg-name }} cluster performance issues
+        href: tutorials/mpg-performance-problems.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Overview
@@ -169,7 +171,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: API authentication
+      - name: Authentication with the API
         href: api-ref/authentication.md
       - name: REST
         items:
@@ -217,6 +219,8 @@ items:
         href: metrics-ref/certificate-manager-ref.md
       - name: '{{ backup-name }}'
         href: metrics-ref/backup-ref.md
+      - name: '{{ baremetal-name }}'
+        href: metrics-ref/baremetal-ref.md
       - name: '{{ cdn-name }}'
         href: metrics-ref/cdn-ref.md
       - name: '{{ sf-name }}'
@@ -249,6 +253,8 @@ items:
         href: metrics-ref/managed-clickhouse-ref.md
       - name: '{{ mgp-name }}'
         href: metrics-ref/managed-greenplum-ref.md
+      - name: '{{ mgl-name }}'
+        href: metrics-ref/managed-gitlab-ref.md
       - name: '{{ managed-k8s-name }}'
         href: metrics-ref/managed-kubernetes-ref.md
       - name: '{{ mmg-name }}'

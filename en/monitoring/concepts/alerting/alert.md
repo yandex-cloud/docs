@@ -104,7 +104,20 @@ Back-shift of the time window in seconds. The default value is 0. Allows avoidin
 
 ## No data policy {#no-data-policy}
 
-Policies set the alert status when there is no data or metrics in the evaluation window for a given criterion. Policies are applied prior to verifying trigger conditions.
+No data policies define how the service responds when no data points or metrics are available in the [evaluation window](#evaluation-window). Data points may be missing due to delays in data collection or for other reasons. These policies apply before calculating the [trigger conditions](#condition) and set the alert to the appropriate status.
+
+{% note info %}
+
+A data point is a metric value collected over a specific time period. Missing data points signify that no metric values were collected in the evaluation window, resulting in no data for analysis and visualization.
+
+{% endnote %}
+
+Available policy options:
+
+* `{{ ui-key.yacloud_monitoring.alert-template.no-metrics-policy.manual }}`: Policy for manual no data handling. If historical data is available, the chart will be displayed even if the evaluation window contains no data. You can use this policy to view the current values for an in-depth analysis.
+* `{{ ui-key.yacloud_monitoring.alert-template.no-metrics-policy.ok }}`, `{{ ui-key.yacloud_monitoring.alert-template.no-metrics-policy.warn }}`, `{{ ui-key.yacloud_monitoring.alert-template.no-metrics-policy.alarm }}`, `{{ ui-key.yacloud_monitoring.alert-template.no-metrics-policy.no-data-key-value }}`: If data for at least one metric is missing in the evaluation window, each of these policies automatically sets the alert to the appropriate status. Historical data is ignored. When there is no data in the evaluation window, the chart will no longer be displayed.
+
+    Changing the evaluation window size may affect the availability of data points and the chart display.
 
 When there are no metrics or points in an evaluation window, you can handle this scenario in two ways:
 

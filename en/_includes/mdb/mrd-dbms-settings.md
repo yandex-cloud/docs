@@ -32,7 +32,7 @@
 
     {{ VLK }} uses the concept of logical databases isolated from one another. Operations with keys and values in one database do not affect data in other databases. Each database is identified by its own number (from `0` to `Databases − 1`).
 
-    The minimum value is `1`; the maximum value is `2147483647`; default: `16`.
+    The minimum value is `1`; the maximum value is `2147483647`; default: is `16`.
 
     For more information, see the relevant [{{ VLK }} documentation](https://github.com/redis/redis/blob/6.0/redis.conf#L275).
 
@@ -41,6 +41,16 @@
     If you change this parameter, all running {{ VLK }} nodes will be restarted.
 
     {% endnote %}
+
+* **Lua time limit**{#settings-lua-time-limit} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Maximum Lua script execution time (in milliseconds).
+
+    The values range from `0` to `5000`. The default value is `5000`. If `0`, execution time is unlimited.
+
+    Changes do not affect an already running script.
+
+    For more information, see the relevant [{{ RD }} documentation](https://github.com/redis/redis/blob/6.0/redis.conf#L1203).    
 
 * **Maxmemory percent**{#settings-maxmemory-percent} {{ tag-all }}
 

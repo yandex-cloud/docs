@@ -19,6 +19,15 @@ To migrate a database from an Amazon RDS source cluster for {{ PG }} to a {{ mpg
 1. [Migrate sequences](#transfer-sequences).
 1. [Delete the subscription and transfer the load to the target cluster](#transfer-load).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Features of using logical replication {#logical-replica-specific}
 
 * Changes to the database schema and DDL are not replicated.
@@ -64,7 +73,7 @@ Create the required resources:
 
 - Manually {#manual}
 
-    [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with public host access. In which case:
+    [Create a {{ mpg-name }} cluster](../operations/cluster-create.md) with public host access. In this case, the following applies:
 
     * The {{ PG }} version must be the same or higher than in the source cluster. You cannot perform migration while downgrading {{ PG }} version.
     * The name of the database must be the same as in the source cluster.
@@ -93,7 +102,7 @@ Create the required resources:
         * `username` and `password`: Name and user password of the database owner.
         * Names and versions of {{ PG }} extensions used in Amazon RDS. Uncomment and multiply the `extension` section.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate

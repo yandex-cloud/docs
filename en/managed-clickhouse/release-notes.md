@@ -5,6 +5,19 @@ description: This section contains {{ mch-name }} release notes.
 
 # {{ mch-full-name }} release notes
 
+## March 2025 {#mar-2025}
+
+A new version is out: {{ CH }} [25.2](https://clickhouse.com/blog/clickhouse-release-25-02).
+
+## February 2025 {#feb-2025}
+
+* A new version is out: {{ CH }} [25.1](https://clickhouse.com/blog/clickhouse-release-25-01).
+* You can now [restore a cluster with enabled sharding from a backup](operations/cluster-backups.md#restore).
+
+## January 2025 {#jan-2025}
+
+A new version is out: {{ CH }} [24.12](https://clickhouse.com/blog/clickhouse-release-24-12).
+
 ## November 2024 {#nov-2024}
 
 A new version is out: {{ CH }} [24.10](https://clickhouse.com/blog/clickhouse-release-24-10).

@@ -11,8 +11,8 @@ You can connect to {{ mmg-short-name }} cluster hosts:
 
 To connect to cluster hosts, use port:
 
-* `{{ port-mmg }}`: For a non-sharded cluster
-* `{{ port-mmg-sharded }}`: For a [sharded](../../concepts/sharding.md) cluster
+* `{{ port-mmg }}`: For a non-sharded cluster.
+* `{{ port-mmg-sharded }}`: For a [sharded](../../concepts/sharding.md) cluster.
 
 Write requests will be automatically routed to the primary cluster replica.
 
@@ -88,7 +88,7 @@ You must configure security groups correctly for all subnets in which the cluste
 
 {% endnote %}
 
-For more information, see [{#T}](../../concepts/network.md#security-groups).
+To learn more, see [{#T}](../../concepts/network.md#security-groups).
 
 
 ## Getting an SSL certificate {#get-ssl-cert}
@@ -124,6 +124,53 @@ You can get the FQDN by doing one of the following:
 {% include [mmg-conn-limits](../../../_includes/mdb/mmg/conn-limits.md) %}
 
 A host's RAM amount depends on its class. All available options are listed under [Host classes](../../concepts/instance-types.md).
+
+## Installing MongoDB Shell {#mongosh-install}
+
+To connect to a {{ mmg-name }} cluster from Linux (Bash) or Windows (PowerShell), install MongoDB Shell:
+
+{% list tabs group=connection %}
+
+- Linux {#linux}
+
+  1. If you do not have Homebrew yet, install it:
+
+      ```bash
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      ```
+
+  1. Add `brew` to `PATH`:
+
+      ```bash
+      echo >> /home/<username>/.bashrc && \
+      echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/<user>/.bashrc && \
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      ```
+
+  1. Install the dependencies:
+
+      ```bash
+      sudo apt-get install build-essential
+      ```
+
+  1. Install the `mongodb-atlas-cli` package:
+
+      ```bash
+      brew install mongodb-atlas-cli
+      ```
+
+- Windows 10/11 {#windows}
+
+  Use one of the following methods:
+
+  * Download the MongoDB Shell installer in `*.msi` format from the [official GitHub repository](https://github.com/mongodb-js/mongosh/releases) and install it.
+  * Install MongoDB Shell using [Chocolatey](https://chocolatey.org/install) by running this command:
+
+    ```bash
+    choco install mongodb-shell
+    ```
+
+{% endlist %}
 
 ## What's next {#whats-next}
 

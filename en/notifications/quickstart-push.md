@@ -16,8 +16,7 @@ With {{ cns-name }}, you can send push notifications to apps registered in the f
 * [Apple Push Notification service](https://developer.apple.com/notifications/) (APNs).
 * [Firebase Cloud Messaging](https://firebase.google.com/) (FCM).
 * [Huawei Mobile Services](https://developer.huawei.com/consumer/) (HMS).
-
-Push notifications via [RuStore](https://www.rustore.ru/help/sdk/push-notifications) will also be implemented later.
+* [RuStore](https://www.rustore.ru/help/sdk/push-notifications/).
 
 To get started with push notifications:
 1. [Get your cloud ready](#before-you-begin).
