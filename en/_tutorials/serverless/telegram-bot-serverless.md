@@ -1,20 +1,20 @@
 # How to create a Telegram bot
 
 
-Serverless technologies enable you to create a Telegram bot that will respond to chat messages.
+You can use serverless technologies to create a Telegram bot that will respond to chat messages.
 
 
 
 To create a bot:
 
-1. [Prepare the environment](#before-begin).
-1. [Prepare the resources](#create-resources).
+1. [Set up your environment](#before-begin).
+1. [Create resources](#create-resources).
 1. [Register your Telegram bot](#create-bot).
 1. [Post a bot image](#image-publish).
 1. [Create an API gateway](#create-gateway).
 1. [Create a function](#create-function).
 1. [Configure a link between the function and the Telegram bot](#function-bind-bot).
-1. [Check that the Telegram bot works](#test-bot).
+1. [Make sure the Telegram bot works](#test-bot).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -27,19 +27,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of Telegram bot support includes:
 
 * Fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
-* Fee for the amount of stored data, the number of data transactions, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for the amount of stored data, the number of data transactions, and outbound traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 
-## Prepare the resources {#create-resources}
+## Create resources {#create-resources}
 
 1. [Download](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) the file archive required to create a bot.
-1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-editor }}` and `{{ roles-functions-invoker }}` roles for your folder.
+1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-editor }}` and `{{ roles-functions-invoker }}` roles to it for your folder. 
 
 ## Register your Telegram bot {#create-bot}
 
 Register your bot in Telegram and get a token.
 
-1. To register the new bot, launch the [BotFather](https://t.me/BotFather) bot and run the command below:
+1. To register the new bot, launch the [BotFather](https://t.me/BotFather) bot and run this command:
 
     ```
     /newbot
@@ -48,9 +48,9 @@ Register your bot in Telegram and get a token.
 1. In the `name` field, enter a name for the new bot, e.g., `Serverless Hello Telegram Bot`. This is the name the bot users will see.
 1. In the `username` field, specify a username for the new bot, e.g., `ServerlessHelloTelegramBot`. You can use it to locate the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
-    As a result, you will get a token. Save it. You will need it later.
+    As a result, you will get a token. Save it, as you will need it later.
 
-1. Set an icon for the bot using the `sayhello.png` file from the saved archive. Send the BotFather bot the command below:
+1. Set an icon for the bot using the `sayhello.png` file from the saved archive. Send this command to the BotFather bot:
 
     ```
     /setuserpic
@@ -66,7 +66,7 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a [bucket](../../storage/concepts/bucket.md) in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
@@ -108,7 +108,7 @@ For the bot to respond to user messages with an image, create a bucket in {{ obj
   1. Select the previously created bucket.
   1. Select `sayhello.png`.
   1. Click **{{ ui-key.yacloud.storage.file.button_generate }}**.
-  1. Check that the image is available in your browser.
+  1. Make sure the image is available in your browser.
 
 {% endlist %}
 
@@ -124,7 +124,7 @@ Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Name the gateway: `for-serverless-hello-telegram-bot`.
-  1. Clear the contents of the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field and replace them with the code below:
+  1. Clear the contents of the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field and replace them with this code:
 
       ```yml
       openapi: 3.0.0
@@ -142,10 +142,10 @@ Create and configure an [API Gateway](../../api-gateway/concepts/index.md).
               service_account_id: <service_account_ID>
             operationId: static
       ```
-
+      
       Where:
       * `bucket`: Bucket name.
-      * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) created when [setting up resources](#create-resources).
+      * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) created when [setting up the resources](#create-resources).
 
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Select the created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field value. You will need it later.
@@ -160,7 +160,7 @@ To make the Telegram bot respond to the `/start` and `/help` commands and send a
 
 - Management console {#console}
 
-  1. In the [Management console]({{ link-console-main }}), select the folder you want to create a function in.
+  1. In the [Management console]({{ link-console-main }}), select the folder where you want to create a function.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter the function name: `fshtb-function`.
@@ -209,7 +209,7 @@ To make the Telegram bot respond to the `/start` and `/help` commands and send a
       }
       ```
 
-  1. Specify the following parameters:
+  1. Specify the following settings:
 
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs16`
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
@@ -217,7 +217,7 @@ To make the Telegram bot respond to the `/start` and `/help` commands and send a
 
   1. Add the `BOT_TOKEN` environment variable. In the **{{ ui-key.yacloud.common.value }}** field, specify the Telegram bot token.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-  1. Make sure that the function is [public](../../functions/operations/function/function-public.md). To do this, go to the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page and, under **{{ ui-key.yacloud.common.section-base }}**, switch the **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** option to on.
+  1. Make sure the function is [public](../../functions/operations/function/function-public.md). To do this, navigate to the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page; under **{{ ui-key.yacloud.common.section-base }}**, switch the **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** option to on.
   1. Save your function ID. You will need it later.
 
 {% endlist %}
@@ -290,14 +290,14 @@ To make the Telegram bot respond to the `/start` and `/help` commands and send a
 
 {% endlist %}
 
-## Check that the Telegram bot works {#test-bot}
+## Make sure the Telegram bot works {#test-bot}
 
 Talk to the bot:
 
 1. Open Telegram and search for the bot using the previously created `username`.
 1. Send the `/start` message to the chat.
 
-    The bot should respond with:
+    The bot must respond with:
     
     ```text
     Hello.
@@ -307,7 +307,7 @@ Talk to the bot:
 
 1. Send the `/help` message to the chat. 
     
-    The bot should respond with:
+    The bot must respond with:
     
     ```text
     Hello, <username>.

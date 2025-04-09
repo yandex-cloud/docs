@@ -6,6 +6,7 @@ To connect a user to a desktop, send them a showcase link and password. To learn
 
 Typically, a desktop showcase allows you to do the following actions:
 * View desktop cards available to the user.
+* Get a desktop.
 * Find out the desktop status.
 * Download an RDP file.
 * Stop a desktop.

@@ -9,9 +9,19 @@ To transfer data:
 1. [Prepare the target cluster](#prepare-target).
 1. [Set up your transfers](#prepare-transfer).
 1. [Activate the transfers](#activate-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ MG }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MG }} pricing](../../../managed-mongodb/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Fee per transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -225,7 +235,7 @@ If the source database has sharded collections, [prepare the target database](..
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to reach zero for each transfer. This means that all changes that occurred in the source cluster after data was copied are transferred to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfers and wait for their status to change to {{ dt-status-stopped }}.
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 1. [Connect](../../../managed-mongodb/operations/connect/index.md) to `db1` in the {{ mmg-name }} target cluster.
 

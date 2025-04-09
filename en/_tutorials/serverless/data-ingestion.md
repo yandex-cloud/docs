@@ -1,14 +1,14 @@
 # Entering data into storage systems
 
 
-Data from mobile phones, various smart devices, or external services can come in massive numbers of small batches. Data is often transmitted through slow communication channels, whereas the communication time is limited. {{ yds-full-name }} receives data arriving at high frequency and speed and forms outbound data batches for the target systems, thus maintaining optimal operating modes for sources and targets. Using an API gateway to receive messages enables you to implement a custom data transmission protocol.
+Data from mobile phones, various smart devices, or external services can come in massive numbers of small batches. The communication circuits used for transmission are often slow, and the communication time limited. {{ yds-full-name }} receives data arriving at high frequency and speed and forms outbound data batches for the target systems, thus maintaining optimal operating modes for sources and targets. Using an API gateway to receive messages enables you to implement a custom data transmission protocol.
 
 In this use case, the [API gateway](../../api-gateway/concepts/index.md) accepts incoming data and sends it to the [data stream](../../data-streams/concepts/index.md). Data is buffered in the stream and transmitted using a [transfer](../../data-transfer/concepts/index.md) to a cluster of [{{ CH }}](../../managed-clickhouse/concepts/index.md) databases.
 
 To set up data input:
 
-1. [Prepare your cloud](#before-you-begin).
-1. [Configure the environment](#setup).
+1. [Get your cloud ready](#before-you-begin).
+1. [Set up your environment](#setup).
 1. [Create a {{ CH }} cluster](#create-cluster).
 1. [Create a data stream](#create-stream).
 1. [Create an API gateway](#create-api-gw).
@@ -17,9 +17,10 @@ To set up data input:
 
 If you no longer need data input, [delete the resources used](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
 
 ### Required paid resources {#paid-resources}
 
@@ -30,7 +31,8 @@ The cost of supporting data input into storage systems includes:
 * Fees for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 * Fee for a continuously running {{ mch-name }} cluster (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 
-## Configure the environment {#setup}
+
+## Set up your environment {#setup}
 
 [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role for your folder.
 
@@ -39,7 +41,7 @@ The cost of supporting data input into storage systems includes:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
 1. Select **{{ mch-name }}**.
 1. Click **Create cluster**.
-1. Specify the settings for a {{ CH }} cluster:
+1. Specify the {{ CH }} cluster settings:
     1. Under **Basic parameters**:
       * Enter a name for the cluster.
       * Select the service account you created earlier.
@@ -58,7 +60,7 @@ Wait for the cluster to start. When the cluster is ready for use, its status wil
 1. In the [management console]({{ link-console-main }}), select the folder to create a data stream in.
 1. Select **{{ yds-name }}**.
 1. Click **Create stream**.
-1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Update** after creating it to update the list of databases.
+1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) {{ ydb-short-name }} database or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Refresh** after creating it to refresh the list of databases.
 1. Enter a name for the stream.
 1. Click **Create**.
 

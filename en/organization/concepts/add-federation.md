@@ -48,8 +48,6 @@ You set up a relying party trust between an {{ org-name }} identity federation a
 
 ### User group mapping {#group-mapping}
 
-{% include notitle [preview](../../_includes/note-preview-by-request.md) %}
-
 In [organizations](organization.md) with many [users](membership.md), you may need to issue the same access permissions for {{ yandex-cloud }} resources to more than one user. In which case it is easier to issue roles and permissions to [groups](groups.md) rather than individual users.
 
 If you have configured user groups in your identity provider or plan to do so, [set up user group mapping](../operations/federation-group-mapping.md) between the identity provider and {{ org-name }}. Users in the identity provider's groups will be granted the same access permissions to {{ yandex-cloud }} resources as their respective groups in {{ org-name }}.

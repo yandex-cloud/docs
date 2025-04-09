@@ -5,14 +5,14 @@ The service's HTTP API is compatible with the [Amazon SNS API](https://docs.aws.
 You can find all the supported actions in the [API reference](../api-ref/index.md).
 
 To get started with the HTTP API using curl:
-1. [Prepare your cloud](#before-you-begin).
-1. [Get the authentication data](#get-key)
+1. [Get your cloud ready](#before-you-begin).
+1. [Get the authentication data](#get-key).
 1. [Create a notification channel](#create-channel).
 1. [Get a list of channels](#list-channel).
 1. [Create an endpoint](#create-endpoint).
 1. [Send a notification](#publish).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -61,12 +61,15 @@ Where:
 * `Action`: [Operation type](index.md#actions).
 * `ResponseFormat`: Response format, JSON or XML.
 * `FolderId`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-* `Name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
+* `Name`: Notification channel name, user-defined.
+
+  {% include [channel-name](../../_includes/notifications/channel-name.md) %}
+
 * `Platform`: Mobile platform type:
-  * `APNS` and `APNS_SANDBOX`: Apple Push Notification service (APNs). Use `APNS_SANDBOX` to test the application.
-  * `GCM`: Firebase Cloud Messaging (FCM).
-  * `HMS`: Huawei Mobile Services (HMS).
-* `Attributes.entry.N.key`: Authentication attribute keys on the mobile platform. The values depend on the platform type:
+  
+  {% include [platform-types](../../_includes/notifications/platform-types.md) %}
+
+* `Attributes.entry.N.key`: Authentication attribute keys on the mobile platform. The values depend on the platform:
   * APNs:
     * Token-based authentication:
       * `PlatformPrincipal`: Token in `.p8` format.
@@ -77,13 +80,16 @@ Where:
       * `PlatformPrincipal`: SSL certificate in `.p12` format.
       * `PlatformCredential`: Certificate private key.
 
-    Token-based authentication is preferred as it is more modern.
-  * FCM: `PlatformCredential` is the Google Cloud service account key in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the legacy API.
+    Token-based authentication is preferred as a more modern option.
+  * FCM: `PlatformCredential` is the Google Cloud service account key in JSON format for authentication with the HTTP v1 API or API key (server key) for authentication with the Legacy API.
 
-    The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the legacy API starting June 2024.
+    The HTTP v1 API is preferred as [FCM will no longer support](https://firebase.google.com/docs/cloud-messaging/migrate-v1) the Legacy API starting June 2024.
   * HMS:
     * `PlatformPrincipal`: Key ID.
     * `PlatformCredential`: API key.
+  * RuStore:
+    * `PlatformPrincipal`: Project ID (ProjectID).
+    * `PlatformCredential`: Service token (ServiceToken).
 * `Attributes.entry.N.key`: Authentication attribute keys on the mobile platform.
 
 As a result, you will get a notification channel ID (ARN).

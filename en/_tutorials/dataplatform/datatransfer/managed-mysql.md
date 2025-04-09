@@ -7,6 +7,16 @@ To transfer a database from {{ MY }} to {{ mmy-name }}:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+
+
 ## Start data transfer {#start-transfer}
 
 1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-my).
@@ -16,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) in any suitable configuration. In which case:
+        1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) in any suitable configuration. In this case, the following applies:
 
             * The {{ MY }} version must be the same or higher than in the source cluster.
 
@@ -30,15 +40,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`
 
                 Specify the parameters for connecting to the source cluster.
 
         1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`
 
                 Select a target cluster from the list and specify its connection settings.
 
@@ -47,7 +57,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% note warning %}
 
-            Abstain from making any changes to the data schema in the source and target clusters when the data transfer is running. For more information, see [{#T}](../../../data-transfer/operations/db-actions.md).
+            Abstain from making any changes to the data schema in the source and target clusters when the data transfer is running. To learn more, see [{#T}](../../../data-transfer/operations/db-actions.md).
 
             {% endnote %}
 
@@ -82,7 +92,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
                 * `target_db_name`: Database name.
                 * `target_user` and `target_password`: Name and user password of the database owner.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -103,7 +113,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Finish data transfer {#finish-transfer}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to read-only and transfer the load to the target cluster.
+1. Switch the source cluster to <q>read-only</q> mode and transfer the load to the target cluster.
 1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data was copied are transferred to the target cluster.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
@@ -119,7 +129,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     * [Delete the {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-delete.md).
     * [Delete the stopped transfer](../../../data-transfer/operations/transfer.md#delete).
-    * [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+    * [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
 - {{ TF }} {#tf}
 

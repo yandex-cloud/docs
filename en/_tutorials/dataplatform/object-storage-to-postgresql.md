@@ -9,13 +9,23 @@ The functionality for loading data from {{ objstorage-name }} in {{ data-transfe
 {% endnote %}
 
 
-You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-full-name }} to the {{ mpg-name }} table using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare the test data](#prepare-data).
 1. [Set up your transfer](#prepare-transfer).
 1. [Activate the transfer](#activate-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -160,7 +170,7 @@ Set up your infrastructure:
 
 1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. [Connect to the {{ mpg-name }} target cluster database](../../managed-postgresql/operations/connect.md).
-1. Run this query:
+1. Run this request:
 
     ```sql
     SELECT * FROM public."demo_data.csv";

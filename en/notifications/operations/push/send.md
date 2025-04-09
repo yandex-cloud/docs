@@ -10,7 +10,7 @@ description: Follow this guide to send a push notification.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder containing your endpoint.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Select a push notification channel.
   1. Navigate to the ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}** tab.
   1. Select the endpoint you need.
@@ -115,11 +115,31 @@ description: Follow this guide to send a push notification.
       print ("Message id:", response["MessageId"])
       ```
 
+  * RuStore Android
+
+      ```python
+      response = client.publish(
+          TargetArn="<endpoint_ID>",
+          Message=json.dumps({
+              "default": "<default_notification_text>",
+              "RUSTORE": json.dumps({
+                  "notification": {
+                      "title": "<notification_title>",
+                      "body": "<notification_text>",
+                  }
+              })
+          }),
+          MessageStructure="json"
+      )
+      message_id = response["MessageId"]
+      print(f"Message id is: {message_id}")
+      ```
+
   Where:
 
-  * `TargetArn`: Mobile endpoint ID (ARN)
-  * `MessageStructure`: Message format
-  * `Message`: Message
+  * `TargetArn`: Mobile endpoint ID (ARN).
+  * `MessageStructure`: Message format.
+  * `Message`: Message.
 
   **Silent notifications (Silent Push)**
 
@@ -190,9 +210,9 @@ description: Follow this guide to send a push notification.
 
   Where:
 
-  * `TargetArn`: Mobile endpoint ID (ARN)
-  * `MessageStructure`: Message format
-  * `Message`: Message
+  * `TargetArn`: Mobile endpoint ID (ARN).
+  * `MessageStructure`: Message format.
+  * `Message`: Message.
 
   **Silent notifications (Silent Push)**
 
@@ -219,9 +239,9 @@ description: Follow this guide to send a push notification.
 
       Where:
 
-      * `TargetArn`: Mobile endpoint ID (ARN)
-      * `MessageStructure`: Message format
-      * `Message`: Message
+      * `TargetArn`: Mobile endpoint ID (ARN).
+      * `MessageStructure`: Message format.
+      * `Message`: Message.
 
 
 - API {#api}

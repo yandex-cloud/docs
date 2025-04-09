@@ -36,3 +36,7 @@ description: Step-by-step guides on using encryption keys in {{ yandex-cloud }}.
 - [{#T}](asymmetric-signature-key-access.md)
 - [{#T}](signature-verification.md)
 - [{#T}](signature-verification-cosign.md)
+
+## Getting additional information {#get-additional-info}
+
+- [{#T}](operation-logs.md)

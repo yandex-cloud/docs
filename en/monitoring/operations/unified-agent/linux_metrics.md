@@ -103,6 +103,6 @@ To configure {{ unified-agent-full-name }} to collect system metrics from a {{ y
 
 #### What's next {#what-is-next}
 
-- Read about [{{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md).
-- [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md).
-- [Read the {{ unified-agent-short-name }} operating guidelines](../../concepts/data-collection/unified-agent/best-practices.md).
+- Read about [{{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
+- [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
+- [Read the {{ unified-agent-short-name }} operating guidelines](../../concepts/data-collection/unified-agent/best-practices.md)

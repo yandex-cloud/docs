@@ -5,6 +5,8 @@ description: Следуя инструкциям, вы сможете созда
 
 # Быстрый старт в Editor
 
+{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 Ниже приведены ссылки на пошаговые инструкции для создания [чарта **Таблица**](../widgets/table.md) на основе разных [источников данных](../sources.md):
 
 * [{#T}](./from-dataset.md)

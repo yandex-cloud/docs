@@ -39,7 +39,7 @@ An external subject is a subject authorized by a third-party OIDC provider and b
 Steps to obtain an IAM token using a service account linked to a federation:
 
 1. To get a {{ yandex-cloud }} IAM token, an external subject contacts the OIDC provider which issues a JWT token for it.
-1. The external subject submits the JWT token to the {{ iam-name }} workload identity federation.
+1. The external subject submits the JWT to the {{ iam-name }} workload identity federation.
 1. {{ iam-name }} verifies the external subject's permissions (by checking for the appropriate [federated credentials](#federated-credentials)) and the validity of the submitted JWT token (using a public key).
 1. Upon successful verification of permissions and the JWT token, {{ iam-name }} exchanges the JWT token for an IAM token of the {{ yandex-cloud }} service account linked to this external subject through the relevant federated credentials.
 1. The external subject uses the obtained IAM token to make the required {{ yandex-cloud }} API requests on behalf of the service account specified in the federated credentials.

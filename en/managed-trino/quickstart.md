@@ -6,6 +6,8 @@ noIndex: true
 
 # Getting started with {{ mtr-full-name }}
 
+{% include [preview](../_includes/managed-trino/note-preview.md) %}
+
 To get started:
 * [Create a {{ mtr-name }}](#cluster-create) cluster.
 * [Install the {{ TR }} CLI](#install-trino-cli).
@@ -23,7 +25,7 @@ To get started:
 
 1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
-    * `managed-trino.admin`: To create a cluster.
+    * [managed-trino.admin](security.md#managed-trino-admin): To create a cluster.
     * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): To use the cluster [network](../vpc/concepts/network.md#network).
     * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
 
@@ -35,41 +37,49 @@ To get started:
 
 ## Create a {{ mtr-name }} cluster {#cluster-create}
 
-1. In the management console, select the folder where you want to create a {{ mtr-name }} cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Specify a name for the cluster.
-1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the previously created service account.
-1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a network, subnet, and security group for the cluster.
-1. Configure the coordinator and workers.
-1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add folders:
+{% list tabs group=instructions %}
 
-   1. For the {{ mpg-name }} cluster, with the following properties:
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `test`
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `PostgreSQL`
-       * **{{ ui-key.yacloud.trino.catalogs.label_url }}**: `jdbc:postgresql://<FQDN_of_host_of_Managed_Service_for_Postgresql>:6432/<DB_name>?ssl=true&sslmode=verify-full`
+- Management console {#console}
 
-           To learn how to get the FQDN of a host in a {{ mpg-name }} cluster, see [this guide](../managed-postgresql/operations/connect.md#fqdn).
+    1. In the management console, select the folder where you want to create a {{ mtr-name }} cluster.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+    1. Specify a name for the cluster.
+    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the previously created service account.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../vpc/operations/network-create.md), [subnet](../vpc/operations/subnet-create.md), and [security group](../vpc/concepts/security-groups.md) for the cluster.
+    1. Configure the coordinator and workers.
+    1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add folders:
 
-       * **{{ ui-key.yacloud.trino.catalogs.label_userName }}**: Username in the {{ mpg-name }} cluster.
-       * **{{ ui-key.yacloud.trino.catalogs.label_password }}**: User password in the {{ mpg-name }} cluster.
+        1. For the {{ mpg-name }} cluster, with the following properties:
 
-   1. For test data, with the following properties:
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `data`.
-       * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `TPC-H`.
+           * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `test`
+           * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `PostgreSQL`
+           * **{{ ui-key.yacloud.trino.catalogs.label_url }}**: `jdbc:postgresql://<FQDN_of_host_of_Managed_Service_for_Postgresql>:6432/<DB_name>?ssl=true&sslmode=verify-full`
+
+               To learn how to get the FQDN of a host in a {{ mpg-name }} cluster, see [this guide](../managed-postgresql/operations/connect.md#fqdn).
+
+           * **{{ ui-key.yacloud.trino.catalogs.label_userName }}**: Username in the {{ mpg-name }} cluster.
+           * **{{ ui-key.yacloud.trino.catalogs.label_password }}**: User password.
+
+        1. For test data, with the following properties:
+
+            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-name }}**: `data`.
+            * **{{ ui-key.yacloud.trino.catalogs.field_catalog-type }}**: `TPC-H`.
    
-   You can add folders both when you are creating a cluster and after you have done so.
+        You can add folders both when you are creating a cluster and after you have done so.
 
-1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, configure logging:
+    1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, configure logging:
 
-   1. Enable the **{{ ui-key.yacloud.logging.field_logging }}** setting.
-   1. Select where the logs will be stored:
-       * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list.
-       * **{{ ui-key.yacloud.logging.label_group }}**: Select a log group from the list or create a new one.
-   1. Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
+        1. Enable the **{{ ui-key.yacloud.logging.field_logging }}** setting.
+        1. Select where the logs will be stored:
+            * **{{ ui-key.yacloud.common.folder }}**: Select a folder from the list.
+            * **{{ ui-key.yacloud.logging.label_group }}**: Select a [log group](../logging/concepts/log-group.md) from the list or create a new one.
+        1. Select **{{ ui-key.yacloud.logging.label_minlevel }}** from the list.
 
-1. Click **{{ ui-key.yacloud.common.create }}**.
-1. Wait until the cluster is ready: its status on the {{ mtr-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+    1. Click **{{ ui-key.yacloud.common.create }}**.
+    1. Wait until the cluster is ready: its status on the {{ mtr-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+
+{% endlist %}
 
 ## Install the {{ TR }} CLI {#install-trino-cli}
 
@@ -99,6 +109,7 @@ To get started:
    ```bash
    Trino CLI <version_number>
    ```
+
 ## Connect to the {{ mtr-name }} cluster {#connect-to-trino}
 
 1. Create an [IAM token](../iam/concepts/authorization/iam-token.md) and put it to the `TRINO_PASSWORD` environment variable:

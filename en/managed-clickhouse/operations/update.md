@@ -37,7 +37,7 @@ To link your service account to a {{ mch-name }} cluster, [make sure](../../iam/
 
     To change the service account settings:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, select the service account you need from the list, or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
@@ -68,7 +68,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. To change the {{ CH }} host class, select the platform, VM type, and required host class under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**.
   1. To change the {{ ZK }} host class, select the platform, VM type, and required {{ ZK }} host class under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**.
@@ -82,7 +82,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
      ```bash
      {{ yc-mdb-ch }} cluster update --help
@@ -205,16 +205,16 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
             * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-                Specify relevant parameters:
-                * `configSpec.clickhouse.resources.resourcePresetId`: If you need to change the {{ CH }} host class.
-                * `configSpec.zookeeper.resources.resourcePresetId`: If you need to change the {{ ZK }} host class.
+                Specify the relevant parameters:
+                * `configSpec.clickhouse.resources.resourcePresetId`: To change the {{ CH }} host class.
+                * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
 
                 Both {{ CH }} and {{ ZK }} host classes are changed in the request example.
 
             * `configSpec.clickhouse.resources.resourcePresetId`: {{ CH }} host class ID.
             * `configSpec.zookeeper.resources.resourcePresetId`: {{ ZK }} host class ID.
 
-            You can request the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
 
         1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -285,9 +285,9 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
             * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-                Specify relevant parameters:
-                * `config_spec.clickhouse.resources.resource_preset_id`: If you need to change the {{ CH }} host class.
-                * `config_spec.zookeeper.resources.resource_preset_id`: If you need to change the {{ ZK }} host class.
+                Specify the relevant parameters:
+                * `config_spec.clickhouse.resources.resource_preset_id`: To change the {{ CH }} host class.
+                * `config_spec.zookeeper.resources.resource_preset_id`: To change the {{ ZK }} host class.
 
                 Both {{ CH }} and {{ ZK }} host classes are changed in the request example.
 
@@ -316,7 +316,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
   To increase the cluster storage size:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, specify the required value.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -329,7 +329,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
   To increase the cluster storage size:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
      ```bash
      {{ yc-mdb-ch }} cluster update --help
@@ -421,7 +421,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
 
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-            Specify relevant parameters:
+            Specify the relevant parameters:
 
             * `configSpec.clickhouse.resources.diskSize`: If you need to increase {{ CH }} host storage size.
             * `configSpec.zookeeper.resources.diskSize`: If you need to increase {{ ZK }} host storage size.
@@ -431,7 +431,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
         * `configSpec.clickhouse.resources.diskSize`: {{ CH }} host storage size in bytes.
         * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size in bytes.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure the request was successful.
 
@@ -482,7 +482,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
         Where:
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-            Specify relevant parameters:
+            Specify the relevant parameters:
 
             * `config_spec.clickhouse.resources.disk_size`: If you need to increase {{ CH }} host storage size.
             * `config_spec.zookeeper.resources.disk_size`: If you need to increase {{ ZK }} host storage size.
@@ -492,7 +492,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. To learn more, see [Re
         * `config_spec.clickhouse.resources.disk_size`: {{ CH }} host storage size in bytes.
         * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size in bytes.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -604,7 +604,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
         * `updateMask`: List of parameters to update as a single string, separated by commas.
 
-            Specify relevant parameters:
+            Specify the relevant parameters:
 
             * `configSpec.adminPassword`: Password of the `admin` account used for management.
             * `configSpec.sqlUserManagement`: To enable user management via SQL.
@@ -616,7 +616,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
         * `configSpec.sqlUserManagement`: User management via SQL, `true` or `false`.
         * `configSpec.sqlDatabaseManagement`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure the request was successful.
 
@@ -662,7 +662,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
         * `update_mask`: List of parameters to update as an array of `paths[]` strings.
 
-            Specify relevant parameters:
+            Specify the relevant parameters:
 
             * `config_spec.admin_password`: Password of the `admin` account used for management.
             * `config_spec.sql_user_management`: To enable user management via SQL.
@@ -674,7 +674,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
         * `config_spec.sql_user_management`: User management via SQL, `true` or `false`.
         * `config_spec.sql_database_management`: Database management via SQL, `true` or `false`. For that, you also need to enable user management through SQL.
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -686,7 +686,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, change the additional cluster settings:
 
@@ -702,13 +702,13 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
   To change additional cluster settings:
 
-    1. View the description of the update cluster CLI command:
+    1. View the description of the CLI command to update the cluster:
 
         ```bash
         {{ yc-mdb-ch }} cluster update --help
         ```
 
-    1. Run the following command with a list of settings to update:
+    1. Run the following command with the list of settings to update:
 
         
         ```bash
@@ -754,7 +754,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    You can get the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters) in the folder.
+    You can get the cluster ID and name with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
 - {{ TF }} {#tf}
 
@@ -889,7 +889,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Hour of day (UTC) in `HH` format: from `1` to `24`.
+                    * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletionProtection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
 
@@ -906,7 +906,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
               --data '@body.json'
             ```
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure the request was successful.
 
@@ -971,18 +971,18 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
                 {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
 
-            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of the options:
+            * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Hour of day (UTC) in `HH` format: from `1` to `24`.
+                    * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletion_protection`: Protect the cluster, its databases, and users against accidental deletion, `true` or `false`. The default value is `false`.
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-            You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
         1. Run this request:
 
@@ -1036,7 +1036,34 @@ Once enabled, user and database management settings for SQL cannot be disabled.
            --destination-folder-name=<destination_folder_name>
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+
+    1. In the {{ mch-name }} cluster description, edit or add the `folder_id` parameter value:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+          ...
+          folder_id = "<destination_folder_ID>"
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -1053,13 +1080,13 @@ Once enabled, user and database management settings for SQL cannot be disabled.
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>:move' \
             --data '{
-                      "destinationFolderId": "<target_folder_ID>"
+                      "destinationFolderId": "<destination_folder_ID>"
                     }'
         ```
 
-        Where `destinationFolderId` is the ID of the destination folder to move the cluster to. You can get this ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        Where `destinationFolderId` is the ID of the destination folder to move the cluster to. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1082,15 +1109,15 @@ Once enabled, user and database management settings for SQL cannot be disabled.
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d '{
                   "cluster_id": "<cluster_ID>",
-                  "destination_folder_id": "<target_folder_ID>"
+                  "destination_folder_id": "<destination_folder_ID>"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Move
         ```
 
-        Where `destination_folder_id` is the ID of the destination folder to move the cluster to. You can get this ID with a [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        Where `destination_folder_id` is the ID of the destination folder to move the cluster to. You can get this ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1103,7 +1130,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
 
@@ -1115,7 +1142,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -1195,7 +1222,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
             {% endnote %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure the request was successful.
 
@@ -1248,7 +1275,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
             {% endnote %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -1273,7 +1300,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
   To change [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
 
-  1. View the description of the update cluster CLI command:
+  1. View the description of the CLI command to update the cluster:
 
       ```bash
       {{ yc-mdb-ch }} cluster update --help
@@ -1340,7 +1367,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
             {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure the request was successful.
 
@@ -1391,7 +1418,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
 
             {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
 
-        You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

@@ -34,7 +34,7 @@
      ```
 
      To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), instead of the `--subject` parameter, use `--organization-users <organization_ID>` or `--federation-users <federation_ID>`. In the parameter, provide the ID of the [organization](../../organization/quickstart.md) or [identity federation](../../organization/concepts/add-federation.md), respectively, to all the users you want to assign the role to.
-
+         
      You can also assign a role to a system group using the `--subject` parameter. To do this, provide in it the [subject](../../iam/concepts/access-control/index.md#subject) ID matching the selected system group.
 
   1. Make sure the requested permissions are granted:
@@ -71,9 +71,9 @@
      ```
 
      Where:
-
+     
      * `organization_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required parameter.
-     * `role`: Role you want to assign. This is a required parameter.
+     * `role`: Role to assign. This is a required parameter.
      * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required parameter.
 
          To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), specify the following in the `member` parameter:
@@ -81,12 +81,12 @@
          * `system:group:organization:<organization_ID>:users`: To assign a role to the `All users in organization X` system group.
          * `system:group:federation:<federation_ID>:users`: To assign a role to the `All users in federation N` system group.
 
-     For more information about the `yandex_organizationmanager_organization_iam_member` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member).
-  1. Create resources:
+     For more information about the `yandex_organizationmanager_organization_iam_member` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     This will create all the resources you need in the specified [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
      ```bash
      yc resource-manager folder list-access-bindings <folder_name_or_ID>

@@ -5,10 +5,28 @@ A {{ ydb-name }} cluster can get data from {{ KF }} topics in real time. This da
 
 To run data delivery:
 
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	
+    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
+
+* Transfer fee: Use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -51,7 +69,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `target_db_name`: {{ ydb-name }} database name.
            * `transfer_enabled`: `0` to ensure that no transfer is created before you [manually create the target endpoint](#prepare-transfer).
 
-       1. Check that the {{ TF }} configuration files are correct using this command:
+       1. Make sure the {{ TF }} configuration files are correct using this command:
 
            ```bash
            terraform validate
@@ -99,7 +117,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -138,7 +156,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * `JSON specification`.
 
-              Create and upload a `json_schema.json` data schema file in JSON format:
+              Create and upload a `json_schema.json` data schema file:
 
               {% cut "json_schema.json" %}
 
@@ -192,7 +210,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
     - {{ TF }} {#tf}
@@ -203,7 +221,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -219,9 +237,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ ydb-name }} database:
 
     1. Create a `sample.json` file with test data:
@@ -287,9 +305,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
         - Management console {#console}
 
            1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
-           1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+           1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
            1. Select the database from the list.
-           1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+           1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
            1. Check that the {{ ydb-name }} database contains a table named `sensors` with the test data from the topic.
 
         - {{ ydb-short-name }} CLI {#cli}
@@ -309,14 +327,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources you created, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 1. If you had created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 Delete the other resources depending on how they were created:

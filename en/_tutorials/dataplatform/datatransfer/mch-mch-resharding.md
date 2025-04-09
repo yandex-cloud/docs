@@ -4,10 +4,20 @@ With {{ data-transfer-name }}, you can migrate your database from a {{ mch-name 
 
 This method allows you to redistribute the sharded table data across the new {{ CH }} cluster shard configuration.
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+
+
 ## Migrate data with redistribution by shards {#resharding}
 
 1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-ch).
-1. Prepare the infrastructure:
+1. Set up your infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -51,8 +61,8 @@ This method allows you to redistribute the sharded table data across the new {{ 
 
             This file describes:
 
-            * [Network](../../../vpc/concepts/network.md#network)..
-            * [Subnet](../../../vpc/concepts/network.md#subnet)..
+            * [Network](../../../vpc/concepts/network.md#network).
+            * [Subnet](../../../vpc/concepts/network.md#subnet).
             * [Security group](../../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
             * {{ mch-name }} target cluster with a given number of shards.
             * Source endpoint.
@@ -70,7 +80,7 @@ This method allows you to redistribute the sharded table data across the new {{ 
                 * `target_clickhouse_version`: {{ CH }} version.
                 * `target_user` and `target_password`: Name and user password of the database owner.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -102,7 +112,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
     1. [Delete the {{ mch-name }} target cluster](../../../managed-clickhouse/operations/cluster-delete.md).
     1. [Delete the completed transfer](../../../data-transfer/operations/transfer.md#delete).
-    1. [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+    1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
 
 - {{ TF }} {#tf}
 

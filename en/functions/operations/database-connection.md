@@ -12,7 +12,7 @@ Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluste
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. Click **{{ ui-key.yacloud.serverless-mdb-proxy.list.button_create }}**.
-    1. Enter a connection name and description. The name format is as follows:
+    1. Enter a connection name and description. Follow these naming requirements:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
@@ -28,7 +28,7 @@ Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluste
 ## Connecting to a database {#connect}
 
 To access DB cluster hosts from a function using the created connection:
-* In the function version settings, specify the service account to which the `serverless.mdbProxies.user` role is assigned for the directory in which the connection is created. [How to assign a role](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
+* In the function version settings, specify the service account to which the `{{ roles-functions-mdbProxiesUser }}` role is assigned for the directory in which the connection is created. [How to assign a role](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
 * In advanced cluster settings, enable the **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}** option.
 
 To connect to a DB from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. [Getting IAM token](./function-sa.md).
@@ -88,7 +88,7 @@ The connection ID and the entry point are available on the connection page in th
     def handler(event, context):
         connection = psycopg2.connect(
             database="akfiotqh2m**********", # Connection ID
-            user="user1", # DB user
+            user="user1", # Database user
             password=context.token["access_token"],
             host="akfiotqh2m**********.postgresql-proxy.serverless.yandexcloud.net", # Entry point
             port=6432,
@@ -175,7 +175,7 @@ The connection ID and the entry point are available on the connection page in th
         const querystring = require('querystring');
         const fs = require('fs');
 
-        const DB_HOST = "akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net”; // Entry point
+        const DB_HOST = "akfd3bhqk3**********.clickhouse-proxy.serverless.yandexcloud.net"; // Entry point
         const DB_NAME = "akfd3bhqk3**********"; // Connection ID
         const DB_USER = "user1"; // DB user
         const DB_PASS = context.token.access_token;
@@ -227,7 +227,7 @@ The connection ID and the entry point are available on the connection page in th
             query='SELECT version()')
 
         auth = {
-            'X-ClickHouse-User': 'user1', # DB user
+            'X-ClickHouse-User': 'user1', # Database user
             'X-ClickHouse-Key': context.token["access_token"],
         }
 

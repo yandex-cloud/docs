@@ -1,4 +1,4 @@
-# Viewing operations with a trail
+# Viewing operations with {{ at-full-name }} resources
 
 All actions with {{ at-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
 

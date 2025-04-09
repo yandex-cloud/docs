@@ -10,6 +10,10 @@ Potentially, you can increase your quotas up to the _limits_.
 
 **Limits** are technical constraints due to the {{ yandex-cloud }} architecture, physical characteristics of the hardware, or external limitations. For example, the {{ certificate-manager-name }} limits are dictated by the Let's Encrypt certification rules in place.
 
+The diagram below illustrates the relationship between quotas and limits.
+
+![image](../../_assets/quota-manager/quotas-limits.svg)
+
 Quotas are allocated and applied at the {{ yandex-cloud}} cloud level; they are distributed between all the folders and services.
 
 {{ quota-manager-name }} helps you monitor your quota values and usage automatically. Employ the API methods to get notified as soon as your consumption hits the threshold values. It means you will never be late to increase your quota or prevent an abnormal situation and overconsumption of resources.
@@ -17,7 +21,7 @@ Quotas are allocated and applied at the {{ yandex-cloud}} cloud level; they are 
 Currently, you can use the following quota management interfaces: 
 
 * [Console]({{ link-console-quotas }}): Get information and request quota updates.
-* [API](../../quota-manager/api-ref/authentication.md): Get information about your quotas.
+* [API](../../quota-manager/api-ref/authentication.md): Get information about quotas.
 
 Going forward, you will also be able to get information and request quota updates via the CLI and API.
 
@@ -36,7 +40,7 @@ Quotas serve as a soft constraint for requesting resources and allow you to mana
 
 ## Resource types {#resources-types}
 
-{{ yandex-cloud }} features quotas for these three types of resources:
+In {{ yandex-cloud }}, quota management is based on the [resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md). Therefore, you will need to specify the resource type in the CLI command or API request:
 
 * `resource-manager.cloud`
 * `organization-manager.organization`

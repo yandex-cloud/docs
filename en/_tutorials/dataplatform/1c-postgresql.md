@@ -11,6 +11,15 @@ You can only connect <q>1C:Enterprise</q> to version {{ pg.versions.console.str-
 
 Select your [host class](../../managed-postgresql/concepts/instance-types.md) based on the number of users in your <q>1C:Enterprise</q> installation. The **s2.small** hosts can accommodate up to 50 users at a time. We recommend using the **s2.medium** class if 50 or more users are going to access the database. Choose the storage size based on your expected data scope and allow for possible growth in your data volumes.
 
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ## Create a {{ mpg-name }} cluster {#create-cluster}
 
 {% list tabs group=instructions %}
@@ -22,7 +31,7 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
     * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}**: `PRODUCTION`.
     * **{{ ui-key.yacloud.mdb.forms.base_field_version }}**: {{ PG }} version used for working with <q>1C:Enterprise</q>. The names of such versions end with `-1c`.
     * **{{ ui-key.yacloud.mdb.forms.section_resource }}**: `s2.small` or higher.
-    * **{{ ui-key.yacloud.mdb.forms.section_host }}**: Add at least two more hosts in different availability zones. This provides the fault tolerance of the cluster. The database is automatically replicated. For more information, see [{#T}](../../managed-postgresql/concepts/replication.md).
+    * **{{ ui-key.yacloud.mdb.forms.section_host }}**: Add at least two more hosts in different availability zones. This provides the fault tolerance of the cluster. The database is automatically replicated. To learn more, see [{#T}](../../managed-postgresql/concepts/replication.md).
 
 - {{ TF }} {#tf}
 
@@ -47,7 +56,7 @@ Select your [host class](../../managed-postgresql/concepts/instance-types.md) ba
         * `db_name`: Database name.
         * `username` and `password`: Name and user password of the database owner.
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
        ```bash
        terraform validate

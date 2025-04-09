@@ -5,6 +5,14 @@ description: This section contains {{ mpg-name }} release notes.
 
 # {{ mpg-full-name }} release notes
 
+## February 2025 {#feb-2025}
+
+Now, you can [upgrade clusters](operations/cluster-version-update.md) to {{ PG }} 16 version using standard tools without {{ data-transfer-full-name }}.
+
+## January 2025 {#jan-2025}
+
+[logerrors](https://github.com/munakoiso/logerrors) is now a system extension enabled by default in new clusters.
+
 ## October 2024 {#oct-2024}
 
 * Now you can [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
@@ -95,5 +103,5 @@ For more information about the updates in {{ PG }} version 16, see the [{{ PG }}
 
 ## Q1 2022 {#q1-2022}
 
-* Added the `pgcompacttable`, `clickhouse_fdw`, and `orafce` [extensions](operations/extensions/cluster-extensions.md).
+* Added the `pgcompacttable`, `clickhouse_fdw`, and `orafce` [extensions](operations/extensions/cluster-extensions.md). 
 * You can now create a new database from a template.

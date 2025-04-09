@@ -180,8 +180,8 @@ For Linux, additionally install dev packages for the `libcurl`, `libopenssl`, `l
 
     Where:
 
-    * `accessKeyId`: Static key ID
-    * `secretKey`: Secret key
+    * `accessKeyId`: Static key ID.
+    * `secretKey`: Secret key.
 
 1. Create a directory for the build:
 
@@ -227,12 +227,15 @@ try {
 
 Where:
 
-* `SetName`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
+* `SetName`: Notification channel name, user-defined.
+
+    {% include [channel-name](../../_includes/notifications/channel-name.md) %}
+
 * `SetPlatform`: Mobile platform type:
 
     {% include [platform-types](../../_includes/notifications/platform-types.md) %}
 
-* `attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on platform:
+* `attributes`: Mobile platform authentication parameters in `key=value` format. The values depend on the platform:
 
     {% include [auth-attributes](../../_includes/notifications/auth-attributes.md) %}
 
@@ -450,7 +453,7 @@ Where:
       Aws::Map<Aws::String, Aws::SNS::Model::MessageAttributeValue> messageAttributes;
       Aws::SNS::Model::MessageAttributeValue senderIdAttribute;
       senderIdAttribute.SetDataType("String");
-      senderIdAttribute.SetStringValue("<sender's_text_name>");
+      senderIdAttribute.SetStringValue("<text_name_of_sender>");
       messageAttributes["AWS.SNS.SMS.SenderID"] = senderIdAttribute;
       request.SetMessageAttributes(messageAttributes);
 

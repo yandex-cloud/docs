@@ -6,10 +6,25 @@ A {{ ydb-name }} cluster can get data from {{ PG }} databases in real time. This
 To run data delivery:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate your transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+
+	* For the serverless mode, you pay for data operations and the amount of stored data.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+    
+    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
+
 
 ## Getting started {#before-you-begin}
 
@@ -53,7 +68,7 @@ Prepare the data transfer infrastructure:
         * `target_db_name`: {{ ydb-name }} database name.
         * `transfer_enabled`: Set `0` to ensure that no transfer and source endpoint is created before you [manually create a target endpoint](#prepare-transfer).
 
-    1. Check that the {{ TF }} configuration files are correct using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -101,7 +116,7 @@ Prepare the data transfer infrastructure:
 
 1. [Prepare the source cluster for transfer](../../data-transfer/operations/prepare.md#source-pg).
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -139,7 +154,7 @@ Prepare the data transfer infrastructure:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: `1` to create a source endpoint and a transfer.
 
-        1. Check that the {{ TF }} configuration files are correct using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -155,9 +170,9 @@ Prepare the data transfer infrastructure:
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
-1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Make sure the data from the source {{ mpg-name }} cluster has been moved to the {{ ydb-name }} database:
 
     {% list tabs group=instructions %}
@@ -165,9 +180,9 @@ Prepare the data transfer infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list.
-        1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+        1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that the {{ ydb-name }} database contains a table named `public_sensors` with the test data.
 
     * {{ ydb-short-name }} CLI
@@ -197,9 +212,9 @@ Prepare the data transfer infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder with the DB you need.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list.
-        1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+        1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that `public_sensors` now contains the new data.
 
     - {{ ydb-short-name }} CLI {#cli}

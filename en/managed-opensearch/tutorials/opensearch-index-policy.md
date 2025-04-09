@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/dataplatform/opensearch-index-policy'
 ---
 
 # Configuring an index policy in {{ mos-name }}

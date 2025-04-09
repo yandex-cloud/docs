@@ -6,7 +6,7 @@ description: In this tutorial, you will learn about what a trail is, its setting
 # Trail
 
 
-A trail is an {{ at-name }} resource for collecting and delivering audit logs of {{ yandex-cloud }} resources to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), or a {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts).
+Trail is an {{ at-name }} resource collecting and writing {{ yandex-cloud }} audit logs to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}, [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}, or [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-name }}.
 
 ## Audit log collection scope {#collecting-area}
 
@@ -15,9 +15,15 @@ In the trail settings, you can choose where to collect audit logs from:
 * Cloud: Audit logs of resources of the services residing in selected folders of the cloud.
 * Folder: Audit logs of the folder.
 
-The trail will collect the audit logs of all the [resources](./events.md) within the specified scope, including those added to the scope after the trail was created, and upload them to a bucket, log group, or data stream. 
+The trail will collect logs of all the [resources](./events.md) within the specified scope, including those added to the scope after the trail was created.
 
-If resources are added to the audit log collection scope after the trail was created, the trail will automatically start collecting audit logs for them. 
+For resources added to the audit log collection scope after the trail was created, collecting audit logs will start automatically.
+
+For [management events](./control-plane-vs-data-plane.md#control-plane-events), the collection scope includes all supported [{{ yandex-cloud }} services](../../overview/concepts/services.md#list).
+
+For [data events](./control-plane-vs-data-plane.md#data-plane-events), the collection scope is configured on a per-service basis.
+
+You can disable collecting all management or data events for any single service or multiple services whenever you need to.
 
 ## Destination object {#target}
 
@@ -46,6 +52,7 @@ The trail contains all the audit log settings:
     * For the `{{ ui-key.yacloud.audit-trails.label_objectStorage }}` value:
         * **{{ ui-key.yacloud.audit-trails.label_bucket }}**: Bucket name.
         * **{{ ui-key.yacloud.audit-trails.label_object-prefix }}**: Optional parameter used in the [full name](./format.md#log-file-name) of the audit log file.
+        * **{{ ui-key.yacloud.audit-trails.title_kms-key }}**: {{ kms-full-name }} symmetric [encryption key](../../kms/concepts/key.md) for the bucket.
     * For the `{{ ui-key.yacloud.audit-trails.label_cloudLogging }}` value:
         * **{{ ui-key.yacloud.logging.label_loggroup }}**: Log group name.
     * For the `{{ ui-key.yacloud.audit-trails.label_dataStream }}` value:

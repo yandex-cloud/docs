@@ -6,7 +6,18 @@ To connect to the {{ mpg-name }} cluster from the {{ serverless-containers-name 
 1. [Create a Docker image in the registry](#create-image).
 1. [Create and set up a {{ serverless-containers-name }} container](#create-container).
 
-If you no longer need the resources you created, [delete](#clear-out) them.
+If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ container-registry-name }} fee: Using the storage (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md#rules-storage)).
+* Fee for the {{ serverless-containers-name }} container: Number of container invocations and computing resources (see [{{ container-registry-name }} pricing](../../serverless-containers/pricing.md)).
+
 
 ## Getting started {#before-begin}
 

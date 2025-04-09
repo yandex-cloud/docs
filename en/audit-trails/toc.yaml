@@ -9,9 +9,25 @@ items:
         href: operations/index.md
       - name: Creating a trail
         href: operations/create-trail.md
+      - name: Managing a trail
+        href: operations/manage-trail.md
+      - name: Managing permissions to access a trail
+        items:
+          - name: Viewing roles assigned for a trail
+            href: operations/role-list.md
+          - name: Assigning roles for a trail
+            href: operations/role-add.md
+          - name: Revoking roles assigned for a trail
+            href: operations/role-revoke.md
       - name: Handling errors
         href: operations/error.md
-      - name: Viewing operations with a trail
+      - name: Getting information about a trail
+        items:
+          - name: Getting a list of trails
+            href: operations/get-list.md
+          - name: Getting information about a trail
+            href: operations/get-info.md
+      - name: Viewing operations with service resources
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -21,7 +37,7 @@ items:
         href: tutorials/search-bucket.md
       - name: Searching for {{ yandex-cloud }} events in {{ cloud-logging-name }}
         href: tutorials/search-cloud-logging.md
-      - name: Event search in audit logs
+      - name: Searching for events in audit logs
         items:
           - name: Overview
             href: tutorials/search-events-audit-logs/index.md

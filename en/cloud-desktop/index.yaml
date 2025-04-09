@@ -1,23 +1,23 @@
 title: Yandex Cloud Desktop
 description:
   - >-
-    <em>Yandex Cloud Desktop is currently at the <a
+    <em>Yandex Cloud Desktop is at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
     Yandex Cloud Desktop is a service to manage virtual Linux-based <a
     href="/docs/cloud-desktop/concepts/desktops-and-groups">desktop</a>
     infrastructure.
   - >-
-    Use this service to: <ul> <li>Quickly create virtual workspaces for new
+    Use this service to: <ul><li>Quickly create virtual workspaces for new
     employees.</li> <li>Safely connect remote employees to your corporate
-    network.</li>  <li>Allow your employees to work from any modern modern
+    network.</li>  <li>Allow your employees to work from any modern
     internet-enabled device, including a privately owned one (<a
     href="https://en.wikipedia.org/wiki/Bring_your_own_device">BYOD</a>).</li>
     <li>Manage desktop computing resources.</li> <li>Administer desktops
-    remotely.</li>  <li>Create desktop groups with the same computing resources
-    and cloud <a href="/docs/vpc/concepts/network">network</a>.</li> </ul>
+    remotely.</li> <li>Create desktop groups with the same computing resources
+    and cloud <a href="/docs/vpc/concepts/network">network</a>.</li></ul>
   - >-
-    Connect to desktops using the <a
+    Desktop connections are established via the <a
     href="https://en.wikipedia.org/wiki/Remote_Desktop_Protocol">Remote Desktop
     Protocol</a> (RDP).
 meta:

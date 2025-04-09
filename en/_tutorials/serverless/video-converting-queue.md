@@ -206,7 +206,7 @@ After the task is created, the number of messages in the queue increases by one 
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Select the `converter-queue` queue.
   1. Under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, you can see how many messages are in the queue and how many are being processed.
-  1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**. View the **Overall queue stats** charts.
+  1. Go to **{{ ui-key.yacloud.common.monitoring }}**. View the **Overall queue stats** charts.
 
 {% endlist %}
 

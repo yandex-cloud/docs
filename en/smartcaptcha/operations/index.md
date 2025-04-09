@@ -6,12 +6,12 @@
 - [{#T}](advanced-method.md)
 
 
-### Getting information about a CAPTCHA {#get-info}
+## Getting information about a CAPTCHA {#get-info}
 
 * [{#T}](get-list.md)
 * [{#T}](get-info.md)
 
 
-### Getting additional information {#get-extra-info}
+## Getting additional information {#get-additional-info}
 
 * [{#T}](operation-logs.md)

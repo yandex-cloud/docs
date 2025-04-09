@@ -1,6 +1,6 @@
 # Authentication using {{ microsoft-idp.ad-short }}
 
-With an [identity federation](../../organization/concepts/add-federation.md), you can set up Single Sign-On (SSO) and use {{ microsoft-idp.ad-full }} together with [{{ microsoft-idp.adfs-full }}]({{ link-adfs }}) ({{ microsoft-idp.adfs-abbreviated }}) for cloud authentication.
+With an [identity federation](../../organization/concepts/add-federation.md), you can set up Single Sign-On (SSO) and use {{ microsoft-idp.ad-full }} in conjunction with [{{ microsoft-idp.adfs-full }}]({{ link-adfs }}) ({{ microsoft-idp.adfs-abbreviated }}) for cloud authentication.
 
 To configure SSO:
 
@@ -427,9 +427,7 @@ Create a _relying party trust_ so that {{ yandex-cloud }} can use {{ microsoft-i
    {% endcut %}
 
 
-   
    ![image](../../_assets/iam/federations/specify-console-sso-link.png)
-
 
    Then click **Next**.
 
@@ -519,7 +517,7 @@ Configure mapping:
 
     1. (Optional) Similarly, configure mappings for other claims. The actual list of mappings depends on what [user data](#explore-claims-list) you need to deliver to the {{ yandex-cloud }} side after authentication.
 
-        {% cut "How to save a user's avatar image to the `thumbnailPhoto`  attribute" %} {#add-avatar}
+        {% cut "How to save a user's avatar image to the `thumbnailPhoto` attribute" %} {#add-avatar}
 
         1. Prepare images to use as your avatar.
 

@@ -5,6 +5,29 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 
 # Step-by-step guides for {{ si-name }}
 
+## {{ sw-name }} {#workflows}
+
+### Getting information about a workflow {#workflow-get-info}
+
+* [{#T}](workflows/workflow/get-list.md)
+* [{#T}](workflows/workflow/get-info.md)
+
+### Managing a workflow {#workflow-control}
+
+* [{#T}](workflows/execution/start.md)
+* [{#T}](workflows/execution/stop.md)
+* [{#T}](workflows/execution/terminate.md)
+
+### Getting the workflow execution information {#execution-get-info}
+
+* [{#T}](workflows/execution/get-list.md)
+* [{#T}](workflows/execution/get-info.md)
+* [{#T}](workflows/execution/get-history.md)
+
+### Getting additional information {#get-additional-info}
+
+* [Viewing operations with service resources](operation-logs.md)
+
 ## {{ er-name }} {#event-router}
 
 ### Getting information about a bus {#bus-get-info}
@@ -43,6 +66,32 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [{#T}](eventrouter/rule/get-list.md)
 * [{#T}](eventrouter/rule/get-info.md)
 
-### Getting additional information {#get-additional-info}
+### Managing a rule {#rule-control}
 
-* [Viewing operations with service resources](eventrouter/operation-logs.md)
+* [{#T}](eventrouter/rule/create-api-gw.md)
+* [{#T}](eventrouter/rule/create-functions.md)
+* [{#T}](eventrouter/rule/create-logging.md)
+* [{#T}](eventrouter/rule/create-data-streams.md)
+* [{#T}](eventrouter/rule/create-message-queue.md)
+* [{#T}](eventrouter/rule/create-serverless-containers.md)
+* [{#T}](eventrouter/rule/create-workflows.md)
+* [{#T}](eventrouter/rule/update.md)
+* [{#T}](eventrouter/rule/add-target.md)
+* [{#T}](eventrouter/rule/update-target.md)
+* [{#T}](eventrouter/rule/delete-target.md)
+* [Adding a label](eventrouter/rule/label-add.md)
+* [Updating a label](eventrouter/rule/label-update.md)
+* [Deleting a label](eventrouter/rule/label-delete.md)
+* [{#T}](eventrouter/rule/enable.md)
+* [{#T}](eventrouter/rule/disable.md)
+* [{#T}](eventrouter/rule/delete.md)
+
+### Managing resource access permissions {#access-rights}
+
+* [{#T}](eventrouter/access-rights/role-list.md)
+* [{#T}](eventrouter/access-rights/role-add.md)
+* [{#T}](eventrouter/access-rights/role-revoke.md)
+
+## Getting additional information {#get-additional-info}
+
+* [Viewing operations with service resources](operation-logs.md)

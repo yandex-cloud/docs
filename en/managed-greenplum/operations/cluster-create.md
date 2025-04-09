@@ -3,9 +3,7 @@
 
 A {{ mgp-name }} cluster consists of master hosts that accept client queries and segment hosts that provide data processing and storage capability.
 
-Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
-
-For more information, see [{#T}](../concepts/index.md).
+To learn more, see [{#T}](../concepts/index.md).
 
 
 ## Creating a cluster {#create-cluster}
@@ -38,21 +36,17 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
 
 
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**:
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
 
-        * Select a [cloud network](../../vpc/concepts/network.md#network) for the cluster.
+        * [Cloud network](../../vpc/concepts/network.md#network) for the cluster.
 
-        * In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** parameter, specify the [security group](../operations/connect.md#configuring-security-groups) containing the rules which allow all incoming and outgoing traffic over any protocol from any IP address.
+        * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to be able connect to the cluster.
 
-            {% note alert %}
+        * [Availability zone](../../overview/concepts/geo-scope.md) and [subnet](../../vpc/concepts/network.md#subnet) for the cluster. To create a new subnet, click **{{ ui-key.yacloud.mdb.forms.label_add-subnetwork }}** in the list of subnets.
 
-            For a {{ mgp-name }} cluster to work properly, at least one of its security groups must have rules allowing all incoming and outgoing traffic from any IP address.
+           {% include [zone-cannot-be-changed](../../_includes/mdb/mgp/zone-cannot-be-changed.md) %}
 
-            {% endnote %}
-
-        * Select the availability zone and subnet for the cluster. To create a new subnet, click **{{ ui-key.yacloud.common.create }}** next to the availability zone you need.
-
-        * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to enable connecting to the cluster from the internet.
+        * The **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option to enable connecting to the cluster from the internet.
 
     1. (Optional) Enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
@@ -64,7 +58,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-    1. Specify the admin user settings. This special user is required for managing the cluster and cannot be deleted. For more information, see [Users and roles](../concepts/cluster-users.md).
+    1. Specify the admin user credentials. This special user is required for managing the cluster and cannot be deleted. For more information, see [Users and roles](../concepts/cluster-users.md).
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** may contain Latin letters, numbers, hyphens, and underscores, but cannot start with a hyphen. It must be from 1 to 32 characters long.
 
@@ -101,14 +95,9 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
         * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster master hosts will be deployed.
 
-        * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
-          * Select the [disk type](../concepts/storage.md).
+        * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, select the [disk type](../concepts/storage.md) and specify its size. Available disk types [depend](../concepts/storage.md) on the selected host class.
 
-            
-            {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
-
-
-          * Select the storage size.
+          {% include [warn-storage-resize](../../_includes/mdb/mgp/warn-storage-resize.md) %}
 
     1. Specify the parameters of segment hosts on the **{{ ui-key.yacloud.greenplum.section_resource-segment }}** tab. For the recommended configuration, see [Calculating the cluster configuration](../concepts/calculate-specs.md#segment).
 
@@ -118,12 +107,9 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
         * [Host class](../concepts/instance-types.md): Defines technical properties of the virtual machines on which the cluster segment hosts will be deployed.
-        * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
-           * Select the [disk type](../concepts/storage.md).
+        * Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, select the [disk type](../concepts/storage.md) and specify its size. Available disk types [depend](../concepts/storage.md) on the selected host class.
 
-             
-             {% include [storages-step-settings](../../_includes/mdb/mgp/settings-storages.md) %}
-
+           {% include [warn-storage-resize](../../_includes/mdb/mgp/warn-storage-resize.md) %}
 
            * Select the storage size.
 

@@ -37,3 +37,5 @@ description: This section contains tutorials for {{ sf-name }}.
 * [{#T}](batch-code-execution.md)
 * [{#T}](recognizer-bot.md)
 * [{#T}](logging-functions.md)
+* [{#T}](functions-framework-to-container.md)
+* [{#T}](forms-and-datalens-integration/index.md)

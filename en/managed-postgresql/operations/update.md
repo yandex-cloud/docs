@@ -21,6 +21,12 @@ After creating a cluster, you can:
 * [Change cluster security groups](#change-sg-set).
 
 
+{% note info %}
+
+Changes are only possible on a running cluster.
+
+{% endnote %}
+
 Learn more about other cluster updates:
 
 * [{{ PG }} version upgrade](cluster-version-update.md).
@@ -887,7 +893,7 @@ To switch the master:
       --host <replica_host_name>
   ```
 
-  You can request the replica host name with a [list of cluster hosts](hosts.md#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the replica host name with the [list of cluster hosts](hosts.md#list) and the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -1009,6 +1015,33 @@ To switch the master:
         ```
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+
+    1. In the {{ mpg-name }} cluster description, edit or add the `folder_id` parameter value:
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
+          ...
+          folder_id = "<destination_folder_ID>"
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - REST API {#api}
 

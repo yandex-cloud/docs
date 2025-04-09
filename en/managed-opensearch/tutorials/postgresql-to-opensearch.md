@@ -1,4 +1,5 @@
 ---
+canonical: '{{ link-docs }}/tutorials/dataplatform/postgresql-to-opensearch'
 noIndex: true
 ---
 

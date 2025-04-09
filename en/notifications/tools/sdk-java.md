@@ -27,7 +27,6 @@ To get started with the AWS SDK for Java:
 
 You can find the prerequisites and an AWS SDK for Java installation guide in the relevant [AWS documentation](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html#setup-overview).
 
-
 ### Get your OS ready {#prepare-os}
 
 1. Install Java 8 or higher, e.g., [Oracle Java SE Development Kit](https://www.oracle.com/java/technologies/downloads/). For other JDKs you can use with the AWS SDK, see the [AWS developer guide](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html#setup-envtools).
@@ -212,7 +211,9 @@ You can find the prerequisites and an AWS SDK for Java installation guide in the
 
         {% include [platform-types](../../_includes/notifications/platform-types.md) %}
 
-    * `name`: Notification channel name, user-defined. The name must be unique within the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud). It may contain lowercase and uppercase Latin letters, numbers, underscores, hyphens, and periods. It may be from 1 to 256 characters long. For APNs channels, we recommend specifying the bundle ID in the name, and for FCM and HMS, the full package name.
+    * `name`: Notification channel name, user-defined.
+  
+        {% include [channel-name](../../_includes/notifications/channel-name.md) %}
 
     As a result, you will get a notification channel ID (ARN).
 
@@ -427,7 +428,7 @@ You can find the prerequisites and an AWS SDK for Java installation guide in the
     try {
         Map<String, MessageAttributeValue> messageAttributes = new HashMap<>();
         messageAttributes.put("AWS.SNS.SMS.SenderID", MessageAttributeValue.builder()
-                .stringValue("<sender's_text_name>")
+                .stringValue("<text_name_of_sender>")
                 .dataType("String").build());
 
         PublishRequest request = PublishRequest.builder()

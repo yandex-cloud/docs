@@ -24,6 +24,18 @@ To build a CI/CD pipeline with serverless products:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+## Required paid resources {#paid-resources}
+
+The infrastructure support cost includes:
+
+* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using the [{{ managed-k8s-full-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for storing created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* Fee for storing secrets (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* Fee for the number of container calls, computing resources allocated to execute the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for requests to the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for using [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
 ## Getting started {#before-begin}
 
 ### Download a project {#download-project}
@@ -64,7 +76,7 @@ Install the following tools in the local environment:
    {% endnote %}
 
 1. [Create service accounts](../../iam/operations/sa/create.md):
-   * Service account for resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) folder. This service account will be used to create {{ managed-k8s-name }} cluster resources.
+   * Service account for resources with the [{{ roles-editor }}](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) folder. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
    * Service account for [nodes](../../managed-kubernetes/concepts/index.md#node-group) with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) role for the Docker image registry folder. Nodes will pull the required Docker images from the registry on behalf of this account.
 
    You can use the same service account for both operations.

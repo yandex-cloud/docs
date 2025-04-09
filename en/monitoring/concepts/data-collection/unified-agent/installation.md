@@ -9,7 +9,7 @@ description: In this tutorial, you will learn how to install and update {{ unifi
 
 {{ unified-agent-short-name }} is supported by the following operating systems:
 
-- Ubuntu 14.04 or higher (it can be [installed using any method](#setup)).
+- Ubuntu 16.04 or higher (you can [install it using any method](#setup)).
 - Debian 9 or higher (Docker image, deb package, or binary file).
 - CentOS 7 or higher (Docker image).
 - Fedora 32 or higher (Docker image).
@@ -22,7 +22,7 @@ description: In this tutorial, you will learn how to install and update {{ unifi
 
 Prior to installing {{ unified-agent-full-name }}, follow these steps:
 
-1. Create a VM in {{ yandex-cloud }} or a host outside {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), e.g., Ubuntu 14.04 or higher.
+1. Create a VM in {{ yandex-cloud }} or a host outside {{ yandex-cloud }} on one of the [supported operating systems](#supported-os), e.g., Ubuntu 16.04 or higher.
 
 1. (Optional) [Install Docker](https://docs.docker.com/install/) if you want to use Docker to run {{ unified-agent-short-name }}. Docker is pre-installed in Fedora CoreOS.
    - Set up a public IPv4 address (recommended).
@@ -53,7 +53,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 - deb package {#deb}
 
-  {{ unified-agent-short-name }} is distributed as a deb package for Ubuntu 14.04 or higher. The package contains a binary file with the agent and an empty configuration file located at `/etc/yandex/unified_agent/config.yml`.
+  {{ unified-agent-short-name }} is distributed as a deb package for Ubuntu 16.04 or higher. The package contains a binary file with the agent and an empty configuration file located at `/etc/yandex/unified_agent/config.yml`.
 
   To install {{ unified-agent-short-name }}:
 
@@ -62,7 +62,7 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 - Binary file {#binary}
 
-  {{ unified-agent-short-name }} is distributed as a binary file built for the x86-64/amd64 architecture for Ubuntu 14.04 or higher.
+  {{ unified-agent-short-name }} is distributed as a binary file built for the x86-64/amd64 architecture for Ubuntu 16.04 or higher.
 
   To download the latest version of the agent's binary file, run:
 

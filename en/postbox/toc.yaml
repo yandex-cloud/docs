@@ -9,10 +9,14 @@ items:
         href: operations/index.md
       - name: Creating an address
         href: operations/create-address.md
-      - name: Domain ownership verification
+      - name: Domain rights check
         href: operations/check-domain.md
+      - name: Setting up a DMARC policy
+        href: operations/setup-dmarc.md
       - name: Sending an email
         href: operations/send-email.md
+      - name: Templating an email
+        href: operations/send-templated-email.md
       - name: Creating a configuration
         href: operations/create-configuration.md
       - name: Linking a configuration to an address

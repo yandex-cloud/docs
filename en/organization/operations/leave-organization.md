@@ -5,7 +5,7 @@ description: Follow this guide to leave an organization.
 
 # Leaving an organization
 
-If you are not a federated user, you can leave an organization on your own. To do this:
+If you are not a federated user, you can leave an organization on your own. Proceed as follows:
 
 {% list tabs group=instructions %}
 

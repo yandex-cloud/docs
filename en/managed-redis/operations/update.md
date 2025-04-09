@@ -1085,6 +1085,17 @@ You cannot disable sharding in a cluster where it is already enabled.
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Select the cluster.
+    1. At the top of the page, click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
+    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+    {% include [enable-sharding-shard-note](../../_includes/mdb/mrd/enable-sharding-shard-note.md) %}
+
 - CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -1196,6 +1207,33 @@ You cannot disable sharding in a cluster where it is already enabled.
         ```
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+
+    1. In the {{ mrd-name }} cluster description, edit or add the `folder_id` parameter value:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+          ...
+          folder_id = "<destination_folder_ID>"
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
 
 - REST API {#api}
 

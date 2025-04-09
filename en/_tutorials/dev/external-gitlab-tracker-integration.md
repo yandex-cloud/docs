@@ -20,6 +20,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+### Required paid resources {#paid-resources}
+
+The infrastructure support cost includes:
+
+* Fee for a [disk](../../compute/concepts/disk.md) and a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for the number of {{ tracker-name }} users with full access if there are more than 5 of them (see [{{ tracker-name }} pricing]({{ link-tracker-cloudless }}cloud/pricing)).
+* Fee for using a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
 ## Enable {{ tracker-full-name }} {#enable-tracker}
 
 [Enable {{ tracker-name }}]({{ link-tracker-cloudless }}enable-tracker) for your [{{ yandex-cloud }} organization](../../organization/).
@@ -30,13 +38,11 @@ Create a [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instan
 
 {% list tabs group=gl_installation %}
 
-
 - {{ mgl-name }} instance {#instance-mgl}
 
     Create a {{ mgl-name }} instance by following [this guide](../../managed-gitlab/quickstart.md#instance-create).
 
-
-- VM running a {{ GL }} image {#gl-image-vm}
+- VM with a {{ GL }} image {#gl-image-vm}
 
     Launch {{ GL }} on a VM with a [public IP](../../vpc/concepts/address.md#public-addresses).
 
@@ -62,25 +68,25 @@ To set up integration for an individual {{ GL }} project, create one.
         Leave the other fields unchanged.
     1. Click **Create project**.
 
-- VM running a {{ GL }} image {#gl-image-vm}
+- VM with a {{ GL }} image {#gl-image-vm}
 
     1. On the {{ compute-full-name }} page, select the created [VM](../../compute/concepts/vm.md) and copy its [public IP](../../vpc/concepts/address.md#public-addresses).
-    1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
-    1. Get the {{ GL }} administrator password using the following VM command:
+    1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+    1. Get the {{ GL }} administrator password with the following VM command:
 
         ```bash
         sudo cat /etc/gitlab/initial_root_password
         ```
 
-    1. Copy the password (without spaces) from the `Password` row to the clipboard or a separate file.
-    1. Open `http://<VM_public_IP_address>` in your browser. This will take you to the {{ GL }} web interface.
-    1. Log in using the administrator account:
+    1. Copy the password without spaces from the `Password` line to the clipboard or a separate file.
+    1. In your browser, open `http://<VM_public_IP_address>`. This will take you to the {{ GL }} web interface.
+    1. Log in as the administrator:
         * **Username or email**: `root`.
-        * **Password**: Password you copied earlier.
+        * **Password**: Password you copied in the previous step.
 
-        If you are unable to log in, [reset the administrator account password]({{ gl.docs }}/ee/security/reset_user_password.html#reset-your-root-password).
-    1. [Change the administrator account password]({{ gl.docs }}/ee/user/profile/user_passwords.html#change-your-password).
-    1. Log in to the system again using the administrator account and the new password.
+        If you are unable to log in, [reset the administrator password]({{ gl.docs }}/ee/security/reset_user_password.html#reset-your-root-password).
+    1. [Change the administrator password]({{ gl.docs }}/ee/user/profile/user_passwords.html#change-your-password).
+    1. Log in as the administrator with the new password.
     1. Select **Create a project**.
     1. Give your project a name.
     1. Click **Create project**.
@@ -98,14 +104,13 @@ To set up integration for an individual {{ GL }} project, create one.
 ## Check the result {#check-result}
 
 1. [Create an issue]({{ link-tracker-cloudless }}user/create-ticket#create-task) in {{ tracker-name }}.
-1. [Create a merge request]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) in {{ GL }} and specify the [issue key]({{ link-tracker-cloudless }}glossary#key) in its name or description.
+1. [Create a merge request]({{ gl.docs }}/ee/user/project/merge_requests/creating_merge_requests.html) in {{ GL }} and specify the [issue key]({{ link-tracker-cloudless }}glossary#key)in its name or description.
 1. Make sure the {{ tracker-name }} issue now contains a link to the {{ GL }} merge request under [Links to external applications]({{ link-tracker-cloudless }}external-links).
-
     If you used {{ mgl-name }} and enabled auto comments when [creating a hook](#create-hook), the issue will show a comment with the merge request link and details.
 
 ## Delete the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 
-1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [created VM with the {{ GL }} image](../../compute/operations/vm-control/vm-delete.md).
+1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [{{ GL }} image VM](../../compute/operations/vm-control/vm-delete.md).
 1. If you reserved a public static IP address for the VM, release and [delete it](../../vpc/operations/address-delete.md).

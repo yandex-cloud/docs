@@ -118,7 +118,7 @@ The notification is written to the {{ yds-full-name }} [data stream](../../data-
 
 Name | Type | Description
 --- | --- | ---
-`notificationType` | String | [Notification type](#types). Possible values: `Bounce`, `Delivery`, and `Send`.
+`notificationType` | String | [Notification type](#types). The possible values are `Bounce`, `Delivery`, and `Send`.
 `mail` | [Mail](#mail-object) object | Object containing general information about the sent email.
 `bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `notificationType` is `Bounce`; otherwise, not present.
 `delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `notificationType` is `Delivery`; otherwise, not present.
@@ -175,7 +175,7 @@ Name | Type | Description
 
 ## Quality of service (QoS) level {#qos}
 
-When delivering notifications, {{ postbox-name }} supports the `QoS 1: At least once` quality of service level, so it is possible to resend notifications. Identical notifications have the same `eventId`.
+To deliver notifications, the service supports the `QoS 1: At least once` quality of service level, so it is possible to resend notifications. Identical notifications have the same `eventId`.
 
 If an address is linked to a [configuration](glossary.md#configuration) that has multiple [subscriptions](glossary.md#subscription.md) added to it, a separate notification will come for each assignment.
 
@@ -190,4 +190,4 @@ In which case you will get these three notifications:
 * Notification that the email was delivered to `user1@example.com`.
 * Notification that the email was not delivered to `user2@other.example.com` with the error info. The notification will come after the second attempt to send the email.
 
-Since the mail client responded that the recipient `user2@other.example.com` was not found, the address will be temporarily put on the stop list. You should wait for some time before trying to reach the address again, otherwise you will get notified that your message was not delivered because the recipient was on the stop list.
+Since the mail client responded that the recipient `user2@other.example.com` was not found, the address will be temporarily put on the stop list. You should wait for some time before trying to reach the address again, otherwise you will get notified that your message was not delivered because the recipient was on the stop list. 

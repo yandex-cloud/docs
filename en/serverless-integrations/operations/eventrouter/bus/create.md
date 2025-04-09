@@ -14,7 +14,7 @@ description: Follow this guide to create a bus.
   1. In the left-hand panel, select ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-event-router.button_create-bus }}**. In the window that opens:
 
-      1. Enter a name and description for the [bus](../../../concepts/eventrouter/bus.md). The naming requirements are as follows:
+      1. Enter a name and description for the [bus](../../../concepts/eventrouter/bus.md). Follow these naming requirements:
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
@@ -24,7 +24,7 @@ description: Follow this guide to create a bus.
           1. Enter a label in `key: value` format.
           1. Press **Enter**.
 
-      1. (Optional) Enable deletion protection. You cannot delete a bus with this option enabled.
+      1. Optionally, enable deletion protection. You cannot delete a bus with this option enabled.
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -51,7 +51,7 @@ description: Follow this guide to create a bus.
 
       Where:
 
-      * `--name`: Bus name. The naming requirements are as follows:
+      * `--name`: Bus name. Follow these naming requirements:
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 
@@ -60,7 +60,7 @@ description: Follow this guide to create a bus.
 
           You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
-      * `--deletion-protection`: Bus deletion protection. You cannot delete a bus with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
+      * `--deletion-protection`: Bus deletion protection. By default, protection is disabled. You cannot delete a bus with this option enabled. To disable deletion protection, specify `--no-deletion-protection`. This is an optional parameter.
 
       Result:
 
@@ -104,7 +104,7 @@ description: Follow this guide to create a bus.
 
       Where:
 
-      * `name`: Bus name. The naming requirements are as follows:
+      * `name`: Bus name. Follow these naming requirements:
 
           {% include [name-format-2](../../../../_includes/name-format-2.md) %}
 

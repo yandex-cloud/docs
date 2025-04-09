@@ -1,0 +1,1 @@
+(Optional) Open the **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** field and enter a [jq template](https://jqlang.github.io/jq/manual/) to transform events. If no template is specified, the event will not be transformed.

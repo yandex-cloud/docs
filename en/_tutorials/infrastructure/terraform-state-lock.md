@@ -5,7 +5,7 @@
 
 To allow multiple users to manage the infrastructure, you can [automatically upload the {{ TF }} states and store them in {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 
-When multiple users try to access the same state from {{ objstorage-name }} at the same time, conflicts may occur. To prevent such conflicts, you can deploy a database in [{{ ydb-full-name }}](../../ydb/) and use it to implement {{ TF }}'s native state locking mechanism. Every time you use {{ TF }} to update the infrastructure, the state will be automatically locked until the update is applied.
+When multiple users try to access the same state uploaded to {{ objstorage-name }} at the same time, conflicts may occur. To prevent such conflicts, you can deploy a database in [{{ ydb-full-name }}](../../ydb/) and use it to implement {{ TF }}'s native state locking mechanism. Every time you use {{ TF }} to update the infrastructure, the state will be automatically locked until the update is applied.
 
 To set up storing {{ TF }} states in {{ objstorage-name }} and locking them by {{ ydb-name }}:
 1. [Get your cloud ready](#before-you-begin).
@@ -182,7 +182,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and activate state locking:
 
 In this example, you will create a VM named `terraform-vm` connected to the `subnet-1` [subnet](../../vpc/concepts/network.md#subnet) in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md). This subnet will be in the `network-1` cloud [network](../../vpc/concepts/network.md#network).
 
-This VM instance will have 2 cores and 4 GB RAM. It will automatically get a public and [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VM will run Ubuntu and host the public part of the key to enable SSH access.
+This VM instance will have 2 cores and 4 GB RAM. It will automatically get a public and [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) from the `192.168.10.0/24` range in `subnet-1`. The VM will run Ubuntu and host the public part of the key to enable SSH access.
 1. Save the following configuration as a separate `example-vm.tf` file in the folder with the backend configuration file:
 
    ```hcl

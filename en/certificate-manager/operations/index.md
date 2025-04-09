@@ -41,3 +41,7 @@ description: In this article, you will learn how to work with {{ certificate-man
 ## Access {#access}
 
 - [{#T}](cert-access.md)
+
+## Getting additional information {#get-additional-info}
+
+- [{#T}](operation-logs.md)

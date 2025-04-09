@@ -1,4 +1,4 @@
-# Migrating databases from Google BigQuery to {{ mch-name }}
+# Migrating databases from Google BigQuery to {{ mch-full-name }}
 
 
 You can migrate a database from Google BigQuery to {{ mch-full-name }} and then use {{ datalens-full-name }} to analyze it.
@@ -10,7 +10,7 @@ This method of migration has the following benefits:
 * You can specify the export format and the compression ratio.
 * Lower data amounts are involved, which accelerates migration and reduces its cost.
 
-However, in this case, the data is migrated _as is_ without transforming or copying the updated increments.
+However, in this case the data is migrated _as is_ without transforming or copying the updated increments.
 
 To migrate the database from Google BigQuery to {{ mch-name }}:
 

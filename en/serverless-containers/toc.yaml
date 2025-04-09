@@ -147,7 +147,7 @@ items:
             href: operations/trigger-monitoring.md
           - name: Deleting a trigger
             href: operations/trigger-delete.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing operations with service resources
         href: operations/operation-logs.md
   - name: Concepts
     items:
@@ -211,8 +211,12 @@ items:
         href: tutorials/pg-connect.md
       - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: tutorials/deploy-app-container.md
-      - name: Building a custom integration in {{ api-gw-name }}
+      - name: Developing a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
+      - name: >-
+          Developing functions in Functions Framework and deploying them in {{
+          serverless-containers-full-name }}
+        href: tutorials/functions-framework-to-container.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

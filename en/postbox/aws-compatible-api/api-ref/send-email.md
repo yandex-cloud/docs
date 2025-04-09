@@ -37,6 +37,12 @@ POST /v2/email/outbound-emails HTTP/2
         "Data": "<subject_text>",
         "Charset": "<encoding>"
       },
+      "Headers": [
+        {
+          "Name": "<header>",
+          "Value": "<value>"
+        }
+      ],
       "Body": {
         "Text": {
           "Data": "<email_text>",
@@ -48,8 +54,22 @@ POST /v2/email/outbound-emails HTTP/2
         }
       }
     },
+    "Template": {
+      "Headers": [
+        {
+          "Name": "<header>",
+          "Value": "<value>"
+        }
+      ],
+      "TemplateContent": {
+        "Html": "<HTML_template>",
+        "Subject": "<subject_template>",
+        "Text": "<text_template>"
+      },
+      "TemplateData": "<data_to_insert_in_templates>"
+    },
     "Raw": {
-      "Data": "<overall_email_content>"
+      "Data": "<whole_email_content>"
     }
   }
 }
@@ -68,24 +88,42 @@ Used exclusively for compatibility with AWS. ||
 Object containing parameters that describe your email. ||
 || `Simple` | **Type**: Object.
 
-Simple type. You cannot use it together with `Raw`. A good choice if you need to send an email with no advanced settings. Such an email consists of a subject line and content. Type: Object. ||
+Simple type. You cannot use it together with `Raw` or `Template`. Suitable if you need to send an email without any additional setup. Such an email consists of a subject line and content. Type: Object. ||
 || `Subject` | **Type**: Object.
 
 Describes the subject:
   * `Data`: Text of the subject. Type: String.
-  * `Charset`: Encoding. Type: String. Possible values: `UTF-8`, `ISO-8859-1`, and `Shift_JIS`. ||
+  * `Charset`: Encoding. Type: String. The possible values are `UTF-8`, `ISO-8859-1`, and `Shift_JIS`. ||
+|| `Headers` | **Type**: Array.
+  * `Name`: Header name. Type: String.
+  * `Value`: Header value. Type: String. 
+
+`Name` cannot be one of the limited headers: `BCC`, `CC`, `Content-Disposition`, `Content-Type`, `Date`, 
+`From`, `Message-ID`, `MIME-Version`, `Reply-To`, `Return-Path`, `Subject`, `To`.||
 || `Body` | **Type**: Object.
 
 Describes the content:
-  * `Text`: Object in charge of displaying the email in clients without HTML support. Type: Object.
+  * `Text`: Object responsible for displaying the email in clients without HTML support. Type: Object.
       * `Data`: Email text. Type: String.
-      * `Charset`: Encoding. Type: String. Possible values: `UTF-8`, `ISO-8859-1`, and `Shift_JIS`.
-  * `Html`: Object in charge of displaying the email in clients with HTML support. Type: Object.
+      * `Charset`: Encoding. Type: String. The possible values are `UTF-8`, `ISO-8859-1`, and `Shift_JIS`.
+  * `Html`: Object responsible for displaying the email in clients with HTML support. Type: Object.
       * `Data`: Email text. Type: String.
-      * `Charset`: Encoding. Type: String. Possible values: `UTF-8`, `ISO-8859-1`, and `Shift_JIS`. ||
+      * `Charset`: Encoding. Type: String. The possible values are `UTF-8`, `ISO-8859-1`, and `Shift_JIS`. ||
+|| `Template` | **Type**: Object.
+
+Template type. You cannot use it together with `Simple` or `Raw`. Suitable if you need to send an email based on a template. Only the templates provided in the request are supported.||
+|| `TemplateContent` | **Type**: Object.
+
+Contains an email template:
+  * `Html`: HTML template. Type: String.
+  * `Subject`: Subject template. Type: String.
+  * `Text`: Text template. Type: String. ||
+|| `TemplateData` | **Type**: String.
+
+Data required to fill the template. A JSON object serialized to a string. ||
 || `Raw` | **Type**: Object.
 
-Raw type. You cannot use it together with `Simple`. A good choice if your email content requires advanced setup. This type must satisfy the following requirements:
+Raw type. You cannot use it together with `Simple` or `Template`. Suitable if your email content requires some additional setup. This type must satisfy the following requirements:
   * The email must consist of a header and content separated by a blank line.
   * All the required header fields must be present.
   * For a MIME email, all fragments must be properly formatted.
@@ -136,3 +174,4 @@ Possible errors:
 
 * [How to use the Amazon S3 API to work with {{ postbox-name }}](../index.md)
 * [Authentication with the {{ postbox-full-name }} API](../../api-ref/authentication.md)
+* [Templating an email in {{ postbox-full-name }}](../../operations/send-templated-email.md)

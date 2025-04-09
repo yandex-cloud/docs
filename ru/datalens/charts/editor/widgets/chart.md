@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, что такое графи
 
 # График (Gravity Charts)
 
+{% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 Этот тип чарта служит для отрисовки различных типов графиков с помощью библиотеки [@gravity-ui/charts](https://github.com/gravity-ui/charts).
 
 Доступные типы визуализаций перечислены в [документации](https://gravity-ui.github.io/charts/pages/overview.html).
