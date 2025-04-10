@@ -6,7 +6,7 @@ Under `serializer`, specify the selected [serialization](../../../data-transfer/
 
     For this type, you can specify the [Debezium serialization](../../../data-transfer/concepts/serializer.md#debezium) parameters as `key`/`value` pairs in the `serializerDebezium.serializerParameters` field.
 
-If you want to use JSON schemas in {{ schema-registry-full-name }} and need to keep them compatible while adding optional parameters, add the `serializer` object with a description of the serialization settings to the request body. To generate a closed schema for keys, add the `key.converter.dt.json.generate.closed.content.schema` variable set to `true` in `serializer`. To generate a closed schema for values, add the `value.converter.dt.json.generate.closed.content.schema` variable set to `true` in `serializer`.
+If you want to use JSON schemas in {{ schema-registry-full-name }} and need to keep them compatible while adding and deleting optional fields, add the `serializer` object with a description of the serialization settings to the request body. To generate a closed schema for keys, add the `key.converter.dt.json.generate.closed.content.schema` variable set to `true` in `serializer`. To generate a closed schema for values, add the `value.converter.dt.json.generate.closed.content.schema` variable set to `true` in `serializer`.
 
 ```json
 "serializer": {
@@ -39,7 +39,7 @@ If you want to use JSON schemas in {{ schema-registry-full-name }} and need to k
 
 Where:
 
-* `Schema_Registry_namespace_URL`: {{ schema-registry-name }} namespace endpoint. You can copy the endpoint from the details for the {{ schema-registry-name }} namespace connection on the **Debezium** tab, in the `value.converter.schema.registry.url` parameter.
+* `Schema_Registry_namespace_URL`: {{ schema-registry-name }} namespace endpoint. You can copy the endpoint from the {{ schema-registry-name }} namespace connection details on the **Debezium** tab, in the `value.converter.schema.registry.url` parameter.
 * `API_key_value`: Value of the [API key](../../../iam/concepts/authorization/api-key.md) with a limited scope used for connecting to {{ schema-registry-name }}. To get this value:
     1. Create an API key with a limited scope and place it in the `SECRET` local variable:
 

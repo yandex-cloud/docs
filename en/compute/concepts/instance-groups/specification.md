@@ -14,7 +14,7 @@ You can create or edit an instance group based on the specification in [YAML](ht
 
 {% note info %}
 
-You can also create an instance group using [Terraform](https://terraform.io) based on the description similar to a YAML specification. For more information, see [Getting started with Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [Create an instance group](../../operations/instance-groups/create-fixed-group.md), and the [`yandex_compute_instance_group` resource guide]({{ tf-provider-resources-link }}/compute_instance_group).
+You can also create an instance group using [Terraform](https://terraform.io) based on the description similar to a YAML specification. For more information, see [Getting started with Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [Create an instance group](../../operations/instance-groups/create-fixed-group.md), and the [`yandex_compute_instance_group`]({{ tf-provider-resources-link }}/compute_instance_group) resource guide.
 
 {% endnote %}
 
@@ -94,7 +94,7 @@ service_account_id: ajefnb8427bh********
 
 The list, structure, and descriptions of specification fields are provided:
 
-* In the specification of the [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) structure and other [structures used in it](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto), in the API repository on GitHub ([Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) format).
+* In the specification of the [CreateInstanceGroupRequest](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group_service.proto#L219) structure and other [structures used in it](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/instancegroup/instance_group.proto), in the API repository on GitHub (in [Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) format).
 * In the description of the [create](../../api-ref/InstanceGroup/create) REST API method of the `InstanceGroup` resource ([JSON](https://en.wikipedia.org/wiki/JSON) format).
 * In the description of the [InstanceGroupService/Create](../../instancegroup/api-ref/grpc/InstanceGroup/create.md) gRPC API call.
 
@@ -229,7 +229,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
 
 In YAML format, all values in dictionary objects are implicitly strings, so you do not need to use quotation marks for them. The string contents must match the types specified in the API reference or in the Protobuf specification: `string`, `int64`, `bool`, etc.
 
-### Suffixes for the int64 type {#int64}
+### Suffixes for the `int64` type {#int64}
 
 The `int64` type values support the following suffixes:
 
@@ -237,7 +237,7 @@ The `int64` type values support the following suffixes:
 
 If a value uses a suffix, it must be prefixed by an integer.
 
-### boolean type {#boolean}
+### `boolean` type {#boolean}
 
 `bool` or `boolean` fields support all values listed in the [YAML format specification](https://yaml.org/type/bool.html):
 

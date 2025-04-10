@@ -477,6 +477,7 @@ default:
     docs: https://docs.microsoft.com/en-us
   mtr-full-name: Yandex Managed Service for Trino
   mtr-name: Managed Service for Trino
+  mtr-short-name: Managed Service for Trino
   my:
     docs: https://dev.mysql.com/doc
   MY: MySQL®
@@ -2378,6 +2379,128 @@ default:
     used_space:
       v1|month|number: 4.2
       v1|month|string: ₽4.20
+  sku|RUB|baremetal:
+    server:
+      ba_i100_h:
+        1_day|string: ₽18200.00
+        1_month|string: ₽17654.00
+        12_month|string: ₽18200.00
+        3_month|string: ₽17290.00
+        6_month|string: ₽16926.00
+      ba_i101_h:
+        1_day|string: ₽18500.00
+        1_month|string: ₽17945.00
+        12_month|string: ₽15725.00
+        3_month|string: ₽17575.00
+        6_month|string: ₽17205.00
+      ba_i102_s:
+        1_day|string: ₽18900.00
+        1_month|string: ₽18333.00
+        12_month|string: ₽16065.00
+        3_month|string: ₽17955.00
+        6_month|string: ₽17577.00
+      ba_i103_s_10g:
+        1_day|string: ₽22400.00
+        1_month|string: ₽21728.00
+        12_month|string: ₽19040.00
+        3_month|string: ₽21280.00
+        6_month|string: ₽20832.00
+      ba_i104_sh:
+        1_day|string: ₽20900.00
+        1_month|string: ₽20273.00
+        12_month|string: ₽17765.00
+        3_month|string: ₽19855.00
+        6_month|string: ₽19437.00
+      ba_i105_sh:
+        1_day|string: ₽29600.00
+        1_month|string: ₽28712.00
+        12_month|string: ₽25160.00
+        3_month|string: ₽28120.00
+        6_month|string: ₽27528.00
+      ba_i106_sh_10g:
+        1_day|string: ₽33500.00
+        1_month|string: ₽32495.00
+        12_month|string: ₽28475.00
+        3_month|string: ₽31825.00
+        6_month|string: ₽31155.00
+      ba_i111_8s_10g:
+        1_day|string: ₽99800.00
+        1_month|string: ₽96806.00
+        12_month|string: ₽84830.00
+        3_month|string: ₽94810.00
+        6_month|string: ₽92814.00
+      ba_i200_h:
+        1_day|string: ₽18600.00
+        1_month|string: ₽18042.00
+        12_month|string: ₽15810.00
+        3_month|string: ₽17670.00
+        6_month|string: ₽17298.00
+      ba_i201_h:
+        1_day|string: ₽19100.00
+        1_month|string: ₽18527.00
+        12_month|string: ₽16235.00
+        3_month|string: ₽18145.00
+        6_month|string: ₽17763.00
+      ba_i202_s:
+        1_day|string: ₽19500.00
+        1_month|string: ₽18915.00
+        12_month|string: ₽16575.00
+        3_month|string: ₽18525.00
+        6_month|string: ₽18135.00
+      ba_i203_s_10g:
+        1_day|string: ₽22200.00
+        1_month|string: ₽21534.00
+        12_month|string: ₽18870.00
+        3_month|string: ₽21090.00
+        6_month|string: ₽20646.00
+      ba_i204_sh:
+        1_day|string: ₽21300.00
+        1_month|string: ₽20661.00
+        12_month|string: ₽18105.00
+        3_month|string: ₽20235.00
+        6_month|string: ₽19809.00
+      ba_i205_sh:
+        1_day|string: ₽30400.00
+        1_month|string: ₽29488.00
+        12_month|string: ₽25840.00
+        3_month|string: ₽28880.00
+        6_month|string: ₽28272.00
+      ba_i206_sh_10g:
+        1_day|string: ₽33800.00
+        1_month|string: ₽32786.00
+        12_month|string: ₽28730.00
+        3_month|string: ₽32110.00
+        6_month|string: ₽31434.00
+      ba_i207_h:
+        1_day|string: ₽53100.00
+        1_month|string: ₽51507.00
+        12_month|string: ₽45135.00
+        3_month|string: ₽50445.00
+        6_month|string: ₽49383.00
+      ba_i208_s_10g:
+        1_day|string: ₽91500.00
+        1_month|string: ₽88755.00
+        12_month|string: ₽77775.00
+        3_month|string: ₽86925.00
+        6_month|string: ₽85095.00
+      ba_i211_8s_10g:
+        1_day|string: ₽99900.00
+        1_month|string: ₽96903.00
+        12_month|string: ₽84915.00
+        3_month|string: ₽94905.00
+        6_month|string: ₽92907.00
+      ba_i407_s_10g:
+        1_day|string: ₽86200.00
+        1_month|string: ₽83614.00
+        12_month|string: ₽73270.00
+        3_month|string: ₽81890.00
+        6_month|string: ₽80166.00
+      ha_i302_s_10g:
+        1_day|string: ₽91800.00
+        1_month|string: ₽89046.00
+        12_month|string: ₽78030.00
+        3_month|string: ₽87210.00
+        6_month|string: ₽85374.00
   sku|RUB|cdn:
     api:
       network:
@@ -6762,7 +6885,6 @@ default:
             label_title: Changing an instance group
           overview:
             label_instance-address: Public IP address
-            section_base: General information
             section_instances-state: VM states
           switch_instances: Virtual machines
         groups:

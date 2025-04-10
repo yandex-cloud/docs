@@ -21,17 +21,17 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  Чтобы получить информацию о [ARL профиле](../concepts/arl.md) {{ sws-full-name }}, созданном с помощью {{ TF }}:
+  Чтобы получить информацию о [профиле ARL](../concepts/arl.md) {{ sws-full-name }} с помощью {{ TF }}:
 
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
      ```hcl
-     data "yandex_sws_advanced_rate_limiter_profile" "default" {
-        name = yandex_sws_advanced_rate_limiter_profile.default.name
+     data "yandex_sws_advanced_rate_limiter_profile" "arl-profile" {
+        name = yandex_sws_advanced_rate_limiter_profile.arl-profile.name
      }
 
      output "profile-created" {
-       value = data.yandex_sws_advanced_rate_limiter_profile.default.created_at
+       value = data.yandex_sws_advanced_rate_limiter_profile.arl-profile.created_at
      }
      ```
 

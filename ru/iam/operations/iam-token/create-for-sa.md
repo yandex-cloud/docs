@@ -128,7 +128,7 @@ yc iam create-token
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Пример создания JWT с использованием [PyJWT](https://github.com/jpadilla/pyjwt/):
-  - Проверено для версии Python 3.12.2 и PyJWT версии 2.8.0.
+  - Проверено для версии Python 3.13.0 и PyJWT версии 2.10.0.
   - Необходимые данные читаются из JSON-файла, полученного при создании авторизованного ключа.
 
   Установите модуль `PyJWT` и модуль `cryptography` для работы с алгоритмом `PS256`:
@@ -138,42 +138,52 @@ yc iam create-token
   pip3 install cryptography
   ```
 
+  
   ```python
   import time
   import jwt
   import json
 
+  key_path = '<JSON-файл_c_ключами>'
+
   # Чтение закрытого ключа из JSON-файла
-  with open('<JSON-файл_c_ключами>', 'r') as f: 
+  with open(key_path, 'r') as f:
     obj = f.read() 
     obj = json.loads(obj)
     private_key = obj['private_key']
     key_id = obj['id']
     service_account_id = obj['service_account_id']
 
-  now = int(time.time())
-  payload = {
-          'aud': 'https://iam.{{ api-host }}/iam/v1/tokens',
-          'iss': service_account_id,
-          'iat': now,
-          'exp': now + 3600
-        }
+  sa_key = {
+      "id": key_id,
+      "service_account_id": service_account_id,
+      "private_key": private_key
+  }
 
-  # Формирование JWT.
-  encoded_token = jwt.encode(
-      payload,
-      private_key,
-      algorithm='PS256',
-      headers={'kid': key_id}
-    )
+  def create_jwt():
+      now = int(time.time())
+      payload = {
+              'aud': 'https://iam.api.cloud.yandex.net/iam/v1/tokens',
+              'iss': service_account_id,
+              'iat': now,
+              'exp': now + 3600
+          }
 
-  #Запись ключа в файл
-  with open('jwt_token.txt', 'w') as j:
-     j.write(encoded_token) 
-     
-  # Вывод в консоль
-  print(encoded_token)
+      # Формирование JWT.
+      encoded_token = jwt.encode(
+          payload,
+          private_key,
+          algorithm='PS256',
+          headers={'kid': key_id}
+      )
+
+      print(encoded_token)
+
+      return encoded_token
+
+  create_jwt()
   ```
+
 
 - Java {#java}
 
@@ -354,7 +364,7 @@ yc iam create-token
   {% include [jwt-external-libs-notice](../../../_includes/iam/jwt-external-libs-notice.md) %}
 
   Пример создания JWT с использованием [golang-jwt](https://github.com/golang-jwt/jwt):
-  - Проверено для версии Go1.22.1 и golang-jwt версии v5.
+  - Проверено для версии Go 1.23.1 и golang-jwt версии v5.
   - Закрытый ключ читается из JSON-файла, полученного при создании авторизованного ключа.
 
   Установите необходимые пакеты:
@@ -364,6 +374,7 @@ yc iam create-token
   go get -u github.com/golang-jwt/jwt/v5
   ```
 
+    
   ```go
   package main  
   
@@ -379,15 +390,15 @@ yc iam create-token
   
   func main() {
     // Получение токена
-  	 token := signedToken()
+  	token := signedToken()
     // Сохранение токена в файл
-  	 err := os.WriteFile("jwt_token.txt", []byte(token), 0644)
-  	 if err != nil {
-  		log.Fatal(err)
-  	 }
-  	 // Вывод токена в консоль
-  	 fmt.Println("Here is token:")
-  	 fmt.Println(token)
+  	err := os.WriteFile("jwt_token.txt", []byte(token), 0644)
+  	if err != nil {
+  	  log.Fatal(err)
+  	}
+  	// Вывод токена в консоль
+  	fmt.Println("Here is token:")
+  	fmt.Println(token)
   }
   
   const (
@@ -398,46 +409,50 @@ yc iam create-token
   
   // Формирование JWT.
   func signedToken() string {
-  	 claims := jwt.RegisteredClaims{
+  	claims := jwt.RegisteredClaims{
   	 	Issuer:    serviceAccountID,
   	 	ExpiresAt: jwt.NewNumericDate(time.Now().UTC().Add(1 * time.Hour)),
   	 	IssuedAt:  jwt.NewNumericDate(time.Now().UTC()),
   	 	NotBefore: jwt.NewNumericDate(time.Now().UTC()),
   	 	Audience:  []string{"https://iam.{{ api-host }}/iam/v1/tokens"},
-  	 }
-  	 token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
-  	 token.Header["kid"] = keyID
+  	}
+  	token := jwt.NewWithClaims(jwt.SigningMethodPS256, claims)
+  	token.Header["kid"] = keyID
   
-  	 privateKey := loadPrivateKey()
-  	 signed, err := token.SignedString(privateKey)
-  	 if err != nil {
+  	privateKey := loadPrivateKey()
+  	signed, err := token.SignedString(privateKey)
+  	if err != nil {
   		panic(err)
-  	 }
-  	 return signed
-  }
-  
-  type keyFileStruct struct {
-  	 PrivateKey string `json:"private_key"`
+  	}
+
+  	return signed
   }
   
   func loadPrivateKey() *rsa.PrivateKey {
-  	 data, err := os.ReadFile(keyFile)
-  	 if err != nil {
-  		panic(err)
-  	 }
-  
-  	 var keyData keyFileStruct
-  	 if err := json.Unmarshal(data, &keyData); err != nil {
-  		panic(err)
-  	 }
-  
-  	 rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM([]byte(keyData.PrivateKey))
-  	 if err != nil {
-  		panic(err)
-  	 }
-  	 return rsaPrivateKey
+    keyData := readPrivateKey()
+
+    rsaPrivateKey, err := jwt.ParseRSAPrivateKeyFromPEM([]byte(keyData.PrivateKey))
+    if err != nil {
+      panic(err)
+    }
+    return rsaPrivateKey
+	}
+
+  func readPrivateKey() *iamkey.Key {
+    data, err := os.ReadFile(keyFile)
+    if err != nil {
+      panic(err)
+    }
+
+    var keyData *iamkey.Key
+    if err := json.Unmarshal(data, &keyData); err != nil {
+      panic(err)
+    }
+
+    return keyData
   }
   ```
+
 
 - Node.js {#node}
 
@@ -447,35 +462,37 @@ yc iam create-token
   - Проверено для Node.js v20.12.1 и node-jose 2.2.0.
   - Необходимые данные читаются из JSON-файла, полученного при создании авторизованного ключа.
 
+  
   ```js
-  var jose = require('node-jose');
-  var fs = require('fs');
-  
-  var json = JSON.parse(fs.readFileSync(require.resolve('<JSON-файл_c_ключами>')));
-  
-  var key = json.private_key;
-  var serviceAccountId = json.service_account_id;
-  var keyId = json.id;
-  
-  var now = Math.floor(new Date().getTime() / 1000);
-  
-  var payload = {
-     aud: "https://iam.{{ api-host }}/iam/v1/tokens",
-     iss: serviceAccountId,
-     iat: now,
-     exp: now + 3600
-  };
-  
-  jose.JWK.asKey(key, 'pem', { kid: keyId, alg: 'PS256' })
-     .then(function (result) {
-        jose.JWS.createSign({ format: 'compact' }, result)
-           .update(JSON.stringify(payload))
-           .final()
-           .then(function (result) {
-              console.log(result);
-           });
-     });
+  const serviceAccountJson = require('<JSON-файл_c_ключами>')
+  const jose = require('node-jose');
+
+  const {
+      id: accessKeyId,
+      service_account_id: serviceAccountId,
+      private_key: privateKey
+  } = serviceAccountJson
+
+  const createJWT = () =>
+  {
+      const now = Math.floor(new Date().getTime() / 1000)
+      const payload = {
+          iss: serviceAccountId,
+          iat: now,
+          exp: now + 3600,
+          aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+      
+      return jose.JWK.asKey(privateKey, 'pem', { kid: accessKeyId, alg: 'PS256' })
+          .then(function (result)
+          {
+              return jose.JWS.createSign({ format: 'compact' }, result)
+                  .update(JSON.stringify(payload))
+                  .final();
+          });
+  }
   ```
+
+  
 
 - PHP {#php}
 
@@ -681,45 +698,157 @@ yc iam create-token
 
   Где `<JWT-токен>` — токен в формате JWT, полученный на предыдущем шаге.
 
+- Python {#python}
+
+  Для того чтобы обменять JWT на IAM-токен, вы можете использовать [YC SDK](../../../overview/sdk/overview.md) для Python.
+  1. Установите {{ yandex-cloud }} SDK для Python: 
+
+      ```bash
+      pip install yandexcloud
+      ```
+
+  1. Обменяйте JWT на IAM-токен:
+
+      ```go
+      import yandexcloud
+
+      from yandex.cloud.iam.v1.iam_token_service_pb2 import (CreateIamTokenRequest)
+      from yandex.cloud.iam.v1.iam_token_service_pb2_grpc import IamTokenServiceStub
+
+      key_path = '<JSON-файл_c_ключами>'
+
+      # Чтение закрытого ключа из JSON-файла
+      with open(key_path, 'r') as f:
+        obj = f.read() 
+        obj = json.loads(obj)
+        private_key = obj['private_key']
+        key_id = obj['id']
+        service_account_id = obj['service_account_id']
+
+      sa_key = {
+          "id": key_id,
+          "service_account_id": service_account_id,
+          "private_key": private_key
+      }
+
+      def create_iam_token():
+        jwt = create_jwt()
+        
+        sdk = yandexcloud.SDK(service_account_key=sa_key)
+        iam_service = sdk.client(IamTokenServiceStub)
+        iam_token = iam_service.Create(
+            CreateIamTokenRequest(jwt=jwt)
+        )
+        
+        print("Your iam token:")
+        print(iam_token.iam_token)
+
+        return iam_token.iam_token
+      ```
+
 - Go {#go}
 
-  Пример обмена JWT на IAM-токен:
+  Для того чтобы обменять JWT на IAM-токен, вы можете использовать [YC SDK](../../../overview/sdk/overview.md) для Go.
+  1. Установите {{ yandex-cloud }} SDK для Go: 
 
-  ```go
-  import (
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strings"
-  )
+      ```bash
+      go get github.com/yandex-cloud/go-sdk
+      ```
 
-  func getIAMToken() string {
-    jot := signedToken()
-    fmt.Println(jot)
-    resp, err := http.Post(
-        "https://iam.{{ api-host }}/iam/v1/tokens",
-        "application/json",
-        strings.NewReader(fmt.Sprintf(`{"jwt":"%s"}`, jot)),
-    )
-    if err != nil {
-        panic(err)
-    }
-    defer resp.Body.Close()
-    if resp.StatusCode != http.StatusOK {
-        body, _ := ioutil.ReadAll(resp.Body)
-        panic(fmt.Sprintf("%s: %s", resp.Status, body))
-    }
-    var data struct {
-        IAMToken string `json:"iamToken"`
-    }
-    err = json.NewDecoder(resp.Body).Decode(&data)
-    if err != nil {
-        panic(err)
-    }
-    return data.IAMToken
-  }
-  ```
+  1. Обменяйте JWT на IAM-токен:
+
+      ```go
+      import (
+        "context"
+        
+        "github.com/yandex-cloud/go-genproto/yandex/cloud/iam/v1"
+        ycsdk "github.com/yandex-cloud/go-sdk"
+      )
+
+      func getIAMToken() string {
+        authKey := readPrivateKey()
+        ctx := context.Background()
+
+        credentials, err := ycsdk.ServiceAccountKey(authKey)
+        if err != nil {
+          panic(err)
+        }
+
+        sdk, err := ycsdk.Build(ctx, ycsdk.Config{
+          Credentials: credentials,
+        })
+        if err != nil {
+          panic(err)
+        }
+
+        iamRequest := &iam.CreateIamTokenRequest{
+          Identity: &iam.CreateIamTokenRequest_Jwt{Jwt: signedToken()},
+        }
+
+        newKey,err := sdk.IAM().IamToken().Create(ctx,iamRequest)
+        if err != nil {
+          panic(err)
+        }
+
+        fmt.Println("Your iam token:")
+        fmt.Println(newKey.IamToken)
+        return newKey.IamToken
+      }
+      ```
+
+- Node.js {#node}
+
+  Для того чтобы обменять JWT на IAM-токен, вы можете использовать [YC SDK](../../../overview/sdk/overview.md) для Node.js.
+  1. Установите {{ yandex-cloud }} SDK для Node.js: 
+
+      ```bash
+      npm install @yandex-cloud/nodejs-sdk
+      ```
+
+  1. Обменяйте JWT на IAM-токен:
+
+      ```js
+      const serviceAccountJson = require('<JSON-файл_c_ключами>')
+      const {
+          serviceClients, Session, cloudApi, waitForOperation, decodeMessage,
+      } = require('@yandex-cloud/nodejs-sdk');
+
+      const {
+          id: accessKeyId,
+          service_account_id: serviceAccountId,
+          private_key: privateKey
+      } = serviceAccountJson
+
+      const {
+          iam: {
+              iam_token_service: {
+                  CreateIamTokenRequest,
+              }
+          }
+      } = cloudApi;
+
+      async function createIamToken()
+      {
+          const session = new Session({
+              serviceAccountJson: {
+                  accessKeyId,
+                  serviceAccountId,
+                  privateKey,
+              }
+          })
+          const tokenClient = session.client(serviceClients.IamTokenServiceClient)
+          const jwt = await createJWT()
+          const tokenRequest = CreateIamTokenRequest.fromPartial({ jwt })
+          const { iamToken } = await tokenClient.create(tokenRequest)
+
+          console.log("Your iam token:")
+          console.log(iamToken)
+
+          return iamToken
+      }
+
+      createIamToken()
+      ```
 
 {% endlist %}
 

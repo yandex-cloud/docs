@@ -31,7 +31,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
           * Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
           * Enter a label in `key: value` format.
-          * Click **Enter**.
+          * Press **Enter**.
 
       * To configure a [TLS certificate](../../concepts/clients-to-servers-tls.md) for a CDN resource, in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
 
@@ -44,7 +44,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
               {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
-          For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
+          To learn more, see [{#T}](../../concepts/clients-to-servers-tls.md).
 
       * To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource:
 
@@ -164,7 +164,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
 
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```bash

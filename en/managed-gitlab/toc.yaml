@@ -31,6 +31,8 @@ items:
         href: operations/create-user.md
       - name: Setting up approval rules
         href: operations/approval-rules.md
+      - name: Monitoring the instance status
+        href: operations/instance/monitoring.md
       - name: Setting up OmniAuth
         href: operations/omniauth.md
   - name: Tutorials
@@ -49,7 +51,7 @@ items:
           Scanning {{ container-registry-name }} for vulnerabilities during
           continuous deployment of {{ managed-k8s-name }} applications
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
-      - name: Building a CI/CD pipeline using serverless products
+      - name: Building a CI/CD pipeline with serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Storing Docker images in {{ container-registry-full-name }}
         href: tutorials/image-storage.md
@@ -81,6 +83,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

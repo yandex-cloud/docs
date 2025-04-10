@@ -2,7 +2,7 @@
 
 Make sure it meets all [fault tolerance conditions](../../managed-kafka/concepts/index.md#fault-tolerance).
 
-#### What do I do if I get an error like "disk size must be at least ... according to topics partitions number and replication factor, but size is ..."? {#disk-size}
+#### What should do I do if I get this or similar error: "disk size must be at least ... according to topics partitions number and replication factor, but size is ..."? {#disk-size}
 
 The error results from the fact that your topics' log segments take up more space than is available in broker storage. For more information about calculating the required space, see [{#T}](../../managed-kafka/concepts/storage.md#minimal-storage-size).
 
@@ -27,8 +27,8 @@ Here is an alternative solution:
 
 For `disk.used_bytes`, use notification thresholds. The recommended values are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of the disk space
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of the disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
@@ -45,7 +45,7 @@ To increase the maximum IOPS and bandwidth values and make throttling less likel
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What do I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
 
 Here is the full text of the error:
 
@@ -53,7 +53,7 @@ Here is the full text of the error:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means, when connecting to the website, the service failed to check whether or not the website’s certificate is on the list of revoked certificates.
+This means, when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
 
 To fix this error:
 
@@ -63,3 +63,15 @@ To fix this error:
    ```powershell
    mkdir $HOME\.kafka; curl.exe --ssl-no-revoke -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
    ```
+
+#### Can I manage a cluster using scripts from an {{ KF }} distribution? {#script-apache-kafka}
+
+Yes, you can, but with some limitations.
+
+For more information about the API types available in a cluster and applicable limitations, see [{#T}](../../managed-kafka/concepts/available-apis.md).
+
+For an example of using scripts, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+
+#### What should I do if the _kafkacat: command not found_ error occurs? {#kafkacat-not-found}
+
+On Ubuntu 24.04 and higher, use `kcat` instead of `kafkacat` (this command will not work).

@@ -41,8 +41,8 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 - Management console {#console}
 
   To update a {{ managed-k8s-name }} node group:
-  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
-  1. Click the name of the {{ managed-k8s-name }} cluster.
+  1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the required node group.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
@@ -150,7 +150,7 @@ To learn how to change the [availability zone](../../../overview/concepts/geo-sc
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Enter `yes` to confirm changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -260,7 +260,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Enter `yes` to confirm changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -297,7 +297,7 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Enter `yes` to confirm changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -316,7 +316,7 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
 
 ## Managing node group cloud labels {#manage-label}
 
-You can perform the following actions with [cloud labels](../../../resource-manager/concepts/labels.md) of {{ managed-k8s-name }} node groups:
+You can perform the following actions with [cloud labels](../../concepts/index.md#node-labels) of {{ managed-k8s-name }} node groups:
 * [Add](#add-label)
 * [Edit](#update-label)
 * [Delete](#remove-label)
@@ -324,6 +324,17 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 ### Adding a cloud label {#add-label}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Click the cluster name.
+    1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Select the required node group.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. Enter the key and the value, and press **Enter**.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -366,7 +377,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Enter `yes` to confirm changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -377,6 +388,19 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 ### Updating a cloud label {#update-label}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  To update a cloud label, you will need to delete and re-create it:
+
+    1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Click the cluster name.
+    1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Select the required node group.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to delete it.
+    1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
+    1. Press **Enter**, then click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -420,7 +444,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Enter `yes` to confirm changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -431,6 +455,16 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 ### Deleting a cloud label {#remove-label}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Click the cluster name.
+    1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+    1. Select the required node group.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -459,7 +493,7 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Enter `yes` to confirm changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -475,8 +509,8 @@ You can perform the following actions with [cloud labels](../../../resource-mana
 
 - Management console {#console}
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
-    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Click the cluster name.
     1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the required node group.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
@@ -542,8 +576,8 @@ After you change the metadata, the node group status will temporarily change to 
 
 - Management console {#console}
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
-    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Click the cluster name.
     1. Go to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the required node group.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
@@ -650,7 +684,7 @@ After you change the metadata, the node group status will temporarily change to 
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Enter `yes` to confirm changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

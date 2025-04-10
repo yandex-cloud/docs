@@ -5,7 +5,13 @@ description: In this article, you will learn about public and private networks i
 
 # Network
 
-![baremetal-network](../../_assets/baremetal/baremetal-network.svg)
+![baremetal-network](../../_assets/baremetal/baremetal-network.svg).
+
+{% note info %}
+
+You will be able to use {{ interconnect-name }} with {{ baremetal-name }} servers starting April 2025.
+
+{% endnote %}
 
 ## Public network {#public-network}
 
@@ -23,7 +29,7 @@ Within a single pool, L2 connectivity (VLAN) and L3 connectivity (VRF) are possi
 
 To configure networking between servers from different [pools](./servers.md), select the same [VRF](#vrf-segment) for the appropriate subnets under **Routing settings**.
 
-For subnet addressing purposes, you can use any CIDR in the ranges reserved for private networks: `10.0.0.0/8`, `172.16.0.0/12`, or `192.168.0.0/16`. The subnet must include at least eight addresses (the maximum CIDR prefix length is `/29`).
+{% include [internal-addressing-rules](../../_includes/baremetal/internal-addressing-rules.md) %}
 
 ### Virtual routing and forwarding (VRF) {#vrf-segment}
 

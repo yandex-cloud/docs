@@ -41,7 +41,7 @@ items:
             href: operations/target-group-detach.md
           - name: Deleting a target group
             href: operations/target-group-delete.md
-      - name: Viewing service resource operations
+      - name: Viewing operations with resources
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -49,7 +49,7 @@ items:
         href: tutorials/index.md
       - name: Architecture and protection of a basic internet service
         href: tutorials/web-service.md
-      - name: Implementing fault-tolerant scenarios for network VMs
+      - name: Implementing fault-tolerant scenarios for NAT VMs
         href: tutorials/route-switcher.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
@@ -90,21 +90,55 @@ items:
           load balancer
         href: tutorials/mssql-alwayson-lb.md
       - name: >-
-          Migrating services from an NLB to an L7 ALB for DDoS protection using
-          {{ sws-name }}
+          Migrating services from an NLB load balancer to an ALB L7 load
+          balancer for DDoS protection using {{ sws-name }}
         items:
           - name: Overview
             href: tutorials/migration-from-nlb-to-alb/index.md
-          - name: NLB with target resources from VMs
-            href: tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm.md
-          - name: NLB with target resources from an instance group
-            href: >-
-              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm.md
-          - name: NLB with target resources from a {{ managed-k8s-name }} cluster
-            href: >-
-              tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s.md
-          - name: NLB as a target resource for an ALB
-            href: tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb.md
+          - name: NLB with with VMs as targets
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+          - name: NLB with a VM group as a target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
+          - name: NLB with a {{ managed-k8s-name }} cluster as a target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
+          - name: NLB load balancer as a target for an ALB
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
   - name: Concepts
     items:
       - name: Overview

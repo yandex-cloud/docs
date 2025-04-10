@@ -128,7 +128,7 @@ Configure one of the supported data targets:
 * [{{ objstorage-full-name }}](../target/object-storage.md)
 * [{{ KF }}](../target/kafka.md)
 * [{{ DS }}](../target/data-streams.md)
-* [{{ ydb-full-name }}](../target/yandex-database.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 

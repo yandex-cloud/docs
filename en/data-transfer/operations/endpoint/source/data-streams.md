@@ -27,7 +27,7 @@ description: Follow this guide to configure an {{ yds-full-name }} source endpoi
     * [{{ DS }} to {{ CH }}](../../../tutorials/yds-to-clickhouse.md).
     * [{{ DS }} to {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).
     * [{{ DS }} to {{ ydb-name }}](../../../tutorials/yds-to-ydb.md).
-    * [{{ DS }} to {{ mkf-name }}](../../../tutorials/yds-to-kafka.md).
+    * [{{ DS }} in {{ mkf-name }}](../../../tutorials/yds-to-kafka.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -54,15 +54,12 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 ### Advanced settings {#additional-settings}
 
-
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
-
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.transformer.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}**: Select one of the functions created in {{ sf-name }}.
@@ -91,7 +88,6 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
         Values in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.buffer_flush_interval.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.invocation_timeout.title }}** fields are specified with the `s` postfix, e.g., `10s`.
 
         {% endnote %}
-
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**:
 

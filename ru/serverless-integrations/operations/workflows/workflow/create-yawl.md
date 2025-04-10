@@ -7,11 +7,11 @@ description: Следуя данной инструкции, вы сможете
 
 ## Подготовить YaWL-спецификацию {#prepare-spec}
 
-Сохраните [YaWL-спецификацию](../../../concepts/workflows/yawl/index.md) рабочего процесса в JSON-файле, например `yawl-spec.json`.
+Сохраните [YaWL-спецификацию](../../../concepts/workflows/yawl/index.md) рабочего процесса в YAML-файле, например `yawl-spec.yaml`.
 
 Пример спецификации:
 
-```json
+```yaml
 yawl: "0.1"
 start: collect_info
 steps:
@@ -76,7 +76,7 @@ steps:
 
       Где:
 
-      * `--yaml-spec` — путь к файлу с [YaWL-спецификацией](../../../concepts/workflows/yawl/index.md) рабочего процесса. Например: `./yawl-spec.json`.
+      * `--yaml-spec` — путь к файлу с [YaWL-спецификацией](../../../concepts/workflows/yawl/index.md) рабочего процесса. Например: `./yawl-spec.yaml`.
       * `--name` — имя рабочего процесса.
       * `--description` — описание рабочего процесса. Необязательный параметр.
       * `--labels` — список меток. Необязательный параметр.

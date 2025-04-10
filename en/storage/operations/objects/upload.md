@@ -83,8 +83,8 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   Before you start, retrieve the [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-short-name }} authentication.
-  
-  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}  
+
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
   To create an object in an existing bucket:
 

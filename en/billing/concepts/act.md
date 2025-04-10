@@ -15,9 +15,7 @@ Reports are then used as a basis for generating [invoices](../concepts/invoice.m
 
 {% include [act-invoice-note](../_includes/act-invoice-note.md) %}
 
-
 {% include [act-invoice-examples](../_includes/act-invoice-examples.md) %}
-
 
 
 ### VAT accounting {#nds}

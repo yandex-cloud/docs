@@ -1,38 +1,42 @@
 title: Yandex Managed Service for GitLab
 description:
   - >-
-    Managed Service for GitLab helps you deploy and maintain GitLab instances in
-    the Yandex Cloud infrastructure.
+    This service allows you to deploy and support GitLab instances within the
+    Yandex Cloud infrastructure.
   - >-
-    The Yandex Cloud infrastructure is <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">
-    fully secure</a> and in compliance with Russian Federal Law No. 152-FZ.
+    The Yandex Cloud infrastructure &lt;a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">is
+    protected</a> pursuant to the Russian Federal Law No. 152-FZ on Personal
+    Data.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_glb/">Service Level for Yandex
-    Managed Service for GitLab</a>.
+    This service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.com/legal/cloud_sla_glb/">Yandex Managed Service for
+    Gitlab Service Level</a>.
 meta:
   title: Yandex Managed Service for GitLab
   description: >-
-    Managed Service for GitLab helps you deploy and maintain GitLab instances in
-    the Yandex Cloud infrastructure.
+    This service allows you to deploy and support GitLab instances within the
+    Yandex Cloud infrastructure.
 links:
   - title: Getting started
     description: Create your first instance
     href: quickstart
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about basic concepts and how the service works
     href: concepts/
+  - title: Tutorials
+    description: Address common {{ mgl-name }} related tasks
+    href: tutorials/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations

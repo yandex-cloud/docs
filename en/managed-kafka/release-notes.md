@@ -5,7 +5,11 @@ description: This section contains {{ mkf-name }} release notes.
 
 # {{ mkf-full-name }} release notes
 
-## July 2024 {#jule-2024}
+## March 2025 {#mar-2025}
+
+Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions.
+
+## July 2024 {#jul-2024}
 
 Added automatic increase of disk size. In the [cluster settings](./operations/cluster-update.md), the user can set the disk storage usage threshold and maximum disk size. Upon reaching the threshold, the disk size will automatically increase in fixed increments up to its maximum. You can choose to immediately increase the disk size or to increase it during the next maintenance window.
 

@@ -489,16 +489,28 @@ items:
         href: container-infrastructure/serial-port.md
       - name: '{{ managed-k8s-name }}'
         items:
+          - name: Создание нового {{ k8s }}-проекта
+            href: container-infrastructure/new-kubernetes-project.md
           - name: Создание кластера {{ k8s }} без доступа в интернет
             href: container-infrastructure/k8s-cluster-with-no-internet.md
+          - name: Запуск рабочих нагрузок с GPU
+            href: container-infrastructure/running-pod-gpu.md
           - name: Использование групп узлов c GPU без предустановленных драйверов
             href: container-infrastructure/driverless-gpu.md
-          - name: Шифрование секретов в {{ managed-k8s-name }}
+          - name: Установка Time-Slicing GPUs
+            href: container-infrastructure/time-slicing-gpu.md
+          - name: Миграция ресурсов в другую зону доступности
+            href: container-infrastructure/migration-to-an-availability-zone.md
+          - name: Шифрование секретов
             href: container-infrastructure/kms-k8s.md
           - name: Настройка и тестирование масштабирования
             items:
               - name: Горизонтальное масштабирование приложения в кластере
                 href: container-infrastructure/autoscaling.md
+              - name: Вертикальное масштабирование приложения в кластере
+                href: container-infrastructure/vpa-autoscaling.md
+              - name: Изменение параметров сервера метрик (Metrics Server)
+                href: container-infrastructure/metrics-server.md
               - name: >-
                   Развертывание и нагрузочное тестирование gRPC-сервиса с
                   масштабированием
@@ -533,10 +545,20 @@ items:
                 href: container-infrastructure/custom-dns.md
               - name: Автоматическое масштабирование DNS по размеру кластера
                 href: container-infrastructure/dns-autoscaler.md
+              - name: Настройка NodeLocal DNS Cache
+                href: container-infrastructure/node-local-dns.md
               - name: Проверка DNS Challenge для сертификатов {{ lets-encrypt }}
                 href: container-infrastructure/dnschallenge.md
+          - name: Резервное копирование
+            items:
+              - name: Работа со снапшотами {{ compute-name }}
+                href: container-infrastructure/pvc-snapshot-restore.md
           - name: Мониторинг
             items:
+              - name: >-
+                  Мониторинг кластера с помощью {{ prometheus-name }} и {{
+                  grafana-name }}
+                href: container-infrastructure/prometheus-grafana-monitoring.md
               - name: >-
                   Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat
                   OSS
@@ -555,7 +577,7 @@ items:
                   Передача логов кластера {{ managed-k8s-name }} в {{
                   cloud-logging-name }}
                 href: container-infrastructure/k8s-fluent-bit-logging.md
-              - name: Настройка Gateway API в {{ managed-k8s-name }}
+              - name: Настройка Gateway API
                 href: container-infrastructure/gateway-api.md
               - name: Настройка Ingress-контроллера {{ alb-name }}
                 href: container-infrastructure/alb-ingress-controller.md

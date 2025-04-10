@@ -114,7 +114,10 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
      1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-auto }}`.
 
-  1. {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
+  1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+  
+      {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
+
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}** in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter a name for the server: `master-server-m3`.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
   1. Similarly, lease two more servers: one named `backup-server-m3` in the `{{ region-id }}-m3` server pool and another one named `client-server-m4` with the `subnet-m4` subnet in the `{{ region-id }}-m4` server pool.

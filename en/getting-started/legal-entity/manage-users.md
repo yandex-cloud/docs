@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to add users to a new organiza
 ---
 
 
-# Managing users
+# User management
 
 The guide in this checklist item will help you add users to your created organization, appoint an administrator, and set user roles.
 

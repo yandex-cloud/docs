@@ -14,7 +14,7 @@ VM and {{ baremetal-name }} server backups are application-consistent: they save
 
 With {{ backup-name }}, you can also restore individual files and directories from a backup to any VM connected to the service. For more information, see [File-by-file recovery](backup.md#file-by-file). File-by-file recovery to {{ baremetal-name }} servers is currently not available.
 
-To enable backups for a VM or {{ baremetal-name }} server, you first need to have it connected and configured. For more information, see [{#T}](vm-connection.md).
+To enable backups for a VM or {{ baremetal-name }} server, you first need to have it connected and configured. To learn more, see [{#T}](vm-connection.md).
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
@@ -37,7 +37,7 @@ For correct operation, the [{{ backup-name }} agent](agent.md) installed on a VM
 * VM or {{ baremetal-name }} server name.
 * OS name and version.
 * OS core version.
-* VM or {{ baremetal-name }} server private IP address.
+* VM or {{ baremetal-name }} server internal IP address.
 * MAC address of each {{ baremetal-name }} server network adapter or VM network interface.
 * Amount of RAM.
 * CPU model and frequency.
@@ -56,3 +56,9 @@ To get started, you need to activate the service, i.e., to connect to a backup p
 The minimum folder role required to activate the service is `backup.editor` (see [its description](../security/index.md#backup-editor) for details).
 
 {% include [default-policies](../../_includes/backup/default-policies.md) %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/backup-baremetal.md)
+* [{#T}](../tutorials/vm-with-backup-policy/index.md)

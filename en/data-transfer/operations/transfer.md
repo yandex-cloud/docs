@@ -67,7 +67,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
     {{ yc-dt }} transfer get <transfer_ID>
     ```
 
-    You can get the transfer ID with a [list of transfers in the folder](#list).
+    You can get the transfer ID with the [list of transfers in the folder](#list).
 
 - API {#api}
 
@@ -179,7 +179,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
     1. Create a configuration file with a description of your transfer.
 
-       Here is an example of the configuration file structure:
+       Here is the configuration file example:
 
        ```hcl
        resource "yandex_datatransfer_transfer" "<transer_name_in_{{ TF }}>" {
@@ -305,7 +305,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
         {{ yc-dt }} transfer update --help
         ```
 
-    1. Run the following command with a list of settings to update:
+    1. Run the following command with the list of settings to update:
 
         ```bash
         {{ yc-dt }} transfer update <transfer_ID> \
@@ -313,7 +313,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
            --description=<transfer_description>
         ```
 
-        You can get the transfer ID with a [list of transfers in the folder](#list).
+        You can get the transfer ID with the [list of transfers in the folder](#list).
 
 - {{ TF }} {#tf}
 
@@ -369,7 +369,7 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
     {{ yc-dt }} transfer activate <transfer_ID>
     ```
 
-    You can get the transfer ID with a [list of transfers in the folder](#list).
+    You can get the transfer ID with the [list of transfers in the folder](#list).
 
 - API {#api}
 
@@ -378,7 +378,6 @@ When updating a transfer, its settings are applied immediately. Editing {{ dt-ty
     To find out the transfer ID, [get a list of transfers in the folder](#list).
 
 {% endlist %}
-
 
 {% include [мобильное приложение](../../_includes/data-transfer/use-mobile-app.md) %}
 
@@ -415,7 +414,7 @@ During transfer deactivation:
     {{ yc-dt }} transfer deactivate <transfer_ID>
     ```
 
-    You can get the transfer ID with a [list of transfers in the folder](#list).
+    You can get the transfer ID with the [list of transfers in the folder](#list).
 
 - API {#api}
 
@@ -431,7 +430,7 @@ Do not interrupt the deactivation of the transfer! If the process fails, the per
 
 {% endnote %}
 
-For more information, see [{#T}](../concepts/transfer-lifecycle.md).
+To learn more, see [{#T}](../concepts/transfer-lifecycle.md).
 
 
 {% include [мобильное приложение](../../_includes/data-transfer/use-mobile-app.md) %}
@@ -461,7 +460,7 @@ For more information, see [{#T}](../concepts/transfer-lifecycle.md).
     {{ yc-dt }} transfer delete <transfer_ID>
     ```
 
-    You can get the transfer ID with a [list of transfers in the folder](#list).
+    You can get the transfer ID with the [list of transfers in the folder](#list).
 
 - {{ TF }} {#tf}
 

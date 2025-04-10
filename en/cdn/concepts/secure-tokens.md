@@ -14,6 +14,7 @@ For more information about secure tokens, see the documentation of the EdgeCente
 * [Secure token. Feature overview](https://support.edgecenter.ru/knowledge_base/item/268821?sid=57227)
 * [API documentation](https://apidocs.edgecenter.ru/cdn#tag/Resources/operation/change_cdn_resource)
 
+
 ## Signed links {#protected-link}
 
 A _signed link_ is [generated](#link-generation-code) outside a CDN resource, e.g., on a lightweight website, and contains the following query parameters:
@@ -27,6 +28,7 @@ A _signed link_ is [generated](#link-generation-code) outside a CDN resource, e.
 Here is an example of a signed link:
 
 > http://cdn.example.com/files/image.jpg?md5=xu7AXOAOQ********Ua0xw&expires=1701609223
+
 
 ## Examples {#link-generation-code}
 
@@ -48,7 +50,7 @@ A VPN connection may interfere with the proper functioning of signed links with 
   <?php
 
   $secret = '<secret_key>';
-  $path = '<path_to_file>';
+  $path = '<file_path>';
   $ip = '<IP_address>';
   $expires = time() + <link_validity>;
   $hostname = '<domain_name>';
@@ -78,7 +80,7 @@ A VPN connection may interfere with the proper functioning of signed links with 
   from time import time 
   ip = '<IP_address>' 
   secret = '<secret_key>' 
-  path = f'<path_to_file>' 
+  path = f'<file_path>' 
   expires = int(time()) + <link_validity> 
   hostname = '<domain_name>' 
   token = base64.encodebytes(md5(f"{expires}{path}{ip} {secret}".encode()).digest()).decode().replace("\n", "").replace("+", "-").replace("/", "_").replace("=", "") 
@@ -100,7 +102,7 @@ A VPN connection may interfere with the proper functioning of signed links with 
   # This script generates a signed link with IP-based restricted access
   let "EXPIRES=$(date +%s) + <link_validity>"
   HOSTNAME="<domain_name>"
-  FILEPATH="<path_to_file>"
+  FILEPATH="<file_path>"
   IP="<IP_address>"
   SECRET="<secret_key>"
   TOKEN=$(echo -n $EXPIRES$FILEPATH$IP' '$SECRET | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d = )
@@ -126,7 +128,7 @@ A VPN connection may interfere with the proper functioning of signed links with 
   <?php
 
   $secret = '<secret_key>';
-  $path = '<path_to_file>';
+  $path = '<file_path>';
   $expires = time() + <link_validity>;
   $hostname = '<domain_name>';
   $link = "$expires$path $secret";
@@ -153,7 +155,7 @@ A VPN connection may interfere with the proper functioning of signed links with 
   from hashlib import md5 
   from time import time 
   secret = '<secret_key>'
-  path = f'<path_to_file>'  
+  path = f'<file_path>'  
   expires = int(time()) + <link_validity> 
   hostname = '<domain_name>' 
   token = base64.encodebytes(md5(f"{expires}{path} {secret}".encode()).digest()).decode().replace("\n", "").replace("+", "-").replace("/", "_").replace("=", "") 
@@ -174,7 +176,7 @@ A VPN connection may interfere with the proper functioning of signed links with 
   # This script generates a signed link with no IP address restrictions
   let "EXPIRES=$(date +%s) + <link_validity>"
   HOSTNAME="<domain_name>"
-  FILEPATH="<path_to_file>"
+  FILEPATH="<file_path>"
   SECRET="<secret_key>"
   TOKEN=$(echo -n $EXPIRES$FILEPATH' '$SECRET | openssl md5 -binary | openssl base64 | tr +/ -_ | tr -d = )
   echo $HOSTNAME$FILEPATH'?md5='$TOKEN'&expires='$EXPIRES
@@ -188,8 +190,10 @@ A VPN connection may interfere with the proper functioning of signed links with 
 
 {% endlist %}
 
+
 ### See also {#see-also}
 
 * [{#T}](../operations/resources/enable-secure-token.md)
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)
+* [{#T}](../tutorials/protected-access-to-content/index.md)

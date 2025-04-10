@@ -2,24 +2,23 @@
 
 Тип сервера        | Цена за месяц<br/>при аренде<br/>на 1 день,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 1 месяц,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 3 месяца,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 6 месяцев,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 1 год,<br/>вкл. НДС
 ------------------ | ----------- | ----------- | ----------- | ----------- | ---
-**BA-i100-H**      | 18 200,00 ₽ | 17 654,00 ₽ | 17 290,00 ₽ | 16 926,00 ₽ | 15 470,00 ₽
-**BA-i101-H**      | 18 500,00 ₽ | 17 945,00 ₽ | 17 575,00 ₽ | 17 205,00 ₽ | 15 725,00 ₽
-**BA-i102-S**      | 18 900,00 ₽ | 18 333,00 ₽ | 17 955,00 ₽ | 17 577,00 ₽ | 16 065,00 ₽
-**BA-i103-S-10G**  | 22 400,00 ₽ | 21 728,00 ₽ | 21 280,00 ₽ | 20 832,00 ₽ | 19 040,00 ₽
-**BA-i104-SH**     | 20 900,00 ₽ | 20 273,00 ₽ | 19 855,00 ₽ | 19 437,00 ₽ | 17 765,00 ₽
-**BA-i105-SH**     | 29 600,00 ₽ | 28 712,00 ₽ | 28 120,00 ₽ | 27 528,00 ₽ | 25 160,00 ₽
-**BA-i106-SH-10G** | 33 500,00 ₽ | 32 495,00 ₽ | 31 825,00 ₽ | 31 155,00 ₽ | 28 475,00 ₽
-**BA-i111-8S-10G** | 99 800,00 ₽ | 96 806,00 ₽ | 94 810,00 ₽ | 92 814,00 ₽ | 84 830,00 ₽
-**BA-i200-H**      | 18 600,00 ₽ | 18 042,00 ₽ | 17 670,00 ₽ | 17 298,00 ₽ | 15 810,00 ₽
-**BA-i201-H**      | 19 100,00 ₽ | 18 527,00 ₽ | 18 145,00 ₽ | 17 763,00 ₽ | 16 235,00 ₽
-**BA-i202-S**      | 19 500,00 ₽ | 18 915,00 ₽ | 18 525,00 ₽ | 18 135,00 ₽ | 16 575,00 ₽
-**BA-i203-S-10G**  | 22 200,00 ₽ | 21 534,00 ₽ | 21 090,00 ₽ | 20 646,00 ₽ | 18 870,00 ₽
-**BA-i204-SH**     | 21 300,00 ₽ | 20 661,00 ₽ | 20 235,00 ₽ | 19 809,00 ₽ | 18 105,00 ₽
-**BA-i205-SH**     | 30 400,00 ₽ | 29 488,00 ₽ | 28 880,00 ₽ | 28 272,00 ₽ | 25 840,00 ₽
-**BA-i206-SH-10G** | 33 800,00 ₽ | 32 786,00 ₽ | 32 110,00 ₽ | 31 434,00 ₽ | 28 730,00 ₽
-**BA-i207-H**      | 53 100,00 ₽ | 51 507,00 ₽ | 50 445,00 ₽ | 49 383,00 ₽ | 45 135,00 ₽
-**BA-i208-S-10G**  | 91 500,00 ₽ | 88 755,00 ₽ | 86 925,00 ₽ | 85 095,00 ₽ | 77 775,00 ₽
-**BA-i211-8S-10G** | 99 900,00 ₽ | 96 903,00 ₽ | 94 905,00 ₽ | 92 907,00 ₽ | 84 915,00 ₽
-**BA-i407-S-10G**  | 86 200,00 ₽ | 83 614,00 ₽ | 81 890,00 ₽ | 80 166,00 ₽ | 73 270,00 ₽
-**HA-i302-S-10G**  | 91 800,00 ₽ | 89 046,00 ₽ | 87 210,00 ₽ | 85 374,00 ₽ | 78 030,00 ₽
-
+**BA-i100-H**      | {{ sku|RUB|baremetal.server.ba_i100_h.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i100_h.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i100_h.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i100_h.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i100_h.12_month|string }}
+**BA-i101-H**      | {{ sku|RUB|baremetal.server.ba_i101_h.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i101_h.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i101_h.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i101_h.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i101_h.12_month|string }}
+**BA-i102-S**      | {{ sku|RUB|baremetal.server.ba_i102_s.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i102_s.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i102_s.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i102_s.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i102_s.12_month|string }}
+**BA-i103-S-10G**  | {{ sku|RUB|baremetal.server.ba_i103_s_10g.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i103_s_10g.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i103_s_10g.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i103_s_10g.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i103_s_10g.12_month|string }}
+**BA-i104-SH**     | {{ sku|RUB|baremetal.server.ba_i104_sh.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i104_sh.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i104_sh.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i104_sh.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i104_sh.12_month|string }}
+**BA-i105-SH**     | {{ sku|RUB|baremetal.server.ba_i105_sh.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i105_sh.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i105_sh.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i105_sh.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i105_sh.12_month|string }}
+**BA-i106-SH-10G** | {{ sku|RUB|baremetal.server.ba_i106_sh_10g.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i106_sh_10g.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i106_sh_10g.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i106_sh_10g.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i106_sh_10g.12_month|string }}
+**BA-i111-8S-10G** | {{ sku|RUB|baremetal.server.ba_i111_8s_10g.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i111_8s_10g.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i111_8s_10g.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i111_8s_10g.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i111_8s_10g.12_month|string }}
+**BA-i200-H**      | {{ sku|RUB|baremetal.server.ba_i200_h.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i200_h.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i200_h.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i200_h.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i200_h.12_month|string }}
+**BA-i201-H**      | {{ sku|RUB|baremetal.server.ba_i201_h.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i201_h.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i201_h.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i201_h.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i201_h.12_month|string }}
+**BA-i202-S**      | {{ sku|RUB|baremetal.server.ba_i202_s.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i202_s.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i202_s.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i202_s.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i202_s.12_month|string }}
+**BA-i203-S-10G**  | {{ sku|RUB|baremetal.server.ba_i203_s_10g.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i203_s_10g.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i203_s_10g.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i203_s_10g.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i203_s_10g.12_month|string }}
+**BA-i204-SH**     | {{ sku|RUB|baremetal.server.ba_i204_sh.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i204_sh.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i204_sh.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i204_sh.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i204_sh.12_month|string }}
+**BA-i205-SH**     | {{ sku|RUB|baremetal.server.ba_i205_sh.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i205_sh.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i205_sh.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i205_sh.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i205_sh.12_month|string }}
+**BA-i206-SH-10G** | {{ sku|RUB|baremetal.server.ba_i206_sh_10g.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i206_sh_10g.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i206_sh_10g.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i206_sh_10g.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i206_sh_10g.12_month|string }}
+**BA-i207-H**      | {{ sku|RUB|baremetal.server.ba_i207_h.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i207_h.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i207_h.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i207_h.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i207_h.12_month|string }}
+**BA-i208-S-10G**  | {{ sku|RUB|baremetal.server.ba_i208_s_10g.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i208_s_10g.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i208_s_10g.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i208_s_10g.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i208_s_10g.12_month|string }}
+**BA-i211-8S-10G** | {{ sku|RUB|baremetal.server.ba_i211_8s_10g.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i211_8s_10g.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i211_8s_10g.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i211_8s_10g.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i211_8s_10g.12_month|string }}
+**BA-i407-S-10G**  | {{ sku|RUB|baremetal.server.ba_i407_s_10g.1_day|string }} | {{ sku|RUB|baremetal.server.ba_i407_s_10g.1_month|string }} | {{ sku|RUB|baremetal.server.ba_i407_s_10g.3_month|string }} | {{ sku|RUB|baremetal.server.ba_i407_s_10g.6_month|string }} | {{ sku|RUB|baremetal.server.ba_i407_s_10g.12_month|string }}
+**HA-i302-S-10G**  | {{ sku|RUB|baremetal.server.ha_i302_s_10g.1_day|string }} | {{ sku|RUB|baremetal.server.ha_i302_s_10g.1_month|string }} | {{ sku|RUB|baremetal.server.ha_i302_s_10g.3_month|string }} | {{ sku|RUB|baremetal.server.ha_i302_s_10g.6_month|string }} | {{ sku|RUB|baremetal.server.ha_i302_s_10g.12_month|string }}

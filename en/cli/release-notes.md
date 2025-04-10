@@ -7,7 +7,74 @@ description: This page presents a list of YC CLI releases and the updates of eac
 
 ## Current version {#latest-release}
 
-## Version 0.144.0 (27/02/25) {#version0.144.0}
+## Version 0.145.0 (18/03/25) {#version0.145.0}
+
+### Changes to {{ yandex-cloud }} services {#version0.145.0-services}
+
+#### {{ mrd-name }} {#version0.145.0-mrd}
+
+* Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` commands:
+  * `activedefrag`
+  * `aof-max-size-percent`
+
+* The `--persistence-mode` parameter can now take the `ON_REPLICAS` value in the following commands:
+  * `yc managed-redis cluster create`
+  * `yc managed-redis cluster restore`
+  * `yc managed-redis cluster update`
+
+#### {{ mos-name }} {#version0.145.0-mos}
+
+* Added support for `local-ssd` disks.
+* Added the ability to automatically assign subnets when creating a cluster or adding a host group.
+
+#### {{ quota-manager-name }} {#version0.145.0-quota-manager}
+
+* Added the `yc quota-manager quota-limit` command group to view quota limits:
+  * `yc quota-manager quota-limit get`: Output the value of a specific quota.
+  * `yc quota-manager quota-limit list`: Output a list of quotas for a specific service.
+  * `yc quota-manager quota-limit list-service`: Output the list of services that have available quotas.
+
+#### {{ interconnect-name }} {#version0.145.0-cic}
+
+* Added commands for TrunkConnection management:
+  * `yc cic trunk-connection create`
+  * `yc cic trunk-connection update`
+  * `yc cic trunk-connection delete`
+  * `yc cic trunk-connection add-labels`
+  * `yc cic trunk-connection remove-labels`
+  * `yc cic trunk-connection list-operations`
+
+* Added commands for PrivateConnection management:
+  * `yc cic private-connection create`
+  * `yc cic private-connection update`
+  * `yc cic private-connection delete`
+  * `yc cic private-connection add-labels`
+  * `yc cic private-connection remove-labels`
+  * `yc cic private-connection upsert-static-route`
+  * `yc cic private-connection remove-static-route`
+  * `yc cic private-connection list-operations`
+
+#### {{ cr-name }} {#version0.145.0-cloudrouter}
+
+* Added commands for RoutingInstance management:
+  * `yc cloudrouter routing-instance create`
+  * `yc cloudrouter routing-instance update`
+  * `yc cloudrouter routing-instance delete`
+  * `yc cloudrouter routing-instance add-labels`
+  * `yc cloudrouter routing-instance remove-labels`
+  * `yc cloudrouter routing-instance upsert-prefixes`
+  * `yc cloudrouter routing-instance remove-prefixes`
+  * `yc cloudrouter routing-instance add-private-connection`
+  * `yc cloudrouter routing-instance remove-private-connection`
+  * `yc cloudrouter routing-instance list-operations`
+
+#### {{ network-load-balancer-name }} {#version0.145.0-nlb}
+
+* Fixed an error for the `yc network-load-balancer update` command in the `--allow-zonal-shift` flag listener.
+
+## Previous releases {#previous-release}
+
+### Version 0.144.0 (27/02/25) {#version0.144.0}
 
 ### Changes to {{ yandex-cloud }} services {#services}
 
@@ -61,8 +128,6 @@ description: This page presents a list of YC CLI releases and the updates of eac
 #### {{ network-load-balancer-name }}
 
 * Added the `--allow-zonal-shift` parameter for the `yc network-load-balancer create/update` commands that allows the load balancer to work in one-AZ (one availability zone) fault mode.
-
-## Previous releases {#previous-release}
 
 ### Version 0.143.0 (11/02/25) {#version0.143.0}
 
@@ -119,7 +184,8 @@ yc serverless function version create --metadata-options aws-v1-http-endpoint=di
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-Added the `--metadata-options` parameter to the `yc serverless container revision deploy` command to specify the options to get metadata in a container. Usage example: 
+Added the `--metadata-options` parameter to the `yc serverless container revision deploy` command to specify the options to get metadata in
+a container. Usage example: 
 
 ```bash
 yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
@@ -367,7 +433,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **{{ mkf-name }}**
 
-*  Upgraded the `--permission` flag for the `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, and`yc managed-kafka cluster revoke-permission` commands. Its value is set in `key=value,...` format. As `key`, `allow_host` can now be used, which is the host applying this rule to the user.
+* Upgraded the `--permission` flag for the `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, and`yc managed-kafka cluster revoke-permission` commands. Its value is set in `key=value,...` format. As `key`, `allow_host` can now be used, which is the host applying this rule to the user.
 
 **{{ maf-name }}**
 
@@ -1070,7 +1136,6 @@ Added the following asynchronous call parameters to the `yc serverless function 
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
-
 ##### {{ api-gw-name }} {#api-gw}
 
 * Added the following parameters to the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands:
@@ -1081,7 +1146,6 @@ Added the following asynchronous call parameters to the `yc serverless function 
 * Added the `yc serverless api-gateway release-canary` command to replace the specification parameters with the parameters of the canary release and delete the latter.
 
 * Added the `yc serverless api-gateway rollback-canary` command to disable the canary release by setting the `weight` parameter to `0`.
-
 
 
 ##### {{ iam-name }} {#iam}
@@ -1437,7 +1501,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 ##### Managed database services {#managed-db}
 
-
 **{{ mes-name }}**
 
 * In the `{{ yc-mdb-es }} cluster restore` command with the `--folder-id` flag, you can provide a folder for cluster recovery.
@@ -1446,11 +1509,9 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * In the `{{ yc-mdb-mg }} cluster restore` command with the `--folder-id` flag, you can provide a folder for cluster recovery.
 
-
 **{{ mmy-name }}**
 
 * In the `{{ yc-mdb-my }} cluster restore` command with the `--folder-id` flag, you can provide a folder for cluster recovery.
-
 
 **Managed Service for Redis**
 
@@ -1460,7 +1521,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 **{{ mms-name }}**
 
 * In the `{{ yc-mdb-ms }} cluster restore` command with the `--folder-id` flag, you can provide a folder for cluster recovery.
-
 
 
 
@@ -1507,7 +1567,6 @@ Added the following parameters to the `yc serverless function version create` co
 
 #### Managed database services {#managed-db}
 
-
 **{{ mgp-name }}**
 
 * Added the `yc managed-greenplum cluster expand` command which allows you to expand the existing {{ mgp-name }} cluster. Command parameters:
@@ -1515,7 +1574,6 @@ Added the following parameters to the `yc serverless function version create` co
   * `--segment-host-count`: Number of hosts added to a cluster.
   * `--add-segments-per-host-count`: Number of segments added per cluster host.
   * `--duration-seconds`: Maximum duration of a data distribution session in seconds.
-
 
 **{{ mkf-name }}**
 
@@ -1634,12 +1692,9 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * Added support for {{ KF }} 3.0, 3.1, and 3.2.
 
-
 **Managed Service for Redis**
 
 * {{ RD }} 5.0 and 6.0 are no longer supported.
-
-
 
 
 ##### {{ org-name }} {#organization}
@@ -1660,15 +1715,12 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 ##### Managed database services {#managed-db}
 
-
 **{{ mgp-name }}**
 
 * Added support for the commands:
 
   * `yc managed-greenplum cluster update`: Allows updating the settings of existing clusters.
   * `yc managed-greenplum cluster update-config`: Allows updating the configuration parameters of existing clusters.
-
-
 
 
 **Managed Service for Redis**
@@ -1678,7 +1730,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
   * `--assign-public-ip=true|false`: Links or deletes a host's public IP address.
   * `--replica-priority=50`: Sets the replica priority (for non-sharded clusters only).
-
 
 **{{ mch-name }}**
 
@@ -1730,11 +1781,9 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
   Added support for templates when creating a database using `--template-db string`.
 
-
 **{{ mmg-name }}**
 
 * When creating a new cluster, MongoDB version 5.0 is selected by default.
-
 
 
 ##### {{ managed-k8s-name }} {#k8s}
@@ -1770,7 +1819,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 * Added the `--deletion-protection` and `--no-deletion-protection` flags to the `yc certificate-manager certificate update` command to enable/disable certificate deletion protection.
 
 
-
 ##### Managed database services {#managed-db}
 
 **Managed Service for Redis**
@@ -1789,10 +1837,7 @@ Added {{ mgp-name }} primary support commands:
 * Added the `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false` command which links or deletes a host's public IP address.
 
 
-
-
 ### Version 0.91.0 (12/05/22) {#version0.91.0}
-
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -3862,7 +3907,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` commands.
 
-  For the `--listener` flag, you can now set the `target-port` parameter, which allows you to configure NAT so that target resources receive traffic on a port other than the `listener` port.
+  For the `--listener` flag, you can now set the `target-port` parameter, which allows you to configure NAT for targets receive traffic on a port other than the `listener` port.
 
 
 #### Managed database services {#managed-db}
@@ -3937,6 +3982,5 @@ Use the keys to protect your secrets, private data, and other confidential infor
   * If the `--host` flag is not specified, the shard parameters are copied from the oldest shard.
   * If the `--host` flag is specified, all parameters must be entered.
   * If there are no shards, all parameters have to be entered to create a shard.
-
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

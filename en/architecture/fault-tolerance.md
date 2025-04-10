@@ -44,10 +44,10 @@ High-performance environments with demanding requirements for fault recovery spe
 Depending on requirements for fault recovery time, two basic schemes are available:
 
 1. **Cold reserve (active-passive)**:
-   *  The bulk of the load is processed in one availability zone.
-   *  A minimal number of resources, e.g., DB replicas, is placed in another zone for a quick start in case of a main zone fault.
-   *  This scheme is simple and less costly, since it does not require continuous duplication of all resources.
-   *  It does not guarantee continuous availability of the service due to the long time it takes to switch to the standby infrastructure.
+   * The bulk of the load is processed in one availability zone.
+   * A minimal number of resources, e.g., DB replicas, is placed in another zone for a quick start in case of a main zone fault.
+   * This scheme is simple and less costly, since it does not require continuous duplication of all resources.
+   * It does not guarantee continuous availability of the service due to the long time it takes to switch to the standby infrastructure.
 
 1. **Load balancing (Active-Active)**:
    * The load is distributed among multiple zones (see the scheme below). 
@@ -63,10 +63,10 @@ Depending on requirements for fault recovery time, two basic schemes are availab
 
 When deploying fault-tolerant services, we recommend you to use load balancers. In {{ yandex-cloud }}, load balancers are crucial to reducing or eliminating fault impact on service performance. Load balancers consist of two central parts:
 
-* **Listener**: Element that receives traffic and distributes it among the target resources.
-* **Target resources**: Groups of resources receiving traffic from the listener.
+* **Listener**: Element that receives traffic and distributes it among the targets.
+* **Targets**: Groups of resources receiving traffic from the listener.
 
-For both reservation schemes described above, you can only minimize fault handling time using the automatic mechanism tracking the state of target resources and redirecting user requests from the listener only to those target resources that are ready to handle such requests. You can find out if a target resource is ready to handle requests using a health check. The most difficult part of configuring it is selecting the appropriate check values and correctly performing readiness checks on the target resource end.
+For both reservation schemes described above, you can only minimize failover time automatically by tracking the state of targets and redirecting user requests from the listener only to those targets that are ready to handle such requests. You can find out if a target is ready to accept requests through a health check. The most difficult part of configuring it is selecting the appropriate check values and correctly performing the readiness checks on the target side.
 
 Also, note that the automatic mechanism of availability checks may not be triggered in case of partial faults in the availability zone. To recover a service in case of such faults, you must provide a mechanism for manual redistribution of load from the failed zone to healthy ones.
 
@@ -97,7 +97,7 @@ To minimize fault handling time, especially in case of API faults, it is essenti
 
 ### {{ network-load-balancer-name }} {#nlb}
 
-The central tool for building fault-tolerant solutions in {{ yandex-cloud }} is a [network load balancer ({{ network-load-balancer-name }})](../network-load-balancer/concepts/) that disributes TCP connections among target resources. It can be external, for processing traffic from the internet (listener with a public IP address), or internal, for processing internal network traffic (listener with a private IP address). Health checks are used to check the readiness of target resources. Currently, {{ network-load-balancer-name }} does not support disabling traffic in a specific zone.
+The central tool for building fault-tolerant solutions in {{ yandex-cloud }} is a [network load balancer ({{ network-load-balancer-name }})](../network-load-balancer/concepts/), which distributes TCP connections among targets. It can be external, for processing traffic from the internet (listener with a public IP address), or internal, for processing internal network traffic (listener with an internal IP address). Health checks are used to check if the targets are ready. Currently, {{ network-load-balancer-name }} does not support disabling traffic in a specific zone.
 
 Here is an [example](../tutorials/web/load-balancer-website/) of creating a fault-tolerant website with load balancing using {{ network-load-balancer-name }} between two availability zones with fault protection in one zone.
 
@@ -129,7 +129,7 @@ In case the DB master fails, the automatic mechanism of the service initiates sw
 
 To allow a client to connect to the current DB master anytime without requesting the cluster state from the API, {{ yandex-cloud }} provides [special FQDNs](../managed-postgresql/operations/connect.md#special-fqdns). Connecting over a [special FQDN](../managed-postgresql/operations/connect.md#special-fqdns) simplifies application coding but does not guarantee quick switching to a new master in case it is replaced. To quickly switch to a new master, you need to ensure, on the application end, monitoring the master replacement and reconnection.
 
-Currently, {{ yandex-cloud }} does not have a service automatically balancing reading load between DB cluster nodes. Methods of such balancing are discussed in the [Quest for microseconds: Optimizing cloud service performance](https://yandex.cloud/ru/events/935) webinar.
+Currently, {{ yandex-cloud }} does not have a service automatically balancing reading load between DB cluster nodes. Methods of such balancing are the subject in the [Quest for microseconds: Optimizing cloud service performance](https://yandex.cloud/ru/events/935) webinar.
 
 ### {{ managed-k8s-name }} fault tolerance {#mk8s-ha}
 
@@ -143,7 +143,7 @@ To minimize the impact of cluster node faults, you need to ensure even load dist
    * `topologySpreadConstraints`: To ditribute pods among availability zones.
    * `podAntiAffinity`: To prevent placement of pods on a single node.
 
-To reduce service downtime during cluster updates, you need to set `podDisruptionBudget` policies.
+To reduce service down time during cluster updates, you need to set `podDisruptionBudget` policies.
 
 ## Autoscaling tools {#auto-scaling}
 
@@ -187,17 +187,35 @@ To ensure fault tolerance and quick fault handling in {{ managed-k8s-name }} app
 
 ## How to shift load from an availability zone {#traffic-shifting}
 
-{{ alb-name }} supports manual [disabling of traffic in a specific zone](../application-load-balancer/concepts/application-load-balancer.md#lb-location). 
-For {{ network-load-balancer-name }}, you can only remove traffic from an availability zone by disabling health checks for target resources in the faulty zone. There are several ways to do this:
+{{ alb-name }} supports manual [disabling of traffic in a specific zone](../application-load-balancer/concepts/application-load-balancer#lb-location). 
+For {{ network-load-balancer-name }}, you can only remove traffic from an availability zone by disabling health checks for targets in the faulty zone. There are several ways to do this:
 
    * At the infrastructure level, block checks at the network security group level.
    * Disable instances that handle requests in the faulty zone.
    * At the operating system level, restrict access to checks using a firewall.
    * At the application level, configure the application in such a way that it would not respond to health checks.
 
-We recommend using network security groups. To do this, you need to set up separate rules allowing to run health checks on target resources in each availability zones. Deleting a rule allows you to disable traffic in a certain zone. This type of configuration enables you to use network security groups for testing fault tolerance.
+We recommend using network security groups. To do this, you need to configure separate rules allowing availability checks up to the targets in each availability zone. Deleting a rule allows you to disable traffic in a certain zone. This type of configuration enables you to use network security groups for testing fault tolerance.
 
 You should consider the other methods in case the {{ yandex-cloud }} API is unavailable.
+
+### Application high availability testing {#app-ha-test}
+
+To test an application’s fault tolerance, i.e., its ability to handle traffic when an availability zone fails, you can use this pre-configured [scenario](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb), where the web app is deployed behind the NLB load balancer, and the [high availability testing technique](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb?tab=readme-ov-file#sg) that involves isolating a specific app component from the load balancer.
+
+You can test your web applications using this technique, if required.
+
+### NLB tagging for a zonal shift {#nlb-zone-shift}
+
+We are introducing `NLB Zone Shift` to better respond to partial failure incidents.
+
+After successful HA testing of an application, you can tag the relevant NLB load balancer with a special flag. This flag enables the {{ yandex-cloud }} support team to shift traffic away from the load balancer in case of partial failures in an availability zone that are not captured by regular [target health checks](../network-load-balancer/concepts/health-check.md), such as issues with external communication circuits.
+
+To tag an NLB load balancer with a zonal shift flag, run this YC CLI command:
+```bash
+yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
+``` 
+
 
 ## Monitoring and escalation {#monitoring-escalation}
 

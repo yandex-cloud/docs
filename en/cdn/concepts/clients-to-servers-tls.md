@@ -11,8 +11,15 @@ The certificate is configured when creating a resource. You can change it afterw
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)
 
-## Checking rights for a domain {#domain-name-challenge}
 
-If you [issued a Let's Encrypt certificate in {{ certificate-manager-name }}](../../certificate-manager/concepts/managed-certificate.md) and use it in a CDN resource, you need to pass the [domain rights check](../../certificate-manager/concepts/challenges.md). {{ cdn-name }} only supports the `DNS` type of check for domain rights using `TXT` or `CNAME` DNS records. The CDN load balancer will return the `404` status code in response to queries to files at paths, such as `/.well-known/acme-challenge/<file_name>`, that are used in `HTTP` domain rights checks.
+## Domain rights check {#domain-name-challenge}
+
+If you [issued a Let's Encrypt certificate in {{ certificate-manager-name }}](../../certificate-manager/concepts/managed-certificate.md) and use it in a CDN resource, you need to pass the [domain rights check](../../certificate-manager/concepts/challenges.md). {{ cdn-name }} only supports the `DNS` type domain rights check using a `TXT` or `CNAME` DNS record. The CDN load balancer will return the `404` status code in response to file requests over paths formatted as `/.well-known/acme-challenge/<file_name>` that are used for `HTTP` domain rights checks.
 
 If you use a certificate of your own uploaded to {{ certificate-manager-name }} in a CDN resource, no domain rights check is required.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/migrate-to-yc-cdn.md)
+* [{#T}](../tutorials/protected-access-to-content/index.md)

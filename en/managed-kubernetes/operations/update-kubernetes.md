@@ -4,13 +4,11 @@ For {{ managed-k8s-name }}, both automatic and manual updates are available for 
 
 When updating the {{ k8s }} major version, first update the {{ managed-k8s-name }} cluster and then its node group.
 
-{% note info %}
+You can edit the update policy of [{{ managed-k8s-name }}](#cluster-auto-upgrade) clusters and [node groups](#node-group-auto-upgrade) at any time.
 
-You can edit the update policy of [{{ managed-k8s-name }} clusters](#cluster-auto-upgrade) and [node groups](#node-group-auto-upgrade) at any time.
+To learn more, see [{#T}](../concepts/release-channels-and-updates.md).
 
-{% endnote %}
-
-For more information, see [{#T}](../concepts/release-channels-and-updates.md).
+{% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
 
 ## List of available {{ k8s }} versions {#versions-list}
 
@@ -304,7 +302,7 @@ If necessary, update the {{ managed-k8s-name }} cluster version manually. You ca
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Required {{ k8s }} version in the `masterSpec.version.version` parameter.
-  * List of settings you are changing in the `updateMask` parameter.
+  * List of settings being changed in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -359,8 +357,8 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
 
     {% endnote %}
 
-  * `--auto-upgrade`: Automatic update mode for the {{ managed-k8s-name }} node group. The default value is `true` (automatic updates are enabled). Possible values: `true` or `false`.
-  * `--auto-repair`: Failed node recreation mode. Possible values: `true` or `false`.
+  * `--auto-upgrade`: Automatic update mode for the {{ managed-k8s-name }} node group. The default value is `true` (automatic updates are enabled). The possible values are `true` or `false`.
+  * `--auto-repair`: Failed node recreation mode. The possible values are `true` or `false`.
 
     `--auto-repair` is at the [Preview](../../overview/concepts/launch-stages.md) stage.
   * `--anytime-maintenance-window`: Random update time for the {{ managed-k8s-name }} node group.
@@ -494,7 +492,7 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
   * Automatic update settings in the `maintenancePolicy` parameter.
-  * List of settings you are changing in the `updateMask` parameter.
+  * List of settings being changed in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -582,7 +580,7 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
 
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the `Upgrade to version <version_number>` option.
@@ -630,7 +628,7 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
   * Required {{ k8s }} version in the `version.version` parameter.
-  * List of settings you are changing in the `updateMask` parameter.
+  * List of settings being changed in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -675,7 +673,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * `true` in the `masterSpec.version.version` parameter.
-  * List of settings you are changing in the `updateMask` parameter.
+  * List of settings being changed in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -689,7 +687,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
-  1. Go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select `Get the latest improvements and fixes for version...`
@@ -711,7 +709,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
   Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and include the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get a [list of groups in the cluster](node-group/node-group-list.md).
   * `true` in the `version.latestRevision` parameter.
-  * List of settings you are changing in the `updateMask` parameter.
+  * List of settings being changed in the `updateMask` parameter.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

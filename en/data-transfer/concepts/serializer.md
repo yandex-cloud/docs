@@ -140,7 +140,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **dt.unknown.types.policy**: Policy that determines the behavior for handling user-defined data types.
 
-    The possible values are as follows:
+    The possible values are:
 
     * `skip`: Do not abort the transfer and ignore user-defined data types.
     * `to_string`: Do not abort the transfer and convert user-defined data types to text.
@@ -150,7 +150,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **decimal.handling.mode**: Mode for handling real numbers.
 
-    The possible values are as follows:
+    The possible values are:
 
     * `precise`: Precise conversion using the `java.math.BigDecimal` method.
     * `double`: Conversion to a `double` data type. This may result in precision loss.
@@ -160,7 +160,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **interval.handling.mode**: Mode for handling time intervals.
 
-    The possible values are as follows:
+    The possible values are:
 
     * `numeric`: Approximate conversion to microseconds.
     * `string`: Precise conversion based on the string template: `P<years>Y<months>M<days>DT<hours>H<minutes>M<seconds>S`.
@@ -169,7 +169,7 @@ Automatic selection of serialization settings depending on the source type.
 
 * **key.converter** and **value.converter**: Key and value converters.
 
-    The possible values are as follows:
+    The possible values are:
 
     * `org.apache.kafka.connect.json.JsonConverter`: JSON, standard for [Debezium](https://debezium.io/documentation/reference/index.html).
     * `io.confluent.connect.json.JsonSchemaConverter`: [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html).
@@ -182,19 +182,24 @@ Automatic selection of serialization settings depending on the source type.
 
 * **key.converter.schema.registry.url** and **value.converter.schema.registry.url**: Whether to add a schema description to each message for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
-    The possible values are as follows: 
+    The possible values are: 
 
     * Empty string (default): Do not add a schema description.
     * URL string value defining the path to the schema registry service. 
 
 * **key.converter.dt.json.generate.closed.content.schema** and **value.converter.dt.json.generate.closed.content.schema**: Determine whether to use the closed content model to generate the data producer schema for the key and value. This enables performing compatibility checks by converting the consumer open model to the closed one and searching for a similar schema among those registered for the producer. 
 
-    The default value is `true` if the appropriate **key.converter.schema.schema.registry.url** and **value.converter.schema.registry.url** settings are enabled.
+    The default value is `false`.
 
-    If you select the `Optional-friendly` compatibility check policy in the {{ schema-registry-name }} namespace and enable the following setting:
+    To maintain full transitive compatibility when adding or removing optional fields in the key schema:
 
-    * **key.converter.dt.json.generate.closed.content.schema**: Adding or removing optional fields in the key schema will not violate full transitive schema compatibility.
-    * **value.converter.dt.json.generate.closed.content.schema**: Adding or removing optional fields in the value schema will not violate full transitive schema compatibility.
+    1. Select the `Optional-friendly` compatibility check policy in the {{ schema-registry-name }} namespace.
+    1. In serialization settings of the {{ mkf-name }} target endpoint, [set](../operations/endpoint/target/kafka.md#serializer) **key.converter.dt.json.generate.closed.content.schema** to `true`.
+
+    To maintain full transitive compatibility when adding or removing optional fields in the value schema:
+
+    1. Select the `Optional-friendly` compatibility check policy in the {{ schema-registry-name }} namespace.
+    1. In serialization settings of the target endpoint, [set](../operations/endpoint/target/kafka.md#serializer) **value.converter.dt.json.generate.closed.content.schema** to `true`.    
 
 * **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authorization in Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 

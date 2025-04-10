@@ -26,11 +26,11 @@ To create a disk from an [image](../../concepts/image.md):
       {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Provide a description for the disk, if required.
-  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
+  1. Select the [availability zone](../../../overview/concepts/geo-scope.md) the disk will be in.
   1. Set the disk parameters, such as [disk type](../../concepts/disk.md#disks_types), [block size](../../concepts/disk.md#maximum-disk-size), and [disk size](../../concepts/disk.md#maximum-disk-size).
   1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and then select the image you need from the list below. Use the filter to find the image.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk snapshots, if required. For more information about setting up schedules, see [Creating a disk snapshot schedule](../snapshot-control/create-schedule.md).
+  1. Select or set up a [schedule](../../concepts/snapshot-schedule.md) for automatically creating disk snapshots, if required. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
@@ -81,7 +81,7 @@ To create a disk from an [image](../../concepts/image.md):
 
       * `--source-image-name`: Image name. You can use either `--source-image-name` or `--source-image-id` to specify the image.
       * `description`: Text description of the disk.
-      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create en encrypted disk. This is an optional parameter.
+      * `--kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted disk. This is an optional parameter.
 
         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
         

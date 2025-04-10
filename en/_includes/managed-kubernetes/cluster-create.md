@@ -12,6 +12,8 @@
 
    {% include [write-once-settings](write-once-setting.md) %}
 
+1. Add [cloud labels](../../managed-kubernetes/concepts/index.md#cluster-labels) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field.
+
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**:
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the {{ k8s }} version to be installed on the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master.
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** field, select an [IP address](../../vpc/concepts/address.md) assignment method:

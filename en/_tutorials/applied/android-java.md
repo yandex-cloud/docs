@@ -1,10 +1,10 @@
 # Working with {{ iot-full-name }} from an Android device in Java
 
-In this scenario, you will learn how to connect to {{ iot-full-name }} from an Android device using the [Paho](https://www.eclipse.org/paho/) library and Java programming language. It assumes that you know how to develop Android apps in Java using Android Studio.
+In this tutorial, you will learn how to connect to {{ iot-full-name }} from an Android device using the [Paho](https://www.eclipse.org/paho/) library and Java. To use this tutorial, you must know how to develop Android apps in Java using Android Studio.
 
 {% note info %}
 
-The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/java_android/YandexIoTCoreConnectionExample).
+The source code for this tutorial is available in a [GitHub repository](https://github.com/yandex-cloud-examples/yc-iot-android). 
 
 {% endnote %}
 
@@ -111,7 +111,7 @@ options.setKeepAliveInterval(keepAliveInterval);
 
 Where:
 * `MqttAndroidClient`: Class that specifies the {{ iot-full-name }} connection parameters. the client address, port, and ID.
-* `MqttConnectOptions`: Class that sets the connection options. You can use the default settings, but we recommend setting the `KeepAliveInterval` parameter. Its value determines the frequency of sending `PINGREQ` commands. The lower this parameter value, the faster the client realizes that a connection terminated abnormally. However, this increases the frequency of billable `PINGREQ` commands.
+* `MqttConnectOptions`: Class that sets the connection options. You can use the default settings, but we recommend setting the `KeepAliveInterval` parameter. Its value determines the frequency of sending `PINGREQ` commands. The smaller this parameter is, the sooner the client will realize the connection was terminated abnormally. However, this increases the frequency of billable `PINGREQ` commands.
 
 ## Get authenticated in {{ iot-full-name }} {#auth}
 
@@ -121,7 +121,7 @@ There are two [authentication](../../iot-core/concepts/authorization.md) methods
 
 ### Authentication using X.509 certificates {#certs}
 
-For this type of authentication, it is most convenient to use [PKCS#12](https://ru.wikipedia.org/wiki/PKCS12) certificates in PFX format. You can generate a certificate in PKCS#12 format from PEM certificates using the command:
+For this type of authentication, it is most convenient to use [PKCS#12](https://en.wikipedia.org/wiki/PKCS_12) certificates in PFX format. You can generate a certificate in PKCS#12 format from PEM certificates using this command:
 
 ```bash
 openssl pkcs12 -export -in cert.pem -inkey key.pem -out keystore.p12
@@ -288,6 +288,5 @@ mqttAndroidClient.close();
 ```
 
 Where:
-
 * The `disconnect` method closes the connection to the server.
 * The `close` method releases the `MqttAndroidClient` class resources.

@@ -16,18 +16,16 @@ You can use various types of services in your {{ k8s }} clusters, including:
 * `ClusterIP`
   * The service is accessible only within the {{ k8s }} cluster network via an internal IP address.
   * Requires no additional cloud resources.
-* `NodePort`, a `ClusterIP` extension.
+* `NodePort`: A `ClusterIP` type extension.
   * Provides access to the service via internal or public {{ k8s }} cluster node IP addresses.
   * Requires no additional cloud resources.
-* `LoadBalancer`, a `NodePort` extension.
+* `LoadBalancer`: A `NodePort` type extension.
   * Provides access to the service via a cloud network load balancer you create.
   * Requires additional cloud resources (network load balancer).
 
 To [publish your app](../operations/create-load-balancer.md), use a `LoadBalancer` service based on a [network load balancer](../../network-load-balancer/concepts/index.md) with a public or internal IP address.
 
-
-If you need [DDoS protection](../../vpc/ddos-protection/index.md), [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address with enabled protection and [specify](../operations/create-load-balancer.md#advanced) it using the `loadBalancerIP` option.
-
+If [DDoS protection](../../vpc/ddos-protection/index.md) is required, [reserve](../../vpc/operations/enable-ddos-protection.md) a public IP address with protection enabled and [specify](../operations/create-load-balancer.md#advanced) it using the `loadBalancerIP` option.
 
 Read more about types of services in the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 

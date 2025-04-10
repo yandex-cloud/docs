@@ -1,5 +1,5 @@
 ---
-title: How to set up a {{ GP }} target endpoint in {{ data-transfer-full-name }}
+title: How to set up an {{ GP }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ GP }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ GP }} target endpoint
@@ -19,33 +19,33 @@ description: In this tutorial, you will learn how to set up a {{ GP }} target en
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-   * [Migrating the {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
-   * [Migration with the storage change from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
+    * [Migrating a {{ GP }} cluster](../../../tutorials/managed-greenplum.md).
+    * [Migration with change of storage from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-   * [Delivering data from {{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
+    * [Delivering data from {{ KF }} to {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
-   * [Loading data from {{ objstorage-name }} to {{ GP }}](../../../tutorials/object-storage-to-greenplum.md).
+    * [Loading data from {{ objstorage-name }} to {{ GP }}](../../../tutorials/object-storage-to-greenplum.md).
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Configuring the data source {#supported-sources}
 
 Configure one of the supported data sources:
 
-* [{{ PG }}](../source/postgresql.md).
-* [{{ MY }}](../source/mysql.md).
-* [{{ GP }}](../source/greenplum.md).
-* [{{ KF }}](../source/kafka.md).
-* [{{ AB }}](../../../transfer-matrix.md#airbyte).
-* [{{ DS }}](../source/data-streams.md).
-* [{{ objstorage-full-name }}](../source/object-storage.md).
-* [{{ ydb-name }}](../source/ydb.md).
-* [Oracle](../source/oracle.md).
+* [{{ PG }}](../source/postgresql.md)
+* [{{ MY }}](../source/mysql.md)
+* [{{ GP }}](../source/greenplum.md)
+* [{{ KF }}](../source/kafka.md)
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)
+* [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ydb-name }}](../source/ydb.md)
+* [Oracle](../source/oracle.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 ## Preparing the target database {#prepare}
 
@@ -53,7 +53,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ GP }} target endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mgp-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
@@ -64,10 +64,9 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mgp.viewer }}` role](../../../../managed-greenplum/security/index.md#mgp-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mgp.viewer }}`](../../../../managed-greenplum/security/index.md#mgp-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
-
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
@@ -75,7 +74,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-   {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
+    {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
 {% endlist %}
 
@@ -88,7 +87,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-   {% include [On premise Greenplum UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-greenplum.md) %}
+    {% include [On premise Greenplum UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-greenplum.md) %}
 
 {% endlist %}
 
@@ -98,17 +97,17 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console {#console}
 
-   **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
+    **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.cleanup_policy.title }}**: Select a way to clean up data in the target database before the transfer:
 
-   * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option only for replication without data copying.
+    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}`: Select this option if you are only going to do replication without copying data.
 
-   * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
+    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`: Completely delete the tables included in the transfer (default).
 
-      Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
+        Use this option to always transfer the latest version of the table schema to the target database from the source whenever the transfer is activated.
 
-   * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but keep the schema.
+    * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`: Delete only the data from the tables included in the transfer but keep the schema.
 
-      Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
+        Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
 
 {% endlist %}
 

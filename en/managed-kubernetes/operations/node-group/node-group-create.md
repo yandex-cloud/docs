@@ -49,7 +49,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        --container-runtime containerd \
        --preemptible \
        --public-ip \
-       --template-labels <node_group_cloud_labels> \
+       --template-labels <cloud_label_key=cloud_label_value> \
+       --node-labels <k8s_label_key=k8s_label_value>
        --version <{{ k8s }}_version_on_group_nodes> \
        --node-name <node_name_template> \
        --node-taints <taint_policies> \
@@ -97,7 +98,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * `--container-runtime`: [containerd](https://containerd.io/) runtime environment.
      * `--preemptible`: Flag you set for [preemptible](../../../compute/concepts/preemptible-vm.md) VMs.
      * `--public-ip`: Flag you set if the {{ managed-k8s-name }} node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels`: [Node group cloud labels](../../../resource-manager/concepts/labels.md) in `<label_name>=<label_value>` format. You can specify multiple labels separated by commas.
+     * `--template-labels`: [Node group cloud labels](../../concepts/index.md/#node-labels). You can specify multiple labels separated by commas.
+     * `--node-labels`: Node group [{{ k8s }} labels](../../concepts/index.md/#node-labels).
      * `--version`: {{ k8s }} version on the {{ managed-k8s-name }} group nodes.
      * `--node-name`: {{ managed-k8s-name }} node name template. The name is unique if the template contains at least one of the following variables:
 
@@ -151,12 +153,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
         ```
 
 - {{ TF }} {#tf}
-
   To create a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group):
 
   1. In the folder containing the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create), create a configuration file with the new {{ managed-k8s-name }} node group's parameters.
 
-     Here is an example of the configuration file structure:
+     Here is the configuration file example:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -171,7 +172,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
            type = "containerd"
          }
          labels {
-           "<label_name>"="<label_value>"
+           "<cloud_label_name>"="<cloud_label_value>"
+         }
+         node_labels {
+           "<{{ k8s }}_label_name>"="<{{ k8s }}_label_value>"
          }
          ...
        }
@@ -198,8 +202,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
        * `container_runtime`, `type`: [containerd](https://containerd.io/) runtime environment.
-       * `labels`: [Node group cloud labels](../../../resource-manager/concepts/labels.md). You can specify multiple labels separated by commas.
-       * `scale_policy`: Scaling settings.
+       * `labels`: [Node group cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
+       * `node_labels`: [Node group {{ k8s }} labels](../../concepts/index.md#node-labels).
+       * `scale_policy`: Scaling settings. 
 
          You cannot change the scaling type after you create a node group.
 
@@ -297,9 +302,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
     {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
   * [containerd](https://containerd.io/) runtime environment in the `nodeTemplate.containerRuntimeSettings.type` parameter.
-  * [Node group cloud labels](../../../resource-manager/concepts/labels.md) in the `nodeTemplate.labels` parameter.
+  * Node group [cloud labels](../../concepts/index.md#node-labels) in the `nodeTemplate.labels` parameter.
+  * Node group [{{ k8s }} labels](../../concepts/index.md#node-labels) in the `nodeLabels` parameter.
   * [Scaling settings](../../concepts/autoscale.md#ca) in the `scalePolicy` parameter.
-
+  
     You cannot change the scaling type after you create a node group.
   * {{ managed-k8s-name }} node group [placement settings](../../../overview/concepts/geo-scope.md) in the `allocationPolicy` parameters.
   * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
@@ -373,7 +379,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
   * Assigning public and internal IP addresses to nodes: Enabled.
 * [{{ k8s }} label](../../concepts/index.md#node-labels): `node-label1=node-value1`.
 * {{ k8s }} [taint policy](../../concepts/index.md#taints-tolerations): `taint1=taint-value1:NoSchedule`.
-* [{{ yandex-cloud }} resource label](../../../resource-manager/concepts/labels.md) assigned by the VM: `template-label1=template-value1`.
+* [Cloud label](../../concepts/index.md#node-labels): `template-label1=template-value1`.
 * Permission to use [unsafe kernel parameters](../../concepts/index.md#config): Enabled. Added the `kernel.msg*` and `net.core.somaxconn` parameters.
 * VM being the only node of the group: [Preemptible](../../../compute/concepts/preemptible-vm.md).
 

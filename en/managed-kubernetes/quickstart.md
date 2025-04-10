@@ -11,20 +11,16 @@ Create a [{{ managed-k8s-name }} cluster](concepts/index.md#kubernetes-cluster) 
 ## Getting started {#before-you-begin}
 
 To get started with {{ managed-k8s-name }}:
-1. Go to the [management console]({{ link-console-main }}) and sign in to {{ yandex-cloud }} or sign up if you are not signed up yet.
-
-
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
-
-
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
 1. Install the {{ k8s }} command line tool, [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
 1. If you do not have a [network](../vpc/concepts/network.md#network) yet, [create one](../vpc/operations/network-create.md).
-1. If you do not have any [subnets](../vpc/concepts/network.md#subnet), [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
-1. Create the following [service accounts](../iam/operations/sa/create.md):
+1. If you do not have any [subnets](../vpc/concepts/network.md#subnet) yet, [create them](../vpc/operations/subnet-create.md) in the [availability zones](../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
+1. Create [service accounts](../iam/operations/sa/create.md):
 
-   * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
+   * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles for the folder](security/index.md#yc-api) where the {{ managed-k8s-name }} cluster is created. This service account will be used to create the resources required for the {{ managed-k8s-name }} cluster.
    * Service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../container-registry/concepts/docker-image.md) [registry](../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
    You can use the same service account for both operations.
@@ -63,7 +59,7 @@ For more information, see the [step-by-step guide for creating a {{ managed-k8s-
 
 To create a {{ managed-k8s-name }} node group:
 1. In the [management console]({{ link-console-main }}), select the folder where the required {{ managed-k8s-name }} cluster was created.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Select the {{ managed-k8s-name }} cluster to create a node group for.
 1. On the {{ managed-k8s-name }} cluster page, go to the ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -74,22 +70,22 @@ To create a {{ managed-k8s-name }} node group:
    * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-auto }}`, to control the number of nodes in the {{ managed-k8s-name }} group via [{{ managed-k8s-name }}](concepts/autoscale.md#ca) cluster autoscaling.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [instances](../compute/concepts/vm.md) by which you can exceed or reduce the size of the {{ managed-k8s-name }} group.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-   * Choose a [platform](../compute/concepts/vm-platforms.md).
+   * Select a [platform](../compute/concepts/vm-platforms.md).
    * Specify the required number of vCPUs, [guaranteed vCPU performance](../compute/concepts/performance-levels.md), and the amount of RAM.
-   * (Optional) Specify that the VM must be [preemptible](../compute/concepts/preemptible-vm.md).
-   * (Optional) Enable a [software-accelerated network](../compute/concepts/software-accelerated-network.md).
+   * Optionally, make the VM instance [preemptible](../compute/concepts/preemptible-vm.md) by checking the relevant box.
+   * Optionally, enable a [software-accelerated network](../compute/concepts/software-accelerated-network.md).
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
    * Specify the **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** for the {{ managed-k8s-name }} group nodes:
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: Standard network drive; network block storage on an HDD.
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; network block storage on an SSD.
-     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: Standard network drive; HDD network block storage.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; SSD network block storage.
+     * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by eliminating redundancy. You can only change the size of this type of disk in 93 GB increments.
      * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}`: Network drive with the same performance characteristics as `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
 
      For more information about disk types, see the [{{ compute-full-name }} documentation](../compute/concepts/disk.md#disks_types).
    * Specify the disk size for the {{ managed-k8s-name }} group nodes.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
-   * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, choose a method for IP address assignment:
+   * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Not to assign a public IP address.
    * Select [security groups](operations/connect/security-groups.md).
@@ -123,7 +119,7 @@ With kubectl, you can manage the {{ managed-k8s-name }} cluster. To configure th
 
      {% include [note-connect-button](../_includes/managed-kubernetes/note-connect-button.md) %}
 
-     {% endnote %}
+     {% endnote %}        
 
      * By default, credentials are added to the `$HOME/.kube/config` directory.
      * If you need to change the configuration location, use `--kubeconfig <file_path>`.

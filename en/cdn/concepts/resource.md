@@ -23,22 +23,23 @@ You can configure [redirection of requests](./http-rewrite.md) from a CDN resour
 
 Resource settings [apply a short while after](#delay) you create or update the resource.
 
+
 ## Domain names for content distribution {#hostnames}
 
 _Domain names for content distribution_ are used in client requests to CDN servers. For example, to make the `styles/common.css` file available at `cdn.example.com/styles/common.css`, you need to enter `cdn.example.com` as a domain name.
 
-{{ cdn-name }} supports any domain names, including [IDNs](https://en.wikipedia.org/wiki/Internationalized_domain_name) with local non-ASCII characters, e.g., Сyrillic. You can specify such names in the original format (`пример.рф`) or convert them to [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) with the `xn--` (`xn--e1afmkfd.xn--p1ai`) prefixes added. In the [management console]({{ link-console-main }}), resource details will display IDNs in their original non-Punycode format.
+{{ cdn-name }} supports any domain names, including [IDNs](https://en.wikipedia.org/wiki/Internationalized_domain_name) with local non-ASCII characters, e.g., Cyrillic. You can specify such names in the original format (`пример.рф`) or convert them to [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) with the `xn--` (`xn--e1afmkfd.xn--p1ai`) prefixes added. In the [management console]({{ link-console-main }}), resource details will display IDNs in their original non-Punycode format.
 
 When creating a resource, you must enter at least one domain name. The first name you enter is the primary domain name which cannot be changed after you create the resource.
 
 For the resource to run properly, you must have:
 
 * Rights to all the domain names you entered.
-* Access to DNS settings for domain names.
+* Access to DNS settings for domain names. 
 
-  For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer in `cl-********.edgecdn.ru` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). Here is an example of a record for the `cdn.example.com` domain name:
+  For each name, in the settings of your DNS hosting, create a CNAME record linking this name with the domain name of the CDN load balancer in `cl-********.edgecdn.ru` format. It is displayed when creating a resource, as well as in the management console (on the page of an existing resource). Here is an example of a record for the `cdn.example.com` domain name: 
 
-  ```
+  ``` 
   cdn.example.com. CNAME cl-********.edgecdn.ru
   ```
 
@@ -51,9 +52,10 @@ You cannot have both a CDN resource and a mail server on the same second-level d
 
 {% endnote %}
 
+
 ## Time needed for the settings to apply {#delay}
 
-A CDN resource start working correctly in a while after you create or update it.
+A CDN resource start working correctly in a while after you create or update it. 
 
 * {% include [after-creation-tip](../../_includes/cdn/after-creation-tip.md) %}
 * {% include [after-changes-tip](../../_includes/cdn/after-changes-tip.md) %}
@@ -94,7 +96,18 @@ You can view performance statistics on the [resource page](../operations/resourc
 
 {% include [metrics-note](../../_includes/cdn/metrics-note.md) %}
 
-For a list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics.md).
+For the list of metrics delivered to {{ monitoring-name }}, see the [reference](../metrics.md).
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/migrate-to-yc-cdn.md)
+* [{#T}](../tutorials/prefetch.md)
+* [{#T}](../tutorials/thumbor.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/protected-access-to-content/index.md)
+
 
 #### See also {#see-also}
 

@@ -5,6 +5,7 @@ description: This section describes the roles required to perform a particular a
 
 # {{ datalens-short-name }} roles
 
+
 There are two types of roles in {{ datalens-short-name }}:
 
 * For service access: These roles are assigned to an [organization](../concepts/organizations.md) and grant access to {{ datalens-short-name }}.
@@ -82,8 +83,12 @@ You can [assign](../workbooks-collections/security.md#wb-coll-grant) a user role
 
 {% include [datalens.collections.admin](../../_roles/datalens/collections/admin.md) %}
 
+This role includes the `datalens.collections.editor` and `datalens.workbooks.admin` permissions.
+
 {% note info %}
 
 The role granted for a collection applies to all collections and their workbooks. The collection author automatically gets the `datalens.collections.admin` (`Admin`) role for the collection as soon as it is created.
 
 {% endnote %}
+
+

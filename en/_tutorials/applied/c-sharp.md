@@ -1,10 +1,10 @@
 # Working with {{ iot-full-name }} in C#
 
-In this scenario, you will learn how to connect to {{ iot-full-name }} using the [Paho](https://www.eclipse.org/paho/clients/dotnet/) library written in C#. It assumes that you know how to develop apps on NET in C\#.
+In this tutorial, you will learn how to connect to {{ iot-full-name }} using the [Paho](https://www.eclipse.org/paho/clients/dotnet/) library written in C#. The tutorial assumes that you know how to develop apps on .NET in C\#.
 
 {% note info %}
 
-The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/c%23/). Interactions with {{ iot-full-name }} are encapsulated in the [YaClient](https://github.com/yandex-cloud/examples/blob/master/iot/Samples/c%23/YaClient.cs) class that you can use in your projects.
+For the source code discussed in the tutorial, visit [GitHub](https://github.com/yandex-cloud-examples/yc-mqtt-server-iot). Interactions with {{ iot-full-name }} are encapsulated in the [YaClient](https://github.com/yandex-cloud-examples/yc-mqtt-server-iot/blob/main/YaClient.cs) class that you can use in your projects.
 
 {% endnote %}
 
@@ -141,7 +141,7 @@ Where:
     * Rate of sending the `PINGREQ` commands.
     * Client response time to a broken connection.
 
-        The lower the values of these parameters, the faster the client realizes that a connection terminated abnormally. However, this increases the frequency of billable `PINGREQ` commands.
+        The lower the above parameters, the sooner the client will find out that the connection was terminated abnormally. However, this increases the frequency of billable `PINGREQ` commands.
 
 ## Get authenticated in {{ iot-full-name }} {#auth}
 

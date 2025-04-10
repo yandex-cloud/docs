@@ -19,13 +19,19 @@ description: Различные сценарии использования ко
 
 ### Создание и настройка проекта {#creating-project}
 
+* [{#T}](new-kubernetes-project.md)
 * [{#T}](k8s-cluster-with-no-internet.md)
+* [{#T}](running-pod-gpu.md)
 * [{#T}](driverless-gpu.md)
+* [{#T}](time-slicing-gpu.md)
+* [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](kms-k8s.md)
 
 ### Настройка и тестирование масштабирования {#scaling}
 
 * [{#T}](autoscaling.md)
+* [{#T}](vpa-autoscaling.md)
+* [{#T}](metrics-server.md)
 * [{#T}](loadtesting-grpc-autoscaling.md)
 
 ### Установка NGINX {#nginx}
@@ -47,10 +53,16 @@ description: Различные сценарии использования ко
 
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
+* [{#T}](node-local-dns.md)
 * [{#T}](dnschallenge.md)
+
+## Резервное копирование {#backup}
+
+* [{#T}](pvc-snapshot-restore.md)
 
 ### Мониторинг {#monitoring}
 
+* [{#T}](prometheus-grafana-monitoring.md)
 * [{#T}](filebeat-oss-monitoring.md)
 
 ### Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}

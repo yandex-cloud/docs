@@ -89,9 +89,9 @@ Learn more about other cluster updates:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see the [{{ TF }}]({{ tf-provider-mrd }}) provider documentation.
+    For more information, see the [{{ TF }}]({{ tf-provider-mkf }}) provider documentation.
 
-    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - REST API {#api}
 
@@ -184,7 +184,7 @@ Learn more about other cluster updates:
 
 You can increase the number of [broker hosts](../concepts/brokers.md) if the following conditions are met:
 
-* The cluster uses {{ KF }} 3.5 or lower. Clusters running {{ KF }} 3.6 or higher use the [{{ kraft-name }}](../concepts/kraft.md) protocol; therefore, such clusters always have three {{ KF }} hosts.
+* The cluster uses {{ KF }} 3.5. Clusters running {{ KF }} 3.6 or higher use the [{{ kraft-name }}](../concepts/kraft.md) protocol; therefore, such clusters always have three {{ KF }} hosts.
 * The cluster contains at least two broker hosts in different availability zones.
 
 You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
@@ -1298,6 +1298,33 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         ```
 
         To find out the cluster name or ID, [get a list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+
+        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+
+    1. In the {{ mkf-name }} cluster description, edit or add the `folder_id` parameter value:
+
+        ```hcl
+        resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
+          ...
+          folder_id = "<destination_folder_ID>"
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mkf }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
 - REST API {#api}
 

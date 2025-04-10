@@ -7,9 +7,7 @@ description: When you create your first billing account, you get the initial gra
 
 {% include [grant-amount](_includes/grant-amount.md) %}
 
-
 The initial grant terms of use are different for individual and business accounts.
-
 
 Learn more about grants in the [{{ billing-name }} documentation](../billing/concepts/bonus-account.md).
 

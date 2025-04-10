@@ -1,16 +1,16 @@
 title: Yandex Cloud Billing
 description:
   - >-
-    Yandex Cloud Billing enables you to get information about the amount of
-    resources used, monitor your costs, and pay for resources consumed.
+    With Yandex Cloud Billing, you can get information on how much resources you
+    have have used, monitor your costs, and pay for the resources you consume.
   - >-
-    In Yandex Cloud, you only pay for resources consumed and the time of their
-    actual usage.
+    In Yandex Cloud, you only pay for the resources you have consumed and their
+    actual usage time.
 meta:
   title: Yandex Cloud Billing
   description: >-
-    Yandex Cloud Billing enables you to get information about the amount of
-    resources used, monitor your costs, and pay for resources consumed.
+    With Yandex Cloud Billing, you can get information on how much resources you
+    have have used, monitor your costs, and pay for the resources you consume.
 links:
   - title: Getting started
     description: Create your first billing account
@@ -23,7 +23,7 @@ links:
     href: concepts/
   - title: Paying for resources
     description: >-
-      Find out about payment methods and billing cycles for individuals,
+      Learn about the payment methods and billing cycles for individuals,
       businesses, and individual entrepreneurs
     href: payment/
   - title: Access management

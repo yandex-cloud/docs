@@ -11,7 +11,7 @@ When creating a cluster, you can specify the following network settings:
 
 ## Cluster network addresses {#addresses}
 
-A {{ maf-name }} cluster allocates special network addresses in its subnets. It uses them to establish connections to {{ yandex-cloud }} resources (the connections are specified in [directed acyclic graphs (DAGs)](index.md#about-the-service)). For example, you can [set up a connection to a database](../tutorials/lockbox-secrets-in-maf-cluster.md) in a {{ mpg-full-name }} cluster.
+A {{ maf-name }} cluster allocates special network addresses in its subnets. It uses them to establish connections to {{ yandex-cloud }} resources (the connections are specified in [directed acyclic graphs (DAGs)](index.md#about-the-service)). For example, you can [set up a connection to a database](../operations/lockbox-secrets-in-maf-cluster.md) in a {{ mpg-full-name }} cluster.
 
 The allocated network addresses are internal: the cluster connects to {{ yandex-cloud }} resources within the internal network. If you need to grant the cluster access to internet resources, [configure a NAT gateway](../../vpc/operations/create-nat-gateway.md). When configuring it, link the route table with the NAT gateway to all the {{ maf-name }} cluster subnets.
 

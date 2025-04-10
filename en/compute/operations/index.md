@@ -231,4 +231,3 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](gpu-cluster/gpu-cluster-delete.md)
 * [{#T}](gpu-cluster/gpu-cluster-get-info.md)
 * [{#T}](gpu-cluster/access.md)
-

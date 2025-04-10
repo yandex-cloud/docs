@@ -31,7 +31,7 @@ items:
             href: operations/buckets/iam-access.md
           - name: Editing a bucket ACL
             href: operations/buckets/edit-acl.md
-          - name: Managing a bucket policy
+          - name: Access policy management
             href: operations/buckets/policy.md
           - name: Configuring public access to a bucket
             href: operations/buckets/bucket-availability.md
@@ -61,9 +61,9 @@ items:
             href: operations/objects/info.md
           - name: Downloading an object
             href: operations/objects/download.md
-          - name: Restoring an object version
+          - name: Restoring an object's version
             href: operations/objects/restore-object-version.md
-          - name: Renaming and moving an object
+          - name: Renaming and moving objects
             href: operations/objects/rename-move.md
           - name: Copying objects
             href: operations/objects/copy.md
@@ -81,7 +81,7 @@ items:
             href: operations/objects/edit-acl.md
           - name: Managing object labels
             href: operations/objects/tagging.md
-          - name: Managing object custom metadata
+          - name: Managing user-defined object metadata
             href: operations/objects/object-meta.md
       - name: Hosting static websites
         items:
@@ -127,13 +127,19 @@ items:
             href: tutorials/search-events-audit-logs/query.md
       - name: Mounting buckets to the file system of {{ dataproc-full-name }} hosts
         href: tutorials/data-processing-init-actions-geesefs.md
-      - name: Connecting a bucket as a disk in Windows
+      - name: Using {{ objstorage-name }} in {{ dataproc-name }}
+        href: tutorials/copy-files-from-object-storage.md
+      - name: >-
+          Importing data from {{ objstorage-name }}, processing and exporting to
+          {{ mch-name }}
+        href: tutorials/s3-data-processing-ch.md
+      - name: Mounting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
       - name: >-
           Migrating data from {{ yds-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
-      - name: Using a hybrid storage in {{ mch-full-name }}
+      - name: Using hybrid storage in {{ mch-full-name }}
         href: tutorials/clickhouse-hybrid-storage.md
       - name: >-
           Loading data from {{ mos-full-name }} to {{ objstorage-full-name }}
@@ -141,7 +147,7 @@ items:
         href: tutorials/opensearch-to-object-storage.md
       - name: Automatically copying objects from one bucket to another
         href: tutorials/bucket-to-bucket.md
-      - name: Regular recognition of audio files in a bucket
+      - name: Recognizing audio files in a bucket on a regular basis
         href: tutorials/batch-recognition-stt.md
       - name: >-
           Training a model in {{ ml-platform-full-name }} on data from {{
@@ -242,11 +248,11 @@ items:
         href: tutorials/backup-with-bacula.md
       - name: Backing up to {{ objstorage-full-name }} with Veeam Backup
         href: tutorials/backup-with-veeam.md
-      - name: '{{ objstorage-name }} backup with Veritas Backup Exec'
+      - name: Backing up to {{ objstorage-name }} via Veritas Backup Exec
         href: tutorials/object-storage-veritas.md
       - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
         href: tutorials/kubernetes-backup.md
-      - name: Building a custom integration in {{ api-gw-name }}
+      - name: Developing a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
       - name: URL shortener
         href: tutorials/serverless-url-shortener.md
@@ -278,7 +284,7 @@ items:
         href: tutorials/archive-from-vision-to-object-storage.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
-      - name: Automating tasks with {{ maf-short-name }}
+      - name: Automating tasks using {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
       - name: Processing files with usage details in {{ billing-name }}
         href: tutorials/billing.md
@@ -290,6 +296,12 @@ items:
         href: tutorials/search-events-query.md
       - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
         href: tutorials/search-events-bucket.md
+      - name: >-
+          Creating an external table from a bucket table using a configuration
+          file
+        href: tutorials/mgp-config-server-for-s3.md
+      - name: Migrating databases from Google BigQuery to {{ mch-name }}
+        href: tutorials/bigquery-to-clickhouse.md
   - name: Concepts
     items:
       - name: Overview
@@ -328,7 +340,7 @@ items:
         href: concepts/server-logs.md
       - name: Backups
         href: concepts/backup.md
-      - name: TLS
+      - name: TLS protocol
         href: concepts/tls.md
       - name: Labels
         href: concepts/tags.md
@@ -578,7 +590,7 @@ items:
                     href: s3/api-ref/object/deleteobjecttagging.md
               - name: Multipart upload
                 items:
-                  - name: General multipart upload procedure
+                  - name: Multipart upload process
                     href: s3/api-ref/multipart.md
                   - name: startUpload
                     href: s3/api-ref/multipart/startupload.md

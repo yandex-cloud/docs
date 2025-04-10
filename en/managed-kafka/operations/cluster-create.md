@@ -13,14 +13,14 @@ A [{{ mkf-name }} cluster](../concepts/index.md) is one or more [broker hosts](.
 
 {% note info %}
 
-Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 will be discontinued, so you will not be able to create a cluster with these versions.
+Starting March 1, 2025, support for {{ KF }} versions 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions.
 
 {% endnote %}
 
 
 ## Differences in cluster configuration with {{ ZK }} and {{ kraft-name }} protocol {#zk-vs-kraft}
 
-If you create a cluster with {{ KF }} 3.5 or lower that has more than one host, three dedicated {{ ZK }} hosts will be added to the cluster.
+If you create a cluster with {{ KF }} 3.5 and more than one host, three dedicated {{ ZK }} hosts will be added to the cluster.
 
 Clusters with {{ KF }} 3.6 or higher support [{{ kraft-name }}](../concepts/kraft.md) ({{ kraft-short-name }} for short). It is used instead of {{ ZK }} to store metadata.
 
@@ -88,7 +88,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
         {% note info %}
 
-        For a cluster with {{ KF }} version 3.5 or lower that has multiple broker hosts, specify subnets in each availability zone, even if you plan to place broker hosts only in some of them. These subnets are required to host three [{{ ZK }}](../concepts/index.md) hosts, one in each availability zone. For more information, see [Resource relationships in the service](../concepts/index.md).
+        For a cluster with {{ KF }} 3.5 and multiple broker hosts, specify subnets in each availability zone even if you plan to place broker hosts only in some of them. These subnets are required to host three [{{ ZK }}](../concepts/index.md) hosts, one in each availability zone. For more information, see [Resource relationships in the service](../concepts/index.md).
 
         {% endnote %}
 
@@ -112,7 +112,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
 
         * There are [conditions](../concepts/index.md#fault-tolerance) to be satisfied for a fault-tolerant {{ mkf-name }} cluster.
-        * Adding more than one host to a cluster with {{ KF }} version 3.5 or lower will automatically add three {{ ZK }} hosts.
+        * If you add more than one host to a cluster with {{ KF }} 3.5, three {{ ZK }} hosts will be automatically added as well.
 
      
      1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the {{ mkf-name }}cluster.
@@ -120,7 +120,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-  1. If you are creating a cluster with {{ KF }} version 3.5 or lower and have specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }}](../concepts/index.md) hosts intended for each of the selected availability zones.
+  1. If you are creating a cluster with version 3.5 and have specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
   1. Configure additional {{ mkf-name }} cluster settings, if required:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}

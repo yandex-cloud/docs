@@ -193,8 +193,8 @@ kubectl -n yandex-system create secret generic <имя_секрета> --from-fi
 1. Сохраните полученный `kubeconfig` на подключаемом сервере:
 
    ```bash
-   sudo mkdir -p /etc/maintainer
-   sudo vi /etc/maintainer/kube.config # Сохраните в этот файл содержимое `kubeconfig`, полученное на предыдущем шаге.
+   sudo mkdir -p /etc/yandex-maintainer
+   sudo vi /etc/yandex-maintainer/kube.config # Сохраните в этот файл содержимое `kubeconfig`, полученное на предыдущем шаге.
    ```
 
 1. Выполните следующие команды на подключаемом сервере:

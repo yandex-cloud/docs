@@ -5,7 +5,6 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
 
 # All step-by-step guides
 
-
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
 ## {{ connection-manager-name }} {#instructions-connman}
@@ -15,6 +14,7 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
 * [{#T}](update-connection.md)
 * [{#T}](delete-connection.md)
 * [{#T}](connection-access.md)
+
 
 ## {{ metastore-full-name }} clusters {#metastore}
 

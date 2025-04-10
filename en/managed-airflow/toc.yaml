@@ -7,38 +7,70 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Information about existing clusters
-        href: operations/cluster-list.md
-      - name: Creating a cluster
-        href: operations/cluster-create.md
-      - name: Updating a cluster
-        href: operations/cluster-update.md
-      - name: Stopping and starting a cluster
-        href: operations/cluster-stop.md
+      - name: Clusters
+        items:
+          - name: Information about existing clusters
+            href: operations/cluster-list.md
+          - name: Creating a cluster
+            href: operations/cluster-create.md
+          - name: Updating a cluster
+            href: operations/cluster-update.md
+          - name: Stopping and starting a cluster
+            href: operations/cluster-stop.md
+          - name: Deleting a cluster
+            href: operations/cluster-delete.md
+      - name: Connections
+        items:
+          - name: '{{ maf-name }}: Connecting to a database'
+            href: operations/update-connections.md
+          - name: '{{ mch-name }}: Connecting to a database'
+            href: operations/clickhouse.md
+          - name: '{{ mpg-name }}: Connecting to a database'
+            href: operations/postgres-operator.md
+      - name: Storing artifacts in {{ lockbox-full-name }}
+        items:
+          - name: Uploading a variable from {{ lockbox-name }}
+            href: operations/load-variable-from-lockbox.md
+          - name: Storing {{ AF }} connections in {{ lockbox-full-name }}
+            href: operations/lockbox-secrets-in-maf-cluster.md
+      - name: Working with DAG files
+        items:
+          - name: Uploading DAG files to a cluster
+            href: operations/upload-dags.md
+          - name: Getting an IAM token
+            href: operations/get-iam-token.md
+      - name: Working with {{ objstorage-full-name }}
+        items:
+          - name: Uploading a file to {{ objstorage-full-name }}
+            href: operations/upload-file-to-s3.md
+          - name: >-
+              Connecting to a {{ objstorage-full-name }} bucket with a bucket
+              policy
+            href: operations/s3-policy-connect.md
+          - name: Reading a file from {{ objstorage-full-name }}
+            href: operations/read-file-from-dags-bucket.md
       - name: Working with {{ AF }} interfaces
         href: operations/af-interfaces.md
-      - name: Connecting to a {{ objstorage-full-name }} bucket with a bucket policy
-        href: operations/s3-policy-connect.md
-      - name: Uploading DAG files to a cluster
-        href: operations/upload-dags.md
       - name: Transferring logs from {{ AF }} to {{ cloud-logging-name }}
         href: operations/af-logging.md
-      - name: Deleting a cluster
-        href: operations/cluster-delete.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Automating {{ dataproc-name }} operations
-        href: tutorials/data-processing-automation.md
-      - name: Automating {{ yq-full-name }} tasks
-        href: tutorials/airflow-auto-tasks.md
-      - name: >-
-          Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud
-          }} Python SDK
-        href: tutorials/using-python-sdk.md
-      - name: Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
-        href: tutorials/lockbox-secrets-in-maf-cluster.md
+      - name: Operations with clusters
+        items:
+          - name: '{{ dataproc-name }}: Automating operations'
+            href: tutorials/data-processing-automation.md
+          - name: '{{ yq-full-name }}: Automating jobs'
+            href: tutorials/airflow-auto-tasks.md
+      - name: Other guides
+        items:
+          - name: Configuring an SMTP server to send e-mail notifications
+            href: tutorials/test-smtp-notification.md
+          - name: >-
+              Sending requests to the {{ yandex-cloud }} API via the {{
+              yandex-cloud }} Python SDK
+            href: tutorials/using-python-sdk.md
   - name: Concepts
     items:
       - name: Resource relationships

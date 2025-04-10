@@ -550,6 +550,8 @@ items:
           Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
           vpc-name }}
         href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: Работа со снапшотами в {{ managed-k8s-name }}
+        href: tutorials/pvc-snapshot-restore.md
       - name: '{{ coi }}'
         items:
           - name: Создать ВМ с {{ coi }}

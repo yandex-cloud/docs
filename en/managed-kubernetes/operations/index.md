@@ -10,7 +10,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
 
-## Connecting to a cluster {#cluster-connect}
+## Connecting to an cluster {#cluster-connect}
 
 * [{#T}](connect/index.md)
 * [{#T}](connect/security-groups.md)

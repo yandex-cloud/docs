@@ -3,7 +3,7 @@
 
 In this tutorial, you will configure status monitoring for devices (e.g., vending machines) connected to [{{ iot-full-name }}](../../iot-core/index.yaml) and located at various sites throughout the city. You can monitor the status of vending machines on the [{{ datalens-full-name }}](../../datalens/index.yaml) map and charts. To emulate sensors, we will use [{{ sf-full-name }}](../../functions/index.yaml). If you have any connected sensors, use them. [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) will be used to store data.
 
-The source code used in this tutorial is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios).
+The source code for the tutorial is available in a [GitHub repository](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios).
 
 To configure monitoring of sensor readings:
 1. [Prepare your cloud](#configure-cloud).
@@ -27,7 +27,7 @@ The support cost includes:
 * Fee for the number of {{ sf-name }} [function calls](../../functions/concepts/function.md) (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for the {{ mpg-name }} [cluster](../../managed-postgresql/concepts/index.md) computing resources and storage (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
 
-## Prepare your cloud {#configure-cloud}
+## Get your cloud ready {#configure-cloud}
 
 * [Create](../../iam/operations/sa/create.md) a service account named `my-emulator-function-service-account` for data sending. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-functions-invoker }}`, `iot.devices.writer`, and `{{ roles-viewer }}` [roles](../../iam/concepts/access-control/roles.md) to it.
 * Create a service account named `my-db-function-service-account` for data processing. Assign the `{{ roles-functions-invoker }}` and `{{ roles-editor }}` roles to it.
@@ -48,7 +48,7 @@ The example is based on the minimum values of [host](../../managed-postgresql/co
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Specify a name for the cluster, e.g., `my-pg-database`.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** list, select `PRODUCTION`.
@@ -104,7 +104,7 @@ The example is based on the minimum values of [host](../../managed-postgresql/co
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the registry, e.g., `my-registry`.
   1. In the **{{ ui-key.yacloud.common.password }}** field, set a password to access the registry. The password must be at least 14 characters long and contain lowercase letters, capital letters, and numbers. To create a password, you can use the [password generator](https://passwordsgenerator.net/).
@@ -126,7 +126,7 @@ Create three devices: `my-device-1`, `my-device-2`, and `my-device-3`.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Select the registry you created in the previous step.
   1. In the left-hand menu, select **{{ ui-key.yacloud.iot.label_devices }}**.
   1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
@@ -164,7 +164,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
 
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -180,7 +180,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * File name: `device-emulator.js`.
-          * File contents: Function code from [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/DashboardForGeoDistributedDevices/device-emulator.js).
+          * File contents: Function code from [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/device-emulator.js).
 
       1. Similarly, create a file named `package.json` with the following content:
 
@@ -259,7 +259,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
       1. Select the `my-device-emulator-function` function.
       1. In the left-hand menu, select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
       1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** list, select `$latest`, the most recent version of the function.
@@ -303,7 +303,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger. For example, `my-emulator-function-trigger`.
@@ -337,7 +337,7 @@ Create a data processing function, test it, and review the result of data proces
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
   1. Create a function:
 
@@ -354,14 +354,14 @@ Create a data processing function, test it, and review the result of data proces
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * File name: `myfunction.py`.
-          * File contents: Function code from [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/DashboardForGeoDistributedDevices/myfunction.py).
+          * File contents: Function code from [GitHub](https://github.com/yc-geo-dist-devices-iot-monitoring/blob/main/myfunction.py).
 
       1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, specify `myfunction.msgHandler`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-db-function-service-account`
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `10`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `my-db-function-service-account`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
               Key | Description | Value
@@ -384,7 +384,7 @@ Create a data processing function, test it, and review the result of data proces
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the `my-db-function` function.
   1. In the left-hand menu, select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** list, select `$latest`, the most recent version of the function.
@@ -433,7 +433,7 @@ Create a data processing function, test it, and review the result of data proces
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the `my-pg-database` cluster.
   1. In the left-hand menu, select **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
   1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, enter the password you set to access the database and click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
@@ -451,7 +451,7 @@ The trigger will invoke the function when messages appear in the [device topic](
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger. For example, `my-db-func-trigger`.
@@ -459,7 +459,7 @@ The trigger will invoke the function when messages appear in the [device topic](
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry and device parameters:
 
       * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_registry }}**: `my-registry`.
-      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_device }}**: `Any device`
+      * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_device }}**: `Any device`.
       * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}**: `$devices/#`.
 
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, specify the function parameters:
@@ -488,7 +488,7 @@ Shortly after creating the trigger, you can check how it works.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the `my-pg-database` cluster.
   1. In the left-hand menu, select **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
   1. In the **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** field, specify the password you set to access the database and click **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
@@ -508,7 +508,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 - {{ datalens-short-name }} interface {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Click **Create connection**.
   1. Select the **{{ PG }}** connector.
 
@@ -531,7 +531,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 - {{ datalens-short-name }} interface {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Click **Create dataset**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/plus.svg) **Add**.
   1. Select a `MyPGConnection` connection.
@@ -550,7 +550,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 - {{ datalens-short-name }} interface {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Click **Create chart**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and select the `My-pg-dataset` you created previously.
   1. Select **Line chart** as your [chart type](../../datalens/visualization-ref/line-chart.md).
@@ -573,7 +573,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 - {{ datalens-short-name }} interface {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Create a field to define device coordinates:
       1. In the left-hand menu, select **Datasets**.
       1. Select `My-pg-dataset` from the list of datasets.
@@ -603,7 +603,7 @@ To monitor the state of your devices, configure a [connection](../../datalens/co
 - {{ datalens-short-name }} interface {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Click **Create dashboard**.
   1. Add the `My-pg-dataset — Map` and `My-pg-dataset — Line chart` charts, which you created at the previous steps, to the dashboard:
       1. In the bottom panel, click **Chart**.

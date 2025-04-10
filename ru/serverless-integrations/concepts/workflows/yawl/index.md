@@ -28,7 +28,7 @@ JSON-схему рабочего процесса см. в [репозитори
 --- | --- | --- | ---
 `title` | `string` | Нет | Название шага.
 `description` | `string` | Нет | Описание шага.
-`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)<br/>[Workflow](integration/workflow.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)) | Да | Спецификация шага. Набор возможных параметров зависит от выбранного `<step_type>`.
+`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)<br/>[Workflow](integration/workflow.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)\|<br/>[While](management/while.md)) | Да | Спецификация шага. Набор возможных параметров зависит от выбранного `<step_type>`.
 
 ## Интеграционные шаги {#integration-steps}
 
@@ -56,6 +56,7 @@ JSON-схему рабочего процесса см. в [репозитори
 `next` | `string` | Нет | Нет | Идентификатор следующего шага.
 `retryPolicy` | [RetryPolicy](#retrypolicy) | Нет | `defaultRetryPolicy`, если задана на уровне [рабочего процесса](#workflow) | Политика повторных попыток, которая применяется, если во время выполнения шага возникла ошибка.
 `timeout` | `Duration` | Нет | 15 минут | Максимальное время выполнения шага.
+`catch` | [CatchRule[]](#catchrule) | Нет | `[]` | Правила перехода по ошибкам, возникшим во время выполнения шага. Правила применяются последовательно после применения политики повторных попыток (`retryPolicy`).
 
 ### Объект RetryPolicy {#retrypolicy}
 
@@ -68,6 +69,22 @@ JSON-схему рабочего процесса см. в [репозитори
 `retryCount` | `int` | Нет | `0` | `100` | Максимальное количество повторных попыток.
 `maxDelay` | `Duration` | Нет | `1s` | `1h` | Максимальная задержка между повторными попытками.
 
+### Объект CatchRule {#catchrule}
+
+Имя поля | Тип | Обязательное | Значение по умолчанию | Предельное значение | Описание
+--- | --- | --- | --- |---| ---
+`errorList` | `WorkflowError[]` | Да | `[]` | — | Список ошибок, для которых применяется правило перехода. Подробнее см. [{#T}](../execution.md#errors).
+`errorListMode` | `INCLUDE/EXCLUDE` | Нет | `INCLUDE` | — | Режим выбора ошибок. `INCLUDE` — правило перехода применяется для ошибок, указанных в `error_list`, `EXCLUDE` — правило перехода применяется для всех ошибок, кроме указанных в `error_list`.
+`output` | `string` | Да | Нет | — | jq-выражение, фильтрующее выходные данные шага, которые добавляются в состояние рабочего процесса. Входные данные для фильтрации — объект типа [ErrorInfo](#errorinfo). Если во время выполнения шага произошла ошибка, для которой задано правило перехода (`catch`), jq-выражение, указанное в поле `output` всего шага, не применяется.
+`next` | `string` | Да | Нет | — | Идентификатор следующего шага.
+
+### Объект ErrorInfo {#errorinfo}
+
+Имя поля | Тип | Описание
+--- | --- | ---
+`error` | `WorkflowError` | Тип ошибки.
+`message` | `string` | Текстовое сообщение ошибки.
+
 ## Управляющие шаги {#management-steps}
 
 * [Switch](management/switch.md)
@@ -77,6 +94,7 @@ JSON-схему рабочего процесса см. в [репозитори
 * [Fail](management/fail.md)
 * [NoOp](management/noop.md)
 * [Wait](management/wait.md)
+* [While](management/while.md)
 
 ## Пример спецификации {#spec-example}
 

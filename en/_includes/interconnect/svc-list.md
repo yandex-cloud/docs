@@ -8,5 +8,5 @@ Service name | API Endpoint (FQDN)
 [{{ translate-full-name }}](../../translate/) | translate.{{ api-host }}
 [Cloud API Gateway](https://api.cloud.yandex.net/endpoints) | {{ api-host }}
 [{{ monitoring-full-name }}](../../monitoring/) | {{ api-host-monitoring-1 }}
-{{ yagpt-full-name }} of the [{{ foundation-models-name }}](../../foundation-models/) service | {{ api-host-llm }}
+[Text generation API](../../foundation-models/concepts/yandexgpt/) in [{{ foundation-models-name }}](../../foundation-models/) | {{ api-host-llm }}
 All-Services | All {{ yandex-cloud }} services listed above

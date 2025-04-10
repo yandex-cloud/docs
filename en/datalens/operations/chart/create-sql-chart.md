@@ -16,7 +16,7 @@ You can create a QL chart using one of the following methods:
 
 QL charts have the same [general settings](../../concepts/chart/settings.md#common-settings) and [section settings](../../concepts/chart/settings.md#section-settings) as the dataset-based charts. Only certain [measure settings](../../concepts/chart/settings.md#indicator-settings) are supported for chart fields.
 
-At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) any change introduced within the current version.
+At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) any change within the current version.
 
 ## Creating a QL chart from the main page {#main-page}
 
@@ -28,7 +28,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 
 
-1. In the left-hand operating panel, select ![image](../../../_assets/console-icons/chart-column.svg) **Charts**.
+1. In the left-hand panel, select ![image](../../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **QL chart**.
 1. In the window that opens, select a **Chart type**:
 
@@ -145,7 +145,7 @@ The `date-interval` and the `datetime-interval` type parameters can be used in q
 {% cut "Request example" %}
 
 ```sql
-SELECT toDate(Date) as datedate, count ('Order ID')
+SELECT toDate(Date) as datedate, count ('Oreder ID')
 FROM samples.SampleLite
 WHERE not_var{{interval_from}} < datedate AND datedate < not_var{{interval_to}}
 GROUP BY datedate
@@ -202,5 +202,10 @@ CASE
     ELSE column IN not_var{{param}}
 END
 ```
+
+#### See also {#see-also}
+
+* [{#T}](../../concepts/chart/index.md)
+* [{#T}](../dashboard/add-chart.md)
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

@@ -23,6 +23,12 @@ You can install the {{ backup-name }} agent on a VM [manually](vm-connection.md#
 {{ baremetal-name }} servers only support manual installation of the {{ backup-name }} agent. For more information, see [Connecting a {{ baremetal-name }} server to {{ backup-name }}](../operations/backup-baremetal/backup-baremetal.md).
 
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/backup-baremetal.md)
+* [{#T}](../tutorials/vm-with-backup-policy/index.md)
+
+
 #### See also {#see-also}
 
 * [{#T}](../operations/connect-vm-linux.md)
